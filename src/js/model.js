@@ -348,7 +348,7 @@
      */
     let shareUserdata = () => {
         chrome.storage.sync.get(null, (obj) => {
-            if (typeof obj.uuid !== "undefined" && (typeof obj.lastShareDate === "undefined" || (+new Date() - obj.lastShareDate) / 86400000 > 1)) { // uuid is available and last time of sharing is over 1 day ago
+            if (typeof obj.uuid !== "undefined" && (typeof obj.lastShareDate === "undefined" || (+new Date() - obj.lastShareDate) / 36e5 > 12)) { // uuid is available and last time of sharing is over 12 hours ago
                 chrome.storage.sync.set({
                     lastShareDate: +new Date()
                 });
@@ -394,6 +394,7 @@
                         delete obj.openStates;
                         delete obj.scrollPos;
                         delete obj.lastShareDate;
+                        obj.ua = navigator.userAgent;
                         obj.lang = chrome.i18n.getUILanguage();
                         sendXhr(obj);
                     });

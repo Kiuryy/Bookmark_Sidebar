@@ -1,0 +1,434 @@
+@import "vars";
+@import "loading";
+@import "scrollBox";
+@import "checkbox";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  font-weight: $baseFontWeight;
+  color: $textColor;
+  height: 100%;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: relative;
+    display: block;
+    height: 1px;
+  }
+}
+
+input, textarea, button {
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  font-weight: $baseFontWeight;
+  color: $textColor;
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+div.modal {
+  position: relative;
+  width: 500px;
+  height: 400px;
+  margin: calc(50vh - 200px) auto 0;
+  background: $backgroundColor;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transform: scale(0.7);
+  transition: transform 0.3s;
+  border-radius: 2px;
+
+  &.visible {
+    transform: scale(1);
+  }
+
+  > h1 {
+    color: $textColorInverted;
+    font-size: 200%;
+    font-weight: 200;
+    height: 74px;
+    padding: 20px 20px 20px 70px;
+    background: $mainColor url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat 20px center;
+    background-size: 32px;
+  }
+
+  > a.close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    display: block;
+    width: 42px;
+    height: 42px;
+    background: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.png) no-repeat center;
+    background-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    z-index: 2;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  > a.preview, > span.preview {
+    display: block;
+    font-size: 140%;
+    font-weight: 300;
+    margin: 30px 30px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 17px 15px;
+
+    > img {
+      vertical-align: top;
+      display: inline-block;
+      width: 24px;
+      margin: 0 20px 0 0;
+    }
+  }
+
+  > a.preview {
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    + a.previewUrl {
+      display: block;
+      margin: -15px 30px 20px 30px;
+      font-size: 80%;
+      opacity: 0.7;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      cursor: pointer;
+    }
+  }
+
+  &[data-type='updateUrls'] {
+
+    > p {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 140%;
+      line-height: 170%;
+    }
+
+    > div.progressBar {
+      position: relative;
+      background: rgba(0, 0, 0, 0.1);
+      height: 3px;
+      margin: 40px 30px 0;
+
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: $mainColor;
+        transition: width 0.5s;
+      }
+    }
+
+    > span.progressLabel {
+      display: block;
+      text-align: center;
+      font-size: 120%;
+      margin-top: 20px;
+      color: lighten($textColor, 40%);
+
+      > span {
+        margin: 0 3px;
+        color: lighten($textColor, 30%);
+      }
+    }
+
+    > div.loading {
+      margin: 60px auto 0;
+      transition: margin-top 0.5s;
+    }
+
+    > div#urlList {
+      height: calc(100% - 74px - 57px);
+      transition: box-shadow 0.3s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 12px;
+        pointer-events: none;
+        box-shadow: none;
+        transition: box-shadow 0.3s;
+        z-index: 3;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 12px;
+        pointer-events: none;
+        box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s;
+        z-index: 3;
+      }
+
+      &.scrolled::before {
+        box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+      }
+
+      &.scrolledEnd::after {
+        box-shadow: none;
+      }
+
+      > ul {
+        margin: 12px 0;
+
+        > li {
+          transition: background 0.3s;
+          padding: 0 16px 7px 16px;
+
+          &:hover {
+            background: #f7f7f7;
+          }
+
+          > div.checkbox {
+            display: inline-block;
+            vertical-align: top;
+            margin: 10px 16px 0 0;
+          }
+
+          > img {
+            vertical-align: top;
+            display: inline-block;
+            width: 16px;
+            margin: 11px 20px 0 0;
+          }
+
+          > strong {
+            display: inline-block;
+            width: calc(100% - 70px);
+            line-height: 40px;
+            margin-bottom: -10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          > a, > span {
+            display: block;
+            color: $textColorLight;
+            margin-left: 70px;
+            line-height: 20px;
+            width: calc(100% - 36px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 18px;
+          }
+
+          > a {
+            transition: color 0.5s;
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: 0 center;
+
+            &:hover {
+              color: $mainColor;
+            }
+
+            &:last-of-type {
+              background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-success.png);
+            }
+
+            &:first-of-type {
+              text-decoration: line-through;
+              background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-error.png);
+            }
+          }
+
+          > span {
+            font-style: italic;
+          }
+        }
+      }
+
+      &:not(.scrollDrag) > ul {
+        transition: transform 0.3s;
+      }
+    }
+
+    &.urlCheckLoading {
+      transition: width 0.5s, height 0.5s, margin-top 0.5s;
+    }
+
+    &.urlCheckFinished {
+      width: 600px;
+      height: 600px;
+      margin-top: calc(50vh - 300px);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 57px;
+        z-index: 2;
+        background: $linkHoverBackgroundColor;
+      }
+
+      > div.loading {
+        margin-top: 150px;
+      }
+    }
+  }
+
+  &[data-type='delete'] {
+
+    > p {
+      padding: 30px 30px 5px 30px;
+      font-size: 140%;
+      line-height: 170%;
+    }
+  }
+
+  &[data-type='infos'] {
+
+    > ul {
+      display: flex;
+      flex-flow: row;
+      font-size: 120%;
+      margin-top: 70px;
+      padding: 0 30px;
+      justify-content: space-between;
+
+      > li {
+        position: relative;
+
+        &.tooltip {
+          cursor: help;
+          background: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.png) no-repeat right center;
+          background-size: 16px;
+          padding-right: 18px;
+        }
+
+        > ul {
+          position: absolute;
+          top: 27px;
+          right: -14px;
+          background: #333;
+          color: #fff;
+          font-size: 70%;
+          padding: 4px 10px;
+          pointer-events: none;
+          opacity: 0;
+          transform: translate3d(0, -5px, 0);
+          transition: opacity 0.3s, transform 0.3s;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -14px;
+            right: 15px;
+            border: 7px solid transparent;
+            border-bottom-color: #333;
+          }
+
+          > li {
+            white-space: nowrap;
+            margin: 5px 0;
+          }
+        }
+
+        &:hover > ul {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+  }
+
+  &[data-type='edit'] {
+    > ul {
+      padding: 2px 30px;
+
+      > li {
+        margin: 20px 0 30px 0;
+
+        > label {
+          font-size: 140%;
+          display: inline-block;
+          width: 80px;
+        }
+
+        > input {
+          display: inline-block;
+          font-size: 140%;
+          width: calc(100% - 80px);
+          padding: 5px 8px;
+          outline: none;
+          box-shadow: none;
+          transition: border-color 0.5s;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+
+          &.error {
+            border-color: $errorColor;
+          }
+
+          &:focus {
+            border-color: rgba($mainColor, 0.5);
+          }
+        }
+      }
+    }
+  }
+
+  > menu {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    z-index: 3;
+
+    > a {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 0 5px;
+      color: $mainColor;
+      font-weight: 400;
+      text-transform: uppercase;
+      border-radius: 3px;
+      transition: background 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba($mainColor, 0.15);
+      }
+    }
+  }
+}

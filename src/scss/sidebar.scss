@@ -1,0 +1,327 @@
+@import "vars";
+@import "loading";
+@import "scrollBox";
+@import "contextmenu";
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  font-weight: $baseFontWeight;
+  color: $textColor;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &::after {
+    content: "Cancel";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 500%;
+    font-weight: 200;
+    color: $mainColor;
+    top: 0;
+    left: $sidebarWidth;
+    height: 100%;
+    width: calc(100% - #{$sidebarWidth * 2});
+    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(200, 200, 200, 0.3) 5px, rgba(200, 200, 200, 0.3) 10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  &.isDragged::after {
+    opacity: 1;
+  }
+
+  &.isDragged.dragCancel::after {
+    color: rgba($textColor, 0.8);
+    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($errorColor, 0.3) 5px, rgba($errorColor, 0.3) 10px);
+  }
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+// Sidebar
+section#sidebar {
+  position: relative;
+  width: $sidebarWidth;
+  background: $backgroundColor;
+  box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
+
+  > header {
+    position: relative;
+    height: 60px;
+    padding: 18px 16px 0 16px;
+    background: $backgroundColor;
+    transition: box-shadow 0.2s;
+    z-index: 3;
+
+    > span {
+      padding: 4px 0;
+      vertical-align: top;
+      display: inline-block;
+
+      > span {
+        display: inline-block;
+        vertical-align: top;
+        margin: -5px 5px 0 0;
+        font-weight: 300;
+        font-size: 150%;
+        color: $mainColor;
+      }
+    }
+
+    > a.settings {
+      vertical-align: top;
+      display: block;
+      width: 48px;
+      height: 48px;
+      float: right;
+      margin: -13px -8px 0 0;
+      background: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png) no-repeat center;
+      background-size: 32px;
+      border-radius: 50%;
+      transition: background-color 0.3s, transform 0.3s;
+      cursor: pointer;
+
+      &:hover, &.active {
+        transform: rotateZ(60deg);
+        background-color: $linkHoverBackgroundColor;
+      }
+    }
+  }
+}
+
+@mixin bookmarkEntry {
+  display: block;
+  line-height: 40px;
+  padding: 0 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  transition: background 0.3s;
+
+  &:hover {
+    background: $linkHoverBackgroundColor;
+  }
+
+  &.dir, &.active {
+    font-weight: 400;
+  }
+
+  > img {
+    vertical-align: top;
+    display: inline-block;
+    width: 16px;
+    margin: 11px 20px 0 0;
+  }
+
+  > span.drag {
+    display: none;
+    position: absolute;
+    top: 10%;
+    right: 15px;
+    width: 30px;
+    height: 80%;
+    background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.png) no-repeat;
+    background-position: 5px center;
+    background-size: 60px 20px;
+    border-radius: 2px;
+
+    &:hover {
+      background-position: -35px center;
+      background-color: $mainColor;
+    }
+  }
+}
+
+div#bookmarkBox {
+  height: calc(100% - 60px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    pointer-events: none;
+    box-shadow: inset 0 2px 0 -1px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    z-index: 3;
+  }
+
+  &.scrolled::before {
+    box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
+  }
+
+  > ul {
+    margin: 12px 0;
+
+    a {
+      @include bookmarkEntry;
+      position: relative;
+
+      + ul {
+        padding-left: 25px;
+        height: 0;
+        transition: height 0.5s;
+        overflow: hidden;
+      }
+
+      &.opened {
+
+        + ul {
+          height: auto;
+        }
+      }
+    }
+
+    li {
+
+      &.isDragged {
+        width: calc(100% - 5px);
+        border: 3px dashed rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+
+        > a {
+          visibility: hidden;
+          line-height: 35px;
+        }
+      }
+
+      &.dragInitial {
+        display: none;
+      }
+    }
+  }
+}
+
+a.dragHelper {
+  @include bookmarkEntry;
+  position: absolute;
+  background: $linkHoverBackgroundColor;
+  padding-right: 46px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  transition: none;
+  z-index: 3;
+
+  > span.drag {
+    display: block;
+    background-position: -35px center;
+    background-color: $mainColor;
+  }
+
+  &.snap {
+    transition: 0.2s;
+    box-shadow: none;
+    background: $backgroundColor;
+  }
+}
+
+//
+div#shareUserdata {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background: $mainColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  > div {
+    padding: 20px;
+    text-align: center;
+    color: $textColorInverted;
+
+    > h2 {
+      font-size: 250%;
+      font-weight: 300;
+      margin-bottom: 50px;
+    }
+
+    > p {
+      font-size: 120%;
+      margin: 20px 0;
+
+      > span {
+        text-decoration: underline;
+      }
+    }
+
+    > a {
+      font-size: 120%;
+      color: #fff;
+      display: inline-block;
+      margin: 40px 20px 0;
+      font-weight: 400;
+      padding: 5px 10px;
+      transition: background 0.5s;
+      border-radius: 2px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+// Body-Klassen
+body {
+
+  &.dragCancel {
+
+    div#bookmarkBox > ul li.isDragged {
+      display: none;
+    }
+  }
+
+  &.entriesUnlocked {
+
+    div#bookmarkBox > ul ul a {
+      padding-right: 46px;
+
+      > span.drag {
+        display: block;
+      }
+    }
+
+    div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
+      background: transparent;
+    }
+  }
+
+  &.loaded {
+
+    div#bookmarkBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
+      transition: transform 0.3s;
+    }
+  }
+}

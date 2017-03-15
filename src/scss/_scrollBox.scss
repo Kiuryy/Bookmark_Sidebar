@@ -1,0 +1,67 @@
+@import "vars";
+
+@mixin scrollBarActive {
+  background: #f2f2f2;
+
+  > div {
+    width: 8px;
+    border-radius: 6px;
+    background: #bbb;
+  }
+}
+
+div.scrollBox {
+  position: relative;
+  overflow: hidden;
+
+  > div.scrollbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    padding: 4px 0;
+    height: 100%;
+    transition: opacity 0.5s, background 0.3s;
+    cursor: pointer;
+    z-index: 2;
+
+    &.inactive {
+      display: none;
+    }
+
+    &.hidden:not(:hover) {
+      opacity: 0;
+    }
+
+    > div {
+      position: absolute;
+      top: 0;
+      right: 3px;
+      width: 5px;
+      height: 0;
+      background: #ccc;
+      border-radius: 3px;
+      transition: transform 0.3s, width 0.3s, height 0.3s, border-radius 0.3s, background 0.3s;
+    }
+
+    &:hover {
+      @include scrollBarActive;
+    }
+  }
+
+  &.scrollDrag {
+
+    > div.scrollbar {
+      @include scrollBarActive;
+      opacity: 1;
+
+      > div {
+        transition: none;
+      }
+    }
+  }
+
+  &.scrollTrackpad > div.scrollbar > div {
+    transition: none;
+  }
+}

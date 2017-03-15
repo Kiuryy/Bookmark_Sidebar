@@ -1,0 +1,20 @@
+{
+  "name": "Bookmark Sidebar",
+  "version": "1.3.3",
+  "license": "GPL-3.0",
+  "author": "Philipp König",
+  "homepage": "https://moonware.de",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "grunt": "^0.4.5",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-minjson": "^0.4.0",
+    "grunt-string-replace": "^1.3.1"
+  }
+}

@@ -1,0 +1,33 @@
+[tdb]
+ - Usage-Help-Mask after installation
+ - Configurable extension color
+ - Search function
+ - Open sidebar with or without click
+ - Add configurable shortcut and keyboard support
+ - Configurable position (left or right)
+ - Configurable font scaling
+ - Configurable visual mask scaling
+
+[1.3]
+ - Optional userdata sharing
+ - Extended Options-Page (Tabs for 'Configuration', 'Feedback' and 'Help Improving')
+
+[1.2]
+ - Middle click action configuration
+ - Removed jQuery dependency
+ - Code optimization
+ - Minified js-files
+
+[1.1]
+ - Configuration extended
+ - Added drag&drop functionality for changing bookmark positions
+ - Optimized scroll behaviour of trackpads
+ - Optimized settings page for hdpi screens
+
+[1.0]
+ - Sidebar with all bookmarks
+ - Edit/Remove bookmarks and directories
+ - Infos about bookmarks and directories
+ - Check the bookmarks for changed or broken urls
+ - Optional visual (icon on semitransparent background)
+ - Fully configurable

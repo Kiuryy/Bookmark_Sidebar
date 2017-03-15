@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title data-i18n="title">Settings</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,500,100i,300i,500i' rel='stylesheet'
+          type='text/css' />
+    <link rel='stylesheet' type='text/css' href='/css/settings.css' />
+    <script src="/js/lib/jsu.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <a id="copyright" href="https://moonware.de/extensions" target="_blank">
+            &copy; <span class="created">2016</span>&ensp;<strong>Philipp König</strong>
+        </a>
+    </div>
+</header>
+
+<section id="content">
+
+    <div class="tab" data-name="config">
+        <div class="configEntry">
+            <label data-i18n="px_tolerance">Tolerance in pixels</label>
+            <span class="subLabel" data-i18n="px_tolerance_maximized">Maximized</span>
+            <input type="range" id="pxToleranceMaximized" value="1" min="1" max="50" />
+            <span data-unit="px"></span>
+            <span class="subLabel" data-i18n="px_tolerance_windowed">Windowed</span>
+            <input type="range" id="pxToleranceWindowed" value="1" min="1" max="50" />
+            <span data-unit="px"></span>
+            <p data-i18n="px_tolerance_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label for="openAction" data-i18n="open_action">Open sidebar</label>
+            <select id="openAction">
+                <option value="mousedown" data-i18n="open_action_left">Left click</option>
+                <option value="contextmenu" data-i18n="open_action_right">Right click</option>
+            </select>
+            <p data-i18n="open_action_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label for="addVisual" data-i18n="add_visual">Add visual</label>
+            <input type="checkbox" id="addVisual" />
+            <p data-i18n="add_visual_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label for="rememberScroll" data-i18n="remember_scroll">Remember scroll position</label>
+            <input type="checkbox" id="rememberScroll" />
+            <p data-i18n="remember_scroll_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label for="hideEmptyDirs" data-i18n="hide_empty_dirs">Hide empty directories</label>
+            <input type="checkbox" id="hideEmptyDirs" />
+            <p data-i18n="hide_empty_dirs_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label data-i18n="new_tab">New tab</label>
+            <select id="newTab">
+                <option value="foreground" data-i18n="new_tab_foreground">Open in new tab</option>
+                <option value="background" data-i18n="new_tab_background">Open in background</option>
+            </select>
+            <p data-i18n="new_tab_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label data-i18n="close_timeout">Close timeout</label>
+            <input type="range" id="closeTimeout" value="1" min="0" max="5" step="0.25" />
+            <span data-unit="s"></span>
+            <p data-i18n="close_timeout_desc"></p>
+        </div>
+
+        <div class="configEntry">
+            <label data-i18n="scroll_sensitivity">Scroll sensitivity</label>
+            <span class="subLabel" data-i18n="scroll_sensitivity_mouse">Mouse</span>
+            <input type="range" id="mouseScrollSensitivity" value="1" min="0.1" max="2" step="0.1" />
+            <span data-unit=""></span>
+            <span class="subLabel" data-i18n="scroll_sensitivity_trackpad">Trackpad</span>
+            <input type="range" id="trackpadScrollSensitivity" value="1" min="0.1" max="2" step="0.1" />
+            <span data-unit=""></span>
+            <p data-i18n="scroll_sensitivity_desc"></p>
+        </div>
+
+        <p>
+            <button id="save" data-i18n="save">Save Changes</button>
+            <button id="restore" data-i18n="restore">Restore default</button>
+        </p>
+    </div>
+
+    <div class="tab" data-name="feedback">
+        <a id="rate" href="#" data-i18n="feedback_rate">Rate this extension</a>
+        <p class="desc" data-i18n="feedback_desc">Leave feedback</p>
+
+        <label for="feedbackEmail" data-i18n="feedback_email">E-Mail</label>
+        <input type="email" id="feedbackEmail" placeholder="example@example.com" />
+        <textarea id="feedback"></textarea>
+        <p>
+            <button id="sendFeedback" data-i18n="feedback_send">Send feedback</button>
+        </p>
+    </div>
+
+    <div class="tab" data-name="share_userdata">
+        <h2 data-i18n="share_userdata_headline">I need your help</h2>
+        <p data-i18n="share_userdata_desc"></p>
+        <p data-i18n="share_userdata_desc2"></p>
+        <p data-i18n="share_userdata_notice"></p>
+
+        <hr />
+        <label for="shareUserdata" data-i18n="share_userdata_checkbox">Share information</label>
+        <input type="checkbox" id="shareUserdata" />
+    </div>
+</section>
+
+<script src='/js/settings.js'></script>
+</body>
+</html>

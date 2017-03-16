@@ -403,6 +403,10 @@ div#bookmarkBox > ul a > img {
   display: inline-block;
   width: 16px;
   margin: 11px 20px 0 0;
+  visibility: hidden;
+}
+div#bookmarkBox > ul a > img[src] {
+  visibility: visible;
 }
 div#bookmarkBox > ul a > span.drag {
   display: none;
@@ -469,6 +473,10 @@ a.dragHelper > img {
   display: inline-block;
   width: 16px;
   margin: 11px 20px 0 0;
+  visibility: hidden;
+}
+a.dragHelper > img[src] {
+  visibility: visible;
 }
 a.dragHelper > span.drag {
   display: none;

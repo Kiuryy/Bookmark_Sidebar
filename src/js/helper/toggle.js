@@ -96,6 +96,7 @@
                     if ((openAction !== "mousedown" || e.button === 0) && e.pageX < getPixelTolerance()) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
+                        ext.initImages();
                         ext.elements.iframe.addClass(ext.opts.classes.page.visible).data("visibleOnce", true);
                     }
                 });

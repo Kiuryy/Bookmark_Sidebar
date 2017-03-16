@@ -140,7 +140,7 @@
 
                         entryContent
                             .data("infos", bookmark)
-                            .prepend("<img src='" + bookmark.icon + "' />")
+                            .prepend("<img " + (this.firstRun ? "data-" : "") + "src='" + bookmark.icon + "' />")
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + chrome.i18n.getMessage("sidebar_dir_children"))
                             .addClass(this.opts.classes.sidebar.bookmarkDir);
                     } else { // configured to not show empty dirs
@@ -161,10 +161,20 @@
 
                             entryContent
                                 .data("infos", bookmark)
-                                .prepend("<img src='" + bookmark.icon + "' />")
+                                .prepend("<img " + (this.firstRun ? "data-" : "") + "src='" + bookmark.icon + "' />")
                         }
                     });
                 }
+            });
+        };
+
+
+        this.initImages = () => {
+            this.elements.sidebar.find("img[data-src]").forEach((_self) => {
+                let img = $(_self);
+                let src = img.attr("data-src");
+                img.removeAttr("data-src");
+                img.attr("src", src);
             });
         };
 

@@ -86,11 +86,6 @@
                             idx--;
                         }
 
-                        console.log("move", {
-                            id: entryInfos.id,
-                            parentId: parentInfos.id,
-                            index: idx
-                        });
                         ext.helper.model.call("moveBookmark", {
                             id: entryInfos.id,
                             parentId: parentInfos.id,

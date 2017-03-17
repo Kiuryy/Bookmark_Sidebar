@@ -63,10 +63,10 @@
 
 
             ext.elements.iframeBody.on("mouseup", (e) => { // drag end
-                e.preventDefault();
-                e.stopPropagation();
-
                 if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged)) { // bookmark has been dragged
+                    e.preventDefault();
+                    e.stopPropagation();
+
                     let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
                     let dragInitialElm = ext.elements.iframeBody.find("li." + ext.opts.classes.drag.dragInitial);
                     let entryElm = draggedElm.data("elm");

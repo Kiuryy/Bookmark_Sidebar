@@ -152,6 +152,9 @@
          * @param {jsu} scrollBox
          */
         let initEvents = (scrollBox) => {
+            let scrollbar = scrollBox.data("scrollbar");
+            let scrollbarThumb = scrollbar.children("div");
+
             scrollBox.on('wheel', (e) => { // scroll through the list
                 e.preventDefault();
                 e.stopPropagation();
@@ -170,21 +173,21 @@
                 scrollBox.removeClass(ext.opts.classes.scrollBox.scrollTrackpad);
             });
 
-            scrollBox.data("scrollbar").children("div").on("mousedown", (e) => {
+            scrollbarThumb.on("mousedown", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 $(e.currentTarget).data("startPos", e.pageY - e.currentTarget.getBoundingClientRect().top);
             });
 
+
             scrollBox.document().on("mouseup", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 scrollBox.removeClass(ext.opts.classes.scrollBox.scrollDrag);
-                scrollBox.data("scrollbar").children("div").removeData("startPos");
+                scrollbarThumb.removeData("startPos");
             });
 
             scrollBox.document().on("mousemove", (e) => {
-                let scrollbarThumb = scrollBox.data("scrollbar").children("div");
                 let startPos = scrollbarThumb.data("startPos");
 
                 if (startPos) {

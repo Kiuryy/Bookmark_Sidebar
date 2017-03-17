@@ -34,6 +34,9 @@
                 bookmarkLink: "link",
                 settings: "settings",
                 search: "search",
+                searchBox: "searchBox",
+                searchClose: "searchClose",
+                searchVisible: "searchVisible",
                 shareUserdataNotice: "shareNotice",
                 shareUserdataHidden: "hidden"
             },

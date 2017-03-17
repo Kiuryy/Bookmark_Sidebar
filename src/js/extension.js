@@ -300,7 +300,13 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             $("<span />").html("<span>" + bookmarkList.length + "</span> " + chrome.i18n.getMessage("header_bookmarks" + (bookmarkList.length === 1 ? "_single" : ""))).appendTo(this.elements.header);
             $("<a />").addClass(this.opts.classes.sidebar.settings).data("infos", {bookmarks: bookmarkList}).appendTo(this.elements.header);
-            //$("<a />").addClass(this.opts.classes.sidebar.search).appendTo(this.elements.header);
+            // $("<a />").addClass(this.opts.classes.sidebar.search).appendTo(this.elements.header);
+            //
+            // $("<div />")
+            //     .addClass(this.opts.classes.sidebar.searchBox)
+            //     .append("<input type='text' placeholder='" + chrome.i18n.getMessage("sidebar_search_placeholder") + "' />")
+            //     .append("<a href='#' class='" + this.opts.classes.sidebar.searchClose + "'></a>")
+            //     .appendTo(this.elements.header);
         };
 
         /**

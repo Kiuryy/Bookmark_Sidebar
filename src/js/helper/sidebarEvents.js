@@ -105,6 +105,18 @@
                 ext.helper.contextmenu.create("settings", $(e.currentTarget));
             });
 
+            ext.elements.iframeBody.on("click", "a." + ext.opts.classes.sidebar.search, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+            });
+
+            ext.elements.iframeBody.on("click", "a." + ext.opts.classes.sidebar.searchClose, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
+            });
+
             ext.elements.iframeBody.on("click", "div#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => {
                 e.preventDefault();
                 ext.helper.model.setConfig({

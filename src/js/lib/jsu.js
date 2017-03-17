@@ -1,8 +1,8 @@
 /**
- * jsu v1.0.2
+ * jsu v1.0.3
  *
  * Philipp König
- * https://moonware.de
+ * https://moonware.de/
  *
  */
 (() => {
@@ -176,7 +176,7 @@
 
                         if (entry instanceof jsuNode) {
                             entry[forEach](eachCallback);
-                        } else if (entry instanceof NodeList || entry instanceof HTMLCollection) {
+                        } else if (Array.isArray(entry) || entry instanceof NodeList || entry instanceof HTMLCollection || /^\[object (HTMLCollection|NodeList|Object)\]$/.test(entry.toString())) {
                             h[forEach](entry, eachCallback);
                         } else {
                             this[nodes].push(entry);

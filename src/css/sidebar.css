@@ -58,7 +58,7 @@ div.loading > div {
   left: 0;
   width: 100%;
   height: 100%;
-  border-color: #009688;
+  border-color: #5048b8;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 div.loading > div > div.circle-clipper {
@@ -72,7 +72,7 @@ div.loading > div > div.circle-clipper {
 div.loading > div > div.circle-clipper > div {
   width: 200%;
   height: 100%;
-  border: 3px solid #009688;
+  border: 3px solid #5048b8;
   border-bottom-color: transparent;
   border-radius: 50%;
   position: absolute;
@@ -288,7 +288,7 @@ body::after {
   justify-content: center;
   font-size: 500%;
   font-weight: 200;
-  color: #009688;
+  color: #5048b8;
   top: 0;
   left: 350px;
   height: 100%;
@@ -340,24 +340,35 @@ section#sidebar > header > span > span {
   margin: -5px 5px 0 0;
   font-weight: 300;
   font-size: 150%;
-  color: #009688;
+  color: #5048b8;
 }
-section#sidebar > header > a.settings {
+section#sidebar > header > a {
   vertical-align: top;
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   float: right;
-  margin: -13px -8px 0 0;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png) no-repeat center;
-  background-size: 32px;
+  margin: -10px 0 0 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
   border-radius: 50%;
   transition: background-color 0.3s, transform 0.3s;
   cursor: pointer;
 }
-section#sidebar > header > a.settings:hover, section#sidebar > header > a.settings.active {
-  transform: rotateZ(60deg);
+section#sidebar > header > a:hover, section#sidebar > header > a.active {
   background-color: #f7f7f7;
+}
+section#sidebar > header > a.search {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.png);
+  margin-right: 3px;
+}
+section#sidebar > header > a.settings {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png);
+  margin-right: -6px;
+}
+section#sidebar > header > a.settings:hover, section#sidebar > header > a.settings.active {
+  transform: rotateZ(45deg);
 }
 
 div#bookmarkBox {
@@ -422,7 +433,7 @@ div#bookmarkBox > ul a > span.drag {
 }
 div#bookmarkBox > ul a > span.drag:hover {
   background-position: -35px center;
-  background-color: #009688;
+  background-color: #5048b8;
 }
 div#bookmarkBox > ul a + ul {
   padding-left: 25px;
@@ -441,6 +452,9 @@ div#bookmarkBox > ul li.isDragged {
 div#bookmarkBox > ul li.isDragged > a {
   visibility: hidden;
   line-height: 35px;
+}
+div#bookmarkBox > ul li.isDragged > a > img {
+  visibility: hidden;
 }
 div#bookmarkBox > ul li.dragInitial {
   display: none;
@@ -492,12 +506,12 @@ a.dragHelper > span.drag {
 }
 a.dragHelper > span.drag:hover {
   background-position: -35px center;
-  background-color: #009688;
+  background-color: #5048b8;
 }
 a.dragHelper > span.drag {
   display: block;
   background-position: -35px center;
-  background-color: #009688;
+  background-color: #5048b8;
 }
 a.dragHelper.snap {
   transition: 0.2s;
@@ -512,7 +526,7 @@ div#shareUserdata {
   width: 100%;
   height: 100%;
   z-index: 4;
-  background: #009688;
+  background: #5048b8;
   display: flex;
   align-items: center;
   justify-content: center;

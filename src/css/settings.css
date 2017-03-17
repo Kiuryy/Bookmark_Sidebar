@@ -82,11 +82,11 @@ header > div > ul.tabBar > li > a::after {
   transform: rotateZ(45deg);
 }
 header > div > ul.tabBar > li.active > a {
-  background: #7b5fa4;
+  background: #5048b8;
   color: #fff;
 }
 header > div > ul.tabBar > li.active > a::before, header > div > ul.tabBar > li.active > a::after {
-  background: #7b5fa4;
+  background: #5048b8;
 }
 
 p#copyright {
@@ -131,7 +131,7 @@ section#content > div.tab[data-name='feedback'] > a#rate::before {
   border-radius: 50%;
   padding: 6px 1px 0 0;
   text-align: center;
-  background: #7b5fa4;
+  background: #5048b8;
 }
 section#content > div.tab[data-name='feedback'] > p.desc {
   margin: 30px 120px 30px 0;
@@ -252,7 +252,7 @@ button#save, button#sendFeedback {
   text-shadow: none;
   box-shadow: none;
   color: #fff;
-  background: #7b5fa4;
+  background: #5048b8;
   padding: 3px 12px 4px;
   border-radius: 3px;
   cursor: pointer;

@@ -67,6 +67,10 @@
                 configKeys.push("middleClickActive");
             }
 
+            if (configKeys.indexOf("addVisual") > -1 && configKeys.indexOf("openAction") === -1) {
+                configKeys.push("openAction");
+            }
+
             // get default values
             let defaultValues = {};
 
@@ -97,6 +101,12 @@
 
                     if (key === "pxTolerance" && typeof val === "string" && val.search(/^\d+$/) === 0) { // backward compatibility
                         val = "{\"windowed\":20,\"maximized\":" + val + "}";
+                    }
+
+                    if (key === "addVisual") { // do not show visual if sidebar opens on mouseover
+                        if (typeof obj["openAction"] !== "undefined" && obj["openAction"] === "mousemove") {
+                            val = "n";
+                        }
                     }
 
                     if (typeof val === "undefined") { // fill config keys with default values if undefined

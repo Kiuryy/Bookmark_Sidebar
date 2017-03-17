@@ -33,6 +33,7 @@
                 bookmarkDir: "dir",
                 bookmarkLink: "link",
                 settings: "settings",
+                search: "search",
                 shareUserdataNotice: "shareNotice",
                 shareUserdataHidden: "hidden"
             },

@@ -157,14 +157,17 @@
   "settings_open_action": {
     "message": "Open sidebar"
   },
-  "settings_open_action_left": {
+  "settings_open_action_leftclick": {
     "message": "Left click"
   },
-  "settings_open_action_right": {
+  "settings_open_action_rightclick": {
     "message": "Right click"
   },
+  "settings_open_action_mouseover": {
+    "message": "Mouseover"
+  },
   "settings_open_action_desc": {
-    "message": "Open the sidebar by left or right clicking on the left side of the screen."
+    "message": "Open the sidebar by left or right clicking or mouseover on the left side of the screen."
   },
   "settings_add_visual": {
     "message": "Add visual"

@@ -225,12 +225,14 @@
 
 
         elm.config.save.on("click", () => { // save settings
+            let openAction = elm.config.openAction[0].value;
+
             chrome.storage.sync.set({
-                addVisual: elm.config.addVisual[0].checked ? "y" : "n",
+                addVisual: openAction !== "mousemove" && elm.config.addVisual[0].checked ? "y" : "n",
                 rememberScroll: elm.config.rememberScroll[0].checked ? "y" : "n",
                 hideEmptyDirs: elm.config.hideEmptyDirs[0].checked ? "y" : "n",
                 closeTimeout: elm.config.closeTimeout[0].value,
-                openAction: elm.config.openAction[0].value,
+                openAction: openAction,
                 newTab: elm.config.newTab[0].value,
                 pxTolerance: JSON.stringify({
                     windowed: elm.config.pxToleranceWindowed[0].value,

@@ -1,4 +1,5 @@
-@import "vars";
+@import "include/vars";
+@import "include/mixins";
 
 *, *::before, *::after {
   padding: 0;
@@ -188,7 +189,7 @@ section#content {
           right: -30px;
           width: 16px;
           height: 11px;
-          background: url(chrome-extension://__MSG_@@extension_id__/img/settings-loading.gif) no-repeat center;
+          background: img('settings-loading.gif') no-repeat center;
         }
       }
     }
@@ -336,16 +337,14 @@ body {
     text-align: center;
     color: $textColorInverted;
     background: $settingsSuccessBackgroundColor;
-    opacity: 0;
-    pointer-events: none;
     transition: opacity 0.3s;
+    @extend %hidden;
   }
 
   &.submitSuccess {
 
     &::after {
-      opacity: 1;
-      pointer-events: auto;
+      @extend %visible;
     }
 
     section#content {

@@ -17,6 +17,9 @@
   "sidebar_dir_children": {
     "message": "Elements"
   },
+  "sidebar_search_placeholder": {
+    "message": "Search bookmark"
+  },
   // [ SHARE USERDATA]
   "share_userdata_headline": {
     "message": "I need your help"

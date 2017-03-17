@@ -1,3 +1,33 @@
+body::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.submitSuccess::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.submitSuccess::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.submitSuccess::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 *, *::before, *::after {
   padding: 0;
   margin: 0;
@@ -288,13 +318,7 @@ body::after {
   text-align: center;
   color: #fff;
   background: #5eba7d;
-  opacity: 0;
-  pointer-events: none;
   transition: opacity 0.3s;
-}
-body.submitSuccess::after {
-  opacity: 1;
-  pointer-events: auto;
 }
 body.submitSuccess section#content {
   opacity: 0.2;

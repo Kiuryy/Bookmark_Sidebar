@@ -1,4 +1,6 @@
 @import "vars";
+@import "mixins";
+
 
 div.checkbox {
   position: relative;
@@ -36,7 +38,7 @@ div.checkbox {
 
   &.active {
     background-color: $mainColor;
-    background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.png);
+    background-image: img('icon-check.png');
     border-color: $mainColor;
 
     &::before {

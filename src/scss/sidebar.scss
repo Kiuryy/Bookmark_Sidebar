@@ -1,7 +1,8 @@
-@import "vars";
-@import "loading";
-@import "scrollBox";
-@import "contextmenu";
+@import "include/vars";
+@import "include/mixins";
+@import "include/loading";
+@import "include/scrollBox";
+@import "include/contextmenu";
 
 *, *::after, *::before {
   padding: 0;
@@ -9,11 +10,14 @@
   box-sizing: border-box;
 }
 
-body {
+body, input, textarea, select, button {
   font-size: $baseFontSize;
   font-family: $baseFontFamily;
-  font-weight: $baseFontWeight;
   color: $textColor;
+  font-weight: $baseFontWeight;
+}
+
+body {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -33,9 +37,8 @@ body {
     height: 100%;
     width: calc(100% - #{$sidebarWidth * 2});
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(200, 200, 200, 0.3) 5px, rgba(200, 200, 200, 0.3) 10px);
-    opacity: 0;
-    pointer-events: none;
     transition: 0.5s;
+    @extend %hidden;
   }
 
   &.isDragged::after {
@@ -76,6 +79,7 @@ section#sidebar {
       padding: 4px 0;
       vertical-align: top;
       display: inline-block;
+      transition: transform 0.5s;
 
       > span {
         display: inline-block;
@@ -98,7 +102,7 @@ section#sidebar {
       background-position: center;
       background-size: 24px;
       border-radius: 50%;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: background-color 0.3s, transform 0.3s, opacity 0.5s;
       cursor: pointer;
 
       &:hover, &.active {
@@ -106,13 +110,13 @@ section#sidebar {
       }
 
       &.search {
-        background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.png);
+        background-image: img('icon-search.png');
         margin-right: 3px;
 
       }
 
       &.settings {
-        background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png);
+        background-image: img('icon-settings.png');
         margin-right: -6px;
 
         &:hover, &.active {
@@ -121,6 +125,62 @@ section#sidebar {
       }
     }
 
+    > div.searchBox {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      width: calc(100% - 80px);
+      height: 30px;
+      background: $linkHoverBackgroundColor;
+      transform: translate3d(20px, 0, 0);
+      transition: transform 0.3s, opacity 0.3s;
+      @extend %hidden;
+
+      > input[type='text'] {
+        vertical-align: top;
+        display: inline-block;
+        height: 100%;
+        width: calc(100% - 30px);
+        outline: none;
+        border: 0;
+        background: transparent;
+        padding: 0 7px;
+      }
+
+      > a.searchClose {
+        vertical-align: top;
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        background: img('icon-delete.png') no-repeat center;
+        background-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.03);
+        }
+      }
+    }
+
+    &.searchVisible {
+
+      > span {
+        transform: translate3d(-200%, 0, 0);
+        pointer-events: none;
+        transition: transform 0.5s;
+      }
+
+      > a.search {
+        @extend %hidden;
+      }
+
+      > div.searchBox {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
+        @extend %visible;
+      }
+    }
   }
 }
 
@@ -161,7 +221,7 @@ section#sidebar {
     right: 15px;
     width: 30px;
     height: 80%;
-    background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.png) no-repeat;
+    background: img('icon-drag.png') no-repeat;
     background-position: 5px center;
     background-size: 60px 20px;
     border-radius: 2px;
@@ -276,8 +336,7 @@ div#shareUserdata {
   transition: opacity 0.3s;
 
   &.hidden {
-    opacity: 0;
-    pointer-events: none;
+    @extend %hidden;
   }
 
   > div {

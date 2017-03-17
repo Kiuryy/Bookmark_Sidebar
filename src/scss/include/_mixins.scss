@@ -1,0 +1,15 @@
+@import "vars";
+
+%hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+%visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@function img($path) {
+  @return url(chrome-extension://__MSG_@@extension_id__/img/#{$path});
+}

@@ -1,4 +1,5 @@
 @import "vars";
+@import "mixins";
 
 div.contextmenu {
   position: absolute;
@@ -6,11 +7,10 @@ div.contextmenu {
   background: $backgroundColor;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
-  opacity: 0;
-  pointer-events: none;
   transform: translate3d(0, -20px, 0);
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4;
+  @extend %hidden;
 
   &[data-type='list'] {
     left: -9999px;
@@ -23,9 +23,8 @@ div.contextmenu {
   }
 
   &.visible {
-    pointer-events: auto;
     transform: translate3d(0, 0, 0);
-    opacity: 1;
+    @extend %visible;
 
     &.top {
       transform: translate3d(0, -40px, 0);
@@ -59,15 +58,15 @@ div.contextmenu {
         }
 
         &[data-type='delete'] > span {
-          background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.png);
+          background-image: img('icon-delete.png');
         }
 
         &[data-type='edit'] > span {
-          background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.png);
+          background-image: img('icon-edit.png');
         }
 
         &[data-type='infos'] > span {
-          background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.png);
+          background-image: img('icon-infos.png');
         }
 
         &[data-type='newTab'] {
@@ -85,20 +84,20 @@ div.contextmenu {
           }
 
           > span {
-            background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.png);
+            background-image: img('icon-newTab.png');
           }
         }
 
         &[data-type='settings'] > span {
-          background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png);
+          background-image: img('icon-settings.png');
         }
 
         &[data-type='bookmarkManager'] > span {
-          background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmarkManager.png);
+          background-image: img('icon-bookmarkManager.png');
         }
 
         &[data-type='updateUrls'] > span {
-          background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.png);
+          background-image: img('icon-update.png');
         }
 
         &[data-type='toggleFix'] {
@@ -116,7 +115,7 @@ div.contextmenu {
           }
 
           > span {
-            background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.png);
+            background-image: img('icon-pin.png');
           }
         }
 

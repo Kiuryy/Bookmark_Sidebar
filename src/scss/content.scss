@@ -1,4 +1,5 @@
-@import "vars";
+@import "include/vars";
+@import "include/mixins";
 
 // Visual
 body > div#moonware-bs-visual {
@@ -16,10 +17,9 @@ body > div#moonware-bs-visual {
     &::before, &::after {
       content: "";
       position: absolute;
-      pointer-events: none;
       transition: opacity 0.3s, transform 0.3s;
       transform: translate3d(-20px, 0, 0);
-      opacity: 0;
+      @extend %hidden;
 
     }
 
@@ -38,7 +38,7 @@ body > div#moonware-bs-visual {
       left: 0;
       width: 50px;
       height: 50px;
-      background: url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat center;
+      background: img('bookmark.png') no-repeat center;
       background-size: 100%;
       z-index: 2;
     }
@@ -75,16 +75,14 @@ body > iframe#moonware-bs-sidebar {
   z-index: #{2147483647 - 1};
   background-color: rgba(255, 255, 255, 0.8);
   border: none;
-  pointer-events: none;
-  opacity: 0;
   transform: translate3d(-$sidebarWidth, 0, 0);
   transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
+  @extend %hidden;
 
   &.moonware-bs-visible {
+    @extend %visible;
     width: calc(100% + #{$sidebarWidth});
-    pointer-events: auto;
     transform: translate3d(0, 0, 0);
-    opacity: 1;
     transition: opacity 0.3s, transform 0.3s;
   }
 }
@@ -99,13 +97,11 @@ body > iframe#moonware-bs-overlay {
   z-index: 2147483647;
   border: none;
   background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  opacity: 0;
   transition: opacity 0.3s;
+  @extend %hidden;
 
   &.moonware-bs-visible {
-    pointer-events: auto;
-    opacity: 1;
+    @extend %visible;
   }
 }
 

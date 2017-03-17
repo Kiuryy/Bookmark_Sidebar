@@ -1,15 +1,15 @@
 [tdb]
- - Usage-Help-Mask after installation
  - Configurable extension color
- - Search function
- - Open sidebar with or without click
  - Add configurable shortcut and keyboard support
  - Configurable position (left or right)
  - Configurable font scaling
  - Configurable visual mask scaling
 
 [1.4]
- - [toDo] Added customization options
+ - [toDo] Search function
+ - [toDo] Info page for new features
+ - [toDo] Help page after installation
+ - Added mouseover openAction configuration
 
 [1.3]
  - Optional userdata sharing

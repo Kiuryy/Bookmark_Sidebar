@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         uglify: {
             dist: {
                 options: {
-                    banner: '/*! <%= pkg.name %> v<%= pkg.version %> | (c) <%= pkg.author %> under <%= pkg.license %> */\n',
+                    banner: '/*! (c) <%= pkg.author %> under <%= pkg.license %> */\n',
                     mangle: {
                         except: ['jsu']
                     }

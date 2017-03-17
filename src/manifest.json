@@ -38,6 +38,9 @@
       "run_at": "document_end"
     }
   ],
+  "browser_action": {
+    "default_icon": "img/icon/dev/128x128.png"
+  },
   "web_accessible_resources": [
     "css/sidebar.css",
     "css/overlay.css",

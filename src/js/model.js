@@ -301,6 +301,11 @@
         return true; // important to allow asynchronous responses
     });
 
+    chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
+        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id, {action: "openSidebar"});
+        });
+    });
 
     /**
      * Initialises the model

@@ -91,16 +91,26 @@
                 }
             }, {passive: true});
 
+            chrome.extension.onMessage.addListener((message) => {
+                if (message && message.action && message.action === "openSidebar") {
+                    openSidebar();
+                }
+            });
+
             ext.helper.model.getConfig("openAction", (openAction) => {
                 $(document).on(openAction, (e) => {
                     if ((openAction !== "mousedown" || e.button === 0) && e.pageX < getPixelTolerance()) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
-                        ext.initImages();
-                        ext.elements.iframe.addClass(ext.opts.classes.page.visible).data("visibleOnce", true);
+                        openSidebar();
                     }
                 });
             });
+        };
+
+        let openSidebar = () => {
+            ext.initImages();
+            ext.elements.iframe.addClass(ext.opts.classes.page.visible).data("visibleOnce", true);
         };
 
         /**

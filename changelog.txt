@@ -11,6 +11,8 @@
  - [toDo] Info page for new features
  - [toDo] Help page after installation
  - Added mouseover openAction configuration
+ - Toggle function for icon in chrome menu
+ - Added possibility to add keyboard shortcuts
 
 [1.3]
  - Optional userdata sharing

@@ -52,7 +52,6 @@ div.modal {
   overflow: hidden;
   transform: scale(0.7);
   transition: transform 0.3s;
-  border-radius: 2px;
 
   &.visible {
     transform: scale(1);
@@ -60,17 +59,17 @@ div.modal {
 
   > h1 {
     color: $textColorInverted;
-    font-size: 200%;
+    font-size: 170%;
     font-weight: 200;
-    height: 74px;
-    padding: 20px 20px 20px 70px;
+    height: 60px;
+    padding: 15px 75px 14px 55px;
     background: $mainColor img('bookmark.png') no-repeat 20px center;
-    background-size: 32px;
+    background-size: 24px;
   }
 
   > a.close {
     position: absolute;
-    top: 16px;
+    top: 9px;
     right: 20px;
     display: block;
     width: 42px;

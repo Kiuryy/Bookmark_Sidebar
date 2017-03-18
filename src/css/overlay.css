@@ -88,7 +88,7 @@ div.loading > div {
   left: 0;
   width: 100%;
   height: 100%;
-  border-color: #5048b8;
+  border-color: #00897b;
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 div.loading > div > div.circle-clipper {
@@ -102,7 +102,7 @@ div.loading > div > div.circle-clipper {
 div.loading > div > div.circle-clipper > div {
   width: 200%;
   height: 100%;
-  border: 3px solid #5048b8;
+  border: 3px solid #00897b;
   border-bottom-color: transparent;
   border-radius: 50%;
   position: absolute;
@@ -253,16 +253,16 @@ div.checkbox.clicked::before {
   opacity: 0;
 }
 div.checkbox.active {
-  background-color: #5048b8;
+  background-color: #00897b;
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.png);
-  border-color: #5048b8;
+  border-color: #00897b;
 }
 div.checkbox.active::before {
-  box-shadow: 0 0 0 0 rgba(80, 72, 184, 0.2);
+  box-shadow: 0 0 0 0 rgba(0, 137, 123, 0.2);
 }
 div.checkbox.active.focus::before, div.checkbox.active.clicked::before {
-  background: rgba(80, 72, 184, 0.2);
-  box-shadow: 0 0 0 22px rgba(80, 72, 184, 0.2);
+  background: rgba(0, 137, 123, 0.2);
+  box-shadow: 0 0 0 22px rgba(0, 137, 123, 0.2);
 }
 div.checkbox > input[type='checkbox'] {
   display: none;
@@ -315,23 +315,22 @@ div.modal {
   overflow: hidden;
   transform: scale(0.7);
   transition: transform 0.3s;
-  border-radius: 2px;
 }
 div.modal.visible {
   transform: scale(1);
 }
 div.modal > h1 {
   color: #fff;
-  font-size: 200%;
+  font-size: 170%;
   font-weight: 200;
-  height: 74px;
-  padding: 20px 20px 20px 70px;
-  background: #5048b8 url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat 20px center;
-  background-size: 32px;
+  height: 60px;
+  padding: 15px 75px 14px 55px;
+  background: #00897b url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat 20px center;
+  background-size: 24px;
 }
 div.modal > a.close {
   position: absolute;
-  top: 16px;
+  top: 9px;
   right: 20px;
   display: block;
   width: 42px;
@@ -397,7 +396,7 @@ div.modal[data-type='updateUrls'] > div.progressBar > div {
   top: 0;
   left: 0;
   height: 100%;
-  background: #5048b8;
+  background: #00897b;
   transition: width 0.5s;
 }
 div.modal[data-type='updateUrls'] > span.progressLabel {
@@ -497,7 +496,7 @@ div.modal[data-type='updateUrls'] > div#urlList > ul > li > a {
   background-position: 0 center;
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:hover {
-  color: #5048b8;
+  color: #00897b;
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:last-of-type {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-success.png);
@@ -607,7 +606,7 @@ div.modal[data-type='edit'] > ul > li > input.error {
   border-color: #faa;
 }
 div.modal[data-type='edit'] > ul > li > input:focus {
-  border-color: rgba(80, 72, 184, 0.5);
+  border-color: rgba(0, 137, 123, 0.5);
 }
 div.modal > menu {
   position: absolute;
@@ -619,7 +618,7 @@ div.modal > menu > a {
   display: inline-block;
   padding: 5px 10px;
   margin: 0 5px;
-  color: #5048b8;
+  color: #00897b;
   font-weight: 400;
   text-transform: uppercase;
   border-radius: 3px;
@@ -627,7 +626,7 @@ div.modal > menu > a {
   cursor: pointer;
 }
 div.modal > menu > a:hover {
-  background: rgba(80, 72, 184, 0.15);
+  background: rgba(0, 137, 123, 0.15);
 }
 
 /*# sourceMappingURL=overlay.css.map */

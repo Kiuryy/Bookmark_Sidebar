@@ -171,7 +171,7 @@
         });
 
         chrome.storage.sync.get("rememberSearch", (obj) => {
-            elm.config.rememberSearch[0].checked = typeof obj.rememberSearch === "undefined" ? false : (obj.rememberSearch === "y");
+            elm.config.rememberSearch[0].checked = typeof obj.rememberSearch === "undefined" ? true : (obj.rememberSearch === "y");
         });
 
         chrome.storage.sync.get("hideEmptyDirs", (obj) => {

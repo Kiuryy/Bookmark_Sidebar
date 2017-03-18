@@ -9,12 +9,7 @@
          * Initializes the events for the drag n drop functionality
          */
         this.init = () => {
-            ext.helper.model.getConfig("scrollSensitivity", (scrollSensitivityStr) => { // user config
-                scrollSensitivity = JSON.parse(scrollSensitivityStr);
-            }, (scrollSensitivityStr) => { // default config
-                scrollSensitivity = JSON.parse(scrollSensitivityStr);
-            });
-
+            scrollSensitivity = ext.helper.model.getData("b/scrollSensitivity");
             initEvents();
         };
 
@@ -108,16 +103,17 @@
                 }
             });
 
+            ext.elements.iframeBody.on('wheel', (e) => { // scroll the bookmark list
+                if ($(e.target).hasClass(ext.opts.classes.drag.trigger)) {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-            ext.elements.iframeBody.on('wheel', "a." + ext.opts.classes.drag.helper, (e) => { // scroll the bookmark list
-                e.preventDefault();
-                e.stopPropagation();
+                    let scrollPos = ext.elements.bookmarkBox["all"].data("scrollpos") || 0;
+                    let scrollType = Math.abs(e.wheelDelta) < 60 ? "trackpad" : "mouse";
 
-                let scrollPos = ext.elements.bookmarkBox["all"].data("scrollpos") || 0;
-                let scrollType = Math.abs(e.wheelDelta) < 60 ? "trackpad" : "mouse";
-
-                ext.elements.bookmarkBox["all"].data("scrollpos", scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
-                ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
+                    ext.elements.bookmarkBox["all"].data("scrollpos", scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
+                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
+                }
             });
 
 

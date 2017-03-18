@@ -82,10 +82,6 @@
                         let parentInfos = entryElm.parent("ul").prev("a").data("infos");
                         let idx = entryElm.prevAll("li").length();
 
-                        if (entryElm.prevAll("li." + ext.opts.classes.drag.dragInitial).length() > 0) {
-                            idx--;
-                        }
-
                         ext.helper.model.call("moveBookmark", {
                             id: entryInfos.id,
                             parentId: parentInfos.id,

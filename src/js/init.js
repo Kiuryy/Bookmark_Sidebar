@@ -33,6 +33,7 @@
                 dirOpened: "opened",
                 bookmarkDir: "dir",
                 bookmarkLink: "link",
+                bookmarkLabel: "label",
                 settings: "settings",
                 search: "search",
                 searchBox: "searchBox",

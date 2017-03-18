@@ -297,13 +297,10 @@
          * @param {object} infos
          */
         let deleteBookmark = (infos) => {
-            ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
             elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
-            let time = +new Date();
+
             ext.helper.model.call("deleteBookmark", {id: infos.id}, () => {
-                setTimeout(() => {
-                    ext.updateBookmarkBox();
-                }, Math.min(300, +new Date() - time));
+                infos.element.parent("li").remove();
             });
         };
 
@@ -325,18 +322,22 @@
             } else if (!isDir && url.length === 0) {
                 urlInput.addClass(ext.opts.classes.overlay.inputError);
             } else {
-                ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
                 elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
-                let time = +new Date();
-                ext.helper.model.call("updateBookmark", {id: infos.id, title: title, url: url}, () => {
 
-                    setTimeout(() => {
-                        ext.updateBookmarkBox();
-                    }, Math.min(300, +new Date() - time));
+                ext.helper.model.call("updateBookmark", {id: infos.id, title: title, url: url}, () => {
+                    infos.title = title;
+                    infos.url = url;
+                    infos.element.data("infos", infos);
+                    infos.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(infos.title);
                 });
             }
         };
 
+        /**
+         * Updates all bookmarks which are checked,
+         * deletes entries with non existing urls,
+         * updates entries with changed urls
+         */
         let updateBookmarkUrls = () => {
             elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li").forEach((elm) => {
                 if ($(elm).find("input[type='checkbox']")[0].checked) {

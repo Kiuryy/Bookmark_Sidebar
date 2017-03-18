@@ -136,8 +136,10 @@
 
                 let entry = $("<li />").appendTo(list);
                 let entryContent = $("<a />")
-                    .html(bookmark.title + "<span class='" + this.opts.classes.drag.trigger + "' />")
+                    .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
                     .appendTo(entry);
+
+                bookmark.element = entryContent;
 
                 if (bookmark.children) { // dir
                     if (hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway

@@ -214,7 +214,7 @@
                 ext.elements.bookmarkBox[key].children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
-                    if (e.target.tagName === "A" && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
+                    if (!$(e.target).hasClass(ext.opts.classes.sidebar.drag) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
                         let _self = $(e.currentTarget);
                         let middleClicked = e.which === 2;
                         let infos = _self.data("infos");

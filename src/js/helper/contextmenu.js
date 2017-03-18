@@ -142,11 +142,12 @@
                     case "bookmarkManager": { // open bookmark manager
                         ext.helper.model.call("openLink", {
                             href: "chrome://bookmarks",
-                            newTab: true
+                            newTab: true,
+                            active: true
                         });
                         break;
                     }
-                    case "newTab": { // open bookmark manager
+                    case "newTab": { // open bookmark in new tab
                         let infos = contextmenu.data("elm").data("infos");
                         ext.helper.model.call("openLink", {
                             parentId: infos.parentId,

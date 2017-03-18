@@ -530,11 +530,14 @@ section#sidebar > header.searchVisible > div.searchBox {
   transform: translate3d(0, 0, 0);
   transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
 }
-
-div#bookmarkBox {
+section#sidebar > div.scrollBox {
   height: calc(100% - 60px);
+  display: none;
 }
-div#bookmarkBox::before {
+section#sidebar > div.scrollBox.active {
+  display: block;
+}
+section#sidebar > div.scrollBox::before {
   content: "";
   position: absolute;
   top: 0;
@@ -546,13 +549,13 @@ div#bookmarkBox::before {
   transition: box-shadow 0.3s;
   z-index: 3;
 }
-div#bookmarkBox.scrolled::before {
+section#sidebar > div.scrollBox.scrolled::before {
   box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
 }
-div#bookmarkBox > ul {
+section#sidebar > div.scrollBox > ul {
   margin: 12px 0;
 }
-div#bookmarkBox > ul a {
+section#sidebar > div.scrollBox > ul a {
   display: block;
   line-height: 40px;
   padding: 0 16px;
@@ -563,23 +566,23 @@ div#bookmarkBox > ul a {
   transition: background 0.3s;
   position: relative;
 }
-div#bookmarkBox > ul a:hover {
+section#sidebar > div.scrollBox > ul a:hover {
   background: #f5f5f5;
 }
-div#bookmarkBox > ul a.dir, div#bookmarkBox > ul a.active {
+section#sidebar > div.scrollBox > ul a.dir, section#sidebar > div.scrollBox > ul a.active {
   font-weight: 400;
 }
-div#bookmarkBox > ul a > img {
+section#sidebar > div.scrollBox > ul a > img {
   vertical-align: top;
   display: inline-block;
   width: 16px;
   margin: 11px 20px 0 0;
   visibility: hidden;
 }
-div#bookmarkBox > ul a > img[src] {
+section#sidebar > div.scrollBox > ul a > img[src] {
   visibility: visible;
 }
-div#bookmarkBox > ul a > span.drag {
+section#sidebar > div.scrollBox > ul a > span.drag {
   display: none;
   position: absolute;
   top: 10%;
@@ -591,32 +594,32 @@ div#bookmarkBox > ul a > span.drag {
   background-size: 60px 20px;
   border-radius: 2px;
 }
-div#bookmarkBox > ul a > span.drag:hover {
+section#sidebar > div.scrollBox > ul a > span.drag:hover {
   background-position: -35px center;
   background-color: #5048b8;
 }
-div#bookmarkBox > ul a + ul {
+section#sidebar > div.scrollBox > ul a + ul {
   padding-left: 25px;
   height: 0;
   transition: height 0.5s;
   overflow: hidden;
 }
-div#bookmarkBox > ul a.opened + ul {
+section#sidebar > div.scrollBox > ul a.opened + ul {
   height: auto;
 }
-div#bookmarkBox > ul li.isDragged {
+section#sidebar > div.scrollBox > ul li.isDragged {
   width: calc(100% - 5px);
   border: 3px dashed rgba(0, 0, 0, 0.2);
   pointer-events: none;
 }
-div#bookmarkBox > ul li.isDragged > a {
+section#sidebar > div.scrollBox > ul li.isDragged > a {
   visibility: hidden;
   line-height: 35px;
 }
-div#bookmarkBox > ul li.isDragged > a > img {
+section#sidebar > div.scrollBox > ul li.isDragged > a > img {
   visibility: hidden;
 }
-div#bookmarkBox > ul li.dragInitial {
+section#sidebar > div.scrollBox > ul li.dragInitial {
   display: none;
 }
 
@@ -724,19 +727,19 @@ div#shareUserdata > div > a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-body.dragCancel div#bookmarkBox > ul li.isDragged {
+body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
   display: none;
 }
-body.entriesUnlocked div#bookmarkBox > ul ul a {
+body.entriesUnlocked section#sidebar > div.scrollBox > ul ul a {
   padding-right: 46px;
 }
-body.entriesUnlocked div#bookmarkBox > ul ul a > span.drag {
+body.entriesUnlocked section#sidebar > div.scrollBox > ul ul a > span.drag {
   display: block;
 }
 body.entriesUnlocked div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
   background: transparent;
 }
-body.loaded div#bookmarkBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
+body.loaded section#sidebar > div.scrollBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
   transition: transform 0.3s;
 }
 

@@ -6,6 +6,7 @@
         let defaultConfig = {
             addVisual: "y",
             rememberScroll: "y",
+            rememberSearch: "n",
             hideEmptyDirs: "y",
             openAction: "contextmenu",
             pxTolerance: "{\"windowed\":20,\"maximized\":1}",

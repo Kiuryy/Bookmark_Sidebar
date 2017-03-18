@@ -34,7 +34,7 @@
          */
         let initEvents = () => {
 
-            ext.elements.bookmarkBox.children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
+            ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 ext.helper.contextmenu.close();
                 let elm = $(e.currentTarget).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
                 let elmParent = elm.parent("li");
@@ -117,11 +117,11 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                let scrollPos = ext.elements.bookmarkBox.data("scrollpos") || 0;
+                let scrollPos = ext.elements.bookmarkBox["all"].data("scrollpos") || 0;
                 let scrollType = Math.abs(e.wheelDelta) < 60 ? "trackpad" : "mouse";
 
-                ext.elements.bookmarkBox.data("scrollpos", scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
-                ext.helper.scroll.update(ext.elements.bookmarkBox);
+                ext.elements.bookmarkBox["all"].data("scrollpos", scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
+                ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
             });
 
 
@@ -151,8 +151,8 @@
                     let bookmarkElm = draggedElm.data("elm");
 
                     $([
-                        ext.elements.bookmarkBox.find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li"),
-                        ext.elements.bookmarkBox.find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li")
+                        ext.elements.bookmarkBox["all"].find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li"),
+                        ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li")
                     ]).forEach((node) => {
                         let elmObj = $(node);
 

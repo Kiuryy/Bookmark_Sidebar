@@ -14,7 +14,6 @@
          * @param {jsu} elm
          */
         this.add = (id, elm) => {
-
             let scrollBox = $("<div id='" + id + "' class='" + ext.opts.classes.scrollBox.wrapper + "' />").insertBefore(elm);
             elm = elm.appendTo(scrollBox);
 
@@ -34,7 +33,7 @@
             });
 
             initEvents(scrollBox);
-            updateScrollbox(scrollBox, 0);
+            this.updateScrollbox(scrollBox, 0);
             return scrollBox;
         };
 
@@ -47,7 +46,7 @@
          */
         this.update = (scrollBox, save) => {
             let scrollPos = scrollBox.data("scrollpos") || 0;
-            updateScrollbox(scrollBox, scrollPos);
+            this.updateScrollbox(scrollBox, scrollPos);
 
             if (save) {
                 saveScrollPos(scrollBox);
@@ -61,7 +60,7 @@
             ext.helper.model.getConfig(["rememberScroll", "scrollPos"], (obj) => {
                 if (obj.rememberScroll === "y") {
                     let scrollPosObj = JSON.parse(obj.scrollPos);
-                    updateScrollbox(scrollBox, scrollPosObj[scrollBox.attr("id")] || 0);
+                    this.updateScrollbox(scrollBox, scrollPosObj[scrollBox.attr("id")] || 0);
                     setTimeout(() => {
                         if (typeof callback === "function") {
                             callback();
@@ -76,31 +75,11 @@
         };
 
         /**
-         * Saves the scroll position of the given scrollbox
-         *
-         * @param {jsu} scrollBox
-         */
-        let saveScrollPos = (scrollBox) => {
-            if (ext.firstRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
-
-                ext.helper.model.getConfig("scrollPos", (scrollPosJson) => {
-                    scrollPosSaved = +new Date();
-                    let scrollPosObj = JSON.parse(scrollPosJson);
-                    scrollPosObj[scrollBox.attr("id")] = scrollBox.data("scrollpos") || 0;
-
-                    ext.helper.model.setConfig({
-                        scrollPos: JSON.stringify(scrollPosObj)
-                    });
-                });
-            }
-        };
-
-        /**
          * Updates the scroll position of the given scrollbox
          *
          * @param {jsu} scrollBox
          */
-        let updateScrollbox = (scrollBox, scrollPos) => {
+        this.updateScrollbox = (scrollBox, scrollPos) => {
             ext.helper.contextmenu.close();
 
             let boxHeight = scrollBox.realHeight();
@@ -145,6 +124,26 @@
             }, 1500);
         };
 
+        /**
+         * Saves the scroll position of the given scrollbox
+         *
+         * @param {jsu} scrollBox
+         */
+        let saveScrollPos = (scrollBox) => {
+            if (ext.firstRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
+
+                ext.helper.model.getConfig("scrollPos", (scrollPosJson) => {
+                    scrollPosSaved = +new Date();
+                    let scrollPosObj = JSON.parse(scrollPosJson);
+                    scrollPosObj[scrollBox.attr("id")] = scrollBox.data("scrollpos") || 0;
+
+                    ext.helper.model.setConfig({
+                        scrollPos: JSON.stringify(scrollPosObj)
+                    });
+                });
+            }
+        };
+
 
         /**
          * Initializes the eventhandlers for the given scrollbox
@@ -167,7 +166,7 @@
                     scrollBox.addClass(ext.opts.classes.scrollBox.scrollTrackpad);
                 }
 
-                updateScrollbox(scrollBox, scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
+                this.updateScrollbox(scrollBox, scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
                 saveScrollPos(scrollBox);
 
                 scrollBox.removeClass(ext.opts.classes.scrollBox.scrollTrackpad);
@@ -199,7 +198,7 @@
                     let contentHeight = scrollBox.data("content").realHeight();
                     let currentPos = Math.max(0, e.pageY - scrollBox[0].getBoundingClientRect().top - startPos);
 
-                    updateScrollbox(scrollBox, currentPos * contentHeight / boxHeight);
+                    this.updateScrollbox(scrollBox, currentPos * contentHeight / boxHeight);
                 }
             });
         };

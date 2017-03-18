@@ -302,7 +302,7 @@
             let time = +new Date();
             ext.helper.model.call("deleteBookmark", {id: infos.id}, () => {
                 setTimeout(() => {
-                    ext.update();
+                    ext.updateBookmarkBox();
                 }, Math.min(300, +new Date() - time));
             });
         };
@@ -329,8 +329,9 @@
                 elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
                 let time = +new Date();
                 ext.helper.model.call("updateBookmark", {id: infos.id, title: title, url: url}, () => {
+
                     setTimeout(() => {
-                        ext.update();
+                        ext.updateBookmarkBox();
                     }, Math.min(300, +new Date() - time));
                 });
             }
@@ -353,7 +354,7 @@
             elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
 
             setTimeout(() => {
-                ext.update();
+                ext.updateBookmarkBox();
             }, 300);
         };
 

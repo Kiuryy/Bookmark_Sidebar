@@ -61,6 +61,55 @@ ul {
 }
 
 // Sidebar
+@mixin bookmarkEntry {
+  display: block;
+  line-height: 40px;
+  padding: 0 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  transition: background 0.3s;
+
+  &:hover {
+    background: $linkHoverBackgroundColor;
+  }
+
+  &.dir, &.active {
+    font-weight: 400;
+  }
+
+  > img {
+    vertical-align: top;
+    display: inline-block;
+    width: 16px;
+    margin: 11px 20px 0 0;
+    visibility: hidden;
+
+    &[src] {
+      visibility: visible;
+    }
+  }
+
+  > span.drag {
+    display: none;
+    position: absolute;
+    top: 10%;
+    right: 15px;
+    width: 30px;
+    height: 80%;
+    background: img('icon-drag.png') no-repeat;
+    background-position: 5px center;
+    background-size: 60px 20px;
+    border-radius: 2px;
+
+    &:hover {
+      background-position: -35px center;
+      background-color: $mainColor;
+    }
+  }
+}
+
 section#sidebar {
   position: relative;
   width: $sidebarWidth;
@@ -182,118 +231,74 @@ section#sidebar {
       }
     }
   }
-}
 
-@mixin bookmarkEntry {
-  display: block;
-  line-height: 40px;
-  padding: 0 16px;
-  white-space: nowrap;
-  overflow: hidden;
-  cursor: pointer;
-  text-overflow: ellipsis;
-  transition: background 0.3s;
-
-  &:hover {
-    background: $linkHoverBackgroundColor;
-  }
-
-  &.dir, &.active {
-    font-weight: 400;
-  }
-
-  > img {
-    vertical-align: top;
-    display: inline-block;
-    width: 16px;
-    margin: 11px 20px 0 0;
-    visibility: hidden;
-
-    &[src] {
-      visibility: visible;
-    }
-  }
-
-  > span.drag {
+  > div.scrollBox {
+    height: calc(100% - 60px);
     display: none;
-    position: absolute;
-    top: 10%;
-    right: 15px;
-    width: 30px;
-    height: 80%;
-    background: img('icon-drag.png') no-repeat;
-    background-position: 5px center;
-    background-size: 60px 20px;
-    border-radius: 2px;
 
-    &:hover {
-      background-position: -35px center;
-      background-color: $mainColor;
+    &.active {
+      display: block;
     }
-  }
-}
 
-div#bookmarkBox {
-  height: calc(100% - 60px);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      pointer-events: none;
+      box-shadow: inset 0 2px 0 -1px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+      z-index: 3;
+    }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    pointer-events: none;
-    box-shadow: inset 0 2px 0 -1px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
-    z-index: 3;
-  }
+    &.scrolled::before {
+      box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
+    }
 
-  &.scrolled::before {
-    box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
-  }
+    > ul {
+      margin: 12px 0;
 
-  > ul {
-    margin: 12px 0;
-
-    a {
-      @include bookmarkEntry;
-      position: relative;
-
-      + ul {
-        padding-left: 25px;
-        height: 0;
-        transition: height 0.5s;
-        overflow: hidden;
-      }
-
-      &.opened {
+      a {
+        @include bookmarkEntry;
+        position: relative;
 
         + ul {
-          height: auto;
+          padding-left: 25px;
+          height: 0;
+          transition: height 0.5s;
+          overflow: hidden;
         }
-      }
-    }
 
-    li {
+        &.opened {
 
-      &.isDragged {
-        width: calc(100% - 5px);
-        border: 3px dashed rgba(0, 0, 0, 0.2);
-        pointer-events: none;
-
-        > a {
-          visibility: hidden;
-          line-height: 35px;
-
-          > img {
-            visibility: hidden;
+          + ul {
+            height: auto;
           }
         }
       }
 
-      &.dragInitial {
-        display: none;
+      li {
+
+        &.isDragged {
+          width: calc(100% - 5px);
+          border: 3px dashed rgba(0, 0, 0, 0.2);
+          pointer-events: none;
+
+          > a {
+            visibility: hidden;
+            line-height: 35px;
+
+            > img {
+              visibility: hidden;
+            }
+          }
+        }
+
+        &.dragInitial {
+          display: none;
+        }
       }
     }
   }
@@ -382,14 +387,14 @@ body {
 
   &.dragCancel {
 
-    div#bookmarkBox > ul li.isDragged {
+    section#sidebar > div.scrollBox > ul li.isDragged {
       display: none;
     }
   }
 
   &.entriesUnlocked {
 
-    div#bookmarkBox > ul ul a {
+    section#sidebar > div.scrollBox > ul ul a {
       padding-right: 46px;
 
       > span.drag {
@@ -404,7 +409,7 @@ body {
 
   &.loaded {
 
-    div#bookmarkBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
+    section#sidebar > div.scrollBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
       transition: transform 0.3s;
     }
   }

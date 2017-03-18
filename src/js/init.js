@@ -11,6 +11,7 @@
             sidebar: {
                 sidebar: "sidebar",
                 bookmarkBox: "bookmarkBox",
+                bookmarkBoxSearch: "bookmarkBoxSearch",
                 shareUserdata: "shareUserdata"
             },
             overlay: {

@@ -4,9 +4,10 @@
  - Configurable position (left or right)
  - Configurable font scaling
  - Configurable visual mask scaling
+ - Configurable icon for chrome menu
 
 [1.4]
- - [toDo] Search function
+ - Search function
  - [toDo] Info page for new features
  - [toDo] Help page after installation
  - Added mouseover openAction configuration

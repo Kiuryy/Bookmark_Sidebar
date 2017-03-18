@@ -128,6 +128,18 @@
     };
 
     /**
+     * Returns all bookmarks matching the given search val
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let getBookmarksBySearchVal = (opts, sendResponse) => {
+        bookmarkObj.search(opts.searchVal, (bookmarks) => {
+            sendResponse({bookmarks: bookmarks});
+        });
+    };
+
+    /**
      * Determines whether a bookmark to the given url exists and if so increases the view counter,
      * only if the tab was not previously opened or changed from the extension (these clicks are counted alreay)
      *
@@ -283,8 +295,9 @@
     let mapping = {
         realUrl: getRealUrl,
         addViewAmount: addViewAmountByUrl,
-        bookmarks: getBookmarks,
         dirInfos: getDirInfos,
+        bookmarks: getBookmarks,
+        searchBookmarks: getBookmarksBySearchVal,
         moveBookmark: moveBookmark,
         updateBookmark: updateBookmark,
         deleteBookmark: deleteBookmark,
@@ -353,7 +366,7 @@
      */
     let shareUserdata = () => {
         chrome.storage.sync.get(null, (obj) => {
-            if (typeof obj.uuid !== "undefined" && (typeof obj.lastShareDate === "undefined" || (+new Date() - obj.lastShareDate) / 36e5 > 12)) { // uuid is available and last time of sharing is over 12 hours ago
+            if (typeof obj.uuid !== "undefined" && (typeof obj.lastShareDate === "undefined" || (+new Date() - obj.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
                 chrome.storage.sync.set({
                     lastShareDate: +new Date()
                 });

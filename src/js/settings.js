@@ -30,6 +30,7 @@
             addVisual: $("input#addVisual"),
             newTab: $("select#newTab"),
             rememberScroll: $("input#rememberScroll"),
+            rememberSearch: $("input#rememberSearch"),
             hideEmptyDirs: $("input#hideEmptyDirs"),
             openAction: $("select#openAction"),
             save: $("button#save"),
@@ -169,6 +170,10 @@
             elm.config.rememberScroll[0].checked = typeof obj.rememberScroll === "undefined" ? true : (obj.rememberScroll === "y");
         });
 
+        chrome.storage.sync.get("rememberSearch", (obj) => {
+            elm.config.rememberSearch[0].checked = typeof obj.rememberSearch === "undefined" ? false : (obj.rememberSearch === "y");
+        });
+
         chrome.storage.sync.get("hideEmptyDirs", (obj) => {
             elm.config.hideEmptyDirs[0].checked = typeof obj.hideEmptyDirs === "undefined" ? true : (obj.hideEmptyDirs === "y");
         });
@@ -228,6 +233,7 @@
             chrome.storage.sync.set({
                 addVisual: elm.config.addVisual[0].checked ? "y" : "n",
                 rememberScroll: elm.config.rememberScroll[0].checked ? "y" : "n",
+                rememberSearch: elm.config.rememberSearch[0].checked ? "y" : "n",
                 hideEmptyDirs: elm.config.hideEmptyDirs[0].checked ? "y" : "n",
                 closeTimeout: elm.config.closeTimeout[0].value,
                 openAction: elm.config.openAction[0].value,

@@ -4,7 +4,6 @@
     window.SidebarEventsHelper = function (ext) {
 
         let newTabForeground = null;
-        let rememberSearch = null;
 
         /**
          * Expands/Collapses the bookmarks under the given bookmark node
@@ -74,73 +73,13 @@
          * Initializes the helper
          */
         this.init = () => {
-            ext.helper.model.getConfig(["newTab", "rememberSearch"], (values) => { // user config
-                newTabForeground = values.newTab === "foreground";
-                rememberSearch = values.rememberSearch === "y";
-
-                if (rememberSearch) { // restore search result
-                    ext.helper.model.getConfig("searchValue", (searchValue) => {
-                        if (searchValue && searchValue.length > 0) { // search value is not empty -> restore
-                            ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                            handleSearchValChanged(searchValue, () => { // scroll to the last position
-                                ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["search"]);
-                            });
-                        }
-                    });
-                }
-            }, (values) => { // default config
-                newTabForeground = values.newTab === "foreground";
+            ext.helper.model.getConfig("newTab", (newTab) => { // user config
+                newTabForeground = newTab === "foreground";
+            }, (newTab) => { // default config
+                newTabForeground = newTab === "foreground";
             });
 
             initEvents();
-        };
-
-        /**
-         * Handles the view of the search result list
-         *
-         * @param val
-         * @param callback
-         */
-        let handleSearchValChanged = (val = null, callback) => {
-            let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-            if (val === null) {
-                val = searchField[0].value;
-                ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["search"], 0);
-            } else {
-                searchField[0].value = val;
-            }
-
-            if (val && val.length > 0) { // search field is not empty
-                ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active);
-                ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
-
-                if (val !== searchField.data("lastVal")) { // search value is not the same
-                    searchField.data("lastVal", val);
-                    ext.helper.model.setConfig({searchValue: val});
-
-                    ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
-                        let list = ext.elements.bookmarkBox["search"].children("ul");
-                        list.text("");
-
-                        if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
-                            ext.addBookmarkDir(response.bookmarks, list);
-                            if (typeof callback === "function") {
-                                callback();
-                            }
-                        } else { // no results
-                            console.log("SEARCH RESULT EMPTY");
-                        }
-                    });
-                }
-            } else { // empty search field -> reset list
-                ext.helper.model.setConfig({searchValue: null});
-
-                if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
-                    ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
-                    ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
-                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
-                }
-            }
         };
 
         /**
@@ -176,28 +115,6 @@
                 e.stopPropagation();
                 ext.helper.contextmenu.close();
                 ext.helper.contextmenu.create("settings", $(e.currentTarget));
-            });
-
-            ext.elements.header.on("click", "a." + ext.opts.classes.sidebar.search, (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']")[0].focus();
-            });
-
-            ext.elements.header.on("change keyup", "div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']", (e) => {
-                e.preventDefault();
-                handleSearchValChanged();
-            });
-
-            ext.elements.header.on("click", "a." + ext.opts.classes.sidebar.searchClose, (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
-                setTimeout(() => {
-                    ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value = "";
-                    handleSearchValChanged();
-                }, 300);
             });
 
             ext.elements.iframeBody.on("click", "div#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => {

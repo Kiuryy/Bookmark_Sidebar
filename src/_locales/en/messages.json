@@ -20,6 +20,9 @@
   "sidebar_search_placeholder": {
     "message": "Search bookmark"
   },
+  "sidebar_search_no_results": {
+    "message": "No bookmarks matching your search value"
+  },
   // [ SHARE USERDATA]
   "share_userdata_headline": {
     "message": "I need your help"

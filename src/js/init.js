@@ -39,6 +39,7 @@
                 searchBox: "searchBox",
                 searchClose: "searchClose",
                 searchVisible: "searchVisible",
+                searchLoading: "searchLoading",
                 shareUserdataNotice: "shareNotice",
                 shareUserdataHidden: "hidden"
             },

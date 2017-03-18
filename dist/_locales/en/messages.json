@@ -20,6 +20,9 @@
   "sidebar_search_placeholder": {
     "message": "Search bookmark"
   },
+  "sidebar_search_no_results": {
+    "message": "No bookmarks matching your search value"
+  },
   // [ SHARE USERDATA]
   "share_userdata_headline": {
     "message": "I need your help"
@@ -182,7 +185,13 @@
     "message": "Remember scroll position"
   },
   "settings_remember_scroll_desc": {
-    "message": "If selected, the position in the bookmark list will be remembered."
+    "message": "If selected, the scroll position of the bookmark list will be remembered."
+  },
+  "settings_remember_search": {
+    "message": "Remember search result"
+  },
+  "settings_remember_search_desc": {
+    "message": "If selected, the entered search value will be remembered across page changes."
   },
   "settings_hide_empty_dirs": {
     "message": "Hide empty directories"

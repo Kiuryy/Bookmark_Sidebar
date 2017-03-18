@@ -35,6 +35,7 @@
                 toggle: new window.ToggleHelper(this),
                 scroll: new window.ScrollHelper(this),
                 sidebarEvents: new window.SidebarEventsHelper(this),
+                search: new window.SearchHelper(this),
                 dragndrop: new window.DragDropHelper(this),
                 checkbox: new window.CheckboxHelper(this),
                 overlay: new window.OverlayHelper(this),
@@ -134,43 +135,45 @@
                     }
                 }
 
-                let entry = $("<li />").appendTo(list);
-                let entryContent = $("<a />")
-                    .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
-                    .appendTo(entry);
+                if (bookmark.children || bookmark.url) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                    let entry = $("<li />").appendTo(list);
+                    let entryContent = $("<a />")
+                        .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
+                        .appendTo(entry);
 
-                bookmark.element = entryContent;
+                    bookmark.element = entryContent;
 
-                if (bookmark.children) { // dir
-                    if (hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway
-                        bookmark.icon = chrome.extension.getURL("img/dir.png");
-
-                        entryContent
-                            .data("infos", bookmark)
-                            .prepend("<img " + (sidebarOpen ? "" : "data-") + "src='" + bookmark.icon + "' />")
-                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + chrome.i18n.getMessage("sidebar_dir_children"))
-                            .addClass(this.opts.classes.sidebar.bookmarkDir);
-                    } else { // configured to not show empty dirs
-                        entry.remove();
-                    }
-                } else { // link
-                    entryContent
-                        .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
-                        .addClass(this.opts.classes.sidebar.bookmarkLink);
-
-                    this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
-                        if (opts.demoMode) {
-                            response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".png");
-                        }
-
-                        if (response.img) { // favicon found -> add to entry
-                            bookmark.icon = response.img;
+                    if (bookmark.children) { // dir
+                        if (hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway
+                            bookmark.icon = chrome.extension.getURL("img/dir.png");
 
                             entryContent
                                 .data("infos", bookmark)
                                 .prepend("<img " + (sidebarOpen ? "" : "data-") + "src='" + bookmark.icon + "' />")
+                                .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + chrome.i18n.getMessage("sidebar_dir_children"))
+                                .addClass(this.opts.classes.sidebar.bookmarkDir);
+                        } else { // configured to not show empty dirs
+                            entry.remove();
                         }
-                    });
+                    } else { // link
+                        entryContent
+                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
+                            .addClass(this.opts.classes.sidebar.bookmarkLink);
+
+                        this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
+                            if (opts.demoMode) {
+                                response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".png");
+                            }
+
+                            if (response.img) { // favicon found -> add to entry
+                                bookmark.icon = response.img;
+
+                                entryContent
+                                    .data("infos", bookmark)
+                                    .prepend("<img " + (sidebarOpen ? "" : "data-") + "src='" + bookmark.icon + "' />")
+                            }
+                        });
+                    }
                 }
             });
         };
@@ -304,13 +307,6 @@
             };
             processBookmarks(bookmarks);
 
-            let searchVal = "";
-            let searchField = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']");
-
-            if (searchField.length() > 0) {
-                searchVal = searchField[0].value;
-            }
-
             this.elements.header.text("");
             $("<span />").html("<span>" + bookmarkList.length + "</span> " + chrome.i18n.getMessage("header_bookmarks" + (bookmarkList.length === 1 ? "_single" : ""))).appendTo(this.elements.header);
             $("<a />").addClass(this.opts.classes.sidebar.settings).data("infos", {bookmarks: bookmarkList}).appendTo(this.elements.header);
@@ -318,9 +314,11 @@
 
             $("<div />")
                 .addClass(this.opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + chrome.i18n.getMessage("sidebar_search_placeholder") + "' value='" + searchVal + "' />")
+                .append("<input type='text' placeholder='" + chrome.i18n.getMessage("sidebar_search_placeholder") + "' />")
                 .append("<a href='#' class='" + this.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(this.elements.header);
+
+            this.helper.search.init();
         };
 
 

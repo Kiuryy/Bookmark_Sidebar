@@ -24,6 +24,7 @@
         "js/helper/toggle.js",
         "js/helper/scroll.js",
         "js/helper/sidebarEvents.js",
+        "js/helper/search.js",
         "js/helper/dragndrop.js",
         "js/helper/checkbox.js",
         "js/helper/overlay.js",

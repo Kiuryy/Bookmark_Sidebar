@@ -257,6 +257,14 @@ section#sidebar {
       box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
     }
 
+    > p {
+      font-size: 120%;
+      padding: 30px 20px;
+      font-style: italic;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+
     > ul {
       margin: 12px 0;
 
@@ -300,6 +308,19 @@ section#sidebar {
           display: none;
         }
       }
+    }
+  }
+
+  &.searchLoading {
+
+    > div.loading {
+      position: absolute;
+      top: calc(50% - 18px);
+      left: calc(50% - 18px);
+    }
+
+    > div.scrollBox {
+      @extend %hidden;
     }
   }
 }

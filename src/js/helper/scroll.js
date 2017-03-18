@@ -44,7 +44,7 @@
          * @param {jsu} scrollBox
          * @param {boolean} save
          */
-        this.update = (scrollBox, save) => {
+        this.update = (scrollBox, save = false) => {
             let scrollPos = scrollBox.data("scrollpos") || 0;
             this.updateScrollbox(scrollBox, scrollPos);
 

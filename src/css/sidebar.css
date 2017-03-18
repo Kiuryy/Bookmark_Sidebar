@@ -1,4 +1,4 @@
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -8,7 +8,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -18,7 +18,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -28,7 +28,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -38,7 +38,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -48,7 +48,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -166,7 +166,7 @@ div.loading > div > div.gap-patch > div {
   left: -450%;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -176,7 +176,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -186,7 +186,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -251,7 +251,7 @@ div.scrollBox.scrollTrackpad > div.scrollbar > div {
   transition: none;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -261,7 +261,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -271,7 +271,7 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -552,6 +552,13 @@ section#sidebar > div.scrollBox::before {
 section#sidebar > div.scrollBox.scrolled::before {
   box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
 }
+section#sidebar > div.scrollBox > p {
+  font-size: 120%;
+  padding: 30px 20px;
+  font-style: italic;
+  max-width: 350px;
+  margin: 0 auto;
+}
 section#sidebar > div.scrollBox > ul {
   margin: 12px 0;
 }
@@ -621,6 +628,11 @@ section#sidebar > div.scrollBox > ul li.isDragged > a > img {
 }
 section#sidebar > div.scrollBox > ul li.dragInitial {
   display: none;
+}
+section#sidebar.searchLoading > div.loading {
+  position: absolute;
+  top: calc(50% - 18px);
+  left: calc(50% - 18px);
 }
 
 a.dragHelper {

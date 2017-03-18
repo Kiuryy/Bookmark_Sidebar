@@ -65,8 +65,8 @@
          * Appends the bookmark preview to the current overlay
          *
          * @param {object} infos
-         * @param {bool} isDir
-         * @param {bool} addUrl
+         * @param {boolean} isDir
+         * @param {boolean} addUrl
          */
         let appendPreviewLink = (infos, isDir, addUrl) => {
             let preview = $("<" + (isDir ? "span" : "a") + " />")
@@ -90,7 +90,7 @@
          * Extends the overlay html for the delete operation
          *
          * @param {object} infos
-         * @param {bool} isDir
+         * @param {boolean} isDir
          */
         let handleDeleteHtml = (infos, isDir) => {
             $("<p />").text(chrome.i18n.getMessage("overlay_delete_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
@@ -102,7 +102,7 @@
          * Extends the overlay html for the edit operation
          *
          * @param {object} infos
-         * @param {bool} isDir
+         * @param {boolean} isDir
          */
         let handleEditHtml = (infos, isDir) => {
             appendPreviewLink(infos, isDir);
@@ -164,7 +164,7 @@
          * Extends the overlay html for showing infos about the bookmark
          *
          * @param {object} infos
-         * @param {bool} isDir
+         * @param {boolean} isDir
          */
         let handleInfosHtml = (infos, isDir) => {
             appendPreviewLink(infos, isDir, true);
@@ -251,7 +251,7 @@
          * Extends the overlay html for the url update process
          *
          * @param {object} infos
-         * @param {bool} isDir
+         * @param {boolean} isDir
          */
         let handleUpdateUrlsHtml = (infos, isDir) => {
             let bookmarkAmount = infos.bookmarks.length;

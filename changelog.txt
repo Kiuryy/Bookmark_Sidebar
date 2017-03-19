@@ -7,11 +7,11 @@
 
 [1.5]
  - [toDo] Added customization options
+ - [toDo] Info page for new features
+ - [toDo] Help page after installation
 
 [1.4]
  - Search function
- - [toDo] Info page for new features
- - [toDo] Help page after installation
  - Added mouseover openAction configuration
  - Toggle function for icon in chrome menu
  - Added possibility to add keyboard shortcuts

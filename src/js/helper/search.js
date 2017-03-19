@@ -3,26 +3,24 @@
 
     window.SearchHelper = function (ext) {
 
-        let rememberSearch = null;
+
         let searchInProgress = {};
 
         /**
          * Initializes the helper
          */
         this.init = () => {
-            ext.helper.model.getConfig("rememberSearch", (rememberSearch) => { // user config
-                if (rememberSearch === "y") { // restore search result
-                    ext.helper.model.getConfig("searchValue", (searchValue) => {
-                        if (searchValue && searchValue.length > 0) { // search value is not empty -> restore
-                            ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                            handleSearchValChanged(searchValue);
-                            setTimeout(() => {
-                                ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["search"]);
-                            }, 0);
-                        }
-                    });
+            let data = ext.helper.model.getData(["b/rememberSearch", "u/searchValue"]);
+
+            if (data.rememberSearch) { // restore search result
+                if (data.searchValue && data.searchValue.length > 0) { // search value is not empty -> restore
+                    ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+                    handleSearchValChanged(data.searchValue);
+                    setTimeout(() => {
+                        ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["search"]);
+                    }, 0);
                 }
-            });
+            }
 
             initEvents();
         };
@@ -87,7 +85,7 @@
 
             if (val !== searchField.data("lastVal")) { // search value is not the same
                 searchField.data("lastVal", val);
-                ext.helper.model.setConfig({searchValue: val});
+                ext.helper.model.setData({"u/searchValue": val});
                 addSearchLoading();
 
                 ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
@@ -114,7 +112,8 @@
          */
         let handleSearchReset = (searchField) => {
             searchField.removeData("lastVal");
-            ext.helper.model.setConfig({searchValue: null});
+
+            ext.helper.model.setData({"u/searchValue": null});
 
             if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
                 addSearchLoading();

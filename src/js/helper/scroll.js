@@ -5,7 +5,6 @@
 
         let scrollPosSaved = +new Date();
         let scrollBarTimeout = {};
-        let scrollSensitivity = null;
 
         /**
          * Creates a new scrollbox for the given element
@@ -24,12 +23,6 @@
             scrollBox.data({
                 content: elm,
                 scrollbar: scrollbar
-            });
-
-            ext.helper.model.getConfig("scrollSensitivity", (scrollSensitivityStr) => { // user config
-                scrollSensitivity = JSON.parse(scrollSensitivityStr);
-            }, (scrollSensitivityStr) => { // default config
-                scrollSensitivity = JSON.parse(scrollSensitivityStr);
             });
 
             initEvents(scrollBox);
@@ -57,21 +50,18 @@
          * Restores the scroll position from the storage if configurated so
          */
         this.restoreScrollPos = (scrollBox, callback) => {
-            ext.helper.model.getConfig(["rememberScroll", "scrollPos"], (obj) => {
-                if (obj.rememberScroll === "y") {
-                    let scrollPosObj = JSON.parse(obj.scrollPos);
-                    this.updateScrollbox(scrollBox, scrollPosObj[scrollBox.attr("id")] || 0);
-                    setTimeout(() => {
-                        if (typeof callback === "function") {
-                            callback();
-                        }
-                    }, 100)
-                } else {
+            let data = ext.helper.model.getData(["b/rememberScroll", "u/scrollPos"]);
+
+            if (data.rememberScroll) {
+                this.updateScrollbox(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
+                setTimeout(() => {
                     if (typeof callback === "function") {
                         callback();
                     }
-                }
-            });
+                }, 100);
+            } else if (typeof callback === "function") {
+                callback();
+            }
         };
 
         /**
@@ -131,15 +121,13 @@
          */
         let saveScrollPos = (scrollBox) => {
             if (ext.firstRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
+                scrollPosSaved = +new Date();
 
-                ext.helper.model.getConfig("scrollPos", (scrollPosJson) => {
-                    scrollPosSaved = +new Date();
-                    let scrollPosObj = JSON.parse(scrollPosJson);
-                    scrollPosObj[scrollBox.attr("id")] = scrollBox.data("scrollpos") || 0;
+                let scrollPos = ext.helper.model.getData("u/scrollPos");
+                scrollPos[scrollBox.attr("id")] = scrollBox.data("scrollpos") || 0;
 
-                    ext.helper.model.setConfig({
-                        scrollPos: JSON.stringify(scrollPosObj)
-                    });
+                ext.helper.model.setData({
+                    "u/scrollPos": scrollPos
                 });
             }
         };
@@ -153,6 +141,7 @@
         let initEvents = (scrollBox) => {
             let scrollbar = scrollBox.data("scrollbar");
             let scrollbarThumb = scrollbar.children("div");
+            let scrollSensitivity = ext.helper.model.getData("b/scrollSensitivity");
 
             scrollBox.on('wheel', (e) => { // scroll through the list
                 e.preventDefault();

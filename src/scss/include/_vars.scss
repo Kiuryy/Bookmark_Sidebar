@@ -15,17 +15,3 @@ $settingsHeaderBackground: #eee;
 $settingsTabBackground: #f2f2f2;
 $settingsSuccessBackgroundColor: #5eba7d;
 $settingsErrorColor: #f66;
-
-%hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-%visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-@function img($path) {
-  @return url(chrome-extension://__MSG_@@extension_id__/img/#{$path});
-}

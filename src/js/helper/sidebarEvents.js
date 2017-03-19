@@ -3,7 +3,6 @@
 
     window.SidebarEventsHelper = function (ext) {
 
-        let newTabForeground = null;
 
         /**
          * Expands/Collapses the bookmarks under the given bookmark node
@@ -26,18 +25,16 @@
                 if (ext.firstRun === true) { // first run -> restore open states of child nodes
                     ext.restoreOpenStates(childrenList);
                 } else {
-                    ext.helper.model.getConfig("openStates", (val) => {
-                        let openStates = JSON.parse(val);
-                        openStates["node_" + elm.data("infos").id] = open;
+                    let openStates = ext.helper.model.getData("u/openStates");
+                    openStates["node_" + elm.data("infos").id] = open;
 
-                        ext.helper.model.setConfig({
-                            openStates: JSON.stringify(openStates)
-                        }, () => {
-                            if (open === false) {
-                                closeAllChildDirs(elm, openStates);
-                            }
+                    if (open === false) {
+                        closeAllChildDirs(elm, openStates);
+                    } else {
+                        ext.helper.model.setData({
+                            "u/openStates": openStates
                         });
-                    });
+                    }
                 }
 
                 setTimeout(() => { // unset changes in css, so opening of children in child list works properly
@@ -73,12 +70,6 @@
          * Initializes the helper
          */
         this.init = () => {
-            ext.helper.model.getConfig("newTab", (newTab) => { // user config
-                newTabForeground = newTab === "foreground";
-            }, (newTab) => { // default config
-                newTabForeground = newTab === "foreground";
-            });
-
             initEvents();
         };
 
@@ -110,6 +101,12 @@
                 ext.helper.contextmenu.close();
             });
 
+            chrome.extension.onMessage.addListener((message) => {
+                if (message && message.action && message.action === "showShareUserdataMask") {
+                    ext.initShareUserdataMask();
+                }
+            });
+
             ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar.settings, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -119,9 +116,8 @@
 
             ext.elements.iframeBody.on("click", "div#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => {
                 e.preventDefault();
-                ext.helper.model.setConfig({
-                    shareUserdata: $(e.currentTarget).data("accept") ? "y" : "n",
-                    lastShareDate: 0
+                ext.helper.model.call("shareUserdata", {
+                    share: $(e.currentTarget).data("accept")
                 });
                 ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.shareUserdataHidden);
             });
@@ -131,7 +127,7 @@
                 ext.elements.bookmarkBox[key].children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
-                    if (!$(e.target).hasClass(ext.opts.classes.sidebar.drag) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
+                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
                         let _self = $(e.currentTarget);
                         let middleClicked = e.which === 2;
                         let infos = _self.data("infos");
@@ -140,12 +136,13 @@
                         if (isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
                             this.toggleBookmarkDir(_self);
                         } else if (!isDir) { // Click on link
+                            let newTab = ext.helper.model.getData("b/newTab");
                             ext.helper.model.call("openLink", {
                                 parentId: infos.parentId,
                                 id: infos.id,
                                 href: infos.url,
                                 newTab: middleClicked,
-                                active: middleClicked ? newTabForeground : true
+                                active: middleClicked ? newTab === "foreground" : true
                             });
                         }
                     }
@@ -160,8 +157,8 @@
         /**
          * closes all children of the given bookmark node
          *
-         * @param jsu elm
-         * @param object openStates
+         * @param {jsu} elm
+         * @param {object} openStates
          */
         let closeAllChildDirs = (elm, openStates) => {
             elm.next("ul").find("a.dir").forEach((node) => {
@@ -171,8 +168,8 @@
                 }, 500);
             });
 
-            ext.helper.model.setConfig({
-                openStates: JSON.stringify(openStates)
+            ext.helper.model.setData({
+                "u/openStates": openStates
             });
         };
     };

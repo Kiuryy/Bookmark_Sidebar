@@ -18,46 +18,6 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 @keyframes container-rotate {
   to {
     transform: rotate(360deg);
@@ -176,26 +136,6 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 div.scrollBox {
   position: relative;
   overflow: hidden;
@@ -249,26 +189,6 @@ div.scrollBox.scrollDrag > div.scrollbar > div {
 }
 div.scrollBox.scrollTrackpad > div.scrollbar > div {
   transition: none;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {

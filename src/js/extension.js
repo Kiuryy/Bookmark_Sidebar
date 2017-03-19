@@ -17,13 +17,17 @@
          */
         this.run = () => {
             initHelpers();
-            initSidebarHtml();
-            this.helper.sidebarEvents.init();
-            this.helper.dragndrop.init();
 
-            if (document.referrer === "") {
-                this.helper.model.call("addViewAmount", {url: location.href});
-            }
+            this.helper.model.init(() => {
+                initSidebarHtml();
+
+                this.helper.sidebarEvents.init();
+                this.helper.dragndrop.init();
+
+                if (document.referrer === "") {
+                    this.helper.model.call("addViewAmount", {url: location.href});
+                }
+            });
         };
 
         /**
@@ -84,36 +88,36 @@
          */
         this.restoreOpenStates = (list) => {
             restoreOpenStateRunning++;
-            this.helper.model.getConfig("openStates", (val) => {
-                let openStates = JSON.parse(val);
-                let opened = 0;
 
-                Object.keys(openStates).forEach((node) => {
-                    if (openStates[node] === true) {
-                        let id = +node.replace(/^node_/, "");
+            let openStates = this.helper.model.getData("u/openStates");
+            let opened = 0;
 
-                        list.find("> li > a.dir").forEach((elm) => {
-                            if (+$(elm).data("infos").id === id) {
-                                opened++;
-                                $(elm).trigger("click", {
-                                    bubbles: true
-                                });
-                            }
-                        });
-                    }
-                });
+            Object.keys(openStates).forEach((node) => {
+                if (openStates[node] === true) {
+                    let id = +node.replace(/^node_/, "");
 
-                restoreOpenStateRunning--;
-
-                if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
-                    setTimeout(() => {
-                        this.firstRun = false;
-                        this.helper.scroll.restoreScrollPos(this.elements.bookmarkBox["all"], () => {
-                            extensionLoaded();
-                        });
-                    }, 100);
+                    list.find("> li > a.dir").forEach((elm) => {
+                        if (+$(elm).data("infos").id === id) {
+                            opened++;
+                            $(elm).trigger("click", {
+                                bubbles: true
+                            });
+                        }
+                    });
                 }
             });
+
+            restoreOpenStateRunning--;
+
+            if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
+                setTimeout(() => {
+                    this.firstRun = false;
+                    this.helper.scroll.restoreScrollPos(this.elements.bookmarkBox["all"], () => {
+                        extensionLoaded();
+                    });
+                }, 100);
+            }
+
         };
 
         /**
@@ -124,6 +128,7 @@
          */
         this.addBookmarkDir = (bookmarks, list) => {
             let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
+            let hideEmptyDirs = this.helper.model.getData("b/hideEmptyDirs");
 
             bookmarks.forEach((bookmark, idx) => {
                 if (opts.demoMode) {
@@ -197,19 +202,36 @@
         this.updateBookmarkBox = () => {
             this.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree
                 if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
-                    this.helper.model.getConfig("hideEmptyDirs", (val) => {
-                        this.firstRun = true;
-                        hideEmptyDirs = val === "y";
+                    this.firstRun = true;
+                    let list = this.elements.bookmarkBox["all"].children("ul");
+                    list.text("");
 
-                        let list = this.elements.bookmarkBox["all"].children("ul");
-                        list.text("");
-
-                        updateSidebarHeader(response.bookmarks[0].children);
-                        this.addBookmarkDir(response.bookmarks[0].children, list);
-                        this.restoreOpenStates(list);
-                    });
+                    updateSidebarHeader(response.bookmarks[0].children);
+                    this.addBookmarkDir(response.bookmarks[0].children, list);
+                    this.restoreOpenStates(list);
                 }
             });
+        };
+
+        /**
+         * Adds a mask over the sidebar to encourage the user the share their userdata,
+         * only add the mask, if the sidebar is not opened
+         */
+        this.initShareUserdataMask = () => {
+            if (!this.elements.iframe.hasClass(this.opts.classes.page.visible)) {
+                let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
+                let contentBox = $("<div />").prependTo(shareUserdataMask);
+
+                $("<h2 />").html(chrome.i18n.getMessage("share_userdata_headline")).appendTo(contentBox);
+                $("<p />").html(chrome.i18n.getMessage("share_userdata_desc")).appendTo(contentBox);
+                $("<p />").html(chrome.i18n.getMessage("share_userdata_desc2")).appendTo(contentBox);
+
+                let noticeText = chrome.i18n.getMessage("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
+                $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
+
+                $("<a href='#' />").data("accept", true).html(chrome.i18n.getMessage("share_userdata_accept")).appendTo(contentBox);
+                $("<a href='#' />").data("accept", false).html(chrome.i18n.getMessage("share_userdata_decline")).appendTo(contentBox);
+            }
         };
 
 
@@ -220,7 +242,6 @@
          */
 
         let restoreOpenStateRunning = 0;
-        let hideEmptyDirs = null;
 
         /**
          * Creates the basic html markup for the sidebar and the visual
@@ -230,26 +251,21 @@
             this.elements.iframeBody = this.elements.iframe.find("body");
             this.elements.sidebar = $('<section id="' + this.opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
 
-            this.elements.header = $("<header />").prependTo(this.elements.sidebar);
-            updateSidebarHeader([]);
-
             this.elements.bookmarkBox = {
                 all: this.helper.scroll.add(this.opts.ids.sidebar.bookmarkBox, $("<ul />").appendTo(this.elements.sidebar)),
                 search: this.helper.scroll.add(this.opts.ids.sidebar.bookmarkBoxSearch, $("<ul />").appendTo(this.elements.sidebar))
             };
 
+            this.elements.header = $("<header />").prependTo(this.elements.sidebar);
+            updateSidebarHeader([]);
+
             addStylesheet(this.opts.fontHref);
             addStylesheet(chrome.extension.getURL("css/sidebar.css"));
 
-            this.helper.model.getConfig(["entriesLocked", "shareUserdata", "installationDate"], (opts) => {
-                if (opts.entriesLocked === "n") {
-                    this.elements.iframeBody.addClass(this.opts.classes.sidebar.entriesUnlocked);
-                }
-
-                if (typeof opts.shareUserdata === "undefined" && (typeof opts.installationDate !== "undefined" && (+new Date() - opts.installationDate) / 86400000 > 7)) { // show mask after 7 days using the extension
-                    initShareUserdataMask();
-                }
-            });
+            let entriesLocked = this.helper.model.getData("u/entriesLocked");
+            if (entriesLocked === false) {
+                this.elements.iframeBody.addClass(this.opts.classes.sidebar.entriesUnlocked);
+            }
 
             this.elements.bookmarkBox["all"].addClass(this.opts.classes.sidebar.active);
             this.updateBookmarkBox();
@@ -269,24 +285,6 @@
             }).appendTo(this.elements.iframe.find("head"));
         };
 
-
-        /**
-         * Adds a mask over the sidebar to encourage the user the share their userdata
-         */
-        let initShareUserdataMask = () => {
-            let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
-            let contentBox = $("<div />").prependTo(shareUserdataMask);
-
-            $("<h2 />").html(chrome.i18n.getMessage("share_userdata_headline")).appendTo(contentBox);
-            $("<p />").html(chrome.i18n.getMessage("share_userdata_desc")).appendTo(contentBox);
-            $("<p />").html(chrome.i18n.getMessage("share_userdata_desc2")).appendTo(contentBox);
-
-            let noticeText = chrome.i18n.getMessage("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
-            $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
-
-            $("<a href='#' />").data("accept", true).html(chrome.i18n.getMessage("share_userdata_accept")).appendTo(contentBox);
-            $("<a href='#' />").data("accept", false).html(chrome.i18n.getMessage("share_userdata_decline")).appendTo(contentBox);
-        };
 
         /**
          * Updates the html for the sidebar header
@@ -326,18 +324,17 @@
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         let extensionLoaded = () => {
-            this.helper.model.getConfig(["pxTolerance", "addVisual"], (values) => { // update the visual element based on the config values
-                this.elements.iframeBody.addClass(this.opts.classes.sidebar.extLoaded);
+            let data = this.helper.model.getData(["b/pxTolerance", "a/addVisual"]);
 
-                document.dispatchEvent(new CustomEvent(this.opts.events.loaded, {
-                    detail: {
-                        pxTolerance: values.pxTolerance,
-                        addVisual: values.addVisual === "y"
-                    },
-                    bubbles: true,
-                    cancelable: false
-                }));
-            });
+            this.elements.iframeBody.addClass(this.opts.classes.sidebar.extLoaded);
+            document.dispatchEvent(new CustomEvent(this.opts.events.loaded, {
+                detail: {
+                    pxTolerance: data.pxTolerance,
+                    addVisual: data.addVisual
+                },
+                bubbles: true,
+                cancelable: false
+            }));
         };
     };
 

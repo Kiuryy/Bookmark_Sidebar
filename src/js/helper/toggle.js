@@ -13,19 +13,14 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.visual).appendTo("body");
 
-            ext.helper.model.getConfig(["pxTolerance", "addVisual", "closeTimeout"], (values) => { // update the visual element based on the config values
-                closeTimeoutDuration = +values.closeTimeout * 1000;
-                pxToleranceObj = JSON.parse(values.pxTolerance);
-                ext.elements.toggle.css("width", getPixelTolerance() + "px");
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/addVisual", "b/closeTimeout"]);
+            closeTimeoutDuration = +data.closeTimeout * 1000;
+            pxToleranceObj = data.pxTolerance;
+            ext.elements.toggle.css("width", getPixelTolerance() + "px");
 
-                if (values.addVisual === "y") { // show icon on black background
-                    ext.elements.toggle.addClass(ext.opts.classes.page.addVisual);
-                }
-            }, (values) => { // default values
-                closeTimeoutDuration = +values.closeTimeout * 1000;
-                pxToleranceObj = JSON.parse(values.pxTolerance);
-                ext.elements.toggle.css("width", getPixelTolerance() + "px");
-            });
+            if (data.addVisual) { // show icon on black background
+                ext.elements.toggle.addClass(ext.opts.classes.page.addVisual);
+            }
 
             handleLeftsideBackExtension();
             initEvents();
@@ -96,14 +91,13 @@
                 }
             });
 
-            ext.helper.model.getConfig("openAction", (openAction) => {
-                $(document).on(openAction, (e) => {
-                    if ((openAction !== "mousedown" || e.button === 0) && e.pageX < getPixelTolerance()) { // check mouse position and mouse button
-                        e.stopPropagation();
-                        e.preventDefault();
-                        openSidebar();
-                    }
-                });
+            let openAction = ext.helper.model.getData("b/openAction");
+            $(document).on(openAction, (e) => {
+                if ((openAction !== "mousedown" || e.button === 0) && e.pageX < getPixelTolerance()) { // check mouse position and mouse button
+                    e.stopPropagation();
+                    e.preventDefault();
+                    openSidebar();
+                }
             });
         };
 

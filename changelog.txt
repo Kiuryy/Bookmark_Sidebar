@@ -1,10 +1,12 @@
 [tdb]
  - Configurable extension color
- - Add configurable shortcut and keyboard support
  - Configurable position (left or right)
  - Configurable font scaling
  - Configurable visual mask scaling
  - Configurable icon for chrome menu
+
+[1.5]
+ - [toDo] Added customization options
 
 [1.4]
  - Search function

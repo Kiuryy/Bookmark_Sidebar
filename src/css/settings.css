@@ -8,39 +8,22 @@ body.submitSuccess::after {
   pointer-events: auto;
 }
 
-body::after {
-  opacity: 0;
-  pointer-events: none;
-}
-
-body.submitSuccess::after {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-body::after {
-  opacity: 0;
-  pointer-events: none;
-}
-
-body.submitSuccess::after {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-*, *::before, *::after {
+*, *::after, *::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body, input, textarea, select, button {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  color: #666;
+  font-weight: 300;
+}
+
 body {
   margin: 10px auto 20px;
   padding: 20px;
-  font-size: 14px;
-  font-family: Roboto, sans-serif;
-  font-weight: 300;
-  color: #666;
   width: 720px;
 }
 
@@ -168,7 +151,7 @@ section#content > div.tab[data-name='feedback'] > p.desc {
 }
 section#content > div.tab[data-name='feedback'] > textarea, section#content > div.tab[data-name='feedback'] input[type='email'] {
   border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 5px 5px;
+  padding: 5px;
   outline: none;
   transition: border 0.5s;
 }

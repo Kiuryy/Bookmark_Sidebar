@@ -8,26 +8,6 @@ body > iframe#moonware-bs-sidebar.moonware-bs-visible, body > iframe#moonware-bs
   pointer-events: auto;
 }
 
-body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after, body > iframe#moonware-bs-sidebar, body > iframe#moonware-bs-overlay {
-  opacity: 0;
-  pointer-events: none;
-}
-
-body > iframe#moonware-bs-sidebar.moonware-bs-visible, body > iframe#moonware-bs-overlay.moonware-bs-visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after, body > iframe#moonware-bs-sidebar, body > iframe#moonware-bs-overlay {
-  opacity: 0;
-  pointer-events: none;
-}
-
-body > iframe#moonware-bs-sidebar.moonware-bs-visible, body > iframe#moonware-bs-overlay.moonware-bs-visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 body > div#moonware-bs-visual {
   position: fixed;
   top: 0;

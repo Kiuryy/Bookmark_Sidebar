@@ -1,0 +1,34 @@
+@import "include/vars";
+@import "include/mixins";
+
+$bodyBackground: #f2f2f2;
+
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, input, textarea, select, button {
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  color: $textColor;
+  font-weight: $baseFontWeight;
+}
+
+body {
+background: $bodyBackground;
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: 400;
+}
+
+h1 {
+
+}

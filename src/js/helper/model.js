@@ -3,20 +3,130 @@
 
     window.ModelHelper = function (ext) {
 
-        let defaultConfig = {
-            addVisual: "y",
-            rememberScroll: "y",
-            rememberSearch: "y",
-            hideEmptyDirs: "y",
-            openAction: "contextmenu",
-            pxTolerance: "{\"windowed\":20,\"maximized\":1}",
-            scrollPos: "{}",
-            openStates: "{}",
-            closeTimeout: 1,
-            middleClickActive: "y",
-            newTab: "foreground",
-            scrollSensitivity: "{\"mouse\":1,\"trackpad\":1}",
-            entriesLocked: "y"
+        let defaults = {
+            u: { // utility
+                openStates: {},
+                scrollPos: {},
+                entriesLocked: true
+            },
+            b: { // behaviour
+                pxTolerance: {windowed: 20, maximized: 1},
+                scrollSensitivity: {mouse: 1, trackpad: 1},
+                openAction: "mousedown",
+                newTab: "foreground",
+                rememberScroll: true,
+                rememberSearch: true,
+                hideEmptyDirs: true,
+                closeTimeout: 1
+            },
+            a: { // appearance
+                addVisual: true
+            }
+        };
+
+        let data = {};
+
+
+        this.init = (callback) => {
+            chrome.storage.sync.get(["utility", "behaviour", "appearance", "model"], (obj) => {
+                data = obj;
+
+                if (typeof callback === "function") {
+                    callback();
+                }
+            });
+        };
+
+        /**
+         * Retrieves the stored values for the given keys,
+         * if a value is undefined, it will be set to the default value
+         *
+         * @param {object|string} keys
+         */
+        this.getData = (keys) => {
+            let configKeys = keys;
+            if (typeof configKeys === "string") {
+                configKeys = [configKeys];
+            }
+
+            let result = {};
+
+            configKeys.forEach((keyInfo) => {
+                let scope = keyInfo.split("/")[0];
+                let key = keyInfo.split("/")[1];
+                let value = null;
+                let dataSearchScope = null;
+
+                switch (scope) {
+                    case "u": {
+                        dataSearchScope = data.utility;
+                        break;
+                    }
+                    case "b": {
+                        dataSearchScope = data.behaviour;
+                        break;
+                    }
+                    case "a": {
+                        dataSearchScope = data.appearance;
+                        break;
+                    }
+                }
+
+                if (dataSearchScope !== null) {
+                    if (typeof dataSearchScope[key] === "undefined") {
+                        if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
+                            value = defaults[scope][key];
+                        }
+                    } else {
+                        value = dataSearchScope[key];
+                    }
+                }
+
+                if (keyInfo === "a/addVisual" && value === true && typeof data.behaviour.openAction !== "undefined" && data.behaviour.openAction === "mousemove") { // do not show visual if sidebar opens on mouseover
+                    value = false;
+                }
+
+                result[key] = value;
+            });
+
+            if (typeof keys === "string") {
+                let key = keys.split("/")[1];
+                result = result[key];
+            }
+
+            return result;
+        };
+
+        /**
+         * Saves the given values in the storage
+         *
+         * @param {object} values
+         */
+        this.setData = (values) => {
+            Object.keys(values).forEach((keyInfo) => {
+                let scope = keyInfo.split("/")[0];
+                let key = keyInfo.split("/")[1];
+                let value = values[keyInfo];
+                let dataSearchScope = null;
+
+                switch (scope) {
+                    case "u": {
+                        data.utility[key] = value;
+                        dataSearchScope = data.utility;
+                        break;
+                    }
+                    case "b": {
+                        data.behaviour[key] = value;
+                        break;
+                    }
+                    case "a": {
+                        data.appearance[key] = value;
+                        break;
+                    }
+                }
+            });
+
+            chrome.storage.sync.set(data);
         };
 
         /**
@@ -31,103 +141,6 @@
             chrome.extension.sendMessage(opts, (response) => {
                 if (typeof callback === "function") {
                     callback(response);
-                }
-            });
-        };
-
-        /**
-         * Saves the given values in the storage and calls the callback function afterwards
-         *
-         * @param {object} values
-         * @param {function} callback
-         */
-        this.setConfig = (values, callback) => {
-            chrome.storage.sync.set(values, (response) => {
-                if (typeof callback === "function") {
-                    callback(response);
-                }
-            });
-        };
-
-        /**
-         * Retrieves the config values for the given keys and calls the callback function afterwards,
-         * calls the second callback function (if defined) with the default values as parameters,
-         * if a value is undefined, it will be set to the default value
-         *
-         * @param {object|string} keys
-         * @param {function} callback called asynchronously
-         * @param {function} callback2 called synchronously
-         */
-        this.getConfig = (keys, callback, callback2) => {
-            let configKeys = keys;
-            if (typeof configKeys === "string") {
-                configKeys = [configKeys];
-            }
-
-            if (configKeys.indexOf("newTab") > -1) { // backward compatibility
-                configKeys.push("middleClickActive");
-            }
-
-            if (configKeys.indexOf("addVisual") > -1 && configKeys.indexOf("openAction") === -1) {
-                configKeys.push("openAction");
-            }
-
-            // get default values
-            let defaultValues = {};
-
-            configKeys.forEach((configKey) => {
-                defaultValues[configKey] = defaultConfig[configKey];
-            });
-
-            if (typeof keys === "string") {
-                defaultValues = defaultValues[keys];
-            }
-
-            if (typeof callback2 === "function") { // callback if defined with the default configuration of the given keys
-                callback2(defaultValues);
-            }
-
-            // get configured values
-            chrome.storage.sync.get(configKeys, (obj) => {
-                let result = {};
-
-                configKeys.forEach((configKey) => { // if result is empty fill atleast with the keys so the next loop over the result array can fill it with the default config
-                    if (typeof obj[configKey] === "undefined") {
-                        obj[configKey] = undefined;
-                    }
-                });
-
-                Object.keys(obj).forEach((key) => {
-                    let val = obj[key];
-
-                    if (key === "pxTolerance" && typeof val === "string" && val.search(/^\d+$/) === 0) { // backward compatibility
-                        val = "{\"windowed\":20,\"maximized\":" + val + "}";
-                    }
-
-                    if (key === "addVisual") { // do not show visual if sidebar opens on mouseover
-                        if (typeof obj["openAction"] !== "undefined" && obj["openAction"] === "mousemove") {
-                            val = "n";
-                        }
-                    }
-
-                    if (typeof val === "undefined") { // fill config keys with default values if undefined
-
-                        if (typeof obj["middleClickActive"] !== "undefined") { // backward compatibility
-                            val = obj["middleClickActive"] === "y" ? "foreground" : "background";
-                        } else {
-                            val = defaultConfig[key];
-                        }
-                    }
-                    result[key] = val;
-                });
-
-
-                if (typeof keys === "string") {
-                    result = result[keys];
-                }
-
-                if (typeof callback === "function") { // callback if defined with the configured values of the given keys
-                    callback(result);
                 }
             });
         };

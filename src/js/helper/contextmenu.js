@@ -97,11 +97,8 @@
                 left: elmBoundClientRect.left + "px"
             });
 
-            ext.helper.model.getConfig("newTab", (newTabStr) => { // user config
-                contextmenu.data("newTabForeground", newTabStr === "foreground");
-            }, (newTabStr) => { // default config
-                contextmenu.data("newTabForeground", newTabStr === "foreground");
-            });
+            let newTabStr = ext.helper.model.getData("b/newTab");
+            contextmenu.data("newTabForeground", newTabStr === "foreground");
 
             let i18nAppend = !!(infos.children) ? "_dir" : "_bookmark";
 
@@ -134,8 +131,8 @@
                     }
                     case "toggleFix": { // toggle fixation of the entries
                         ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
-                        ext.helper.model.setConfig({
-                            entriesLocked: ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) ? "n" : "y"
+                        ext.helper.model.setData({
+                            "u/entriesLocked": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
                         });
                         break;
                     }

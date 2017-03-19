@@ -1,8 +1,7 @@
 (() => {
     "use strict";
 
-    let clickCounter = {};
-    let installationDate = +new Date();
+    let data = {};
     let xhrList = [];
     let xhrUrls = {
         updateUrls: "https://moonware.de/ajax/extensions/updateUrls",
@@ -35,15 +34,12 @@
      */
     let increaseViewAmount = (bookmark) => {
         if (bookmark["id"]) {
-            if (!clickCounter["node_" + bookmark["id"]]) {
-                clickCounter["node_" + bookmark["id"]] = 0;
+            if (typeof data.clickCounter["node_" + bookmark["id"]] === "undefined") {
+                data.clickCounter["node_" + bookmark["id"]] = 0;
             }
 
-            clickCounter["node_" + bookmark["id"]]++;
-
-            chrome.storage.sync.set({
-                clickCounter: JSON.stringify(clickCounter)
-            });
+            data.clickCounter["node_" + bookmark["id"]]++;
+            saveModelData();
         }
     };
 
@@ -64,17 +60,15 @@
                     index: tabs[0].index + 1,
                     openerTabId: tabs[0].id
                 }, (tab) => {
-                    chrome.storage.sync.set({
-                        openedByExtension: tab.id
-                    });
+                    data.openedByExtension = tab.id;
+                    saveModelData();
                 });
             });
         } else { // current tab
             chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                 chrome.tabs.update(tabs[0].id, {url: opts.href}, (tab) => {
-                    chrome.storage.sync.set({
-                        openedByExtension: tab.id
-                    });
+                    data.openedByExtension = tab.id;
+                    saveModelData();
                 });
             });
         }
@@ -110,8 +104,8 @@
      */
     let getViewAmount = (opts, sendResponse) => {
         sendResponse({
-            views: clickCounter["node_" + opts.id] || 0,
-            counterStartDate: installationDate
+            views: data.clickCounter["node_" + opts.id] || 0,
+            counterStartDate: data.installationDate
         });
     };
 
@@ -147,22 +141,20 @@
      * @param {function} sendResponse
      */
     let addViewAmountByUrl = (opts, sendResponse) => {
-        chrome.storage.sync.get("openedByExtension", (val) => {
-            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                if (typeof val.openedByExtension === "undefined") { // page was not opened by extension -> view was not counted yet
-                    bookmarkObj.search({url: opts.url}, (bookmarks) => {
-                        bookmarks.some((bookmark) => {
-                            if (bookmark.url === opts.url) {
-                                increaseViewAmount(bookmark);
-                                return true;
-                            }
-                            return false;
-                        });
-                    });
-                }
-                chrome.storage.sync.remove("openedByExtension");
+        if (typeof data.openedByExtension === "undefined") { // page was not opened by extension -> view was not counted yet
+            bookmarkObj.search({url: opts.url}, (bookmarks) => {
+                bookmarks.some((bookmark) => {
+                    if (bookmark.url === opts.url) {
+                        increaseViewAmount(bookmark);
+                        return true;
+                    }
+                    return false;
+                });
             });
-        });
+        }
+        delete data.openedByExtension;
+
+        saveModelData();
     };
 
     /**
@@ -233,14 +225,27 @@
                 let response = JSON.parse(xhr.responseText);
                 sendResponse(response);
             };
-            let data = new FormData();
-            data.append('url', opts.url);
-            data.append('ua', navigator.userAgent);
-            data.append('lang', chrome.i18n.getUILanguage());
-            xhr.send(data);
+            let formData = new FormData();
+            formData.append('url', opts.url);
+            formData.append('ua', navigator.userAgent);
+            formData.append('lang', chrome.i18n.getUILanguage());
+            xhr.send(formData);
             xhrList.push(xhr);
         }
     };
+
+    /**
+     * Updates the shareUserdata-Flag
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let updateShareUserdataFlag = (opts, sendResponse) => {
+        data.shareUserdata = opts.share;
+        data.lastShareDate = 0;
+        saveModelData();
+    };
+
 
     /**
      * Determines the amount of child elements and the amount of clicks on all the children recursively
@@ -265,8 +270,8 @@
                         childrenAmount.dirs++;
                     } else {
                         childrenAmount.bookmarks++;
-                        if (clickCounter["node_" + v.id]) {
-                            clickAmount += clickCounter["node_" + v.id];
+                        if (data.clickCounter["node_" + v.id]) {
+                            clickAmount += data.clickCounter["node_" + v.id];
                         }
                     }
 
@@ -283,7 +288,7 @@
             sendResponse({
                 childrenAmount: childrenAmount,
                 clickAmount: clickAmount,
-                counterStartDate: installationDate
+                counterStartDate: data.installationDate
             });
         });
     };
@@ -301,6 +306,7 @@
         moveBookmark: moveBookmark,
         updateBookmark: updateBookmark,
         deleteBookmark: deleteBookmark,
+        shareUserdata: updateShareUserdataFlag,
         favicon: getFavicon,
         openLink: openLink,
         viewAmount: getViewAmount
@@ -320,43 +326,150 @@
         });
     });
 
+    chrome.runtime.onInstalled.addListener((details) => {
+        if (details.reason === 'install') {
+            //chrome.tabs.create({url:chrome.extension.getURL('html/howto.html')});
+        } else if (details.reason === 'update') {
+
+            let versionPartsOld = details.previousVersion.split('.');
+            let versionPartsNew = chrome.runtime.getManifest().version.split('.');
+
+            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
+                //chrome.tabs.create({url:chrome.extension.getURL('html/changelog.html')});
+
+                chrome.storage.sync.get(null, (obj) => {  // REMOVE ME
+                    if (obj["appearance"]) { // don't do it twice
+                        return false;
+                    }
+
+                    let newConfig = {
+                        model: {},
+                        utility: {},
+                        behaviour: {},
+                        appearance: {}
+                    };
+
+                    if (typeof obj.openAction === "undefined") {
+                        obj.openAction = "contextmenu";
+                    }
+
+                    Object.keys(obj).forEach((key) => {
+                        let val = obj[key];
+
+                        if (val === "y") {
+                            val = true;
+                        }
+                        if (val === "n") {
+                            val = false;
+                        }
+                        if (/^\{.*\}$/.test(val)) {
+                            val = JSON.parse(val);
+                        }
+
+                        if (key === "middleClickActive" && typeof obj["newTab"] === "undefined") {
+                            key = "newTab";
+                            val = val === true ? "foreground" : "background";
+                        }
+
+                        if (key === "pxTolerance" && ( (typeof val === "string" && val.search(/^\d+$/) === 0) || (typeof val === "number"))) {
+                            val = {
+                                windowed: 20,
+                                maximized: val
+                            };
+                        }
+
+                        switch (key) {
+                            case "openStates":
+                            case "searchValue":
+                            case "scrollPos":
+                            case "entriesLocked": {
+                                newConfig.utility[key] = val;
+                                break;
+                            }
+                            case "openedByExtension":
+                            case "installationDate":
+                            case "clickCounter":
+                            case "shareUserdata":
+                            case "lastShareDate":
+                            case "uuid": {
+                                newConfig.model[key] = val;
+                                break;
+                            }
+                            case "addVisual": {
+                                newConfig.appearance[key] = val;
+                                break;
+                            }
+                            case "utility":
+                            case "behaviour":
+                            case "appearance": {
+                                break;
+                            }
+                            default: {
+                                newConfig.behaviour[key] = val;
+                                break;
+                            }
+                        }
+
+                        if (key !== "utility" && key !== "behaviour" && key !== "appearance") {
+                            chrome.storage.sync.remove([key]);
+                        }
+                    });
+
+                    chrome.storage.sync.set(newConfig);
+                });
+            }
+        }
+    });
+
+    /**
+     * Saves the current data-object in the chrome storage
+     */
+    let saveModelData = () => {
+        chrome.storage.sync.set({
+            model: data
+        });
+    };
+
     /**
      * Initialises the model
      */
     let initModel = () => {
-        chrome.storage.sync.get(["clickCounter", "uuid", "installationDate", "clickCounterStartDate"], (obj) => {
-            if (typeof obj.uuid === "undefined") { // no uuid yet -> set new one
-                chrome.storage.sync.set({
-                    uuid: (() => {
-                        let d = +new Date();
-                        if (window.performance && typeof window.performance.now === "function") {
-                            d += window.performance.now(); //use high-precision timer if available
-                        }
-                        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-                            let r = (d + Math.random() * 16) % 16 | 0;
-                            d = Math.floor(d / 16);
-                            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-                        });
-                    })()
-                });
+        chrome.storage.sync.get(["model"], (obj) => {
+            if (typeof obj.model === "undefined") { // REMOVE ME
+                return false;
             }
 
-            if (typeof obj.clickCounter !== "undefined") {
-                clickCounter = JSON.parse(obj.clickCounter);
+            data = obj.model;
+
+            if (typeof data.uuid === "undefined") { // no uuid yet -> set new one
+                data.uuid = (() => {
+                    let d = +new Date();
+                    if (window.performance && typeof window.performance.now === "function") {
+                        d += window.performance.now(); //use high-precision timer if available
+                    }
+                    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+                        let r = (d + Math.random() * 16) % 16 | 0;
+                        d = Math.floor(d / 16);
+                        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+                    });
+                })();
             }
 
-            if (typeof obj.installationDate === "undefined") { // no date yet -> save a start date in storage
-                if (typeof obj.clickCounterStartDate !== "undefined") { // backward compatibility
-                    installationDate = obj.clickCounterStartDate;
-                } else {
-                    installationDate = +new Date();
-                }
-                chrome.storage.sync.set({
-                    installationDate: installationDate
-                });
-            } else {
-                installationDate = obj.installationDate;
+            if (typeof data.clickCounter === "undefined") {
+                data.clickCounter = {};
             }
+
+            if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
+                data.installationDate = +new Date();
+            } else if (typeof data.shareUserdata === "undefined" && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
+                setTimeout(() => { // show mask in the active tab 60s after the model was loaded (increases the possibility that there is an active tab with the sidebar loaded)
+                    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                        chrome.tabs.sendMessage(tabs[0].id, {action: "showShareUserdataMask"});
+                    });
+                }, 1000 * 60);
+            }
+
+            saveModelData();
         });
     };
 
@@ -366,20 +479,20 @@
      */
     let shareUserdata = () => {
         chrome.storage.sync.get(null, (obj) => {
-            if (typeof obj.uuid !== "undefined" && (typeof obj.lastShareDate === "undefined" || (+new Date() - obj.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
-                chrome.storage.sync.set({
-                    lastShareDate: +new Date()
-                });
+            if (typeof obj.model.uuid !== "undefined" && (typeof obj.model.lastShareDate === "undefined" || (+new Date() - obj.model.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
+                data.lastShareDate = +new Date();
+                saveModelData();
 
                 let sendXhr = (obj) => {
                     let xhr = new XMLHttpRequest();
                     xhr.open("POST", xhrUrls.userdata, true);
-                    let data = new FormData();
-                    data.append('data', JSON.stringify(obj));
-                    xhr.send(data);
+                    let formData = new FormData();
+                    formData.append('data', JSON.stringify(obj));
+                    xhr.send(formData);
                 };
 
                 let manifest = chrome.runtime.getManifest();
+                obj.uuid = obj.model.uuid;
 
                 if (manifest.version_name === "Dev" || !('update_url' in manifest)) {
                     obj.uuid = "Dev";
@@ -390,7 +503,7 @@
                     version: manifest.version
                 };
 
-                if (typeof obj.shareUserdata !== "undefined" && obj.shareUserdata === "y") { // share userdata
+                if (typeof obj.model.shareUserdata !== "undefined" && obj.model.shareUserdata === true) { // share userdata
                     bookmarkObj.getSubTree("0", (response) => {
                         obj.bookmarkAmount = 0;
                         let processBookmarks = (bookmarks) => {
@@ -408,10 +521,9 @@
                             processBookmarks(response[0].children);
                         }
 
-                        delete obj.clickCounter;
-                        delete obj.openStates;
-                        delete obj.scrollPos;
-                        delete obj.lastShareDate;
+                        delete obj.utility;
+                        delete obj.model;
+
                         obj.ua = navigator.userAgent;
                         obj.lang = chrome.i18n.getUILanguage();
                         sendXhr(obj);
@@ -420,7 +532,7 @@
                     sendXhr({
                         uuid: obj.uuid,
                         extension: obj.extension,
-                        shareUserdata: typeof obj.shareUserdata === "undefined" ? "undefined" : obj.shareUserdata
+                        shareUserdata: typeof obj.model.shareUserdata === "undefined" ? "undefined" : obj.model.shareUserdata
                     });
                 }
             }

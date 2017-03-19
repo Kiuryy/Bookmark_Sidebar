@@ -5,6 +5,8 @@
 ($ => {
     "use strict";
 
+    let data = {};
+
     let classes = {
         submitSuccess: "submitSuccess",
         tabBar: "tabBar",
@@ -47,6 +49,17 @@
         }
     };
 
+    /**
+     * Initialises the copyright text
+     */
+    let initCopyright = () => {
+        let createdDate = +elm.copyright.children("span.created").text();
+        let currentYear = new Date().getFullYear();
+
+        if (currentYear > createdDate) {
+            elm.copyright.children("span.created").text(createdDate + " - " + currentYear);
+        }
+    };
 
     /**
      * Initialises the language variables in the document
@@ -57,6 +70,9 @@
             let key = val.search(/^share_userdata/) === 0 ? val : "settings_" + val;
             $(elm).html(chrome.i18n.getMessage(key).replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
         });
+
+        let manifest = chrome.runtime.getManifest();
+        elm.title.text(elm.title.text() + " - " + manifest.short_name);
     };
 
 
@@ -85,15 +101,14 @@
     };
 
     let initShareUserdata = () => {
-        chrome.storage.sync.get("shareUserdata", (obj) => {
-            elm.shareUserdata.share[0].checked = obj.shareUserdata === "y" ? true : false;
-        });
+        elm.shareUserdata.share[0].checked = data.model.shareUserdata ? true : false;
 
         elm.shareUserdata.share.on("change", () => {
-            chrome.storage.sync.remove(["lastShareDate"]);
+            data.model.shareUserdata = elm.shareUserdata.share[0].checked;
+            data.model.lastShareDate = 0;
 
             chrome.storage.sync.set({
-                shareUserdata: elm.shareUserdata.share[0].checked ? "y" : "n",
+                model: data.model
             }, () => {
                 elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_share_userdata"));
                 elm.body.addClass(classes.submitSuccess);
@@ -162,90 +177,70 @@
      * Initialises the configuration tab (fill fields, init events)
      */
     let initConfiguration = () => {
-        chrome.storage.sync.get("addVisual", (obj) => {
-            elm.config.addVisual[0].checked = typeof obj.addVisual === "undefined" ? true : (obj.addVisual === "y");
-        });
+        let pxToleranceObj = {windowed: 10, maximized: 1};
+        let scrollSensitivityObj = {mouse: 1, trackpad: 1};
 
-        chrome.storage.sync.get("rememberScroll", (obj) => {
-            elm.config.rememberScroll[0].checked = typeof obj.rememberScroll === "undefined" ? true : (obj.rememberScroll === "y");
-        });
 
-        chrome.storage.sync.get("rememberSearch", (obj) => {
-            elm.config.rememberSearch[0].checked = typeof obj.rememberSearch === "undefined" ? true : (obj.rememberSearch === "y");
-        });
+        elm.config.addVisual[0].checked = typeof data.appearance.addVisual === "undefined" ? true : data.appearance.addVisual;
+        elm.config.rememberScroll[0].checked = typeof data.behaviour.rememberScroll === "undefined" ? true : data.behaviour.rememberScroll;
+        elm.config.rememberSearch[0].checked = typeof data.behaviour.rememberSearch === "undefined" ? true : data.behaviour.rememberSearch;
+        elm.config.hideEmptyDirs[0].checked = typeof data.behaviour.hideEmptyDirs === "undefined" ? true : data.behaviour.hideEmptyDirs;
+        elm.config.openAction[0].value = typeof data.behaviour.openAction === "undefined" ? "mousedown" : data.behaviour.openAction;
+        elm.config.newTab[0].value = typeof data.behaviour.newTab === "undefined" ? "foreground" : data.behaviour.newTab;
 
-        chrome.storage.sync.get("hideEmptyDirs", (obj) => {
-            elm.config.hideEmptyDirs[0].checked = typeof obj.hideEmptyDirs === "undefined" ? true : (obj.hideEmptyDirs === "y");
-        });
+        elm.config.closeTimeout[0].value = typeof data.behaviour.closeTimeout === "undefined" ? 1 : data.behaviour.closeTimeout;
+        elm.config.closeTimeout.trigger("change");
 
-        chrome.storage.sync.get("openAction", (obj) => {
-            elm.config.openAction[0].value = typeof obj.openAction === "undefined" ? "contextmenu" : obj.openAction;
-        });
 
-        chrome.storage.sync.get(["newTab", "middleClickActive"], (obj) => {
-            if (typeof obj.newTab === "undefined" && typeof obj.middleClickActive !== "undefined") { // backward compatibility
-                obj.newTab = obj.middleClickActive === "y" ? "foreground" : "background";
-            }
+        if (typeof data.behaviour.pxTolerance !== "undefined") {
+            pxToleranceObj = data.behaviour.pxTolerance;
+        }
 
-            elm.config.newTab[0].value = typeof obj.newTab === "undefined" ? "foreground" : obj.newTab;
-        });
+        elm.config.pxToleranceMaximized[0].value = pxToleranceObj.maximized;
+        elm.config.pxToleranceWindowed[0].value = pxToleranceObj.windowed;
 
-        chrome.storage.sync.get("closeTimeout", (obj) => {
-            elm.config.closeTimeout[0].value = typeof obj.closeTimeout === "undefined" ? 1 : obj.closeTimeout;
-            elm.config.closeTimeout.trigger("change");
-        });
+        elm.config.pxToleranceMaximized.trigger("change");
+        elm.config.pxToleranceWindowed.trigger("change");
 
-        chrome.storage.sync.get("pxTolerance", (obj) => {
-            let pxToleranceObj = {windowed: 10, maximized: 1};
 
-            if (typeof obj.pxTolerance !== "undefined") {
-                pxToleranceObj = JSON.parse(obj.pxTolerance);
-            }
 
-            elm.config.pxToleranceMaximized[0].value = pxToleranceObj.maximized;
-            elm.config.pxToleranceWindowed[0].value = pxToleranceObj.windowed;
 
-            elm.config.pxToleranceMaximized.trigger("change");
-            elm.config.pxToleranceWindowed.trigger("change");
-        });
+        if (typeof data.behaviour.scrollSensitivity !== "undefined") {
+            scrollSensitivityObj = data.behaviour.scrollSensitivity;
+        }
 
-        chrome.storage.sync.get("scrollSensitivity", (obj) => {
-            let scrollSensitivityObj = {mouse: 1, trackpad: 1};
+        elm.config.mouseScrollSensitivity[0].value = scrollSensitivityObj.mouse;
+        elm.config.trackpadScrollSensitivity[0].value = scrollSensitivityObj.trackpad;
 
-            if (typeof obj.scrollSensitivity !== "undefined") {
-                scrollSensitivityObj = JSON.parse(obj.scrollSensitivity);
-            }
-
-            elm.config.mouseScrollSensitivity[0].value = scrollSensitivityObj.mouse;
-            elm.config.trackpadScrollSensitivity[0].value = scrollSensitivityObj.trackpad;
-
-            elm.config.mouseScrollSensitivity.trigger("change");
-            elm.config.trackpadScrollSensitivity.trigger("change");
-        });
 
 
         elm.config.rangeInputs.on("input change", (e) => {
             $(e.currentTarget).next("span").text(e.currentTarget.value);
         });
+        elm.config.rangeInputs.trigger("change");
 
 
         elm.config.save.on("click", () => { // save settings
             chrome.storage.sync.set({
-                addVisual: elm.config.addVisual[0].checked ? "y" : "n",
-                rememberScroll: elm.config.rememberScroll[0].checked ? "y" : "n",
-                rememberSearch: elm.config.rememberSearch[0].checked ? "y" : "n",
-                hideEmptyDirs: elm.config.hideEmptyDirs[0].checked ? "y" : "n",
-                closeTimeout: elm.config.closeTimeout[0].value,
-                openAction: elm.config.openAction[0].value,
-                newTab: elm.config.newTab[0].value,
-                pxTolerance: JSON.stringify({
-                    windowed: elm.config.pxToleranceWindowed[0].value,
-                    maximized: elm.config.pxToleranceMaximized[0].value
-                }),
-                scrollSensitivity: JSON.stringify({
-                    mouse: elm.config.mouseScrollSensitivity[0].value,
-                    trackpad: elm.config.trackpadScrollSensitivity[0].value
-                })
+                appearance: {
+                    addVisual: elm.config.addVisual[0].checked
+                },
+                behaviour: {
+                    rememberScroll: elm.config.rememberScroll[0].checked,
+                    rememberSearch: elm.config.rememberSearch[0].checked,
+                    hideEmptyDirs: elm.config.hideEmptyDirs[0].checked,
+                    closeTimeout: elm.config.closeTimeout[0].value,
+                    openAction: elm.config.openAction[0].value,
+                    newTab: elm.config.newTab[0].value,
+                    pxTolerance: {
+                        windowed: elm.config.pxToleranceWindowed[0].value,
+                        maximized: elm.config.pxToleranceMaximized[0].value
+                    },
+                    scrollSensitivity: {
+                        mouse: elm.config.mouseScrollSensitivity[0].value,
+                        trackpad: elm.config.trackpadScrollSensitivity[0].value
+                    }
+                }
             }, () => {
                 elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_config"));
                 elm.body.addClass(classes.submitSuccess);
@@ -253,13 +248,11 @@
                     elm.body.removeClass(classes.submitSuccess);
                 }, 1500);
             });
-
-            chrome.storage.sync.remove(["middleClickActive"]); // remove old settings
         });
 
 
         elm.config.restoreDefaults.on("click", () => { // restore default settings
-            chrome.storage.sync.remove(["addVisual", "rememberScroll", "hideEmptyDirs", "closeTimeout", "openAction", "newTab", "pxTolerance", "scrollSensitivity"], () => {
+            chrome.storage.sync.remove(["behaviour", "appearance"], () => {
                 elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_restore"));
                 elm.body.addClass(classes.submitSuccess);
                 setTimeout(() => {
@@ -276,21 +269,17 @@
      *
      */
     (() => {
-        let manifest = chrome.runtime.getManifest();
-        elm.title.text(manifest.short_name + " - " + $("head > title").text());
-
-        let createdDate = +elm.copyright.children("span.created").text();
-        let currentYear = new Date().getFullYear();
-
-        if (currentYear > createdDate) {
-            elm.copyright.children("span.created").text(createdDate + " - " + currentYear);
-        }
-
         initLanguage();
+        initCopyright();
         initTabs();
-        initConfiguration();
-        initFeedback();
-        initShareUserdata();
+
+        chrome.storage.sync.get(null, (obj) => {
+            data = obj;
+
+            initConfiguration();
+            initFeedback();
+            initShareUserdata();
+        });
     })();
 
 })(jsu);

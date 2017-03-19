@@ -8,26 +8,6 @@ div.modal[data-type='infos'] > ul > li > ul {
   pointer-events: none;
 }
 
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
 @keyframes container-rotate {
   to {
     transform: rotate(360deg);
@@ -141,16 +121,6 @@ div.modal[data-type='infos'] > ul > li > ul {
   pointer-events: none;
 }
 
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
 div.scrollBox {
   position: relative;
   overflow: hidden;
@@ -204,16 +174,6 @@ div.scrollBox.scrollDrag > div.scrollbar > div {
 }
 div.scrollBox.scrollTrackpad > div.scrollbar > div {
   transition: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul {
-  opacity: 0;
-  pointer-events: none;
 }
 
 div.modal[data-type='infos'] > ul > li > ul {

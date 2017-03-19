@@ -134,6 +134,19 @@
   "overlay_check_urls_not_found": {
     "message": "URL not found"
   },
+  // [HOWTO]
+  "howto_title": {
+    "message": "Howto"
+  },
+  "howto_thanks_headline": {
+    "message": "Thank you for installing this extension."
+  },
+  "howto_start_tutorial": {
+    "message": "Show me how it works"
+  },
+  "howto_close": {
+    "message": "Close this page"
+  },
   // [ SETTINGS ]
   "settings_title": {
     "message": "Settings"

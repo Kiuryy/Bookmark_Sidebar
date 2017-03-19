@@ -199,30 +199,6 @@
         };
 
         /**
-         * Adds the stylesheets to the document
-         *
-         * @param {jsu} doc
-         * @param {Array} hrefList
-         */
-        this.addStylesheets = (doc, hrefList) => {
-            let head = doc.find("head");
-            hrefList.unshift(this.opts.fontHref);
-
-            hrefList.forEach((href) => {
-                if (href.search(/\:\/\//) === -1) {
-                    href = chrome.extension.getURL("css/" + href + ".css");
-                }
-
-                $("<link />").attr({
-                    rel: "stylesheet",
-                    type: "text/css",
-                    href: href
-                }).appendTo(head);
-            });
-        };
-
-
-        /**
          * Updates the sidebar with the newest set of bookmarks
          */
         this.updateBookmarkBox = () => {

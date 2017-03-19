@@ -4,17 +4,20 @@
 @import "include/scrollBox";
 @import "include/checkbox";
 
-* {
+*, *::after, *::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body {
+body, input, textarea, select, button {
   font-size: $baseFontSize;
   font-family: $baseFontFamily;
-  font-weight: $baseFontWeight;
   color: $textColor;
+  font-weight: $baseFontWeight;
+}
+
+body {
   height: 100%;
   overflow: hidden;
 
@@ -63,7 +66,7 @@ div.modal {
     font-weight: 200;
     height: 60px;
     padding: 15px 75px 14px 55px;
-    background: $mainColor img('bookmark.png') no-repeat 20px center;
+    background: $colorScheme img('bookmark.png') no-repeat 20px center;
     background-size: 24px;
   }
 
@@ -145,7 +148,7 @@ div.modal {
         top: 0;
         left: 0;
         height: 100%;
-        background: $mainColor;
+        background: $colorScheme;
         transition: width 0.5s;
       }
     }
@@ -169,7 +172,7 @@ div.modal {
     }
 
     > div#urlList {
-      height: calc(100% - 74px - 57px);
+      height: calc(100% - 60px - 57px);
       transition: box-shadow 0.3s;
 
       &::before {
@@ -214,7 +217,7 @@ div.modal {
           padding: 0 16px 7px 16px;
 
           &:hover {
-            background: #f7f7f7;
+            background: $linkHoverBackgroundColor;
           }
 
           > div.checkbox {
@@ -259,7 +262,7 @@ div.modal {
             background-position: 0 center;
 
             &:hover {
-              color: $mainColor;
+              color: $colorScheme;
             }
 
             &:last-of-type {
@@ -401,7 +404,7 @@ div.modal {
           }
 
           &:focus {
-            border-color: rgba($mainColor, 0.5);
+            border-color: rgba(0, 0, 0, 0.25);
           }
         }
       }
@@ -415,18 +418,32 @@ div.modal {
     z-index: 3;
 
     > a {
+      position: relative;
       display: inline-block;
-      padding: 5px 10px;
+      padding: 5px 10px 4px;
       margin: 0 5px;
-      color: $mainColor;
+      color: $colorScheme;
       font-weight: 400;
       text-transform: uppercase;
       border-radius: 3px;
-      transition: background 0.5s;
       cursor: pointer;
 
-      &:hover {
-        background: rgba($mainColor, 0.15);
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        background: $colorScheme;
+        transition: opacity 0.5s;
+        @extend %hidden;
+      }
+
+      &:hover::before {
+        opacity: 0.15;
       }
     }
   }

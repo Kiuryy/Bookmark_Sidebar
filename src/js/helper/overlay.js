@@ -16,8 +16,7 @@
             let isDir = !!(infos.children);
 
             elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
-            elements.overlay.find('head').append("<link rel='stylesheet' type='text/css' href='" + ext.opts.fontHref + "' />");
-            elements.overlay.find('head').append("<link rel='stylesheet' type='text/css' href='" + chrome.extension.getURL("css/overlay.css") + "' />");
+            ext.helper.stylesheet.addStylesheets(elements.overlay, ["overlay"]);
 
             elements.modal = $("<div />")
                 .attr("data-type", type)

@@ -1,0 +1,35 @@
+body > iframe#moonware-bs-sidebar, body > iframe#moonware-bs-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body > div#moonware-bs-visual {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 2147483645;
+}
+
+body > iframe#moonware-bs-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body > iframe#moonware-bs-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media print {
+  [id^='moonware-bs-'] {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=contentBase.css.map */

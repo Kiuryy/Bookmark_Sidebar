@@ -1,14 +1,15 @@
 $baseFontSize: 14px;
 $baseFontFamily: Roboto, sans-serif;
 $baseFontWeight: 300;
-$mainColor: #00897b;
 $textColor: #666;
 $textColorLight: #aaa;
 $errorColor: #faa;
 $textColorInverted: #fff;
 $backgroundColor: #fff;
 $linkHoverBackgroundColor: #f5f5f5;
-$sidebarWidth: 350px;
+
+$colorScheme: "%colorScheme";
+$sidebarWidth: "%sidebarWidth";
 
 $settingsMainColor: #5048b8;
 $settingsHeaderBackground: #eee;

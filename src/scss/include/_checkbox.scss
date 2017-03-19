@@ -23,13 +23,14 @@ div.checkbox {
     height: 2px;
     border-radius: 50%;
     pointer-events: none;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
     transition: background 0.2s, box-shadow 0.2s, opacity 0.5s;
+    opacity: 0.2;
   }
 
   &.focus::before, &.clicked::before {
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 0 22px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 22px rgba(0, 0, 0, 0.5);
   }
 
   &.clicked::before {
@@ -37,17 +38,17 @@ div.checkbox {
   }
 
   &.active {
-    background-color: $mainColor;
+    background-color: $colorScheme;
     background-image: img('icon-check.png');
-    border-color: $mainColor;
+    border-color: $colorScheme;
 
     &::before {
-      box-shadow: 0 0 0 0 rgba($mainColor, 0.2);
+      box-shadow: 0 0 0 0 $colorScheme;
     }
 
     &.focus::before, &.clicked::before {
-      background: rgba($mainColor, 0.2);
-      box-shadow: 0 0 0 22px rgba($mainColor, 0.2);
+      background: $colorScheme;
+      box-shadow: 0 0 0 22px $colorScheme;
     }
   }
 

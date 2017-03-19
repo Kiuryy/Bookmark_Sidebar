@@ -1,4 +1,4 @@
-body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after, body > iframe#moonware-bs-sidebar, body > iframe#moonware-bs-overlay {
+body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after {
   opacity: 0;
   pointer-events: none;
 }
@@ -8,16 +8,6 @@ body > iframe#moonware-bs-sidebar.moonware-bs-visible, body > iframe#moonware-bs
   pointer-events: auto;
 }
 
-body > div#moonware-bs-visual {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  z-index: 2147483645;
-}
 body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after {
   content: "";
   position: absolute;
@@ -55,39 +45,27 @@ body > div#moonware-bs-visual.moonware-bs-add-visual.moonware-bs-has-lsb::after 
 }
 
 body > iframe#moonware-bs-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 350px;
+  width: "%sidebarWidth";
   height: 100%;
   z-index: 2147483646;
   background-color: rgba(255, 255, 255, 0.8);
   border: none;
-  transform: translate3d(-350px, 0, 0);
+  transform: translate3d(-"%sidebarWidth", 0, 0);
   transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
 }
 body > iframe#moonware-bs-sidebar.moonware-bs-visible {
-  width: calc(100% + 350px);
+  width: calc(100% + %sidebarWidth);
   transform: translate3d(0, 0, 0);
   transition: opacity 0.3s, transform 0.3s;
 }
 
 body > iframe#moonware-bs-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: 2147483647;
   border: none;
   background: rgba(0, 0, 0, 0.5);
   transition: opacity 0.3s;
-}
-
-@media print {
-  [id^='moonware-bs-'] {
-    display: none;
-  }
 }
 
 /*# sourceMappingURL=content.css.map */

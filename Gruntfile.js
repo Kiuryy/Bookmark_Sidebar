@@ -18,7 +18,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: path.src + 'scss',
-                    src: ['*.scss'],
+                    src: ['**/*.scss'],
                     dest: path.src + 'css/',
                     ext: '.css'
                 }]
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: path.src + 'scss',
-                    src: ['*.scss'],
+                    src: ['**/*.scss'],
                     dest: path.dist + 'css/',
                     ext: '.css'
                 }]
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                     presets: ['babel-preset-es2015']
                 },
                 files: {
-                    ['tmp/extension-es5.js']: 'tmp/extension-merged.js',
+                    ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',
                     ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
                     ['tmp/settings-es5.js']: path.src + 'js/settings.js',
                     ['tmp/model-es5.js']: path.src + 'js/model.js'
@@ -62,6 +62,7 @@ module.exports = function (grunt) {
                 options: {
                     banner: '/*! (c) <%= pkg.author %> under <%= pkg.license %> */\n',
                     mangle: {
+                        toplevel: true,
                         except: ['jsu']
                     }
                 },
@@ -88,7 +89,18 @@ module.exports = function (grunt) {
             }
         },
         'string-replace': {
-            dist: {
+            distJs: {
+                options: {
+                    replacements: [{
+                        pattern: /\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, //    \}\)\(jsu\);\n*\(\$\s*\=\>\s*\{
+                        replacement: ''
+                    }]
+                },
+                files: {
+                    ['tmp/extension-merged2.js']: 'tmp/extension-merged.js',
+                }
+            },
+            distManifest: {
                 options: {
                     replacements: [{
                         pattern: /("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig,
@@ -163,10 +175,11 @@ module.exports = function (grunt) {
     grunt.registerTask('release', [
         'clean:distPre',
         'concat:dist',
+        'string-replace:distJs',
         'babel:dist',
         'uglify:dist',
         'htmlmin:dist',
-        'string-replace:dist',
+        'string-replace:distManifest',
         'minjson:dist',
         'sass:dist',
         'copy:dist',

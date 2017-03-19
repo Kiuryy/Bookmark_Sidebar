@@ -20,7 +20,11 @@
                 closeTimeout: 1
             },
             a: { // appearance
-                addVisual: true
+                addVisual: true,
+                styles: {
+                    colorScheme: "#00897b",
+                    sidebarWidth: "350px"
+                }
             }
         };
 

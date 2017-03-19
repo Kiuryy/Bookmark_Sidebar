@@ -1,0 +1,37 @@
+@import "include/vars";
+@import "include/mixins";
+
+// Visual
+body > div#moonware-bs-visual {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: #{2147483647 - 2};
+}
+
+// Sidebar
+body > iframe#moonware-bs-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @extend %hidden;
+}
+
+// Overlay
+body > iframe#moonware-bs-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @extend %hidden;
+}
+
+// Print
+@media print {
+  [id^='moonware-bs-'] {
+    display: none;
+  }
+}

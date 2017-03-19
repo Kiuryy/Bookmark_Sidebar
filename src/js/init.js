@@ -1,4 +1,4 @@
-(() => {
+($ => {
     "use strict";
 
     let opts = {
@@ -99,4 +99,4 @@
 
 
     new window.ext(opts).run();
-})();
+})(jsu);

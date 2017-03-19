@@ -19,7 +19,9 @@
             initHelpers();
 
             this.helper.model.init(() => {
-                initSidebarHtml();
+                this.helper.stylesheet.init();
+
+                initSidebar();
 
                 this.helper.sidebarEvents.init();
                 this.helper.dragndrop.init();
@@ -40,6 +42,7 @@
                 scroll: new window.ScrollHelper(this),
                 sidebarEvents: new window.SidebarEventsHelper(this),
                 search: new window.SearchHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
                 dragndrop: new window.DragDropHelper(this),
                 checkbox: new window.CheckboxHelper(this),
                 overlay: new window.OverlayHelper(this),
@@ -195,6 +198,29 @@
             });
         };
 
+        /**
+         * Adds the stylesheets to the document
+         *
+         * @param {jsu} doc
+         * @param {Array} hrefList
+         */
+        this.addStylesheets = (doc, hrefList) => {
+            let head = doc.find("head");
+            hrefList.unshift(this.opts.fontHref);
+
+            hrefList.forEach((href) => {
+                if (href.search(/\:\/\//) === -1) {
+                    href = chrome.extension.getURL("css/" + href + ".css");
+                }
+
+                $("<link />").attr({
+                    rel: "stylesheet",
+                    type: "text/css",
+                    href: href
+                }).appendTo(head);
+            });
+        };
+
 
         /**
          * Updates the sidebar with the newest set of bookmarks
@@ -246,7 +272,9 @@
         /**
          * Creates the basic html markup for the sidebar and the visual
          */
-        let initSidebarHtml = () => {
+        let initSidebar = () => {
+            this.helper.stylesheet.addStylesheets($("html"), ["content"]);
+
             this.elements.iframe = $('<iframe id="' + this.opts.ids.page.iframe + '" />').appendTo("body");
             this.elements.iframeBody = this.elements.iframe.find("body");
             this.elements.sidebar = $('<section id="' + this.opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
@@ -259,8 +287,7 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             updateSidebarHeader([]);
 
-            addStylesheet(this.opts.fontHref);
-            addStylesheet(chrome.extension.getURL("css/sidebar.css"));
+            this.helper.stylesheet.addStylesheets(this.elements.iframe, ["sidebar"]);
 
             let entriesLocked = this.helper.model.getData("u/entriesLocked");
             if (entriesLocked === false) {
@@ -271,20 +298,6 @@
             this.updateBookmarkBox();
             this.helper.toggle.init();
         };
-
-        /**
-         * Adds a stylesheet to the sidear iframe
-         *
-         * @param string href
-         */
-        let addStylesheet = (href) => {
-            $("<link />").attr({
-                rel: "stylesheet",
-                type: "text/css",
-                href: href
-            }).appendTo(this.elements.iframe.find("head"));
-        };
-
 
         /**
          * Updates the html for the sidebar header

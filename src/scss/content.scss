@@ -3,14 +3,6 @@
 
 // Visual
 body > div#moonware-bs-visual {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  z-index: #{2147483647 - 2};
 
   &.moonware-bs-add-visual { // icon on black background should be visible on hover
 
@@ -67,9 +59,6 @@ body > div#moonware-bs-visual.moonware-bs-add-visual.moonware-bs-has-lsb {
 
 // Sidebar
 body > iframe#moonware-bs-sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: $sidebarWidth;
   height: 100%;
   z-index: #{2147483647 - 1};
@@ -77,7 +66,6 @@ body > iframe#moonware-bs-sidebar {
   border: none;
   transform: translate3d(-$sidebarWidth, 0, 0);
   transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
-  @extend %hidden;
 
   &.moonware-bs-visible {
     @extend %visible;
@@ -89,25 +77,14 @@ body > iframe#moonware-bs-sidebar {
 
 // Overlay
 body > iframe#moonware-bs-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: 2147483647;
   border: none;
   background: rgba(0, 0, 0, 0.5);
   transition: opacity 0.3s;
-  @extend %hidden;
 
   &.moonware-bs-visible {
     @extend %visible;
-  }
-}
-
-// Print
-@media print {
-  [id^='moonware-bs-'] {
-    display: none;
   }
 }

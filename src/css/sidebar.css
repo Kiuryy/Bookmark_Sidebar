@@ -78,7 +78,7 @@ div.loading > div {
   left: 0;
   width: 100%;
   height: 100%;
-  border-color: #00897b;
+  border-color: "%colorScheme";
   animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
 }
 div.loading > div > div.circle-clipper {
@@ -92,7 +92,7 @@ div.loading > div > div.circle-clipper {
 div.loading > div > div.circle-clipper > div {
   width: 200%;
   height: 100%;
-  border: 3px solid #00897b;
+  border: 3px solid "%colorScheme";
   border-bottom-color: transparent;
   border-radius: 50%;
   position: absolute;
@@ -327,11 +327,11 @@ body::after {
   justify-content: center;
   font-size: 500%;
   font-weight: 200;
-  color: #00897b;
+  color: "%colorScheme";
   top: 0;
-  left: 350px;
+  left: "%sidebarWidth";
   height: 100%;
-  width: calc(100% - 700px);
+  width: calc(100% - %sidebarWidth - %sidebarWidth);
   background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(200, 200, 200, 0.3) 5px, rgba(200, 200, 200, 0.3) 10px);
   transition: 0.5s;
 }
@@ -354,7 +354,7 @@ ul {
 
 section#sidebar {
   position: relative;
-  width: 350px;
+  width: "%sidebarWidth";
   background: #fff;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
 }
@@ -378,7 +378,7 @@ section#sidebar > header > span > span {
   margin: -5px 5px 0 0;
   font-weight: 300;
   font-size: 150%;
-  color: #00897b;
+  color: "%colorScheme";
 }
 section#sidebar > header > a {
   vertical-align: top;
@@ -523,7 +523,7 @@ section#sidebar > div.scrollBox > ul a > span.drag {
 }
 section#sidebar > div.scrollBox > ul a > span.drag:hover {
   background-position: -35px center;
-  background-color: #00897b;
+  background-color: "%colorScheme";
 }
 section#sidebar > div.scrollBox > ul a + ul {
   padding-left: 25px;
@@ -601,12 +601,12 @@ a.dragHelper > span.drag {
 }
 a.dragHelper > span.drag:hover {
   background-position: -35px center;
-  background-color: #00897b;
+  background-color: "%colorScheme";
 }
 a.dragHelper > span.drag {
   display: block;
   background-position: -35px center;
-  background-color: #00897b;
+  background-color: "%colorScheme";
 }
 a.dragHelper.snap {
   transition: 0.2s;
@@ -621,7 +621,7 @@ div#shareUserdata {
   width: 100%;
   height: 100%;
   z-index: 4;
-  background: #00897b;
+  background: "%colorScheme";
   display: flex;
   align-items: center;
   justify-content: center;

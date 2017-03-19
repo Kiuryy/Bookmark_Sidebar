@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "css": [
-        "css/content.css"
+        "css/contentBase.css"
       ],
       "js": [
         "js/lib/jsu.js",
@@ -25,6 +25,7 @@
         "js/helper/scroll.js",
         "js/helper/sidebarEvents.js",
         "js/helper/search.js",
+        "js/helper/stylesheet.js",
         "js/helper/dragndrop.js",
         "js/helper/checkbox.js",
         "js/helper/overlay.js",
@@ -45,6 +46,7 @@
   "web_accessible_resources": [
     "css/sidebar.css",
     "css/overlay.css",
+    "css/content.css",
     "img/*"
   ],
   "options_ui": {

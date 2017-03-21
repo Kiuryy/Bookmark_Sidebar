@@ -330,7 +330,7 @@
         if (details.reason === 'install') {
             chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
         } else if (details.reason === 'update') {
-            chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
+            //chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
 
             let versionPartsOld = details.previousVersion.split('.');
             let versionPartsNew = chrome.runtime.getManifest().version.split('.');

@@ -249,7 +249,7 @@
          * Creates the basic html markup for the sidebar and the visual
          */
         let initSidebar = () => {
-            this.helper.stylesheet.addStylesheets($("html"), ["content"]);
+            this.helper.stylesheet.addStylesheets(["content"]);
 
             this.elements.iframe = $('<iframe id="' + this.opts.ids.page.iframe + '" />').appendTo("body");
             this.elements.iframeBody = this.elements.iframe.find("body");
@@ -263,7 +263,7 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             updateSidebarHeader([]);
 
-            this.helper.stylesheet.addStylesheets(this.elements.iframe, ["sidebar"]);
+            this.helper.stylesheet.addStylesheets(["sidebar"],this.elements.iframe);
 
             let entriesLocked = this.helper.model.getData("u/entriesLocked");
             if (entriesLocked === false) {

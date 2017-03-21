@@ -16,7 +16,7 @@
             let isDir = !!(infos.children);
 
             elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
-            ext.helper.stylesheet.addStylesheets(elements.overlay, ["overlay"]);
+            ext.helper.stylesheet.addStylesheets(["overlay"],elements.overlay);
 
             elements.modal = $("<div />")
                 .attr("data-type", type)

@@ -15,18 +15,22 @@
         /**
          * Adds the stylesheets to the document
          *
-         * @param {jsu} doc
          * @param {Array} files
+         * @param {jsu} doc
          */
-        this.addStylesheets = (doc, files) => {
-            let head = doc.find("head");
+        this.addStylesheets = (files, doc = null) => {
+            let head = null;
 
-            $("<link />").attr({
-                rel: "stylesheet",
-                type: "text/css",
-                href: ext.opts.fontHref
-            }).appendTo(head);
-
+            if (doc === null) {
+                head = $("html > head");
+            } else {
+                head = doc.find("head");
+                $("<link />").attr({
+                    rel: "stylesheet",
+                    type: "text/css",
+                    href: ext.opts.fontHref
+                }).appendTo(head);
+            }
 
             files.forEach((file) => {
                 let xhr = new XMLHttpRequest();

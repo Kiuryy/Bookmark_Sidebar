@@ -263,7 +263,7 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             updateSidebarHeader([]);
 
-            this.helper.stylesheet.addStylesheets(["sidebar"],this.elements.iframe);
+            this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
             let entriesLocked = this.helper.model.getData("u/entriesLocked");
             if (entriesLocked === false) {

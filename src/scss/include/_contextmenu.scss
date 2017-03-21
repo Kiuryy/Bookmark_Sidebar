@@ -4,7 +4,7 @@
 div.contextmenu {
   position: absolute;
   top: 0;
-  background: $backgroundColor;
+  background: $contentBackground;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
   transform: translate3d(0, -20px, 0);
@@ -120,7 +120,7 @@ div.contextmenu {
         }
 
         &:hover {
-          background-color: $linkHoverBackgroundColor;
+          background-color: $hoverBackground;
         }
       }
     }

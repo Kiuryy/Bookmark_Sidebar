@@ -1,0 +1,87 @@
+@import "vars";
+@import "mixins";
+
+section.infobox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate3d(0, -40px, 0);
+  transition: opacity 0.5s, transform 0.5s;
+  @extend %hidden;
+
+  &.visible {
+    @extend %visible;
+    transform: translate3d(0, 0, 0);
+  }
+
+  > div {
+    position: relative;
+    max-width: 650px;
+    padding: 40px 30px;
+    background: img('icon/icon.png'), $gradient;
+    background-size: 96px, 100%;
+    background-position: center 120px, 0 0;
+    background-repeat: no-repeat;
+    color: $textColorInverted;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 650px) {
+      width: 100%;
+      background-position: center 110px, 0 0;
+    }
+
+    @media (max-width: 520px) {
+      background-position: center 140px, 0 0;
+    }
+
+    @media (max-width: 400px) {
+      background-position: center 130px, 0 0;
+    }
+
+    > h1 {
+      font-size: 250%;
+      font-weight: 200;
+      margin: 0 0 175px 0;
+
+      @media (max-width: 650px) {
+        font-size: 200%;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 170%;
+      }
+
+    }
+
+    > a.cta {
+      display: block;
+      margin: 0 auto 30px;
+      width: 250px;
+      background: $contentBackground;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      color: $mainColor;
+      font-size: 140%;
+      font-weight: 300;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+
+      @media (max-width: 650px) {
+        font-size: 120%;
+        width: 220px;
+      }
+    }
+
+    > a.close {
+      text-decoration: none;
+      color: $textColorInverted;
+      opacity: 0.5;
+    }
+  }
+}

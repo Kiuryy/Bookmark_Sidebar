@@ -144,8 +144,26 @@
   "howto_start_tutorial": {
     "message": "Show me how it works"
   },
+  "howto_replay_tutorial": {
+    "message": "Replay this animation"
+  },
   "howto_close": {
     "message": "Close this page"
+  },
+  "howto_tutorial_text_1": {
+    "message": "On any website, just move your cursor to the left side of your window"
+  },
+  "howto_tutorial_text_2": {
+    "message": "{1} click with your mouse to open the sidebar"
+  },
+  "howto_tutorial_text_3": {
+    "message": "Now you can access all your bookmarks and enjoy this extension :)"
+  },
+  "howto_tutorial_left_click": {
+    "message": "Left"
+  },
+  "howto_tutorial_right_click": {
+    "message": "Right"
   },
   // [ SETTINGS ]
   "settings_title": {

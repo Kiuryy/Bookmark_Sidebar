@@ -1,8 +1,9 @@
 @import "include/vars";
 @import "include/mixins";
+@import "include/infobox";
 
-$bodyBackground: #f2f2f2;
-
+$tutorialBackground: #e9e9e9;
+$placeholderBackground: #f1f2f4;
 
 *, *::after, *::before {
   padding: 0;
@@ -18,7 +19,13 @@ body, input, textarea, select, button {
 }
 
 body {
-background: $bodyBackground;
+  background: $bodyBackground;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 ul {
@@ -27,4 +34,221 @@ ul {
 
 strong {
   font-weight: 400;
+}
+
+
+// Tutorial
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+section#tutorial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @extend %hidden;
+  transition: opacity 0.5s;
+  background: $tutorialBackground;
+
+  &.visible {
+    @extend %visible;
+  }
+
+  > *:not(#background) {
+    @extend %hidden;
+    transition: opacity 0.5s;
+
+    &.visible {
+      @extend %visible;
+    }
+  }
+
+  > p.text {
+    position: absolute;
+    top: 20px;
+    left: calc(50% - 300px);
+    font-size: 150%;
+    font-weight: 300;
+    padding: 25px 30px;
+    width: 600px;
+    background: $gradient;
+    color: $textColorInverted;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    z-index: 5;
+
+    @media (max-width: 650px) {
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  > div#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: $contentBackground;
+    padding: 30px 30px 0 80px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    transform: translate3d(-350px, 0, 0);
+    transition: transform 0.5s;
+    z-index: 3;
+
+    &.visible {
+      transform: translate3d(0, 0, 0);
+    }
+
+    > p {
+      position: relative;
+      width: 100%;
+      height: 12px;
+      background: $placeholderBackground;
+      margin: 50px 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -50px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: $placeholderBackground;
+      }
+    }
+  }
+
+  > div#cursor {
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 12px);
+    display: block;
+    width: 24px;
+    height: 36px;
+    background: img('howto/cursor.png') no-repeat center;
+    background-size: 24px;
+    transition: opacity 0.5s, left 2s, top 2s;
+    z-index: 4;
+
+    &::after, &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -55px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: opacity 0.5s;
+      visibility: hidden;
+      @extend %hidden;
+    }
+
+    &::after {
+      background-image: img('howto/mouse.png'), $gradient;
+      background-size: 20px, 100%;
+      background-position: center, 0 0;
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      background: img('howto/mouse-active.png') no-repeat center / 20px;
+      animation: blink 1s infinite;
+      z-index: 2;
+    }
+
+    &.reversed::before {
+      transform: scaleX(-1);
+    }
+
+    &[data-step='1'], &[data-step='2'] {
+      top: 30%;
+      left: 0;
+    }
+
+    &[data-step='3'] {
+      top: calc(30% - 20px);
+      left: 40px;
+    }
+
+    &[data-step='2'] {
+
+      &::after, &::before {
+        visibility: visible;
+        @extend %visible;
+      }
+    }
+  }
+
+  > div#mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+
+    > div {
+      text-align: center;
+      padding: 0 20px;
+
+      > a {
+        display: inline-block;
+        background: $contentBackground;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        color: $mainColor;
+        font-size: 140%;
+        font-weight: 300;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        margin: 0 10px;
+
+        @media (max-width: 500px) {
+          display: block;
+          margin: 25px 0;
+        }
+      }
+    }
+  }
+
+  > div#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0 0 0;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: $contentBackground;
+    }
+
+    > p {
+      background: $contentBackground img('howto/placeholder.jpg') no-repeat 30px 30px / calc(100% - 60px);
+      max-width: 750px;
+      height: 350px;
+      margin: 30px auto;
+    }
+  }
 }

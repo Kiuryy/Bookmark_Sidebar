@@ -135,7 +135,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: path.src,
-                        src: ['img/**', '!**/*.xcf', '!img/icon/dev/**', '!img/icon/icon.png', '!img/demo/**'],
+                        src: ['img/**', '!**/*.xcf', '!img/icon/dev/**', '!img/demo/**'],
                         dest: path.dist
                     },
                     {expand: true, cwd: "tmp/", src: ['js/**'], dest: path.dist},

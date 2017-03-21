@@ -72,7 +72,7 @@ ul {
   transition: background 0.3s;
 
   &:hover {
-    background: $linkHoverBackgroundColor;
+    background: $hoverBackground;
   }
 
   &.dir, &.active {
@@ -113,14 +113,14 @@ ul {
 section#sidebar {
   position: relative;
   width: $sidebarWidth;
-  background: $backgroundColor;
+  background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
 
   > header {
     position: relative;
     height: 60px;
     padding: 18px 16px 0 16px;
-    background: $backgroundColor;
+    background: $contentBackground;
     transition: box-shadow 0.2s;
     z-index: 3;
 
@@ -155,7 +155,7 @@ section#sidebar {
       cursor: pointer;
 
       &:hover, &.active {
-        background-color: $linkHoverBackgroundColor;
+        background-color: $hoverBackground;
       }
 
       &.search {
@@ -180,7 +180,7 @@ section#sidebar {
       left: 16px;
       width: calc(100% - 80px);
       height: 30px;
-      background: $linkHoverBackgroundColor;
+      background: $hoverBackground;
       transform: translate3d(20px, 0, 0);
       transition: transform 0.3s, opacity 0.3s;
       @extend %hidden;
@@ -328,7 +328,7 @@ section#sidebar {
 a.dragHelper {
   @include bookmarkEntry;
   position: absolute;
-  background: $linkHoverBackgroundColor;
+  background: $hoverBackground;
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
   transition: none;
@@ -343,7 +343,7 @@ a.dragHelper {
   &.snap {
     transition: 0.2s;
     box-shadow: none;
-    background: $backgroundColor;
+    background: $contentBackground;
   }
 }
 

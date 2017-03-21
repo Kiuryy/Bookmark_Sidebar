@@ -203,15 +203,12 @@
         elm.config.pxToleranceWindowed.trigger("change");
 
 
-
-
         if (typeof data.behaviour.scrollSensitivity !== "undefined") {
             scrollSensitivityObj = data.behaviour.scrollSensitivity;
         }
 
         elm.config.mouseScrollSensitivity[0].value = scrollSensitivityObj.mouse;
         elm.config.trackpadScrollSensitivity[0].value = scrollSensitivityObj.trackpad;
-
 
 
         elm.config.rangeInputs.on("input change", (e) => {

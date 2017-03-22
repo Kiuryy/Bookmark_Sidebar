@@ -1,0 +1,27 @@
+@import "vars";
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, input, textarea, select, button {
+  font-size: $baseFontSize;
+  font-family: $baseFontFamily;
+  color: $textColor;
+  font-weight: $baseFontWeight;
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: 400;
+}
+
+a {
+  color: $textColor;
+  text-decoration: none;
+}

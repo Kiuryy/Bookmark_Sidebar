@@ -21,18 +21,23 @@ body, input, textarea, select, button {
   font-weight: 300;
 }
 
-body {
-  margin: 10px auto 20px;
-  padding: 20px;
-  width: 720px;
-}
-
 ul {
   list-style: none;
 }
 
 strong {
   font-weight: 400;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+body {
+  margin: 10px auto 20px;
+  padding: 20px;
+  width: 720px;
 }
 
 header {
@@ -53,7 +58,6 @@ header > div {
 }
 header > div > a#copyright {
   float: right;
-  text-decoration: none;
   color: #666;
 }
 header > div > ul.tabBar {
@@ -73,7 +77,6 @@ header > div > ul.tabBar > li > a {
   margin: 0 17px;
   font-size: 110%;
   font-weight: 300;
-  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 }
@@ -128,7 +131,6 @@ section#content > div.tab[data-name='feedback'] > a#rate {
   top: 35px;
   right: 0;
   color: #aaa;
-  text-decoration: none;
   font-size: 80%;
 }
 section#content > div.tab[data-name='feedback'] > a#rate::before {

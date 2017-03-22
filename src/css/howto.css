@@ -37,10 +37,7 @@ section.infobox > div {
   position: relative;
   max-width: 650px;
   padding: 40px 30px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
-  background-size: 96px, 100%;
-  background-position: center 120px, 0 0;
-  background-repeat: no-repeat;
+  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   color: #fff;
   text-align: center;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
@@ -48,35 +45,29 @@ section.infobox > div {
 @media (max-width: 650px) {
   section.infobox > div {
     width: 100%;
-    background-position: center 110px, 0 0;
   }
 }
-@media (max-width: 520px) {
-  section.infobox > div {
-    background-position: center 140px, 0 0;
-  }
+section.infobox > div span.icon {
+  display: block;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png) no-repeat center/96px;
+  height: 96px;
+  margin: 40px 0;
 }
-@media (max-width: 400px) {
-  section.infobox > div {
-    background-position: center 130px, 0 0;
-  }
-}
-section.infobox > div > h1 {
+section.infobox > div h1 {
   font-size: 250%;
   font-weight: 200;
-  margin: 0 0 175px 0;
 }
 @media (max-width: 650px) {
-  section.infobox > div > h1 {
+  section.infobox > div h1 {
     font-size: 200%;
   }
 }
 @media (max-width: 400px) {
-  section.infobox > div > h1 {
+  section.infobox > div h1 {
     font-size: 170%;
   }
 }
-section.infobox > div > a.cta {
+section.infobox > div a.cta {
   display: block;
   margin: 0 auto 30px;
   width: 250px;
@@ -90,12 +81,12 @@ section.infobox > div > a.cta {
   border-radius: 3px;
 }
 @media (max-width: 650px) {
-  section.infobox > div > a.cta {
+  section.infobox > div a.cta {
     font-size: 120%;
     width: 220px;
   }
 }
-section.infobox > div > a.close {
+section.infobox > div a.close {
   text-decoration: none;
   color: #fff;
   opacity: 0.5;
@@ -114,6 +105,19 @@ body, input, textarea, select, button {
   font-weight: 300;
 }
 
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: 400;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
 body {
   background: #f2f2f2;
   position: absolute;
@@ -122,14 +126,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-ul {
-  list-style: none;
-}
-
-strong {
-  font-weight: 400;
 }
 
 @keyframes blink {
@@ -279,7 +275,6 @@ section#tutorial > div#mask > div > a {
   color: #7b5fa4;
   font-size: 140%;
   font-weight: 300;
-  text-decoration: none;
   padding: 10px 20px;
   border-radius: 3px;
   margin: 0 10px;

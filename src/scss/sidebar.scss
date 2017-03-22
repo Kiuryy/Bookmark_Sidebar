@@ -3,19 +3,9 @@
 @import "include/loading";
 @import "include/scrollBox";
 @import "include/contextmenu";
+//
+@import "include/generals";
 
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body, input, textarea, select, button {
-  font-size: $baseFontSize;
-  font-family: $baseFontFamily;
-  color: $textColor;
-  font-weight: $baseFontWeight;
-}
 
 body {
   width: 100%;
@@ -49,15 +39,6 @@ body {
     color: rgba($textColor, 0.8);
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($errorColor, 0.3) 5px, rgba($errorColor, 0.3) 10px);
   }
-}
-
-a {
-  color: $textColor;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
 }
 
 // Sidebar

@@ -1,22 +1,11 @@
 @import "include/vars";
 @import "include/mixins";
 @import "include/infobox";
+//
+@import "include/generals";
 
 $tutorialBackground: #e9e9e9;
 $placeholderBackground: #f1f2f4;
-
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body, input, textarea, select, button {
-  font-size: $baseFontSize;
-  font-family: $baseFontFamily;
-  color: $textColor;
-  font-weight: $baseFontWeight;
-}
 
 body {
   background: $bodyBackground;
@@ -26,14 +15,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-ul {
-  list-style: none;
-}
-
-strong {
-  font-weight: 400;
 }
 
 
@@ -214,7 +195,6 @@ section#tutorial {
         color: $mainColor;
         font-size: 140%;
         font-weight: 300;
-        text-decoration: none;
         padding: 10px 20px;
         border-radius: 3px;
         margin: 0 10px;

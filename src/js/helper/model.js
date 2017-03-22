@@ -30,10 +30,17 @@
 
         let data = {};
 
-
         this.init = (callback) => {
-            chrome.storage.sync.get(["utility", "behaviour", "appearance", "model"], (obj) => {
+            let keys = ["utility", "behaviour", "appearance"];
+
+            chrome.storage.sync.get(keys, (obj) => {
                 data = obj;
+
+                keys.forEach((key) => {
+                    if (typeof data[key] === "undefined") {
+                        data[key] = {};
+                    }
+                });
 
                 if (typeof callback === "function") {
                     callback();

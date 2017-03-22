@@ -7,8 +7,8 @@
 
 [1.5]
  - [toDo] Added customization options
- - [toDo] Info page for new features
- - [toDo] Help page after installation
+ - Info page for new features
+ - Help page after installation
 
 [1.4]
  - Search function

@@ -134,11 +134,11 @@
   "overlay_check_urls_not_found": {
     "message": "URL not found"
   },
-  // [HOWTO]
+  // [ HOWTO ]
   "howto_title": {
     "message": "Howto"
   },
-  "howto_thanks_headline": {
+  "howto_headline": {
     "message": "Thank you for installing this extension."
   },
   "howto_start_tutorial": {
@@ -164,6 +164,19 @@
   },
   "howto_tutorial_right_click": {
     "message": "Right"
+  },
+  // [ CHANGELOG ]
+  "changelog_title": {
+    "message": "Changelog"
+  },
+  "changelog_headline": {
+    "message": "Your Bookmark Sidebar has been updated."
+  },
+  "changelog_show_changelog": {
+    "message": "What's new?"
+  },
+  "changelog_close": {
+    "message": "Close this page"
   },
   // [ SETTINGS ]
   "settings_title": {

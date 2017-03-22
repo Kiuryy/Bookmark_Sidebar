@@ -242,6 +242,19 @@ body, input, textarea, select, button {
   font-weight: 300;
 }
 
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: 400;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
 body {
   height: 100%;
   overflow: hidden;
@@ -251,22 +264,6 @@ body::before {
   position: relative;
   display: block;
   height: 1px;
-}
-
-input, textarea, button {
-  font-size: 14px;
-  font-family: Roboto, sans-serif;
-  font-weight: 300;
-  color: #666;
-}
-
-a {
-  color: #666;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
 }
 
 div.modal {

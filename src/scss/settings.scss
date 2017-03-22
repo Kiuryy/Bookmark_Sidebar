@@ -1,31 +1,12 @@
 @import "include/vars";
 @import "include/mixins";
-
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body, input, textarea, select, button {
-  font-size: $baseFontSize;
-  font-family: $baseFontFamily;
-  color: $textColor;
-  font-weight: $baseFontWeight;
-}
+//
+@import "include/generals";
 
 body {
   margin: 10px auto 20px;
   padding: 20px;
   width: 720px;
-}
-
-ul {
-  list-style: none;
-}
-
-strong {
-  font-weight: 400;
 }
 
 // Header
@@ -47,7 +28,6 @@ header {
 
     > a#copyright {
       float: right;
-      text-decoration: none;
       color: $textColor;
     }
 
@@ -68,7 +48,6 @@ header {
           margin: 0 17px;
           font-size: 110%;
           font-weight: 300;
-          text-decoration: none;
           -webkit-tap-highlight-color: transparent;
           filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 
@@ -135,7 +114,6 @@ section#content {
         top: 35px;
         right: 0;
         color: $textColorLight;
-        text-decoration: none;
         font-size: 80%;
 
         &::before {

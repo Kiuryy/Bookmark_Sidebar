@@ -330,13 +330,12 @@
         if (details.reason === 'install') {
             chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
         } else if (details.reason === 'update') {
-            //chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
 
             let versionPartsOld = details.previousVersion.split('.');
             let versionPartsNew = chrome.runtime.getManifest().version.split('.');
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
-                //chrome.tabs.create({url:chrome.extension.getURL('html/changelog.html')});
+                chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
 
                 chrome.storage.sync.get(null, (obj) => {  // REMOVE ME
                     if (obj["appearance"]) { // don't do it twice
@@ -416,7 +415,9 @@
                         }
                     });
 
-                    chrome.storage.sync.set(newConfig);
+                    chrome.storage.sync.set(newConfig, () => {
+                        initModel();
+                    });
                 });
             }
         }
@@ -436,11 +437,11 @@
      */
     let initModel = () => {
         chrome.storage.sync.get(["model"], (obj) => {
-            if (typeof obj.model === "undefined") { // REMOVE ME
-                return false;
+            if (typeof obj.model === "undefined") {
+                data = {};
+            } else {
+                data = obj.model;
             }
-
-            data = obj.model;
 
             if (typeof data.uuid === "undefined") { // no uuid yet -> set new one
                 data.uuid = (() => {
@@ -480,7 +481,7 @@
      */
     let shareUserdata = () => {
         chrome.storage.sync.get(null, (obj) => {
-            if (typeof obj.model.uuid !== "undefined" && (typeof obj.model.lastShareDate === "undefined" || (+new Date() - obj.model.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
+            if (typeof obj.model !== "undefined" && typeof obj.model.uuid !== "undefined" && (typeof obj.model.lastShareDate === "undefined" || (+new Date() - obj.model.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
                 data.lastShareDate = +new Date();
                 saveModelData();
 

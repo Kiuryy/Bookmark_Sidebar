@@ -3,19 +3,8 @@
 @import "include/loading";
 @import "include/scrollBox";
 @import "include/checkbox";
-
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body, input, textarea, select, button {
-  font-size: $baseFontSize;
-  font-family: $baseFontFamily;
-  color: $textColor;
-  font-weight: $baseFontWeight;
-}
+//
+@import "include/generals";
 
 body {
   height: 100%;
@@ -27,22 +16,6 @@ body {
     display: block;
     height: 1px;
   }
-}
-
-input, textarea, button {
-  font-size: $baseFontSize;
-  font-family: $baseFontFamily;
-  font-weight: $baseFontWeight;
-  color: $textColor;
-}
-
-a {
-  color: $textColor;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
 }
 
 div.modal {

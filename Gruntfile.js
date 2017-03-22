@@ -53,6 +53,8 @@ module.exports = function (grunt) {
                     ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',
                     ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
                     ['tmp/settings-es5.js']: path.src + 'js/settings.js',
+                    ['tmp/howto-es5.js']: path.src + 'js/howto.js',
+                    ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
                     ['tmp/model-es5.js']: path.src + 'js/model.js'
                 }
             }
@@ -70,6 +72,8 @@ module.exports = function (grunt) {
                     ['tmp/js/extension.js']: 'tmp/extension-es5.js',
                     ['tmp/js/lib/jsu.js']: 'tmp/jsu-es5.js',
                     ['tmp/js/settings.js']: 'tmp/settings-es5.js',
+                    ['tmp/js/howto.js']: 'tmp/howto-es5.js',
+                    ['tmp/js/changelog.js']: 'tmp/changelog-es5.js',
                     ['tmp/js/model.js']: 'tmp/model-es5.js'
                 }
             }

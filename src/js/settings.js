@@ -7,13 +7,59 @@
 
     let data = {};
 
+    let opts = {
+        classes: {
+            tabs: {
+                list: "tabBar",
+                active: "active",
+                hidden: "hidden"
+            },
+            checkbox: {
+                box: "checkbox",
+                active: "active",
+                clicked: "clicked",
+                focus: "focus"
+            }
+        },
+        attr: {
+            type: "data-type",
+            name: "data-name",
+            i18n: "data-i18n",
+            value: "data-value",
+            tab: "data-tab",
+            range: {
+                min: "data-min",
+                max: "data-max",
+                step: "data-step",
+                unit: "data-unit"
+            }
+        },
+        elm: {
+            body: $("body"),
+            title: $("head > title"),
+            header: $("body > header"),
+            tab: $("section#content > div.tab"),
+            copyrightDate: $("a#copyright > span"),
+            formElement: $("div.formElement"),
+            checkbox: {},
+            range: {},
+            select: {}
+        }
+    };
+
     let classes = {
         submitSuccess: "submitSuccess",
         tabBar: "tabBar",
         tabActive: "active",
         tabHidden: "hidden",
         feedbackError: "error",
-        loading: "loading"
+        loading: "loading",
+        checkbox: {
+            box: "checkbox",
+            active: "active",
+            clicked: "clicked",
+            focus: "focus"
+        }
     };
 
     let elm = {
@@ -21,7 +67,7 @@
         title: $("head > title"),
         copyright: $("a#copyright"),
         tab: $("section#content > div.tab"),
-        headerContent: $("header > div"),
+        header: $("body > header"),
         config: {
             rangeInputs: $("input[type='range']"),
             pxToleranceMaximized: $("input#pxToleranceMaximized"),
@@ -53,11 +99,11 @@
      * Initialises the copyright text
      */
     let initCopyright = () => {
-        let createdDate = +elm.copyright.children("span.created").text();
+        let createdDate = +opts.elm.copyrightDate.text();
         let currentYear = new Date().getFullYear();
 
         if (currentYear > createdDate) {
-            elm.copyright.children("span.created").text(createdDate + " - " + currentYear);
+            opts.elm.copyrightDate.text(createdDate + " - " + currentYear);
         }
     };
 
@@ -65,14 +111,19 @@
      * Initialises the language variables in the document
      */
     let initLanguage = () => {
-        $("[data-i18n]").forEach((elm) => {
-            let val = $(elm).attr("data-i18n");
+        $("[" + opts.attr.i18n + "]").forEach((elm) => {
+            let val = $(elm).attr(opts.attr.i18n);
             let key = val.search(/^share_userdata/) === 0 ? val : "settings_" + val;
-            $(elm).html(chrome.i18n.getMessage(key).replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
+            let msg = chrome.i18n.getMessage(key);
+            if (msg) {
+                $(elm).html(msg.replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
+            } else {
+                $(elm).remove();
+            }
         });
 
         let manifest = chrome.runtime.getManifest();
-        elm.title.text(elm.title.text() + " - " + manifest.short_name);
+        opts.elm.title.text(opts.elm.title.text() + " - " + manifest.short_name);
     };
 
 
@@ -80,27 +131,48 @@
      * Initialises the tab bar
      */
     let initTabs = () => {
-        let tabBar = $("<ul />").addClass(classes.tabBar).prependTo($(elm.headerContent));
+        let tabBar = $("<ul />").addClass(opts.classes.tabs.list).prependTo(opts.elm.header);
 
-        elm.tab.forEach((elm) => {
-            let name = $(elm).attr("data-name");
-            $("<li />").attr("data-name", name).html("<a href='#'>" + chrome.i18n.getMessage("settings_tab_" + name) + "</a>").appendTo(tabBar);
+        opts.elm.tab.forEach((elm) => {
+            let name = $(elm).attr(opts.attr.name);
+            $("<li />").attr(opts.attr.name, name).html("<a href='#'>" + chrome.i18n.getMessage("settings_tab_" + name) + "</a>").appendTo(tabBar);
         });
 
         tabBar.find("> li > a").on("click", (e) => {
             e.preventDefault();
-            tabBar.children("li").removeClass(classes.tabActive);
+            tabBar.children("li").removeClass(opts.classes.tabs.active);
             let tabElm = $(e.currentTarget).parent("li");
-            tabElm.addClass(classes.tabActive);
+            let tabName = tabElm.attr(opts.attr.name);
+            tabElm.addClass(opts.classes.tabs.active);
 
-            elm.tab.addClass(classes.tabHidden);
-            $("section#content > div.tab[data-name='" + tabElm.attr("data-name") + "']").removeClass(classes.tabHidden);
+            elm.tab.forEach((tab) => {
+                let name = $(tab).attr(opts.attr.name);
+
+                if (name === tabName) {
+                    $(tab).removeClass(opts.classes.tabs.hidden);
+                } else {
+                    $(tab).addClass(opts.classes.tabs.hidden);
+                }
+            });
+
+            location.hash = tabName;
+            opts.elm.body.attr(opts.attr.tab, tabName);
         });
 
+        let hash = location.hash ? location.hash.substr(1) : null;
         tabBar.find("> li > a").eq(0).trigger("click");
+
+        if (hash) {
+            tabBar.find("> li[" + opts.attr.name + "='" + hash + "'] > a").trigger("click");
+        }
     };
 
-    let initShareUserdata = () => {
+    let initShareUserdataTab = () => {
+        if (data.model.shareUserdata) {
+            opts.elm.checkbox.shareUserdata.trigger("click");
+        }
+
+        return false;
         elm.shareUserdata.share[0].checked = data.model.shareUserdata ? true : false;
 
         elm.shareUserdata.share.on("change", () => {
@@ -110,10 +182,10 @@
             chrome.storage.sync.set({
                 model: data.model
             }, () => {
-                elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_share_userdata"));
-                elm.body.addClass(classes.submitSuccess);
+                opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_share_userdata"));
+                opts.elm.body.addClass(classes.submitSuccess);
                 setTimeout(() => {
-                    elm.body.removeClass(classes.submitSuccess);
+                    opts.elm.body.removeClass(classes.submitSuccess);
                 }, 1500);
             });
         });
@@ -145,20 +217,20 @@
                     elm.feedback.textarea[0].value = "";
                     elm.feedback.email[0].value = "";
 
-                    elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_feedback"));
-                    elm.body.addClass(classes.submitSuccess);
+                    opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_feedback"));
+                    opts.elm.body.addClass(classes.submitSuccess);
                     setTimeout(() => {
-                        elm.body.removeClass(classes.submitSuccess);
+                        opts.elm.body.removeClass(classes.submitSuccess);
                     }, 1500);
                 };
-                let data = new FormData();
-                data.append('email', emailText);
-                data.append('msg', messageText);
-                data.append('extension', JSON.stringify({
+                let formData = new FormData();
+                formData.append('email', emailText);
+                formData.append('msg', messageText);
+                formData.append('extension', JSON.stringify({
                     name: manifest.name,
                     version: manifest.version
                 }));
-                xhr.send(data);
+                xhr.send(formData);
 
             } else if (!isEmailValid) {
                 elm.feedback.email.addClass(classes.feedbackError);
@@ -170,6 +242,46 @@
                 $("." + classes.feedbackError).removeClass(classes.feedbackError);
             }, 1500);
         });
+    };
+
+    let initAppearanceTab = () => {
+        /*
+         General
+         - color scheme
+
+         Sidebar
+         - width
+         - position
+         - mask color
+         - icon size
+         - font size
+         - line height
+         - directory indentation
+
+         Overlay
+         - font size
+         - mask color
+
+         Indicator
+         - width
+         - color
+         - icon size
+
+
+         */
+    };
+
+    let initBehaviourTab = () => {
+
+        ["rememberScroll", "rememberSearch", "hideEmptyDirs"].forEach((field) => {
+            let val = typeof data.behaviour[field] === "undefined" ? true : data.behaviour[field];
+            if (val === true) {
+                opts.elm.checkbox[field].trigger("click");
+            }
+        });
+
+        opts.elm.select.openAction[0].value = typeof data.behaviour.openAction === "undefined" ? "mousedown" : data.behaviour.openAction;
+        opts.elm.select.newTab[0].value = typeof data.behaviour.newTab === "undefined" ? "foreground" : data.behaviour.newTab;
     };
 
 
@@ -239,10 +351,10 @@
                     }
                 }
             }, () => {
-                elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_config"));
-                elm.body.addClass(classes.submitSuccess);
+                opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_config"));
+                opts.elm.body.addClass(classes.submitSuccess);
                 setTimeout(() => {
-                    elm.body.removeClass(classes.submitSuccess);
+                    opts.elm.body.removeClass(classes.submitSuccess);
                 }, 1500);
             });
         });
@@ -250,10 +362,10 @@
 
         elm.config.restoreDefaults.on("click", () => { // restore default settings
             chrome.storage.sync.remove(["behaviour", "appearance"], () => {
-                elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_restore"));
-                elm.body.addClass(classes.submitSuccess);
+                opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_restore"));
+                opts.elm.body.addClass(classes.submitSuccess);
                 setTimeout(() => {
-                    elm.body.removeClass(classes.submitSuccess);
+                    opts.elm.body.removeClass(classes.submitSuccess);
                     setTimeout(() => {
                         window.close();
                     }, 100);
@@ -266,16 +378,83 @@
      *
      */
     (() => {
+        let checkboxHelper = new window.CheckboxHelper({opts: opts});
+
+        opts.elm.formElement.forEach((elm) => {
+            let type = $(elm).attr(opts.attr.type);
+            let name = $(elm).attr(opts.attr.name);
+            let i18n = $(elm).attr(opts.attr.i18n);
+
+            $("<br />").insertAfter(elm);
+            let label = $("<label />").attr(opts.attr.i18n, i18n).insertAfter(elm);
+            $("<p />").attr(opts.attr.i18n, i18n + "_desc").insertAfter(label);
+
+            switch (type) {
+                case "checkbox": {
+                    opts.elm.checkbox[name] = checkboxHelper.get(opts.elm.body).insertAfter(label);
+                    break;
+                }
+                case "range": {
+                    opts.elm.range[name] = $("<input type='range' />").insertAfter(label);
+
+                    ["min", "max", "step"].forEach((attr) => {
+                        opts.elm.range[name].attr(attr, $(elm).attr(opts.attr.range[attr]));
+                    });
+
+                    opts.elm.range[name].attr("value", $(elm).attr(opts.attr.value) || "");
+
+                    let unit = $(elm).attr(opts.attr.range.unit) || "";
+                    let valTooltip = $("<span />").insertAfter(opts.elm.range[name]);
+
+                    opts.elm.range[name].on('input', (e) => {
+                        let elm = e.currentTarget;
+                        let max = elm.max || 100;
+                        let min = elm.min || 0;
+                        let val = Math.round(100 * (elm.value - min) / (max - min));
+                        let backgroundSize = opts.elm.range[name].css('background-size').replace(/^.*\s/, val + "% ");
+
+                        opts.elm.range[name].css('background-size', backgroundSize);
+                        valTooltip.text(elm.value + unit);
+                    });
+                    opts.elm.range[name].trigger("input");
+
+                    break;
+                }
+                case "select": {
+                    opts.elm.select[name] = $("<select />").insertAfter(label);
+                    $(elm).children("span").forEach((option) => {
+                        $("<option />").attr({
+                            value: $(option).attr(opts.attr.value),
+                            [opts.attr.i18n]: $(option).attr(opts.attr.i18n)
+                        }).appendTo(opts.elm.select[name]);
+                    });
+                    break;
+                }
+            }
+
+            elm.remove();
+        });
+
         initLanguage();
         initCopyright();
         initTabs();
 
-        chrome.storage.sync.get(null, (obj) => {
+
+        let keys = ["utility", "behaviour", "appearance", "model"];
+        chrome.storage.sync.get(keys, (obj) => {
             data = obj;
 
-            initConfiguration();
+            keys.forEach((key) => {
+                if (typeof data[key] === "undefined") {
+                    data[key] = {};
+                }
+            });
+
+            initBehaviourTab();
+            initAppearanceTab();
+            // initConfiguration();
             initFeedback();
-            initShareUserdata();
+            initShareUserdataTab();
         });
     })();
 

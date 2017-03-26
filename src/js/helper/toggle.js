@@ -3,6 +3,7 @@
 
     window.ToggleHelper = function (ext) {
 
+        let sidebarPos = null;
         let sidebarTimeout = null;
         let pxToleranceObj = null;
         let closeTimeoutDuration = null;
@@ -13,13 +14,19 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.visual).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/addVisual", "b/closeTimeout"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/closeTimeout", "a/showIndicator", "a/sidebarPosition"]);
             closeTimeoutDuration = +data.closeTimeout * 1000;
             pxToleranceObj = data.pxTolerance;
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
 
-            if (data.addVisual) { // show icon on black background
-                ext.elements.toggle.addClass(ext.opts.classes.page.addVisual);
+            sidebarPos = data.sidebarPosition;
+            ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
+            ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
+
+            if (data.showIndicator > 0) { // show indicator
+                ext.elements.toggle
+                    .addClass(ext.opts.classes.page.addVisual)
+                    .attr(ext.opts.attr.position, sidebarPos);
             }
 
             handleLeftsideBackExtension();
@@ -44,8 +51,14 @@
             });
 
             ext.elements.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
-                if (e.pageX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                    closeSidebar();
+                if (e.pageX) {
+                    let pageX = e.pageX;
+                    if (sidebarPos === "right") {
+                        pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
+                    }
+                    if (pageX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                        closeSidebar();
+                    }
                 }
             });
 
@@ -74,7 +87,7 @@
                     }
                 }
             }).on("mousemove", (e) => { // check mouse position
-                if (e.pageX < getPixelTolerance()) {
+                if (isMousePosInPixelTolerance(e.pageX)) {
                     ext.elements.toggle.addClass(ext.opts.classes.page.hover);
                 } else {
                     ext.elements.toggle.removeClass(ext.opts.classes.page.hover);
@@ -93,12 +106,29 @@
 
             let openAction = ext.helper.model.getData("b/openAction");
             $(document).on(openAction, (e) => {
-                if ((openAction !== "mousedown" || e.button === 0) && e.pageX < getPixelTolerance()) { // check mouse position and mouse button
+                if ((openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
                     e.stopPropagation();
                     e.preventDefault();
                     openSidebar();
                 }
             });
+        };
+
+        /**
+         * Checks whether the given mouse position is in the configured pixel tolence
+         *
+         * @param {int} pageX
+         * @returns {boolean}
+         */
+        let isMousePosInPixelTolerance = (pageX) => {
+            if (pageX) {
+                if (sidebarPos === "right") {
+                    pageX = window.innerWidth - pageX - 1;
+                }
+
+                return pageX < getPixelTolerance();
+            }
+            return false;
         };
 
         /**
@@ -111,6 +141,7 @@
             }
             ext.helper.contextmenu.close();
             ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
+            $(document).trigger("mousemove");
         };
 
         /**
@@ -119,6 +150,7 @@
         let openSidebar = () => {
             ext.initImages();
             ext.elements.iframe.addClass(ext.opts.classes.page.visible).data("visibleOnce", true);
+            $(document).trigger("mousemove");
         };
 
         /**

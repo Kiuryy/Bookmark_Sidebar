@@ -437,11 +437,7 @@
      */
     let initModel = () => {
         chrome.storage.sync.get(["model"], (obj) => {
-            if (typeof obj.model === "undefined") {
-                data = {};
-            } else {
-                data = obj.model;
-            }
+            data = obj.model || {};
 
             if (typeof data.uuid === "undefined") { // no uuid yet -> set new one
                 data.uuid = (() => {
@@ -523,11 +519,13 @@
                             processBookmarks(response[0].children);
                         }
 
+                        obj.ua = navigator.userAgent;
+                        obj.lang = chrome.i18n.getUILanguage();
+                        obj.installationDate = obj.model.installationDate;
+
                         delete obj.utility;
                         delete obj.model;
 
-                        obj.ua = navigator.userAgent;
-                        obj.lang = chrome.i18n.getUILanguage();
                         sendXhr(obj);
                     });
                 } else { // do not share userdata -> only share extension infos

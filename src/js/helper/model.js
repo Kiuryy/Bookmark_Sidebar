@@ -20,9 +20,13 @@
                 closeTimeout: 1
             },
             a: { // appearance
-                addVisual: true,
+                sidebarPosition: "left",
+                showIndicator: true,
                 styles: {
                     colorScheme: "#00897b",
+                    indicatorWidth: "50px",
+                    indicatorIconSize: "50px",
+                    indicatorColor: "rgba(0, 0, 0, 0.5)",
                     sidebarWidth: "350px"
                 }
             }
@@ -93,7 +97,7 @@
                     }
                 }
 
-                if (keyInfo === "a/addVisual" && value === true && typeof data.behaviour.openAction !== "undefined" && data.behaviour.openAction === "mousemove") { // do not show visual if sidebar opens on mouseover
+                if (keyInfo === "a/showIndicator" && value === true && typeof data.behaviour.openAction !== "undefined" && data.behaviour.openAction === "mousemove") { // do not show indicator if sidebar opens on mouseover
                     value = false;
                 }
 

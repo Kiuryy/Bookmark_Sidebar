@@ -21,7 +21,13 @@
          */
         let isDraggedElementOutside = (elm) => {
             let boundClientRect = elm[0].getBoundingClientRect();
-            return elm.realWidth() * 0.6 + boundClientRect.left > ext.elements.sidebar.realWidth();
+
+            let offset = boundClientRect.left;
+            if (ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
+                offset = window.innerWidth - offset;
+            }
+
+            return elm.realWidth() * 0.6 + offset > ext.elements.sidebar.realWidth();
         };
 
         /**

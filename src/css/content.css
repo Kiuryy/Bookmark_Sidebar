@@ -1,57 +1,74 @@
-/*
-Errno::EACCES: Permission denied @ rb_sysopen - .sass-cache/a14239e71359dcaf0b409223440b21de0883ded1/_mixins.scssc
+body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after {
+  opacity: 0;
+  pointer-events: none;
+}
 
-Backtrace:
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/filesystem.rb:21:in `initialize'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/filesystem.rb:21:in `open'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/filesystem.rb:21:in `_retrieve'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/base.rb:63:in `retrieve'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/chain.rb:25:in `block in retrieve'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/chain.rb:24:in `each'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/chain.rb:24:in `each_with_index'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/cache_stores/chain.rb:24:in `retrieve'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:399:in `_to_tree'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:312:in `to_tree'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
-C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
-C:/Ruby23-x64/bin/sass:23:in `load'
-C:/Ruby23-x64/bin/sass:23:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Errno::EACCES: Permission denied @ rb_sysopen - .sass-cache/a14239e71359dcaf0b409223440b21de0883ded1/_mixins.scssc"; }
+body > iframe#moonware-bs-sidebar.moonware-bs-visible, body > iframe#moonware-bs-overlay.moonware-bs-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after {
+  content: "";
+  position: absolute;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translate3d(-"%indicatorWidth", 0, 0);
+  top: 0;
+  left: 0;
+  width: "%indicatorWidth";
+  height: 100%;
+}
+body > div#moonware-bs-visual.moonware-bs-add-visual::before {
+  background: "%indicatorColor";
+  z-index: 1;
+}
+body > div#moonware-bs-visual.moonware-bs-add-visual::after {
+  position: absolute;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat center/"%indicatorIconSize";
+  z-index: 2;
+}
+body > div#moonware-bs-visual.moonware-bs-add-visual[data-pos='right']::before, body > div#moonware-bs-visual.moonware-bs-add-visual[data-pos='right']::after {
+  transform: translate3d("%indicatorWidth", 0, 0);
+  left: auto;
+  right: 0;
+}
+body > div#moonware-bs-visual.moonware-bs-add-visual.moonware-bs-hover::before, body > div#moonware-bs-visual.moonware-bs-add-visual.moonware-bs-hover::after {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb::before {
+  background: transparent;
+}
+body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb::after {
+  background-position-y: 20px;
+}
+
+body > iframe#moonware-bs-sidebar {
+  width: "%sidebarWidth";
+  height: 100%;
+  z-index: 2147483646;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  transform: translate3d(-"%sidebarWidth", 0, 0);
+  transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
+}
+body > iframe#moonware-bs-sidebar[data-pos='right'] {
+  transform: translate3d("%sidebarWidth", 0, 0);
+}
+body > iframe#moonware-bs-sidebar.moonware-bs-visible {
+  width: calc(100% + %sidebarWidth);
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+body > iframe#moonware-bs-overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 2147483647;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s;
+}
+
+/*# sourceMappingURL=content.css.map */

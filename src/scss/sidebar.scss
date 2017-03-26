@@ -6,7 +6,6 @@
 //
 @import "include/generals";
 
-
 body {
   width: 100%;
   height: 100%;
@@ -37,7 +36,7 @@ body {
 
   &.isDragged.dragCancel::after {
     color: rgba($textColor, 0.8);
-    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($errorColor, 0.3) 5px, rgba($errorColor, 0.3) 10px);
+    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($colorError, 0.3) 5px, rgba($colorError, 0.3) 10px);
   }
 }
 
@@ -96,6 +95,12 @@ section#sidebar {
   width: $sidebarWidth;
   background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  &[data-pos='right'] {
+    float: right;
+    box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15);
+  }
 
   > header {
     position: relative;

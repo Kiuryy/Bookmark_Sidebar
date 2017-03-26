@@ -11,6 +11,11 @@ body > div#moonware-bs-visual {
   margin: 0;
   padding: 0;
   z-index: #{2147483647 - 2};
+
+  &[data-pos='right'] {
+    left: auto;
+    right: 0;
+  }
 }
 
 // Sidebar
@@ -19,6 +24,11 @@ body > iframe#moonware-bs-sidebar {
   top: 0;
   left: 0;
   @extend %hidden;
+
+  &[data-pos='right'] {
+    left: auto;
+    right: 0;
+  }
 }
 
 // Overlay

@@ -13,11 +13,19 @@ body > div#moonware-bs-visual {
   padding: 0;
   z-index: 2147483645;
 }
+body > div#moonware-bs-visual[data-pos='right'] {
+  left: auto;
+  right: 0;
+}
 
 body > iframe#moonware-bs-sidebar {
   position: fixed;
   top: 0;
   left: 0;
+}
+body > iframe#moonware-bs-sidebar[data-pos='right'] {
+  left: auto;
+  right: 0;
 }
 
 body > iframe#moonware-bs-overlay {

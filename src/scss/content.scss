@@ -10,29 +10,32 @@ body > div#moonware-bs-visual {
       content: "";
       position: absolute;
       transition: opacity 0.3s, transform 0.3s;
-      transform: translate3d(-20px, 0, 0);
+      transform: translate3d(-$indicatorWidth, 0, 0);
+      top: 0;
+      left: 0;
+      width: $indicatorWidth;
+      height: 100%;
       @extend %hidden;
-
     }
 
     &::before {
-      top: 0;
-      left: 0;
-      width: 50px;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: $indicatorColor;
       z-index: 1;
     }
 
     &::after {
       position: absolute;
-      top: calc(50% - 25px);
-      left: 0;
-      width: 50px;
-      height: 50px;
-      background: img('bookmark.png') no-repeat center;
-      background-size: 100%;
+      background: img('bookmark.png') no-repeat center / $indicatorIconSize;
       z-index: 2;
+    }
+
+    &[data-pos='right'] {
+
+      &::before, &::after {
+        transform: translate3d($indicatorWidth, 0, 0);
+        left: auto;
+        right: 0;
+      }
     }
 
     &.moonware-bs-hover { // hover
@@ -46,14 +49,14 @@ body > div#moonware-bs-visual {
   }
 }
 
-body > div#moonware-bs-visual.moonware-bs-add-visual.moonware-bs-has-lsb {
+body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb {
 
   &::before {
     background: transparent;
   }
 
   &::after {
-    top: 20px;
+    background-position-y: 20px;
   }
 }
 
@@ -66,6 +69,10 @@ body > iframe#moonware-bs-sidebar {
   border: none;
   transform: translate3d(-$sidebarWidth, 0, 0);
   transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
+
+  &[data-pos='right'] {
+    transform: translate3d($sidebarWidth, 0, 0);
+  }
 
   &.moonware-bs-visible {
     @extend %visible;

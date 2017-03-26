@@ -8,16 +8,6 @@ div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox 
   pointer-events: auto;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 @keyframes container-rotate {
   to {
     transform: rotate(360deg);
@@ -126,16 +116,6 @@ div.loading > div > div.gap-patch > div {
   left: -450%;
 }
 
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 div.scrollBox {
   position: relative;
   overflow: hidden;
@@ -189,16 +169,6 @@ div.scrollBox.scrollDrag > div.scrollbar > div {
 }
 div.scrollBox.scrollTrackpad > div.scrollbar > div {
   transition: none;
-}
-
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 div.contextmenu {
@@ -353,7 +323,7 @@ body.isDragged::after {
 }
 body.isDragged.dragCancel::after {
   color: rgba(102, 102, 102, 0.8);
-  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(255, 170, 170, 0.3) 5px, rgba(255, 170, 170, 0.3) 10px);
+  background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(255, 153, 153, 0.3) 5px, rgba(255, 153, 153, 0.3) 10px);
 }
 
 section#sidebar {
@@ -361,6 +331,11 @@ section#sidebar {
   width: "%sidebarWidth";
   background: #fff;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+section#sidebar[data-pos='right'] {
+  float: right;
+  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15);
 }
 section#sidebar > header {
   position: relative;

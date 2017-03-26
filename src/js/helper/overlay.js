@@ -19,7 +19,7 @@
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
 
             elements.modal = $("<div />")
-                .attr("data-type", type)
+                .attr(ext.opts.attr.type, type)
                 .data("infos", infos)
                 .addClass(ext.opts.classes.overlay.modal)
                 .appendTo(elements.overlay.find("body"));
@@ -213,10 +213,12 @@
                     elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
 
                     let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
+                    let overlayBody = elements.overlay.find("body");
+
                     updateList.forEach((entry) => {
                         let listEntry = $("<li />")
                             .data("infos", entry)
-                            .append(ext.helper.checkbox.get(elements.overlay.find("body"), {checked: "checked"}))
+                            .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
                             .append("<strong>" + entry.title + "</strong>");
 
                         $("<a />").attr({
@@ -388,7 +390,7 @@
             elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action
                 e.preventDefault();
                 let infos = elements.modal.data("infos");
-                switch (elements.modal.attr("data-type")) {
+                switch (elements.modal.attr(ext.opts.attr.type)) {
                     case "delete": {
                         deleteBookmark(infos);
                         break;

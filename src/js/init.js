@@ -87,6 +87,11 @@
                 urlCheckFinished: "urlCheckFinished"
             }
         },
+        attr: {
+            src: "data-src",
+            position: "data-pos",
+            type: "data-type"
+        },
         events: {
             loaded: "moonware-bs-loaded",
             lsbLoaded: "moonware-lsb-loaded"

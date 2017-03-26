@@ -157,7 +157,7 @@
 
                             entryContent
                                 .data("infos", bookmark)
-                                .prepend("<img " + (sidebarOpen ? "" : "data-") + "src='" + bookmark.icon + "' />")
+                                .prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
                                 .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + chrome.i18n.getMessage("sidebar_dir_children"))
                                 .addClass(this.opts.classes.sidebar.bookmarkDir);
                         } else { // configured to not show empty dirs
@@ -178,7 +178,7 @@
 
                                 entryContent
                                     .data("infos", bookmark)
-                                    .prepend("<img " + (sidebarOpen ? "" : "data-") + "src='" + bookmark.icon + "' />")
+                                    .prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
                             }
                         });
                     }
@@ -190,10 +190,10 @@
          * Initialises the not yet loaded images in the sidebar
          */
         this.initImages = () => {
-            this.elements.sidebar.find("img[data-src]").forEach((_self) => {
+            this.elements.sidebar.find("img[" + this.opts.attr.src + "]").forEach((_self) => {
                 let img = $(_self);
-                let src = img.attr("data-src");
-                img.removeAttr("data-src");
+                let src = img.attr(this.opts.attr.src);
+                img.removeAttr(this.opts.attr.src);
                 img.attr("src", src);
             });
         };
@@ -313,13 +313,13 @@
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         let extensionLoaded = () => {
-            let data = this.helper.model.getData(["b/pxTolerance", "a/addVisual"]);
+            let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
 
             this.elements.iframeBody.addClass(this.opts.classes.sidebar.extLoaded);
             document.dispatchEvent(new CustomEvent(this.opts.events.loaded, {
                 detail: {
                     pxTolerance: data.pxTolerance,
-                    addVisual: data.addVisual
+                    showIndicator: data.showIndicator
                 },
                 bubbles: true,
                 cancelable: false

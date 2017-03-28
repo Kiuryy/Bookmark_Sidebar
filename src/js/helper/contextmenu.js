@@ -122,7 +122,7 @@
                 switch (type) {
                     case "settings": { // open settings
                         ext.helper.model.call("openLink", {
-                            href: "chrome://extensions/?options=" + chrome.runtime.id,
+                            href: chrome.extension.getURL("html/settings.html"),
                             newTab: true
                         });
                         break;

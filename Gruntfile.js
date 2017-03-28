@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             },
             distSettings: {
                 options: {},
-                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js',path.src + 'js/helper/checkbox.js', path.src + 'js/settings.js'],
+                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/settings.js'],
                 dest: 'tmp/settings-merged.js'
             }
         },
@@ -58,7 +58,6 @@ module.exports = function (grunt) {
                     ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',
                     ['tmp/settings-es5.js']: 'tmp/settings-merged2.js',
                     ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
-                    //['tmp/settings-es5.js']: path.src + 'js/settings.js',
                     ['tmp/howto-es5.js']: path.src + 'js/howto.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
                     ['tmp/model-es5.js']: path.src + 'js/model.js'
@@ -95,6 +94,11 @@ module.exports = function (grunt) {
                     cwd: path.src + "html",
                     src: '*.html',
                     dest: path.dist + "html/"
+                }, {
+                    expand: true,
+                    cwd: "tmp",
+                    src: 'settings.html',
+                    dest: path.dist + "html/"
                 }]
             }
         },
@@ -102,13 +106,24 @@ module.exports = function (grunt) {
             distJs: {
                 options: {
                     replacements: [{
-                        pattern: /\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, //    \}\)\(jsu\);\n*\(\$\s*\=\>\s*\{
+                        pattern: /\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig,
                         replacement: ''
                     }]
                 },
                 files: {
                     ['tmp/extension-merged2.js']: 'tmp/extension-merged.js',
                     ['tmp/settings-merged2.js']: 'tmp/settings-merged.js',
+                }
+            },
+            distSettings: {
+                options: {
+                    replacements: [{
+                        pattern: /<\!\-\-\s*\[START\sREMOVE\]\s*\-\->[\s\S]*?<\!\-\-\s*\[END\sREMOVE\]\s*\-\->/mig,
+                        replacement: ''
+                    }]
+                },
+                files: {
+                    ['tmp/settings.html']: path.src + 'html/settings.html',
                 }
             },
             distManifest: {
@@ -188,6 +203,7 @@ module.exports = function (grunt) {
         'concat:distExtension',
         'concat:distSettings',
         'string-replace:distJs',
+        'string-replace:distSettings',
         'babel:dist',
         'uglify:dist',
         'htmlmin:dist',

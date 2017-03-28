@@ -182,8 +182,11 @@
   "settings_title": {
     "message": "Settings"
   },
-  "settings_tab_config": {
-    "message": "Configuration"
+  "settings_tab_behaviour": {
+    "message": "Behaviour"
+  },
+  "settings_tab_appearance": {
+    "message": "Appearance"
   },
   "settings_tab_share_userdata": {
     "message": "Help improving"
@@ -192,6 +195,15 @@
     "message": "Feedback"
   },
   //
+  "settings_headline_toggle": {
+    "message": "Toggle"
+  },
+  "settings_headline_sidebar": {
+    "message": "Sidebar"
+  },
+  "settings_headline_search": {
+    "message": "Search"
+  },
   "settings_px_tolerance": {
     "message": "Tolerance in pixels"
   },
@@ -217,13 +229,7 @@
     "message": "Mouseover"
   },
   "settings_open_action_desc": {
-    "message": "Open the sidebar by left or right clicking or mouseover on the left side of the screen."
-  },
-  "settings_add_visual": {
-    "message": "Add visual"
-  },
-  "settings_add_visual_desc": {
-    "message": "Show an icon on the left side of the page whenever a mouse click would cause the sidebar to open."
+    "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window."
   },
   "settings_remember_scroll": {
     "message": "Remember scroll position"
@@ -273,22 +279,67 @@
   "settings_scroll_sensitivity_desc": {
     "message": "Adjust the scroll sensitivity for mouse and trackpad scrolling."
   },
+  "settings_color_scheme": {
+    "message": "Color scheme"
+  },
+  "settings_color_scheme_desc": {
+    "message": "The color of the overlay header, the bookmark amount, etc."
+  },
+  "settings_indicator_width":{
+    "message":"Width"
+  },
+  "settings_indicator_icon_size":{
+    "message":"Icon size"
+  },
+  "settings_indicator_color":{
+    "message":"Color"
+  },
+  "settings_sidebar_position":{
+    "message":"Position"
+  },
+  "settings_sidebar_position_left":{
+    "message":"Left"
+  },
+  "settings_sidebar_position_right":{
+    "message":"Right"
+  },
+  "settings_sidebar_width":{
+    "message":"Width"
+  },
+  "settings_sidebar_mask_color":{
+    "message":"Mask color"
+  },
+  "settings_bookmarks_font_size":{
+    "message":"Bookmarks font size"
+  },
+  "settings_bookmarks_icon_size":{
+    "message":"Bookmarks icon size"
+  },
+  "settings_bookmarks_line_height":{
+    "message":"Bookmarks line height"
+  },
+  "settings_bookmarks_horizontal_padding":{
+    "message":"Bookmarks horizontal padding"
+  },
+  "settings_bookmarks_dir_indentation":{
+    "message":"Directory indentation"
+  },
+  "settings_overlay_font_size":{
+    "message":"Font size"
+  },
   "settings_save": {
     "message": "Save Changes"
   },
-  "settings_saved_config": {
+  "settings_saved_message": {
     "message": "Changes saved successfully"
   },
   "settings_restore": {
     "message": "Restore default"
   },
-  "settings_saved_restore": {
+  "settings_restored_message": {
     "message": "Configuration restored successfully"
   },
   //
-  "settings_feedback_rate": {
-    "message": "Rate this extension"
-  },
   "settings_feedback_desc": {
     "message": "You have suggestions for improvements, questions or found a bug? Please let me know :)"
   },
@@ -298,7 +349,7 @@
   "settings_feedback_send": {
     "message": "Send feedback"
   },
-  "settings_saved_feedback": {
+  "settings_feedback_sent_message": {
     "message": "Thank you for the feedback"
   },
   //

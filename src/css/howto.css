@@ -8,16 +8,6 @@ section.infobox.visible, section#tutorial.visible, section#tutorial > *.visible:
   pointer-events: auto;
 }
 
-section.infobox, section#tutorial, section#tutorial > *:not(#background), section#tutorial > div#cursor::after, section#tutorial > div#cursor::before {
-  opacity: 0;
-  pointer-events: none;
-}
-
-section.infobox.visible, section#tutorial.visible, section#tutorial > *.visible:not(#background), section#tutorial > div#cursor[data-step='2']::after, section#tutorial > div#cursor[data-step='2']::before {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 section.infobox {
   position: absolute;
   top: 0;

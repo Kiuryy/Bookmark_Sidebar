@@ -38,10 +38,15 @@ module.exports = function (grunt) {
             }
         },
         concat: {
-            dist: {
+            distExtension: {
                 options: {},
                 src: [path.src + 'js/lib/jsu.js', path.src + 'js/helper/*.js', path.src + 'js/extension.js', path.src + 'js/init.js'],
                 dest: 'tmp/extension-merged.js'
+            },
+            distSettings: {
+                options: {},
+                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js',path.src + 'js/helper/checkbox.js', path.src + 'js/settings.js'],
+                dest: 'tmp/settings-merged.js'
             }
         },
         babel: {
@@ -51,8 +56,9 @@ module.exports = function (grunt) {
                 },
                 files: {
                     ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',
+                    ['tmp/settings-es5.js']: 'tmp/settings-merged2.js',
                     ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
-                    ['tmp/settings-es5.js']: path.src + 'js/settings.js',
+                    //['tmp/settings-es5.js']: path.src + 'js/settings.js',
                     ['tmp/howto-es5.js']: path.src + 'js/howto.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
                     ['tmp/model-es5.js']: path.src + 'js/model.js'
@@ -102,6 +108,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     ['tmp/extension-merged2.js']: 'tmp/extension-merged.js',
+                    ['tmp/settings-merged2.js']: 'tmp/settings-merged.js',
                 }
             },
             distManifest: {
@@ -139,7 +146,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: path.src,
-                        src: ['img/**', '!**/*.xcf', '!img/icon/dev/**', '!img/demo/**'],
+                        src: ['img/**', '!**/*.xcf', '!img/icon/dev/**'],
                         dest: path.dist
                     },
                     {expand: true, cwd: "tmp/", src: ['js/**'], dest: path.dist},
@@ -178,7 +185,8 @@ module.exports = function (grunt) {
     grunt.registerTask('scss', ['sass:src', 'clean:sass']);
     grunt.registerTask('release', [
         'clean:distPre',
-        'concat:dist',
+        'concat:distExtension',
+        'concat:distSettings',
         'string-replace:distJs',
         'babel:dist',
         'uglify:dist',

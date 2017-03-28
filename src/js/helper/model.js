@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ModelHelper = function (ext) {
+    window.ModelHelper = function () {
 
         let defaults = {
             u: { // utility
@@ -22,12 +22,19 @@
             a: { // appearance
                 sidebarPosition: "left",
                 showIndicator: true,
+                showBookmarkIcons: true,
                 styles: {
-                    colorScheme: "#00897b",
+                    colorScheme: "rgb(0,137,123)",
                     indicatorWidth: "50px",
                     indicatorIconSize: "50px",
-                    indicatorColor: "rgba(0, 0, 0, 0.5)",
-                    sidebarWidth: "350px"
+                    indicatorColor: "rgba(0,0,0,0.5)",
+                    sidebarWidth: "350px",
+                    sidebarMaskColor: "rgba(255,255,255,0.8)",
+                    bookmarksFontSize: "14px",
+                    bookmarksIconSize: "16px",
+                    bookmarksLineHeight: "40px",
+                    bookmarksDirIndentation: "25px",
+                    bookmarksHorizontalPadding: "16px"
                 }
             }
         };
@@ -118,30 +125,32 @@
          * @param {object} values
          */
         this.setData = (values) => {
-            Object.keys(values).forEach((keyInfo) => {
-                let scope = keyInfo.split("/")[0];
-                let key = keyInfo.split("/")[1];
-                let value = values[keyInfo];
-                let dataSearchScope = null;
+            this.init(() => { // init retrieves the newest data
+                Object.keys(values).forEach((keyInfo) => {
+                    let scope = keyInfo.split("/")[0];
+                    let key = keyInfo.split("/")[1];
+                    let value = values[keyInfo];
+                    let dataSearchScope = null;
 
-                switch (scope) {
-                    case "u": {
-                        data.utility[key] = value;
-                        dataSearchScope = data.utility;
-                        break;
+                    switch (scope) {
+                        case "u": {
+                            data.utility[key] = value;
+                            dataSearchScope = data.utility;
+                            break;
+                        }
+                        case "b": {
+                            data.behaviour[key] = value;
+                            break;
+                        }
+                        case "a": {
+                            data.appearance[key] = value;
+                            break;
+                        }
                     }
-                    case "b": {
-                        data.behaviour[key] = value;
-                        break;
-                    }
-                    case "a": {
-                        data.appearance[key] = value;
-                        break;
-                    }
-                }
+                });
+
+                chrome.storage.sync.set(data);
             });
-
-            chrome.storage.sync.set(data);
         };
 
         /**

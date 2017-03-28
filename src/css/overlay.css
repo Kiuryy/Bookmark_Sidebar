@@ -3,11 +3,6 @@ div.modal[data-type='infos'] > ul > li > ul, div.modal > menu > a::before {
   pointer-events: none;
 }
 
-div.modal[data-type='infos'] > ul > li > ul, div.modal > menu > a::before {
-  opacity: 0;
-  pointer-events: none;
-}
-
 @keyframes container-rotate {
   to {
     transform: rotate(360deg);
@@ -116,11 +111,6 @@ div.loading > div > div.gap-patch > div {
   left: -450%;
 }
 
-div.modal[data-type='infos'] > ul > li > ul, div.modal > menu > a::before {
-  opacity: 0;
-  pointer-events: none;
-}
-
 div.scrollBox {
   position: relative;
   overflow: hidden;
@@ -174,11 +164,6 @@ div.scrollBox.scrollDrag > div.scrollbar > div {
 }
 div.scrollBox.scrollTrackpad > div.scrollbar > div {
   transition: none;
-}
-
-div.modal[data-type='infos'] > ul > li > ul, div.modal > menu > a::before {
-  opacity: 0;
-  pointer-events: none;
 }
 
 div.checkbox {
@@ -564,7 +549,7 @@ div.modal[data-type='edit'] > ul > li > input {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 div.modal[data-type='edit'] > ul > li > input.error {
-  border-color: #faa;
+  border-color: #f99;
 }
 div.modal[data-type='edit'] > ul > li > input:focus {
   border-color: rgba(0, 0, 0, 0.25);

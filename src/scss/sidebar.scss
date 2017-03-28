@@ -42,13 +42,14 @@ body {
 
 // Sidebar
 @mixin bookmarkEntry {
-  display: block;
-  line-height: 40px;
-  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: $bookmarksFontSize;
+  line-height: $bookmarksLineHeight;
+  padding: 0 $bookmarksHorizontalPadding;
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  text-overflow: ellipsis;
   transition: background 0.3s;
 
   &:hover {
@@ -60,15 +61,19 @@ body {
   }
 
   > img {
-    vertical-align: top;
     display: inline-block;
-    width: 16px;
-    margin: 11px 20px 0 0;
+    width: $bookmarksIconSize;
+    margin: 0 $bookmarksHorizontalPadding 0 0;
     visibility: hidden;
 
     &[src] {
       visibility: visible;
     }
+  }
+
+  > span.label {
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   > span.drag {
@@ -259,7 +264,7 @@ section#sidebar {
         position: relative;
 
         + ul {
-          padding-left: 25px;
+          padding-left: $bookmarksDirIndentation;
           height: 0;
           transition: height 0.5s;
           overflow: hidden;

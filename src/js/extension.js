@@ -131,7 +131,7 @@
          */
         this.addBookmarkDir = (bookmarks, list) => {
             let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
-            let hideEmptyDirs = this.helper.model.getData("b/hideEmptyDirs");
+            let data = this.helper.model.getData(["b/hideEmptyDirs", "a/showBookmarkIcons"]);
 
             bookmarks.forEach((bookmark, idx) => {
                 if (opts.demoMode) {
@@ -152,35 +152,41 @@
                     bookmark.element = entryContent;
 
                     if (bookmark.children) { // dir
-                        if (hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway
+                        if (data.hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway
                             bookmark.icon = chrome.extension.getURL("img/dir.png");
 
                             entryContent
                                 .data("infos", bookmark)
-                                .prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
                                 .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + chrome.i18n.getMessage("sidebar_dir_children"))
                                 .addClass(this.opts.classes.sidebar.bookmarkDir);
+
+                            if (data.showBookmarkIcons) {
+                                entryContent.prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
+                            }
                         } else { // configured to not show empty dirs
                             entry.remove();
                         }
                     } else { // link
                         entryContent
+                            .data("infos", bookmark)
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
                             .addClass(this.opts.classes.sidebar.bookmarkLink);
 
-                        this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
-                            if (opts.demoMode) {
-                                response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".png");
-                            }
+                        if (data.showBookmarkIcons) {
+                            this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
+                                if (opts.demoMode) {
+                                    response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".png");
+                                }
 
-                            if (response.img) { // favicon found -> add to entry
-                                bookmark.icon = response.img;
+                                if (response.img) { // favicon found -> add to entry
+                                    bookmark.icon = response.img;
 
-                                entryContent
-                                    .data("infos", bookmark)
-                                    .prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
-                            }
-                        });
+                                    entryContent
+                                        .data("infos", bookmark)
+                                        .prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
+                                }
+                            });
+                        }
                     }
                 }
             });

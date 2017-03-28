@@ -1,12 +1,10 @@
 [tdb]
- - Configurable extension color
- - Configurable position (left or right)
- - Configurable font scaling
- - Configurable visual mask scaling
  - Configurable icon for chrome menu
+ - Hide directories from contextmenu (hidden directories will be listed on the settings page)
+ - Minify locales json
 
 [1.5]
- - [toDo] Added customization options
+ - Added customization options
  - Info page for new features
  - Help page after installation
 

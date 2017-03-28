@@ -1,7 +1,547 @@
 @import "include/vars";
 @import "include/mixins";
 //
+$colorScheme: $mainColor;
+
+@import "include/loading";
+@import "include/checkbox";
+@import "include/colorpicker";
+//
 @import "include/generals";
+
+$headerHeight: 70px;
+
+body {
+  background: $bodyBackground;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+// Header
+body > header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $headerHeight;
+  background-image: img('icon/icon.png'), img('settings/icon-settings.png'), $gradient;
+  background-repeat: no-repeat;
+  background-size: 58px, 40px, 100%;
+  background-position: 20px center, 75px center, 0 0;
+
+  > ul.tabBar {
+    $tabHeight: 34px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: #{$headerHeight - $tabHeight};
+    overflow: hidden;
+    text-align: center;
+    box-shadow: inset 0 -12px 15px -10px rgba(0, 0, 0, 0.5);
+
+    > li {
+      position: relative;
+      display: inline-block;
+      margin: 0 20px;
+      height: $tabHeight;
+
+      > a {
+        position: relative;
+        display: block;
+        color: $textColorInverted;
+        opacity: 0.7;
+        padding: 10px 0 0 0;
+        height: 100%;
+        z-index: 2;
+      }
+
+      &.active {
+        background: $bodyBackground;
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+
+        &::before, &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          width: 70%;
+          height: 100%;
+          background-color: inherit;
+        }
+
+        &::before {
+          left: -20px;
+          border-width: 2px 0 2px 2px;
+          border-radius: 8px 0 0 0;
+          transform: skewX(-30deg);
+        }
+
+        &::after {
+          right: -20px;
+          border-width: 2px 2px 2px 0;
+          border-radius: 0 8px 0 0;
+          transform: skewX(30deg);
+        }
+
+        > a {
+          color: $mainColor;
+          opacity: 1;
+          cursor: default;
+
+          &::before, &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -4px;
+            width: 10px;
+            height: 30px;
+            border-radius: 50%;
+            border-right: 15px solid transparent;
+            box-shadow: 10px 0px $bodyBackground;
+          }
+
+          &::before {
+            left: -40px;
+            transform: rotateZ(45deg);
+          }
+
+          &::after {
+            right: -40px;
+            transform: rotateZ(135deg);
+          }
+        }
+      }
+
+    }
+  }
+
+}
+
+// Headlines
+h2 {
+  font-size: 180%;
+  font-weight: 200;
+  color: $textColor;
+}
+
+h3 {
+  font-size: 180%;
+  font-weight: 200;
+  color: $mainColor;
+  margin: 0 0 30px 0;
+
+  &:not(:first-of-type) {
+    padding: 30px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Content
+section#content {
+  position: relative;
+  width: 100%;
+  margin-top: $headerHeight;
+  height: calc(100vh - #{$headerHeight});
+  padding: 40px 0 25px;
+  z-index: -1;
+
+  > div.tab {
+    position: relative;
+    height: 100%;
+    background: $contentBackground;
+    max-width: 850px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: -1;
+
+    &.hidden {
+      display: none;
+    }
+
+    > div {
+      position: relative;
+      overflow: scroll;
+      overflow-x: hidden;
+      height: 100%;
+      padding: 65px 20px 20px 20px;
+    }
+
+    > header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 20px;
+      width: calc(100% - 17px);
+      height: 50px;
+      background: rgba($contentBackground, 0.9);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+
+      > h2 {
+        display: inline-block;
+      }
+
+      > button {
+        display: inline-block;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        float: right;
+
+        &.save {
+          background: $gradient;
+          color: $textColorInverted;
+          padding: 5px 10px;
+          font-size: 110%;
+        }
+
+        &.restore {
+          background: transparent;
+          color: $textColorLight;
+          margin: 8px 20px 0;
+          font-size: 90%;
+        }
+      }
+    }
+
+    &[data-name='share_userdata'] {
+
+      p {
+        font-size: 120%;
+        margin: 10px 0;
+
+        > span {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  p.desc {
+    font-size: 120%;
+    margin: 10px 0 20px 0;
+  }
+
+  hr {
+    margin: 30px 0;
+    background: rgba(0, 0, 0, 0.1);
+    height: 1px;
+    border: none;
+  }
+}
+
+// Appearance
+body[data-tab='appearance'] {
+
+  section#content {
+    padding: 0;
+
+    > div.tab {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 320px;
+
+      > header {
+
+        > button {
+          float: left;
+        }
+      }
+
+      ul.appearanceLabels {
+
+        > li {
+          display: inline-block;
+
+          > a {
+            display: block;
+            padding: 2px 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            font-size: 90%;
+            transition: color 0.3s, background 0.3s;
+
+            &:hover {
+              background: rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          &.active > a {
+            color: $textColorInverted;
+            background: $mainColor;
+          }
+        }
+      }
+
+      div[data-appearance] {
+
+        &.hidden {
+          display: none;
+        }
+
+        label {
+          margin: 20px 0 0 0;
+        }
+
+        input[type='range'] {
+          max-width: 220px;
+        }
+      }
+    }
+  }
+}
+
+// Form
+label {
+  display: block;
+  font-weight: 400;
+  margin: 10px 0;
+}
+
+div.checkbox {
+  margin: 10px 0 10px 1px;
+}
+
+select, input[type='email'], input[type='text'], textarea {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: 0;
+  height: 28px;
+  padding: 0 5px;
+  margin: 7px 0 10px;
+  background: rgba(0, 0, 0, 0.02);
+  transition: border-color 0.5s, box-shadow 0.5s;
+
+  &.error {
+    border-color: $colorError;
+    box-shadow: 0 0 10px $colorError;
+  }
+}
+
+select {
+  cursor: pointer;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  height: 300px;
+  padding: 5px;
+}
+
+input.color {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0;
+
+  + span {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+    margin: 7px 0 10px -32px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    &::before {
+      background-image: img('settings/alpha.png');
+    }
+
+    &::after {
+      background-color: inherit;
+    }
+  }
+}
+
+input[type='range'] {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-appearance: none;
+  width: 100%;
+  max-width: 250px;
+  height: 20px;
+  background: linear-gradient(to right, $mainColor 0%, $mainColor 100%) no-repeat;
+  background-size: 0 3px;
+  background-position: 0 9px;
+  margin: 7px 0 10px;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-slider-runnable-track {
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    height: 3px;
+    width: 100%;
+    outline: 0;
+    z-index: -1;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: $mainColor;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-top: -4px;
+  }
+
+  + span {
+    position: relative;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1);
+    color: $textColor;
+    font-size: 70%;
+    padding: 2px 5px 3px;
+    margin: 9px 0 0 6px;
+    text-align: center;
+    min-width: 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      left: -8px;
+      border: 4px solid transparent;
+      border-right-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+div.configEntry {
+  margin-bottom: 30px;
+
+  div.sub {
+
+    label {
+      display: inline-block;
+      vertical-align: top;
+      font-weight: 300;
+      min-width: 80px;
+    }
+
+  }
+
+  p {
+    font-size: 90%;
+    color: $textColorLight;
+    margin-top: 7px;
+    font-style: italic;
+  }
+}
+
+// Footer
+body > footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 10px 20px;
+  font-size: 90%;
+
+  > a#copyright {
+
+    > strong {
+      transition: color 0.5s;
+    }
+
+    &:hover {
+
+      > strong {
+        color: $mainColorAlt;
+      }
+    }
+  }
+}
+
+//
+body {
+
+  &::before, &::after {
+    position: fixed;
+    @extend %hidden;
+  }
+
+  &::after {
+    content: attr(data-successtext);
+    top: 50px;
+    left: calc(50% - 300px);
+    width: 600px;
+    padding: 40px;
+    text-align: center;
+    font-size: 140%;
+    color: $textColorInverted;
+    background: $colorSuccess;
+    transform: translate3d(0, -50px, 0);
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 99;
+  }
+
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    transition: opacity 0.3s;
+    z-index: 98;
+  }
+
+  &.success {
+
+    &::before, &::after {
+      @extend %visible;
+    }
+
+    &::after {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.loading {
+
+    &::before {
+      @extend %visible;
+    }
+
+    > div.loading {
+      position: fixed;
+      top: calc(50% - 18px);
+      left: calc(50% - 18px);
+      z-index: 99;
+    }
+  }
+}
+
+/*
 
 body {
   margin: 10px auto 20px;
@@ -334,3 +874,4 @@ body {
     }
   }
 }
+*/

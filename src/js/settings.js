@@ -6,6 +6,8 @@
     "use strict";
 
     let data = {};
+    let modelHelper = null;
+    let checkboxHelper = null;
 
     let opts = {
         classes: {
@@ -14,24 +16,38 @@
                 active: "active",
                 hidden: "hidden"
             },
+            color: {
+                field: "color"
+            },
             checkbox: {
                 box: "checkbox",
                 active: "active",
                 clicked: "clicked",
                 focus: "focus"
-            }
+            },
+            success: "success",
+            error: "error",
+            loading: "loading"
         },
         attr: {
             type: "data-type",
+            appearance: "data-appearance",
             name: "data-name",
             i18n: "data-i18n",
             value: "data-value",
             tab: "data-tab",
+            success: "data-successtext",
             range: {
                 min: "data-min",
                 max: "data-max",
                 step: "data-step",
                 unit: "data-unit"
+            },
+            color: {
+                alpha: "data-alpha"
+            },
+            field: {
+                placeholder: "data-placeholder"
             }
         },
         elm: {
@@ -39,59 +55,24 @@
             title: $("head > title"),
             header: $("body > header"),
             tab: $("section#content > div.tab"),
+            appearanceLabels: $("ul.appearanceLabels > li"),
+            appearanceSections: $("div[data-appearance]"),
             copyrightDate: $("a#copyright > span"),
             formElement: $("div.formElement"),
+            feedback: {
+                textarea: $("textarea#feedback"),
+                email: $("input#feedbackEmail")
+            },
+            button: {
+                save: $("div.tab > header > button.save"),
+                restore: $("div.tab > header > button.restore")
+            },
             checkbox: {},
             range: {},
-            select: {}
-        }
-    };
-
-    let classes = {
-        submitSuccess: "submitSuccess",
-        tabBar: "tabBar",
-        tabActive: "active",
-        tabHidden: "hidden",
-        feedbackError: "error",
-        loading: "loading",
-        checkbox: {
-            box: "checkbox",
-            active: "active",
-            clicked: "clicked",
-            focus: "focus"
-        }
-    };
-
-    let elm = {
-        body: $("body"),
-        title: $("head > title"),
-        copyright: $("a#copyright"),
-        tab: $("section#content > div.tab"),
-        header: $("body > header"),
-        config: {
-            rangeInputs: $("input[type='range']"),
-            pxToleranceMaximized: $("input#pxToleranceMaximized"),
-            pxToleranceWindowed: $("input#pxToleranceWindowed"),
-            mouseScrollSensitivity: $("input#mouseScrollSensitivity"),
-            trackpadScrollSensitivity: $("input#trackpadScrollSensitivity"),
-            closeTimeout: $("input#closeTimeout"),
-            addVisual: $("input#addVisual"),
-            newTab: $("select#newTab"),
-            rememberScroll: $("input#rememberScroll"),
-            rememberSearch: $("input#rememberSearch"),
-            hideEmptyDirs: $("input#hideEmptyDirs"),
-            openAction: $("select#openAction"),
-            save: $("button#save"),
-            restoreDefaults: $("button#restore"),
-        },
-        feedback: {
-            save: $("button#sendFeedback"),
-            textarea: $("textarea#feedback"),
-            email: $("input#feedbackEmail"),
-            rate: $("a#rate")
-        },
-        shareUserdata: {
-            share: $("input#shareUserdata")
+            select: {},
+            color: {},
+            textarea: {},
+            field: {}
         }
     };
 
@@ -145,7 +126,7 @@
             let tabName = tabElm.attr(opts.attr.name);
             tabElm.addClass(opts.classes.tabs.active);
 
-            elm.tab.forEach((tab) => {
+            opts.elm.tab.forEach((tab) => {
                 let name = $(tab).attr(opts.attr.name);
 
                 if (name === tabName) {
@@ -167,223 +148,252 @@
         }
     };
 
+    /**
+     * Initialises the share userdata tab
+     */
     let initShareUserdataTab = () => {
-        if (data.model.shareUserdata) {
-            opts.elm.checkbox.shareUserdata.trigger("click");
-        }
+        chrome.storage.sync.get(["model"], (obj) => {
+            if (typeof obj.model === "undefined") {
+                obj.model = {};
+            }
 
-        return false;
-        elm.shareUserdata.share[0].checked = data.model.shareUserdata ? true : false;
+            if (obj.model.shareUserdata && obj.model.shareUserdata === true) {
+                opts.elm.checkbox.shareUserdata.trigger("click");
+            }
 
-        elm.shareUserdata.share.on("change", () => {
-            data.model.shareUserdata = elm.shareUserdata.share[0].checked;
-            data.model.lastShareDate = 0;
+            opts.elm.checkbox.shareUserdata.children("input[type='checkbox']").on("change", () => {
+                obj.model.shareUserdata = checkboxHelper.isChecked(opts.elm.checkbox.shareUserdata);
+                obj.model.lastShareDate = 0;
 
-            chrome.storage.sync.set({
-                model: data.model
-            }, () => {
-                opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_share_userdata"));
-                opts.elm.body.addClass(classes.submitSuccess);
-                setTimeout(() => {
-                    opts.elm.body.removeClass(classes.submitSuccess);
-                }, 1500);
+                chrome.storage.sync.set({
+                    model: obj.model
+                }, () => {
+                    showSuccessMessage("saved_share_userdata");
+                });
             });
         });
     };
 
+
     /**
-     * Initialises the feedback tab
+     * Returns the html for the loading indicator
+     *
+     * @returns {jsu}
      */
-    let initFeedback = () => {
-        elm.feedback.rate.attr({
-            href: "https://chrome.google.com/webstore/detail/" + chrome.i18n.getMessage("@@extension_id") + "/reviews",
-            target: "_blank"
-        });
+    let getLoaderHtml = () => {
+        let html = '' +
+            '<div class="loading">' +
+            ' <div>' +
+            '  <div class="circle-clipper left">' +
+            '   <div></div>' +
+            '  </div>' +
+            '  <div class="gap-patch">' +
+            '   <div></div>' +
+            '  </div>' +
+            '  <div class="circle-clipper right">' +
+            '   <div></div>' +
+            '  </div>' +
+            ' </div>' +
+            '</div>';
 
-        elm.feedback.save.on("click", () => { // save setting
-            let messageText = elm.feedback.textarea[0].value;
-            let emailText = elm.feedback.email[0].value;
-            let isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
-            let isMessageValid = messageText.length > 0;
-
-            if (isEmailValid && isMessageValid) {
-                elm.feedback.save.addClass(classes.loading);
-                let manifest = chrome.runtime.getManifest();
-
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://moonware.de/ajax/extensions/feedback", true);
-                xhr.onload = () => {
-                    elm.feedback.save.removeClass(classes.loading);
-                    elm.feedback.textarea[0].value = "";
-                    elm.feedback.email[0].value = "";
-
-                    opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_feedback"));
-                    opts.elm.body.addClass(classes.submitSuccess);
-                    setTimeout(() => {
-                        opts.elm.body.removeClass(classes.submitSuccess);
-                    }, 1500);
-                };
-                let formData = new FormData();
-                formData.append('email', emailText);
-                formData.append('msg', messageText);
-                formData.append('extension', JSON.stringify({
-                    name: manifest.name,
-                    version: manifest.version
-                }));
-                xhr.send(formData);
-
-            } else if (!isEmailValid) {
-                elm.feedback.email.addClass(classes.feedbackError);
-            } else if (!isMessageValid) {
-                elm.feedback.textarea.addClass(classes.feedbackError);
-            }
-
-            setTimeout(() => {
-                $("." + classes.feedbackError).removeClass(classes.feedbackError);
-            }, 1500);
-        });
+        return $(html);
     };
 
+    /**
+     * Checks the content of the feedback fields and sends the content via ajax if they are filled properly
+     */
+    let sendFeedback = () => {
+        let messageText = opts.elm.textarea.feedbackMsg[0].value;
+        let emailText = opts.elm.field.feedbackEmail[0].value;
+        let isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
+        let isMessageValid = messageText.length > 0;
+
+        if (isEmailValid && isMessageValid) {
+            let loadStartTime = +new Date();
+            let loader = getLoaderHtml().appendTo(opts.elm.body);
+            opts.elm.body.addClass(opts.classes.loading);
+            let manifest = chrome.runtime.getManifest();
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://moonware.de/ajax/extensions/feedback", true);
+            xhr.onload = () => {
+                setTimeout(() => { // load at least 1s
+                    opts.elm.textarea.feedbackMsg[0].value = "";
+                    opts.elm.field.feedbackEmail[0].value = "";
+                    opts.elm.body.removeClass(opts.classes.loading);
+                    loader.remove();
+                    showSuccessMessage("feedback_sent_message");
+                }, Math.max(0, 1000 - (+new Date() - loadStartTime)));
+            };
+            let formData = new FormData();
+            formData.append('email', emailText);
+            formData.append('msg', messageText);
+            formData.append('extension', JSON.stringify({
+                name: manifest.name,
+                version: manifest.version
+            }));
+            xhr.send(formData);
+
+        } else if (!isEmailValid) {
+            opts.elm.field.feedbackEmail.addClass(opts.classes.error);
+        } else if (!isMessageValid) {
+            opts.elm.textarea.feedbackMsg.addClass(opts.classes.error);
+        }
+
+        setTimeout(() => {
+            $("." + opts.classes.error).removeClass(opts.classes.error);
+        }, 700);
+    };
+
+    /**
+     * Initialises the appearance settings
+     */
     let initAppearanceTab = () => {
-        /*
-         General
-         - color scheme
+        opts.elm.appearanceLabels.children("a").on("click", (e) => {
+            e.preventDefault();
+            opts.elm.appearanceLabels.removeClass(opts.classes.tabs.active);
+            let tabElm = $(e.currentTarget).parent("li");
+            let tabName = tabElm.attr(opts.attr.type);
+            tabElm.addClass(opts.classes.tabs.active);
 
-         Sidebar
-         - width
-         - position
-         - mask color
-         - icon size
-         - font size
-         - line height
-         - directory indentation
+            opts.elm.appearanceSections.forEach((section) => {
+                let name = $(section).attr(opts.attr.appearance);
 
-         Overlay
-         - font size
-         - mask color
+                if (name === tabName) {
+                    $(section).removeClass(opts.classes.tabs.hidden);
+                } else {
+                    $(section).addClass(opts.classes.tabs.hidden);
+                }
+            });
+        });
 
-         Indicator
-         - width
-         - color
-         - icon size
+        opts.elm.appearanceLabels.children("a").eq(0).trigger("click");
 
+        let styles = modelHelper.getData("a/styles");
 
-         */
+        setTimeout(() => {
+            Object.keys(styles).forEach((key) => {
+                let value = styles[key];
+
+                if (opts.elm.range[key]) {
+                    opts.elm.range[key][0].value = value.replace("px", "");
+                    opts.elm.range[key].trigger("change");
+                } else if (opts.elm.color[key]) {
+                    let picker = opts.elm.color[key].data("picker");
+
+                    if (value.search(/rgba\(/) > -1) {
+                        let colorParsed = value.replace(/(rgba|\(|\))/gi, "").split(",");
+                        value = "rgb(" + colorParsed[0] + "," + colorParsed[1] + "," + colorParsed[2] + ")";
+                        if (picker.alpha) {
+                            picker.alpha[0].value = colorParsed[3];
+                        }
+                    }
+
+                    picker.set(value);
+                    picker.trigger("change");
+                }
+            });
+        }, 0);
     };
 
+    /**
+     * Initialises the behaviour settings
+     */
     let initBehaviourTab = () => {
-
         ["rememberScroll", "rememberSearch", "hideEmptyDirs"].forEach((field) => {
-            let val = typeof data.behaviour[field] === "undefined" ? true : data.behaviour[field];
-            if (val === true) {
+            if (modelHelper.getData("b/" + field) === true) {
                 opts.elm.checkbox[field].trigger("click");
             }
         });
 
-        opts.elm.select.openAction[0].value = typeof data.behaviour.openAction === "undefined" ? "mousedown" : data.behaviour.openAction;
-        opts.elm.select.newTab[0].value = typeof data.behaviour.newTab === "undefined" ? "foreground" : data.behaviour.newTab;
+        let pxTolerance = modelHelper.getData("b/pxTolerance");
+        opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
+        opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
+
+        let scrollSensitivity = modelHelper.getData("b/scrollSensitivity");
+        opts.elm.range.mouseScrollSensitivity[0].value = scrollSensitivity.mouse;
+        opts.elm.range.trackpadScrollSensitivity[0].value = scrollSensitivity.trackpad;
+
+        opts.elm.range.closeTimeout[0].value = modelHelper.getData("b/closeTimeout");
+        opts.elm.select.openAction[0].value = modelHelper.getData("b/openAction");
+        opts.elm.select.newTab[0].value = modelHelper.getData("b/newTab");
+
+        opts.elm.range.pxToleranceMaximized.trigger("change");
+        opts.elm.range.pxToleranceWindowed.trigger("change");
+        opts.elm.range.mouseScrollSensitivity.trigger("change");
+        opts.elm.range.trackpadScrollSensitivity.trigger("change");
+        opts.elm.range.closeTimeout.trigger("change");
     };
 
+    /**
+     * Save the behaviour settings
+     */
+    let saveBehaviourSettings = () => {
+        let config = {
+            pxTolerance: {
+                maximized: opts.elm.range.pxToleranceMaximized[0].value,
+                windowed: opts.elm.range.pxToleranceWindowed[0].value
+            },
+            scrollSensitivity: {
+                mouse: opts.elm.range.mouseScrollSensitivity[0].value,
+                trackpad: opts.elm.range.trackpadScrollSensitivity[0].value
+            },
+            closeTimeout: opts.elm.range.closeTimeout[0].value,
+            openAction: opts.elm.select.openAction[0].value,
+            newTab: opts.elm.select.newTab[0].value
+        };
+
+        ["rememberScroll", "rememberSearch", "hideEmptyDirs"].forEach((field) => {
+            config[field] = checkboxHelper.isChecked(opts.elm.checkbox[field]);
+        });
+
+        chrome.storage.sync.set({behaviour: config}, () => {
+            showSuccessMessage("saved_message");
+        });
+    };
 
     /**
-     * Initialises the configuration tab (fill fields, init events)
+     * Initialises the eventhandler for the buttons
      */
-    let initConfiguration = () => {
-        let pxToleranceObj = {windowed: 10, maximized: 1};
-        let scrollSensitivityObj = {mouse: 1, trackpad: 1};
+    let initButtonEvents = () => {
+        opts.elm.button.save.on("click", (e) => {
+            e.preventDefault();
 
-
-        elm.config.addVisual[0].checked = typeof data.appearance.addVisual === "undefined" ? true : data.appearance.addVisual;
-        elm.config.rememberScroll[0].checked = typeof data.behaviour.rememberScroll === "undefined" ? true : data.behaviour.rememberScroll;
-        elm.config.rememberSearch[0].checked = typeof data.behaviour.rememberSearch === "undefined" ? true : data.behaviour.rememberSearch;
-        elm.config.hideEmptyDirs[0].checked = typeof data.behaviour.hideEmptyDirs === "undefined" ? true : data.behaviour.hideEmptyDirs;
-        elm.config.openAction[0].value = typeof data.behaviour.openAction === "undefined" ? "mousedown" : data.behaviour.openAction;
-        elm.config.newTab[0].value = typeof data.behaviour.newTab === "undefined" ? "foreground" : data.behaviour.newTab;
-
-        elm.config.closeTimeout[0].value = typeof data.behaviour.closeTimeout === "undefined" ? 1 : data.behaviour.closeTimeout;
-        elm.config.closeTimeout.trigger("change");
-
-
-        if (typeof data.behaviour.pxTolerance !== "undefined") {
-            pxToleranceObj = data.behaviour.pxTolerance;
-        }
-
-        elm.config.pxToleranceMaximized[0].value = pxToleranceObj.maximized;
-        elm.config.pxToleranceWindowed[0].value = pxToleranceObj.windowed;
-
-        elm.config.pxToleranceMaximized.trigger("change");
-        elm.config.pxToleranceWindowed.trigger("change");
-
-
-        if (typeof data.behaviour.scrollSensitivity !== "undefined") {
-            scrollSensitivityObj = data.behaviour.scrollSensitivity;
-        }
-
-        elm.config.mouseScrollSensitivity[0].value = scrollSensitivityObj.mouse;
-        elm.config.trackpadScrollSensitivity[0].value = scrollSensitivityObj.trackpad;
-
-
-        elm.config.rangeInputs.on("input change", (e) => {
-            $(e.currentTarget).next("span").text(e.currentTarget.value);
-        });
-        elm.config.rangeInputs.trigger("change");
-
-
-        elm.config.save.on("click", () => { // save settings
-            chrome.storage.sync.set({
-                appearance: {
-                    addVisual: elm.config.addVisual[0].checked
-                },
-                behaviour: {
-                    rememberScroll: elm.config.rememberScroll[0].checked,
-                    rememberSearch: elm.config.rememberSearch[0].checked,
-                    hideEmptyDirs: elm.config.hideEmptyDirs[0].checked,
-                    closeTimeout: elm.config.closeTimeout[0].value,
-                    openAction: elm.config.openAction[0].value,
-                    newTab: elm.config.newTab[0].value,
-                    pxTolerance: {
-                        windowed: elm.config.pxToleranceWindowed[0].value,
-                        maximized: elm.config.pxToleranceMaximized[0].value
-                    },
-                    scrollSensitivity: {
-                        mouse: elm.config.mouseScrollSensitivity[0].value,
-                        trackpad: elm.config.trackpadScrollSensitivity[0].value
-                    }
+            switch (opts.elm.body.attr(opts.attr.tab)) {
+                case "behaviour": {
+                    saveBehaviourSettings();
+                    break;
                 }
-            }, () => {
-                opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_config"));
-                opts.elm.body.addClass(classes.submitSuccess);
-                setTimeout(() => {
-                    opts.elm.body.removeClass(classes.submitSuccess);
-                }, 1500);
-            });
-        });
-
-
-        elm.config.restoreDefaults.on("click", () => { // restore default settings
-            chrome.storage.sync.remove(["behaviour", "appearance"], () => {
-                opts.elm.body.attr("data-successtext", chrome.i18n.getMessage("settings_saved_restore"));
-                opts.elm.body.addClass(classes.submitSuccess);
-                setTimeout(() => {
-                    opts.elm.body.removeClass(classes.submitSuccess);
-                    setTimeout(() => {
-                        window.close();
-                    }, 100);
-                }, 1500);
-            });
+                case "feedback": {
+                    sendFeedback();
+                    break;
+                }
+            }
         });
     };
 
     /**
+     * Shows the given success message for 1.5s
      *
+     * @param {string} i18nStr
      */
-    (() => {
-        let checkboxHelper = new window.CheckboxHelper({opts: opts});
+    let showSuccessMessage = (i18nStr) => {
+        opts.elm.body.attr(opts.attr.success, chrome.i18n.getMessage("settings_" + i18nStr));
+        opts.elm.body.addClass(opts.classes.success);
+        setTimeout(() => {
+            opts.elm.body.removeClass(opts.classes.success);
+        }, 1500);
+    };
 
+
+    /**
+     * Initialises all form elements
+     */
+    let initFormElements = () => {
         opts.elm.formElement.forEach((elm) => {
             let type = $(elm).attr(opts.attr.type);
             let name = $(elm).attr(opts.attr.name);
-            let i18n = $(elm).attr(opts.attr.i18n);
+            let i18n = $(elm).attr(opts.attr.i18n) || "";
 
             $("<br />").insertAfter(elm);
             let label = $("<label />").attr(opts.attr.i18n, i18n).insertAfter(elm);
@@ -394,11 +404,67 @@
                     opts.elm.checkbox[name] = checkboxHelper.get(opts.elm.body).insertAfter(label);
                     break;
                 }
+                case "text":
+                case "email": {
+                    opts.elm.field[name] = $("<input type='" + type + "' />").insertAfter(label);
+                    ["placeholder"].forEach((attr) => {
+                        let elmAttr = $(elm).attr(opts.attr.field[attr]);
+                        if (elmAttr) {
+                            opts.elm.field[name].attr(attr, elmAttr);
+                        }
+                    });
+                    break;
+                }
+                case "textarea": {
+                    opts.elm.textarea[name] = $("<textarea />").insertAfter(label);
+                    break;
+                }
+                case "color": {
+                    opts.elm.color[name] = $("<input type='text' />").addClass(opts.classes.color.field).insertAfter(label);
+                    let colorInfo = $("<span />").insertAfter(opts.elm.color[name]);
+                    let picker = new CP(opts.elm.color[name][0]);
+
+                    if ($(elm).attr(opts.attr.color.alpha)) {
+                        picker.alpha = $("<input type='range' />").attr({
+                            min: 0,
+                            max: 1,
+                            step: 0.01,
+                            value: 1
+                        }).appendTo(picker.picker);
+
+                        picker.alpha.on("change input", () => picker.trigger("change"));
+                    }
+
+
+                    picker.on("change", (color) => {
+                        let v = CP._HSV2RGB(picker.set());
+
+                        if (color) {
+                            v = CP.HEX2RGB(color);
+                        }
+
+                        if (picker.alpha && +picker.alpha[0].value < 1) {
+                            picker.alpha.css("background-image", "linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%),url(" + chrome.extension.getURL("img/settings/alpha.png") + ")");
+                            v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value.replace(/^0\./, '.') + ')';
+                        } else {
+                            v = 'rgb(' + v.join(',') + ')';
+                        }
+
+                        opts.elm.color[name][0].value = v;
+                        colorInfo.css("background-color", v);
+                    });
+
+                    opts.elm.color[name].data("picker", picker);
+                    break;
+                }
                 case "range": {
                     opts.elm.range[name] = $("<input type='range' />").insertAfter(label);
 
                     ["min", "max", "step"].forEach((attr) => {
-                        opts.elm.range[name].attr(attr, $(elm).attr(opts.attr.range[attr]));
+                        let elmAttr = $(elm).attr(opts.attr.range[attr]);
+                        if (elmAttr) {
+                            opts.elm.range[name].attr(attr, elmAttr);
+                        }
                     });
 
                     opts.elm.range[name].attr("value", $(elm).attr(opts.attr.value) || "");
@@ -406,7 +472,7 @@
                     let unit = $(elm).attr(opts.attr.range.unit) || "";
                     let valTooltip = $("<span />").insertAfter(opts.elm.range[name]);
 
-                    opts.elm.range[name].on('input', (e) => {
+                    opts.elm.range[name].on('input change', (e) => {
                         let elm = e.currentTarget;
                         let max = elm.max || 100;
                         let min = elm.min || 0;
@@ -434,27 +500,25 @@
 
             elm.remove();
         });
+    };
 
+    /**
+     *
+     */
+    (() => {
+        modelHelper = new window.ModelHelper();
+        checkboxHelper = new window.CheckboxHelper({opts: opts});
+
+        initFormElements();
         initLanguage();
         initCopyright();
         initTabs();
 
-
-        let keys = ["utility", "behaviour", "appearance", "model"];
-        chrome.storage.sync.get(keys, (obj) => {
-            data = obj;
-
-            keys.forEach((key) => {
-                if (typeof data[key] === "undefined") {
-                    data[key] = {};
-                }
-            });
-
+        modelHelper.init(() => {
             initBehaviourTab();
-            initAppearanceTab();
-            // initConfiguration();
-            initFeedback();
+            //initAppearanceTab();
             initShareUserdataTab();
+            initButtonEvents();
         });
     })();
 

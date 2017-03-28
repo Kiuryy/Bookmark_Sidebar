@@ -462,13 +462,14 @@ section#sidebar > div.scrollBox > ul {
   margin: 12px 0;
 }
 section#sidebar > div.scrollBox > ul a {
-  display: block;
-  line-height: 40px;
-  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: "%bookmarksFontSize";
+  line-height: "%bookmarksLineHeight";
+  padding: 0 "%bookmarksHorizontalPadding";
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  text-overflow: ellipsis;
   transition: background 0.3s;
   position: relative;
 }
@@ -479,14 +480,17 @@ section#sidebar > div.scrollBox > ul a.dir, section#sidebar > div.scrollBox > ul
   font-weight: 400;
 }
 section#sidebar > div.scrollBox > ul a > img {
-  vertical-align: top;
   display: inline-block;
-  width: 16px;
-  margin: 11px 20px 0 0;
+  width: "%bookmarksIconSize";
+  margin: 0 "%bookmarksHorizontalPadding" 0 0;
   visibility: hidden;
 }
 section#sidebar > div.scrollBox > ul a > img[src] {
   visibility: visible;
+}
+section#sidebar > div.scrollBox > ul a > span.label {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 section#sidebar > div.scrollBox > ul a > span.drag {
   display: none;
@@ -505,7 +509,7 @@ section#sidebar > div.scrollBox > ul a > span.drag:hover {
   background-color: "%colorScheme";
 }
 section#sidebar > div.scrollBox > ul a + ul {
-  padding-left: 25px;
+  padding-left: "%bookmarksDirIndentation";
   height: 0;
   transition: height 0.5s;
   overflow: hidden;
@@ -535,13 +539,14 @@ section#sidebar.searchLoading > div.loading {
 }
 
 a.dragHelper {
-  display: block;
-  line-height: 40px;
-  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: "%bookmarksFontSize";
+  line-height: "%bookmarksLineHeight";
+  padding: 0 "%bookmarksHorizontalPadding";
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  text-overflow: ellipsis;
   transition: background 0.3s;
   position: absolute;
   background: #f5f5f5;
@@ -557,14 +562,17 @@ a.dragHelper.dir, a.dragHelper.active {
   font-weight: 400;
 }
 a.dragHelper > img {
-  vertical-align: top;
   display: inline-block;
-  width: 16px;
-  margin: 11px 20px 0 0;
+  width: "%bookmarksIconSize";
+  margin: 0 "%bookmarksHorizontalPadding" 0 0;
   visibility: hidden;
 }
 a.dragHelper > img[src] {
   visibility: visible;
+}
+a.dragHelper > span.label {
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 a.dragHelper > span.drag {
   display: none;

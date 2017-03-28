@@ -19,12 +19,22 @@
                 container.children("input[type='checkbox']").attr(attrList);
             }
 
-            if (container.children("input[type='checkbox']")[0].checked) {
+            if (this.isChecked(container)) {
                 container.addClass(ext.opts.classes.checkbox.active);
             }
 
             initEvents(container);
             return container;
+        };
+
+        /**
+         * Returns whether the checkbox is checked or not
+         *
+         * @param {jsu} container
+         * @returns {boolean}
+         */
+        this.isChecked = (container) => {
+            return container.find("input[type='checkbox']")[0].checked;
         };
 
         /**
@@ -44,8 +54,8 @@
                 _self.removeClass(ext.opts.classes.checkbox.focus);
                 _self.toggleClass(ext.opts.classes.checkbox.active);
 
-                let isChecked = _self.hasClass(ext.opts.classes.checkbox.active)
-                _self.children("input[type='checkbox']").attr('checked', isChecked);
+                let isChecked = _self.hasClass(ext.opts.classes.checkbox.active);
+                _self.children("input[type='checkbox']").attr('checked', isChecked).trigger("change");
 
                 if (clickedTimeout) {
                     clearTimeout(clickedTimeout);

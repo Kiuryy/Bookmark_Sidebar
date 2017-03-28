@@ -49,10 +49,7 @@
     "css/content.css",
     "img/*"
   ],
-  "options_ui": {
-    "page": "html/settings.html",
-    "chrome_style": true
-  },
+  "options_page":  "html/settings.html",
   "icons": {
     "256": "img/icon/dev/256x256.png",
     "128": "img/icon/dev/128x128.png",

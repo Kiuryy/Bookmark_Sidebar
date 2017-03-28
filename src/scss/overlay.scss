@@ -373,7 +373,7 @@ div.modal {
           border: 1px solid rgba(0, 0, 0, 0.1);
 
           &.error {
-            border-color: $errorColor;
+            border-color: $colorError;
           }
 
           &:focus {

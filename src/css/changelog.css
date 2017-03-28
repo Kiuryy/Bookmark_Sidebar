@@ -9,16 +9,6 @@ section.infobox.visible {
 }
 
 section.infobox {
-  opacity: 0;
-  pointer-events: none;
-}
-
-section.infobox.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-section.infobox {
   position: absolute;
   top: 0;
   left: 0;

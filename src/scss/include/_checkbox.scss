@@ -36,7 +36,7 @@ div.checkbox {
 
   &.active {
     background-color: $colorScheme;
-    background-image: img('icon-check.png');
+    background-image: img('icon-check.webp');
     border-color: $colorScheme;
 
     &::before {

@@ -107,7 +107,6 @@
             let openAction = ext.helper.model.getData("b/openAction");
             $(document).on(openAction, (e) => {
                 if ((openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
-                    console.log("OPEN");
                     e.stopPropagation();
                     e.preventDefault();
                     openSidebar();

@@ -39,7 +39,7 @@ div.modal {
     font-weight: 200;
     height: 60px;
     padding: 15px 75px 14px 55px;
-    background: $colorScheme img('bookmark.png') no-repeat 20px center;
+    background: $colorScheme img('bookmark.webp') no-repeat 20px center;
     background-size: 24px;
   }
 
@@ -50,7 +50,7 @@ div.modal {
     display: block;
     width: 42px;
     height: 42px;
-    background: img('icon-close.png') no-repeat center;
+    background: img('icon-close.webp') no-repeat center;
     background-size: 22px;
     cursor: pointer;
     border-radius: 50%;
@@ -239,12 +239,12 @@ div.modal {
             }
 
             &:last-of-type {
-              background-image: img('icon-success.png');
+              background-image: img('icon-success.webp');
             }
 
             &:first-of-type {
               text-decoration: line-through;
-              background-image: img('icon-error.png');
+              background-image: img('icon-error.webp');
             }
           }
 
@@ -309,7 +309,7 @@ div.modal {
 
         &.tooltip {
           cursor: help;
-          background: img('icon-infos.png') no-repeat right center;
+          background: img('icon-infos.webp') no-repeat right center;
           background-size: 16px;
           padding-right: 18px;
         }

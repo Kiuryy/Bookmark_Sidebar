@@ -150,7 +150,7 @@ div.checkbox.clicked::before {
 }
 div.checkbox.active {
   background-color: #7b5fa4;
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.webp);
   border-color: #7b5fa4;
 }
 div.checkbox.active::before {
@@ -176,7 +176,7 @@ div.checkbox > input[type='checkbox'] {
 .color-picker > input[type='range'] {
   margin: 10px 0 0 0;
   background: none;
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.webp);
   cursor: ew-resize;
 }
 .color-picker > input[type='range']::-webkit-slider-runnable-track {
@@ -297,7 +297,7 @@ body > header {
   left: 0;
   width: 100%;
   height: 70px;
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png), url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-settings.png), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp), url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-settings.webp), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   background-repeat: no-repeat;
   background-size: 58px, 40px, 100%;
   background-position: 20px center, 75px center, 0 0;
@@ -465,6 +465,7 @@ section#content > div.tab[data-name='share_userdata'] p > span {
 }
 section#content p.desc {
   font-size: 120%;
+  line-height: 170%;
   margin: 10px 0 20px 0;
 }
 section#content hr {
@@ -578,7 +579,7 @@ input.color + span::before, input.color + span::after {
   border-radius: 50%;
 }
 input.color + span::before {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.webp);
 }
 input.color + span::after {
   background-color: inherit;

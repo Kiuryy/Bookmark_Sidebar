@@ -83,7 +83,7 @@ body {
     right: 15px;
     width: 30px;
     height: 80%;
-    background: img('icon-drag.png') no-repeat;
+    background: img('icon-drag.webp') no-repeat;
     background-position: 5px center;
     background-size: 60px 20px;
     border-radius: 2px;
@@ -150,13 +150,13 @@ section#sidebar {
       }
 
       &.search {
-        background-image: img('icon-search.png');
+        background-image: img('icon-search.webp');
         margin-right: 3px;
 
       }
 
       &.settings {
-        background-image: img('icon-settings.png');
+        background-image: img('icon-settings.webp');
         margin-right: -6px;
 
         &:hover, &.active {
@@ -192,7 +192,7 @@ section#sidebar {
         display: inline-block;
         height: 30px;
         width: 30px;
-        background: img('icon-delete.png') no-repeat center;
+        background: img('icon-delete.webp') no-repeat center;
         background-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;

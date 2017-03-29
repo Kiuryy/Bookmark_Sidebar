@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             },
             distSettings: {
                 options: {},
-                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/settings.js'],
+                src: [path.src + 'js/lib/jsu.js', path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/settings.js'],
                 dest: 'tmp/settings-merged.js'
             }
         },
@@ -57,7 +57,6 @@ module.exports = function (grunt) {
                 files: {
                     ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',
                     ['tmp/settings-es5.js']: 'tmp/settings-merged2.js',
-                    ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
                     ['tmp/howto-es5.js']: path.src + 'js/howto.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
                     ['tmp/model-es5.js']: path.src + 'js/model.js'
@@ -75,7 +74,6 @@ module.exports = function (grunt) {
                 },
                 files: {
                     ['tmp/js/extension.js']: 'tmp/extension-es5.js',
-                    ['tmp/js/lib/jsu.js']: 'tmp/jsu-es5.js',
                     ['tmp/js/settings.js']: 'tmp/settings-es5.js',
                     ['tmp/js/howto.js']: 'tmp/howto-es5.js',
                     ['tmp/js/changelog.js']: 'tmp/changelog-es5.js',
@@ -138,8 +136,8 @@ module.exports = function (grunt) {
                         pattern: /"version_name":[^,]*,/ig,
                         replacement: ''
                     }, {
-                        pattern: /(img\/icon\/)dev\//ig,
-                        replacement: '$1'
+                        pattern: /(img\/icon\/)dev\/(.*)\.png/ig,
+                        replacement: '$1$2.webp'
                     }]
                 },
                 files: {

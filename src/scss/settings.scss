@@ -29,7 +29,7 @@ body > header {
   left: 0;
   width: 100%;
   height: $headerHeight;
-  background-image: img('icon/icon.png'), img('settings/icon-settings.png'), $gradient;
+  background-image: img('icon/icon.webp'), img('settings/icon-settings.webp'), $gradient;
   background-repeat: no-repeat;
   background-size: 58px, 40px, 100%;
   background-position: 20px center, 75px center, 0 0;
@@ -228,6 +228,7 @@ section#content {
 
   p.desc {
     font-size: 120%;
+    line-height: 170%;
     margin: 10px 0 20px 0;
   }
 
@@ -368,7 +369,7 @@ input.color {
     }
 
     &::before {
-      background-image: img('settings/alpha.png');
+      background-image: img('settings/alpha.webp');
     }
 
     &::after {

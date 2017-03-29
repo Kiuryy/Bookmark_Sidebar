@@ -200,7 +200,7 @@ div.checkbox.clicked::before {
 }
 div.checkbox.active {
   background-color: "%colorScheme";
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.webp);
   border-color: "%colorScheme";
 }
 div.checkbox.active::before {
@@ -271,7 +271,7 @@ div.modal > h1 {
   font-weight: 200;
   height: 60px;
   padding: 15px 75px 14px 55px;
-  background: "%colorScheme" url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat 20px center;
+  background: "%colorScheme" url(chrome-extension://__MSG_@@extension_id__/img/bookmark.webp) no-repeat 20px center;
   background-size: 24px;
 }
 div.modal > a.close {
@@ -281,7 +281,7 @@ div.modal > a.close {
   display: block;
   width: 42px;
   height: 42px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.png) no-repeat center;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.webp) no-repeat center;
   background-size: 22px;
   cursor: pointer;
   border-radius: 50%;
@@ -445,11 +445,11 @@ div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:hover {
   color: "%colorScheme";
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:last-of-type {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-success.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-success.webp);
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:first-of-type {
   text-decoration: line-through;
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-error.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-error.webp);
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > span {
   font-style: italic;
@@ -496,7 +496,7 @@ div.modal[data-type='infos'] > ul > li {
 }
 div.modal[data-type='infos'] > ul > li.tooltip {
   cursor: help;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.png) no-repeat right center;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp) no-repeat right center;
   background-size: 16px;
   padding-right: 18px;
 }

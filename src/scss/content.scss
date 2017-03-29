@@ -25,7 +25,7 @@ body > div#moonware-bs-visual {
 
     &::after {
       position: absolute;
-      background: img('bookmark.png') no-repeat center / $indicatorIconSize;
+      background: img('bookmark.webp') no-repeat center / $indicatorIconSize;
       z-index: 2;
     }
 

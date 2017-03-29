@@ -153,7 +153,7 @@
 
                     if (bookmark.children) { // dir
                         if (data.hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway
-                            bookmark.icon = chrome.extension.getURL("img/dir.png");
+                            bookmark.icon = chrome.extension.getURL("img/dir.webp");
 
                             entryContent
                                 .data("infos", bookmark)
@@ -175,7 +175,7 @@
                         if (data.showBookmarkIcons) {
                             this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
                                 if (opts.demoMode) {
-                                    response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".png");
+                                    response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".webp");
                                 }
 
                                 if (response.img) { // favicon found -> add to entry

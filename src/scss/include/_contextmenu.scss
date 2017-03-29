@@ -56,15 +56,15 @@ div.contextmenu {
         }
 
         &[data-type='delete'] > span {
-          background-image: img('icon-delete.png');
+          background-image: img('icon-delete.webp');
         }
 
         &[data-type='edit'] > span {
-          background-image: img('icon-edit.png');
+          background-image: img('icon-edit.webp');
         }
 
         &[data-type='infos'] > span {
-          background-image: img('icon-infos.png');
+          background-image: img('icon-infos.webp');
         }
 
         &[data-type='newTab'] {
@@ -82,20 +82,20 @@ div.contextmenu {
           }
 
           > span {
-            background-image: img('icon-newTab.png');
+            background-image: img('icon-newTab.webp');
           }
         }
 
         &[data-type='settings'] > span {
-          background-image: img('icon-settings.png');
+          background-image: img('icon-settings.webp');
         }
 
         &[data-type='bookmarkManager'] > span {
-          background-image: img('icon-bookmarkManager.png');
+          background-image: img('icon-bookmarkManager.webp');
         }
 
         &[data-type='updateUrls'] > span {
-          background-image: img('icon-update.png');
+          background-image: img('icon-update.webp');
         }
 
         &[data-type='toggleFix'] {
@@ -113,7 +113,7 @@ div.contextmenu {
           }
 
           > span {
-            background-image: img('icon-pin.png');
+            background-image: img('icon-pin.webp');
           }
         }
 

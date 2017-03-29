@@ -24,7 +24,7 @@ body > div#moonware-bs-visual.moonware-bs-add-visual::before {
 }
 body > div#moonware-bs-visual.moonware-bs-add-visual::after {
   position: absolute;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/bookmark.png) no-repeat center/"%indicatorIconSize";
+  background: url(chrome-extension://__MSG_@@extension_id__/img/bookmark.webp) no-repeat center/"%indicatorIconSize";
   z-index: 2;
 }
 body > div#moonware-bs-visual.moonware-bs-add-visual[data-pos='right']::before, body > div#moonware-bs-visual.moonware-bs-add-visual[data-pos='right']::after {

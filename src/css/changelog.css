@@ -39,7 +39,7 @@ section.infobox > div {
 }
 section.infobox > div span.icon {
   display: block;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png) no-repeat center/96px;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp) no-repeat center/96px;
   height: 96px;
   margin: 40px 0;
 }
@@ -150,7 +150,7 @@ section.infobox > div > div.back a.close {
   display: block;
   width: 42px;
   height: 42px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.png) no-repeat center;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.webp) no-repeat center;
   background-size: 22px;
   cursor: pointer;
   border-radius: 50%;

@@ -444,7 +444,7 @@
                         }
 
                         if (picker.alpha && +picker.alpha[0].value < 1) {
-                            picker.alpha.css("background-image", "linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%),url(" + chrome.extension.getURL("img/settings/alpha.png") + ")");
+                            picker.alpha.css("background-image", "linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%),url(" + chrome.extension.getURL("img/settings/alpha.webp") + ")");
                             v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value.replace(/^0\./, '.') + ')';
                         } else {
                             v = 'rgb(' + v.join(',') + ')';
@@ -516,7 +516,7 @@
 
         modelHelper.init(() => {
             initBehaviourTab();
-            //initAppearanceTab();
+            initAppearanceTab();
             initShareUserdataTab();
             initButtonEvents();
         });

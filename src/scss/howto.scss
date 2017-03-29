@@ -118,7 +118,7 @@ section#tutorial {
     display: block;
     width: 24px;
     height: 36px;
-    background: img('howto/cursor.png') no-repeat center;
+    background: img('howto/cursor.webp') no-repeat center;
     background-size: 24px;
     transition: opacity 0.5s, left 2s, top 2s;
     z-index: 4;
@@ -137,14 +137,14 @@ section#tutorial {
     }
 
     &::after {
-      background-image: img('howto/mouse.png'), $gradient;
+      background-image: img('howto/mouse.webp'), $gradient;
       background-size: 20px, 100%;
       background-position: center, 0 0;
       background-repeat: no-repeat;
     }
 
     &::before {
-      background: img('howto/mouse-active.png') no-repeat center / 20px;
+      background: img('howto/mouse-active.webp') no-repeat center / 20px;
       animation: blink 1s infinite;
       z-index: 2;
     }
@@ -225,7 +225,7 @@ section#tutorial {
     }
 
     > p {
-      background: $contentBackground img('howto/placeholder.jpg') no-repeat 30px 30px / calc(100% - 60px);
+      background: $contentBackground img('howto/placeholder.webp') no-repeat 30px 30px / calc(100% - 60px);
       max-width: 750px;
       height: 350px;
       margin: 30px auto;

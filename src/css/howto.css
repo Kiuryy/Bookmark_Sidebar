@@ -39,7 +39,7 @@ section.infobox > div {
 }
 section.infobox > div span.icon {
   display: block;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png) no-repeat center/96px;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp) no-repeat center/96px;
   height: 96px;
   margin: 40px 0;
 }
@@ -201,7 +201,7 @@ section#tutorial > div#cursor {
   display: block;
   width: 24px;
   height: 36px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/howto/cursor.png) no-repeat center;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/howto/cursor.webp) no-repeat center;
   background-size: 24px;
   transition: opacity 0.5s, left 2s, top 2s;
   z-index: 4;
@@ -218,13 +218,13 @@ section#tutorial > div#cursor::after, section#tutorial > div#cursor::before {
   visibility: hidden;
 }
 section#tutorial > div#cursor::after {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/howto/mouse.png), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/howto/mouse.webp), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   background-size: 20px, 100%;
   background-position: center, 0 0;
   background-repeat: no-repeat;
 }
 section#tutorial > div#cursor::before {
-  background: url(chrome-extension://__MSG_@@extension_id__/img/howto/mouse-active.png) no-repeat center/20px;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/howto/mouse-active.webp) no-repeat center/20px;
   animation: blink 1s infinite;
   z-index: 2;
 }
@@ -292,7 +292,7 @@ section#tutorial > div#background > div {
   background: #fff;
 }
 section#tutorial > div#background > p {
-  background: #fff url(chrome-extension://__MSG_@@extension_id__/img/howto/placeholder.jpg) no-repeat 30px 30px/calc(100% - 60px);
+  background: #fff url(chrome-extension://__MSG_@@extension_id__/img/howto/placeholder.webp) no-repeat 30px 30px/calc(100% - 60px);
   max-width: 750px;
   height: 350px;
   margin: 30px auto;

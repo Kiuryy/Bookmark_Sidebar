@@ -217,13 +217,13 @@ div.contextmenu > ul > li > a > span {
   background-repeat: no-repeat;
 }
 div.contextmenu > ul > li > a[data-type='delete'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp);
 }
 div.contextmenu > ul > li > a[data-type='edit'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.webp);
 }
 div.contextmenu > ul > li > a[data-type='infos'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp);
 }
 div.contextmenu > ul > li > a[data-type='newTab'] {
   margin-bottom: 10px;
@@ -239,16 +239,16 @@ div.contextmenu > ul > li > a[data-type='newTab']::after {
   background: rgba(0, 0, 0, 0.1);
 }
 div.contextmenu > ul > li > a[data-type='newTab'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.webp);
 }
 div.contextmenu > ul > li > a[data-type='settings'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
 }
 div.contextmenu > ul > li > a[data-type='bookmarkManager'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmarkManager.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmarkManager.webp);
 }
 div.contextmenu > ul > li > a[data-type='updateUrls'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.webp);
 }
 div.contextmenu > ul > li > a[data-type='toggleFix'] {
   margin-top: 10px;
@@ -264,7 +264,7 @@ div.contextmenu > ul > li > a[data-type='toggleFix']::before {
   background: rgba(0, 0, 0, 0.1);
 }
 div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.webp);
 }
 div.contextmenu > ul > li > a:hover {
   background-color: #f5f5f5;
@@ -377,11 +377,11 @@ section#sidebar > header > a:hover, section#sidebar > header > a.active {
   background-color: #f5f5f5;
 }
 section#sidebar > header > a.search {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.webp);
   margin-right: 3px;
 }
 section#sidebar > header > a.settings {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
   margin-right: -6px;
 }
 section#sidebar > header > a.settings:hover, section#sidebar > header > a.settings.active {
@@ -412,7 +412,7 @@ section#sidebar > header > div.searchBox > a.searchClose {
   display: inline-block;
   height: 30px;
   width: 30px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.png) no-repeat center;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp) no-repeat center;
   background-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -499,7 +499,7 @@ section#sidebar > div.scrollBox > ul a > span.drag {
   right: 15px;
   width: 30px;
   height: 80%;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.png) no-repeat;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.webp) no-repeat;
   background-position: 5px center;
   background-size: 60px 20px;
   border-radius: 2px;
@@ -581,7 +581,7 @@ a.dragHelper > span.drag {
   right: 15px;
   width: 30px;
   height: 80%;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.png) no-repeat;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.webp) no-repeat;
   background-position: 5px center;
   background-size: 60px 20px;
   border-radius: 2px;

@@ -241,7 +241,9 @@
      * @param {function} sendResponse
      */
     let updateShareUserdataFlag = (opts, sendResponse) => {
-        data.shareUserdata = opts.share;
+        chrome.storage.sync.set({
+            shareUserdata: opts.share
+        });
         data.lastShareDate = 0;
         saveModelData();
     };
@@ -330,18 +332,31 @@
         if (details.reason === 'install') {
             chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
         } else if (details.reason === 'update') {
-
             let versionPartsOld = details.previousVersion.split('.');
             let versionPartsNew = chrome.runtime.getManifest().version.split('.');
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
                 chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
 
-                chrome.storage.sync.get(null, (obj) => {  // REMOVE ME
-                    if (obj["appearance"]) { // don't do it twice
-                        return false;
+                chrome.storage.sync.get(null, (obj) => {  // UPGRADE STORAGE STRUCTURE
+                    if (obj["appearance"]) {
+                        // START UPGRADE STORAGE STRUCTURE FOR v1.5
+                        if (typeof obj.model.shareUserdata !== "undefined" && typeof obj.shareUserdata === "undefined") {
+                            let share = obj.model.shareUserdata;
+                            if (share === "y") {
+                                chrome.storage.sync.set({shareUserdata: true});
+                            } else if (share === "n") {
+                                chrome.storage.sync.set({shareUserdata: true});
+                            } else if (typeof share === "boolean") {
+                                chrome.storage.sync.set({shareUserdata: share});
+                            }
+                        }
+                        // END UPGRADE STORAGE STRUCTURE FOR v1.5
+
+                        return false; // don't do it twice
                     }
 
+                    // START UPGRADE STORAGE STRUCTURE FOR v1.4
                     let newConfig = {
                         model: {},
                         utility: {},
@@ -389,10 +404,13 @@
                             case "openedByExtension":
                             case "installationDate":
                             case "clickCounter":
-                            case "shareUserdata":
                             case "lastShareDate":
                             case "uuid": {
                                 newConfig.model[key] = val;
+                                break;
+                            }
+                            case "shareUserdata": {
+                                newConfig[key] = val;
                                 break;
                             }
                             case "addVisual": {
@@ -418,6 +436,7 @@
                     chrome.storage.sync.set(newConfig, () => {
                         initModel();
                     });
+                    // END UPGRADE STORAGE STRUCTURE FOR v1.4
                 });
             }
         }
@@ -436,7 +455,7 @@
      * Initialises the model
      */
     let initModel = () => {
-        chrome.storage.sync.get(["model"], (obj) => {
+        chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
             data = obj.model || {};
 
             if (typeof data.uuid === "undefined") { // no uuid yet -> set new one
@@ -459,7 +478,7 @@
 
             if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
                 data.installationDate = +new Date();
-            } else if (typeof data.shareUserdata === "undefined" && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
+            } else if (typeof obj.shareUserdata === "undefined" && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
                 setTimeout(() => { // show mask in the active tab 60s after the model was loaded (increases the possibility that there is an active tab with the sidebar loaded)
                     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                         chrome.tabs.sendMessage(tabs[0].id, {action: "showShareUserdataMask"});
@@ -501,7 +520,7 @@
                     version: manifest.version
                 };
 
-                if (typeof obj.model.shareUserdata !== "undefined" && obj.model.shareUserdata === true) { // share userdata
+                if (typeof obj.shareUserdata !== "undefined" && obj.shareUserdata === true) { // share userdata
                     bookmarkObj.getSubTree("0", (response) => {
                         obj.bookmarkAmount = 0;
                         let processBookmarks = (bookmarks) => {
@@ -532,7 +551,7 @@
                     sendXhr({
                         uuid: obj.uuid,
                         extension: obj.extension,
-                        shareUserdata: typeof obj.model.shareUserdata === "undefined" ? "undefined" : obj.model.shareUserdata
+                        shareUserdata: typeof obj.shareUserdata === "undefined" ? "undefined" : obj.shareUserdata
                     });
                 }
             }

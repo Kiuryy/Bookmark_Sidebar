@@ -1,7 +1,6 @@
 [tdb]
  - Configurable icon for chrome menu
  - Hide directories from contextmenu (hidden directories will be listed on the settings page)
- - Minify locales json
 
 [1.5]
  - Added customization options

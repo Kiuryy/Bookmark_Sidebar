@@ -152,21 +152,14 @@
      * Initialises the share userdata tab
      */
     let initShareUserdataTab = () => {
-        chrome.storage.sync.get(["model"], (obj) => {
-            if (typeof obj.model === "undefined") {
-                obj.model = {};
-            }
-
-            if (obj.model.shareUserdata && obj.model.shareUserdata === true) {
+        chrome.storage.sync.get(["shareUserdata"], (obj) => {
+            if (obj.shareUserdata && obj.shareUserdata === true) {
                 opts.elm.checkbox.shareUserdata.trigger("click");
             }
 
             opts.elm.checkbox.shareUserdata.children("input[type='checkbox']").on("change", () => {
-                obj.model.shareUserdata = checkboxHelper.isChecked(opts.elm.checkbox.shareUserdata);
-                obj.model.lastShareDate = 0;
-
                 chrome.storage.sync.set({
-                    model: obj.model
+                    shareUserdata: checkboxHelper.isChecked(opts.elm.checkbox.shareUserdata)
                 }, () => {
                     showSuccessMessage("saved_share_userdata");
                 });

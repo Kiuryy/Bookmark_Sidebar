@@ -341,7 +341,7 @@
   },
   //
   "settings_feedback_desc": {
-    "message": "You have suggestions for improvements, questions or found a bug? Please let me know :)"
+    "message": "You have suggestions for improvements, questions, missing some configuration options or found a bug? To improve the experience with the extension I am very glad for every feedback you give me."
   },
   "settings_feedback_email": {
     "message": "Your email address"

@@ -20,14 +20,15 @@ $colorError: #f99;
 $hoverBackground: #f5f5f5;
 
 // Dynamic
-$colorScheme: "%colorScheme";
-$sidebarWidth: "%sidebarWidth";
-$sidebarMaskColor: "%sidebarMaskColor";
-$bookmarksFontSize: "%bookmarksFontSize";
-$bookmarksIconSize: "%bookmarksIconSize";
-$bookmarksLineHeight: "%bookmarksLineHeight";
-$bookmarksDirIndentation: "%bookmarksDirIndentation";
-$bookmarksHorizontalPadding: "%bookmarksHorizontalPadding";
-$indicatorWidth: "%indicatorWidth";
-$indicatorIconSize: "%indicatorIconSize";
-$indicatorColor: "%indicatorColor";
+$__colorScheme: "%colorScheme";
+$__sidebarWidth: "%sidebarWidth";
+$__sidebarMaskColor: "%sidebarMaskColor";
+$__bookmarksFontSize: "%bookmarksFontSize";
+$__bookmarksIconSize: "%bookmarksIconSize";
+$__bookmarksLineHeight: "%bookmarksLineHeight";
+$__bookmarksDirIndentation: "%bookmarksDirIndentation";
+$__bookmarksHorizontalPadding: "%bookmarksHorizontalPadding";
+$__indicatorWidth: "%indicatorWidth";
+$__indicatorIconSize: "%indicatorIconSize";
+$__indicatorColor: "%indicatorColor";
+$__overlayMaskColor: "%overlayMaskColor";

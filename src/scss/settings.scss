@@ -1,7 +1,7 @@
 @import "include/vars";
 @import "include/mixins";
 //
-$colorScheme: $mainColor;
+$__colorScheme: $mainColor;
 
 @import "include/loading";
 @import "include/checkbox";
@@ -150,7 +150,6 @@ section#content {
   margin-top: $headerHeight;
   height: calc(100vh - #{$headerHeight});
   padding: 40px 0 25px;
-  z-index: 1;
 
   > div.tab {
     position: relative;
@@ -239,17 +238,21 @@ section#content {
 }
 
 // Appearance
-%bg1 {
-  background: $bodyBackground;
+iframe[data-appearance] {
+  display: none;
 }
 
-%bg2 {
+%bg1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px),
   linear-gradient(90deg, rgba(0, 0, 0, 0.1) 2px, transparent 2px),
   linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
   linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+%bg2 {
+  background: $bodyBackground;
 }
 
 %bg3 {
@@ -264,12 +267,25 @@ section#content {
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
-
 body[data-tab='appearance'] {
 
   @for $i from 1 through 3 {
     &[data-bg='#{$i}'] {
       @extend %bg#{$i};
+    }
+  }
+
+  iframe[data-appearance] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 320px);
+    height: 100%;
+    display: block;
+    border: none;
+
+    &.hidden {
+      display: none;
     }
   }
 
@@ -318,6 +334,7 @@ body[data-tab='appearance'] {
       }
 
       ul.appearanceLabels {
+        padding: 7px 0 10px 0;
 
         > li {
           display: inline-block;
@@ -538,19 +555,6 @@ body > footer {
         color: $mainColorAlt;
       }
     }
-  }
-}
-
-iframe[data-appearance] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 320px);
-  height: 100%;
-  border: none;
-
-  &.hidden {
-    display: none;
   }
 }
 

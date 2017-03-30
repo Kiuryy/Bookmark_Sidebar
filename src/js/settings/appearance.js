@@ -5,6 +5,7 @@
 
         let previews = {
             sidebar: ["sidebar"],
+            general: ["overlay"],
             overlay: ["overlay"],
             indicator: ["contentBase", "content"]
         };
@@ -14,8 +15,8 @@
          * Initialises the appearance settings
          */
         this.init = () => {
-            initEvents();
             initPreviews();
+            initEvents();
 
             let styles = s.helper.model.getData("a/styles");
 
@@ -107,6 +108,14 @@
             return ret;
         };
 
+        let getLocaleDate = (dateObj) => {
+            return dateObj.toLocaleDateString([chrome.i18n.getUILanguage(), s.opts.manifest.default_locale], {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            });
+        };
+
 
         let initPreviews = () => {
             Object.keys(previews).forEach((key) => {
@@ -120,6 +129,7 @@
 
                 sendAjax("html/template/" + key + ".html", (html) => {
                     html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
+                    html = html.replace(/__DATE__CREATED__/g, getLocaleDate(new Date("2016-11-25")));
                     s.opts.elm.preview[key].find("body").html(html);
                     $("<link />").attr({
                         rel: "stylesheet",
@@ -131,6 +141,7 @@
                 stylesheets.forEach((stylesheet) => {
                     sendAjax("css/" + stylesheet + ".css", (css) => {
                         previews[key] += css;
+                        updatePreviewStyle(key);
                     });
                 });
             });
@@ -183,8 +194,6 @@
                 });
             });
             s.opts.elm.appearanceLabels.children("a").eq(0).trigger("click");
-
-
         };
 
     };

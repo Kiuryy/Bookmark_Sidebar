@@ -20,11 +20,11 @@ body {
     justify-content: center;
     font-size: 500%;
     font-weight: 200;
-    color: $colorScheme;
+    color: $__colorScheme;
     top: 0;
-    left: $sidebarWidth;
+    left: $__sidebarWidth;
     height: 100%;
-    width: calc(100% - #{$sidebarWidth} - #{$sidebarWidth});
+    width: calc(100% - #{$__sidebarWidth} - #{$__sidebarWidth});
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(200, 200, 200, 0.3) 5px, rgba(200, 200, 200, 0.3) 10px);
     transition: 0.5s;
     @extend %hidden;
@@ -44,9 +44,9 @@ body {
 @mixin bookmarkEntry {
   display: flex;
   align-items: center;
-  font-size: $bookmarksFontSize;
-  line-height: $bookmarksLineHeight;
-  padding: 0 $bookmarksHorizontalPadding;
+  font-size: $__bookmarksFontSize;
+  line-height: $__bookmarksLineHeight;
+  padding: 0 $__bookmarksHorizontalPadding;
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
@@ -62,8 +62,8 @@ body {
 
   > img {
     display: inline-block;
-    width: $bookmarksIconSize;
-    margin: 0 $bookmarksHorizontalPadding 0 0;
+    width: $__bookmarksIconSize;
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
     visibility: hidden;
 
     &[src] {
@@ -90,14 +90,14 @@ body {
 
     &:hover {
       background-position: -35px center;
-      background-color: $colorScheme;
+      background-color: $__colorScheme;
     }
   }
 }
 
 section#sidebar {
   position: relative;
-  width: $sidebarWidth;
+  width: $__sidebarWidth;
   background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -129,7 +129,7 @@ section#sidebar {
         margin: -5px 5px 0 0;
         font-weight: 300;
         font-size: 150%;
-        color: $colorScheme;
+        color: $__colorScheme;
       }
     }
 
@@ -266,7 +266,7 @@ section#sidebar {
         position: relative;
 
         + ul {
-          padding-left: $bookmarksDirIndentation;
+          padding-left: $__bookmarksDirIndentation;
           height: 0;
           transition: height 0.5s;
           overflow: hidden;
@@ -330,7 +330,7 @@ a.dragHelper {
   > span.drag {
     display: block;
     background-position: -35px center;
-    background-color: $colorScheme;
+    background-color: $__colorScheme;
   }
 
   &.snap {
@@ -348,7 +348,7 @@ div#shareUserdata {
   width: 100%;
   height: 100%;
   z-index: 4;
-  background: $colorScheme;
+  background: $__colorScheme;
   display: flex;
   align-items: center;
   justify-content: center;

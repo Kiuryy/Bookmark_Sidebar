@@ -67,7 +67,7 @@ body > iframe#moonware-bs-overlay {
   height: 100%;
   z-index: 2147483647;
   border: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: "%overlayMaskColor";
   transition: opacity 0.3s;
 }
 

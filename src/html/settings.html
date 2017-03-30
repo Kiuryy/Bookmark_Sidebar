@@ -90,10 +90,10 @@
         </header>
         <div>
             <ul class="appearanceLabels">
-                <li data-type="general"><a href="#">General</a></li>
-                <li data-type="indicator"><a href="#">Indicator</a></li>
-                <li data-type="sidebar"><a href="#">Sidebar</a></li>
-                <li data-type="overlay"><a href="#">Overlay</a></li>
+                <li data-type="general"><a href="#" data-i18n="appearance_label_general">General</a></li>
+                <li data-type="sidebar"><a href="#" data-i18n="appearance_label_sidebar">Sidebar</a></li>
+                <li data-type="indicator"><a href="#" data-i18n="appearance_label_indicator">Indicator</a></li>
+                <li data-type="overlay"><a href="#" data-i18n="appearance_label_overlay">Overlay</a></li>
             </ul>
 
             <div data-appearance="general">
@@ -101,16 +101,6 @@
                      data-i18n="color_scheme"></div>
 
                 MENU ICON
-            </div>
-
-            <div data-appearance="indicator">
-                SHOW INDICATOR
-
-                <div class="formElement" data-type="range" data-name="indicatorWidth" data-min="0" data-max="100" data-unit="px" data-i18n="indicator_width"></div>
-
-                <div class="formElement" data-type="range" data-name="indicatorIconSize" data-min="0" data-max="72" data-unit="px" data-i18n="indicator_icon_size"></div>
-
-                <div class="formElement" data-type="color" data-name="indicatorColor" data-alpha="1" data-i18n="indicator_color"></div>
             </div>
 
             <div data-appearance="sidebar">
@@ -128,8 +118,18 @@
                 <div class="formElement" data-type="range" data-name="bookmarksHorizontalPadding" data-min="0" data-unit="px" data-max="40" data-i18n="bookmarks_horizontal_padding"></div>
             </div>
 
+            <div data-appearance="indicator">
+                SHOW INDICATOR
+
+                <div class="formElement" data-type="range" data-name="indicatorWidth" data-min="0" data-max="100" data-unit="px" data-i18n="indicator_width"></div>
+
+                <div class="formElement" data-type="range" data-name="indicatorIconSize" data-min="0" data-max="72" data-unit="px" data-i18n="indicator_icon_size"></div>
+
+                <div class="formElement" data-type="color" data-name="indicatorColor" data-alpha="1" data-i18n="indicator_color"></div>
+            </div>
+
             <div data-appearance="overlay">
-                <div class="formElement" data-type="range" data-name="overlayFontSize" data-min="8" data-max="48" data-unit="px" data-i18n="overlay_font_size"></div>
+                <div class="formElement" data-type="color" data-name="overlayMaskColor" data-alpha="1" data-i18n="overlay_mask_color"></div>
             </div>
         </div>
         <menu class="backgroundChanger">

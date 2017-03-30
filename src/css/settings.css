@@ -400,7 +400,6 @@ section#content {
   margin-top: 70px;
   height: calc(100vh - 70px);
   padding: 40px 0 25px;
-  z-index: 1;
 }
 section#content > div.tab {
   position: relative;
@@ -473,14 +472,18 @@ section#content hr {
   border: none;
 }
 
-body[data-tab='appearance'][data-bg='1'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='1'] {
-  background: #f2f2f2;
+iframe[data-appearance] {
+  display: none;
 }
 
-body[data-tab='appearance'][data-bg='2'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='2'] {
+body[data-tab='appearance'][data-bg='1'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='1'] {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 2px, transparent 2px), linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+body[data-tab='appearance'][data-bg='2'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='2'] {
+  background: #f2f2f2;
 }
 
 body[data-tab='appearance'][data-bg='3'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='3'] {
@@ -490,6 +493,18 @@ body[data-tab='appearance'][data-bg='3'], body[data-tab='appearance'] section#co
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
+body[data-tab='appearance'] iframe[data-appearance] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 320px);
+  height: 100%;
+  display: block;
+  border: none;
+}
+body[data-tab='appearance'] iframe[data-appearance].hidden {
+  display: none;
+}
 body[data-tab='appearance'] section#content {
   padding: 0;
 }
@@ -520,6 +535,9 @@ body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a
 }
 body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a.active {
   border: 2px solid #2b35c8;
+}
+body[data-tab='appearance'] section#content > div.tab ul.appearanceLabels {
+  padding: 7px 0 10px 0;
 }
 body[data-tab='appearance'] section#content > div.tab ul.appearanceLabels > li {
   display: inline-block;
@@ -702,18 +720,6 @@ body > footer > a#copyright > strong {
 }
 body > footer > a#copyright:hover > strong {
   color: #2b35c8;
-}
-
-iframe[data-appearance] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 320px);
-  height: 100%;
-  border: none;
-}
-iframe[data-appearance].hidden {
-  display: none;
 }
 
 body::before, body::after {

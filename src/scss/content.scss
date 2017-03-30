@@ -10,29 +10,29 @@ body > div#moonware-bs-visual {
       content: "";
       position: absolute;
       transition: opacity 0.3s, transform 0.3s;
-      transform: translate3d(-$indicatorWidth, 0, 0);
+      transform: translate3d(-$__indicatorWidth, 0, 0);
       top: 0;
       left: 0;
-      width: $indicatorWidth;
+      width: $__indicatorWidth;
       height: 100%;
       @extend %hidden;
     }
 
     &::before {
-      background: $indicatorColor;
+      background: $__indicatorColor;
       z-index: 1;
     }
 
     &::after {
       position: absolute;
-      background: img('bookmark.webp') no-repeat center / $indicatorIconSize;
+      background: img('bookmark.webp') no-repeat center / $__indicatorIconSize;
       z-index: 2;
     }
 
     &[data-pos='right'] {
 
       &::before, &::after {
-        transform: translate3d($indicatorWidth, 0, 0);
+        transform: translate3d($__indicatorWidth, 0, 0);
         left: auto;
         right: 0;
       }
@@ -62,21 +62,21 @@ body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-b
 
 // Sidebar
 body > iframe#moonware-bs-sidebar {
-  width: $sidebarWidth;
+  width: $__sidebarWidth;
   height: 100%;
   z-index: #{2147483647 - 1};
-  background-color: $sidebarMaskColor;
+  background-color: $__sidebarMaskColor;
   border: none;
-  transform: translate3d(-$sidebarWidth, 0, 0);
+  transform: translate3d(-$__sidebarWidth, 0, 0);
   transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
 
   &[data-pos='right'] {
-    transform: translate3d($sidebarWidth, 0, 0);
+    transform: translate3d($__sidebarWidth, 0, 0);
   }
 
   &.moonware-bs-visible {
     @extend %visible;
-    width: calc(100% + #{$sidebarWidth});
+    width: calc(100% + #{$__sidebarWidth});
     transform: translate3d(0, 0, 0);
     transition: opacity 0.3s, transform 0.3s;
   }
@@ -88,7 +88,7 @@ body > iframe#moonware-bs-overlay {
   height: 100%;
   z-index: 2147483647;
   border: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: $__overlayMaskColor;
   transition: opacity 0.3s;
 
   &.moonware-bs-visible {

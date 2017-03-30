@@ -62,7 +62,7 @@ div.loading {
     left: 0;
     width: 100%;
     height: 100%;
-    border-color: $colorScheme;
+    border-color: $__colorScheme;
     animation: fill-unfill-rotate 5332ms cubic-bezier(.4, 0, .2, 1) infinite both;
 
     > div.circle-clipper {
@@ -76,7 +76,7 @@ div.loading {
       > div {
         width: 200%;
         height: 100%;
-        border: 3px solid $colorScheme;
+        border: 3px solid $__colorScheme;
         border-bottom-color: transparent;
         border-radius: 50%;
         position: absolute;

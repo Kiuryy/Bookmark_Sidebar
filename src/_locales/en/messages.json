@@ -204,6 +204,7 @@
   "settings_headline_search": {
     "message": "Search"
   },
+  //
   "settings_px_tolerance": {
     "message": "Tolerance in pixels"
   },
@@ -279,53 +280,66 @@
   "settings_scroll_sensitivity_desc": {
     "message": "Adjust the scroll sensitivity for mouse and trackpad scrolling."
   },
+  //
+  "settings_appearance_label_general": {
+    "message": "General"
+  },
+  "settings_appearance_label_sidebar": {
+    "message": "Sidebar"
+  },
+  "settings_appearance_label_indicator": {
+    "message": "Indicator"
+  },
+  "settings_appearance_label_overlay": {
+    "message": "Overlay"
+  },
   "settings_color_scheme": {
     "message": "Color scheme"
   },
   "settings_color_scheme_desc": {
     "message": "The color of the overlay header, the bookmark amount, etc."
   },
-  "settings_indicator_width":{
-    "message":"Width"
+  "settings_indicator_width": {
+    "message": "Width"
   },
-  "settings_indicator_icon_size":{
-    "message":"Icon size"
+  "settings_indicator_icon_size": {
+    "message": "Icon size"
   },
-  "settings_indicator_color":{
-    "message":"Color"
+  "settings_indicator_color": {
+    "message": "Color"
   },
-  "settings_sidebar_position":{
-    "message":"Position"
+  "settings_sidebar_position": {
+    "message": "Position"
   },
-  "settings_sidebar_position_left":{
-    "message":"Left"
+  "settings_sidebar_position_left": {
+    "message": "Left"
   },
-  "settings_sidebar_position_right":{
-    "message":"Right"
+  "settings_sidebar_position_right": {
+    "message": "Right"
   },
-  "settings_sidebar_width":{
-    "message":"Width"
+  "settings_sidebar_width": {
+    "message": "Width"
   },
-  "settings_sidebar_mask_color":{
-    "message":"Mask color"
+  "settings_sidebar_mask_color": {
+    "message": "Mask color"
   },
-  "settings_bookmarks_font_size":{
-    "message":"Bookmarks font size"
+  "settings_bookmarks_font_size": {
+    "message": "Bookmarks font size"
   },
-  "settings_bookmarks_icon_size":{
-    "message":"Bookmarks icon size"
+  "settings_bookmarks_icon_size": {
+    "message": "Bookmarks icon size"
   },
-  "settings_bookmarks_line_height":{
-    "message":"Bookmarks line height"
+  "settings_bookmarks_line_height": {
+    "message": "Bookmarks line height"
   },
-  "settings_bookmarks_horizontal_padding":{
-    "message":"Bookmarks horizontal padding"
+  "settings_bookmarks_horizontal_padding": {
+    "message": "Bookmarks horizontal padding"
   },
-  "settings_bookmarks_dir_indentation":{
-    "message":"Directory indentation"
+  "settings_bookmarks_dir_indentation": {
+    "message": "Directory indentation"
   },
-  "settings_overlay_font_size":{
-    "message":"Font size"
+  "settings_overlay_mask_color": {
+    "message": "Mask color"
   },
   "settings_save": {
     "message": "Save Changes"

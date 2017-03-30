@@ -35,17 +35,17 @@ div.checkbox {
   }
 
   &.active {
-    background-color: $colorScheme;
+    background-color: $__colorScheme;
     background-image: img('icon-check.webp');
-    border-color: $colorScheme;
+    border-color: $__colorScheme;
 
     &::before {
-      box-shadow: 0 0 0 0 $colorScheme;
+      box-shadow: 0 0 0 0 $__colorScheme;
     }
 
     &.focus::before, &.clicked::before {
-      background: $colorScheme;
-      box-shadow: 0 0 0 22px $colorScheme;
+      background: $__colorScheme;
+      box-shadow: 0 0 0 22px $__colorScheme;
     }
   }
 

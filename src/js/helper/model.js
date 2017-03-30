@@ -26,7 +26,7 @@
                 styles: {
                     colorScheme: "rgb(0,137,123)",
                     indicatorWidth: "50px",
-                    indicatorIconSize: "50px",
+                    indicatorIconSize: "40px",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",
                     sidebarMaskColor: "rgba(255,255,255,0.8)",
@@ -34,7 +34,8 @@
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "40px",
                     bookmarksDirIndentation: "25px",
-                    bookmarksHorizontalPadding: "16px"
+                    bookmarksHorizontalPadding: "16px",
+                    overlayMaskColor: "rgba(0,0,0,0.5)"
                 }
             }
         };

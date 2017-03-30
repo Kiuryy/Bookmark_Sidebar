@@ -9,6 +9,9 @@
 body {
   height: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &::before {
     content: "";
@@ -22,10 +25,10 @@ div.modal {
   position: relative;
   width: 500px;
   height: 400px;
-  margin: calc(50vh - 200px) auto 0;
   background: $contentBackground;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  zoom: reset;
   transform: scale(0.7);
   transition: transform 0.3s;
 

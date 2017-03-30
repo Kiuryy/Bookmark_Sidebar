@@ -10,6 +10,7 @@ body > div#moonware-bs-visual {
   height: 100%;
   margin: 0;
   padding: 0;
+  zoom: reset;
   z-index: #{2147483647 - 2};
 
   &[data-pos='right'] {
@@ -23,6 +24,7 @@ body > iframe#moonware-bs-sidebar {
   position: fixed;
   top: 0;
   left: 0;
+  zoom: reset;
   @extend %hidden;
 
   &[data-pos='right'] {
@@ -36,6 +38,7 @@ body > iframe#moonware-bs-overlay {
   position: fixed;
   top: 0;
   left: 0;
+  zoom: reset;
   @extend %hidden;
 }
 

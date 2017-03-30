@@ -33,24 +33,6 @@
         };
 
         /**
-         * Initialises the helper objects
-         */
-        let initHelpers = () => {
-            this.helper = {
-                model: new window.ModelHelper(this),
-                toggle: new window.ToggleHelper(this),
-                scroll: new window.ScrollHelper(this),
-                sidebarEvents: new window.SidebarEventsHelper(this),
-                search: new window.SearchHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                dragndrop: new window.DragDropHelper(this),
-                checkbox: new window.CheckboxHelper(this),
-                overlay: new window.OverlayHelper(this),
-                contextmenu: new window.ContextmenuHelper(this)
-            };
-        };
-
-        /**
          * Returns the html for the loading indicator
          *
          * @returns {jsu}
@@ -250,6 +232,24 @@
          */
 
         let restoreOpenStateRunning = 0;
+
+        /**
+         * Initialises the helper objects
+         */
+        let initHelpers = () => {
+            this.helper = {
+                model: new window.ModelHelper(this),
+                toggle: new window.ToggleHelper(this),
+                scroll: new window.ScrollHelper(this),
+                sidebarEvents: new window.SidebarEventsHelper(this),
+                search: new window.SearchHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
+                dragndrop: new window.DragDropHelper(this),
+                checkbox: new window.CheckboxHelper(this),
+                overlay: new window.OverlayHelper(this),
+                contextmenu: new window.ContextmenuHelper(this)
+            };
+        };
 
         /**
          * Creates the basic html markup for the sidebar and the visual

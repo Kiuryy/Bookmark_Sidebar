@@ -1,6 +1,7 @@
 [tdb]
  - Configurable icon for chrome menu
  - Hide directories from contextmenu (hidden directories will be listed on the settings page)
+ - Only one directory open (accordion)
 
 [1.5]
  - Added customization options

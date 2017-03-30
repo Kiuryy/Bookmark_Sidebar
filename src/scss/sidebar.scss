@@ -101,6 +101,7 @@ section#sidebar {
   background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  z-index: 2;
 
   &[data-pos='right'] {
     float: right;

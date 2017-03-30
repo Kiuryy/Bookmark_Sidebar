@@ -45,7 +45,7 @@ module.exports = function (grunt) {
             },
             distSettings: {
                 options: {},
-                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/settings.js'],
+                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
                 dest: 'tmp/settings-merged.js'
             }
         },
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: path.src + "html",
-                    src: '*.html',
+                    src: '**/*.html',
                     dest: path.dist + "html/"
                 }, {
                     expand: true,

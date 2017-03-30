@@ -288,7 +288,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: -1;
 }
 
 body > header {
@@ -401,7 +400,7 @@ section#content {
   margin-top: 70px;
   height: calc(100vh - 70px);
   padding: 40px 0 25px;
-  z-index: -1;
+  z-index: 1;
 }
 section#content > div.tab {
   position: relative;
@@ -410,8 +409,7 @@ section#content > div.tab {
   max-width: 850px;
   margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  z-index: -1;
+  z-index: 4;
 }
 section#content > div.tab.hidden {
   display: none;
@@ -475,6 +473,23 @@ section#content hr {
   border: none;
 }
 
+body[data-tab='appearance'][data-bg='1'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='1'] {
+  background: #f2f2f2;
+}
+
+body[data-tab='appearance'][data-bg='2'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='2'] {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 2px, transparent 2px), linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+body[data-tab='appearance'][data-bg='3'], body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a[data-bg='3'] {
+  background-color: #556;
+  background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
 body[data-tab='appearance'] section#content {
   padding: 0;
 }
@@ -487,12 +502,32 @@ body[data-tab='appearance'] section#content > div.tab {
 body[data-tab='appearance'] section#content > div.tab > header > button {
   float: left;
 }
+body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger {
+  position: absolute;
+  bottom: 20px;
+  left: -500px;
+  width: 500px;
+  text-align: right;
+  padding: 0 20px 0 0;
+}
+body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a {
+  display: inline-block;
+  margin: 0 5px;
+  width: 70px;
+  height: 40px;
+  background: #f2f2f2;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.3);
+}
+body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a.active {
+  border: 2px solid #2b35c8;
+}
 body[data-tab='appearance'] section#content > div.tab ul.appearanceLabels > li {
   display: inline-block;
+  margin: 0 4px 0 0;
 }
 body[data-tab='appearance'] section#content > div.tab ul.appearanceLabels > li > a {
   display: block;
-  padding: 2px 8px;
+  padding: 2px 7px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   font-size: 90%;
@@ -669,6 +704,18 @@ body > footer > a#copyright:hover > strong {
   color: #2b35c8;
 }
 
+iframe[data-appearance] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 320px);
+  height: 100%;
+  border: none;
+}
+iframe[data-appearance].hidden {
+  display: none;
+}
+
 body::before, body::after {
   position: fixed;
 }
@@ -705,340 +752,5 @@ body.loading > div.loading {
   left: calc(50% - 18px);
   z-index: 99;
 }
-
-/*
-
-body {
-  margin: 10px auto 20px;
-  padding: 20px;
-  width: 720px;
-}
-
-// Header
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 3px 20px;
-  font-size: 90%;
-  background: $settingsHeaderBackground;
-  border-bottom: 1px solid #d3d3d3;
-  z-index: 2;
-
-  > div {
-    margin: 0 auto;
-    width: 660px;
-    height: 16px;
-
-    > a#copyright {
-      float: right;
-      color: $textColor;
-    }
-
-    > ul.tabBar {
-      display: inline-block;
-      margin: -3px 0 0 0;
-
-      > li {
-        display: inline-block;
-
-        > a {
-          position: relative;
-          display: inline-block;
-          height: 28px;
-          color: #666;
-          background: $settingsTabBackground;
-          padding: 4px 2px 0 2px;
-          margin: 0 17px;
-          font-size: 110%;
-          font-weight: 300;
-          -webkit-tap-highlight-color: transparent;
-          filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
-
-          &::before, &::after {
-            content: "";
-            position: absolute;
-            top: -13px;
-            width: 20px;
-            height: 40px;
-            background: $settingsTabBackground;
-            z-index: -1;
-          }
-
-          &::before {
-            left: -17px;
-            transform: rotateZ(-45deg);
-          }
-
-          &::after {
-            right: -17px;
-            transform: rotateZ(45deg);
-          }
-        }
-
-        &.active > a {
-          background: $settingsMainColor;
-          color: $textColorInverted;
-
-          &::before, &::after {
-            background: $settingsMainColor;
-          }
-        }
-      }
-    }
-  }
-
-}
-
-p#copyright {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  font-size: 90%;
-  color: $textColorLight;
-}
-
-// Content
-section#content {
-  transition: opacity 0.3s;
-
-  > div.tab {
-    display: block;
-
-    &.hidden {
-      display: none;
-    }
-
-    &[data-name='feedback'] {
-      position: relative;
-
-      > a#rate {
-        position: absolute;
-        display: block;
-        top: 35px;
-        right: 0;
-        color: $textColorLight;
-        font-size: 80%;
-
-        &::before {
-          content: "\2764";
-          position: absolute;
-          display: block;
-          top: -52px;
-          left: calc(50% - 24px);
-          width: 48px;
-          height: 48px;
-          color: $textColorInverted;
-          font-size: 26px;
-          border-radius: 50%;
-          padding: 6px 1px 0 0;
-          text-align: center;
-          background: $settingsMainColor;
-        }
-      }
-
-      > p.desc {
-        margin: 30px 120px 30px 0;
-      }
-
-      > textarea, input[type='email'] {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        padding: 5px;
-        outline: none;
-        transition: border 0.5s;
-
-        &.error {
-          border: 1px solid $settingsErrorColor;
-        }
-      }
-
-      > input[type='email'] {
-        display: inline-block;
-        margin: 10px 0 0 5px;
-      }
-
-      > textarea {
-        display: block;
-        width: 100%;
-        height: 200px;
-        margin-top: 20px;
-      }
-
-      button.loading {
-        pointer-events: none;
-
-        &::after {
-          content: "";
-          position: absolute;
-          top: 10px;
-          right: -30px;
-          width: 16px;
-          height: 11px;
-          background: img('settings-loading.gif') no-repeat center;
-        }
-      }
-    }
-
-    &[data-name='share_userdata'] {
-
-      > h2 {
-        font-size: 200%;
-        font-weight: 300;
-        margin: 30px 0;
-      }
-
-      > p {
-        font-size: 120%;
-        font-weight: 300;
-        margin: 20px 0;
-
-        > span {
-          text-decoration: underline;
-        }
-      }
-
-      > hr {
-        height: 1px;
-        border: none;
-        background: rgba(0, 0, 0, 0.2);
-        margin: 20px 0;
-      }
-
-      label {
-        display: inline-block;
-        vertical-align: top;
-        font-weight: 400;
-        margin-right: 15px;
-      }
-
-      input[type='checkbox'] {
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 2px;
-      }
-
-    }
-  }
-}
-
-div.configEntry {
-  margin-top: 30px;
-
-  label {
-    display: inline-block;
-    vertical-align: top;
-    font-weight: 400;
-    margin-right: 15px;
-  }
-
-  input {
-    display: inline-block;
-    vertical-align: top;
-
-    &[type='checkbox'] {
-      margin-top: 3px;
-    }
-  }
-
-  select {
-    display: inline-block;
-    vertical-align: top;
-    margin-top: -4px;
-  }
-
-  span.subLabel {
-    display: inline-block;
-    vertical-align: top;
-    font-style: italic;
-    margin: 0 10px 0 20px;
-  }
-
-  label + span.subLabel {
-    margin-left: 0;
-  }
-
-  input[type='range'] + span {
-    margin-left: 5px;
-
-    &::after {
-      content: attr(data-unit);
-      margin-left: 2px;
-      font-size: 90%;
-    }
-  }
-
-  p {
-    font-size: 90%;
-    color: $textColorLight;
-    margin-top: 7px;
-    font-style: italic;
-  }
-}
-
-button#save, button#sendFeedback {
-  position: relative;
-  display: inline-block;
-  margin-top: 50px;
-  outline: none;
-  border: none;
-  text-shadow: none;
-  box-shadow: none;
-  color: $textColorInverted;
-  background: $settingsMainColor;
-  padding: 3px 12px 4px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-button#restore {
-  display: inline-block;
-  outline: none;
-  border: none;
-  text-shadow: none;
-  box-shadow: none;
-  background: transparent;
-  padding: 0 7px;
-  margin-left: 15px;
-  vertical-align: middle;
-  font-size: 90%;
-  cursor: pointer;
-  transition: background 0.5s;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.05);
-  }
-}
-
-body {
-  &::after {
-    content: attr(data-successtext);
-    position: fixed;
-    top: calc(50% - 50px);
-    left: 0;
-    width: 100%;
-    height: 55px;
-    padding: 15px 0;
-    font-size: 140%;
-    text-align: center;
-    color: $textColorInverted;
-    background: $settingsSuccessBackgroundColor;
-    transition: opacity 0.3s;
-    @extend %hidden;
-  }
-
-  &.submitSuccess {
-
-    &::after {
-      @extend %visible;
-    }
-
-    section#content {
-      opacity: 0.2;
-      pointer-events: none;
-    }
-  }
-}
-*/
 
 /*# sourceMappingURL=settings.css.map */

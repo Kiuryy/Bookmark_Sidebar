@@ -2,7 +2,7 @@
 
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
-<img src="dist/img/icon/256x256.png" width="96" align="right" />
+<img src="dist/img/icon/256x256.webp" width="96" align="right" />
 
 Chrome extension, which adds a toggleable sidebar with all your bookmarks on the left side of your screen.
 

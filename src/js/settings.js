@@ -238,6 +238,10 @@
         }, 700);
     };
 
+    let initAppearancePreviews = () => {
+
+    };
+
     /**
      * Initialises the appearance settings
      */
@@ -359,6 +363,24 @@
                 }
                 case "feedback": {
                     sendFeedback();
+                    break;
+                }
+            }
+        });
+
+        opts.elm.button.restore.on("click", (e) => {
+            e.preventDefault();
+            let tabName = opts.elm.body.attr(opts.attr.tab);
+
+            switch (tabName) {
+                case "behaviour":
+                case "appearance": {
+                    chrome.storage.sync.remove([tabName], () => {
+                        showSuccessMessage("restored_message");
+                        setTimeout(() => {
+                            location.reload(true);
+                        }, 1500);
+                    });
                     break;
                 }
             }
@@ -512,6 +534,7 @@
             initAppearanceTab();
             initShareUserdataTab();
             initButtonEvents();
+            initAppearancePreviews();
         });
     })();
 

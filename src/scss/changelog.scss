@@ -71,12 +71,16 @@ section.infobox {
   ul.changelog {
     margin-top: 70px;
 
-    > li {
+    li {
       padding: 10px 0;
 
-      &::before {
+      &:not(.noIndicator)::before {
         content: "-";
         margin: 0 10px 0 0;
+      }
+
+      ul {
+        margin: 10px 0 0 25px;
       }
     }
   }

@@ -466,7 +466,6 @@ div.modal[data-type='updateUrls'].urlCheckLoading {
 div.modal[data-type='updateUrls'].urlCheckFinished {
   width: 600px;
   height: 600px;
-  margin-top: calc(50vh - 300px);
 }
 div.modal[data-type='updateUrls'].urlCheckFinished::after {
   content: "";

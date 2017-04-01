@@ -45,6 +45,7 @@ section.infobox > div span.icon {
 }
 section.infobox > div h1 {
   font-size: 250%;
+  line-height: 130%;
   font-weight: 200;
 }
 @media (max-width: 650px) {

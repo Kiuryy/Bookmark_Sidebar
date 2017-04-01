@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ModelHelper = function () {
+    window.ModelHelper = function (ext) {
 
         let defaults = {
             u: { // utility
@@ -24,7 +24,7 @@
                 showIndicator: true,
                 showBookmarkIcons: true,
                 styles: {
-                    colorScheme: "rgb(0,137,123)",
+                    colorScheme: ext.opts.manifest.version_name === "Dev" ? "rgb(255,184,0)" : "rgb(0,137,123)",
                     indicatorWidth: "50px",
                     indicatorIconSize: "40px",
                     indicatorColor: "rgba(0,0,0,0.5)",

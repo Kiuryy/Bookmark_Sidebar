@@ -119,6 +119,44 @@ body > header {
         }
       }
 
+      &[data-name='help'] {
+        position: absolute;
+        top: 13px;
+        right: 30px;
+        margin: 0;
+        height: 42px;
+        width: 42px;
+        border-radius: 50%;
+        transition: background 0.5s;
+
+        &::before, &::after {
+          display: none;
+        }
+
+        > a {
+          padding: 3px 0 0 0;
+          font-size: 200%;
+          font-weight: 200;
+
+          &::before, &::after {
+            display: none;
+          }
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.2);
+          filter: none;
+
+          > a {
+            color: $textColorInverted;
+            opacity: 0.8;
+          }
+        }
+      }
     }
   }
 
@@ -210,7 +248,7 @@ section#content {
       }
     }
 
-    &[data-name='share_userdata'] {
+    &[data-name='contribute'] {
 
       p {
         font-size: 120%;
@@ -219,6 +257,18 @@ section#content {
         > span {
           font-weight: 400;
         }
+      }
+    }
+
+    &[data-name='help'] {
+
+      a {
+        display: inline-block;
+        background: $gradient;
+        color: $textColorInverted;
+        padding: 5px 10px;
+        font-size: 110%;
+        margin-bottom: 50px;
       }
     }
   }
@@ -305,13 +355,17 @@ body[data-tab='appearance'] {
         }
       }
 
+      > div {
+        padding-right: 0;
+      }
+
       menu.backgroundChanger {
         position: absolute;
         bottom: 20px;
         left: -500px;
         width: 500px;
         text-align: right;
-        padding: 0 20px 0 0;
+        padding: 0 20px;
 
         > a {
           display: inline-block;
@@ -371,7 +425,43 @@ body[data-tab='appearance'] {
         }
 
         input[type='range'] {
-          max-width: 220px;
+          max-width: 200px;
+        }
+
+        a.revert {
+          vertical-align: top;
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          margin: 9px 0 0 8px;
+          background: img('settings/icon-revert.webp') no-repeat center / 24px;
+        }
+
+        input[type='range'] + span + a.revert {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  &[data-pos='right'] {
+
+    iframe[data-appearance] {
+      left: auto;
+      right: 0;
+    }
+
+    section#content {
+
+      > div.tab {
+        right: auto;
+        left: 0;
+
+        menu.backgroundChanger {
+          left: auto;
+          right: -500px;
+          text-align: left;
         }
       }
     }

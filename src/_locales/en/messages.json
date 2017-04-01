@@ -142,7 +142,7 @@
     "message": "Thank you for installing this extension."
   },
   "howto_start_tutorial": {
-    "message": "Show me how it works"
+    "message": "Show me how to use"
   },
   "howto_replay_tutorial": {
     "message": "Replay this animation"
@@ -194,6 +194,9 @@
   "settings_tab_feedback": {
     "message": "Feedback"
   },
+  "settings_tab_help": {
+    "message": "?"
+  },
   //
   "settings_headline_toggle": {
     "message": "Toggle"
@@ -203,6 +206,9 @@
   },
   "settings_headline_search": {
     "message": "Search"
+  },
+  "settings_headline_help": {
+    "message": "Help"
   },
   //
   "settings_px_tolerance": {
@@ -341,6 +347,7 @@
   "settings_overlay_mask_color": {
     "message": "Mask color"
   },
+  //
   "settings_save": {
     "message": "Save Changes"
   },
@@ -365,6 +372,13 @@
   },
   "settings_feedback_sent_message": {
     "message": "Thank you for the feedback"
+  },
+  //
+  "settings_help_desc": {
+    "message": "Do you have problems using the extension?"
+  },
+  "settings_help_desc2": {
+    "message": "You encountered a problem or the extension does not work? You can send me a message so I can have a look at it."
   },
   //
   "settings_saved_share_userdata": {

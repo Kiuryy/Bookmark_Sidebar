@@ -376,6 +376,38 @@ body > header > ul.tabBar > li.active > a::after {
   right: -40px;
   transform: rotateZ(135deg);
 }
+body > header > ul.tabBar > li[data-name='help'] {
+  position: absolute;
+  top: 13px;
+  right: 30px;
+  margin: 0;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  transition: background 0.5s;
+}
+body > header > ul.tabBar > li[data-name='help']::before, body > header > ul.tabBar > li[data-name='help']::after {
+  display: none;
+}
+body > header > ul.tabBar > li[data-name='help'] > a {
+  padding: 3px 0 0 0;
+  font-size: 200%;
+  font-weight: 200;
+}
+body > header > ul.tabBar > li[data-name='help'] > a::before, body > header > ul.tabBar > li[data-name='help'] > a::after {
+  display: none;
+}
+body > header > ul.tabBar > li[data-name='help']:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+body > header > ul.tabBar > li[data-name='help'].active {
+  background: rgba(255, 255, 255, 0.2);
+  filter: none;
+}
+body > header > ul.tabBar > li[data-name='help'].active > a {
+  color: #fff;
+  opacity: 0.8;
+}
 
 h2 {
   font-size: 180%;
@@ -453,12 +485,20 @@ section#content > div.tab > header > button.restore {
   margin: 8px 20px 0;
   font-size: 90%;
 }
-section#content > div.tab[data-name='share_userdata'] p {
+section#content > div.tab[data-name='contribute'] p {
   font-size: 120%;
   margin: 10px 0;
 }
-section#content > div.tab[data-name='share_userdata'] p > span {
+section#content > div.tab[data-name='contribute'] p > span {
   font-weight: 400;
+}
+section#content > div.tab[data-name='help'] a {
+  display: inline-block;
+  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 110%;
+  margin-bottom: 50px;
 }
 section#content p.desc {
   font-size: 120%;
@@ -517,13 +557,16 @@ body[data-tab='appearance'] section#content > div.tab {
 body[data-tab='appearance'] section#content > div.tab > header > button {
   float: left;
 }
+body[data-tab='appearance'] section#content > div.tab > div {
+  padding-right: 0;
+}
 body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger {
   position: absolute;
   bottom: 20px;
   left: -500px;
   width: 500px;
   text-align: right;
-  padding: 0 20px 0 0;
+  padding: 0 20px;
 }
 body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a {
   display: inline-block;
@@ -565,7 +608,32 @@ body[data-tab='appearance'] section#content > div.tab div[data-appearance] label
   margin: 20px 0 0 0;
 }
 body[data-tab='appearance'] section#content > div.tab div[data-appearance] input[type='range'] {
-  max-width: 220px;
+  max-width: 200px;
+}
+body[data-tab='appearance'] section#content > div.tab div[data-appearance] a.revert {
+  vertical-align: top;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 9px 0 0 8px;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-revert.webp) no-repeat center/24px;
+}
+body[data-tab='appearance'] section#content > div.tab div[data-appearance] input[type='range'] + span + a.revert {
+  margin-top: 4px;
+}
+body[data-tab='appearance'][data-pos='right'] iframe[data-appearance] {
+  left: auto;
+  right: 0;
+}
+body[data-tab='appearance'][data-pos='right'] section#content > div.tab {
+  right: auto;
+  left: 0;
+}
+body[data-tab='appearance'][data-pos='right'] section#content > div.tab menu.backgroundChanger {
+  left: auto;
+  right: -500px;
+  text-align: left;
 }
 
 label {

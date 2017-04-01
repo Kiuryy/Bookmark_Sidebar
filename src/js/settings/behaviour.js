@@ -38,7 +38,7 @@
         this.save = () => {
             let config = {
                 pxTolerance: {
-                    maximized: s.elm.range.pxToleranceMaximized[0].value,
+                    maximized: s.opts.elm.range.pxToleranceMaximized[0].value,
                     windowed: s.opts.elm.range.pxToleranceWindowed[0].value
                 },
                 scrollSensitivity: {

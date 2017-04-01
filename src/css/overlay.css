@@ -261,7 +261,6 @@ div.modal {
   background: #fff;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  zoom: reset;
   z-index: 2;
   transform: scale(0.7);
   transition: transform 0.3s;

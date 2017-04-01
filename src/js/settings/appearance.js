@@ -10,13 +10,16 @@
             indicator: ["contentBase", "content"]
         };
 
-
         /**
          * Initialises the appearance settings
          */
         this.init = () => {
             initPreviews();
             initEvents();
+
+            let sidebarPosition = s.helper.model.getData("a/sidebarPosition");
+            s.opts.elm.select.sidebarPosition[0].value = sidebarPosition;
+            s.opts.elm.select.sidebarPosition.data("initial", sidebarPosition);
 
             let styles = s.helper.model.getData("a/styles");
 
@@ -26,20 +29,11 @@
 
                     if (s.opts.elm.range[key]) {
                         s.opts.elm.range[key][0].value = value.replace("px", "");
+                        s.opts.elm.range[key].data("initial", value.replace("px", ""));
                         s.opts.elm.range[key].trigger("change");
                     } else if (s.opts.elm.color[key]) {
-                        let picker = s.opts.elm.color[key].data("picker");
-
-                        if (value.search(/rgba\(/) > -1) {
-                            let colorParsed = value.replace(/(rgba|\(|\))/gi, "").split(",");
-                            value = "rgb(" + colorParsed[0] + "," + colorParsed[1] + "," + colorParsed[2] + ")";
-                            if (picker.alpha) {
-                                picker.alpha[0].value = colorParsed[3];
-                            }
-                        }
-
-                        picker.set(value);
-                        picker.trigger("change");
+                        s.opts.elm.color[key].data("initial", value);
+                        changeColorValue(s.opts.elm.color[key], value);
                     }
                 });
             }, 0);
@@ -49,16 +43,38 @@
          * Saves the appearance settings
          */
         this.save = () => {
-            let config = {
-                sidebarPosition: "left",
-                showIndicator: true,
-                showBookmarkIcons: true,
-                styles: getCurrentStyleSettings()
-            };
-
-            console.log(config);
+            chrome.storage.sync.set({appearance: getCurrentConfig()}, () => {
+                s.showSuccessMessage("saved_message");
+            });
         };
 
+        /**
+         * Changes the value of the color picker
+         *
+         * @param elm
+         * @param value
+         */
+        let changeColorValue = (elm, value) => {
+            let picker = elm.data("picker");
+
+            if (value.search(/rgba\(/) > -1) {
+                let colorParsed = value.replace(/(rgba|\(|\))/gi, "").split(",");
+                value = "rgb(" + colorParsed[0] + "," + colorParsed[1] + "," + colorParsed[2] + ")";
+                if (picker.alpha) {
+                    picker.alpha[0].value = colorParsed[3];
+                }
+            }
+
+            picker.set(value);
+            picker.trigger("change");
+        };
+
+        /**
+         * Sends a request to the given path and calls the callback function after retrieving
+         *
+         * @param path
+         * @param callback
+         */
         let sendAjax = (path, callback) => {
             let xhr = new XMLHttpRequest();
             xhr.open("GET", chrome.extension.getURL(path), true);
@@ -70,44 +86,87 @@
             xhr.send();
         };
 
+        /**
+         * Updates the given preview
+         *
+         * @param key
+         */
         let updatePreviewStyle = (key) => {
             if (s.opts.elm.preview[key]) {
                 s.opts.elm.preview[key].find("head > style").remove();
 
-                let styles = getCurrentStyleSettings();
+                let config = getCurrentConfig();
 
                 let css = previews[key];
-                Object.keys(styles).forEach((key) => {
-                    css = css.replace(new RegExp('"?%' + key + '"?', 'g'), styles[key]);
+                Object.keys(config.styles).forEach((key) => {
+                    css = css.replace(new RegExp('"?%' + key + '"?', 'g'), config.styles[key]);
                 });
 
                 s.opts.elm.preview[key].find("[" + s.opts.attr.style + "]").forEach((elm) => {
                     let style = $(elm).attr(s.opts.attr.style);
-                    Object.keys(styles).forEach((key) => {
-                        style = style.replace(new RegExp('"?%' + key + '"?', 'g'), styles[key]);
+                    Object.keys(config.styles).forEach((key) => {
+                        style = style.replace(new RegExp('"?%' + key + '"?', 'g'), config.styles[key]);
                     });
                     elm.style.cssText = style;
                 });
+
+                s.opts.elm.preview[key].find("[" + s.opts.attr.hideOnFalse + "]").forEach((elm) => {
+                    let attr = $(elm).attr(s.opts.attr.hideOnFalse);
+
+                    if (typeof config[attr] === "undefined" || config[attr] === false) {
+                        $(elm).css("display", "none");
+                    } else {
+                        $(elm).css("display", "block");
+                    }
+                });
+
+                s.opts.elm.body.attr(s.opts.attr.pos, config.sidebarPosition);
+                s.opts.elm.preview[key].find("[" + s.opts.attr.pos + "]").attr(s.opts.attr.pos, config.sidebarPosition);
 
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
             }
         };
 
-        let getCurrentStyleSettings = () => {
-            let ret = {};
+        /**
+         * Returns the current values of the appearance configuration
+         *
+         * @returns object
+         */
+        let getCurrentConfig = () => {
+            let ret = {
+                sidebarPosition: s.opts.elm.select.sidebarPosition[0].value,
+                showIndicator: true,
+                showBookmarkIcons: true,
+                styles: {}
+            };
+
             let styles = s.helper.model.getData("a/styles");
 
             Object.keys(styles).forEach((key) => {
                 if (s.opts.elm.range[key]) {
-                    ret[key] = s.opts.elm.range[key][0].value + "px";
+                    ret.styles[key] = s.opts.elm.range[key][0].value + "px";
                 } else if (s.opts.elm.color[key]) {
-                    ret[key] = s.opts.elm.color[key][0].value;
+                    ret.styles[key] = s.opts.elm.color[key][0].value;
                 }
             });
+
+            if (parseInt(ret.styles.indicatorWidth) === 0) {
+                ret.showIndicator = false;
+            }
+
+            if (parseInt(ret.styles.bookmarksIconSize) === 0) {
+                ret.showBookmarkIcons = false;
+            }
 
             return ret;
         };
 
+        /**
+         * Returns the given date in local specific format
+         *
+         * @param dateObj
+         * @returns {string}
+         */
         let getLocaleDate = (dateObj) => {
             return dateObj.toLocaleDateString([chrome.i18n.getUILanguage(), s.opts.manifest.default_locale], {
                 year: "numeric",
@@ -117,6 +176,9 @@
         };
 
 
+        /**
+         * Initialises the previews
+         */
         let initPreviews = () => {
             Object.keys(previews).forEach((key) => {
                 let stylesheets = previews[key];
@@ -151,9 +213,39 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            s.opts.elm.appearanceSections.find("input").on("change input", (e) => {
-                let tabName = $(e.currentTarget).parents("[" + s.opts.attr.appearance + "]").eq(0).attr(s.opts.attr.appearance);
+            s.opts.elm.appearanceSections.find("input, select").on("change input", (e) => {
+                let elm = $(e.currentTarget);
+                let val = e.currentTarget.value;
+                let initialVal = elm.data("initial");
+
+                let revertPrevSibling = elm;
+                if (elm.next("span").length() > 0) {
+                    revertPrevSibling = elm.next("span");
+                }
+
+                if (val !== initialVal) {
+                    if (revertPrevSibling.next("a." + s.opts.classes.revert).length() === 0) {
+                        $("<a href='#' />").addClass(s.opts.classes.revert).data("elm", elm).insertAfter(revertPrevSibling);
+                    }
+                } else {
+                    revertPrevSibling.next("a." + s.opts.classes.revert).remove();
+                }
+
+                let tabName = elm.parents("[" + s.opts.attr.appearance + "]").eq(0).attr(s.opts.attr.appearance);
                 updatePreviewStyle(tabName);
+            });
+
+            s.opts.elm.appearanceSections.on("click", "a." + s.opts.classes.revert, (e) => {
+                e.preventDefault();
+                let elm = $(e.currentTarget).data("elm");
+                let value = elm.data("initial");
+
+                if (elm.data("picker")) {
+                    changeColorValue(elm, value)
+                } else {
+                    elm[0].value = value;
+                    elm.trigger("change");
+                }
             });
 
             s.opts.elm.backgroundChanger.on("click", (e) => {

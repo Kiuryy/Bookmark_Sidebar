@@ -27,7 +27,10 @@
                 },
                 success: "success",
                 error: "error",
-                loading: "loading"
+                loading: "loading",
+                revert: "revert",
+                gotoFeedback: "gotoFeedback",
+                howto: "howto"
             },
             attr: {
                 type: "data-type",
@@ -38,6 +41,8 @@
                 tab: "data-tab",
                 success: "data-successtext",
                 style: "data-style",
+                hideOnFalse: "data-hideOnFalse",
+                pos: "data-pos",
                 bg: "data-bg",
                 range: {
                     min: "data-min",
@@ -97,6 +102,7 @@
                 this.helper.behaviour.init();
                 this.helper.appearance.init();
                 this.helper.contribute.init();
+                this.helper.help.init();
                 initButtonEvents();
             });
         };
@@ -156,7 +162,8 @@
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),
                 feedback: new window.FeedbackHelper(this),
-                contribute: new window.ContributeHelper(this)
+                contribute: new window.ContributeHelper(this),
+                help: new window.HelpHelper(this)
             };
         };
 
@@ -179,7 +186,7 @@
         let initLanguage = () => {
             $("[" + this.opts.attr.i18n + "]").forEach((elm) => {
                 let val = $(elm).attr(this.opts.attr.i18n);
-                let key = val.search(/^share_userdata/) === 0 ? val : "settings_" + val;
+                let key = val.search(/^(share_userdata_|howto_)/) === 0 ? val : "settings_" + val;
                 let msg = chrome.i18n.getMessage(key);
                 if (msg) {
                     $(elm).html(msg.replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));

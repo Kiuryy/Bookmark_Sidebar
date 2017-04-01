@@ -332,7 +332,6 @@ section#sidebar {
   background: #fff;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  zoom: reset;
   z-index: 2;
 }
 section#sidebar[data-pos='right'] {

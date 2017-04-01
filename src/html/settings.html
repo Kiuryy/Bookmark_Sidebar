@@ -97,10 +97,7 @@
             </ul>
 
             <div data-appearance="general">
-                <div class="formElement" data-type="color" data-name="colorScheme"
-                     data-i18n="color_scheme"></div>
-
-                MENU ICON
+                <div class="formElement" data-type="color" data-name="colorScheme" data-i18n="color_scheme"></div>
             </div>
 
             <div data-appearance="sidebar">
@@ -119,12 +116,8 @@
             </div>
 
             <div data-appearance="indicator">
-                SHOW INDICATOR
-
                 <div class="formElement" data-type="range" data-name="indicatorWidth" data-min="0" data-max="100" data-unit="px" data-i18n="indicator_width"></div>
-
                 <div class="formElement" data-type="range" data-name="indicatorIconSize" data-min="0" data-max="72" data-unit="px" data-i18n="indicator_icon_size"></div>
-
                 <div class="formElement" data-type="color" data-name="indicatorColor" data-alpha="1" data-i18n="indicator_color"></div>
             </div>
 
@@ -167,6 +160,19 @@
                  data-i18n="share_userdata_checkbox"></div>
         </div>
     </div>
+
+    <div class="tab" data-name="help">
+        <header>
+            <h2 data-i18n="headline_help">Help</h2>
+        </header>
+        <div>
+            <p class="desc" data-i18n="help_desc"></p>
+            <a href="#" class="howto" data-i18n="howto_start_tutorial"></a>
+            <p class="desc" data-i18n="help_desc2"></p>
+            <a href="#" class="gotoFeedback" data-i18n="feedback_send">Send feedback</a>
+        </div>
+    </div>
+
 </section>
 
 <footer>
@@ -184,6 +190,7 @@
 <script src='/js/settings/appearance.js'></script>
 <script src='/js/settings/feedback.js'></script>
 <script src='/js/settings/contribute.js'></script>
+<script src='/js/settings/help.js'></script>
 <!-- [END REMOVE] -->
 <script src='/js/settings.js'></script>
 </body>

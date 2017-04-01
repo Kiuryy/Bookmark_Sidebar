@@ -154,6 +154,9 @@ section#tutorial > p.text {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   z-index: 5;
 }
+section#tutorial > p.text:first-letter {
+  text-transform: uppercase;
+}
 @media (max-width: 650px) {
   section#tutorial > p.text {
     width: 100%;
@@ -175,7 +178,7 @@ section#tutorial > div#sidebar {
   z-index: 3;
 }
 section#tutorial > div#sidebar.visible {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) !important;
 }
 section#tutorial > div#sidebar > p {
   position: relative;
@@ -203,7 +206,7 @@ section#tutorial > div#cursor {
   height: 36px;
   background: url(chrome-extension://__MSG_@@extension_id__/img/howto/cursor.webp) no-repeat center;
   background-size: 24px;
-  transition: opacity 0.5s, left 2s, top 2s;
+  transition: opacity 0.5s, left 2s, right 2s, top 2s;
   z-index: 4;
 }
 section#tutorial > div#cursor::after, section#tutorial > div#cursor::before {
@@ -241,6 +244,25 @@ section#tutorial > div#cursor[data-step='3'] {
 }
 section#tutorial > div#cursor[data-step='2']::after, section#tutorial > div#cursor[data-step='2']::before {
   visibility: visible;
+}
+section#tutorial[data-pos='right'] > div#sidebar {
+  left: auto;
+  right: 0;
+  transform: translate3d(350px, 0, 0);
+}
+section#tutorial[data-pos='right'] > div#cursor {
+  left: auto;
+  right: calc(50% - 12px);
+}
+section#tutorial[data-pos='right'] > div#cursor[data-step='1'], section#tutorial[data-pos='right'] > div#cursor[data-step='2'] {
+  right: 0;
+}
+section#tutorial[data-pos='right'] > div#cursor[data-step='3'] {
+  right: 40px;
+}
+section#tutorial[data-pos='right'] > div#cursor::after, section#tutorial[data-pos='right'] > div#cursor::before {
+  right: auto;
+  left: -55px;
 }
 section#tutorial > div#mask {
   position: absolute;

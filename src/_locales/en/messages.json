@@ -151,7 +151,7 @@
     "message": "Close this page"
   },
   "howto_tutorial_text_1": {
-    "message": "On any website, just move your cursor to the left side of your window"
+    "message": "On any website, just move your cursor to the {1} side of your window"
   },
   "howto_tutorial_text_2": {
     "message": "{1} click with your mouse to open the sidebar"
@@ -159,11 +159,11 @@
   "howto_tutorial_text_3": {
     "message": "Now you can access all your bookmarks and enjoy this extension :)"
   },
-  "howto_tutorial_left_click": {
-    "message": "Left"
+  "howto_tutorial_left": {
+    "message": "left"
   },
-  "howto_tutorial_right_click": {
-    "message": "Right"
+  "howto_tutorial_right": {
+    "message": "right"
   },
   // [ CHANGELOG ]
   "changelog_title": {

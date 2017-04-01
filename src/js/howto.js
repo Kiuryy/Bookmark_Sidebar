@@ -6,6 +6,7 @@
     "use strict";
 
     let openAction = "mousedown";
+    let sidebarPos = "left";
 
     let classes = {
         visible: "visible",
@@ -35,9 +36,14 @@
             $(elm).html(chrome.i18n.getMessage(key).replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
         });
 
-        let mouseClickText = elm.tutorial.children("p.text[data-index='2']").text();
-        mouseClickText = mouseClickText.replace(/\{1\}/, chrome.i18n.getMessage(prefix + "tutorial_" + (openAction === "contextmenu" ? "right" : "left") + "_click"));
-        elm.tutorial.children("p.text[data-index='2']").text(mouseClickText);
+        let texts = [sidebarPos === "right" ? "right" : "left", openAction === "contextmenu" ? "right" : "left"];
+
+        texts.forEach((pos, i) => {
+            let text = elm.tutorial.children("p.text[data-index='" + (i + 1) + "']").text();
+            text = text.replace(/\{1\}/, chrome.i18n.getMessage(prefix + "tutorial_" + pos));
+            elm.tutorial.children("p.text[data-index='" + (i + 1) + "']").text(text);
+        });
+
 
         let manifest = chrome.runtime.getManifest();
         elm.title.text(elm.title.text() + " - " + manifest.short_name);
@@ -83,6 +89,8 @@
      */
     let startTutorial = () => {
         elm.tutorial.addClass(classes.visible);
+        elm.tutorial.attr("data-pos", sidebarPos);
+
 
         let openSidebarAnimation = (delay = 2000) => {
             setTimeout(() => {
@@ -143,9 +151,13 @@
      *
      */
     (() => {
-        chrome.storage.sync.get(["behaviour"], (obj) => {
+        chrome.storage.sync.get(["behaviour", "appearance"], (obj) => {
             if (obj.behaviour && obj.behaviour.openAction) {
                 openAction = obj.behaviour.openAction;
+            }
+
+            if (obj.appearance && obj.appearance.sidebarPosition) {
+                sidebarPos = obj.appearance.sidebarPosition;
             }
 
             initLanguage();

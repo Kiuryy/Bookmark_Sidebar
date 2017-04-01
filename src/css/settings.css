@@ -390,7 +390,7 @@ body > header > ul.tabBar > li[data-name='help']::before, body > header > ul.tab
   display: none;
 }
 body > header > ul.tabBar > li[data-name='help'] > a {
-  padding: 3px 0 0 0;
+  padding: 4px 0 0 0;
   font-size: 200%;
   font-weight: 200;
 }

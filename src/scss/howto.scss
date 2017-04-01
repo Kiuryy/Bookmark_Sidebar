@@ -17,7 +17,6 @@ body {
   overflow: hidden;
 }
 
-
 // Tutorial
 @keyframes blink {
   0% {
@@ -67,6 +66,10 @@ section#tutorial {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     z-index: 5;
 
+    &:first-letter {
+      text-transform: uppercase;
+    }
+
     @media (max-width: 650px) {
       width: 100%;
       top: 0;
@@ -88,7 +91,7 @@ section#tutorial {
     z-index: 3;
 
     &.visible {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0) !important;
     }
 
     > p {
@@ -120,7 +123,7 @@ section#tutorial {
     height: 36px;
     background: img('howto/cursor.webp') no-repeat center;
     background-size: 24px;
-    transition: opacity 0.5s, left 2s, top 2s;
+    transition: opacity 0.5s, left 2s, right 2s, top 2s;
     z-index: 4;
 
     &::after, &::before {
@@ -168,6 +171,33 @@ section#tutorial {
       &::after, &::before {
         visibility: visible;
         @extend %visible;
+      }
+    }
+  }
+
+  &[data-pos='right'] {
+
+    > div#sidebar {
+      left: auto;
+      right: 0;
+      transform: translate3d(350px, 0, 0);
+    }
+
+    > div#cursor {
+      left: auto;
+      right: calc(50% - 12px);
+
+      &[data-step='1'], &[data-step='2'] {
+        right: 0;
+      }
+
+      &[data-step='3'] {
+        right: 40px;
+      }
+
+      &::after, &::before {
+        right: auto;
+        left: -55px;
       }
     }
   }

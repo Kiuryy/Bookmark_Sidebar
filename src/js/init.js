@@ -90,7 +90,8 @@
         attr: {
             src: "data-src",
             position: "data-pos",
-            type: "data-type"
+            type: "data-type",
+            id: "data-id"
         },
         events: {
             loaded: "moonware-bs-loaded",

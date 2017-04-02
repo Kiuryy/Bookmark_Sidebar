@@ -90,15 +90,14 @@
             Object.keys(openStates).forEach((node) => {
                 if (openStates[node] === true) {
                     let id = +node.replace(/^node_/, "");
+                    let entry = list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir + "[" + this.opts.attr.id + "='" + id + "']");
 
-                    list.find("> li > a.dir").forEach((elm) => {
-                        if (+$(elm).data("infos").id === id) {
-                            opened++;
-                            $(elm).trigger("click", {
-                                bubbles: true
-                            });
-                        }
-                    });
+                    if (entry.length() > 0) {
+                        opened++;
+                        entry.trigger("click", {
+                            bubbles: true
+                        });
+                    }
                 }
             });
 
@@ -139,6 +138,7 @@
                     let entry = $("<li />").appendTo(list);
                     let entryContent = $("<a />")
                         .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
+                        .attr(this.opts.attr.id, bookmark.id)
                         .appendTo(entry);
 
                     bookmark.element = entryContent;

@@ -107,7 +107,6 @@
 
             if (!(infos.children)) {
 
-
                 contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + ext.lang("contextmenu_new_tab") + "</a></li>");
             }
         };

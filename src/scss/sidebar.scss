@@ -50,10 +50,15 @@ body {
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 
   &:hover {
     background: $hoverBackground;
+  }
+
+  &.mark {
+    background: $__colorScheme;
+    color: $textColorInverted;
   }
 
   &.dir, &.active {

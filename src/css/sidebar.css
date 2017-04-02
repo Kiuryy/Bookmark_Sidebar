@@ -195,6 +195,13 @@ div.contextmenu.visible {
 div.contextmenu.visible.top {
   transform: translate3d(0, -40px, 0);
 }
+div.contextmenu > ul > li.separator {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 5px 0;
+}
 div.contextmenu > ul > li > a {
   position: relative;
   display: block;
@@ -225,21 +232,11 @@ div.contextmenu > ul > li > a[data-type='edit'] > span {
 div.contextmenu > ul > li > a[data-type='infos'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp);
 }
-div.contextmenu > ul > li > a[data-type='newTab'] {
-  margin-bottom: 10px;
-}
-div.contextmenu > ul > li > a[data-type='newTab']::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 1px;
-  left: 0;
-  bottom: -5px;
-  background: rgba(0, 0, 0, 0.1);
-}
 div.contextmenu > ul > li > a[data-type='newTab'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.webp);
+}
+div.contextmenu > ul > li > a[data-type='showInDir'] > span {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.webp);
 }
 div.contextmenu > ul > li > a[data-type='settings'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
@@ -249,19 +246,6 @@ div.contextmenu > ul > li > a[data-type='bookmarkManager'] > span {
 }
 div.contextmenu > ul > li > a[data-type='updateUrls'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.webp);
-}
-div.contextmenu > ul > li > a[data-type='toggleFix'] {
-  margin-top: 10px;
-}
-div.contextmenu > ul > li > a[data-type='toggleFix']::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 1px;
-  left: 0;
-  top: -5px;
-  background: rgba(0, 0, 0, 0.1);
 }
 div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.webp);
@@ -471,11 +455,15 @@ section#sidebar > div.scrollBox > ul a {
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
   position: relative;
 }
 section#sidebar > div.scrollBox > ul a:hover {
   background: #f5f5f5;
+}
+section#sidebar > div.scrollBox > ul a.mark {
+  background: "%colorScheme";
+  color: #fff;
 }
 section#sidebar > div.scrollBox > ul a.dir, section#sidebar > div.scrollBox > ul a.active {
   font-weight: 400;
@@ -548,7 +536,7 @@ a.dragHelper {
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
   position: absolute;
   background: #f5f5f5;
   padding-right: 46px;
@@ -558,6 +546,10 @@ a.dragHelper {
 }
 a.dragHelper:hover {
   background: #f5f5f5;
+}
+a.dragHelper.mark {
+  background: "%colorScheme";
+  color: #fff;
 }
 a.dragHelper.dir, a.dragHelper.active {
   font-weight: 400;

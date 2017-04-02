@@ -28,6 +28,7 @@
             sidebar: {
                 extLoaded: "loaded",
                 active: "active",
+                mark: "mark",
                 entriesUnlocked: "entriesUnlocked",
                 dirAnimated: "animated",
                 dirOpened: "opened",
@@ -47,6 +48,7 @@
                 wrapper: "contextmenu",
                 top: "top",
                 visible: "visible",
+                separator: "separator"
             },
             drag: {
                 trigger: "drag",

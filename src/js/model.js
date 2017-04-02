@@ -9,20 +9,23 @@
     };
 
     let bookmarkObj = {
+        get: (id, callback) => {
+            chrome.bookmarks.get("" + id, callback);
+        },
         getSubTree: (id, callback) => {
-            chrome.bookmarks.getSubTree(id, callback);
+            chrome.bookmarks.getSubTree("" + id, callback);
         },
         removeTree: (id, callback) => {
-            chrome.bookmarks.removeTree(id, callback);
+            chrome.bookmarks.removeTree("" + id, callback);
+        },
+        update: (id, obj, callback) => {
+            chrome.bookmarks.update("" + id, obj, callback);
+        },
+        move: (id, obj, callback) => {
+            chrome.bookmarks.move("" + id, obj, callback);
         },
         search: (obj, callback) => {
             chrome.bookmarks.search(obj, callback);
-        },
-        update: (id, obj, callback) => {
-            chrome.bookmarks.update(id, obj, callback);
-        },
-        move: (id, obj, callback) => {
-            chrome.bookmarks.move(id, obj, callback);
         }
     };
 
@@ -116,7 +119,7 @@
      * @param {function} sendResponse
      */
     let getBookmarks = (opts, sendResponse) => {
-        bookmarkObj.getSubTree("" + opts.id, (bookmarks) => {
+        bookmarkObj.getSubTree(opts.id, (bookmarks) => {
             sendResponse({bookmarks: bookmarks});
         });
     };
@@ -248,6 +251,33 @@
         saveModelData();
     };
 
+    /**
+     * Returns information about the given bookmark, including the ids of all parent directories
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let getBookmarkInfos = (opts, sendResponse) => {
+        bookmarkObj.get(opts.id, (info) => {
+            let obj = info[0];
+            obj.parents = [];
+
+            let recursiveCallback = (bookmark) => {
+                if (bookmark.parentId && bookmark.parentId !== "0") {
+                    bookmarkObj.get(bookmark.parentId, (arr) => {
+                        if (arr && arr[0] && arr[0].id) {
+                            obj.parents.push(arr[0].id);
+                            recursiveCallback(arr[0]);
+                        }
+                    });
+                } else {
+                    sendResponse(obj);
+                }
+            };
+
+            recursiveCallback(obj);
+        });
+    };
 
     /**
      * Determines the amount of child elements and the amount of clicks on all the children recursively
@@ -256,7 +286,7 @@
      * @param {function} sendResponse
      */
     let getDirInfos = (opts, sendResponse) => {
-        bookmarkObj.getSubTree("" + opts.id, (bookmarks) => {
+        bookmarkObj.getSubTree(opts.id, (bookmarks) => {
             let clickAmount = 0;
             let childrenAmount = {
                 bookmarks: 0,
@@ -303,6 +333,7 @@
         realUrl: getRealUrl,
         addViewAmount: addViewAmountByUrl,
         dirInfos: getDirInfos,
+        bookmarkInfos: getBookmarkInfos,
         bookmarks: getBookmarks,
         searchBookmarks: getBookmarksBySearchVal,
         moveBookmark: moveBookmark,

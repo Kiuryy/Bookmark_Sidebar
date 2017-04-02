@@ -8,10 +8,16 @@
          * Expands/Collapses the bookmarks under the given bookmark node
          *
          * @param {jsu} elm
+         * @param {boolean} instant
+         * @param {function} callback
          */
-        this.toggleBookmarkDir = (elm) => {
+        this.toggleBookmarkDir = (elm, instant, callback) => {
             elm.addClass(ext.opts.classes.sidebar.dirAnimated);
             let childrenList = elm.next("ul");
+
+            if (typeof instant === "undefined") {
+                instant = ext.firstRun === true;
+            }
 
             let expandCollapseChildrenList = (open) => { // open or close the children list
                 childrenList.css("height", childrenList[0].scrollHeight + "px");
@@ -46,7 +52,11 @@
                     childrenList.css("height", "");
                     elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
                     ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true);
-                }, ext.firstRun === true ? 0 : 500);
+
+                    if (typeof callback === "function") {
+                        callback();
+                    }
+                }, instant ? 0 : 500);
             };
 
             if (elm.hasClass(ext.opts.classes.sidebar.dirOpened)) { // close children
@@ -145,6 +155,10 @@
                                 active: middleClicked ? newTab === "foreground" : true
                             });
                         }
+                    }
+                }).on("mouseover", "a", (e) => {
+                    if ($(e.currentTarget).hasClass(ext.opts.classes.sidebar.mark)) {
+                        $(e.currentTarget).removeClass(ext.opts.classes.sidebar.mark);
                     }
                 }).on("contextmenu", "a", (e) => { // right click
                     e.preventDefault();

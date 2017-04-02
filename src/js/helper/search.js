@@ -26,6 +26,15 @@
         };
 
         /**
+         * Clears the search field and shows the normal bookmark list again
+         */
+        this.clearSearch = () => {
+            ext.helper.contextmenu.close();
+            ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
+            handleSearchValChanged("");
+        };
+
+        /**
          * Adds a loading mask over the sidebar
          */
         let addSearchLoading = () => {
@@ -146,9 +155,7 @@
             ext.elements.header.on("click", "a." + ext.opts.classes.sidebar.searchClose, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                ext.helper.contextmenu.close();
-                ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
-                handleSearchValChanged("");
+                this.clearSearch();
             });
 
         };

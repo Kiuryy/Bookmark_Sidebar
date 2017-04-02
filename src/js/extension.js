@@ -94,9 +94,7 @@
 
                     if (entry.length() > 0) {
                         opened++;
-                        entry.trigger("click", {
-                            bubbles: true
-                        });
+                        this.helper.sidebarEvents.toggleBookmarkDir(entry);
                     }
                 }
             });

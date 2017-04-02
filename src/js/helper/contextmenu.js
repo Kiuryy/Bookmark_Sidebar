@@ -70,6 +70,7 @@
                 .append("<li><a " + ext.opts.attr.type + "='settings'><span></span>" + ext.lang("contextmenu_settings") + "</a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='bookmarkManager'><span></span>" + ext.lang("contextmenu_bookmark_manager") + "</a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='updateUrls'><span></span>" + ext.lang("contextmenu_update_urls") + "</a></li>")
+                .append("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>")
                 .append("<li><a " + ext.opts.attr.type + "='toggleFix'><span></span>" + ext.lang("contextmenu_toggle_fix") + "</a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
@@ -95,9 +96,6 @@
                 left: elm[0].offsetLeft + "px"
             });
 
-            let newTabStr = ext.helper.model.getData("b/newTab");
-            contextmenu.data("newTabForeground", newTabStr === "foreground");
-
             let i18nAppend = !!(infos.children) ? "_dir" : "_bookmark";
 
             contextmenu.children("ul")
@@ -106,6 +104,11 @@
                 .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>");
 
             if (!(infos.children)) {
+                contextmenu.children("ul").prepend("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>");
+
+                if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
+                    contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='showInDir'><span></span>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");
+                }
 
                 contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + ext.lang("contextmenu_new_tab") + "</a></li>");
             }
@@ -150,12 +153,35 @@
                             id: infos.id,
                             href: infos.url,
                             newTab: true,
-                            active: contextmenu.data("newTabForeground")
+                            active: ext.helper.model.getData("b/newTab") === "foreground"
                         });
                         break;
                     }
                     case "showInDir": { // show search result in normal bookmark list
-                        console.log(infos);
+                        ext.helper.model.call("bookmarkInfos", {id: infos.id}, (bookmark) => {
+                            if (bookmark && bookmark.parents && bookmark.parents.length > 0) {
+                                let openParent = (i) => {
+                                    if (bookmark.parents[i]) {
+                                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + bookmark.parents[i] + "']");
+                                        if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
+                                            ext.helper.sidebarEvents.toggleBookmarkDir(entry, true, () => {
+                                                openParent(i + 1);
+                                            });
+                                        } else {
+                                            openParent(i + 1);
+                                        }
+                                    } else { // all parents opened -> close search and scroll to the bookmark
+                                        ext.helper.search.clearSearch();
+                                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + infos.id + "']");
+                                        ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
+                                        entry.addClass(ext.opts.classes.sidebar.mark);
+                                    }
+                                };
+
+                                bookmark.parents.reverse();
+                                openParent(0);
+                            }
+                        });
                         break;
                     }
                     default: { // open overlay of the given type

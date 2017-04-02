@@ -96,7 +96,7 @@
                     if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
                         ext.addBookmarkDir(response.bookmarks, list);
                     } else { // no results
-                        $("<p />").text(chrome.i18n.getMessage("sidebar_search_no_results")).prependTo(ext.elements.bookmarkBox["search"]);
+                        $("<p />").text(ext.lang("sidebar_search_no_results")).prependTo(ext.elements.bookmarkBox["search"]);
                     }
 
                     ext.helper.scroll.update(ext.elements.bookmarkBox["search"]);

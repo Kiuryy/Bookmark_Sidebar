@@ -66,6 +66,16 @@
         };
 
         /**
+         * Returns the translated string matching the given message
+         *
+         * @param msg
+         * @returns {string}
+         */
+        this.lang = (msg) => {
+            return chrome.i18n.getMessage(msg);
+        };
+
+        /**
          * Restores the open states of the directories in your bookmarks,
          * calls the restoreScrollPos-Method when all open states have been restored
          *
@@ -139,7 +149,7 @@
 
                             entryContent
                                 .data("infos", bookmark)
-                                .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + chrome.i18n.getMessage("sidebar_dir_children"))
+                                .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
                                 .addClass(this.opts.classes.sidebar.bookmarkDir);
 
                             if (data.showBookmarkIcons) {
@@ -212,15 +222,15 @@
                 let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
                 let contentBox = $("<div />").prependTo(shareUserdataMask);
 
-                $("<h2 />").html(chrome.i18n.getMessage("share_userdata_headline")).appendTo(contentBox);
-                $("<p />").html(chrome.i18n.getMessage("share_userdata_desc")).appendTo(contentBox);
-                $("<p />").html(chrome.i18n.getMessage("share_userdata_desc2")).appendTo(contentBox);
+                $("<h2 />").html(this.lang("share_userdata_headline")).appendTo(contentBox);
+                $("<p />").html(this.lang("share_userdata_desc")).appendTo(contentBox);
+                $("<p />").html(this.lang("share_userdata_desc2")).appendTo(contentBox);
 
-                let noticeText = chrome.i18n.getMessage("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
+                let noticeText = this.lang("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
                 $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
 
-                $("<a href='#' />").data("accept", true).html(chrome.i18n.getMessage("share_userdata_accept")).appendTo(contentBox);
-                $("<a href='#' />").data("accept", false).html(chrome.i18n.getMessage("share_userdata_decline")).appendTo(contentBox);
+                $("<a href='#' />").data("accept", true).html(this.lang("share_userdata_accept")).appendTo(contentBox);
+                $("<a href='#' />").data("accept", false).html(this.lang("share_userdata_decline")).appendTo(contentBox);
             }
         };
 
@@ -301,13 +311,13 @@
             processBookmarks(bookmarks);
 
             this.elements.header.text("");
-            $("<span />").html("<span>" + bookmarkList.length + "</span> " + chrome.i18n.getMessage("header_bookmarks" + (bookmarkList.length === 1 ? "_single" : ""))).appendTo(this.elements.header);
+            $("<span />").html("<span>" + bookmarkList.length + "</span> " + this.lang("header_bookmarks" + (bookmarkList.length === 1 ? "_single" : ""))).appendTo(this.elements.header);
             $("<a />").addClass(this.opts.classes.sidebar.settings).data("infos", {bookmarks: bookmarkList}).appendTo(this.elements.header);
             $("<a />").addClass(this.opts.classes.sidebar.search).appendTo(this.elements.header);
 
             $("<div />")
                 .addClass(this.opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + chrome.i18n.getMessage("sidebar_search_placeholder") + "' />")
+                .append("<input type='text' placeholder='" + this.lang("sidebar_search_placeholder") + "' />")
                 .append("<a href='#' class='" + this.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(this.elements.header);
 

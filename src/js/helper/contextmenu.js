@@ -67,10 +67,10 @@
          */
         let handleSettingsMenu = (contextmenu, elm) => {
             contextmenu.children("ul")
-                .append("<li><a " + ext.opts.attr.type + "='settings'><span></span>" + chrome.i18n.getMessage("contextmenu_settings") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='bookmarkManager'><span></span>" + chrome.i18n.getMessage("contextmenu_bookmark_manager") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='updateUrls'><span></span>" + chrome.i18n.getMessage("contextmenu_update_urls") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='toggleFix'><span></span>" + chrome.i18n.getMessage("contextmenu_toggle_fix") + "</a></li>");
+                .append("<li><a " + ext.opts.attr.type + "='settings'><span></span>" + ext.lang("contextmenu_settings") + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='bookmarkManager'><span></span>" + ext.lang("contextmenu_bookmark_manager") + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='updateUrls'><span></span>" + ext.lang("contextmenu_update_urls") + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='toggleFix'><span></span>" + ext.lang("contextmenu_toggle_fix") + "</a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
@@ -101,12 +101,14 @@
             let i18nAppend = !!(infos.children) ? "_dir" : "_bookmark";
 
             contextmenu.children("ul")
-                .append("<li><a " + ext.opts.attr.type + "='infos'><span></span>" + chrome.i18n.getMessage("contextmenu_infos") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='edit'><span></span>" + chrome.i18n.getMessage("contextmenu_edit" + i18nAppend) + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + chrome.i18n.getMessage("contextmenu_delete" + i18nAppend) + "</a></li>");
+                .append("<li><a " + ext.opts.attr.type + "='infos'><span></span>" + ext.lang("contextmenu_infos") + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='edit'><span></span>" + ext.lang("contextmenu_edit" + i18nAppend) + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>");
 
             if (!(infos.children)) {
-                contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + chrome.i18n.getMessage("contextmenu_new_tab") + "</a></li>")
+
+
+                contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + ext.lang("contextmenu_new_tab") + "</a></li>");
             }
         };
 
@@ -118,6 +120,7 @@
             contextmenu.find("a").on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
+                let infos = contextmenu.data("elm").data("infos");
 
                 switch (type) {
                     case "settings": { // open settings
@@ -143,7 +146,6 @@
                         break;
                     }
                     case "newTab": { // open bookmark in new tab
-                        let infos = contextmenu.data("elm").data("infos");
                         ext.helper.model.call("openLink", {
                             parentId: infos.parentId,
                             id: infos.id,
@@ -153,8 +155,11 @@
                         });
                         break;
                     }
+                    case "showInDir": { // show search result in normal bookmark list
+                        console.log(infos);
+                        break;
+                    }
                     default: { // open overlay of the given type
-                        let infos = contextmenu.data("elm").data("infos");
                         ext.helper.overlay.create(type, $(e.currentTarget).text(), infos);
                         break;
                     }

@@ -5,6 +5,7 @@
  - Rate mask x days after installation (just like contribute mask after 5 days)
 
 [1.5]
+ - Completely new settings page
  - Added customization options
  - Info page for new features
  - Help page after installation

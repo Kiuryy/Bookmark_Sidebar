@@ -76,6 +76,9 @@
   "contextmenu_new_tab": {
     "message": "Open in new tab"
   },
+  "contextmenu_show_in_dir": {
+    "message": "Show in directory"
+  },
   // [ OVERLAY ]
   "overlay_bookmark_title": {
     "message": "Title"

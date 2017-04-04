@@ -89,7 +89,7 @@
 
             Object.keys(openStates).forEach((node) => {
                 if (openStates[node] === true) {
-                    let id = +node.replace(/^node_/, "");
+                    let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
                     let entry = list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir + "[" + this.opts.attr.id + "='" + id + "']");
 
                     if (entry.length() > 0) {

@@ -37,11 +37,15 @@
      */
     let increaseViewAmount = (bookmark) => {
         if (bookmark["id"]) {
-            if (typeof data.clickCounter["node_" + bookmark["id"]] === "undefined") {
-                data.clickCounter["node_" + bookmark["id"]] = 0;
+            if (typeof data.clickCounter[bookmark["id"]] === "undefined") {
+                if (typeof data.clickCounter["node_" + bookmark["id"]] === "undefined") {
+                    data.clickCounter[bookmark["id"]] = 0;
+                } else { // @deprecated
+                    data.clickCounter[bookmark["id"]] = data.clickCounter["node_" + bookmark["id"]];
+                }
             }
 
-            data.clickCounter["node_" + bookmark["id"]]++;
+            data.clickCounter[bookmark["id"]]++;
             saveModelData();
         }
     };
@@ -107,7 +111,7 @@
      */
     let getViewAmount = (opts, sendResponse) => {
         sendResponse({
-            views: data.clickCounter["node_" + opts.id] || 0,
+            views: data.clickCounter[opts.id] || data.clickCounter["node_" + opts.id] || 0, // @deprecated clickCounter["node_123"] is now clickCounter["123"]
             counterStartDate: data.installationDate
         });
     };
@@ -302,7 +306,9 @@
                         childrenAmount.dirs++;
                     } else {
                         childrenAmount.bookmarks++;
-                        if (data.clickCounter["node_" + v.id]) {
+                        if (data.clickCounter[v.id]) {
+                            clickAmount += data.clickCounter[v.id];
+                        } else if (data.clickCounter["node_" + v.id]) { // @deprecated
                             clickAmount += data.clickCounter["node_" + v.id];
                         }
                     }

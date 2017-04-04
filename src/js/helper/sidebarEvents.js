@@ -32,7 +32,7 @@
                     ext.restoreOpenStates(childrenList);
                 } else {
                     let openStates = ext.helper.model.getData("u/openStates");
-                    openStates["node_" + elm.data("infos").id] = open;
+                    openStates[elm.data("infos").id] = open;
 
                     if (open === false) {
                         closeAllChildDirs(elm, openStates);
@@ -176,7 +176,7 @@
          */
         let closeAllChildDirs = (elm, openStates) => {
             elm.next("ul").find("a.dir").forEach((node) => {
-                openStates["node_" + $(node).data("infos").id] = false;
+                openStates[$(node).data("infos").id] = false;
                 setTimeout(() => {
                     $(node).removeClass(ext.opts.classes.sidebar.dirOpened);
                 }, 500);

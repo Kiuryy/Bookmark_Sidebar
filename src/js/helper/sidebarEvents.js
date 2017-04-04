@@ -33,6 +33,7 @@
                 } else {
                     let openStates = ext.helper.model.getData("u/openStates");
                     openStates[elm.data("infos").id] = open;
+                    delete openStates["node_" + elm.data("infos").id]; // @deprecated
 
                     if (open === false) {
                         closeAllChildDirs(elm, openStates);

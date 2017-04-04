@@ -46,6 +46,7 @@
             }
 
             data.clickCounter[bookmark["id"]]++;
+            delete data.clickCounter["node_" + bookmark["id"]]; // @deprecated
             saveModelData();
         }
     };
@@ -111,7 +112,7 @@
      */
     let getViewAmount = (opts, sendResponse) => {
         sendResponse({
-            views: data.clickCounter[opts.id] || data.clickCounter["node_" + opts.id] || 0, // @deprecated clickCounter["node_123"] is now clickCounter["123"]
+            views: data.clickCounter[opts.id] || data.clickCounter["node_" + opts.id] || 0, // @deprecated clickCounter["node_123"] is n clickCounter["123"]
             counterStartDate: data.installationDate
         });
     };

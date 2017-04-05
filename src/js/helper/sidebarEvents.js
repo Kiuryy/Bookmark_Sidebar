@@ -83,29 +83,17 @@
         this.init = () => {
             initEvents();
         };
-
-        /**
-         * Updates the scroll position of the visible bookmark list
-         */
-        let updateScrollPos = () => {
-            Object.keys(ext.elements.bookmarkBox).forEach((key) => {
-                let bookmarkBox = ext.elements.bookmarkBox[key];
-                if (bookmarkBox.hasClass(ext.opts.classes.sidebar.active)) {
-                    ext.helper.scroll.update(bookmarkBox, true);
-                }
-            });
-        };
-
+        
         /**
          * Initializes the events for the sidebar
          */
         let initEvents = () => {
             $(window).on("beforeunload", () => { // save scroll position before unloading page
                 if (ext.elements.iframe.data("visibleOnce")) { // sidebar has been open or is still open
-                    updateScrollPos();
+                    ext.helper.scroll.updateAll();
                 }
             }).on("resize", () => {
-                updateScrollPos();
+                ext.helper.scroll.updateAll();
             });
 
             ext.elements.iframe.find("body").on("click", () => {

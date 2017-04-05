@@ -5,6 +5,7 @@
 
         let scrollPosSaved = +new Date();
         let scrollBarTimeout = {};
+        let scrollBoxes = [];
 
         /**
          * Creates a new scrollbox for the given element
@@ -25,9 +26,25 @@
                 scrollbar: scrollbar
             });
 
+            scrollBoxes.push(scrollBox);
             initEvents(scrollBox);
             this.updateScrollbox(scrollBox, 0);
+
             return scrollBox;
+        };
+
+        /**
+         * Triggers the update method of all visible scrollboxes and optionally saves the scroll position afterwards,
+         * important if the content height of the scrollbox has changed
+         *
+         * @param {boolean} save
+         */
+        this.updateAll = (save = false) => {
+            scrollBoxes.forEach((scrollBox) => {
+                if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
+                    this.update(scrollBox, save);
+                }
+            });
         };
 
         /**

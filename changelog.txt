@@ -3,7 +3,7 @@
  - Hide directories from contextmenu (hidden directories will be listed on the settings page)
  - Only one directory open (accordion)
  - empty check url result message
- - update scroll position and header after deletion
+ - Remove top level label if only one
 
 [1.6]
  - Extended contextmenu to hide entries from sidebar

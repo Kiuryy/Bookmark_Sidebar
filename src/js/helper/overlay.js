@@ -72,6 +72,7 @@
             elements.overlay.removeClass(ext.opts.classes.page.visible);
 
             setTimeout(() => {
+                ext.helper.scroll.updateAll(true);
                 elements.overlay.remove();
             }, 500);
         };

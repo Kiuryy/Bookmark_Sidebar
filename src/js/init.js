@@ -29,6 +29,7 @@
                 extLoaded: "loaded",
                 active: "active",
                 mark: "mark",
+                hideRoot: "hideRoot",
                 entriesUnlocked: "entriesUnlocked",
                 dirAnimated: "animated",
                 dirOpened: "opened",

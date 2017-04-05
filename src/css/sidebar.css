@@ -524,6 +524,12 @@ section#sidebar > div.scrollBox > ul li.isDragged > a > img {
 section#sidebar > div.scrollBox > ul li.dragInitial {
   display: none;
 }
+section#sidebar > div.scrollBox > ul.hideRoot > li > a {
+  display: none;
+}
+section#sidebar > div.scrollBox > ul.hideRoot > li > ul {
+  padding-left: 0;
+}
 section#sidebar.searchLoading > div.loading {
   position: absolute;
   top: calc(50% - 18px);

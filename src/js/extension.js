@@ -224,6 +224,11 @@
                     updateEntriesInfo(response.bookmarks[0].children);
                     this.helper.search.init();
                     this.addBookmarkDir(response.bookmarks[0].children, list);
+
+                    if (list.children("li").length() === 1) { // hide root directory if it's the only one
+                        list.addClass(this.opts.classes.sidebar.hideRoot);
+                    }
+
                     this.restoreOpenStates(list);
                 }
             });

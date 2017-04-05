@@ -3,7 +3,7 @@
  - Hide directories from contextmenu (hidden directories will be listed on the settings page)
  - Only one directory open (accordion)
  - empty check url result message
- - Remove top level label if only one
+ - contextmenu redesign (http://jquery-plugins.net/image/plugin/create-context-menu-with-jquery-and-css.png)
 
 [1.6]
  - Extended contextmenu to hide entries from sidebar

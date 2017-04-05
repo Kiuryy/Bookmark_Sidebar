@@ -305,6 +305,20 @@ section#sidebar {
           display: none;
         }
       }
+
+      &.hideRoot {
+
+        > li {
+
+          > a {
+            display: none;
+          }
+
+          > ul {
+            padding-left: 0;
+          }
+        }
+      }
     }
   }
 

@@ -287,7 +287,7 @@ div.modal {
     }
   }
 
-  &[data-type='delete'] {
+  &[data-type='delete'], &[data-type='hide'] {
 
     > p {
       padding: 30px 30px 5px 30px;

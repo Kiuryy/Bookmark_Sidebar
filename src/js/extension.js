@@ -11,6 +11,7 @@
         this.firstRun = true;
         this.elements = {};
         this.opts = opts;
+        this.entries = {};
 
         /**
          * Constructor
@@ -54,6 +55,10 @@
                 '</div>';
 
             return $(html);
+        };
+
+        this.isBookmarkVisible = (id) => {
+            return typeof this.entries.bookmarks[id] === "object" || typeof this.entries.directories[id] === "object";
         };
 
         /**
@@ -117,22 +122,24 @@
          *
          * @param {Array} bookmarks
          * @param {jsu} list
+         * @returns {int} amount of entries added to the list
          */
         this.addBookmarkDir = (bookmarks, list) => {
+            let ret = 0;
             let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
             let data = this.helper.model.getData(["b/hideEmptyDirs", "a/showBookmarkIcons"]);
 
             bookmarks.forEach((bookmark, idx) => {
-                if (opts.demoMode) {
-                    if (bookmark.children) {
-                        bookmark.title = "Directory " + (idx + 1);
-                    } else {
-                        bookmark.title = "Bookmark " + (idx + 1);
-                        bookmark.url = "https://example.com/";
+                if (this.isBookmarkVisible(bookmark.id) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                    if (opts.demoMode) {
+                        if (bookmark.children) {
+                            bookmark.title = "Directory " + (idx + 1);
+                        } else {
+                            bookmark.title = "Bookmark " + (idx + 1);
+                            bookmark.url = "https://example.com/";
+                        }
                     }
-                }
 
-                if (bookmark.children || bookmark.url) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     let entry = $("<li />").appendTo(list);
                     let entryContent = $("<a />")
                         .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
@@ -178,8 +185,12 @@
                             });
                         }
                     }
+
+                    ret++;
                 }
             });
+
+            return ret;
         };
 
         /**
@@ -204,7 +215,8 @@
                     let list = this.elements.bookmarkBox["all"].children("ul");
                     list.text("");
 
-                    updateSidebarHeader(response.bookmarks[0].children);
+                    updateEntriesInfo(response.bookmarks[0].children);
+                    this.helper.search.init();
                     this.addBookmarkDir(response.bookmarks[0].children, list);
                     this.restoreOpenStates(list);
                 }
@@ -275,8 +287,6 @@
             };
 
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
-            updateSidebarHeader([]);
-
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
             let entriesLocked = this.helper.model.getData("u/entriesLocked");
@@ -290,27 +300,47 @@
         };
 
         /**
-         * Updates the html for the sidebar header
+         * Updates the object with all bookmarks and directories,
+         * stores the infos off all entries in a one dimensional object excluding the hidden bookmarks or directories
          *
-         * @param {object} bookmarks
+         * @param {Array} bookmarkTree
          */
-        let updateSidebarHeader = (bookmarks) => {
-            let bookmarkList = [];
-            let processBookmarks = (bookmarks) => {
-                for (let i = 0; i < bookmarks.length; i++) {
-                    let bookmark = bookmarks[i];
-                    if (bookmark.url) {
-                        bookmarkList.push(bookmark);
-                    } else if (bookmark.children) {
-                        processBookmarks(bookmark.children);
+        let updateEntriesInfo = (bookmarkTree) => {
+            let hiddenBookmarks = this.helper.model.getData("u/hiddenBookmarks");
+
+            this.entries = {
+                bookmarks: {},
+                directories: {}
+            };
+            let processEntries = (bookmarkObj, parents) => {
+                for (let i = 0; i < bookmarkObj.length; i++) {
+                    let bookmark = bookmarkObj[i];
+                    if (hiddenBookmarks[bookmark.id] !== true) {
+                        let thisParents = [...parents];
+                        thisParents.push(bookmark.parentId);
+                        bookmark.parents = thisParents;
+                        if (bookmark.url) {
+                            this.entries.bookmarks[bookmark.id] = bookmark;
+                        } else if (bookmark.children) {
+                            this.entries.directories[bookmark.id] = bookmark;
+                            processEntries(bookmark.children, thisParents);
+                        }
                     }
                 }
             };
-            processBookmarks(bookmarks);
+            processEntries(bookmarkTree, []);
+            updateSidebarHeader();
+        };
 
+        /**
+         * Updates the html for the sidebar header
+         */
+        let updateSidebarHeader = () => {
             this.elements.header.text("");
-            $("<span />").html("<span>" + bookmarkList.length + "</span> " + this.lang("header_bookmarks" + (bookmarkList.length === 1 ? "_single" : ""))).appendTo(this.elements.header);
-            $("<a />").addClass(this.opts.classes.sidebar.settings).data("infos", {bookmarks: bookmarkList}).appendTo(this.elements.header);
+            let bookmarkAmount = Object.keys(this.entries.bookmarks).length;
+
+            $("<span />").html("<span>" + bookmarkAmount + "</span> " + this.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : ""))).appendTo(this.elements.header);
+            $("<a />").addClass(this.opts.classes.sidebar.settings).appendTo(this.elements.header);
             $("<a />").addClass(this.opts.classes.sidebar.search).appendTo(this.elements.header);
 
             $("<div />")
@@ -318,8 +348,6 @@
                 .append("<input type='text' placeholder='" + this.lang("sidebar_search_placeholder") + "' />")
                 .append("<a href='#' class='" + this.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(this.elements.header);
-
-            this.helper.search.init();
         };
 
 

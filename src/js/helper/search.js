@@ -18,7 +18,7 @@
                     handleSearchValChanged(data.searchValue);
                     setTimeout(() => {
                         ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["search"]);
-                    }, 0);
+                    }, 100);
                 }
             }
 
@@ -99,12 +99,16 @@
 
                 ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
                     ext.elements.bookmarkBox["search"].children("p").remove();
+
+                    let hasResults = false;
                     let list = ext.elements.bookmarkBox["search"].children("ul");
                     list.text("");
 
                     if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
-                        ext.addBookmarkDir(response.bookmarks, list);
-                    } else { // no results
+                        hasResults = ext.addBookmarkDir(response.bookmarks, list) > 0;
+                    }
+
+                    if (hasResults === false) { // no results
                         $("<p />").text(ext.lang("sidebar_search_no_results")).prependTo(ext.elements.bookmarkBox["search"]);
                     }
 

@@ -101,7 +101,9 @@
             contextmenu.children("ul")
                 .append("<li><a " + ext.opts.attr.type + "='infos'><span></span>" + ext.lang("contextmenu_infos") + "</a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='edit'><span></span>" + ext.lang("contextmenu_edit" + i18nAppend) + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>");
+                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>")
+                .append("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>")
+                .append("<li><a " + ext.opts.attr.type + "='hide'><span></span>" + ext.lang("contextmenu_hide_from_sidebar") + "</a></li>");
 
             if (!(infos.children)) {
                 contextmenu.children("ul").prepend("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>");
@@ -122,7 +124,7 @@
             contextmenu.find("a").on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
-                let infos = contextmenu.data("elm").data("infos");
+                let infos = contextmenu.data("elm").data("infos") || {};
 
                 switch (type) {
                     case "settings": { // open settings

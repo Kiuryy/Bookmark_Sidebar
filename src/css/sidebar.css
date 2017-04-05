@@ -210,6 +210,9 @@ div.contextmenu > ul > li > a {
   cursor: pointer;
   transition: background 0.3s;
 }
+div.contextmenu > ul > li > a:hover {
+  background-color: #f5f5f5;
+}
 div.contextmenu > ul > li > a > span {
   vertical-align: top;
   display: inline-block;
@@ -238,6 +241,9 @@ div.contextmenu > ul > li > a[data-type='newTab'] > span {
 div.contextmenu > ul > li > a[data-type='showInDir'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.webp);
 }
+div.contextmenu > ul > li > a[data-type='hide'] > span {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.webp);
+}
 div.contextmenu > ul > li > a[data-type='settings'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
 }
@@ -249,9 +255,6 @@ div.contextmenu > ul > li > a[data-type='updateUrls'] > span {
 }
 div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.webp);
-}
-div.contextmenu > ul > li > a:hover {
-  background-color: #f5f5f5;
 }
 
 *, *::after, *::before {

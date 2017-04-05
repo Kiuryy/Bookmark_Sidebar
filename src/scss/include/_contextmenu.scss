@@ -49,6 +49,10 @@ div.contextmenu {
         cursor: pointer;
         transition: background 0.3s;
 
+        &:hover {
+          background-color: $hoverBackground;
+        }
+
         > span {
           vertical-align: top;
           display: inline-block;
@@ -83,6 +87,10 @@ div.contextmenu {
           background-image: img('icon-showInDir.webp');
         }
 
+        &[data-type='hide'] > span {
+          background-image: img('icon-hide.webp');
+        }
+
         &[data-type='settings'] > span {
           background-image: img('icon-settings.webp');
         }
@@ -97,10 +105,6 @@ div.contextmenu {
 
         &[data-type='toggleFix'] > span {
           background-image: img('icon-pin.webp');
-        }
-
-        &:hover {
-          background-color: $hoverBackground;
         }
       }
     }

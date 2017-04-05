@@ -46,6 +46,10 @@
                     handleInfosHtml(infos, isDir);
                     break;
                 }
+                case "hide": {
+                    handleHideHtml(infos, isDir);
+                    break;
+                }
                 case "updateUrls": {
                     handleUpdateUrlsHtml(infos, isDir);
                     break;
@@ -61,6 +65,18 @@
         };
 
         /**
+         * Closes the overlay
+         */
+        let closeOverlay = () => {
+            ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
+            elements.overlay.removeClass(ext.opts.classes.page.visible);
+
+            setTimeout(() => {
+                elements.overlay.remove();
+            }, 500);
+        };
+
+        /**
          * Appends the bookmark preview to the current overlay
          *
          * @param {object} infos
@@ -69,7 +85,7 @@
          */
         let appendPreviewLink = (infos, isDir, addUrl) => {
             let preview = $("<" + (isDir ? "span" : "a") + " />")
-                .attr("title", infos.title + "\n" + infos.url)
+                .attr("title", infos.title + (infos.url ? "\n" + infos.url : ""))
                 .data("infos", infos)
                 .addClass(ext.opts.classes.overlay.preview)
                 .html("<img src='" + infos.icon + "' />" + infos.title)
@@ -157,6 +173,18 @@
                 .append("<li>" + ext.lang("overlay_bookmark_views_since") + " " + getLocaleDate(startDate) + "</li>")
                 .append("<li>" + viewsPerMonth + " " + ext.lang("overlay_bookmark_views" + (viewsPerMonth === 1 ? "_single" : "")) + " " + ext.lang("overlay_bookmark_views_per_month") + "</li>")
                 .appendTo(viewsEntry);
+        };
+
+        /**
+         * Extends the overlay html for showing the confirm dialog for hiding bookmarks from the sidebar
+         *
+         * @param {object} infos
+         * @param {boolean} isDir
+         */
+        let handleHideHtml = (infos, isDir) => {
+            $("<p />").text(ext.lang("overlay_hide_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            appendPreviewLink(infos, isDir, true);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -250,12 +278,9 @@
 
         /**
          * Extends the overlay html for the url update process
-         *
-         * @param {object} infos
-         * @param {boolean} isDir
          */
-        let handleUpdateUrlsHtml = (infos, isDir) => {
-            let bookmarkAmount = infos.bookmarks.length;
+        let handleUpdateUrlsHtml = () => {
+            let bookmarkAmount = Object.keys(ext.entries.bookmarks).length;
 
             elements.desc = $("<p />").text(ext.lang("overlay_check_urls_loading")).appendTo(elements.modal);
             elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
@@ -268,8 +293,10 @@
 
             let finished = 0;
             let updateList = [];
-            infos.bookmarks.forEach((bookmark) => {
+            Object.keys(ext.entries.bookmarks).forEach((key) => {
                 if (elements.overlay.length() > 0) {
+                    let bookmark = ext.entries.bookmarks[key];
+
                     ext.helper.model.call("realUrl", {url: bookmark.url}, (response) => {
                         finished++;
                         elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
@@ -293,12 +320,30 @@
         };
 
         /**
+         * Hides the given bookmark or directory from the sidebar
+         *
+         * @param {object} infos
+         */
+        let hideBookmark = (infos) => {
+            closeOverlay();
+
+            let hiddenBookmarks = ext.helper.model.getData("u/hiddenBookmarks");
+            hiddenBookmarks[infos.id] = true;
+
+            ext.helper.model.setData({
+                "u/hiddenBookmarks": hiddenBookmarks
+            });
+
+            infos.element.parent("li").remove();
+        };
+
+        /**
          * Deletes the given bookmark or directory recursively
          *
          * @param {object} infos
          */
         let deleteBookmark = (infos) => {
-            elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
+            closeOverlay();
 
             ext.helper.model.call("deleteBookmark", {id: infos.id}, () => {
                 infos.element.parent("li").remove();
@@ -323,7 +368,7 @@
             } else if (!isDir && url.length === 0) {
                 urlInput.addClass(ext.opts.classes.overlay.inputError);
             } else {
-                elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
+                closeOverlay();
 
                 ext.helper.model.call("updateBookmark", {id: infos.id, title: title, url: url}, () => {
                     infos.title = title;
@@ -353,7 +398,7 @@
             });
 
             ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
-            elements.modal.find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
+            closeOverlay();
 
             setTimeout(() => {
                 ext.updateBookmarkBox();
@@ -366,7 +411,7 @@
         let initEvents = () => {
             elements.overlay.find("body").on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY") {
-                    $(e.target).find("a." + ext.opts.classes.overlay.close).eq(0).trigger("click");
+                    closeOverlay();
                 }
             });
 
@@ -379,12 +424,7 @@
 
             elements.modal.find("a." + ext.opts.classes.overlay.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
-                ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
-                elements.overlay.removeClass(ext.opts.classes.page.visible);
-
-                setTimeout(() => {
-                    elements.overlay.remove();
-                }, 500);
+                closeOverlay();
             });
 
             elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action
@@ -393,6 +433,10 @@
                 switch (elements.modal.attr(ext.opts.attr.type)) {
                     case "delete": {
                         deleteBookmark(infos);
+                        break;
+                    }
+                    case "hide": {
+                        hideBookmark(infos);
                         break;
                     }
                     case "edit": {

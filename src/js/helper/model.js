@@ -6,6 +6,7 @@
         let defaults = {
             u: { // utility
                 openStates: {},
+                hiddenBookmarks: {},
                 scrollPos: {},
                 entriesLocked: true
             },

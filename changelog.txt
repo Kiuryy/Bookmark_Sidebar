@@ -2,7 +2,7 @@
  - Configurable icon for chrome menu
  - Hide directories from contextmenu (hidden directories will be listed on the settings page)
  - Only one directory open (accordion)
- - Rate mask x days after installation (just like contribute mask after 5 days)
+ - empty check url result message
 
 [1.5]
  - Completely new settings page

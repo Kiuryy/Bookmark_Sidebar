@@ -79,6 +79,9 @@
   "contextmenu_show_in_dir": {
     "message": "Show in directory"
   },
+  "contextmenu_hide_from_sidebar": {
+    "message": "Hide from sidebar"
+  },
   // [ OVERLAY ]
   "overlay_bookmark_title": {
     "message": "Title"
@@ -100,6 +103,15 @@
   },
   "overlay_update": {
     "message": "Update"
+  },
+  "overlay_hide": {
+    "message": "Hide from sidebar"
+  },
+  "overlay_hide_bookmark_confirm": {
+    "message": "Do you really want to hide this bookmark from the sidebar? "
+  },
+  "overlay_hide_dir_confirm": {
+    "message": "Do you really want to hide this directory from the sidebar? All subordinate bookmarks will be hidden too."
   },
   "overlay_delete_bookmark_confirm": {
     "message": "Do you really want to delete this bookmark?"

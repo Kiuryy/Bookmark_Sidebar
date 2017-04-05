@@ -57,7 +57,13 @@
             return $(html);
         };
 
-        this.isBookmarkVisible = (id) => {
+        /**
+         * Returns false for all entries which are not in the entries object
+         *
+         * @param {int} id
+         * @returns {boolean}
+         */
+        this.isEntryVisible = (id) => {
             return typeof this.entries.bookmarks[id] === "object" || typeof this.entries.directories[id] === "object";
         };
 
@@ -130,7 +136,7 @@
             let data = this.helper.model.getData(["b/hideEmptyDirs", "a/showBookmarkIcons"]);
 
             bookmarks.forEach((bookmark, idx) => {
-                if (this.isBookmarkVisible(bookmark.id) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                if (this.isEntryVisible(bookmark.id) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     if (opts.demoMode) {
                         if (bookmark.children) {
                             bookmark.title = "Directory " + (idx + 1);
@@ -312,12 +318,17 @@
                 bookmarks: {},
                 directories: {}
             };
+
             let processEntries = (bookmarkObj, parents) => {
                 for (let i = 0; i < bookmarkObj.length; i++) {
                     let bookmark = bookmarkObj[i];
                     if (hiddenBookmarks[bookmark.id] !== true) {
                         let thisParents = [...parents];
-                        thisParents.push(bookmark.parentId);
+
+                        if (bookmark.parentId !== "0") {
+                            thisParents.push(bookmark.parentId);
+                        }
+
                         bookmark.parents = thisParents;
                         if (bookmark.url) {
                             this.entries.bookmarks[bookmark.id] = bookmark;

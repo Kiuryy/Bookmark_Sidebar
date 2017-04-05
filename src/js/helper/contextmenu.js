@@ -160,30 +160,29 @@
                         break;
                     }
                     case "showInDir": { // show search result in normal bookmark list
-                        ext.helper.model.call("bookmarkInfos", {id: infos.id}, (bookmark) => {
-                            if (bookmark && bookmark.parents && bookmark.parents.length > 0) {
-                                let openParent = (i) => {
-                                    if (bookmark.parents[i]) {
-                                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + bookmark.parents[i] + "']");
-                                        if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
-                                            ext.helper.sidebarEvents.toggleBookmarkDir(entry, true, () => {
-                                                openParent(i + 1);
-                                            });
-                                        } else {
-                                            openParent(i + 1);
-                                        }
-                                    } else { // all parents opened -> close search and scroll to the bookmark
-                                        ext.helper.search.clearSearch();
-                                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + infos.id + "']");
-                                        ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
-                                        entry.addClass(ext.opts.classes.sidebar.mark);
-                                    }
-                                };
+                        if (ext.entries.bookmarks[infos.id] && ext.entries.bookmarks[infos.id].parents) {
+                            let parents = ext.entries.bookmarks[infos.id].parents;
 
-                                bookmark.parents.reverse();
-                                openParent(0);
-                            }
-                        });
+                            let openParent = (i) => {
+                                if (parents[i]) {
+                                    let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + parents[i] + "']");
+                                    if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
+                                        ext.helper.sidebarEvents.toggleBookmarkDir(entry, true, () => {
+                                            openParent(i + 1);
+                                        });
+                                    } else {
+                                        openParent(i + 1);
+                                    }
+                                } else { // all parents opened -> close search and scroll to the bookmark
+                                    ext.helper.search.clearSearch();
+                                    let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + infos.id + "']");
+                                    ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
+                                    entry.addClass(ext.opts.classes.sidebar.mark);
+                                }
+                            };
+
+                            openParent(0);
+                        }
                         break;
                     }
                     default: { // open overlay of the given type

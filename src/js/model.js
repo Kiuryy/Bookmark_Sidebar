@@ -257,34 +257,6 @@
     };
 
     /**
-     * Returns information about the given bookmark, including the ids of all parent directories
-     *
-     * @param {object} opts
-     * @param {function} sendResponse
-     */
-    let getBookmarkInfos = (opts, sendResponse) => {
-        bookmarkObj.get(opts.id, (info) => {
-            let obj = info[0];
-            obj.parents = [];
-
-            let recursiveCallback = (bookmark) => {
-                if (bookmark.parentId && bookmark.parentId !== "0") {
-                    bookmarkObj.get(bookmark.parentId, (arr) => {
-                        if (arr && arr[0] && arr[0].id) {
-                            obj.parents.push(arr[0].id);
-                            recursiveCallback(arr[0]);
-                        }
-                    });
-                } else {
-                    sendResponse(obj);
-                }
-            };
-
-            recursiveCallback(obj);
-        });
-    };
-
-    /**
      * Determines the amount of child elements and the amount of clicks on all the children recursively
      *
      * @param {object} opts
@@ -340,7 +312,6 @@
         realUrl: getRealUrl,
         addViewAmount: addViewAmountByUrl,
         dirInfos: getDirInfos,
-        bookmarkInfos: getBookmarkInfos,
         bookmarks: getBookmarks,
         searchBookmarks: getBookmarksBySearchVal,
         moveBookmark: moveBookmark,

@@ -89,7 +89,7 @@
         this.updateScrollbox = (scrollBox, scrollPos) => {
             ext.helper.contextmenu.close();
 
-            let boxHeight = scrollBox.realHeight();
+            let boxHeight = getScrollBoxHeight(scrollBox);
             let contentHeight = scrollBox.data("content").realHeight(true);
 
             scrollPos = Math.max(0, scrollPos);
@@ -149,6 +149,15 @@
             }
         };
 
+        /**
+         * Returns the height of the given scrollbox
+         *
+         * @param {jsu} scrollBox
+         * @returns {int}
+         */
+        let getScrollBoxHeight = (scrollBox) => {
+            return scrollBox.realHeight() - parseInt(scrollBox.css("padding-top"));
+        };
 
         /**
          * Initializes the eventhandlers for the given scrollbox
@@ -200,11 +209,9 @@
                         scrollBox.addClass(ext.opts.classes.scrollBox.scrollDrag);
                     }
 
-                    let boxHeight = scrollBox.realHeight();
                     let contentHeight = scrollBox.data("content").realHeight();
-                    let currentPos = Math.max(0, e.pageY - scrollBox[0].getBoundingClientRect().top - startPos);
-
-                    this.updateScrollbox(scrollBox, currentPos * contentHeight / boxHeight);
+                    let currentPos = Math.max(0, e.pageY - scrollbar[0].getBoundingClientRect().top - startPos);
+                    this.updateScrollbox(scrollBox, currentPos * contentHeight / getScrollBoxHeight(scrollBox));
                 }
             });
         };

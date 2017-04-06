@@ -6,7 +6,7 @@
 [1.6]
  - hide entries from sidebar
  - changed contextmenus
- - check urls of specific directory
+ - check urls of specific directories
 
 [1.5]
  - Completely new settings page

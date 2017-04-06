@@ -229,59 +229,69 @@
          * @param {Array} updateList
          */
         let handleUpdateUrlsFinished = (updateList) => {
+            let hasResults = updateList.length > 0;
+
             setTimeout(() => {
                 elements.desc.remove();
                 elements.progressBar.remove();
                 elements.progressLabel.remove();
 
-                elements.modal.addClass(ext.opts.classes.overlay.urlCheckFinished);
+                hasResults && elements.modal.addClass(ext.opts.classes.overlay.urlCheckList);
 
                 setTimeout(() => {
                     elements.loader.remove();
-                    $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_update")).appendTo(elements.buttonWrapper);
                     elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
+                    elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.lang("overlay_close"));
 
-                    let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
-                    let overlayBody = elements.overlay.find("body");
+                    if (updateList.length === 0) {
+                        $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.lang("overlay_check_urls_no_results")).appendTo(elements.modal);
+                    } else {
+                        $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_update")).appendTo(elements.buttonWrapper);
+                        let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
+                        let overlayBody = elements.overlay.find("body");
 
-                    updateList.forEach((entry) => {
-                        let listEntry = $("<li />")
-                            .data("infos", entry)
-                            .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
-                            .append("<strong>" + entry.title + "</strong>");
+                        updateList.forEach((entry) => {
+                            let listEntry = $("<li />")
+                                .data("infos", entry)
+                                .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
+                                .append("<strong>" + entry.title + "</strong>");
 
-                        $("<a />").attr({
-                            href: entry.url, title: entry.url, target: "_blank"
-                        }).text(entry.url).appendTo(listEntry);
-
-                        if (entry.urlStatusCode === 404) {
-                            $("<span />").text(ext.lang("overlay_check_urls_not_found")).appendTo(listEntry);
-                        } else if (entry.newUrl !== entry.url) {
                             $("<a />").attr({
-                                href: entry.newUrl, title: entry.newUrl, target: "_blank"
-                            }).text(entry.newUrl).appendTo(listEntry);
-                        }
+                                href: entry.url, title: entry.url, target: "_blank"
+                            }).text(entry.url).appendTo(listEntry);
 
-                        listEntry = listEntry.appendTo(scrollBox.children("ul"));
-
-                        ext.helper.model.call("favicon", {url: entry.url}, (response) => { // retrieve favicon of url
-                            if (response.img) { // favicon found -> add to entry
-                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box))
+                            if (entry.urlStatusCode === 404) {
+                                $("<span />").text(ext.lang("overlay_check_urls_not_found")).appendTo(listEntry);
+                            } else if (entry.newUrl !== entry.url) {
+                                $("<a />").attr({
+                                    href: entry.newUrl, title: entry.newUrl, target: "_blank"
+                                }).text(entry.newUrl).appendTo(listEntry);
                             }
-                        });
-                    });
 
-                    ext.helper.scroll.update(scrollBox);
-                }, 1000);
+                            listEntry = listEntry.appendTo(scrollBox.children("ul"));
+
+                            ext.helper.model.call("favicon", {url: entry.url}, (response) => { // retrieve favicon of url
+                                if (response.img) { // favicon found -> add to entry
+                                    $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box))
+                                }
+                            });
+                        });
+
+                        ext.helper.scroll.update(scrollBox);
+                    }
+                }, hasResults ? 1000 : 0);
 
             }, 1000);
         };
 
         /**
          * Extends the overlay html for the url update process
+         *
+         * @param {object} infos
          */
-        let handleUpdateUrlsHtml = () => {
-            let bookmarkAmount = Object.keys(ext.entries.bookmarks).length;
+        let handleUpdateUrlsHtml = (infos) => {
+            let bookmarks = infos.children.filter(val => !!(val.url));
+            let bookmarkAmount = bookmarks.length;
 
             elements.desc = $("<p />").text(ext.lang("overlay_check_urls_loading")).appendTo(elements.modal);
             elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
@@ -294,30 +304,23 @@
 
             let finished = 0;
             let updateList = [];
-            Object.keys(ext.entries.bookmarks).forEach((key) => {
-                if (elements.overlay.length() > 0) {
-                    let bookmark = ext.entries.bookmarks[key];
+            bookmarks.forEach((bookmark) => {
+                ext.helper.model.call("realUrl", {url: bookmark.url}, (response) => {
+                    finished++;
+                    elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
+                    elements.progressLabel.children("span").eq(0).text(finished);
 
-                    ext.helper.model.call("realUrl", {url: bookmark.url}, (response) => {
-                        finished++;
-                        elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
-                        elements.progressLabel.children("span").eq(0).text(finished);
+                    if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
+                        bookmark.newUrl = response.url;
+                        bookmark.urlStatusCode = +response.code;
+                        updateList.push(bookmark);
+                    }
 
-                        if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
-                            bookmark.newUrl = response.url;
-                            bookmark.urlStatusCode = +response.code;
-                            updateList.push(bookmark);
-                        }
-
-                        if (finished === bookmarkAmount) {
-                            handleUpdateUrlsFinished(updateList);
-                        }
-                    });
-                } else {
-                    return false;
-                }
+                    if (finished === bookmarkAmount) {
+                        handleUpdateUrlsFinished(updateList);
+                    }
+                });
             });
-
         };
 
         /**

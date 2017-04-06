@@ -116,8 +116,10 @@
             let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
 
             if (infos.children) {
-                list.append("<li><a " + ext.opts.attr.type + "='openChildren'>" + ext.lang("contextmenu_open_children") + "</a></li>")
-                    .append("<li><a " + ext.opts.attr.type + "='updateUrls'>" + ext.lang("contextmenu_update_urls") + "</a></li>");
+                list.append("<li><a " + ext.opts.attr.type + "='openChildren'>" + ext.lang("contextmenu_open_children") + "</a></li>");
+                if (infos.children.length > 0) {
+                    list.append("<li><a " + ext.opts.attr.type + "='updateUrls'>" + ext.lang("contextmenu_update_urls") + "</a></li>");
+                }
             } else {
                 if (isSearchList) {
                     list.append("<li><a " + ext.opts.attr.type + "='showInDir'>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");

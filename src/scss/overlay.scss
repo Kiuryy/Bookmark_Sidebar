@@ -111,6 +111,11 @@ div.modal {
       margin-top: 40px;
       font-size: 140%;
       line-height: 170%;
+
+      &.success {
+        padding: 20px 0 70px;
+        background: img('icon-success.webp') no-repeat center bottom / 32px;
+      }
     }
 
     > div.progressBar {
@@ -266,7 +271,7 @@ div.modal {
       transition: width 0.5s, height 0.5s, margin-top 0.5s;
     }
 
-    &.urlCheckFinished {
+    &.urlCheckList {
       width: 600px;
       height: 600px;
 

@@ -1,11 +1,12 @@
 [tdb]
  - Configurable icon for chrome menu and directory
  - Only one directory open (accordion)
- - check urls for every directory
- - empty check url result message
+ - changelog info for 1.6
 
 [1.6]
  - hide entries from sidebar
+ - changed contextmenus
+ - check urls of specific directory
 
 [1.5]
  - Completely new settings page

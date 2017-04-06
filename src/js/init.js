@@ -39,11 +39,11 @@
                 bookmarkLabel: "label",
                 settings: "settings",
                 hidden: "hidden",
+                loading: "loading",
                 search: "search",
                 searchBox: "searchBox",
                 searchClose: "searchClose",
                 searchVisible: "searchVisible",
-                searchLoading: "searchLoading",
                 shareUserdataNotice: "shareNotice"
             },
             contextmenu: {
@@ -88,10 +88,11 @@
                 close: "close",
                 hasTooltip: "tooltip",
                 inputError: "error",
+                success: "success",
                 progressBar: "progressBar",
                 checkUrlProgressLabel: "progressLabel",
                 urlCheckLoading: "urlCheckLoading",
-                urlCheckFinished: "urlCheckFinished"
+                urlCheckList: "urlCheckList"
             }
         },
         attr: {

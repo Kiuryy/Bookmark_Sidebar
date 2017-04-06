@@ -100,7 +100,7 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elements.sidebar.addClass(this.opts.classes.sidebar.searchLoading);
+            this.elements.sidebar.addClass(this.opts.classes.sidebar.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
@@ -117,7 +117,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elements.sidebar.removeClass(this.opts.classes.sidebar.searchLoading);
+                this.elements.sidebar.removeClass(this.opts.classes.sidebar.loading);
                 loadingInfo.loader && loadingInfo.loader.remove();
                 loadingInfo = {};
             }, timeout);

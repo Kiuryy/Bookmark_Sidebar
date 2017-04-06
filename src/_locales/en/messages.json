@@ -53,7 +53,7 @@
     "message": "Bookmark Manager"
   },
   "contextmenu_update_urls": {
-    "message": "Update URLs"
+    "message": "Update urls"
   },
   "contextmenu_toggle_fix": {
     "message": "Pin entries"
@@ -155,8 +155,11 @@
   "overlay_check_urls_loading": {
     "message": "Checking the bookmark urls"
   },
+  "overlay_check_urls_no_results": {
+    "message": "All bookmark urls are fine"
+  },
   "overlay_check_urls_not_found": {
-    "message": "URL not found"
+    "message": "Url not found"
   },
   // [ HOWTO ]
   "howto_title": {

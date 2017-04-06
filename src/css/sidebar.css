@@ -1,4 +1,4 @@
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.searchLoading > div.scrollBox, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }
@@ -232,7 +232,7 @@ div.contextmenu > ul.icons > li > a[data-type='infos'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp);
 }
 div.contextmenu > ul.icons > li > a[data-type='show'] {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.webp);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-show.webp);
 }
 div.contextmenu > ul.icons > li > a[data-type='hide'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.webp);
@@ -441,7 +441,6 @@ section#sidebar > header > a:hover, section#sidebar > header > a.active {
 }
 section#sidebar > header > a.search {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.webp);
-  margin-right: 3px;
 }
 section#sidebar > header > a.settings {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.png);
@@ -451,7 +450,7 @@ section#sidebar > header > div.searchBox {
   position: absolute;
   top: 14px;
   left: 16px;
-  width: calc(100% - 80px);
+  width: calc(100% - 75px);
   height: 30px;
   background: #f5f5f5;
   transform: translate3d(20px, 0, 0);
@@ -585,7 +584,7 @@ section#sidebar > div.scrollBox > ul li.hidden > a {
   opacity: 0.3;
   font-style: italic;
 }
-section#sidebar > div.scrollBox > ul li.hidden > a:hover {
+section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active {
   opacity: 0.5;
 }
 section#sidebar > div.scrollBox > ul li.isDragged {
@@ -609,7 +608,7 @@ section#sidebar > div.scrollBox > ul.hideRoot > li > a {
 section#sidebar > div.scrollBox > ul.hideRoot > li > ul {
   padding-left: 0;
 }
-section#sidebar.searchLoading > div.loading {
+section#sidebar.loading > div.loading {
   position: absolute;
   top: calc(50% - 18px);
   left: calc(50% - 18px);

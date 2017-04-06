@@ -334,6 +334,10 @@ div.modal[data-type='updateUrls'] > p {
   font-size: 140%;
   line-height: 170%;
 }
+div.modal[data-type='updateUrls'] > p.success {
+  padding: 20px 0 70px;
+  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-success.webp) no-repeat center bottom/32px;
+}
 div.modal[data-type='updateUrls'] > div.progressBar {
   position: relative;
   background: rgba(0, 0, 0, 0.1);
@@ -463,11 +467,11 @@ div.modal[data-type='updateUrls'] > div#urlList:not(.scrollDrag) > ul {
 div.modal[data-type='updateUrls'].urlCheckLoading {
   transition: width 0.5s, height 0.5s, margin-top 0.5s;
 }
-div.modal[data-type='updateUrls'].urlCheckFinished {
+div.modal[data-type='updateUrls'].urlCheckList {
   width: 600px;
   height: 600px;
 }
-div.modal[data-type='updateUrls'].urlCheckFinished::after {
+div.modal[data-type='updateUrls'].urlCheckList::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -477,7 +481,7 @@ div.modal[data-type='updateUrls'].urlCheckFinished::after {
   z-index: 2;
   background: #f5f5f5;
 }
-div.modal[data-type='updateUrls'].urlCheckFinished > div.loading {
+div.modal[data-type='updateUrls'].urlCheckList > div.loading {
   margin-top: 150px;
 }
 div.modal[data-type='delete'] > p, div.modal[data-type='hide'] > p {

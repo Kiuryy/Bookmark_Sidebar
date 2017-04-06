@@ -3,6 +3,8 @@
 
     window.ext = function (opts) {
 
+        let loadingInfo = {};
+
         /*
          * ################################
          * PUBLIC
@@ -58,13 +60,21 @@
         };
 
         /**
-         * Returns false for all entries which are not in the entries object
+         * Returns false for all entries which are not in the entries object or have the hidden flag set to true
          *
          * @param {int} id
          * @returns {boolean}
          */
         this.isEntryVisible = (id) => {
-            return typeof this.entries.bookmarks[id] === "object" || typeof this.entries.directories[id] === "object";
+            let visible = false;
+
+            if (typeof this.entries.bookmarks[id] === "object") {
+                visible = this.entries.bookmarks[id].hidden === false;
+            } else if (typeof this.entries.directories[id] === "object") {
+                visible = this.entries.directories[id].hidden === false;
+            }
+
+            return visible;
         };
 
         /**
@@ -84,6 +94,33 @@
          */
         this.lang = (msg) => {
             return chrome.i18n.getMessage(msg);
+        };
+
+        /**
+         * Adds a loading mask over the sidebar
+         */
+        this.startLoading = () => {
+            this.elements.sidebar.addClass(this.opts.classes.sidebar.searchLoading);
+
+            if (loadingInfo.timeout) {
+                clearTimeout(loadingInfo.timeout);
+            }
+            if (typeof loadingInfo.loader === "undefined" || loadingInfo.loader.length() === 0) {
+                loadingInfo.loader = this.getLoaderHtml().appendTo(this.elements.sidebar);
+            }
+        };
+
+        /**
+         * Removes the loading mask after the given time
+         *
+         * @param {int} timeout in ms
+         */
+        this.endLoading = (timeout = 500) => {
+            loadingInfo.timeout = setTimeout(() => {
+                this.elements.sidebar.removeClass(this.opts.classes.sidebar.searchLoading);
+                loadingInfo.loader && loadingInfo.loader.remove();
+                loadingInfo = {};
+            }, timeout);
         };
 
         /**
@@ -134,9 +171,10 @@
             let ret = 0;
             let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
             let showBookmarkIcons = this.helper.model.getData("a/showBookmarkIcons");
+            let showHidden = this.elements.iframeBody.hasClass(this.opts.classes.sidebar.showHidden);
 
             bookmarks.forEach((bookmark, idx) => {
-                if (this.isEntryVisible(bookmark.id) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                if ((showHidden || this.isEntryVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     if (opts.demoMode) {
                         if (bookmark.children) {
                             bookmark.title = "Directory " + (idx + 1);
@@ -151,6 +189,10 @@
                         .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
                         .attr(this.opts.attr.id, bookmark.id)
                         .appendTo(entry);
+
+                    if (this.isEntryVisible(bookmark.id) === false) {
+                        entry.addClass(this.opts.classes.sidebar.hidden);
+                    }
 
                     bookmark.element = entryContent;
 
@@ -215,7 +257,7 @@
                 if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
                     this.firstRun = true;
                     let list = this.elements.bookmarkBox["all"].children("ul");
-                    list.text("");
+                    list.removeClass(this.opts.classes.sidebar.hideRoot).text("");
 
                     updateEntriesInfo(response.bookmarks[0].children);
                     this.helper.search.init();
@@ -296,9 +338,12 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
-            let entriesLocked = this.helper.model.getData("u/entriesLocked");
-            if (entriesLocked === false) {
+            let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
+            if (data.entriesLocked === false) {
                 this.elements.iframeBody.addClass(this.opts.classes.sidebar.entriesUnlocked);
+            }
+            if (data.showHidden === true) {
+                this.elements.iframeBody.addClass(this.opts.classes.sidebar.showHidden);
             }
 
             this.elements.bookmarkBox["all"].addClass(this.opts.classes.sidebar.active);
@@ -308,39 +353,40 @@
 
         /**
          * Updates the object with all bookmarks and directories,
-         * stores the infos off all entries in a one dimensional object excluding the hidden bookmarks or directories
+         * stores the infos off all entries in a one dimensional object and marks the hidden bookmarks or directories with a flag
          *
          * @param {Array} bookmarkTree
          */
         let updateEntriesInfo = (bookmarkTree) => {
-            let hiddenBookmarks = this.helper.model.getData("u/hiddenBookmarks");
+            let hiddenEntries = this.helper.model.getData("u/hiddenEntries");
+            let showHidden = this.elements.iframeBody.hasClass(this.opts.classes.sidebar.showHidden);
 
             this.entries = {
                 bookmarks: {},
                 directories: {}
             };
 
-            let processEntries = (bookmarkObj, parents) => {
-                for (let i = 0; i < bookmarkObj.length; i++) {
-                    let bookmark = bookmarkObj[i];
-                    if (hiddenBookmarks[bookmark.id] !== true) {
+            let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
+                entriesList.forEach((entry) => {
+                    if (showHidden || hiddenEntries[entry.id] !== true) {
                         let thisParents = [...parents];
 
-                        if (bookmark.parentId !== "0") {
-                            thisParents.push(bookmark.parentId);
+                        if (entry.parentId !== "0") {
+                            thisParents.push(entry.parentId);
                         }
 
-                        bookmark.parents = thisParents;
-                        if (bookmark.url) {
-                            this.entries.bookmarks[bookmark.id] = bookmark;
-                        } else if (bookmark.children) {
-                            this.entries.directories[bookmark.id] = bookmark;
-                            processEntries(bookmark.children, thisParents);
+                        entry.hidden = parentIsHidden || hiddenEntries[entry.id] === true;
+                        entry.parents = thisParents;
+                        if (entry.url) {
+                            this.entries.bookmarks[entry.id] = entry;
+                        } else if (entry.children) {
+                            this.entries.directories[entry.id] = entry;
+                            processEntries(entry.children, thisParents, entry.hidden);
                         }
                     }
-                }
+                });
             };
-            processEntries(bookmarkTree, []);
+            processEntries(bookmarkTree);
             updateSidebarHeader();
         };
 

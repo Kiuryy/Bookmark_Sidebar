@@ -1,6 +1,7 @@
 [tdb]
- - Configurable icon for chrome menu
+ - Configurable icon for chrome menu and directory
  - Only one directory open (accordion)
+ - check urls for every directory
  - empty check url result message
  - contextmenu redesign (http://jquery-plugins.net/image/plugin/create-context-menu-with-jquery-and-css.png)
 

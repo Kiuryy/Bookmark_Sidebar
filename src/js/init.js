@@ -31,19 +31,20 @@
                 mark: "mark",
                 hideRoot: "hideRoot",
                 entriesUnlocked: "entriesUnlocked",
+                showHidden: "showHidden",
                 dirAnimated: "animated",
                 dirOpened: "opened",
                 bookmarkDir: "dir",
                 bookmarkLink: "link",
                 bookmarkLabel: "label",
                 settings: "settings",
+                hidden: "hidden",
                 search: "search",
                 searchBox: "searchBox",
                 searchClose: "searchClose",
                 searchVisible: "searchVisible",
                 searchLoading: "searchLoading",
-                shareUserdataNotice: "shareNotice",
-                shareUserdataHidden: "hidden"
+                shareUserdataNotice: "shareNotice"
             },
             contextmenu: {
                 wrapper: "contextmenu",

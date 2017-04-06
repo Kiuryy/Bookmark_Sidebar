@@ -326,16 +326,16 @@
          * @param {object} infos
          */
         let hideBookmark = (infos) => {
+            ext.startLoading();
             closeOverlay();
 
-            let hiddenBookmarks = ext.helper.model.getData("u/hiddenBookmarks");
-            hiddenBookmarks[infos.id] = true;
+            let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
+            hiddenEntries[infos.id] = true;
 
-            ext.helper.model.setData({
-                "u/hiddenBookmarks": hiddenBookmarks
+            ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
+                ext.updateBookmarkBox();
+                ext.endLoading();
             });
-
-            infos.element.parent("li").remove();
         };
 
         /**

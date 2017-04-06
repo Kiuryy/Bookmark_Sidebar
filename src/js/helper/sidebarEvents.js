@@ -118,7 +118,7 @@
                 ext.helper.model.call("shareUserdata", {
                     share: $(e.currentTarget).data("accept")
                 });
-                ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.shareUserdataHidden);
+                ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.hidden);
             });
 
 

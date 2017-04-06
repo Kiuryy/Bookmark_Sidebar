@@ -6,7 +6,7 @@
         let defaults = {
             u: { // utility
                 openStates: {},
-                hiddenBookmarks: {},
+                hiddenEntries: {},
                 scrollPos: {},
                 entriesLocked: true
             },
@@ -124,8 +124,9 @@
          * Saves the given values in the storage
          *
          * @param {object} values
+         * @param {function} callback
          */
-        this.setData = (values) => {
+        this.setData = (values, callback) => {
             this.init(() => { // init retrieves the newest data
                 Object.keys(values).forEach((keyInfo) => {
                     let scope = keyInfo.split("/")[0];
@@ -150,7 +151,11 @@
                     }
                 });
 
-                chrome.storage.sync.set(data);
+                chrome.storage.sync.set(data, () => {
+                    if (typeof callback === "function") {
+                        callback();
+                    }
+                });
             });
         };
 

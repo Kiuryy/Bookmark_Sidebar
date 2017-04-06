@@ -81,6 +81,15 @@
                 contextmenu.find("input[" + ext.opts.attr.type + "='toggleFix']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
             }
 
+            $("<li />")
+                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.type]: 'toggleHidden'}))
+                .append("<a " + ext.opts.attr.type + "='toggleHidden'>" + ext.lang("contextmenu_toggle_hidden") + "</a>")
+                .appendTo(contextmenu.children("ul"));
+
+            if (ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden) === true) {
+                contextmenu.find("input[" + ext.opts.attr.type + "='toggleHidden']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
+            }
+
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
         };
@@ -105,22 +114,30 @@
             });
 
             let i18nAppend = !!(infos.children) ? "_dir" : "_bookmark";
+            let contextmenuList = contextmenu.children("ul");
+            let separator = "<li class='" + ext.opts.classes.contextmenu.separator + "'></li>";
+            let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
 
-            contextmenu.children("ul")
-                .append("<li><a " + ext.opts.attr.type + "='infos'><span></span>" + ext.lang("contextmenu_infos") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='edit'><span></span>" + ext.lang("contextmenu_edit" + i18nAppend) + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>")
-                .append("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>")
-                .append("<li><a " + ext.opts.attr.type + "='hide'><span></span>" + ext.lang("contextmenu_hide_from_sidebar") + "</a></li>");
-
-            if (!(infos.children)) {
-                contextmenu.children("ul").prepend("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>");
-
-                if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
-                    contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='showInDir'><span></span>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");
+            if (infos.children) {
+                contextmenuList.append("<li><a " + ext.opts.attr.type + "='openChildren'><span></span>" + ext.lang("contextmenu_open_children") + "</a></li>");
+            } else {
+                if (isSearchList) {
+                    contextmenuList.append("<li><a " + ext.opts.attr.type + "='showInDir'><span></span>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");
                 }
 
-                contextmenu.children("ul").prepend("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + ext.lang("contextmenu_new_tab") + "</a></li>");
+                contextmenuList.append("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + ext.lang("contextmenu_new_tab") + "</a></li>");
+            }
+
+            contextmenuList
+                .append(separator)
+                .append("<li><a " + ext.opts.attr.type + "='infos'><span></span>" + ext.lang("contextmenu_infos") + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='edit'><span></span>" + ext.lang("contextmenu_edit" + i18nAppend) + "</a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>");
+
+            if (ext.isEntryVisible(infos.id)) {
+                contextmenuList.append(separator).append("<li><a " + ext.opts.attr.type + "='hide'><span></span>" + ext.lang("contextmenu_hide_from_sidebar") + "</a></li>");
+            } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
+                contextmenuList.append(separator).append("<li><a " + ext.opts.attr.type + "='show'><span></span>" + ext.lang("contextmenu_show_in_sidebar") + "</a></li>");
             }
         };
 
@@ -129,11 +146,22 @@
          * Initializes the events for the contextmenus
          */
         let initEvents = (contextmenu) => {
-            contextmenu.find("input[" + ext.opts.attr.type + "='toggleFix']").on("change", () => {
+            contextmenu.find("input[" + ext.opts.attr.type + "='toggleFix']").on("change", () => { // toggle fixation of the entries
                 ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
                 ext.helper.model.setData({
                     "u/entriesLocked": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
                 });
+                this.close();
+            });
+
+            contextmenu.find("input[" + ext.opts.attr.type + "='toggleHidden']").on("change", () => { // toggle visibility of hidden entries
+                ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.showHidden);
+                ext.startLoading();
+                ext.helper.model.setData({
+                    "u/showHidden": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden) === true
+                });
+                ext.updateBookmarkBox();
+                ext.endLoading();
                 this.close();
             });
 
@@ -150,7 +178,8 @@
                         });
                         break;
                     }
-                    case "toggleFix": { // toggle fixation of the entries
+                    case "toggleFix":
+                    case "toggleHidden": { // change the checkbox state
                         $(e.currentTarget).prev("div." + ext.opts.classes.checkbox.box).trigger("click");
                         break;
                     }
@@ -169,6 +198,17 @@
                             href: infos.url,
                             newTab: true,
                             active: ext.helper.model.getData("b/newTab") === "foreground"
+                        });
+                        break;
+                    }
+                    case "show": { // show the hidden bookmark or directory again
+                        ext.startLoading();
+                        let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
+                        delete hiddenEntries[infos.id];
+
+                        ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
+                            ext.updateBookmarkBox();
+                            ext.endLoading();
                         });
                         break;
                     }

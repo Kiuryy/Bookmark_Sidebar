@@ -3,9 +3,6 @@
 
     window.SearchHelper = function (ext) {
 
-
-        let searchInProgress = {};
-
         /**
          * Initializes the helper
          */
@@ -32,33 +29,6 @@
             ext.helper.contextmenu.close();
             ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
             handleSearchValChanged("");
-        };
-
-        /**
-         * Adds a loading mask over the sidebar
-         */
-        let addSearchLoading = () => {
-            ext.elements.sidebar.addClass(ext.opts.classes.sidebar.searchLoading);
-
-            if (searchInProgress.timeout) {
-                clearTimeout(searchInProgress.timeout);
-            }
-            if (typeof searchInProgress.loader === "undefined" || searchInProgress.loader.length() === 0) {
-                searchInProgress.loader = ext.getLoaderHtml().appendTo(ext.elements.sidebar);
-            }
-        };
-
-        /**
-         * Removes the loading mask after the given time
-         *
-         * @param {int} timeout in ms
-         */
-        let removeSearchLoading = (timeout = 500) => {
-            searchInProgress.timeout = setTimeout(() => {
-                ext.elements.sidebar.removeClass(ext.opts.classes.sidebar.searchLoading);
-                searchInProgress.loader && searchInProgress.loader.remove();
-                searchInProgress = {};
-            }, timeout);
         };
 
         /**
@@ -95,7 +65,7 @@
             if (val !== searchField.data("lastVal")) { // search value is not the same
                 searchField.data("lastVal", val);
                 ext.helper.model.setData({"u/searchValue": val});
-                addSearchLoading();
+                ext.startLoading();
 
                 ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
                     ext.elements.bookmarkBox["search"].children("p").remove();
@@ -113,7 +83,7 @@
                     }
 
                     ext.helper.scroll.update(ext.elements.bookmarkBox["search"]);
-                    removeSearchLoading();
+                    ext.endLoading();
                 });
             }
         };
@@ -129,11 +99,11 @@
             ext.helper.model.setData({"u/searchValue": null});
 
             if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
-                addSearchLoading();
+                ext.startLoading();
                 ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
                 ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
                 ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
-                removeSearchLoading();
+                ext.endLoading();
             }
         };
 

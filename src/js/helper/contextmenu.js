@@ -140,7 +140,6 @@
             }
         };
 
-
         /**
          * Initializes the events for the contextmenus
          */
@@ -191,13 +190,7 @@
                         break;
                     }
                     case "newTab": { // open bookmark in new tab
-                        ext.helper.model.call("openLink", {
-                            parentId: infos.parentId,
-                            id: infos.id,
-                            href: infos.url,
-                            newTab: true,
-                            active: ext.helper.model.getData("b/newTab") === "foreground"
-                        });
+                        ext.helper.sidebarEvents.openUrl(infos, true, ext.helper.model.getData("b/newTab") === "foreground");
                         break;
                     }
                     case "show": { // show the hidden bookmark or directory again
@@ -209,6 +202,17 @@
                             ext.updateBookmarkBox();
                             ext.endLoading();
                         });
+                        break;
+                    }
+                    case "openChildren": {
+                        let bookmarks = infos.children.filter(val => !!(val.url));
+                        if (bookmarks.length > 10) {
+                            ext.helper.overlay.create(type, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), infos);
+                        } else {
+                            bookmarks.forEach((bookmark) => {
+                                ext.helper.sidebarEvents.openUrl(bookmark, true, ext.helper.model.getData("b/newTab") === "foreground");
+                            });
+                        }
                         break;
                     }
                     case "showInDir": { // show search result in normal bookmark list

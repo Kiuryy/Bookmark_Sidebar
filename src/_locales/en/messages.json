@@ -113,8 +113,14 @@
   "overlay_update": {
     "message": "Update"
   },
-  "overlay_hide": {
+  "overlay_open_children": {
+    "message": "Open children"
+  },
+  "overlay_hide_from_sidebar": {
     "message": "Hide from sidebar"
+  },
+  "overlay_confirm_open_children": {
+    "message": "Do you really want to open all {1} subordinate bookmarks?"
   },
   "overlay_hide_bookmark_confirm": {
     "message": "Do you really want to hide this bookmark from the sidebar? "

@@ -50,6 +50,10 @@
                     handleHideHtml(infos, isDir);
                     break;
                 }
+                case "openChildren": {
+                    handleOpenChildrenHtml(infos, isDir);
+                    break;
+                }
                 case "updateUrls": {
                     handleUpdateUrlsHtml(infos, isDir);
                     break;
@@ -177,6 +181,21 @@
         };
 
         /**
+         * Extends the overlay html for showing the confirm dialog for opening all the bookmarks below the clicked directory
+         *
+         * @param {object} infos
+         * @param {boolean} isDir
+         */
+        let handleOpenChildrenHtml = (infos, isDir) => {
+            let bookmarks = infos.children.filter(val => !!(val.url));
+            let text = ext.lang("overlay_confirm_open_children").replace(/\{1\}/, bookmarks.length);
+
+            $("<p />").text(text).appendTo(elements.modal);
+            appendPreviewLink(infos, isDir, true);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_open_children")).data("bookmarks", bookmarks).appendTo(elements.buttonWrapper);
+        };
+
+        /**
          * Extends the overlay html for showing the confirm dialog for hiding bookmarks from the sidebar
          *
          * @param {object} infos
@@ -185,7 +204,7 @@
         let handleHideHtml = (infos, isDir) => {
             $("<p />").text(ext.lang("overlay_hide_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(infos, isDir, true);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -324,6 +343,18 @@
         };
 
         /**
+         * Opens all the given bookmarks in new tab
+         *
+         * @param {Array} bookmarks
+         */
+        let openChildren = (bookmarks) => {
+            closeOverlay();
+            bookmarks.forEach((bookmark) => {
+                ext.helper.sidebarEvents.openUrl(bookmark, true, ext.helper.model.getData("b/newTab") === "foreground");
+            });
+        };
+
+        /**
          * Hides the given bookmark or directory from the sidebar
          *
          * @param {object} infos
@@ -443,12 +474,16 @@
                         hideBookmark(infos);
                         break;
                     }
+                    case "openChildren": {
+                        openChildren($(e.currentTarget).data("bookmarks"));
+                        break;
+                    }
                     case "edit": {
                         editBookmark(infos);
                         break;
                     }
                     case "updateUrls": {
-                        updateBookmarkUrls(infos);
+                        updateBookmarkUrls();
                         break;
                     }
                 }
@@ -461,12 +496,7 @@
             elements.modal.find("a." + ext.opts.classes.overlay.preview + ", a." + ext.opts.classes.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
                 let infos = $(e.currentTarget).data("infos");
-                ext.helper.model.call("openLink", {
-                    parentId: infos.parentId,
-                    id: infos.id,
-                    href: infos.url,
-                    newTab: true
-                });
+                ext.helper.sidebarEvents.openUrl(infos, true);
             });
         };
     };

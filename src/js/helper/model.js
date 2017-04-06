@@ -151,11 +151,17 @@
                     }
                 });
 
-                chrome.storage.sync.set(data, () => {
+                try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
+                    chrome.storage.sync.set(data, () => {
+                        if (typeof callback === "function") {
+                            callback();
+                        }
+                    });
+                } catch (e) {
                     if (typeof callback === "function") {
                         callback();
                     }
-                });
+                }
             });
         };
 

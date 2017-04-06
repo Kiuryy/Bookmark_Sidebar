@@ -484,7 +484,7 @@ div.modal[data-type='updateUrls'].urlCheckList::after {
 div.modal[data-type='updateUrls'].urlCheckList > div.loading {
   margin-top: 150px;
 }
-div.modal[data-type='delete'] > p, div.modal[data-type='hide'] > p {
+div.modal[data-type='delete'] > p, div.modal[data-type='hide'] > p, div.modal[data-type='openChildren'] > p {
   padding: 30px 30px 5px 30px;
   font-size: 140%;
   line-height: 170%;

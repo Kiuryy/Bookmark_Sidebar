@@ -83,7 +83,24 @@
         this.init = () => {
             initEvents();
         };
-        
+
+        /**
+         * Opens the url of the given bookmark
+         *
+         * @param {object} infos
+         * @param {boolean} newTab
+         * @param {boolean} active
+         */
+        this.openUrl = (infos, newTab = false, active = true) => {
+            ext.helper.model.call("openLink", {
+                parentId: infos.parentId,
+                id: infos.id,
+                href: infos.url,
+                newTab: newTab,
+                active: active
+            });
+        };
+
         /**
          * Initializes the events for the sidebar
          */
@@ -136,13 +153,7 @@
                             this.toggleBookmarkDir(_self);
                         } else if (!isDir) { // Click on link
                             let newTab = ext.helper.model.getData("b/newTab");
-                            ext.helper.model.call("openLink", {
-                                parentId: infos.parentId,
-                                id: infos.id,
-                                href: infos.url,
-                                newTab: middleClicked,
-                                active: middleClicked ? newTab === "foreground" : true
-                            });
+                            this.openUrl(bookmark, middleClicked, middleClicked ? newTab === "foreground" : true);
                         }
                     }
                 }).on("mouseover", "a", (e) => {

@@ -292,7 +292,7 @@ div.modal {
     }
   }
 
-  &[data-type='delete'], &[data-type='hide'] {
+  &[data-type='delete'], &[data-type='hide'], &[data-type='openChildren'] {
 
     > p {
       padding: 30px 30px 5px 30px;

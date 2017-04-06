@@ -7,7 +7,7 @@
          * Initialises the behaviour settings
          */
         this.init = () => {
-            ["rememberScroll", "rememberSearch", "hideEmptyDirs"].forEach((field) => {
+            ["rememberScroll", "rememberSearch"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
                 }
@@ -50,7 +50,7 @@
                 newTab: s.opts.elm.select.newTab[0].value
             };
 
-            ["rememberScroll", "rememberSearch", "hideEmptyDirs"].forEach((field) => {
+            ["rememberScroll", "rememberSearch"].forEach((field) => {
                 config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
             });
 

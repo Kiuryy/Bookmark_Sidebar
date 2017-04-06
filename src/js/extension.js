@@ -133,7 +133,7 @@
         this.addBookmarkDir = (bookmarks, list) => {
             let ret = 0;
             let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
-            let data = this.helper.model.getData(["b/hideEmptyDirs", "a/showBookmarkIcons"]);
+            let showBookmarkIcons = this.helper.model.getData("a/showBookmarkIcons");
 
             bookmarks.forEach((bookmark, idx) => {
                 if (this.isEntryVisible(bookmark.id) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
@@ -155,19 +155,15 @@
                     bookmark.element = entryContent;
 
                     if (bookmark.children) { // dir
-                        if (data.hideEmptyDirs === false || bookmark.children.length > 0) { // not empty or configured to show anyway
-                            bookmark.icon = chrome.extension.getURL("img/dir.webp");
+                        bookmark.icon = chrome.extension.getURL("img/dir.webp");
 
-                            entryContent
-                                .data("infos", bookmark)
-                                .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
-                                .addClass(this.opts.classes.sidebar.bookmarkDir);
+                        entryContent
+                            .data("infos", bookmark)
+                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
+                            .addClass(this.opts.classes.sidebar.bookmarkDir);
 
-                            if (data.showBookmarkIcons) {
-                                entryContent.prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
-                            }
-                        } else { // configured to not show empty dirs
-                            entry.remove();
+                        if (showBookmarkIcons) {
+                            entryContent.prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
                         }
                     } else { // link
                         entryContent
@@ -175,7 +171,7 @@
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
                             .addClass(this.opts.classes.sidebar.bookmarkLink);
 
-                        if (data.showBookmarkIcons) {
+                        if (showBookmarkIcons) {
                             this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
                                 if (opts.demoMode) {
                                     response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".webp");

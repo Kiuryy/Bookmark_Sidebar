@@ -265,12 +265,6 @@
   "settings_remember_search_desc": {
     "message": "If selected, the entered search value will be remembered across page changes."
   },
-  "settings_hide_empty_dirs": {
-    "message": "Hide empty directories"
-  },
-  "settings_hide_empty_dirs_desc": {
-    "message": "If selected, every directory without elements in it will not be shown in the sidebar."
-  },
   "settings_new_tab": {
     "message": "New Tab"
   },

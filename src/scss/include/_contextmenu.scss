@@ -32,6 +32,7 @@ div.contextmenu {
   > ul {
 
     > li {
+      position: relative;
 
       &.separator {
         display: block;
@@ -39,6 +40,21 @@ div.contextmenu {
         height: 1px;
         background: rgba(0, 0, 0, 0.1);
         margin: 5px 0;
+      }
+
+      > div.checkbox {
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        left: 14px;
+
+        + a {
+          padding-left: 50px;
+        }
+
+        &:hover + a {
+          background-color: $hoverBackground;
+        }
       }
 
       > a {
@@ -101,10 +117,6 @@ div.contextmenu {
 
         &[data-type='updateUrls'] > span {
           background-image: img('icon-update.webp');
-        }
-
-        &[data-type='toggleFix'] > span {
-          background-image: img('icon-pin.webp');
         }
       }
     }

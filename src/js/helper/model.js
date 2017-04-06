@@ -17,7 +17,6 @@
                 newTab: "foreground",
                 rememberScroll: true,
                 rememberSearch: true,
-                hideEmptyDirs: true,
                 closeTimeout: 1
             },
             a: { // appearance

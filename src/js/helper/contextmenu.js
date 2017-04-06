@@ -70,8 +70,16 @@
                 .append("<li><a " + ext.opts.attr.type + "='settings'><span></span>" + ext.lang("contextmenu_settings") + "</a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='bookmarkManager'><span></span>" + ext.lang("contextmenu_bookmark_manager") + "</a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='updateUrls'><span></span>" + ext.lang("contextmenu_update_urls") + "</a></li>")
-                .append("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>")
-                .append("<li><a " + ext.opts.attr.type + "='toggleFix'><span></span>" + ext.lang("contextmenu_toggle_fix") + "</a></li>");
+                .append("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>");
+
+            $("<li />")
+                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.type]: 'toggleFix'}))
+                .append("<a " + ext.opts.attr.type + "='toggleFix'>" + ext.lang("contextmenu_toggle_fix") + "</a>")
+                .appendTo(contextmenu.children("ul"));
+
+            if (ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false) {
+                contextmenu.find("input[" + ext.opts.attr.type + "='toggleFix']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
+            }
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
@@ -121,6 +129,14 @@
          * Initializes the events for the contextmenus
          */
         let initEvents = (contextmenu) => {
+            contextmenu.find("input[" + ext.opts.attr.type + "='toggleFix']").on("change", () => {
+                ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
+                ext.helper.model.setData({
+                    "u/entriesLocked": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
+                });
+                this.close();
+            });
+
             contextmenu.find("a").on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
@@ -135,10 +151,7 @@
                         break;
                     }
                     case "toggleFix": { // toggle fixation of the entries
-                        ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
-                        ext.helper.model.setData({
-                            "u/entriesLocked": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
-                        });
+                        $(e.currentTarget).prev("div." + ext.opts.classes.checkbox.box).trigger("click");
                         break;
                     }
                     case "bookmarkManager": { // open bookmark manager

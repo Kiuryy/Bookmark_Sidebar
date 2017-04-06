@@ -14,7 +14,7 @@
 
             let contextmenu = $("<div />")
                 .addClass(ext.opts.classes.contextmenu.wrapper)
-                .html("<ul />")
+                .html("<ul class='" + ext.opts.classes.contextmenu.list + "'></ul><ul class='" + ext.opts.classes.contextmenu.icons + "'></ul>")
                 .attr(ext.opts.attr.type, type)
                 .data("elm", elm)
                 .appendTo(ext.elements.sidebar);
@@ -66,16 +66,13 @@
          * @param {jsu} elm
          */
         let handleSettingsMenu = (contextmenu, elm) => {
-            contextmenu.children("ul")
-                .append("<li><a " + ext.opts.attr.type + "='settings'><span></span>" + ext.lang("contextmenu_settings") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='bookmarkManager'><span></span>" + ext.lang("contextmenu_bookmark_manager") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='updateUrls'><span></span>" + ext.lang("contextmenu_update_urls") + "</a></li>")
-                .append("<li class='" + ext.opts.classes.contextmenu.separator + "'></li>");
+            let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
+            let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
 
             $("<li />")
                 .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.type]: 'toggleFix'}))
                 .append("<a " + ext.opts.attr.type + "='toggleFix'>" + ext.lang("contextmenu_toggle_fix") + "</a>")
-                .appendTo(contextmenu.children("ul"));
+                .appendTo(list);
 
             if (ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false) {
                 contextmenu.find("input[" + ext.opts.attr.type + "='toggleFix']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
@@ -84,11 +81,16 @@
             $("<li />")
                 .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.type]: 'toggleHidden'}))
                 .append("<a " + ext.opts.attr.type + "='toggleHidden'>" + ext.lang("contextmenu_toggle_hidden") + "</a>")
-                .appendTo(contextmenu.children("ul"));
+                .appendTo(list);
 
             if (ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden) === true) {
                 contextmenu.find("input[" + ext.opts.attr.type + "='toggleHidden']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
             }
+
+            iconWrapper
+                .append("<li><a " + ext.opts.attr.type + "='settings' title='" + ext.lang("contextmenu_settings") + "'></a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='bookmarkManager' title='" + ext.lang("contextmenu_bookmark_manager") + "'></a></li>");
+            //.append("<li><a " + ext.opts.attr.type + "='updateUrls' title='" + ext.lang("contextmenu_update_urls") + "'></a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
@@ -102,42 +104,37 @@
          */
         let handleListMenu = (contextmenu, elm) => {
             let infos = elm.data("infos");
-            let width = ext.elements.sidebar.realWidth() - elm[0].offsetLeft;
-            let computedStyle = window.getComputedStyle(contextmenu[0]);
-            width -= parseInt(computedStyle.getPropertyValue('margin-left'));
-            width -= parseInt(computedStyle.getPropertyValue('margin-right'));
 
             contextmenu.css({
-                width: width + "px",
                 top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
                 left: elm[0].offsetLeft + "px"
             });
 
             let i18nAppend = !!(infos.children) ? "_dir" : "_bookmark";
-            let contextmenuList = contextmenu.children("ul");
-            let separator = "<li class='" + ext.opts.classes.contextmenu.separator + "'></li>";
+            let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
+            let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
             let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
 
             if (infos.children) {
-                contextmenuList.append("<li><a " + ext.opts.attr.type + "='openChildren'><span></span>" + ext.lang("contextmenu_open_children") + "</a></li>");
+                list.append("<li><a " + ext.opts.attr.type + "='openChildren'>" + ext.lang("contextmenu_open_children") + "</a></li>")
+                    .append("<li><a " + ext.opts.attr.type + "='updateUrls'>" + ext.lang("contextmenu_update_urls") + "</a></li>");
             } else {
                 if (isSearchList) {
-                    contextmenuList.append("<li><a " + ext.opts.attr.type + "='showInDir'><span></span>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");
+                    list.append("<li><a " + ext.opts.attr.type + "='showInDir'>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");
                 }
 
-                contextmenuList.append("<li><a " + ext.opts.attr.type + "='newTab'><span></span>" + ext.lang("contextmenu_new_tab") + "</a></li>");
+                list.append("<li><a " + ext.opts.attr.type + "='newTab'>" + ext.lang("contextmenu_new_tab") + "</a></li>");
             }
 
-            contextmenuList
-                .append(separator)
-                .append("<li><a " + ext.opts.attr.type + "='infos'><span></span>" + ext.lang("contextmenu_infos") + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='edit'><span></span>" + ext.lang("contextmenu_edit" + i18nAppend) + "</a></li>")
-                .append("<li><a " + ext.opts.attr.type + "='delete'><span></span>" + ext.lang("contextmenu_delete" + i18nAppend) + "</a></li>");
+            iconWrapper
+                .append("<li><a " + ext.opts.attr.type + "='infos' title='" + ext.lang("contextmenu_infos") + "'></a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='edit' title='" + ext.lang("contextmenu_edit" + i18nAppend) + "'></a></li>")
+                .append("<li><a " + ext.opts.attr.type + "='delete' title='" + ext.lang("contextmenu_delete" + i18nAppend) + "'></a></li>");
 
             if (ext.isEntryVisible(infos.id)) {
-                contextmenuList.append(separator).append("<li><a " + ext.opts.attr.type + "='hide'><span></span>" + ext.lang("contextmenu_hide_from_sidebar") + "</a></li>");
+                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.type + "='hide' title='" + ext.lang("contextmenu_hide_from_sidebar") + "'></a></li>");
             } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
-                contextmenuList.append(separator).append("<li><a " + ext.opts.attr.type + "='show'><span></span>" + ext.lang("contextmenu_show_in_sidebar") + "</a></li>");
+                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.type + "='show' title='" + ext.lang("contextmenu_show_in_sidebar") + "'></a></li>");
             }
         };
 
@@ -239,7 +236,7 @@
                         break;
                     }
                     default: { // open overlay of the given type
-                        ext.helper.overlay.create(type, $(e.currentTarget).text(), infos);
+                        ext.helper.overlay.create(type, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), infos);
                         break;
                     }
                 }

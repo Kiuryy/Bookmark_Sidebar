@@ -106,7 +106,6 @@ section#sidebar {
   width: $__sidebarWidth;
   background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
   z-index: 2;
 
   &[data-pos='right'] {
@@ -159,16 +158,11 @@ section#sidebar {
       &.search {
         background-image: img('icon-search.webp');
         margin-right: 3px;
-
       }
 
       &.settings {
-        background-image: img('icon-settings.webp');
-        margin-right: -6px;
-
-        &:hover, &.active {
-          transform: rotateZ(45deg);
-        }
+        background-image: img('icon-menu.png');
+        margin-right: -7px;
       }
     }
 

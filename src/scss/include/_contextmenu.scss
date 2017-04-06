@@ -2,6 +2,7 @@
 div.contextmenu {
   position: absolute;
   top: 0;
+  width: 250px;
   background: $contentBackground;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
@@ -12,12 +13,13 @@ div.contextmenu {
 
   &[data-type='list'] {
     left: -9999px;
-    margin: 0 20px;
+    margin: 0 0 0 10px;
   }
 
   &[data-type='settings'] {
-    right: 8px;
-    margin-top: -7px;
+    width: 200px;
+    right: -67px;
+    margin-top: -2px;
   }
 
   &.visible {
@@ -29,18 +31,69 @@ div.contextmenu {
     }
   }
 
-  > ul {
+  > ul.icons {
+    background: $hoverBackground;
+    padding: 4px 0 6px 0;
+
+    > li {
+      display: inline-block;
+
+      &.right {
+        float: right;
+      }
+
+      > a {
+        display: block;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        border-radius: 50%;
+        margin: 0 5px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 20px;
+        transition: background 0.3s;
+
+        &:hover {
+          background-color: darken($hoverBackground, 3%);
+        }
+
+        &[data-type='delete'] {
+          background-image: img('icon-delete.webp');
+        }
+
+        &[data-type='edit'] {
+          background-image: img('icon-edit.webp');
+        }
+
+        &[data-type='infos'] {
+          background-image: img('icon-infos.webp');
+        }
+
+        &[data-type='show'] {
+          background-image: img('icon-hide.webp');
+        }
+
+        &[data-type='hide'] {
+          background-image: img('icon-hide.webp');
+        }
+
+        &[data-type='settings'] {
+          background-image: img('icon-settings.webp');
+        }
+
+        &[data-type='bookmarkManager'] {
+          background-image: img('icon-bookmarkManager.webp');
+        }
+      }
+    }
+  }
+
+  > ul.list {
 
     > li {
       position: relative;
-
-      &.separator {
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: rgba(0, 0, 0, 0.1);
-        margin: 5px 0;
-      }
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 
       > div.checkbox {
         position: absolute;
@@ -53,69 +106,36 @@ div.contextmenu {
         }
 
         &:hover + a {
-          background-color: $hoverBackground;
+          color: $__colorScheme;
         }
       }
 
       > a {
-        position: relative;
         display: block;
-        line-height: 40px;
-        padding: 0 12px;
+        line-height: 45px;
+        padding: 0 12px 0 42px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         cursor: pointer;
-        transition: background 0.3s;
+        background-repeat: no-repeat;
+        background-position: 12px center;
+        background-size: 20px;
+        transition: color 0.3s;
 
         &:hover {
-          background-color: $hoverBackground;
+          color: $__colorScheme;
         }
 
-        > span {
-          vertical-align: top;
-          display: inline-block;
-          width: 26px;
-          height: 26px;
-          border-radius: 50%;
-          border: 1px solid #d2d2d2;
-          margin: 6px 12px 0 0;
-          transition: background-color 0.3s;
-          background-position: center;
-          background-size: 16px;
-          background-repeat: no-repeat;
-        }
-
-        &[data-type='delete'] > span {
-          background-image: img('icon-delete.webp');
-        }
-
-        &[data-type='edit'] > span {
-          background-image: img('icon-edit.webp');
-        }
-
-        &[data-type='infos'] > span {
-          background-image: img('icon-infos.webp');
-        }
-
-        &[data-type='newTab'] > span {
+        &[data-type='newTab'], &[data-type='openChildren'] {
           background-image: img('icon-newTab.webp');
         }
 
-        &[data-type='showInDir'] > span {
+        &[data-type='showInDir'] {
           background-image: img('icon-showInDir.webp');
         }
 
-        &[data-type='hide'] > span {
-          background-image: img('icon-hide.webp');
-        }
-
-        &[data-type='settings'] > span {
-          background-image: img('icon-settings.webp');
-        }
-
-        &[data-type='bookmarkManager'] > span {
-          background-image: img('icon-bookmarkManager.webp');
-        }
-
-        &[data-type='updateUrls'] > span {
+        &[data-type='updateUrls'] {
           background-image: img('icon-update.webp');
         }
       }

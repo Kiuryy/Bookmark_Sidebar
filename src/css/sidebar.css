@@ -174,6 +174,7 @@ div.scrollBox.scrollTrackpad > div.scrollbar > div {
 div.contextmenu {
   position: absolute;
   top: 0;
+  width: 250px;
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
@@ -183,11 +184,12 @@ div.contextmenu {
 }
 div.contextmenu[data-type='list'] {
   left: -9999px;
-  margin: 0 20px;
+  margin: 0 0 0 10px;
 }
 div.contextmenu[data-type='settings'] {
-  right: 8px;
-  margin-top: -7px;
+  width: 200px;
+  right: -67px;
+  margin-top: -2px;
 }
 div.contextmenu.visible {
   transform: translate3d(0, 0, 0);
@@ -195,77 +197,91 @@ div.contextmenu.visible {
 div.contextmenu.visible.top {
   transform: translate3d(0, -40px, 0);
 }
-div.contextmenu > ul > li {
-  position: relative;
+div.contextmenu > ul.icons {
+  background: #f5f5f5;
+  padding: 4px 0 6px 0;
 }
-div.contextmenu > ul > li.separator {
+div.contextmenu > ul.icons > li {
+  display: inline-block;
+}
+div.contextmenu > ul.icons > li.right {
+  float: right;
+}
+div.contextmenu > ul.icons > li > a {
   display: block;
-  width: 100%;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 5px 0;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  transition: background 0.3s;
 }
-div.contextmenu > ul > li > div.checkbox {
+div.contextmenu > ul.icons > li > a:hover {
+  background-color: #ededed;
+}
+div.contextmenu > ul.icons > li > a[data-type='delete'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='edit'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='infos'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='show'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='hide'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='settings'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='bookmarkManager'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmarkManager.webp);
+}
+div.contextmenu > ul.list > li {
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+div.contextmenu > ul.list > li > div.checkbox {
   position: absolute;
   z-index: 2;
   top: 10px;
   left: 14px;
 }
-div.contextmenu > ul > li > div.checkbox + a {
+div.contextmenu > ul.list > li > div.checkbox + a {
   padding-left: 50px;
 }
-div.contextmenu > ul > li > div.checkbox:hover + a {
-  background-color: #f5f5f5;
+div.contextmenu > ul.list > li > div.checkbox:hover + a {
+  color: "%colorScheme";
 }
-div.contextmenu > ul > li > a {
-  position: relative;
+div.contextmenu > ul.list > li > a {
   display: block;
-  line-height: 40px;
-  padding: 0 12px;
+  line-height: 45px;
+  padding: 0 12px 0 42px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   cursor: pointer;
-  transition: background 0.3s;
-}
-div.contextmenu > ul > li > a:hover {
-  background-color: #f5f5f5;
-}
-div.contextmenu > ul > li > a > span {
-  vertical-align: top;
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 1px solid #d2d2d2;
-  margin: 6px 12px 0 0;
-  transition: background-color 0.3s;
-  background-position: center;
-  background-size: 16px;
   background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 20px;
+  transition: color 0.3s;
 }
-div.contextmenu > ul > li > a[data-type='delete'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp);
+div.contextmenu > ul.list > li > a:hover {
+  color: "%colorScheme";
 }
-div.contextmenu > ul > li > a[data-type='edit'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.webp);
-}
-div.contextmenu > ul > li > a[data-type='infos'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp);
-}
-div.contextmenu > ul > li > a[data-type='newTab'] > span {
+div.contextmenu > ul.list > li > a[data-type='newTab'], div.contextmenu > ul.list > li > a[data-type='openChildren'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.webp);
 }
-div.contextmenu > ul > li > a[data-type='showInDir'] > span {
+div.contextmenu > ul.list > li > a[data-type='showInDir'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.webp);
 }
-div.contextmenu > ul > li > a[data-type='hide'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.webp);
-}
-div.contextmenu > ul > li > a[data-type='settings'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
-}
-div.contextmenu > ul > li > a[data-type='bookmarkManager'] > span {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmarkManager.webp);
-}
-div.contextmenu > ul > li > a[data-type='updateUrls'] > span {
+div.contextmenu > ul.list > li > a[data-type='updateUrls'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.webp);
 }
 
@@ -378,7 +394,6 @@ section#sidebar {
   width: "%sidebarWidth";
   background: #fff;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
   z-index: 2;
 }
 section#sidebar[data-pos='right'] {
@@ -429,11 +444,8 @@ section#sidebar > header > a.search {
   margin-right: 3px;
 }
 section#sidebar > header > a.settings {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.webp);
-  margin-right: -6px;
-}
-section#sidebar > header > a.settings:hover, section#sidebar > header > a.settings.active {
-  transform: rotateZ(45deg);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.png);
+  margin-right: -7px;
 }
 section#sidebar > header > div.searchBox {
   position: absolute;

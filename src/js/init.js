@@ -50,6 +50,9 @@
                 wrapper: "contextmenu",
                 top: "top",
                 visible: "visible",
+                list: "list",
+                icons: "icons",
+                right: "right",
                 separator: "separator"
             },
             drag: {

@@ -1,6 +1,8 @@
 [tdb]
  - Configurable icon for chrome menu and directory
  - Only one directory open (accordion)
+ - backface filter in settings
+ - hdpi right calculation
  - changelog info for 1.6
 
 [1.6]

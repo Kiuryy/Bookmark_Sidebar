@@ -13,6 +13,7 @@
          */
         this.toggleBookmarkDir = (elm, instant, callback) => {
             elm.addClass(ext.opts.classes.sidebar.dirAnimated);
+            let dirId = elm.data("infos").id;
             let childrenList = elm.next("ul");
 
             if (typeof instant === "undefined") {
@@ -49,6 +50,9 @@
                         elm.removeClass(ext.opts.classes.sidebar.dirOpened);
                     } else {
                         elm.addClass(ext.opts.classes.sidebar.dirOpened);
+                        if (ext.helper.model.getData("b/dirAccordion")) {
+                            ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["all"], elm[0].offsetTop);
+                        }
                     }
                     childrenList.css("height", "");
                     elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
@@ -60,9 +64,19 @@
                 }, instant ? 0 : 500);
             };
 
+
             if (elm.hasClass(ext.opts.classes.sidebar.dirOpened)) { // close children
                 expandCollapseChildrenList(false);
             } else { // open children
+
+                if (ext.helper.model.getData("b/dirAccordion")) {
+                    ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
+                        if ($(dir).next("ul").find("a[" + ext.opts.attr.id + "='" + dirId + "']").length() === 0) {
+                            this.toggleBookmarkDir($(dir), instant);
+                        }
+                    });
+                }
+
                 if (childrenList.length() === 0) { // not yet loaded -> load and expand afterwards
                     ext.helper.model.call("bookmarks", {id: elm.data("infos").id}, (response) => {
                         if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
@@ -153,7 +167,7 @@
                             this.toggleBookmarkDir(_self);
                         } else if (!isDir) { // Click on link
                             let newTab = ext.helper.model.getData("b/newTab");
-                            this.openUrl(bookmark, middleClicked, middleClicked ? newTab === "foreground" : true);
+                            this.openUrl(infos, middleClicked, middleClicked ? newTab === "foreground" : true);
                         }
                     }
                 }).on("mouseover", "a", (e) => {

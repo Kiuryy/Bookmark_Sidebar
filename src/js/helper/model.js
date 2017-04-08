@@ -15,6 +15,7 @@
                 scrollSensitivity: {mouse: 1, trackpad: 1},
                 openAction: "mousedown",
                 newTab: "foreground",
+                dirAccordion: false,
                 rememberScroll: true,
                 rememberSearch: true,
                 closeTimeout: 1

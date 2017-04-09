@@ -309,7 +309,18 @@
          * @param {object} infos
          */
         let handleUpdateUrlsHtml = (infos) => {
-            let bookmarks = infos.children.filter(val => !!(val.url));
+            let bookmarks = [];
+
+            let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
+                entries.forEach((entry) => {
+                    if (entry.url) {
+                        bookmarks.push(entry);
+                    } else if (entry.children) {
+                        processBookmarks(entry.children);
+                    }
+                });
+            };
+            processBookmarks(infos.children);
             let bookmarkAmount = bookmarks.length;
 
             elements.desc = $("<p />").text(ext.lang("overlay_check_urls_loading")).appendTo(elements.modal);

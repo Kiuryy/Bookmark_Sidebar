@@ -1,7 +1,6 @@
 [tdb]
  - Configurable icon for chrome menu and directory
  - backface filter in settings
- - check url recursive
  - changelog info for 1.6
 
 [1.6]

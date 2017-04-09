@@ -263,11 +263,12 @@
                     this.helper.search.init();
                     this.addBookmarkDir(response.bookmarks[0].children, list);
 
-                    if (list.children("li").length() === 1) { // hide root directory if it's the only one
+                    if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                         list.addClass(this.opts.classes.sidebar.hideRoot);
+                        this.helper.sidebarEvents.toggleBookmarkDir(list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir).eq(0));
+                    } else {
+                        this.restoreOpenStates(list);
                     }
-
-                    this.restoreOpenStates(list);
                 }
             });
         };

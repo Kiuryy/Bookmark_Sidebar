@@ -4,6 +4,7 @@
 @import "include/scrollBox";
 @import "include/checkbox";
 //
+$textColor: $__textColor;
 @import "include/generals";
 
 body {
@@ -139,11 +140,10 @@ div.modal {
       text-align: center;
       font-size: 120%;
       margin-top: 20px;
-      color: lighten($textColor, 40%);
+      opacity: 0.6;
 
       > span {
         margin: 0 3px;
-        color: lighten($textColor, 30%);
       }
     }
 
@@ -226,7 +226,6 @@ div.modal {
 
           > a, > span {
             display: block;
-            color: $textColorLight;
             margin-left: 70px;
             line-height: 20px;
             width: calc(100% - 36px);
@@ -234,6 +233,7 @@ div.modal {
             overflow: hidden;
             text-overflow: ellipsis;
             padding-left: 18px;
+            opacity: 0.6;
           }
 
           > a {
@@ -274,6 +274,7 @@ div.modal {
     &.urlCheckList {
       width: 600px;
       height: 600px;
+      max-height: 100%;
 
       &::after {
         content: "";

@@ -1,14 +1,14 @@
 [tdb]
  - Configurable icon for chrome menu and directory
- - Only one directory open (accordion)
  - backface filter in settings
- - hdpi right calculation
+ - check url recursive
  - changelog info for 1.6
 
 [1.6]
  - hide entries from sidebar
  - changed contextmenus
  - check urls of specific directories
+ - directory accordion open behaviour
 
 [1.5]
  - Completely new settings page

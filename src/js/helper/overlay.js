@@ -204,7 +204,7 @@
         let handleHideHtml = (infos, isDir) => {
             $("<p />").text(ext.lang("overlay_hide_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(infos, isDir, true);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("hide_from_sidebar")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
         /**

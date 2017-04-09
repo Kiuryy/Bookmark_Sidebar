@@ -5,6 +5,7 @@
 @import "include/contextmenu";
 @import "include/checkbox";
 //
+$textColor: $__textColor;
 @import "include/generals";
 
 body {
@@ -36,7 +37,7 @@ body {
   }
 
   &.isDragged.dragCancel::after {
-    color: rgba($textColor, 0.8);
+    color: rgba(#666, 0.8);
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($colorError, 0.3) 5px, rgba($colorError, 0.3) 10px);
   }
 }

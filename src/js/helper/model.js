@@ -26,6 +26,7 @@
                 showBookmarkIcons: true,
                 styles: {
                     colorScheme: ext.opts.manifest.version_name === "Dev" ? "rgb(255,184,0)" : "rgb(0,137,123)",
+                    textColor: "rgb(102,102,102)",
                     indicatorWidth: "50px",
                     indicatorIconSize: "40px",
                     indicatorColor: "rgba(0,0,0,0.5)",
@@ -104,6 +105,10 @@
                     } else {
                         value = dataSearchScope[key];
                     }
+                }
+
+                if (keyInfo === "a/styles") {
+                    value = Object.assign({}, defaults.a.styles, value);
                 }
 
                 if (keyInfo === "a/showIndicator" && value === true && typeof data.behaviour.openAction !== "undefined" && data.behaviour.openAction === "mousemove") { // do not show indicator if sidebar opens on mouseover

@@ -338,6 +338,12 @@
   "settings_color_scheme_desc": {
     "message": "The color of the overlay header, the bookmark amount, etc."
   },
+  "settings_text_color": {
+    "message": "Font color"
+  },
+  "settings_text_color_desc": {
+    "message": "Color of the bookmark labels, overlay descriptions, contextmenu links, etc."
+  },
   "settings_indicator_width": {
     "message": "Width"
   },

@@ -342,7 +342,7 @@ div.checkbox > input[type='checkbox'] {
 body, input, textarea, select, button {
   font-size: 14px;
   font-family: Roboto, sans-serif;
-  color: #666;
+  color: "%textColor";
   font-weight: 300;
 }
 
@@ -355,7 +355,7 @@ strong {
 }
 
 a {
-  color: #666;
+  color: "%textColor";
   text-decoration: none;
 }
 

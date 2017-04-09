@@ -202,6 +202,18 @@ section#content {
       display: none;
     }
 
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: calc(100% - 17px);
+      height: 20px;
+      pointer-events: none;
+      box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+      z-index: 3;
+    }
+
     > div {
       position: relative;
       overflow: scroll;
@@ -218,8 +230,12 @@ section#content {
       width: calc(100% - 17px);
       height: 50px;
       background: rgba($contentBackground, 0.9);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
       z-index: 2;
+
+      @supports (backdrop-filter: blur(4px)) {
+        background: rgba($contentBackground, 0.7);
+        backdrop-filter: blur(4px);
+      }
 
       > h2 {
         display: inline-block;

@@ -445,6 +445,17 @@ section#content > div.tab {
 section#content > div.tab.hidden {
   display: none;
 }
+section#content > div.tab::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: calc(100% - 17px);
+  height: 20px;
+  pointer-events: none;
+  box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+}
 section#content > div.tab > div {
   position: relative;
   overflow: scroll;
@@ -460,8 +471,13 @@ section#content > div.tab > header {
   width: calc(100% - 17px);
   height: 50px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   z-index: 2;
+}
+@supports (backdrop-filter: blur(4px)) {
+  section#content > div.tab > header {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+  }
 }
 section#content > div.tab > header > h2 {
   display: inline-block;

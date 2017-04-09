@@ -189,7 +189,7 @@
          * @param {object} openStates
          */
         let closeAllChildDirs = (elm, openStates) => {
-            elm.next("ul").find("a.dir").forEach((node) => {
+            elm.next("ul").find("a." + ext.opts.classes.sidebar.bookmarkDir).forEach((node) => {
                 openStates[$(node).data("infos").id] = false;
                 setTimeout(() => {
                     $(node).removeClass(ext.opts.classes.sidebar.dirOpened);

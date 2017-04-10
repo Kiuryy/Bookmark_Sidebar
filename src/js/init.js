@@ -27,6 +27,7 @@
             },
             sidebar: {
                 extLoaded: "loaded",
+                openedOnce: "openedOnce",
                 active: "active",
                 mark: "mark",
                 hideRoot: "hideRoot",

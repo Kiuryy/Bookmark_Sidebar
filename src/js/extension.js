@@ -198,6 +198,7 @@
 
                     if (bookmark.children) { // dir
                         bookmark.icon = chrome.extension.getURL("img/dir.webp");
+                        bookmark.icon = chrome.extension.getURL("img/dir-alt1.png");
 
                         entryContent
                             .data("infos", bookmark)

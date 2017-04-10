@@ -148,8 +148,9 @@
          * Opens the sidebar
          */
         let openSidebar = () => {
+            ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+            ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
             ext.initImages();
-            ext.elements.iframe.addClass(ext.opts.classes.page.visible).data("visibleOnce", true);
             $(document).trigger("mousemove");
         };
 

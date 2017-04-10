@@ -90,7 +90,7 @@ body {
     right: 15px;
     width: 30px;
     height: 80%;
-    background: img('icon-drag.webp') no-repeat;
+    background-repeat: no-repeat;
     background-position: 5px center;
     background-size: 60px 20px;
     border-radius: 2px;
@@ -163,12 +163,7 @@ section#sidebar {
         background-color: $hoverBackground;
       }
 
-      &.search {
-        background-image: img('icon-search.webp');
-      }
-
       &.settings {
-        background-image: img('icon-menu.png');
         margin-right: -7px;
       }
     }
@@ -200,7 +195,8 @@ section#sidebar {
         display: inline-block;
         height: 30px;
         width: 30px;
-        background: img('icon-delete.webp') no-repeat center;
+        background-repeat: no-repeat;
+        background-position: center;
         background-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;
@@ -339,6 +335,31 @@ section#sidebar {
           }
         }
       }
+    }
+  }
+
+  &.openedOnce {
+
+    > header {
+
+      > a {
+
+        &.search {
+          background-image: img('icon-search.webp');
+        }
+
+        &.settings {
+          background-image: img('icon-menu.png');
+        }
+      }
+
+      > div.searchBox > a.searchClose {
+        background-image: img('icon-delete.webp');
+      }
+    }
+
+    > div.scrollBox > ul a > span.drag {
+      background-image: img('icon-drag.webp');
     }
   }
 

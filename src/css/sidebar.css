@@ -447,11 +447,7 @@ section#sidebar > header > a {
 section#sidebar > header > a:hover, section#sidebar > header > a.active {
   background-color: #f5f5f5;
 }
-section#sidebar > header > a.search {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.webp);
-}
 section#sidebar > header > a.settings {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.png);
   margin-right: -7px;
 }
 section#sidebar > header > div.searchBox {
@@ -479,7 +475,8 @@ section#sidebar > header > div.searchBox > a.searchClose {
   display: inline-block;
   height: 30px;
   width: 30px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp) no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -575,7 +572,7 @@ section#sidebar > div.scrollBox > ul a > span.drag {
   right: 15px;
   width: 30px;
   height: 80%;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.webp) no-repeat;
+  background-repeat: no-repeat;
   background-position: 5px center;
   background-size: 60px 20px;
   border-radius: 2px;
@@ -620,6 +617,18 @@ section#sidebar > div.scrollBox > ul.hideRoot > li > a {
 }
 section#sidebar > div.scrollBox > ul.hideRoot > li > ul {
   padding-left: 0;
+}
+section#sidebar.openedOnce > header > a.search {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.webp);
+}
+section#sidebar.openedOnce > header > a.settings {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.png);
+}
+section#sidebar.openedOnce > header > div.searchBox > a.searchClose {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp);
+}
+section#sidebar.openedOnce > div.scrollBox > ul a > span.drag {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.webp);
 }
 section#sidebar.loading > div.loading {
   position: absolute;
@@ -674,7 +683,7 @@ a.dragHelper > span.drag {
   right: 15px;
   width: 30px;
   height: 80%;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-drag.webp) no-repeat;
+  background-repeat: no-repeat;
   background-position: 5px center;
   background-size: 60px 20px;
   border-radius: 2px;

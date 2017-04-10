@@ -1,12 +1,13 @@
 [tdb]
  - Configurable icon for chrome menu and directory
  - changelog info for 1.6
+ - png to webp
 
 [1.6]
- - hide entries from sidebar
- - changed contextmenus
- - check urls of specific directories
- - directory accordion open behaviour
+ - Made entries hidable from sidebar
+ - Changed contextmenus
+ - Check urls of specific directories
+ - Added directory accordion open behaviour
 
 [1.5]
  - Completely new settings page

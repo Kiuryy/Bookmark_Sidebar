@@ -621,6 +621,15 @@ input[type='range'] {
 
 div.configEntry {
   margin-bottom: 30px;
+  transition: transform 0.5s, opacity 0.5s;
+
+  &.hidden {
+    position: absolute;
+    transform: translate3d(-50px, 0, 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+  }
 
   div.sub {
 

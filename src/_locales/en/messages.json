@@ -271,6 +271,12 @@
   "settings_open_action_desc": {
     "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window."
   },
+  "settings_open_delay": {
+    "message": "Open delay"
+  },
+  "settings_open_delay_desc": {
+    "message": "Prevents immediately opening of the sidebar on mouseover with a delay"
+  },
   "settings_dir_accordion": {
     "message": "Show only current directory"
   },
@@ -368,17 +374,17 @@
   "settings_sidebar_mask_color": {
     "message": "Mask color"
   },
-  "settings_bookmarks_dir_icon":{
-    "message":"Directory Icon"
+  "settings_bookmarks_dir_icon": {
+    "message": "Directory Icon"
   },
-  "settings_bookmarks_dir_icon_default":{
-    "message":"Default"
+  "settings_bookmarks_dir_icon_default": {
+    "message": "Default"
   },
-  "settings_bookmarks_dir_icon_alt_1":{
-    "message":"Folder"
+  "settings_bookmarks_dir_icon_alt_1": {
+    "message": "Folder"
   },
-  "settings_bookmarks_dir_icon_alt_2":{
-    "message":"Folder grey"
+  "settings_bookmarks_dir_icon_alt_2": {
+    "message": "Folder grey"
   },
   "settings_bookmarks_font_size": {
     "message": "Bookmarks font size"

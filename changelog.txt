@@ -1,7 +1,5 @@
 [tdb]
  - Configurable icon for chrome menu
- - changelog info for 1.6
- - open delay
  - 'add'-button for directories
 
 [1.6]

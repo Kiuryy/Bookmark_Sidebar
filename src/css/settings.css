@@ -778,6 +778,14 @@ input[type='range'] + span::before {
 
 div.configEntry {
   margin-bottom: 30px;
+  transition: transform 0.5s, opacity 0.5s;
+}
+div.configEntry.hidden {
+  position: absolute;
+  transform: translate3d(-50px, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
 }
 div.configEntry div.sub label {
   display: inline-block;

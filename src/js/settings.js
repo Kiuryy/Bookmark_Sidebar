@@ -13,8 +13,7 @@
             classes: {
                 tabs: {
                     list: "tabBar",
-                    active: "active",
-                    hidden: "hidden"
+                    active: "active"
                 },
                 color: {
                     field: "color"
@@ -25,6 +24,8 @@
                     clicked: "clicked",
                     focus: "focus"
                 },
+                hidden: "hidden",
+                configEntry: "configEntry",
                 success: "success",
                 error: "error",
                 loading: "loading",
@@ -221,9 +222,9 @@
                     let name = $(tab).attr(this.opts.attr.name);
 
                     if (name === tabName) {
-                        $(tab).removeClass(this.opts.classes.tabs.hidden);
+                        $(tab).removeClass(this.opts.classes.hidden);
                     } else {
-                        $(tab).addClass(this.opts.classes.tabs.hidden);
+                        $(tab).addClass(this.opts.classes.hidden);
                     }
                 });
 

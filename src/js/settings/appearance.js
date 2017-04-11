@@ -191,7 +191,7 @@
 
                 s.opts.elm.preview[key] = $("<iframe />")
                     .attr(s.opts.attr.appearance, key)
-                    .addClass(s.opts.classes.tabs.hidden)
+                    .addClass(s.opts.classes.hidden)
                     .appendTo(s.opts.elm.body);
 
                 sendAjax("html/template/" + key + ".html", (html) => {
@@ -273,9 +273,9 @@
                     let name = $(section).attr(s.opts.attr.appearance);
 
                     if (name === tabName) {
-                        $(section).removeClass(s.opts.classes.tabs.hidden);
+                        $(section).removeClass(s.opts.classes.hidden);
                     } else {
-                        $(section).addClass(s.opts.classes.tabs.hidden);
+                        $(section).addClass(s.opts.classes.hidden);
                     }
                 });
 
@@ -284,9 +284,9 @@
 
                     if (key === tabName) {
                         updatePreviewStyle(key);
-                        elm.removeClass(s.opts.classes.tabs.hidden);
+                        elm.removeClass(s.opts.classes.hidden);
                     } else {
-                        elm.addClass(s.opts.classes.tabs.hidden);
+                        elm.addClass(s.opts.classes.hidden);
                     }
                 });
             });

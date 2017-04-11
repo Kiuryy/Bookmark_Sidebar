@@ -18,6 +18,7 @@
                 dirAccordion: false,
                 rememberScroll: true,
                 rememberSearch: true,
+                openDelay: 0,
                 closeTimeout: 1
             },
             a: { // appearance

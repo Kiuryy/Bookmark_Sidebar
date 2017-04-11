@@ -4,9 +4,8 @@
     window.ToggleHelper = function (ext) {
 
         let sidebarPos = null;
-        let sidebarTimeout = null;
         let pxToleranceObj = null;
-        let closeTimeoutDuration = null;
+        let timeout = {};
 
         /**
          * Initializes the sidebar toggle
@@ -14,8 +13,7 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.visual).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/closeTimeout", "a/showIndicator", "a/sidebarPosition"]);
-            closeTimeoutDuration = +data.closeTimeout * 1000;
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/sidebarPosition"]);
             pxToleranceObj = data.pxTolerance;
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
 
@@ -67,15 +65,14 @@
                     && ext.elements.sidebar.find("." + ext.opts.classes.scrollBox.scrollDrag).length() === 0
                     && ext.elements.iframeBody.find("li." + ext.opts.classes.drag.dragInitial).length() === 0
                 ) {
-                    sidebarTimeout = setTimeout(() => {
+                    let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
+
+                    timeout.close = setTimeout(() => {
                         closeSidebar();
-                    }, closeTimeoutDuration);
+                    }, +closeTimeoutRaw * 1000);
                 }
             }).on("mouseenter", () => {
-                if (sidebarTimeout) {
-                    clearTimeout(sidebarTimeout);
-                    sidebarTimeout = null;
-                }
+                clearSidebarTimeout("close");
             });
 
             $(document).on("visibilitychange", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
@@ -86,6 +83,8 @@
                         closeSidebar();
                     }
                 }
+            }).on("mouseout", () => {
+                clearSidebarTimeout("open");
             }).on("mousemove", (e) => { // check mouse position
                 if (isMousePosInPixelTolerance(e.pageX)) {
                     ext.elements.toggle.addClass(ext.opts.classes.page.hover);
@@ -105,11 +104,24 @@
             });
 
             let openAction = ext.helper.model.getData("b/openAction");
+            let openDelayRaw = ext.helper.model.getData("b/openDelay");
+
             $(document).on(openAction, (e) => {
                 if ((openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
                     e.stopPropagation();
                     e.preventDefault();
-                    openSidebar();
+
+                    if (openAction === "mousemove") {
+                        if (!(timeout.open)) {
+                            timeout.open = setTimeout(() => {
+                                openSidebar();
+                            }, +openDelayRaw * 1000);
+                        }
+                    } else {
+                        openSidebar();
+                    }
+                } else {
+                    clearSidebarTimeout("open");
                 }
             });
         };
@@ -132,13 +144,23 @@
         };
 
         /**
+         * Clears the given timeout
+         *
+         * @param {string} name
+         */
+        let clearSidebarTimeout = (name) => {
+            if (timeout[name]) {
+                clearTimeout(timeout[name]);
+                timeout[name] = null;
+            }
+        };
+
+        /**
          * Closes the sidebar
          */
         let closeSidebar = () => {
-            if (sidebarTimeout) {
-                clearTimeout(sidebarTimeout);
-                sidebarTimeout = null;
-            }
+            clearSidebarTimeout("close");
+            clearSidebarTimeout("open");
             ext.helper.contextmenu.close();
             ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
             $(document).trigger("mousemove");

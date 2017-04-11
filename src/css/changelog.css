@@ -165,7 +165,7 @@ section.infobox.flipped > div {
   transform: rotateX(180deg);
 }
 section.infobox ul.changelog {
-  margin-top: 70px;
+  margin-top: 20px;
 }
 section.infobox ul.changelog li {
   padding: 10px 0;

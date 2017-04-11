@@ -7,6 +7,8 @@
          * Initialises the behaviour settings
          */
         this.init = () => {
+            initEvents();
+
             ["rememberScroll", "rememberSearch", "dirAccordion"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
@@ -22,6 +24,7 @@
             s.opts.elm.range.trackpadScrollSensitivity[0].value = scrollSensitivity.trackpad;
 
             s.opts.elm.range.closeTimeout[0].value = s.helper.model.getData("b/closeTimeout");
+            s.opts.elm.range.openDelay[0].value = s.helper.model.getData("b/openDelay");
             s.opts.elm.select.openAction[0].value = s.helper.model.getData("b/openAction");
             s.opts.elm.select.newTab[0].value = s.helper.model.getData("b/newTab");
 
@@ -30,6 +33,8 @@
             s.opts.elm.range.mouseScrollSensitivity.trigger("change");
             s.opts.elm.range.trackpadScrollSensitivity.trigger("change");
             s.opts.elm.range.closeTimeout.trigger("change");
+            s.opts.elm.range.openDelay.trigger("change");
+            s.opts.elm.select.openAction.trigger("change");
         };
 
         /**
@@ -46,6 +51,7 @@
                     trackpad: s.opts.elm.range.trackpadScrollSensitivity[0].value
                 },
                 closeTimeout: s.opts.elm.range.closeTimeout[0].value,
+                openDelay: s.opts.elm.range.openDelay[0].value,
                 openAction: s.opts.elm.select.openAction[0].value,
                 newTab: s.opts.elm.select.newTab[0].value
             };
@@ -56,6 +62,17 @@
 
             chrome.storage.sync.set({behaviour: config}, () => {
                 s.showSuccessMessage("saved_message");
+            });
+        };
+
+        let initEvents = () => {
+            s.opts.elm.select.openAction.on("change", () => {
+                let val = s.opts.elm.select.openAction[0].value;
+                if (val === "mousemove") {
+                    s.opts.elm.range.openDelay.parent("div." + s.opts.classes.configEntry).removeClass(s.opts.classes.hidden);
+                } else {
+                    s.opts.elm.range.openDelay.parent("div." + s.opts.classes.configEntry).addClass(s.opts.classes.hidden);
+                }
             });
         };
 

@@ -77,11 +77,19 @@ div.modal {
     overflow: hidden;
     padding: 17px 15px;
 
-    > img {
+    > img, > span.icon {
       vertical-align: top;
       display: inline-block;
       width: 24px;
+      height: 24px;
       margin: 0 20px 0 0;
+    }
+
+    > span.icon {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      background-image: img(#{$__bookmarksDirIcon + '.webp'});
     }
   }
 

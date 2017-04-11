@@ -93,8 +93,14 @@
                 .attr("title", infos.title + (infos.url ? "\n" + infos.url : ""))
                 .data("infos", infos)
                 .addClass(ext.opts.classes.overlay.preview)
-                .html("<img src='" + infos.icon + "' />" + infos.title)
+                .html(infos.title)
                 .appendTo(elements.modal);
+
+            if (isDir) {
+                preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
+            } else if (infos.icon) {
+                preview.prepend("<img src='" + infos.icon + "' />");
+            }
 
             if (addUrl && addUrl === true && isDir === false) {
                 $("<a />")

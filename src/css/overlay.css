@@ -305,11 +305,18 @@ div.modal > a.preview, div.modal > span.preview {
   overflow: hidden;
   padding: 17px 15px;
 }
-div.modal > a.preview > img, div.modal > span.preview > img {
+div.modal > a.preview > img, div.modal > a.preview > span.icon, div.modal > span.preview > img, div.modal > span.preview > span.icon {
   vertical-align: top;
   display: inline-block;
   width: 24px;
+  height: 24px;
   margin: 0 20px 0 0;
+}
+div.modal > a.preview > span.icon, div.modal > span.preview > span.icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/%bookmarksDirIcon.webp);
 }
 div.modal > a.preview {
   transition: background-color 0.3s;

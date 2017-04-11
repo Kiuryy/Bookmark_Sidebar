@@ -35,6 +35,7 @@
                     bookmarksFontSize: "14px",
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "40px",
+                    bookmarksDirIcon: "dir",
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     overlayMaskColor: "rgba(0,0,0,0.5)"

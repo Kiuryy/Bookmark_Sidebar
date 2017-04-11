@@ -36,6 +36,7 @@
                 dirAnimated: "animated",
                 dirOpened: "opened",
                 bookmarkDir: "dir",
+                dirIcon: "icon",
                 bookmarkLink: "link",
                 bookmarkLabel: "label",
                 settings: "settings",

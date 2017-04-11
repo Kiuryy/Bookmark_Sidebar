@@ -368,6 +368,18 @@
   "settings_sidebar_mask_color": {
     "message": "Mask color"
   },
+  "settings_bookmarks_dir_icon":{
+    "message":"Directory Icon"
+  },
+  "settings_bookmarks_dir_icon_default":{
+    "message":"Default"
+  },
+  "settings_bookmarks_dir_icon_alt_1":{
+    "message":"Folder"
+  },
+  "settings_bookmarks_dir_icon_alt_2":{
+    "message":"Folder grey"
+  },
   "settings_bookmarks_font_size": {
     "message": "Bookmarks font size"
   },

@@ -67,15 +67,26 @@ body {
     font-weight: 400;
   }
 
-  > img {
+  > img, > span.icon {
     display: inline-block;
     width: $__bookmarksIconSize;
     margin: 0 $__bookmarksHorizontalPadding 0 0;
+  }
+
+  > img {
     visibility: hidden;
 
     &[src] {
       visibility: visible;
     }
+  }
+
+  > span.icon {
+    height: $__bookmarksIconSize;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: img(#{$__bookmarksDirIcon + '.webp'});
   }
 
   > span.label {
@@ -349,7 +360,7 @@ section#sidebar {
         }
 
         &.settings {
-          background-image: img('icon-menu.png');
+          background-image: img('icon-menu.webp');
         }
       }
 

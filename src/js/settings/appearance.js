@@ -34,6 +34,9 @@
                     } else if (s.opts.elm.color[key]) {
                         s.opts.elm.color[key].data("initial", value);
                         changeColorValue(s.opts.elm.color[key], value);
+                    } else if (s.opts.elm.select[key]) {
+                        s.opts.elm.select[key][0].value = value;
+                        s.opts.elm.select[key].data("initial", value);
                     }
                 });
             }, 0);
@@ -147,6 +150,8 @@
                     ret.styles[key] = s.opts.elm.range[key][0].value + "px";
                 } else if (s.opts.elm.color[key]) {
                     ret.styles[key] = s.opts.elm.color[key][0].value;
+                } else if (s.opts.elm.select[key]) {
+                    ret.styles[key] = s.opts.elm.select[key][0].value;
                 }
             });
 

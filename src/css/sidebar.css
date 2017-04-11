@@ -552,14 +552,23 @@ section#sidebar > div.scrollBox > ul a.mark {
 section#sidebar > div.scrollBox > ul a.dir, section#sidebar > div.scrollBox > ul a.active {
   font-weight: 400;
 }
-section#sidebar > div.scrollBox > ul a > img {
+section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon {
   display: inline-block;
   width: "%bookmarksIconSize";
   margin: 0 "%bookmarksHorizontalPadding" 0 0;
+}
+section#sidebar > div.scrollBox > ul a > img {
   visibility: hidden;
 }
 section#sidebar > div.scrollBox > ul a > img[src] {
   visibility: visible;
+}
+section#sidebar > div.scrollBox > ul a > span.icon {
+  height: "%bookmarksIconSize";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/%bookmarksDirIcon.webp);
 }
 section#sidebar > div.scrollBox > ul a > span.label {
   text-overflow: ellipsis;
@@ -622,7 +631,7 @@ section#sidebar.openedOnce > header > a.search {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.webp);
 }
 section#sidebar.openedOnce > header > a.settings {
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.png);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.webp);
 }
 section#sidebar.openedOnce > header > div.searchBox > a.searchClose {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.webp);
@@ -663,14 +672,23 @@ a.dragHelper.mark {
 a.dragHelper.dir, a.dragHelper.active {
   font-weight: 400;
 }
-a.dragHelper > img {
+a.dragHelper > img, a.dragHelper > span.icon {
   display: inline-block;
   width: "%bookmarksIconSize";
   margin: 0 "%bookmarksHorizontalPadding" 0 0;
+}
+a.dragHelper > img {
   visibility: hidden;
 }
 a.dragHelper > img[src] {
   visibility: visible;
+}
+a.dragHelper > span.icon {
+  height: "%bookmarksIconSize";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/%bookmarksDirIcon.webp);
 }
 a.dragHelper > span.label {
   text-overflow: ellipsis;

@@ -1,7 +1,8 @@
 [tdb]
- - Configurable icon for chrome menu and directory
+ - Configurable icon for chrome menu
  - changelog info for 1.6
- - png to webp
+ - open delay
+ - 'add'-button for directories
 
 [1.6]
  - Made entries hidable from sidebar

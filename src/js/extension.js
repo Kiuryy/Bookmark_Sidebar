@@ -197,16 +197,13 @@
                     bookmark.element = entryContent;
 
                     if (bookmark.children) { // dir
-                        bookmark.icon = chrome.extension.getURL("img/dir.webp");
-                        bookmark.icon = chrome.extension.getURL("img/dir-alt1.png");
-
                         entryContent
                             .data("infos", bookmark)
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
                             .addClass(this.opts.classes.sidebar.bookmarkDir);
 
                         if (showBookmarkIcons) {
-                            entryContent.prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
+                            entryContent.prepend("<span class='" + this.opts.classes.sidebar.dirIcon + "' />");
                         }
                     } else { // link
                         entryContent

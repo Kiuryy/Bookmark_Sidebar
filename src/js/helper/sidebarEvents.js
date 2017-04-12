@@ -45,6 +45,8 @@
                     }
                 }
 
+                let dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
+
                 setTimeout(() => { // unset changes in css, so opening of children in child list works properly
                     if (open === false) {
                         elm.removeClass(ext.opts.classes.sidebar.dirOpened);
@@ -61,7 +63,7 @@
                     if (typeof callback === "function") {
                         callback();
                     }
-                }, instant ? 0 : 500);
+                }, instant ? 0 : (+dirOpenDurationRaw * 1000));
             };
 
 

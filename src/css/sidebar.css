@@ -593,7 +593,6 @@ section#sidebar > div.scrollBox > ul a > span.drag:hover {
 section#sidebar > div.scrollBox > ul a + ul {
   padding-left: "%bookmarksDirIndentation";
   height: 0;
-  transition: height 0.5s;
   overflow: hidden;
 }
 section#sidebar > div.scrollBox > ul a.opened + ul {

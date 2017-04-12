@@ -18,6 +18,7 @@
                 dirAccordion: false,
                 rememberScroll: true,
                 rememberSearch: true,
+                dirOpenDuration: 0.5,
                 openDelay: 0,
                 closeTimeout: 1
             },

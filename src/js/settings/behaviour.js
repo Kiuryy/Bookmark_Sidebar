@@ -24,6 +24,7 @@
             s.opts.elm.range.trackpadScrollSensitivity[0].value = scrollSensitivity.trackpad;
 
             s.opts.elm.range.closeTimeout[0].value = s.helper.model.getData("b/closeTimeout");
+            s.opts.elm.range.dirOpenDuration[0].value = s.helper.model.getData("b/dirOpenDuration");
             s.opts.elm.range.openDelay[0].value = s.helper.model.getData("b/openDelay");
             s.opts.elm.select.openAction[0].value = s.helper.model.getData("b/openAction");
             s.opts.elm.select.newTab[0].value = s.helper.model.getData("b/newTab");
@@ -33,6 +34,7 @@
             s.opts.elm.range.mouseScrollSensitivity.trigger("change");
             s.opts.elm.range.trackpadScrollSensitivity.trigger("change");
             s.opts.elm.range.closeTimeout.trigger("change");
+            s.opts.elm.range.dirOpenDuration.trigger("change");
             s.opts.elm.range.openDelay.trigger("change");
             s.opts.elm.select.openAction.trigger("change");
         };
@@ -51,6 +53,7 @@
                     trackpad: s.opts.elm.range.trackpadScrollSensitivity[0].value
                 },
                 closeTimeout: s.opts.elm.range.closeTimeout[0].value,
+                dirOpenDuration: s.opts.elm.range.dirOpenDuration[0].value,
                 openDelay: s.opts.elm.range.openDelay[0].value,
                 openAction: s.opts.elm.select.openAction[0].value,
                 newTab: s.opts.elm.select.newTab[0].value

@@ -2,6 +2,9 @@
  - Configurable icon for chrome menu
  - 'add'-button for directories
 
+[1.7]
+ - Added configurable directory open speed
+
 [1.6]
  - Made entries hidable from sidebar
  - Changed contextmenus

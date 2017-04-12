@@ -295,6 +295,12 @@
   "settings_remember_search_desc": {
     "message": "If selected, the entered search value will be remembered across page changes."
   },
+  "settings_dir_open_duration": {
+    "message": "Directory open duration"
+  },
+  "settings_dir_open_duration_desc": {
+    "message": "Duration of the open and close animation of directories"
+  },
   "settings_new_tab": {
     "message": "New Tab"
   },

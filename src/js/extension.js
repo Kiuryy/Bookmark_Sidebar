@@ -169,9 +169,13 @@
          */
         this.addBookmarkDir = (bookmarks, list) => {
             let ret = 0;
+            let config = this.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
             let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
-            let showBookmarkIcons = this.helper.model.getData("a/showBookmarkIcons");
             let showHidden = this.elements.iframeBody.hasClass(this.opts.classes.sidebar.showHidden);
+
+            if (list.parents("li").length() > 0) {
+                list.css("transition", "height " + config.dirOpenDuration + "s");
+            }
 
             bookmarks.forEach((bookmark, idx) => {
                 if ((showHidden || this.isEntryVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
@@ -202,7 +206,7 @@
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
                             .addClass(this.opts.classes.sidebar.bookmarkDir);
 
-                        if (showBookmarkIcons) {
+                        if (config.showBookmarkIcons) {
                             entryContent.prepend("<span class='" + this.opts.classes.sidebar.dirIcon + "' />");
                         }
                     } else { // link
@@ -211,7 +215,7 @@
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
                             .addClass(this.opts.classes.sidebar.bookmarkLink);
 
-                        if (showBookmarkIcons) {
+                        if (config.showBookmarkIcons) {
                             this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
                                 if (opts.demoMode) {
                                     response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".webp");

@@ -341,11 +341,19 @@
         if (details.reason === 'install') {
             chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
         } else if (details.reason === 'update') {
+            let newVersion = chrome.runtime.getManifest().version;
             let versionPartsOld = details.previousVersion.split('.');
-            let versionPartsNew = chrome.runtime.getManifest().version.split('.');
+            let versionPartsNew = newVersion.split('.');
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
-                chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
+                chrome.storage.sync.get(["model"], (obj) => {
+                    if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
+                        data.updateNotification = newVersion;
+                        saveModelData(() => {
+                            chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
+                        });
+                    }
+                });
 
                 chrome.storage.sync.get(null, (obj) => {  // UPGRADE STORAGE STRUCTURE
                     if (obj["appearance"]) {
@@ -361,6 +369,8 @@
                             }
                         }
                         // END UPGRADE STORAGE STRUCTURE FOR v1.5
+
+                        chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "addVisual", "middleClickActive"]);
 
                         return false; // don't do it twice
                     }
@@ -453,11 +463,19 @@
 
     /**
      * Saves the current data-object in the chrome storage
+     *
+     * @param {function} callback
      */
-    let saveModelData = () => {
-        chrome.storage.sync.set({
-            model: data
-        });
+    let saveModelData = (callback) => {
+        if (Object.getOwnPropertyNames(data).length > 0) {
+            chrome.storage.sync.set({
+                model: data
+            }, () => {
+                if (typeof callback === "function") {
+                    callback();
+                }
+            });
+        }
     };
 
     /**

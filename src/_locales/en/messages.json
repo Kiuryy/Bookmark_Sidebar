@@ -271,6 +271,18 @@
   "settings_open_action_desc": {
     "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window."
   },
+  "settings_link_action": {
+    "message": "Open bookmarks"
+  },
+  "settings_link_action_current_tab": {
+    "message": "Current tab"
+  },
+  "settings_link_action_new_tab": {
+    "message": "New tab"
+  },
+  "settings_link_action_desc": {
+    "message": "Left click a bookmark will open them either in the current tab or in a new tab."
+  },
   "settings_open_delay": {
     "message": "Open delay"
   },

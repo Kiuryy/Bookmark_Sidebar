@@ -27,6 +27,7 @@
             s.opts.elm.range.dirOpenDuration[0].value = s.helper.model.getData("b/dirOpenDuration");
             s.opts.elm.range.openDelay[0].value = s.helper.model.getData("b/openDelay");
             s.opts.elm.select.openAction[0].value = s.helper.model.getData("b/openAction");
+            s.opts.elm.select.linkAction[0].value = s.helper.model.getData("b/linkAction");
             s.opts.elm.select.newTab[0].value = s.helper.model.getData("b/newTab");
 
             s.opts.elm.range.pxToleranceMaximized.trigger("change");
@@ -37,6 +38,7 @@
             s.opts.elm.range.dirOpenDuration.trigger("change");
             s.opts.elm.range.openDelay.trigger("change");
             s.opts.elm.select.openAction.trigger("change");
+            s.opts.elm.select.linkAction.trigger("change");
         };
 
         /**
@@ -56,6 +58,7 @@
                 dirOpenDuration: s.opts.elm.range.dirOpenDuration[0].value,
                 openDelay: s.opts.elm.range.openDelay[0].value,
                 openAction: s.opts.elm.select.openAction[0].value,
+                linkAction: s.opts.elm.select.linkAction[0].value,
                 newTab: s.opts.elm.select.newTab[0].value
             };
 

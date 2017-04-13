@@ -161,15 +161,15 @@
 
                     if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
                         let _self = $(e.currentTarget);
-                        let middleClicked = e.which === 2;
                         let infos = _self.data("infos");
                         let isDir = !!(infos.children);
 
                         if (isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
                             this.toggleBookmarkDir(_self);
                         } else if (!isDir) { // Click on link
-                            let newTab = ext.helper.model.getData("b/newTab");
-                            this.openUrl(infos, middleClicked, middleClicked ? newTab === "foreground" : true);
+                            let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
+                            let newTab = e.which === 2 || config.linkAction === "newtab";
+                            this.openUrl(infos, newTab, newTab ? config.newTab === "foreground" : true);
                         }
                     }
                 }).on("mouseover", "a", (e) => {

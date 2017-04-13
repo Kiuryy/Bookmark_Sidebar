@@ -63,7 +63,11 @@ body {
     color: $textColorInverted;
   }
 
-  &.dir, &.active {
+  &.dir {
+    font-weight: 500;
+  }
+
+  &.active {
     font-weight: 400;
   }
 
@@ -452,7 +456,7 @@ div#shareUserdata {
       color: #fff;
       display: inline-block;
       margin: 40px 20px 0;
-      font-weight: 400;
+      font-weight: 500;
       padding: 5px 10px;
       transition: background 0.5s;
       border-radius: 2px;

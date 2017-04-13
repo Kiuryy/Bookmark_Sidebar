@@ -272,7 +272,7 @@ ul {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a {
@@ -506,7 +506,7 @@ section#content > div.tab[data-name='contribute'] p {
   margin: 10px 0;
 }
 section#content > div.tab[data-name='contribute'] p > span {
-  font-weight: 400;
+  font-weight: 500;
 }
 section#content > div.tab[data-name='help'] a {
   display: inline-block;
@@ -654,7 +654,7 @@ body[data-tab='appearance'][data-pos='right'] section#content > div.tab menu.bac
 
 label {
   display: block;
-  font-weight: 400;
+  font-weight: 500;
   margin: 10px 0;
 }
 

@@ -108,7 +108,7 @@
             lsbLoaded: "moonware-lsb-loaded"
         },
         leftsideBackSelector: "div#moonware-lsb-main.moonware-lsb-add-visual",
-        fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,300,500,100i,300i,500i",
+        fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
         manifest: chrome.runtime.getManifest(),
         demoMode: false
     };

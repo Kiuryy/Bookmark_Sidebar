@@ -351,7 +351,7 @@ ul {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a {
@@ -549,7 +549,10 @@ section#sidebar > div.scrollBox > ul a.mark {
   background: "%colorScheme";
   color: #fff;
 }
-section#sidebar > div.scrollBox > ul a.dir, section#sidebar > div.scrollBox > ul a.active {
+section#sidebar > div.scrollBox > ul a.dir {
+  font-weight: 500;
+}
+section#sidebar > div.scrollBox > ul a.active {
   font-weight: 400;
 }
 section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon {
@@ -668,7 +671,10 @@ a.dragHelper.mark {
   background: "%colorScheme";
   color: #fff;
 }
-a.dragHelper.dir, a.dragHelper.active {
+a.dragHelper.dir {
+  font-weight: 500;
+}
+a.dragHelper.active {
   font-weight: 400;
 }
 a.dragHelper > img, a.dragHelper > span.icon {
@@ -755,7 +761,7 @@ div#shareUserdata > div > a {
   color: #fff;
   display: inline-block;
   margin: 40px 20px 0;
-  font-weight: 400;
+  font-weight: 500;
   padding: 5px 10px;
   transition: background 0.5s;
   border-radius: 2px;

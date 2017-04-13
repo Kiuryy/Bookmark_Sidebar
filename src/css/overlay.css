@@ -232,7 +232,7 @@ ul {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a {
@@ -579,7 +579,7 @@ div.modal > menu > a {
   padding: 5px 10px 4px;
   margin: 0 5px;
   color: "%colorScheme";
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   border-radius: 3px;
   cursor: pointer;

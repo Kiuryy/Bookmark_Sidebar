@@ -4,6 +4,17 @@
     window.ModelHelper = function (ext) {
 
         let fontWeights = {
+            "__default": {
+                Thin: 100,
+                ExtraLight: 200,
+                Light: 300,
+                Normal: 400,
+                Medium: 500,
+                SemiBold: 600,
+                Bold: 700,
+                ExtraBold: 800,
+                Black: 900
+            },
             "Roboto": {
                 Thin: 100,
                 ExtraLight: 100,
@@ -56,22 +67,17 @@
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     overlayMaskColor: "rgba(0,0,0,0.5)",
-                    fontFamily: "Roboto",
-                    fontWeightThin: 100,
-                    fontWeightExtraLight: 200,
-                    fontWeightLight: 300,
-                    fontWeightNormal: 400,
-                    fontWeightMedium: 500,
-                    fontWeightSemiBold: 600,
-                    fontWeightBold: 700,
-                    fontWeightExtraBold: 800,
-                    fontWeightBlack: 900
+                    fontFamily: "Roboto"
                 }
             }
         };
 
         let data = {};
 
+        /**
+         *
+         * @param {function} callback
+         */
         this.init = (callback) => {
             let keys = ["utility", "behaviour", "appearance"];
 
@@ -98,11 +104,15 @@
          */
         this.getFontWeights = (font) => {
             let ret = {};
-            if (font && fontWeights[font]) {
-                Object.keys(fontWeights[font]).forEach((key) => { // override font weights with font family specific one
-                    ret["fontWeight" + key] = fontWeights[font][key];
-                });
-            }
+            Object.keys(fontWeights["__default"]).forEach((key) => {
+                let val = fontWeights["__default"][key];
+
+                if (fontWeights[font] && fontWeights[font][key]) { // override font weights with font family specific one
+                    val = fontWeights[font][key];
+                }
+                ret["fontWeight" + key] = val;
+            });
+
             return ret;
         };
 

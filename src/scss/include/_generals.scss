@@ -7,7 +7,7 @@
 
 body, input, textarea, select, button {
   font-size: $baseFontSize;
-  font-family: $baseFontFamily;
+  font-family: $baseFontFamily, sans-serif;
   color: $textColor;
   font-weight: $baseFontWeight;
 }
@@ -17,7 +17,7 @@ ul {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: $baseFontWeightBold;
 }
 
 a {

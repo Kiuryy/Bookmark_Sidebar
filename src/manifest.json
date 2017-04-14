@@ -49,7 +49,7 @@
     "css/content.css",
     "img/*"
   ],
-  "options_page":  "html/settings.html",
+  "options_page": "html/settings.html",
   "icons": {
     "256": "img/icon/dev/256x256.png",
     "128": "img/icon/dev/128x128.png",
@@ -58,6 +58,7 @@
   "permissions": [
     "bookmarks",
     "storage",
+    "fontSettings",
     "chrome://favicon/"
   ]
 }

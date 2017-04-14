@@ -3,6 +3,20 @@
 
     window.ModelHelper = function (ext) {
 
+        let fontWeights = {
+            "Roboto": {
+                Thin: 100,
+                ExtraLight: 100,
+                Light: 200,
+                Normal: 300,
+                Medium: 400,
+                SemiBold: 400,
+                Bold: 500,
+                ExtraBold: 500,
+                Black: 500
+            }
+        };
+
         let defaults = {
             u: { // utility
                 openStates: {},
@@ -28,7 +42,6 @@
                 showIndicator: true,
                 showBookmarkIcons: true,
                 styles: {
-                    fontFamily: "Roboto",
                     colorScheme: ext.opts.manifest.version_name === "Dev" ? "rgb(255,184,0)" : "rgb(0,137,123)",
                     textColor: "rgb(102,102,102)",
                     indicatorWidth: "50px",
@@ -42,7 +55,17 @@
                     bookmarksDirIcon: "dir",
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
-                    overlayMaskColor: "rgba(0,0,0,0.5)"
+                    overlayMaskColor: "rgba(0,0,0,0.5)",
+                    fontFamily: "Roboto",
+                    fontWeightThin: 100,
+                    fontWeightExtraLight: 200,
+                    fontWeightLight: 300,
+                    fontWeightNormal: 400,
+                    fontWeightMedium: 500,
+                    fontWeightSemiBold: 600,
+                    fontWeightBold: 700,
+                    fontWeightExtraBold: 800,
+                    fontWeightBlack: 900
                 }
             }
         };
@@ -65,6 +88,22 @@
                     callback();
                 }
             });
+        };
+
+        /**
+         * Returns the font weights for the given font
+         *
+         * @param {string} font
+         * @returns {object}
+         */
+        this.getFontWeights = (font) => {
+            let ret = {};
+            if (font && fontWeights[font]) {
+                Object.keys(fontWeights[font]).forEach((key) => { // override font weights with font family specific one
+                    ret["fontWeight" + key] = fontWeights[font][key];
+                });
+            }
+            return ret;
         };
 
         /**
@@ -114,8 +153,7 @@
 
                 if (keyInfo === "a/styles") {
                     value = Object.assign({}, defaults.a.styles, value);
-
-                    //
+                    Object.assign(value, this.getFontWeights(value.fontFamily));
                 }
 
                 if (keyInfo === "a/showIndicator" && value === true && typeof data.behaviour.openAction !== "undefined" && data.behaviour.openAction === "mousemove") { // do not show indicator if sidebar opens on mouseover

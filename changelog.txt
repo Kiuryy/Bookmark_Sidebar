@@ -1,8 +1,11 @@
 [tdb]
  - Configurable icon for chrome menu
  - 'add'-button for directories
+ - roboto include only for fontfamily=roboto
+ - alternative views "most used" and "recently added"
 
 [1.7]
+ - Configurable typeface
  - Added configurable directory open speed
 
 [1.6]

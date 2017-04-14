@@ -36,6 +36,26 @@
                         s.opts.elm.textarea[name] = $("<textarea />").insertAfter(label);
                         break;
                     }
+                    case "font": {
+                        s.opts.elm.select[name] = $("<select />").insertAfter(label);
+                        chrome.fontSettings.getFontList((fontList) => {
+                            fontList.push({
+                                fontId: "Roboto",
+                                displayName: "Roboto (" + chrome.i18n.getMessage("settings_font_familiy_default") + ")"
+                            });
+                            fontList.sort(function (a, b) {
+                                let aVal = a.displayName.toUpperCase();
+                                let bVal = b.displayName.toUpperCase();
+                                return (aVal < bVal) ? -1 : (aVal > bVal) ? 1 : 0;
+                            });
+                            fontList.forEach((font) => {
+                                if (s.opts.elm.select[name].children("option[value='" + font.fontId + "']").length() === 0) {
+                                    $("<option />").attr("value", font.fontId).text(font.displayName).appendTo(s.opts.elm.select[name]);
+                                }
+                            });
+                        });
+                        break;
+                    }
                     case "color": {
                         s.opts.elm.color[name] = $("<input type='text' />").addClass(s.opts.classes.color.field).insertAfter(label);
                         let colorInfo = $("<span />").insertAfter(s.opts.elm.color[name]);

@@ -363,10 +363,19 @@
     "message": "The color of the overlay header, the bookmark amount, etc."
   },
   "settings_text_color": {
-    "message": "Font color"
+    "message": "Text color"
   },
   "settings_text_color_desc": {
     "message": "Color of the bookmark labels, overlay descriptions, contextmenu links, etc."
+  },
+  "settings_font_familiy": {
+    "message": "Typeface"
+  },
+  "settings_font_familiy_default": {
+    "message": "default"
+  },
+  "settings_font_familiy_desc": {
+    "message": "The typeface of the sidebar and the overlays"
   },
   "settings_indicator_width": {
     "message": "Width"

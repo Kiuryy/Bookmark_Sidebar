@@ -341,9 +341,9 @@ div.checkbox > input[type='checkbox'] {
 
 body, input, textarea, select, button {
   font-size: 14px;
-  font-family: Roboto, sans-serif;
+  font-family: "%fontFamily", sans-serif;
   color: "%textColor";
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
 }
 
 ul {
@@ -351,7 +351,7 @@ ul {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
 }
 
 a {
@@ -372,7 +372,7 @@ body::after {
   flex-direction: column;
   justify-content: center;
   font-size: 500%;
-  font-weight: 200;
+  font-weight: "%fontWeightExtraLight";
   color: "%colorScheme";
   top: 0;
   left: "%sidebarWidth";
@@ -426,7 +426,7 @@ section#sidebar > header > span > span {
   display: inline-block;
   vertical-align: top;
   margin: -5px 5px 0 0;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
   font-size: 150%;
   color: "%colorScheme";
 }
@@ -550,10 +550,10 @@ section#sidebar > div.scrollBox > ul a.mark {
   color: #fff;
 }
 section#sidebar > div.scrollBox > ul a.dir {
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
 }
 section#sidebar > div.scrollBox > ul a.active {
-  font-weight: 400;
+  font-weight: "%fontWeightMedium";
 }
 section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon {
   display: inline-block;
@@ -672,10 +672,10 @@ a.dragHelper.mark {
   color: #fff;
 }
 a.dragHelper.dir {
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
 }
 a.dragHelper.active {
-  font-weight: 400;
+  font-weight: "%fontWeightMedium";
 }
 a.dragHelper > img, a.dragHelper > span.icon {
   display: inline-block;
@@ -746,7 +746,7 @@ div#shareUserdata > div {
 }
 div#shareUserdata > div > h2 {
   font-size: 250%;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
   margin-bottom: 50px;
 }
 div#shareUserdata > div > p {
@@ -761,7 +761,7 @@ div#shareUserdata > div > a {
   color: #fff;
   display: inline-block;
   margin: 40px 20px 0;
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
   padding: 5px 10px;
   transition: background 0.5s;
   border-radius: 2px;

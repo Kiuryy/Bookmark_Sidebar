@@ -15,7 +15,6 @@
          */
         this.init = () => {
             initPreviews();
-            initEvents();
 
             let sidebarPosition = s.helper.model.getData("a/sidebarPosition");
             s.opts.elm.select.sidebarPosition[0].value = sidebarPosition;
@@ -39,6 +38,8 @@
                         s.opts.elm.select[key].data("initial", value);
                     }
                 });
+
+                initEvents();
             }, 0);
         };
 
@@ -99,6 +100,7 @@
                 s.opts.elm.preview[key].find("head > style").remove();
 
                 let config = getCurrentConfig();
+                Object.assign(config.styles, s.helper.model.getFontWeights(config.styles.fontFamily));
 
                 let css = previews[key];
                 Object.keys(config.styles).forEach((key) => {

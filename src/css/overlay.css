@@ -222,9 +222,9 @@ div.checkbox > input[type='checkbox'] {
 
 body, input, textarea, select, button {
   font-size: 14px;
-  font-family: Roboto, sans-serif;
+  font-family: "%fontFamily", sans-serif;
   color: "%textColor";
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
 }
 
 ul {
@@ -232,7 +232,7 @@ ul {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
 }
 
 a {
@@ -271,7 +271,7 @@ div.modal.visible {
 div.modal > h1 {
   color: #fff;
   font-size: 170%;
-  font-weight: 200;
+  font-weight: "%fontWeightLight";
   height: 60px;
   padding: 15px 75px 14px 55px;
   background: "%colorScheme" url(chrome-extension://__MSG_@@extension_id__/img/bookmark.webp) no-repeat 20px center;
@@ -297,7 +297,7 @@ div.modal > a.close:hover {
 div.modal > a.preview, div.modal > span.preview {
   display: block;
   font-size: 140%;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
   margin: 30px 30px 20px 30px;
   background-color: rgba(0, 0, 0, 0.05);
   white-space: nowrap;
@@ -329,6 +329,7 @@ div.modal > a.preview + a.previewUrl {
   display: block;
   margin: -15px 30px 20px 30px;
   font-size: 80%;
+  font-weight: "%fontWeightMedium";
   opacity: 0.7;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -553,7 +554,7 @@ div.modal[data-type='edit'] > ul > li > label {
 }
 div.modal[data-type='edit'] > ul > li > input {
   display: inline-block;
-  font-size: 140%;
+  font-size: 120%;
   width: calc(100% - 80px);
   padding: 5px 8px;
   outline: none;
@@ -579,7 +580,7 @@ div.modal > menu > a {
   padding: 5px 10px 4px;
   margin: 0 5px;
   color: "%colorScheme";
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
   text-transform: uppercase;
   border-radius: 3px;
   cursor: pointer;

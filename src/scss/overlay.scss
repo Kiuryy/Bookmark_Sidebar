@@ -5,6 +5,9 @@
 @import "include/checkbox";
 //
 $textColor: $__textColor;
+$baseFontFamily: $__fontFamily;
+$baseFontWeight: $__fontWeightNormal;
+$baseFontWeightBold: $__fontWeightBold;
 @import "include/generals";
 
 body {
@@ -40,7 +43,7 @@ div.modal {
   > h1 {
     color: $textColorInverted;
     font-size: 170%;
-    font-weight: 200;
+    font-weight: $__fontWeightLight;
     height: 60px;
     padding: 15px 75px 14px 55px;
     background: $__colorScheme img('bookmark.webp') no-repeat 20px center;
@@ -69,7 +72,7 @@ div.modal {
   > a.preview, > span.preview {
     display: block;
     font-size: 140%;
-    font-weight: 300;
+    font-weight: $__fontWeightNormal;
     margin: 30px 30px 20px 30px;
     background-color: rgba(0, 0, 0, 0.05);
     white-space: nowrap;
@@ -105,6 +108,7 @@ div.modal {
       display: block;
       margin: -15px 30px 20px 30px;
       font-size: 80%;
+      font-weight: $__fontWeightMedium;
       opacity: 0.7;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -380,7 +384,7 @@ div.modal {
 
         > input {
           display: inline-block;
-          font-size: 140%;
+          font-size: 120%;
           width: calc(100% - 80px);
           padding: 5px 8px;
           outline: none;
@@ -412,7 +416,7 @@ div.modal {
       padding: 5px 10px 4px;
       margin: 0 5px;
       color: $__colorScheme;
-      font-weight: 500;
+      font-weight: $__fontWeightBold;
       text-transform: uppercase;
       border-radius: 3px;
       cursor: pointer;

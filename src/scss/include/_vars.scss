@@ -1,7 +1,8 @@
 // General
 $baseFontSize: 14px;
-$baseFontFamily: Roboto, sans-serif;
+$baseFontFamily: Roboto;
 $baseFontWeight: 300;
+$baseFontWeightBold: 500;
 
 $mainColor: #7b5fa4;
 $mainColorAlt: #2b35c8;
@@ -34,3 +35,14 @@ $__indicatorWidth: "%indicatorWidth";
 $__indicatorIconSize: "%indicatorIconSize";
 $__indicatorColor: "%indicatorColor";
 $__overlayMaskColor: "%overlayMaskColor";
+
+$__fontFamily: "%fontFamily";
+$__fontWeightThin: "%fontWeightThin"; // 100
+$__fontWeightExtraLight: "%fontWeightExtraLight"; // 200
+$__fontWeightLight: "%fontWeightLight"; // 300
+$__fontWeightNormal: "%fontWeightNormal"; // 400
+$__fontWeightMedium: "%fontWeightMedium"; // 500
+$__fontWeightSemiBold: "%fontWeightSemiBold"; // 600
+$__fontWeightBold: "%fontWeightBold"; // 700
+$__fontWeightExtraBold: "%fontWeightExtraBold"; // 800
+$__fontWeightBlack: "%fontWeightBlack"; // 900

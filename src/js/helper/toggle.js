@@ -13,7 +13,7 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.visual).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/sidebarPosition"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/sidebarPosition", "b/openAction"]);
             pxToleranceObj = data.pxTolerance;
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
 
@@ -21,7 +21,7 @@
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
             ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
 
-            if (data.showIndicator > 0) { // show indicator
+            if (data.showIndicator && data.openAction !== "icon") { // show indicator
                 ext.elements.toggle
                     .addClass(ext.opts.classes.page.addVisual)
                     .attr(ext.opts.attr.position, sidebarPos);
@@ -106,24 +106,26 @@
             let openAction = ext.helper.model.getData("b/openAction");
             let openDelayRaw = ext.helper.model.getData("b/openDelay");
 
-            $(document).on(openAction, (e) => {
-                if ((openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
-                    e.stopPropagation();
-                    e.preventDefault();
+            if (openAction !== "icon") {
+                $(document).on(openAction, (e) => {
+                    if ((openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
+                        e.stopPropagation();
+                        e.preventDefault();
 
-                    if (openAction === "mousemove") {
-                        if (!(timeout.open)) {
-                            timeout.open = setTimeout(() => {
-                                openSidebar();
-                            }, +openDelayRaw * 1000);
+                        if (openAction === "mousemove") {
+                            if (!(timeout.open)) {
+                                timeout.open = setTimeout(() => {
+                                    openSidebar();
+                                }, +openDelayRaw * 1000);
+                            }
+                        } else {
+                            openSidebar();
                         }
                     } else {
-                        openSidebar();
+                        clearSidebarTimeout("open");
                     }
-                } else {
-                    clearSidebarTimeout("open");
-                }
-            });
+                });
+            }
         };
 
         /**

@@ -268,8 +268,11 @@
   "settings_open_action_mouseover": {
     "message": "Mouseover"
   },
+  "settings_open_action_icon": {
+    "message": "Click on icon"
+  },
   "settings_open_action_desc": {
-    "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window."
+    "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
   },
   "settings_link_action": {
     "message": "Open bookmarks"

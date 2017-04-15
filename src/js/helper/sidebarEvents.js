@@ -104,17 +104,24 @@
          * Opens the url of the given bookmark
          *
          * @param {object} infos
-         * @param {boolean} newTab
+         * @param {string} type
          * @param {boolean} active
          */
-        this.openUrl = (infos, newTab = false, active = true) => {
-            ext.helper.model.call("openLink", {
-                parentId: infos.parentId,
-                id: infos.id,
-                href: infos.url,
-                newTab: newTab,
-                active: active
-            });
+        this.openUrl = (infos, type = "default", active = true) => {
+            if (type === "incognito") {
+                ext.helper.model.call("openLink", {
+                    href: infos.url,
+                    incognito: true
+                });
+            } else {
+                ext.helper.model.call("openLink", {
+                    parentId: infos.parentId,
+                    id: infos.id,
+                    href: infos.url,
+                    newTab: type === "newTab",
+                    active: active
+                });
+            }
         };
 
         /**
@@ -169,7 +176,7 @@
                         } else if (!isDir) { // Click on link
                             let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
                             let newTab = e.which === 2 || config.linkAction === "newtab";
-                            this.openUrl(infos, newTab, newTab ? config.newTab === "foreground" : true);
+                            this.openUrl(infos, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
                         }
                     }
                 }).on("mouseover", "a", (e) => {

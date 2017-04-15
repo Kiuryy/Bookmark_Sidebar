@@ -131,6 +131,10 @@ div.contextmenu {
           background-image: img('icon-newTab.webp');
         }
 
+        &[data-type='newTabIncognito'] {
+          background-image: img('icon-incognito.webp');
+        }
+
         &[data-type='showInDir'] {
           background-image: img('icon-showInDir.webp');
         }

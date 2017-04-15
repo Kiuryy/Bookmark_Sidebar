@@ -126,6 +126,10 @@
                 }
 
                 list.append("<li><a " + ext.opts.attr.type + "='newTab'>" + ext.lang("contextmenu_new_tab") + "</a></li>");
+
+                if (chrome.extension.inIncognitoContext === false) {
+                    list.append("<li><a " + ext.opts.attr.type + "='newTabIncognito'>" + ext.lang("contextmenu_new_tab_incognito") + "</a></li>");
+                }
             }
 
             iconWrapper
@@ -189,8 +193,12 @@
                         });
                         break;
                     }
+                    case "newTabIncognito": { // open bookmark in incognito window
+                        ext.helper.sidebarEvents.openUrl(infos, "incognito");
+                        break;
+                    }
                     case "newTab": { // open bookmark in new tab
-                        ext.helper.sidebarEvents.openUrl(infos, true, ext.helper.model.getData("b/newTab") === "foreground");
+                        ext.helper.sidebarEvents.openUrl(infos, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
                         break;
                     }
                     case "show": { // show the hidden bookmark or directory again
@@ -210,7 +218,7 @@
                             ext.helper.overlay.create(type, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), infos);
                         } else {
                             bookmarks.forEach((bookmark) => {
-                                ext.helper.sidebarEvents.openUrl(bookmark, true, ext.helper.model.getData("b/newTab") === "foreground");
+                                ext.helper.sidebarEvents.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
                             });
                         }
                         break;

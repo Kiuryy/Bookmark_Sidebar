@@ -367,7 +367,7 @@
         let openChildren = (bookmarks) => {
             closeOverlay();
             bookmarks.forEach((bookmark) => {
-                ext.helper.sidebarEvents.openUrl(bookmark, true, ext.helper.model.getData("b/newTab") === "foreground");
+                ext.helper.sidebarEvents.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
             });
         };
 
@@ -513,7 +513,7 @@
             elements.modal.find("a." + ext.opts.classes.overlay.preview + ", a." + ext.opts.classes.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
                 let infos = $(e.currentTarget).data("infos");
-                ext.helper.sidebarEvents.openUrl(infos, true);
+                ext.helper.sidebarEvents.openUrl(infos, "newTab");
             });
         };
     };

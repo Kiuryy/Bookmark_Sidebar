@@ -278,6 +278,9 @@ div.contextmenu > ul.list > li > a:hover {
 div.contextmenu > ul.list > li > a[data-type='newTab'], div.contextmenu > ul.list > li > a[data-type='openChildren'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.webp);
 }
+div.contextmenu > ul.list > li > a[data-type='newTabIncognito'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-incognito.webp);
+}
 div.contextmenu > ul.list > li > a[data-type='showInDir'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.webp);
 }

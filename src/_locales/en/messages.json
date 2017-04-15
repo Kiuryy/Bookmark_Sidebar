@@ -79,6 +79,9 @@
   "contextmenu_new_tab": {
     "message": "Open in new tab"
   },
+  "contextmenu_new_tab_incognito": {
+    "message": "Open in incognito window"
+  },
   "contextmenu_open_children": {
     "message": "Open bookmarks"
   },

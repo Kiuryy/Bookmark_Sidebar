@@ -72,6 +72,8 @@
                     saveModelData();
                 });
             });
+        } else if (opts.incognito && opts.incognito === true) { // incognito window
+            chrome.windows.create({url: opts.href, state: "maximized", incognito: true});
         } else { // current tab
             chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                 chrome.tabs.update(tabs[0].id, {url: opts.href}, (tab) => {

@@ -67,9 +67,9 @@
          * Restores the scroll position from the storage if configurated so
          */
         this.restoreScrollPos = (scrollBox, callback) => {
-            let data = ext.helper.model.getData(["b/rememberScroll", "u/scrollPos"]);
+            let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
 
-            if (data.rememberScroll) {
+            if (data.rememberState === "all") {
                 this.updateScrollbox(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
                 setTimeout(() => {
                     if (typeof callback === "function") {

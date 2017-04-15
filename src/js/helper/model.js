@@ -42,7 +42,7 @@
                 newTab: "foreground",
                 linkAction: "current",
                 dirAccordion: false,
-                rememberScroll: true,
+                rememberState: "all",
                 rememberSearch: true,
                 dirOpenDuration: 0.5,
                 openDelay: 0,
@@ -153,7 +153,9 @@
 
                 if (dataSearchScope !== null) {
                     if (typeof dataSearchScope[key] === "undefined") {
-                        if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
+                        if (key === "rememberState" && typeof dataSearchScope["rememberScroll"] !== "undefined") { // @deprecated backward compatibility
+                            value = dataSearchScope["rememberScroll"] === false ? "openStates" : "all";
+                        } else if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];
                         }
                     } else {

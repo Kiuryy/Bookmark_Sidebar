@@ -295,11 +295,20 @@
   "settings_dir_accordion_desc": {
     "message": "Closes all directories exceed the currently active one."
   },
-  "settings_remember_scroll": {
-    "message": "Remember scroll position"
+  "settings_remember_state": {
+    "message": "Remember"
   },
-  "settings_remember_scroll_desc": {
-    "message": "If selected, the scroll position of the bookmark list will be remembered."
+  "settings_remember_state_all": {
+    "message": "Scroll position and opened directories"
+  },
+  "settings_remember_state_open_states": {
+    "message": "Opened directories"
+  },
+  "settings_remember_state_nothing": {
+    "message": "Nothing"
+  },
+  "settings_remember_state_desc": {
+    "message": "Select what to remember across page changes."
   },
   "settings_remember_search": {
     "message": "Remember search result"

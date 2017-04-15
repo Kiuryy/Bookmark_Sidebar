@@ -130,24 +130,26 @@
          * @param {jsu} list
          */
         this.restoreOpenStates = (list) => {
-            restoreOpenStateRunning++;
-
-            let openStates = this.helper.model.getData("u/openStates");
             let opened = 0;
+            let data = this.helper.model.getData(["b/rememberState", "u/openStates"]);
 
-            Object.keys(openStates).forEach((node) => {
-                if (openStates[node] === true) {
-                    let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
-                    let entry = list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir + "[" + this.opts.attr.id + "='" + id + "']");
+            if (data.rememberState === "all" || data.rememberState === "openStates") {
+                restoreOpenStateRunning++;
 
-                    if (entry.length() > 0) {
-                        opened++;
-                        this.helper.sidebarEvents.toggleBookmarkDir(entry);
+                Object.keys(data.openStates).forEach((node) => {
+                    if (data.openStates[node] === true) {
+                        let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
+                        let entry = list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir + "[" + this.opts.attr.id + "='" + id + "']");
+
+                        if (entry.length() > 0) {
+                            opened++;
+                            this.helper.sidebarEvents.toggleBookmarkDir(entry);
+                        }
                     }
-                }
-            });
+                });
 
-            restoreOpenStateRunning--;
+                restoreOpenStateRunning--;
+            }
 
             if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
                 setTimeout(() => {

@@ -274,6 +274,15 @@
   "settings_open_action_desc": {
     "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
   },
+  "settings_keyboard_shortcuts": {
+    "message": "Keybord shortcut"
+  },
+  "settings_keyboard_shortcuts": {
+    "message": "Keybord shortcut"
+  },
+  "settings_keyboard_shortcuts_desc": {
+    "message": "Shortcuts can be configured at the bottom of the [a]Chrome Extensions page[/a] by selecting [em]Keyboard shortcuts[/em]."
+  },
   "settings_link_action": {
     "message": "Open bookmarks"
   },

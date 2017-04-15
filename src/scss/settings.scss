@@ -648,6 +648,18 @@ div.configEntry {
     margin-top: 7px;
     line-height: 150%;
     font-style: italic;
+
+    &.shortcutInfo {
+
+      > a {
+        color: $mainColorAlt;
+        font-weight: 400;
+      }
+
+      > em {
+        color: $textColor;
+      }
+    }
   }
 }
 

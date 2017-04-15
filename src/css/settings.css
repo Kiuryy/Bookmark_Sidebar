@@ -800,6 +800,13 @@ div.configEntry p {
   line-height: 150%;
   font-style: italic;
 }
+div.configEntry p.shortcutInfo > a {
+  color: #2b35c8;
+  font-weight: 400;
+}
+div.configEntry p.shortcutInfo > em {
+  color: #666;
+}
 
 body > footer {
   position: fixed;

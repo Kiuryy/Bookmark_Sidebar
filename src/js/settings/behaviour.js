@@ -75,6 +75,14 @@
         };
 
         let initEvents = () => {
+            s.opts.elm.keyboardShortcutInfo.children("a").on("click", (e) => {
+                e.preventDefault();
+                chrome.tabs.create({
+                    url: "chrome://extensions",
+                    active: true
+                });
+            });
+
             s.opts.elm.select.openAction.on("change", () => {
                 let val = s.opts.elm.select.openAction[0].value;
                 if (val === "mousemove") {

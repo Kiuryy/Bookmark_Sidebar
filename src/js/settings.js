@@ -67,6 +67,7 @@
                 backgroundChanger: $("menu.backgroundChanger > a"),
                 appearanceSections: $("div[data-appearance]"),
                 copyrightDate: $("a#copyright > span"),
+                keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
                 feedback: {
                     textarea: $("textarea#feedback"),
@@ -190,7 +191,10 @@
                 let key = val.search(/^(share_userdata_|howto_)/) === 0 ? val : "settings_" + val;
                 let msg = chrome.i18n.getMessage(key);
                 if (msg) {
-                    $(elm).html(msg.replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
+                    msg = msg.replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
+                    msg = msg.replace(/\[a\](.*)\[\/a\]/, "<a href='#'>$1</a>");
+                    msg = msg.replace(/\[em\](.*)\[\/em\]/, "<em>$1</em>");
+                    $(elm).html(msg);
                 } else {
                     $(elm).remove();
                 }

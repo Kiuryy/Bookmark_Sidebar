@@ -280,9 +280,6 @@
   "settings_keyboard_shortcuts": {
     "message": "Keybord shortcut"
   },
-  "settings_keyboard_shortcuts": {
-    "message": "Keybord shortcut"
-  },
   "settings_keyboard_shortcuts_desc": {
     "message": "Shortcuts can be configured at the bottom of the [a]Chrome Extensions page[/a] by selecting [em]Keyboard shortcuts[/em]."
   },

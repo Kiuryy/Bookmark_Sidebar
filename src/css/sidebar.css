@@ -288,6 +288,10 @@ div.contextmenu > ul.list > li > a[data-type='updateUrls'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.webp);
 }
 
+section#sidebar[data-pos='right'] div.contextmenu[data-type='settings'] {
+  right: 0;
+}
+
 div.checkbox {
   position: relative;
   width: 18px;

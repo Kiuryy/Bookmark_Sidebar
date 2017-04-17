@@ -2,7 +2,6 @@
  - Configurable icon for chrome menu
  - 'add'-button for directories
  - translation contribution
- - incognito new tab
  - alternative views "most used" and "recently added"
 
 [1.7]

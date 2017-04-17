@@ -146,3 +146,7 @@ div.contextmenu {
     }
   }
 }
+
+section#sidebar[data-pos='right'] div.contextmenu[data-type='settings'] {
+  right: 0;
+}

@@ -240,7 +240,7 @@
                                 } else { // all parents opened -> close search and scroll to the bookmark
                                     ext.helper.search.clearSearch();
                                     let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + infos.id + "']");
-                                    ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
+                                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
                                     entry.addClass(ext.opts.classes.sidebar.mark);
                                 }
                             };

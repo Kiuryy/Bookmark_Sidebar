@@ -28,7 +28,7 @@
 
             scrollBoxes.push(scrollBox);
             initEvents(scrollBox);
-            this.updateScrollbox(scrollBox, 0);
+            this.setScrollPos(scrollBox, 0);
 
             return scrollBox;
         };
@@ -56,7 +56,7 @@
          */
         this.update = (scrollBox, save = false) => {
             let scrollPos = scrollBox.data("scrollpos") || 0;
-            this.updateScrollbox(scrollBox, scrollPos);
+            this.setScrollPos(scrollBox, scrollPos);
 
             if (save) {
                 saveScrollPos(scrollBox);
@@ -70,7 +70,7 @@
             let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
 
             if (data.rememberState === "all") {
-                this.updateScrollbox(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
+                this.setScrollPos(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
                 setTimeout(() => {
                     if (typeof callback === "function") {
                         callback();
@@ -82,11 +82,25 @@
         };
 
         /**
+         * Updates the scroll position of all visible scrollboxes
+         *
+         * @param {int} scrollPos
+         */
+        this.setAllScrollPos = (scrollPos) => {
+            scrollBoxes.forEach((scrollBox) => {
+                if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
+                    this.setScrollPos(scrollBox, scrollPos);
+                }
+            });
+        };
+
+        /**
          * Updates the scroll position of the given scrollbox
          *
          * @param {jsu} scrollBox
+         * @param {int} scrollPos
          */
-        this.updateScrollbox = (scrollBox, scrollPos) => {
+        this.setScrollPos = (scrollBox, scrollPos) => {
             ext.helper.contextmenu.close();
 
             let boxHeight = getScrollBoxHeight(scrollBox);
@@ -181,7 +195,7 @@
                     scrollBox.addClass(ext.opts.classes.scrollBox.scrollTrackpad);
                 }
 
-                this.updateScrollbox(scrollBox, scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
+                this.setScrollPos(scrollBox, scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
                 saveScrollPos(scrollBox);
 
                 scrollBox.removeClass(ext.opts.classes.scrollBox.scrollTrackpad);
@@ -211,7 +225,7 @@
 
                     let contentHeight = scrollBox.data("content").realHeight();
                     let currentPos = Math.max(0, e.pageY - scrollbar[0].getBoundingClientRect().top - startPos);
-                    this.updateScrollbox(scrollBox, currentPos * contentHeight / getScrollBoxHeight(scrollBox));
+                    this.setScrollPos(scrollBox, currentPos * contentHeight / getScrollBoxHeight(scrollBox));
                 }
             });
         };

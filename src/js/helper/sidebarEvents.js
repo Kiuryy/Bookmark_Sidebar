@@ -53,7 +53,7 @@
                     } else {
                         elm.addClass(ext.opts.classes.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion")) {
-                            ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["all"], elm[0].offsetTop);
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop);
                         }
                     }
                     childrenList.css("height", "");
@@ -135,6 +135,13 @@
             }).on("resize", () => {
                 ext.helper.scroll.updateAll();
             });
+
+            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => { // scroll to top with pos1
+                if (e.key === "Home") {
+                    ext.helper.scroll.setAllScrollPos(0);
+                }
+            });
+
 
             ext.elements.iframe.find("body").on("click", () => {
                 ext.helper.contextmenu.close();

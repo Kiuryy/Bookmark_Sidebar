@@ -75,6 +75,12 @@
                 clearSidebarTimeout("close");
             });
 
+            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
+                if ((e.key === "Escape" || e.key === "Esc") && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // close when hitting esc
+                    closeSidebar();
+                }
+            });
+
             $(document).on("visibilitychange", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
                 if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
                     ext.elements.toggle.removeClass(ext.opts.classes.page.hover);

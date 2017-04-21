@@ -2,10 +2,11 @@
  - Configurable icon for chrome menu
  - 'add'-button for directories
  - translation contribution
- - alternative views "most used" and "recently added"
+ - alternative views "most used", "recently added" and "alphabetically"
 
 [1.7]
  - Configurable typeface
+ - Added keyboard shortcuts (esc to close, pos1 to scroll to top)
  - New behaviour configuration (directory open speed, remember states, ...)
 
 [1.6]

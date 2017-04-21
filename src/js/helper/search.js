@@ -40,7 +40,7 @@
             let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
             if (val === null) {
                 val = searchField[0].value;
-                ext.helper.scroll.updateScrollbox(ext.elements.bookmarkBox["search"], 0);
+                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
             } else {
                 searchField[0].value = val;
             }

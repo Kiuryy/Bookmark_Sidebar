@@ -180,6 +180,7 @@
         let openSidebar = () => {
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+            ext.helper.scroll.updateAll();
             ext.initImages();
             $(document).trigger("mousemove");
         };

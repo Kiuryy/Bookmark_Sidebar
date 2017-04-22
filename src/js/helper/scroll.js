@@ -43,6 +43,7 @@
             scrollBoxes.forEach((scrollBox) => {
                 if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
                     this.update(scrollBox, save);
+                    scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
                 }
             });
         };

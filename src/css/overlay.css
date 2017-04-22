@@ -122,7 +122,7 @@ div.scrollBox > div.scrollbar {
   width: 15px;
   padding: 4px 0;
   height: 100%;
-  transition: opacity 0.5s, background 0.3s;
+  transition: opacity 0.2s, background 0.3s;
   cursor: pointer;
   z-index: 2;
 }

@@ -11,6 +11,7 @@ $baseFontWeight: $__fontWeightNormal;
 $baseFontWeightBold: $__fontWeightBold;
 @import "include/generals";
 
+
 body {
   width: 100%;
   height: 100%;
@@ -181,7 +182,7 @@ section#sidebar {
         background-color: $hoverBackground;
       }
 
-      &.settings {
+      &.menu {
         margin-right: -7px;
       }
     }
@@ -365,7 +366,7 @@ section#sidebar {
           background-image: img('icon-search.webp');
         }
 
-        &.settings {
+        &.menu {
           background-image: img('icon-menu.webp');
         }
       }

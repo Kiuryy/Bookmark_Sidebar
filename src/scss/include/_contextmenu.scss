@@ -16,7 +16,7 @@ div.contextmenu {
     margin: 0 0 0 10px;
   }
 
-  &[data-type='settings'] {
+  &[data-type='menu'] {
     width: 200px;
     right: -67px;
     margin-top: -2px;
@@ -68,6 +68,10 @@ div.contextmenu {
 
         &[data-type='infos'] {
           background-image: img('icon-infos.webp');
+        }
+
+        &[data-type='add'] {
+          background-image: img('icon-add.webp');
         }
 
         &[data-type='show'] {
@@ -147,6 +151,6 @@ div.contextmenu {
   }
 }
 
-section#sidebar[data-pos='right'] div.contextmenu[data-type='settings'] {
+section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'] {
   right: 0;
 }

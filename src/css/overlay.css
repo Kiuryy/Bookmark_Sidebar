@@ -1,6 +1,11 @@
-div.modal[data-type='infos'] > ul > li > ul, div.modal > menu > a::before {
+div.modal[data-type='infos'] > ul > li > ul, div.modal[data-type='add'] > ul, div.modal[data-type='add'] > menu.hidden:not(.buttons), div.modal > menu.buttons > a::before {
   opacity: 0;
   pointer-events: none;
+}
+
+div.modal[data-type='add'] > ul.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @keyframes container-rotate {
@@ -274,7 +279,7 @@ div.modal > h1 {
   font-weight: "%fontWeightLight";
   height: 60px;
   padding: 15px 75px 14px 55px;
-  background: "%colorScheme" url(chrome-extension://__MSG_@@extension_id__/img/bookmark.webp) no-repeat 20px center;
+  background: "%colorScheme" url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.webp) no-repeat 20px center;
   background-size: 24px;
 }
 div.modal > a.close {
@@ -541,18 +546,18 @@ div.modal[data-type='infos'] > ul > li:hover > ul {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
-div.modal[data-type='edit'] > ul {
+div.modal[data-type='edit'] > ul, div.modal[data-type='add'] > ul {
   padding: 2px 30px;
 }
-div.modal[data-type='edit'] > ul > li {
+div.modal[data-type='edit'] > ul > li, div.modal[data-type='add'] > ul > li {
   margin: 20px 0 30px 0;
 }
-div.modal[data-type='edit'] > ul > li > label {
+div.modal[data-type='edit'] > ul > li > label, div.modal[data-type='add'] > ul > li > label {
   font-size: 140%;
   display: inline-block;
   width: 80px;
 }
-div.modal[data-type='edit'] > ul > li > input {
+div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='add'] > ul > li > input {
   display: inline-block;
   font-size: 120%;
   width: calc(100% - 80px);
@@ -562,19 +567,91 @@ div.modal[data-type='edit'] > ul > li > input {
   transition: border-color 0.5s;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-div.modal[data-type='edit'] > ul > li > input.error {
+div.modal[data-type='edit'] > ul > li > input.error, div.modal[data-type='add'] > ul > li > input.error {
   border-color: #f99;
 }
-div.modal[data-type='edit'] > ul > li > input:focus {
+div.modal[data-type='edit'] > ul > li > input:focus, div.modal[data-type='add'] > ul > li > input:focus {
   border-color: rgba(0, 0, 0, 0.25);
 }
-div.modal > menu {
+div.modal[data-type='add'] h2 {
+  margin: 0 0 40px 0;
+  font-weight: "%fontWeightThin";
+  font-size: 200%;
+}
+div.modal[data-type='add'] > ul {
+  transition: opacity 0.5s, transform 0.5s;
+  margin: 10px 0 0 0;
+  transform: translate3d(0, 15px, 0);
+}
+div.modal[data-type='add'] > ul.visible {
+  transform: translate3d(0, 0, 0);
+}
+div.modal[data-type='add'] > menu:not(.buttons) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 30px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+div.modal[data-type='add'] > menu:not(.buttons).hidden {
+  transform: translate3d(0, -40px, 0);
+}
+div.modal[data-type='add'] > menu:not(.buttons) > a {
+  position: relative;
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 36px;
+  transition: box-shadow 0.5s;
+}
+div.modal[data-type='add'] > menu:not(.buttons) > a::after {
+  content: attr(title);
+  position: absolute;
+  display: block;
+  bottom: -35px;
+  left: 0;
+  width: 100%;
+  padding: 40px 0 0 0;
+  font-size: 140%;
+  text-align: center;
+  color: "%textColor";
+  transition: color 0.5s;
+}
+div.modal[data-type='add'] > menu:not(.buttons) > a:hover {
+  box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.15);
+}
+div.modal[data-type='add'] > menu:not(.buttons) > a:hover::after {
+  color: "%colorScheme";
+}
+div.modal[data-type='add'] > menu:not(.buttons) > a[data-type='bookmark'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark-gray.webp);
+}
+div.modal[data-type='add'] > menu:not(.buttons) > a[data-type='dir'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/dir-alt2.webp);
+}
+div.modal[data-type='add'] > menu.buttons > a.action {
+  display: none;
+}
+div.modal[data-type='add'] > menu.buttons > a.action.visible {
+  display: inline-block;
+}
+div.modal > menu.buttons {
   position: absolute;
   bottom: 16px;
   right: 20px;
   z-index: 3;
 }
-div.modal > menu > a {
+div.modal > menu.buttons > a {
   position: relative;
   display: inline-block;
   padding: 5px 10px 4px;
@@ -585,7 +662,7 @@ div.modal > menu > a {
   border-radius: 3px;
   cursor: pointer;
 }
-div.modal > menu > a::before {
+div.modal > menu.buttons > a::before {
   content: "";
   position: absolute;
   display: block;
@@ -597,7 +674,7 @@ div.modal > menu > a::before {
   background: "%colorScheme";
   transition: opacity 0.5s;
 }
-div.modal > menu > a:hover::before {
+div.modal > menu.buttons > a:hover::before {
   opacity: 0.15;
 }
 

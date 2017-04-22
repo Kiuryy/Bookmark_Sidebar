@@ -22,6 +22,9 @@
         update: (id, obj, callback) => {
             chrome.bookmarks.update("" + id, obj, callback);
         },
+        create: (obj, callback) => {
+            chrome.bookmarks.create(obj, callback);
+        },
         move: (id, obj, callback) => {
             chrome.bookmarks.move("" + id, obj, callback);
         },
@@ -201,7 +204,36 @@
         }
 
         bookmarkObj.update(opts.id, values, () => {
-            sendResponse({updated: opts.id});
+            let lastError = chrome.runtime.lastError;
+            if (typeof lastError === "undefined") {
+                sendResponse({updated: opts.id});
+            } else {
+                sendResponse({error: lastError.message});
+            }
+        });
+    };
+
+    /**
+     * Creates a bookmark or directory with the given values (title, url)
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let createBookmark = (opts, sendResponse) => {
+        let values = {
+            parentId: opts.parentId,
+            index: opts.index || 0,
+            title: opts.title,
+            url: opts.url ? opts.url : null
+        };
+
+        bookmarkObj.create(values, () => {
+            let lastError = chrome.runtime.lastError;
+            if (typeof lastError === "undefined") {
+                sendResponse({created: opts.id});
+            } else {
+                sendResponse({error: lastError.message});
+            }
         });
     };
 
@@ -334,6 +366,7 @@
         searchBookmarks: getBookmarksBySearchVal,
         moveBookmark: moveBookmark,
         updateBookmark: updateBookmark,
+        createBookmark: createBookmark,
         deleteBookmark: deleteBookmark,
         shareUserdata: updateShareUserdataFlag,
         shareUserdataMask: shareUserdataMask,

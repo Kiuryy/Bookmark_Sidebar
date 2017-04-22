@@ -39,7 +39,7 @@
                 dirIcon: "icon",
                 bookmarkLink: "link",
                 bookmarkLabel: "label",
-                settings: "settings",
+                menu: "menu",
                 hidden: "hidden",
                 loading: "loading",
                 search: "search",
@@ -92,6 +92,7 @@
                 inputError: "error",
                 success: "success",
                 progressBar: "progressBar",
+                buttonWrapper: "buttons",
                 checkUrlProgressLabel: "progressLabel",
                 urlCheckLoading: "urlCheckLoading",
                 urlCheckList: "urlCheckList"

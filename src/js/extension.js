@@ -401,7 +401,7 @@
             let bookmarkAmount = Object.keys(this.entries.bookmarks).length;
 
             $("<span />").html("<span>" + bookmarkAmount + "</span> " + this.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : ""))).appendTo(this.elements.header);
-            $("<a />").addClass(this.opts.classes.sidebar.settings).appendTo(this.elements.header);
+            $("<a />").addClass(this.opts.classes.sidebar.menu).appendTo(this.elements.header);
             $("<a />").addClass(this.opts.classes.sidebar.search).appendTo(this.elements.header);
 
             $("<div />")

@@ -24,8 +24,8 @@
                     handleListMenu(contextmenu, elm);
                     break;
                 }
-                case "settings": {
-                    handleSettingsMenu(contextmenu, elm);
+                case "menu": {
+                    handleHeaderMenu(contextmenu, elm);
                     break;
                 }
             }
@@ -60,12 +60,12 @@
         };
 
         /**
-         * Extends the contextmenu with the links which are relevant for the settings
+         * Extends the contextmenu with the links which are relevant for the header menu
          *
          * @param {jsu} contextmenu
          * @param {jsu} elm
          */
-        let handleSettingsMenu = (contextmenu, elm) => {
+        let handleHeaderMenu = (contextmenu, elm) => {
             let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
             let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
 
@@ -90,7 +90,6 @@
             iconWrapper
                 .append("<li><a " + ext.opts.attr.type + "='settings' title='" + ext.lang("contextmenu_settings") + "'></a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='bookmarkManager' title='" + ext.lang("contextmenu_bookmark_manager") + "'></a></li>");
-            //.append("<li><a " + ext.opts.attr.type + "='updateUrls' title='" + ext.lang("contextmenu_update_urls") + "'></a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
@@ -136,6 +135,10 @@
                 .append("<li><a " + ext.opts.attr.type + "='infos' title='" + ext.lang("contextmenu_infos") + "'></a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='edit' title='" + ext.lang("contextmenu_edit" + i18nAppend) + "'></a></li>")
                 .append("<li><a " + ext.opts.attr.type + "='delete' title='" + ext.lang("contextmenu_delete" + i18nAppend) + "'></a></li>");
+
+            if (infos.children) {
+                iconWrapper.append("<li><a " + ext.opts.attr.type + "='add' title='" + ext.lang("contextmenu_add") + "'></a></li>");
+            }
 
             if (ext.isEntryVisible(infos.id)) {
                 iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.type + "='hide' title='" + ext.lang("contextmenu_hide_from_sidebar") + "'></a></li>");

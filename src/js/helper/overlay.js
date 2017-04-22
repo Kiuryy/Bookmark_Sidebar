@@ -27,7 +27,7 @@
             elements.modal.append("<h1>" + title + "</h1>");
             $("<a />").addClass(ext.opts.classes.overlay.close).appendTo(elements.modal);
 
-            elements.buttonWrapper = $("<menu />").appendTo(elements.modal);
+            elements.buttonWrapper = $("<menu />").addClass(ext.opts.classes.overlay.buttonWrapper).appendTo(elements.modal);
             $("<a />")
                 .addClass(ext.opts.classes.overlay.close)
                 .text(ext.lang("overlay_" + (type === "infos" ? "close" : "cancel")))
@@ -44,6 +44,10 @@
                 }
                 case "infos": {
                     handleInfosHtml(infos, isDir);
+                    break;
+                }
+                case "add": {
+                    handleAddHtml(infos, isDir);
                     break;
                 }
                 case "hide": {
@@ -211,6 +215,35 @@
             $("<p />").text(ext.lang("overlay_hide_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(infos, isDir, true);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
+        };
+
+        /**
+         * Extends the overlay html for adding a bookmark or directory
+         */
+        let handleAddHtml = () => {
+            let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_save")).appendTo(elements.buttonWrapper);
+            let menu = $("<menu />").appendTo(elements.modal);
+            $("<a href='#' />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.lang("overlay_label_bookmark")).appendTo(menu);
+            $("<a href='#' />").attr(ext.opts.attr.type, "dir").attr("title", ext.lang("overlay_label_dir")).appendTo(menu);
+
+            menu.children("a").on("click", (e) => {
+                e.preventDefault();
+                let type = $(e.currentTarget).attr(ext.opts.attr.type);
+                let list = $("<ul />").appendTo(elements.modal);
+                list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
+                list.append("<li><label>" + ext.lang("overlay_bookmark_title") + "</label><input type='text' name='title' /></li>");
+
+                if (type === "bookmark") {
+                    list.append("<li><label>" + ext.lang("overlay_bookmark_url") + "</label><input type='text' name='url' /></li>");
+                }
+
+                menu.addClass(ext.opts.classes.sidebar.hidden);
+
+                setTimeout(() => {
+                    list.addClass(ext.opts.classes.overlay.visible);
+                    submit.addClass(ext.opts.classes.overlay.visible);
+                }, 200);
+            });
         };
 
         /**
@@ -403,30 +436,90 @@
         };
 
         /**
+         * Validates the modal form for editing or adding entries,
+         * returns the content of the fields and whether the form is filled properly
+         *
+         * @param {boolean} isDir
+         * @returns {Object}
+         */
+        let getFormValues = (isDir) => {
+            let titleInput = elements.modal.find("input[name='title']").removeClass(ext.opts.classes.overlay.inputError);
+            let urlInput = elements.modal.find("input[name='url']").removeClass(ext.opts.classes.overlay.inputError);
+
+            let ret = {
+                errors: false,
+                values: {
+                    title: titleInput[0].value.trim(),
+                    url: isDir ? null : urlInput[0].value.trim()
+                }
+            };
+
+            if (ret.values.title.length === 0) {
+                titleInput.addClass(ext.opts.classes.overlay.inputError);
+                ret.errors = true;
+            }
+            if (!isDir && ret.values.url.length === 0) {
+                urlInput.addClass(ext.opts.classes.overlay.inputError);
+                ret.errors = true;
+            }
+
+            if (ret.values.url !== null && ret.values.url.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
+                ret.values.url = "http://" + ret.values.url;
+            }
+
+            return ret;
+        };
+
+        /**
          * Updates the given bookmark or directory (title, url)
          *
          * @param {object} infos
          */
-        let editBookmark = (infos) => {
-            let isDir = !!(infos.children);
-            let titleInput = elements.modal.find("input[name='title']");
-            let urlInput = elements.modal.find("input[name='url']");
+        let editEntry = (infos) => {
+            let formValues = getFormValues(!!(infos.children));
 
-            let title = titleInput[0].value.trim();
-            let url = isDir ? null : urlInput[0].value.trim();
+            if (formValues.errors === false) {
+                ext.helper.model.call("updateBookmark", {
+                    id: infos.id,
+                    title: formValues.values.title,
+                    url: formValues.values.url
+                }, (result) => {
+                    if (result.error) {
+                        elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
+                    } else {
+                        closeOverlay();
+                        infos.title = formValues.values.title;
+                        infos.url = formValues.values.url;
+                        infos.element.data("infos", infos);
+                        infos.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(infos.title);
+                    }
+                });
+            }
+        };
 
-            if (title.length === 0) {
-                titleInput.addClass(ext.opts.classes.overlay.inputError);
-            } else if (!isDir && url.length === 0) {
-                urlInput.addClass(ext.opts.classes.overlay.inputError);
-            } else {
-                closeOverlay();
+        /**
+         * Adds a bookmark or directory to the given directory
+         *
+         * @param {object} infos
+         */
+        let addEntry = (infos) => {
+            let formValues = getFormValues(elements.modal.find("input[name='url']").length() === 0);
 
-                ext.helper.model.call("updateBookmark", {id: infos.id, title: title, url: url}, () => {
-                    infos.title = title;
-                    infos.url = url;
-                    infos.element.data("infos", infos);
-                    infos.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(infos.title);
+            if (formValues.errors === false) {
+                ext.helper.model.call("createBookmark", {
+                    parentId: infos.id,
+                    index: 0,
+                    title: formValues.values.title,
+                    url: formValues.values.url
+                }, (result) => {
+                    if (result.error) {
+                        elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
+                    } else {
+                        ext.startLoading();
+                        ext.updateBookmarkBox();
+                        closeOverlay();
+                        ext.endLoading();
+                    }
                 });
             }
         };
@@ -449,12 +542,10 @@
                 }
             });
 
-            ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
+            ext.startLoading();
+            ext.updateBookmarkBox();
             closeOverlay();
-
-            setTimeout(() => {
-                ext.updateBookmarkBox();
-            }, 300);
+            ext.endLoading();
         };
 
         /**
@@ -496,7 +587,11 @@
                         break;
                     }
                     case "edit": {
-                        editBookmark(infos);
+                        editEntry(infos);
+                        break;
+                    }
+                    case "add": {
+                        addEntry(infos);
                         break;
                     }
                     case "updateUrls": {

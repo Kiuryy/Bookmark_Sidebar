@@ -186,7 +186,7 @@ div.contextmenu[data-type='list'] {
   left: -9999px;
   margin: 0 0 0 10px;
 }
-div.contextmenu[data-type='settings'] {
+div.contextmenu[data-type='menu'] {
   width: 200px;
   right: -67px;
   margin-top: -2px;
@@ -230,6 +230,9 @@ div.contextmenu > ul.icons > li > a[data-type='edit'] {
 }
 div.contextmenu > ul.icons > li > a[data-type='infos'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-infos.webp);
+}
+div.contextmenu > ul.icons > li > a[data-type='add'] {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.webp);
 }
 div.contextmenu > ul.icons > li > a[data-type='show'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-show.webp);
@@ -288,7 +291,7 @@ div.contextmenu > ul.list > li > a[data-type='updateUrls'] {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.webp);
 }
 
-section#sidebar[data-pos='right'] div.contextmenu[data-type='settings'] {
+section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'] {
   right: 0;
 }
 
@@ -454,7 +457,7 @@ section#sidebar > header > a {
 section#sidebar > header > a:hover, section#sidebar > header > a.active {
   background-color: #f5f5f5;
 }
-section#sidebar > header > a.settings {
+section#sidebar > header > a.menu {
   margin-right: -7px;
 }
 section#sidebar > header > div.searchBox {
@@ -639,7 +642,7 @@ section#sidebar > div.scrollBox > ul.hideRoot > li > ul {
 section#sidebar.openedOnce > header > a.search {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.webp);
 }
-section#sidebar.openedOnce > header > a.settings {
+section#sidebar.openedOnce > header > a.menu {
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.webp);
 }
 section#sidebar.openedOnce > header > div.searchBox > a.searchClose {

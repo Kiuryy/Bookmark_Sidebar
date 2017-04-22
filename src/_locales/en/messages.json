@@ -56,6 +56,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Open in incognito window"
     },
+    "contextmenu_add": {
+        "message": "Add entry"
+    },
     "contextmenu_open_children": {
         "message": "Open bookmarks"
     },
@@ -109,6 +112,12 @@
     },
     "overlay_delete_dir_confirm": {
         "message": "Do you really want to delete this directory? All subordinate bookmarks will be removed too."
+    },
+    "overlay_label_bookmark": {
+        "message": "Bookmark"
+    },
+    "overlay_label_dir": {
+        "message": "Directory"
     },
     "overlay_bookmark_views": {
         "message": "Views"

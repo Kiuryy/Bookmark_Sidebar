@@ -147,11 +147,11 @@
                 ext.helper.contextmenu.close();
             });
 
-            ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar.settings, (e) => { // Menu contextmenu
+            ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar.menu, (e) => { // Menu contextmenu
                 e.preventDefault();
                 e.stopPropagation();
                 ext.helper.contextmenu.close();
-                ext.helper.contextmenu.create("settings", $(e.currentTarget));
+                ext.helper.contextmenu.create("menu", $(e.currentTarget));
             });
 
             ext.elements.iframeBody.on("click", "#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => { // share userdata mask

@@ -25,7 +25,7 @@ body > div#moonware-bs-visual {
 
     &::after {
       position: absolute;
-      background: img('bookmark.webp') no-repeat center / $__indicatorIconSize;
+      background: img('icon-bookmark.webp') no-repeat center / $__indicatorIconSize;
       z-index: 2;
     }
 
@@ -59,7 +59,6 @@ body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-b
     background-position-y: 20px;
   }
 }
-
 
 // Sidebar
 body > iframe#moonware-bs-sidebar {

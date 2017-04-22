@@ -43,6 +43,7 @@
                 linkAction: "current",
                 dirAccordion: false,
                 rememberState: "all",
+                rememberSearch: true,
                 dirOpenDuration: 0.5,
                 openDelay: 0,
                 closeTimeout: 1
@@ -231,10 +232,15 @@
          * Sends a message to the model and calls the callback function when receiving a response
          *
          * @param {string} key
-         * @param {object} opts
+         * @param {object|function} opts
          * @param {function} callback
          */
         this.call = (key, opts, callback) => {
+            if (typeof opts === "function") {
+                callback = opts;
+                opts = {};
+            }
+
             opts.type = key;
             chrome.extension.sendMessage(opts, (response) => {
                 if (typeof callback === "function") {

@@ -1,6 +1,7 @@
 (() => {
     "use strict";
 
+    let shareUserdata = null;
     let data = {};
     let xhrList = [];
     let xhrUrls = {
@@ -245,6 +246,20 @@
     };
 
     /**
+     * Returns whether the ShareUserdata-Mask should be shown or not
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let shareUserdataMask = (opts, sendResponse) => {
+        let showMask = false;
+        if (shareUserdata === null && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
+            showMask = true;
+        }
+        sendResponse({showMask: showMask});
+    };
+
+    /**
      * Updates the shareUserdata-Flag
      *
      * @param {object} opts
@@ -254,6 +269,7 @@
         chrome.storage.sync.set({
             shareUserdata: opts.share
         });
+        shareUserdata = opts.share;
         data.lastShareDate = 0;
         saveModelData();
     };
@@ -320,6 +336,7 @@
         updateBookmark: updateBookmark,
         deleteBookmark: deleteBookmark,
         shareUserdata: updateShareUserdataFlag,
+        shareUserdataMask: shareUserdataMask,
         favicon: getFavicon,
         openLink: openLink,
         viewAmount: getViewAmount
@@ -367,6 +384,7 @@
 
                         delete obj.behaviour.rememberScroll;
                         delete obj.behaviour.model;
+                        delete obj.behaviour.clickCounter;
                         delete obj.behaviour.clickCounterStartDate;
 
                         chrome.storage.sync.set({behaviour: obj.behaviour});
@@ -505,6 +523,7 @@
     let initModel = () => {
         chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
             data = obj.model || {};
+            shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
 
             if (typeof data.uuid === "undefined") { // no uuid yet -> set new one
                 data.uuid = (() => {
@@ -526,12 +545,6 @@
 
             if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
                 data.installationDate = +new Date();
-            } else if (typeof obj.shareUserdata === "undefined" && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
-                setTimeout(() => { // show mask in the active tab 60s after the model was loaded (increases the possibility that there is an active tab with the sidebar loaded)
-                    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                        chrome.tabs.sendMessage(tabs[0].id, {action: "showShareUserdataMask"});
-                    });
-                }, 1000 * 60);
             }
 
             saveModelData();
@@ -540,9 +553,9 @@
 
 
     /**
-     * Shares the userdata if user allowed so
+     * Shares the userdata if the user allowed to
      */
-    let shareUserdata = () => {
+    let handleShareUserdata = () => {
         chrome.storage.sync.get(null, (obj) => {
             if (typeof obj.model !== "undefined" && typeof obj.model.uuid !== "undefined" && (typeof obj.model.lastShareDate === "undefined" || (+new Date() - obj.model.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
                 data.lastShareDate = +new Date();
@@ -612,7 +625,7 @@
      */
     (() => {
         initModel();
-        shareUserdata();
+        handleShareUserdata();
     })();
 
 })();

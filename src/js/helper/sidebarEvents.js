@@ -143,25 +143,18 @@
                 }
             });
 
-
             ext.elements.iframe.find("body").on("click", () => {
                 ext.helper.contextmenu.close();
             });
 
-            chrome.extension.onMessage.addListener((message) => {
-                if (message && message.action && message.action === "showShareUserdataMask") {
-                    ext.initShareUserdataMask();
-                }
-            });
-
-            ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar.settings, (e) => {
+            ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar.settings, (e) => { // Menu contextmenu
                 e.preventDefault();
                 e.stopPropagation();
                 ext.helper.contextmenu.close();
                 ext.helper.contextmenu.create("settings", $(e.currentTarget));
             });
 
-            ext.elements.iframeBody.on("click", "div#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => {
+            ext.elements.iframeBody.on("click", "#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => { // share userdata mask
                 e.preventDefault();
                 ext.helper.model.call("shareUserdata", {
                     share: $(e.currentTarget).data("accept")

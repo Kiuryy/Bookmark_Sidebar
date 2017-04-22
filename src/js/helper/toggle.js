@@ -172,18 +172,26 @@
             clearSidebarTimeout("open");
             ext.helper.contextmenu.close();
             ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
-            $(document).trigger("mousemove");
+            $(document).trigger("mousemove"); // hide indicator
         };
 
         /**
          * Opens the sidebar
          */
         let openSidebar = () => {
+            ext.helper.model.call("shareUserdataMask", (opts) => { // check whether to show the share userdata mask or not
+                if (opts && opts.showMask) {
+                    ext.addShareUserdataMask();
+                } else {
+                    ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
+                }
+            });
+
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
             ext.helper.scroll.updateAll();
             ext.initImages();
-            $(document).trigger("mousemove");
+            $(document).trigger("mousemove"); // hide indicator
         };
 
         /**

@@ -278,24 +278,22 @@
         };
 
         /**
-         * Adds a mask over the sidebar to encourage the user the share their userdata,
-         * only add the mask, if the sidebar is not opened
+         * Adds a mask over the sidebar to encourage the user the share their userdata
          */
-        this.initShareUserdataMask = () => {
-            if (!this.elements.iframe.hasClass(this.opts.classes.page.visible)) {
-                let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
-                let contentBox = $("<div />").prependTo(shareUserdataMask);
+        this.addShareUserdataMask = () => {
+            this.elements.sidebar.find("#" + this.opts.ids.sidebar.shareUserdata).remove();
+            let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
+            let contentBox = $("<div />").prependTo(shareUserdataMask);
 
-                $("<h2 />").html(this.lang("share_userdata_headline")).appendTo(contentBox);
-                $("<p />").html(this.lang("share_userdata_desc")).appendTo(contentBox);
-                $("<p />").html(this.lang("share_userdata_desc2")).appendTo(contentBox);
+            $("<h2 />").html(this.lang("share_userdata_headline")).appendTo(contentBox);
+            $("<p />").html(this.lang("share_userdata_desc")).appendTo(contentBox);
+            $("<p />").html(this.lang("share_userdata_desc2")).appendTo(contentBox);
 
-                let noticeText = this.lang("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
-                $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
+            let noticeText = this.lang("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
+            $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
 
-                $("<a href='#' />").data("accept", true).html(this.lang("share_userdata_accept")).appendTo(contentBox);
-                $("<a href='#' />").data("accept", false).html(this.lang("share_userdata_decline")).appendTo(contentBox);
-            }
+            $("<a href='#' />").data("accept", true).html(this.lang("share_userdata_accept")).appendTo(contentBox);
+            $("<a href='#' />").data("accept", false).html(this.lang("share_userdata_decline")).appendTo(contentBox);
         };
 
 

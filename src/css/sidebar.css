@@ -556,11 +556,11 @@ section#sidebar > div.scrollBox > ul a.mark {
   background: "%colorScheme";
   color: #fff;
 }
-section#sidebar > div.scrollBox > ul a.dir {
-  font-weight: "%fontWeightBold";
-}
 section#sidebar > div.scrollBox > ul a.active {
   font-weight: "%fontWeightMedium";
+}
+section#sidebar > div.scrollBox > ul a.dir {
+  font-weight: "%fontWeightBold";
 }
 section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon {
   display: inline-block;
@@ -678,11 +678,11 @@ a.dragHelper.mark {
   background: "%colorScheme";
   color: #fff;
 }
-a.dragHelper.dir {
-  font-weight: "%fontWeightBold";
-}
 a.dragHelper.active {
   font-weight: "%fontWeightMedium";
+}
+a.dragHelper.dir {
+  font-weight: "%fontWeightBold";
 }
 a.dragHelper > img, a.dragHelper > span.icon {
   display: inline-block;

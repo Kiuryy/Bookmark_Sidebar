@@ -66,12 +66,12 @@ body {
     color: $textColorInverted;
   }
 
-  &.dir {
-    font-weight: $__fontWeightBold;
-  }
-
   &.active {
     font-weight: $__fontWeightMedium;
+  }
+
+  &.dir {
+    font-weight: $__fontWeightBold;
   }
 
   > img, > span.icon {

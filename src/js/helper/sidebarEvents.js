@@ -137,7 +137,8 @@
             });
 
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => { // scroll to top with pos1
-                if (e.key === "Home") {
+                if (e.key === "Home" && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    e.preventDefault();
                     ext.helper.scroll.setAllScrollPos(0);
                 }
             });

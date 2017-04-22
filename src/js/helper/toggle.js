@@ -77,6 +77,7 @@
 
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
                 if ((e.key === "Escape" || e.key === "Esc") && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // close when hitting esc
+                    e.preventDefault();
                     closeSidebar();
                 }
             });

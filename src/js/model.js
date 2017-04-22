@@ -358,6 +358,25 @@
                 });
 
                 chrome.storage.sync.get(null, (obj) => {  // UPGRADE STORAGE STRUCTURE
+
+                    // START UPGRADE STORAGE STRUCTURE FOR v1.7
+                    if (obj.behaviour) {
+                        if (typeof obj.behaviour.rememberState === "undefined" && typeof obj.behaviour.rememberScroll !== "undefined") {
+                            obj.behaviour.rememberState = obj.behaviour.rememberScroll === false ? "openStates" : "all";
+                        }
+
+                        delete obj.behaviour.rememberScroll;
+                        delete obj.behaviour.model;
+                        delete obj.behaviour.clickCounterStartDate;
+
+                        chrome.storage.sync.set({behaviour: obj.behaviour});
+                    }
+
+                    if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
+                        chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
+                    }
+                    // END UPGRADE STORAGE STRUCTURE FOR v1.7
+
                     if (obj["appearance"]) {
                         // START UPGRADE STORAGE STRUCTURE FOR v1.5
                         if (typeof obj.model.shareUserdata !== "undefined" && typeof obj.shareUserdata === "undefined") {

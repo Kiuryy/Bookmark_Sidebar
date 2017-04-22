@@ -43,7 +43,6 @@
                 linkAction: "current",
                 dirAccordion: false,
                 rememberState: "all",
-                rememberSearch: true,
                 dirOpenDuration: 0.5,
                 openDelay: 0,
                 closeTimeout: 1

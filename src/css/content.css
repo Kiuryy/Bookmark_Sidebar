@@ -46,18 +46,19 @@ body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-b
 
 body > iframe#moonware-bs-sidebar {
   width: "%sidebarWidth";
-  height: 100%;
+  height: 0;
   z-index: 2147483646;
   background-color: "%sidebarMaskColor";
   border: none;
   transform: translate3d(-"%sidebarWidth", 0, 0);
-  transition: width 0s 0.3s, opacity 0.3s, transform 0.3s;
+  transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s;
 }
 body > iframe#moonware-bs-sidebar[data-pos='right'] {
   transform: translate3d("%sidebarWidth", 0, 0);
 }
 body > iframe#moonware-bs-sidebar.moonware-bs-visible {
   width: calc(100% + %sidebarWidth);
+  height: 100%;
   transform: translate3d(0, 0, 0);
   transition: opacity 0.3s, transform 0.3s;
 }

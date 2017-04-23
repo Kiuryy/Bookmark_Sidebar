@@ -19,6 +19,14 @@ $colorError: #f99;
 
 // Sidebar
 $hoverBackground: #f5f5f5;
+$sidebarHeaderHeight: 54px;
+$overlayHeaderHeight: 54px;
+$contextMenuIconColor: #ccc;
+$reorderIconColor: #ccc;
+$reorderIconColorActive: #999;
+
+$demoColors: #37bf99 #d737d5 #3e6bf2 #f4572f #f74b58 #f5a2bf #1a90ba #b4bd0e #fdde32 #8ccbce;
+
 
 // Dynamic
 $__colorScheme: "%colorScheme";
@@ -29,10 +37,12 @@ $__bookmarksFontSize: "%bookmarksFontSize";
 $__bookmarksIconSize: "%bookmarksIconSize";
 $__bookmarksLineHeight: "%bookmarksLineHeight";
 $__bookmarksDirIcon: "%bookmarksDirIcon";
+$__bookmarksDirColor: "%bookmarksDirColor";
 $__bookmarksDirIndentation: "%bookmarksDirIndentation";
 $__bookmarksHorizontalPadding: "%bookmarksHorizontalPadding";
 $__indicatorWidth: "%indicatorWidth";
 $__indicatorIconSize: "%indicatorIconSize";
+$__indicatorIconColor: "%indicatorIconColor";
 $__indicatorColor: "%indicatorColor";
 $__overlayMaskColor: "%overlayMaskColor";
 

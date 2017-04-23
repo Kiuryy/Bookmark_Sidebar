@@ -8,6 +8,17 @@ body > iframe#moonware-bs-sidebar.moonware-bs-visible, body > iframe#moonware-bs
   pointer-events: auto;
 }
 
+body > div#moonware-bs-visual.moonware-bs-add-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/"%indicatorIconSize";
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg);
+  background-color: "%indicatorIconColor";
+}
 body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonware-bs-visual.moonware-bs-add-visual::after {
   content: "";
   position: absolute;
@@ -17,15 +28,11 @@ body > div#moonware-bs-visual.moonware-bs-add-visual::before, body > div#moonwar
   left: 0;
   width: "%indicatorWidth";
   height: 100%;
-}
-body > div#moonware-bs-visual.moonware-bs-add-visual::before {
-  background: "%indicatorColor";
-  z-index: 1;
+  z-index: 2;
 }
 body > div#moonware-bs-visual.moonware-bs-add-visual::after {
-  position: absolute;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.webp) no-repeat center/"%indicatorIconSize";
-  z-index: 2;
+  background: "%indicatorColor";
+  z-index: 1;
 }
 body > div#moonware-bs-visual.moonware-bs-add-visual[data-pos='right']::before, body > div#moonware-bs-visual.moonware-bs-add-visual[data-pos='right']::after {
   transform: translate3d("%indicatorWidth", 0, 0);
@@ -37,11 +44,11 @@ body > div#moonware-bs-visual.moonware-bs-add-visual.moonware-bs-hover::before, 
   opacity: 1;
 }
 
-body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb::before {
+body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb::after {
   background: transparent;
 }
-body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb::after {
-  background-position-y: 20px;
+body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb::before {
+  -webkit-mask-position-y: 20px;
 }
 
 body > iframe#moonware-bs-sidebar {

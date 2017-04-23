@@ -9,6 +9,26 @@
   pointer-events: auto;
 }
 
+@mixin mask($icon,$color,$size) {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center / $size;
+    @if ($icon) {
+      @include maskImage($icon);
+    }
+    background-color: $color;
+  }
+}
+
+@mixin maskImage($icon) {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/#{$icon}.svg);
+}
+
 @function img($path) {
   @return url(chrome-extension://__MSG_@@extension_id__/img/#{$path});
 }

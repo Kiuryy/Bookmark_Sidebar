@@ -19,8 +19,9 @@ section.infobox {
 
   > div {
     position: relative;
+    width: 100%;
     max-width: 650px;
-    padding: 40px 30px;
+    padding: 30px;
     background: $gradient;
     color: $textColorInverted;
     text-align: center;
@@ -38,9 +39,10 @@ section.infobox {
     }
 
     h1 {
-      font-size: 250%;
+      font-size: 200%;
       line-height: 130%;
       font-weight: 200;
+      margin: 15px 0 0 0;
 
       @media (max-width: 650px) {
         font-size: 200%;

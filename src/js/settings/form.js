@@ -72,7 +72,6 @@
                             picker.alpha.on("change input", () => picker.trigger("change"));
                         }
 
-
                         picker.on("change", (color) => {
                             let v = CP._HSV2RGB(picker.set());
 
@@ -80,8 +79,9 @@
                                 v = CP.HEX2RGB(color);
                             }
 
+                            picker.alpha && picker.alpha.css("background-image", "linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%),url(" + chrome.extension.getURL("img/settings/alpha.webp") + ")");
+
                             if (picker.alpha && +picker.alpha[0].value < 1) {
-                                picker.alpha.css("background-image", "linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%),url(" + chrome.extension.getURL("img/settings/alpha.webp") + ")");
                                 v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value + ')';
                             } else {
                                 v = 'rgb(' + v.join(',') + ')';

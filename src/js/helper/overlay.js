@@ -104,6 +104,8 @@
                 preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
             } else if (infos.icon) {
                 preview.prepend("<img src='" + infos.icon + "' />");
+            } else if (ext.opts.demoMode) {
+                preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
             }
 
             if (addUrl && addUrl === true && isDir === false) {
@@ -242,7 +244,7 @@
                 setTimeout(() => {
                     list.addClass(ext.opts.classes.overlay.visible);
                     submit.addClass(ext.opts.classes.overlay.visible);
-                }, 200);
+                }, 100);
             });
         };
 
@@ -316,14 +318,14 @@
 
                             $("<a />").attr({
                                 href: entry.url, title: entry.url, target: "_blank"
-                            }).text(entry.url).appendTo(listEntry);
+                            }).html("<span>" + entry.url + "</span>").appendTo(listEntry);
 
                             if (entry.urlStatusCode === 404) {
                                 $("<span />").text(ext.lang("overlay_check_urls_not_found")).appendTo(listEntry);
                             } else if (entry.newUrl !== entry.url) {
                                 $("<a />").attr({
                                     href: entry.newUrl, title: entry.newUrl, target: "_blank"
-                                }).text(entry.newUrl).appendTo(listEntry);
+                                }).html("<span>" + entry.newUrl + "</span>").appendTo(listEntry);
                             }
 
                             listEntry = listEntry.appendTo(scrollBox.children("ul"));

@@ -108,7 +108,8 @@
             let contentHeight = scrollBox.data("content").realHeight(true);
 
             scrollPos = Math.max(0, scrollPos);
-            if (boxHeight >= contentHeight) { // content is higher than the box -> scrollpos = 0
+            if (boxHeight >= contentHeight) { // box is higher than the content -> scrollpos = 0
+                scrollBox.addClass(ext.opts.classes.scrollBox.scrolledEnd);
                 scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.inactive);
                 scrollPos = 0;
             } else { // limits the scrollpos to the contents end

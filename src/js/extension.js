@@ -100,7 +100,7 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elements.sidebar.addClass(this.opts.classes.sidebar.loading);
+            this.elements.sidebar.addClass(opts.classes.sidebar.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
@@ -117,7 +117,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elements.sidebar.removeClass(this.opts.classes.sidebar.loading);
+                this.elements.sidebar.removeClass(opts.classes.sidebar.loading);
                 loadingInfo.loader && loadingInfo.loader.remove();
                 loadingInfo = {};
             }, timeout);
@@ -139,7 +139,7 @@
                 Object.keys(data.openStates).forEach((node) => {
                     if (data.openStates[node] === true) {
                         let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
-                        let entry = list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir + "[" + this.opts.attr.id + "='" + id + "']");
+                        let entry = list.find("> li > a." + opts.classes.sidebar.bookmarkDir + "[" + opts.attr.id + "='" + id + "']");
 
                         if (entry.length() > 0) {
                             opened++;
@@ -172,8 +172,8 @@
         this.addBookmarkDir = (bookmarks, list) => {
             let ret = 0;
             let config = this.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
-            let sidebarOpen = this.elements.iframe.hasClass(this.opts.classes.page.visible);
-            let showHidden = this.elements.iframeBody.hasClass(this.opts.classes.sidebar.showHidden);
+            let sidebarOpen = this.elements.iframe.hasClass(opts.classes.page.visible);
+            let showHidden = this.elements.iframeBody.hasClass(opts.classes.sidebar.showHidden);
 
             if (list.parents("li").length() > 0) {
                 list.css("transition", "height " + config.dirOpenDuration + "s");
@@ -192,12 +192,12 @@
 
                     let entry = $("<li />").appendTo(list);
                     let entryContent = $("<a />")
-                        .html("<span class='" + this.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + this.opts.classes.drag.trigger + "' />")
-                        .attr(this.opts.attr.id, bookmark.id)
+                        .html("<span class='" + opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + opts.classes.drag.trigger + "' />")
+                        .attr(opts.attr.id, bookmark.id)
                         .appendTo(entry);
 
                     if (this.isEntryVisible(bookmark.id) === false) {
-                        entry.addClass(this.opts.classes.sidebar.hidden);
+                        entry.addClass(opts.classes.sidebar.hidden);
                     }
 
                     bookmark.element = entryContent;
@@ -206,31 +206,31 @@
                         entryContent
                             .data("infos", bookmark)
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
-                            .addClass(this.opts.classes.sidebar.bookmarkDir);
+                            .addClass(opts.classes.sidebar.bookmarkDir);
 
                         if (config.showBookmarkIcons) {
-                            entryContent.prepend("<span class='" + this.opts.classes.sidebar.dirIcon + "' />");
+                            entryContent.prepend("<span class='" + opts.classes.sidebar.dirIcon + "' />");
                         }
                     } else { // link
                         entryContent
                             .data("infos", bookmark)
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
-                            .addClass(this.opts.classes.sidebar.bookmarkLink);
+                            .addClass(opts.classes.sidebar.bookmarkLink);
 
                         if (config.showBookmarkIcons) {
-                            this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
-                                if (opts.demoMode) {
-                                    response.img = chrome.extension.getURL("img/demo/favicon-" + (Math.floor(Math.random() * 10) + 1  ) + ".webp");
-                                }
+                            if (opts.demoMode) {
+                                entryContent.prepend("<span class='" + opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                            } else {
+                                this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
+                                    if (response.img) { // favicon found -> add to entry
+                                        bookmark.icon = response.img;
 
-                                if (response.img) { // favicon found -> add to entry
-                                    bookmark.icon = response.img;
-
-                                    entryContent
-                                        .data("infos", bookmark)
-                                        .prepend("<img " + (sidebarOpen ? "src" : this.opts.attr.src) + "='" + bookmark.icon + "' />")
-                                }
-                            });
+                                        entryContent
+                                            .data("infos", bookmark)
+                                            .prepend("<img " + (sidebarOpen ? "src" : opts.attr.src) + "='" + bookmark.icon + "' />")
+                                    }
+                                });
+                            }
                         }
                     }
 
@@ -245,10 +245,10 @@
          * Initialises the not yet loaded images in the sidebar
          */
         this.initImages = () => {
-            this.elements.sidebar.find("img[" + this.opts.attr.src + "]").forEach((_self) => {
+            this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
                 let img = $(_self);
-                let src = img.attr(this.opts.attr.src);
-                img.removeAttr(this.opts.attr.src);
+                let src = img.attr(opts.attr.src);
+                img.removeAttr(opts.attr.src);
                 img.attr("src", src);
             });
         };
@@ -261,15 +261,15 @@
                 if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
                     this.firstRun = true;
                     let list = this.elements.bookmarkBox["all"].children("ul");
-                    list.removeClass(this.opts.classes.sidebar.hideRoot).text("");
+                    list.removeClass(opts.classes.sidebar.hideRoot).text("");
 
                     updateEntriesInfo(response.bookmarks[0].children);
                     this.helper.search.init();
                     this.addBookmarkDir(response.bookmarks[0].children, list);
 
                     if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                        list.addClass(this.opts.classes.sidebar.hideRoot);
-                        this.helper.sidebarEvents.toggleBookmarkDir(list.find("> li > a." + this.opts.classes.sidebar.bookmarkDir).eq(0));
+                        list.addClass(opts.classes.sidebar.hideRoot);
+                        this.helper.sidebarEvents.toggleBookmarkDir(list.find("> li > a." + opts.classes.sidebar.bookmarkDir).eq(0));
                     } else {
                         this.restoreOpenStates(list);
                     }
@@ -281,7 +281,7 @@
          * Adds a mask over the sidebar to encourage the user the share their userdata
          */
         this.addShareUserdataMask = () => {
-            this.elements.sidebar.find("#" + this.opts.ids.sidebar.shareUserdata).remove();
+            this.elements.sidebar.find("#" + opts.ids.sidebar.shareUserdata).remove();
             let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
             let contentBox = $("<div />").prependTo(shareUserdataMask);
 
@@ -329,27 +329,29 @@
         let initSidebar = () => {
             this.helper.stylesheet.addStylesheets(["content"]);
 
-            this.elements.iframe = $('<iframe id="' + this.opts.ids.page.iframe + '" />').appendTo("body");
+            this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
             this.elements.iframeBody = this.elements.iframe.find("body");
-            this.elements.sidebar = $('<section id="' + this.opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
+            this.elements.sidebar = $('<section id="' + opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
 
             this.elements.bookmarkBox = {
-                all: this.helper.scroll.add(this.opts.ids.sidebar.bookmarkBox, $("<ul />").appendTo(this.elements.sidebar)),
-                search: this.helper.scroll.add(this.opts.ids.sidebar.bookmarkBoxSearch, $("<ul />").appendTo(this.elements.sidebar))
+                all: this.helper.scroll.add(opts.ids.sidebar.bookmarkBox, $("<ul />").appendTo(this.elements.sidebar)),
+                search: this.helper.scroll.add(opts.ids.sidebar.bookmarkBoxSearch, $("<ul />").appendTo(this.elements.sidebar))
             };
 
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
             let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
+
             if (data.entriesLocked === false) {
-                this.elements.iframeBody.addClass(this.opts.classes.sidebar.entriesUnlocked);
-            }
-            if (data.showHidden === true) {
-                this.elements.iframeBody.addClass(this.opts.classes.sidebar.showHidden);
+                this.elements.iframeBody.addClass(opts.classes.sidebar.entriesUnlocked);
             }
 
-            this.elements.bookmarkBox["all"].addClass(this.opts.classes.sidebar.active);
+            if (data.showHidden === true) {
+                this.elements.iframeBody.addClass(opts.classes.sidebar.showHidden);
+            }
+
+            this.elements.bookmarkBox["all"].addClass(opts.classes.sidebar.active);
             this.updateBookmarkBox();
             this.helper.toggle.init();
         };
@@ -362,7 +364,7 @@
          */
         let updateEntriesInfo = (bookmarkTree) => {
             let hiddenEntries = this.helper.model.getData("u/hiddenEntries");
-            let showHidden = this.elements.iframeBody.hasClass(this.opts.classes.sidebar.showHidden);
+            let showHidden = this.elements.iframeBody.hasClass(opts.classes.sidebar.showHidden);
 
             this.entries = {
                 bookmarks: {},
@@ -400,14 +402,14 @@
             this.elements.header.text("");
             let bookmarkAmount = Object.keys(this.entries.bookmarks).length;
 
-            $("<span />").html("<span>" + bookmarkAmount + "</span> " + this.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : ""))).appendTo(this.elements.header);
-            $("<a />").addClass(this.opts.classes.sidebar.menu).appendTo(this.elements.header);
-            $("<a />").addClass(this.opts.classes.sidebar.search).appendTo(this.elements.header);
+            $("<h1 />").html("<strong>" + bookmarkAmount + "</strong> <span>" + this.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>").appendTo(this.elements.header);
+            $("<a />").addClass(opts.classes.sidebar.menu).appendTo(this.elements.header);
+            $("<a />").addClass(opts.classes.sidebar.search).appendTo(this.elements.header);
 
             $("<div />")
-                .addClass(this.opts.classes.sidebar.searchBox)
+                .addClass(opts.classes.sidebar.searchBox)
                 .append("<input type='text' placeholder='" + this.lang("sidebar_search_placeholder") + "' />")
-                .append("<a href='#' class='" + this.opts.classes.sidebar.searchClose + "'></a>")
+                .append("<a href='#' class='" + opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(this.elements.header);
         };
 
@@ -418,8 +420,8 @@
         let extensionLoaded = () => {
             let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
 
-            this.elements.iframeBody.addClass(this.opts.classes.sidebar.extLoaded);
-            document.dispatchEvent(new CustomEvent(this.opts.events.loaded, {
+            this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
+            document.dispatchEvent(new CustomEvent(opts.events.loaded, {
                 detail: {
                     pxTolerance: data.pxTolerance,
                     showIndicator: data.showIndicator

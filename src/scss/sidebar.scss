@@ -11,7 +11,6 @@ $baseFontWeight: $__fontWeightNormal;
 $baseFontWeightBold: $__fontWeightBold;
 @import "include/generals";
 
-
 body {
   width: 100%;
   height: 100%;
@@ -76,8 +75,10 @@ body {
   }
 
   > img, > span.icon {
+    position: relative;
     display: inline-block;
     width: $__bookmarksIconSize;
+    height: $__bookmarksIconSize;
     margin: 0 $__bookmarksHorizontalPadding 0 0;
   }
 
@@ -89,12 +90,19 @@ body {
     }
   }
 
-  > span.icon {
-    height: $__bookmarksIconSize;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    background-image: img(#{$__bookmarksDirIcon + '.webp'});
+  &.dir > span.icon {
+    @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__bookmarksIconSize);
+  }
+
+  &.link > span.icon {
+    @include mask(#{'icon-demo'}, transparent, $__bookmarksIconSize);
+
+    @each $color in $demoColors {
+      $i: index($demoColors, $color);
+      &[data-color='#{$i}']::before {
+        background-color: $color;
+      }
+    }
   }
 
   > span.label {
@@ -105,18 +113,19 @@ body {
   > span.drag {
     display: none;
     position: absolute;
-    top: 10%;
+    top: calc(50% - 12px);
     right: 15px;
-    width: 30px;
-    height: 80%;
-    background-repeat: no-repeat;
-    background-position: 5px center;
-    background-size: 60px 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 2px;
+    transition: background-color 0.5s;
+
+    &::before {
+      transition: inherit;
+    }
 
     &:hover {
-      background-position: -35px center;
-      background-color: $__colorScheme;
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 }
@@ -138,62 +147,60 @@ section#sidebar {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    padding: 18px 16px 0 16px;
-    background: rgba($contentBackground, 0.9);
+    height: $sidebarHeaderHeight;
+    padding: 7px 12px 0 12px;
+    background: $__colorScheme;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     z-index: 3;
 
-    @supports (backdrop-filter: blur(4px)) {
-      background: rgba($contentBackground, 0.7);
-      backdrop-filter: blur(4px);
-    }
-
-    > span {
-      padding: 4px 0;
-      vertical-align: top;
+    > h1 {
       display: inline-block;
+      color: $textColorInverted;
+      font-weight: $__fontWeightNormal;
+      font-size: 100%;
+      margin: 5px 0 0 0;
       transition: transform 0.5s;
 
-      > span {
-        display: inline-block;
-        vertical-align: top;
-        margin: -5px 5px 0 0;
-        font-weight: $__fontWeightNormal;
+      > strong {
+        font-weight: $__fontWeightLight;
         font-size: 150%;
-        color: $__colorScheme;
+      }
+
+      > span {
+        opacity: 0.7;
+        font-size: 90%;
+        display: inline-block;
+        margin: 0 0 0 3px;
       }
     }
 
     > a {
+      position: relative;
       vertical-align: top;
       display: block;
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       float: right;
-      margin: -10px 0 0 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 24px;
       border-radius: 50%;
-      transition: background-color 0.3s, transform 0.3s, opacity 0.5s;
       cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s, opacity 0.5s;
 
       &:hover, &.active {
-        background-color: $hoverBackground;
+        background-color: rgba(255, 255, 255, 0.2);
       }
 
       &.menu {
-        margin-right: -7px;
+        margin-right: -2px;
       }
     }
 
     > div.searchBox {
       position: absolute;
-      top: 14px;
+      top: 10px;
       left: 16px;
       width: calc(100% - 75px);
       height: 30px;
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: rgba(255, 255, 255, 0.2);
       transform: translate3d(20px, 0, 0);
       transition: transform 0.3s, opacity 0.3s;
       @extend %hidden;
@@ -206,29 +213,33 @@ section#sidebar {
         outline: none;
         border: 0;
         background: transparent;
+        color: $textColorInverted;
         padding: 0 7px;
+
+        &::-webkit-input-placeholder {
+          color: $textColorInverted;
+          opacity: 0.7;
+        }
       }
 
       > a.searchClose {
+        position: relative;
         vertical-align: top;
         display: inline-block;
         height: 30px;
         width: 30px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: rgba(0, 0, 0, 0.03);
+          background-color: rgba(255, 255, 255, 0.2);
         }
       }
     }
 
     &.searchVisible {
 
-      > span {
+      > h1 {
         transform: translate3d(-200%, 0, 0);
         pointer-events: none;
         transition: transform 0.5s;
@@ -248,28 +259,11 @@ section#sidebar {
 
   > div.scrollBox {
     height: 100%;
-    padding-top: 60px;
+    padding-top: $sidebarHeaderHeight;
     display: none;
 
     &.active {
       display: block;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      height: 12px;
-      pointer-events: none;
-      box-shadow: inset 0 2px 0 -1px rgba(0, 0, 0, 0.1);
-      transition: box-shadow 0.3s;
-      z-index: 3;
-    }
-
-    &.scrolled::before {
-      box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.3);
     }
 
     > p {
@@ -281,12 +275,12 @@ section#sidebar {
     }
 
     > div.scrollbar {
-      top: 60px;
-      height: calc(100% - 60px);
+      top: $sidebarHeaderHeight;
+      height: calc(100% - #{$sidebarHeaderHeight});
     }
 
     > ul {
-      margin: 12px 0;
+      margin: 9px 0;
 
       a {
         @include bookmarkEntry;
@@ -363,21 +357,25 @@ section#sidebar {
       > a {
 
         &.search {
-          background-image: img('icon-search.webp');
+          @include mask('icon-search', $textColorInverted, 22px);
         }
 
         &.menu {
-          background-image: img('icon-menu.webp');
+          @include mask('icon-menu', $textColorInverted, 22px);
         }
       }
 
       > div.searchBox > a.searchClose {
-        background-image: img('icon-delete.webp');
+        @include mask('icon-close', $textColorInverted, 18px);
       }
     }
 
     > div.scrollBox > ul a > span.drag {
-      background-image: img('icon-drag.webp');
+      @include mask('icon-reorder', $reorderIconColor, 18px);
+
+      &:hover::before {
+        background-color: $reorderIconColorActive;
+      }
     }
   }
 
@@ -406,8 +404,8 @@ a.dragHelper {
 
   > span.drag {
     display: block;
-    background-position: -35px center;
-    background-color: $__colorScheme;
+    background-color: rgba(0, 0, 0, 0.1);
+    @include mask('icon-reorder', $reorderIconColorActive, 18px);
   }
 
   &.snap {

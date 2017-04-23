@@ -398,11 +398,14 @@
     "settings_indicator_width": {
         "message": "Width"
     },
+    "settings_indicator_color": {
+        "message": "Color"
+    },
     "settings_indicator_icon_size": {
         "message": "Icon size"
     },
-    "settings_indicator_color": {
-        "message": "Color"
+    "settings_indicator_icon_color": {
+        "message": "Icon color"
     },
     "settings_sidebar_position": {
         "message": "Position"
@@ -420,16 +423,16 @@
         "message": "Mask color"
     },
     "settings_bookmarks_dir_icon": {
-        "message": "Directory Icon"
+        "message": "Directory icon"
     },
     "settings_bookmarks_dir_icon_default": {
-        "message": "Default"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
         "message": "Folder"
     },
-    "settings_bookmarks_dir_icon_alt_2": {
-        "message": "Folder grey"
+    "settings_bookmarks_dir_icon_alt_1": {
+        "message": "Square"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Directory icon color"
     },
     "settings_bookmarks_font_size": {
         "message": "Bookmarks font size"

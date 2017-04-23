@@ -5,6 +5,7 @@
 body > div#moonware-bs-visual {
 
   &.moonware-bs-add-visual { // icon on black background should be visible on hover
+    @include mask('icon-bookmark', $__indicatorIconColor, $__indicatorIconSize);
 
     &::before, &::after {
       content: "";
@@ -15,18 +16,13 @@ body > div#moonware-bs-visual {
       left: 0;
       width: $__indicatorWidth;
       height: 100%;
+      z-index: 2;
       @extend %hidden;
     }
 
-    &::before {
+    &::after {
       background: $__indicatorColor;
       z-index: 1;
-    }
-
-    &::after {
-      position: absolute;
-      background: img('icon-bookmark.webp') no-repeat center / $__indicatorIconSize;
-      z-index: 2;
     }
 
     &[data-pos='right'] {
@@ -44,19 +40,18 @@ body > div#moonware-bs-visual {
         transform: translate3d(0, 0, 0);
         opacity: 1;
       }
-
     }
   }
 }
 
 body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb {
 
-  &::before {
+  &::after {
     background: transparent;
   }
 
-  &::after {
-    background-position-y: 20px;
+  &::before {
+    -webkit-mask-position-y: 20px;
   }
 }
 

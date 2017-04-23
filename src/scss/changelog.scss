@@ -31,7 +31,7 @@ section.infobox {
       height: 100%;
       top: 0;
       left: 0;
-      padding: 40px 30px;
+      padding: inherit;
       transform-style: preserve-3d;
       backface-visibility: hidden;
 
@@ -39,18 +39,22 @@ section.infobox {
         text-align: left;
         transform: rotateX(180deg);
 
+        h1 {
+          margin: 0;
+        }
+
         a.close {
+          @include mask('icon-close', $textColorInverted, 26px);
           position: absolute;
-          top: 40px;
-          right: 45px;
+          top: 30px;
+          right: 35px;
           display: block;
           width: 42px;
           height: 42px;
-          background: img('icon-close.webp') no-repeat center;
-          background-size: 22px;
           cursor: pointer;
           border-radius: 50%;
           transition: background-color 0.3s;
+          opacity: 0.7;
           z-index: 2;
 
           &:hover {

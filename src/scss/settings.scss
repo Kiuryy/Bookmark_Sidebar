@@ -2,7 +2,7 @@
 @import "include/mixins";
 //
 $__colorScheme: $mainColor;
-
+$__textColor: $textColor;
 @import "include/loading";
 @import "include/checkbox";
 @import "include/colorpicker";

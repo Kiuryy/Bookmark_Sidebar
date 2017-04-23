@@ -33,7 +33,7 @@ div.contextmenu {
 
   > ul.icons {
     background: $hoverBackground;
-    padding: 4px 0 6px 0;
+    padding: 4px 2px 6px 2px;
 
     > li {
       display: inline-block;
@@ -43,51 +43,51 @@ div.contextmenu {
       }
 
       > a {
+        @include mask(null, $contextMenuIconColor, 22px);
+        position: relative;
         display: block;
         width: 36px;
         height: 36px;
         cursor: pointer;
         border-radius: 50%;
-        margin: 0 5px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 20px;
-        transition: background 0.3s;
+        margin: 0 3px;
+        transition: background-color 0.3s;
 
         &:hover {
           background-color: darken($hoverBackground, 3%);
         }
 
-        &[data-type='delete'] {
-          background-image: img('icon-delete.webp');
+        &[data-type='delete']::before {
+          @include maskImage('icon-delete');
+          -webkit-mask-size: 20px;
         }
 
-        &[data-type='edit'] {
-          background-image: img('icon-edit.webp');
+        &[data-type='edit']::before {
+          @include maskImage('icon-edit');
         }
 
-        &[data-type='infos'] {
-          background-image: img('icon-infos.webp');
+        &[data-type='infos']::before {
+          @include maskImage('icon-info');
         }
 
-        &[data-type='add'] {
-          background-image: img('icon-add.webp');
+        &[data-type='add']::before {
+          @include maskImage('icon-add');
         }
 
-        &[data-type='show'] {
-          background-image: img('icon-show.webp');
+        &[data-type='show']::before {
+          @include maskImage('icon-show');
         }
 
-        &[data-type='hide'] {
-          background-image: img('icon-hide.webp');
+        &[data-type='hide']::before {
+          @include maskImage('icon-hide');
         }
 
-        &[data-type='settings'] {
-          background-image: img('icon-settings.webp');
+        &[data-type='settings']::before {
+          @include maskImage('icon-settings');
         }
 
-        &[data-type='bookmarkManager'] {
-          background-image: img('icon-bookmarkManager.webp');
+        &[data-type='bookmarkManager']::before {
+          @include maskImage('icon-star');
         }
       }
     }
@@ -107,6 +107,10 @@ div.contextmenu {
 
         + a {
           padding-left: 50px;
+
+          &::before {
+            display: none;
+          }
         }
 
         &:hover + a {
@@ -115,6 +119,8 @@ div.contextmenu {
       }
 
       > a {
+        @include mask(null, $contextMenuIconColor, 20px);
+        position: relative;
         display: block;
         line-height: 45px;
         padding: 0 12px 0 42px;
@@ -122,29 +128,36 @@ div.contextmenu {
         text-overflow: ellipsis;
         overflow: hidden;
         cursor: pointer;
-        background-repeat: no-repeat;
-        background-position: 12px center;
-        background-size: 20px;
         transition: color 0.3s;
+
+        &::before {
+          -webkit-mask-position: 12px center;
+          transition: background-color 0.3s, opacity 0.3s;
+        }
 
         &:hover {
           color: $__colorScheme;
+
+          &::before {
+            background-color: $__colorScheme;
+            opacity: 0.8;
+          }
         }
 
-        &[data-type='newTab'], &[data-type='openChildren'] {
-          background-image: img('icon-newTab.webp');
+        &[data-type='newTab']::before, &[data-type='openChildren']::before {
+          @include maskImage('icon-newTab');
         }
 
-        &[data-type='newTabIncognito'] {
-          background-image: img('icon-incognito.webp');
+        &[data-type='newTabIncognito']::before {
+          @include maskImage('icon-incognito');
         }
 
-        &[data-type='showInDir'] {
-          background-image: img('icon-showInDir.webp');
+        &[data-type='updateUrls']::before {
+          @include maskImage('icon-update');
         }
 
-        &[data-type='updateUrls'] {
-          background-image: img('icon-update.webp');
+        &[data-type='showInDir']::before {
+          @include maskImage('icon-showInDir');
         }
       }
     }

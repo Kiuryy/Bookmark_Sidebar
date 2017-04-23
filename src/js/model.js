@@ -407,9 +407,8 @@
                     }
                 });
 
-                chrome.storage.sync.get(null, (obj) => {  // UPGRADE STORAGE STRUCTURE
-
-                    // START UPGRADE STORAGE STRUCTURE FOR v1.7
+                chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
+                    // START UPGRADE CONFIG FOR v1.7
                     if (obj.behaviour) {
                         if (typeof obj.behaviour.rememberState === "undefined" && typeof obj.behaviour.rememberScroll !== "undefined") {
                             obj.behaviour.rememberState = obj.behaviour.rememberScroll === false ? "openStates" : "all";
@@ -423,13 +422,31 @@
                         chrome.storage.sync.set({behaviour: obj.behaviour});
                     }
 
+                    if (obj.appearance) {
+                        if (typeof obj.appearance.style === "undefined") {
+                            obj.appearance.style = {};
+                        }
+
+                        if (typeof obj.appearance.style.bookmarksDirIcon === "undefined" || obj.appearance.style.bookmarksDirIcon === "dir") {
+                            obj.appearance.style.bookmarksDirIcon = "dir-2";
+                        } else if (obj.appearance.style.bookmarksDirIcon === "dir-alt1") {
+                            obj.appearance.style.bookmarksDirIcon = "dir-1";
+                            obj.appearance.style.bookmarksDirColor = "rgb(240,180,12)";
+                        } else if (obj.appearance.style.bookmarksDirIcon === "dir-alt2") {
+                            obj.appearance.style.bookmarksDirIcon = "dir-1";
+                        }
+
+                        chrome.storage.sync.set({appearance: obj.appearance});
+                    }
+
                     if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
                         chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
                     }
-                    // END UPGRADE STORAGE STRUCTURE FOR v1.7
+                    chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "addVisual", "middleClickActive"]);
+                    // END UPGRADE CONFIG FOR v1.7
 
-                    if (obj["appearance"]) {
-                        // START UPGRADE STORAGE STRUCTURE FOR v1.5
+                    // START UPGRADE CONFIG FOR v1.5
+                    if (obj.model) {
                         if (typeof obj.model.shareUserdata !== "undefined" && typeof obj.shareUserdata === "undefined") {
                             let share = obj.model.shareUserdata;
                             if (share === "y") {
@@ -440,94 +457,8 @@
                                 chrome.storage.sync.set({shareUserdata: share});
                             }
                         }
-                        // END UPGRADE STORAGE STRUCTURE FOR v1.5
-
-                        chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "addVisual", "middleClickActive"]);
-
-                        return false; // don't do it twice
                     }
-
-                    // START UPGRADE STORAGE STRUCTURE FOR v1.4
-                    let newConfig = {
-                        model: {},
-                        utility: {},
-                        behaviour: {},
-                        appearance: {}
-                    };
-
-                    if (typeof obj.openAction === "undefined") {
-                        obj.openAction = "contextmenu";
-                    }
-
-                    Object.keys(obj).forEach((key) => {
-                        let val = obj[key];
-
-                        if (val === "y") {
-                            val = true;
-                        }
-                        if (val === "n") {
-                            val = false;
-                        }
-                        if (/^\{.*\}$/.test(val)) {
-                            val = JSON.parse(val);
-                        }
-
-                        if (key === "middleClickActive" && typeof obj["newTab"] === "undefined") {
-                            key = "newTab";
-                            val = val === true ? "foreground" : "background";
-                        }
-
-                        if (key === "pxTolerance" && ( (typeof val === "string" && val.search(/^\d+$/) === 0) || (typeof val === "number"))) {
-                            val = {
-                                windowed: 20,
-                                maximized: val
-                            };
-                        }
-
-                        switch (key) {
-                            case "openStates":
-                            case "searchValue":
-                            case "scrollPos":
-                            case "entriesLocked": {
-                                newConfig.utility[key] = val;
-                                break;
-                            }
-                            case "openedByExtension":
-                            case "installationDate":
-                            case "clickCounter":
-                            case "lastShareDate":
-                            case "uuid": {
-                                newConfig.model[key] = val;
-                                break;
-                            }
-                            case "shareUserdata": {
-                                newConfig[key] = val;
-                                break;
-                            }
-                            case "addVisual": {
-                                newConfig.appearance[key] = val;
-                                break;
-                            }
-                            case "utility":
-                            case "behaviour":
-                            case "appearance": {
-                                break;
-                            }
-                            default: {
-                                newConfig.behaviour[key] = val;
-                                break;
-                            }
-                        }
-
-                        if (key !== "utility" && key !== "behaviour" && key !== "appearance") {
-                            chrome.storage.sync.remove([key]);
-                        }
-                    });
-
-                    chrome.storage.sync.set(newConfig, () => {
-                        initModel();
-                    });
-                    // END UPGRADE STORAGE STRUCTURE FOR v1.4
+                    // END UPGRADE CONFIG FOR v1.5
                 });
             }
         }

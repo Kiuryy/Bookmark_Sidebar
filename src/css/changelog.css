@@ -25,8 +25,9 @@ section.infobox.visible {
 }
 section.infobox > div {
   position: relative;
+  width: 100%;
   max-width: 650px;
-  padding: 40px 30px;
+  padding: 30px;
   background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   color: #fff;
   text-align: center;
@@ -44,9 +45,10 @@ section.infobox > div span.icon {
   margin: 40px 0;
 }
 section.infobox > div h1 {
-  font-size: 250%;
+  font-size: 200%;
   line-height: 130%;
   font-weight: 200;
+  margin: 15px 0 0 0;
 }
 @media (max-width: 650px) {
   section.infobox > div h1 {
@@ -136,7 +138,7 @@ section.infobox > div > div {
   height: 100%;
   top: 0;
   left: 0;
-  padding: 40px 30px;
+  padding: inherit;
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
@@ -144,19 +146,32 @@ section.infobox > div > div.back {
   text-align: left;
   transform: rotateX(180deg);
 }
+section.infobox > div > div.back h1 {
+  margin: 0;
+}
 section.infobox > div > div.back a.close {
   position: absolute;
-  top: 40px;
-  right: 45px;
+  top: 30px;
+  right: 35px;
   display: block;
   width: 42px;
   height: 42px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.webp) no-repeat center;
-  background-size: 22px;
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.3s;
+  opacity: 0.7;
   z-index: 2;
+}
+section.infobox > div > div.back a.close::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/26px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
+  background-color: #fff;
 }
 section.infobox > div > div.back a.close:hover {
   background-color: rgba(255, 255, 255, 0.1);

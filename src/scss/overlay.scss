@@ -41,31 +41,36 @@ div.modal {
   }
 
   > h1 {
+    @include mask(null, $textColorInverted, 24px);
+    position: relative;
     color: $textColorInverted;
-    font-size: 170%;
+    font-size: 150%;
     font-weight: $__fontWeightLight;
-    height: 60px;
-    padding: 15px 75px 14px 55px;
-    background: $__colorScheme img('icon-bookmark.webp') no-repeat 20px center;
-    background-size: 24px;
+    height: $overlayHeaderHeight;
+    padding: 14px 75px 0 55px;
+    background-color: $__colorScheme;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      -webkit-mask-position: 20px center;
+    }
   }
 
   > a.close {
+    @include mask('icon-close', $textColorInverted, 24px);
     position: absolute;
-    top: 9px;
-    right: 20px;
+    top: 6px;
+    right: 15px;
     display: block;
     width: 42px;
     height: 42px;
-    background: img('icon-close.webp') no-repeat center;
-    background-size: 22px;
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s;
     z-index: 2;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
 
@@ -81,6 +86,7 @@ div.modal {
     padding: 17px 15px;
 
     > img, > span.icon {
+      position: relative;
       vertical-align: top;
       display: inline-block;
       width: 24px;
@@ -89,10 +95,7 @@ div.modal {
     }
 
     > span.icon {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100%;
-      background-image: img(#{$__bookmarksDirIcon + '.webp'});
+      @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, 24px);
     }
   }
 
@@ -102,6 +105,17 @@ div.modal {
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    > span.icon {
+      @include mask(#{'icon-demo'}, transparent, 24px);
+
+      @each $color in $demoColors {
+        $i: index($demoColors, $color);
+        &[data-color='#{$i}']::before {
+          background-color: $color;
+        }
+      }
     }
 
     + a.previewUrl {
@@ -119,15 +133,24 @@ div.modal {
 
   &[data-type='updateUrls'] {
 
+    > h1::before {
+      @include maskImage('icon-update');
+    }
+
     > p {
+      position: relative;
       text-align: center;
       margin-top: 40px;
       font-size: 140%;
       line-height: 170%;
 
       &.success {
-        padding: 20px 0 70px;
-        background: img('icon-success.webp') no-repeat center bottom / 32px;
+        @include mask('icon-check', $colorSuccess, 48px);
+        padding: 30px 0 80px;
+
+        &::before {
+          -webkit-mask-position-y: bottom;
+        }
       }
     }
 
@@ -160,26 +183,13 @@ div.modal {
     }
 
     > div.loading {
-      margin: 60px auto 0;
+      margin: $overlayHeaderHeight auto 0;
       transition: margin-top 0.5s;
     }
 
     > div#urlList {
-      height: calc(100% - 60px - 57px);
+      height: calc(100% - #{$overlayHeaderHeight} - 57px);
       transition: box-shadow 0.3s;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 12px;
-        pointer-events: none;
-        box-shadow: none;
-        transition: box-shadow 0.3s;
-        z-index: 3;
-      }
 
       &::after {
         content: "";
@@ -192,10 +202,6 @@ div.modal {
         box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.2);
         transition: box-shadow 0.3s;
         z-index: 3;
-      }
-
-      &.scrolled::before {
-        box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.5);
       }
 
       &.scrolledEnd::after {
@@ -223,7 +229,7 @@ div.modal {
             vertical-align: top;
             display: inline-block;
             width: 16px;
-            margin: 11px 20px 0 0;
+            margin: 11px 18px 0 0;
           }
 
           > strong {
@@ -237,6 +243,7 @@ div.modal {
           }
 
           > a, > span {
+            position: relative;
             display: block;
             margin-left: 70px;
             line-height: 20px;
@@ -244,27 +251,31 @@ div.modal {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            padding-left: 18px;
+            padding-left: 22px;
+          }
+
+          > span, > a > span {
             opacity: 0.6;
           }
 
           > a {
             transition: color 0.5s;
-            background-size: 12px;
-            background-repeat: no-repeat;
-            background-position: 0 center;
 
             &:hover {
               color: $__colorScheme;
             }
 
             &:last-of-type {
-              background-image: img('icon-success.webp');
+              @include mask('icon-check', $colorSuccess, 16px);
             }
 
             &:first-of-type {
+              @include mask('icon-close', $colorError, 16px);
               text-decoration: line-through;
-              background-image: img('icon-error.webp');
+            }
+
+            &::before {
+              -webkit-mask-position: 0 center !important;
             }
           }
 
@@ -314,7 +325,23 @@ div.modal {
     }
   }
 
+  &[data-type='delete'] > h1::before {
+    @include maskImage('icon-delete');
+  }
+
+  &[data-type='hide'] > h1::before {
+    @include maskImage('icon-hide');
+  }
+
+  &[data-type='openChildren'] > h1::before {
+    @include maskImage('icon-newTab');
+  }
+
   &[data-type='infos'] {
+
+    > h1::before {
+      @include maskImage('icon-info');
+    }
 
     > ul {
       display: flex;
@@ -328,10 +355,16 @@ div.modal {
         position: relative;
 
         &.tooltip {
+          @include mask('icon-info', $__textColor, 16px);
+          position: relative;
           cursor: help;
-          background: img('icon-infos.webp') no-repeat right center;
           background-size: 16px;
           padding-right: 18px;
+
+          &::before {
+            opacity: 0.5;
+            -webkit-mask-position: right center;
+          }
         }
 
         > ul {
@@ -370,6 +403,7 @@ div.modal {
   }
 
   &[data-type='edit'], &[data-type='add'] {
+
     > ul {
       padding: 2px 30px;
 
@@ -404,7 +438,15 @@ div.modal {
     }
   }
 
+  &[data-type='edit'] > h1::before {
+    @include maskImage('icon-edit');
+  }
+
   &[data-type='add'] {
+
+    > h1::before {
+      @include maskImage('icon-add');
+    }
 
     h2 {
       margin: 0 0 40px 0;
@@ -441,8 +483,8 @@ div.modal {
         transform: translate3d(0, -40px, 0);
       }
 
-
       > a {
+        @include mask(none, $__textColor, 36px);
         position: relative;
         display: block;
         width: 96px;
@@ -450,10 +492,12 @@ div.modal {
         border-radius: 50%;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         background-color: $hoverBackground;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 36px;
         transition: box-shadow 0.5s;
+
+        &::before {
+          transition: opacity 0.5s, background-color 0.5s;
+          opacity: 0.7;
+        }
 
         &::after {
           content: attr(title);
@@ -472,17 +516,22 @@ div.modal {
         &:hover {
           box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.15);
 
+          &::before {
+            opacity: 1;
+            background-color: $__colorScheme;
+          }
+
           &::after {
             color: $__colorScheme;
           }
         }
 
-        &[data-type='bookmark'] {
-          background-image: img('icon-bookmark-gray.webp');
+        &[data-type='bookmark']::before {
+          @include maskImage('icon-bookmark');
         }
 
-        &[data-type='dir'] {
-          background-image: img('dir-alt2.webp');
+        &[data-type='dir']::before {
+          @include maskImage('icon-dir-1');
         }
       }
     }

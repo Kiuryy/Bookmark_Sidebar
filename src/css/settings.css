@@ -118,17 +118,25 @@ div.loading > div > div.gap-patch > div {
 
 div.checkbox {
   position: relative;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #6d6d6d;
-  border-radius: 2px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  transition: background 0.3s, border-color 0.3s;
 }
 div.checkbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/22px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox-inactive.svg);
+  background-color: #666;
+}
+div.checkbox::before {
+  transition: -webkit-mask 0.3s, background-color 0.3s;
+}
+div.checkbox::after {
   content: "";
   position: absolute;
   top: calc(50% - 1px);
@@ -141,24 +149,23 @@ div.checkbox::before {
   transition: background 0.2s, box-shadow 0.2s, opacity 0.5s;
   opacity: 0.2;
 }
-div.checkbox.focus::before, div.checkbox.clicked::before {
+div.checkbox.focus::after, div.checkbox.clicked::after {
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 0 22px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.5);
 }
-div.checkbox.clicked::before {
+div.checkbox.clicked::after {
   opacity: 0;
 }
-div.checkbox.active {
-  background-color: #7b5fa4;
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.webp);
-  border-color: #7b5fa4;
-}
 div.checkbox.active::before {
+  background-color: #7b5fa4;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox.svg);
+}
+div.checkbox.active::after {
   box-shadow: 0 0 0 0 #7b5fa4;
 }
-div.checkbox.active.focus::before, div.checkbox.active.clicked::before {
+div.checkbox.active.focus::after, div.checkbox.active.clicked::after {
   background: #7b5fa4;
-  box-shadow: 0 0 0 22px #7b5fa4;
+  box-shadow: 0 0 0 20px #7b5fa4;
 }
 div.checkbox > input[type='checkbox'] {
   display: none;

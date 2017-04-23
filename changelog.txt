@@ -1,13 +1,14 @@
 [tdb]
  - Configurable icon for chrome menu
- - 'add'-button for directories
  - translation contribution
  - alternative views "most used", "recently added" and "alphabetically"
+ - changelog
 
 [1.7]
  - Configurable typeface
  - Added keyboard shortcuts (esc to close, pos1 to scroll to top)
  - New behaviour configuration (directory open speed, remember states, ...)
+ - Possibility to add bookmarks/directories
 
 [1.6]
  - Made entries hidable from sidebar

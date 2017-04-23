@@ -1,17 +1,16 @@
 
 div.checkbox {
+  @include mask('icon-checkbox-inactive', $__textColor, 22px);
   position: relative;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #6d6d6d;
-  border-radius: 2px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  transition: background 0.3s, border-color 0.3s;
 
   &::before {
+    transition: -webkit-mask 0.3s, background-color 0.3s;
+  }
+
+  &::after {
     content: "";
     position: absolute;
     top: calc(50% - 1px);
@@ -25,27 +24,29 @@ div.checkbox {
     opacity: 0.2;
   }
 
-  &.focus::before, &.clicked::before {
+  &.focus::after, &.clicked::after {
     background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 0 22px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.5);
   }
 
-  &.clicked::before {
+  &.clicked::after {
     opacity: 0;
   }
 
   &.active {
-    background-color: $__colorScheme;
-    background-image: img('icon-check.webp');
-    border-color: $__colorScheme;
 
     &::before {
+      background-color: $__colorScheme;
+      @include maskImage('icon-checkbox');
+    }
+
+    &::after {
       box-shadow: 0 0 0 0 $__colorScheme;
     }
 
-    &.focus::before, &.clicked::before {
+    &.focus::after, &.clicked::after {
       background: $__colorScheme;
-      box-shadow: 0 0 0 22px $__colorScheme;
+      box-shadow: 0 0 0 20px $__colorScheme;
     }
   }
 

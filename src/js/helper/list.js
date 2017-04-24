@@ -12,7 +12,7 @@
         this.init = () => {
             ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
             sort = ext.helper.model.getData("u/sort");
-
+            ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
             this.updateBookmarkBox();
         };
 
@@ -48,6 +48,8 @@
                     name: name,
                     dir: direction
                 };
+
+                ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
                 ext.startLoading();
                 ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0, true);

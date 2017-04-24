@@ -377,7 +377,7 @@ section#sidebar {
     }
   }
 
-  &.entriesUnlocked {
+  &.entriesUnlocked[data-sort='custom'] {
 
     > div.scrollBox > ul ul a {
       padding-right: 46px;

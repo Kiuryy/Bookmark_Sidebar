@@ -105,6 +105,7 @@
             type: "data-type",
             name: "data-name",
             value: "data-value",
+            sort: "data-sort",
             id: "data-id"
         },
         events: {

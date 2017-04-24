@@ -33,7 +33,13 @@
                 openStates: {},
                 hiddenEntries: {},
                 scrollPos: {},
-                entriesLocked: true
+                entriesLocked: true,
+                sort: {
+                    name: "custom",
+                    dir: "ASC"
+                },
+                mostViewedAbsolute: false,
+                viewAsTree: true
             },
             b: { // behaviour
                 pxTolerance: {windowed: 20, maximized: 1},

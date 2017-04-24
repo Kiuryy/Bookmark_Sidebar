@@ -111,14 +111,14 @@
     };
 
     /**
-     * Returns the amount of clicks on the given bookmark or directory
+     * Returns the view amounts of all bookmarks
      *
      * @param {object} opts
      * @param {function} sendResponse
      */
-    let getViewAmount = (opts, sendResponse) => {
+    let getViewAmounts = (opts, sendResponse) => {
         sendResponse({
-            views: data.clickCounter[opts.id] || data.clickCounter["node_" + opts.id] || 0, // @deprecated clickCounter["node_123"] is n clickCounter["123"]
+            viewAmounts: data.clickCounter,
             counterStartDate: data.installationDate
         });
     };
@@ -307,61 +307,11 @@
     };
 
     /**
-     * Determines the amount of child elements and the amount of clicks on all the children recursively
-     *
-     * @param {object} opts
-     * @param {function} sendResponse
-     */
-    let getDirInfos = (opts, sendResponse) => {
-        bookmarkObj.getSubTree(opts.id, (bookmarks) => {
-            let clickAmount = 0;
-            let childrenAmount = {
-                bookmarks: 0,
-                dirs: 0,
-                total: 0
-            };
-
-            let recursiveCallback = (obj) => {
-                obj.forEach((v) => {
-                    childrenAmount.total++;
-
-                    if (v.children) {
-                        childrenAmount.dirs++;
-                    } else {
-                        childrenAmount.bookmarks++;
-                        if (data.clickCounter[v.id]) {
-                            clickAmount += data.clickCounter[v.id];
-                        } else if (data.clickCounter["node_" + v.id]) { // @deprecated
-                            clickAmount += data.clickCounter["node_" + v.id];
-                        }
-                    }
-
-                    if (v.children && v.children.length > 0) {
-                        recursiveCallback(v.children);
-                    }
-                });
-            };
-
-            if (bookmarks[0] && bookmarks[0].children && bookmarks[0].children.length > 0) {
-                recursiveCallback(bookmarks[0].children);
-            }
-
-            sendResponse({
-                childrenAmount: childrenAmount,
-                clickAmount: clickAmount,
-                counterStartDate: data.installationDate
-            });
-        });
-    };
-
-
-    /**
      * Message listener
      */
     let mapping = {
         realUrl: getRealUrl,
         addViewAmount: addViewAmountByUrl,
-        dirInfos: getDirInfos,
         bookmarks: getBookmarks,
         searchBookmarks: getBookmarksBySearchVal,
         moveBookmark: moveBookmark,
@@ -372,7 +322,7 @@
         shareUserdataMask: shareUserdataMask,
         favicon: getFavicon,
         openLink: openLink,
-        viewAmount: getViewAmount
+        viewAmounts: getViewAmounts
     };
 
     chrome.extension.onMessage.addListener((message, sender, sendResponse) => {

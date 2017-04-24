@@ -1,7 +1,6 @@
 [tdb]
  - Configurable icon for chrome menu
  - translation contribution
- - alternative views "most used", "recently added" and "alphabetically"
  - changelog
 
 [1.7]

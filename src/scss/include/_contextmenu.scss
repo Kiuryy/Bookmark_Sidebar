@@ -18,7 +18,13 @@ div.contextmenu {
 
   &[data-type='menu'] {
     width: 200px;
-    right: -67px;
+    right: -70px;
+    margin-top: -2px;
+  }
+
+  &[data-type='sort'] {
+    width: 200px;
+    right: -40px;
     margin-top: -2px;
   }
 
@@ -57,36 +63,36 @@ div.contextmenu {
           background-color: darken($hoverBackground, 3%);
         }
 
-        &[data-type='delete']::before {
+        &[data-name='delete']::before {
           @include maskImage('icon-delete');
           -webkit-mask-size: 20px;
         }
 
-        &[data-type='edit']::before {
+        &[data-name='edit']::before {
           @include maskImage('icon-edit');
         }
 
-        &[data-type='infos']::before {
+        &[data-name='infos']::before {
           @include maskImage('icon-info');
         }
 
-        &[data-type='add']::before {
+        &[data-name='add']::before {
           @include maskImage('icon-add');
         }
 
-        &[data-type='show']::before {
+        &[data-name='show']::before {
           @include maskImage('icon-show');
         }
 
-        &[data-type='hide']::before {
+        &[data-name='hide']::before {
           @include maskImage('icon-hide');
         }
 
-        &[data-type='settings']::before {
+        &[data-name='settings']::before {
           @include maskImage('icon-settings');
         }
 
-        &[data-type='bookmarkManager']::before {
+        &[data-name='bookmarkManager']::before {
           @include maskImage('icon-star');
         }
       }
@@ -144,19 +150,19 @@ div.contextmenu {
           }
         }
 
-        &[data-type='newTab']::before, &[data-type='openChildren']::before {
+        &[data-name='newTab']::before, &[data-name='openChildren']::before {
           @include maskImage('icon-newTab');
         }
 
-        &[data-type='newTabIncognito']::before {
+        &[data-name='newTabIncognito']::before {
           @include maskImage('icon-incognito');
         }
 
-        &[data-type='updateUrls']::before {
+        &[data-name='updateUrls']::before {
           @include maskImage('icon-update');
         }
 
-        &[data-type='showInDir']::before {
+        &[data-name='showInDir']::before {
           @include maskImage('icon-showInDir');
         }
       }

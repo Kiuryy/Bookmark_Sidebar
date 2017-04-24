@@ -10,17 +10,14 @@
          *
          * @param {string} type
          * @param {string} title
-         * @param {object} infos
+         * @param {object} data
          */
-        this.create = (type, title, infos) => {
-            let isDir = !!(infos.children);
-
+        this.create = (type, title, data) => {
             elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
 
             elements.modal = $("<div />")
                 .attr(ext.opts.attr.type, type)
-                .data("infos", infos)
                 .addClass(ext.opts.classes.overlay.modal)
                 .appendTo(elements.overlay.find("body"));
 
@@ -35,36 +32,36 @@
 
             switch (type) {
                 case "delete": {
-                    handleDeleteHtml(infos, isDir);
+                    handleDeleteHtml(data);
                     break;
                 }
                 case "edit": {
-                    handleEditHtml(infos, isDir);
+                    handleEditHtml(data);
                     break;
                 }
                 case "infos": {
-                    handleInfosHtml(infos, isDir);
+                    handleInfosHtml(data);
                     break;
                 }
                 case "add": {
-                    handleAddHtml(infos, isDir);
+                    handleAddHtml(data);
                     break;
                 }
                 case "hide": {
-                    handleHideHtml(infos, isDir);
+                    handleHideHtml(data);
                     break;
                 }
                 case "openChildren": {
-                    handleOpenChildrenHtml(infos, isDir);
+                    handleOpenChildrenHtml(data);
                     break;
                 }
                 case "updateUrls": {
-                    handleUpdateUrlsHtml(infos, isDir);
+                    handleUpdateUrlsHtml(data);
                     break;
                 }
             }
 
-            initEvents();
+            initEvents(data);
 
             setTimeout(() => {
                 elements.modal.addClass(ext.opts.classes.overlay.visible);
@@ -79,8 +76,11 @@
             ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
             elements.overlay.removeClass(ext.opts.classes.page.visible);
 
+            setTimeout(() => { // delay or it will not work properly
+                ext.helper.scroll.updateAll(true, false);
+            }, 100);
+
             setTimeout(() => {
-                ext.helper.scroll.updateAll(true);
                 elements.overlay.remove();
             }, 500);
         };
@@ -88,32 +88,29 @@
         /**
          * Appends the bookmark preview to the current overlay
          *
-         * @param {object} infos
-         * @param {boolean} isDir
+         * @param {object} data
          * @param {boolean} addUrl
          */
-        let appendPreviewLink = (infos, isDir, addUrl) => {
-            let preview = $("<" + (isDir ? "span" : "a") + " />")
-                .attr("title", infos.title + (infos.url ? "\n" + infos.url : ""))
-                .data("infos", infos)
+        let appendPreviewLink = (data, addUrl) => {
+            let preview = $("<" + (data.isDir ? "span" : "a") + " />")
+                .attr("title", data.title + (data.url ? "\n" + data.url : ""))
                 .addClass(ext.opts.classes.overlay.preview)
-                .html(infos.title)
+                .html(data.title)
                 .appendTo(elements.modal);
 
-            if (isDir) {
+            if (data.isDir) {
                 preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
-            } else if (infos.icon) {
-                preview.prepend("<img src='" + infos.icon + "' />");
+            } else if (data.icon) {
+                preview.prepend("<img src='" + data.icon + "' />");
             } else if (ext.opts.demoMode) {
                 preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
             }
 
-            if (addUrl && addUrl === true && isDir === false) {
+            if (addUrl && addUrl === true && data.isDir === false) {
                 $("<a />")
                     .addClass(ext.opts.classes.overlay.previewUrl)
-                    .attr("title", infos.url)
-                    .data("infos", infos)
-                    .text(infos.url)
+                    .attr("title", data.url)
+                    .text(data.url)
                     .insertAfter(preview);
             }
         };
@@ -121,27 +118,25 @@
         /**
          * Extends the overlay html for the delete operation
          *
-         * @param {object} infos
-         * @param {boolean} isDir
+         * @param {object} data
          */
-        let handleDeleteHtml = (infos, isDir) => {
-            $("<p />").text(ext.lang("overlay_delete_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
-            appendPreviewLink(infos, isDir);
+        let handleDeleteHtml = (data) => {
+            $("<p />").text(ext.lang("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            appendPreviewLink(data);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_delete")).appendTo(elements.buttonWrapper);
         };
 
         /**
          * Extends the overlay html for the edit operation
          *
-         * @param {object} infos
-         * @param {boolean} isDir
+         * @param {object} data
          */
-        let handleEditHtml = (infos, isDir) => {
-            appendPreviewLink(infos, isDir);
+        let handleEditHtml = (data) => {
+            appendPreviewLink(data);
             let list = $("<ul />").appendTo(elements.modal);
-            list.append("<li><label>" + ext.lang("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + infos.title + "' /></li>");
-            if (!isDir) {
-                list.append("<li><label>" + ext.lang("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + infos.url + "' /></li>");
+            list.append("<li><label>" + ext.lang("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + data.title + "' /></li>");
+            if (!data.isDir) {
+                list.append("<li><label>" + ext.lang("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + data.url + "' /></li>");
             }
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_save")).appendTo(elements.buttonWrapper);
         };
@@ -161,61 +156,27 @@
         };
 
         /**
-         * Appends the view info the the given list
-         *
-         * @param {jsu} list
-         * @param {object} infos
-         * @param {object} modelResponse
-         */
-        let appendViewAmount = (list, infos, modelResponse) => {
-            let viewAmount = 0;
-
-            if (typeof modelResponse.views !== "undefined") {
-                viewAmount = modelResponse.views;
-            } else if (typeof modelResponse.clickAmount !== "undefined") {
-                viewAmount = modelResponse.clickAmount;
-            }
-
-            let startDate = new Date(Math.max(infos.dateAdded, modelResponse.counterStartDate));
-            let monthDiff = Math.max(1, Math.round((+new Date() - startDate) / (30.416666 * 24 * 60 * 60 * 1000)));
-            let viewsPerMonth = Math.round(viewAmount / monthDiff * 100) / 100;
-
-            let viewsEntry = $("<li />")
-                .addClass(ext.opts.classes.overlay.hasTooltip)
-                .append("<span>" + viewAmount + "</span>")
-                .append(" " + ext.lang("overlay_bookmark_views" + (viewAmount === 1 ? "_single" : "")), false)
-                .appendTo(list);
-
-            $("<ul />")
-                .append("<li>" + ext.lang("overlay_bookmark_views_since") + " " + getLocaleDate(startDate) + "</li>")
-                .append("<li>" + viewsPerMonth + " " + ext.lang("overlay_bookmark_views" + (viewsPerMonth === 1 ? "_single" : "")) + " " + ext.lang("overlay_bookmark_views_per_month") + "</li>")
-                .appendTo(viewsEntry);
-        };
-
-        /**
          * Extends the overlay html for showing the confirm dialog for opening all the bookmarks below the clicked directory
          *
-         * @param {object} infos
-         * @param {boolean} isDir
+         * @param {object} data
          */
-        let handleOpenChildrenHtml = (infos, isDir) => {
-            let bookmarks = infos.children.filter(val => !!(val.url));
+        let handleOpenChildrenHtml = (data) => {
+            let bookmarks = data.children.filter(val => !!(val.url));
             let text = ext.lang("overlay_confirm_open_children").replace(/\{1\}/, bookmarks.length);
 
             $("<p />").text(text).appendTo(elements.modal);
-            appendPreviewLink(infos, isDir, true);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_open_children")).data("bookmarks", bookmarks).appendTo(elements.buttonWrapper);
+            appendPreviewLink(data, true);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_open_children")).appendTo(elements.buttonWrapper);
         };
 
         /**
          * Extends the overlay html for showing the confirm dialog for hiding bookmarks from the sidebar
          *
-         * @param {object} infos
-         * @param {boolean} isDir
+         * @param {object} data
          */
-        let handleHideHtml = (infos, isDir) => {
-            $("<p />").text(ext.lang("overlay_hide_" + (isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
-            appendPreviewLink(infos, isDir, true);
+        let handleHideHtml = (data) => {
+            $("<p />").text(ext.lang("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            appendPreviewLink(data, true);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
@@ -251,36 +212,38 @@
         /**
          * Extends the overlay html for showing infos about the bookmark
          *
-         * @param {object} infos
-         * @param {boolean} isDir
+         * @param {object} data
          */
-        let handleInfosHtml = (infos, isDir) => {
-            appendPreviewLink(infos, isDir, true);
+        let handleInfosHtml = (data) => {
+            appendPreviewLink(data, true);
             let list = $("<ul />").appendTo(elements.modal);
+            let createdDate = new Date(data.dateAdded);
 
-            let createdDate = new Date(infos.dateAdded);
             $("<li />").html(ext.lang("overlay_bookmark_created_date") + " " + getLocaleDate(createdDate)).appendTo(list);
 
-            if (isDir) {
-                ext.helper.model.call("dirInfos", {id: infos.id}, (response) => {
-                    let childrenEntry = $("<li />")
-                        .addClass(ext.opts.classes.overlay.hasTooltip)
-                        .append("<span>" + response.childrenAmount.total + "</span>")
-                        .append(" " + ext.lang("overlay_dir_children"), false)
-                        .appendTo(list);
+            if (data.isDir) {
+                let childrenEntry = $("<li />")
+                    .addClass(ext.opts.classes.overlay.hasTooltip)
+                    .append("<span>" + data.childrenAmount.total + "</span>")
+                    .append(" " + ext.lang("overlay_dir_children"), false)
+                    .appendTo(list);
 
-                    $("<ul />")
-                        .append("<li>" + response.childrenAmount.bookmarks + " " + ext.lang("overlay_dir_children_bookmarks") + "</li>")
-                        .append("<li>" + response.childrenAmount.dirs + " " + ext.lang("overlay_dir_children_dirs") + "</li>")
-                        .appendTo(childrenEntry);
-
-                    appendViewAmount(list, infos, response);
-                });
-            } else {
-                ext.helper.model.call("viewAmount", {id: infos.id}, (response) => {
-                    appendViewAmount(list, infos, response);
-                });
+                $("<ul />")
+                    .append("<li>" + data.childrenAmount.bookmarks + " " + ext.lang("overlay_dir_children_bookmarks") + "</li>")
+                    .append("<li>" + data.childrenAmount.directories + " " + ext.lang("overlay_dir_children_dirs") + "</li>")
+                    .appendTo(childrenEntry);
             }
+
+            let viewsEntry = $("<li />")
+                .addClass(ext.opts.classes.overlay.hasTooltip)
+                .append("<span>" + data.views.total + "</span>")
+                .append(" " + ext.lang("overlay_bookmark_views" + (data.views.total === 1 ? "_single" : "")), false)
+                .appendTo(list);
+
+            $("<ul />")
+                .append("<li>" + ext.lang("overlay_bookmark_views_since") + " " + getLocaleDate(data.views.startDate) + "</li>")
+                .append("<li>" + data.views.perMonth + " " + ext.lang("overlay_bookmark_views" + (data.views.perMonth === 1 ? "_single" : "")) + " " + ext.lang("overlay_bookmark_views_per_month") + "</li>")
+                .appendTo(viewsEntry);
         };
 
         /**
@@ -312,7 +275,7 @@
 
                         updateList.forEach((entry) => {
                             let listEntry = $("<li />")
-                                .data("infos", entry)
+                                .data("entry", entry)
                                 .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
                                 .append("<strong>" + entry.title + "</strong>");
 
@@ -347,9 +310,9 @@
         /**
          * Extends the overlay html for the url update process
          *
-         * @param {object} infos
+         * @param {object} data
          */
-        let handleUpdateUrlsHtml = (infos) => {
+        let handleUpdateUrlsHtml = (data) => {
             let bookmarks = [];
 
             let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
@@ -361,7 +324,7 @@
                     }
                 });
             };
-            processBookmarks(infos.children);
+            processBookmarks(data.children);
             let bookmarkAmount = bookmarks.length;
 
             elements.desc = $("<p />").text(ext.lang("overlay_check_urls_loading")).appendTo(elements.modal);
@@ -397,10 +360,11 @@
         /**
          * Opens all the given bookmarks in new tab
          *
-         * @param {Array} bookmarks
+         * @param {object} data
          */
-        let openChildren = (bookmarks) => {
+        let openChildren = (data) => {
             closeOverlay();
+            let bookmarks = data.children.filter(val => !!(val.url));
             bookmarks.forEach((bookmark) => {
                 ext.helper.sidebarEvents.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
             });
@@ -409,17 +373,17 @@
         /**
          * Hides the given bookmark or directory from the sidebar
          *
-         * @param {object} infos
+         * @param {object} data
          */
-        let hideBookmark = (infos) => {
+        let hideBookmark = (data) => {
             ext.startLoading();
             closeOverlay();
 
             let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
-            hiddenEntries[infos.id] = true;
+            hiddenEntries[data.id] = true;
 
             ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
-                ext.updateBookmarkBox();
+                ext.helper.list.updateBookmarkBox();
                 ext.endLoading();
             });
         };
@@ -427,13 +391,13 @@
         /**
          * Deletes the given bookmark or directory recursively
          *
-         * @param {object} infos
+         * @param {object} data
          */
-        let deleteBookmark = (infos) => {
+        let deleteBookmark = (data) => {
             closeOverlay();
 
-            ext.helper.model.call("deleteBookmark", {id: infos.id}, () => {
-                infos.element.parent("li").remove();
+            ext.helper.model.call("deleteBookmark", {id: data.id}, () => {
+                data.element.parent("li").remove();
             });
         };
 
@@ -475,14 +439,14 @@
         /**
          * Updates the given bookmark or directory (title, url)
          *
-         * @param {object} infos
+         * @param {object} data
          */
-        let editEntry = (infos) => {
-            let formValues = getFormValues(!!(infos.children));
+        let editEntry = (data) => {
+            let formValues = getFormValues(data.isDir);
 
             if (formValues.errors === false) {
                 ext.helper.model.call("updateBookmark", {
-                    id: infos.id,
+                    id: data.id,
                     title: formValues.values.title,
                     url: formValues.values.url
                 }, (result) => {
@@ -490,10 +454,9 @@
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
                         closeOverlay();
-                        infos.title = formValues.values.title;
-                        infos.url = formValues.values.url;
-                        infos.element.data("infos", infos);
-                        infos.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(infos.title);
+                        data.title = formValues.values.title;
+                        data.url = formValues.values.url;
+                        data.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(data.title);
                     }
                 });
             }
@@ -502,14 +465,14 @@
         /**
          * Adds a bookmark or directory to the given directory
          *
-         * @param {object} infos
+         * @param {object} data
          */
-        let addEntry = (infos) => {
+        let addEntry = (data) => {
             let formValues = getFormValues(elements.modal.find("input[name='url']").length() === 0);
 
             if (formValues.errors === false) {
                 ext.helper.model.call("createBookmark", {
-                    parentId: infos.id,
+                    parentId: data.id,
                     index: 0,
                     title: formValues.values.title,
                     url: formValues.values.url
@@ -518,7 +481,7 @@
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
                         ext.startLoading();
-                        ext.updateBookmarkBox();
+                        ext.helper.list.updateBookmarkBox();
                         closeOverlay();
                         ext.endLoading();
                     }
@@ -534,26 +497,28 @@
         let updateBookmarkUrls = () => {
             elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li").forEach((elm) => {
                 if ($(elm).find("input[type='checkbox']")[0].checked) {
-                    let infos = $(elm).data("infos");
+                    let entry = $(elm).data("entry");
 
-                    if (infos.urlStatusCode === 404) {
-                        ext.helper.model.call("deleteBookmark", {id: infos.id});
-                    } else if (infos.url !== infos.newUrl) {
-                        ext.helper.model.call("updateBookmark", {id: infos.id, title: infos.title, url: infos.newUrl});
+                    if (entry.urlStatusCode === 404) {
+                        ext.helper.model.call("deleteBookmark", {id: entry.id});
+                    } else if (entry.url !== entry.newUrl) {
+                        ext.helper.model.call("updateBookmark", {id: entry.id, title: entry.title, url: entry.newUrl});
                     }
                 }
             });
 
             ext.startLoading();
-            ext.updateBookmarkBox();
+            ext.helper.list.updateBookmarkBox();
             closeOverlay();
             ext.endLoading();
         };
 
         /**
          * Initializes the events for the currently displayed overlay
+         *
+         * @param {object} data
          */
-        let initEvents = () => {
+        let initEvents = (data) => {
             elements.overlay.find("body").on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY") {
                     closeOverlay();
@@ -574,26 +539,26 @@
 
             elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action
                 e.preventDefault();
-                let infos = elements.modal.data("infos");
+
                 switch (elements.modal.attr(ext.opts.attr.type)) {
                     case "delete": {
-                        deleteBookmark(infos);
+                        deleteBookmark(data);
                         break;
                     }
                     case "hide": {
-                        hideBookmark(infos);
+                        hideBookmark(data);
                         break;
                     }
                     case "openChildren": {
-                        openChildren($(e.currentTarget).data("bookmarks"));
+                        openChildren(data);
                         break;
                     }
                     case "edit": {
-                        editEntry(infos);
+                        editEntry(data);
                         break;
                     }
                     case "add": {
-                        addEntry(infos);
+                        addEntry(data);
                         break;
                     }
                     case "updateUrls": {
@@ -609,8 +574,7 @@
 
             elements.modal.find("a." + ext.opts.classes.overlay.preview + ", a." + ext.opts.classes.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
-                let infos = $(e.currentTarget).data("infos");
-                ext.helper.sidebarEvents.openUrl(infos, "newTab");
+                ext.helper.sidebarEvents.openUrl(data, "newTab");
             });
         };
     };

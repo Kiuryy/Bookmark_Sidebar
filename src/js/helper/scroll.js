@@ -38,12 +38,12 @@
          * important if the content height of the scrollbox has changed
          *
          * @param {boolean} save
+         * @param {boolean} hidden
          */
-        this.updateAll = (save = false) => {
+        this.updateAll = (save = false, hidden = false) => {
             scrollBoxes.forEach((scrollBox) => {
                 if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
-                    this.update(scrollBox, save);
-                    scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
+                    this.update(scrollBox, save, hidden);
                 }
             });
         };
@@ -54,10 +54,11 @@
          *
          * @param {jsu} scrollBox
          * @param {boolean} save
+         * @param {boolean} hidden
          */
-        this.update = (scrollBox, save = false) => {
+        this.update = (scrollBox, save = false, hidden = false) => {
             let scrollPos = scrollBox.data("scrollpos") || 0;
-            this.setScrollPos(scrollBox, scrollPos);
+            this.setScrollPos(scrollBox, scrollPos, hidden);
 
             if (save) {
                 saveScrollPos(scrollBox);
@@ -100,8 +101,9 @@
          *
          * @param {jsu} scrollBox
          * @param {int} scrollPos
+         * @param {boolean} hidden
          */
-        this.setScrollPos = (scrollBox, scrollPos) => {
+        this.setScrollPos = (scrollBox, scrollPos, hidden = false) => {
             ext.helper.contextmenu.close();
 
             let boxHeight = getScrollBoxHeight(scrollBox);
@@ -132,7 +134,6 @@
             let paddingTop = parseInt(scrollBox.data("scrollbar").css("padding-top"));
             let thumbPos = scrollPos / contentHeight * (boxHeight - paddingTop * 2) + paddingTop;
 
-            scrollBox.data("scrollbar").removeClass(ext.opts.classes.scrollBox.hidden);
             scrollBox.data("scrollbar").find("> div").css({ // adjust scrollbar thumb
                 height: ((boxHeight - paddingTop * 2) / contentHeight * 100) + "%",
                 transform: "translate3d(0," + thumbPos + "px,0)"
@@ -141,10 +142,15 @@
             scrollBox.data("scrollpos", scrollPos);
             scrollBox.data("content").css("transform", "translate3d(0,-" + scrollPos + "px,0)");
 
-            clearTimeout(scrollBarTimeout[scrollBox.attr("id")]);
-            scrollBarTimeout[scrollBox.attr("id")] = setTimeout(() => {
+            if (hidden) {
                 scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
-            }, 1500);
+            } else {
+                scrollBox.data("scrollbar").removeClass(ext.opts.classes.scrollBox.hidden);
+                clearTimeout(scrollBarTimeout[scrollBox.attr("id")]);
+                scrollBarTimeout[scrollBox.attr("id")] = setTimeout(() => {
+                    scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
+                }, 1500);
+            }
         };
 
         /**

@@ -1,6 +1,6 @@
 
 div.checkbox {
-  @include mask('icon-checkbox-inactive', $__textColor, 22px);
+  @include mask(null, $__textColor, 22px);
   position: relative;
   width: 20px;
   height: 20px;
@@ -8,6 +8,14 @@ div.checkbox {
 
   &::before {
     transition: -webkit-mask 0.3s, background-color 0.3s;
+  }
+
+  &[data-type='checkbox']::before {
+    @include maskImage('icon-checkbox-inactive');
+  }
+
+  &[data-type='radio']::before {
+    @include maskImage('icon-radio-inactive');
   }
 
   &::after {
@@ -37,7 +45,14 @@ div.checkbox {
 
     &::before {
       background-color: $__colorScheme;
+    }
+
+    &[data-type='checkbox']::before {
       @include maskImage('icon-checkbox');
+    }
+
+    &[data-type='radio']::before {
+      @include maskImage('icon-radio');
     }
 
     &::after {

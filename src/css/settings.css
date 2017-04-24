@@ -130,11 +130,16 @@ div.checkbox::before {
   width: 100%;
   height: 100%;
   -webkit-mask: no-repeat center/22px;
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox-inactive.svg);
   background-color: #666;
 }
 div.checkbox::before {
   transition: -webkit-mask 0.3s, background-color 0.3s;
+}
+div.checkbox[data-type='checkbox']::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox-inactive.svg);
+}
+div.checkbox[data-type='radio']::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-radio-inactive.svg);
 }
 div.checkbox::after {
   content: "";
@@ -158,7 +163,12 @@ div.checkbox.clicked::after {
 }
 div.checkbox.active::before {
   background-color: #7b5fa4;
+}
+div.checkbox.active[data-type='checkbox']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox.svg);
+}
+div.checkbox.active[data-type='radio']::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-radio.svg);
 }
 div.checkbox.active::after {
   box-shadow: 0 0 0 0 #7b5fa4;

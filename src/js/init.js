@@ -40,6 +40,7 @@
                 bookmarkLink: "link",
                 bookmarkLabel: "label",
                 menu: "menu",
+                sort: "sort",
                 hidden: "hidden",
                 loading: "loading",
                 search: "search",
@@ -102,6 +103,8 @@
             src: "data-src",
             position: "data-pos",
             type: "data-type",
+            name: "data-name",
+            value: "data-value",
             id: "data-id"
         },
         events: {

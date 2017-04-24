@@ -13,9 +13,6 @@
                 if (data.searchValue && data.searchValue.length > 0) { // search value is not empty -> restore
                     ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
                     handleSearchValChanged(data.searchValue);
-                    setTimeout(() => {
-                        ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["search"]);
-                    }, 100);
                 }
             }
 
@@ -40,7 +37,6 @@
             let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
             if (val === null) {
                 val = searchField[0].value;
-                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
             } else {
                 searchField[0].value = val;
             }
@@ -66,6 +62,7 @@
                 searchField.data("lastVal", val);
                 ext.helper.model.setData({"u/searchValue": val});
                 ext.startLoading();
+                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
 
                 ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
                     ext.elements.bookmarkBox["search"].children("p").remove();
@@ -75,7 +72,7 @@
                     list.text("");
 
                     if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
-                        hasResults = ext.addBookmarkDir(response.bookmarks, list) > 0;
+                        hasResults = ext.helper.list.addBookmarkDir(response.bookmarks, list);
                     }
 
                     if (hasResults === false) { // no results

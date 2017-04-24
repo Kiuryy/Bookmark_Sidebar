@@ -189,7 +189,7 @@
 
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
-            ext.helper.scroll.updateAll();
+            ext.helper.scroll.updateAll(false, true);
             ext.initImages();
             $(document).trigger("mousemove"); // hide indicator
         };

@@ -3,27 +3,35 @@
 
     window.CheckboxHelper = function (ext) {
 
-        let clickedTimeout = null;
+        let clickedTimeout = {};
 
         /**
          * Creates a new checkbox in the given document context and returns the created container
          *
          * @param {jsu} body
          * @param {object} attrList
+         * @param {string} style
          * @returns {jsu}
          */
-        this.get = (body, attrList) => {
-            let container = $("<div />").data("contextBody", body).html("<input type='checkbox' />").addClass(ext.opts.classes.checkbox.box);
+        this.get = (body, attrList, style = "checkbox") => {
+            let container = $("<div />")
+                .html("<input type='checkbox' />")
+                .data("uid", Math.random().toString(36).substr(2, 12))
+                .attr(ext.opts.attr.type, style)
+                .addClass(ext.opts.classes.checkbox.box);
 
             if (typeof attrList !== "undefined") {
                 container.children("input[type='checkbox']").attr(attrList);
+                if (attrList[ext.opts.attr.name]) {
+                    container.attr(ext.opts.attr.name, attrList[ext.opts.attr.name]);
+                }
             }
 
             if (this.isChecked(container)) {
                 container.addClass(ext.opts.classes.checkbox.active);
             }
 
-            initEvents(container);
+            initEvents(container, body);
             return container;
         };
 
@@ -38,9 +46,56 @@
         };
 
         /**
+         * Toggles the given checkbox,
+         * if it has the type 'radio' uncheck every other checkbox with the same name
+         *
+         * @param {jsu} container
+         * @param {jsu} body
+         */
+        let toggleChecked = (container, body) => {
+            container.addClass(ext.opts.classes.checkbox.clicked);
+            container.removeClass(ext.opts.classes.checkbox.focus);
+            container.toggleClass(ext.opts.classes.checkbox.active);
+
+            let isChecked = container.hasClass(ext.opts.classes.checkbox.active);
+            let checkbox = container.children("input[type='checkbox']");
+
+            if (container.attr(ext.opts.attr.type) === "radio" && container.attr(ext.opts.attr.name)) { // radio button -> allow only one to be checked with the same name
+                if (body) {
+                    let name = container.attr(ext.opts.attr.name);
+                    container.addClass(ext.opts.classes.checkbox.active);
+
+                    if (isChecked) { // radio button was not checked before already -> trigger change event
+                        checkbox.attr('checked', true).trigger("change");
+                    }
+
+                    body.find("div." + ext.opts.classes.checkbox.box + "[" + ext.opts.attr.type + "='radio'][" + ext.opts.attr.name + "='" + name + "']").forEach((elm) => {
+                        let elmObj = $(elm);
+                        if (elm !== container[0] && this.isChecked(elmObj)) { // uncheck all other radio buttons with this name
+                            toggleChecked(elmObj);
+                        }
+                    });
+                } else {
+                    checkbox.attr('checked', false);
+                }
+            } else {
+                checkbox.attr('checked', isChecked).trigger("change");
+            }
+
+            let uid = container.data("uid");
+            if (clickedTimeout[uid]) {
+                clearTimeout(clickedTimeout[uid]);
+            }
+
+            clickedTimeout[uid] = setTimeout(() => {
+                container.removeClass(ext.opts.classes.checkbox.clicked);
+            }, 300);
+        };
+
+        /**
          * Initializes the events for the checkbox
          */
-        let initEvents = (container) => {
+        let initEvents = (container, body) => {
             container.on("mousedown", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -48,25 +103,10 @@
             }).on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-
-                let _self = $(e.currentTarget);
-                _self.addClass(ext.opts.classes.checkbox.clicked);
-                _self.removeClass(ext.opts.classes.checkbox.focus);
-                _self.toggleClass(ext.opts.classes.checkbox.active);
-
-                let isChecked = _self.hasClass(ext.opts.classes.checkbox.active);
-                _self.children("input[type='checkbox']").attr('checked', isChecked).trigger("change");
-
-                if (clickedTimeout) {
-                    clearTimeout(clickedTimeout);
-                }
-
-                clickedTimeout = setTimeout(() => {
-                    _self.removeClass(ext.opts.classes.checkbox.clicked);
-                }, 300);
+                toggleChecked($(e.currentTarget), body);
             });
 
-            container.data("contextBody").on("click", (e) => {
+            body.on("click", () => {
                 container.removeClass(ext.opts.classes.checkbox.focus);
             });
         };

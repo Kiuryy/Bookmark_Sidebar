@@ -42,8 +42,9 @@
 
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
                 elmParent.clone().addClass(ext.opts.classes.drag.dragInitial).insertAfter(elmParent);
-                let helper = elm.clone().appendTo(ext.elements.iframeBody);
 
+                let helper = elm.clone().appendTo(ext.elements.iframeBody);
+                let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
                 let boundClientRect = elm[0].getBoundingClientRect();
 
                 helper.removeAttr("title").css({
@@ -52,7 +53,7 @@
                     width: elm.realWidth() + "px"
                 }).data({
                     elm: elmParent,
-                    isDir: !!(elm.data("infos").children),
+                    isDir: data.isDir,
                     startPos: {
                         top: e.pageY - boundClientRect.top,
                         left: e.pageX - boundClientRect.left
@@ -79,14 +80,10 @@
                     } else { // animate the helper back to the new position and save it
                         draggedElm.addClass(ext.opts.classes.drag.snap);
 
-                        let entryInfos = entryElm.children("a").data("infos");
-                        let parentInfos = entryElm.parent("ul").prev("a").data("infos");
-                        let idx = entryElm.prevAll("li").length();
-
                         ext.helper.model.call("moveBookmark", {
-                            id: entryInfos.id,
-                            parentId: parentInfos.id,
-                            index: idx
+                            id: entryElm.children("a").attr(ext.opts.attr.id),
+                            parentId: entryElm.parent("ul").prev("a").attr(ext.opts.attr.id),
+                            index: entryElm.prevAll("li").length()
                         });
 
                         setTimeout(() => {
@@ -175,7 +172,7 @@
                             } else if (draggedElm.data("isDir")) {
                                 draggedElm.data("elm", bookmarkElm.insertAfter(newAboveElm));
                             } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) {
-                                ext.helper.sidebarEvents.toggleBookmarkDir(newAboveLink);
+                                ext.helper.list.toggleBookmarkDir(newAboveLink);
                             }
                         } else {
                             draggedElm.data("elm", bookmarkElm.insertAfter(newAboveElm));

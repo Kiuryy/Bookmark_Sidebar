@@ -22,6 +22,8 @@
         "js/lib/jsu.js",
         "js/helper/model.js",
         "js/helper/toggle.js",
+        "js/helper/entry.js",
+        "js/helper/list.js",
         "js/helper/scroll.js",
         "js/helper/sidebarEvents.js",
         "js/helper/search.js",

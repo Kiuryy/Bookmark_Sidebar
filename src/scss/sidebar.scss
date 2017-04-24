@@ -135,6 +135,7 @@ section#sidebar {
   width: $__sidebarWidth;
   background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
+  user-select: none;
   z-index: 2;
 
   &[data-pos='right'] {
@@ -143,9 +144,7 @@ section#sidebar {
   }
 
   > header {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: $sidebarHeaderHeight;
     padding: 7px 12px 0 12px;
@@ -175,6 +174,7 @@ section#sidebar {
     }
 
     > a {
+      @include mask(null, $textColorInverted, 22px);
       position: relative;
       vertical-align: top;
       display: block;
@@ -198,7 +198,7 @@ section#sidebar {
       position: absolute;
       top: 10px;
       left: 16px;
-      width: calc(100% - 75px);
+      width: calc(100% - 105px);
       height: 30px;
       background-color: rgba(255, 255, 255, 0.2);
       transform: translate3d(20px, 0, 0);
@@ -258,8 +258,7 @@ section#sidebar {
   }
 
   > div.scrollBox {
-    height: 100%;
-    padding-top: $sidebarHeaderHeight;
+    height: calc(100% - #{$sidebarHeaderHeight});
     display: none;
 
     &.active {
@@ -272,11 +271,6 @@ section#sidebar {
       font-style: italic;
       max-width: 350px;
       margin: 0 auto;
-    }
-
-    > div.scrollbar {
-      top: $sidebarHeaderHeight;
-      height: calc(100% - #{$sidebarHeaderHeight});
     }
 
     > ul {
@@ -356,12 +350,16 @@ section#sidebar {
 
       > a {
 
-        &.search {
-          @include mask('icon-search', $textColorInverted, 22px);
+        &.search::before {
+          @include maskImage('icon-search');
         }
 
-        &.menu {
-          @include mask('icon-menu', $textColorInverted, 22px);
+        &.sort::before {
+          @include maskImage('icon-sort');
+        }
+
+        &.menu::before {
+          @include maskImage('icon-menu');
         }
       }
 

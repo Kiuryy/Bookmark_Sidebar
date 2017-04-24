@@ -13,7 +13,6 @@
         this.firstRun = true;
         this.elements = {};
         this.opts = opts;
-        this.entries = {};
 
         /**
          * Constructor
@@ -26,6 +25,8 @@
 
                 initSidebar();
 
+                this.helper.list.init();
+                this.helper.toggle.init();
                 this.helper.sidebarEvents.init();
                 this.helper.dragndrop.init();
 
@@ -60,24 +61,6 @@
         };
 
         /**
-         * Returns false for all entries which are not in the entries object or have the hidden flag set to true
-         *
-         * @param {int} id
-         * @returns {boolean}
-         */
-        this.isEntryVisible = (id) => {
-            let visible = false;
-
-            if (typeof this.entries.bookmarks[id] === "object") {
-                visible = this.entries.bookmarks[id].hidden === false;
-            } else if (typeof this.entries.directories[id] === "object") {
-                visible = this.entries.directories[id].hidden === false;
-            }
-
-            return visible;
-        };
-
-        /**
          * Checks whether the browser is maximized or windowed
          *
          * @returns {boolean}
@@ -94,6 +77,23 @@
          */
         this.lang = (msg) => {
             return chrome.i18n.getMessage(msg);
+        };
+
+        /**
+         * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
+         */
+        this.loaded = () => {
+            let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
+
+            this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
+            document.dispatchEvent(new CustomEvent(opts.events.loaded, {
+                detail: {
+                    pxTolerance: data.pxTolerance,
+                    showIndicator: data.showIndicator
+                },
+                bubbles: true,
+                cancelable: false
+            }));
         };
 
         /**
@@ -124,124 +124,6 @@
         };
 
         /**
-         * Restores the open states of the directories in your bookmarks,
-         * calls the restoreScrollPos-Method when all open states have been restored
-         *
-         * @param {jsu} list
-         */
-        this.restoreOpenStates = (list) => {
-            let opened = 0;
-            let data = this.helper.model.getData(["b/rememberState", "u/openStates"]);
-
-            if (data.rememberState === "all" || data.rememberState === "openStates") {
-                restoreOpenStateRunning++;
-
-                Object.keys(data.openStates).forEach((node) => {
-                    if (data.openStates[node] === true) {
-                        let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
-                        let entry = list.find("> li > a." + opts.classes.sidebar.bookmarkDir + "[" + opts.attr.id + "='" + id + "']");
-
-                        if (entry.length() > 0) {
-                            opened++;
-                            this.helper.sidebarEvents.toggleBookmarkDir(entry);
-                        }
-                    }
-                });
-
-                restoreOpenStateRunning--;
-            }
-
-            if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
-                setTimeout(() => {
-                    this.firstRun = false;
-                    this.helper.scroll.restoreScrollPos(this.elements.bookmarkBox["all"], () => {
-                        extensionLoaded();
-                    });
-                }, 100);
-            }
-
-        };
-
-        /**
-         * Adds the given bookmarks to the given list
-         *
-         * @param {Array} bookmarks
-         * @param {jsu} list
-         * @returns {int} amount of entries added to the list
-         */
-        this.addBookmarkDir = (bookmarks, list) => {
-            let ret = 0;
-            let config = this.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
-            let sidebarOpen = this.elements.iframe.hasClass(opts.classes.page.visible);
-            let showHidden = this.elements.iframeBody.hasClass(opts.classes.sidebar.showHidden);
-
-            if (list.parents("li").length() > 0) {
-                list.css("transition", "height " + config.dirOpenDuration + "s");
-            }
-
-            bookmarks.forEach((bookmark, idx) => {
-                if ((showHidden || this.isEntryVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
-                    if (opts.demoMode) {
-                        if (bookmark.children) {
-                            bookmark.title = "Directory " + (idx + 1);
-                        } else {
-                            bookmark.title = "Bookmark " + (idx + 1);
-                            bookmark.url = "https://example.com/";
-                        }
-                    }
-
-                    let entry = $("<li />").appendTo(list);
-                    let entryContent = $("<a />")
-                        .html("<span class='" + opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + opts.classes.drag.trigger + "' />")
-                        .attr(opts.attr.id, bookmark.id)
-                        .appendTo(entry);
-
-                    if (this.isEntryVisible(bookmark.id) === false) {
-                        entry.addClass(opts.classes.sidebar.hidden);
-                    }
-
-                    bookmark.element = entryContent;
-
-                    if (bookmark.children) { // dir
-                        entryContent
-                            .data("infos", bookmark)
-                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + this.lang("sidebar_dir_children"))
-                            .addClass(opts.classes.sidebar.bookmarkDir);
-
-                        if (config.showBookmarkIcons) {
-                            entryContent.prepend("<span class='" + opts.classes.sidebar.dirIcon + "' />");
-                        }
-                    } else { // link
-                        entryContent
-                            .data("infos", bookmark)
-                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
-                            .addClass(opts.classes.sidebar.bookmarkLink);
-
-                        if (config.showBookmarkIcons) {
-                            if (opts.demoMode) {
-                                entryContent.prepend("<span class='" + opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
-                            } else {
-                                this.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
-                                    if (response.img) { // favicon found -> add to entry
-                                        bookmark.icon = response.img;
-
-                                        entryContent
-                                            .data("infos", bookmark)
-                                            .prepend("<img " + (sidebarOpen ? "src" : opts.attr.src) + "='" + bookmark.icon + "' />")
-                                    }
-                                });
-                            }
-                        }
-                    }
-
-                    ret++;
-                }
-            });
-
-            return ret;
-        };
-
-        /**
          * Initialises the not yet loaded images in the sidebar
          */
         this.initImages = () => {
@@ -250,30 +132,6 @@
                 let src = img.attr(opts.attr.src);
                 img.removeAttr(opts.attr.src);
                 img.attr("src", src);
-            });
-        };
-
-        /**
-         * Updates the sidebar with the newest set of bookmarks
-         */
-        this.updateBookmarkBox = () => {
-            this.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree
-                if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
-                    this.firstRun = true;
-                    let list = this.elements.bookmarkBox["all"].children("ul");
-                    list.removeClass(opts.classes.sidebar.hideRoot).text("");
-
-                    updateEntriesInfo(response.bookmarks[0].children);
-                    this.helper.search.init();
-                    this.addBookmarkDir(response.bookmarks[0].children, list);
-
-                    if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                        list.addClass(opts.classes.sidebar.hideRoot);
-                        this.helper.sidebarEvents.toggleBookmarkDir(list.find("> li > a." + opts.classes.sidebar.bookmarkDir).eq(0));
-                    } else {
-                        this.restoreOpenStates(list);
-                    }
-                }
             });
         };
 
@@ -303,8 +161,6 @@
          * ################################
          */
 
-        let restoreOpenStateRunning = 0;
-
         /**
          * Initialises the helper objects
          */
@@ -312,6 +168,8 @@
             this.helper = {
                 model: new window.ModelHelper(this),
                 toggle: new window.ToggleHelper(this),
+                entry: new window.EntryHelper(this),
+                list: new window.ListHelper(this),
                 scroll: new window.ScrollHelper(this),
                 sidebarEvents: new window.SidebarEventsHelper(this),
                 search: new window.SearchHelper(this),
@@ -350,85 +208,6 @@
             if (data.showHidden === true) {
                 this.elements.iframeBody.addClass(opts.classes.sidebar.showHidden);
             }
-
-            this.elements.bookmarkBox["all"].addClass(opts.classes.sidebar.active);
-            this.updateBookmarkBox();
-            this.helper.toggle.init();
-        };
-
-        /**
-         * Updates the object with all bookmarks and directories,
-         * stores the infos off all entries in a one dimensional object and marks the hidden bookmarks or directories with a flag
-         *
-         * @param {Array} bookmarkTree
-         */
-        let updateEntriesInfo = (bookmarkTree) => {
-            let hiddenEntries = this.helper.model.getData("u/hiddenEntries");
-            let showHidden = this.elements.iframeBody.hasClass(opts.classes.sidebar.showHidden);
-
-            this.entries = {
-                bookmarks: {},
-                directories: {}
-            };
-
-            let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
-                entriesList.forEach((entry) => {
-                    if (showHidden || hiddenEntries[entry.id] !== true) {
-                        let thisParents = [...parents];
-
-                        if (entry.parentId !== "0") {
-                            thisParents.push(entry.parentId);
-                        }
-
-                        entry.hidden = parentIsHidden || hiddenEntries[entry.id] === true;
-                        entry.parents = thisParents;
-                        if (entry.url) {
-                            this.entries.bookmarks[entry.id] = entry;
-                        } else if (entry.children) {
-                            this.entries.directories[entry.id] = entry;
-                            processEntries(entry.children, thisParents, entry.hidden);
-                        }
-                    }
-                });
-            };
-            processEntries(bookmarkTree);
-            updateSidebarHeader();
-        };
-
-        /**
-         * Updates the html for the sidebar header
-         */
-        let updateSidebarHeader = () => {
-            this.elements.header.text("");
-            let bookmarkAmount = Object.keys(this.entries.bookmarks).length;
-
-            $("<h1 />").html("<strong>" + bookmarkAmount + "</strong> <span>" + this.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>").appendTo(this.elements.header);
-            $("<a />").addClass(opts.classes.sidebar.menu).appendTo(this.elements.header);
-            $("<a />").addClass(opts.classes.sidebar.search).appendTo(this.elements.header);
-
-            $("<div />")
-                .addClass(opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + this.lang("sidebar_search_placeholder") + "' />")
-                .append("<a href='#' class='" + opts.classes.sidebar.searchClose + "'></a>")
-                .appendTo(this.elements.header);
-        };
-
-
-        /**
-         * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
-         */
-        let extensionLoaded = () => {
-            let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
-
-            this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
-            document.dispatchEvent(new CustomEvent(opts.events.loaded, {
-                detail: {
-                    pxTolerance: data.pxTolerance,
-                    showIndicator: data.showIndicator
-                },
-                bubbles: true,
-                cancelable: false
-            }));
         };
     };
 

@@ -135,6 +135,9 @@ section#sidebar {
   width: $__sidebarWidth;
   background: $contentBackground;
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   user-select: none;
   z-index: 2;
 
@@ -150,6 +153,8 @@ section#sidebar {
     padding: 7px 12px 0 12px;
     background: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: height 0.3s;
+    flex-shrink: 0;
     z-index: 3;
 
     > h1 {
@@ -258,8 +263,8 @@ section#sidebar {
   }
 
   > div.scrollBox {
-    height: calc(100% - #{$sidebarHeaderHeight});
     display: none;
+    transition: height 0.3s;
 
     &.active {
       display: block;

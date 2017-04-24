@@ -35,6 +35,18 @@
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
     },
+    "contextmenu_sort_custom": {
+        "message": "User-defined"
+    },
+    "contextmenu_sort_alphabetical": {
+        "message": "Alphabetical"
+    },
+    "contextmenu_sort_most_used": {
+        "message": "Most used"
+    },
+    "contextmenu_sort_recently_added": {
+        "message": "Recently added"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Delete Bookmark"
     },

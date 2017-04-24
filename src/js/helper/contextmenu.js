@@ -108,7 +108,7 @@
                         [ext.opts.attr.name]: 'sort',
                         [ext.opts.attr.value]: value
                     }, "radio"))
-                    .append("<a " + ext.opts.attr.name + "='sort'>" + langName + "</a>") // ext.lang("contextmenu_sort_" + langName)
+                    .append("<a " + ext.opts.attr.name + "='sort'>" + ext.lang("contextmenu_sort_" + langName) + "</a>")
                     .appendTo(list);
 
                 if (value === currentSort.name) {
@@ -129,14 +129,17 @@
         let handleHeaderMenu = (contextmenu, elm) => {
             let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
             let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
+            let currentSort = ext.helper.list.getSort();
 
-            $("<li />")
-                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: 'toggleFix'}))
-                .append("<a " + ext.opts.attr.name + "='toggleFix'>" + ext.lang("contextmenu_toggle_fix") + "</a>")
-                .appendTo(list);
+            if (currentSort.name === "custom") {
+                $("<li />")
+                    .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: 'toggleFix'}))
+                    .append("<a " + ext.opts.attr.name + "='toggleFix'>" + ext.lang("contextmenu_toggle_fix") + "</a>")
+                    .appendTo(list);
 
-            if (ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false) {
-                contextmenu.find("input[" + ext.opts.attr.name + "='toggleFix']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
+                if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false) {
+                    contextmenu.find("input[" + ext.opts.attr.name + "='toggleFix']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
+                }
             }
 
             $("<li />")
@@ -144,7 +147,7 @@
                 .append("<a " + ext.opts.attr.name + "='toggleHidden'>" + ext.lang("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
 
-            if (ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden) === true) {
+            if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true) {
                 contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
             }
 
@@ -233,18 +236,18 @@
             initSortEvents(contextmenu);
 
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleFix']").on("change", () => { // toggle fixation of the entries
-                ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
+                ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
                 ext.helper.model.setData({
-                    "u/entriesLocked": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
+                    "u/entriesLocked": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
                 });
                 this.close();
             });
 
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", () => { // toggle visibility of hidden entries
-                ext.elements.iframeBody.toggleClass(ext.opts.classes.sidebar.showHidden);
+                ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.showHidden);
                 ext.startLoading();
                 ext.helper.model.setData({
-                    "u/showHidden": ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden) === true
+                    "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
                 });
                 ext.helper.list.updateBookmarkBox();
                 ext.endLoading();

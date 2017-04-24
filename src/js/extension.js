@@ -202,11 +202,11 @@
             let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
 
             if (data.entriesLocked === false) {
-                this.elements.iframeBody.addClass(opts.classes.sidebar.entriesUnlocked);
+                this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
             }
 
             if (data.showHidden === true) {
-                this.elements.iframeBody.addClass(opts.classes.sidebar.showHidden);
+                this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
             }
         };
     };

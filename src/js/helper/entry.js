@@ -15,7 +15,7 @@
         this.update = (bookmarkTree, callback) => {
             ext.helper.model.call("viewAmounts", (info) => {
                 let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
-                let showHidden = ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden);
+                let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
                 entries = {
                     bookmarks: {},

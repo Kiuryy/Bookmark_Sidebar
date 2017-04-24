@@ -377,6 +377,17 @@ section#sidebar {
     }
   }
 
+  &.entriesUnlocked {
+
+    > div.scrollBox > ul ul a {
+      padding-right: 46px;
+
+      > span.drag {
+        display: block;
+      }
+    }
+  }
+
   &.loading {
 
     > div.loading {
@@ -476,21 +487,6 @@ body {
 
     section#sidebar > div.scrollBox > ul li.isDragged {
       display: none;
-    }
-  }
-
-  &.entriesUnlocked {
-
-    section#sidebar > div.scrollBox > ul ul a {
-      padding-right: 46px;
-
-      > span.drag {
-        display: block;
-      }
-    }
-
-    div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
-      background: transparent;
     }
   }
 

@@ -21,7 +21,7 @@
                 custom: {
                     dir: "ASC"
                 },
-                alphabetic: {
+                alphabetical: {
                     dir: "ASC"
                 },
                 mostUsed: {
@@ -133,7 +133,7 @@
         let sortBookmarks = (bookmarks) => {
             if (bookmarks.length > 1) {
                 switch (sort.name) {
-                    case "alphabetic": {
+                    case "alphabetical": {
                         bookmarks.sort((a, b) => {
                             return a.title.localeCompare(b.title, [chrome.i18n.getUILanguage(), ext.opts.manifest.default_locale]);
                         });
@@ -171,7 +171,7 @@
             let hasEntries = false;
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
-            let showHidden = ext.elements.iframeBody.hasClass(ext.opts.classes.sidebar.showHidden);
+            let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
             if (list.parents("li").length() > 0) {
                 list.css("transition", "height " + config.dirOpenDuration + "s");

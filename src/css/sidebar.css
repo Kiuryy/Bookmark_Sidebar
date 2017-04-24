@@ -758,6 +758,12 @@ section#sidebar.openedOnce > div.scrollBox > ul a > span.drag::before {
 section#sidebar.openedOnce > div.scrollBox > ul a > span.drag:hover::before {
   background-color: #999;
 }
+section#sidebar.entriesUnlocked > div.scrollBox > ul ul a {
+  padding-right: 46px;
+}
+section#sidebar.entriesUnlocked > div.scrollBox > ul ul a > span.drag {
+  display: block;
+}
 section#sidebar.loading > div.loading {
   position: absolute;
   top: calc(50% - 18px);
@@ -947,15 +953,6 @@ div#shareUserdata > div > a:hover {
 
 body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
   display: none;
-}
-body.entriesUnlocked section#sidebar > div.scrollBox > ul ul a {
-  padding-right: 46px;
-}
-body.entriesUnlocked section#sidebar > div.scrollBox > ul ul a > span.drag {
-  display: block;
-}
-body.entriesUnlocked div.contextmenu > ul > li > a[data-type='toggleFix'] > span {
-  background: transparent;
 }
 body.loaded section#sidebar > div.scrollBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
   transition: transform 0.3s;

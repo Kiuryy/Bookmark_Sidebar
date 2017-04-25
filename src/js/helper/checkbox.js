@@ -46,6 +46,27 @@
         };
 
         /**
+         * Triggers a change event for the checkbox and a global event
+         *
+         * @param {jsu} container
+         * @param {jsu} body
+         */
+        let triggerChangeEvent = (container, body) => {
+            let checkbox = container.children("input[type='checkbox']");
+
+            checkbox.trigger("change");
+            body.document()[0].dispatchEvent(new CustomEvent(ext.opts.events.checkboxChanged, {
+                detail: {
+                    container: container,
+                    checkbox: checkbox,
+                    checked: container.hasClass(ext.opts.classes.checkbox.active)
+                },
+                bubbles: true,
+                cancelable: false
+            }));
+        };
+
+        /**
          * Toggles the given checkbox,
          * if it has the type 'radio' uncheck every other checkbox with the same name
          *
@@ -66,7 +87,8 @@
                     container.addClass(ext.opts.classes.checkbox.active);
 
                     if (isChecked) { // radio button was not checked before already -> trigger change event
-                        checkbox.attr('checked', true).trigger("change");
+                        checkbox.attr('checked', true);
+                        triggerChangeEvent(container, body);
                     }
 
                     body.find("div." + ext.opts.classes.checkbox.box + "[" + ext.opts.attr.type + "='radio'][" + ext.opts.attr.name + "='" + name + "']").forEach((elm) => {
@@ -79,7 +101,8 @@
                     checkbox.attr('checked', false);
                 }
             } else {
-                checkbox.attr('checked', isChecked).trigger("change");
+                checkbox.attr('checked', isChecked);
+                triggerChangeEvent(container, body);
             }
 
             let uid = container.data("uid");

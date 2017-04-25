@@ -196,10 +196,14 @@
                 }
             }
 
-            iconWrapper
-                .append("<li><a " + ext.opts.attr.name + "='infos' title='" + ext.lang("contextmenu_infos") + "'></a></li>")
-                .append("<li><a " + ext.opts.attr.name + "='edit' title='" + ext.lang("contextmenu_edit" + i18nAppend) + "'></a></li>")
-                .append("<li><a " + ext.opts.attr.name + "='delete' title='" + ext.lang("contextmenu_delete" + i18nAppend) + "'></a></li>");
+            iconWrapper.append("<li><a " + ext.opts.attr.name + "='infos' title='" + ext.lang("contextmenu_infos") + "'></a></li>");
+
+            if (data.parents.length > 0) { // root level can not be edited or deleted
+                iconWrapper
+                    .append("<li><a " + ext.opts.attr.name + "='edit' title='" + ext.lang("contextmenu_edit" + i18nAppend) + "'></a></li>")
+                    .append("<li><a " + ext.opts.attr.name + "='delete' title='" + ext.lang("contextmenu_delete" + i18nAppend) + "'></a></li>");
+            }
+
 
             if (data.isDir) {
                 iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.lang("contextmenu_add") + "'></a></li>");

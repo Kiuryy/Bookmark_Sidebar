@@ -3,7 +3,6 @@
  - translation contribution
  - changelog
  - preview sidebar width
- - hide delete/edit on root level
 
 [1.7]
  - Configurable typeface

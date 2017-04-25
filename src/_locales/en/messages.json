@@ -35,18 +35,6 @@
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
     },
-    "contextmenu_sort_custom": {
-        "message": "User-defined"
-    },
-    "contextmenu_sort_alphabetical": {
-        "message": "Alphabetical"
-    },
-    "contextmenu_sort_most_used": {
-        "message": "Most used"
-    },
-    "contextmenu_sort_recently_added": {
-        "message": "Recently added"
-    },
     "contextmenu_delete_bookmark": {
         "message": "Delete Bookmark"
     },
@@ -82,6 +70,27 @@
     },
     "contextmenu_show_in_sidebar": {
         "message": "Show in sidebar"
+    },
+    "sort_label_custom": {
+        "message": "User-defined"
+    },
+    "sort_label_alphabetical": {
+        "message": "Alphabetical"
+    },
+    "sort_label_most_used": {
+        "message": "Most used"
+    },
+    "sort_label_recently_added": {
+        "message": "Recently added"
+    },
+    "sort_view_as_tree": {
+        "message": "Show directories"
+    },
+    "sort_most_used_total": {
+        "message": "Total"
+    },
+    "sort_most_used_per_month": {
+        "message": "Per month"
     },
     "overlay_bookmark_title": {
         "message": "Title"

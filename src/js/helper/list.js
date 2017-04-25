@@ -12,7 +12,7 @@
         this.init = () => {
             ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
             sort = ext.helper.model.getData("u/sort");
-            ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
+            console.log(sort);
             this.updateBookmarkBox();
         };
 
@@ -46,22 +46,35 @@
 
                 sort = {
                     name: name,
-                    dir: direction
+                    dir: direction === "ASC" ? "ASC" : "DESC"
                 };
 
-                ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
-
                 ext.startLoading();
-                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0, true);
-                ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true, true);
-                this.updateBookmarkBox();
+                ext.helper.model.setData({
+                    "u/sort": sort
+                }, () => {
+                    this.updateBookmarkBox(true);
+                });
             }
+        };
+
+        this.updateDirection = (direction) => {
+            this.updateSort(sort.name, direction);
         };
 
         /**
          * Updates the sidebar with the newest set of bookmarks
          */
-        this.updateBookmarkBox = () => {
+        this.updateBookmarkBox = (scrollTop = false) => {
+            ext.startLoading();
+
+            if (scrollTop) {
+                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0, true);
+                ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true, true);
+            }
+
+            ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
+
             ext.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree
                 if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
                     ext.firstRun = true;
@@ -70,6 +83,7 @@
 
                     ext.helper.entry.update(response.bookmarks[0].children, () => {
                         updateSidebarHeader();
+                        updateSortFilter();
                         ext.helper.search.init();
 
                         this.addBookmarkDir(response.bookmarks[0].children, list);
@@ -128,37 +142,41 @@
         };
 
         /**
-         * Sorts the given bookmarks
+         * Restores the open states of the directories in your bookmarks,
+         * calls the restoreScrollPos-Method when all open states have been restored
          *
-         * @param {Array} bookmarks
+         * @param {jsu} list
          */
-        let sortBookmarks = (bookmarks) => {
-            if (bookmarks.length > 1) {
-                switch (sort.name) {
-                    case "alphabetical": {
-                        bookmarks.sort((a, b) => {
-                            return a.title.localeCompare(b.title, [chrome.i18n.getUILanguage(), ext.opts.manifest.default_locale]);
-                        });
-                        break;
+        this.restoreOpenStates = (list) => {
+            let opened = 0;
+            let data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
+
+            if (data.rememberState === "all" || data.rememberState === "openStates") {
+                restoreOpenStateRunning++;
+
+                Object.keys(data.openStates).forEach((node) => {
+                    if (data.openStates[node] === true) {
+                        let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
+                        let entry = list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + id + "']");
+
+                        if (entry.length() > 0) {
+                            opened++;
+                            this.toggleBookmarkDir(entry);
+                        }
                     }
-                    case "recentlyAdded": {
-                        bookmarks.sort((a, b) => {
-                            return b.dateAdded - a.dateAdded;
-                        });
-                        break;
-                    }
-                    case "mostUsed": {
-                        bookmarks.sort((a, b) => {
-                            let aData = ext.helper.entry.getData(a.id);
-                            let bData = ext.helper.entry.getData(b.id);
-                            let aViews = aData ? aData.views.total : 0;
-                            let bViews = bData ? bData.views.total : 0;
-                            // @todo total <-> per month
-                            return bViews - aViews;
-                        });
-                        break;
-                    }
-                }
+                });
+
+                restoreOpenStateRunning--;
+            }
+
+            if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
+                setTimeout(() => {
+                    ext.firstRun = false;
+                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"], () => {
+                        ext.endLoading(200);
+                        ext.loaded();
+                    });
+                }, 100);
             }
         };
 
@@ -239,41 +257,37 @@
         };
 
         /**
-         * Restores the open states of the directories in your bookmarks,
-         * calls the restoreScrollPos-Method when all open states have been restored
+         * Sorts the given bookmarks
          *
-         * @param {jsu} list
+         * @param {Array} bookmarks
          */
-        this.restoreOpenStates = (list) => {
-            let opened = 0;
-            let data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
-
-            if (data.rememberState === "all" || data.rememberState === "openStates") {
-                restoreOpenStateRunning++;
-
-                Object.keys(data.openStates).forEach((node) => {
-                    if (data.openStates[node] === true) {
-                        let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
-                        let entry = list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + id + "']");
-
-                        if (entry.length() > 0) {
-                            opened++;
-                            this.toggleBookmarkDir(entry);
-                        }
+        let sortBookmarks = (bookmarks) => {
+            if (bookmarks.length > 1) {
+                switch (sort.name) {
+                    case "alphabetical": {
+                        bookmarks.sort((a, b) => {
+                            return (sort.dir === "ASC" ? 1 : -1) * a.title.localeCompare(b.title, [chrome.i18n.getUILanguage(), ext.opts.manifest.default_locale]);
+                        });
+                        break;
                     }
-                });
-
-                restoreOpenStateRunning--;
-            }
-
-            if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
-                setTimeout(() => {
-                    ext.firstRun = false;
-                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"], () => {
-                        ext.endLoading(200);
-                        ext.loaded();
-                    });
-                }, 100);
+                    case "recentlyAdded": {
+                        bookmarks.sort((a, b) => {
+                            return (sort.dir === "ASC" ? -1 : 1) * (b.dateAdded - a.dateAdded);
+                        });
+                        break;
+                    }
+                    case "mostUsed": {
+                        let mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
+                        bookmarks.sort((a, b) => {
+                            let aData = ext.helper.entry.getData(a.id);
+                            let bData = ext.helper.entry.getData(b.id);
+                            let aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                            let bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                            return (sort.dir === "ASC" ? -1 : 1) * (bViews - aViews);
+                        });
+                        break;
+                    }
+                }
             }
         };
 
@@ -351,6 +365,47 @@
             });
         };
 
+        let updateSortFilter = () => {
+            Object.keys(ext.elements.bookmarkBox).forEach((key) => {
+                let filterBox = ext.elements.bookmarkBox[key].children("div." + ext.opts.classes.sidebar.filterBox);
+                filterBox.removeClass(ext.opts.classes.sidebar.hidden).text("");
+
+                if (sort.name === "custom") {
+                    filterBox.addClass(ext.opts.classes.sidebar.hidden);
+                } else {
+                    let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
+
+                    let langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
+                    $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.lang("sort_label_" + langName)).appendTo(filterBox);
+                    let checkList = $("<ul />").appendTo(filterBox);
+
+                    if (key === "all") { // show bookmarks as tree or one dimensional list
+                        $("<li />")
+                            .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
+                                [ext.opts.attr.name]: 'viewAsTree',
+                                checked: config.viewAsTree ? "checked" : ""
+                            }))
+                            .append("<a>" + ext.lang("sort_view_as_tree") + "</a>")
+                            .appendTo(checkList);
+                    }
+
+                    if (sort.name === "mostUsed") { // sort most used based on total clicks or clicks per month
+                        $("<li />")
+                            .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
+                                [ext.opts.attr.name]: 'mostViewedPerMonth',
+                                checked: config.mostViewedPerMonth ? "checked" : ""
+                            }))
+                            .append("<a>" + ext.lang("sort_most_used_per_month") + "</a>")
+                            .appendTo(checkList);
+                    }
+
+                    if (checkList.children("li").length() === 0) {
+                        checkList.remove();
+                    }
+                }
+            });
+        };
+
         /**
          * Updates the html for the sidebar header
          */
@@ -358,15 +413,30 @@
             ext.elements.header.text("");
             let bookmarkAmount = Object.keys(ext.helper.entry.getAllBookmarkData()).length;
 
-            $("<h1 />").html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>").appendTo(ext.elements.header);
-            $("<a />").addClass(ext.opts.classes.sidebar.menu).appendTo(ext.elements.header);
-            $("<a />").addClass(ext.opts.classes.sidebar.sort).appendTo(ext.elements.header);
-            $("<a />").addClass(ext.opts.classes.sidebar.search).appendTo(ext.elements.header);
+            let headline = $("<h1 />")
+                .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
+                .attr("title", bookmarkAmount + " " + ext.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
+                .appendTo(ext.elements.header);
+
+            let headerIcons = [];
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.menu).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.sort).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.search).appendTo(ext.elements.header));
+
+            let computedStyle = window.getComputedStyle(ext.elements.header[0]);
+            let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
+
+            headerIcons.some((icon) => {
+                if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove the label of the headline
+                    headline.children("span").remove();
+                    return true;
+                }
+            });
 
             $("<div />")
                 .addClass(ext.opts.classes.sidebar.searchBox)
                 .append("<input type='text' placeholder='" + ext.lang("sidebar_search_placeholder") + "' />")
-                .append("<a href='#' class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
+                .append("<a class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elements.header);
         };
     };

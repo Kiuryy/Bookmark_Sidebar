@@ -38,7 +38,7 @@
                     name: "custom",
                     dir: "ASC"
                 },
-                mostViewedAbsolute: false,
+                mostViewedPerMonth: false,
                 viewAsTree: true
             },
             b: { // behaviour

@@ -264,7 +264,6 @@ section#sidebar {
 
   > div.scrollBox {
     display: none;
-    transition: height 0.3s;
 
     &.active {
       display: block;
@@ -278,8 +277,80 @@ section#sidebar {
       margin: 0 auto;
     }
 
+    > div.filter {
+      position: relative;
+      background: $hoverBackground;
+      padding: 10px $__bookmarksHorizontalPadding;
+      margin: 0 0 -5px 0;
+      z-index: 2;
+
+      &.hidden {
+        display: none;
+      }
+
+      > a[data-direction] {
+        @include mask('icon-arrow-up', $__textColor, 24px);
+        position: relative;
+        cursor: pointer;
+        padding-left: 18px;
+
+        &::before {
+          width: 14px;
+          height: 14px;
+          margin: 1px 0 0 0;
+          transition: transform 0.5s;
+        }
+
+        &[data-direction="DESC"]::before {
+          transform: rotateZ(180deg);
+        }
+      }
+
+      > ul {
+        float: right;
+
+        > li {
+          position: relative;
+
+          + li {
+            margin-top: 5px;
+          }
+
+          > div.checkbox {
+            position: absolute;
+            z-index: 2;
+            width: 16px;
+            height: 16px;
+            top: 0;
+            left: 0;
+
+            &::before {
+              -webkit-mask-size: 18px;
+            }
+
+            + a {
+              padding-left: 22px;
+              cursor: pointer;
+
+              &::before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    }
+
     > ul {
+      position: relative;
       margin: 9px 0;
+      z-index: 1;
 
       a {
         @include bookmarkEntry;

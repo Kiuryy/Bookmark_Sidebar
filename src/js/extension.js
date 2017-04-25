@@ -150,8 +150,8 @@
             let noticeText = this.lang("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
             $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
 
-            $("<a href='#' />").data("accept", true).html(this.lang("share_userdata_accept")).appendTo(contentBox);
-            $("<a href='#' />").data("accept", false).html(this.lang("share_userdata_decline")).appendTo(contentBox);
+            $("<a />").data("accept", true).html(this.lang("share_userdata_accept")).appendTo(contentBox);
+            $("<a />").data("accept", false).html(this.lang("share_userdata_decline")).appendTo(contentBox);
         };
 
 
@@ -190,11 +190,12 @@
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
             this.elements.iframeBody = this.elements.iframe.find("body");
             this.elements.sidebar = $('<section id="' + opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
+            this.elements.bookmarkBox = {};
 
-            this.elements.bookmarkBox = {
-                all: this.helper.scroll.add(opts.ids.sidebar.bookmarkBox, $("<ul />").appendTo(this.elements.sidebar)),
-                search: this.helper.scroll.add(opts.ids.sidebar.bookmarkBoxSearch, $("<ul />").appendTo(this.elements.sidebar))
-            };
+            ["all", "search"].forEach((val) => {
+                this.elements.bookmarkBox[val] = this.helper.scroll.add(opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elements.sidebar));
+                $("<div />").addClass(opts.classes.sidebar.filterBox).prependTo(this.elements.bookmarkBox[val]);
+            });
 
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);

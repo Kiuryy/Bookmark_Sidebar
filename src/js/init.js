@@ -10,9 +10,11 @@
             },
             sidebar: {
                 sidebar: "sidebar",
-                bookmarkBox: "bookmarkBox",
-                bookmarkBoxSearch: "bookmarkBoxSearch",
-                shareUserdata: "shareUserdata"
+                shareUserdata: "shareUserdata",
+                bookmarkBox: {
+                    all: "bookmarkBox",
+                    search: "bookmarkBoxSearch",
+                }
             },
             overlay: {
                 urlList: "urlList"
@@ -43,6 +45,7 @@
                 sort: "sort",
                 hidden: "hidden",
                 loading: "loading",
+                filterBox: "filter",
                 search: "search",
                 searchBox: "searchBox",
                 searchClose: "searchClose",
@@ -106,10 +109,12 @@
             name: "data-name",
             value: "data-value",
             sort: "data-sort",
+            direction: "data-direction",
             id: "data-id"
         },
         events: {
             loaded: "moonware-bs-loaded",
+            checkboxChanged:"moonware-bs-checkboxChanged",
             lsbLoaded: "moonware-lsb-loaded"
         },
         leftsideBackSelector: "div#moonware-lsb-main.moonware-lsb-add-visual",

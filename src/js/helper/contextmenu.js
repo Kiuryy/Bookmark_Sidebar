@@ -108,7 +108,7 @@
                         [ext.opts.attr.name]: 'sort',
                         [ext.opts.attr.value]: value
                     }, "radio"))
-                    .append("<a " + ext.opts.attr.name + "='sort'>" + ext.lang("contextmenu_sort_" + langName) + "</a>")
+                    .append("<a " + ext.opts.attr.name + "='sort'>" + ext.lang("sort_label_" + langName) + "</a>")
                     .appendTo(list);
 
                 if (value === currentSort.name) {
@@ -245,12 +245,10 @@
 
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", () => { // toggle visibility of hidden entries
                 ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.showHidden);
-                ext.startLoading();
                 ext.helper.model.setData({
                     "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
                 });
                 ext.helper.list.updateBookmarkBox();
-                ext.endLoading();
                 this.close();
             });
 
@@ -298,7 +296,6 @@
 
                         ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
                             ext.helper.list.updateBookmarkBox();
-                            ext.endLoading();
                         });
                         break;
                     }

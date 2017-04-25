@@ -97,6 +97,28 @@
                     e.preventDefault();
                     ext.helper.contextmenu.create("list", $(e.currentTarget));
                 });
+
+                ext.elements.bookmarkBox[key].children("div." + ext.opts.classes.sidebar.filterBox).on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
+                    e.preventDefault();
+                    let currentDirection = $(e.target).attr(ext.opts.attr.direction);
+                    let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
+                    ext.helper.list.updateDirection(newDirection);
+                }).on("click", "div." + ext.opts.classes.checkbox.box + " + a", (e) => { // trigger checkbox (viewAsTree or mostViewedPerMonth)
+                    e.preventDefault();
+                    $(e.target).prev("div[" + ext.opts.attr.name + "]").trigger("click");
+                });
+            });
+
+            $(ext.elements.iframe[0].contentDocument).on(ext.opts.events.checkboxChanged, (e) => { // set sort specific config and reload list
+                let name = e.detail.checkbox.attr(ext.opts.attr.name);
+
+                if (name === "viewAsTree" || name === "mostViewedPerMonth") {
+                    ext.helper.model.setData({
+                        ["u/" + name]: e.detail.checked
+                    }, () => {
+                        ext.helper.list.updateBookmarkBox(true);
+                    });
+                }
             });
         };
     };

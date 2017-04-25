@@ -754,6 +754,7 @@ div.modal[data-type='add'] > menu:not(.buttons) > a {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #f5f5f5;
   transition: box-shadow 0.5s;
+  cursor: pointer;
 }
 div.modal[data-type='add'] > menu:not(.buttons) > a::before {
   content: "";

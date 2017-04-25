@@ -186,8 +186,8 @@
         let handleAddHtml = () => {
             let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_save")).appendTo(elements.buttonWrapper);
             let menu = $("<menu />").appendTo(elements.modal);
-            $("<a href='#' />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.lang("overlay_label_bookmark")).appendTo(menu);
-            $("<a href='#' />").attr(ext.opts.attr.type, "dir").attr("title", ext.lang("overlay_label_dir")).appendTo(menu);
+            $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.lang("overlay_label_bookmark")).appendTo(menu);
+            $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.lang("overlay_label_dir")).appendTo(menu);
 
             menu.children("a").on("click", (e) => {
                 e.preventDefault();
@@ -480,10 +480,8 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
-                        ext.startLoading();
                         ext.helper.list.updateBookmarkBox();
                         closeOverlay();
-                        ext.endLoading();
                     }
                 });
             }
@@ -507,10 +505,8 @@
                 }
             });
 
-            ext.startLoading();
             ext.helper.list.updateBookmarkBox();
             closeOverlay();
-            ext.endLoading();
         };
 
         /**

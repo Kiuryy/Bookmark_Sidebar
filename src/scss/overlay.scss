@@ -494,6 +494,7 @@ div.modal {
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         background-color: $hoverBackground;
         transition: box-shadow 0.5s;
+        cursor: pointer;
 
         &::before {
           transition: opacity 0.5s, background-color 0.5s;

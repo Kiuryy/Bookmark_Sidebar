@@ -131,6 +131,18 @@
                 scrollBox.removeClass(ext.opts.classes.scrollBox.scrolled);
             }
 
+            let lastScrollPos = scrollBox.data("lastPos"); // determine scroll position by comparing current pos with the one before
+
+            if (scrollPos > lastScrollPos) {
+                scrollBox.attr(ext.opts.attr.direction, "down");
+            } else if (scrollPos < lastScrollPos) {
+                scrollBox.attr(ext.opts.attr.direction, "up");
+            } else {
+                scrollBox.removeAttr(ext.opts.attr.direction);
+            }
+
+            scrollBox.data("lastPos", scrollPos);
+
             let paddingTop = parseInt(scrollBox.data("scrollbar").css("padding-top"));
             let thumbPos = scrollPos / contentHeight * (boxHeight - paddingTop * 2) + paddingTop;
 

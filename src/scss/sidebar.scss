@@ -153,7 +153,6 @@ section#sidebar {
     padding: 7px 12px 0 12px;
     background: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    transition: height 0.3s;
     flex-shrink: 0;
     z-index: 3;
 
@@ -282,6 +281,7 @@ section#sidebar {
       background: $hoverBackground;
       padding: 10px $__bookmarksHorizontalPadding;
       margin: 0 0 -5px 0;
+      transition: transform 0.3s, box-shadow 0.3s;
       z-index: 2;
 
       &.hidden {
@@ -345,6 +345,15 @@ section#sidebar {
         display: block;
         clear: both;
       }
+    }
+
+    &.scrolled > div.filter {
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+    }
+
+    &.scrolled:not([data-direction='up']) > div.filter {
+      transform: translate3d(0, -100%, 0);
+      box-shadow: none;
     }
 
     > ul {

@@ -471,7 +471,6 @@ section#sidebar > header {
   padding: 7px 12px 0 12px;
   background: "%colorScheme";
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  transition: height 0.3s;
   flex-shrink: 0;
   z-index: 3;
 }
@@ -584,6 +583,7 @@ section#sidebar > div.scrollBox > div.filter {
   background: #f5f5f5;
   padding: 10px "%bookmarksHorizontalPadding";
   margin: 0 0 -5px 0;
+  transition: transform 0.3s, box-shadow 0.3s;
   z-index: 2;
 }
 section#sidebar > div.scrollBox > div.filter.hidden {
@@ -645,6 +645,13 @@ section#sidebar > div.scrollBox > div.filter::after {
   content: "";
   display: block;
   clear: both;
+}
+section#sidebar > div.scrollBox.scrolled > div.filter {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+}
+section#sidebar > div.scrollBox.scrolled:not([data-direction='up']) > div.filter {
+  transform: translate3d(0, -100%, 0);
+  box-shadow: none;
 }
 section#sidebar > div.scrollBox > ul {
   position: relative;

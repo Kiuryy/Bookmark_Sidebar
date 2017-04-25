@@ -106,7 +106,7 @@
                 preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
             }
 
-            if (addUrl && addUrl === true && data.isDir === false) {
+            if (addUrl && addUrl === true && data.isDir !== true) {
                 $("<a />")
                     .addClass(ext.opts.classes.overlay.previewUrl)
                     .attr("title", data.url)
@@ -165,7 +165,7 @@
             let text = ext.lang("overlay_confirm_open_children").replace(/\{1\}/, bookmarks.length);
 
             $("<p />").text(text).appendTo(elements.modal);
-            appendPreviewLink(data, true);
+            appendPreviewLink(data);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_open_children")).appendTo(elements.buttonWrapper);
         };
 
@@ -176,7 +176,7 @@
          */
         let handleHideHtml = (data) => {
             $("<p />").text(ext.lang("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
-            appendPreviewLink(data, true);
+            appendPreviewLink(data);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 

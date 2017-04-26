@@ -22,7 +22,7 @@
                 .appendTo(scrollBox);
 
             scrollBox.data({
-                content: elm,
+                list: elm,
                 scrollbar: scrollbar
             });
 
@@ -107,7 +107,7 @@
             ext.helper.contextmenu.close();
 
             let boxHeight = getScrollBoxHeight(scrollBox);
-            let contentHeight = scrollBox.data("content").realHeight(true);
+            let contentHeight = getContentHeight(scrollBox);
 
             scrollPos = Math.max(0, scrollPos);
             if (boxHeight >= contentHeight) { // box is higher than the content -> scrollpos = 0
@@ -152,7 +152,7 @@
             });
 
             scrollBox.data("scrollpos", scrollPos);
-            scrollBox.data("content").css("transform", "translate3d(0,-" + scrollPos + "px,0)");
+            scrollBox.data("list").css("transform", "translate3d(0,-" + scrollPos + "px,0)");
 
             if (hidden) {
                 scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
@@ -163,6 +163,20 @@
                     scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
                 }, 1500);
             }
+        };
+
+        /**
+         * Returns the content height of the given scrollbox
+         *
+         * @param scrollBox
+         * @returns {number}
+         */
+        let getContentHeight = (scrollBox) => {
+            let height = 0;
+            scrollBox.children("*:not(." + ext.opts.classes.scrollBox.scrollbar + ")").forEach((elm) => {
+                height += $(elm).realHeight(true);
+            });
+            return height;
         };
 
         /**
@@ -243,9 +257,8 @@
                         scrollBox.addClass(ext.opts.classes.scrollBox.scrollDrag);
                     }
 
-                    let contentHeight = scrollBox.data("content").realHeight();
                     let currentPos = Math.max(0, e.pageY - scrollbar[0].getBoundingClientRect().top - startPos);
-                    this.setScrollPos(scrollBox, currentPos * contentHeight / getScrollBoxHeight(scrollBox));
+                    this.setScrollPos(scrollBox, currentPos * getContentHeight(scrollBox) / getScrollBoxHeight(scrollBox));
                 }
             });
         };

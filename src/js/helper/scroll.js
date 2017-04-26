@@ -154,6 +154,10 @@
             scrollBox.data("scrollpos", scrollPos);
             scrollBox.data("list").css("transform", "translate3d(0,-" + scrollPos + "px,0)");
 
+            if ((contentHeight - scrollPos < boxHeight * 2) || (contentHeight === scrollPos && boxHeight === 0)) {
+                scrollBox.trigger(ext.opts.events.scrollBoxLastPart);
+            }
+
             if (hidden) {
                 scrollBox.data("scrollbar").addClass(ext.opts.classes.scrollBox.hidden);
             } else {

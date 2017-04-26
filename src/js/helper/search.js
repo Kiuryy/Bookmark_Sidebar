@@ -72,11 +72,11 @@
                     list.text("");
 
                     if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
-                        hasResults = ext.helper.list.addBookmarkDir(response.bookmarks, list);
+                        hasResults = ext.helper.list.addBookmarkDir(response.bookmarks, list, false);
                     }
 
                     if (hasResults === false) { // no results
-                        $("<p />").text(ext.lang("sidebar_search_no_results")).prependTo(ext.elements.bookmarkBox["search"]);
+                        $("<p />").text(ext.lang("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox["search"]);
                     }
 
                     ext.helper.scroll.update(ext.elements.bookmarkBox["search"]);

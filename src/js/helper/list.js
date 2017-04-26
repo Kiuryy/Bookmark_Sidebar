@@ -12,7 +12,20 @@
         this.init = () => {
             ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
             sort = ext.helper.model.getData("u/sort");
-            console.log(sort);
+
+            Object.values(ext.elements.bookmarkBox).forEach((box) => {
+                box.on(ext.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
+                    let list = box.children("ul");
+                    let remainingEntries = list.data("remainingEntries");
+                    if (remainingEntries && remainingEntries.length > 0) {
+                        this.addBookmarkDir(remainingEntries, list, false);
+                        if (ext.firstRun) {
+                            ext.helper.scroll.restoreScrollPos(box);
+                        }
+                    }
+                });
+            });
+
             this.updateBookmarkBox();
         };
 
@@ -87,13 +100,13 @@
                         ext.helper.search.init();
 
                         let viewAsTree = ext.helper.model.getData("u/viewAsTree");
-                        let bookmarks = response.bookmarks[0].children;
 
-                        if (viewAsTree === false && sort.name !== "custom") { // show bookmarks one dimensional without directories
-                            bookmarks = ext.helper.entry.getAllBookmarkData();
+                        if (viewAsTree || sort.name === "custom") { // with directories
+                            this.addBookmarkDir(response.bookmarks[0].children, list, true);
+                        } else { // one dimensional without directories
+                            this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
                         }
 
-                        this.addBookmarkDir(bookmarks, list);
                         if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                             list.addClass(ext.opts.classes.sidebar.hideRoot);
                             this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
@@ -178,7 +191,10 @@
 
             if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
                 setTimeout(() => {
-                    ext.firstRun = false;
+                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                        ext.firstRun = false;
+                    }
+
                     ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"], () => {
                         ext.endLoading(200);
                         ext.loaded();
@@ -192,9 +208,10 @@
          *
          * @param {Array} bookmarks
          * @param {jsu} list
+         * @param {boolean} asTree
          * @returns {boolean} returns false if nothing has been added
          */
-        this.addBookmarkDir = (bookmarks, list) => {
+        this.addBookmarkDir = (bookmarks, list, asTree = true) => {
             let hasEntries = false;
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
@@ -204,9 +221,11 @@
                 list.css("transition", "height " + config.dirOpenDuration + "s");
             }
 
+            list.removeData("remainingEntries");
             sortBookmarks(bookmarks);
+            let bookmarkCounter = 0;
 
-            bookmarks.forEach((bookmark, idx) => {
+            bookmarks.some((bookmark, idx) => {
                 if ((showHidden || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     if (ext.opts.demoMode) {
                         if (bookmark.children) {
@@ -229,7 +248,7 @@
 
                     ext.helper.entry.addData(bookmark.id, "element", entryContent);
 
-                    if (bookmark.children) { // dir
+                    if (bookmark.children && asTree) { // dir
                         entryContent
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.lang("sidebar_dir_children"))
                             .addClass(ext.opts.classes.sidebar.bookmarkDir);
@@ -237,7 +256,7 @@
                         if (config.showBookmarkIcons) {
                             entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
                         }
-                    } else { // link
+                    } else if (bookmark.url) { // link
                         entryContent
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
                             .addClass(ext.opts.classes.sidebar.bookmarkLink);
@@ -254,9 +273,21 @@
                                 });
                             }
                         }
+
+                        bookmarkCounter++;
                     }
 
                     hasEntries = true;
+
+                    if (asTree === false && bookmarkCounter >= 100) { // only render 100 entries of the one dimensional list -> if user scrolles to the end of the list the next 100 entries will be loaded
+                        let remainingEntries = bookmarks.slice(100);
+
+                        if (remainingEntries.length > 0) {
+                            list.data("remainingEntries", remainingEntries)
+                        }
+
+                        return true;
+                    }
                 }
             });
 

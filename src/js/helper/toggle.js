@@ -191,6 +191,7 @@
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
             ext.helper.scroll.updateAll(false, true);
             ext.initImages();
+            ext.firstRun = false;
             $(document).trigger("mousemove"); // hide indicator
         };
 

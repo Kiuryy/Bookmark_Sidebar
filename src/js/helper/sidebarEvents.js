@@ -73,8 +73,8 @@
                 ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.hidden);
             });
 
-            Object.keys(ext.elements.bookmarkBox).forEach((key) => {
-                ext.elements.bookmarkBox[key].children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
+            Object.values(ext.elements.bookmarkBox).forEach((box) => {
+                box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
                     if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
@@ -98,7 +98,7 @@
                     ext.helper.contextmenu.create("list", $(e.currentTarget));
                 });
 
-                ext.elements.bookmarkBox[key].children("div." + ext.opts.classes.sidebar.filterBox).on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
+                box.children("div." + ext.opts.classes.sidebar.filterBox).on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
                     e.preventDefault();
                     let currentDirection = $(e.target).attr(ext.opts.attr.direction);
                     let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";

@@ -114,7 +114,8 @@
         },
         events: {
             loaded: "moonware-bs-loaded",
-            checkboxChanged:"moonware-bs-checkboxChanged",
+            checkboxChanged: "moonware-bs-checkboxChanged",
+            scrollBoxLastPart: "moonware-bs-scrollBoxLastPart",
             lsbLoaded: "moonware-lsb-loaded"
         },
         leftsideBackSelector: "div#moonware-lsb-main.moonware-lsb-add-visual",

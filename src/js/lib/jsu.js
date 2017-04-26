@@ -782,6 +782,10 @@
              */
             [children](selector) {
                 let ret = [];
+                if (!selector) {
+                    selector = "*";
+                }
+
                 this[forEach]((node) => {
                     ret.push(node.querySelectorAll(":scope > " + selector));
                 });

@@ -86,7 +86,14 @@
                         updateSortFilter();
                         ext.helper.search.init();
 
-                        this.addBookmarkDir(response.bookmarks[0].children, list);
+                        let viewAsTree = ext.helper.model.getData("u/viewAsTree");
+                        let bookmarks = response.bookmarks[0].children;
+
+                        if (viewAsTree === false && sort.name !== "custom") { // show bookmarks one dimensional without directories
+                            bookmarks = ext.helper.entry.getAllBookmarkData();
+                        }
+
+                        this.addBookmarkDir(bookmarks, list);
                         if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                             list.addClass(ext.opts.classes.sidebar.hideRoot);
                             this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
@@ -411,7 +418,7 @@
          */
         let updateSidebarHeader = () => {
             ext.elements.header.text("");
-            let bookmarkAmount = Object.keys(ext.helper.entry.getAllBookmarkData()).length;
+            let bookmarkAmount = ext.helper.entry.getAllBookmarkData().length;
 
             let headline = $("<h1 />")
                 .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")

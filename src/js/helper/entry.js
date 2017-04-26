@@ -86,19 +86,19 @@
         /**
          * Returns the information about all directories
          *
-         * @returns {object}
+         * @returns {Array}
          */
         this.getAllDirectoryData = () => {
-            return entries.directories;
+            return Object.values(entries.directories);
         };
 
         /**
          * Returns the information about all bookmarks
          *
-         * @returns {object}
+         * @returns {Array}
          */
         this.getAllBookmarkData = () => {
-            return entries.bookmarks;
+            return Object.values(entries.bookmarks);
         };
 
         /**

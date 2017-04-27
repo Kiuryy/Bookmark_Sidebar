@@ -12,6 +12,7 @@
         this.opts = {
             classes: {
                 tabs: {
+                    content: "tab",
                     list: "tabBar",
                     active: "active"
                 },
@@ -64,12 +65,15 @@
                 title: $("head > title"),
                 header: $("body > header"),
                 tab: $("section#content > div.tab"),
-                appearanceLabels: $("ul.appearanceLabels > li"),
-                backgroundChanger: $("menu.backgroundChanger > a"),
-                appearanceSections: $("div[data-appearance]"),
+                contentTabs: $("ul.labels > li"),
+                contentTabSections: $("ul.labels ~ div[data-name]"),
                 copyrightDate: $("a#copyright > span"),
                 keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
+                appearance: {
+                    content: $("div.tab[data-name='appearance']"),
+                    backgroundChanger: $("menu.backgroundChanger > a"),
+                },
                 feedback: {
                     textarea: $("textarea#feedback"),
                     email: $("input#feedbackEmail"),
@@ -88,7 +92,8 @@
                 field: {}
             },
             events: {
-                checkboxChanged: "moonware-bs-checkboxChanged"
+                checkboxChanged: "moonware-bs-checkboxChanged",
+                contentTabChanged: "moonware-bs-contentTabChanged"
             },
             fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
             manifest: chrome.runtime.getManifest()
@@ -104,7 +109,7 @@
             initHeader();
             initLanguage();
             initCopyright();
-            initTabs();
+            initHeaderTabs();
 
             this.helper.model.init(() => {
                 this.helper.behaviour.init();
@@ -112,7 +117,9 @@
                 this.helper.feedback.init();
                 this.helper.contribute.init();
                 this.helper.help.init();
+
                 initButtonEvents();
+                initContentTabs();
             });
         };
 
@@ -217,11 +224,54 @@
             this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
         };
 
+        /**
+         * Initialises the content tabs
+         */
+        let initContentTabs = () => {
+            this.opts.elm.contentTabs.children("a").on("click", (e) => {
+                e.preventDefault();
+                let tabElm = $(e.currentTarget).parent("li");
+                let headerTabName = tabElm.parents("div." + this.opts.classes.tabs.content).eq(0).attr(this.opts.attr.name);
+                let tabName = tabElm.attr(this.opts.attr.type);
+
+                tabElm.siblings("li").removeClass(this.opts.classes.tabs.active);
+                tabElm.addClass(this.opts.classes.tabs.active);
+
+                $(e.currentTarget).parents("ul").eq(0).siblings("div[" + this.opts.attr.name + "]").forEach((section) => {
+                    let name = $(section).attr(this.opts.attr.name);
+
+                    if (name === tabName) {
+                        $(section).removeClass(this.opts.classes.hidden);
+                    } else {
+                        $(section).addClass(this.opts.classes.hidden);
+                    }
+                });
+
+                document.dispatchEvent(new CustomEvent(this.opts.events.contentTabChanged, {
+                    detail: {
+                        headerTab: headerTabName,
+                        contentTab: tabName
+                    },
+                    bubbles: true,
+                    cancelable: false
+                }));
+            });
+
+            this.opts.elm.contentTabSections.addClass(this.opts.classes.hidden);
+
+            setTimeout(() => {
+                this.opts.elm.contentTabs.forEach((contentTab) => {
+                    if ($(contentTab).hasClass(this.opts.classes.tabs.active)) {
+                        $(contentTab).children("a").trigger("click");
+                    }
+                });
+            }, 0);
+        };
 
         /**
-         * Initialises the tab bar
+         * Initialises the header tab bar
          */
-        let initTabs = () => {
+        let initHeaderTabs = () => {
             let tabBar = $("<ul />").addClass(this.opts.classes.tabs.list).prependTo(this.opts.elm.header);
 
             this.opts.elm.tab.forEach((elm) => {

@@ -231,6 +231,16 @@ section#content {
       overflow-x: hidden;
       height: 100%;
       padding: 65px 20px 20px 20px;
+
+      ul.labels {
+
+        ~ div[data-name] {
+
+          &.hidden {
+            display: none;
+          }
+        }
+      }
     }
 
     > header {
@@ -279,10 +289,80 @@ section#content {
 
       p {
         font-size: 120%;
-        margin: 10px 0;
+        margin: 0 0 10px 0;
 
         > span {
           font-weight: 500;
+        }
+      }
+
+      ul.labels {
+        display: flex;
+        justify-content: space-around;
+
+        > li {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 150px;
+          text-align: center;
+
+          &.active {
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -12px;
+              left: calc(50% - 12px);
+              width: 24px;
+              height: 24px;
+              background: $contentBackground;
+              border-top: 1px solid rgba(0, 0, 0, 0.1);
+              border-left: 1px solid rgba(0, 0, 0, 0.1);
+              transform: rotateZ(45deg);
+            }
+          }
+
+          > a {
+            @include mask(null, $textColorLight, 64px);
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding-top: 100px;
+            font-size: 150%;
+            transition: background 0.5s, color 0.5s;
+
+            &::before {
+              -webkit-mask-position-y: 15px;
+              transition: background 0.5s;
+            }
+
+            &:hover {
+              background: $bodyBackground;
+              color: $mainColor;
+
+              &::before {
+                background: $mainColor;
+              }
+            }
+          }
+
+          &[data-type='shareUserdata'] > a::before {
+            @include maskImage('settings/icon-shareUserdata');
+          }
+
+          &[data-type='translation'] > a::before {
+            @include maskImage('settings/icon-translate');
+          }
+
+          &[data-type='donation'] > a::before {
+            @include maskImage('settings/icon-donate');
+          }
+        }
+
+        ~ div[data-name] {
+          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          padding-top: 30px;
         }
       }
     }
@@ -451,7 +531,7 @@ body[data-tab='appearance'] {
         }
       }
 
-      ul.appearanceLabels {
+      ul.labels {
         padding: 7px 0 10px 0;
 
         > li {
@@ -476,36 +556,32 @@ body[data-tab='appearance'] {
             background: $mainColor;
           }
         }
-      }
 
-      div[data-appearance] {
+        ~ div[data-name] {
 
-        &.hidden {
-          display: none;
-        }
+          label {
+            margin: 20px 0 0 0;
+          }
 
-        label {
-          margin: 20px 0 0 0;
-        }
+          input[type='range'] {
+            max-width: 200px;
+          }
 
-        input[type='range'] {
-          max-width: 200px;
-        }
+          a.revert {
+            @include mask('icon-update', $textColorLight, 24px);
+            position: relative;
+            vertical-align: top;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin: 9px 0 0 8px;
+            transform: rotateY(180deg);
+          }
 
-        a.revert {
-          @include mask('icon-update', $textColorLight, 24px);
-          position: relative;
-          vertical-align: top;
-          display: inline-block;
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          margin: 9px 0 0 8px;
-          transform: rotateY(180deg);
-        }
-
-        input[type='range'] + span + a.revert {
-          margin-top: 4px;
+          input[type='range'] + span + a.revert {
+            margin-top: 4px;
+          }
         }
       }
     }

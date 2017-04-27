@@ -110,20 +110,20 @@
             <button class="restore" data-i18n="restore">Restore default</button>
         </header>
         <div>
-            <ul class="appearanceLabels">
-                <li data-type="general"><a href="#" data-i18n="appearance_label_general">General</a></li>
+            <ul class="labels">
+                <li data-type="general" class="active"><a href="#" data-i18n="appearance_label_general">General</a></li>
                 <li data-type="sidebar"><a href="#" data-i18n="appearance_label_sidebar">Sidebar</a></li>
-                <li data-type="indicator"><a href="#" data-i18n="appearance_label_indicator">Indicator</a></li>
                 <li data-type="overlay"><a href="#" data-i18n="appearance_label_overlay">Overlay</a></li>
+                <li data-type="indicator"><a href="#" data-i18n="appearance_label_indicator">Indicator</a></li>
             </ul>
 
-            <div data-appearance="general">
+            <div data-name="general">
                 <div class="formElement" data-type="color" data-name="colorScheme" data-i18n="color_scheme"></div>
                 <div class="formElement" data-type="font" data-name="fontFamily" data-i18n="font_familiy"></div>
                 <div class="formElement" data-type="color" data-name="textColor" data-i18n="text_color"></div>
             </div>
 
-            <div data-appearance="sidebar">
+            <div data-name="sidebar">
                 <div class="formElement" data-type="select" data-name="sidebarPosition" data-i18n="sidebar_position">
                     <span data-value="left" data-i18n="sidebar_position_left"></span>
                     <span data-value="right" data-i18n="sidebar_position_right"></span>
@@ -143,14 +143,14 @@
                 <div class="formElement" data-type="range" data-name="bookmarksHorizontalPadding" data-min="0" data-unit="px" data-max="40" data-i18n="bookmarks_horizontal_padding"></div>
             </div>
 
-            <div data-appearance="indicator">
+            <div data-name="indicator">
                 <div class="formElement" data-type="range" data-name="indicatorWidth" data-min="0" data-max="100" data-unit="px" data-i18n="indicator_width"></div>
                 <div class="formElement" data-type="color" data-name="indicatorColor" data-alpha="1" data-i18n="indicator_color"></div>
                 <div class="formElement" data-type="range" data-name="indicatorIconSize" data-min="0" data-max="72" data-unit="px" data-i18n="indicator_icon_size"></div>
                 <div class="formElement" data-type="color" data-name="indicatorIconColor" data-alpha="1" data-i18n="indicator_icon_color"></div>
             </div>
 
-            <div data-appearance="overlay">
+            <div data-name="overlay">
                 <div class="formElement" data-type="color" data-name="overlayMaskColor" data-alpha="1" data-i18n="overlay_mask_color"></div>
             </div>
         </div>
@@ -189,13 +189,25 @@
             <h2 data-i18n="tab_contribute">Contribute</h2>
         </header>
         <div>
-            <p data-i18n="share_userdata_desc"></p>
-            <p data-i18n="share_userdata_desc2"></p>
-            <p data-i18n="share_userdata_notice"></p>
+            <ul class="labels">
+                <li data-type="shareUserdata" class="active"><a href="#" data-i18n="headline_share_userdata">Share
+                    information</a></li>
+                <li data-type="translation"><a href="#" data-i18n="headline_translation">Translate</a></li>
+                <li data-type="donation"><a href="#" data-i18n="headline_donation">Donate</a></li>
+            </ul>
 
-            <hr />
-            <div class="formElement" data-type="checkbox" data-name="shareUserdata"
-                 data-i18n="share_userdata_checkbox"></div>
+            <div data-name="shareUserdata">
+                <p data-i18n="share_userdata_desc"></p>
+                <p data-i18n="share_userdata_desc2"></p>
+                <p data-i18n="share_userdata_notice"></p>
+
+                <hr />
+                <div class="formElement" data-type="checkbox" data-name="shareUserdata"
+                     data-i18n="headline_share_userdata"></div>
+            </div>
+
+            <div data-name="translation">@toDo Translation</div>
+            <div data-name="donation">@toDo Donation</div>
         </div>
     </div>
 

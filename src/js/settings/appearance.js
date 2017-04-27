@@ -233,7 +233,7 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            s.opts.elm.appearanceSections.find("input, select").on("change input", (e) => {
+            s.opts.elm.appearance.content.find("input, select").on("change input", (e) => {
                 let elm = $(e.currentTarget);
                 let val = e.currentTarget.value;
                 let initialVal = elm.data("initial");
@@ -251,11 +251,11 @@
                     revertPrevSibling.next("a." + s.opts.classes.revert).remove();
                 }
 
-                let tabName = elm.parents("[" + s.opts.attr.appearance + "]").eq(0).attr(s.opts.attr.appearance);
+                let tabName = elm.parents("[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name);
                 updatePreviewStyle(tabName);
             });
 
-            s.opts.elm.appearanceSections.on("click", "a." + s.opts.classes.revert, (e) => {
+            s.opts.elm.appearance.content.on("click", "a." + s.opts.classes.revert, (e) => {
                 e.preventDefault();
                 let elm = $(e.currentTarget).data("elm");
                 let value = elm.data("initial");
@@ -268,46 +268,31 @@
                 }
             });
 
-            s.opts.elm.backgroundChanger.on("click", (e) => {
+            s.opts.elm.appearance.backgroundChanger.on("click", (e) => {
                 e.preventDefault();
                 let bg = $(e.currentTarget).attr(s.opts.attr.bg);
-                s.opts.elm.backgroundChanger.removeClass(s.opts.classes.tabs.active);
+                s.opts.elm.appearance.backgroundChanger.removeClass(s.opts.classes.tabs.active);
                 $(e.currentTarget).addClass(s.opts.classes.tabs.active);
                 s.opts.elm.body.attr(s.opts.attr.bg, bg);
             });
-            s.opts.elm.backgroundChanger.eq(0).trigger("click");
+            s.opts.elm.appearance.backgroundChanger.eq(0).trigger("click");
 
-            s.opts.elm.appearanceLabels.children("a").on("click", (e) => {
-                e.preventDefault();
-                s.opts.elm.appearanceLabels.removeClass(s.opts.classes.tabs.active);
-                let tabElm = $(e.currentTarget).parent("li");
-                let tabName = tabElm.attr(s.opts.attr.type);
-                tabElm.addClass(s.opts.classes.tabs.active);
+            $(document).on(s.opts.events.contentTabChanged, (e) => {
+                console.log(e.detail);
+                if (e.detail.headerTab === "appearance") {
+                    Object.keys(s.opts.elm.preview).forEach((key) => {
+                        let elm = s.opts.elm.preview[key];
 
-                s.opts.elm.appearanceSections.forEach((section) => {
-                    let name = $(section).attr(s.opts.attr.appearance);
-
-                    if (name === tabName) {
-                        $(section).removeClass(s.opts.classes.hidden);
-                    } else {
-                        $(section).addClass(s.opts.classes.hidden);
-                    }
-                });
-
-                Object.keys(s.opts.elm.preview).forEach((key) => {
-                    let elm = s.opts.elm.preview[key];
-
-                    if (key === tabName) {
-                        updatePreviewStyle(key);
-                        elm.removeClass(s.opts.classes.hidden);
-                    } else {
-                        elm.addClass(s.opts.classes.hidden);
-                    }
-                });
+                        if (key === e.detail.contentTab) {
+                            updatePreviewStyle(key);
+                            elm.removeClass(s.opts.classes.hidden);
+                        } else {
+                            elm.addClass(s.opts.classes.hidden);
+                        }
+                    });
+                }
             });
-            s.opts.elm.appearanceLabels.children("a").eq(0).trigger("click");
         };
-
     };
 
 })(jsu);

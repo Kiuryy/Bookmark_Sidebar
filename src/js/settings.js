@@ -30,6 +30,7 @@
                 error: "error",
                 loading: "loading",
                 revert: "revert",
+                visible: "visible",
                 gotoFeedback: "gotoFeedback",
                 howto: "howto"
             },
@@ -71,7 +72,8 @@
                 formElement: $("div.formElement"),
                 feedback: {
                     textarea: $("textarea#feedback"),
-                    email: $("input#feedbackEmail")
+                    email: $("input#feedbackEmail"),
+                    faq: $("div.faq")
                 },
                 button: {
                     save: $("div.tab > header > button.save"),
@@ -107,6 +109,7 @@
             this.helper.model.init(() => {
                 this.helper.behaviour.init();
                 this.helper.appearance.init();
+                this.helper.feedback.init();
                 this.helper.contribute.init();
                 this.helper.help.init();
                 initButtonEvents();

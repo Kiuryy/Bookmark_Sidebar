@@ -3,6 +3,15 @@
 
     window.FeedbackHelper = function (s) {
 
+        /**
+         *
+         */
+        this.init = () => {
+            s.opts.elm.feedback.faq.children("strong").on("click", (e) => { // faq toggle
+                e.preventDefault();
+                $(e.currentTarget).next("p").toggleClass(s.opts.classes.visible);
+            });
+        };
 
         /**
          * Checks the content of the feedback fields and sends the content via ajax if they are filled properly

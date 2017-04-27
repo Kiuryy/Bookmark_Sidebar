@@ -182,7 +182,7 @@ h2 {
 
 h3 {
   font-size: 180%;
-  font-weight: 200;
+  font-weight: 300;
   color: $mainColor;
   margin: 0 0 30px 0;
 
@@ -283,6 +283,43 @@ section#content {
 
         > span {
           font-weight: 500;
+        }
+      }
+    }
+
+    &[data-name='feedback'] {
+
+      div.faq {
+        margin: -10px 0 40px 0;
+
+        strong {
+          display: block;
+          font-size: 120%;
+          font-weight: 400;
+          cursor: pointer;
+          margin: 10px 0;
+        }
+
+        > p {
+          position: relative;
+          background: $bodyBackground;
+          padding: 5px 7px;
+          margin: 0 0 15px 0;
+          border-radius: 5px;
+          display: none;
+
+          &.visible {
+            display: block;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -14px;
+            left: 10px;
+            border: 7px solid transparent;
+            border-bottom-color: $bodyBackground;
+          }
         }
       }
     }

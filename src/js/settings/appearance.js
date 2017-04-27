@@ -127,8 +127,22 @@
 
                 s.opts.elm.body.attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("[" + s.opts.attr.pos + "]").attr(s.opts.attr.pos, config.sidebarPosition);
-
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
+
+                let sidebar = s.opts.elm.preview[key].find("section#sidebar");
+                if (sidebar.length() > 0) {
+                    let sidebarHeader = sidebar.find("> header");
+                    sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
+                    let computedStyle = window.getComputedStyle(sidebarHeader[0]);
+                    let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
+
+                    sidebarHeader.children("a").forEach((icon) => {
+                        if (icon.offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove the label of the headline
+                            sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
+                            return true;
+                        }
+                    });
+                }
             }
         };
 

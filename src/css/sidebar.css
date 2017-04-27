@@ -492,6 +492,9 @@ section#sidebar > header > h1 > span {
   display: inline-block;
   margin: 0 0 0 3px;
 }
+section#sidebar > header > h1 > span.hidden {
+  display: none;
+}
 section#sidebar > header > a {
   position: relative;
   vertical-align: top;

@@ -466,7 +466,7 @@
 
             headerIcons.some((icon) => {
                 if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove the label of the headline
-                    headline.children("span").remove();
+                    headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
                     return true;
                 }
             });

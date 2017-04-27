@@ -2,13 +2,14 @@
  - Configurable icon for chrome menu
  - translation contribution
  - changelog
- - preview sidebar width
+ - test upgrade
 
 [1.7]
- - Configurable typeface
- - Added keyboard shortcuts (esc to close, pos1 to scroll to top)
- - New behaviour configuration (directory open speed, remember states, ...)
+ - Added sort functionality
  - Possibility to add bookmarks/directories
+ - Added keyboard shortcuts (esc to close, pos1 to scroll to top)
+ - Configurable typeface
+ - New behaviour configuration (directory open speed, remember states, ...)
 
 [1.6]
  - Made entries hidable from sidebar

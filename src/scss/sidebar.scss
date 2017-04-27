@@ -175,6 +175,10 @@ section#sidebar {
         font-size: 90%;
         display: inline-block;
         margin: 0 0 0 3px;
+
+        &.hidden {
+          display: none;
+        }
       }
     }
 

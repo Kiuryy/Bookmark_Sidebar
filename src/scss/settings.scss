@@ -28,10 +28,20 @@ body > header {
   left: 0;
   width: 100%;
   height: $headerHeight;
-  background-image: img('icon/icon.webp'), img('settings/icon-settings.webp'), $gradient;
+  background-image: img('icon/icon.webp'), $gradient;
   background-repeat: no-repeat;
-  background-size: 58px, 40px, 100%;
-  background-position: 20px center, 75px center, 0 0;
+  background-size: 58px, 100%;
+  background-position: 20px center, 0 0;
+
+  > svg {
+    position: absolute;
+    top: calc(50% - 18px);
+    left: 75px;
+    width: 36px;
+    height: 36px;
+    stroke: rgba(255, 255, 255, 0.5);
+    fill: none;
+  }
 
   > ul.tabBar {
     $tabHeight: 34px;
@@ -137,6 +147,7 @@ body > header {
           padding: 4px 0 0 0;
           font-size: 200%;
           font-weight: 200;
+          z-index: 0;
 
           &::before, &::after {
             display: none;
@@ -445,13 +456,15 @@ body[data-tab='appearance'] {
         }
 
         a.revert {
+          @include mask('icon-update', $textColorLight, 24px);
+          position: relative;
           vertical-align: top;
           display: inline-block;
           width: 24px;
           height: 24px;
           border-radius: 50%;
           margin: 9px 0 0 8px;
-          background: img('settings/icon-revert.webp') no-repeat center / 24px;
+          transform: rotateY(180deg);
         }
 
         input[type='range'] + span + a.revert {

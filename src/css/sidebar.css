@@ -689,6 +689,7 @@ section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > 
   width: "%bookmarksIconSize";
   height: "%bookmarksIconSize";
   margin: 0 "%bookmarksHorizontalPadding" 0 0;
+  flex-shrink: 0;
 }
 section#sidebar > div.scrollBox > ul a > img {
   visibility: hidden;
@@ -886,6 +887,7 @@ a.dragHelper > img, a.dragHelper > span.icon {
   width: "%bookmarksIconSize";
   height: "%bookmarksIconSize";
   margin: 0 "%bookmarksHorizontalPadding" 0 0;
+  flex-shrink: 0;
 }
 a.dragHelper > img {
   visibility: hidden;

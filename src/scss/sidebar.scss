@@ -80,6 +80,7 @@ body {
     width: $__bookmarksIconSize;
     height: $__bookmarksIconSize;
     margin: 0 $__bookmarksHorizontalPadding 0 0;
+    flex-shrink: 0;
   }
 
   > img {

@@ -313,10 +313,19 @@ body > header {
   left: 0;
   width: 100%;
   height: 70px;
-  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp), url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-settings.webp), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   background-repeat: no-repeat;
-  background-size: 58px, 40px, 100%;
-  background-position: 20px center, 75px center, 0 0;
+  background-size: 58px, 100%;
+  background-position: 20px center, 0 0;
+}
+body > header > svg {
+  position: absolute;
+  top: calc(50% - 18px);
+  left: 75px;
+  width: 36px;
+  height: 36px;
+  stroke: rgba(255, 255, 255, 0.5);
+  fill: none;
 }
 body > header > ul.tabBar {
   position: absolute;
@@ -410,6 +419,7 @@ body > header > ul.tabBar > li[data-name='help'] > a {
   padding: 4px 0 0 0;
   font-size: 200%;
   font-weight: 200;
+  z-index: 0;
 }
 body > header > ul.tabBar > li[data-name='help'] > a::before, body > header > ul.tabBar > li[data-name='help'] > a::after {
   display: none;
@@ -644,13 +654,25 @@ body[data-tab='appearance'] section#content > div.tab div[data-appearance] input
   max-width: 200px;
 }
 body[data-tab='appearance'] section#content > div.tab div[data-appearance] a.revert {
+  position: relative;
   vertical-align: top;
   display: inline-block;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   margin: 9px 0 0 8px;
-  background: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-revert.webp) no-repeat center/24px;
+  transform: rotateY(180deg);
+}
+body[data-tab='appearance'] section#content > div.tab div[data-appearance] a.revert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/24px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
+  background-color: #aaa;
 }
 body[data-tab='appearance'] section#content > div.tab div[data-appearance] input[type='range'] + span + a.revert {
   margin-top: 4px;

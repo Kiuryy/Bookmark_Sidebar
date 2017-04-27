@@ -4,10 +4,10 @@
     window.AppearanceHelper = function (s) {
 
         let previews = {
-            sidebar: ["sidebar"],
-            general: ["overlay"],
-            overlay: ["overlay"],
-            indicator: ["contentBase", "content"]
+            sidebar: {template: "sidebar", styles: ["sidebar"]},
+            general: {template: "sidebar", styles: ["sidebar"]},
+            overlay: {template: "overlay", styles: ["overlay"]},
+            indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
         /**
@@ -102,7 +102,7 @@
                 let config = getCurrentConfig();
                 Object.assign(config.styles, s.helper.model.getFontWeights(config.styles.fontFamily));
 
-                let css = previews[key];
+                let css = previews[key].css;
                 Object.keys(config.styles).forEach((key) => {
                     css = css.replace(new RegExp('"?%' + key + '"?', 'g'), config.styles[key]);
                 });
@@ -188,15 +188,14 @@
          */
         let initPreviews = () => {
             Object.keys(previews).forEach((key) => {
-                let stylesheets = previews[key];
-                previews[key] = "";
+                previews[key].css = "";
 
                 s.opts.elm.preview[key] = $("<iframe />")
                     .attr(s.opts.attr.appearance, key)
                     .addClass(s.opts.classes.hidden)
                     .appendTo(s.opts.elm.body);
 
-                sendAjax("html/template/" + key + ".html", (html) => {
+                sendAjax("html/template/" + previews[key].template + ".html", (html) => {
                     html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
                     html = html.replace(/__DATE__CREATED__/g, getLocaleDate(new Date("2016-11-25")));
                     s.opts.elm.preview[key].find("body").html(html);
@@ -207,9 +206,9 @@
                     }).appendTo(s.opts.elm.preview[key].find("head"));
                 });
 
-                stylesheets.forEach((stylesheet) => {
+                previews[key].styles.forEach((stylesheet) => {
                     sendAjax("css/" + stylesheet + ".css", (css) => {
-                        previews[key] += css;
+                        previews[key].css += css;
                         updatePreviewStyle(key);
                     });
                 });

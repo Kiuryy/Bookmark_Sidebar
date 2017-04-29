@@ -115,7 +115,7 @@
 
             if (openAction !== "icon") {
                 $(document).on(openAction, (e) => {
-                    if ((openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
+                    if (e.isTrusted && (openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
 

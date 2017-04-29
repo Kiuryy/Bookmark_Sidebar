@@ -33,7 +33,8 @@
                 revert: "revert",
                 visible: "visible",
                 gotoFeedback: "gotoFeedback",
-                howto: "howto"
+                howto: "howto",
+                action: "action"
             },
             attr: {
                 type: "data-type",
@@ -74,6 +75,9 @@
                     content: $("div.tab[data-name='appearance']"),
                     backgroundChanger: $("menu.backgroundChanger > a"),
                 },
+                contribute: {
+                    action: $("div.tab[data-name='contribute'] a.action")
+                },
                 feedback: {
                     textarea: $("textarea#feedback"),
                     email: $("input#feedbackEmail"),
@@ -96,6 +100,7 @@
                 contentTabChanged: "moonware-bs-contentTabChanged"
             },
             fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
+            donateLink: "https://paypal.com/",
             manifest: chrome.runtime.getManifest()
         };
 

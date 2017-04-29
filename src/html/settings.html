@@ -43,12 +43,12 @@
             </div>
 
             <div class="configEntry">
-                <strong data-i18n="keyboard_shortcuts">Keybord shortcut</strong>
-                <p class="shortcutInfo" data-i18n="keyboard_shortcuts_desc"></p>
+                <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="open_delay"></div>
             </div>
 
             <div class="configEntry">
-                <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="open_delay"></div>
+                <strong data-i18n="keyboard_shortcuts">Keybord shortcut</strong>
+                <p class="shortcutInfo" data-i18n="keyboard_shortcuts_desc"></p>
             </div>
 
             <div class="configEntry">
@@ -206,8 +206,14 @@
                      data-i18n="headline_share_userdata"></div>
             </div>
 
-            <div data-name="translation">@toDo Translation</div>
-            <div data-name="donation">@toDo Donation</div>
+            <div data-name="translation">
+                <p data-i18n="contribute_translation_desc"></p>
+                <a href="#" class="action" data-i18n="contribute_translation_link"></a>
+            </div>
+            <div data-name="donation">
+                <p data-i18n="contribute_donation_desc"></p>
+                <a href="#" class="action" data-i18n="contribute_donation_link"></a>
+            </div>
         </div>
     </div>
 

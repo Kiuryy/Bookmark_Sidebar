@@ -188,9 +188,6 @@
     "share_userdata_decline": {
         "message": "No thanks"
     },
-    "share_userdata_checkbox": {
-        "message": "Share information"
-    },
     "howto_title": {
         "message": "Howto"
     },
@@ -526,5 +523,17 @@
     },
     "settings_faq_new_tab_a": {
         "message": "This is due to security limitations. Chrome extensions may not put content into chrome pages like the new tab or settings pages. The only way to make the sidebar work on the new tab page would be to replace this page with a custom one, which may be an idea for another extension in the future."
+    },
+    "settings_contribute_translation_link": {
+        "message": "Goto translation overview"
+    },
+    "settings_contribute_translation_desc": {
+        "message": "You can help translating the extension in your language or improve the existing  one."
+    },
+    "settings_contribute_donation_link": {
+        "message": "Donate"
+    },
+    "settings_contribute_donation_desc": {
+        "message": "Donating is completely optional, but if you like the extension and want to donate a small amount, you can so by clicking the following link. I appreciate every help I get, be it donation, helping with translations or giving feedback, to improve the extension."
     }
 }

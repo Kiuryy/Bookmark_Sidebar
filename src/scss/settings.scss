@@ -1,47 +1,8 @@
-@import "include/vars";
-@import "include/mixins";
-//
-$__colorScheme: $mainColor;
-$__textColor: $textColor;
-@import "include/loading";
+@import "include/backend";
 @import "include/checkbox";
-@import "include/colorpicker";
-//
-@import "include/generals";
-
-$headerHeight: 70px;
-
-body {
-  background: $bodyBackground;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
 
 // Header
 body > header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $headerHeight;
-  background-image: img('icon/icon.webp'), $gradient;
-  background-repeat: no-repeat;
-  background-size: 58px, 100%;
-  background-position: 20px center, 0 0;
-
-  > svg {
-    position: absolute;
-    top: calc(50% - 18px);
-    left: 75px;
-    width: 36px;
-    height: 36px;
-    stroke: rgba(255, 255, 255, 0.5);
-    fill: none;
-  }
 
   > ul.tabBar {
     $tabHeight: 34px;
@@ -54,7 +15,6 @@ body > header {
     padding-top: #{$headerHeight - $tabHeight};
     overflow: hidden;
     text-align: center;
-    box-shadow: inset 0 -12px 15px -10px rgba(0, 0, 0, 0.5);
 
     > li {
       position: relative;
@@ -173,25 +133,6 @@ body > header {
 
 }
 
-// Headlines
-h2 {
-  font-size: 180%;
-  font-weight: 200;
-  color: $textColor;
-}
-
-h3 {
-  font-size: 180%;
-  font-weight: 300;
-  color: $mainColor;
-  margin: 0 0 30px 0;
-
-  &:not(:first-of-type) {
-    padding: 30px 0 0 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-}
-
 // Content
 section#content {
   position: relative;
@@ -201,86 +142,17 @@ section#content {
   padding: 40px 0 25px;
 
   > div.tab {
-    position: relative;
-    height: 100%;
-    background: $contentBackground;
-    max-width: 850px;
-    margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    z-index: 4;
 
     &.hidden {
       display: none;
     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50px;
-      left: 0;
-      width: calc(100% - 17px);
-      height: 20px;
-      pointer-events: none;
-      box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.2);
-      z-index: 3;
-    }
+    ul.labels {
 
-    > div {
-      position: relative;
-      overflow: scroll;
-      overflow-x: hidden;
-      height: 100%;
-      padding: 65px 20px 20px 20px;
+      ~ div[data-name] {
 
-      ul.labels {
-
-        ~ div[data-name] {
-
-          &.hidden {
-            display: none;
-          }
-        }
-      }
-    }
-
-    > header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 10px 20px;
-      width: calc(100% - 17px);
-      height: 50px;
-      background: rgba($contentBackground, 0.9);
-      z-index: 2;
-
-      @supports (backdrop-filter: blur(4px)) {
-        background: rgba($contentBackground, 0.7);
-        backdrop-filter: blur(4px);
-      }
-
-      > h2 {
-        display: inline-block;
-      }
-
-      > button {
-        display: inline-block;
-        border: 0;
-        outline: 0;
-        cursor: pointer;
-        float: right;
-
-        &.save {
-          background: $gradient;
-          color: $textColorInverted;
-          padding: 5px 10px;
-          font-size: 110%;
-        }
-
-        &.restore {
-          background: transparent;
-          color: $textColorLight;
-          margin: 8px 20px 0;
-          font-size: 90%;
+        &.hidden {
+          display: none;
         }
       }
     }
@@ -289,6 +161,7 @@ section#content {
 
       p {
         font-size: 120%;
+        line-height: 170%;
         margin: 0 0 10px 0;
 
         > span {
@@ -365,6 +238,15 @@ section#content {
           padding-top: 30px;
         }
       }
+
+      a.action {
+        display: inline-block;
+        background: $gradient;
+        color: $textColorInverted;
+        margin: 30px 0 0 0;
+        padding: 5px 10px;
+        font-size: 110%;
+      }
     }
 
     &[data-name='feedback'] {
@@ -383,6 +265,7 @@ section#content {
         > p {
           position: relative;
           background: $bodyBackground;
+          line-height: 150%;
           padding: 5px 7px;
           margin: 0 0 15px 0;
           border-radius: 5px;
@@ -421,13 +304,6 @@ section#content {
     font-size: 120%;
     line-height: 170%;
     margin: 10px 0 20px 0;
-  }
-
-  hr {
-    margin: 30px 0;
-    background: rgba(0, 0, 0, 0.1);
-    height: 1px;
-    border: none;
   }
 }
 

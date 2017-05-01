@@ -278,7 +278,6 @@
             s.opts.elm.appearance.backgroundChanger.eq(0).trigger("click");
 
             $(document).on(s.opts.events.contentTabChanged, (e) => {
-                console.log(e.detail);
                 if (e.detail.headerTab === "appearance") {
                     Object.keys(s.opts.elm.preview).forEach((key) => {
                         let elm = s.opts.elm.preview[key];

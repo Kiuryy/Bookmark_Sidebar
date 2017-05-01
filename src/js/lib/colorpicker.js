@@ -3,7 +3,599 @@
  *  COLOR PICKER PLUGIN 1.3.3
  * ==========================================================
  * Author: Taufik Nurrohman <https://github.com/tovic>
+ * Edited: Philipp König
  * License: MIT
  * ----------------------------------------------------------
  */
-!function(e,t){function c(e){return"undefined"!=typeof e}function a(e){return"string"==typeof e}function l(e){return"object"==typeof e}function h(e){return Object.keys(e).length}function p(e,t,n){return t>e?t:e>n?n:e}function v(e,t){return parseInt(e,t||10)}function d(e){return Math.round(e)}function g(e){var i,f,o,u,s,c,a,l,t=+e[0],n=+e[1],r=+e[2];switch(u=Math.floor(6*t),s=6*t-u,c=r*(1-n),a=r*(1-s*n),l=r*(1-(1-s)*n),u=u||0,a=a||0,l=l||0,u%6){case 0:i=r,f=l,o=c;break;case 1:i=a,f=r,o=c;break;case 2:i=c,f=r,o=l;break;case 3:i=c,f=a,o=r;break;case 4:i=l,f=c,o=r;break;case 5:i=r,f=c,o=a}return[d(255*i),d(255*f),d(255*o)]}function y(e){return b(g(e))}function x(e){var u,t=+e[0],n=+e[1],r=+e[2],i=Math.max(t,n,r),f=Math.min(t,n,r),o=i-f,s=0===i?0:o/i,c=i/255;switch(i){case f:u=0;break;case t:u=n-r+o*(r>n?6:0),u/=6*o;break;case n:u=r-t+2*o,u/=6*o;break;case r:u=t-n+4*o,u/=6*o}return[u,s,c]}function b(e){var t=+e[2]|+e[1]<<8|+e[0]<<16;return t="000000"+t.toString(16),t.slice(-6)}function m(e){return x(H(e))}function H(e){return 3===e.length&&(e=e.replace(/./g,"$&$&")),[v(e[0]+e[1],16),v(e[2]+e[3],16),v(e[4]+e[5],16)]}function k(e){return[+e[0]/360,+e[1]/100,+e[2]/100]}function w(e){return[d(360*+e[0]),d(100*+e[1]),d(100*+e[2])]}function E(e){return[+e[0]/255,+e[1]/255,+e[2]/255]}function C(e){if(l(e))return e;var t=/\s*rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i.exec(e),n=/\s*hsv\s*\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)\s*$/i.exec(e),r="#"===e[0]&&e.match(/^#([\da-f]{3}|[\da-f]{6})$/i);return r?m(e.slice(1)):n?k([+n[1],+n[2],+n[3]]):t?x([+t[1],+t[2],+t[3]]):[0,1,1]}var n="__instance__",r="firstChild",i="scrollLeft",f="scrollTop",o="offsetLeft",u="offsetTop",s=setTimeout;!function(e){e.version="1.3.3",e[n]={},e.each=function(t,r){return s(function(){var i,r=e[n];for(i in r)t(r[i],i,r)},0===r?0:r||1),e},e.parse=C,e._HSV2RGB=g,e._HSV2HEX=y,e._RGB2HSV=x,e._HEX2HSV=m,e._HEX2RGB=function(e){return E(H(e))},e.HSV2RGB=function(e){return g(k(e))},e.HSV2HEX=function(e){return y(k(e))},e.RGB2HSV=function(e){return w(x(e))},e.RGB2HEX=b,e.HEX2HSV=function(e){return w(m(e))},e.HEX2RGB=H}(e.CP=function(v,d){function _(e,t,n){e=e.split(/\s+/);for(var r=0,i=e.length;i>r;++r)t.addEventListener(e[r],n,!1)}function V(e,t,n){e=e.split(/\s+/);for(var r=0,i=e.length;i>r;++r)t.removeEventListener(e[r],n)}function P(e,t){var n=t.touches?t.touches[0].pageX:t.pageX,r=t.touches?t.touches[0].pageY:t.pageY,i=B(e);return{x:n-i.l,y:r-i.t}}function B(t){if(t===e)var n=e.pageXOffset||b[i],r=e.pageYOffset||b[f];else for(var n=t[o],r=t[u];t=t.offsetParent;)n+=t[o],r+=t[u];return{l:n,t:r}}function G(e,t){for(;(e=e.parentElement)&&e!==t;);return e}function R(e){e&&e.preventDefault()}function L(t){return t===e?{w:e.innerWidth,h:e.innerHeight}:{w:t.offsetWidth,h:t.offsetHeight}}function M(e){return H||(c(e)?e:!1)}function $(e){H=e}function T(e,t,n){return c(e)?c(t)?(c(k[e])||(k[e]={}),c(n)||(n=h(k[e])),k[e][n]=t,m):k[e]:k}function O(e,t){return c(e)?c(t)?(delete k[e][t],m):(k[e]={},m):(k={},m)}function Y(e,t,n){if(!c(k[e]))return m;if(c(n))c(k[e][n])&&k[e][n].apply(m,t);else for(var r in k[e])k[e][r].apply(m,t);return m}function ne(e,t){e&&"h"!==e||Y("change:h",t),e&&"sv"!==e||Y("change:sv",t),Y("change",t)}function re(){return w.parentNode}function ie(n,r){function h(e){var t=e.target,n=t===v||G(t,v)===v;n?ie():m.exit(),Y(n?"enter":"exit",[m])}function b(e){var n=(g(W),g([W[0],1,1]));z.style.backgroundColor="rgb("+n.join(",")+")",$(W),R(e)}function H(e){var t=p(P(N,e).y,0,o);W[0]=(o-t)/o,A.style.top=t-c/2+"px",b(e)}function k(e){var t=P(z,e),n=p(t.x,0,u),r=p(t.y,0,s);W[1]=1-(u-n)/u,W[2]=(s-r)/s,D.style.right=u-n-a/2+"px",D.style.top=r-l/2+"px",b(e)}function B(e){F&&(H(e),ee=y(W),I||(Y("drag:h",[ee,m]),Y("drag",[ee,m]),ne("h",[ee,m]))),J&&(k(e),ee=y(W),q||(Y("drag:sv",[ee,m]),Y("drag",[ee,m]),ne("sv",[ee,m]))),I=0,q=0}function T(e){var t=e.target,n=F?"h":"sv",r=[y(W),m],i=t===v||G(t,v)===v,f=t===w||G(t,w)===w;i||f?f&&(Y("stop:"+n,r),Y("stop",r),ne(n,r)):re()&&d!==!1&&(m.exit(),Y("exit",[m]),ne(0,r)),F=0,J=0}function O(e){I=1,F=1,B(e),R(e),Y("start:h",[ee,m]),Y("start",[ee,m]),ne("h",[ee,m])}function j(e){q=1,J=1,B(e),R(e),Y("start:sv",[ee,m]),Y("start",[ee,m]),ne("sv",[ee,m])}n||((r||x).appendChild(w),m.visible=!0),U=L(w).w,Z=L(w).h;var i=L(z),f=L(D),o=L(N).h,u=i.w,s=i.h,c=L(A).h,a=f.w,l=f.h;n?(w.style.left=w.style.top="-9999px",d!==!1&&_(d,v,h),m.create=function(){return ie(1),Y("create",[m]),m},m.destroy=function(){return d!==!1&&V(d,v,h),m.exit(),$(!1),Y("destroy",[m]),m}):fe(),te=function(){W=M(W),b(),A.style.top=o-c/2-o*+W[0]+"px",D.style.right=u-a/2-u*+W[1]+"px",D.style.top=s-l/2-s*+W[2]+"px"},m.exit=function(n){return re()&&(re().removeChild(w),m.visible=!1),V(E,N,O),V(E,z,j),V(C,t,B),V(X,t,T),V(S,e,fe),m},te(),n||(_(E,N,O),_(E,z,j),_(C,t,B),_(X,t,T),_(S,e,fe))}function fe(){return m.fit()}var x=t.body,b=t.documentElement,m=this,H=!1,k={},w=t.createElement("div"),E="touchstart mousedown",C="touchmove mousemove",X="touchend mouseup",S="orientationchange resize";if(!(m instanceof CP))return new CP(v,d);CP[n][v.id||v.name||h(CP[n])]=m,c(d)||(d=E),$(CP.parse(v.getAttribute("data-color")||v.value||[0,1,1])),w.className="color-picker",w.innerHTML='<div class="color-picker-control"><span class="color-picker-h"><i></i></span><span class="color-picker-sv"><i></i></span></div>';var te,j=w[r].children,W=M([0,1,1]),N=j[0],z=j[1],A=N[r],D=z[r],I=0,q=0,F=0,J=0,K=0,Q=0,U=0,Z=0,ee=y(W);return ie(1),s(function(){var e=[y(W),m];Y("create",e),ne(0,e)},0),m.fit=function(t){var n=L(e),r=L(b),i=r.h>n.h,f=B(e),u=(B(b),i?r.w:n.w+f.l),s=i?n.h+f.t:Math.max(r.h,n.h),a=B(v);return K=a.l,Q=a.t+L(v).h,l(t)?(c(t[0])&&(K=t[0]),c(t[1])&&(Q=t[1])):(K+U>u&&(K=u-U),Q+Z>s&&(Q=s-Z)),w.style.left=K+"px",w.style.top=Q+"px",Y("fit",[m]),m},m.set=function(e){return c(e)?(a(e)&&(e=CP.parse(e)),$(e),te(),m):M()},m.target=v,m.picker=w,m.visible=!1,m.on=T,m.off=O,m.trigger=Y,m.hooks=k,m.enter=function(e){return ie(0,e)},m})}(window,document);
+
+(function(win, doc) {
+
+    var instance = '__instance__',
+        first = 'firstChild',
+        scroll_left = 'scrollLeft',
+        scroll_top = 'scrollTop',
+        offset_left = 'offsetLeft',
+        offset_top = 'offsetTop',
+        delay = setTimeout;
+
+    function is_set(x) {
+        return typeof x !== "undefined";
+    }
+
+    function is_string(x) {
+        return typeof x === "string";
+    }
+
+    function is_object(x) {
+        return typeof x === "object";
+    }
+
+    function object_length(x) {
+        return Object.keys(x).length;
+    }
+
+    function edge(a, b, c) {
+        if (a < b) return b;
+        if (a > c) return c;
+        return a;
+    }
+
+    function num(i, j) {
+        return parseInt(i, j || 10);
+    }
+
+    function round(i) {
+        return Math.round(i);
+    }
+
+    // [h, s, v] ... 0 <= h, s, v <= 1
+    function HSV2RGB(a) {
+        var h = +a[0],
+            s = +a[1],
+            v = +a[2],
+            r, g, b, i, f, p, q, t;
+        i = Math.floor(h * 6);
+        f = h * 6 - i;
+        p = v * (1 - s);
+        q = v * (1 - f * s);
+        t = v * (1 - (1 - f) * s);
+        i = i || 0;
+        q = q || 0;
+        t = t || 0;
+        switch (i % 6) {
+            case 0:
+                r = v, g = t, b = p;
+                break;
+            case 1:
+                r = q, g = v, b = p;
+                break;
+            case 2:
+                r = p, g = v, b = t;
+                break;
+            case 3:
+                r = p, g = q, b = v;
+                break;
+            case 4:
+                r = t, g = p, b = v;
+                break;
+            case 5:
+                r = v, g = p, b = q;
+                break;
+        }
+        return [round(r * 255), round(g * 255), round(b * 255)];
+    }
+
+    function HSV2HEX(a) {
+        return RGB2HEX(HSV2RGB(a));
+    }
+
+    // [r, g, b] ... 0 <= r, g, b <= 255
+    function RGB2HSV(a) {
+        var r = +a[0],
+            g = +a[1],
+            b = +a[2],
+            max = Math.max(r, g, b),
+            min = Math.min(r, g, b),
+            d = max - min,
+            h, s = (max === 0 ? 0 : d / max),
+            v = max / 255;
+        switch (max) {
+            case min:
+                h = 0;
+                break;
+            case r:
+                h = (g - b) + d * (g < b ? 6 : 0);
+                h /= 6 * d;
+                break;
+            case g:
+                h = (b - r) + d * 2;
+                h /= 6 * d;
+                break;
+            case b:
+                h = (r - g) + d * 4;
+                h /= 6 * d;
+                break;
+        }
+        return [h, s, v];
+    }
+
+    function RGB2HEX(a) {
+        var s = +a[2] | (+a[1] << 8) | (+a[0] << 16);
+        s = '000000' + s.toString(16);
+        return s.slice(-6);
+    }
+
+    // rrggbb or rgb
+    function HEX2HSV(s) {
+        return RGB2HSV(HEX2RGB(s));
+    }
+
+    function HEX2RGB(s) {
+        if (s.length === 3) {
+            s = s.replace(/./g, '$&$&');
+        }
+        return [num(s[0] + s[1], 16), num(s[2] + s[3], 16), num(s[4] + s[5], 16)];
+    }
+
+    // convert range from `0` to `360` and `0` to `100` in color into range from `0` to `1`
+    function _2HSV_pri(a) {
+        return [+a[0] / 360, +a[1] / 100, +a[2] / 100];
+    }
+
+    // convert range from `0` to `1` into `0` to `360` and `0` to `100` in color
+    function _2HSV_pub(a) {
+        return [round(+a[0] * 360), round(+a[1] * 100), round(+a[2] * 100)];
+    }
+
+    // convert range from `0` to `255` in color into range from `0` to `1`
+    function _2RGB_pri(a) {
+        return [+a[0] / 255, +a[1] / 255, +a[2] / 255];
+    }
+
+    // *
+    function parse(x) {
+        if (is_object(x)) return x;
+        var rgb = /\s*rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i.exec(x),
+            hsv = /\s*hsv\s*\(\s*(\d+)\s*,\s*(\d+)%\s*,\s*(\d+)%\s*\)\s*$/i.exec(x),
+            hex = x[0] === '#' && x.match(/^#([\da-f]{3}|[\da-f]{6})$/i);
+        if (hex) {
+            return HEX2HSV(x.slice(1));
+        } else if (hsv) {
+            return _2HSV_pri([+hsv[1], +hsv[2], +hsv[3]]);
+        } else if (rgb) {
+            return RGB2HSV([+rgb[1], +rgb[2], +rgb[3]]);
+        }
+        return [0, 1, 1]; // default is red
+    }
+
+    (function($) {
+
+        // plugin version
+        $.version = '1.3.3';
+
+        // collect all instance(s)
+        $[instance] = {};
+
+        // plug to all instance(s)
+        $.each = function(fn, t) {
+            return delay(function() {
+                var ins = $[instance], i;
+                for (i in ins) {
+                    fn(ins[i], i, ins);
+                }
+            }, t === 0 ? 0 : (t || 1)), $;
+        };
+
+        // static method(s)
+        $.parse = parse;
+        $._HSV2RGB = HSV2RGB;
+        $._HSV2HEX = HSV2HEX;
+        $._RGB2HSV = RGB2HSV;
+        $._HEX2HSV = HEX2HSV;
+        $._HEX2RGB = function(a) {
+            return _2RGB_pri(HEX2RGB(a));
+        };
+        $.HSV2RGB = function(a) {
+            return HSV2RGB(_2HSV_pri(a));
+        };
+        $.HSV2HEX = function(a) {
+            return HSV2HEX(_2HSV_pri(a));
+        };
+        $.RGB2HSV = function(a) {
+            return _2HSV_pub(RGB2HSV(a));
+        };
+        $.RGB2HEX = RGB2HEX;
+        $.HEX2HSV = function(s) {
+            return _2HSV_pub(HEX2HSV(s));
+        };
+        $.HEX2RGB = HEX2RGB;
+
+    })(win.CP = function(target, events) {
+
+        var b = doc.body,
+            h = doc.documentElement,
+            $ = this,
+            _ = false,
+            hooks = {},
+            picker = doc.createElement('div'),
+            on_down = "touchstart mousedown",
+            on_move = "touchmove mousemove",
+            on_up = "touchend mouseup",
+            on_resize = "orientationchange resize";
+
+        // return a new instance if `CP` was called without the `new` operator
+        if (!($ instanceof CP)) {
+            return new CP(target, events);
+        }
+
+        // store color picker instance to `CP.__instance__`
+        CP[instance][target.id || target.name || object_length(CP[instance])] = $;
+
+        // trigger color picker panel on click by default
+        if (!is_set(events)) {
+            events = on_down;
+        }
+
+        // add event
+        function on(ev, el, fn) {
+            ev = ev.split(/\s+/);
+            for (var i = 0, ien = ev.length; i < ien; ++i) {
+                el.addEventListener(ev[i], fn, false);
+            }
+        }
+
+        // remove event
+        function off(ev, el, fn) {
+            ev = ev.split(/\s+/);
+            for (var i = 0, ien = ev.length; i < ien; ++i) {
+                el.removeEventListener(ev[i], fn);
+            }
+        }
+
+        // get mouse/finger coordinate
+        function point(el, e) {
+            var x = !!e.touches ? e.touches[0].pageX : e.pageX,
+                y = !!e.touches ? e.touches[0].pageY : e.pageY,
+                o = offset(el);
+            return {
+                x: x - o.l,
+                y: y - o.t
+            };
+        }
+
+        // get position
+        function offset(el) {
+            if (el === win) {
+                var left = win.pageXOffset || h[scroll_left],
+                    top = win.pageYOffset || h[scroll_top];
+            } else {
+                var left = el[offset_left]-el.scrollLeft,
+                    top = el[offset_top]-el.scrollTop;
+                while (el = el.offsetParent) {
+                    left += el[offset_left]-el.scrollLeft;
+                    top += el[offset_top]-el.scrollTop;
+                }
+            }
+            return {
+                l: left,
+                t: top
+            };
+        }
+
+        // get closest parent
+        function closest(a, b) {
+            while ((a = a.parentElement) && a !== b);
+            return a;
+        }
+
+        // prevent default
+        function prevent(e) {
+            if (e) e.preventDefault();
+        }
+
+        // get dimension
+        function size(el) {
+            return el === win ? {
+                w: win.innerWidth,
+                h: win.innerHeight
+            } : {
+                w: el.offsetWidth,
+                h: el.offsetHeight
+            };
+        }
+
+        // get color data
+        function get_data(a) {
+            return _ || (is_set(a) ? a : false);
+        }
+
+        // set color data
+        function set_data(a) {
+            _ = a;
+        }
+
+        // add hook
+        function add(ev, fn, id) {
+            if (!is_set(ev)) return hooks;
+            if (!is_set(fn)) return hooks[ev];
+            if (!is_set(hooks[ev])) hooks[ev] = {};
+            if (!is_set(id)) id = object_length(hooks[ev]);
+            return hooks[ev][id] = fn, $;
+        }
+
+        // remove hook
+        function remove(ev, id) {
+            if (!is_set(ev)) return hooks = {}, $;
+            if (!is_set(id)) return hooks[ev] = {}, $;
+            return delete hooks[ev][id], $;
+        }
+
+        // trigger hook
+        function trigger(ev, a, id) {
+            if (!is_set(hooks[ev])) return $;
+            if (!is_set(id)) {
+                for (var i in hooks[ev]) {
+                    hooks[ev][i].apply($, a);
+                }
+            } else {
+                if (is_set(hooks[ev][id])) {
+                    hooks[ev][id].apply($, a);
+                }
+            }
+            return $;
+        }
+
+        // initialize data ...
+        set_data(CP.parse(target.getAttribute('data-color') || target.value || [0, 1, 1]));
+
+        // generate color picker pane ...
+        picker.className = 'color-picker';
+        picker.innerHTML = '<div class="color-picker-control"><span class="color-picker-h"><i></i></span><span class="color-picker-sv"><i></i></span></div>';
+        var c = picker[first].children,
+            HSV = get_data([0, 1, 1]), // default is red
+            H = c[0],
+            SV = c[1],
+            H_point = H[first],
+            SV_point = SV[first],
+            start_H = 0,
+            start_SV = 0,
+            drag_H = 0,
+            drag_SV = 0,
+            left = 0,
+            top = 0,
+            P_W = 0,
+            P_H = 0,
+            v = HSV2HEX(HSV),
+            set;
+
+        // on update ...
+        function trigger_(k, x) {
+            if (!k || k === "h") {
+                trigger("change:h", x);
+            }
+            if (!k || k === "sv") {
+                trigger("change:sv", x);
+            }
+            trigger("change", x);
+        }
+
+        // is visible?
+        function visible() {
+            return picker.parentNode;
+        }
+
+        // create
+        function create(first, bucket) {
+            if (!first) {
+                (bucket || b).appendChild(picker), $.visible = true;
+            }
+            P_W = size(picker).w;
+            P_H = size(picker).h;
+            var SV_size = size(SV),
+                SV_point_size = size(SV_point),
+                H_H = size(H).h,
+                SV_W = SV_size.w,
+                SV_H = SV_size.h,
+                H_point_H = size(H_point).h,
+                SV_point_W = SV_point_size.w,
+                SV_point_H = SV_point_size.h;
+            if (first) {
+                picker.style.left = picker.style.top = '-9999px';
+                function click(e) {
+                    var t = e.target,
+                        is_target = t === target || closest(t, target) === target;
+                    if (is_target) {
+                        create();
+                    } else {
+                        $.exit();
+                    }
+                    trigger(is_target ? "enter" : "exit", [$]);
+                }
+                if (events !== false) {
+                    on(events, target, click);
+                }
+                $.create = function() {
+                    return create(1), trigger("create", [$]), $;
+                };
+                $.destroy = function() {
+                    if (events !== false) {
+                        off(events, target, click);
+                    }
+                    $.exit(), set_data(false);
+                    return trigger("destroy", [$]), $;
+                };
+            } else {
+                fit();
+            }
+            set = function() {
+                HSV = get_data(HSV), color();
+                H_point.style.top = (H_H - (H_point_H / 2) - (H_H * +HSV[0])) + 'px';
+                SV_point.style.right = (SV_W - (SV_point_W / 2) - (SV_W * +HSV[1])) + 'px';
+                SV_point.style.top = (SV_H - (SV_point_H / 2) - (SV_H * +HSV[2])) + 'px';
+            };
+            $.exit = function(e) {
+                if (visible()) {
+                    visible().removeChild(picker);
+                    $.visible = false;
+                }
+                off(on_down, H, down_H);
+                off(on_down, SV, down_SV);
+                off(on_move, doc, move);
+                off(on_up, doc, stop);
+                off(on_resize, win, fit);
+                return $;
+            };
+            function color(e) {
+                var a = HSV2RGB(HSV),
+                    b = HSV2RGB([HSV[0], 1, 1]);
+                SV.style.backgroundColor = 'rgb(' + b.join(',') + ')';
+                set_data(HSV);
+                prevent(e);
+            };
+            set();
+            function do_H(e) {
+                var y = edge(point(H, e).y, 0, H_H);
+                HSV[0] = (H_H - y) / H_H;
+                H_point.style.top = (y - (H_point_H / 2)) + 'px';
+                color(e);
+            }
+            function do_SV(e) {
+                var o = point(SV, e),
+                    x = edge(o.x, 0, SV_W),
+                    y = edge(o.y, 0, SV_H);
+                HSV[1] = 1 - ((SV_W - x) / SV_W);
+                HSV[2] = (SV_H - y) / SV_H;
+                SV_point.style.right = (SV_W - x - (SV_point_W / 2)) + 'px';
+                SV_point.style.top = (y - (SV_point_H / 2)) + 'px';
+                color(e);
+            }
+            function move(e) {
+                if (drag_H) {
+                    do_H(e), v = HSV2HEX(HSV);
+                    if (!start_H) {
+                        trigger("drag:h", [v, $]);
+                        trigger("drag", [v, $]);
+                        trigger_("h", [v, $]);
+                    }
+                }
+                if (drag_SV) {
+                    do_SV(e), v = HSV2HEX(HSV);
+                    if (!start_SV) {
+                        trigger("drag:sv", [v, $]);
+                        trigger("drag", [v, $]);
+                        trigger_("sv", [v, $]);
+                    }
+                }
+                start_H = 0,
+                    start_SV = 0;
+            }
+            function stop(e) {
+                var t = e.target,
+                    k = drag_H ? "h" : "sv",
+                    a = [HSV2HEX(HSV), $],
+                    is_target = t === target || closest(t, target) === target,
+                    is_picker = t === picker || closest(t, picker) === picker;
+                if (!is_target && !is_picker) {
+                    // click outside the target or picker element to exit
+                    if (visible() && events !== false) $.exit(), trigger("exit", [$]), trigger_(0, a);
+                } else {
+                    if (is_picker) {
+                        trigger("stop:" + k, a);
+                        trigger("stop", a);
+                        trigger_(k, a);
+                    }
+                }
+                drag_H = 0,
+                    drag_SV = 0;
+            }
+            function down_H(e) {
+                start_H = 1,
+                    drag_H = 1,
+                    move(e), prevent(e);
+                trigger("start:h", [v, $]);
+                trigger("start", [v, $]);
+                trigger_("h", [v, $]);
+            }
+            function down_SV(e) {
+                start_SV = 1,
+                    drag_SV = 1,
+                    move(e), prevent(e);
+                trigger("start:sv", [v, $]);
+                trigger("start", [v, $]);
+                trigger_("sv", [v, $]);
+            }
+            if (!first) {
+                on(on_down, H, down_H);
+                on(on_down, SV, down_SV);
+                on(on_move, doc, move);
+                on(on_up, doc, stop);
+                on(on_resize, win, fit);
+            }
+        } create(1);
+
+        delay(function() {
+            var a = [HSV2HEX(HSV), $];
+            trigger("create", a);
+            trigger_(0, a);
+        }, 0);
+
+        // fit to window
+        $.fit = function(o) {
+            var w = size(win),
+                y = size(h),
+                z = y.h > w.h, // has vertical scroll bar
+                ww = offset(win),
+                yy = offset(h),
+                w_W = z ? /* Math.max(y.w, w.w) */ y.w : w.w + ww.l,
+                w_H = z ? w.h + ww.t : Math.max(y.h, w.h),
+                to = offset(target);
+            left = to.l;
+            top = to.t + size(target).h; // drop!
+            if (is_object(o)) {
+                is_set(o[0]) && (left = o[0]);
+                is_set(o[1]) && (top = o[1]);
+            } else {
+                if (left + P_W > w_W) {
+                    left = w_W - P_W;
+                }
+                if (top + P_H > w_H) {
+                    top = w_H - P_H;
+                }
+            }
+            picker.style.left = left + 'px';
+            picker.style.top = top + 'px';
+            return trigger("fit", [$]), $;
+        };
+
+        // for event listener ID
+        function fit() {
+            return $.fit();
+        }
+
+        // set hidden color picker data
+        $.set = function(a) {
+            if (!is_set(a)) return get_data();
+            if (is_string(a)) {
+                a = CP.parse(a);
+            }
+            return set_data(a), set(), $;
+        };
+
+        // register to global ...
+        $.target = target;
+        $.picker = picker;
+        $.visible = false;
+        $.on = add;
+        $.off = remove;
+        $.trigger = trigger;
+        $.hooks = hooks;
+        $.enter = function(bucket) {
+            return create(0, bucket);
+        };
+
+        // return the global object
+        return $;
+
+    });
+
+})(window, document);

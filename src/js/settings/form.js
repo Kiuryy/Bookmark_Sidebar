@@ -4,9 +4,29 @@
     window.FormHelper = function (s) {
 
         /**
-         * Initialises all form elements
+         *
          */
         this.init = () => {
+            initFormElements();
+            initEvents();
+        };
+
+        /**
+         *
+         */
+        let initEvents = () => {
+            s.opts.elm.tab.children("div").on("scroll", (e) => {
+                Object.values(s.opts.elm.color).forEach((elm) => {
+                    let picker = elm.data("picker");
+                    picker.fit();
+                });
+            });
+        };
+
+        /**
+         * Initialises all form elements
+         */
+        let initFormElements = () => {
             s.opts.elm.formElement.forEach((elm) => {
                 let type = $(elm).attr(s.opts.attr.type);
                 let name = $(elm).attr(s.opts.attr.name);
@@ -139,7 +159,6 @@
                 elm.remove();
             });
         };
-
     };
 
 })(jsu);

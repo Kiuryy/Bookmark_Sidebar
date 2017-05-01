@@ -4,7 +4,6 @@
  - changelog
  - update screenshots (add screenshot for sorting)
  - i18n helper
- - colorpicker position after scroll
  - test upgrade
 
 [1.7]

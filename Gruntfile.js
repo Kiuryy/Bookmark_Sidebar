@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         babel: {
             dist: {
                 options: {
-                    presets: ['babel-preset-es2015','babel-preset-es2017']
+                    presets: ['babel-preset-es2015', 'babel-preset-es2017']
                 },
                 files: {
                     ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',

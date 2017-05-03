@@ -99,8 +99,11 @@
                 checkboxChanged: "moonware-bs-checkboxChanged",
                 contentTabChanged: "moonware-bs-contentTabChanged"
             },
+            ajax: {
+                feedback: "https://moonware.de/ajax/extensions/feedback"
+            },
             fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
-            donateLink: "https://paypal.com/",
+            donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
             manifest: chrome.runtime.getManifest()
         };
 

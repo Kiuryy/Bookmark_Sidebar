@@ -476,4 +476,43 @@ body.loading > div.loading {
   z-index: 99;
 }
 
+section#content > div.hidden {
+  display: none;
+}
+section#content > div[data-name='overview'] > div > ul > li {
+  position: relative;
+  padding: 15px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+section#content > div[data-name='overview'] > div > ul > li > strong {
+  font-size: 120%;
+  font-weight: 300;
+}
+section#content > div[data-name='overview'] > div > ul > li > svg.progress {
+  position: absolute;
+  top: calc(50% - 16px);
+  right: 0;
+}
+section#content > div[data-name='overview'] > div > ul > li > svg.progress > circle {
+  fill: transparent;
+  stroke-width: 3px;
+  transform: rotateZ(-90deg);
+  transform-origin: 16px 16px;
+  stroke: rgba(0, 0, 0, 0.1);
+}
+section#content > div[data-name='overview'] > div > ul > li > svg.progress > circle + circle {
+  stroke: #7b5fa4;
+}
+section#content > div[data-name='overview'] > div > ul > li > span.progress {
+  display: block;
+  position: absolute;
+  top: calc(50% - 7px);
+  right: 40px;
+  width: 32px;
+  height: 14px;
+  font-size: 80%;
+  color: #aaa;
+  text-align: right;
+}
+
 /*# sourceMappingURL=translation.css.map */

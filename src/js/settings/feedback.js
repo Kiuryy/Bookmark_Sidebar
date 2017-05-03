@@ -28,7 +28,7 @@
                 s.opts.elm.body.addClass(s.opts.classes.loading);
 
                 let xhr = new XMLHttpRequest();
-                xhr.open("POST", "https://moonware.de/ajax/extensions/feedback", true);
+                xhr.open("POST", s.opts.ajax.feedback, true);
                 xhr.onload = () => {
                     setTimeout(() => { // load at least 1s
                         s.opts.elm.textarea.feedbackMsg[0].value = "";

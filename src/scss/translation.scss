@@ -1,1 +1,58 @@
 @import "include/backend";
+
+section#content > div {
+
+  &.hidden {
+    display: none;
+  }
+
+  &[data-name='overview'] {
+
+    > div {
+
+      > ul {
+
+        > li {
+          position: relative;
+          padding: 15px 0;
+          border-bottom: 1px solid $bodyBackground;
+
+          > strong {
+            font-size: 120%;
+            font-weight: 300;
+          }
+
+          > svg.progress {
+            position: absolute;
+            top: calc(50% - 16px);
+            right: 0;
+
+            > circle {
+              fill: transparent;
+              stroke-width: 3px;
+              transform: rotateZ(-90deg);
+              transform-origin: 16px 16px;
+              stroke: rgba(0, 0, 0, 0.1);
+
+              + circle {
+                stroke: $mainColor;
+              }
+            }
+          }
+
+          > span.progress {
+            display: block;
+            position: absolute;
+            top: calc(50% - 7px);
+            right: 40px;
+            width: 32px;
+            height: 14px;
+            font-size: 80%;
+            color: $textColorLight;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

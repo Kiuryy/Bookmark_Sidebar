@@ -30,6 +30,7 @@
                 }
 
                 if (msg) {
+                    $(elm).removeAttr(ext.opts.attr.i18n);
                     $(elm).html(msg);
                 } else {
                     $(elm).remove();

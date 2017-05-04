@@ -45,12 +45,12 @@ module.exports = function (grunt) {
             },
             distSettings: {
                 options: {},
-                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/helper/template.js', path.src + 'js/helper/i18n.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
+                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/helper/template.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
                 dest: 'tmp/settings-merged.js'
             },
             distTranslation: {
                 options: {},
-                src: [path.src + 'js/helper/template.js', path.src + 'js/helper/i18n.js', path.src + 'js/translation.js'],
+                src: [path.src + 'js/helper/template.js', path.src + 'js/translation.js'],
                 dest: 'tmp/translation-merged.js'
             }
         },
@@ -64,6 +64,7 @@ module.exports = function (grunt) {
                     ['tmp/settings-es5.js']: 'tmp/settings-merged2.js',
                     ['tmp/translation-es5.js']: 'tmp/translation-merged2.js',
                     ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
+                    ['tmp/i18n-es5.js']: path.src + 'js/helper/i18n.js',
                     ['tmp/howto-es5.js']: path.src + 'js/howto.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
                     ['tmp/model-es5.js']: path.src + 'js/model.js'
@@ -82,6 +83,7 @@ module.exports = function (grunt) {
                 files: {
                     ['tmp/js/extension.js']: 'tmp/extension-es5.js',
                     ['tmp/js/lib/jsu.js']: 'tmp/jsu-es5.js',
+                    ['tmp/js/lib/i18n.js']: 'tmp/i18n-es5.js',
                     ['tmp/js/settings.js']: 'tmp/settings-es5.js',
                     ['tmp/js/translation.js']: 'tmp/translation-es5.js',
                     ['tmp/js/howto.js']: 'tmp/howto-es5.js',
@@ -103,8 +105,8 @@ module.exports = function (grunt) {
                     dest: path.dist + "html/"
                 }, {
                     expand: true,
-                    cwd: "tmp",
-                    src: ['settings.html', 'translate.html'],
+                    cwd: "tmp/html",
+                    src: "*.html",
                     dest: path.dist + "html/"
                 }]
             }
@@ -128,11 +130,16 @@ module.exports = function (grunt) {
                     replacements: [{
                         pattern: /<\!\-\-\s*\[START\sREMOVE\]\s*\-\->[\s\S]*?<\!\-\-\s*\[END\sREMOVE\]\s*\-\->/mig,
                         replacement: ''
+                    }, {
+                        pattern: /\/js\/helper\//ig,
+                        replacement: '/js/lib/'
                     }]
                 },
                 files: {
-                    ['tmp/settings.html']: path.src + 'html/settings.html',
-                    ['tmp/translate.html']: path.src + 'html/translate.html',
+                    ['tmp/html/settings.html']: path.src + 'html/settings.html',
+                    ['tmp/html/translate.html']: path.src + 'html/translate.html',
+                    ['tmp/html/changelog.html']: path.src + 'html/changelog.html',
+                    ['tmp/html/howto.html']: path.src + 'html/howto.html',
                 }
             },
             distManifest: {
@@ -152,27 +159,16 @@ module.exports = function (grunt) {
                     }]
                 },
                 files: {
-                    ['tmp/manifest-parsed.json']: path.src + 'manifest.json'
-                }
-            },
-            distLocales: {
-                options: {
-                    replacements: [{
-                        pattern: /\/\/.*/ig,
-                        replacement: ''
-                    }]
-                },
-                files: {
-                    ['tmp/en.json']: path.src + '_locales/en/messages.json'
+                    ['tmp/manifest.json']: path.src + 'manifest.json'
                 }
             }
         },
-        minjson: {
+        json_minification: {
             dist: {
-                files: {
-                    [path.dist + 'manifest.json']: 'tmp/manifest-parsed.json',
-                    [path.dist + '_locales/en/messages.json']: 'tmp/en.json'
-                }
+                files: [
+                    {expand: true, cwd: "tmp", src: ['manifest.json'], dest: path.dist},
+                    {expand: true, cwd: path.src + "_locales", src: ['**/*.json'], dest: path.dist + "_locales"}
+                ]
             }
         },
         copy: {
@@ -205,7 +201,7 @@ module.exports = function (grunt) {
         'grunt-contrib-uglify',
         'grunt-contrib-htmlmin',
         'grunt-string-replace',
-        'grunt-minjson',
+        'grunt-json-minification',
         'grunt-contrib-copy',
         'grunt-contrib-clean'
     ].forEach((task) => {
@@ -220,12 +216,11 @@ module.exports = function (grunt) {
         'concat:distTranslation',
         'string-replace:distJs',
         'string-replace:distSettings',
-        'string-replace:distLocales',
         'babel:dist',
         'uglify:dist',
         'htmlmin:dist',
         'string-replace:distManifest',
-        'minjson:dist',
+        'json_minification:dist',
         'sass:dist',
         'copy:dist',
         'clean:sass',

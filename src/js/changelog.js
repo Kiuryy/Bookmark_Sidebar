@@ -1,66 +1,78 @@
-/**
- *
- * @param {jsu} $
- */
 ($ => {
     "use strict";
 
-    let classes = {
-        visible: "visible",
-        flipped: "flipped"
+    window.changelog = function () {
+
+        /*
+         * ################################
+         * PUBLIC
+         * ################################
+         */
+
+        this.opts = {
+            elm: {
+                title: $("head > title"),
+                infobox: $("section.infobox"),
+                close: $("a.close"),
+                showChangelog: $("a.showChangelog")
+            },
+            classes: {
+                visible: "visible",
+                flipped: "flipped"
+            },
+            attr: {
+                i18n: "data-i18n"
+            },
+            manifest: chrome.runtime.getManifest()
+        };
+
+        /**
+         * Constructor
+         */
+        this.run = () => {
+            initHelpers();
+
+            this.helper.i18n.init(() => {
+                this.helper.i18n.parseHtml(document);
+                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+
+                initEvents();
+                this.opts.elm.infobox.addClass(this.opts.classes.visible);
+            });
+        };
+
+        /*
+         * ################################
+         * PRIVATE
+         * ################################
+         */
+
+        /**
+         * Initialises the helper objects
+         */
+        let initHelpers = () => {
+            this.helper = {
+                i18n: new window.I18nHelper(this),
+            };
+        };
+
+        /**
+         * Initialises the eventhandlers
+         */
+        let initEvents = () => {
+            this.opts.elm.close.on("click", (e) => {
+                e.preventDefault();
+                window.close();
+            });
+
+            this.opts.elm.showChangelog.on("click", (e) => {
+                e.preventDefault();
+                this.opts.elm.infobox.addClass(this.opts.classes.flipped);
+            });
+        };
     };
 
-    let elm = {
-        body: $("body"),
-        title: $("head > title"),
-        infobox: $("section.infobox"),
-        copyright: $("a#copyright"),
-        close: $("a.close"),
-        showChangelog: $("a.showChangelog")
-    };
 
-
-    /**
-     * Initialises the language variables in the document
-     */
-    let initLanguage = () => {
-        let prefix = "changelog_";
-
-        $("[data-i18n]").forEach((elm) => {
-            let val = $(elm).attr("data-i18n");
-            let key = val.search(/^share_userdata/) === 0 ? val : prefix + val;
-            $(elm).html(chrome.i18n.getMessage(key).replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
-        });
-
-        let manifest = chrome.runtime.getManifest();
-        elm.title.text(elm.title.text() + " - " + manifest.short_name);
-    };
-
-
-    /**
-     * Initialises the eventhandlers
-     */
-    let initEvents = () => {
-        elm.close.on("click", (e) => {
-            e.preventDefault();
-            window.close();
-        });
-
-        elm.showChangelog.on("click", (e) => {
-            e.preventDefault();
-            elm.infobox.addClass(classes.flipped);
-        });
-    };
-
-
-    /**
-     *
-     */
-    (() => {
-        initLanguage();
-        initEvents();
-
-        elm.infobox.addClass(classes.visible);
-    })();
+    new window.changelog().run();
 
 })(jsu);

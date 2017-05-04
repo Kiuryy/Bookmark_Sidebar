@@ -25,6 +25,7 @@
         "js/helper/entry.js",
         "js/helper/list.js",
         "js/helper/scroll.js",
+        "js/helper/template.js",
         "js/helper/sidebarEvents.js",
         "js/helper/search.js",
         "js/helper/stylesheet.js",

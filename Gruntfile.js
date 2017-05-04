@@ -45,8 +45,13 @@ module.exports = function (grunt) {
             },
             distSettings: {
                 options: {},
-                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
+                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/helper/template.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
                 dest: 'tmp/settings-merged.js'
+            },
+            distTranslation: {
+                options: {},
+                src: [path.src + 'js/helper/template.js', path.src + 'js/translation.js'],
+                dest: 'tmp/translation-merged.js'
             }
         },
         babel: {
@@ -57,6 +62,7 @@ module.exports = function (grunt) {
                 files: {
                     ['tmp/extension-es5.js']: 'tmp/extension-merged2.js',
                     ['tmp/settings-es5.js']: 'tmp/settings-merged2.js',
+                    ['tmp/translation-es5.js']: 'tmp/translation-merged2.js',
                     ['tmp/jsu-es5.js']: path.src + 'js/lib/jsu.js',
                     ['tmp/howto-es5.js']: path.src + 'js/howto.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
@@ -77,6 +83,7 @@ module.exports = function (grunt) {
                     ['tmp/js/extension.js']: 'tmp/extension-es5.js',
                     ['tmp/js/lib/jsu.js']: 'tmp/jsu-es5.js',
                     ['tmp/js/settings.js']: 'tmp/settings-es5.js',
+                    ['tmp/js/translation.js']: 'tmp/translation-es5.js',
                     ['tmp/js/howto.js']: 'tmp/howto-es5.js',
                     ['tmp/js/changelog.js']: 'tmp/changelog-es5.js',
                     ['tmp/js/model.js']: 'tmp/model-es5.js'
@@ -97,7 +104,7 @@ module.exports = function (grunt) {
                 }, {
                     expand: true,
                     cwd: "tmp",
-                    src: 'settings.html',
+                    src: ['settings.html', 'translate.html'],
                     dest: path.dist + "html/"
                 }]
             }
@@ -113,6 +120,7 @@ module.exports = function (grunt) {
                 files: {
                     ['tmp/extension-merged2.js']: 'tmp/extension-merged.js',
                     ['tmp/settings-merged2.js']: 'tmp/settings-merged.js',
+                    ['tmp/translation-merged2.js']: 'tmp/translation-merged.js',
                 }
             },
             distSettings: {
@@ -124,6 +132,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     ['tmp/settings.html']: path.src + 'html/settings.html',
+                    ['tmp/translate.html']: path.src + 'html/translate.html',
                 }
             },
             distManifest: {
@@ -208,6 +217,7 @@ module.exports = function (grunt) {
         'clean:distPre',
         'concat:distExtension',
         'concat:distSettings',
+        'concat:distTranslation',
         'string-replace:distJs',
         'string-replace:distSettings',
         'string-replace:distLocales',

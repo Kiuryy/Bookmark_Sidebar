@@ -330,7 +330,7 @@
             elements.desc = $("<p />").text(ext.lang("overlay_check_urls_loading")).appendTo(elements.modal);
             elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
             elements.progressLabel = $("<span />").addClass(ext.opts.classes.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
-            elements.loader = ext.getLoaderHtml().appendTo(elements.modal);
+            elements.loader = ext.helper.template.loading().appendTo(elements.modal);
 
             setTimeout(() => {
                 elements.modal.addClass(ext.opts.classes.overlay.urlCheckLoading);

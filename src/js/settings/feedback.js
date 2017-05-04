@@ -24,7 +24,7 @@
 
             if (isEmailValid && isMessageValid) {
                 let loadStartTime = +new Date();
-                let loader = s.getLoaderHtml().appendTo(s.opts.elm.body);
+                let loader = s.helper.template.loading().appendTo(s.opts.elm.body);
                 s.opts.elm.body.addClass(s.opts.classes.loading);
 
                 let xhr = new XMLHttpRequest();

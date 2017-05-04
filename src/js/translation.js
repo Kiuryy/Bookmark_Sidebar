@@ -60,6 +60,7 @@
 
         this.opts = {
             elm: {
+                content: $("section#content"),
                 wrapper: {
                     overview: $("section#content > div[data-name='overview']"),
                     langvars: $("section#content > div[data-name='langvars']")
@@ -80,6 +81,9 @@
          */
         this.run = () => {
             this.opts.elm.wrapper.langvars.addClass(this.opts.classes.hidden);
+            initHelpers();
+
+            this.helper.template.footer().insertAfter(this.opts.elm.content);
 
             let xhr = new XMLHttpRequest();
             xhr.open("POST", this.opts.ajax.info, true);
@@ -133,6 +137,14 @@
          * ################################
          */
 
+        /**
+         * Initialises the helper objects
+         */
+        let initHelpers = () => {
+            this.helper = {
+                template: new window.TemplateHelper(this)
+            };
+        };
 
     };
 

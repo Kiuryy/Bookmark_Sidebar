@@ -65,6 +65,7 @@
                 body: $("body"),
                 title: $("head > title"),
                 header: $("body > header"),
+                content: $("section#content"),
                 tab: $("section#content > div.tab"),
                 contentTabs: $("ul.labels > li"),
                 contentTabSections: $("ul.labels ~ div[data-name]"),
@@ -116,8 +117,8 @@
             this.helper.form.init();
             initHeader();
             initLanguage();
-            initCopyright();
             initHeaderTabs();
+            this.helper.template.footer().insertAfter(this.opts.elm.content);
 
             this.helper.model.init(() => {
                 this.helper.behaviour.init();
@@ -144,31 +145,6 @@
             }, 1500);
         };
 
-        /**
-         * Returns the html for the loading indicator
-         *
-         * @returns {jsu}
-         */
-        this.getLoaderHtml = () => {
-            let html = '' +
-                '<div class="loading">' +
-                ' <div>' +
-                '  <div class="circle-clipper left">' +
-                '   <div></div>' +
-                '  </div>' +
-                '  <div class="gap-patch">' +
-                '   <div></div>' +
-                '  </div>' +
-                '  <div class="circle-clipper right">' +
-                '   <div></div>' +
-                '  </div>' +
-                ' </div>' +
-                '</div>';
-
-            return $(html);
-        };
-
-
         /*
          * ################################
          * PRIVATE
@@ -182,6 +158,7 @@
             this.helper = {
                 model: new window.ModelHelper(this),
                 checkbox: new window.CheckboxHelper(this),
+                template: new window.TemplateHelper(this),
                 form: new window.FormHelper(this),
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),
@@ -189,19 +166,6 @@
                 contribute: new window.ContributeHelper(this),
                 help: new window.HelpHelper(this)
             };
-        };
-
-
-        /**
-         * Initialises the copyright text
-         */
-        let initCopyright = () => {
-            let createdDate = +this.opts.elm.copyrightDate.text();
-            let currentYear = new Date().getFullYear();
-
-            if (currentYear > createdDate) {
-                this.opts.elm.copyrightDate.text(createdDate + " - " + currentYear);
-            }
         };
 
         /**

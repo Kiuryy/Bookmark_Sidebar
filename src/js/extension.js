@@ -37,30 +37,6 @@
         };
 
         /**
-         * Returns the html for the loading indicator
-         *
-         * @returns {jsu}
-         */
-        this.getLoaderHtml = () => {
-            let html = '' +
-                '<div class="loading">' +
-                ' <div>' +
-                '  <div class="circle-clipper left">' +
-                '   <div></div>' +
-                '  </div>' +
-                '  <div class="gap-patch">' +
-                '   <div></div>' +
-                '  </div>' +
-                '  <div class="circle-clipper right">' +
-                '   <div></div>' +
-                '  </div>' +
-                ' </div>' +
-                '</div>';
-
-            return $(html);
-        };
-
-        /**
          * Checks whether the browser is maximized or windowed
          *
          * @returns {boolean}
@@ -106,7 +82,7 @@
                 clearTimeout(loadingInfo.timeout);
             }
             if (typeof loadingInfo.loader === "undefined" || loadingInfo.loader.length() === 0) {
-                loadingInfo.loader = this.getLoaderHtml().appendTo(this.elements.sidebar);
+                loadingInfo.loader = this.helper.template.loading().appendTo(this.elements.sidebar);
             }
         };
 
@@ -171,6 +147,7 @@
                 entry: new window.EntryHelper(this),
                 list: new window.ListHelper(this),
                 scroll: new window.ScrollHelper(this),
+                template: new window.TemplateHelper(this),
                 sidebarEvents: new window.SidebarEventsHelper(this),
                 search: new window.SearchHelper(this),
                 stylesheet: new window.StylesheetHelper(this),

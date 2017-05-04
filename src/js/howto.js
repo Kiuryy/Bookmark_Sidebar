@@ -1,169 +1,178 @@
-/**
- *
- * @param {jsu} $
- */
 ($ => {
     "use strict";
 
-    let openAction = "mousedown";
-    let sidebarPos = "left";
+    window.howto = function () {
 
-    let classes = {
-        visible: "visible",
-        reversed: "reversed"
-    };
+        let openAction = "mousedown";
+        let sidebarPos = "left";
 
-    let elm = {
-        body: $("body"),
-        title: $("head > title"),
-        thanks: $("section#thanks"),
-        tutorial: $("section#tutorial"),
-        copyright: $("a#copyright"),
-        close: $("a.close"),
-        startTutorial: $("a.startTutorial")
-    };
+        /*
+         * ################################
+         * PUBLIC
+         * ################################
+         */
+
+        this.opts = {
+            elm: {
+                title: $("head > title"),
+                thanks: $("section#thanks"),
+                tutorial: $("section#tutorial"),
+                copyright: $("a#copyright"),
+                close: $("a.close"),
+                startTutorial: $("a.startTutorial")
+            },
+            classes: {
+                visible: "visible",
+                reversed: "reversed"
+            },
+            attr: {
+                i18nReplaces: "data-i18nReplaces"
+            },
+            manifest: chrome.runtime.getManifest()
+        };
+
+        /**
+         * Constructor
+         */
+        this.run = () => {
+            initHelpers();
+
+            this.helper.i18n.init(() => {
+                chrome.storage.sync.get(["behaviour", "appearance"], (obj) => {
+                    if (obj.behaviour && obj.behaviour.openAction) {
+                        openAction = obj.behaviour.openAction;
+                    }
+
+                    if (obj.appearance && obj.appearance.sidebarPosition) {
+                        sidebarPos = obj.appearance.sidebarPosition;
+                    }
+
+                    this.opts.elm.tutorial.children("p.text[data-index='1']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + sidebarPos));
+                    this.opts.elm.tutorial.children("p.text[data-index='2']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + (openAction === "contextmenu" ? "right" : "left")));
+
+                    this.helper.i18n.parseHtml(document);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+
+                    initEvents();
+                    initView();
+                });
 
 
-    /**
-     * Initialises the language variables in the document
-     */
-    let initLanguage = () => {
-        let prefix = "howto_";
+            });
+        };
 
-        $("[data-i18n]").forEach((elm) => {
-            let val = $(elm).attr("data-i18n");
-            let key = val.search(/^share_userdata/) === 0 ? val : prefix + val;
-            $(elm).html(chrome.i18n.getMessage(key).replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>"));
-        });
+        /*
+         * ################################
+         * PRIVATE
+         * ################################
+         */
 
-        let texts = [sidebarPos === "right" ? "right" : "left", openAction === "contextmenu" ? "right" : "left"];
+        /**
+         * Initialises the helper objects
+         */
+        let initHelpers = () => {
+            this.helper = {
+                i18n: new window.I18nHelper(this),
+            };
+        };
 
-        texts.forEach((pos, i) => {
-            let text = elm.tutorial.children("p.text[data-index='" + (i + 1) + "']").text();
-            text = text.replace(/\{1\}/, chrome.i18n.getMessage(prefix + "tutorial_" + pos));
-            elm.tutorial.children("p.text[data-index='" + (i + 1) + "']").text(text);
-        });
-
-
-        let manifest = chrome.runtime.getManifest();
-        elm.title.text(elm.title.text() + " - " + manifest.short_name);
-    };
-
-
-    /**
-     * Initialises the view (start directly with the tutorial or show the thankyou-text)
-     */
-    let initView = () => {
-        if (location.href.search(/(\?|\&)tutorial\=1/) === -1) {
-            elm.thanks.addClass(classes.visible);
-        } else {
-            startTutorial();
-        }
-    };
-
-    /**
-     * Initialises the eventhandlers
-     */
-    let initEvents = () => {
-        elm.close.on("click", (e) => {
-            e.preventDefault();
-            window.close();
-        });
-
-        elm.startTutorial.on("click", (e) => {
-            e.preventDefault();
-
-            if (elm.tutorial.hasClass(classes.visible)) {
-                let url = location.href.replace(/(\?|\&)tutorial\=1/, "");
-                location.href = url + (url.search(/\?/) === -1 ? "?" : "&") + "tutorial=1";
+        /**
+         * Initialises the view (start directly with the tutorial or show the thankyou-text)
+         */
+        let initView = () => {
+            if (location.href.search(/(\?|\&)tutorial\=1/) === -1) {
+                this.opts.elm.thanks.addClass(this.opts.classes.visible);
             } else {
-                elm.thanks.removeClass(classes.visible);
                 startTutorial();
             }
-        });
-
-    };
-
-    /**
-     * Starts playing the tutorial animation
-     */
-    let startTutorial = () => {
-        elm.tutorial.addClass(classes.visible);
-        elm.tutorial.attr("data-pos", sidebarPos);
-
-
-        let openSidebarAnimation = (delay = 2000) => {
-            setTimeout(() => {
-                elm.tutorial.children("p.text[data-index='2']").removeClass(classes.visible);
-                elm.tutorial.children("div#sidebar").addClass(classes.visible);
-                elm.tutorial.children("div#cursor").attr("data-step", 3);
-
-                setTimeout(() => {
-                    elm.tutorial.children("p.text[data-index='3']").addClass(classes.visible);
-
-                    setTimeout(() => {
-                        elm.tutorial.children("div#cursor, p.text").removeClass(classes.visible);
-
-                        elm.tutorial.children("div#mask").addClass(classes.visible);
-                    }, 3000);
-                }, 1000);
-            }, delay);
         };
 
-        let showMouseClickAnimation = () => {
-            if (openAction === "contextmenu") {
-                elm.tutorial.children("div#cursor").addClass(classes.reversed);
-            }
+        /**
+         * Initialises the eventhandlers
+         */
+        let initEvents = () => {
+            this.opts.elm.close.on("click", (e) => {
+                e.preventDefault();
+                window.close();
+            });
+
+            this.opts.elm.startTutorial.on("click", (e) => {
+                e.preventDefault();
+
+                if (this.opts.elm.tutorial.hasClass(this.opts.classes.visible)) {
+                    let url = location.href.replace(/(\?|\&)tutorial\=1/, "");
+                    location.href = url + (url.search(/\?/) === -1 ? "?" : "&") + "tutorial=1";
+                } else {
+                    this.opts.elm.thanks.removeClass(this.opts.classes.visible);
+                    startTutorial();
+                }
+            });
+
+        };
+
+        /**
+         * Starts playing the tutorial animation
+         */
+        let startTutorial = () => {
+            this.opts.elm.tutorial.addClass(this.opts.classes.visible);
+            this.opts.elm.tutorial.attr("data-pos", sidebarPos);
+
+
+            let openSidebarAnimation = (delay = 2000) => {
+                setTimeout(() => {
+                    this.opts.elm.tutorial.children("p.text[data-index='2']").removeClass(this.opts.classes.visible);
+                    this.opts.elm.tutorial.children("div#sidebar").addClass(this.opts.classes.visible);
+                    this.opts.elm.tutorial.children("div#cursor").attr("data-step", 3);
+
+                    setTimeout(() => {
+                        this.opts.elm.tutorial.children("p.text[data-index='3']").addClass(this.opts.classes.visible);
+
+                        setTimeout(() => {
+                            this.opts.elm.tutorial.children("div#cursor, p.text").removeClass(this.opts.classes.visible);
+
+                            this.opts.elm.tutorial.children("div#mask").addClass(this.opts.classes.visible);
+                        }, 3000);
+                    }, 1000);
+                }, delay);
+            };
+
+            let showMouseClickAnimation = () => {
+                if (openAction === "contextmenu") {
+                    this.opts.elm.tutorial.children("div#cursor").addClass(this.opts.classes.reversed);
+                }
+
+                setTimeout(() => {
+                    this.opts.elm.tutorial.children("p.text[data-index='2']").addClass(this.opts.classes.visible);
+                    this.opts.elm.tutorial.children("div#cursor").attr("data-step", 2);
+
+                    openSidebarAnimation();
+                }, 500);
+            };
 
             setTimeout(() => {
-                elm.tutorial.children("p.text[data-index='2']").addClass(classes.visible);
-                elm.tutorial.children("div#cursor").attr("data-step", 2);
+                this.opts.elm.tutorial.children("p.text[data-index='1']").addClass(this.opts.classes.visible);
 
-                openSidebarAnimation();
+                setTimeout(() => {
+                    this.opts.elm.tutorial.children("div#cursor").addClass(this.opts.classes.visible);
+
+                    setTimeout(() => {
+                        this.opts.elm.tutorial.children("div#cursor").attr("data-step", 1);
+
+                        setTimeout(() => {
+                            this.opts.elm.tutorial.children("p.text[data-index='1']").removeClass(this.opts.classes.visible);
+
+                            if (openAction === "mousemove") {
+                                openSidebarAnimation(700);
+                            } else {
+                                showMouseClickAnimation();
+                            }
+                        }, 1500);
+                    }, 500);
+                }, 1000);
             }, 500);
         };
-
-        setTimeout(() => {
-            elm.tutorial.children("p.text[data-index='1']").addClass(classes.visible);
-
-            setTimeout(() => {
-                elm.tutorial.children("div#cursor").addClass(classes.visible);
-
-                setTimeout(() => {
-                    elm.tutorial.children("div#cursor").attr("data-step", 1);
-
-                    setTimeout(() => {
-                        elm.tutorial.children("p.text[data-index='1']").removeClass(classes.visible);
-
-                        if (openAction === "mousemove") {
-                            openSidebarAnimation(700);
-                        } else {
-                            showMouseClickAnimation();
-                        }
-                    }, 1500);
-                }, 500);
-            }, 1000);
-        }, 500);
     };
 
-
-    /**
-     *
-     */
-    (() => {
-        chrome.storage.sync.get(["behaviour", "appearance"], (obj) => {
-            if (obj.behaviour && obj.behaviour.openAction) {
-                openAction = obj.behaviour.openAction;
-            }
-
-            if (obj.appearance && obj.appearance.sidebarPosition) {
-                sidebarPos = obj.appearance.sidebarPosition;
-            }
-
-            initLanguage();
-            initEvents();
-            initView();
-        });
-    })();
+    new window.howto().run();
 
 })(jsu);

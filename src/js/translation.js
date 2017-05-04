@@ -72,9 +72,6 @@
                 hidden: "hidden",
                 progress: "progress"
             },
-            attr: {
-                i18n: "data-i18n"
-            },
             ajax: {
                 info: "https://moonware.de/ajax/extensions/bs/i18n/info",
                 langvars: "https://moonware.de/ajax/extensions/bs/i18n/langvars"

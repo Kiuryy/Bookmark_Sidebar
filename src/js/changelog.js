@@ -20,9 +20,6 @@
                 visible: "visible",
                 flipped: "flipped"
             },
-            attr: {
-                i18n: "data-i18n"
-            },
             manifest: chrome.runtime.getManifest()
         };
 

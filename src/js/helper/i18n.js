@@ -3,6 +3,11 @@
 
     window.I18nHelper = function (ext) {
 
+        let attr = {
+            i18n: "data-i18n",
+            i18nReplaces: "data-i18nReplaces"
+        };
+
         /**
          * Initialises the language file
          *
@@ -21,16 +26,21 @@
          * @param context
          */
         this.parseHtml = (context) => {
-            $(context).find("[" + ext.opts.attr.i18n + "]").forEach((elm) => {
+            $(context).find("[" + attr.i18n + "]").forEach((elm) => {
                 let msg = null;
-                let val = $(elm).attr(ext.opts.attr.i18n);
+                let val = $(elm).attr(attr.i18n);
 
                 if (val) {
-                    msg = this.get(val);
+                    let replaces = [];
+                    let replacesRaw = $(elm).attr(attr.i18nReplaces);
+                    if (replacesRaw) {
+                        replaces = replacesRaw.split(",");
+                    }
+                    msg = this.get(val, replaces);
                 }
 
                 if (msg) {
-                    $(elm).removeAttr(ext.opts.attr.i18n);
+                    $(elm).removeAttr(attr.i18n);
                     $(elm).html(msg);
                 } else {
                     $(elm).remove();

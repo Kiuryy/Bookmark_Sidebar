@@ -125,7 +125,7 @@ module.exports = function (grunt) {
                     ['tmp/translation-merged2.js']: 'tmp/translation-merged.js',
                 }
             },
-            distSettings: {
+            distHtml: {
                 options: {
                     replacements: [{
                         pattern: /<\!\-\-\s*\[START\sREMOVE\]\s*\-\->[\s\S]*?<\!\-\-\s*\[END\sREMOVE\]\s*\-\->/mig,
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
         'concat:distSettings',
         'concat:distTranslation',
         'string-replace:distJs',
-        'string-replace:distSettings',
+        'string-replace:distHtml',
         'babel:dist',
         'uglify:dist',
         'htmlmin:dist',
@@ -227,4 +227,5 @@ module.exports = function (grunt) {
         'clean:distPost'
     ]);
 
+    // UPDATE NPM devDependencies -> 'npm update --dev --save'
 };

@@ -45,12 +45,12 @@ module.exports = function (grunt) {
             },
             distSettings: {
                 options: {},
-                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/helper/template.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
+                src: [path.src + 'js/lib/colorpicker.js', path.src + 'js/helper/model.js', path.src + 'js/helper/checkbox.js', path.src + 'js/helper/template.js', path.src + 'js/helper/i18n.js', path.src + 'js/settings/*.js', path.src + 'js/settings.js'],
                 dest: 'tmp/settings-merged.js'
             },
             distTranslation: {
                 options: {},
-                src: [path.src + 'js/helper/template.js', path.src + 'js/translation.js'],
+                src: [path.src + 'js/helper/template.js', path.src + 'js/helper/i18n.js', path.src + 'js/translation.js'],
                 dest: 'tmp/translation-merged.js'
             }
         },

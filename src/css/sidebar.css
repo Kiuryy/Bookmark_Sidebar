@@ -1018,7 +1018,7 @@ div#shareUserdata > div > p {
   font-size: 120%;
   margin: 20px 0;
 }
-div#shareUserdata > div > p > span {
+div#shareUserdata > div > p > strong {
   text-decoration: underline;
 }
 div#shareUserdata > div > a {

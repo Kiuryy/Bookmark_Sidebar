@@ -26,6 +26,7 @@
         "js/helper/list.js",
         "js/helper/scroll.js",
         "js/helper/template.js",
+        "js/helper/i18n.js",
         "js/helper/sidebarEvents.js",
         "js/helper/search.js",
         "js/helper/stylesheet.js",

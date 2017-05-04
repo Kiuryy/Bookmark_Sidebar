@@ -110,7 +110,8 @@
             value: "data-value",
             sort: "data-sort",
             direction: "data-direction",
-            id: "data-id"
+            id: "data-id",
+            i18n: "data-i18n"
         },
         events: {
             loaded: "moonware-bs-loaded",

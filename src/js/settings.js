@@ -116,19 +116,23 @@
 
             this.helper.form.init();
             initHeader();
-            initLanguage();
-            initHeaderTabs();
-            this.helper.template.footer().insertAfter(this.opts.elm.content);
 
-            this.helper.model.init(() => {
-                this.helper.behaviour.init();
-                this.helper.appearance.init();
-                this.helper.feedback.init();
-                this.helper.contribute.init();
-                this.helper.help.init();
+            this.helper.i18n.init(() => {
+                initHeaderTabs();
+                this.helper.template.footer().insertAfter(this.opts.elm.content);
+                this.helper.i18n.parseHtml(document);
+                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
 
-                initButtonEvents();
-                initContentTabs();
+                this.helper.model.init(() => {
+                    this.helper.behaviour.init();
+                    this.helper.appearance.init();
+                    this.helper.feedback.init();
+                    this.helper.contribute.init();
+                    this.helper.help.init();
+
+                    initButtonEvents();
+                    initContentTabs();
+                });
             });
         };
 
@@ -159,6 +163,7 @@
                 model: new window.ModelHelper(this),
                 checkbox: new window.CheckboxHelper(this),
                 template: new window.TemplateHelper(this),
+                i18n: new window.I18nHelper(this),
                 form: new window.FormHelper(this),
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),
@@ -173,27 +178,6 @@
          */
         let initHeader = () => {
             this.opts.elm.header.prepend('<svg height="48" width="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>');
-        };
-
-        /**
-         * Initialises the language variables in the document
-         */
-        let initLanguage = () => {
-            $("[" + this.opts.attr.i18n + "]").forEach((elm) => {
-                let val = $(elm).attr(this.opts.attr.i18n);
-                let key = val.search(/^(share_userdata_|howto_)/) === 0 ? val : "settings_" + val;
-                let msg = chrome.i18n.getMessage(key);
-                if (msg) {
-                    msg = msg.replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
-                    msg = msg.replace(/\[a\](.*)\[\/a\]/, "<a href='#'>$1</a>");
-                    msg = msg.replace(/\[em\](.*)\[\/em\]/, "<em>$1</em>");
-                    $(elm).html(msg);
-                } else {
-                    $(elm).remove();
-                }
-            });
-
-            this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
         };
 
         /**

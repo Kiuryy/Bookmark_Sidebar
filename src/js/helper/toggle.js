@@ -179,20 +179,22 @@
          * Opens the sidebar
          */
         let openSidebar = () => {
-            ext.helper.model.call("shareUserdataMask", (opts) => { // check whether to show the share userdata mask or not
-                if (opts && opts.showMask) {
-                    ext.addShareUserdataMask();
-                } else {
-                    ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
-                }
-            });
+            if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.loading) === false) { // only open if the sidebar is loaded
+                ext.helper.model.call("shareUserdataMask", (opts) => { // check whether to show the share userdata mask or not
+                    if (opts && opts.showMask) {
+                        ext.addShareUserdataMask();
+                    } else {
+                        ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
+                    }
+                });
 
-            ext.elements.iframe.addClass(ext.opts.classes.page.visible);
-            ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
-            ext.helper.scroll.updateAll(false, true);
-            ext.initImages();
-            ext.firstRun = false;
-            $(document).trigger("mousemove"); // hide indicator
+                ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+                ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+                ext.helper.scroll.updateAll(false, true);
+                ext.initImages();
+                ext.firstRun = false;
+                $(document).trigger("mousemove"); // hide indicator
+            }
         };
 
         /**

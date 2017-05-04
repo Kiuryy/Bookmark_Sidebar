@@ -250,7 +250,7 @@
 
                     if (bookmark.children && asTree) { // dir
                         entryContent
-                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.lang("sidebar_dir_children"))
+                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.helper.i18n.get("sidebar_dir_children"))
                             .addClass(ext.opts.classes.sidebar.bookmarkDir);
 
                         if (config.showBookmarkIcons) {
@@ -414,7 +414,7 @@
                     let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
 
                     let langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
-                    $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.lang("sort_label_" + langName)).appendTo(filterBox);
+                    $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(filterBox);
                     let checkList = $("<ul />").appendTo(filterBox);
 
                     if (key === "all") { // show bookmarks as tree or one dimensional list
@@ -423,7 +423,7 @@
                                 [ext.opts.attr.name]: 'viewAsTree',
                                 checked: config.viewAsTree ? "checked" : ""
                             }))
-                            .append("<a>" + ext.lang("sort_view_as_tree") + "</a>")
+                            .append("<a>" + ext.helper.i18n.get("sort_view_as_tree") + "</a>")
                             .appendTo(checkList);
                     }
 
@@ -433,7 +433,7 @@
                                 [ext.opts.attr.name]: 'mostViewedPerMonth',
                                 checked: config.mostViewedPerMonth ? "checked" : ""
                             }))
-                            .append("<a>" + ext.lang("sort_most_used_per_month") + "</a>")
+                            .append("<a>" + ext.helper.i18n.get("sort_most_used_per_month") + "</a>")
                             .appendTo(checkList);
                     }
 
@@ -452,8 +452,8 @@
             let bookmarkAmount = ext.helper.entry.getAllBookmarkData().length;
 
             let headline = $("<h1 />")
-                .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
-                .attr("title", bookmarkAmount + " " + ext.lang("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
+                .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
+                .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
                 .appendTo(ext.elements.header);
 
             let headerIcons = [];
@@ -473,7 +473,7 @@
 
             $("<div />")
                 .addClass(ext.opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + ext.lang("sidebar_search_placeholder") + "' />")
+                .append("<input type='text' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder") + "' />")
                 .append("<a class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elements.header);
         };

@@ -180,7 +180,7 @@
         "message": "If you agree to share your settings anonymously you can help me alot :)"
     },
     "share_userdata_notice": {
-        "message": "Information about your bookmarks [u]will not[\/u] be transfered."
+        "message": "Information about your bookmarks [b]will not[\/b] be transfered."
     },
     "share_userdata_accept": {
         "message": "Accept"

@@ -108,7 +108,7 @@
                         [ext.opts.attr.name]: 'sort',
                         [ext.opts.attr.value]: value
                     }, "radio"))
-                    .append("<a " + ext.opts.attr.name + "='sort'>" + ext.lang("sort_label_" + langName) + "</a>")
+                    .append("<a " + ext.opts.attr.name + "='sort'>" + ext.helper.i18n.get("sort_label_" + langName) + "</a>")
                     .appendTo(list);
 
                 if (value === currentSort.name) {
@@ -134,7 +134,7 @@
             if (currentSort.name === "custom") {
                 $("<li />")
                     .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: 'toggleFix'}))
-                    .append("<a " + ext.opts.attr.name + "='toggleFix'>" + ext.lang("contextmenu_toggle_fix") + "</a>")
+                    .append("<a " + ext.opts.attr.name + "='toggleFix'>" + ext.helper.i18n.get("contextmenu_toggle_fix") + "</a>")
                     .appendTo(list);
 
                 if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false) {
@@ -144,7 +144,7 @@
 
             $("<li />")
                 .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: 'toggleHidden'}))
-                .append("<a " + ext.opts.attr.name + "='toggleHidden'>" + ext.lang("contextmenu_toggle_hidden") + "</a>")
+                .append("<a " + ext.opts.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
 
             if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true) {
@@ -152,8 +152,8 @@
             }
 
             iconWrapper
-                .append("<li><a " + ext.opts.attr.name + "='settings' title='" + ext.lang("contextmenu_settings") + "'></a></li>")
-                .append("<li><a " + ext.opts.attr.name + "='bookmarkManager' title='" + ext.lang("contextmenu_bookmark_manager") + "'></a></li>");
+                .append("<li><a " + ext.opts.attr.name + "='settings' title='" + ext.helper.i18n.get("contextmenu_settings") + "'></a></li>")
+                .append("<li><a " + ext.opts.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
@@ -180,39 +180,39 @@
             let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
 
             if (data.isDir) {
-                list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.lang("contextmenu_open_children") + "</a></li>");
+                list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + "</a></li>");
                 if (data.children.length > 0) {
-                    list.append("<li><a " + ext.opts.attr.name + "='updateUrls'>" + ext.lang("contextmenu_update_urls") + "</a></li>");
+                    list.append("<li><a " + ext.opts.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
                 }
             } else {
                 if (isSearchList) {
-                    list.append("<li><a " + ext.opts.attr.name + "='showInDir'>" + ext.lang("contextmenu_show_in_dir") + "</a></li>");
+                    list.append("<li><a " + ext.opts.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
                 }
 
-                list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.lang("contextmenu_new_tab") + "</a></li>");
+                list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
 
                 if (chrome.extension.inIncognitoContext === false) {
-                    list.append("<li><a " + ext.opts.attr.name + "='newTabIncognito'>" + ext.lang("contextmenu_new_tab_incognito") + "</a></li>");
+                    list.append("<li><a " + ext.opts.attr.name + "='newTabIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
                 }
             }
 
-            iconWrapper.append("<li><a " + ext.opts.attr.name + "='infos' title='" + ext.lang("contextmenu_infos") + "'></a></li>");
+            iconWrapper.append("<li><a " + ext.opts.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos") + "'></a></li>");
 
             if (data.parents.length > 0) { // root level can not be edited or deleted
                 iconWrapper
-                    .append("<li><a " + ext.opts.attr.name + "='edit' title='" + ext.lang("contextmenu_edit" + i18nAppend) + "'></a></li>")
-                    .append("<li><a " + ext.opts.attr.name + "='delete' title='" + ext.lang("contextmenu_delete" + i18nAppend) + "'></a></li>");
+                    .append("<li><a " + ext.opts.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend) + "'></a></li>")
+                    .append("<li><a " + ext.opts.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend) + "'></a></li>");
             }
 
 
             if (data.isDir) {
-                iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.lang("contextmenu_add") + "'></a></li>");
+                iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
             }
 
             if (ext.helper.entry.isVisible(elmId)) {
-                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='hide' title='" + ext.lang("contextmenu_hide_from_sidebar") + "'></a></li>");
+                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
             } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
-                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='show' title='" + ext.lang("contextmenu_show_in_sidebar") + "'></a></li>");
+                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='show' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
             }
         };
 

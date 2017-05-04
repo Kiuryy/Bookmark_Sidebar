@@ -1,5 +1,14 @@
 @import "include/backend";
 
+// Header
+body > header {
+
+  > svg {
+    stroke: none;
+    fill: rgba(255, 255, 255, 0.4);
+  }
+}
+
 section#content > div {
 
   &.hidden {

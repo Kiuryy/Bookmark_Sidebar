@@ -27,7 +27,7 @@
             elements.buttonWrapper = $("<menu />").addClass(ext.opts.classes.overlay.buttonWrapper).appendTo(elements.modal);
             $("<a />")
                 .addClass(ext.opts.classes.overlay.close)
-                .text(ext.lang("overlay_" + (type === "infos" ? "close" : "cancel")))
+                .text(ext.helper.i18n.get("overlay_" + (type === "infos" ? "close" : "cancel")))
                 .appendTo(elements.buttonWrapper);
 
             switch (type) {
@@ -121,9 +121,9 @@
          * @param {object} data
          */
         let handleDeleteHtml = (data) => {
-            $("<p />").text(ext.lang("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            $("<p />").text(ext.helper.i18n.get("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_delete")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -134,11 +134,11 @@
         let handleEditHtml = (data) => {
             appendPreviewLink(data);
             let list = $("<ul />").appendTo(elements.modal);
-            list.append("<li><label>" + ext.lang("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + data.title + "' /></li>");
+            list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + data.title + "' /></li>");
             if (!data.isDir) {
-                list.append("<li><label>" + ext.lang("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + data.url + "' /></li>");
+                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + data.url + "' /></li>");
             }
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_save")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -162,11 +162,11 @@
          */
         let handleOpenChildrenHtml = (data) => {
             let bookmarks = data.children.filter(val => !!(val.url));
-            let text = ext.lang("overlay_confirm_open_children").replace(/\{1\}/, bookmarks.length);
+            let text = ext.helper.i18n.get("overlay_confirm_open_children",[bookmarks.length]);
 
             $("<p />").text(text).appendTo(elements.modal);
             appendPreviewLink(data);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_open_children")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -175,29 +175,29 @@
          * @param {object} data
          */
         let handleHideHtml = (data) => {
-            $("<p />").text(ext.lang("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            $("<p />").text(ext.helper.i18n.get("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
         /**
          * Extends the overlay html for adding a bookmark or directory
          */
         let handleAddHtml = () => {
-            let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_save")).appendTo(elements.buttonWrapper);
+            let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
             let menu = $("<menu />").appendTo(elements.modal);
-            $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.lang("overlay_label_bookmark")).appendTo(menu);
-            $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.lang("overlay_label_dir")).appendTo(menu);
+            $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
+            $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
 
             menu.children("a").on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
                 let list = $("<ul />").appendTo(elements.modal);
                 list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
-                list.append("<li><label>" + ext.lang("overlay_bookmark_title") + "</label><input type='text' name='title' /></li>");
+                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' /></li>");
 
                 if (type === "bookmark") {
-                    list.append("<li><label>" + ext.lang("overlay_bookmark_url") + "</label><input type='text' name='url' /></li>");
+                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' /></li>");
                 }
 
                 menu.addClass(ext.opts.classes.sidebar.hidden);
@@ -219,30 +219,30 @@
             let list = $("<ul />").appendTo(elements.modal);
             let createdDate = new Date(data.dateAdded);
 
-            $("<li />").html(ext.lang("overlay_bookmark_created_date") + " " + getLocaleDate(createdDate)).appendTo(list);
+            $("<li />").html(ext.helper.i18n.get("overlay_bookmark_created_date") + " " + getLocaleDate(createdDate)).appendTo(list);
 
             if (data.isDir) {
                 let childrenEntry = $("<li />")
                     .addClass(ext.opts.classes.overlay.hasTooltip)
                     .append("<span>" + data.childrenAmount.total + "</span>")
-                    .append(" " + ext.lang("overlay_dir_children"), false)
+                    .append(" " + ext.helper.i18n.get("overlay_dir_children"), false)
                     .appendTo(list);
 
                 $("<ul />")
-                    .append("<li>" + data.childrenAmount.bookmarks + " " + ext.lang("overlay_dir_children_bookmarks") + "</li>")
-                    .append("<li>" + data.childrenAmount.directories + " " + ext.lang("overlay_dir_children_dirs") + "</li>")
+                    .append("<li>" + data.childrenAmount.bookmarks + " " + ext.helper.i18n.get("overlay_dir_children_bookmarks") + "</li>")
+                    .append("<li>" + data.childrenAmount.directories + " " + ext.helper.i18n.get("overlay_dir_children_dirs") + "</li>")
                     .appendTo(childrenEntry);
             }
 
             let viewsEntry = $("<li />")
                 .addClass(ext.opts.classes.overlay.hasTooltip)
                 .append("<span>" + data.views.total + "</span>")
-                .append(" " + ext.lang("overlay_bookmark_views" + (data.views.total === 1 ? "_single" : "")), false)
+                .append(" " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.total === 1 ? "_single" : "")), false)
                 .appendTo(list);
 
             $("<ul />")
-                .append("<li>" + ext.lang("overlay_bookmark_views_since") + " " + getLocaleDate(data.views.startDate) + "</li>")
-                .append("<li>" + data.views.perMonth + " " + ext.lang("overlay_bookmark_views" + (data.views.perMonth === 1 ? "_single" : "")) + " " + ext.lang("overlay_bookmark_views_per_month") + "</li>")
+                .append("<li>" + ext.helper.i18n.get("overlay_bookmark_views_since") + " " + getLocaleDate(data.views.startDate) + "</li>")
+                .append("<li>" + data.views.perMonth + " " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.perMonth === 1 ? "_single" : "")) + " " + ext.helper.i18n.get("overlay_bookmark_views_per_month") + "</li>")
                 .appendTo(viewsEntry);
         };
 
@@ -264,12 +264,12 @@
                 setTimeout(() => {
                     elements.loader.remove();
                     elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
-                    elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.lang("overlay_close"));
+                    elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_close"));
 
                     if (updateList.length === 0) {
-                        $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.lang("overlay_check_urls_no_results")).appendTo(elements.modal);
+                        $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
                     } else {
-                        $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.lang("overlay_update")).appendTo(elements.buttonWrapper);
+                        $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
                         let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
                         let overlayBody = elements.overlay.find("body");
 
@@ -284,7 +284,7 @@
                             }).html("<span>" + entry.url + "</span>").appendTo(listEntry);
 
                             if (entry.urlStatusCode === 404) {
-                                $("<span />").text(ext.lang("overlay_check_urls_not_found")).appendTo(listEntry);
+                                $("<span />").text(ext.helper.i18n.get("overlay_check_urls_not_found")).appendTo(listEntry);
                             } else if (entry.newUrl !== entry.url) {
                                 $("<a />").attr({
                                     href: entry.newUrl, title: entry.newUrl, target: "_blank"
@@ -327,7 +327,7 @@
             processBookmarks(data.children);
             let bookmarkAmount = bookmarks.length;
 
-            elements.desc = $("<p />").text(ext.lang("overlay_check_urls_loading")).appendTo(elements.modal);
+            elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_urls_loading")).appendTo(elements.modal);
             elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
             elements.progressLabel = $("<span />").addClass(ext.opts.classes.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);

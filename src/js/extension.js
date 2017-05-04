@@ -23,16 +23,18 @@
             this.helper.model.init(() => {
                 this.helper.stylesheet.init();
 
-                initSidebar();
+                this.helper.i18n.init(() => {
+                    initSidebar();
 
-                this.helper.list.init();
-                this.helper.toggle.init();
-                this.helper.sidebarEvents.init();
-                this.helper.dragndrop.init();
+                    this.helper.list.init();
+                    this.helper.toggle.init();
+                    this.helper.sidebarEvents.init();
+                    this.helper.dragndrop.init();
 
-                if (document.referrer === "") {
-                    this.helper.model.call("addViewAmount", {url: location.href});
-                }
+                    if (document.referrer === "") {
+                        this.helper.model.call("addViewAmount", {url: location.href});
+                    }
+                });
             });
         };
 
@@ -43,16 +45,6 @@
          */
         this.isWindowed = () => {
             return window.screenX !== 0 || window.screenY !== 0 || window.screen.availWidth !== window.innerWidth;
-        };
-
-        /**
-         * Returns the translated string matching the given message
-         *
-         * @param msg
-         * @returns {string}
-         */
-        this.lang = (msg) => {
-            return chrome.i18n.getMessage(msg);
         };
 
         /**
@@ -119,15 +111,13 @@
             let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
             let contentBox = $("<div />").prependTo(shareUserdataMask);
 
-            $("<h2 />").html(this.lang("share_userdata_headline")).appendTo(contentBox);
-            $("<p />").html(this.lang("share_userdata_desc")).appendTo(contentBox);
-            $("<p />").html(this.lang("share_userdata_desc2")).appendTo(contentBox);
+            $("<h2 />").html(this.helper.i18n.get("share_userdata_headline")).appendTo(contentBox);
+            $("<p />").html(this.helper.i18n.get("share_userdata_desc")).appendTo(contentBox);
+            $("<p />").html(this.helper.i18n.get("share_userdata_desc2")).appendTo(contentBox);
+            $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(this.helper.i18n.get("share_userdata_notice")).appendTo(contentBox);
 
-            let noticeText = this.lang("share_userdata_notice").replace(/\[u\](.*)\[\/u\]/, "<span>$1</span>");
-            $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(noticeText).appendTo(contentBox);
-
-            $("<a />").data("accept", true).html(this.lang("share_userdata_accept")).appendTo(contentBox);
-            $("<a />").data("accept", false).html(this.lang("share_userdata_decline")).appendTo(contentBox);
+            $("<a />").data("accept", true).html(this.helper.i18n.get("share_userdata_accept")).appendTo(contentBox);
+            $("<a />").data("accept", false).html(this.helper.i18n.get("share_userdata_decline")).appendTo(contentBox);
         };
 
 
@@ -148,6 +138,7 @@
                 list: new window.ListHelper(this),
                 scroll: new window.ScrollHelper(this),
                 template: new window.TemplateHelper(this),
+                i18n: new window.I18nHelper(this),
                 sidebarEvents: new window.SidebarEventsHelper(this),
                 search: new window.SearchHelper(this),
                 stylesheet: new window.StylesheetHelper(this),

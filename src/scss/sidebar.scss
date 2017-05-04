@@ -480,7 +480,7 @@ section#sidebar {
 
   &.loading {
 
-    > div.loading {
+    > svg.loading {
       position: absolute;
       top: calc(50% - 18px);
       left: calc(50% - 18px);

@@ -183,7 +183,7 @@ div.modal {
       }
     }
 
-    > div.loading {
+    > svg.loading {
       margin: $overlayHeaderHeight auto 0;
       transition: margin-top 0.5s;
     }
@@ -311,7 +311,7 @@ div.modal {
         background: $hoverBackground;
       }
 
-      > div.loading {
+      > svg.loading {
         margin-top: 150px;
       }
     }

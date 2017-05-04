@@ -1,118 +1,42 @@
-@keyframes container-rotate {
-  to {
-    transform: rotate(360deg)
+$size: 36px;
+$offset: 2 * 3.14159265359 * 16;
+$duration: 1.5s;
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
   }
 }
 
-@keyframes left-spin {
-  from, to {
-    transform: rotate(130deg)
+@keyframes dash {
+  0% {
+    stroke-dashoffset: $offset;
   }
   50% {
-    transform: rotate(-5deg)
+    stroke-dashoffset: $offset / 4;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: $offset;
+    transform: rotate(450deg);
   }
 }
 
-@keyframes right-spin {
-  from, to {
-    transform: rotate(-130deg)
-  }
-  50% {
-    transform: rotate(5deg)
-  }
-}
-
-@keyframes fill-unfill-rotate {
-  12.5% {
-    transform: rotate(135deg)
-  }
-  25% {
-    transform: rotate(270deg)
-  }
-  37.5% {
-    transform: rotate(405deg)
-  }
-  50% {
-    transform: rotate(540deg)
-  }
-  62.5% {
-    transform: rotate(675deg)
-  }
-  75% {
-    transform: rotate(810deg)
-  }
-  87.5% {
-    transform: rotate(945deg)
-  }
-  to {
-    transform: rotate(1080deg)
-  }
-}
-
-div.loading {
-  display: block;
+svg.loading {
   position: relative;
-  width: 36px;
-  height: 36px;
-  animation: container-rotate 1568ms linear infinite;
+  display: block;
+  width: $size;
+  height: $size;
+  animation: rotator $duration linear infinite;
 
-  > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-color: $__colorScheme;
-    animation: fill-unfill-rotate 5332ms cubic-bezier(.4, 0, .2, 1) infinite both;
-
-    > div.circle-clipper {
-      position: relative;
-      display: inline-block;
-      width: 50%;
-      height: 100%;
-      overflow: hidden;
-      float: left;
-
-      > div {
-        width: 200%;
-        height: 100%;
-        border: 3px solid $__colorScheme;
-        border-bottom-color: transparent;
-        border-radius: 50%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      &.left > div {
-        left: 0;
-        border-right-color: transparent;
-        transform: rotate(129deg);
-        animation: left-spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
-      }
-
-      &.right > div {
-        left: -100%;
-        border-left-color: transparent;
-        transform: rotate(-129deg);
-        animation: right-spin 1333ms cubic-bezier(.4, 0, .2, 1) infinite both;
-      }
-    }
-
-    > div.gap-patch {
-      position: absolute;
-      top: 0;
-      left: 45%;
-      width: 10%;
-      height: 100%;
-      border-color: inherit;
-      overflow: hidden;
-
-      > div {
-        width: 1000%;
-        left: -450%;
-      }
-    }
+  > circle {
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    stroke: $__colorScheme;
+    animation: dash $duration ease-in-out infinite;
   }
 }

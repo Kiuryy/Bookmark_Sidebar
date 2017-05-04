@@ -116,11 +116,11 @@
     "overlay_hide_from_sidebar": {
         "message": "Hide from sidebar"
     },
-    "overlay_confirm_open_children": {
-        "message": "Do you really want to open all {1} subordinate bookmarks?"
-    },
     "overlay_hide_bookmark_confirm": {
         "message": "Do you really want to hide this bookmark from the sidebar? "
+    },
+    "overlay_confirm_open_children": {
+        "message": "Do you really want to open all {1} subordinate bookmarks?"
     },
     "overlay_hide_dir_confirm": {
         "message": "Do you really want to hide this directory from the sidebar? All subordinate bookmarks will be hidden too."
@@ -275,17 +275,20 @@
     "settings_px_tolerance": {
         "message": "Tolerance in pixels"
     },
+    "settings_px_tolerance_desc": {
+        "message": "Amount of pixels from the left side of every page, in which a mouse click will cause the sidebar to open. You can choose different values for maximized and windowed browser frame."
+    },
     "settings_px_tolerance_maximized": {
         "message": "Maximized"
     },
     "settings_px_tolerance_windowed": {
         "message": "Windowed"
     },
-    "settings_px_tolerance_desc": {
-        "message": "Amount of pixels from the left side of every page, in which a mouse click will cause the sidebar to open. You can choose different values for maximized and windowed browser frame."
-    },
     "settings_open_action": {
         "message": "Open sidebar"
+    },
+    "settings_open_action_desc": {
+        "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
     },
     "settings_open_action_leftclick": {
         "message": "Left click"
@@ -299,9 +302,6 @@
     "settings_open_action_icon": {
         "message": "Click on icon"
     },
-    "settings_open_action_desc": {
-        "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
-    },
     "settings_keyboard_shortcuts": {
         "message": "Keybord shortcut"
     },
@@ -311,14 +311,14 @@
     "settings_link_action": {
         "message": "Open bookmarks"
     },
+    "settings_link_action_desc": {
+        "message": "Left click a bookmark will open them either in the current tab or in a new tab."
+    },
     "settings_link_action_current_tab": {
         "message": "Current tab"
     },
     "settings_link_action_new_tab": {
         "message": "New tab"
-    },
-    "settings_link_action_desc": {
-        "message": "Left click a bookmark will open them either in the current tab or in a new tab."
     },
     "settings_open_delay": {
         "message": "Open delay"
@@ -335,6 +335,9 @@
     "settings_remember_state": {
         "message": "Remember"
     },
+    "settings_remember_state_desc": {
+        "message": "Select what to remember across page changes."
+    },
     "settings_remember_state_all": {
         "message": "Scroll position and opened directories"
     },
@@ -343,9 +346,6 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nothing"
-    },
-    "settings_remember_state_desc": {
-        "message": "Select what to remember across page changes."
     },
     "settings_remember_search": {
         "message": "Remember search result"
@@ -362,14 +362,14 @@
     "settings_new_tab": {
         "message": "New Tab"
     },
+    "settings_new_tab_desc": {
+        "message": "Open bookmarks in new tab in the foreground or the background"
+    },
     "settings_new_tab_foreground": {
         "message": "Open in foreground"
     },
     "settings_new_tab_background": {
         "message": "Open in background"
-    },
-    "settings_new_tab_desc": {
-        "message": "Open bookmarks in new tab in the foreground or the background"
     },
     "settings_close_timeout": {
         "message": "Close timeout"
@@ -380,14 +380,14 @@
     "settings_scroll_sensitivity": {
         "message": "Scroll sensitivity"
     },
+    "settings_scroll_sensitivity_desc": {
+        "message": "Adjust the scroll sensitivity for mouse and trackpad scrolling."
+    },
     "settings_scroll_sensitivity_mouse": {
         "message": "Mouse"
     },
     "settings_scroll_sensitivity_trackpad": {
         "message": "Trackpad"
-    },
-    "settings_scroll_sensitivity_desc": {
-        "message": "Adjust the scroll sensitivity for mouse and trackpad scrolling."
     },
     "settings_appearance_label_general": {
         "message": "General"
@@ -509,9 +509,6 @@
     "settings_help_desc2": {
         "message": "You encountered a problem or the extension does not work? You can send me a message so I can have a look at it."
     },
-    "settings_saved_share_userdata": {
-        "message": "Your preference has been saved successfully"
-    },
     "settings_faq_fixed_sidebar_q": {
         "message": "Can you make the sidebar to be opened all the time?"
     },
@@ -524,16 +521,34 @@
     "settings_faq_new_tab_a": {
         "message": "This is due to security limitations. Chrome extensions may not put content into chrome pages like the new tab or settings pages. The only way to make the sidebar work on the new tab page would be to replace this page with a custom one, which may be an idea for another extension in the future."
     },
+    "settings_saved_share_userdata": {
+        "message": "Your preference has been saved successfully"
+    },
     "settings_contribute_translation_link": {
         "message": "Goto translation overview"
     },
     "settings_contribute_translation_desc": {
-        "message": "You can help translating the extension in your language or improve the existing  one."
+        "message": "You can help translating the extension in your language or improve the existing one."
     },
     "settings_contribute_donation_link": {
         "message": "Donate"
     },
     "settings_contribute_donation_desc": {
         "message": "Donating is completely optional, but if you like the extension and want to donate a small amount, you can so by clicking the following link. I appreciate every help I get, be it donation, helping with translations or giving feedback, to improve the extension."
+    },
+    "translation_title": {
+        "message": "Translate"
+    },
+    "translation_headline_overview": {
+        "message": "Available languages"
+    },
+    "translation_edit": {
+        "message": "Edit translation"
+    },
+    "translation_add": {
+        "message": "Add translation"
+    },
+    "translation_progress": {
+        "message": "Progress"
     }
 }

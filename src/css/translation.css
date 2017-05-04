@@ -8,112 +8,40 @@ body.success::before, body.success::after, body.loading::before {
   pointer-events: auto;
 }
 
-@keyframes container-rotate {
-  to {
-    transform: rotate(360deg);
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
   }
-}
-@keyframes left-spin {
-  from, to {
-    transform: rotate(130deg);
-  }
-  50% {
-    transform: rotate(-5deg);
-  }
-}
-@keyframes right-spin {
-  from, to {
-    transform: rotate(-130deg);
-  }
-  50% {
-    transform: rotate(5deg);
-  }
-}
-@keyframes fill-unfill-rotate {
-  12.5% {
-    transform: rotate(135deg);
-  }
-  25% {
+  100% {
     transform: rotate(270deg);
   }
-  37.5% {
-    transform: rotate(405deg);
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 100.53096;
   }
   50% {
-    transform: rotate(540deg);
+    stroke-dashoffset: 25.13274;
+    transform: rotate(135deg);
   }
-  62.5% {
-    transform: rotate(675deg);
-  }
-  75% {
-    transform: rotate(810deg);
-  }
-  87.5% {
-    transform: rotate(945deg);
-  }
-  to {
-    transform: rotate(1080deg);
+  100% {
+    stroke-dashoffset: 100.53096;
+    transform: rotate(450deg);
   }
 }
-div.loading {
-  display: block;
+svg.loading {
   position: relative;
+  display: block;
   width: 36px;
   height: 36px;
-  animation: container-rotate 1568ms linear infinite;
+  animation: rotator 1.5s linear infinite;
 }
-div.loading > div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-color: #7b5fa4;
-  animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-}
-div.loading > div > div.circle-clipper {
-  position: relative;
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  float: left;
-}
-div.loading > div > div.circle-clipper > div {
-  width: 200%;
-  height: 100%;
-  border: 3px solid #7b5fa4;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-}
-div.loading > div > div.circle-clipper.left > div {
-  left: 0;
-  border-right-color: transparent;
-  transform: rotate(129deg);
-  animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-}
-div.loading > div > div.circle-clipper.right > div {
-  left: -100%;
-  border-left-color: transparent;
-  transform: rotate(-129deg);
-  animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
-}
-div.loading > div > div.gap-patch {
-  position: absolute;
-  top: 0;
-  left: 45%;
-  width: 10%;
-  height: 100%;
-  border-color: inherit;
-  overflow: hidden;
-}
-div.loading > div > div.gap-patch > div {
-  width: 1000%;
-  left: -450%;
+svg.loading > circle {
+  stroke-dasharray: 100.53096;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  stroke: #7b5fa4;
+  animation: dash 1.5s ease-in-out infinite;
 }
 
 div.checkbox {
@@ -469,7 +397,7 @@ body::before {
 body.success::after {
   transform: translate3d(0, 0, 0);
 }
-body.loading > div.loading {
+body.loading > svg.loading {
   position: fixed;
   top: calc(50% - 18px);
   left: calc(50% - 18px);
@@ -484,14 +412,48 @@ body > header > svg {
 section#content > div.hidden {
   display: none;
 }
+section#content > div[data-name='overview'] > div > span.progressLabel {
+  display: block;
+  text-align: right;
+  font-size: 120%;
+  font-weight: 300;
+  color: #aaa;
+}
 section#content > div[data-name='overview'] > div > ul > li {
   position: relative;
   padding: 15px 0;
   border-bottom: 1px solid #f2f2f2;
 }
 section#content > div[data-name='overview'] > div > ul > li > strong {
+  display: inline-block;
+  vertical-align: top;
+  margin: 3px 0 0 0;
   font-size: 120%;
   font-weight: 300;
+}
+section#content > div[data-name='overview'] > div > ul > li > a.edit {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 32px;
+  height: 32px;
+  margin: -3px 0 0 7px;
+  border-radius: 50%;
+  transition: background 0.5s;
+}
+section#content > div[data-name='overview'] > div > ul > li > a.edit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/20px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg);
+  background-color: #7b5fa4;
+}
+section#content > div[data-name='overview'] > div > ul > li > a.edit:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 section#content > div[data-name='overview'] > div > ul > li > svg.progress {
   position: absolute;
@@ -518,6 +480,24 @@ section#content > div[data-name='overview'] > div > ul > li > span.progress {
   font-size: 80%;
   color: #aaa;
   text-align: right;
+}
+section#content > div[data-name='overview'] > div > select.languages {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: 0;
+  height: 28px;
+  padding: 0 5px;
+  margin: 30px 0 0 0;
+  background: rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+}
+section#content > div[data-name='overview'].loading > div {
+  display: none;
+}
+section#content > div[data-name='overview'].loading > svg.loading {
+  position: absolute;
+  top: calc(50% - 18px);
+  left: calc(50% - 18px);
 }
 
 /*# sourceMappingURL=translation.css.map */

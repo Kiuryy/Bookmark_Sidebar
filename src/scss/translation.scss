@@ -19,6 +19,14 @@ section#content > div {
 
     > div {
 
+      > span.progressLabel {
+        display: block;
+        text-align: right;
+        font-size: 120%;
+        font-weight: 300;
+        color: $textColorLight;
+      }
+
       > ul {
 
         > li {
@@ -27,8 +35,27 @@ section#content > div {
           border-bottom: 1px solid $bodyBackground;
 
           > strong {
+            display: inline-block;
+            vertical-align: top;
+            margin: 3px 0 0 0;
             font-size: 120%;
             font-weight: 300;
+          }
+
+          > a.edit {
+            @include mask('icon-edit', $mainColor, 20px);
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: 32px;
+            height: 32px;
+            margin: -3px 0 0 7px;
+            border-radius: 50%;
+            transition: background 0.5s;
+
+            &:hover {
+              background: rgba(0, 0, 0, 0.1);
+            }
           }
 
           > svg.progress {
@@ -61,6 +88,30 @@ section#content > div {
             text-align: right;
           }
         }
+      }
+
+      > select.languages {
+        display: block;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        outline: 0;
+        height: 28px;
+        padding: 0 5px;
+        margin: 30px 0 0 0;
+        background: rgba(0, 0, 0, 0.02);
+        cursor: pointer;
+      }
+    }
+
+    &.loading {
+
+      > div {
+        display: none;
+      }
+
+      > svg.loading {
+        position: absolute;
+        top: calc(50% - 18px);
+        left: calc(50% - 18px);
       }
     }
   }

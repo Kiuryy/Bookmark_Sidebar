@@ -739,7 +739,7 @@ body {
       @extend %visible;
     }
 
-    > div.loading {
+    > svg.loading {
       position: fixed;
       top: calc(50% - 18px);
       left: calc(50% - 18px);

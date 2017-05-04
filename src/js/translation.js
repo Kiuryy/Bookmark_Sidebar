@@ -3,6 +3,8 @@
 
     window.translation = function () {
 
+        let loader = null;
+
         /*
          * ################################
          * PUBLIC
@@ -70,7 +72,10 @@
             },
             classes: {
                 hidden: "hidden",
-                progress: "progress"
+                progress: "progress",
+                loading: "loading",
+                languagesSelect: "languages",
+                edit: "edit"
             },
             ajax: {
                 info: "https://moonware.de/ajax/extensions/bs/i18n/info",
@@ -86,6 +91,9 @@
             this.opts.elm.wrapper.langvars.addClass(this.opts.classes.hidden);
             initHelpers();
             initHeader();
+
+            this.opts.elm.wrapper.overview.addClass(this.opts.classes.loading);
+            loader = this.helper.template.loading().appendTo(this.opts.elm.wrapper.overview);
 
             this.helper.i18n.init(() => {
                 this.helper.template.footer().insertAfter(this.opts.elm.content);
@@ -150,22 +158,47 @@
 
                             // @toDo Info whether draft or released
                             $("<li />")
+                                .data("lang", lang.name)
                                 .append("<strong>" + this.languages[lang.name] + "</strong>")
+                                .append("<a href='#' class='" + this.opts.classes.edit + "' title='" + this.helper.i18n.get("translation_edit") + "'></a>")
                                 .append("<svg class=" + this.opts.classes.progress + " width='32' height='32' viewPort='0 0 16 16'><circle r='12' cx='16' cy='16'></circle><circle r='12' cx='16' cy='16' stroke-dashoffset='" + ((100 - percentage) / 100 * c) + "' stroke-dasharray='" + c + "'></circle></svg>")
                                 .append("<span class='" + this.opts.classes.progress + "'>" + Math.round(lang.varsAmount / infos.varsAmount * 100) + "%</span>")
                                 .appendTo(list);
                         }
                     });
 
-                    let select = $("<select name='language' />").appendTo(this.opts.elm.wrapper.overview.children("div"));
+                    let select = $("<select class='" + this.opts.classes.languagesSelect + "' />").appendTo(this.opts.elm.wrapper.overview.children("div"));
                     $("<option value='' />").text("Add language").appendTo(select);
 
                     Object.keys(missingLanguages).forEach((lang) => {
                         $("<option value='" + lang + "' />").text(this.languages[lang]).appendTo(select);
                     });
                 }
+
+                initOverviewEvents();
+                setTimeout(() => {
+                    loader && loader.remove();
+                    this.opts.elm.wrapper.overview.removeClass(this.opts.classes.loading);
+                }, 300);
             };
             xhr.send();
+        };
+
+        /**
+         * Initialises the events for the language overview
+         */
+        let initOverviewEvents = () => {
+
+            this.opts.elm.wrapper.overview.find("select." + this.opts.classes.languagesSelect).on("change", (e) => {
+                let val = e.currentTarget.value;
+                console.log(val);
+            });
+
+            this.opts.elm.wrapper.overview.find("a." + this.opts.classes.edit).on("click", (e) => {
+                e.preventDefault();
+                let val = $(e.currentTarget).parent("li").data("lang");
+                console.log(val);
+            });
         };
 
     };

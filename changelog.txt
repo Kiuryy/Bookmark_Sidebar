@@ -1,10 +1,8 @@
 [tdb]
  - Configurable icon for chrome menu
  - Separators
- - translation contribution
  - changelog
  - update screenshots (add screenshot for sorting)
- - i18n helper
  - test upgrade
 
 [1.7]

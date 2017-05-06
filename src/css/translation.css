@@ -508,6 +508,36 @@ section#content > div[data-name='overview'] > div > ul > li > span.progress {
   color: #aaa;
   text-align: right;
 }
+section#content > div[data-name='overview'] > div > ul > li > span[data-status] {
+  display: block;
+  position: absolute;
+  top: calc(50% - 13px);
+  right: 85px;
+  width: 26px;
+  height: 26px;
+}
+section#content > div[data-name='overview'] > div > ul > li > span[data-status='released']::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/26px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.svg);
+  background-color: #5eba7d;
+}
+section#content > div[data-name='overview'] > div > ul > li > span[data-status='draft']::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/26px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
+  background-color: #f99;
+}
 section#content > div[data-name='overview'] > div > select.languages {
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.2);

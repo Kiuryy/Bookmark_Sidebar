@@ -4,61 +4,13 @@
     window.translation = function () {
 
         let loader = null;
+        let languages = {};
 
         /*
          * ################################
          * PUBLIC
          * ################################
          */
-
-        this.languages = {
-            af: "Afrikaans",
-            ar: "Arabic",
-            hy: "Armenian",
-            be: "Belarusian",
-            bg: "Bulgarian",
-            ca: "Catalan",
-            "zh-CN": "Chinese (Simplified)",
-            "zh-TW": "Chinese (Traditional)",
-            hr: "Croatian",
-            cs: "Czech",
-            da: "Danish",
-            nl: "Dutch",
-            en: "English",
-            eo: "Esperanto",
-            et: "Estonian",
-            tl: "Filipino",
-            fi: "Finnish",
-            fr: "French",
-            de: "German",
-            el: "Greek",
-            iw: "Hebrew",
-            hi: "Hindi",
-            hu: "Hungarian",
-            is: "Icelandic",
-            id: "Indonesian",
-            it: "Italian",
-            ja: "Japanese",
-            ko: "Korean",
-            lv: "Latvian",
-            lt: "Lithuanian",
-            no: "Norwegian",
-            fa: "Persian",
-            pl: "Polish",
-            pt: "Portuguese",
-            ro: "Romanian",
-            ru: "Russian",
-            sr: "Serbian",
-            sk: "Slovak",
-            sl: "Slovenian",
-            es: "Spanish",
-            sw: "Swahili",
-            sv: "Swedish",
-            th: "Thai",
-            tr: "Turkish",
-            uk: "Ukrainian",
-            vi: "Vietnamese"
-        };
 
         this.opts = {
             elm: {
@@ -84,7 +36,8 @@
                 success: "success"
             },
             attr: {
-                success: "data-successtext"
+                success: "data-successtext",
+                releaseStatus: "data-status"
             },
             ajax: {
                 info: "https://blockbyte.de/ajax/extensions/bs/i18n/info",
@@ -107,8 +60,13 @@
                 this.helper.template.footer().insertAfter(this.opts.elm.content);
                 this.helper.i18n.parseHtml(document);
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
-                initOverview();
-                initEvents();
+
+                this.helper.model.init(() => {
+                    initLanguages(() => {
+                        initOverview();
+                        initEvents();
+                    });
+                });
             });
         };
 
@@ -133,7 +91,22 @@
             this.helper = {
                 template: new window.TemplateHelper(this),
                 i18n: new window.I18nHelper(this),
+                model: new window.ModelHelper(this)
             };
+        };
+
+        /**
+         * Initialises the language information
+         *
+         * @param {function} callback
+         */
+        let initLanguages = (callback) => {
+            this.helper.model.call("languageInfos", (opts) => {
+                languages = opts.infos;
+                if (typeof callback === "function") {
+                    callback();
+                }
+            });
         };
 
         /**
@@ -195,22 +168,23 @@
                         return b.varsAmount - a.varsAmount;
                     });
 
-                    let missingLanguages = Object.assign({}, this.languages);
+                    let missingLanguages = Object.assign({}, languages);
 
                     infos.languages.forEach((lang) => {
                         delete missingLanguages[lang.name];
 
-                        if (this.languages[lang.name]) {
+                        if (languages[lang.name]) {
                             let c = Math.PI * 12 * 2;
                             let percentage = lang.varsAmount / infos.varsAmount * 100;
+                            let status = languages[lang.name].available ? "released" : "draft";
 
-                            // @toDo Info whether draft or released
                             $("<li />")
                                 .data("lang", lang.name)
-                                .append("<strong>" + this.languages[lang.name] + "</strong>")
+                                .append("<strong>" + languages[lang.name].label + "</strong>")
                                 .append("<a href='#' class='" + this.opts.classes.edit + "' title='" + this.helper.i18n.get("translation_edit") + "'></a>")
                                 .append("<svg class=" + this.opts.classes.progress + " width='32' height='32' viewPort='0 0 16 16'><circle r='12' cx='16' cy='16'></circle><circle r='12' cx='16' cy='16' stroke-dashoffset='" + ((100 - percentage) / 100 * c) + "' stroke-dasharray='" + c + "'></circle></svg>")
                                 .append("<span class='" + this.opts.classes.progress + "'>" + Math.round(lang.varsAmount / infos.varsAmount * 100) + "%</span>")
+                                .append("<span " + this.opts.attr.releaseStatus + "='" + status + "' title='" + this.helper.i18n.get("translation_status_" + status) + "'></span>")
                                 .appendTo(list);
                         }
                     });
@@ -219,7 +193,7 @@
                     $("<option value='' />").text("Add language").appendTo(select);
 
                     Object.keys(missingLanguages).forEach((lang) => {
-                        $("<option value='" + lang + "' />").text(this.languages[lang]).appendTo(select);
+                        $("<option value='" + lang + "' />").text(languages[lang].label).appendTo(select);
                     });
                 }
 
@@ -272,7 +246,7 @@
          * @param {string} lang
          */
         let initEditForm = (lang) => {
-            this.opts.elm.wrapper.langvars.data("lang",lang);
+            this.opts.elm.wrapper.langvars.data("lang", lang);
             this.opts.elm.wrapper.langvars.find("div." + this.opts.classes.langVarCategory).remove();
             this.opts.elm.wrapper.langvars.find("> header > h2").text("");
 
@@ -309,7 +283,7 @@
 
 
                             if (obj.default && obj.default[category] && obj.default[category][i]) {
-                                $("<span />").html("<span>" + this.languages[this.opts.manifest.default_locale] + ":</span>" + obj.default[category][i].value || "").appendTo(entry);
+                                $("<span />").html("<span>" + languages[this.opts.manifest.default_locale].label + ":</span>" + obj.default[category][i].value || "").appendTo(entry);
                             }
 
                             let val = field.value || "";
@@ -322,7 +296,7 @@
                         $("<span />").html("<span>" + varsAmount.filled + "</span>/" + varsAmount.total).insertBefore(list);
                     });
 
-                    this.opts.elm.wrapper.langvars.find("> header > h2").text(this.helper.i18n.get("translation_" + (totalFilled === 0 ? "add" : "edit")) + " (" + this.languages[lang] + ")");
+                    this.opts.elm.wrapper.langvars.find("> header > h2").text(this.helper.i18n.get("translation_" + (totalFilled === 0 ? "add" : "edit")) + " (" + languages[lang].label + ")");
                     initFormEvents();
                 } else {
                     changeView("overview");
@@ -365,7 +339,7 @@
                 xhr.onload = () => {
                     let infos = JSON.parse(xhr.responseText);
 
-                   console.log(infos);
+                    console.log(infos);
 
                     loader.remove();
                     this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));

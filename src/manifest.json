@@ -7,6 +7,7 @@
   "version": "0.0.1",
   "version_name": "Dev",
   "minimum_chrome_version": "55",
+  "homepage_url": "https://blockbyte.de/extensions",
   "background": {
     "scripts": [
       "js/model.js"

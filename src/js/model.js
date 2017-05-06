@@ -9,6 +9,57 @@
         userdata: "https://blockbyte.de/ajax/extensions/userdata"
     };
 
+    let allLanguages = {
+        af: "Afrikaans",
+        ar: "Arabic",
+        hy: "Armenian",
+        be: "Belarusian",
+        bg: "Bulgarian",
+        ca: "Catalan",
+        "zh-CN": "Chinese (Simplified)",
+        "zh-TW": "Chinese (Traditional)",
+        hr: "Croatian",
+        cs: "Czech",
+        da: "Danish",
+        nl: "Dutch",
+        en: "English",
+        eo: "Esperanto",
+        et: "Estonian",
+        tl: "Filipino",
+        fi: "Finnish",
+        fr: "French",
+        de: "German",
+        el: "Greek",
+        iw: "Hebrew",
+        hi: "Hindi",
+        hu: "Hungarian",
+        is: "Icelandic",
+        id: "Indonesian",
+        it: "Italian",
+        ja: "Japanese",
+        ko: "Korean",
+        lv: "Latvian",
+        lt: "Lithuanian",
+        no: "Norwegian",
+        fa: "Persian",
+        pl: "Polish",
+        pt: "Portuguese",
+        ro: "Romanian",
+        ru: "Russian",
+        sr: "Serbian",
+        sk: "Slovak",
+        sl: "Slovenian",
+        es: "Spanish",
+        sw: "Swahili",
+        sv: "Swedish",
+        th: "Thai",
+        tr: "Turkish",
+        uk: "Ukrainian",
+        vi: "Vietnamese"
+    };
+
+    let languageInfos = {};
+
     let bookmarkObj = {
         get: (id, callback) => {
             chrome.bookmarks.get("" + id, callback);
@@ -278,6 +329,16 @@
     };
 
     /**
+     * Returns the information about the languages
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let getLanguageInfos = (opts, sendResponse) => {
+        sendResponse({infos: languageInfos});
+    };
+
+    /**
      * Returns whether the ShareUserdata-Mask should be shown or not
      *
      * @param {object} opts
@@ -320,6 +381,7 @@
         deleteBookmark: deleteBookmark,
         shareUserdata: updateShareUserdataFlag,
         shareUserdataMask: shareUserdataMask,
+        languageInfos: getLanguageInfos,
         favicon: getFavicon,
         openLink: openLink,
         viewAmounts: getViewAmounts
@@ -465,6 +527,27 @@
         });
     };
 
+    /**
+     * Initialises the language infos
+     */
+    let initLanguages = () => {
+        Object.keys(allLanguages).forEach((lang) => {
+            languageInfos[lang] = {
+                name: lang,
+                label: allLanguages[lang],
+                available: false
+            };
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
+            xhr.onload = () => {
+                languageInfos[lang].available = true;
+            };
+            xhr.send();
+        });
+
+    };
+
 
     /**
      * Shares the userdata if the user allowed to
@@ -539,6 +622,7 @@
      */
     (() => {
         initModel();
+        initLanguages();
         handleShareUserdata();
     })();
 

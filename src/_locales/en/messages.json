@@ -117,7 +117,7 @@
         "message": "Hide from sidebar"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Do you really want to hide this bookmark from the sidebar? "
+        "message": "Do you really want to hide this bookmark from the sidebar?"
     },
     "overlay_confirm_open_children": {
         "message": "Do you really want to open all {1} subordinate bookmarks?"
@@ -558,15 +558,21 @@
         "message": "You can edit existing translations or add missing ones. If you submit your changes, I will review your input and approve it."
     },
     "translation_contribution_notice1": {
-        "message": "You do not have to translate every category, the translation will be released if all frontend related texts are translated."
+        "message": "You do not have to translate every category, the translation will be released if at least all frontend related texts are translated."
     },
     "translation_contribution_notice2": {
-        "message": "Translations with incomplete categories will not be released, to prevent half translated texts (e.g. some contextmenu entries are translated, some not)."
+        "message": "Incomplete categories will not be released, to prevent half translated texts (e.g. some contextmenu entries are translated, some not)."
     },
     "translation_submit": {
         "message": "Submit"
     },
     "translation_submit_message": {
         "message": "Your translation has been submitted successfully"
+    },
+    "translation_status_released": {
+        "message": "Translation is available"
+    },
+    "translation_status_draft": {
+        "message": "Translation is incomplete or needs a review and is not available for users"
     }
 }

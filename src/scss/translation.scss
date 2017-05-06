@@ -120,6 +120,23 @@ section#content {
               color: $textColorLight;
               text-align: right;
             }
+
+            > span[data-status] {
+              display: block;
+              position: absolute;
+              top: calc(50% - 13px);
+              right: 85px;
+              width: 26px;
+              height: 26px;
+            }
+
+            > span[data-status='released'] {
+              @include mask('icon-check', $colorSuccess, 26px);
+            }
+
+            > span[data-status='draft'] {
+              @include mask('icon-close', $colorError, 26px);
+            }
           }
         }
 

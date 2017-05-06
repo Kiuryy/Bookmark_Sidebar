@@ -2,17 +2,19 @@
  - Configurable icon for chrome menu
  - Separators
  - changelog
- - update screenshots (add screenshot for sorting)
  - dark theme
  - copy bookmark url
+
  - test upgrade
+ - update screenshots (add screenshot for sorting)
+ - changelog
 
 [1.7]
  - Added sort functionality
+ - Added translation contribution
  - Possibility to add bookmarks/directories
  - Added keyboard shortcuts (esc to close, pos1 to scroll to top)
  - Configurable typeface
- - New behaviour configuration (directory open speed, remember states, ...)
 
 [1.6]
  - Made entries hidable from sidebar

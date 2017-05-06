@@ -97,11 +97,11 @@
                 field: {}
             },
             events: {
-                checkboxChanged: "moonware-bs-checkboxChanged",
-                contentTabChanged: "moonware-bs-contentTabChanged"
+                checkboxChanged: "blockbyte-bs-checkboxChanged",
+                contentTabChanged: "blockbyte-bs-contentTabChanged"
             },
             ajax: {
-                feedback: "https://moonware.de/ajax/extensions/feedback"
+                feedback: "https://blockbyte.de/ajax/extensions/feedback"
             },
             fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
@@ -142,7 +142,7 @@
          * @param {string} i18nStr
          */
         this.showSuccessMessage = (i18nStr) => {
-            this.opts.elm.body.attr(this.opts.attr.success, chrome.i18n.getMessage("settings_" + i18nStr));
+            this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("settings_" + i18nStr));
             this.opts.elm.body.addClass(this.opts.classes.success);
             setTimeout(() => {
                 this.opts.elm.body.removeClass(this.opts.classes.success);
@@ -232,7 +232,7 @@
 
             this.opts.elm.tab.forEach((elm) => {
                 let name = $(elm).attr(this.opts.attr.name);
-                $("<li />").attr(this.opts.attr.name, name).html("<a href='#'>" + chrome.i18n.getMessage("settings_tab_" + name) + "</a>").appendTo(tabBar);
+                $("<li />").attr(this.opts.attr.name, name).html("<a href='#'>" + this.helper.i18n.get("settings_tab_" + name) + "</a>").appendTo(tabBar);
             });
 
             tabBar.find("> li > a").on("click", (e) => {

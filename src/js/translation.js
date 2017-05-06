@@ -62,9 +62,12 @@
 
         this.opts = {
             elm: {
+                body: $("body"),
                 title: $("head > title"),
                 header: $("body > header"),
                 content: $("section#content"),
+                backToOverview: $("section#content > a.back"),
+                save: $("section#content > div[data-name='langvars'] > header > button.save"),
                 wrapper: {
                     overview: $("section#content > div[data-name='overview']"),
                     langvars: $("section#content > div[data-name='langvars']")
@@ -74,12 +77,19 @@
                 hidden: "hidden",
                 progress: "progress",
                 loading: "loading",
+                active: "active",
+                langVarCategory: "category",
                 languagesSelect: "languages",
-                edit: "edit"
+                edit: "edit",
+                success: "success"
+            },
+            attr: {
+                success: "data-successtext"
             },
             ajax: {
-                info: "https://moonware.de/ajax/extensions/bs/i18n/info",
-                langvars: "https://moonware.de/ajax/extensions/bs/i18n/langvars"
+                info: "https://blockbyte.de/ajax/extensions/bs/i18n/info",
+                langvars: "https://blockbyte.de/ajax/extensions/bs/i18n/langvars",
+                submit: "https://blockbyte.de/ajax/extensions/bs/i18n/submit"
             },
             manifest: chrome.runtime.getManifest()
         };
@@ -88,18 +98,17 @@
          * Constructor
          */
         this.run = () => {
-            this.opts.elm.wrapper.langvars.addClass(this.opts.classes.hidden);
+            changeView("overview");
             initHelpers();
             initHeader();
-
-            this.opts.elm.wrapper.overview.addClass(this.opts.classes.loading);
-            loader = this.helper.template.loading().appendTo(this.opts.elm.wrapper.overview);
+            startLoading();
 
             this.helper.i18n.init(() => {
                 this.helper.template.footer().insertAfter(this.opts.elm.content);
                 this.helper.i18n.parseHtml(document);
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
                 initOverview();
+                initEvents();
             });
         };
 
@@ -128,9 +137,52 @@
         };
 
         /**
+         * Changes the view from the overview to edit form or back to overview
+         */
+        let changeView = (name) => {
+            if (name === "overview") {
+                this.opts.elm.backToOverview.addClass(this.opts.classes.hidden);
+            } else {
+                this.opts.elm.backToOverview.removeClass(this.opts.classes.hidden);
+            }
+
+            Object.keys(this.opts.elm.wrapper).forEach((key) => {
+
+                if (key === name) {
+                    this.opts.elm.wrapper[key].removeClass(this.opts.classes.hidden);
+                } else {
+                    this.opts.elm.wrapper[key].addClass(this.opts.classes.hidden);
+                }
+            });
+        };
+
+        let startLoading = () => {
+            Object.keys(this.opts.elm.wrapper).forEach((key) => {
+                if (this.opts.elm.wrapper[key].hasClass(this.opts.classes.hidden) === false) {
+                    this.opts.elm.wrapper[key].addClass(this.opts.classes.loading);
+                    loader = this.helper.template.loading().appendTo(this.opts.elm.wrapper[key]);
+                }
+            });
+        };
+
+        let endLoading = (timeout = 300) => {
+            setTimeout(() => {
+                loader && loader.remove();
+                Object.keys(this.opts.elm.wrapper).forEach((key) => {
+                    if (this.opts.elm.wrapper[key].hasClass(this.opts.classes.hidden) === false) {
+                        this.opts.elm.wrapper[key].removeClass(this.opts.classes.loading);
+                    }
+                });
+            }, timeout);
+        };
+
+        /**
          * Initialises the language overview
          */
         let initOverview = () => {
+            this.opts.elm.wrapper.overview.find("> div > ul").remove();
+            this.opts.elm.wrapper.overview.find("> div > select." + this.opts.classes.languagesSelect).remove();
+
             let xhr = new XMLHttpRequest();
             xhr.open("POST", this.opts.ajax.info, true);
             xhr.onload = () => {
@@ -138,10 +190,6 @@
 
                 if (infos && infos.languages) {
                     let list = $("<ul />").appendTo(this.opts.elm.wrapper.overview.children("div"));
-                    infos.languages.unshift({name: "sw", varsAmount: 111});
-                    infos.languages.unshift({name: "pl", varsAmount: 31});
-                    infos.languages.unshift({name: "fr", varsAmount: 156});
-                    infos.languages.unshift({name: "cs", varsAmount: 179});
 
                     infos.languages.sort((a, b) => {
                         return b.varsAmount - a.varsAmount;
@@ -176,28 +224,200 @@
                 }
 
                 initOverviewEvents();
-                setTimeout(() => {
-                    loader && loader.remove();
-                    this.opts.elm.wrapper.overview.removeClass(this.opts.classes.loading);
-                }, 300);
+                endLoading();
             };
             xhr.send();
         };
 
         /**
-         * Initialises the events for the language overview
+         * Returns all language variables of the given language,
+         * also return the variables of the default language if the given language is not the default one
+         *
+         * @param {string} lang
+         * @param {function} callback
+         */
+        let getLanguageInfos = (lang, callback) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", this.opts.ajax.langvars, true);
+            xhr.onload = () => {
+                let infos = JSON.parse(xhr.responseText);
+
+                if (infos && Object.getOwnPropertyNames(infos).length > 0) {
+                    let ret = {[lang]: infos};
+                    let defaultLang = this.opts.manifest.default_locale;
+
+                    if (lang !== defaultLang) {
+                        getLanguageInfos(defaultLang, (infos) => {
+                            ret.default = infos[defaultLang];
+                            if (typeof callback === "function") {
+                                callback(ret);
+                            }
+                        });
+                    } else if (typeof callback === "function") {
+                        callback(ret);
+                    }
+                } else {
+                    callback(null);
+                }
+            };
+
+            let formData = new FormData();
+            formData.append('lang', lang);
+            xhr.send(formData);
+        };
+
+        /**
+         * Initialises the form with all language variables
+         *
+         * @param {string} lang
+         */
+        let initEditForm = (lang) => {
+            this.opts.elm.wrapper.langvars.data("lang",lang);
+            this.opts.elm.wrapper.langvars.find("div." + this.opts.classes.langVarCategory).remove();
+            this.opts.elm.wrapper.langvars.find("> header > h2").text("");
+
+            changeView("langvars");
+            startLoading();
+
+            getLanguageInfos(lang, (obj) => {
+                if (obj) {
+                    let infos = obj[lang];
+                    let totalFilled = 0;
+
+                    Object.keys(infos).forEach((category) => {
+                        let wrapper = $("<div />")
+                            .addClass(this.opts.classes.langVarCategory)
+                            .append("<a href='#' />")
+                            .append("<strong>" + category + "</strong>")
+                            .appendTo(this.opts.elm.wrapper.langvars.children("div"));
+
+                        let list = $("<ul />").appendTo(wrapper);
+                        let varsAmount = {
+                            total: infos[category].length,
+                            filled: 0
+                        };
+
+                        infos[category].forEach((field, i) => {
+                            if (field.value) {
+                                varsAmount.filled++;
+                                totalFilled++;
+                            }
+
+                            let entry = $("<li />")
+                                .append("<label>" + field.label + "</label>")
+                                .appendTo(list);
+
+
+                            if (obj.default && obj.default[category] && obj.default[category][i]) {
+                                $("<span />").html("<span>" + this.languages[this.opts.manifest.default_locale] + ":</span>" + obj.default[category][i].value || "").appendTo(entry);
+                            }
+
+                            let val = field.value || "";
+                            $("<textarea />").data({
+                                initial: val,
+                                name: field.name
+                            }).text(val).appendTo(entry);
+                        });
+
+                        $("<span />").html("<span>" + varsAmount.filled + "</span>/" + varsAmount.total).insertBefore(list);
+                    });
+
+                    this.opts.elm.wrapper.langvars.find("> header > h2").text(this.helper.i18n.get("translation_" + (totalFilled === 0 ? "add" : "edit")) + " (" + this.languages[lang] + ")");
+                    initFormEvents();
+                } else {
+                    changeView("overview");
+                }
+                endLoading();
+            });
+        };
+
+        /**
+         * Initialises general eventhandlers
+         */
+        let initEvents = () => {
+            this.opts.elm.backToOverview.on("click", (e) => {
+                e.preventDefault();
+                changeView("overview");
+            });
+
+            this.opts.elm.save.on("click", (e) => {
+                e.preventDefault();
+
+                let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
+                this.opts.elm.body.addClass(this.opts.classes.loading);
+
+                let vars = {};
+                this.opts.elm.wrapper.langvars.find("textarea").forEach((textarea) => {
+                    let value = textarea.value;
+                    if (value && value.trim().length > 0) {
+                        let initial = $(textarea).data("initial");
+                        value = value.trim();
+
+                        if (value !== initial) {
+                            let name = $(textarea).data("name");
+                            vars[name] = value;
+                        }
+                    }
+                });
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", this.opts.ajax.submit, true);
+                xhr.onload = () => {
+                    let infos = JSON.parse(xhr.responseText);
+
+                   console.log(infos);
+
+                    loader.remove();
+                    this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
+                    this.opts.elm.body.addClass(this.opts.classes.success);
+                    setTimeout(() => {
+                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                        this.opts.elm.body.removeClass(this.opts.classes.success);
+                        location.reload(true);
+                    }, 1500);
+                };
+
+                let formData = new FormData();
+                formData.append('lang', this.opts.elm.wrapper.langvars.data("lang"));
+                formData.append('vars', JSON.stringify(vars));
+                xhr.send(formData);
+            });
+        };
+
+        /**
+         * Initialises the events for the translation overview
          */
         let initOverviewEvents = () => {
 
             this.opts.elm.wrapper.overview.find("select." + this.opts.classes.languagesSelect).on("change", (e) => {
-                let val = e.currentTarget.value;
-                console.log(val);
+                initEditForm(e.currentTarget.value);
             });
 
             this.opts.elm.wrapper.overview.find("a." + this.opts.classes.edit).on("click", (e) => {
                 e.preventDefault();
-                let val = $(e.currentTarget).parent("li").data("lang");
-                console.log(val);
+                initEditForm($(e.currentTarget).parent("li").data("lang"));
+            });
+        };
+
+        /**
+         * Initialises the events for the translation form
+         */
+        let initFormEvents = () => {
+            this.opts.elm.wrapper.langvars.find("div." + this.opts.classes.langVarCategory + " > a").on("click", (e) => {
+                e.preventDefault();
+                $(e.currentTarget).parent().toggleClass(this.opts.classes.active);
+            });
+
+            this.opts.elm.wrapper.langvars.find("textarea").on("change input", (e) => {
+                e.preventDefault();
+                let category = $(e.currentTarget).parents("div." + this.opts.classes.langVarCategory).eq(0);
+                let filled = 0;
+                category.find("textarea").forEach((textarea) => {
+                    if (textarea.value && textarea.value.trim().length > 0) {
+                        filled++;
+                    }
+                });
+                category.find("> span > span").text(filled);
             });
         };
 

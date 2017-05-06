@@ -3,6 +3,8 @@
  - Separators
  - changelog
  - update screenshots (add screenshot for sorting)
+ - dark theme
+ - copy bookmark url
  - test upgrade
 
 [1.7]

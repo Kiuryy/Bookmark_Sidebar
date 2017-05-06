@@ -409,8 +409,35 @@ body > header > svg {
   fill: rgba(255, 255, 255, 0.4);
 }
 
+section#content > a.back {
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  font-size: 120%;
+  color: #aaa;
+  padding: 10px 12px 10px 20px;
+}
+section#content > a.back::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #aaa;
+  border-left: 2px solid #aaa;
+  transform: rotateZ(-45deg);
+}
+section#content > a.back.hidden {
+  display: none;
+}
 section#content > div.hidden {
   display: none;
+}
+section#content > div[data-name='overview'] > div > p {
+  font-size: 120%;
+  line-height: 170%;
+  margin: 10px 0 20px 0;
 }
 section#content > div[data-name='overview'] > div > span.progressLabel {
   display: block;
@@ -491,10 +518,114 @@ section#content > div[data-name='overview'] > div > select.languages {
   background: rgba(0, 0, 0, 0.02);
   cursor: pointer;
 }
-section#content > div[data-name='overview'].loading > div {
+section#content > div[data-name='langvars'] > div > div.notice {
+  position: relative;
+  font-size: 120%;
+  line-height: 170%;
+  background: rgba(123, 95, 164, 0.2);
+  padding: 7px 10px 7px 50px;
+  margin: 0 0 10px 0;
+}
+section#content > div[data-name='langvars'] > div > div.notice::before {
+  content: "!";
+  position: absolute;
+  top: 22px;
+  left: 17px;
+  color: #7b5fa4;
+  font-weight: 500;
+  font-size: 300%;
+}
+section#content > div[data-name='langvars'] > div > div.notice > p {
+  margin: 0 0 10px 0;
+}
+section#content > div[data-name='langvars'] > div > div.category {
+  position: relative;
+  padding: 15px 0 15px 20px;
+  border-bottom: 1px solid #f2f2f2;
+}
+section#content > div[data-name='langvars'] > div > div.category::before {
+  content: "+";
+  position: absolute;
+  top: 15px;
+  left: 0;
+  font-size: 120%;
+  color: #2b35c8;
+  font-weight: 500;
+}
+section#content > div[data-name='langvars'] > div > div.category > a {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+}
+section#content > div[data-name='langvars'] > div > div.category > strong {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 120%;
+}
+section#content > div[data-name='langvars'] > div > div.category > span {
+  display: inline-block;
+  margin: 0 0 0 10px;
+  color: #aaa;
+}
+section#content > div[data-name='langvars'] > div > div.category > ul {
   display: none;
 }
-section#content > div[data-name='overview'].loading > svg.loading {
+section#content > div[data-name='langvars'] > div > div.category.active::before {
+  content: "-";
+}
+section#content > div[data-name='langvars'] > div > div.category.active > strong {
+  color: #7b5fa4;
+  font-weight: 400;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul {
+  position: relative;
+  display: block;
+  margin: 15px 0 0 0;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -12px;
+  width: 1px;
+  height: calc(100% + 10px);
+  background: #7b5fa4;
+  opacity: 0.5;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li > label {
+  display: inline-block;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li > span {
+  display: block;
+  width: 100%;
+  background: #f2f2f2;
+  padding: 4px 5px;
+  margin: 2px 0 4px;
+  font-style: italic;
+  font-size: 80%;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li > span > span {
+  font-weight: 400;
+  color: #2b35c8;
+  margin: 0 3px 0 0;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li > textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 50px;
+  padding: 4px 5px;
+  margin: 2px 0 12px 0;
+  border: none;
+  outline: none;
+  background: #f2f2f2;
+}
+section#content > div.loading > div, section#content > div.loading > header > * {
+  display: none;
+}
+section#content > div.loading > svg.loading {
   position: absolute;
   top: calc(50% - 18px);
   left: calc(50% - 18px);

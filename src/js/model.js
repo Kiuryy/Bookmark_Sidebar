@@ -5,8 +5,8 @@
     let data = {};
     let xhrList = [];
     let xhrUrls = {
-        updateUrls: "https://moonware.de/ajax/extensions/updateUrls",
-        userdata: "https://moonware.de/ajax/extensions/userdata"
+        updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
+        userdata: "https://blockbyte.de/ajax/extensions/userdata"
     };
 
     let bookmarkObj = {

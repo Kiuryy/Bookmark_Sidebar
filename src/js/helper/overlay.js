@@ -142,27 +142,13 @@
         };
 
         /**
-         * Returns the date string of the given date object
-         *
-         * @param {Date} dateObj
-         * @returns {string}
-         */
-        let getLocaleDate = (dateObj) => {
-            return dateObj.toLocaleDateString([chrome.i18n.getUILanguage(), ext.opts.manifest.default_locale], {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit"
-            });
-        };
-
-        /**
          * Extends the overlay html for showing the confirm dialog for opening all the bookmarks below the clicked directory
          *
          * @param {object} data
          */
         let handleOpenChildrenHtml = (data) => {
             let bookmarks = data.children.filter(val => !!(val.url));
-            let text = ext.helper.i18n.get("overlay_confirm_open_children",[bookmarks.length]);
+            let text = ext.helper.i18n.get("overlay_confirm_open_children", [bookmarks.length]);
 
             $("<p />").text(text).appendTo(elements.modal);
             appendPreviewLink(data);
@@ -219,7 +205,7 @@
             let list = $("<ul />").appendTo(elements.modal);
             let createdDate = new Date(data.dateAdded);
 
-            $("<li />").html(ext.helper.i18n.get("overlay_bookmark_created_date") + " " + getLocaleDate(createdDate)).appendTo(list);
+            $("<li />").html(ext.helper.i18n.get("overlay_bookmark_created_date") + " " + ext.helper.i18n.getLocaleDate(createdDate)).appendTo(list);
 
             if (data.isDir) {
                 let childrenEntry = $("<li />")
@@ -241,7 +227,7 @@
                 .appendTo(list);
 
             $("<ul />")
-                .append("<li>" + ext.helper.i18n.get("overlay_bookmark_views_since") + " " + getLocaleDate(data.views.startDate) + "</li>")
+                .append("<li>" + ext.helper.i18n.get("overlay_bookmark_views_since") + " " + ext.helper.i18n.getLocaleDate(data.views.startDate) + "</li>")
                 .append("<li>" + data.views.perMonth + " " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.perMonth === 1 ? "_single" : "")) + " " + ext.helper.i18n.get("overlay_bookmark_views_per_month") + "</li>")
                 .appendTo(viewsEntry);
         };

@@ -183,21 +183,6 @@
         };
 
         /**
-         * Returns the given date in local specific format
-         *
-         * @param dateObj
-         * @returns {string}
-         */
-        let getLocaleDate = (dateObj) => {
-            return dateObj.toLocaleDateString([chrome.i18n.getUILanguage(), s.opts.manifest.default_locale], {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit"
-            });
-        };
-
-
-        /**
          * Initialises the previews
          */
         let initPreviews = () => {
@@ -211,7 +196,7 @@
 
                 sendAjax("html/template/" + previews[key].template + ".html", (html) => {
                     html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
-                    html = html.replace(/__DATE__CREATED__/g, getLocaleDate(new Date("2016-11-25")));
+                    html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
                     s.opts.elm.preview[key].find("body").html(html);
                     $("<link />").attr({
                         rel: "stylesheet",

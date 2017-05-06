@@ -23,8 +23,8 @@
         this.footer = () => {
             let footer = $('' +
                 '<footer>' +
-                ' <a id="copyright" href="https://moonware.de/extensions" target="_blank">' +
-                '  &copy; <span class="created">2016</span>&ensp;<strong>Moonware</strong>' +
+                ' <a id="copyright" href="https://blockbyte.de/extensions" target="_blank">' +
+                '  &copy; <span class="created">2016</span>&ensp;<strong>Blockbyte</strong>' +
                 ' </a>' +
                 '</footer>');
 

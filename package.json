@@ -3,7 +3,7 @@
   "version": "1.7.0",
   "license": "GPL-3.0",
   "author": "Philipp König",
-  "homepage": "https://moonware.de",
+  "homepage": "https://blockbyte.de",
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2016": "^6.24.1",

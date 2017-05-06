@@ -21,6 +21,29 @@
         };
 
         /**
+         * Returns the configured languages
+         *
+         * @returns {string}
+         */
+        this.getLanguage = () => {
+            return chrome.i18n.getUILanguage();
+        };
+
+        /**
+         * Returns the given date in local specific format
+         *
+         * @param dateObj
+         * @returns {string}
+         */
+        this.getLocaleDate = (dateObj) => {
+            return dateObj.toLocaleDateString([this.getLanguage(), ext.opts.manifest.default_locale], {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            });
+        };
+
+        /**
          * Parses all language vars in the given html context
          *
          * @param context

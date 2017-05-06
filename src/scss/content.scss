@@ -2,9 +2,9 @@
 @import "include/mixins";
 
 // Visual
-body > div#moonware-bs-visual {
+body > div#blockbyte-bs-visual {
 
-  &.moonware-bs-add-visual { // icon on black background should be visible on hover
+  &.blockbyte-bs-add-visual { // icon on black background should be visible on hover
     @include mask('icon-bookmark', $__indicatorIconColor, $__indicatorIconSize);
 
     &::before, &::after {
@@ -34,7 +34,7 @@ body > div#moonware-bs-visual {
       }
     }
 
-    &.moonware-bs-hover { // hover
+    &.blockbyte-bs-hover { // hover
 
       &::before, &::after {
         transform: translate3d(0, 0, 0);
@@ -44,7 +44,7 @@ body > div#moonware-bs-visual {
   }
 }
 
-body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-bs-has-lsb {
+body > div#blockbyte-bs-visual[data-pos='left'].blockbyte-bs-add-visual.blockbyte-bs-has-lsb {
 
   &::after {
     background: transparent;
@@ -56,7 +56,7 @@ body > div#moonware-bs-visual[data-pos='left'].moonware-bs-add-visual.moonware-b
 }
 
 // Sidebar
-body > iframe#moonware-bs-sidebar {
+body > iframe#blockbyte-bs-sidebar {
   width: $__sidebarWidth;
   height: 0;
   z-index: #{2147483647 - 1};
@@ -69,7 +69,7 @@ body > iframe#moonware-bs-sidebar {
     transform: translate3d($__sidebarWidth, 0, 0);
   }
 
-  &.moonware-bs-visible {
+  &.blockbyte-bs-visible {
     @extend %visible;
     width: calc(100% + #{$__sidebarWidth});
     height: 100%;
@@ -79,7 +79,7 @@ body > iframe#moonware-bs-sidebar {
 }
 
 // Overlay
-body > iframe#moonware-bs-overlay {
+body > iframe#blockbyte-bs-overlay {
   width: 100%;
   height: 100%;
   z-index: 2147483647;
@@ -87,7 +87,7 @@ body > iframe#moonware-bs-overlay {
   background: $__overlayMaskColor;
   transition: opacity 0.3s;
 
-  &.moonware-bs-visible {
+  &.blockbyte-bs-visible {
     @extend %visible;
   }
 }

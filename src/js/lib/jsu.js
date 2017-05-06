@@ -2,7 +2,7 @@
  * jsu v1.0.3
  *
  * Philipp König
- * https://moonware.de/
+ * https://blockbyte.de/
  *
  */
 (() => {

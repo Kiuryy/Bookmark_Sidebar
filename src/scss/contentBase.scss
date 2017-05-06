@@ -2,7 +2,7 @@
 @import "include/mixins";
 
 // Visual
-body > div#moonware-bs-visual {
+body > div#blockbyte-bs-visual {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,7 +19,7 @@ body > div#moonware-bs-visual {
 }
 
 // Sidebar
-body > iframe#moonware-bs-sidebar {
+body > iframe#blockbyte-bs-sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@ body > iframe#moonware-bs-sidebar {
 }
 
 // Overlay
-body > iframe#moonware-bs-overlay {
+body > iframe#blockbyte-bs-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -41,7 +41,7 @@ body > iframe#moonware-bs-overlay {
 
 // Print
 @media print {
-  [id^='moonware-bs-'] {
+  [id^='blockbyte-bs-'] {
     display: none;
   }
 }

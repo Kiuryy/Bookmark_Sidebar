@@ -9,102 +9,269 @@ body > header {
   }
 }
 
-section#content > div {
+section#content {
 
-  &.hidden {
-    display: none;
+  > a.back {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    font-size: 120%;
+    color: $textColorLight;
+    padding: 10px 12px 10px 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid $textColorLight;
+      border-left: 2px solid $textColorLight;
+      transform: rotateZ(-45deg);
+    }
+
+    &.hidden {
+      display: none;
+    }
   }
 
-  &[data-name='overview'] {
+  > div {
 
-    > div {
+    &.hidden {
+      display: none;
+    }
 
-      > span.progressLabel {
-        display: block;
-        text-align: right;
-        font-size: 120%;
-        font-weight: 300;
-        color: $textColorLight;
+    &[data-name='overview'] {
+
+      > div {
+
+        > p {
+          font-size: 120%;
+          line-height: 170%;
+          margin: 10px 0 20px 0;
+        }
+
+        > span.progressLabel {
+          display: block;
+          text-align: right;
+          font-size: 120%;
+          font-weight: 300;
+          color: $textColorLight;
+        }
+
+        > ul {
+
+          > li {
+            position: relative;
+            padding: 15px 0;
+            border-bottom: 1px solid $bodyBackground;
+
+            > strong {
+              display: inline-block;
+              vertical-align: top;
+              margin: 3px 0 0 0;
+              font-size: 120%;
+              font-weight: 300;
+            }
+
+            > a.edit {
+              @include mask('icon-edit', $mainColor, 20px);
+              position: relative;
+              display: inline-block;
+              vertical-align: top;
+              width: 32px;
+              height: 32px;
+              margin: -3px 0 0 7px;
+              border-radius: 50%;
+              transition: background 0.5s;
+
+              &:hover {
+                background: rgba(0, 0, 0, 0.1);
+              }
+            }
+
+            > svg.progress {
+              position: absolute;
+              top: calc(50% - 16px);
+              right: 0;
+
+              > circle {
+                fill: transparent;
+                stroke-width: 3px;
+                transform: rotateZ(-90deg);
+                transform-origin: 16px 16px;
+                stroke: rgba(0, 0, 0, 0.1);
+
+                + circle {
+                  stroke: $mainColor;
+                }
+              }
+            }
+
+            > span.progress {
+              display: block;
+              position: absolute;
+              top: calc(50% - 7px);
+              right: 40px;
+              width: 32px;
+              height: 14px;
+              font-size: 80%;
+              color: $textColorLight;
+              text-align: right;
+            }
+          }
+        }
+
+        > select.languages {
+          display: block;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          outline: 0;
+          height: 28px;
+          padding: 0 5px;
+          margin: 30px 0 0 0;
+          background: rgba(0, 0, 0, 0.02);
+          cursor: pointer;
+        }
       }
+    }
 
-      > ul {
+    &[data-name='langvars'] {
 
-        > li {
+      > div {
+
+        > div.notice {
           position: relative;
-          padding: 15px 0;
+          font-size: 120%;
+          line-height: 170%;
+          background: rgba($mainColor, 0.2);
+          padding: 7px 10px 7px 50px;
+          margin: 0 0 10px 0;
+
+          &::before {
+            content: "!";
+            position: absolute;
+            top: 22px;
+            left: 17px;
+            color: $mainColor;
+            font-weight: 500;
+            font-size: 300%;
+          }
+
+          > p {
+            margin: 0 0 10px 0;
+          }
+        }
+
+        > div.category {
+          position: relative;
+          padding: 15px 0 15px 20px;
           border-bottom: 1px solid $bodyBackground;
+
+          &::before {
+            content: "+";
+            position: absolute;
+            top: 15px;
+            left: 0;
+            font-size: 120%;
+            color: $mainColorAlt;
+            font-weight: 500;
+          }
+
+          > a {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+          }
 
           > strong {
             display: inline-block;
-            vertical-align: top;
-            margin: 3px 0 0 0;
-            font-size: 120%;
             font-weight: 300;
+            font-size: 120%;
           }
 
-          > a.edit {
-            @include mask('icon-edit', $mainColor, 20px);
-            position: relative;
+          > span {
             display: inline-block;
-            vertical-align: top;
-            width: 32px;
-            height: 32px;
-            margin: -3px 0 0 7px;
-            border-radius: 50%;
-            transition: background 0.5s;
-
-            &:hover {
-              background: rgba(0, 0, 0, 0.1);
-            }
+            margin: 0 0 0 10px;
+            color: $textColorLight;
           }
 
-          > svg.progress {
-            position: absolute;
-            top: calc(50% - 16px);
-            right: 0;
+          > ul {
+            display: none;
+          }
 
-            > circle {
-              fill: transparent;
-              stroke-width: 3px;
-              transform: rotateZ(-90deg);
-              transform-origin: 16px 16px;
-              stroke: rgba(0, 0, 0, 0.1);
+          &.active {
 
-              + circle {
-                stroke: $mainColor;
+            &::before {
+              content: "-";
+            }
+
+            > strong {
+              color: $mainColor;
+              font-weight: 400;
+            }
+
+            > ul {
+              position: relative;
+              display: block;
+              margin: 15px 0 0 0;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: -5px;
+                left: -12px;
+                width: 1px;
+                height: calc(100% + 10px);
+                background: $mainColor;
+                opacity: 0.5;
+              }
+
+              > li {
+
+                > label {
+                  display: inline-block;
+                }
+
+                > span {
+                  display: block;
+                  width: 100%;
+                  background: $bodyBackground;
+                  padding: 4px 5px;
+                  margin: 2px 0 4px;
+                  font-style: italic;
+                  font-size: 80%;
+
+                  > span {
+                    font-weight: 400;
+                    color: $mainColorAlt;
+                    margin: 0 3px 0 0;
+                  }
+                }
+
+                > textarea {
+                  display: block;
+                  width: 100%;
+                  max-width: 100%;
+                  height: 50px;
+                  padding: 4px 5px;
+                  margin: 2px 0 12px 0;
+                  border: none;
+                  outline: none;
+                  background: $bodyBackground;
+                }
               }
             }
           }
-
-          > span.progress {
-            display: block;
-            position: absolute;
-            top: calc(50% - 7px);
-            right: 40px;
-            width: 32px;
-            height: 14px;
-            font-size: 80%;
-            color: $textColorLight;
-            text-align: right;
-          }
         }
-      }
-
-      > select.languages {
-        display: block;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        outline: 0;
-        height: 28px;
-        padding: 0 5px;
-        margin: 30px 0 0 0;
-        background: rgba(0, 0, 0, 0.02);
-        cursor: pointer;
       }
     }
 
     &.loading {
 
-      > div {
+      > div, > header > * {
         display: none;
       }
 

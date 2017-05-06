@@ -4,9 +4,9 @@
     let opts = {
         ids: {
             page: {
-                iframe: "moonware-bs-sidebar",
-                overlay: "moonware-bs-overlay",
-                visual: "moonware-bs-visual"
+                iframe: "blockbyte-bs-sidebar",
+                overlay: "blockbyte-bs-overlay",
+                visual: "blockbyte-bs-visual"
             },
             sidebar: {
                 sidebar: "sidebar",
@@ -22,10 +22,10 @@
         },
         classes: {
             page: {
-                addVisual: "moonware-bs-add-visual",
-                visible: "moonware-bs-visible",
-                hover: "moonware-bs-hover",
-                hasLeftsideBack: "moonware-bs-has-lsb"
+                addVisual: "blockbyte-bs-add-visual",
+                visible: "blockbyte-bs-visible",
+                hover: "blockbyte-bs-hover",
+                hasLeftsideBack: "blockbyte-bs-has-lsb"
             },
             sidebar: {
                 extLoaded: "loaded",
@@ -113,12 +113,12 @@
             id: "data-id"
         },
         events: {
-            loaded: "moonware-bs-loaded",
-            checkboxChanged: "moonware-bs-checkboxChanged",
-            scrollBoxLastPart: "moonware-bs-scrollBoxLastPart",
-            lsbLoaded: "moonware-lsb-loaded"
+            loaded: "blockbyte-bs-loaded",
+            checkboxChanged: "blockbyte-bs-checkboxChanged",
+            scrollBoxLastPart: "blockbyte-bs-scrollBoxLastPart",
+            lsbLoaded: "blockbyte-lsb-loaded"
         },
-        leftsideBackSelector: "div#moonware-lsb-main.moonware-lsb-add-visual",
+        leftsideBackSelector: "div#blockbyte-lsb-main.blockbyte-lsb-add-visual",
         fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
         manifest: chrome.runtime.getManifest(),
         demoMode: false

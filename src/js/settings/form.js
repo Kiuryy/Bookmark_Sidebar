@@ -61,7 +61,7 @@
                         chrome.fontSettings.getFontList((fontList) => {
                             fontList.push({
                                 fontId: "Roboto",
-                                displayName: "Roboto (" + chrome.i18n.getMessage("settings_font_familiy_default") + ")"
+                                displayName: "Roboto (" + s.helper.i18n.get("settings_font_familiy_default") + ")"
                             });
                             fontList.sort(function (a, b) {
                                 let aVal = a.displayName.toUpperCase();

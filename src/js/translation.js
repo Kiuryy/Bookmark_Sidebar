@@ -56,12 +56,12 @@
             initHeader();
             startLoading();
 
-            this.helper.i18n.init(() => {
-                this.helper.template.footer().insertAfter(this.opts.elm.content);
-                this.helper.i18n.parseHtml(document);
-                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+            this.helper.model.init(() => {
+                this.helper.i18n.init(() => {
+                    this.helper.template.footer().insertAfter(this.opts.elm.content);
+                    this.helper.i18n.parseHtml(document);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
 
-                this.helper.model.init(() => {
                     initLanguages(() => {
                         initOverview();
                         initEvents();

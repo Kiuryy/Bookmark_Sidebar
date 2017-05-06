@@ -3,9 +3,6 @@
 
     window.howto = function () {
 
-        let openAction = "mousedown";
-        let sidebarPos = "left";
-
         /*
          * ################################
          * PUBLIC
@@ -37,18 +34,13 @@
         this.run = () => {
             initHelpers();
 
-            this.helper.i18n.init(() => {
-                chrome.storage.sync.get(["behaviour", "appearance"], (obj) => {
-                    if (obj.behaviour && obj.behaviour.openAction) {
-                        openAction = obj.behaviour.openAction;
-                    }
+            this.helper.model.init(() => {
 
-                    if (obj.appearance && obj.appearance.sidebarPosition) {
-                        sidebarPos = obj.appearance.sidebarPosition;
-                    }
+                this.helper.i18n.init(() => {
+                    let config = this.helper.model.getData(["b/openAction", "a/sidebarPosition"]);
 
-                    this.opts.elm.tutorial.children("p.text[data-index='1']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + sidebarPos));
-                    this.opts.elm.tutorial.children("p.text[data-index='2']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + (openAction === "contextmenu" ? "right" : "left")));
+                    this.opts.elm.tutorial.children("p.text[data-index='1']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + config.sidebarPosition));
+                    this.opts.elm.tutorial.children("p.text[data-index='2']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + (config.openAction === "contextmenu" ? "right" : "left")));
 
                     this.helper.i18n.parseHtml(document);
                     this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
@@ -56,9 +48,8 @@
                     initEvents();
                     initView();
                 });
-
-
             });
+
         };
 
         /*
@@ -73,6 +64,7 @@
         let initHelpers = () => {
             this.helper = {
                 i18n: new window.I18nHelper(this),
+                model: new window.ModelHelper(this)
             };
         };
 
@@ -114,8 +106,9 @@
          * Starts playing the tutorial animation
          */
         let startTutorial = () => {
+            let config = this.helper.model.getData(["b/openAction", "a/sidebarPosition"]);
             this.opts.elm.tutorial.addClass(this.opts.classes.visible);
-            this.opts.elm.tutorial.attr("data-pos", sidebarPos);
+            this.opts.elm.tutorial.attr("data-pos", config.sidebarPosition);
 
 
             let openSidebarAnimation = (delay = 2000) => {
@@ -137,7 +130,7 @@
             };
 
             let showMouseClickAnimation = () => {
-                if (openAction === "contextmenu") {
+                if (config.openAction === "contextmenu") {
                     this.opts.elm.tutorial.children("div#cursor").addClass(this.opts.classes.reversed);
                 }
 
@@ -161,7 +154,7 @@
                         setTimeout(() => {
                             this.opts.elm.tutorial.children("p.text[data-index='1']").removeClass(this.opts.classes.visible);
 
-                            if (openAction === "mousemove") {
+                            if (config.openAction === "mousemove") {
                                 openSidebarAnimation(700);
                             } else {
                                 showMouseClickAnimation();

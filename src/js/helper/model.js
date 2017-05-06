@@ -56,6 +56,7 @@
             },
             a: { // appearance
                 sidebarPosition: "left",
+                language: "default",
                 showIndicator: true,
                 showBookmarkIcons: true,
                 styles: {

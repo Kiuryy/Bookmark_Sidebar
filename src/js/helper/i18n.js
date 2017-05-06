@@ -3,6 +3,7 @@
 
     window.I18nHelper = function (ext) {
 
+        let langVars = {};
         let attr = {
             i18n: "data-i18n",
             i18nReplaces: "data-i18nReplaces"
@@ -14,19 +15,34 @@
          * @param {function} callback
          */
         this.init = (callback) => {
-
-            if (typeof callback === "function") {
-                callback();
-            }
+            ext.helper.model.call("languageInfos", (obj) => {
+                [this.getLanguage(), ext.opts.manifest.default_locale].some((lang) => { // check if user language exists, if not fallback to default language
+                    if (obj.infos && obj.infos[lang] && obj.infos[lang].available) {
+                        ext.helper.model.call("langvars", {lang: lang}, (obj) => { // load language variables from model
+                            if (obj && obj.langVars) {
+                                langVars = obj.langVars;
+                                if (typeof callback === "function") {
+                                    callback();
+                                }
+                            }
+                        });
+                        return true;
+                    }
+                });
+            });
         };
 
         /**
-         * Returns the configured languages
+         * Returns the configured language, or the ui language on default
          *
          * @returns {string}
          */
         this.getLanguage = () => {
-            return chrome.i18n.getUILanguage();
+            let lang = ext.helper.model.getData("a/language");
+            if (lang === "default") {
+                lang = chrome.i18n.getUILanguage();
+            }
+            return lang;
         };
 
         /**
@@ -79,8 +95,11 @@
          * @returns {string}
          */
         this.get = (msg, replaces = []) => {
-            let ret = chrome.i18n.getMessage(msg);
-            if (ret) {
+            let ret = "";
+            let langVar = langVars[msg];
+
+            if (langVar && langVar.message) {
+                ret = langVar.message;
                 replaces.forEach((replace, i) => {
                     ret = ret.replace(new RegExp("\\{" + (i + 1) + "\\}"), replace)
                 });

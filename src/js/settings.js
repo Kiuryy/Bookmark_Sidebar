@@ -117,13 +117,13 @@
             this.helper.form.init();
             initHeader();
 
-            this.helper.i18n.init(() => {
-                initHeaderTabs();
-                this.helper.template.footer().insertAfter(this.opts.elm.content);
-                this.helper.i18n.parseHtml(document);
-                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+            this.helper.model.init(() => {
+                this.helper.i18n.init(() => {
+                    initHeaderTabs();
+                    this.helper.template.footer().insertAfter(this.opts.elm.content);
+                    this.helper.i18n.parseHtml(document);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
 
-                this.helper.model.init(() => {
                     this.helper.behaviour.init();
                     this.helper.appearance.init();
                     this.helper.feedback.init();

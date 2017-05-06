@@ -339,6 +339,24 @@
     };
 
     /**
+     * Returns the language variables for the given language
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let getLangVars = (opts, sendResponse) => {
+        if (opts.lang) {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", chrome.extension.getURL("_locales/" + opts.lang + "/messages.json"), true);
+            xhr.onload = () => {
+                let langVars = JSON.parse(xhr.responseText);
+                sendResponse({langVars: langVars});
+            };
+            xhr.send();
+        }
+    };
+
+    /**
      * Returns whether the ShareUserdata-Mask should be shown or not
      *
      * @param {object} opts
@@ -382,6 +400,7 @@
         shareUserdata: updateShareUserdataFlag,
         shareUserdataMask: shareUserdataMask,
         languageInfos: getLanguageInfos,
+        langvars: getLangVars,
         favicon: getFavicon,
         openLink: openLink,
         viewAmounts: getViewAmounts

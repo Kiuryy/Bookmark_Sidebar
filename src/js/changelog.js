@@ -29,12 +29,14 @@
         this.run = () => {
             initHelpers();
 
-            this.helper.i18n.init(() => {
-                this.helper.i18n.parseHtml(document);
-                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+            this.helper.model.init(() => {
+                this.helper.i18n.init(() => {
+                    this.helper.i18n.parseHtml(document);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
 
-                initEvents();
-                this.opts.elm.infobox.addClass(this.opts.classes.visible);
+                    initEvents();
+                    this.opts.elm.infobox.addClass(this.opts.classes.visible);
+                });
             });
         };
 
@@ -50,6 +52,7 @@
         let initHelpers = () => {
             this.helper = {
                 i18n: new window.I18nHelper(this),
+                model: new window.ModelHelper(this)
             };
         };
 

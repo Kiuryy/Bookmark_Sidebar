@@ -89,6 +89,20 @@ body > header {
         }
       }
 
+      &[data-name='contribute'].incomplete:not(.active) {
+        @include mask('icon-info', $colorNotice, 20px);
+        padding-right: 24px;
+
+        > a {
+          color: $colorNotice;
+          opacity: 1;
+        }
+
+        &::before {
+          -webkit-mask-position-x: right;
+        }
+      }
+
       &[data-name='help'] {
         position: absolute;
         top: 13px;
@@ -166,6 +180,24 @@ section#content {
 
         > span {
           font-weight: 500;
+        }
+
+        &.incomplete {
+          position: relative;
+          display: inline-block;
+          background: $colorNotice;
+          font-size: 100%;
+          margin: 15px 0 0 0;
+          padding: 7px;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 15px;
+            border: 10px solid transparent;
+            border-bottom-color: $colorNotice;
+          }
         }
       }
 

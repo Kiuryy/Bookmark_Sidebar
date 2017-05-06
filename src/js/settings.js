@@ -34,7 +34,8 @@
                 visible: "visible",
                 gotoFeedback: "gotoFeedback",
                 howto: "howto",
-                action: "action"
+                action: "action",
+                incomplete: "incomplete"
             },
             attr: {
                 type: "data-type",
@@ -77,6 +78,8 @@
                     backgroundChanger: $("menu.backgroundChanger > a"),
                 },
                 contribute: {
+                    translationTabLink: $("div.tab[data-name='contribute'] ul.labels > li[data-type='translation'] > a"),
+                    translationTabContent: $("div.tab[data-name='contribute'] div[data-name='translation']"),
                     action: $("div.tab[data-name='contribute'] a.action")
                 },
                 feedback: {
@@ -101,7 +104,8 @@
                 contentTabChanged: "blockbyte-bs-contentTabChanged"
             },
             ajax: {
-                feedback: "https://blockbyte.de/ajax/extensions/feedback"
+                feedback: "https://blockbyte.de/ajax/extensions/feedback",
+                translationInfo: "https://blockbyte.de/ajax/extensions/bs/i18n/info"
             },
             fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
@@ -113,25 +117,26 @@
          */
         this.run = () => {
             initHelpers();
-
-            this.helper.form.init();
             initHeader();
 
             this.helper.model.init(() => {
                 this.helper.i18n.init(() => {
                     initHeaderTabs();
-                    this.helper.template.footer().insertAfter(this.opts.elm.content);
-                    this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
 
-                    this.helper.behaviour.init();
-                    this.helper.appearance.init();
-                    this.helper.feedback.init();
-                    this.helper.contribute.init();
-                    this.helper.help.init();
+                    this.helper.form.init(() => {
+                        this.helper.template.footer().insertAfter(this.opts.elm.content);
+                        this.helper.i18n.parseHtml(document);
+                        this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
 
-                    initButtonEvents();
-                    initContentTabs();
+                        this.helper.behaviour.init();
+                        this.helper.appearance.init();
+                        this.helper.feedback.init();
+                        this.helper.contribute.init();
+                        this.helper.help.init();
+
+                        initButtonEvents();
+                        initContentTabs();
+                    });
                 });
             });
         };

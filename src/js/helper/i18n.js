@@ -3,6 +3,7 @@
 
     window.I18nHelper = function (ext) {
 
+        let language = null;
         let langVars = {};
         let attr = {
             i18n: "data-i18n",
@@ -17,9 +18,11 @@
         this.init = (callback) => {
             ext.helper.model.call("languageInfos", (obj) => {
                 let lang = this.getLanguage();
-                let defaultLang = ext.opts.manifest.default_locale;
+                let defaultLang = this.getDefaultLanguage();
+
                 [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
                     if (obj.infos && obj.infos[name] && obj.infos[name].available) {
+                        language = name;
                         ext.helper.model.call("langvars", {
                             lang: name,
                             defaultLang: defaultLang
@@ -38,16 +41,32 @@
         };
 
         /**
-         * Returns the configured language, or the ui language on default
+         * Returns the language which is used for the language variables
          *
          * @returns {string}
          */
         this.getLanguage = () => {
-            let lang = ext.helper.model.getData("a/language");
-            if (lang === "default") {
-                lang = chrome.i18n.getUILanguage();
-            }
-            return lang;
+            return language;
+        };
+
+        /**
+         * Returns the default language of the extension
+         *
+         * @returns {string}
+         */
+        this.getDefaultLanguage = () => {
+            return ext.opts.manifest.default_locale;
+        };
+
+        /**
+         * Compares the given variables using the localeCompare function
+         *
+         * @param a
+         * @param b
+         * @returns {number}
+         */
+        this.localeCompare = (a, b) => {
+            return a.localeCompare(b, [chrome.i18n.getUILanguage(), this.getDefaultLanguage()])
         };
 
         /**
@@ -57,7 +76,7 @@
          * @returns {string}
          */
         this.getLocaleDate = (dateObj) => {
-            return dateObj.toLocaleDateString([this.getLanguage(), ext.opts.manifest.default_locale], {
+            return dateObj.toLocaleDateString([chrome.i18n.getUILanguage(), this.getDefaultLanguage()], {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit"

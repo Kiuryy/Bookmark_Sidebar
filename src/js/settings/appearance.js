@@ -16,9 +16,11 @@
         this.init = () => {
             initPreviews();
 
-            let sidebarPosition = s.helper.model.getData("a/sidebarPosition");
-            s.opts.elm.select.sidebarPosition[0].value = sidebarPosition;
-            s.opts.elm.select.sidebarPosition.data("initial", sidebarPosition);
+            ["sidebarPosition", "language"].forEach((field) => {
+                let value = s.helper.model.getData("a/" + field);
+                s.opts.elm.select[field][0].value = value;
+                s.opts.elm.select[field].data("initial", value);
+            });
 
             let styles = s.helper.model.getData("a/styles");
 
@@ -154,6 +156,7 @@
         let getCurrentConfig = () => {
             let ret = {
                 sidebarPosition: s.opts.elm.select.sidebarPosition[0].value,
+                language: s.opts.elm.select.language[0].value,
                 showIndicator: true,
                 showBookmarkIcons: true,
                 styles: {}

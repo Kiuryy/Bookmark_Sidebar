@@ -304,7 +304,7 @@
                 switch (sort.name) {
                     case "alphabetical": {
                         bookmarks.sort((a, b) => {
-                            return (sort.dir === "ASC" ? 1 : -1) * a.title.localeCompare(b.title, [ext.helper.i18n.getLanguage(), ext.opts.manifest.default_locale]);
+                            return (sort.dir === "ASC" ? 1 : -1) * ext.helper.i18n.localeCompare(a.title, b.title);
                         });
                         break;
                     }

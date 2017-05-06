@@ -5,17 +5,18 @@
 
         /**
          *
+         * @param {function} callback
          */
-        this.init = () => {
-            initFormElements();
+        this.init = (callback) => {
             initEvents();
+            initFormElements(callback);
         };
 
         /**
          *
          */
         let initEvents = () => {
-            s.opts.elm.tab.children("div").on("scroll", (e) => {
+            s.opts.elm.tab.children("div").on("scroll", () => {
                 Object.values(s.opts.elm.color).forEach((elm) => {
                     let picker = elm.data("picker");
                     picker.fit();
@@ -25,8 +26,20 @@
 
         /**
          * Initialises all form elements
+         *
+         * @param {function} callback
          */
-        let initFormElements = () => {
+        let initFormElements = (callback) => {
+            let waitingCounter = s.opts.elm.formElement.length();
+
+            let elementLoaded = () => {
+                waitingCounter--;
+                if (waitingCounter === 0 && typeof callback === "function") { // all form elements loaded -> callback
+                    callback();
+                }
+            };
+
+
             s.opts.elm.formElement.forEach((elm) => {
                 let type = $(elm).attr(s.opts.attr.type);
                 let name = $(elm).attr(s.opts.attr.name);
@@ -39,6 +52,7 @@
                 switch (type) {
                     case "checkbox": {
                         s.opts.elm.checkbox[name] = s.helper.checkbox.get(s.opts.elm.body).insertAfter(label);
+                        elementLoaded();
                         break;
                     }
                     case "text":
@@ -50,10 +64,27 @@
                                 s.opts.elm.field[name].attr(attr, elmAttr);
                             }
                         });
+                        elementLoaded();
                         break;
                     }
                     case "textarea": {
                         s.opts.elm.textarea[name] = $("<textarea />").insertAfter(label);
+                        elementLoaded();
+                        break;
+                    }
+                    case "language": {
+                        s.opts.elm.select[name] = $("<select />").insertAfter(label);
+                        $("<option />").attr("value", "default").text(s.helper.i18n.get("settings_language_default")).appendTo(s.opts.elm.select[name]);
+                        s.helper.model.call("languageInfos", (obj) => {
+                            if (obj && obj.infos) {
+                                Object.values(obj.infos).forEach((lang) => {
+                                    if (lang.available) {
+                                        $("<option />").attr("value", lang.name).text(lang.label).appendTo(s.opts.elm.select[name]);
+                                    }
+                                });
+                            }
+                            elementLoaded();
+                        });
                         break;
                     }
                     case "font": {
@@ -61,7 +92,7 @@
                         chrome.fontSettings.getFontList((fontList) => {
                             fontList.push({
                                 fontId: "Roboto",
-                                displayName: "Roboto (" + s.helper.i18n.get("settings_font_familiy_default") + ")"
+                                displayName: "Roboto (" + s.helper.i18n.get("settings_font_family_default") + ")"
                             });
                             fontList.sort(function (a, b) {
                                 let aVal = a.displayName.toUpperCase();
@@ -74,6 +105,7 @@
                                 }
                             });
                         });
+                        elementLoaded();
                         break;
                     }
                     case "color": {
@@ -113,6 +145,7 @@
                         });
 
                         s.opts.elm.color[name].data("picker", picker);
+                        elementLoaded();
                         break;
                     }
                     case "range": {
@@ -141,7 +174,7 @@
                             valTooltip.text(elm.value + unit);
                         });
                         s.opts.elm.range[name].trigger("input");
-
+                        elementLoaded();
                         break;
                     }
                     case "select": {
@@ -152,6 +185,7 @@
                                 [s.opts.attr.i18n]: $(option).attr(s.opts.attr.i18n)
                             }).appendTo(s.opts.elm.select[name]);
                         });
+                        elementLoaded();
                         break;
                     }
                 }

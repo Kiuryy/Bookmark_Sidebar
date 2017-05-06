@@ -33,7 +33,8 @@
                 langVarCategory: "category",
                 languagesSelect: "languages",
                 edit: "edit",
-                success: "success"
+                success: "success",
+                incomplete: "incomplete"
             },
             attr: {
                 success: "data-successtext",
@@ -129,6 +130,9 @@
             });
         };
 
+        /**
+         * Adds a loading indicator over the content
+         */
         let startLoading = () => {
             Object.keys(this.opts.elm.wrapper).forEach((key) => {
                 if (this.opts.elm.wrapper[key].hasClass(this.opts.classes.hidden) === false) {
@@ -138,6 +142,11 @@
             });
         };
 
+        /**
+         * Removes the loading indicator from the content after the given time
+         *
+         * @param {int} timeout
+         */
         let endLoading = (timeout = 300) => {
             setTimeout(() => {
                 loader && loader.remove();
@@ -176,7 +185,11 @@
                         if (languages[lang.name]) {
                             let c = Math.PI * 12 * 2;
                             let percentage = lang.varsAmount / infos.varsAmount * 100;
-                            let status = languages[lang.name].available ? "released" : "draft";
+                            let status = "draft";
+
+                            if (languages[lang.name].available) {
+                                status = hasImcompleteCategories(lang.categories, infos.categories) ? "incomplete" : "released";
+                            }
 
                             $("<li />")
                                 .data("lang", lang.name)
@@ -204,6 +217,26 @@
         };
 
         /**
+         * Returns true if a category of the given language is missing some variables
+         *
+         * @param {object} langCategories
+         * @param {object} allCategories
+         * @returns {boolean}
+         */
+        let hasImcompleteCategories = (langCategories, allCategories) => {
+            let ret = false;
+
+            Object.keys(langCategories).some((name) => {
+                if (allCategories[name] > langCategories[name]) {
+                    ret = true;
+                    return true;
+                }
+            });
+
+            return ret;
+        };
+
+        /**
          * Returns all language variables of the given language,
          * also return the variables of the default language if the given language is not the default one
          *
@@ -218,7 +251,7 @@
 
                 if (infos && Object.getOwnPropertyNames(infos).length > 0) {
                     let ret = {[lang]: infos};
-                    let defaultLang = this.opts.manifest.default_locale;
+                    let defaultLang = this.helper.i18n.getDefaultLanguage();
 
                     if (lang !== defaultLang) {
                         getLanguageInfos(defaultLang, (infos) => {
@@ -281,19 +314,28 @@
                                 .append("<label>" + field.label + "</label>")
                                 .appendTo(list);
 
-
                             if (obj.default && obj.default[category] && obj.default[category][i]) {
-                                $("<span />").html("<span>" + languages[this.opts.manifest.default_locale].label + ":</span>" + obj.default[category][i].value || "").appendTo(entry);
+                                $("<span />").html("<span>" + languages[this.helper.i18n.getDefaultLanguage()].label + ":</span>" + obj.default[category][i].value || "").appendTo(entry);
                             }
 
                             let val = field.value || "";
-                            $("<textarea />").data({
+                            let textarea = $("<textarea />").data({
                                 initial: val,
                                 name: field.name
                             }).text(val).appendTo(entry);
+
+                            if (languages[lang].available && val.length === 0) { // incomplete notice for already released translations
+                                entry.addClass(this.opts.classes.incomplete);
+                                entry.children("label").attr("title", this.helper.i18n.get("translation_incomplete_info"));
+                            }
                         });
 
                         $("<span />").html("<span>" + varsAmount.filled + "</span>/" + varsAmount.total).insertBefore(list);
+
+                        if (languages[lang].available && varsAmount.total > varsAmount.filled) { // incomplete notice for already released translations
+                            wrapper.addClass(this.opts.classes.incomplete);
+                            wrapper.children("a").attr("title", this.helper.i18n.get("translation_incomplete_info"));
+                        }
                     });
 
                     this.opts.elm.wrapper.langvars.find("> header > h2").text(this.helper.i18n.get("translation_" + (totalFilled === 0 ? "add" : "edit")) + " (" + languages[lang].label + ")");
@@ -337,10 +379,6 @@
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", this.opts.ajax.submit, true);
                 xhr.onload = () => {
-                    let infos = JSON.parse(xhr.responseText);
-
-                    console.log(infos);
-
                     loader.remove();
                     this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
                     this.opts.elm.body.addClass(this.opts.classes.success);
@@ -362,7 +400,6 @@
          * Initialises the events for the translation overview
          */
         let initOverviewEvents = () => {
-
             this.opts.elm.wrapper.overview.find("select." + this.opts.classes.languagesSelect).on("change", (e) => {
                 initEditForm(e.currentTarget.value);
             });
@@ -379,7 +416,12 @@
         let initFormEvents = () => {
             this.opts.elm.wrapper.langvars.find("div." + this.opts.classes.langVarCategory + " > a").on("click", (e) => {
                 e.preventDefault();
-                $(e.currentTarget).parent().toggleClass(this.opts.classes.active);
+                let wrapper = $(e.currentTarget).parent();
+                wrapper.toggleClass(this.opts.classes.active);
+
+                if (wrapper.hasClass(this.opts.classes.active) && wrapper.hasClass(this.opts.classes.incomplete)) { // scroll to the first incomplete field of the clicked category
+                    this.opts.elm.wrapper.langvars.children("div")[0].scrollTop = wrapper[0].offsetTop + wrapper.find("li." + this.opts.classes.incomplete)[0].offsetTop - 50;
+                }
             });
 
             this.opts.elm.wrapper.langvars.find("textarea").on("change input", (e) => {

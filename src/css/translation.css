@@ -538,6 +538,17 @@ section#content > div[data-name='overview'] > div > ul > li > span[data-status='
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
   background-color: #f99;
 }
+section#content > div[data-name='overview'] > div > ul > li > span[data-status='incomplete']::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/26px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
 section#content > div[data-name='overview'] > div > select.languages {
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -589,6 +600,20 @@ section#content > div[data-name='langvars'] > div > div.category > a {
   width: 100%;
   height: 40px;
 }
+section#content > div[data-name='langvars'] > div > div.category.incomplete > a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/26px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+section#content > div[data-name='langvars'] > div > div.category.incomplete > a::before {
+  -webkit-mask-position-x: right;
+}
 section#content > div[data-name='langvars'] > div > div.category > strong {
   display: inline-block;
   font-weight: 300;
@@ -625,6 +650,7 @@ section#content > div[data-name='langvars'] > div > div.category.active > ul::be
   opacity: 0.5;
 }
 section#content > div[data-name='langvars'] > div > div.category.active > ul > li > label {
+  position: relative;
   display: inline-block;
 }
 section#content > div[data-name='langvars'] > div > div.category.active > ul > li > span {
@@ -651,6 +677,26 @@ section#content > div[data-name='langvars'] > div > div.category.active > ul > l
   border: none;
   outline: none;
   background: #f2f2f2;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > label {
+  padding-left: 22px;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/18px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > label::before {
+  -webkit-mask-position-x: left;
+}
+section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > textarea {
+  border: 1px solid #f5c525;
 }
 section#content > div.loading > div, section#content > div.loading > header > * {
   display: none;

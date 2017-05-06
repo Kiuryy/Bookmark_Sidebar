@@ -137,6 +137,10 @@ section#content {
             > span[data-status='draft'] {
               @include mask('icon-close', $colorError, 26px);
             }
+
+            > span[data-status='incomplete'] {
+              @include mask('icon-info', $colorNotice, 26px);
+            }
           }
         }
 
@@ -203,6 +207,14 @@ section#content {
             height: 40px;
           }
 
+          &.incomplete > a {
+            @include mask('icon-info', $colorNotice, 26px);
+
+            &::before {
+              -webkit-mask-position-x: right;
+            }
+          }
+
           > strong {
             display: inline-block;
             font-weight: 300;
@@ -249,6 +261,7 @@ section#content {
               > li {
 
                 > label {
+                  position: relative;
                   display: inline-block;
                 }
 
@@ -278,6 +291,22 @@ section#content {
                   border: none;
                   outline: none;
                   background: $bodyBackground;
+                }
+
+                &.incomplete {
+
+                  > label {
+                    @include mask('icon-info', $colorNotice, 18px);
+                    padding-left: 22px;
+
+                    &::before {
+                      -webkit-mask-position-x: left;
+                    }
+                  }
+
+                  > textarea {
+                    border: 1px solid $colorNotice;
+                  }
                 }
               }
             }

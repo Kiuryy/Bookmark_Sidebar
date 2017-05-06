@@ -413,13 +413,22 @@
     "settings_text_color_desc": {
         "message": "Color of the bookmark labels, overlay descriptions, contextmenu links, etc."
     },
-    "settings_font_familiy": {
+    "settings_language": {
+        "message": "Language"
+    },
+    "settings_language_default": {
+        "message": "Browser default"
+    },
+    "settings_language_desc": {
+        "message": "The language of the user interface"
+    },
+    "settings_font_family": {
         "message": "Typeface"
     },
-    "settings_font_familiy_default": {
+    "settings_font_family_default": {
         "message": "default"
     },
-    "settings_font_familiy_desc": {
+    "settings_font_family_desc": {
         "message": "The typeface of the sidebar and the overlays"
     },
     "settings_indicator_width": {
@@ -572,7 +581,13 @@
     "translation_status_released": {
         "message": "Translation is available"
     },
+    "translation_status_incomplete": {
+        "message": "Translation is available, but due to an update some categories are incomplete"
+    },
     "translation_status_draft": {
         "message": "Translation is incomplete or needs a review and is not available for users"
+    },
+    "translation_incomplete_info": {
+        "message": "Due to an update the language variables are incomplete"
     }
 }

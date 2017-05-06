@@ -543,6 +543,27 @@ body > header > ul.tabBar > li.active > a::after {
   right: -40px;
   transform: rotateZ(135deg);
 }
+body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active) {
+  padding-right: 24px;
+}
+body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/20px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active) > a {
+  color: #f5c525;
+  opacity: 1;
+}
+body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active)::before {
+  -webkit-mask-position-x: right;
+}
 body > header > ul.tabBar > li[data-name='help'] {
   position: absolute;
   top: 13px;
@@ -597,6 +618,22 @@ section#content > div.tab[data-name='contribute'] p {
 }
 section#content > div.tab[data-name='contribute'] p > span {
   font-weight: 500;
+}
+section#content > div.tab[data-name='contribute'] p.incomplete {
+  position: relative;
+  display: inline-block;
+  background: #f5c525;
+  font-size: 100%;
+  margin: 15px 0 0 0;
+  padding: 7px;
+}
+section#content > div.tab[data-name='contribute'] p.incomplete::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  border: 10px solid transparent;
+  border-bottom-color: #f5c525;
 }
 section#content > div.tab[data-name='contribute'] ul.labels {
   display: flex;

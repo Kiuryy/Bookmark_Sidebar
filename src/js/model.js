@@ -346,13 +346,25 @@
      */
     let getLangVars = (opts, sendResponse) => {
         if (opts.lang) {
-            let xhr = new XMLHttpRequest();
-            xhr.open("GET", chrome.extension.getURL("_locales/" + opts.lang + "/messages.json"), true);
-            xhr.onload = () => {
-                let langVars = JSON.parse(xhr.responseText);
-                sendResponse({langVars: langVars});
+            let sendXhr = (obj) => {
+                let langVars = obj.langVars;
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", chrome.extension.getURL("_locales/" + opts.lang + "/messages.json"), true);
+                xhr.onload = () => {
+                    let result = JSON.parse(xhr.responseText);
+                    Object.assign(langVars, result); // override all default variables with the one from the language file
+
+                    sendResponse({langVars: langVars});
+                };
+                xhr.send();
             };
-            xhr.send();
+
+            if (opts.defaultLang && opts.defaultLang !== opts.lang) { // load default language variables first and replace them afterwards with the language specific ones
+                getLangVars({lang: opts.defaultLang}, sendXhr)
+            } else {
+                sendXhr({langVars: {}});
+            }
         }
     };
 

@@ -16,9 +16,14 @@
          */
         this.init = (callback) => {
             ext.helper.model.call("languageInfos", (obj) => {
-                [this.getLanguage(), ext.opts.manifest.default_locale].some((lang) => { // check if user language exists, if not fallback to default language
-                    if (obj.infos && obj.infos[lang] && obj.infos[lang].available) {
-                        ext.helper.model.call("langvars", {lang: lang}, (obj) => { // load language variables from model
+                let lang = this.getLanguage();
+                let defaultLang = ext.opts.manifest.default_locale;
+                [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
+                    if (obj.infos && obj.infos[name] && obj.infos[name].available) {
+                        ext.helper.model.call("langvars", {
+                            lang: name,
+                            defaultLang: defaultLang
+                        }, (obj) => { // load language variables from model
                             if (obj && obj.langVars) {
                                 langVars = obj.langVars;
                                 if (typeof callback === "function") {

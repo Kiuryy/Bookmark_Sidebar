@@ -465,27 +465,30 @@
                         chrome.storage.sync.set({behaviour: obj.behaviour});
                     }
 
-                    if (obj.appearance) {
-                        if (typeof obj.appearance.style === "undefined") {
-                            obj.appearance.style = {};
-                        }
-
-                        if (typeof obj.appearance.style.bookmarksDirIcon === "undefined" || obj.appearance.style.bookmarksDirIcon === "dir") {
-                            obj.appearance.style.bookmarksDirIcon = "dir-2";
-                        } else if (obj.appearance.style.bookmarksDirIcon === "dir-alt1") {
-                            obj.appearance.style.bookmarksDirIcon = "dir-1";
-                            obj.appearance.style.bookmarksDirColor = "rgb(240,180,12)";
-                        } else if (obj.appearance.style.bookmarksDirIcon === "dir-alt2") {
-                            obj.appearance.style.bookmarksDirIcon = "dir-1";
-                        }
-
-                        chrome.storage.sync.set({appearance: obj.appearance});
+                    if (typeof obj.appearance === "undefined") {
+                        obj.appearance = {};
                     }
+
+                    if (typeof obj.appearance.styles === "undefined") {
+                        obj.appearance.styles = {};
+                    }
+
+                    if (typeof obj.appearance.styles.bookmarksDirIcon === "undefined" || obj.appearance.styles.bookmarksDirIcon === "dir") {
+                        obj.appearance.styles.bookmarksDirIcon = "dir-2";
+                    } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt1") {
+                        obj.appearance.styles.bookmarksDirIcon = "dir-1";
+                        obj.appearance.styles.bookmarksDirColor = "rgb(240,180,12)";
+                    } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt2") {
+                        obj.appearance.styles.bookmarksDirIcon = "dir-1";
+                    }
+
+                    delete obj.appearance.addVisual;
+                    chrome.storage.sync.set({appearance: obj.appearance});
 
                     if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
                         chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
                     }
-                    chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "addVisual", "middleClickActive"]);
+                    chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid","entriesLocked", "addVisual", "middleClickActive"]);
                     // END UPGRADE CONFIG FOR v1.7
 
                     // START UPGRADE CONFIG FOR v1.5

@@ -4,9 +4,6 @@
  - dark theme
  - copy bookmark url
 
- - test upgrade
- - update screenshots (add screenshot for sorting)
-
 [1.7]
  - Added sort functionality
  - Added translation contribution

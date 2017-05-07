@@ -6,14 +6,13 @@
 
  - test upgrade
  - update screenshots (add screenshot for sorting)
- - update changelog
 
 [1.7]
  - Added sort functionality
  - Added translation contribution
  - Replaced default translation mechanism
  - Possibility to add bookmarks/directories
- - Added keyboard shortcuts (esc to close, pos1 to scroll to top)
+ - Added keyboard shortcuts (esc to close, home to scroll to top)
  - Configurable typeface
 
 [1.6]

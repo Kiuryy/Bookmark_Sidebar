@@ -359,6 +359,7 @@
             this.opts.elm.save.on("click", (e) => {
                 e.preventDefault();
 
+                let loadStartTime = +new Date();
                 let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
                 this.opts.elm.body.addClass(this.opts.classes.loading);
 
@@ -379,14 +380,16 @@
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", this.opts.ajax.submit, true);
                 xhr.onload = () => {
-                    loader.remove();
-                    this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
-                    this.opts.elm.body.addClass(this.opts.classes.success);
-                    setTimeout(() => {
-                        this.opts.elm.body.removeClass(this.opts.classes.loading);
-                        this.opts.elm.body.removeClass(this.opts.classes.success);
-                        location.reload(true);
-                    }, 1500);
+                    setTimeout(() => { // load at least 1s
+                        loader.remove();
+                        this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
+                        this.opts.elm.body.addClass(this.opts.classes.success);
+                        setTimeout(() => {
+                            this.opts.elm.body.removeClass(this.opts.classes.loading);
+                            this.opts.elm.body.removeClass(this.opts.classes.success);
+                            location.reload(true);
+                        }, 1500);
+                    }, Math.max(0, 1000 - (+new Date() - loadStartTime)));
                 };
 
                 let formData = new FormData();

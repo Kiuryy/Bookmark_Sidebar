@@ -18,8 +18,8 @@
                     let list = box.children("ul");
                     let remainingEntries = list.data("remainingEntries");
                     if (remainingEntries && remainingEntries.length > 0) {
-                        this.addBookmarkDir(remainingEntries, list, false);
-                        if (ext.firstRun) {
+                        this.addBookmarkDir(remainingEntries, list, false, false);
+                        if (ext.firstRun || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false) {
                             ext.helper.scroll.restoreScrollPos(box);
                         }
                     }
@@ -29,6 +29,11 @@
             this.updateBookmarkBox();
         };
 
+        /**
+         * Returns the available sortings
+         *
+         * @returns {object}
+         */
         this.getSortList = () => {
             return {
                 custom: {
@@ -46,10 +51,21 @@
             }
         };
 
+        /**
+         * Returns information about the current sorting
+         *
+         * @returns {object}
+         */
         this.getSort = () => {
             return sort;
         };
 
+        /**
+         * Changes the sorting and updates the bookmark list
+         *
+         * @param {string} name
+         * @param {string} direction 'ASC' or 'DESC'
+         */
         this.updateSort = (name, direction) => {
             let sortList = this.getSortList();
             if (sortList[name]) {
@@ -71,6 +87,11 @@
             }
         };
 
+        /**
+         * Changes the sort direction and updates the bookmark list
+         *
+         * @param {string} direction 'ASC' or 'DESC'
+         */
         this.updateDirection = (direction) => {
             this.updateSort(sort.name, direction);
         };
@@ -207,10 +228,11 @@
          *
          * @param {Array} bookmarks
          * @param {jsu} list
-         * @param {boolean} asTree
+         * @param {boolean} asTree one dimensional list or with directories
+         * @param {boolean} sort whether the bookmarks need to be sorted or not
          * @returns {boolean} returns false if nothing has been added
          */
-        this.addBookmarkDir = (bookmarks, list, asTree = true) => {
+        this.addBookmarkDir = (bookmarks, list, asTree = true, sort = true) => {
             let hasEntries = false;
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
@@ -220,9 +242,12 @@
                 list.css("transition", "height " + config.dirOpenDuration + "s");
             }
 
-            list.removeData("remainingEntries");
-            sortBookmarks(bookmarks);
             let bookmarkCounter = 0;
+            list.removeData("remainingEntries");
+
+            if (sort) {
+                sortBookmarks(bookmarks);
+            }
 
             bookmarks.some((bookmark, idx) => {
                 if ((showHidden || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
@@ -302,8 +327,9 @@
             if (bookmarks.length > 1) {
                 switch (sort.name) {
                     case "alphabetical": {
+                        let collator = ext.helper.i18n.getLocaleSortCollator();
                         bookmarks.sort((a, b) => {
-                            return (sort.dir === "ASC" ? 1 : -1) * ext.helper.i18n.localeCompare(a.title, b.title);
+                            return (sort.dir === "ASC" ? 1 : -1) * collator.compare(a.title, b.title);
                         });
                         break;
                     }

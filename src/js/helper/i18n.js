@@ -59,14 +59,12 @@
         };
 
         /**
-         * Compares the given variables using the localeCompare function
+         * Sorts the Collator for comparing strings
          *
-         * @param a
-         * @param b
-         * @returns {number}
+         * @returns {Intl.Collator}
          */
-        this.localeCompare = (a, b) => {
-            return a.localeCompare(b, [chrome.i18n.getUILanguage(), this.getDefaultLanguage()])
+        this.getLocaleSortCollator = () => {
+           return new Intl.Collator([chrome.i18n.getUILanguage(), this.getDefaultLanguage()]);
         };
 
         /**

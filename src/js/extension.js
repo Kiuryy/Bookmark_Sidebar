@@ -95,12 +95,14 @@
          * Initialises the not yet loaded images in the sidebar
          */
         this.initImages = () => {
-            this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
-                let img = $(_self);
-                let src = img.attr(opts.attr.src);
-                img.removeAttr(opts.attr.src);
-                img.attr("src", src);
-            });
+            if (this.elements.iframe.hasClass(this.opts.classes.page.visible)) {
+                this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
+                    let img = $(_self);
+                    let src = img.attr(opts.attr.src);
+                    img.removeAttr(opts.attr.src);
+                    img.attr("src", src);
+                });
+            }
         };
 
         /**

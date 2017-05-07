@@ -133,7 +133,7 @@
             let childrenList = elm.next("ul");
 
             if (typeof instant === "undefined") {
-                instant = ext.firstRun === true;
+                instant = ext.firstRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false;
             }
 
             if (elm.hasClass(ext.opts.classes.sidebar.dirOpened)) { // close children
@@ -191,11 +191,10 @@
 
             if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
                 setTimeout(() => {
-                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                        ext.firstRun = false;
-                    }
+                    ext.firstRun = false;
 
                     ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"], () => {
+                        ext.initImages();
                         ext.endLoading(200);
                         ext.loaded();
                     });

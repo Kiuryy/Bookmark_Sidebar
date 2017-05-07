@@ -23,7 +23,7 @@
                 };
 
                 let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
-                    entriesList.forEach((entry) => {
+                    entriesList.forEach((entry,idx) => {
                         if (showHidden || hiddenEntries[entry.id] !== true) {
                             let thisParents = [...parents];
 
@@ -43,6 +43,11 @@
                             };
 
                             if (entry.url) { // bookmark
+                                if (ext.opts.demoMode) {
+                                    entry.title = "Bookmark " + (idx + 1);
+                                    entry.url = "https://example.com/";
+                                }
+
                                 let viewAmount = info.viewAmounts[entry.id] || info.viewAmounts["node_" + entry.id] || 0; // @deprecated info.views["node_123"] is now info.views["123"]
 
                                 entry.views.total = viewAmount;
@@ -55,6 +60,9 @@
 
                                 entries.bookmarks[entry.id] = entry;
                             } else if (entry.children) { // directory
+                                if (ext.opts.demoMode) {
+                                    entry.title = "Directory " + (idx + 1);
+                                }
                                 entry.childrenAmount = {
                                     bookmarks: 0,
                                     directories: 0,

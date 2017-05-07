@@ -170,6 +170,9 @@ div.contextmenu {
   }
 }
 
-section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'] {
-  right: 0;
+section#sidebar[data-pos='right'] {
+
+  div.contextmenu[data-type='menu'], div.contextmenu[data-type='sort'] {
+    right: 0;
+  }
 }

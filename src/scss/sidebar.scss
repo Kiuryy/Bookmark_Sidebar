@@ -154,6 +154,7 @@ section#sidebar {
     padding: 7px 12px 0 12px;
     background: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
     flex-shrink: 0;
     z-index: 3;
 

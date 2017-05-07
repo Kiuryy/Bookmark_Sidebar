@@ -252,7 +252,7 @@ div.contextmenu > ul.list > li > a[data-name='showInDir']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.svg);
 }
 
-section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'] {
+section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sidebar[data-pos='right'] div.contextmenu[data-type='sort'] {
   right: 0;
 }
 
@@ -399,6 +399,7 @@ section#sidebar > header {
   padding: 7px 12px 0 12px;
   background: "%colorScheme";
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   flex-shrink: 0;
   z-index: 3;
 }

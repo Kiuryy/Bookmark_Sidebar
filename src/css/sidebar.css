@@ -377,6 +377,15 @@ body.isDragged.dragCancel::after {
   background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(255, 153, 153, 0.3) 5px, rgba(255, 153, 153, 0.3) 10px);
 }
 
+body > textarea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: -1;
+}
+
 section#sidebar {
   position: relative;
   width: "%sidebarWidth";
@@ -513,7 +522,7 @@ section#sidebar > div.scrollBox > p {
 section#sidebar > div.scrollBox > div.filter {
   position: relative;
   background: #f5f5f5;
-  padding: 10px "%bookmarksHorizontalPadding";
+  padding: 10px "%bookmarksHorizontalPadding" 5px;
   margin: 0 0 -5px 0;
   transition: transform 0.3s, box-shadow 0.3s;
   z-index: 2;
@@ -523,7 +532,9 @@ section#sidebar > div.scrollBox > div.filter.hidden {
 }
 section#sidebar > div.scrollBox > div.filter > a[data-direction] {
   position: relative;
+  display: inline-block;
   cursor: pointer;
+  margin: 0 10px 5px 0;
   padding-left: 18px;
 }
 section#sidebar > div.scrollBox > div.filter > a[data-direction]::before {
@@ -548,6 +559,7 @@ section#sidebar > div.scrollBox > div.filter > a[data-direction][data-direction=
 }
 section#sidebar > div.scrollBox > div.filter > ul {
   float: right;
+  margin-bottom: 5px;
 }
 section#sidebar > div.scrollBox > div.filter > ul > li {
   position: relative;
@@ -597,12 +609,11 @@ section#sidebar > div.scrollBox > ul a {
   line-height: "%bookmarksLineHeight";
   padding: 0 "%bookmarksHorizontalPadding";
   white-space: nowrap;
-  overflow: hidden;
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
   position: relative;
 }
-section#sidebar > div.scrollBox > ul a:hover {
+section#sidebar > div.scrollBox > ul a.hover {
   background: #f5f5f5;
 }
 section#sidebar > div.scrollBox > ul a.mark {
@@ -614,6 +625,36 @@ section#sidebar > div.scrollBox > ul a.active {
 }
 section#sidebar > div.scrollBox > ul a.dir {
   font-weight: "%fontWeightBold";
+}
+section#sidebar > div.scrollBox > ul a > span.copied {
+  position: absolute;
+  top: -20px;
+  left: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px);
+  background: #5eba7d;
+  color: #fff;
+  font-size: 80%;
+  font-weight: "%fontWeightBold";
+  line-height: normal;
+  padding: 3px 5px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 5px, 0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+section#sidebar > div.scrollBox > ul a > span.copied::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 5px);
+  border: 5px solid transparent;
+  border-top-color: #5eba7d;
+}
+section#sidebar > div.scrollBox > ul a.copied {
+  background: rgba(94, 186, 125, 0.2);
+}
+section#sidebar > div.scrollBox > ul a.copied > span.copied {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon {
   position: relative;
@@ -790,7 +831,6 @@ a.dragHelper {
   line-height: "%bookmarksLineHeight";
   padding: 0 "%bookmarksHorizontalPadding";
   white-space: nowrap;
-  overflow: hidden;
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
   position: absolute;
@@ -800,7 +840,7 @@ a.dragHelper {
   transition: none;
   z-index: 3;
 }
-a.dragHelper:hover {
+a.dragHelper.hover {
   background: #f5f5f5;
 }
 a.dragHelper.mark {
@@ -812,6 +852,36 @@ a.dragHelper.active {
 }
 a.dragHelper.dir {
   font-weight: "%fontWeightBold";
+}
+a.dragHelper > span.copied {
+  position: absolute;
+  top: -20px;
+  left: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px);
+  background: #5eba7d;
+  color: #fff;
+  font-size: 80%;
+  font-weight: "%fontWeightBold";
+  line-height: normal;
+  padding: 3px 5px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 5px, 0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+a.dragHelper > span.copied::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 5px);
+  border: 5px solid transparent;
+  border-top-color: #5eba7d;
+}
+a.dragHelper.copied {
+  background: rgba(94, 186, 125, 0.2);
+}
+a.dragHelper.copied > span.copied {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 a.dragHelper > img, a.dragHelper > span.icon {
   position: relative;

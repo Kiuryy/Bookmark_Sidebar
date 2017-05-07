@@ -45,6 +45,16 @@ body {
   }
 }
 
+// Clipboard
+body > textarea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  z-index: -1;
+}
+
 // Sidebar
 @mixin bookmarkEntry {
   display: flex;
@@ -53,11 +63,10 @@ body {
   line-height: $__bookmarksLineHeight;
   padding: 0 $__bookmarksHorizontalPadding;
   white-space: nowrap;
-  overflow: hidden;
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
 
-  &:hover {
+  &.hover {
     background: $hoverBackground;
   }
 
@@ -72,6 +81,40 @@ body {
 
   &.dir {
     font-weight: $__fontWeightBold;
+  }
+
+  > span.copied {
+    position: absolute;
+    top: -20px;
+    left: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 10px);
+    background: $colorSuccess;
+    color: $textColorInverted;
+    font-size: 80%;
+    font-weight: $__fontWeightBold;
+    line-height: normal;
+    padding: 3px 5px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+    transition: opacity 0.3s, transform 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: calc(50% - 5px);
+      border: 5px solid transparent;
+      border-top-color: $colorSuccess;
+    }
+  }
+
+  &.copied {
+    background: rgba($colorSuccess, 0.2);
+
+    > span.copied {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   > img, > span.icon {
@@ -285,7 +328,7 @@ section#sidebar {
     > div.filter {
       position: relative;
       background: $hoverBackground;
-      padding: 10px $__bookmarksHorizontalPadding;
+      padding: 10px $__bookmarksHorizontalPadding 5px;
       margin: 0 0 -5px 0;
       transition: transform 0.3s, box-shadow 0.3s;
       z-index: 2;
@@ -297,7 +340,9 @@ section#sidebar {
       > a[data-direction] {
         @include mask('icon-arrow-up', $__textColor, 24px);
         position: relative;
+        display: inline-block;
         cursor: pointer;
+        margin: 0 10px 5px 0;
         padding-left: 18px;
 
         &::before {
@@ -314,6 +359,7 @@ section#sidebar {
 
       > ul {
         float: right;
+        margin-bottom: 5px;
 
         > li {
           position: relative;

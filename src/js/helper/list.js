@@ -428,6 +428,9 @@
             });
         };
 
+        /**
+         * Updates the html for the sort filterbox
+         */
         let updateSortFilter = () => {
             Object.keys(ext.elements.bookmarkBox).forEach((key) => {
                 let filterBox = ext.elements.bookmarkBox[key].children("div." + ext.opts.classes.sidebar.filterBox);

@@ -1,8 +1,8 @@
 [tdb]
  - Configurable icon for chrome menu
+ - Appearance previews language vars
  - Separators
  - dark theme
- - copy bookmark url
 
 [1.7]
  - Added sort functionality

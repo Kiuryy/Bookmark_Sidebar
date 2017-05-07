@@ -105,6 +105,7 @@
          */
         this.setScrollPos = (scrollBox, scrollPos, hidden = false) => {
             ext.helper.contextmenu.close();
+            scrollBox.data("list").find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
 
             let boxHeight = getScrollBoxHeight(scrollBox);
             let contentHeight = getContentHeight(scrollBox);

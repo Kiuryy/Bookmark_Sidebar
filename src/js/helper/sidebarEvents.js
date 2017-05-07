@@ -7,7 +7,9 @@
          * Initializes the helper
          */
         this.init = () => {
-            initEvents();
+            initBookmarkEntriesEvents();
+            initKeyboardEvents();
+            initGeneralEvents();
         };
 
         /**
@@ -35,22 +37,102 @@
         };
 
         /**
-         * Initializes the events for the sidebar
+         * Initializes the eventhandler for keyboard input
          */
-        let initEvents = () => {
+        let initKeyboardEvents = () => {
+            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => { // scroll to top with pos1
+                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+
+                    if (e.key === "Home") {
+                        e.preventDefault();
+                        ext.helper.scroll.setAllScrollPos(0);
+                    } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) {
+                        e.preventDefault();
+                        Object.values(ext.elements.bookmarkBox).forEach((box) => {
+                            if (box.hasClass(ext.opts.classes.sidebar.active)) {
+                                let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
+                                if (elm.length() > 0) {
+                                    let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+                                    if (data && data.url && ext.copyToClipboard(data.url)) {
+                                        $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
+                                        let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
+
+                                        setTimeout(() => {
+                                            $(elm).addClass(ext.opts.classes.sidebar.copied);
+
+                                            setTimeout(() => {
+                                                $(elm).removeClass(ext.opts.classes.sidebar.copied);
+
+                                                setTimeout(() => {
+                                                    copiedNotice.remove();
+                                                }, 500);
+                                            }, 1500);
+                                        }, 100);
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        };
+
+        /**
+         * Initializes the eventhandler for the bookmark entries
+         */
+        let initBookmarkEntriesEvents = () => {
+            Object.values(ext.elements.bookmarkBox).forEach((box) => {
+                box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
+                    e.preventDefault();
+
+                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
+                        let _self = $(e.currentTarget);
+                        let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
+
+                        if (data.isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
+                            ext.helper.list.toggleBookmarkDir(_self);
+                        } else if (!data.isDir) { // Click on link
+                            let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
+                            let newTab = e.which === 2 || config.linkAction === "newtab";
+                            this.openUrl(data, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
+                        }
+                    }
+                }).on("mouseover", "a", (e) => { // add class to currently hovered element
+                    box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                    $(e.currentTarget)
+                        .addClass(ext.opts.classes.sidebar.hover)
+                        .removeClass(ext.opts.classes.sidebar.mark);
+                }).on("contextmenu", "a", (e) => { // right click
+                    e.preventDefault();
+                    ext.helper.contextmenu.create("list", $(e.currentTarget));
+                });
+
+                box.children("ul").on("mouseleave", (e) => {
+                    $(e.currentTarget).find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                });
+
+                box.children("div." + ext.opts.classes.sidebar.filterBox).on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
+                    e.preventDefault();
+                    let currentDirection = $(e.target).attr(ext.opts.attr.direction);
+                    let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
+                    ext.helper.list.updateDirection(newDirection);
+                }).on("click", "div." + ext.opts.classes.checkbox.box + " + a", (e) => { // trigger checkbox (viewAsTree or mostViewedPerMonth)
+                    e.preventDefault();
+                    $(e.target).prev("div[" + ext.opts.attr.name + "]").trigger("click");
+                });
+            });
+        };
+
+        /**
+         * Initializes general events for the sidebar
+         */
+        let initGeneralEvents = () => {
             $(window).on("beforeunload", () => { // save scroll position before unloading page
                 if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // sidebar has been open or is still open
                     ext.helper.scroll.updateAll(true, true);
                 }
             }).on("resize", () => {
                 ext.helper.scroll.updateAll(true);
-            });
-
-            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => { // scroll to top with pos1
-                if (e.key === "Home" && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                    e.preventDefault();
-                    ext.helper.scroll.setAllScrollPos(0);
-                }
             });
 
             ext.elements.iframe.find("body").on("click", () => {
@@ -71,42 +153,6 @@
                     share: $(e.currentTarget).data("accept")
                 });
                 ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.hidden);
-            });
-
-            Object.values(ext.elements.bookmarkBox).forEach((box) => {
-                box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
-                    e.preventDefault();
-
-                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
-                        let _self = $(e.currentTarget);
-                        let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
-
-                        if (data.isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
-                            ext.helper.list.toggleBookmarkDir(_self);
-                        } else if (!data.isDir) { // Click on link
-                            let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
-                            let newTab = e.which === 2 || config.linkAction === "newtab";
-                            this.openUrl(data, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
-                        }
-                    }
-                }).on("mouseover", "a", (e) => {
-                    if ($(e.currentTarget).hasClass(ext.opts.classes.sidebar.mark)) {
-                        $(e.currentTarget).removeClass(ext.opts.classes.sidebar.mark);
-                    }
-                }).on("contextmenu", "a", (e) => { // right click
-                    e.preventDefault();
-                    ext.helper.contextmenu.create("list", $(e.currentTarget));
-                });
-
-                box.children("div." + ext.opts.classes.sidebar.filterBox).on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
-                    e.preventDefault();
-                    let currentDirection = $(e.target).attr(ext.opts.attr.direction);
-                    let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
-                    ext.helper.list.updateDirection(newDirection);
-                }).on("click", "div." + ext.opts.classes.checkbox.box + " + a", (e) => { // trigger checkbox (viewAsTree or mostViewedPerMonth)
-                    e.preventDefault();
-                    $(e.target).prev("div[" + ext.opts.attr.name + "]").trigger("click");
-                });
             });
 
             $(ext.elements.iframe[0].contentDocument).on(ext.opts.events.checkboxChanged, (e) => { // set sort specific config and reload list

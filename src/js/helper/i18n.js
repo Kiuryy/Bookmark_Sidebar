@@ -17,7 +17,10 @@
          */
         this.init = (callback) => {
             ext.helper.model.call("languageInfos", (obj) => {
-                let lang = this.getLanguage();
+                let lang = ext.helper.model.getData("a/language");
+                if (lang === "default") {
+                    lang = chrome.i18n.getUILanguage();
+                }
                 let defaultLang = this.getDefaultLanguage();
 
                 [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
@@ -64,7 +67,7 @@
          * @returns {Intl.Collator}
          */
         this.getLocaleSortCollator = () => {
-           return new Intl.Collator([chrome.i18n.getUILanguage(), this.getDefaultLanguage()]);
+            return new Intl.Collator([chrome.i18n.getUILanguage(), this.getDefaultLanguage()]);
         };
 
         /**

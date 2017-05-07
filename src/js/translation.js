@@ -34,6 +34,7 @@
                 languagesSelect: "languages",
                 edit: "edit",
                 success: "success",
+                empty: "empty",
                 incomplete: "incomplete"
             },
             attr: {
@@ -324,15 +325,14 @@
                                 name: field.name
                             }).text(val).appendTo(entry);
 
-                            if (languages[lang].available && val.length === 0) { // incomplete notice for already released translations
-                                entry.addClass(this.opts.classes.incomplete);
-                                entry.children("label").attr("title", this.helper.i18n.get("translation_incomplete_info"));
+                            if (val.length === 0) { // mark empty fields
+                                entry.addClass(this.opts.classes.empty);
                             }
                         });
 
                         $("<span />").html("<span>" + varsAmount.filled + "</span>/" + varsAmount.total).insertBefore(list);
 
-                        if (languages[lang].available && varsAmount.total > varsAmount.filled) { // incomplete notice for already released translations
+                        if (languages[lang].available && varsAmount.filled > 0 && varsAmount.total > varsAmount.filled) { // incomplete notice for already released translations
                             wrapper.addClass(this.opts.classes.incomplete);
                             wrapper.children("a").attr("title", this.helper.i18n.get("translation_incomplete_info"));
                         }

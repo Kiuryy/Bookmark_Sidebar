@@ -614,6 +614,26 @@ section#content > div[data-name='langvars'] > div > div.category.incomplete > a:
 section#content > div[data-name='langvars'] > div > div.category.incomplete > a::before {
   -webkit-mask-position-x: right;
 }
+section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > label {
+  padding-left: 22px;
+}
+section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > label::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/18px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > label::before {
+  -webkit-mask-position-x: left;
+}
+section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > textarea {
+  border: 1px solid #f5c525;
+}
 section#content > div[data-name='langvars'] > div > div.category > strong {
   display: inline-block;
   font-weight: 300;
@@ -677,26 +697,6 @@ section#content > div[data-name='langvars'] > div > div.category.active > ul > l
   border: none;
   outline: none;
   background: #f2f2f2;
-}
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > label {
-  padding-left: 22px;
-}
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > label::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask: no-repeat center/18px;
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
-  background-color: #f5c525;
-}
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > label::before {
-  -webkit-mask-position-x: left;
-}
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li.incomplete > textarea {
-  border: 1px solid #f5c525;
 }
 section#content > div.loading > div, section#content > div.loading > header > * {
   display: none;

@@ -213,6 +213,22 @@ section#content {
             &::before {
               -webkit-mask-position-x: right;
             }
+
+            > ul > li.empty {
+
+              > label {
+                @include mask('icon-info', $colorNotice, 18px);
+                padding-left: 22px;
+
+                &::before {
+                  -webkit-mask-position-x: left;
+                }
+              }
+
+              > textarea {
+                border: 1px solid $colorNotice;
+              }
+            }
           }
 
           > strong {
@@ -291,22 +307,6 @@ section#content {
                   border: none;
                   outline: none;
                   background: $bodyBackground;
-                }
-
-                &.incomplete {
-
-                  > label {
-                    @include mask('icon-info', $colorNotice, 18px);
-                    padding-left: 22px;
-
-                    &::before {
-                      -webkit-mask-position-x: left;
-                    }
-                  }
-
-                  > textarea {
-                    border: 1px solid $colorNotice;
-                  }
                 }
               }
             }

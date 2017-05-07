@@ -228,7 +228,7 @@
             let ret = false;
 
             Object.keys(langCategories).some((name) => {
-                if (allCategories[name] > langCategories[name]) {
+                if (name !== "Settings" && allCategories[name] > langCategories[name]) {
                     ret = true;
                     return true;
                 }
@@ -423,7 +423,7 @@
                 wrapper.toggleClass(this.opts.classes.active);
 
                 if (wrapper.hasClass(this.opts.classes.active) && wrapper.hasClass(this.opts.classes.incomplete)) { // scroll to the first incomplete field of the clicked category
-                    this.opts.elm.wrapper.langvars.children("div")[0].scrollTop = wrapper[0].offsetTop + wrapper.find("li." + this.opts.classes.incomplete)[0].offsetTop - 50;
+                    this.opts.elm.wrapper.langvars.children("div")[0].scrollTop = wrapper[0].offsetTop + wrapper.find("li." + this.opts.classes.empty)[0].offsetTop - 50;
                 }
             });
 

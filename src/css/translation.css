@@ -614,10 +614,10 @@ section#content > div[data-name='langvars'] > div > div.category.incomplete > a:
 section#content > div[data-name='langvars'] > div > div.category.incomplete > a::before {
   -webkit-mask-position-x: right;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > label {
+section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > label {
   padding-left: 22px;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > label::before {
+section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > label::before {
   content: "";
   position: absolute;
   top: 0;
@@ -628,10 +628,10 @@ section#content > div[data-name='langvars'] > div > div.category.incomplete > a 
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
   background-color: #f5c525;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > label::before {
+section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > label::before {
   -webkit-mask-position-x: left;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > a > ul > li.empty > textarea {
+section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > textarea {
   border: 1px solid #f5c525;
 }
 section#content > div[data-name='langvars'] > div > div.category > strong {

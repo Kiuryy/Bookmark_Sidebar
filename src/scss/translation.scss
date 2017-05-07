@@ -207,11 +207,14 @@ section#content {
             height: 40px;
           }
 
-          &.incomplete > a {
-            @include mask('icon-info', $colorNotice, 26px);
+          &.incomplete {
 
-            &::before {
-              -webkit-mask-position-x: right;
+            > a {
+              @include mask('icon-info', $colorNotice, 26px);
+
+              &::before {
+                -webkit-mask-position-x: right;
+              }
             }
 
             > ul > li.empty {

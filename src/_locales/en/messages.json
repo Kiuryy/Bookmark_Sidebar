@@ -20,6 +20,9 @@
     "sidebar_search_no_results": {
         "message": "No bookmarks matching your search value"
     },
+    "sidebar_copied_to_clipboard": {
+        "message": "Url copied"
+    },
     "contextmenu_settings": {
         "message": "Settings"
     },
@@ -62,14 +65,14 @@
     "contextmenu_open_children": {
         "message": "Open bookmarks"
     },
-    "contextmenu_show_in_dir": {
-        "message": "Show in directory"
-    },
     "contextmenu_hide_from_sidebar": {
         "message": "Hide from sidebar"
     },
     "contextmenu_show_in_sidebar": {
         "message": "Show in sidebar"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Show in directory"
     },
     "sort_label_custom": {
         "message": "User-defined"
@@ -111,16 +114,16 @@
         "message": "Update"
     },
     "overlay_open_children": {
-        "message": "Open children"
+        "message": "Open all"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Do you really want to open all {1} subordinate bookmarks?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Hide from sidebar"
     },
     "overlay_hide_bookmark_confirm": {
         "message": "Do you really want to hide this bookmark from the sidebar?"
-    },
-    "overlay_confirm_open_children": {
-        "message": "Do you really want to open all {1} subordinate bookmarks?"
     },
     "overlay_hide_dir_confirm": {
         "message": "Do you really want to hide this directory from the sidebar? All subordinate bookmarks will be hidden too."

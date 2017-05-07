@@ -232,5 +232,50 @@
     },
     "changelog_close": {
         "message": "Diese Seite schlie\u00dfen"
+    },
+    "translation_title": {
+        "message": "\u00dcbersetzen"
+    },
+    "translation_headline_overview": {
+        "message": "Verf\u00fcgbare Sprachen"
+    },
+    "translation_edit": {
+        "message": "\u00dcbersetzung bearbeiten"
+    },
+    "translation_add": {
+        "message": "Sprache hinzuf\u00fcgen"
+    },
+    "translation_progress": {
+        "message": "Fortschritt"
+    },
+    "translation_back_to_overview": {
+        "message": "Zur\u00fcck zur \u00dcbersicht"
+    },
+    "translation_contribution_info": {
+        "message": "Hier kannst du vorhandene \u00dcbersetzungen bearbeiten, oder fehlende hinzuf\u00fcgen. Wenn du deine \u00c4nderungen absendest, werde ich die Eingabe \u00fcberpr\u00fcfen und anschlie\u00dfend freigeben."
+    },
+    "translation_contribution_notice1": {
+        "message": "Du musst nicht jede Kategorie \u00fcbersetzen, sobald alle f\u00fcr das Frontend relevanten Texte \u00fcbersetzt wurden, wird die Sprache freigegeben."
+    },
+    "translation_contribution_notice2": {
+        "message": "Um halb \u00fcbersetzte Texte zu vermeiden, werden unvollst\u00e4ndige Kategorien nicht freigegeben (z.B. ein paar Sortieroptionen sind \u00fcbersetzt, ein paar jedoch nicht)"
+    },
+    "translation_submit": {
+        "message": "Absenden"
+    },
+    "translation_submit_message": {
+        "message": "Deine \u00dcbersetzung wurde erfolgreich \u00fcbermittelt"
+    },
+    "translation_status_released": {
+        "message": "\u00dcbersetzung ist vorhanden"
+    },
+    "translation_status_incomplete": {
+        "message": "\u00dcbersetzung ist vorhanden, aber durch ein Update sind manche Kategorien unvollst\u00e4ndig"
+    },
+    "translation_status_draft": {
+        "message": "\u00dcbersetzung ist unvollst\u00e4ndig, oder m\u00fcssen noch \u00fcberpr\u00fcft werden und ist nicht f\u00fcr andere verf\u00fcgbar"
+    },
+    "translation_incomplete_info": {
+        "message": "Durch ein Update sind die Sprachvariablen unvollst\u00e4ndig"
     }
 }

@@ -187,6 +187,7 @@
                 $("<div />").addClass(opts.classes.sidebar.filterBox).prependTo(this.elements.bookmarkBox[val]);
             });
 
+            this.elements.iframeBody.attr(opts.attr.dragCancel, this.helper.i18n.get("sidebar_drag_cancel"));
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 

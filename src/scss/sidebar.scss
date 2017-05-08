@@ -17,7 +17,7 @@ body {
   overflow: hidden;
 
   &::after {
-    content: "Cancel";
+    content: attr(data-dragCancel);
     position: absolute;
     display: flex;
     align-items: center;
@@ -452,7 +452,7 @@ section#sidebar {
 
           > a {
             visibility: hidden;
-            line-height: 35px;
+            line-height: calc(#{$__bookmarksLineHeight} - 6px);
 
             > img {
               visibility: hidden;

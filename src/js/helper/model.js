@@ -33,7 +33,7 @@
                 openStates: {},
                 hiddenEntries: {},
                 scrollPos: {},
-                entriesLocked: true,
+                entriesLocked: false,
                 sort: {
                     name: "custom",
                     dir: "ASC"

@@ -484,6 +484,7 @@ body > header > ul.tabBar > li {
   display: inline-block;
   margin: 0 20px;
   height: 34px;
+  min-width: 50px;
 }
 body > header > ul.tabBar > li > a {
   position: relative;
@@ -571,6 +572,7 @@ body > header > ul.tabBar > li[data-name='help'] {
   margin: 0;
   height: 42px;
   width: 42px;
+  min-width: auto;
   border-radius: 50%;
   transition: background 0.5s;
 }
@@ -820,11 +822,11 @@ body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a
   border: 2px solid #2b35c8;
 }
 body[data-tab='appearance'] section#content > div.tab ul.labels {
-  padding: 7px 0 10px 0;
+  padding: 7px 0 5px 0;
 }
 body[data-tab='appearance'] section#content > div.tab ul.labels > li {
   display: inline-block;
-  margin: 0 4px 0 0;
+  margin: 0 4px 8px 0;
 }
 body[data-tab='appearance'] section#content > div.tab ul.labels > li > a {
   display: block;
@@ -1025,6 +1027,7 @@ div.configEntry div.sub label {
   vertical-align: top;
   font-weight: 300;
   min-width: 80px;
+  margin-right: 10px;
 }
 div.configEntry p {
   font-size: 90%;

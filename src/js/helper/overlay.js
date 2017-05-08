@@ -74,6 +74,7 @@
          */
         let closeOverlay = () => {
             ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
+            ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
             elements.overlay.removeClass(ext.opts.classes.page.visible);
 
             setTimeout(() => { // delay or it will not work properly
@@ -168,22 +169,28 @@
 
         /**
          * Extends the overlay html for adding a bookmark or directory
+         *
+         * @param {object} data
          */
-        let handleAddHtml = () => {
+        let handleAddHtml = (data) => {
             let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
             let menu = $("<menu />").appendTo(elements.modal);
-            $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
+            let bookmarkLink = $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
             $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
 
             menu.children("a").on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
                 let list = $("<ul />").appendTo(elements.modal);
+
+                let titleValue = data && data.values && data.values.title ? data.values.title : "";
+                let urlValue = data && data.values && data.values.url ? data.values.url : "";
+
                 list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
-                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' /></li>");
+                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue + "' /></li>");
 
                 if (type === "bookmark") {
-                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' /></li>");
+                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue + "'  /></li>");
                 }
 
                 menu.addClass(ext.opts.classes.sidebar.hidden);
@@ -191,8 +198,12 @@
                 setTimeout(() => {
                     list.addClass(ext.opts.classes.overlay.visible);
                     submit.addClass(ext.opts.classes.overlay.visible);
-                }, 100);
+                }, data && data.values ? 0 : 100);
             });
+
+            if (data && data.values) { // add bookmark with existing data (e.g. after dragging url into sidebar)
+                bookmarkLink.trigger("click");
+            }
         };
 
         /**
@@ -457,12 +468,24 @@
             let formValues = getFormValues(elements.modal.find("input[name='url']").length() === 0);
 
             if (formValues.errors === false) {
-                ext.helper.model.call("createBookmark", {
-                    parentId: data.id,
-                    index: 0,
+                let obj = {
                     title: formValues.values.title,
-                    url: formValues.values.url
-                }, (result) => {
+                    url: formValues.values.url,
+                    parentId: data.id || null,
+                    index: 0
+                };
+
+                if (data && data.values) { // use given data (available e.g. after dragging a url into the sidebar)
+                    if (data.values.index) {
+                        obj.index = data.values.index;
+                    }
+
+                    if (data.values.parentId) {
+                        obj.parentId = data.values.parentId;
+                    }
+                }
+
+                ext.helper.model.call("createBookmark", obj, (result) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {

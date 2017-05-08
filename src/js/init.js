@@ -112,6 +112,7 @@
             value: "data-value",
             sort: "data-sort",
             direction: "data-direction",
+            dragCancel: "data-dragCancel",
             id: "data-id"
         },
         events: {

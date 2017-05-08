@@ -21,6 +21,7 @@ body > header {
       display: inline-block;
       margin: 0 20px;
       height: $tabHeight;
+      min-width: 50px;
 
       > a {
         position: relative;
@@ -110,6 +111,7 @@ body > header {
         margin: 0;
         height: 42px;
         width: 42px;
+        min-width: auto;
         border-radius: 50%;
         transition: background 0.5s;
 
@@ -440,11 +442,11 @@ body[data-tab='appearance'] {
       }
 
       ul.labels {
-        padding: 7px 0 10px 0;
+        padding: 7px 0 5px 0;
 
         > li {
           display: inline-block;
-          margin: 0 4px 0 0;
+          margin: 0 4px 8px 0;
 
           > a {
             display: block;
@@ -672,8 +674,8 @@ div.configEntry {
       vertical-align: top;
       font-weight: 300;
       min-width: 80px;
+      margin-right: 10px;
     }
-
   }
 
   p {

@@ -102,7 +102,7 @@ div.scrollBox.scrollTrackpad > div.scrollbar > div {
 div.contextmenu {
   position: absolute;
   top: 0;
-  width: 250px;
+  min-width: 250px;
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
@@ -115,13 +115,11 @@ div.contextmenu[data-type='list'] {
   margin: 0 0 0 10px;
 }
 div.contextmenu[data-type='menu'] {
-  width: 200px;
-  right: -70px;
+  right: -95px;
   margin-top: -2px;
 }
 div.contextmenu[data-type='sort'] {
-  width: 200px;
-  right: -40px;
+  right: -60px;
   margin-top: -2px;
 }
 div.contextmenu.visible {
@@ -353,7 +351,7 @@ body {
   overflow: hidden;
 }
 body::after {
-  content: "Cancel";
+  content: attr(data-dragCancel);
   position: absolute;
   display: flex;
   align-items: center;
@@ -764,7 +762,7 @@ section#sidebar > div.scrollBox > ul li.isDragged {
 }
 section#sidebar > div.scrollBox > ul li.isDragged > a {
   visibility: hidden;
-  line-height: 35px;
+  line-height: calc(%bookmarksLineHeight - 6px);
 }
 section#sidebar > div.scrollBox > ul li.isDragged > a > img {
   visibility: hidden;

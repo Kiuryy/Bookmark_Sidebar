@@ -515,7 +515,6 @@
              * @returns {jsuNode}
              */
             [on](eventStr, callbackOrElm, callbackOrOpts, optsOrWantsUntrusted, wantsUntrusted) {
-                let x = 0;
                 let updateEventObject = (e, overrideObj) => {
                     Object.keys(overrideObj)[forEach]((key) => {
                         try {

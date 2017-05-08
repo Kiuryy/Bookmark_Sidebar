@@ -2,7 +2,7 @@
 div.contextmenu {
   position: absolute;
   top: 0;
-  width: 250px;
+  min-width: 250px;
   background: $contentBackground;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
@@ -17,14 +17,12 @@ div.contextmenu {
   }
 
   &[data-type='menu'] {
-    width: 200px;
-    right: -70px;
+    right: -95px;
     margin-top: -2px;
   }
 
   &[data-type='sort'] {
-    width: 200px;
-    right: -40px;
+    right: -60px;
     margin-top: -2px;
   }
 

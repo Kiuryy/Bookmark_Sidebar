@@ -1,9 +1,14 @@
 [tdb]
  - Configurable icon for chrome menu
  - Appearance previews language vars
- - keyboard shortcut help
+ - helpful hints
+ - default fonts according to language
  - Separators
  - dark theme
+
+[1.8]
+ - Added many translations
+ - Extended Drag&Drop (drop links into the sidebar)
 
 [1.7]
  - Added sort functionality

@@ -62,13 +62,15 @@
 
             ext.elements.sidebar.on("mouseleave", () => {
                 if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0
+                    && ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
                     && ext.elements.sidebar.find("." + ext.opts.classes.scrollBox.scrollDrag).length() === 0
-                    && ext.elements.iframeBody.find("li." + ext.opts.classes.drag.dragInitial).length() === 0
                 ) {
                     let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
                     timeout.close = setTimeout(() => {
-                        closeSidebar();
+                        if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
+                            closeSidebar();
+                        }
                     }, +closeTimeoutRaw * 1000);
                 }
             }).on("mouseenter", () => {
@@ -92,7 +94,7 @@
                 }
             }).on("mouseout", () => {
                 clearSidebarTimeout("open");
-            }).on("mousemove", (e) => { // check mouse position
+            }).on("mousemove dragover", (e) => { // check mouse position
                 if (isMousePosInPixelTolerance(e.pageX)) {
                     ext.elements.toggle.addClass(ext.opts.classes.page.hover);
                 } else {
@@ -101,7 +103,7 @@
             }, {passive: true});
 
             chrome.extension.onMessage.addListener((message) => {
-                if (message && message.action && message.action === "toggleSidebar") {
+                if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
                     if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                         closeSidebar();
                     } else {
@@ -114,8 +116,8 @@
             let openDelayRaw = ext.helper.model.getData("b/openDelay");
 
             if (openAction !== "icon") {
-                $(document).on(openAction, (e) => {
-                    if (e.isTrusted && (openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
+                $(document).on(openAction + " dragover", (e) => {
+                    if (e.isTrusted && (e.type === "dragover" || openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
 

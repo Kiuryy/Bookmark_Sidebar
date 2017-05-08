@@ -23,6 +23,9 @@
     "sidebar_copied_to_clipboard": {
         "message": "Url kopiert"
     },
+    "sidebar_drag_cancel": {
+        "message": "Abbrechen"
+    },
     "contextmenu_settings": {
         "message": "Einstellungen"
     },
@@ -273,7 +276,7 @@
         "message": "\u00dcbersetzung ist vorhanden, aber durch ein Update sind manche Kategorien unvollst\u00e4ndig"
     },
     "translation_status_draft": {
-        "message": "\u00dcbersetzung ist unvollst\u00e4ndig, oder m\u00fcssen noch \u00fcberpr\u00fcft werden und ist nicht f\u00fcr andere verf\u00fcgbar"
+        "message": "\u00dcbersetzung ist unvollst\u00e4ndig, oder muss noch \u00fcberpr\u00fcft werden und ist nicht f\u00fcr andere verf\u00fcgbar"
     },
     "translation_incomplete_info": {
         "message": "Durch ein Update sind die Sprachvariablen unvollst\u00e4ndig"

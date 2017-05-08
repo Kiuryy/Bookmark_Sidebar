@@ -23,6 +23,9 @@
     "sidebar_copied_to_clipboard": {
         "message": "URL\u304c\u30b3\u30d4\u30fc\u3055\u308c\u307e\u3057\u305f"
     },
+    "sidebar_drag_cancel": {
+        "message": "\u30ad\u30e3\u30f3\u30bb\u30eb"
+    },
     "contextmenu_settings": {
         "message": "\u8a2d\u5b9a"
     },

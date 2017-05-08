@@ -1,0 +1,179 @@
+{
+    "extension_name": {
+        "message": "Thanh D\u1ea5u Trang"
+    },
+    "extension_desc": {
+        "message": "Th\u00eam thanh tr\u01b0\u1ee3t v\u1edbi t\u1ea5t c\u1ea3 d\u1ea5u trang c\u1ee7a b\u1ea1n \u1edf b\u00ean tr\u00e1i m\u00e0n h\u00ecnh"
+    },
+    "header_bookmarks": {
+        "message": "C\u00e1c D\u1ea5u Trang"
+    },
+    "header_bookmarks_single": {
+        "message": "D\u1ea5u Trang"
+    },
+    "sidebar_dir_children": {
+        "message": "Ph\u1ea7n T\u1eed"
+    },
+    "sidebar_search_placeholder": {
+        "message": "T\u00ecm ki\u1ebfm"
+    },
+    "sidebar_search_no_results": {
+        "message": "Kh\u00f4ng c\u00f3 d\u1ea5u trang n\u00e0o kh\u1edbp"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "\u0110\u00e3 sao ch\u00e9p url"
+    },
+    "sidebar_drag_cancel": {
+        "message": "H\u1ee7y b\u1ecf"
+    },
+    "contextmenu_settings": {
+        "message": "C\u00e0i \u0111\u1eb7t"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Qu\u1ea3n l\u00fd d\u1ea5u trang"
+    },
+    "contextmenu_update_urls": {
+        "message": "C\u1eadp nh\u1eadt url"
+    },
+    "contextmenu_toggle_fix": {
+        "message": "Kh\u00f3a \u0111\u1ed1i t\u01b0\u1ee3ng"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Hi\u1ec7n \u0111\u1ed1i t\u01b0\u1ee3ng \u1ea9n"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "X\u00f3a d\u1ea5u trang"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Ch\u1ec9nh s\u1eeda d\u1ea5u trang"
+    },
+    "contextmenu_delete_dir": {
+        "message": "X\u00f3a th\u01b0 m\u1ee5c"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Ch\u1ec9nh s\u1eeda th\u01b0 m\u1ee5c"
+    },
+    "contextmenu_infos": {
+        "message": "Th\u00f4ng tin"
+    },
+    "contextmenu_new_tab": {
+        "message": "M\u1edf trong trang m\u1edbi"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "M\u1edf trong c\u1eeda s\u1ed5 kh\u00e1c"
+    },
+    "contextmenu_add": {
+        "message": "Th\u00eam \u0111\u1ed1i t\u01b0\u1ee3ng"
+    },
+    "contextmenu_open_children": {
+        "message": "M\u1edf d\u1ea5u trang"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "\u1ea8n"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Hi\u1ec7n"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Hi\u1ec7n trong th\u01b0 m\u1ee5c"
+    },
+    "sort_label_custom": {
+        "message": "Ng\u01b0\u1eddi d\u00f9ng \u0111\u1eb7t"
+    },
+    "sort_label_alphabetical": {
+        "message": "Th\u1ee9 t\u1ef1 ch\u1eef c\u00e1i"
+    },
+    "sort_label_most_used": {
+        "message": "D\u00f9ng nhi\u1ec1u nh\u1ea5t"
+    },
+    "sort_label_recently_added": {
+        "message": "Th\u00eam g\u1ea7n \u0111\u00e2y"
+    },
+    "sort_view_as_tree": {
+        "message": "Hi\u1ec7n th\u01b0 m\u1ee5c"
+    },
+    "sort_most_used_per_month": {
+        "message": "H\u00e0ng th\u00e1ng"
+    },
+    "overlay_bookmark_title": {
+        "message": "Ti\u00eau \u0111\u1ec1"
+    },
+    "overlay_bookmark_url": {
+        "message": "\u0110\u1ecba ch\u1ec9"
+    },
+    "overlay_cancel": {
+        "message": "H\u1ee7y b\u1ecf"
+    },
+    "overlay_close": {
+        "message": "\u0110\u00f3ng"
+    },
+    "overlay_save": {
+        "message": "L\u01b0u"
+    },
+    "overlay_delete": {
+        "message": "X\u00f3a"
+    },
+    "overlay_update": {
+        "message": "C\u1eadp nh\u1eadt"
+    },
+    "overlay_open_children": {
+        "message": "M\u1edf to\u00e0n b\u1ed9"
+    },
+    "overlay_confirm_open_children": {
+        "message": "B\u1ea1n c\u00f3 mu\u1ed1n m\u1edf to\u00e0n b\u1ed9 {1} d\u1ea5u trang?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "\u1ea8n"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "B\u1ea1n c\u00f3 mu\u1ed1n \u1ea9n d\u1ea5u trang n\u00e0y?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "B\u1ea1n c\u00f3 mu\u1ed1n \u1ea9n th\u01b0 m\u1ee5c n\u00e0y?"
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "B\u1ea1n c\u00f3 mu\u1ed1n x\u00f3a d\u1ea5u trang n\u00e0y?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "B\u1ea1n c\u00f3 mu\u1ed1n x\u00f3a th\u01b0 m\u1ee5c n\u00e0y?"
+    },
+    "overlay_label_bookmark": {
+        "message": "D\u1ea5u trang"
+    },
+    "overlay_label_dir": {
+        "message": "Th\u01b0 m\u1ee5c"
+    },
+    "overlay_bookmark_views": {
+        "message": "Xem nhi\u1ec1u"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Xem"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Ghi l\u1ea1i t\u1eeb"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "h\u00e0ng th\u00e1ng"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Ng\u00e0y t\u1ea1o"
+    },
+    "overlay_dir_children": {
+        "message": "C\u00e1c ph\u1ea7n t\u1eed"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "C\u00e1c d\u1ea5u trang"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "C\u00e1c th\u01b0 m\u1ee5c"
+    },
+    "overlay_check_urls_loading": {
+        "message": "\u0110ang ki\u1ec3m tra \u0111\u1ecba ch\u1ec9 c\u1ee7a d\u1ea5u trang"
+    },
+    "overlay_check_urls_no_results": {
+        "message": "\u0110\u1ecba ch\u1ec9 c\u1ee7a to\u00e0n b\u1ed9 d\u1ea5u trang \u0111\u1ec1u \u1ed5n"
+    },
+    "overlay_check_urls_not_found": {
+        "message": "Kh\u00f4ng t\u00ecm th\u1ea5y \u0111\u1ecba ch\u1ec9"
+    }
+}

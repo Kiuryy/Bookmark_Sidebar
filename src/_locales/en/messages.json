@@ -23,6 +23,9 @@
     "sidebar_copied_to_clipboard": {
         "message": "Url copied"
     },
+    "sidebar_drag_cancel": {
+        "message": "Cancel"
+    },
     "contextmenu_settings": {
         "message": "Settings"
     },
@@ -33,7 +36,7 @@
         "message": "Update urls"
     },
     "contextmenu_toggle_fix": {
-        "message": "Pin entries"
+        "message": "Lock entries"
     },
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
@@ -333,7 +336,7 @@
         "message": "Show only current directory"
     },
     "settings_dir_accordion_desc": {
-        "message": "Closes all directories exceed the currently active one."
+        "message": "Closes all directories except the currently active one."
     },
     "settings_remember_state": {
         "message": "Remember"

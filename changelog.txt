@@ -1,6 +1,7 @@
 [tdb]
  - Configurable icon for chrome menu
  - Appearance previews language vars
+ - keyboard shortcut help
  - Separators
  - dark theme
 

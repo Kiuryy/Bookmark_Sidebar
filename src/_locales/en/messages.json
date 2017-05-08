@@ -180,7 +180,7 @@
         "message": "To improve this extension I need to know better about how you use the sidebar."
     },
     "share_userdata_desc2": {
-        "message": "If you agree to share your settings anonymously you can help me alot :)"
+        "message": "If you agree to share your settings anonymously you can help me alot."
     },
     "share_userdata_notice": {
         "message": "Information about your bookmarks [b]will not[\/b] be transfered."
@@ -213,7 +213,7 @@
         "message": "{1} click with your mouse to open the sidebar"
     },
     "howto_tutorial_text_3": {
-        "message": "Now you can access all your bookmarks and enjoy this extension :)"
+        "message": "Now you can access all your bookmarks and enjoy this extension"
     },
     "howto_tutorial_left": {
         "message": "left"

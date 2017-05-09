@@ -107,7 +107,6 @@
                 feedback: "https://blockbyte.de/ajax/extensions/feedback",
                 translationInfo: "https://blockbyte.de/ajax/extensions/bs/i18n/info"
             },
-            fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
             manifest: chrome.runtime.getManifest()
         };
@@ -122,8 +121,8 @@
             this.helper.model.init(() => {
                 this.helper.i18n.init(() => {
                     this.helper.font.init();
-                    //this.helper.stylesheet.init();
-                    //this.helper.stylesheet.addStylesheets(["settings"]);
+                    this.helper.stylesheet.init();
+                    this.helper.stylesheet.addStylesheets(["settings"], $(document));
                     initHeaderTabs();
 
                     this.helper.form.init(() => {
@@ -139,6 +138,8 @@
 
                         initButtonEvents();
                         initContentTabs();
+
+                        this.opts.elm.body.removeClass(this.opts.classes.loading);
                     });
                 });
             });

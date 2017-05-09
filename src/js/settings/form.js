@@ -164,9 +164,12 @@
                             let max = elm.max || 100;
                             let min = elm.min || 0;
                             let val = Math.round(100 * (elm.value - min) / (max - min));
-                            let backgroundSize = s.opts.elm.range[name].css('background-size').replace(/^.*\s/, val + "% ");
 
-                            s.opts.elm.range[name].css('background-size', backgroundSize);
+                            let backgroundSize = s.opts.elm.range[name].css('background-size').replace(/^.*\s/, val + "% ");
+                            if (backgroundSize !== "auto") {
+                                s.opts.elm.range[name].css('background-size', backgroundSize);
+                            }
+
                             valTooltip.text(elm.value + unit);
                         });
                         s.opts.elm.range[name].trigger("input");

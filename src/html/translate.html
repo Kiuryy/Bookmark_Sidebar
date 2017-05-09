@@ -3,14 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <title data-i18n="translation_title">Translate</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i' rel='stylesheet' type='text/css' />
-    <link rel='stylesheet' type='text/css' href='/css/translation.css' />
-    <script src="/js/lib/jsu.js"></script>
+    <style>
+        body.loading > * {
+            display: none !important;
+        }
+    </style>
 </head>
 
-<body>
-<header>
-</header>
+<body class="loading">
+<header></header>
 
 <section id="content">
     <a href="#" class="back" data-i18n="translation_back_to_overview">Back</a>
@@ -41,6 +42,8 @@
 
 <script src="/js/lib/jsu.js"></script>
 <script src='/js/helper/i18n.js'></script>
+<script src='/js/helper/font.js'></script>
+<script src='/js/helper/stylesheet.js'></script>
 <script src='/js/helper/template.js'></script>
 <script src='/js/helper/model.js'></script>
 <script src='/js/translation.js'></script>

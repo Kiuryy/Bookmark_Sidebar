@@ -11,6 +11,7 @@
 
         this.opts = {
             elm: {
+                body: $("body"),
                 title: $("head > title"),
                 thanks: $("section#thanks"),
                 tutorial: $("section#tutorial"),
@@ -20,7 +21,8 @@
             },
             classes: {
                 visible: "visible",
-                reversed: "reversed"
+                reversed: "reversed",
+                loading: "loading"
             },
             attr: {
                 i18nReplaces: "data-i18nReplaces"
@@ -35,8 +37,11 @@
             initHelpers();
 
             this.helper.model.init(() => {
-
                 this.helper.i18n.init(() => {
+                    this.helper.font.init();
+                    this.helper.stylesheet.init();
+                    this.helper.stylesheet.addStylesheets(["howto"], $(document));
+
                     let config = this.helper.model.getData(["b/openAction", "a/sidebarPosition"]);
 
                     this.opts.elm.tutorial.children("p.text[data-index='1']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + config.sidebarPosition));
@@ -47,6 +52,10 @@
 
                     initEvents();
                     initView();
+
+                    setTimeout(() => {
+                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                    }, 100);
                 });
             });
 
@@ -64,6 +73,8 @@
         let initHelpers = () => {
             this.helper = {
                 i18n: new window.I18nHelper(this),
+                font: new window.FontHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
                 model: new window.ModelHelper(this)
             };
         };

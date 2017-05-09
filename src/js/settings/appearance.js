@@ -210,11 +210,8 @@
                     html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
                     html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
                     s.opts.elm.preview[key].find("body").html(html);
-                    $("<link />").attr({
-                        rel: "stylesheet",
-                        type: "text/css",
-                        href: s.opts.fontHref
-                    }).appendTo(s.opts.elm.preview[key].find("head"));
+                    s.helper.i18n.parseHtml(s.opts.elm.preview[key]);
+                    s.helper.font.addStylesheet(s.opts.elm.preview[key]);
                 });
 
                 previews[key].styles.forEach((stylesheet) => {

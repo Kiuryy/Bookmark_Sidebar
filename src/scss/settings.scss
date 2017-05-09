@@ -122,7 +122,7 @@ body > header {
         > a {
           padding: 4px 0 0 0;
           font-size: 200%;
-          font-weight: 200;
+          font-weight: $__fontWeightLight;
           z-index: 0;
 
           &::before, &::after {
@@ -181,7 +181,7 @@ section#content {
         margin: 0 0 10px 0;
 
         > span {
-          font-weight: 500;
+          font-weight: $__fontWeightBold;
         }
 
         &.incomplete {
@@ -291,7 +291,7 @@ section#content {
         strong {
           display: block;
           font-size: 120%;
-          font-weight: 400;
+          font-weight: $__fontWeightMedium;
           cursor: pointer;
           margin: 10px 0;
         }
@@ -523,7 +523,7 @@ body[data-tab='appearance'] {
 // Form
 label {
   display: block;
-  font-weight: 500;
+  font-weight: $__fontWeightBold;
   margin: 10px 0;
 }
 
@@ -672,7 +672,7 @@ div.configEntry {
     label {
       display: inline-block;
       vertical-align: top;
-      font-weight: 300;
+      font-weight: $__fontWeightNormal;
       min-width: 80px;
       margin-right: 10px;
     }
@@ -689,7 +689,7 @@ div.configEntry {
 
       > a {
         color: $mainColorAlt;
-        font-weight: 400;
+        font-weight: $__fontWeightMedium;
       }
 
       > em {

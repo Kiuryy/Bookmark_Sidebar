@@ -87,15 +87,15 @@
         /**
          * Adds the stylesheet for the font to the given document if there is one
          *
-         * @param {jsu} doc
+         * @param {jsu} context
          */
-        this.addStylesheet = (doc) => {
+        this.addStylesheet = (context) => {
             if (fontInfo.href) {
                 $("<link />").attr({
                     rel: "stylesheet",
                     type: "text/css",
                     href: fontInfo.href
-                }).appendTo(doc.find("head"));
+                }).appendTo(context.find("head"));
             }
         };
 

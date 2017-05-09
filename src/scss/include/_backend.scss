@@ -48,13 +48,13 @@ body > header {
 // Headlines
 h2 {
   font-size: 180%;
-  font-weight: 200;
+  font-weight: $__fontWeightLight;
   color: $textColor;
 }
 
 h3 {
   font-size: 180%;
-  font-weight: 300;
+  font-weight: $__fontWeightNormal;
   color: $mainColor;
   margin: 0 0 30px 0;
 

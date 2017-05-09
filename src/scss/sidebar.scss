@@ -6,9 +6,6 @@
 @import "include/checkbox";
 //
 $textColor: $__textColor;
-$baseFontFamily: $__fontFamily;
-$baseFontWeight: $__fontWeightNormal;
-$baseFontWeightBold: $__fontWeightBold;
 @import "include/generals";
 
 body {
@@ -152,6 +149,10 @@ body > textarea {
   > span.label {
     text-overflow: ellipsis;
     overflow: hidden;
+
+    &[data-num]::after {
+      content: " " attr(data-num);
+    }
   }
 
   > span.drag {

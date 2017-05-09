@@ -724,6 +724,9 @@ section#sidebar > div.scrollBox > ul a > span.label {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+section#sidebar > div.scrollBox > ul a > span.label[data-num]::after {
+  content: " " attr(data-num);
+}
 section#sidebar > div.scrollBox > ul a > span.drag {
   display: none;
   position: absolute;
@@ -953,6 +956,9 @@ a.dragHelper.link > span.icon[data-color='10']::before {
 a.dragHelper > span.label {
   text-overflow: ellipsis;
   overflow: hidden;
+}
+a.dragHelper > span.label[data-num]::after {
+  content: " " attr(data-num);
 }
 a.dragHelper > span.drag {
   display: none;

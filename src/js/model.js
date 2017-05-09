@@ -329,13 +329,13 @@
     };
 
     /**
-     * Returns the information about the languages
+     * Returns the information about the all languages
      *
      * @param {object} opts
      * @param {function} sendResponse
      */
-    let getLanguageInfos = (opts, sendResponse) => {
-        initLanguages((infos) => {
+    let getAllLanguages = (opts, sendResponse) => {
+        getLanguageInfos((infos) => {
             sendResponse({infos: infos});
         });
     };
@@ -414,7 +414,7 @@
         deleteBookmark: deleteBookmark,
         shareUserdata: updateShareUserdataFlag,
         shareUserdataMask: shareUserdataMask,
-        languageInfos: getLanguageInfos,
+        languageInfos: getAllLanguages,
         langvars: getLangVars,
         favicon: getFavicon,
         openLink: openLink,
@@ -567,9 +567,9 @@
     };
 
     /**
-     * Initialises the language infos
+     * Returns information about all languages (e.g. if they are available in the extension)
      */
-    let initLanguages = (callback) => {
+    let getLanguageInfos = (callback) => {
         chrome.storage.local.get(["languageInfos"], (obj) => {
             if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) {
                 if (typeof callback === "function") {

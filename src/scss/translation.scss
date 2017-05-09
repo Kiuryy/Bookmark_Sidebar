@@ -56,7 +56,7 @@ section#content {
           display: block;
           text-align: right;
           font-size: 120%;
-          font-weight: 300;
+          font-weight: $__fontWeightNormal;
           color: $textColorLight;
         }
 
@@ -72,7 +72,7 @@ section#content {
               vertical-align: top;
               margin: 3px 0 0 0;
               font-size: 120%;
-              font-weight: 300;
+              font-weight: $__fontWeightNormal;
             }
 
             > a.edit {
@@ -175,7 +175,7 @@ section#content {
             top: 22px;
             left: 17px;
             color: $mainColor;
-            font-weight: 500;
+            font-weight: $__fontWeightBold;
             font-size: 300%;
           }
 
@@ -196,7 +196,7 @@ section#content {
             left: 0;
             font-size: 120%;
             color: $mainColorAlt;
-            font-weight: 500;
+            font-weight: $__fontWeightBold;
           }
 
           > a {
@@ -236,7 +236,7 @@ section#content {
 
           > strong {
             display: inline-block;
-            font-weight: 300;
+            font-weight: $__fontWeightNormal;
             font-size: 120%;
           }
 
@@ -258,7 +258,7 @@ section#content {
 
             > strong {
               color: $mainColor;
-              font-weight: 400;
+              font-weight: $__fontWeightMedium;
             }
 
             > ul {
@@ -294,7 +294,7 @@ section#content {
                   font-size: 80%;
 
                   > span {
-                    font-weight: 400;
+                    font-weight: $__fontWeightMedium;
                     color: $mainColorAlt;
                     margin: 0 3px 0 0;
                   }

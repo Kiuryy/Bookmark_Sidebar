@@ -60,6 +60,10 @@
 
             this.helper.model.init(() => {
                 this.helper.i18n.init(() => {
+                    this.helper.font.init();
+                    this.helper.stylesheet.init();
+                    this.helper.stylesheet.addStylesheets(["translation"], $(document));
+
                     this.helper.template.footer().insertAfter(this.opts.elm.content);
                     this.helper.i18n.parseHtml(document);
                     this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
@@ -67,6 +71,8 @@
                     initLanguages(() => {
                         initOverview();
                         initEvents();
+
+                        this.opts.elm.body.removeClass(this.opts.classes.loading);
                     });
                 });
             });
@@ -93,6 +99,8 @@
             this.helper = {
                 template: new window.TemplateHelper(this),
                 i18n: new window.I18nHelper(this),
+                font: new window.FontHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
                 model: new window.ModelHelper(this)
             };
         };

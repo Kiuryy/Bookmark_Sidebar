@@ -57,6 +57,7 @@ body > iframe#blockbyte-bs-sidebar {
   z-index: 2147483646;
   background-color: "%sidebarMaskColor";
   border: none;
+  display: block !important;
   transform: translate3d(-"%sidebarWidth", 0, 0);
   transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s;
 }

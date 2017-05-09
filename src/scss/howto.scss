@@ -58,7 +58,7 @@ section#tutorial {
     top: 20px;
     left: calc(50% - 300px);
     font-size: 150%;
-    font-weight: 300;
+    font-weight: $__fontWeightNormal;
     padding: 25px 30px;
     width: 600px;
     background: $gradient;
@@ -224,7 +224,7 @@ section#tutorial {
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
         color: $mainColor;
         font-size: 140%;
-        font-weight: 300;
+        font-weight: $__fontWeightNormal;
         padding: 10px 20px;
         border-radius: 3px;
         margin: 0 10px;

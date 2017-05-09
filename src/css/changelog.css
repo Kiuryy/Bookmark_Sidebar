@@ -93,9 +93,9 @@ section.infobox > div a.close {
 
 body, input, textarea, select, button {
   font-size: 14px;
-  font-family: Roboto, sans-serif;
+  font-family: "%fontFamily", sans-serif;
   color: #666;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
 }
 
 ul {
@@ -103,7 +103,7 @@ ul {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
 }
 
 a {

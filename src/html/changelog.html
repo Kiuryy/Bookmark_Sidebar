@@ -3,11 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <title data-i18n="changelog_title">Changelog</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i' rel='stylesheet' type='text/css' />
-    <link rel='stylesheet' type='text/css' href='/css/changelog.css' />
+    <style>
+        body.loading > * {
+            display: none !important;
+        }
+    </style>
 </head>
 
-<body>
+<body class="loading">
 <section class="infobox">
     <div>
         <div class="front">
@@ -35,6 +38,8 @@
 
 <script src="/js/lib/jsu.js"></script>
 <script src='/js/helper/i18n.js'></script>
+<script src='/js/helper/font.js'></script>
+<script src='/js/helper/stylesheet.js'></script>
 <script src='/js/helper/model.js'></script>
 <script src='/js/changelog.js'></script>
 </body>

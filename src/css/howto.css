@@ -93,9 +93,9 @@ section.infobox > div a.close {
 
 body, input, textarea, select, button {
   font-size: 14px;
-  font-family: Roboto, sans-serif;
+  font-family: "%fontFamily", sans-serif;
   color: #666;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
 }
 
 ul {
@@ -103,7 +103,7 @@ ul {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: "%fontWeightBold";
 }
 
 a {
@@ -149,7 +149,7 @@ section#tutorial > p.text {
   top: 20px;
   left: calc(50% - 300px);
   font-size: 150%;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
   padding: 25px 30px;
   width: 600px;
   background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
@@ -289,7 +289,7 @@ section#tutorial > div#mask > div > a {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   color: #7b5fa4;
   font-size: 140%;
-  font-weight: 300;
+  font-weight: "%fontWeightNormal";
   padding: 10px 20px;
   border-radius: 3px;
   margin: 0 10px;

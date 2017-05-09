@@ -16,16 +16,16 @@
          * Adds the stylesheets to the document
          *
          * @param {Array} files
-         * @param {jsu} doc
+         * @param {jsu} context
          */
-        this.addStylesheets = (files, doc = null) => {
+        this.addStylesheets = (files, context = null) => {
             let head = null;
 
-            if (doc === null) {
+            if (context === null) {
                 head = $("html > head");
             } else {
-                head = doc.find("head");
-                ext.helper.font.addStylesheet(doc);
+                head = context.find("head");
+                ext.helper.font.addStylesheet(context);
             }
 
             files.forEach((file) => {

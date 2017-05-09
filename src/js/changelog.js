@@ -11,6 +11,7 @@
 
         this.opts = {
             elm: {
+                body: $("body"),
                 title: $("head > title"),
                 infobox: $("section.infobox"),
                 close: $("a.close"),
@@ -18,7 +19,8 @@
             },
             classes: {
                 visible: "visible",
-                flipped: "flipped"
+                flipped: "flipped",
+                loading: "loading"
             },
             manifest: chrome.runtime.getManifest()
         };
@@ -31,11 +33,19 @@
 
             this.helper.model.init(() => {
                 this.helper.i18n.init(() => {
+                    this.helper.font.init();
+                    this.helper.stylesheet.init();
+                    this.helper.stylesheet.addStylesheets(["changelog"], $(document));
+
                     this.helper.i18n.parseHtml(document);
                     this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                     initEvents();
                     this.opts.elm.infobox.addClass(this.opts.classes.visible);
+
+                    setTimeout(() => {
+                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                    }, 100);
                 });
             });
         };
@@ -52,6 +62,8 @@
         let initHelpers = () => {
             this.helper = {
                 i18n: new window.I18nHelper(this),
+                font: new window.FontHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
                 model: new window.ModelHelper(this)
             };
         };

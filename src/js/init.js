@@ -122,7 +122,6 @@
             lsbLoaded: "blockbyte-lsb-loaded"
         },
         leftsideBackSelector: "div#blockbyte-lsb-main.blockbyte-lsb-add-visual",
-        fontHref: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
         manifest: chrome.runtime.getManifest(),
         demoMode: false
     };

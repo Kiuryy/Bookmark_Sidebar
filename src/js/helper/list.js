@@ -325,28 +325,39 @@
          */
         let sortBookmarks = (bookmarks) => {
             if (bookmarks.length > 1) {
+                let doSort = (defaultDir, func) => {
+                    bookmarks.sort((a, b) => {
+                        if (!!(a.children) !== !!(b.children)) {
+                            return !!(a.children) ? -1 : 1;
+                        } else {
+                            return (defaultDir === sort.dir ? 1 : -1) * func(a, b);
+                        }
+                    });
+                };
+
                 switch (sort.name) {
                     case "alphabetical": {
                         let collator = ext.helper.i18n.getLocaleSortCollator();
-                        bookmarks.sort((a, b) => {
-                            return (sort.dir === "ASC" ? 1 : -1) * collator.compare(a.title, b.title);
+
+                        doSort("ASC", (a, b) => {
+                            return collator.compare(a.title, b.title);
                         });
                         break;
                     }
                     case "recentlyAdded": {
-                        bookmarks.sort((a, b) => {
-                            return (sort.dir === "ASC" ? -1 : 1) * (b.dateAdded - a.dateAdded);
+                        doSort("DESC", (a, b) => {
+                            return b.dateAdded - a.dateAdded;
                         });
                         break;
                     }
                     case "mostUsed": {
                         let mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
-                        bookmarks.sort((a, b) => {
+                        doSort("DESC", (a, b) => {
                             let aData = ext.helper.entry.getData(a.id);
                             let bData = ext.helper.entry.getData(b.id);
                             let aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
                             let bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                            return (sort.dir === "ASC" ? -1 : 1) * (bViews - aViews);
+                            return bViews - aViews;
                         });
                         break;
                     }

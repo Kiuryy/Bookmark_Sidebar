@@ -57,7 +57,7 @@
          */
         this.init = () => {
             let styles = ext.helper.model.getData("a/styles");
-            if (styles.fontFamily && styles.fontFamily !== "default") {
+            if (styles.fontFamily && styles.fontFamily !== "default" && styles.fontFamily !== "Roboto") {
                 fontInfo = {
                     name: styles.fontFamily
                 };

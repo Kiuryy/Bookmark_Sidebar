@@ -32,7 +32,7 @@
             this.helper.model.init(() => {
                 this.helper.i18n.init(() => {
                     this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                     initEvents();
                     this.opts.elm.infobox.addClass(this.opts.classes.visible);

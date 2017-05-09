@@ -25,14 +25,7 @@
                 head = $("html > head");
             } else {
                 head = doc.find("head");
-                let styles = ext.helper.model.getData("a/styles");
-                if (styles.fontFamily && styles.fontFamily === "Roboto") {
-                    $("<link />").attr({
-                        rel: "stylesheet",
-                        type: "text/css",
-                        href: ext.opts.fontHref
-                    }).appendTo(head);
-                }
+                ext.helper.font.addStylesheet(doc);
             }
 
             files.forEach((file) => {

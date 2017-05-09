@@ -429,6 +429,13 @@ section#sidebar {
             height: auto;
           }
         }
+
+        &.opened:not(.animated) {
+
+          + ul {
+            overflow: visible;
+          }
+        }
       }
 
       li {

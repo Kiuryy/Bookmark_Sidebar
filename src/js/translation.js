@@ -62,7 +62,7 @@
                 this.helper.i18n.init(() => {
                     this.helper.template.footer().insertAfter(this.opts.elm.content);
                     this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                     initLanguages(() => {
                         initOverview();

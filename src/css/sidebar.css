@@ -748,6 +748,9 @@ section#sidebar > div.scrollBox > ul a + ul {
 section#sidebar > div.scrollBox > ul a.opened + ul {
   height: auto;
 }
+section#sidebar > div.scrollBox > ul a.opened:not(.animated) + ul {
+  overflow: visible;
+}
 section#sidebar > div.scrollBox > ul li.hidden > a {
   opacity: 0.3;
   font-style: italic;

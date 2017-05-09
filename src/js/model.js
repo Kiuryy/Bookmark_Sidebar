@@ -9,6 +9,8 @@
         userdata: "https://blockbyte.de/ajax/extensions/userdata"
     };
 
+    let langVarsChache = {};
+
     let allLanguages = {
         af: "Afrikaans",
         ar: "Arabic",
@@ -57,8 +59,6 @@
         uk: "Ukrainian",
         vi: "Vietnamese"
     };
-
-    let languageInfos = {};
 
     let bookmarkObj = {
         get: (id, callback) => {
@@ -335,7 +335,9 @@
      * @param {function} sendResponse
      */
     let getLanguageInfos = (opts, sendResponse) => {
-        sendResponse({infos: languageInfos});
+        initLanguages((infos) => {
+            sendResponse({infos: infos});
+        });
     };
 
     /**
@@ -355,6 +357,7 @@
                     let result = JSON.parse(xhr.responseText);
                     Object.assign(langVars, result); // override all default variables with the one from the language file
 
+                    langVarsChache[opts.lang] = langVars;
                     sendResponse({langVars: langVars});
                 };
                 xhr.send();
@@ -440,6 +443,8 @@
             let versionPartsOld = details.previousVersion.split('.');
             let versionPartsNew = newVersion.split('.');
 
+            chrome.storage.local.remove(["languageInfos"]);
+
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
                 chrome.storage.sync.get(["model"], (obj) => {
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
@@ -488,7 +493,7 @@
                     if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
                         chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
                     }
-                    chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid","entriesLocked", "addVisual", "middleClickActive"]);
+                    chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "entriesLocked", "addVisual", "middleClickActive"]);
                     // END UPGRADE CONFIG FOR v1.7
 
                     // START UPGRADE CONFIG FOR v1.5
@@ -564,22 +569,48 @@
     /**
      * Initialises the language infos
      */
-    let initLanguages = () => {
-        Object.keys(allLanguages).forEach((lang) => {
-            languageInfos[lang] = {
-                name: lang,
-                label: allLanguages[lang],
-                available: false
-            };
+    let initLanguages = (callback) => {
+        chrome.storage.local.get(["languageInfos"], (obj) => {
+            if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) {
+                if (typeof callback === "function") {
+                    callback(obj.languageInfos.infos);
+                }
+            } else {
+                let total = Object.keys(allLanguages).length;
+                let loaded = 0;
+                let infos = {};
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
-            xhr.onload = () => {
-                languageInfos[lang].available = true;
-            };
-            xhr.send();
+                Object.keys(allLanguages).forEach((lang) => {
+                    infos[lang] = {
+                        name: lang,
+                        label: allLanguages[lang],
+                        available: false
+                    };
+
+                    let xhr = new XMLHttpRequest();
+                    ["load", "error"].forEach((eventName) => {
+                        xhr.addEventListener(eventName, () => {
+                            loaded++;
+                            if (eventName === "load") {
+                                infos[lang].available = true;
+                            }
+
+                            if (loaded === total) {
+                                chrome.storage.local.set({
+                                    languageInfos: {infos: infos, updated: +new Date()}
+                                });
+
+                                if (typeof callback === "function") {
+                                    callback(infos);
+                                }
+                            }
+                        });
+                    });
+                    xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
+                    xhr.send();
+                });
+            }
         });
-
     };
 
 
@@ -656,7 +687,6 @@
      */
     (() => {
         initModel();
-        initLanguages();
         handleShareUserdata();
     })();
 

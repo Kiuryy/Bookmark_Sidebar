@@ -121,6 +121,9 @@
 
             this.helper.model.init(() => {
                 this.helper.i18n.init(() => {
+                    this.helper.font.init();
+                    //this.helper.stylesheet.init();
+                    //this.helper.stylesheet.addStylesheets(["settings"]);
                     initHeaderTabs();
 
                     this.helper.form.init(() => {
@@ -169,6 +172,8 @@
                 checkbox: new window.CheckboxHelper(this),
                 template: new window.TemplateHelper(this),
                 i18n: new window.I18nHelper(this),
+                font: new window.FontHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
                 form: new window.FormHelper(this),
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),

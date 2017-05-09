@@ -43,7 +43,7 @@
                     this.opts.elm.tutorial.children("p.text[data-index='2']").attr(this.opts.attr.i18nReplaces, this.helper.i18n.get("howto_tutorial_" + (config.openAction === "contextmenu" ? "right" : "left")));
 
                     this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.opts.manifest.short_name);
+                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                     initEvents();
                     initView();

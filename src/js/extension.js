@@ -21,9 +21,9 @@
             initHelpers();
 
             this.helper.model.init(() => {
-                this.helper.stylesheet.init();
-
                 this.helper.i18n.init(() => {
+                    this.helper.font.init();
+                    this.helper.stylesheet.init();
                     initSidebar();
 
                     this.helper.list.init();
@@ -161,6 +161,7 @@
                 scroll: new window.ScrollHelper(this),
                 template: new window.TemplateHelper(this),
                 i18n: new window.I18nHelper(this),
+                font: new window.FontHelper(this),
                 sidebarEvents: new window.SidebarEventsHelper(this),
                 search: new window.SearchHelper(this),
                 stylesheet: new window.StylesheetHelper(this),

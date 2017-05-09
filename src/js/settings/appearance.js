@@ -36,6 +36,10 @@
                         s.opts.elm.color[key].data("initial", value);
                         changeColorValue(s.opts.elm.color[key], value);
                     } else if (s.opts.elm.select[key]) {
+                        if (key === "fontFamily" && s.opts.elm.select[key].children("option[value='" + value + "']").length() === 0) {
+                            value = "default";
+                        }
+
                         s.opts.elm.select[key][0].value = value;
                         s.opts.elm.select[key].data("initial", value);
                     }
@@ -102,7 +106,12 @@
                 s.opts.elm.preview[key].find("head > style").remove();
 
                 let config = getCurrentConfig();
-                Object.assign(config.styles, s.helper.model.getFontWeights(config.styles.fontFamily));
+                if (config.styles.fontFamily === "default") {
+                    let fontInfo = s.helper.font.getDefaultFontInfo();
+                    config.styles.fontFamily = fontInfo.name;
+                }
+
+                Object.assign(config.styles, s.helper.font.getFontWeights(config.styles.fontFamily));
 
                 let css = previews[key].css;
                 Object.keys(config.styles).forEach((key) => {

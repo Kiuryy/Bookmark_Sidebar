@@ -90,15 +90,11 @@
                     case "font": {
                         s.opts.elm.select[name] = $("<select />").insertAfter(label);
                         chrome.fontSettings.getFontList((fontList) => {
-                            fontList.push({
-                                fontId: "Roboto",
-                                displayName: "Roboto (" + s.helper.i18n.get("settings_font_family_default") + ")"
+                            fontList.unshift({
+                                fontId: "default",
+                                displayName: s.helper.i18n.get("settings_font_family_default")
                             });
-                            fontList.sort(function (a, b) {
-                                let aVal = a.displayName.toUpperCase();
-                                let bVal = b.displayName.toUpperCase();
-                                return (aVal < bVal) ? -1 : (aVal > bVal) ? 1 : 0;
-                            });
+
                             fontList.forEach((font) => {
                                 if (s.opts.elm.select[name].children("option[value='" + font.fontId + "']").length() === 0) {
                                     $("<option />").attr("value", font.fontId).text(font.displayName).appendTo(s.opts.elm.select[name]);

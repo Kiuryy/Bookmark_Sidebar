@@ -29,9 +29,9 @@
                         ext.helper.model.call("langvars", {
                             lang: name,
                             defaultLang: defaultLang
-                        }, (obj) => { // load language variables from model
-                            if (obj && obj.langVars) {
-                                langVars = obj.langVars;
+                        }, (data) => { // load language variables from model
+                            if (data && data.langVars) {
+                                langVars = data.langVars;
                                 if (typeof callback === "function") {
                                     callback();
                                 }

@@ -3,6 +3,7 @@
 
     let shareUserdata = null;
     let data = {};
+    let clickCounter = null;
     let xhrList = [];
     let xhrUrls = {
         updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
@@ -92,17 +93,49 @@
      */
     let increaseViewAmount = (bookmark) => {
         if (bookmark["id"]) {
-            if (typeof data.clickCounter[bookmark["id"]] === "undefined") {
-                if (typeof data.clickCounter["node_" + bookmark["id"]] === "undefined") {
-                    data.clickCounter[bookmark["id"]] = 0;
-                } else { // @deprecated
-                    data.clickCounter[bookmark["id"]] = data.clickCounter["node_" + bookmark["id"]];
+            initClickCounter(null, () => {
+                if (typeof clickCounter.data[bookmark["id"]] === "undefined") {
+                    if (typeof clickCounter.data["node_" + bookmark["id"]] === "undefined") {
+                        clickCounter.data[bookmark["id"]] = {c: 0}
+                    } else { // @deprecated
+                        clickCounter.data[bookmark["id"]] = {
+                            c: clickCounter.data["node_" + bookmark["id"]]
+                        };
+                    }
                 }
-            }
 
-            data.clickCounter[bookmark["id"]]++;
-            delete data.clickCounter["node_" + bookmark["id"]]; // @deprecated
-            saveModelData();
+                if (typeof clickCounter.data[bookmark["id"]] !== "object") {
+                    clickCounter.data[bookmark["id"]] = {
+                        c: clickCounter.data[bookmark["id"]]
+                    };
+                }
+
+                clickCounter.data[bookmark["id"]].c++;
+                clickCounter.data[bookmark["id"]].d = +new Date();
+                delete clickCounter.data["node_" + bookmark["id"]]; // @deprecated
+
+
+                let saveToStorage = (type = "sync") => { // save clickCounter object -> try to save to sync-storage first, if this fails save to local-storage
+                    clickCounter.storageType = type;
+                    chrome.storage[type].set({
+                        clickCounter: clickCounter
+                    }, () => {
+                        let lastError = chrome.runtime.lastError;
+
+                        if (typeof lastError === "undefined") {
+                            if (data.clickCounter) {
+                                delete data.clickCounter;
+                                saveModelData();
+                            }
+                        } else if (clickCounter.storageType === "sync" && lastError.message.search("QUOTA_BYTES_PER_ITEM") !== -1) { // sync-storage is full -> save to local
+                            saveToStorage("local");
+                            chrome.storage.sync.remove(["clickCounter"]);
+                        }
+                    });
+                };
+
+                saveToStorage();
+            });
         }
     };
 
@@ -168,9 +201,11 @@
      * @param {function} sendResponse
      */
     let getViewAmounts = (opts, sendResponse) => {
-        sendResponse({
-            viewAmounts: data.clickCounter,
-            counterStartDate: data.installationDate
+        initClickCounter(null, () => {
+            sendResponse({
+                viewAmounts: clickCounter.data,
+                counterStartDate: data.installationDate
+            });
         });
     };
 
@@ -533,6 +568,43 @@
     };
 
     /**
+     * Initialises the infos about the views of the bookmarks
+     *
+     * @param {string} type
+     * @param {function} callback
+     */
+    let initClickCounter = (type, callback) => {
+        if (!type) {
+            type = "sync";
+        }
+
+        chrome.storage[type].get(["clickCounter"], (obj) => {
+            if (typeof obj.clickCounter === "undefined") { // no data for the given type (sync or local) available
+                if (type === "sync") { // try local
+                    initClickCounter("local", callback);
+                } else { // local is empty too -> no data available
+                    clickCounter = {
+                        storageType: "sync",
+                        data: data.clickCounter || {} // @deprecated data.clickCounter
+                    };
+                    if (typeof callback === "function") {
+                        callback();
+                    }
+                }
+            } else { // data available
+                clickCounter = {
+                    storageType: type,
+                    data: obj.clickCounter.data
+                };
+
+                if (typeof callback === "function") {
+                    callback();
+                }
+            }
+        });
+    };
+
+    /**
      * Initialises the model
      */
     let initModel = () => {
@@ -549,19 +621,16 @@
                     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
                         let r = (d + Math.random() * 16) % 16 | 0;
                         d = Math.floor(d / 16);
-                        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+                        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
                     });
                 })();
-            }
-
-            if (typeof data.clickCounter === "undefined") {
-                data.clickCounter = {};
             }
 
             if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
                 data.installationDate = +new Date();
             }
 
+            initClickCounter();
             saveModelData();
         });
     };
@@ -667,6 +736,7 @@
 
                         delete obj.utility;
                         delete obj.model;
+                        delete obj.clickCounter;
 
                         sendXhr(obj);
                     });

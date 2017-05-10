@@ -23,7 +23,7 @@
                 };
 
                 let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
-                    entriesList.forEach((entry,idx) => {
+                    entriesList.forEach((entry, idx) => {
                         if (showHidden || hiddenEntries[entry.id] !== true) {
                             let thisParents = [...parents];
 
@@ -44,13 +44,20 @@
 
                             if (entry.url) { // bookmark
                                 if (ext.opts.demoMode) {
-                                    entry.title = "Bookmark " + (idx + 1);
+                                    entry.title = ext.helper.i18n.get("overlay_label_bookmark") + " " + (idx + 1);
                                     entry.url = "https://example.com/";
                                 }
 
-                                let viewAmount = info.viewAmounts[entry.id] || info.viewAmounts["node_" + entry.id] || 0; // @deprecated info.views["node_123"] is now info.views["123"]
+
+                                let viewAmount = 0;
+                                if (info.viewAmounts[entry.id]) {
+                                    viewAmount = info.viewAmounts[entry.id].c || +info.viewAmounts[entry.id]; // @deprecated '|| +info.viewAmounts[entry.id]'
+                                } else if (info.viewAmounts["node_" + entry.id]) {
+                                    viewAmount = info.viewAmounts["node_" + entry.id].c || +info.viewAmounts["node_" + entry.id]; // @deprecated '|| +info.viewAmounts[entry.id]'
+                                }
 
                                 entry.views.total = viewAmount;
+                                entry.views.lastView = info.viewAmounts[entry.id] ? info.viewAmounts[entry.id].d || 0 : 0;
                                 entry.views.perMonth = Math.round(viewAmount / monthDiff * 100) / 100;
 
                                 thisParents.forEach((parentId) => {
@@ -61,7 +68,7 @@
                                 entries.bookmarks[entry.id] = entry;
                             } else if (entry.children) { // directory
                                 if (ext.opts.demoMode) {
-                                    entry.title = "Directory " + (idx + 1);
+                                    entry.title = ext.helper.i18n.get("overlay_label_dir") + " " + (idx + 1);
                                 }
                                 entry.childrenAmount = {
                                     bookmarks: 0,

@@ -11,6 +11,10 @@
             ja: {
                 name: "Noto Sans Japanese",
                 href: "https://fonts.googleapis.com/earlyaccess/notosansjapanese.css"
+            },
+            'zh-CN': {
+                name: "Noto Sans SC",
+                href: "https://fonts.googleapis.com/earlyaccess/notosanssc.css"
             }
         };
 
@@ -45,6 +49,17 @@
                 Medium: 300,
                 SemiBold: 400,
                 Bold: 500,
+                ExtraBold: 500,
+                Black: 500
+            },
+            "Noto Sans SC": {
+                Thin: 100,
+                ExtraLight: 100,
+                Light: 100,
+                Normal: 300,
+                Medium: 400,
+                SemiBold: 400,
+                Bold: 400,
                 ExtraBold: 500,
                 Black: 500
             }

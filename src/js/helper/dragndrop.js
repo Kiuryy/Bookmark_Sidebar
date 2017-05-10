@@ -68,21 +68,24 @@
                 if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged)) { // something has been dragged
                     if (!isDraggedElementOutside(e.pageX)) { // only proceed if mouse position is in the sidebar
                         let entryPlaceholder = ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).eq(0);
-                        let url = e.dataTransfer.getData('URL');
-                        let title = "";
 
-                        if (location.href === url) {
-                            title = $(document).find("title").text();
-                        }
+                        if (entryPlaceholder && entryPlaceholder.length() > 0) {
+                            let url = e.dataTransfer.getData('URL');
+                            let title = "";
 
-                        ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
-                            values: {
-                                index: entryPlaceholder.prevAll("li").length(),
-                                parentId: entryPlaceholder.parent("ul").prev("a").attr(ext.opts.attr.id),
-                                title: title,
-                                url: url
+                            if (location.href === url) {
+                                title = $(document).find("title").text();
                             }
-                        });
+
+                            ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
+                                values: {
+                                    index: entryPlaceholder.prevAll("li").length(),
+                                    parentId: entryPlaceholder.parent("ul").prev("a").attr(ext.opts.attr.id),
+                                    title: title,
+                                    url: url
+                                }
+                            });
+                        }
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);

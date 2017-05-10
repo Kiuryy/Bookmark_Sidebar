@@ -3,7 +3,7 @@ body > iframe#blockbyte-bs-sidebar, body > iframe#blockbyte-bs-overlay {
   pointer-events: none;
 }
 
-body > div#blockbyte-bs-visual {
+body > div#blockbyte-bs-indicator {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ body > div#blockbyte-bs-visual {
   padding: 0;
   z-index: 2147483645;
 }
-body > div#blockbyte-bs-visual[data-pos='right'] {
+body > div#blockbyte-bs-indicator[data-pos='right'] {
   left: auto;
   right: 0;
 }

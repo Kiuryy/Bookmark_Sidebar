@@ -136,6 +136,18 @@
                     }
                 });
 
+                s.opts.elm.preview[key].find("[" + s.opts.attr.classOnTrue + "]").forEach((elm) => {
+                    let value = $(elm).attr(s.opts.attr.classOnTrue).split("?");
+                    let attr = value[0];
+                    let className = value[1];
+
+                    if (typeof config[attr] !== "undefined" && config[attr] === true) {
+                        $(elm).addClass(className);
+                    } else {
+                        $(elm).removeClass(className);
+                    }
+                });
+
                 s.opts.elm.body.attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("[" + s.opts.attr.pos + "]").attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
@@ -167,6 +179,7 @@
                 sidebarPosition: s.opts.elm.select.sidebarPosition[0].value,
                 language: s.opts.elm.select.language[0].value,
                 showIndicator: true,
+                showIndicatorIcon: true,
                 showBookmarkIcons: true,
                 styles: {}
             };
@@ -185,6 +198,10 @@
 
             if (parseInt(ret.styles.indicatorWidth) === 0) {
                 ret.showIndicator = false;
+            }
+
+            if (parseInt(ret.styles.indicatorIconSize) === 0) {
+                ret.showIndicatorIcon = false;
             }
 
             if (parseInt(ret.styles.bookmarksIconSize) === 0) {

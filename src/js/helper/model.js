@@ -33,6 +33,7 @@
                 sidebarPosition: "left",
                 language: "default",
                 showIndicator: true,
+                showIndicatorIcon: true,
                 showBookmarkIcons: true,
                 styles: {
                     colorScheme: "rgb(0,137,123)",

@@ -2,10 +2,13 @@
 @import "include/mixins";
 
 // Visual
-body > div#blockbyte-bs-visual {
+body > div#blockbyte-bs-indicator {
 
-  &.blockbyte-bs-add-visual { // icon on black background should be visible on hover
-    @include mask('icon-bookmark', $__indicatorIconColor, $__indicatorIconSize);
+  &.blockbyte-bs-visible { // indicator should be visible on hover
+
+    &.blockbyte-bs-icon { // show indicator icon
+      @include mask('icon-bookmark', $__indicatorIconColor, $__indicatorIconSize);
+    }
 
     &::before, &::after {
       content: "";
@@ -14,7 +17,7 @@ body > div#blockbyte-bs-visual {
       transform: translate3d(-$__indicatorWidth, 0, 0);
       top: 0;
       left: 0;
-      width: $__indicatorWidth;
+      width: $__indicatorWidth !important;
       height: 100%;
       z-index: 2;
       @extend %hidden;
@@ -44,13 +47,13 @@ body > div#blockbyte-bs-visual {
   }
 }
 
-body > div#blockbyte-bs-visual[data-pos='left'].blockbyte-bs-add-visual.blockbyte-bs-has-lsb {
+body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb {
 
   &::after {
     background: transparent;
   }
 
-  &::before {
+  &.blockbyte-bs-icon::before {
     -webkit-mask-position-y: 20px;
   }
 }

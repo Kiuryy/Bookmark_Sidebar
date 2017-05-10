@@ -1,4 +1,4 @@
-body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::before, body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible::after {
   opacity: 0;
   pointer-events: none;
 }
@@ -8,7 +8,7 @@ body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible, body > iframe#blockbyte
   pointer-events: auto;
 }
 
-body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::before {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-icon::before {
   content: "";
   position: absolute;
   top: 0;
@@ -19,35 +19,35 @@ body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg);
   background-color: "%indicatorIconColor";
 }
-body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::before, body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible::after {
   content: "";
   position: absolute;
   transition: opacity 0.3s, transform 0.3s;
   transform: translate3d(-"%indicatorWidth", 0, 0);
   top: 0;
   left: 0;
-  width: "%indicatorWidth";
+  width: "%indicatorWidth" !important;
   height: 100%;
   z-index: 2;
 }
-body > div#blockbyte-bs-visual.blockbyte-bs-add-visual::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible::after {
   background: "%indicatorColor";
   z-index: 1;
 }
-body > div#blockbyte-bs-visual.blockbyte-bs-add-visual[data-pos='right']::before, body > div#blockbyte-bs-visual.blockbyte-bs-add-visual[data-pos='right']::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible[data-pos='right']::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible[data-pos='right']::after {
   transform: translate3d("%indicatorWidth", 0, 0);
   left: auto;
   right: 0;
 }
-body > div#blockbyte-bs-visual.blockbyte-bs-add-visual.blockbyte-bs-hover::before, body > div#blockbyte-bs-visual.blockbyte-bs-add-visual.blockbyte-bs-hover::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-hover::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-hover::after {
   transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
-body > div#blockbyte-bs-visual[data-pos='left'].blockbyte-bs-add-visual.blockbyte-bs-has-lsb::after {
+body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb::after {
   background: transparent;
 }
-body > div#blockbyte-bs-visual[data-pos='left'].blockbyte-bs-add-visual.blockbyte-bs-has-lsb::before {
+body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb.blockbyte-bs-icon::before {
   -webkit-mask-position-y: 20px;
 }
 

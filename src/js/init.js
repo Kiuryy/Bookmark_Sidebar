@@ -6,7 +6,7 @@
             page: {
                 iframe: "blockbyte-bs-sidebar",
                 overlay: "blockbyte-bs-overlay",
-                visual: "blockbyte-bs-visual"
+                indicator: "blockbyte-bs-indicator"
             },
             sidebar: {
                 sidebar: "sidebar",
@@ -22,7 +22,7 @@
         },
         classes: {
             page: {
-                addVisual: "blockbyte-bs-add-visual",
+                indicatorIcon: "blockbyte-bs-icon",
                 visible: "blockbyte-bs-visible",
                 hover: "blockbyte-bs-hover",
                 hasLeftsideBack: "blockbyte-bs-has-lsb"

@@ -16,7 +16,6 @@
          */
         let handleTranslationInfo = () => {
             let language = s.helper.i18n.getLanguage();
-            language = "de";
 
             if (language !== s.helper.i18n.getDefaultLanguage()) {
                 let xhr = new XMLHttpRequest();

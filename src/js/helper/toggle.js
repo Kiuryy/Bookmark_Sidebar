@@ -11,9 +11,9 @@
          * Initializes the sidebar toggle
          */
         this.init = () => {
-            ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.visual).appendTo("body");
+            ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/sidebarPosition", "b/openAction"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/sidebarPosition", "b/openAction"]);
             pxToleranceObj = data.pxTolerance;
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
 
@@ -23,8 +23,12 @@
 
             if (data.showIndicator && data.openAction !== "icon") { // show indicator
                 ext.elements.toggle
-                    .addClass(ext.opts.classes.page.addVisual)
+                    .addClass(ext.opts.classes.page.visible)
                     .attr(ext.opts.attr.position, sidebarPos);
+
+                if (data.showIndicatorIcon) {
+                    ext.elements.toggle.addClass(ext.opts.classes.page.indicatorIcon);
+                }
             }
 
             handleLeftsideBackExtension();

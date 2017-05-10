@@ -45,6 +45,9 @@
                 mostUsed: {
                     dir: "DESC"
                 },
+                recentlyUsed: {
+                    dir: "DESC"
+                },
                 recentlyAdded: {
                     dir: "DESC"
                 }
@@ -325,6 +328,7 @@
          */
         let sortBookmarks = (bookmarks) => {
             if (bookmarks.length > 1) {
+                let collator = ext.helper.i18n.getLocaleSortCollator();
                 let doSort = (defaultDir, func) => {
                     bookmarks.sort((a, b) => {
                         if (!!(a.children) !== !!(b.children)) {
@@ -337,8 +341,6 @@
 
                 switch (sort.name) {
                     case "alphabetical": {
-                        let collator = ext.helper.i18n.getLocaleSortCollator();
-
                         doSort("ASC", (a, b) => {
                             return collator.compare(a.title, b.title);
                         });
@@ -357,7 +359,25 @@
                             let bData = ext.helper.entry.getData(b.id);
                             let aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
                             let bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                            return bViews - aViews;
+                            if (aViews === bViews) {
+                                return collator.compare(a.title, b.title);
+                            } else {
+                                return bViews - aViews
+                            }
+                        });
+                        break;
+                    }
+                    case "recentlyUsed": {
+                        doSort("DESC", (a, b) => {
+                            let aData = ext.helper.entry.getData(a.id);
+                            let bData = ext.helper.entry.getData(b.id);
+                            let aLastView = aData ? aData.views.lastView : 0;
+                            let bLastView = bData ? bData.views.lastView : 0;
+                            if (aLastView === bLastView) {
+                                return collator.compare(a.title, b.title);
+                            } else {
+                                return bLastView - aLastView;
+                            }
                         });
                         break;
                     }

@@ -48,8 +48,9 @@
                                     entry.url = "https://example.com/";
                                 }
 
-
                                 let viewAmount = 0;
+                                let lastView = info.viewAmounts[entry.id] ? info.viewAmounts[entry.id].d || 0 : 0;
+
                                 if (info.viewAmounts[entry.id]) {
                                     viewAmount = info.viewAmounts[entry.id].c || +info.viewAmounts[entry.id]; // @deprecated '|| +info.viewAmounts[entry.id]'
                                 } else if (info.viewAmounts["node_" + entry.id]) {
@@ -57,12 +58,13 @@
                                 }
 
                                 entry.views.total = viewAmount;
-                                entry.views.lastView = info.viewAmounts[entry.id] ? info.viewAmounts[entry.id].d || 0 : 0;
+                                entry.views.lastView = lastView;
                                 entry.views.perMonth = Math.round(viewAmount / monthDiff * 100) / 100;
 
                                 thisParents.forEach((parentId) => {
                                     entries.directories[parentId].childrenAmount.bookmarks++; // increase children counter
                                     entries.directories[parentId].views.total += viewAmount; // add view amount to all parent directories counter
+                                    entries.directories[parentId].views.lastView = Math.max(entries.directories[parentId].views.lastView || 0, lastView); // add lastView date
                                 });
 
                                 entries.bookmarks[entry.id] = entry;

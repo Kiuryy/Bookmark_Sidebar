@@ -86,6 +86,9 @@
     "sort_label_most_used": {
         "message": "Les plus visit\u00e9s"
     },
+    "sort_label_recently_used": {
+        "message": "derni\u00e8re visit\u00e9s"
+    },
     "sort_label_recently_added": {
         "message": "Ajout\u00e9s r\u00e9cemment"
     },

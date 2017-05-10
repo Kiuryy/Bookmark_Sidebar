@@ -35,6 +35,9 @@
     "contextmenu_update_urls": {
         "message": "\u66f4\u65b0URL"
     },
+    "contextmenu_toggle_fix": {
+        "message": "\u56fa\u5b9a\u4e66\u7b7e\u4f4d\u7f6e"
+    },
     "contextmenu_toggle_hidden": {
         "message": "\u663e\u793a\u9690\u85cf\u76ee\u5f55"
     },

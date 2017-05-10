@@ -123,7 +123,7 @@
                         let lastError = chrome.runtime.lastError;
 
                         if (typeof lastError === "undefined") {
-                            if (data.clickCounter) {
+                            if (data.clickCounter) { // @deprecated
                                 delete data.clickCounter;
                                 saveModelData();
                             }

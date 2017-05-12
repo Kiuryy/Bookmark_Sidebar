@@ -386,6 +386,12 @@
     "settings_close_timeout_desc": {
         "message": "Timeout in seconds after the sidebar will be closed. It will count as soon the mouse leaves the sidebar and stops when hovering it again."
     },
+    "settings_initial_open_on_new_tab": {
+        "message": "Initial open on new tab page"
+    },
+    "settings_initial_open_on_new_tab_desc": {
+        "message": "Choose whether the sidebar should be opened automatically on the new tab page."
+    },
     "settings_scroll_sensitivity": {
         "message": "Scroll sensitivity"
     },
@@ -512,6 +518,9 @@
     "settings_feedback_desc": {
         "message": "You have suggestions for improvements, questions, missing some configuration options or found a bug? To improve the experience with the extension I am very glad for every feedback you give me."
     },
+    "settings_feedback_notice": {
+        "message": "Please write your message in English, otherwise I will have problems to understand and answer your message."
+    },
     "settings_feedback_email": {
         "message": "Your email address"
     },
@@ -533,11 +542,11 @@
     "settings_faq_fixed_sidebar_a": {
         "message": "Unfortunately I can not do this. Google removed the possibility to make a real sidebar, like in firefox, a few years ago. Without the application programming interface the sidebar needs to be loaded again every time you navigate to a new page."
     },
-    "settings_faq_new_tab_q": {
-        "message": "Why doesn't the sidebar show up on the new tab page and the chrome webstore?"
+    "settings_faq_not_working_q": {
+        "message": "Why doesn't the sidebar work on some pages, like the chrome webstore?"
     },
-    "settings_faq_new_tab_a": {
-        "message": "This is due to security limitations. Chrome extensions may not put content into chrome pages like the new tab or settings pages. The only way to make the sidebar work on the new tab page would be to replace this page with a custom one, which may be an idea for another extension in the future."
+    "settings_faq_not_working_a": {
+        "message": "This can have many reasons. On the chrome webstore and pages starting with [em]chrome-extension:\/\/[\/em] this is a security restriction. But there might be other pages which block the sidebar, or use outdated source code structures. If you encounter problems on some pages, please let me know, so I can have a look at the particular page and try to fix it."
     },
     "settings_saved_share_userdata": {
         "message": "Your preference has been saved successfully"

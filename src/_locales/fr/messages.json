@@ -533,12 +533,6 @@
     "settings_faq_fixed_sidebar_a": {
         "message": "Malheureusement je ne peux pas faire cela. Google a retir\u00e9 la possibilit\u00e9 de faire une vraie barre lat\u00e9rale (comme dans firefox) il y a quelques ann\u00e9es."
     },
-    "settings_faq_new_tab_q": {
-        "message": "Pourquoi la barre lat\u00e9rale n'est elle pas affich\u00e9e dans les nouveaux onglets vierges et le store de chrome ?"
-    },
-    "settings_faq_new_tab_a": {
-        "message": "Cela est d\u00fb \u00e0 des restrictions de s\u00e9curit\u00e9. Les extensions ne sont pas autoris\u00e9es \u00e0 afficher du contenu dans les nouveaux onglets ou le store de chrome. La seule possibilit\u00e9 pour afficher la barre lat\u00e9rale dans la page nouvel onglet serait de la remplacer par une page personnalis\u00e9e, ce qui est peut \u00eatre une id\u00e9e pour une nouvelle extension."
-    },
     "settings_saved_share_userdata": {
         "message": "Votre choix a bien \u00e9t\u00e9 pris en compte"
     },

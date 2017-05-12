@@ -77,7 +77,11 @@
                         $("<option />").attr("value", "default").text(s.helper.i18n.get("settings_language_default")).appendTo(s.opts.elm.select[name]);
                         s.helper.model.call("languageInfos", (obj) => {
                             if (obj && obj.infos) {
-                                Object.values(obj.infos).forEach((lang) => {
+                                let langList = Object.values(obj.infos);
+                                langList.sort((a, b) => {
+                                    return a.label > b.label ? 1 : -1;
+                                });
+                                langList.forEach((lang) => {
                                     if (lang.available) {
                                         $("<option />").attr("value", lang.name).text(lang.label).appendTo(s.opts.elm.select[name]);
                                     }

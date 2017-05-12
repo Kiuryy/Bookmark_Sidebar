@@ -183,7 +183,15 @@
                     let list = $("<ul />").appendTo(this.opts.elm.wrapper.overview.children("div"));
 
                     infos.languages.sort((a, b) => {
-                        return b.varsAmount - a.varsAmount;
+                        if (b.varsAmount !== a.varsAmount) {
+                            return b.varsAmount - a.varsAmount
+                        }
+
+                        if (languages[a.name] && languages[b.name]) {
+                            return languages[a.name].label > languages[b.name].label ? 1 : -1;
+                        }
+
+                        return 1;
                     });
 
                     let missingLanguages = Object.assign({}, languages);

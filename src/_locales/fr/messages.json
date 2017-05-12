@@ -333,7 +333,7 @@
         "message": "D\u00e9lai avant affichage"
     },
     "settings_open_delay_desc": {
-        "message": "Emp\u00eache que la barre ne soit instantan\u00e9ment affich\u00e9e au survol de la souris si un d\u00e9lai d'affichage a \u00e9t\u00e9 d\u00e9fini"
+        "message": "Emp\u00eache que la barre ne soit instantan\u00e9ment affich\u00e9e au survol de la souris ou clic si un d\u00e9lai d'affichage a \u00e9t\u00e9 d\u00e9fini"
     },
     "settings_dir_accordion": {
         "message": "Afficher seulement le dossier courant"

@@ -333,7 +333,7 @@
         "message": "Open delay"
     },
     "settings_open_delay_desc": {
-        "message": "Prevents immediately opening of the sidebar on mouseover with a delay"
+        "message": "Prevents immediately opening of the sidebar on mouseover or by clicking with a delay."
     },
     "settings_dir_accordion": {
         "message": "Show only current directory"
@@ -420,7 +420,7 @@
         "message": "Color scheme"
     },
     "settings_color_scheme_desc": {
-        "message": "The color of the overlay header, the bookmark amount, etc."
+        "message": "The color of the sidebar header, checkboxes, etc."
     },
     "settings_text_color": {
         "message": "Text color"

@@ -121,6 +121,7 @@ section#content {
       }
 
       > button {
+        position: relative;
         display: inline-block;
         border: 0;
         outline: 0;
@@ -135,10 +136,11 @@ section#content {
         }
 
         &.restore {
+          @include mask('icon-update', $textColorLight, 24px);
           background: transparent;
-          color: $textColorLight;
-          margin: 8px 20px 0;
-          font-size: 90%;
+          margin: 3px 15px 0;
+          width: 24px;
+          height: 24px;
         }
       }
     }

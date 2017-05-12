@@ -5,6 +5,8 @@
 
         let sidebarPos = null;
         let pxToleranceObj = null;
+        let openDelay = 0;
+        let inPixelToleranceTime = null;
         let timeout = {};
 
         /**
@@ -13,11 +15,12 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/sidebarPosition", "b/openAction", "b/initialOpenOnNewTab"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
             pxToleranceObj = data.pxTolerance;
-            ext.elements.toggle.css("width", getPixelTolerance() + "px");
-
+            openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
+
+            ext.elements.toggle.css("width", getPixelTolerance() + "px");
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
             ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
 
@@ -116,8 +119,15 @@
                 clearSidebarTimeout("open");
             }).on("mousemove dragover", (e) => { // check mouse position
                 if (isMousePosInPixelTolerance(e.pageX)) {
-                    ext.elements.toggle.addClass(ext.opts.classes.page.hover);
+                    let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
+
+                    if (!(timeout.indicator)) {
+                        timeout.indicator = setTimeout(() => { // wait the duration of the open delay before showing the indicator
+                            ext.elements.toggle.addClass(ext.opts.classes.page.hover);
+                        }, Math.max(openDelay - inPixelToleranceDelay, 0));
+                    }
                 } else {
+                    clearSidebarTimeout("indicator");
                     ext.elements.toggle.removeClass(ext.opts.classes.page.hover);
                 }
             }, {passive: true});
@@ -133,7 +143,6 @@
             });
 
             let openAction = ext.helper.model.getData("b/openAction");
-            let openDelayRaw = ext.helper.model.getData("b/openDelay");
 
             if (openAction !== "icon") {
                 $(document).on(openAction + " dragover", (e) => {
@@ -145,9 +154,9 @@
                             if (!(timeout.open)) {
                                 timeout.open = setTimeout(() => {
                                     openSidebar();
-                                }, +openDelayRaw * 1000);
+                                }, openDelay);
                             }
-                        } else {
+                        } else if (openDelay === 0 || inPixelToleranceTime === null || +new Date() - inPixelToleranceTime > openDelay) { // open delay = 0 or cursor is longer in pixel tolerance range than the delay -> open sidebar
                             openSidebar();
                         }
                     } else {
@@ -164,14 +173,22 @@
          * @returns {boolean}
          */
         let isMousePosInPixelTolerance = (pageX) => {
+            let ret = false;
             if (typeof pageX !== "undefined" && pageX !== null) {
                 if (sidebarPos === "right") {
                     pageX = window.innerWidth - pageX - 1;
                 }
 
-                return pageX < getPixelTolerance();
+                ret = pageX < getPixelTolerance();
             }
-            return false;
+
+            if (ret === false) {
+                inPixelToleranceTime = null;
+            } else if (inPixelToleranceTime === null) { // set the time when the cursor was in pixel tolerance the last time
+                inPixelToleranceTime = +new Date();
+            }
+
+            return ret;
         };
 
         /**

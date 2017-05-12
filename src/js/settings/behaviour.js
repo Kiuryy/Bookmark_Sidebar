@@ -82,15 +82,6 @@
                     active: true
                 });
             });
-
-            s.opts.elm.select.openAction.on("change", () => {
-                let val = s.opts.elm.select.openAction[0].value;
-                if (val === "mousemove") {
-                    s.opts.elm.range.openDelay.parent("div." + s.opts.classes.configEntry).removeClass(s.opts.classes.hidden);
-                } else {
-                    s.opts.elm.range.openDelay.parent("div." + s.opts.classes.configEntry).addClass(s.opts.classes.hidden);
-                }
-            });
         };
 
 

@@ -299,6 +299,8 @@
                 }
             });
 
+            this.opts.elm.button.restore.attr("title",this.helper.i18n.get("settings_restore"));
+
             this.opts.elm.button.restore.on("click", (e) => {
                 e.preventDefault();
                 let tabName = this.opts.elm.body.attr(this.opts.attr.tab);

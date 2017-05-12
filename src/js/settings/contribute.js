@@ -27,7 +27,7 @@
                         infos.languages.some((lang) => {
                             if (lang.name === language) { // current language
                                 Object.keys(lang.categories).some((name) => {
-                                    if (name !== "Settings" && infos.categories[name] > lang.categories[name]) { // a published category of this language is imcomplete
+                                    if ((name !== "Settings" || lang.categories[name] / infos.categories[name] * 100 > 75) && infos.categories[name] > lang.categories[name]) { // a published category of this language is imcomplete
                                         s.opts.elm.header.find("> ul." + s.opts.classes.tabs.list + " > li[" + s.opts.attr.name + "='contribute']")
                                             .attr("title", s.helper.i18n.get("translation_incomplete_info"))
                                             .addClass(s.opts.classes.incomplete);

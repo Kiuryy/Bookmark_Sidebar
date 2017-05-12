@@ -100,7 +100,7 @@ body > header {
         }
 
         &::before {
-          -webkit-mask-position-x: right;
+          -webkit-mask-position: right 8px;
         }
       }
 
@@ -124,23 +124,25 @@ body > header {
           font-size: 200%;
           font-weight: $__fontWeightLight;
           z-index: 0;
+          opacity: 0.5;
+          transition: opacity 0.5s;
 
           &::before, &::after {
             display: none;
           }
         }
 
-        &:hover {
-          background: rgba(255, 255, 255, 0.1);
+        &:hover > a {
+          opacity: 0.9;
         }
 
         &.active {
-          background: rgba(255, 255, 255, 0.2);
+          background: transparent;
           filter: none;
 
           > a {
             color: $textColorInverted;
-            opacity: 0.8;
+            opacity: 0.9;
           }
         }
       }
@@ -318,6 +320,13 @@ section#content {
             border-bottom-color: $bodyBackground;
           }
         }
+      }
+
+      p.notice {
+        font-size: 120%;
+        line-height: 170%;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
       }
     }
 

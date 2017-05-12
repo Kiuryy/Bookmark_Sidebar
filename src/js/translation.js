@@ -236,7 +236,7 @@
             let ret = false;
 
             Object.keys(langCategories).some((name) => {
-                if (name !== "Settings" && allCategories[name] > langCategories[name]) {
+                if ((name !== "Settings" || langCategories[name] / allCategories[name] * 100 > 75) && allCategories[name] > langCategories[name]) {
                     ret = true;
                     return true;
                 }

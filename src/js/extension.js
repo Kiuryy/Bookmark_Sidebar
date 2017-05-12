@@ -11,6 +11,7 @@
          * ################################
          */
         this.firstRun = true;
+        this.isNewTab = false;
         this.elements = {};
         this.opts = opts;
 
@@ -176,6 +177,7 @@
          * Creates the basic html markup for the sidebar and the visual
          */
         let initSidebar = () => {
+            this.isNewTab = location.href.search("https://www.google.de/_/chrome/newtab") === 0;
             this.helper.stylesheet.addStylesheets(["content"]);
 
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");

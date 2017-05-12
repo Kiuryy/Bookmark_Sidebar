@@ -45,6 +45,10 @@ body > div#blockbyte-bs-indicator {
       }
     }
   }
+
+  &.blockbyte-bs-isNewTab {
+    display: none;
+  }
 }
 
 body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb {
@@ -79,6 +83,11 @@ body > iframe#blockbyte-bs-sidebar {
     height: 100%;
     transform: translate3d(0, 0, 0);
     transition: opacity 0.3s, transform 0.3s;
+  }
+
+  &.blockbyte-bs-isNewTab {
+    width: calc(#{$__sidebarWidth} + 100px);
+    background: none;
   }
 }
 

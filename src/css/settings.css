@@ -563,7 +563,7 @@ body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active) >
   opacity: 1;
 }
 body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active)::before {
-  -webkit-mask-position-x: right;
+  -webkit-mask-position: right 8px;
 }
 body > header > ul.tabBar > li[data-name='help'] {
   position: absolute;
@@ -584,20 +584,22 @@ body > header > ul.tabBar > li[data-name='help'] > a {
   font-size: 200%;
   font-weight: "%fontWeightLight";
   z-index: 0;
+  opacity: 0.5;
+  transition: opacity 0.5s;
 }
 body > header > ul.tabBar > li[data-name='help'] > a::before, body > header > ul.tabBar > li[data-name='help'] > a::after {
   display: none;
 }
-body > header > ul.tabBar > li[data-name='help']:hover {
-  background: rgba(255, 255, 255, 0.1);
+body > header > ul.tabBar > li[data-name='help']:hover > a {
+  opacity: 0.9;
 }
 body > header > ul.tabBar > li[data-name='help'].active {
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   filter: none;
 }
 body > header > ul.tabBar > li[data-name='help'].active > a {
   color: #fff;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 section#content {
@@ -739,6 +741,12 @@ section#content > div.tab[data-name='feedback'] div.faq > p::before {
   left: 10px;
   border: 7px solid transparent;
   border-bottom-color: #f2f2f2;
+}
+section#content > div.tab[data-name='feedback'] p.notice {
+  font-size: 120%;
+  line-height: 170%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
 }
 section#content > div.tab[data-name='help'] a {
   display: inline-block;

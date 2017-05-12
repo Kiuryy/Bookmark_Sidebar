@@ -9,7 +9,7 @@
         this.init = () => {
             initEvents();
 
-            ["rememberSearch", "dirAccordion"].forEach((field) => {
+            ["rememberSearch", "dirAccordion", "initialOpenOnNewTab"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
                 }
@@ -65,7 +65,7 @@
                 newTab: s.opts.elm.select.newTab[0].value
             };
 
-            ["rememberSearch", "dirAccordion"].forEach((field) => {
+            ["rememberSearch", "dirAccordion", "initialOpenOnNewTab"].forEach((field) => {
                 config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
             });
 

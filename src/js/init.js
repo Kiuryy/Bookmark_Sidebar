@@ -24,6 +24,7 @@
             page: {
                 indicatorIcon: "blockbyte-bs-icon",
                 visible: "blockbyte-bs-visible",
+                isNewTab: "blockbyte-bs-isNewTab",
                 hover: "blockbyte-bs-hover",
                 hasLeftsideBack: "blockbyte-bs-has-lsb"
             },

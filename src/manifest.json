@@ -40,8 +40,7 @@
         "js/init.js"
       ],
       "matches": [
-        "http://*/*",
-        "https://*/*"
+        "<all_urls>"
       ],
       "run_at": "document_end"
     }

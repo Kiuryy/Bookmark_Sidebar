@@ -13,7 +13,7 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/sidebarPosition", "b/openAction"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/sidebarPosition", "b/openAction", "b/initialOpenOnNewTab"]);
             pxToleranceObj = data.pxTolerance;
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
 
@@ -33,6 +33,12 @@
 
             handleLeftsideBackExtension();
             initEvents();
+
+            if (ext.isNewTab && data.initialOpenOnNewTab) {
+                ext.elements.toggle.addClass(ext.opts.classes.page.isNewTab);
+                ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
+                openSidebar();
+            }
         };
 
         /**
@@ -56,11 +62,21 @@
                 if (e.pageX) {
                     let pageX = e.pageX;
                     if (sidebarPos === "right") {
-                        pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
+                        if (ext.isNewTab) {
+                            pageX = ext.elements.iframe.realWidth() - pageX;
+                        } else {
+                            pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
+                        }
                     }
                     if (pageX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                         closeSidebar();
                     }
+                }
+            });
+
+            $(document).on("click", (e) => { // click somewhere in the underlying page -> close
+                if (e.isTrusted) {
+                    closeSidebar();
                 }
             });
 

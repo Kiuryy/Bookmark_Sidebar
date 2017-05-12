@@ -57,6 +57,7 @@
             ext.elements.iframeBody.on("dragenter", () => {
                 ext.helper.contextmenu.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
+                ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
                 }
@@ -89,6 +90,9 @@
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
+                    if (ext.isNewTab) {
+                        ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
+                    }
                 }
             });
         };
@@ -204,6 +208,11 @@
             }
 
             ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
+            if (ext.isNewTab) {
+                setTimeout(() => {
+                    ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
+                }, 500);
+            }
         };
 
         /**
@@ -297,7 +306,17 @@
         let initEvents = () => {
 
             ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
-                dragstart(e.currentTarget, e.pageX, e.pageY);
+                let x = e.pageX;
+
+                if (ext.isNewTab && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
+                    let width = ext.elements.iframe.realWidth();
+                    ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
+                    x += ext.elements.iframe.realWidth() - width;
+                } else if (ext.isNewTab) {
+                    ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
+                }
+
+                dragstart(e.currentTarget, x, e.pageY);
             });
 
             ext.elements.iframeBody.on("mouseup", (e) => { // drag end

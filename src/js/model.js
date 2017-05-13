@@ -143,9 +143,8 @@
      * Opens the given url in the current tab or in a new tab
      *
      * @param {object} opts
-     * @param {function} sendResponse
      */
-    let openLink = (opts, sendResponse) => {
+    let openLink = (opts) => {
         increaseViewAmount(opts);
 
         if (opts.newTab && opts.newTab === true) { // new tab
@@ -238,9 +237,8 @@
      * only if the tab was not previously opened or changed from the extension (these clicks are counted alreay)
      *
      * @param {object} opts
-     * @param {function} sendResponse
      */
-    let addViewAmountByUrl = (opts, sendResponse) => {
+    let addViewAmountByUrl = (opts) => {
         if (typeof data.openedByExtension === "undefined") { // page was not opened by extension -> view was not counted yet
             bookmarkObj.search({url: opts.url}, (bookmarks) => {
                 bookmarks.some((bookmark) => {
@@ -383,25 +381,33 @@
      */
     let getLangVars = (opts, sendResponse) => {
         if (opts.lang) {
-            let sendXhr = (obj) => {
-                let langVars = obj.langVars;
+            let cacheVars = typeof opts.cache === "undefined" || opts.cache === true;
 
-                let xhr = new XMLHttpRequest();
-                xhr.open("GET", chrome.extension.getURL("_locales/" + opts.lang + "/messages.json"), true);
-                xhr.onload = () => {
-                    let result = JSON.parse(xhr.responseText);
-                    Object.assign(langVars, result); // override all default variables with the one from the language file
+            if (langVarsChache[opts.lang] && cacheVars) { // take langvars from cache
+                sendResponse({langVars: langVarsChache[opts.lang]});
+            } else { // load langvars with xhr request
+                let sendXhr = (obj) => {
+                    let langVars = obj.langVars;
 
-                    langVarsChache[opts.lang] = langVars;
-                    sendResponse({langVars: langVars});
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("GET", chrome.extension.getURL("_locales/" + opts.lang + "/messages.json"), true);
+                    xhr.onload = () => {
+                        let result = JSON.parse(xhr.responseText);
+                        Object.assign(langVars, result); // override all default variables with the one from the language file
+
+                        if (cacheVars) {
+                            langVarsChache[opts.lang] = langVars;
+                        }
+                        sendResponse({langVars: langVars});
+                    };
+                    xhr.send();
                 };
-                xhr.send();
-            };
 
-            if (opts.defaultLang && opts.defaultLang !== opts.lang) { // load default language variables first and replace them afterwards with the language specific ones
-                getLangVars({lang: opts.defaultLang}, sendXhr)
-            } else {
-                sendXhr({langVars: {}});
+                if (opts.defaultLang && opts.defaultLang !== opts.lang) { // load default language variables first and replace them afterwards with the language specific ones
+                    getLangVars({lang: opts.defaultLang, cache: false}, sendXhr)
+                } else {
+                    sendXhr({langVars: {}});
+                }
             }
         }
     };
@@ -421,12 +427,28 @@
     };
 
     /**
+     * Sends a message to all tabs, so they are reloading the sidebar
+     *
+     * @param {object} opts
+     */
+    let refreshAllTabs = (opts) => {
+        chrome.tabs.query({}, (tabs) => {
+            tabs.forEach((tab) => {
+                chrome.tabs.sendMessage(tab.id, {
+                    action: "refresh",
+                    scrollTop: opts.scrollTop || false,
+                    type: opts.type
+                });
+            });
+        });
+    };
+
+    /**
      * Updates the shareUserdata-Flag
      *
      * @param {object} opts
-     * @param {function} sendResponse
      */
-    let updateShareUserdataFlag = (opts, sendResponse) => {
+    let updateShareUserdataFlag = (opts) => {
         chrome.storage.sync.set({
             shareUserdata: opts.share
         });
@@ -447,6 +469,7 @@
         updateBookmark: updateBookmark,
         createBookmark: createBookmark,
         deleteBookmark: deleteBookmark,
+        refreshAllTabs: refreshAllTabs,
         shareUserdata: updateShareUserdataFlag,
         shareUserdataMask: shareUserdataMask,
         languageInfos: getAllLanguages,
@@ -467,6 +490,12 @@
     chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
             chrome.tabs.sendMessage(tabs[0].id, {action: "toggleSidebar"});
+        });
+    });
+
+    ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event to all tabs after a changing/creating/removing a bookmark
+        chrome.bookmarks["on" + eventName].addListener(() => {
+            refreshAllTabs({type: eventName});
         });
     });
 

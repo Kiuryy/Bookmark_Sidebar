@@ -8,6 +8,7 @@
  - Added many translations
  - Handled typeface for different languages
  - Extended Drag&Drop (drop links into the sidebar)
+ - Synchronize tabs after modifying entries and changing settings
 
 [1.7]
  - Added sort functionality

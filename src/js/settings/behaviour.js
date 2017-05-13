@@ -70,6 +70,7 @@
             });
 
             chrome.storage.sync.set({behaviour: config}, () => {
+                s.helper.model.call("refreshAllTabs", {type: "Settings"});
                 s.showSuccessMessage("saved_message");
             });
         };

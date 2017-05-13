@@ -16,6 +16,8 @@
          * @param {function} callback
          */
         this.init = (callback) => {
+            langVars = {};
+
             ext.helper.model.call("languageInfos", (obj) => {
                 let lang = ext.helper.model.getData("a/language");
                 if (lang === "default") {

@@ -53,8 +53,17 @@
          * Saves the appearance settings
          */
         this.save = () => {
-            chrome.storage.sync.set({appearance: getCurrentConfig()}, () => {
+            let config = getCurrentConfig();
+
+            chrome.storage.sync.set({appearance: config}, () => {
+                s.helper.model.call("refreshAllTabs", {type: "Settings"});
                 s.showSuccessMessage("saved_message");
+
+                if (s.opts.elm.select.language.data("initial") !== config.language) {
+                    setTimeout(() => {
+                        location.reload(true);
+                    }, 1500);
+                }
             });
         };
 

@@ -415,6 +415,10 @@ body[data-tab='appearance'] {
 
         > button {
           float: left;
+
+          &.restore {
+            margin-right: 0;
+          }
         }
       }
 

@@ -49,6 +49,32 @@
         };
 
         /**
+         * Refreshed the sidebar,
+         * reloads the model data, the language variables and the bookmark list
+         */
+        this.refresh = () => {
+            this.helper.model.init(() => {
+                this.helper.i18n.init(() => {
+                    let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
+
+                    if (data.entriesLocked === false) {
+                        this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
+                    } else {
+                        this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
+                    }
+
+                    if (data.showHidden === true) {
+                        this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
+                    } else {
+                        this.elements.sidebar.removeClass(opts.classes.sidebar.showHidden);
+                    }
+
+                    this.helper.list.updateBookmarkBox();
+                });
+            });
+        };
+
+        /**
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         this.loaded = () => {

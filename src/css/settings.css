@@ -819,6 +819,9 @@ body[data-tab='appearance'] section#content > div.tab {
 body[data-tab='appearance'] section#content > div.tab > header > button {
   float: left;
 }
+body[data-tab='appearance'] section#content > div.tab > header > button.restore {
+  margin-right: 0;
+}
 body[data-tab='appearance'] section#content > div.tab > div {
   padding-right: 0;
 }

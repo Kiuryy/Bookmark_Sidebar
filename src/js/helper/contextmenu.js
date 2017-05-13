@@ -248,11 +248,13 @@
             });
 
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", () => { // toggle visibility of hidden entries
+                ext.startLoading();
                 ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.showHidden);
                 ext.helper.model.setData({
                     "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
+                }, () => {
+                    ext.helper.model.call("refreshAllTabs", {type: "ToggleHidden"});
                 });
-                ext.helper.list.updateBookmarkBox();
                 this.close();
             });
 
@@ -299,7 +301,7 @@
                         delete hiddenEntries[elmId];
 
                         ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
-                            ext.helper.list.updateBookmarkBox();
+                            ext.helper.model.call("refreshAllTabs", {type: "Hide"});
                         });
                         break;
                     }

@@ -11,7 +11,6 @@
          */
         this.init = () => {
             ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
-            sort = ext.helper.model.getData("u/sort");
 
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
                 box.on(ext.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
@@ -85,7 +84,7 @@
                 ext.helper.model.setData({
                     "u/sort": sort
                 }, () => {
-                    this.updateBookmarkBox(true);
+                    ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
                 });
             }
         };
@@ -102,14 +101,9 @@
         /**
          * Updates the sidebar with the newest set of bookmarks
          */
-        this.updateBookmarkBox = (scrollTop = false) => {
+        this.updateBookmarkBox = () => {
             ext.startLoading();
-
-            if (scrollTop) {
-                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0, true);
-                ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true, true);
-            }
-
+            sort = ext.helper.model.getData("u/sort");
             ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
             ext.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree

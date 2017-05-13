@@ -139,6 +139,21 @@
                 ext.helper.contextmenu.close();
             });
 
+            chrome.extension.onMessage.addListener((message) => { // listen for refresh event
+                if (message && message.action && message.action === "refresh") {
+                    let delay = 0;
+                    if (message.scrollTop) {
+                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0, true);
+                        ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true, true);
+                        delay = 100;
+                    }
+
+                    setTimeout(() => {
+                        ext.refresh();
+                    }, delay);
+                }
+            });
+
             ["menu", "sort"].forEach((type) => {
                 ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar[type], (e) => { // Menu and sort contextmenu
                     e.preventDefault();
@@ -162,7 +177,8 @@
                     ext.helper.model.setData({
                         ["u/" + name]: e.detail.checked
                     }, () => {
-                        ext.helper.list.updateBookmarkBox(true);
+                        ext.startLoading();
+                        ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
                     });
                 }
             });

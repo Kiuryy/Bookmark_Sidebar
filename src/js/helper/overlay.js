@@ -380,8 +380,7 @@
             hiddenEntries[data.id] = true;
 
             ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
-                ext.helper.list.updateBookmarkBox();
-                ext.endLoading();
+                ext.helper.model.call("refreshAllTabs", {type: "Hide"});
             });
         };
 
@@ -489,7 +488,6 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
-                        ext.helper.list.updateBookmarkBox();
                         closeOverlay();
                     }
                 });
@@ -514,7 +512,6 @@
                 }
             });
 
-            ext.helper.list.updateBookmarkBox();
             closeOverlay();
         };
 

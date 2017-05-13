@@ -189,7 +189,7 @@
         "message": "Si vous acceptez de partager vos r\u00e9glages de fa\u00e7on anonyme vous pouvez beaucoup m'aider."
     },
     "share_userdata_notice": {
-        "message": "Les informations sur vos favoris [b]ne seront[\/b] pas transf\u00e9r\u00e9s."
+        "message": "Les donn\u00e9es de vos favoris [b]ne seront pas[\/b] transf\u00e9r\u00e9es."
     },
     "share_userdata_accept": {
         "message": "Accepter"
@@ -386,6 +386,12 @@
     "settings_close_timeout_desc": {
         "message": "D\u00e9lai en secondes avant que la barre lat\u00e9rale disparaisse. Le d\u00e9compte commence d\u00e8s que la souris ne survole plus la barre lat\u00e9rale et s'arr\u00eate si la souris survole de nouveau la barre."
     },
+    "settings_initial_open_on_new_tab": {
+        "message": "Affichage automatique \u00e0 l'ouverture d'un nouvel onglet"
+    },
+    "settings_initial_open_on_new_tab_desc": {
+        "message": "Option pour afficher automatiquement la barre lat\u00e9rale dans les nouveaux onglets."
+    },
     "settings_scroll_sensitivity": {
         "message": "Vitesse de d\u00e9filement"
     },
@@ -512,6 +518,9 @@
     "settings_feedback_desc": {
         "message": "Des suggestions d'am\u00e9lioration, des questions, des options de param\u00e9trage manquantes ou un dysfonctionnement ? Afin d'am\u00e9liorer l'exp\u00e9rience utilisateur de cette extension, je vous suis tr\u00e8s reconnaissant de tous vos retours d'exp\u00e9rience."
     },
+    "settings_feedback_notice": {
+        "message": "Ecrivez-moi en anglais s'il vous pla\u00eet, autrement je risque d'avoir des probl\u00e8mes pour comprendre votre message et y r\u00e9pondre."
+    },
     "settings_feedback_email": {
         "message": "Votre courriel"
     },
@@ -525,13 +534,19 @@
         "message": "Avez vous des probl\u00e8mes pour utiliser cette extension ?"
     },
     "settings_help_desc2": {
-        "message": "Vous avez une difficult\u00e9 ou l'extension de fonctionne pas ? Vous pouvez m'envoyer un message pour que je jette un oeil."
+        "message": "Vous avez une difficult\u00e9 ou l'extension ne fonctionne pas ? Vous pouvez m'envoyer un message pour que je jette un oeil."
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "Pouvez vous faire en sorte que la barre lat\u00e9rale soit constamment affich\u00e9e ?"
     },
     "settings_faq_fixed_sidebar_a": {
         "message": "Malheureusement je ne peux pas faire cela. Google a retir\u00e9 la possibilit\u00e9 de faire une vraie barre lat\u00e9rale (comme dans firefox) il y a quelques ann\u00e9es."
+    },
+    "settings_faq_not_working_q": {
+        "message": "Pourquoi la barre lat\u00e9rale ne s'affiche-t-elle pas sur certaines pages comme le store de chrome ?"
+    },
+    "settings_faq_not_working_a": {
+        "message": "Plusieurs explications sont possibles. Par exemple, pour des raisons de s\u00e9curit\u00e9 sur le store et les pages commen\u00e7ant par [em]chrome-extension:\/\/[\/em]. Mais d'autres pages peuvent aussi bloquer la barre lat\u00e9rale ou utiliser du code obsol\u00e8te. Si vous avez des probl\u00e8mes sur des pages en particulier, indiquez-moi lesquelles pour que je puisse y jeter un oeil et essayer de r\u00e9soudre le probl\u00e8me."
     },
     "settings_saved_share_userdata": {
         "message": "Votre choix a bien \u00e9t\u00e9 pris en compte"

@@ -299,7 +299,7 @@
                 }
             });
 
-            this.opts.elm.button.restore.attr("title",this.helper.i18n.get("settings_restore"));
+            this.opts.elm.button.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
             this.opts.elm.button.restore.on("click", (e) => {
                 e.preventDefault();
@@ -309,6 +309,7 @@
                     case "behaviour":
                     case "appearance": {
                         chrome.storage.sync.remove([tabName], () => {
+                            this.helper.model.call("refreshAllTabs", {type: "Settings"});
                             this.showSuccessMessage("restored_message");
                             setTimeout(() => {
                                 location.reload(true);

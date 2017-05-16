@@ -37,10 +37,13 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if (ext.isNewTab && data.initialOpenOnNewTab) {
+            if (ext.isNewTab) {
                 ext.elements.toggle.addClass(ext.opts.classes.page.isNewTab);
                 ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
-                openSidebar();
+
+                if (data.initialOpenOnNewTab) {
+                    openSidebar();
+                }
             }
         };
 

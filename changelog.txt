@@ -3,6 +3,7 @@
  - helpful hints
  - Separators
  - dark theme
+ - change default color scheme (rgb(27,130,241))
 
 [1.8]
  - Added many translations

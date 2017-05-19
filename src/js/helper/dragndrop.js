@@ -284,13 +284,16 @@
                 let newAboveLink = newAboveElm.children("a").eq(0);
 
                 if (newAboveLink.hasClass(ext.opts.classes.sidebar.bookmarkDir)) { // drag position is beneath a directory
-                    if (newAboveLink.hasClass(ext.opts.classes.sidebar.dirOpened)) {
+                    if (newAboveLink.hasClass(ext.opts.classes.sidebar.dirOpened)) { // opened directory
                         let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
                         draggedElm && draggedElm.data("elm", elm);
                     } else if (draggedElm && draggedElm.data("isDir")) {
                         let elm = bookmarkElm.insertAfter(newAboveElm);
                         draggedElm && draggedElm.data("elm", elm);
-                    } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) {
+                    } else if (newAboveLink.next("ul").length() === 0) { // empty directory
+                        newAboveLink.addClass(ext.opts.classes.sidebar.dirOpened);
+                        $("<ul />").insertAfter(newAboveLink);
+                    } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) { // closed directory
                         ext.helper.list.toggleBookmarkDir(newAboveLink);
                     }
                 } else { // drag position is beneath a bookmark

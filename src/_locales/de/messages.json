@@ -386,6 +386,9 @@
     "settings_close_timeout_desc": {
         "message": "Dauer in Sekunden bis die Sidebar geschlossen wird. Z\u00e4hlt sobald die Sidebar mit der Maus verlassen wird und stoppt wenn sie die Sidebar wieder betritt."
     },
+    "settings_close_timeout_infinity": {
+        "message": "Nicht automatisch schlie\u00dfen"
+    },
     "settings_initial_open_on_new_tab": {
         "message": "Auf der 'Neuer Tab'-Seite initial \u00f6ffnen"
     },

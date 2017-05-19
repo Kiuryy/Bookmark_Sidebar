@@ -386,6 +386,9 @@
     "settings_close_timeout_desc": {
         "message": "Timeout in seconds after the sidebar will be closed. It will count as soon the mouse leaves the sidebar and stops when hovering it again."
     },
+    "settings_close_timeout_infinity": {
+        "message": "Don't close automatically"
+    },
     "settings_initial_open_on_new_tab": {
         "message": "Initial open on new tab page"
     },

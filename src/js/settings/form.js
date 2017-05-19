@@ -177,6 +177,23 @@
                             valTooltip.text(elm.value + unit);
                         });
                         s.opts.elm.range[name].trigger("input");
+
+
+                        if (!!($(elm).attr(s.opts.attr.range.infinity)) === true) { // add checkbox to disable range input
+                            let checkbox = s.helper.checkbox.get(s.opts.elm.body).insertAfter(valTooltip);
+                            $("<label />").attr(s.opts.attr.i18n, i18n + "_infinity").insertAfter(checkbox);
+
+                            checkbox.children("input[type='checkbox'").on("change", (e) => {
+                                if (e.currentTarget.checked) {
+                                    s.opts.elm.range[name].addClass(s.opts.classes.range.inactive);
+                                } else {
+                                    s.opts.elm.range[name].removeClass(s.opts.classes.range.inactive);
+                                }
+                            });
+
+                            s.opts.elm.range[name].data("infinityCheckbox", checkbox);
+                        }
+
                         elementLoaded();
                         break;
                     }

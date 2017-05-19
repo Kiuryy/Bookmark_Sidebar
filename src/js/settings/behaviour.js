@@ -23,24 +23,29 @@
             s.opts.elm.range.mouseScrollSensitivity[0].value = scrollSensitivity.mouse;
             s.opts.elm.range.trackpadScrollSensitivity[0].value = scrollSensitivity.trackpad;
 
-            s.opts.elm.range.closeTimeout[0].value = s.helper.model.getData("b/closeTimeout");
-            s.opts.elm.range.dirOpenDuration[0].value = s.helper.model.getData("b/dirOpenDuration");
-            s.opts.elm.range.openDelay[0].value = s.helper.model.getData("b/openDelay");
-            s.opts.elm.select.openAction[0].value = s.helper.model.getData("b/openAction");
-            s.opts.elm.select.linkAction[0].value = s.helper.model.getData("b/linkAction");
-            s.opts.elm.select.rememberState[0].value = s.helper.model.getData("b/rememberState");
-            s.opts.elm.select.newTab[0].value = s.helper.model.getData("b/newTab");
+            ["openAction", "linkAction", "rememberState", "newTab"].forEach((field) => { // select
+                s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
+                s.opts.elm.select[field].trigger("change");
+            });
+
+            ["openDelay", "dirOpenDuration", "closeTimeout"].forEach((field) => { // range
+                let val = s.helper.model.getData("b/" + field);
+
+                if (val === -1) {
+                    let checkbox = s.opts.elm.range[field].data("infinityCheckbox");
+                    if (checkbox && checkbox.length() > 0) {
+                        checkbox.trigger("click");
+                    }
+                }
+
+                s.opts.elm.range[field][0].value = val;
+                s.opts.elm.range[field].trigger("change");
+            });
 
             s.opts.elm.range.pxToleranceMaximized.trigger("change");
             s.opts.elm.range.pxToleranceWindowed.trigger("change");
             s.opts.elm.range.mouseScrollSensitivity.trigger("change");
             s.opts.elm.range.trackpadScrollSensitivity.trigger("change");
-            s.opts.elm.range.closeTimeout.trigger("change");
-            s.opts.elm.range.dirOpenDuration.trigger("change");
-            s.opts.elm.range.openDelay.trigger("change");
-            s.opts.elm.select.openAction.trigger("change");
-            s.opts.elm.select.linkAction.trigger("change");
-            s.opts.elm.select.rememberState.trigger("change");
         };
 
         /**
@@ -55,17 +60,24 @@
                 scrollSensitivity: {
                     mouse: s.opts.elm.range.mouseScrollSensitivity[0].value,
                     trackpad: s.opts.elm.range.trackpadScrollSensitivity[0].value
-                },
-                closeTimeout: s.opts.elm.range.closeTimeout[0].value,
-                dirOpenDuration: s.opts.elm.range.dirOpenDuration[0].value,
-                openDelay: s.opts.elm.range.openDelay[0].value,
-                openAction: s.opts.elm.select.openAction[0].value,
-                linkAction: s.opts.elm.select.linkAction[0].value,
-                rememberState: s.opts.elm.select.rememberState[0].value,
-                newTab: s.opts.elm.select.newTab[0].value
+                }
             };
 
-            ["rememberSearch", "dirAccordion", "initialOpenOnNewTab"].forEach((field) => {
+            ["openAction", "linkAction", "rememberState", "newTab"].forEach((field) => { // select
+                config[field] = s.opts.elm.select[field][0].value;
+            });
+
+            ["openDelay", "dirOpenDuration", "closeTimeout"].forEach((field) => { // range
+                let val = -1;
+
+                if (s.opts.elm.range[field].hasClass(s.opts.classes.range.inactive) === false) { // if inactive set -1 as value else use the selected value
+                    val = s.opts.elm.range[field][0].value;
+                }
+
+                config[field] = val;
+            });
+
+            ["rememberSearch", "dirAccordion", "initialOpenOnNewTab"].forEach((field) => { // checkbox
                 config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
             });
 

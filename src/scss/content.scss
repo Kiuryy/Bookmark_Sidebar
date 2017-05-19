@@ -4,7 +4,7 @@
 // Visual
 body > div#blockbyte-bs-indicator {
 
-  &.blockbyte-bs-visible { // indicator should be visible on hover
+  &.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab) { // indicator should be visible on hover
 
     &.blockbyte-bs-icon { // show indicator icon
       @include mask('icon-bookmark', $__indicatorIconColor, $__indicatorIconSize);
@@ -44,10 +44,6 @@ body > div#blockbyte-bs-indicator {
         opacity: 1;
       }
     }
-  }
-
-  &.blockbyte-bs-isNewTab {
-    display: none;
   }
 }
 

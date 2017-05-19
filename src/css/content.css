@@ -1,4 +1,4 @@
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::after {
   opacity: 0;
   pointer-events: none;
 }
@@ -8,7 +8,7 @@ body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible, body > iframe#blockbyte
   pointer-events: auto;
 }
 
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-icon::before {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-icon::before {
   content: "";
   position: absolute;
   top: 0;
@@ -19,7 +19,7 @@ body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-icon::before
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg);
   background-color: "%indicatorIconColor";
 }
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::after {
   content: "";
   position: absolute;
   transition: opacity 0.3s, transform 0.3s;
@@ -30,21 +30,18 @@ body > div#blockbyte-bs-indicator.blockbyte-bs-visible::before, body > div#block
   height: 100%;
   z-index: 2;
 }
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::after {
   background: "%indicatorColor";
   z-index: 1;
 }
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible[data-pos='right']::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible[data-pos='right']::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)[data-pos='right']::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)[data-pos='right']::after {
   transform: translate3d("%indicatorWidth", 0, 0);
   left: auto;
   right: 0;
 }
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-hover::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible.blockbyte-bs-hover::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-hover::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-hover::after {
   transform: translate3d(0, 0, 0);
   opacity: 1;
-}
-body > div#blockbyte-bs-indicator.blockbyte-bs-isNewTab {
-  display: none;
 }
 
 body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb::after {

@@ -19,6 +19,9 @@
                 color: {
                     field: "color"
                 },
+                range: {
+                    inactive: "inactive"
+                },
                 checkbox: {
                     box: "checkbox",
                     active: "active",
@@ -54,7 +57,8 @@
                     min: "data-min",
                     max: "data-max",
                     step: "data-step",
-                    unit: "data-unit"
+                    unit: "data-unit",
+                    infinity: "data-infinity"
                 },
                 color: {
                     alpha: "data-alpha"

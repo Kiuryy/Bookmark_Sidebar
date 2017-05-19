@@ -93,11 +93,13 @@
                 ) {
                     let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
-                    timeout.close = setTimeout(() => {
-                        if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
-                            closeSidebar();
-                        }
-                    }, +closeTimeoutRaw * 1000);
+                    if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
+                        timeout.close = setTimeout(() => {
+                            if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
+                                closeSidebar();
+                            }
+                        }, +closeTimeoutRaw * 1000);
+                    }
                 }
             }).on("mouseenter", () => {
                 clearSidebarTimeout("close");

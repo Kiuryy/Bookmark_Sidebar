@@ -1,6 +1,6 @@
 {
   "name": "Bookmark Sidebar",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "license": "GPL-3.0",
   "author": "Philipp König",
   "homepage": "https://blockbyte.de/extensions",
@@ -13,11 +13,11 @@
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-htmlmin": "^2.3.0",
+    "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-contrib-uglify": "^3.0.0",
     "grunt-json-minification": "^0.1.1",
     "grunt-string-replace": "^1.3.1",
-    "uglify-js": "^3.0.3"
+    "uglify-js": "^3.0.9"
   }
 }

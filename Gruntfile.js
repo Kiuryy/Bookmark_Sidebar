@@ -75,8 +75,7 @@ module.exports = function (grunt) {
                 options: {
                     banner: '/*! (c) <%= pkg.author %> under <%= pkg.license %> */',
                     mangle: {
-                        toplevel: true,
-                        except: ['jsu']
+                        reserved: ['jsu', 'chrome']
                     }
                 },
                 files: {
@@ -228,5 +227,5 @@ module.exports = function (grunt) {
         'clean:distPost'
     ]);
 
-    // UPDATE NPM devDependencies -> 'npm update --dev --save'
+    // UPDATE NPM devDependencies -> 'npm update --dev --save-dev'
 };

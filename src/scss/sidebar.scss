@@ -67,6 +67,10 @@ body > textarea {
     background: $hoverBackground;
   }
 
+  &.dragHover {
+    background: $hoverBackground;
+  }
+
   &.mark {
     background: $__colorScheme;
     color: $textColorInverted;

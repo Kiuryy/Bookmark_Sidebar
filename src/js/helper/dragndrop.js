@@ -6,6 +6,7 @@
         let scrollSensitivity = null;
         let oldAboveElm = null;
         let oldTopVal = 0;
+        let dirOpenTimeout = null;
 
         let edgeScroll = {
             running: false,
@@ -174,6 +175,8 @@
          * Stop dragging an element (bookmark or directory)
          */
         let dragend = () => {
+            clearDirOpenTimeout();
+
             let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
             let dragInitialElm = ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
@@ -212,6 +215,14 @@
                 setTimeout(() => {
                     ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
                 }, 500);
+            }
+        };
+
+        let clearDirOpenTimeout = (checkElm = null) => {
+            if (dirOpenTimeout !== null && (checkElm === null || dirOpenTimeout.id !== checkElm.attr(ext.opts.attr.id))) {
+                dirOpenTimeout.elm.removeClass(ext.opts.classes.drag.dragHover);
+                clearTimeout(dirOpenTimeout.instance);
+                dirOpenTimeout = null;
             }
         };
 
@@ -254,7 +265,9 @@
             }
 
             if (isDraggedElementOutside(draggedElm || leftVal)) { // dragged outside the sidebar -> mouseup will cancel
+                clearDirOpenTimeout();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.cancel);
+                return false;
             } else {
                 ext.elements.iframeBody.removeClass(ext.opts.classes.drag.cancel);
             }
@@ -278,10 +291,11 @@
                 }
             });
 
-
             if (newAboveElm && newAboveElm !== oldAboveElm) {
                 oldAboveElm = newAboveElm;
                 let newAboveLink = newAboveElm.children("a").eq(0);
+
+                clearDirOpenTimeout(newAboveLink);
 
                 if (newAboveLink.hasClass(ext.opts.classes.sidebar.bookmarkDir)) { // drag position is beneath a directory
                     if (newAboveLink.hasClass(ext.opts.classes.sidebar.dirOpened)) { // opened directory
@@ -290,11 +304,20 @@
                     } else if (draggedElm && draggedElm.data("isDir")) {
                         let elm = bookmarkElm.insertAfter(newAboveElm);
                         draggedElm && draggedElm.data("elm", elm);
+                    } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) { // closed directory
+                        if (dirOpenTimeout === null) {
+                            dirOpenTimeout = {
+                                id: newAboveLink.attr(ext.opts.attr.id),
+                                elm: newAboveLink.addClass(ext.opts.classes.drag.dragHover)
+                            };
+
+                            dirOpenTimeout.instance = setTimeout(() => { // open closed directory after short delay -> possibility for user to cancel timeout
+                                ext.helper.list.toggleBookmarkDir(newAboveLink);
+                            }, 700);
+                        }
                     } else if (newAboveLink.next("ul").length() === 0) { // empty directory
                         newAboveLink.addClass(ext.opts.classes.sidebar.dirOpened);
                         $("<ul />").insertAfter(newAboveLink);
-                    } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) { // closed directory
-                        ext.helper.list.toggleBookmarkDir(newAboveLink);
                     }
                 } else { // drag position is beneath a bookmark
                     let elm = bookmarkElm.insertAfter(newAboveElm);

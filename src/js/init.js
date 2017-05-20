@@ -69,6 +69,7 @@
                 helper: "dragHelper",
                 isDragged: "isDragged",
                 cancel: "dragCancel",
+                dragHover: "dragHover",
                 snap: "snap",
                 dragInitial: "dragInitial"
             },

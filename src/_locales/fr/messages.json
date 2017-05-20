@@ -386,6 +386,9 @@
     "settings_close_timeout_desc": {
         "message": "D\u00e9lai en secondes avant que la barre lat\u00e9rale disparaisse. Le d\u00e9compte commence d\u00e8s que la souris ne survole plus la barre lat\u00e9rale et s'arr\u00eate si la souris survole de nouveau la barre."
     },
+    "settings_close_timeout_infinity": {
+        "message": "Ne pas fermer automatiquement"
+    },
     "settings_initial_open_on_new_tab": {
         "message": "Affichage automatique \u00e0 l'ouverture d'un nouvel onglet"
     },

@@ -4,8 +4,6 @@
  - Separators
  - dark theme
  - change default color scheme (rgb(27,130,241))
- - delay opening directory if dragged over
- - Bugfix: drop into empty directory
 
 [1.8]
  - Added many translations

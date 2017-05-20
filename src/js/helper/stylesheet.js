@@ -19,13 +19,17 @@
          * @param {jsu} context
          */
         this.addStylesheets = (files, context = null) => {
-            let head = null;
-
             if (context === null) {
-                head = $("html > head");
+                context = $(document);
+            } else {
+                ext.helper.font.addStylesheet(context);
+            }
+
+            let head = null;
+            if (context.find("head").length() === 0) { // document does not have a head -> append styles to the body
+                head = context.find("body");
             } else {
                 head = context.find("head");
-                ext.helper.font.addStylesheet(context);
             }
 
             files.forEach((file) => {

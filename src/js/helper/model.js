@@ -39,8 +39,8 @@
                 styles: {
                     colorScheme: "rgb(0,137,123)",
                     textColor: "rgb(102,102,102)",
-                    indicatorWidth: "50px",
-                    indicatorIconSize: "40px",
+                    indicatorWidth: "40px",
+                    indicatorIconSize: "32px",
                     indicatorIconColor: "rgb(255,255,255)",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",

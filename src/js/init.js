@@ -123,7 +123,7 @@
             scrollBoxLastPart: "blockbyte-bs-scrollBoxLastPart",
             lsbLoaded: "blockbyte-lsb-loaded"
         },
-        leftsideBackSelector: "div#blockbyte-lsb-main.blockbyte-lsb-add-visual",
+        leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
         manifest: chrome.runtime.getManifest(),
         demoMode: false
     };

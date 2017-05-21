@@ -227,5 +227,5 @@ module.exports = function (grunt) {
         'clean:distPost'
     ]);
 
-    // UPDATE NPM devDependencies -> 'npm update --dev --save-dev'
+    // UPDATE NPM devDependencies -> 'npm update --dev --save'
 };

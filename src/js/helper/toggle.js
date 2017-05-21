@@ -6,6 +6,7 @@
         let sidebarPos = null;
         let pxToleranceObj = null;
         let openDelay = 0;
+        let indicatorWidth = null;
         let inPixelToleranceTime = null;
         let timeout = {};
 
@@ -15,7 +16,7 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
@@ -23,6 +24,10 @@
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
             ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
+
+            if (data.styles && data.styles.indicatorWidth) {
+                indicatorWidth = parseInt(data.styles.indicatorWidth);
+            }
 
             if (data.showIndicator && data.openAction !== "icon") { // show indicator
                 ext.elements.toggle
@@ -184,7 +189,13 @@
                     pageX = window.innerWidth - pageX - 1;
                 }
 
-                ret = pageX < getPixelTolerance();
+                let pixelTolerance = getPixelTolerance();
+
+                if (ext.elements.toggle.hasClass(ext.opts.classes.page.hover) && indicatorWidth > pixelTolerance) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
+                    pixelTolerance = indicatorWidth;
+                }
+
+                ret = pageX < pixelTolerance;
             }
 
             if (ret === false) {
@@ -246,7 +257,7 @@
                 ext.elements.toggle.addClass(ext.opts.classes.page.hasLeftsideBack);
             } else {
                 $(document).on(ext.opts.events.lsbLoaded, (e) => { // Extension is now loaded
-                    if (e.detail.addVisual) {
+                    if (e.detail.showIndicator) {
                         ext.elements.toggle.addClass(ext.opts.classes.page.hasLeftsideBack);
                     }
                 });

@@ -219,18 +219,40 @@
                         }
                     });
 
-                    let select = $("<select class='" + this.opts.classes.languagesSelect + "' />").appendTo(this.opts.elm.wrapper.overview.children("div"));
-                    $("<option value='' />").text("Add language").appendTo(select);
-
-                    Object.keys(missingLanguages).forEach((lang) => {
-                        $("<option value='" + lang + "' />").text(languages[lang].label).appendTo(select);
-                    });
+                    addSelectForMissingLangs(missingLanguages);
                 }
 
                 initOverviewEvents();
                 endLoading();
             };
             xhr.send();
+        };
+
+        /**
+         * Adds a dropdown select for all missing languages below the list of available languages
+         *
+         * @param {object} langs
+         */
+        let addSelectForMissingLangs = (langs) => {
+            let select = $("<select class='" + this.opts.classes.languagesSelect + "' />").appendTo(this.opts.elm.wrapper.overview.children("div"));
+            $("<option value='' />").text("Add language").appendTo(select);
+
+            let optionList = [];
+
+            Object.keys(langs).forEach((lang) => {
+                optionList.push({
+                    elm: $("<option value='" + lang + "' />").text(languages[lang].label),
+                    label: languages[lang].label
+                });
+            });
+
+            optionList.sort((a, b) => {
+                return a.label > b.label ? 1 : -1;
+            });
+
+            optionList.forEach((obj) => {
+                obj.elm.appendTo(select);
+            });
         };
 
         /**

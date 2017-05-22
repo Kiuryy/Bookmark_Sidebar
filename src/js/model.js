@@ -55,6 +55,7 @@
         es: "Spanish",
         sw: "Swahili",
         sv: "Swedish",
+        ta: "Tamil",
         th: "Thai",
         tr: "Turkish",
         uk: "Ukrainian",

@@ -386,6 +386,9 @@
     "settings_close_timeout_desc": {
         "message": "\u4fa7\u8fb9\u680f\u5728\u5012\u8ba1\u65f6\u540e\u5c06\u5173\u95ed\u3002\u5f53\u9f20\u6807\u79bb\u5f00\u4fa7\u8fb9\u680f\u65f6\uff0c\u9f20\u6807\u4f1a\u7acb\u5373\u91cd\u65b0\u8ba1\u6570\uff0c\u5e76\u5c06\u9f20\u6807\u60ac\u505c\u540e\u518d\u505c\u6b62\u3002"
     },
+    "settings_close_timeout_infinity": {
+        "message": "\u7981\u7528\u81ea\u52a8\u5173\u95ed"
+    },
     "settings_initial_open_on_new_tab": {
         "message": "\u9996\u6b21\u5728\u65b0\u6807\u7b7e\u9875\u6253\u5f00"
     },

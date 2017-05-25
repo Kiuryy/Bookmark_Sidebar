@@ -114,7 +114,7 @@
 
                     ext.helper.entry.update(response.bookmarks[0].children, () => {
                         updateSidebarHeader();
-                        updateSortFilter();
+                        this.updateSortFilter();
                         ext.helper.search.init();
 
                         let viewAsTree = ext.helper.model.getData("u/viewAsTree");
@@ -218,6 +218,54 @@
                     });
                 }, 100);
             }
+        };
+
+        /**
+         * Updates the html for the sort filterbox
+         */
+        this.updateSortFilter = () => {
+            ext.elements.filterBox.removeClass(ext.opts.classes.sidebar.hidden).text("");
+            let filterBoxHeight = 0;
+
+            if (sort.name === "custom") {
+                ext.elements.filterBox.addClass(ext.opts.classes.sidebar.hidden);
+            } else {
+                let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
+
+                let langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
+                $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elements.filterBox);
+                let checkList = $("<ul />").appendTo(ext.elements.filterBox);
+
+                if (!ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) { // show bookmarks as tree or one dimensional list
+                    $("<li />")
+                        .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
+                            [ext.opts.attr.name]: 'viewAsTree',
+                            checked: config.viewAsTree ? "checked" : ""
+                        }))
+                        .append("<a>" + ext.helper.i18n.get("sort_view_as_tree") + "</a>")
+                        .appendTo(checkList);
+                }
+
+                if (sort.name === "mostUsed") { // sort most used based on total clicks or clicks per month
+                    $("<li />")
+                        .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
+                            [ext.opts.attr.name]: 'mostViewedPerMonth',
+                            checked: config.mostViewedPerMonth ? "checked" : ""
+                        }))
+                        .append("<a>" + ext.helper.i18n.get("sort_most_used_per_month") + "</a>")
+                        .appendTo(checkList);
+                }
+
+                if (checkList.children("li").length() === 0) {
+                    checkList.remove();
+                }
+
+                filterBoxHeight = ext.elements.filterBox.realHeight();
+            }
+
+            Object.values(ext.elements.bookmarkBox).forEach((box) => {
+                box.css("padding-top", filterBoxHeight);
+            });
         };
 
         /**
@@ -421,12 +469,11 @@
                 } else {
                     elm.addClass(ext.opts.classes.sidebar.dirOpened);
                     if (ext.helper.model.getData("b/dirAccordion")) {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop);
+                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
                     }
                 }
                 list.css("height", "");
                 elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
-                ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true);
 
                 if (typeof callback === "function") {
                     callback();
@@ -450,50 +497,6 @@
 
             ext.helper.model.setData({
                 "u/openStates": openStates
-            });
-        };
-
-        /**
-         * Updates the html for the sort filterbox
-         */
-        let updateSortFilter = () => {
-            Object.keys(ext.elements.bookmarkBox).forEach((key) => {
-                let filterBox = ext.elements.bookmarkBox[key].children("div." + ext.opts.classes.sidebar.filterBox);
-                filterBox.removeClass(ext.opts.classes.sidebar.hidden).text("");
-
-                if (sort.name === "custom") {
-                    filterBox.addClass(ext.opts.classes.sidebar.hidden);
-                } else {
-                    let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
-
-                    let langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
-                    $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(filterBox);
-                    let checkList = $("<ul />").appendTo(filterBox);
-
-                    if (key === "all") { // show bookmarks as tree or one dimensional list
-                        $("<li />")
-                            .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                                [ext.opts.attr.name]: 'viewAsTree',
-                                checked: config.viewAsTree ? "checked" : ""
-                            }))
-                            .append("<a>" + ext.helper.i18n.get("sort_view_as_tree") + "</a>")
-                            .appendTo(checkList);
-                    }
-
-                    if (sort.name === "mostUsed") { // sort most used based on total clicks or clicks per month
-                        $("<li />")
-                            .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                                [ext.opts.attr.name]: 'mostViewedPerMonth',
-                                checked: config.mostViewedPerMonth ? "checked" : ""
-                            }))
-                            .append("<a>" + ext.helper.i18n.get("sort_most_used_per_month") + "</a>")
-                            .appendTo(checkList);
-                    }
-
-                    if (checkList.children("li").length() === 0) {
-                        checkList.remove();
-                    }
-                }
             });
         };
 

@@ -77,11 +77,10 @@
                 wrapper: "scrollBox",
                 scrollbar: "scrollbar",
                 inactive: "inactive",
+                hideScrollbar: "hideScrollbar",
                 hidden: "hidden",
                 scrolled: "scrolled",
-                scrolledEnd: "scrolledEnd",
-                scrollDrag: "scrollDrag",
-                scrollTrackpad: "scrollTrackpad"
+                scrolledEnd: "scrolledEnd"
             },
             checkbox: {
                 box: "checkbox",

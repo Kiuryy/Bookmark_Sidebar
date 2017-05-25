@@ -3,7 +3,6 @@
 
     window.DragDropHelper = function (ext) {
 
-        let scrollSensitivity = null;
         let oldAboveElm = null;
         let oldTopVal = 0;
         let dirOpenTimeout = null;
@@ -19,7 +18,6 @@
          * Initializes the events for the drag n drop functionality
          */
         this.init = () => {
-            scrollSensitivity = ext.helper.model.getData("b/scrollSensitivity");
             initEvents();
             initExternalDragDropEvents();
         };
@@ -164,7 +162,7 @@
 
                 if (newScrollPos) {
                     ext.elements.bookmarkBox["all"].data("scrollpos", newScrollPos);
-                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true);
+                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
                 }
             }
 
@@ -362,8 +360,8 @@
                     let scrollPos = ext.elements.bookmarkBox["all"].data("scrollpos") || 0;
                     let scrollType = Math.abs(e.wheelDelta) < 60 ? "trackpad" : "mouse";
 
-                    ext.elements.bookmarkBox["all"].data("scrollpos", scrollPos - (e.wheelDelta * scrollSensitivity[scrollType]));
-                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true);
+                    ext.elements.bookmarkBox["all"].data("scrollpos", scrollPos - e.wheelDelta);
+                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
                 }
             });
 

@@ -19,10 +19,6 @@
             s.opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
             s.opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
 
-            let scrollSensitivity = s.helper.model.getData("b/scrollSensitivity");
-            s.opts.elm.range.mouseScrollSensitivity[0].value = scrollSensitivity.mouse;
-            s.opts.elm.range.trackpadScrollSensitivity[0].value = scrollSensitivity.trackpad;
-
             ["openAction", "linkAction", "rememberState", "newTab"].forEach((field) => { // select
                 s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.opts.elm.select[field].trigger("change");
@@ -44,8 +40,6 @@
 
             s.opts.elm.range.pxToleranceMaximized.trigger("change");
             s.opts.elm.range.pxToleranceWindowed.trigger("change");
-            s.opts.elm.range.mouseScrollSensitivity.trigger("change");
-            s.opts.elm.range.trackpadScrollSensitivity.trigger("change");
         };
 
         /**
@@ -56,10 +50,6 @@
                 pxTolerance: {
                     maximized: s.opts.elm.range.pxToleranceMaximized[0].value,
                     windowed: s.opts.elm.range.pxToleranceWindowed[0].value
-                },
-                scrollSensitivity: {
-                    mouse: s.opts.elm.range.mouseScrollSensitivity[0].value,
-                    trackpad: s.opts.elm.range.trackpadScrollSensitivity[0].value
                 }
             };
 

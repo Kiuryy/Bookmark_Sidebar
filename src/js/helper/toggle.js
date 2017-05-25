@@ -94,7 +94,6 @@
             ext.elements.sidebar.on("mouseleave", () => {
                 if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0
                     && ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
-                    && ext.elements.sidebar.find("." + ext.opts.classes.scrollBox.scrollDrag).length() === 0
                 ) {
                     let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
@@ -128,7 +127,7 @@
             }).on("mouseout", () => {
                 clearSidebarTimeout("open");
             }).on("mousemove dragover", (e) => { // check mouse position
-                if (isMousePosInPixelTolerance(e.pageX)) {
+                if (e.isTrusted && isMousePosInPixelTolerance(e.pageX)) {
                     let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
 
                     if (!(timeout.indicator)) {
@@ -244,7 +243,7 @@
 
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
-            ext.helper.scroll.updateAll(false, true);
+
             ext.initImages();
             $(document).trigger("mousemove"); // hide indicator
         };

@@ -213,8 +213,9 @@
 
             ["all", "search"].forEach((val) => {
                 this.elements.bookmarkBox[val] = this.helper.scroll.add(opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elements.sidebar));
-                $("<div />").addClass(opts.classes.sidebar.filterBox).prependTo(this.elements.bookmarkBox[val]);
             });
+
+            this.elements.filterBox = $("<div />").addClass(opts.classes.sidebar.filterBox).appendTo(this.elements.sidebar);
 
             this.elements.iframeBody.attr(opts.attr.dragCancel, this.helper.i18n.get("sidebar_drag_cancel"));
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);

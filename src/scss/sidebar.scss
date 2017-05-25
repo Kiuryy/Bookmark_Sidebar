@@ -315,6 +315,82 @@ section#sidebar {
     }
   }
 
+  > div.filter {
+    position: absolute;
+    top: $sidebarHeaderHeight;
+    left: 0;
+    width: calc(100% - #{$scrollBarWidth});
+    background: $hoverBackground;
+    padding: 10px $__bookmarksHorizontalPadding 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 2;
+
+    &.hidden {
+      display: none;
+    }
+
+    > a[data-direction] {
+      @include mask('icon-arrow-up', $__textColor, 24px);
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin: 0 10px 5px 0;
+      padding-left: 18px;
+
+      &::before {
+        width: 14px;
+        height: 14px;
+        margin: 1px 0 0 0;
+        transition: transform 0.5s;
+      }
+
+      &[data-direction="DESC"]::before {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    > ul {
+      float: right;
+      margin-bottom: 5px;
+
+      > li {
+        position: relative;
+
+        + li {
+          margin-top: 5px;
+        }
+
+        > div.checkbox {
+          position: absolute;
+          z-index: 2;
+          width: 16px;
+          height: 16px;
+          top: 0;
+          left: 0;
+
+          &::before {
+            -webkit-mask-size: 18px;
+          }
+
+          + a {
+            padding-left: 22px;
+            cursor: pointer;
+
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+
   > div.scrollBox {
     display: none;
 
@@ -330,85 +406,11 @@ section#sidebar {
       margin: 0 auto;
     }
 
-    > div.filter {
-      position: relative;
-      background: $hoverBackground;
-      padding: 10px $__bookmarksHorizontalPadding 5px;
-      margin: 0 0 -5px 0;
-      transition: transform 0.3s, box-shadow 0.3s;
-      z-index: 2;
-
-      &.hidden {
-        display: none;
-      }
-
-      > a[data-direction] {
-        @include mask('icon-arrow-up', $__textColor, 24px);
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        margin: 0 10px 5px 0;
-        padding-left: 18px;
-
-        &::before {
-          width: 14px;
-          height: 14px;
-          margin: 1px 0 0 0;
-          transition: transform 0.5s;
-        }
-
-        &[data-direction="DESC"]::before {
-          transform: rotateZ(180deg);
-        }
-      }
-
-      > ul {
-        float: right;
-        margin-bottom: 5px;
-
-        > li {
-          position: relative;
-
-          + li {
-            margin-top: 5px;
-          }
-
-          > div.checkbox {
-            position: absolute;
-            z-index: 2;
-            width: 16px;
-            height: 16px;
-            top: 0;
-            left: 0;
-
-            &::before {
-              -webkit-mask-size: 18px;
-            }
-
-            + a {
-              padding-left: 22px;
-              cursor: pointer;
-
-              &::before {
-                display: none;
-              }
-            }
-          }
-        }
-      }
-
-      &::after {
-        content: "";
-        display: block;
-        clear: both;
-      }
+    &.scrolled ~ div.filter {
+      box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.1);
     }
 
-    &.scrolled > div.filter {
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
-    }
-
-    &.scrolled:not([data-direction='up']) > div.filter {
+    &.scrolled:not([data-direction='up']) ~ div.filter {
       transform: translate3d(0, -100%, 0);
       box-shadow: none;
     }

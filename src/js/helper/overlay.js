@@ -77,10 +77,6 @@
             ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
             elements.overlay.removeClass(ext.opts.classes.page.visible);
 
-            setTimeout(() => { // delay or it will not work properly
-                ext.helper.scroll.updateAll(true, false);
-            }, 100);
-
             setTimeout(() => {
                 elements.overlay.remove();
             }, 500);
@@ -296,8 +292,6 @@
                                 }
                             });
                         });
-
-                        ext.helper.scroll.update(scrollBox);
                     }
                 }, hasResults ? 1000 : 0);
 

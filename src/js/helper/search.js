@@ -57,30 +57,32 @@
         let handleSearch = (searchField, val) => {
             ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active);
             ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
+            ext.helper.list.updateSortFilter();
 
             if (val !== searchField.data("lastVal")) { // search value is not the same
-                searchField.data("lastVal", val);
-                ext.helper.model.setData({"u/searchValue": val});
                 ext.startLoading();
-                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
+                searchField.data("lastVal", val);
 
-                ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
-                    ext.elements.bookmarkBox["search"].children("p").remove();
+                ext.helper.model.setData({"u/searchValue": val}, () => {
+                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
 
-                    let hasResults = false;
-                    let list = ext.elements.bookmarkBox["search"].children("ul");
-                    list.text("");
+                    ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
+                        ext.elements.bookmarkBox["search"].children("p").remove();
 
-                    if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
-                        hasResults = ext.helper.list.addBookmarkDir(response.bookmarks, list, false);
-                    }
+                        let hasResults = false;
+                        let list = ext.elements.bookmarkBox["search"].children("ul");
+                        list.text("");
 
-                    if (hasResults === false) { // no results
-                        $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox["search"]);
-                    }
+                        if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
+                            hasResults = ext.helper.list.addBookmarkDir(response.bookmarks, list, false);
+                        }
 
-                    ext.helper.scroll.update(ext.elements.bookmarkBox["search"]);
-                    ext.endLoading();
+                        if (hasResults === false) { // no results
+                            $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox["search"]);
+                        }
+
+                        ext.endLoading();
+                    });
                 });
             }
         };
@@ -93,15 +95,17 @@
         let handleSearchReset = (searchField) => {
             searchField.removeData("lastVal");
 
-            ext.helper.model.setData({"u/searchValue": null});
+            ext.helper.model.setData({"u/searchValue": null}, () => {
+                if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
+                    ext.startLoading();
+                    ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
+                    ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
+                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
+                    ext.endLoading();
+                }
 
-            if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
-                ext.startLoading();
-                ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
-                ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
-                ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
-                ext.endLoading();
-            }
+                ext.helper.list.updateSortFilter();
+            });
         };
 
 

@@ -1,9 +1,12 @@
 [tdb]
- - Configurable icon for chrome menu
  - helpful hints
  - Separators
  - dark theme
  - change default color scheme (rgb(27,130,241))
+ - prevent scrolling when sidebar is open
+ - touchscreen support
+ - Drag&Drop fix
+ - Remove scrollSensitivity
 
 [1.8]
  - Added many translations

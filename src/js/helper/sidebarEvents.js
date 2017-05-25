@@ -45,7 +45,7 @@
 
                     if (e.key === "Home") {
                         e.preventDefault();
-                        ext.helper.scroll.setAllScrollPos(0);
+                        ext.helper.scroll.setAllScrollPos(0, 500);
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) {
                         e.preventDefault();
                         Object.values(ext.elements.bookmarkBox).forEach((box) => {
@@ -129,10 +129,8 @@
         let initGeneralEvents = () => {
             $(window).on("beforeunload", () => { // save scroll position before unloading page
                 if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // sidebar has been open or is still open
-                    ext.helper.scroll.updateAll(true, true);
+                    ext.helper.scroll.updateAll();
                 }
-            }).on("resize", () => {
-                ext.helper.scroll.updateAll(true);
             });
 
             ext.elements.iframe.find("body").on("click", () => {
@@ -143,8 +141,7 @@
                 if (message && message.action && message.action === "refresh") {
                     let delay = 0;
                     if (message.scrollTop) {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0, true);
-                        ext.helper.scroll.update(ext.elements.bookmarkBox["all"], true, true);
+                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0);
                         delay = 100;
                     }
 

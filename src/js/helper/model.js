@@ -18,7 +18,6 @@
             },
             b: { // behaviour
                 pxTolerance: {windowed: 20, maximized: 1},
-                scrollSensitivity: {mouse: 1, trackpad: 1},
                 openAction: "mousedown",
                 newTab: "foreground",
                 linkAction: "current",

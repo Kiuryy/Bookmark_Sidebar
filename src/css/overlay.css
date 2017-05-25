@@ -46,57 +46,28 @@ svg.loading > circle {
 
 div.scrollBox {
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #ccc;
+  -webkit-background-clip: text;
+  transition: background-color 0.3s;
 }
-div.scrollBox > div.scrollbar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 15px;
-  padding: 4px 0;
-  height: 100%;
-  transition: opacity 0.2s, background 0.3s;
-  cursor: pointer;
-  z-index: 2;
+div.scrollBox::-webkit-scrollbar {
+  width: 11px;
+  background: transparent;
 }
-div.scrollBox > div.scrollbar.inactive {
-  display: none;
+div.scrollBox::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: inherit;
 }
-div.scrollBox > div.scrollbar.hidden:not(:hover) {
-  opacity: 0;
+div.scrollBox::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
 }
-div.scrollBox > div.scrollbar > div {
-  position: absolute;
-  top: 0;
-  right: 3px;
-  width: 5px;
-  height: 0;
-  background: #ccc;
-  border-radius: 3px;
-  transition: transform 0.3s, width 0.3s, height 0.3s, border-radius 0.3s, background 0.3s;
-}
-div.scrollBox > div.scrollbar:hover {
-  background: #f2f2f2;
-}
-div.scrollBox > div.scrollbar:hover > div {
-  width: 8px;
-  border-radius: 6px;
-  background: #bbb;
-}
-div.scrollBox.scrollDrag > div.scrollbar {
-  background: #f2f2f2;
-  opacity: 1;
-}
-div.scrollBox.scrollDrag > div.scrollbar > div {
-  width: 8px;
-  border-radius: 6px;
-  background: #bbb;
-}
-div.scrollBox.scrollDrag > div.scrollbar > div {
-  transition: none;
-}
-div.scrollBox.scrollTrackpad > div.scrollbar > div {
-  transition: none;
+div.scrollBox.hideScrollbar {
+  background-color: transparent;
 }
 
 div.checkbox {
@@ -168,6 +139,7 @@ div.checkbox > input[type='checkbox'] {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body, input, textarea, select, button {

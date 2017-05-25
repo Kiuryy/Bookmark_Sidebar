@@ -46,57 +46,28 @@ svg.loading > circle {
 
 div.scrollBox {
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #ccc;
+  -webkit-background-clip: text;
+  transition: background-color 0.3s;
 }
-div.scrollBox > div.scrollbar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 15px;
-  padding: 4px 0;
-  height: 100%;
-  transition: opacity 0.2s, background 0.3s;
-  cursor: pointer;
-  z-index: 2;
+div.scrollBox::-webkit-scrollbar {
+  width: 11px;
+  background: transparent;
 }
-div.scrollBox > div.scrollbar.inactive {
-  display: none;
+div.scrollBox::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: inherit;
 }
-div.scrollBox > div.scrollbar.hidden:not(:hover) {
-  opacity: 0;
+div.scrollBox::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
 }
-div.scrollBox > div.scrollbar > div {
-  position: absolute;
-  top: 0;
-  right: 3px;
-  width: 5px;
-  height: 0;
-  background: #ccc;
-  border-radius: 3px;
-  transition: transform 0.3s, width 0.3s, height 0.3s, border-radius 0.3s, background 0.3s;
-}
-div.scrollBox > div.scrollbar:hover {
-  background: #f2f2f2;
-}
-div.scrollBox > div.scrollbar:hover > div {
-  width: 8px;
-  border-radius: 6px;
-  background: #bbb;
-}
-div.scrollBox.scrollDrag > div.scrollbar {
-  background: #f2f2f2;
-  opacity: 1;
-}
-div.scrollBox.scrollDrag > div.scrollbar > div {
-  width: 8px;
-  border-radius: 6px;
-  background: #bbb;
-}
-div.scrollBox.scrollDrag > div.scrollbar > div {
-  transition: none;
-}
-div.scrollBox.scrollTrackpad > div.scrollbar > div {
-  transition: none;
+div.scrollBox.hideScrollbar {
+  background-color: transparent;
 }
 
 div.contextmenu {
@@ -323,6 +294,7 @@ div.checkbox > input[type='checkbox'] {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body, input, textarea, select, button {
@@ -504,6 +476,79 @@ section#sidebar > header.searchVisible > div.searchBox {
   transform: translate3d(0, 0, 0);
   transition: transform 0.5s 0.1s, opacity 0.5s 0.1s;
 }
+section#sidebar > div.filter {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: calc(100% - 11px);
+  background: #f5f5f5;
+  padding: 10px "%bookmarksHorizontalPadding" 5px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 2;
+}
+section#sidebar > div.filter.hidden {
+  display: none;
+}
+section#sidebar > div.filter > a[data-direction] {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 10px 5px 0;
+  padding-left: 18px;
+}
+section#sidebar > div.filter > a[data-direction]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/24px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-arrow-up.svg);
+  background-color: "%textColor";
+}
+section#sidebar > div.filter > a[data-direction]::before {
+  width: 14px;
+  height: 14px;
+  margin: 1px 0 0 0;
+  transition: transform 0.5s;
+}
+section#sidebar > div.filter > a[data-direction][data-direction="DESC"]::before {
+  transform: rotateZ(180deg);
+}
+section#sidebar > div.filter > ul {
+  float: right;
+  margin-bottom: 5px;
+}
+section#sidebar > div.filter > ul > li {
+  position: relative;
+}
+section#sidebar > div.filter > ul > li + li {
+  margin-top: 5px;
+}
+section#sidebar > div.filter > ul > li > div.checkbox {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+}
+section#sidebar > div.filter > ul > li > div.checkbox::before {
+  -webkit-mask-size: 18px;
+}
+section#sidebar > div.filter > ul > li > div.checkbox + a {
+  padding-left: 22px;
+  cursor: pointer;
+}
+section#sidebar > div.filter > ul > li > div.checkbox + a::before {
+  display: none;
+}
+section#sidebar > div.filter::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 section#sidebar > div.scrollBox {
   display: none;
 }
@@ -517,81 +562,10 @@ section#sidebar > div.scrollBox > p {
   max-width: 350px;
   margin: 0 auto;
 }
-section#sidebar > div.scrollBox > div.filter {
-  position: relative;
-  background: #f5f5f5;
-  padding: 10px "%bookmarksHorizontalPadding" 5px;
-  margin: 0 0 -5px 0;
-  transition: transform 0.3s, box-shadow 0.3s;
-  z-index: 2;
+section#sidebar > div.scrollBox.scrolled ~ div.filter {
+  box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.1);
 }
-section#sidebar > div.scrollBox > div.filter.hidden {
-  display: none;
-}
-section#sidebar > div.scrollBox > div.filter > a[data-direction] {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  margin: 0 10px 5px 0;
-  padding-left: 18px;
-}
-section#sidebar > div.scrollBox > div.filter > a[data-direction]::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask: no-repeat center/24px;
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-arrow-up.svg);
-  background-color: "%textColor";
-}
-section#sidebar > div.scrollBox > div.filter > a[data-direction]::before {
-  width: 14px;
-  height: 14px;
-  margin: 1px 0 0 0;
-  transition: transform 0.5s;
-}
-section#sidebar > div.scrollBox > div.filter > a[data-direction][data-direction="DESC"]::before {
-  transform: rotateZ(180deg);
-}
-section#sidebar > div.scrollBox > div.filter > ul {
-  float: right;
-  margin-bottom: 5px;
-}
-section#sidebar > div.scrollBox > div.filter > ul > li {
-  position: relative;
-}
-section#sidebar > div.scrollBox > div.filter > ul > li + li {
-  margin-top: 5px;
-}
-section#sidebar > div.scrollBox > div.filter > ul > li > div.checkbox {
-  position: absolute;
-  z-index: 2;
-  width: 16px;
-  height: 16px;
-  top: 0;
-  left: 0;
-}
-section#sidebar > div.scrollBox > div.filter > ul > li > div.checkbox::before {
-  -webkit-mask-size: 18px;
-}
-section#sidebar > div.scrollBox > div.filter > ul > li > div.checkbox + a {
-  padding-left: 22px;
-  cursor: pointer;
-}
-section#sidebar > div.scrollBox > div.filter > ul > li > div.checkbox + a::before {
-  display: none;
-}
-section#sidebar > div.scrollBox > div.filter::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-section#sidebar > div.scrollBox.scrolled > div.filter {
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
-}
-section#sidebar > div.scrollBox.scrolled:not([data-direction='up']) > div.filter {
+section#sidebar > div.scrollBox.scrolled:not([data-direction='up']) ~ div.filter {
   transform: translate3d(0, -100%, 0);
   box-shadow: none;
 }

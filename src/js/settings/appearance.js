@@ -54,6 +54,10 @@
          */
         this.save = () => {
             let config = getCurrentConfig();
+            if (config.isEE) {
+                delete config.isEE;
+                config.styles.colorScheme = "ee";
+            }
 
             chrome.storage.sync.set({appearance: config}, () => {
                 s.helper.model.call("refreshAllTabs", {type: "Settings"});
@@ -163,6 +167,10 @@
 
                 let sidebar = s.opts.elm.preview[key].find("section#sidebar");
                 if (sidebar.length() > 0) {
+                    if (config.isEE === true) {
+                        s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
+                    }
+
                     let sidebarHeader = sidebar.find("> header");
                     sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
                     let computedStyle = window.getComputedStyle(sidebarHeader[0]);
@@ -217,6 +225,10 @@
                 ret.showBookmarkIcons = false;
             }
 
+            if (styles.isEE === true) {
+                ret.isEE = true;
+            }
+
             return ret;
         };
 
@@ -253,6 +265,19 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
+            let code = "blockbyte".split("");
+            let pos = 0;
+            $(document).on("keydown", (e) => {
+                if (e.key === code[pos] && !s.opts.elm.appearance.content.hasClass(s.opts.classes.hidden)) {
+                    if (++pos >= code.length) {
+                        s.opts.elm.color["colorScheme"][0].value = "ee";
+                        this.save();
+                    }
+                } else {
+                    pos = 0;
+                }
+            });
+
             s.opts.elm.appearance.content.find("input, select").on("change input", (e) => {
                 let elm = $(e.currentTarget);
                 let val = e.currentTarget.value;

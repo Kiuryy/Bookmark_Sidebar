@@ -23,6 +23,9 @@
                 context = $(document);
             } else {
                 ext.helper.font.addStylesheet(context);
+                if (styles.isEE && ext.opts.classes && ext.opts.classes.page && ext.opts.classes.page.ee) {
+                    context.find("body").addClass(ext.opts.classes.page.ee);
+                }
             }
 
             let head = null;

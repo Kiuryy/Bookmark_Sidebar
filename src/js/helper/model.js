@@ -3,6 +3,7 @@
 
     window.ModelHelper = function (ext) {
 
+        let mainColor = "#7b5fa4";
         let defaults = {
             u: { // utility
                 openStates: {},
@@ -136,6 +137,11 @@
                         let fontInfo = ext.helper.font.getFontInfo();
                         value.fontFamily = fontInfo.name;
                         Object.assign(value, fontInfo.fontWeights);
+                    }
+
+                    if (value.colorScheme === "ee") {
+                        value.colorScheme = mainColor;
+                        value.isEE = true;
                     }
                 }
 

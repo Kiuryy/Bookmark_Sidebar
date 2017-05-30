@@ -720,4 +720,8 @@ div.modal > menu.buttons > a:hover::before {
   opacity: 0.15;
 }
 
+body.ee div.modal > h1 {
+  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+}
+
 /*# sourceMappingURL=overlay.css.map */

@@ -27,7 +27,8 @@
                 isNewTab: "blockbyte-bs-isNewTab",
                 hover: "blockbyte-bs-hover",
                 noscroll: "blockbyte-bs-noscroll",
-                hasLeftsideBack: "blockbyte-bs-has-lsb"
+                hasLeftsideBack: "blockbyte-bs-has-lsb",
+                ee: "ee"
             },
             sidebar: {
                 extLoaded: "loaded",

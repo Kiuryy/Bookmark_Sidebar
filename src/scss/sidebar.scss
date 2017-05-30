@@ -553,6 +553,10 @@ section#sidebar {
   }
 }
 
+body.ee section#sidebar > header {
+  background: $gradient;
+}
+
 a.dragHelper {
   @include bookmarkEntry;
   position: absolute;

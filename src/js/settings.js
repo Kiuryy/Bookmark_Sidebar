@@ -11,6 +11,9 @@
 
         this.opts = {
             classes: {
+                page: {
+                    ee: "ee"
+                },
                 tabs: {
                     content: "tab",
                     list: "tabBar",

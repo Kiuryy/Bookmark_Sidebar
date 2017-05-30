@@ -36,7 +36,7 @@
                 showIndicatorIcon: true,
                 showBookmarkIcons: true,
                 styles: {
-                    colorScheme: "rgb(0,137,123)",
+                    colorScheme: "rgb(27,130,241)",
                     textColor: "rgb(102,102,102)",
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",

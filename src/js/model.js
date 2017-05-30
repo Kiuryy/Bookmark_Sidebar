@@ -521,6 +521,20 @@
                 });
 
                 chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
+                    // START UPGRADE CONFIG FOR v1.8
+                    if (typeof obj.appearance === "undefined") {
+                        obj.appearance = {};
+                    }
+
+                    if (typeof obj.appearance.styles === "undefined") {
+                        obj.appearance.styles = {};
+                    }
+
+                    if (typeof obj.appearance.styles.colorScheme === "undefined") {
+                        obj.appearance.styles.colorScheme = "rgb(0,137,123)";
+                    }
+                    // END UPGRADE CONFIG FOR v1.8
+
                     // START UPGRADE CONFIG FOR v1.7
                     if (obj.behaviour) {
                         if (typeof obj.behaviour.rememberState === "undefined" && typeof obj.behaviour.rememberScroll !== "undefined") {
@@ -535,14 +549,6 @@
                         chrome.storage.sync.set({behaviour: obj.behaviour});
                     }
 
-                    if (typeof obj.appearance === "undefined") {
-                        obj.appearance = {};
-                    }
-
-                    if (typeof obj.appearance.styles === "undefined") {
-                        obj.appearance.styles = {};
-                    }
-
                     if (typeof obj.appearance.styles.bookmarksDirIcon === "undefined" || obj.appearance.styles.bookmarksDirIcon === "dir") {
                         obj.appearance.styles.bookmarksDirIcon = "dir-2";
                     } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt1") {
@@ -553,7 +559,6 @@
                     }
 
                     delete obj.appearance.addVisual;
-                    chrome.storage.sync.set({appearance: obj.appearance});
 
                     if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
                         chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
@@ -561,20 +566,8 @@
                     chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "entriesLocked", "addVisual", "middleClickActive"]);
                     // END UPGRADE CONFIG FOR v1.7
 
-                    // START UPGRADE CONFIG FOR v1.5
-                    if (obj.model) {
-                        if (typeof obj.model.shareUserdata !== "undefined" && typeof obj.shareUserdata === "undefined") {
-                            let share = obj.model.shareUserdata;
-                            if (share === "y") {
-                                chrome.storage.sync.set({shareUserdata: true});
-                            } else if (share === "n") {
-                                chrome.storage.sync.set({shareUserdata: true});
-                            } else if (typeof share === "boolean") {
-                                chrome.storage.sync.set({shareUserdata: share});
-                            }
-                        }
-                    }
-                    // END UPGRADE CONFIG FOR v1.5
+                    // SAVE APPEARANCE SETTINGS FOR v1.7 AND v1.8
+                    chrome.storage.sync.set({appearance: obj.appearance});
                 });
             }
         }

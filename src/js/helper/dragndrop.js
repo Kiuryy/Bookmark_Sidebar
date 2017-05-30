@@ -151,18 +151,17 @@
             if (edgeScroll.posY !== null) {
                 let bookmarkBoxTopOffset = ext.elements.bookmarkBox["all"][0].offsetTop;
                 let bookmarkBoxHeight = ext.elements.bookmarkBox["all"][0].offsetHeight;
-                let scrollPos = ext.elements.bookmarkBox["all"].data("scrollpos") || 0;
+                let scrollPos = ext.elements.bookmarkBox["all"][0].scrollTop;
                 let newScrollPos = null;
 
-                if (edgeScroll.posY - bookmarkBoxTopOffset < 50) {
+                if (edgeScroll.posY - bookmarkBoxTopOffset < 60) {
                     newScrollPos = scrollPos - Math.pow((50 - edgeScroll.posY + bookmarkBoxTopOffset) / 10, 2);
-                } else if (edgeScroll.posY + 50 > bookmarkBoxHeight) {
+                } else if (edgeScroll.posY + 60 > bookmarkBoxHeight) {
                     newScrollPos = scrollPos + Math.pow((edgeScroll.posY + 50 - bookmarkBoxHeight) / 10, 2);
                 }
 
                 if (newScrollPos) {
-                    ext.elements.bookmarkBox["all"].data("scrollpos", newScrollPos);
-                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
+                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], newScrollPos);
                 }
             }
 
@@ -357,11 +356,8 @@
                     e.preventDefault();
                     e.stopPropagation();
 
-                    let scrollPos = ext.elements.bookmarkBox["all"].data("scrollpos") || 0;
-                    let scrollType = Math.abs(e.wheelDelta) < 60 ? "trackpad" : "mouse";
-
-                    ext.elements.bookmarkBox["all"].data("scrollpos", scrollPos - e.wheelDelta);
-                    ext.helper.scroll.update(ext.elements.bookmarkBox["all"]);
+                    let scrollPos = ext.elements.bookmarkBox["all"][0].scrollTop;
+                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], scrollPos - e.wheelDelta, 300);
                 }
             });
 

@@ -395,18 +395,6 @@
     "settings_initial_open_on_new_tab_desc": {
         "message": "Option pour afficher automatiquement la barre lat\u00e9rale dans les nouveaux onglets."
     },
-    "settings_scroll_sensitivity": {
-        "message": "Vitesse de d\u00e9filement"
-    },
-    "settings_scroll_sensitivity_desc": {
-        "message": "R\u00e9glage de la vitesse de d\u00e9filement \u00e0 la souris et au pav\u00e9 tactile."
-    },
-    "settings_scroll_sensitivity_mouse": {
-        "message": "Souris"
-    },
-    "settings_scroll_sensitivity_trackpad": {
-        "message": "Pav\u00e9 tactile"
-    },
     "settings_appearance_label_general": {
         "message": "G\u00e9n\u00e9ral"
     },

@@ -335,6 +335,12 @@
     "settings_open_delay_desc": {
         "message": "Verhindert das unmittelbare \u00d6ffnen der Sidebar beim Mouseover oder Klicken mit Hilfe einer kurzen Verz\u00f6gerung."
     },
+    "settings_prevent_pagescroll": {
+        "message": "Seiten-Scrollen verhindern"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Verhindert, dass die aktuelle Seite gescrollt werden kann, solange die Sidebar offen ist."
+    },
     "settings_dir_accordion": {
         "message": "Nur aktuelles Verzeichnis anzeigen"
     },
@@ -394,18 +400,6 @@
     },
     "settings_initial_open_on_new_tab_desc": {
         "message": "Wenn ausgew\u00e4hlt, wird die Sidebar automatisch ge\u00f6ffnet wenn die 'Neuer Tab'-Seite aufgerufen wird."
-    },
-    "settings_scroll_sensitivity": {
-        "message": "Scrollsensibilit\u00e4t"
-    },
-    "settings_scroll_sensitivity_desc": {
-        "message": "Passe die Scrollsensibilit\u00e4t f\u00fcr das Scrollen mit der Maus und dem Trackpad an."
-    },
-    "settings_scroll_sensitivity_mouse": {
-        "message": "Maus"
-    },
-    "settings_scroll_sensitivity_trackpad": {
-        "message": "Trackpad"
     },
     "settings_appearance_label_general": {
         "message": "Allgemein"

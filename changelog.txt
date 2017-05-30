@@ -2,9 +2,7 @@
  - helpful hints
  - Separators
  - dark theme
- - prevent scrolling when sidebar is open
  - touchscreen support
- - Remove scrollSensitivity
 
 [1.8]
  - Added many translations

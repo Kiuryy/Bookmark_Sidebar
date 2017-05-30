@@ -187,24 +187,6 @@ div.modal {
 
     > div#urlList {
       height: calc(100% - #{$overlayHeaderHeight} - 57px);
-      transition: box-shadow 0.3s;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 12px;
-        pointer-events: none;
-        box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.2);
-        transition: box-shadow 0.3s;
-        z-index: 3;
-      }
-
-      &.scrolledEnd::after {
-        box-shadow: none;
-      }
 
       > ul {
         margin: 12px 0;
@@ -281,10 +263,6 @@ div.modal {
             font-style: italic;
           }
         }
-      }
-
-      &:not(.scrollDrag) > ul {
-        transition: transform 0.3s;
       }
     }
 

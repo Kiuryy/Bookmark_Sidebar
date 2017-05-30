@@ -335,6 +335,12 @@
     "settings_open_delay_desc": {
         "message": "Prevents immediately opening of the sidebar on mouseover or by clicking with a delay."
     },
+    "settings_prevent_pagescroll": {
+        "message": "Prevent page scrolling"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Prevents scrolling of the current website while the sidebar is open."
+    },
     "settings_dir_accordion": {
         "message": "Show only current directory"
     },
@@ -394,18 +400,6 @@
     },
     "settings_initial_open_on_new_tab_desc": {
         "message": "Choose whether the sidebar should be opened automatically on the new tab page."
-    },
-    "settings_scroll_sensitivity": {
-        "message": "Scroll sensitivity"
-    },
-    "settings_scroll_sensitivity_desc": {
-        "message": "Adjust the scroll sensitivity for mouse and trackpad scrolling."
-    },
-    "settings_scroll_sensitivity_mouse": {
-        "message": "Mouse"
-    },
-    "settings_scroll_sensitivity_trackpad": {
-        "message": "Trackpad"
     },
     "settings_appearance_label_general": {
         "message": "General"

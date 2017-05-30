@@ -395,18 +395,6 @@
     "settings_initial_open_on_new_tab_desc": {
         "message": "\u9009\u62e9\u5728\u65b0\u6807\u7b7e\u9875\u4e0a\u81ea\u52a8\u6253\u5f00\u4fa7\u8fb9\u680f\u3002"
     },
-    "settings_scroll_sensitivity": {
-        "message": "\u6eda\u52a8\u7075\u654f\u5ea6"
-    },
-    "settings_scroll_sensitivity_desc": {
-        "message": "\u8c03\u6574\u9f20\u6807\u6eda\u52a8\u548c\u89e6\u6478\u677f\u6eda\u52a8\u7684\u7075\u654f\u5ea6\u3002"
-    },
-    "settings_scroll_sensitivity_mouse": {
-        "message": "\u9f20\u6807"
-    },
-    "settings_scroll_sensitivity_trackpad": {
-        "message": "\u89e6\u6478\u677f"
-    },
     "settings_appearance_label_general": {
         "message": "\u4e00\u822c"
     },

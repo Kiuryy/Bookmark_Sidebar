@@ -26,6 +26,7 @@
                 visible: "blockbyte-bs-visible",
                 isNewTab: "blockbyte-bs-isNewTab",
                 hover: "blockbyte-bs-hover",
+                noscroll: "blockbyte-bs-noscroll",
                 hasLeftsideBack: "blockbyte-bs-has-lsb"
             },
             sidebar: {
@@ -79,8 +80,7 @@
                 inactive: "inactive",
                 hideScrollbar: "hideScrollbar",
                 hidden: "hidden",
-                scrolled: "scrolled",
-                scrolledEnd: "scrolledEnd"
+                scrolled: "scrolled"
             },
             checkbox: {
                 box: "checkbox",

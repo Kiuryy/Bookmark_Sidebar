@@ -640,11 +640,4 @@ body {
       display: none;
     }
   }
-
-  &.loaded {
-
-    section#sidebar > div.scrollBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
-      transition: transform 0.3s;
-    }
-  }
 }

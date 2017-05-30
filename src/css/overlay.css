@@ -386,22 +386,6 @@ div.modal[data-type='updateUrls'] > svg.loading {
 }
 div.modal[data-type='updateUrls'] > div#urlList {
   height: calc(100% - 54px - 57px);
-  transition: box-shadow 0.3s;
-}
-div.modal[data-type='updateUrls'] > div#urlList::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 12px;
-  pointer-events: none;
-  box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s;
-  z-index: 3;
-}
-div.modal[data-type='updateUrls'] > div#urlList.scrolledEnd::after {
-  box-shadow: none;
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul {
   margin: 12px 0;
@@ -483,9 +467,6 @@ div.modal[data-type='updateUrls'] > div#urlList > ul > li > a::before {
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > span {
   font-style: italic;
-}
-div.modal[data-type='updateUrls'] > div#urlList:not(.scrollDrag) > ul {
-  transition: transform 0.3s;
 }
 div.modal[data-type='updateUrls'].urlCheckLoading {
   transition: width 0.5s, height 0.5s, margin-top 0.5s;

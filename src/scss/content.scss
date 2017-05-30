@@ -1,7 +1,12 @@
 @import "include/vars";
 @import "include/mixins";
 
-// Visual
+// Scroll prevention
+body.blockbyte-bs-noscroll{
+  overflow: hidden !important;
+}
+
+// Indicator
 body > div#blockbyte-bs-indicator {
 
   &.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab) { // indicator should be visible on hover

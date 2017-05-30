@@ -521,13 +521,6 @@
                 }
             });
 
-            elements.overlay.find("body").on('wheel', (e) => {
-                if (!$(e.target).hasClass(ext.opts.classes.scrollBox.wrapper) && $(e.target).parents("." + ext.opts.classes.scrollBox.wrapper).length() === 0) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-            });
-
             elements.modal.find("a." + ext.opts.classes.overlay.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
                 closeOverlay();

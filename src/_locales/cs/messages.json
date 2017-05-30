@@ -395,18 +395,6 @@
     "settings_initial_open_on_new_tab_desc": {
         "message": "Zvolte, jestli\u017ee se m\u00e1 bo\u010dn\u00ed li\u0161ta automaticky otev\u0159\u00edt na nov\u00e9 kart\u011b."
     },
-    "settings_scroll_sensitivity": {
-        "message": "Citlivost rolov\u00e1n\u00ed"
-    },
-    "settings_scroll_sensitivity_desc": {
-        "message": "Zvolte citlivost posouv\u00e1n\u00ed rolov\u00e1n\u00edm my\u0161\u00ed nebo trackpadu."
-    },
-    "settings_scroll_sensitivity_mouse": {
-        "message": "My\u0161"
-    },
-    "settings_scroll_sensitivity_trackpad": {
-        "message": "Trackpad"
-    },
     "settings_appearance_label_general": {
         "message": "Hlavn\u00ed"
     },

@@ -153,22 +153,11 @@
             let contentHeight = getContentHeight(scrollBox);
             let scrollPos = scrollBox[0].scrollTop;
 
-            if (boxHeight >= contentHeight) { // box is higher than the content -> scrollpos = 0
-                scrollBox.addClass(ext.opts.classes.scrollBox.scrolledEnd);
-            } else { // limits the scrollpos to the contents end
-                if (scrollPos >= contentHeight - boxHeight) {
-                    scrollBox.addClass(ext.opts.classes.scrollBox.scrolledEnd);
-                } else {
-                    scrollBox.removeClass(ext.opts.classes.scrollBox.scrolledEnd);
-                }
-            }
-
             if (scrollPos > 10) {
                 scrollBox.addClass(ext.opts.classes.scrollBox.scrolled);
             } else {
                 scrollBox.removeClass(ext.opts.classes.scrollBox.scrolled);
             }
-
 
             let lastScrollPos = scrollBox.data("lastPos") || 0; // determine scroll position by comparing current pos with the one before
 

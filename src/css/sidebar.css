@@ -1025,8 +1025,5 @@ div#shareUserdata > div > a:hover {
 body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
   display: none;
 }
-body.loaded section#sidebar > div.scrollBox:not(.scrollDrag):not(.scrollTrackpad) > ul {
-  transition: transform 0.3s;
-}
 
 /*# sourceMappingURL=sidebar.css.map */

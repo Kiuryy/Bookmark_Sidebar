@@ -21,6 +21,7 @@
                 openAction: "mousedown",
                 newTab: "foreground",
                 linkAction: "current",
+                preventPageScroll: false,
                 dirAccordion: false,
                 rememberState: "all",
                 rememberSearch: true,

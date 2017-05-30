@@ -8,6 +8,10 @@ body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible, body > iframe#blockbyte
   pointer-events: auto;
 }
 
+body.blockbyte-bs-noscroll {
+  overflow: hidden !important;
+}
+
 body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-icon::before {
   content: "";
   position: absolute;

@@ -5,6 +5,7 @@
 
         let sidebarPos = null;
         let pxToleranceObj = null;
+        let preventPageScroll = null;
         let openDelay = 0;
         let indicatorWidth = null;
         let inPixelToleranceTime = null;
@@ -16,10 +17,11 @@
         this.init = () => {
             ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
+            preventPageScroll = data.preventPageScroll;
 
             ext.elements.toggle.css("width", getPixelTolerance() + "px");
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
@@ -226,6 +228,7 @@
             clearSidebarTimeout("open");
             ext.helper.contextmenu.close();
             ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
+            $("body").removeClass(ext.opts.classes.page.noscroll);
             $(document).trigger("mousemove"); // hide indicator
         };
 
@@ -243,8 +246,12 @@
 
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
-
             ext.initImages();
+
+            if (preventPageScroll) {
+                $("body").addClass(ext.opts.classes.page.noscroll);
+            }
+
             $(document).trigger("mousemove"); // hide indicator
         };
 

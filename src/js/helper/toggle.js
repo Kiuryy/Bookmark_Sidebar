@@ -31,7 +31,7 @@
                 indicatorWidth = parseInt(data.styles.indicatorWidth);
             }
 
-            if (data.showIndicator && data.openAction !== "icon") { // show indicator
+            if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
                 ext.elements.toggle
                     .addClass(ext.opts.classes.page.visible)
                     .attr(ext.opts.attr.position, sidebarPos);

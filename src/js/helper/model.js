@@ -5,6 +5,17 @@
 
         let mainColor = "#7b5fa4";
 
+        let defaultColors = {
+            textColor: {
+                light: "rgb(100,100,100)",
+                dark: "rgb(200,200,200)"
+            },
+            colorScheme: {
+                light: "rgb(27,130,241)",
+                dark: "rgb(31, 77, 128)"
+            }
+        };
+
         let defaults = {
             u: { // utility
                 openStates: {},
@@ -40,8 +51,8 @@
                 darkMode: false,
                 showBookmarkIcons: true,
                 styles: {
-                    colorScheme: "rgb(27,130,241)",
-                    textColor: "rgb(102,102,102)",
+                    colorScheme: defaultColors.colorScheme.light,
+                    textColor: defaultColors.textColor.light,
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",
                     indicatorIconColor: "rgb(255,255,255)",
@@ -52,7 +63,7 @@
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "40px",
                     bookmarksDirIcon: "dir-1",
-                    bookmarksDirColor: "rgb(102,102,102)",
+                    bookmarksDirColor: defaultColors.textColor.light,
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     overlayMaskColor: "rgba(0,0,0,0.5)",
@@ -122,9 +133,7 @@
 
                 if (dataSearchScope !== null) {
                     if (typeof dataSearchScope[key] === "undefined") {
-                        if (key === "rememberState" && typeof dataSearchScope["rememberScroll"] !== "undefined") { // @deprecated backward compatibility
-                            value = dataSearchScope["rememberScroll"] === false ? "openStates" : "all";
-                        } else if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
+                        if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];
                         }
                     } else {
@@ -141,14 +150,10 @@
                         Object.assign(value, fontInfo.fontWeights);
                     }
 
-                    if (value.colorScheme === "ee") {
-                        value.colorScheme = mainColor;
+                    if (value.colorScheme === "__color_ee") {
                         value.isEE = true;
+                        value.colorScheme = mainColor;
                     }
-                }
-
-                if (keyInfo === "a/showIndicator" && value === true && typeof data.behaviour.openAction !== "undefined" && data.behaviour.openAction === "mousemove") { // do not show indicator if sidebar opens on mouseover
-                    value = false;
                 }
 
                 result[key] = value;
@@ -226,6 +231,24 @@
                     callback(response);
                 }
             });
+        };
+
+        /**
+         * Returns the default text color for the given appearance (light or dark)
+         *
+         * @param {string} appearance
+         * @returns {string}
+         */
+        this.getDefaultColor = (name, appearance) => {
+            if (defaultColors[name]) {
+                if (appearance && defaultColors[name][appearance]) {
+                    return defaultColors[name][appearance];
+                } else {
+                    return defaultColors[name].light;
+                }
+            }
+
+            return null;
         };
     };
 

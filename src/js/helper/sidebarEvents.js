@@ -45,7 +45,7 @@
 
                     if (e.key === "Home") {
                         e.preventDefault();
-                        ext.helper.scroll.setAllScrollPos(0, 500);
+                        ext.helper.scroll.setAllScrollPos(0, 300);
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) {
                         e.preventDefault();
                         Object.values(ext.elements.bookmarkBox).forEach((box) => {

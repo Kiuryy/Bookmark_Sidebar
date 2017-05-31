@@ -23,9 +23,12 @@
             });
 
             ["darkMode"].forEach((field) => {
+                let checked = false;
                 if (s.helper.model.getData("a/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
+                    checked = true;
                 }
+                s.opts.elm.checkbox[field].children("input").data("initial", checked);
             });
 
             let styles = s.helper.model.getData("a/styles");
@@ -62,7 +65,7 @@
             let config = getCurrentConfig();
             if (config.isEE) {
                 delete config.isEE;
-                config.styles.colorScheme = "ee";
+                config.styles.colorScheme = "__color_ee";
             }
 
             chrome.storage.sync.set({appearance: config}, () => {
@@ -174,6 +177,10 @@
                 let sidebar = s.opts.elm.preview[key].find("section#sidebar");
                 let overlay = s.opts.elm.preview[key].find("div.modal");
 
+                if (config.isEE === true) {
+                    s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
+                }
+
                 if (overlay.length() > 0) {
                     if (config.darkMode) {
                         overlay.addClass(s.opts.classes.page.darkMode);
@@ -187,10 +194,6 @@
                         sidebar.addClass(s.opts.classes.page.darkMode);
                     } else {
                         sidebar.removeClass(s.opts.classes.page.darkMode);
-                    }
-
-                    if (config.isEE === true) {
-                        s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
                     }
 
                     let sidebarHeader = sidebar.find("> header");
@@ -293,7 +296,7 @@
             $(document).on("keydown", (e) => {
                 if (e.key === code[pos] && !s.opts.elm.appearance.content.hasClass(s.opts.classes.hidden)) {
                     if (++pos >= code.length) {
-                        s.opts.elm.color["colorScheme"][0].value = "ee";
+                        s.opts.elm.color["colorScheme"][0].value = "__color_ee";
                         this.save();
                     }
                 } else {
@@ -305,6 +308,19 @@
                 let elm = $(e.currentTarget);
                 let val = e.currentTarget.value;
                 let initialVal = elm.data("initial");
+
+                if (elm.attr("type") === "checkbox") {
+                    val = e.currentTarget.checked;
+
+                    if ($(elm).parent()[0] === s.opts.elm.checkbox.darkMode[0]) {
+                        let textColor = s.helper.model.getDefaultColor("textColor", val ? "dark" : "light");
+                        changeColorValue(s.opts.elm.color.textColor, textColor);
+                        changeColorValue(s.opts.elm.color.bookmarksDirColor, textColor);
+
+                        let colorScheme = s.helper.model.getDefaultColor("colorScheme", val ? "dark" : "light");
+                        changeColorValue(s.opts.elm.color.colorScheme, colorScheme);
+                    }
+                }
 
                 let revertPrevSibling = elm;
                 if (elm.next("span").length() > 0) {
@@ -351,8 +367,10 @@
                         let elm = s.opts.elm.preview[key];
 
                         if (key === e.detail.contentTab) {
-                            updatePreviewStyle(key);
                             elm.removeClass(s.opts.classes.hidden);
+                            setTimeout(() => {
+                                updatePreviewStyle(key);
+                            }, 50);
                         } else {
                             elm.addClass(s.opts.classes.hidden);
                         }

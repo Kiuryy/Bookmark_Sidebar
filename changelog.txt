@@ -1,7 +1,7 @@
 [tdb]
  - helpful hints
  - Separators
- - dark theme
+ - Update changelog
 
 [1.8]
  - Added many translations
@@ -9,6 +9,7 @@
  - Extended Drag&Drop (drop links into the sidebar)
  - Synchronize tabs after modifying entries and changing settings
  - touchscreen support
+ - Added dark theme
 
 [1.7]
  - Added sort functionality

@@ -416,9 +416,6 @@
     "settings_text_color": {
         "message": "\u6587\u5b57\u989c\u8272"
     },
-    "settings_text_color_desc": {
-        "message": "\u4e66\u7b7e\u6807\u7b7e\u7684\u989c\u8272\uff0c\u8986\u76d6\u63cf\u8ff0\uff0c\u4e0a\u4e0b\u6587\u83dc\u5355\u94fe\u63a5\u7b49\u3002"
-    },
     "settings_language": {
         "message": "\u8bed\u8a00"
     },

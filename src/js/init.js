@@ -28,6 +28,7 @@
                 hover: "blockbyte-bs-hover",
                 noscroll: "blockbyte-bs-noscroll",
                 hasLeftsideBack: "blockbyte-bs-has-lsb",
+                darkMode: "dark",
                 ee: "ee"
             },
             sidebar: {

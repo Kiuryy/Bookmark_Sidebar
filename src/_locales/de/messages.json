@@ -413,6 +413,9 @@
     "settings_appearance_label_overlay": {
         "message": "Overlay"
     },
+    "settings_dark_mode": {
+        "message": "Dunkle Oberfl\u00e4che"
+    },
     "settings_color_scheme": {
         "message": "Farbschema"
     },
@@ -421,9 +424,6 @@
     },
     "settings_text_color": {
         "message": "Textfarbe"
-    },
-    "settings_text_color_desc": {
-        "message": "Tarbe der Lesezeichen-Titel, Rechtsklickmen\u00fc-Links, usw."
     },
     "settings_language": {
         "message": "Sprache"

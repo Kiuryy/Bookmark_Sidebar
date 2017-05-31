@@ -394,6 +394,7 @@ div.modal {
 
         > input {
           display: inline-block;
+          background: transparent;
           font-size: 120%;
           width: calc(100% - 80px);
           padding: 5px 8px;
@@ -555,6 +556,55 @@ div.modal {
 
       &:hover::before {
         opacity: 0.15;
+      }
+    }
+  }
+
+  &.dark {
+    background: $darkContentBackground;
+
+    > a.preview, > span.preview {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &[data-type='edit'], &[data-type='add'] {
+
+      > ul > li > input {
+        border-color: rgba(255, 255, 255, 0.1);
+
+        &:focus {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    &[data-type='infos'] {
+
+      > h1::before {
+        @include maskImage('icon-info');
+      }
+
+      > ul > li > ul {
+        background: #222;
+        color: #eee;
+
+        &::before {
+          border-bottom-color: #222;
+        }
+      }
+    }
+
+    &[data-type='updateUrls'] {
+
+      > div#urlList > ul > li:hover {
+        background: $darkHoverBackground;
+      }
+
+      &.urlCheckList {
+
+        &::after {
+          background: $darkHoverBackground;
+        }
       }
     }
   }

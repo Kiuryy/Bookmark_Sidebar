@@ -2,7 +2,7 @@ div.scrollBox {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #ccc;
+  background-color: $scrollBarBackground;
   -webkit-background-clip: text;
   transition: background-color 0.3s;
 
@@ -26,4 +26,8 @@ div.scrollBox {
   &.hideScrollbar {
     background-color: transparent;
   }
+}
+
+.dark div.scrollBox {
+  background-color: $darkScrollBarBackground;
 }

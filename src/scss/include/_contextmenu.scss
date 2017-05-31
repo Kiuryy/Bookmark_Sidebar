@@ -36,7 +36,7 @@ div.contextmenu {
   }
 
   > ul.icons {
-    background: $hoverBackground;
+    background: darken($hoverBackground, 0.5%);
     padding: 4px 2px 6px 2px;
 
     > li {
@@ -168,9 +168,51 @@ div.contextmenu {
   }
 }
 
-section#sidebar[data-pos='right'] {
+section#sidebar {
 
-  div.contextmenu[data-type='menu'], div.contextmenu[data-type='sort'] {
-    right: 0;
+  &.dark {
+
+    div.contextmenu {
+      background: $darkHoverBackground;
+
+      > ul.list {
+
+        > li {
+
+          > a {
+
+            &::before {
+              background-color: $darkContextMenuIconColor;
+            }
+
+            &:hover::before {
+              background-color: $__colorScheme;
+            }
+          }
+        }
+      }
+
+      > ul.icons {
+        background: lighten($darkHoverBackground, 2%);
+
+        > li > a {
+
+          &::before {
+            background-color: $darkContextMenuIconColor;
+          }
+
+          &:hover {
+            background-color: lighten($darkHoverBackground, 7%);
+          }
+        }
+      }
+    }
+  }
+
+  &[data-pos='right'] {
+
+    div.contextmenu[data-type='menu'], div.contextmenu[data-type='sort'] {
+      right: 0;
+    }
   }
 }

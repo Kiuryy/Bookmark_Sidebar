@@ -70,6 +70,10 @@ div.scrollBox.hideScrollbar {
   background-color: transparent;
 }
 
+.dark div.scrollBox {
+  background-color: #999;
+}
+
 div.contextmenu {
   position: absolute;
   top: 0;
@@ -100,7 +104,7 @@ div.contextmenu.visible.top {
   transform: translate3d(0, -40px, 0);
 }
 div.contextmenu > ul.icons {
-  background: #f5f5f5;
+  background: #f4f4f4;
   padding: 4px 2px 6px 2px;
 }
 div.contextmenu > ul.icons > li {
@@ -221,6 +225,24 @@ div.contextmenu > ul.list > li > a[data-name='showInDir']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.svg);
 }
 
+section#sidebar.dark div.contextmenu {
+  background: #555;
+}
+section#sidebar.dark div.contextmenu > ul.list > li > a::before {
+  background-color: #999;
+}
+section#sidebar.dark div.contextmenu > ul.list > li > a:hover::before {
+  background-color: "%colorScheme";
+}
+section#sidebar.dark div.contextmenu > ul.icons {
+  background: #5a5a5a;
+}
+section#sidebar.dark div.contextmenu > ul.icons > li > a::before {
+  background-color: #999;
+}
+section#sidebar.dark div.contextmenu > ul.icons > li > a:hover {
+  background-color: #676767;
+}
 section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sidebar[data-pos='right'] div.contextmenu[data-type='sort'] {
   right: 0;
 }
@@ -354,6 +376,178 @@ body > textarea {
   width: 50px;
   height: 50px;
   z-index: -1;
+}
+
+a.dragHelper {
+  display: flex;
+  align-items: center;
+  font-size: "%bookmarksFontSize";
+  line-height: "%bookmarksLineHeight";
+  padding: 0 "%bookmarksHorizontalPadding";
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  position: absolute;
+  background: #f5f5f5;
+  padding-right: 46px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  transition: none;
+  z-index: 3;
+}
+a.dragHelper.hover {
+  background: #f5f5f5;
+}
+a.dragHelper.dragHover {
+  background: #f5f5f5;
+}
+a.dragHelper.mark {
+  background: "%colorScheme";
+  color: #fff;
+}
+a.dragHelper.active {
+  font-weight: "%fontWeightMedium";
+}
+a.dragHelper.dir {
+  font-weight: "%fontWeightBold";
+}
+a.dragHelper > span.copied {
+  position: absolute;
+  top: -20px;
+  left: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px);
+  background: #5eba7d;
+  color: #fff;
+  font-size: 80%;
+  font-weight: "%fontWeightBold";
+  line-height: normal;
+  padding: 3px 5px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 5px, 0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+a.dragHelper > span.copied::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 5px);
+  border: 5px solid transparent;
+  border-top-color: #5eba7d;
+}
+a.dragHelper.copied {
+  background: rgba(94, 186, 125, 0.2);
+}
+a.dragHelper.copied > span.copied {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+a.dragHelper > img, a.dragHelper > span.icon {
+  position: relative;
+  display: inline-block;
+  width: "%bookmarksIconSize";
+  height: "%bookmarksIconSize";
+  margin: 0 "%bookmarksHorizontalPadding" 0 0;
+  flex-shrink: 0;
+}
+a.dragHelper > img {
+  visibility: hidden;
+}
+a.dragHelper > img[src] {
+  visibility: visible;
+}
+a.dragHelper.dir > span.icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/"%bookmarksIconSize";
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
+  background-color: "%bookmarksDirColor";
+}
+a.dragHelper.link > span.icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/"%bookmarksIconSize";
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-demo.svg);
+  background-color: transparent;
+}
+a.dragHelper.link > span.icon[data-color='1']::before {
+  background-color: #37bf99;
+}
+a.dragHelper.link > span.icon[data-color='2']::before {
+  background-color: #d737d5;
+}
+a.dragHelper.link > span.icon[data-color='3']::before {
+  background-color: #3e6bf2;
+}
+a.dragHelper.link > span.icon[data-color='4']::before {
+  background-color: #f4572f;
+}
+a.dragHelper.link > span.icon[data-color='5']::before {
+  background-color: #f74b58;
+}
+a.dragHelper.link > span.icon[data-color='6']::before {
+  background-color: #f5a2bf;
+}
+a.dragHelper.link > span.icon[data-color='7']::before {
+  background-color: #1a90ba;
+}
+a.dragHelper.link > span.icon[data-color='8']::before {
+  background-color: #b4bd0e;
+}
+a.dragHelper.link > span.icon[data-color='9']::before {
+  background-color: #fdde32;
+}
+a.dragHelper.link > span.icon[data-color='10']::before {
+  background-color: #8ccbce;
+}
+a.dragHelper > span.label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+a.dragHelper > span.label[data-num]::after {
+  content: " " attr(data-num);
+}
+a.dragHelper > span.drag {
+  display: none;
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  transition: background-color 0.5s;
+}
+a.dragHelper > span.drag::before {
+  transition: inherit;
+}
+a.dragHelper > span.drag:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+a.dragHelper > span.drag {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+a.dragHelper > span.drag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/18px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
+  background-color: #999;
+}
+a.dragHelper.snap {
+  transition: 0.2s;
+  box-shadow: none;
+  background: #fff;
 }
 
 section#sidebar {
@@ -804,181 +998,34 @@ section#sidebar.loading > svg.loading {
   top: calc(50% - 18px);
   left: calc(50% - 18px);
 }
+section#sidebar.dark {
+  background: #444;
+}
+section#sidebar.dark > div.filter {
+  background: #555;
+}
+section#sidebar.dark > div.scrollBox > ul li.isDragged {
+  width: calc(100% - 5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+section#sidebar.dark > div.scrollBox > ul a.hover {
+  background: #555;
+}
+section#sidebar.dark > div.scrollBox > ul a > span.drag::before {
+  background-color: #999;
+}
+section#sidebar.dark > div.scrollBox > ul a > span.drag:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+section#sidebar.dark > div.scrollBox > ul a > span.drag:hover::before {
+  background-color: #ccc;
+}
+section#sidebar.dark ~ a.dragHelper {
+  background: #555;
+}
 
 body.ee section#sidebar > header {
   background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
-}
-
-a.dragHelper {
-  display: flex;
-  align-items: center;
-  font-size: "%bookmarksFontSize";
-  line-height: "%bookmarksLineHeight";
-  padding: 0 "%bookmarksHorizontalPadding";
-  white-space: nowrap;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  position: absolute;
-  background: #f5f5f5;
-  padding-right: 46px;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
-  transition: none;
-  z-index: 3;
-}
-a.dragHelper.hover {
-  background: #f5f5f5;
-}
-a.dragHelper.dragHover {
-  background: #f5f5f5;
-}
-a.dragHelper.mark {
-  background: "%colorScheme";
-  color: #fff;
-}
-a.dragHelper.active {
-  font-weight: "%fontWeightMedium";
-}
-a.dragHelper.dir {
-  font-weight: "%fontWeightBold";
-}
-a.dragHelper > span.copied {
-  position: absolute;
-  top: -20px;
-  left: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px);
-  background: #5eba7d;
-  color: #fff;
-  font-size: 80%;
-  font-weight: "%fontWeightBold";
-  line-height: normal;
-  padding: 3px 5px;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate3d(0, 5px, 0);
-  transition: opacity 0.3s, transform 0.3s;
-}
-a.dragHelper > span.copied::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: calc(50% - 5px);
-  border: 5px solid transparent;
-  border-top-color: #5eba7d;
-}
-a.dragHelper.copied {
-  background: rgba(94, 186, 125, 0.2);
-}
-a.dragHelper.copied > span.copied {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-a.dragHelper > img, a.dragHelper > span.icon {
-  position: relative;
-  display: inline-block;
-  width: "%bookmarksIconSize";
-  height: "%bookmarksIconSize";
-  margin: 0 "%bookmarksHorizontalPadding" 0 0;
-  flex-shrink: 0;
-}
-a.dragHelper > img {
-  visibility: hidden;
-}
-a.dragHelper > img[src] {
-  visibility: visible;
-}
-a.dragHelper.dir > span.icon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask: no-repeat center/"%bookmarksIconSize";
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
-  background-color: "%bookmarksDirColor";
-}
-a.dragHelper.link > span.icon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask: no-repeat center/"%bookmarksIconSize";
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-demo.svg);
-  background-color: transparent;
-}
-a.dragHelper.link > span.icon[data-color='1']::before {
-  background-color: #37bf99;
-}
-a.dragHelper.link > span.icon[data-color='2']::before {
-  background-color: #d737d5;
-}
-a.dragHelper.link > span.icon[data-color='3']::before {
-  background-color: #3e6bf2;
-}
-a.dragHelper.link > span.icon[data-color='4']::before {
-  background-color: #f4572f;
-}
-a.dragHelper.link > span.icon[data-color='5']::before {
-  background-color: #f74b58;
-}
-a.dragHelper.link > span.icon[data-color='6']::before {
-  background-color: #f5a2bf;
-}
-a.dragHelper.link > span.icon[data-color='7']::before {
-  background-color: #1a90ba;
-}
-a.dragHelper.link > span.icon[data-color='8']::before {
-  background-color: #b4bd0e;
-}
-a.dragHelper.link > span.icon[data-color='9']::before {
-  background-color: #fdde32;
-}
-a.dragHelper.link > span.icon[data-color='10']::before {
-  background-color: #8ccbce;
-}
-a.dragHelper > span.label {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-a.dragHelper > span.label[data-num]::after {
-  content: " " attr(data-num);
-}
-a.dragHelper > span.drag {
-  display: none;
-  position: absolute;
-  top: calc(50% - 12px);
-  right: 15px;
-  width: 24px;
-  height: 24px;
-  border-radius: 2px;
-  transition: background-color 0.5s;
-}
-a.dragHelper > span.drag::before {
-  transition: inherit;
-}
-a.dragHelper > span.drag:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-a.dragHelper > span.drag {
-  display: block;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-a.dragHelper > span.drag::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask: no-repeat center/18px;
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
-  background-color: #999;
-}
-a.dragHelper.snap {
-  transition: 0.2s;
-  box-shadow: none;
-  background: #fff;
 }
 
 div#shareUserdata {

@@ -12,6 +12,7 @@
         this.opts = {
             classes: {
                 page: {
+                    darkMode: "dark",
                     ee: "ee"
                 },
                 tabs: {

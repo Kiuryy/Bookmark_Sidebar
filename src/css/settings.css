@@ -897,6 +897,9 @@ body[data-tab='appearance'] section#content > div.tab ul.labels ~ div[data-name]
 body[data-tab='appearance'] section#content > div.tab ul.labels ~ div[data-name] input[type='range'] + span + a.revert {
   margin-top: 4px;
 }
+body[data-tab='appearance'] section#content > div.tab ul.labels ~ div[data-name] input[type='checkbox'] + a.revert {
+  margin: -2px 0 0 25px;
+}
 body[data-tab='appearance'][data-pos='right'] iframe[data-appearance] {
   left: auto;
   right: 0;

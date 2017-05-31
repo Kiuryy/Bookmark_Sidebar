@@ -21,6 +21,11 @@
                 .addClass(ext.opts.classes.overlay.modal)
                 .appendTo(elements.overlay.find("body"));
 
+            let darkMode = ext.helper.model.getData("a/darkMode");
+            if (darkMode === true) {
+                elements.modal.addClass(ext.opts.classes.page.darkMode);
+            }
+
             elements.modal.append("<h1>" + title + "</h1>");
             $("<a />").addClass(ext.opts.classes.overlay.close).appendTo(elements.modal);
 

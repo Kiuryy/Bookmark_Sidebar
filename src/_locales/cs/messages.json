@@ -416,9 +416,6 @@
     "settings_text_color": {
         "message": "Barva textu"
     },
-    "settings_text_color_desc": {
-        "message": "Barva n\u00e1zv\u016f z\u00e1lo\u017eek, p\u0159ekr\u00fdvac\u00edch popisek, kontextov\u00e9ho menu, atd."
-    },
     "settings_language": {
         "message": "Jazyk"
     },

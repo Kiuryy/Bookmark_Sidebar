@@ -413,6 +413,9 @@
     "settings_appearance_label_overlay": {
         "message": "Overlay"
     },
+    "settings_dark_mode": {
+        "message": "Dark surface"
+    },
     "settings_color_scheme": {
         "message": "Color scheme"
     },
@@ -421,9 +424,6 @@
     },
     "settings_text_color": {
         "message": "Text color"
-    },
-    "settings_text_color_desc": {
-        "message": "Color of the bookmark labels, overlay descriptions, contextmenu links, etc."
     },
     "settings_language": {
         "message": "Language"

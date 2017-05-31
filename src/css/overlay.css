@@ -70,6 +70,10 @@ div.scrollBox.hideScrollbar {
   background-color: transparent;
 }
 
+.dark div.scrollBox {
+  background-color: #999;
+}
+
 div.checkbox {
   position: relative;
   width: 20px;
@@ -578,6 +582,7 @@ div.modal[data-type='edit'] > ul > li > label, div.modal[data-type='add'] > ul >
 }
 div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='add'] > ul > li > input {
   display: inline-block;
+  background: transparent;
   font-size: 120%;
   width: calc(100% - 80px);
   padding: 5px 8px;
@@ -718,6 +723,34 @@ div.modal > menu.buttons > a::before {
 }
 div.modal > menu.buttons > a:hover::before {
   opacity: 0.15;
+}
+div.modal.dark {
+  background: #444;
+}
+div.modal.dark > a.preview, div.modal.dark > span.preview {
+  background: rgba(255, 255, 255, 0.05);
+}
+div.modal.dark[data-type='edit'] > ul > li > input, div.modal.dark[data-type='add'] > ul > li > input {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+div.modal.dark[data-type='edit'] > ul > li > input:focus, div.modal.dark[data-type='add'] > ul > li > input:focus {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+div.modal.dark[data-type='infos'] > h1::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+}
+div.modal.dark[data-type='infos'] > ul > li > ul {
+  background: #222;
+  color: #eee;
+}
+div.modal.dark[data-type='infos'] > ul > li > ul::before {
+  border-bottom-color: #222;
+}
+div.modal.dark[data-type='updateUrls'] > div#urlList > ul > li:hover {
+  background: #555;
+}
+div.modal.dark[data-type='updateUrls'].urlCheckList::after {
+  background: #555;
 }
 
 body.ee div.modal > h1 {

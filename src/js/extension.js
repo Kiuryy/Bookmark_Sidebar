@@ -221,7 +221,7 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
-            let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
+            let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden", "a/darkMode"]);
 
             if (data.entriesLocked === false) {
                 this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
@@ -229,6 +229,10 @@
 
             if (data.showHidden === true) {
                 this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
+            }
+
+            if (data.darkMode === true) {
+                this.elements.sidebar.addClass(opts.classes.page.darkMode);
             }
         };
     };

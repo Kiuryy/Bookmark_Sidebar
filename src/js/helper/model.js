@@ -4,6 +4,7 @@
     window.ModelHelper = function (ext) {
 
         let mainColor = "#7b5fa4";
+
         let defaults = {
             u: { // utility
                 openStates: {},
@@ -36,6 +37,7 @@
                 language: "default",
                 showIndicator: true,
                 showIndicatorIcon: true,
+                darkMode: false,
                 showBookmarkIcons: true,
                 styles: {
                     colorScheme: "rgb(27,130,241)",

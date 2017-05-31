@@ -505,6 +505,10 @@ body[data-tab='appearance'] {
           input[type='range'] + span + a.revert {
             margin-top: 4px;
           }
+
+          input[type='checkbox'] + a.revert {
+            margin: -2px 0 0 25px;
+          }
         }
       }
     }

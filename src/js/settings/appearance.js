@@ -22,6 +22,12 @@
                 s.opts.elm.select[field].data("initial", value);
             });
 
+            ["darkMode"].forEach((field) => {
+                if (s.helper.model.getData("a/" + field) === true) {
+                    s.opts.elm.checkbox[field].trigger("click");
+                }
+            });
+
             let styles = s.helper.model.getData("a/styles");
 
             setTimeout(() => {
@@ -166,7 +172,23 @@
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
 
                 let sidebar = s.opts.elm.preview[key].find("section#sidebar");
+                let overlay = s.opts.elm.preview[key].find("div.modal");
+
+                if (overlay.length() > 0) {
+                    if (config.darkMode) {
+                        overlay.addClass(s.opts.classes.page.darkMode);
+                    } else {
+                        overlay.removeClass(s.opts.classes.page.darkMode);
+                    }
+                }
+
                 if (sidebar.length() > 0) {
+                    if (config.darkMode) {
+                        sidebar.addClass(s.opts.classes.page.darkMode);
+                    } else {
+                        sidebar.removeClass(s.opts.classes.page.darkMode);
+                    }
+
                     if (config.isEE === true) {
                         s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
                     }
@@ -195,6 +217,7 @@
             let ret = {
                 sidebarPosition: s.opts.elm.select.sidebarPosition[0].value,
                 language: s.opts.elm.select.language[0].value,
+                darkMode: s.helper.checkbox.isChecked(s.opts.elm.checkbox.darkMode),
                 showIndicator: true,
                 showIndicatorIcon: true,
                 showBookmarkIcons: true,

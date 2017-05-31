@@ -2,13 +2,13 @@
  - helpful hints
  - Separators
  - dark theme
- - touchscreen support
 
 [1.8]
  - Added many translations
  - Handled typeface for different languages
  - Extended Drag&Drop (drop links into the sidebar)
  - Synchronize tabs after modifying entries and changing settings
+ - touchscreen support
 
 [1.7]
  - Added sort functionality

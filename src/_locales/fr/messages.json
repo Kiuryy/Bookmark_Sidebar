@@ -416,9 +416,6 @@
     "settings_text_color": {
         "message": "Couleur du texte"
     },
-    "settings_text_color_desc": {
-        "message": "Couleur des \u00e9tiquettes des favoris, des description dans les fen\u00eatres d'info, des liens des menus contextuels, etc."
-    },
     "settings_language": {
         "message": "Langue"
     },

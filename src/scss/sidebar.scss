@@ -179,6 +179,30 @@ body > textarea {
   }
 }
 
+//
+a.dragHelper {
+  @include bookmarkEntry;
+  position: absolute;
+  background: $hoverBackground;
+  padding-right: 46px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  transition: none;
+  z-index: 3;
+
+  > span.drag {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    @include mask('icon-reorder', $reorderIconColorActive, 18px);
+  }
+
+  &.snap {
+    transition: 0.2s;
+    box-shadow: none;
+    background: $contentBackground;
+  }
+}
+
+//
 section#sidebar {
   position: relative;
   width: $__sidebarWidth;
@@ -551,32 +575,49 @@ section#sidebar {
       @extend %hidden;
     }
   }
+
+  &.dark {
+    background: $darkContentBackground;
+
+    > div.filter {
+      background: $darkHoverBackground;
+    }
+
+    > div.scrollBox > ul {
+
+      li.isDragged {
+        width: calc(100% - 5px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      a.hover {
+        background: $darkHoverBackground;
+      }
+
+      a > span.drag {
+
+        &::before {
+          background-color: $darkReorderIconColor;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+
+          &::before {
+            background-color: $darkReorderIconColorActive;
+          }
+        }
+      }
+    }
+
+    ~ a.dragHelper {
+      background: $darkHoverBackground;
+    }
+  }
 }
 
 body.ee section#sidebar > header {
   background: $gradient;
-}
-
-a.dragHelper {
-  @include bookmarkEntry;
-  position: absolute;
-  background: $hoverBackground;
-  padding-right: 46px;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
-  transition: none;
-  z-index: 3;
-
-  > span.drag {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.1);
-    @include mask('icon-reorder', $reorderIconColorActive, 18px);
-  }
-
-  &.snap {
-    transition: 0.2s;
-    box-shadow: none;
-    background: $contentBackground;
-  }
 }
 
 //

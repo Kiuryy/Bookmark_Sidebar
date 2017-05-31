@@ -8,6 +8,7 @@
          */
         this.init = () => {
             initBookmarkEntriesEvents();
+            initFilterEvents();
             initKeyboardEvents();
             initGeneralEvents();
         };
@@ -37,7 +38,7 @@
         };
 
         /**
-         * Initializes the eventhandler for keyboard input
+         * Initializes the eventhandlers for keyboard input
          */
         let initKeyboardEvents = () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => { // scroll to top with pos1
@@ -78,7 +79,35 @@
         };
 
         /**
-         * Initializes the eventhandler for the bookmark entries
+         * Initializes the eventhandlers for the filterbox
+         */
+        let initFilterEvents = () => {
+            ext.elements.filterBox.on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
+                e.preventDefault();
+                let currentDirection = $(e.target).attr(ext.opts.attr.direction);
+                let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
+                ext.helper.list.updateDirection(newDirection);
+            }).on("click", "div." + ext.opts.classes.checkbox.box + " + a", (e) => { // trigger checkbox (viewAsTree or mostViewedPerMonth)
+                e.preventDefault();
+                $(e.target).prev("div[" + ext.opts.attr.name + "]").trigger("click");
+            });
+
+            $(ext.elements.iframe[0].contentDocument).on(ext.opts.events.checkboxChanged, (e) => { // set sort specific config and reload list
+                let name = e.detail.checkbox.attr(ext.opts.attr.name);
+
+                if (name === "viewAsTree" || name === "mostViewedPerMonth") {
+                    ext.helper.model.setData({
+                        ["u/" + name]: e.detail.checked
+                    }, () => {
+                        ext.startLoading();
+                        ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
+                    });
+                }
+            });
+        };
+
+        /**
+         * Initializes the eventhandlers for the bookmark entries
          */
         let initBookmarkEntriesEvents = () => {
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
@@ -109,16 +138,6 @@
 
                 box.children("ul").on("mouseleave", (e) => {
                     $(e.currentTarget).find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                });
-
-                box.children("div." + ext.opts.classes.sidebar.filterBox).on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
-                    e.preventDefault();
-                    let currentDirection = $(e.target).attr(ext.opts.attr.direction);
-                    let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
-                    ext.helper.list.updateDirection(newDirection);
-                }).on("click", "div." + ext.opts.classes.checkbox.box + " + a", (e) => { // trigger checkbox (viewAsTree or mostViewedPerMonth)
-                    e.preventDefault();
-                    $(e.target).prev("div[" + ext.opts.attr.name + "]").trigger("click");
                 });
             });
         };
@@ -165,19 +184,6 @@
                     share: $(e.currentTarget).data("accept")
                 });
                 ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.hidden);
-            });
-
-            $(ext.elements.iframe[0].contentDocument).on(ext.opts.events.checkboxChanged, (e) => { // set sort specific config and reload list
-                let name = e.detail.checkbox.attr(ext.opts.attr.name);
-
-                if (name === "viewAsTree" || name === "mostViewedPerMonth") {
-                    ext.helper.model.setData({
-                        ["u/" + name]: e.detail.checked
-                    }, () => {
-                        ext.startLoading();
-                        ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
-                    });
-                }
             });
         };
     };

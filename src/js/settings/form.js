@@ -169,9 +169,17 @@
                             let min = elm.min || 0;
                             let val = Math.round(100 * (elm.value - min) / (max - min));
 
-                            let backgroundSize = s.opts.elm.range[name].css('background-size').replace(/^.*\s/, val + "% ");
-                            if (backgroundSize !== "auto") {
-                                s.opts.elm.range[name].css('background-size', backgroundSize);
+                            let background = s.opts.elm.range[name].css('background-image');
+
+                            if (background.search("linear-gradient") === 0) {
+                                let backgroundTemplate = $(elm).data("backgroundTemplate");
+
+                                if (typeof backgroundTemplate === "undefined") {
+                                    backgroundTemplate = background.replace(/\-1px/g, "{percent}");
+                                    $(elm).data("backgroundTemplate", backgroundTemplate);
+                                }
+
+                                s.opts.elm.range[name].css('background-image', backgroundTemplate.replace(/\{percent\}/g, val + "%"));
                             }
 
                             valTooltip.text(elm.value + unit);

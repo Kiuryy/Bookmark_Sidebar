@@ -313,39 +313,12 @@ section#content > div {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 4;
 }
-section#content > div::before {
-  content: "";
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: calc(100% - 17px);
-  height: 20px;
-  pointer-events: none;
-  box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-}
-section#content > div > div {
-  position: relative;
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 100%;
-  padding: 65px 20px 20px 20px;
-}
 section#content > div > header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   padding: 10px 20px;
-  width: calc(100% - 17px);
   height: 50px;
-  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
   z-index: 2;
-}
-@supports (backdrop-filter: blur(4px)) {
-  section#content > div > header {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(4px);
-  }
 }
 section#content > div > header > h2 {
   display: inline-block;
@@ -380,6 +353,14 @@ section#content > div > header > button.restore::before {
   -webkit-mask: no-repeat center/24px;
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
   background-color: #aaa;
+}
+section#content > div > div.scrollBox {
+  height: calc(100% - 50px);
+}
+section#content > div > div.scrollBox > div {
+  background: #fff;
+  min-height: 100%;
+  padding: 20px;
 }
 section#content hr {
   margin: 30px 0;
@@ -520,6 +501,36 @@ div.checkbox > input[type='checkbox'] {
 .dark div.checkbox.active.focus::after, .dark div.checkbox.active.clicked::after {
   background: #666;
   box-shadow: 0 0 0 20px #666;
+}
+
+div.scrollBox {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #ccc;
+  -webkit-background-clip: text;
+  transition: background-color 0.3s;
+}
+div.scrollBox::-webkit-scrollbar {
+  width: 11px;
+  background: transparent;
+}
+div.scrollBox::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: inherit;
+}
+div.scrollBox::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+div.scrollBox.hideScrollbar {
+  background-color: transparent;
+}
+
+.dark div.scrollBox {
+  background-color: #999;
 }
 
 body > header > ul.tabBar {
@@ -863,8 +874,8 @@ body[data-tab='appearance'] section#content > div.tab > header > button {
 body[data-tab='appearance'] section#content > div.tab > header > button.restore {
   margin-right: 0;
 }
-body[data-tab='appearance'] section#content > div.tab > div {
-  padding-right: 0;
+body[data-tab='appearance'] section#content > div.tab > div.scrollBox > div {
+  padding-right: 5px;
 }
 body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger {
   position: absolute;
@@ -1031,8 +1042,8 @@ input[type='range'] {
   width: 100%;
   max-width: 250px;
   height: 20px;
-  background: linear-gradient(to right, #7b5fa4 0%, #7b5fa4 100%) no-repeat;
-  background-size: 0 3px;
+  background: linear-gradient(to right, #7b5fa4 0% -1px, rgba(0, 0, 0, 0.2) -1px 100%) no-repeat;
+  background-size: 100% 3px;
   background-position: 0 9px;
   margin: 7px 0 10px;
   cursor: pointer;
@@ -1043,12 +1054,10 @@ input[type='range']:focus {
 }
 input[type='range']::-webkit-slider-runnable-track {
   position: relative;
-  background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   height: 3px;
   width: 100%;
   outline: 0;
-  z-index: -1;
 }
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;

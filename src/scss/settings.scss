@@ -1,5 +1,6 @@
 @import "include/backend";
 @import "include/checkbox";
+@import "include/scrollBox";
 
 // Header
 body > header {
@@ -148,7 +149,6 @@ body > header {
       }
     }
   }
-
 }
 
 // Content
@@ -422,8 +422,8 @@ body[data-tab='appearance'] {
         }
       }
 
-      > div {
-        padding-right: 0;
+      > div.scrollBox > div {
+        padding-right: 5px;
       }
 
       menu.backgroundChanger {
@@ -620,8 +620,8 @@ input[type='range'] {
   width: 100%;
   max-width: 250px;
   height: 20px;
-  background: linear-gradient(to right, $mainColor 0%, $mainColor 100%) no-repeat;
-  background-size: 0 3px;
+  background: linear-gradient(to right, $mainColor 0% -1px, rgba(0, 0, 0, 0.2) -1px 100%) no-repeat;
+  background-size: 100% 3px;
   background-position: 0 9px;
   margin: 7px 0 10px;
   cursor: pointer;
@@ -633,12 +633,10 @@ input[type='range'] {
 
   &::-webkit-slider-runnable-track {
     position: relative;
-    background: rgba(0, 0, 0, 0.2);
     cursor: pointer;
     height: 3px;
     width: 100%;
     outline: 0;
-    z-index: -1;
   }
 
   &::-webkit-slider-thumb {

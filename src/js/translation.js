@@ -171,8 +171,8 @@
          * Initialises the language overview
          */
         let initOverview = () => {
-            this.opts.elm.wrapper.overview.find("> div > ul").remove();
-            this.opts.elm.wrapper.overview.find("> div > select." + this.opts.classes.languagesSelect).remove();
+            this.opts.elm.wrapper.overview.find("> div.scrollBox > div > ul").remove();
+            this.opts.elm.wrapper.overview.find("> div.scrollBox > div > select." + this.opts.classes.languagesSelect).remove();
 
             let xhr = new XMLHttpRequest();
             xhr.open("POST", this.opts.ajax.info, true);
@@ -180,7 +180,7 @@
                 let infos = JSON.parse(xhr.responseText);
 
                 if (infos && infos.languages) {
-                    let list = $("<ul />").appendTo(this.opts.elm.wrapper.overview.children("div"));
+                    let list = $("<ul />").appendTo(this.opts.elm.wrapper.overview.find("> div.scrollBox > div"));
 
                     infos.languages.sort((a, b) => {
                         if (b.varsAmount !== a.varsAmount) {
@@ -234,7 +234,7 @@
          * @param {object} langs
          */
         let addSelectForMissingLangs = (langs) => {
-            let select = $("<select class='" + this.opts.classes.languagesSelect + "' />").appendTo(this.opts.elm.wrapper.overview.children("div"));
+            let select = $("<select class='" + this.opts.classes.languagesSelect + "' />").appendTo(this.opts.elm.wrapper.overview.find("> div.scrollBox > div"));
             $("<option value='' />").text("Add language").appendTo(select);
 
             let optionList = [];
@@ -335,7 +335,7 @@
                             .addClass(this.opts.classes.langVarCategory)
                             .append("<a href='#' />")
                             .append("<strong>" + category + "</strong>")
-                            .appendTo(this.opts.elm.wrapper.langvars.children("div"));
+                            .appendTo(this.opts.elm.wrapper.langvars.find("> div.scrollBox > div"));
 
                         let list = $("<ul />").appendTo(wrapper);
                         let varsAmount = {
@@ -461,7 +461,7 @@
                 wrapper.toggleClass(this.opts.classes.active);
 
                 if (wrapper.hasClass(this.opts.classes.active) && wrapper.hasClass(this.opts.classes.incomplete)) { // scroll to the first incomplete field of the clicked category
-                    this.opts.elm.wrapper.langvars.children("div")[0].scrollTop = wrapper[0].offsetTop + wrapper.find("li." + this.opts.classes.empty)[0].offsetTop - 50;
+                    this.opts.elm.wrapper.langvars.children("div.scrollBox")[0].scrollTop = wrapper[0].offsetTop + wrapper.find("li." + this.opts.classes.empty)[0].offsetTop - 50;
                 }
             });
 

@@ -313,39 +313,12 @@ section#content > div {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 4;
 }
-section#content > div::before {
-  content: "";
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: calc(100% - 17px);
-  height: 20px;
-  pointer-events: none;
-  box-shadow: inset 0 10px 10px -10px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-}
-section#content > div > div {
-  position: relative;
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 100%;
-  padding: 65px 20px 20px 20px;
-}
 section#content > div > header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   padding: 10px 20px;
-  width: calc(100% - 17px);
   height: 50px;
-  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
   z-index: 2;
-}
-@supports (backdrop-filter: blur(4px)) {
-  section#content > div > header {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(4px);
-  }
 }
 section#content > div > header > h2 {
   display: inline-block;
@@ -380,6 +353,14 @@ section#content > div > header > button.restore::before {
   -webkit-mask: no-repeat center/24px;
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
   background-color: #aaa;
+}
+section#content > div > div.scrollBox {
+  height: calc(100% - 50px);
+}
+section#content > div > div.scrollBox > div {
+  background: #fff;
+  min-height: 100%;
+  padding: 20px;
 }
 section#content hr {
   margin: 30px 0;
@@ -439,6 +420,36 @@ body.loading > svg.loading {
   z-index: 99;
 }
 
+div.scrollBox {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #ccc;
+  -webkit-background-clip: text;
+  transition: background-color 0.3s;
+}
+div.scrollBox::-webkit-scrollbar {
+  width: 11px;
+  background: transparent;
+}
+div.scrollBox::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: inherit;
+}
+div.scrollBox::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+div.scrollBox.hideScrollbar {
+  background-color: transparent;
+}
+
+.dark div.scrollBox {
+  background-color: #999;
+}
+
 body > header > svg {
   stroke: none;
   fill: rgba(255, 255, 255, 0.4);
@@ -469,31 +480,31 @@ section#content > a.back.hidden {
 section#content > div.hidden {
   display: none;
 }
-section#content > div[data-name='overview'] > div > p {
+section#content > div[data-name='overview'] > div.scrollBox > div > p {
   font-size: 120%;
   line-height: 170%;
-  margin: 10px 0 20px 0;
+  margin: 0 0 20px 0;
 }
-section#content > div[data-name='overview'] > div > span.progressLabel {
+section#content > div[data-name='overview'] > div.scrollBox > div > span.progressLabel {
   display: block;
   text-align: right;
   font-size: 120%;
   font-weight: "%fontWeightNormal";
   color: #aaa;
 }
-section#content > div[data-name='overview'] > div > ul > li {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li {
   position: relative;
   padding: 15px 0;
   border-bottom: 1px solid #f2f2f2;
 }
-section#content > div[data-name='overview'] > div > ul > li > strong {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > strong {
   display: inline-block;
   vertical-align: top;
   margin: 3px 0 0 0;
   font-size: 120%;
   font-weight: "%fontWeightNormal";
 }
-section#content > div[data-name='overview'] > div > ul > li > a.edit {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > a.edit {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -503,7 +514,7 @@ section#content > div[data-name='overview'] > div > ul > li > a.edit {
   border-radius: 50%;
   transition: background 0.5s;
 }
-section#content > div[data-name='overview'] > div > ul > li > a.edit::before {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > a.edit::before {
   content: "";
   position: absolute;
   top: 0;
@@ -514,25 +525,25 @@ section#content > div[data-name='overview'] > div > ul > li > a.edit::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg);
   background-color: #7b5fa4;
 }
-section#content > div[data-name='overview'] > div > ul > li > a.edit:hover {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > a.edit:hover {
   background: rgba(0, 0, 0, 0.1);
 }
-section#content > div[data-name='overview'] > div > ul > li > svg.progress {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > svg.progress {
   position: absolute;
   top: calc(50% - 16px);
   right: 0;
 }
-section#content > div[data-name='overview'] > div > ul > li > svg.progress > circle {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > svg.progress > circle {
   fill: transparent;
   stroke-width: 3px;
   transform: rotateZ(-90deg);
   transform-origin: 16px 16px;
   stroke: rgba(0, 0, 0, 0.1);
 }
-section#content > div[data-name='overview'] > div > ul > li > svg.progress > circle + circle {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > svg.progress > circle + circle {
   stroke: #7b5fa4;
 }
-section#content > div[data-name='overview'] > div > ul > li > span.progress {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > span.progress {
   display: block;
   position: absolute;
   top: calc(50% - 7px);
@@ -543,7 +554,7 @@ section#content > div[data-name='overview'] > div > ul > li > span.progress {
   color: #aaa;
   text-align: right;
 }
-section#content > div[data-name='overview'] > div > ul > li > span[data-status] {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > span[data-status] {
   display: block;
   position: absolute;
   top: calc(50% - 13px);
@@ -551,7 +562,7 @@ section#content > div[data-name='overview'] > div > ul > li > span[data-status] 
   width: 26px;
   height: 26px;
 }
-section#content > div[data-name='overview'] > div > ul > li > span[data-status='released']::before {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > span[data-status='released']::before {
   content: "";
   position: absolute;
   top: 0;
@@ -562,7 +573,7 @@ section#content > div[data-name='overview'] > div > ul > li > span[data-status='
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.svg);
   background-color: #5eba7d;
 }
-section#content > div[data-name='overview'] > div > ul > li > span[data-status='draft']::before {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > span[data-status='draft']::before {
   content: "";
   position: absolute;
   top: 0;
@@ -573,7 +584,7 @@ section#content > div[data-name='overview'] > div > ul > li > span[data-status='
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
   background-color: #f99;
 }
-section#content > div[data-name='overview'] > div > ul > li > span[data-status='incomplete']::before {
+section#content > div[data-name='overview'] > div.scrollBox > div > ul > li > span[data-status='incomplete']::before {
   content: "";
   position: absolute;
   top: 0;
@@ -584,17 +595,17 @@ section#content > div[data-name='overview'] > div > ul > li > span[data-status='
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
   background-color: #f5c525;
 }
-section#content > div[data-name='overview'] > div > select.languages {
+section#content > div[data-name='overview'] > div.scrollBox > div > select.languages {
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.2);
   outline: 0;
   height: 28px;
   padding: 0 5px;
-  margin: 30px 0 0 0;
+  margin: 30px 0 20px 0;
   background: rgba(0, 0, 0, 0.02);
   cursor: pointer;
 }
-section#content > div[data-name='langvars'] > div > div.notice {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.notice {
   position: relative;
   font-size: 120%;
   line-height: 170%;
@@ -602,7 +613,7 @@ section#content > div[data-name='langvars'] > div > div.notice {
   padding: 7px 10px 7px 50px;
   margin: 0 0 10px 0;
 }
-section#content > div[data-name='langvars'] > div > div.notice::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.notice::before {
   content: "!";
   position: absolute;
   top: 22px;
@@ -611,15 +622,15 @@ section#content > div[data-name='langvars'] > div > div.notice::before {
   font-weight: "%fontWeightBold";
   font-size: 300%;
 }
-section#content > div[data-name='langvars'] > div > div.notice > p {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.notice > p {
   margin: 0 0 10px 0;
 }
-section#content > div[data-name='langvars'] > div > div.category {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category {
   position: relative;
   padding: 15px 0 15px 20px;
   border-bottom: 1px solid #f2f2f2;
 }
-section#content > div[data-name='langvars'] > div > div.category::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category::before {
   content: "+";
   position: absolute;
   top: 15px;
@@ -628,14 +639,14 @@ section#content > div[data-name='langvars'] > div > div.category::before {
   color: #2b35c8;
   font-weight: "%fontWeightBold";
 }
-section#content > div[data-name='langvars'] > div > div.category > a {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > a {
   position: absolute;
   top: 5px;
   left: 0;
   width: 100%;
   height: 40px;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > a::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -646,13 +657,13 @@ section#content > div[data-name='langvars'] > div > div.category.incomplete > a:
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
   background-color: #f5c525;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > a::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > a::before {
   -webkit-mask-position-x: right;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > label {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > label {
   padding-left: 22px;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > label::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > label::before {
   content: "";
   position: absolute;
   top: 0;
@@ -663,38 +674,38 @@ section#content > div[data-name='langvars'] > div > div.category.incomplete > ul
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
   background-color: #f5c525;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > label::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > label::before {
   -webkit-mask-position-x: left;
 }
-section#content > div[data-name='langvars'] > div > div.category.incomplete > ul > li.empty > textarea {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > textarea {
   border: 1px solid #f5c525;
 }
-section#content > div[data-name='langvars'] > div > div.category > strong {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > strong {
   display: inline-block;
   font-weight: "%fontWeightNormal";
   font-size: 120%;
 }
-section#content > div[data-name='langvars'] > div > div.category > span {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > span {
   display: inline-block;
   margin: 0 0 0 10px;
   color: #aaa;
 }
-section#content > div[data-name='langvars'] > div > div.category > ul {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > ul {
   display: none;
 }
-section#content > div[data-name='langvars'] > div > div.category.active::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active::before {
   content: "-";
 }
-section#content > div[data-name='langvars'] > div > div.category.active > strong {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > strong {
   color: #7b5fa4;
   font-weight: "%fontWeightMedium";
 }
-section#content > div[data-name='langvars'] > div > div.category.active > ul {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul {
   position: relative;
   display: block;
   margin: 15px 0 0 0;
 }
-section#content > div[data-name='langvars'] > div > div.category.active > ul::before {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul::before {
   content: "";
   position: absolute;
   top: -5px;
@@ -704,11 +715,11 @@ section#content > div[data-name='langvars'] > div > div.category.active > ul::be
   background: #7b5fa4;
   opacity: 0.5;
 }
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li > label {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul > li > label {
   position: relative;
   display: inline-block;
 }
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li > span {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul > li > span {
   display: block;
   width: 100%;
   background: #f2f2f2;
@@ -717,12 +728,12 @@ section#content > div[data-name='langvars'] > div > div.category.active > ul > l
   font-style: italic;
   font-size: 80%;
 }
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li > span > span {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul > li > span > span {
   font-weight: "%fontWeightMedium";
   color: #2b35c8;
   margin: 0 3px 0 0;
 }
-section#content > div[data-name='langvars'] > div > div.category.active > ul > li > textarea {
+section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul > li > textarea {
   display: block;
   width: 100%;
   max-width: 100%;

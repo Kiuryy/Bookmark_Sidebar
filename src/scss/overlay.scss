@@ -235,6 +235,7 @@ div.modal {
           }
 
           > span, > a > span {
+            transition: opacity 0.5s;
             opacity: 0.6;
           }
 
@@ -572,6 +573,10 @@ div.modal {
       > ul > li > input {
         border-color: rgba(255, 255, 255, 0.1);
 
+        &.error {
+          border-color: rgba($colorError, 0.5);
+        }
+
         &:focus {
           border-color: rgba(255, 255, 255, 0.2);
         }
@@ -596,8 +601,30 @@ div.modal {
 
     &[data-type='updateUrls'] {
 
-      > div#urlList > ul > li:hover {
-        background: $darkHoverBackground;
+      > div#urlList > ul > li {
+
+        &:hover {
+          background: $darkHoverBackground;
+        }
+
+        > a {
+
+          &:hover {
+            color: $__textColor;
+
+            > span {
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+
+      > div.progressBar {
+        background: rgba(255, 255, 255, 0.1);
+
+        > div {
+          background: $__textColor;
+        }
       }
 
       &.urlCheckList {
@@ -607,6 +634,15 @@ div.modal {
         }
       }
     }
+
+    > menu.buttons > a {
+      color: $__textColor;
+
+      &::before {
+        background: $__textColor;
+      }
+    }
+
   }
 }
 

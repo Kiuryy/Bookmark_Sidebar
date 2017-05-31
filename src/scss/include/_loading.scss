@@ -40,3 +40,7 @@ svg.loading {
     animation: dash $duration ease-in-out infinite;
   }
 }
+
+.dark svg.loading > circle {
+  stroke: $__textColor;
+}

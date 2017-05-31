@@ -110,7 +110,7 @@ body > textarea {
   }
 
   &.copied {
-    background: rgba($colorSuccess, 0.2);
+    background: rgba($colorSuccess, 0.2) !important;
 
     > span.copied {
       opacity: 1;
@@ -342,10 +342,11 @@ section#sidebar {
   > div.filter {
     position: absolute;
     top: $sidebarHeaderHeight;
-    left: 0;
-    width: calc(100% - #{$scrollBarWidth});
+    left: $scrollBarWidth;
+    width: calc(100% - #{$scrollBarWidth * 2});
     background: $hoverBackground;
     padding: 10px $__bookmarksHorizontalPadding 5px;
+    border-radius: 0 0 5px 5px;
     transition: transform 0.3s, box-shadow 0.3s;
     z-index: 2;
 
@@ -431,7 +432,7 @@ section#sidebar {
     }
 
     &.scrolled ~ div.filter {
-      box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
     }
 
     &.scrolled:not([data-direction='up']) ~ div.filter {

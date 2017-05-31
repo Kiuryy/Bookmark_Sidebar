@@ -44,6 +44,10 @@ svg.loading > circle {
   animation: dash 1.5s ease-in-out infinite;
 }
 
+.dark svg.loading > circle {
+  stroke: "%textColor";
+}
+
 div.scrollBox {
   position: relative;
   overflow-y: scroll;
@@ -137,6 +141,24 @@ div.checkbox.active.focus::after, div.checkbox.active.clicked::after {
 }
 div.checkbox > input[type='checkbox'] {
   display: none;
+}
+
+.dark div.checkbox::after {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+}
+.dark div.checkbox.focus::after, .dark div.checkbox.clicked::after {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5);
+}
+.dark div.checkbox.active::before {
+  background-color: "%textColor";
+}
+.dark div.checkbox.active::after {
+  box-shadow: 0 0 0 0 "%textColor";
+}
+.dark div.checkbox.active.focus::after, .dark div.checkbox.active.clicked::after {
+  background: "%textColor";
+  box-shadow: 0 0 0 20px "%textColor";
 }
 
 *, *::after, *::before {
@@ -433,6 +455,7 @@ div.modal[data-type='updateUrls'] > div#urlList > ul > li > a, div.modal[data-ty
   padding-left: 22px;
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > span, div.modal[data-type='updateUrls'] > div#urlList > ul > li > a > span {
+  transition: opacity 0.5s;
   opacity: 0.6;
 }
 div.modal[data-type='updateUrls'] > div#urlList > ul > li > a {
@@ -733,6 +756,9 @@ div.modal.dark > a.preview, div.modal.dark > span.preview {
 div.modal.dark[data-type='edit'] > ul > li > input, div.modal.dark[data-type='add'] > ul > li > input {
   border-color: rgba(255, 255, 255, 0.1);
 }
+div.modal.dark[data-type='edit'] > ul > li > input.error, div.modal.dark[data-type='add'] > ul > li > input.error {
+  border-color: rgba(255, 153, 153, 0.5);
+}
 div.modal.dark[data-type='edit'] > ul > li > input:focus, div.modal.dark[data-type='add'] > ul > li > input:focus {
   border-color: rgba(255, 255, 255, 0.2);
 }
@@ -749,8 +775,26 @@ div.modal.dark[data-type='infos'] > ul > li > ul::before {
 div.modal.dark[data-type='updateUrls'] > div#urlList > ul > li:hover {
   background: #555;
 }
+div.modal.dark[data-type='updateUrls'] > div#urlList > ul > li > a:hover {
+  color: "%textColor";
+}
+div.modal.dark[data-type='updateUrls'] > div#urlList > ul > li > a:hover > span {
+  opacity: 0.9;
+}
+div.modal.dark[data-type='updateUrls'] > div.progressBar {
+  background: rgba(255, 255, 255, 0.1);
+}
+div.modal.dark[data-type='updateUrls'] > div.progressBar > div {
+  background: "%textColor";
+}
 div.modal.dark[data-type='updateUrls'].urlCheckList::after {
   background: #555;
+}
+div.modal.dark > menu.buttons > a {
+  color: "%textColor";
+}
+div.modal.dark > menu.buttons > a::before {
+  background: "%textColor";
 }
 
 body.ee div.modal > h1 {

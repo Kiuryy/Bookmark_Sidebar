@@ -44,6 +44,10 @@ svg.loading > circle {
   animation: dash 1.5s ease-in-out infinite;
 }
 
+.dark svg.loading > circle {
+  stroke: "%textColor";
+}
+
 div.scrollBox {
   position: relative;
   overflow-y: scroll;
@@ -228,11 +232,20 @@ div.contextmenu > ul.list > li > a[data-name='showInDir']::before {
 section#sidebar.dark div.contextmenu {
   background: #555;
 }
+section#sidebar.dark div.contextmenu > ul.list > li > a {
+  transition: opacity 0.3s;
+  opacity: 0.7;
+}
 section#sidebar.dark div.contextmenu > ul.list > li > a::before {
   background-color: #999;
 }
+section#sidebar.dark div.contextmenu > ul.list > li > a:hover {
+  color: "%textColor";
+  opacity: 1;
+}
 section#sidebar.dark div.contextmenu > ul.list > li > a:hover::before {
-  background-color: "%colorScheme";
+  background-color: "%textColor";
+  opacity: 0.8;
 }
 section#sidebar.dark div.contextmenu > ul.icons {
   background: #5a5a5a;
@@ -310,6 +323,24 @@ div.checkbox.active.focus::after, div.checkbox.active.clicked::after {
 }
 div.checkbox > input[type='checkbox'] {
   display: none;
+}
+
+.dark div.checkbox::after {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+}
+.dark div.checkbox.focus::after, .dark div.checkbox.clicked::after {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5);
+}
+.dark div.checkbox.active::before {
+  background-color: "%textColor";
+}
+.dark div.checkbox.active::after {
+  box-shadow: 0 0 0 0 "%textColor";
+}
+.dark div.checkbox.active.focus::after, .dark div.checkbox.active.clicked::after {
+  background: "%textColor";
+  box-shadow: 0 0 0 20px "%textColor";
 }
 
 *, *::after, *::before {
@@ -434,7 +465,7 @@ a.dragHelper > span.copied::after {
   border-top-color: #5eba7d;
 }
 a.dragHelper.copied {
-  background: rgba(94, 186, 125, 0.2);
+  background: rgba(94, 186, 125, 0.2) !important;
 }
 a.dragHelper.copied > span.copied {
   opacity: 1;
@@ -673,10 +704,11 @@ section#sidebar > header.searchVisible > div.searchBox {
 section#sidebar > div.filter {
   position: absolute;
   top: 54px;
-  left: 0;
-  width: calc(100% - 11px);
+  left: 11px;
+  width: calc(100% - 22px);
   background: #f5f5f5;
   padding: 10px "%bookmarksHorizontalPadding" 5px;
+  border-radius: 0 0 5px 5px;
   transition: transform 0.3s, box-shadow 0.3s;
   z-index: 2;
 }
@@ -757,7 +789,7 @@ section#sidebar > div.scrollBox > p {
   margin: 0 auto;
 }
 section#sidebar > div.scrollBox.scrolled ~ div.filter {
-  box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 section#sidebar > div.scrollBox.scrolled:not([data-direction='up']) ~ div.filter {
   transform: translate3d(0, -100%, 0);
@@ -819,7 +851,7 @@ section#sidebar > div.scrollBox > ul a > span.copied::after {
   border-top-color: #5eba7d;
 }
 section#sidebar > div.scrollBox > ul a.copied {
-  background: rgba(94, 186, 125, 0.2);
+  background: rgba(94, 186, 125, 0.2) !important;
 }
 section#sidebar > div.scrollBox > ul a.copied > span.copied {
   opacity: 1;

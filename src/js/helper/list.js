@@ -134,6 +134,8 @@
                     });
                 }
             });
+
+            ext.helper.scroll.focus();
         };
 
         /**

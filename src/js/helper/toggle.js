@@ -252,6 +252,7 @@
                 $("body").addClass(ext.opts.classes.page.noscroll);
             }
 
+            ext.helper.scroll.focus();
             $(document).trigger("mousemove"); // hide indicator
         };
 

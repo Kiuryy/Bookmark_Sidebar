@@ -41,13 +41,11 @@
          * Initializes the eventhandlers for keyboard input
          */
         let initKeyboardEvents = () => {
-            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => { // scroll to top with pos1
+            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    ext.helper.scroll.focus();
 
-                    if (e.key === "Home") {
-                        e.preventDefault();
-                        ext.helper.scroll.setAllScrollPos(0, 300);
-                    } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) {
+                    if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         Object.values(ext.elements.bookmarkBox).forEach((box) => {
                             if (box.hasClass(ext.opts.classes.sidebar.active)) {

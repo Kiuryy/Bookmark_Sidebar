@@ -57,6 +57,7 @@
         let handleSearch = (searchField, val) => {
             ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active);
             ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
+            ext.helper.scroll.focus();
             ext.helper.list.updateSortFilter();
 
             if (val !== searchField.data("lastVal")) { // search value is not the same
@@ -101,6 +102,7 @@
                     ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
                     ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
                     ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
+                    ext.helper.scroll.focus();
                     ext.endLoading();
                 }
 

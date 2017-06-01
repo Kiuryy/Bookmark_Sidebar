@@ -14,7 +14,7 @@
          * @param {jsu} elm
          */
         this.add = (id, elm) => {
-            let scrollBox = $("<div id='" + id + "' class='" + ext.opts.classes.scrollBox.wrapper + "' />").insertBefore(elm);
+            let scrollBox = $("<div id='" + id + "' class='" + ext.opts.classes.scrollBox.wrapper + "' tabindex='0' />").insertBefore(elm);
             elm = elm.appendTo(scrollBox);
 
             scrollBox.data({
@@ -25,6 +25,17 @@
             initEvents(scrollBox);
 
             return scrollBox;
+        };
+
+        /**
+         * Sets the focus to the currently visible scrollbox to allow keyboard navigation
+         */
+        this.focus = () => {
+            scrollBoxes.forEach((scrollBox) => {
+                if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
+                    scrollBox[0].focus();
+                }
+            });
         };
 
         /**
@@ -184,6 +195,8 @@
             } else {
                 scrollBox.addClass(ext.opts.classes.scrollBox.hideScrollbar);
             }
+
+            ext.helper.scroll.focus();
         };
 
         /**

@@ -184,8 +184,23 @@
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
                 let list = $("<ul />").appendTo(elements.modal);
 
-                let titleValue = data && data.values && data.values.title ? data.values.title : "";
-                let urlValue = data && data.values && data.values.url ? data.values.url : "";
+                let titleValue = "";
+                let urlValue = "";
+
+                if (type === "bookmark") { // default bookmark values -> current page information
+                    titleValue = $(document).find("title").text();
+                    urlValue = location.href;
+                }
+
+                if (data && data.values) { // fill fields with given values
+                    if (data.values.title) {
+                        titleValue = data.values.title;
+                    }
+
+                    if (data.values.url) {
+                        urlValue = data.values.url;
+                    }
+                }
 
                 list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
                 list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue + "' /></li>");

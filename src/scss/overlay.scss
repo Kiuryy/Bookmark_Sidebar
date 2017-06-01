@@ -465,8 +465,8 @@ div.modal {
         @include mask(none, $__textColor, 36px);
         position: relative;
         display: block;
-        width: 96px;
-        height: 96px;
+        width: 86px;
+        height: 86px;
         border-radius: 50%;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         background-color: $hoverBackground;
@@ -482,11 +482,11 @@ div.modal {
           content: attr(title);
           position: absolute;
           display: block;
-          bottom: -35px;
+          bottom: -30px;
           left: -50%;
           width: 200%;
           padding: 40px 0 0 0;
-          font-size: 140%;
+          font-size: 120%;
           text-align: center;
           color: $__textColor;
           transition: color 0.5s;
@@ -579,6 +579,42 @@ div.modal {
 
         &:focus {
           border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    &[data-type='add'] {
+
+      > menu:not(.buttons) {
+
+        > a {
+          background-color: $darkHoverBackground;
+
+          &::before, &::after {
+            opacity: 0.5;
+            transition: opacity 0.5s;
+          }
+
+          &:hover {
+
+            &::before {
+              opacity: 1;
+              background-color: $__textColor;
+            }
+
+            &::after {
+              opacity: 1;
+              color: $__textColor;
+            }
+          }
+        }
+      }
+
+      > menu.buttons > a.action {
+        display: none;
+
+        &.visible {
+          display: inline-block;
         }
       }
     }

@@ -657,8 +657,8 @@ div.modal[data-type='add'] > menu:not(.buttons).hidden {
 div.modal[data-type='add'] > menu:not(.buttons) > a {
   position: relative;
   display: block;
-  width: 96px;
-  height: 96px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #f5f5f5;
@@ -684,11 +684,11 @@ div.modal[data-type='add'] > menu:not(.buttons) > a::after {
   content: attr(title);
   position: absolute;
   display: block;
-  bottom: -35px;
+  bottom: -30px;
   left: -50%;
   width: 200%;
   padding: 40px 0 0 0;
-  font-size: 140%;
+  font-size: 120%;
   text-align: center;
   color: "%textColor";
   transition: color 0.5s;
@@ -761,6 +761,27 @@ div.modal.dark[data-type='edit'] > ul > li > input.error, div.modal.dark[data-ty
 }
 div.modal.dark[data-type='edit'] > ul > li > input:focus, div.modal.dark[data-type='add'] > ul > li > input:focus {
   border-color: rgba(255, 255, 255, 0.2);
+}
+div.modal.dark[data-type='add'] > menu:not(.buttons) > a {
+  background-color: #555;
+}
+div.modal.dark[data-type='add'] > menu:not(.buttons) > a::before, div.modal.dark[data-type='add'] > menu:not(.buttons) > a::after {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+div.modal.dark[data-type='add'] > menu:not(.buttons) > a:hover::before {
+  opacity: 1;
+  background-color: "%textColor";
+}
+div.modal.dark[data-type='add'] > menu:not(.buttons) > a:hover::after {
+  opacity: 1;
+  color: "%textColor";
+}
+div.modal.dark[data-type='add'] > menu.buttons > a.action {
+  display: none;
+}
+div.modal.dark[data-type='add'] > menu.buttons > a.action.visible {
+  display: inline-block;
 }
 div.modal.dark[data-type='infos'] > h1::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);

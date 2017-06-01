@@ -90,7 +90,7 @@ div.contextmenu {
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4;
 }
-div.contextmenu[data-type='list'] {
+div.contextmenu[data-type='list'], div.contextmenu[data-type='separator'] {
   left: -9999px;
   margin: 0 0 0 10px;
 }
@@ -221,6 +221,9 @@ div.contextmenu > ul.list > li > a[data-name='newTab']::before, div.contextmenu 
 }
 div.contextmenu > ul.list > li > a[data-name='newTabIncognito']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-incognito.svg);
+}
+div.contextmenu > ul.list > li > a[data-name='deleteSeparator']::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg);
 }
 div.contextmenu > ul.list > li > a[data-name='updateUrls']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
@@ -425,7 +428,7 @@ a.dragHelper {
   transition: none;
   z-index: 3;
 }
-a.dragHelper.hover {
+a.dragHelper.hover:not(.separator) {
   background: #f5f5f5;
 }
 a.dragHelper.dragHover {
@@ -440,6 +443,24 @@ a.dragHelper.active {
 }
 a.dragHelper.dir {
   font-weight: "%fontWeightBold";
+}
+a.dragHelper.separator {
+  height: "%bookmarksLineHeight";
+  cursor: default;
+}
+a.dragHelper.separator > span.label {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+a.dragHelper.separator > span.label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
 }
 a.dragHelper > span.copied {
   position: absolute;
@@ -477,6 +498,7 @@ a.dragHelper > img, a.dragHelper > span.icon {
   width: "%bookmarksIconSize";
   height: "%bookmarksIconSize";
   margin: 0 "%bookmarksHorizontalPadding" 0 0;
+  pointer-events: none;
   flex-shrink: 0;
 }
 a.dragHelper > img {
@@ -540,6 +562,7 @@ a.dragHelper.link > span.icon[data-color='10']::before {
 a.dragHelper > span.label {
   text-overflow: ellipsis;
   overflow: hidden;
+  pointer-events: none;
 }
 a.dragHelper > span.label[data-num]::after {
   content: " " attr(data-num);
@@ -552,6 +575,7 @@ a.dragHelper > span.drag {
   width: 24px;
   height: 24px;
   border-radius: 2px;
+  cursor: pointer;
   transition: background-color 0.5s;
 }
 a.dragHelper > span.drag::before {
@@ -811,7 +835,7 @@ section#sidebar > div.scrollBox > ul a {
   transition: background 0.3s, color 0.3s;
   position: relative;
 }
-section#sidebar > div.scrollBox > ul a.hover {
+section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
   background: #f5f5f5;
 }
 section#sidebar > div.scrollBox > ul a.dragHover {
@@ -826,6 +850,24 @@ section#sidebar > div.scrollBox > ul a.active {
 }
 section#sidebar > div.scrollBox > ul a.dir {
   font-weight: "%fontWeightBold";
+}
+section#sidebar > div.scrollBox > ul a.separator {
+  height: "%bookmarksLineHeight";
+  cursor: default;
+}
+section#sidebar > div.scrollBox > ul a.separator > span.label {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+section#sidebar > div.scrollBox > ul a.separator > span.label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
 }
 section#sidebar > div.scrollBox > ul a > span.copied {
   position: absolute;
@@ -863,6 +905,7 @@ section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > 
   width: "%bookmarksIconSize";
   height: "%bookmarksIconSize";
   margin: 0 "%bookmarksHorizontalPadding" 0 0;
+  pointer-events: none;
   flex-shrink: 0;
 }
 section#sidebar > div.scrollBox > ul a > img {
@@ -926,6 +969,7 @@ section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='10']::before
 section#sidebar > div.scrollBox > ul a > span.label {
   text-overflow: ellipsis;
   overflow: hidden;
+  pointer-events: none;
 }
 section#sidebar > div.scrollBox > ul a > span.label[data-num]::after {
   content: " " attr(data-num);
@@ -938,6 +982,7 @@ section#sidebar > div.scrollBox > ul a > span.drag {
   width: 24px;
   height: 24px;
   border-radius: 2px;
+  cursor: pointer;
   transition: background-color 0.5s;
 }
 section#sidebar > div.scrollBox > ul a > span.drag::before {
@@ -1040,7 +1085,7 @@ section#sidebar.dark > div.scrollBox > ul li.isDragged {
   width: calc(100% - 5px);
   border-color: rgba(255, 255, 255, 0.2);
 }
-section#sidebar.dark > div.scrollBox > ul a.hover {
+section#sidebar.dark > div.scrollBox > ul a.hover:not(.separator) {
   background: #555;
 }
 section#sidebar.dark > div.scrollBox > ul a > span.drag::before {

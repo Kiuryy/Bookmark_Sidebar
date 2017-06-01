@@ -413,6 +413,9 @@
     "settings_appearance_label_overlay": {
         "message": "\u30aa\u30fc\u30d0\u30fc\u30ec\u30a4"
     },
+    "settings_dark_mode": {
+        "message": "\u6697\u3044\u9762"
+    },
     "settings_color_scheme": {
         "message": "\u914d\u8272"
     },

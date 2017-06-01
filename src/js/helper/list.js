@@ -276,10 +276,10 @@
          * @param {Array} bookmarks
          * @param {jsu} list
          * @param {boolean} asTree one dimensional list or with directories
-         * @param {boolean} sort whether the bookmarks need to be sorted or not
+         * @param {boolean} sorting whether the bookmarks need to be sorted or not
          * @returns {boolean} returns false if nothing has been added
          */
-        this.addBookmarkDir = (bookmarks, list, asTree = true, sort = true) => {
+        this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
@@ -289,15 +289,27 @@
                 list.css("transition", "height " + config.dirOpenDuration + "s");
             }
 
+            if (asTree && sort.name === "custom" && list.prev("a").length() > 0) { // show separators in custom sorted view
+                let dirId = list.prev("a").attr("data-id");
+                let separators = ext.helper.model.getData("u/separators");
+                if (separators[dirId]) {
+                    separators[dirId].forEach((separator) => {
+                        separator.separator = true;
+                        separator.parentId = dirId;
+                        bookmarks.push(separator);
+                    });
+                }
+            }
+
             let bookmarkCounter = 0;
             list.removeData("remainingEntries");
 
-            if (sort) {
+            if (sorting) {
                 sortBookmarks(bookmarks);
             }
 
             bookmarks.some((bookmark, idx) => {
-                if ((showHidden || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                if ((showHidden || bookmark.separator || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url || bookmark.separator)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     if (ext.opts.demoMode) {
                         if (bookmark.children) {
                             bookmark.title = "Directory " + (idx + 1);
@@ -309,11 +321,14 @@
 
                     let entry = $("<li />").appendTo(list);
                     let entryContent = $("<a />")
-                        .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + bookmark.title + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
-                        .attr(ext.opts.attr.id, bookmark.id)
+                        .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
                         .appendTo(entry);
 
-                    if (ext.helper.entry.isVisible(bookmark.id) === false) {
+                    if (bookmark.id) {
+                        entryContent.attr(ext.opts.attr.id, bookmark.id);
+                    }
+
+                    if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
                         entry.addClass(ext.opts.classes.sidebar.hidden);
                     }
 
@@ -346,6 +361,13 @@
                         }
 
                         bookmarkCounter++;
+                    } else if (bookmark.separator) { // separator
+                        entryContent
+                            .addClass(ext.opts.classes.sidebar.separator)
+                            .data("infos", {
+                                id: bookmark.parentId,
+                                index: bookmark.index
+                            });
                     }
 
                     hasEntries = true;
@@ -375,7 +397,7 @@
                 let collator = ext.helper.i18n.getLocaleSortCollator();
                 let doSort = (defaultDir, func) => {
                     bookmarks.sort((a, b) => {
-                        if (!!(a.children) !== !!(b.children)) {
+                        if (sort.name !== "custom" && !!(a.children) !== !!(b.children)) {
                             return !!(a.children) ? -1 : 1;
                         } else {
                             return (defaultDir === sort.dir ? 1 : -1) * func(a, b);
@@ -384,6 +406,12 @@
                 };
 
                 switch (sort.name) {
+                    case "custom": {
+                        doSort("ASC", (a, b) => {
+                            return (a.index - (a.separator ? 0.5 : 0)) - (b.index - (b.separator ? 0.5 : 0));
+                        });
+                        break;
+                    }
                     case "alphabetical": {
                         doSort("ASC", (a, b) => {
                             return collator.compare(a.title, b.title);

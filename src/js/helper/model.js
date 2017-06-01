@@ -21,6 +21,7 @@
                 openStates: {},
                 hiddenEntries: {},
                 scrollPos: {},
+                separators: {},
                 entriesLocked: false,
                 sort: {
                     name: "custom",

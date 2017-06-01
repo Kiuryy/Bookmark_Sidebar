@@ -31,6 +31,10 @@
                         handleListMenu(contextmenu, elm);
                         break;
                     }
+                    case "separator": {
+                        handleSeparatorMenu(contextmenu, elm);
+                        break;
+                    }
                     case "menu": {
                         handleHeaderMenu(contextmenu, elm);
                         break;
@@ -157,6 +161,29 @@
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
+        };
+
+        /**
+         * Extends the contextmenu with the links which are relevant for the separators
+         *
+         * @param {jsu} contextmenu
+         * @param {jsu} elm
+         */
+        let handleSeparatorMenu = (contextmenu, elm) => {
+            contextmenu.css({
+                top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
+                left: elm[0].offsetLeft + "px"
+            });
+
+            let entry = $("<li />").appendTo(contextmenu.children("ul." + ext.opts.classes.contextmenu.list));
+            contextmenu.children("ul." + ext.opts.classes.contextmenu.icons).remove();
+            console.log(elm);
+
+            $("<a />")
+                .attr(ext.opts.attr.name, "deleteSeparator")
+                .text(ext.helper.i18n.get("contextmenu_delete_separator"))
+                .data("infos", elm.data("infos"))
+                .appendTo(entry);
         };
 
         /**
@@ -288,11 +315,17 @@
                         break;
                     }
                     case "newTabIncognito": { // open bookmark in incognito window
-                        ext.helper.sidebarEvents.openUrl(data, "incognito");
+                        ext.helper.utility.openUrl(data, "incognito");
                         break;
                     }
                     case "newTab": { // open bookmark in new tab
-                        ext.helper.sidebarEvents.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                        ext.helper.utility.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                        break;
+                    }
+                    case "deleteSeparator": { // remove the separator
+                        ext.helper.utility.removeSeparator($(e.currentTarget).data("infos"), () => {
+                            ext.helper.model.call("refreshAllTabs", {type: "Separator"});
+                        });
                         break;
                     }
                     case "show": { // show the hidden bookmark or directory again
@@ -311,7 +344,7 @@
                             ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
                         } else {
                             bookmarks.forEach((bookmark) => {
-                                ext.helper.sidebarEvents.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                                ext.helper.utility.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
                             });
                         }
                         break;

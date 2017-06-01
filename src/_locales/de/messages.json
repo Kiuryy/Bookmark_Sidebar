@@ -41,6 +41,9 @@
     "contextmenu_toggle_hidden": {
         "message": "Versteckte Eintr\u00e4ge"
     },
+    "contextmenu_delete_separator": {
+        "message": "Trennlinie l\u00f6schen"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Lesezeichen l\u00f6schen"
     },
@@ -145,6 +148,9 @@
     },
     "overlay_label_dir": {
         "message": "Verzeichnis"
+    },
+    "overlay_label_separator": {
+        "message": "Trennlinie"
     },
     "overlay_bookmark_views": {
         "message": "Aufrufe"
@@ -480,7 +486,7 @@
         "message": "Viereck"
     },
     "settings_bookmarks_dir_color": {
-        "message": "Farbe desVerzeichnis-Icons"
+        "message": "Farbe des Verzeichnis-Icons"
     },
     "settings_bookmarks_font_size": {
         "message": "Lesezeichen Schriftgr\u00f6\u00dfe"

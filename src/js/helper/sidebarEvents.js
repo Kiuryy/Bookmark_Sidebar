@@ -14,30 +14,6 @@
         };
 
         /**
-         * Opens the url of the given bookmark
-         *
-         * @param {object} infos
-         * @param {string} type
-         * @param {boolean} active
-         */
-        this.openUrl = (infos, type = "default", active = true) => {
-            if (type === "incognito") {
-                ext.helper.model.call("openLink", {
-                    href: infos.url,
-                    incognito: true
-                });
-            } else {
-                ext.helper.model.call("openLink", {
-                    parentId: infos.parentId,
-                    id: infos.id,
-                    href: infos.url,
-                    newTab: type === "newTab",
-                    active: active
-                });
-            }
-        };
-
-        /**
          * Initializes the eventhandlers for keyboard input
          */
         let initKeyboardEvents = () => {
@@ -112,7 +88,7 @@
                 box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
-                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
+                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
                         let _self = $(e.currentTarget);
                         let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
 
@@ -121,7 +97,7 @@
                         } else if (!data.isDir) { // Click on link
                             let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
                             let newTab = e.which === 2 || config.linkAction === "newtab";
-                            this.openUrl(data, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
+                            ext.helper.utility.openUrl(data, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
                         }
                     }
                 }).on("mouseover", "a", (e) => { // add class to currently hovered element
@@ -131,7 +107,11 @@
                         .removeClass(ext.opts.classes.sidebar.mark);
                 }).on("contextmenu", "a", (e) => { // right click
                     e.preventDefault();
-                    ext.helper.contextmenu.create("list", $(e.currentTarget));
+                    let type = "list";
+                    if ($(e.target).hasClass(ext.opts.classes.sidebar.separator)) {
+                        type = "separator";
+                    }
+                    ext.helper.contextmenu.create(type, $(e.currentTarget));
                 });
 
                 box.children("ul").on("mouseleave", (e) => {

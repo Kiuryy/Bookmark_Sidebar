@@ -31,11 +31,13 @@
          * Sets the focus to the currently visible scrollbox to allow keyboard navigation
          */
         this.focus = () => {
-            scrollBoxes.forEach((scrollBox) => {
-                if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
-                    scrollBox[0].focus();
-                }
-            });
+            if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                scrollBoxes.forEach((scrollBox) => {
+                    if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
+                        scrollBox[0].focus();
+                    }
+                });
+            }
         };
 
         /**
@@ -66,20 +68,6 @@
             } else if (typeof callback === "function") {
                 callback();
             }
-        };
-
-        /**
-         * Updates the scroll position of all visible scrollboxes
-         *
-         * @param {int} scrollPos
-         * @param {int} duration if set the scroll position will be set animated to the given value
-         */
-        this.setAllScrollPos = (scrollPos, duration = 0) => {
-            scrollBoxes.forEach((scrollBox) => {
-                if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
-                    this.setScrollPos(scrollBox, scrollPos, duration);
-                }
-            });
         };
 
         /**

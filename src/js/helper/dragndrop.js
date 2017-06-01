@@ -112,8 +112,12 @@
             elmParent.clone().addClass(ext.opts.classes.drag.dragInitial).insertAfter(elmParent);
 
             let helper = elm.clone().appendTo(ext.elements.iframeBody);
-            let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
             let boundClientRect = elm[0].getBoundingClientRect();
+            let data = {};
+
+            if (!elm.hasClass(ext.opts.classes.sidebar.separator)) {
+                data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+            }
 
             helper.removeAttr("title").css({
                 top: boundClientRect.top + "px",
@@ -121,7 +125,7 @@
                 width: elm.realWidth() + "px"
             }).data({
                 elm: elmParent,
-                isDir: data.isDir,
+                isDir: !!(data.isDir),
                 startPos: {
                     top: y - boundClientRect.top,
                     left: x - boundClientRect.left
@@ -185,11 +189,33 @@
             } else { // animate the helper back to the new position and save it
                 draggedElm.addClass(ext.opts.classes.drag.snap);
 
-                ext.helper.model.call("moveBookmark", {
-                    id: entryElm.children("a").attr(ext.opts.attr.id),
-                    parentId: entryElm.parent("ul").prev("a").attr(ext.opts.attr.id),
-                    index: entryElm.prevAll("li").length()
+                let elm = entryElm.children("a");
+                let parentId = entryElm.parent("ul").prev("a").attr(ext.opts.attr.id);
+                let index = 0;
+
+                entryElm.prevAll("li").forEach((elm) => {
+                    if (elm !== dragInitialElm && !$(elm).children("a").hasClass(ext.opts.classes.sidebar.separator)) {
+                        index++;
+                    }
                 });
+
+                if (elm.hasClass(ext.opts.classes.sidebar.separator)) { // save separator position
+                    ext.helper.utility.removeSeparator(elm.data("infos"), () => {
+                        let opts = {
+                            id: parentId,
+                            index: index
+                        };
+
+                        ext.helper.utility.addSeparator(opts);
+                        elm.data("infos", opts);
+                    });
+                } else { // save bookmark/directory position
+                    ext.helper.model.call("moveBookmark", {
+                        id: entryElm.children("a").attr(ext.opts.attr.id),
+                        parentId: parentId,
+                        index: index
+                    });
+                }
 
                 setTimeout(() => {
                     let boundClientRect = entryElm[0].getBoundingClientRect();

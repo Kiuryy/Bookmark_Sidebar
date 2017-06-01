@@ -512,6 +512,10 @@ div.modal {
         &[data-type='dir']::before {
           @include maskImage('icon-dir-1');
         }
+
+        &[data-type='separator']::before {
+          @include maskImage('icon-separator');
+        }
       }
     }
 

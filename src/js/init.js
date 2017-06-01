@@ -43,6 +43,7 @@
                 dirOpened: "opened",
                 bookmarkDir: "dir",
                 dirIcon: "icon",
+                separator: "separator",
                 bookmarkLink: "link",
                 bookmarkLabel: "label",
                 menu: "menu",

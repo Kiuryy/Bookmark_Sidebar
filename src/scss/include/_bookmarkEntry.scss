@@ -1,0 +1,149 @@
+@mixin bookmarkEntry {
+  display: flex;
+  align-items: center;
+  font-size: $__bookmarksFontSize;
+  line-height: $__bookmarksLineHeight;
+  padding: 0 $__bookmarksHorizontalPadding;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+
+  &.hover:not(.separator) {
+    background: $hoverBackground;
+  }
+
+  &.dragHover {
+    background: $hoverBackground;
+  }
+
+  &.mark {
+    background: $__colorScheme;
+    color: $textColorInverted;
+  }
+
+  &.active {
+    font-weight: $__fontWeightMedium;
+  }
+
+  &.dir {
+    font-weight: $__fontWeightBold;
+  }
+
+  &.separator {
+    height: $__bookmarksLineHeight;
+    cursor: default;
+
+    > span.label {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  > span.copied {
+    position: absolute;
+    top: -20px;
+    left: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 10px);
+    background: $colorSuccess;
+    color: $textColorInverted;
+    font-size: 80%;
+    font-weight: $__fontWeightBold;
+    line-height: normal;
+    padding: 3px 5px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+    transition: opacity 0.3s, transform 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: calc(50% - 5px);
+      border: 5px solid transparent;
+      border-top-color: $colorSuccess;
+    }
+  }
+
+  &.copied {
+    background: rgba($colorSuccess, 0.2) !important;
+
+    > span.copied {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  > img, > span.icon {
+    position: relative;
+    display: inline-block;
+    width: $__bookmarksIconSize;
+    height: $__bookmarksIconSize;
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  > img {
+    visibility: hidden;
+
+    &[src] {
+      visibility: visible;
+    }
+  }
+
+  &.dir > span.icon {
+    @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__bookmarksIconSize);
+  }
+
+  &.link > span.icon {
+    @include mask(#{'icon-demo'}, transparent, $__bookmarksIconSize);
+
+    @each $color in $demoColors {
+      $i: index($demoColors, $color);
+      &[data-color='#{$i}']::before {
+        background-color: $color;
+      }
+    }
+  }
+
+  > span.label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    pointer-events: none;
+
+    &[data-num]::after {
+      content: " " attr(data-num);
+    }
+  }
+
+  > span.drag {
+    display: none;
+    position: absolute;
+    top: calc(50% - 12px);
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+
+    &::before {
+      transition: inherit;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

@@ -1,14 +1,12 @@
 [tdb]
  - helpful hints
- - Separators
  - Update changelog
 
 [1.8]
  - Added many translations
- - Handled typeface for different languages
  - Extended Drag&Drop (drop links into the sidebar)
- - Synchronize tabs after modifying entries and changing settings
- - touchscreen support
+ - Touchscreen support
+ - Added separators
  - Added dark theme
 
 [1.7]

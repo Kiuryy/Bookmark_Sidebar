@@ -11,7 +11,7 @@ div.contextmenu {
   z-index: 4;
   @extend %hidden;
 
-  &[data-type='list'] {
+  &[data-type='list'], &[data-type='separator'] {
     left: -9999px;
     margin: 0 0 0 10px;
   }
@@ -153,6 +153,10 @@ div.contextmenu {
 
         &[data-name='newTabIncognito']::before {
           @include maskImage('icon-incognito');
+        }
+
+        &[data-name='deleteSeparator']::before {
+          @include maskImage('icon-delete');
         }
 
         &[data-name='updateUrls']::before {

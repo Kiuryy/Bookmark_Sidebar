@@ -710,6 +710,9 @@ div.modal[data-type='add'] > menu:not(.buttons) > a[data-type='bookmark']::befor
 div.modal[data-type='add'] > menu:not(.buttons) > a[data-type='dir']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-dir-1.svg);
 }
+div.modal[data-type='add'] > menu:not(.buttons) > a[data-type='separator']::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-separator.svg);
+}
 div.modal[data-type='add'] > menu.buttons > a.action {
   display: none;
 }

@@ -195,6 +195,7 @@
                 dragndrop: new window.DragDropHelper(this),
                 checkbox: new window.CheckboxHelper(this),
                 overlay: new window.OverlayHelper(this),
+                utility: new window.UtilityHelper(this),
                 contextmenu: new window.ContextmenuHelper(this)
             };
         };

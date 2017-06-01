@@ -178,43 +178,52 @@
             let menu = $("<menu />").appendTo(elements.modal);
             let bookmarkLink = $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
             $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
+            $("<a />").attr(ext.opts.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
 
             menu.children("a").on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
-                let list = $("<ul />").appendTo(elements.modal);
 
-                let titleValue = "";
-                let urlValue = "";
+                if (type === "separator") {
+                    ext.helper.utility.addSeparator({id: data.id, index: 0}, () => {
+                        closeOverlay();
+                        ext.helper.model.call("refreshAllTabs", {type: "Separator"});
+                    });
+                } else {
+                    let list = $("<ul />").appendTo(elements.modal);
 
-                if (type === "bookmark") { // default bookmark values -> current page information
-                    titleValue = $(document).find("title").text();
-                    urlValue = location.href;
-                }
+                    let titleValue = "";
+                    let urlValue = "";
 
-                if (data && data.values) { // fill fields with given values
-                    if (data.values.title) {
-                        titleValue = data.values.title;
+                    if (type === "bookmark") { // default bookmark values -> current page information
+                        titleValue = $(document).find("title").text();
+                        urlValue = location.href;
                     }
 
-                    if (data.values.url) {
-                        urlValue = data.values.url;
+                    if (data && data.values) { // fill fields with given values
+                        if (data.values.title) {
+                            titleValue = data.values.title;
+                        }
+
+                        if (data.values.url) {
+                            urlValue = data.values.url;
+                        }
                     }
+
+                    list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
+                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue + "' /></li>");
+
+                    if (type === "bookmark") {
+                        list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue + "'  /></li>");
+                    }
+
+                    menu.addClass(ext.opts.classes.sidebar.hidden);
+
+                    setTimeout(() => {
+                        list.addClass(ext.opts.classes.overlay.visible);
+                        submit.addClass(ext.opts.classes.overlay.visible);
+                    }, data && data.values ? 0 : 100);
                 }
-
-                list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
-                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue + "' /></li>");
-
-                if (type === "bookmark") {
-                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue + "'  /></li>");
-                }
-
-                menu.addClass(ext.opts.classes.sidebar.hidden);
-
-                setTimeout(() => {
-                    list.addClass(ext.opts.classes.overlay.visible);
-                    submit.addClass(ext.opts.classes.overlay.visible);
-                }, data && data.values ? 0 : 100);
             });
 
             if (data && data.values) { // add bookmark with existing data (e.g. after dragging url into sidebar)
@@ -377,7 +386,7 @@
             closeOverlay();
             let bookmarks = data.children.filter(val => !!(val.url));
             bookmarks.forEach((bookmark) => {
-                ext.helper.sidebarEvents.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                ext.helper.utility.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
             });
         };
 
@@ -583,7 +592,7 @@
 
             elements.modal.find("a." + ext.opts.classes.overlay.preview + ", a." + ext.opts.classes.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
-                ext.helper.sidebarEvents.openUrl(data, "newTab");
+                ext.helper.utility.openUrl(data, "newTab");
             });
         };
     };

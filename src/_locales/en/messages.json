@@ -41,6 +41,9 @@
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
     },
+    "contextmenu_delete_separator": {
+        "message": "Delete Separator"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Delete Bookmark"
     },
@@ -145,6 +148,9 @@
     },
     "overlay_label_dir": {
         "message": "Directory"
+    },
+    "overlay_label_separator": {
+        "message": "Separator"
     },
     "overlay_bookmark_views": {
         "message": "Views"

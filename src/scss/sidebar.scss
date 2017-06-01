@@ -465,6 +465,10 @@ section#sidebar {
         border-color: rgba(255, 255, 255, 0.2);
       }
 
+      a {
+        @include darkBookmarkEntry;
+      }
+
       a.hover:not(.separator) {
         background: $darkHoverBackground;
       }
@@ -486,6 +490,7 @@ section#sidebar {
     }
 
     ~ a.dragHelper {
+      @include darkBookmarkEntry;
       background: $darkHoverBackground;
     }
   }

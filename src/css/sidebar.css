@@ -1088,6 +1088,21 @@ section#sidebar.dark > div.scrollBox > ul li.isDragged {
 section#sidebar.dark > div.scrollBox > ul a.hover:not(.separator) {
   background: #555;
 }
+section#sidebar.dark > div.scrollBox > ul a.separator > span.label::after {
+  background: rgba(255, 255, 255, 0.15);
+}
+section#sidebar.dark > div.scrollBox > ul a > span.drag::before {
+  background-color: #999;
+}
+section#sidebar.dark > div.scrollBox > ul a > span.drag:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+section#sidebar.dark > div.scrollBox > ul a > span.drag:hover::before {
+  background-color: #ccc;
+}
+section#sidebar.dark > div.scrollBox > ul a.hover:not(.separator) {
+  background: #555;
+}
 section#sidebar.dark > div.scrollBox > ul a > span.drag::before {
   background-color: #999;
 }
@@ -1099,6 +1114,21 @@ section#sidebar.dark > div.scrollBox > ul a > span.drag:hover::before {
 }
 section#sidebar.dark ~ a.dragHelper {
   background: #555;
+}
+section#sidebar.dark ~ a.dragHelper.hover:not(.separator) {
+  background: #555;
+}
+section#sidebar.dark ~ a.dragHelper.separator > span.label::after {
+  background: rgba(255, 255, 255, 0.15);
+}
+section#sidebar.dark ~ a.dragHelper > span.drag::before {
+  background-color: #999;
+}
+section#sidebar.dark ~ a.dragHelper > span.drag:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+section#sidebar.dark ~ a.dragHelper > span.drag:hover::before {
+  background-color: #ccc;
 }
 
 body.ee section#sidebar > header {

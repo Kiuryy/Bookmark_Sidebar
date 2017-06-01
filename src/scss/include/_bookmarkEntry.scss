@@ -147,3 +147,29 @@
     }
   }
 }
+
+@mixin darkBookmarkEntry {
+
+  &.hover:not(.separator) {
+    background: $darkHoverBackground;
+  }
+
+  &.separator > span.label::after {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  > span.drag {
+
+    &::before {
+      background-color: $darkReorderIconColor;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+
+      &::before {
+        background-color: $darkReorderIconColorActive;
+      }
+    }
+  }
+}

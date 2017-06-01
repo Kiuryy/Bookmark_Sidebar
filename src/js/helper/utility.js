@@ -59,7 +59,6 @@
          */
         this.removeSeparator = (data, callback) => {
             let separators = ext.helper.model.getData("u/separators");
-            console.log(separators[data.id]);
 
             separators[data.id].some((entry, i) => {
                 if (entry.index === data.index) {

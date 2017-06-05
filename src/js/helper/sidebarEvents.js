@@ -19,9 +19,10 @@
         let initKeyboardEvents = () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                    ext.helper.scroll.focus();
 
-                    if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
+                    if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Home") {
+                        ext.helper.scroll.focus();
+                    } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         Object.values(ext.elements.bookmarkBox).forEach((box) => {
                             if (box.hasClass(ext.opts.classes.sidebar.active)) {
@@ -47,6 +48,21 @@
                                 }
                             }
                         });
+                    } else {
+                        let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                        searchField[0].focus();
+                    }
+                }
+            }).on("keyup", () => {
+                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                    let searchVal = searchField[0].value;
+
+                    if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) {
+                        ext.helper.contextmenu.close();
+                        ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+                    } else {
+                        ext.helper.scroll.focus();
                     }
                 }
             });

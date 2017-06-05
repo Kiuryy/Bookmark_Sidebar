@@ -55,7 +55,7 @@
          * @param {string} val
          */
         let handleSearch = (searchField, val) => {
-            ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active);
+            ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
             ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
             ext.helper.scroll.focus();
             ext.helper.list.updateSortFilter();

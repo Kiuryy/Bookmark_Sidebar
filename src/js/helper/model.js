@@ -10,6 +10,10 @@
                 light: "rgb(100,100,100)",
                 dark: "rgb(200,200,200)"
             },
+            sidebarMaskColor: {
+                light: "rgba(255,255,255,0.8)",
+                dark: "rgba(0,0,0,0.6)"
+            },
             colorScheme: {
                 light: "rgb(27,130,241)",
                 dark: "rgb(31, 77, 128)"
@@ -59,7 +63,7 @@
                     indicatorIconColor: "rgb(255,255,255)",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",
-                    sidebarMaskColor: "rgba(255,255,255,0.8)",
+                    sidebarMaskColor: defaultColors.sidebarMaskColor.light,
                     bookmarksFontSize: "14px",
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "40px",

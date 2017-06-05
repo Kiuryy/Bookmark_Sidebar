@@ -317,8 +317,10 @@
                         changeColorValue(s.opts.elm.color.textColor, textColor);
                         changeColorValue(s.opts.elm.color.bookmarksDirColor, textColor);
 
-                        let colorScheme = s.helper.model.getDefaultColor("colorScheme", val ? "dark" : "light");
-                        changeColorValue(s.opts.elm.color.colorScheme, colorScheme);
+                        ["sidebarMaskColor", "colorScheme"].forEach((colorName) => {
+                            let color = s.helper.model.getDefaultColor(colorName, val ? "dark" : "light");
+                            changeColorValue(s.opts.elm.color[colorName], color);
+                        });
                     }
                 }
 

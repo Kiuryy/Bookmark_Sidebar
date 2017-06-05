@@ -19,8 +19,9 @@
         let initKeyboardEvents = () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
 
-                    if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Home") {
+                    if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                         ext.helper.scroll.focus();
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
@@ -48,21 +49,23 @@
                                 }
                             }
                         });
-                    } else {
+                    } else { // focus search field to enter the value of the pressed key there
                         let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                        searchField.data("l", (e.ctrlKey || e.metaKey) ? 0 : searchField[0].value.length);
                         searchField[0].focus();
                     }
                 }
             }).on("keyup", () => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                     let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                    let prevLength = searchField.data("l") || 0;
                     let searchVal = searchField[0].value;
 
-                    if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) {
+                    if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
                         ext.helper.contextmenu.close();
                         ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
                     } else {
-                        ext.helper.scroll.focus();
+                        ext.helper.scroll.focus(+prevLength !== searchVal.length); // focus scrollbox if length of search field is unchanged
                     }
                 }
             });

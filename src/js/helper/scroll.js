@@ -29,11 +29,13 @@
 
         /**
          * Sets the focus to the currently visible scrollbox to allow keyboard navigation,
-         * only if the search field is not focused
+         * only if the search field is not focused or if false is set as parameter
+         *
+         * @param {boolean} checkSearchOpen
          */
-        this.focus = () => {
+        this.focus = (checkSearchOpen = true) => {
             if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)
-                && ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']")[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                && (!checkSearchOpen || ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']")[0] !== ext.elements.iframe[0].contentDocument.activeElement)) {
                 scrollBoxes.forEach((scrollBox) => {
                     if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {
                         scrollBox[0].focus();

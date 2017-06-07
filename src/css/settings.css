@@ -630,42 +630,6 @@ body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active) >
 body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active)::before {
   -webkit-mask-position: right 8px;
 }
-body > header > ul.tabBar > li[data-name='help'] {
-  position: absolute;
-  top: 13px;
-  right: 30px;
-  margin: 0;
-  height: 42px;
-  width: 42px;
-  min-width: auto;
-  border-radius: 50%;
-  transition: background 0.5s;
-}
-body > header > ul.tabBar > li[data-name='help']::before, body > header > ul.tabBar > li[data-name='help']::after {
-  display: none;
-}
-body > header > ul.tabBar > li[data-name='help'] > a {
-  padding: 4px 0 0 0;
-  font-size: 200%;
-  font-weight: "%fontWeightLight";
-  z-index: 0;
-  opacity: 0.5;
-  transition: opacity 0.5s;
-}
-body > header > ul.tabBar > li[data-name='help'] > a::before, body > header > ul.tabBar > li[data-name='help'] > a::after {
-  display: none;
-}
-body > header > ul.tabBar > li[data-name='help']:hover > a {
-  opacity: 0.9;
-}
-body > header > ul.tabBar > li[data-name='help'].active {
-  background: transparent;
-  filter: none;
-}
-body > header > ul.tabBar > li[data-name='help'].active > a {
-  color: #fff;
-  opacity: 0.9;
-}
 
 section#content {
   position: relative;
@@ -807,19 +771,15 @@ section#content > div.tab[data-name='feedback'] div.faq > p::before {
   border: 7px solid transparent;
   border-bottom-color: #f2f2f2;
 }
+section#content > div.tab[data-name='feedback'] div.faq > p > a {
+  font-weight: "%fontWeightBold";
+  color: #2b35c8;
+}
 section#content > div.tab[data-name='feedback'] p.notice {
   font-size: 120%;
   line-height: 170%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 0;
-}
-section#content > div.tab[data-name='help'] a {
-  display: inline-block;
-  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 110%;
-  margin-bottom: 50px;
 }
 section#content p.desc {
   font-size: 120%;
@@ -1043,7 +1003,8 @@ input[type='range'] {
   width: 100%;
   max-width: 250px;
   height: 20px;
-  background: linear-gradient(to right, #7b5fa4 0% -1px, rgba(0, 0, 0, 0.2) -1px 100%) no-repeat;
+  background-image: linear-gradient(to right, #7b5fa4 0%, #7b5fa4 -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
+  background-repeat: no-repeat;
   background-size: 100% 3px;
   background-position: 0 9px;
   margin: 7px 0 10px;

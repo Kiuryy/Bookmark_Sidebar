@@ -41,6 +41,9 @@
     "contextmenu_toggle_hidden": {
         "message": "\u663e\u793a\u9690\u85cf\u76ee\u5f55"
     },
+    "contextmenu_delete_separator": {
+        "message": "\u5220\u9664\u5206\u9694\u7b26"
+    },
     "contextmenu_delete_bookmark": {
         "message": "\u5220\u9664\u4e66\u7b7e"
     },
@@ -254,9 +257,6 @@
     "settings_tab_feedback": {
         "message": "\u53cd\u9988"
     },
-    "settings_tab_help": {
-        "message": "\uff1f"
-    },
     "settings_headline_toggle": {
         "message": "\u5207\u6362"
     },
@@ -265,9 +265,6 @@
     },
     "settings_headline_search": {
         "message": "\u641c\u7d22"
-    },
-    "settings_headline_help": {
-        "message": "\u5e2e\u52a9"
     },
     "settings_headline_faq": {
         "message": "\u5e38\u89c1\u95ee\u9898"
@@ -517,12 +514,6 @@
     },
     "settings_feedback_sent_message": {
         "message": "\u611f\u8c22\u60a8\u7684\u53cd\u9988"
-    },
-    "settings_help_desc": {
-        "message": "\u4f7f\u7528\u6269\u5c55\u6709\u95ee\u9898\u5417\uff1f"
-    },
-    "settings_help_desc2": {
-        "message": "\u4f60\u9047\u5230\u4e00\u4e2a\u96be\u9898\u6216\u8005\u8fd9\u4e2a\u6269\u5c55\u4e0d\u80fd\u5de5\u4f5c\u5417\uff1f\u4f60\u53ef\u4ee5\u7ed9\u6211\u53d1\u4fe1\u606f\uff0c\u8fd9\u6837\u6211\u5c31\u53ef\u4ee5\u770b\u5230\u3002"
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "\u4f60\u80fd\u8ba9\u8fd9\u4e2a\u4fa7\u680f\u4e00\u76f4\u5f00\u7740\u5417\uff1f"

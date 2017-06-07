@@ -11,6 +11,15 @@
                 e.preventDefault();
                 $(e.currentTarget).next("p").toggleClass(s.opts.classes.visible);
             });
+
+            s.opts.elm.feedback.faq.children("p > a").on("click", (e) => { //
+                e.preventDefault();
+                let type = $(e.currentTarget).parent("p").attr(s.opts.attr.type);
+
+                if (type === "usage") {
+                    window.open(chrome.extension.getURL("html/howto.html") + "?tutorial=1", '_blank');
+                }
+            });
         };
 
         /**

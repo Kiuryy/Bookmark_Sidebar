@@ -260,9 +260,6 @@
     "settings_tab_feedback": {
         "message": "Feedback"
     },
-    "settings_tab_help": {
-        "message": "?"
-    },
     "settings_headline_toggle": {
         "message": "Ein\/Ausblenden"
     },
@@ -271,9 +268,6 @@
     },
     "settings_headline_search": {
         "message": "Suche"
-    },
-    "settings_headline_help": {
-        "message": "Hilfe"
     },
     "settings_headline_faq": {
         "message": "FAQ"
@@ -533,11 +527,11 @@
     "settings_feedback_sent_message": {
         "message": "Vielen Dank f\u00fcr dein Feedback"
     },
-    "settings_help_desc": {
-        "message": "Hast du Probleme bei der Benutzung der Erweiterung?"
+    "settings_faq_usage_q": {
+        "message": "Wie kann ich die Sidebar \u00f6ffnen?"
     },
-    "settings_help_desc2": {
-        "message": "Hast du einen Fehler gefunden oder funktioniert die Erweiterung nicht? Du kannst mir gerne eine Nachricht senden, damit ich mir das Problem ansehen kann."
+    "settings_faq_usage_a": {
+        "message": "Du kannst dir das [a]Tuturial[\/a] ansehen, um zu sehen, wie du die Sidebar \u00f6ffnen kannst und es anschlie\u00dfend auf jeder Webseite selbst ausprobieren. Wenn du weiterhin Probleme mit der Erweiterung hast, lies dir bitte die andere beantwortete Frage \u00fcber den Grund, warum die Sidebar nicht auf jeder Seite funktioniert, durch, oder sende mir eine Nachricht mit Details zu deinem Problem."
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "Kannst du die Sidebar permanent offen lassen?"

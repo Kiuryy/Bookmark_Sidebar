@@ -254,9 +254,6 @@
     "settings_tab_feedback": {
         "message": "Zp\u011btn\u00e1 vazba"
     },
-    "settings_tab_help": {
-        "message": "?"
-    },
     "settings_headline_toggle": {
         "message": "P\u0159epnout"
     },
@@ -265,9 +262,6 @@
     },
     "settings_headline_search": {
         "message": "Hledat"
-    },
-    "settings_headline_help": {
-        "message": "Pomoc"
     },
     "settings_headline_faq": {
         "message": "Nej\u010dast\u011bj\u0161\u00ed ot\u00e1zky"
@@ -517,12 +511,6 @@
     },
     "settings_feedback_sent_message": {
         "message": "D\u011bkuji za odesl\u00e1n\u00ed zp\u011btn\u00e9 vazby"
-    },
-    "settings_help_desc": {
-        "message": "M\u00e1te probl\u00e9my s t\u00edmto roz\u0161\u00ed\u0159en\u00edm?"
-    },
-    "settings_help_desc2": {
-        "message": "Do\u0161lo k probl\u00e9mu nebo roz\u0161\u00ed\u0159en\u00ed nefunguje? M\u016f\u017eete mi poslat zpr\u00e1vu, abych se na ni mohl pod\u00edvat."
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "M\u016f\u017eete vytvo\u0159it trval\u00e9 otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty?"

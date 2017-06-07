@@ -260,9 +260,6 @@
     "settings_tab_feedback": {
         "message": "Feedback"
     },
-    "settings_tab_help": {
-        "message": "?"
-    },
     "settings_headline_toggle": {
         "message": "Toggle"
     },
@@ -271,9 +268,6 @@
     },
     "settings_headline_search": {
         "message": "Search"
-    },
-    "settings_headline_help": {
-        "message": "Help"
     },
     "settings_headline_faq": {
         "message": "Frequently asked questions"
@@ -533,11 +527,11 @@
     "settings_feedback_sent_message": {
         "message": "Thank you for the feedback"
     },
-    "settings_help_desc": {
-        "message": "Do you have problems using the extension?"
+    "settings_faq_usage_q": {
+        "message": "Can you tell me how to open the sidebar?"
     },
-    "settings_help_desc2": {
-        "message": "You encountered a problem or the extension does not work? You can send me a message so I can have a look at it."
+    "settings_faq_usage_a": {
+        "message": "You can watch the [a]tutorial[\/a] to see how to open the sidebar and test it yourself afterwards on every website. If you still have issues with the extension please read the other answered question regarding why the sidebar is not working on every page or send me a message with details about your problem."
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "Can you make the sidebar to be opened all the time?"

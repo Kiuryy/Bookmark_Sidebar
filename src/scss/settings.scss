@@ -104,49 +104,6 @@ body > header {
           -webkit-mask-position: right 8px;
         }
       }
-
-      &[data-name='help'] {
-        position: absolute;
-        top: 13px;
-        right: 30px;
-        margin: 0;
-        height: 42px;
-        width: 42px;
-        min-width: auto;
-        border-radius: 50%;
-        transition: background 0.5s;
-
-        &::before, &::after {
-          display: none;
-        }
-
-        > a {
-          padding: 4px 0 0 0;
-          font-size: 200%;
-          font-weight: $__fontWeightLight;
-          z-index: 0;
-          opacity: 0.5;
-          transition: opacity 0.5s;
-
-          &::before, &::after {
-            display: none;
-          }
-        }
-
-        &:hover > a {
-          opacity: 0.9;
-        }
-
-        &.active {
-          background: transparent;
-          filter: none;
-
-          > a {
-            color: $textColorInverted;
-            opacity: 0.9;
-          }
-        }
-      }
     }
   }
 }
@@ -319,6 +276,11 @@ section#content {
             border: 7px solid transparent;
             border-bottom-color: $bodyBackground;
           }
+
+          > a {
+            font-weight: $__fontWeightBold;
+            color: $mainColorAlt;
+          }
         }
       }
 
@@ -327,18 +289,6 @@ section#content {
         line-height: 170%;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding: 20px 0;
-      }
-    }
-
-    &[data-name='help'] {
-
-      a {
-        display: inline-block;
-        background: $gradient;
-        color: $textColorInverted;
-        padding: 5px 10px;
-        font-size: 110%;
-        margin-bottom: 50px;
       }
     }
   }
@@ -620,7 +570,8 @@ input[type='range'] {
   width: 100%;
   max-width: 250px;
   height: 20px;
-  background: linear-gradient(to right, $mainColor 0% -1px, rgba(0, 0, 0, 0.2) -1px 100%) no-repeat;
+  background-image: linear-gradient(to right, $mainColor 0%, $mainColor -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
+  background-repeat: no-repeat;
   background-size: 100% 3px;
   background-position: 0 9px;
   margin: 7px 0 10px;

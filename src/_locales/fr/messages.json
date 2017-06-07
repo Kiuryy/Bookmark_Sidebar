@@ -41,6 +41,9 @@
     "contextmenu_toggle_hidden": {
         "message": "Afficher les contenus masqu\u00e9s"
     },
+    "contextmenu_delete_separator": {
+        "message": "Supprimer le s\u00e9parateur"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Supprimer le favori"
     },
@@ -145,6 +148,9 @@
     },
     "overlay_label_dir": {
         "message": "Dossier"
+    },
+    "overlay_label_separator": {
+        "message": "S\u00e9parateur"
     },
     "overlay_bookmark_views": {
         "message": "Vus"
@@ -254,9 +260,6 @@
     "settings_tab_feedback": {
         "message": "Retour d'exp\u00e9rience"
     },
-    "settings_tab_help": {
-        "message": "?"
-    },
     "settings_headline_toggle": {
         "message": "Activation de la barre lat\u00e9rale"
     },
@@ -265,9 +268,6 @@
     },
     "settings_headline_search": {
         "message": "Recherche"
-    },
-    "settings_headline_help": {
-        "message": "Aide"
     },
     "settings_headline_faq": {
         "message": "Questions fr\u00e9quentes"
@@ -334,6 +334,12 @@
     },
     "settings_open_delay_desc": {
         "message": "Emp\u00eache que la barre ne soit instantan\u00e9ment affich\u00e9e au survol de la souris ou clic si un d\u00e9lai d'affichage a \u00e9t\u00e9 d\u00e9fini"
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Emp\u00eacher le d\u00e9filement"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Emp\u00eache de faire d\u00e9filer le site web tant que la barre lat\u00e9rale est affich\u00e9e."
     },
     "settings_dir_accordion": {
         "message": "Afficher seulement le dossier courant"
@@ -406,6 +412,9 @@
     },
     "settings_appearance_label_overlay": {
         "message": "Fen\u00eatre d'info"
+    },
+    "settings_dark_mode": {
+        "message": "Surface sombre"
     },
     "settings_color_scheme": {
         "message": "Couleur"
@@ -517,12 +526,6 @@
     },
     "settings_feedback_sent_message": {
         "message": "Merci pour votre retour d'exp\u00e9rience"
-    },
-    "settings_help_desc": {
-        "message": "Avez vous des probl\u00e8mes pour utiliser cette extension ?"
-    },
-    "settings_help_desc2": {
-        "message": "Vous avez une difficult\u00e9 ou l'extension ne fonctionne pas ? Vous pouvez m'envoyer un message pour que je jette un oeil."
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "Pouvez vous faire en sorte que la barre lat\u00e9rale soit constamment affich\u00e9e ?"

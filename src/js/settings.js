@@ -143,7 +143,6 @@
                         this.helper.appearance.init();
                         this.helper.feedback.init();
                         this.helper.contribute.init();
-                        this.helper.help.init();
 
                         initButtonEvents();
                         initContentTabs();
@@ -188,8 +187,7 @@
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),
                 feedback: new window.FeedbackHelper(this),
-                contribute: new window.ContributeHelper(this),
-                help: new window.HelpHelper(this)
+                contribute: new window.ContributeHelper(this)
             };
         };
 

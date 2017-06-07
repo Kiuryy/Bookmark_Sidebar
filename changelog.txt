@@ -1,7 +1,6 @@
 [tdb]
  - helpful hints
  - Update changelog
- - remove help tab (integrate into feedback)
 
 [1.8]
  - Added many translations

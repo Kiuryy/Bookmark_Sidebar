@@ -94,48 +94,41 @@
      */
     let increaseViewAmount = (bookmark) => {
         if (bookmark["id"]) {
-            initClickCounter(null, () => {
-                if (typeof clickCounter.data[bookmark["id"]] === "undefined") {
-                    if (typeof clickCounter.data["node_" + bookmark["id"]] === "undefined") {
-                        clickCounter.data[bookmark["id"]] = {c: 0}
+            initClickCounter(() => {
+                if (typeof clickCounter[bookmark["id"]] === "undefined") {
+                    if (typeof clickCounter["node_" + bookmark["id"]] === "undefined") {
+                        clickCounter[bookmark["id"]] = {c: 0}
                     } else { // @deprecated
-                        clickCounter.data[bookmark["id"]] = {
-                            c: clickCounter.data["node_" + bookmark["id"]]
+                        clickCounter[bookmark["id"]] = {
+                            c: clickCounter["node_" + bookmark["id"]]
                         };
                     }
                 }
 
-                if (typeof clickCounter.data[bookmark["id"]] !== "object") {
-                    clickCounter.data[bookmark["id"]] = {
-                        c: clickCounter.data[bookmark["id"]]
+                if (typeof clickCounter[bookmark["id"]] !== "object") {
+                    clickCounter[bookmark["id"]] = {
+                        c: clickCounter[bookmark["id"]]
                     };
                 }
 
-                clickCounter.data[bookmark["id"]].c++;
-                clickCounter.data[bookmark["id"]].d = +new Date();
-                delete clickCounter.data["node_" + bookmark["id"]]; // @deprecated
+                clickCounter[bookmark["id"]].c++;
+                clickCounter[bookmark["id"]].d = +new Date();
+                delete clickCounter["node_" + bookmark["id"]]; // @deprecated
 
+                chrome.storage.local.set({
+                    clickCounter: clickCounter
+                }, () => { // @deprecated
+                    let lastError = chrome.runtime.lastError;
 
-                let saveToStorage = (type = "sync") => { // save clickCounter object -> try to save to sync-storage first, if this fails save to local-storage
-                    clickCounter.storageType = type;
-                    chrome.storage[type].set({
-                        clickCounter: clickCounter
-                    }, () => {
-                        let lastError = chrome.runtime.lastError;
-
-                        if (typeof lastError === "undefined") {
-                            if (data.clickCounter) { // @deprecated
-                                delete data.clickCounter;
-                                saveModelData();
-                            }
-                        } else if (clickCounter.storageType === "sync" && lastError.message.search("QUOTA_BYTES_PER_ITEM") !== -1) { // sync-storage is full -> save to local
-                            saveToStorage("local");
-                            chrome.storage.sync.remove(["clickCounter"]);
+                    if (typeof lastError === "undefined") {
+                        if (data.clickCounter) {
+                            delete data.clickCounter;
+                            saveModelData();
                         }
-                    });
-                };
 
-                saveToStorage();
+                        chrome.storage.sync.remove(["clickCounter"]);
+                    }
+                });
             });
         }
     };
@@ -201,9 +194,9 @@
      * @param {function} sendResponse
      */
     let getViewAmounts = (opts, sendResponse) => {
-        initClickCounter(null, () => {
+        initClickCounter(() => {
             sendResponse({
-                viewAmounts: clickCounter.data,
+                viewAmounts: clickCounter,
                 counterStartDate: data.installationDate
             });
         });
@@ -563,7 +556,7 @@
                     if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
                         chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
                     }
-                    chrome.storage.sync.remove(["clickCounter", "lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "entriesLocked", "addVisual", "middleClickActive"]);
+                    chrome.storage.sync.remove(["lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "entriesLocked", "addVisual", "middleClickActive"]);
                     // END UPGRADE CONFIG FOR v1.7
 
                     // SAVE APPEARANCE SETTINGS FOR v1.7 AND v1.8
@@ -593,32 +586,34 @@
     /**
      * Initialises the infos about the views of the bookmarks
      *
-     * @param {string} type
      * @param {function} callback
      */
-    let initClickCounter = (type, callback) => {
-        if (!type) {
-            type = "sync";
-        }
+    let initClickCounter = (callback) => {
+        chrome.storage.local.get(["clickCounter"], (obj) => {
+            clickCounter = {};
 
-        chrome.storage[type].get(["clickCounter"], (obj) => {
-            if (typeof obj.clickCounter === "undefined") { // no data for the given type (sync or local) available
-                if (type === "sync") { // try local
-                    initClickCounter("local", callback);
-                } else { // local is empty too -> no data available
-                    clickCounter = {
-                        storageType: "sync",
-                        data: data.clickCounter || {} // @deprecated data.clickCounter
-                    };
+            if (typeof obj.clickCounter === "undefined") { // @deprecated
+                chrome.storage.sync.get(["clickCounter"], (obj2) => {
+                    if (typeof obj2.clickCounter !== "undefined") {
+                        clickCounter = obj2.clickCounter;
+                    } else if (data.clickCounter) {
+                        clickCounter = data.clickCounter;
+                    }
+
+                    if (clickCounter.data) {
+                        clickCounter = clickCounter.data;
+                    }
+
                     if (typeof callback === "function") {
                         callback();
                     }
-                }
+                });
             } else { // data available
-                clickCounter = {
-                    storageType: type,
-                    data: obj.clickCounter.data
-                };
+                clickCounter = obj.clickCounter;
+
+                if (clickCounter.data) { // @deprecated
+                    clickCounter = clickCounter.data;
+                }
 
                 if (typeof callback === "function") {
                     callback();

@@ -359,6 +359,9 @@
     "settings_remember_state_open_states": {
         "message": "Ge\u00f6ffnete Verzeichnisse"
     },
+    "settings_remember_state_open_states_root": {
+        "message": "Ge\u00f6ffnete Verzeichnisse (oberste Ebene)"
+    },
     "settings_remember_state_nothing": {
         "message": "Nichts"
     },

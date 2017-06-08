@@ -191,17 +191,18 @@
             let opened = 0;
             let data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
 
-            if (data.rememberState === "all" || data.rememberState === "openStates") {
+            if (data.rememberState === "all" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
                 restoreOpenStateRunning++;
 
                 Object.keys(data.openStates).forEach((node) => {
                     if (data.openStates[node] === true) {
-                        let id = +node.replace(/^node_/, ""); // @deprecated replace not needed anymore
-                        let entry = list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + id + "']");
+                        let entry = list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + (node) + "']");
 
                         if (entry.length() > 0) {
-                            opened++;
-                            this.toggleBookmarkDir(entry);
+                            if (data.rememberState !== "openStatesRoot" || entry.parents("ul").length() === 1) { // if rememberState = openStatesRoot -> only open top level directories
+                                opened++;
+                                this.toggleBookmarkDir(entry);
+                            }
                         }
                     }
                 });
@@ -480,7 +481,6 @@
             } else {
                 let openStates = ext.helper.model.getData("u/openStates");
                 openStates[elm.attr(ext.opts.attr.id)] = open;
-                delete openStates["node_" + elm.attr(ext.opts.attr.id)]; // @deprecated
 
                 if (open === false) {
                     closeAllChildDirs(elm, openStates);

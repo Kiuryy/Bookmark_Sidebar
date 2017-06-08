@@ -533,7 +533,9 @@
 
                     if (typeof obj.behaviour.initialOpenOnNewTab === "undefined") {
                         obj.behaviour.initialOpenOnNewTab = chrome.i18n.getUILanguage() == "de";
+                        chrome.storage.sync.set({behaviour: obj.behaviour});
                     }
+
                     // END UPGRADE CONFIG FOR v1.8
 
                     // START UPGRADE CONFIG FOR v1.7

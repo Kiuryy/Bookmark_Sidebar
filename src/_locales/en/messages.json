@@ -359,6 +359,9 @@
     "settings_remember_state_open_states": {
         "message": "Opened directories"
     },
+    "settings_remember_state_open_states_root": {
+        "message": "Opened top level directories"
+    },
     "settings_remember_state_nothing": {
         "message": "Nothing"
     },

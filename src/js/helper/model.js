@@ -46,7 +46,7 @@
                 dirOpenDuration: 0.5,
                 openDelay: 0,
                 closeTimeout: 1,
-                initialOpenOnNewTab: true
+                initialOpenOnNewTab: false
             },
             a: { // appearance
                 sidebarPosition: "left",

@@ -526,6 +526,14 @@
                     if (typeof obj.appearance.styles.colorScheme === "undefined") {
                         obj.appearance.styles.colorScheme = "rgb(0,137,123)";
                     }
+
+                    if (typeof obj.behaviour === "undefined") {
+                        obj.behaviour = {};
+                    }
+
+                    if (typeof obj.behaviour.initialOpenOnNewTab === "undefined") {
+                        obj.behaviour.initialOpenOnNewTab = chrome.i18n.getUILanguage() == "de";
+                    }
                     // END UPGRADE CONFIG FOR v1.8
 
                     // START UPGRADE CONFIG FOR v1.7

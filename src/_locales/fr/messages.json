@@ -527,6 +527,12 @@
     "settings_feedback_sent_message": {
         "message": "Merci pour votre retour d'exp\u00e9rience"
     },
+    "settings_faq_usage_q": {
+        "message": "Pouvez-vous me dire comment ouvrir la barre lat\u00e9rale?"
+    },
+    "settings_faq_usage_a": {
+        "message": "Vous pouvez visionner le [a]tutoriel[\/a] pour voir comment ouvrir la barre lat\u00e9rale et tester ensuite par vous-m\u00eame sur chaque page web. Toutefois, si vous rencontrez toujours des difficult\u00e9s avec cette extension, merci de lire la r\u00e9ponse \u00e0 la question concernant la raison pour laquelle la barre lat\u00e9rale ne fonctionne pas sur la totalit\u00e9 des pages web ou envoyez moi un message avec des explications d\u00e9taill\u00e9es concernant le probl\u00e8me rencontr\u00e9."
+    },
     "settings_faq_fixed_sidebar_q": {
         "message": "Pouvez vous faire en sorte que la barre lat\u00e9rale soit constamment affich\u00e9e ?"
     },

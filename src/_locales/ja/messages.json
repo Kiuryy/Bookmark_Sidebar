@@ -359,6 +359,9 @@
     "settings_remember_state_open_states": {
         "message": "\u958b\u304b\u308c\u305f\u30d5\u30a9\u30eb\u30c0"
     },
+    "settings_remember_state_open_states_root": {
+        "message": "\u958b\u304b\u308c\u305f\u6700\u4e0a\u4f4d\u306e\u30d5\u30a9\u30eb\u30c0"
+    },
     "settings_remember_state_nothing": {
         "message": "\u306a\u3057"
     },

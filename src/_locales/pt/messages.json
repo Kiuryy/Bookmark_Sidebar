@@ -41,6 +41,9 @@
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
     },
+    "contextmenu_delete_separator": {
+        "message": "Apagar separador"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Apagar favorito"
     },
@@ -145,6 +148,9 @@
     },
     "overlay_label_dir": {
         "message": "Pasta"
+    },
+    "overlay_label_separator": {
+        "message": "Separador"
     },
     "overlay_bookmark_views": {
         "message": "Visualiza\u00e7\u00f5es"

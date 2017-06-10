@@ -26,6 +26,8 @@
                 elements.modal.addClass(ext.opts.classes.page.darkMode);
             }
 
+            let trackingLabel = type;
+
             elements.modal.append("<h1>" + title + "</h1>");
             $("<a />").addClass(ext.opts.classes.overlay.close).appendTo(elements.modal);
 
@@ -66,6 +68,7 @@
                 }
             }
 
+            ext.helper.model.call("trackPageView", {page: "/overlay/" + trackingLabel});
             initEvents(data);
 
             setTimeout(() => {
@@ -385,6 +388,12 @@
         let openChildren = (data) => {
             closeOverlay();
             let bookmarks = data.children.filter(val => !!(val.url));
+            ext.helper.model.call("trackEvent", {
+                category: "url",
+                action: "open",
+                label: "new_tab_all_children",
+                value: bookmarks.length
+            });
             bookmarks.forEach((bookmark) => {
                 ext.helper.utility.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
             });
@@ -592,6 +601,11 @@
 
             elements.modal.find("a." + ext.opts.classes.overlay.preview + ", a." + ext.opts.classes.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
+                ext.helper.model.call("trackEvent", {
+                    category: "url",
+                    action: "open",
+                    label: "new_tab_overlay"
+                });
                 ext.helper.utility.openUrl(data, "newTab");
             });
         };

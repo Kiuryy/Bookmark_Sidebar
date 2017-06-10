@@ -89,7 +89,7 @@
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-                    if (ext.isNewTab) {
+                    if (ext.helper.utility.getPageType() ==="newtab") {
                         ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
                     }
                 }
@@ -234,7 +234,7 @@
             }
 
             ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-            if (ext.isNewTab) {
+            if (ext.helper.utility.getPageType() ==="newtab") {
                 setTimeout(() => {
                     ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
                 }, 500);
@@ -356,12 +356,13 @@
 
             ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 let x = e.pageX;
+                let isNewTab = ext.helper.utility.getPageType() ==="newtab";
 
-                if (ext.isNewTab && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
+                if (isNewTab && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
                     let width = ext.elements.iframe.realWidth();
                     ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
                     x += ext.elements.iframe.realWidth() - width;
-                } else if (ext.isNewTab) {
+                } else if (isNewTab) {
                     ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
                 }
 

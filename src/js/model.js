@@ -447,8 +447,40 @@
             shareUserdata: opts.share
         });
         shareUserdata = opts.share;
-        data.lastShareDate = 0;
+        data.lastShareDate = 0; // @deprecated
         saveModelData();
+    };
+
+    /**
+     * Tracks an event in Google Analytics with the given values,
+     * only do if user allows userdata sharing or if the parameter is specified
+     *
+     * @param {object} opts
+     * @param {boolean} ignoreShareUserdata
+     */
+    let trackEvent = (opts, ignoreShareUserdata = false) => {
+        if (window.ga && (shareUserdata === true || ignoreShareUserdata === true)) {
+            window.ga('send', {
+                hitType: 'event',
+                eventCategory: opts.category,
+                eventAction: opts.action,
+                eventLabel: opts.label,
+                eventValue: opts.value || 1
+            });
+        }
+    };
+
+    /**
+     * Tracks an event in Google Analytics with the given values,
+     * only do if user allows userdata sharing or if the parameter is specified
+     *
+     * @param {object} opts
+     * @param {boolean} ignoreShareUserdata
+     */
+    let trackPageView = (opts, ignoreShareUserdata = false) => {
+        if (window.ga && (shareUserdata === true || ignoreShareUserdata === true)) {
+            window.ga('send', 'pageview', opts.page);
+        }
     };
 
     /**
@@ -470,6 +502,8 @@
         langvars: getLangVars,
         favicon: getFavicon,
         openLink: openLink,
+        trackPageView: trackPageView,
+        trackEvent: trackEvent,
         viewAmounts: getViewAmounts
     };
 
@@ -658,6 +692,12 @@
                 data.installationDate = +new Date();
             }
 
+            let today = +new Date().setHours(0, 0, 0, 0);
+            //if (typeof data.lastTrackDate === "undefined" || data.lastTrackDate !== today) {
+            data.lastTrackDate = today;
+            trackUserData();
+            //}
+
             initClickCounter();
             saveModelData();
         });
@@ -713,6 +753,8 @@
 
     /**
      * Shares the userdata if the user allowed to
+     *
+     * @deprecated trackUserData() is the replacement using Google Analytics
      */
     let handleShareUserdata = () => {
         chrome.storage.sync.get(null, (obj) => {
@@ -779,11 +821,115 @@
         });
     };
 
+    /**
+     * Send a sign of life and all configuration once per day to Google Analytics
+     */
+    let trackUserData = () => {
+        let manifest = chrome.runtime.getManifest();
+        let shareState = "not_set";
+
+        if (shareUserdata === true) {
+            shareState = "allowed";
+        } else if (shareUserdata === false) {
+            shareState = "not_allowed";
+        }
+
+        trackEvent({ // sign of life
+            category: "extension",
+            action: "user",
+            label: "share_" + shareState
+        }, true);
+
+        trackEvent({ // extension version
+            category: "extension",
+            action: "version",
+            label: manifest.version
+        }, true);
+
+        if (shareUserdata === true) {
+            // track bookmark amount
+            bookmarkObj.getSubTree("0", (response) => {
+                let bookmarkAmount = 0;
+                let processBookmarks = (bookmarks) => {
+                    for (let i = 0; i < bookmarks.length; i++) {
+                        let bookmark = bookmarks[i];
+                        if (bookmark.url) {
+                            bookmarkAmount++
+                        } else if (bookmark.children) {
+                            processBookmarks(bookmark.children);
+                        }
+                    }
+                };
+
+                if (response && response[0] && response[0].children && response[0].children.length > 0) {
+                    processBookmarks(response[0].children);
+                }
+
+                trackEvent({
+                    category: "extension",
+                    action: "bookmarks",
+                    label: "amount",
+                    value: bookmarkAmount
+                });
+            });
+
+            // track configuration values
+            let categories = ["behaviour", "appearance"];
+
+            let proceedConfig = (baseName, obj) => {
+                Object.keys(obj).forEach((attr) => {
+                    if (typeof obj[attr] === "object") {
+                        proceedConfig(baseName + "_" + attr, obj[attr])
+                    } else {
+                        if (typeof obj[attr] !== "string") {
+                            obj[attr] = JSON.stringify(obj[attr]);
+                        }
+
+                        trackEvent({
+                            category: "configuration",
+                            action: baseName + "_" + attr,
+                            label: obj[attr]
+                        });
+                    }
+                });
+            };
+
+            chrome.storage.sync.get(categories, (obj) => {
+                categories.forEach((category) => {
+                    if (typeof obj[category] === "object") {
+                        proceedConfig(category, obj[category]);
+                    }
+                });
+            });
+        }
+    };
+
+    /**
+     * Initialises the Google Analytics tracking
+     */
+    let initAnalytics = () => {
+        window['GoogleAnalyticsObject'] = 'ga';
+        window.ga = window.ga || function () {
+                (window.ga.q = window.ga.q || []).push(arguments)
+            };
+        window.ga.l = +new Date();
+        let script = document.createElement('script');
+        script.async = 1;
+        script.src = 'https://www.google-analytics.com/analytics.js';
+        let m = document.getElementsByTagName('script')[0];
+        m.parentNode.insertBefore(script, m);
+
+        let manifest = chrome.runtime.getManifest();
+        window.ga('create', 'UA-' + (manifest.version_name === "Dev" || !('update_url' in manifest) ? '100595538-3' : '100595538-2'), 'auto');
+        window.ga('set', 'checkProtocolTask', null);
+        window.ga('set', 'transport', 'beacon');
+    };
 
     /**
      *
      */
     (() => {
+        initAnalytics();
         initModel();
         handleShareUserdata();
     })();

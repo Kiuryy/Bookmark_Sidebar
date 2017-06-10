@@ -28,6 +28,33 @@
         };
 
         /**
+         * Returns the type of the current url
+         *
+         * @returns {string}
+         */
+        this.getPageType = () => {
+            let url = location.href;
+            let ret = "other";
+
+            let types = {
+                newtab: "https?://www.google\..+/_/chrome/newtab",
+                website: "https?://",
+                chrome: "chrome://",
+                extension: "chrome\-extension://",
+                local: "file://"
+            };
+
+            Object.keys(types).some((key) => {
+                if (url.search(new RegExp(types[key], "gi")) === 0) {
+                    ret = key;
+                    return true;
+                }
+            });
+
+            return ret;
+        };
+
+        /**
          * Adds a separator to the given directory
          *
          * @param {object} data

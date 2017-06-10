@@ -72,7 +72,7 @@ div.scrollBox::-webkit-scrollbar-track {
   border-radius: 20px;
 }
 div.scrollBox.hideScrollbar {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .dark div.scrollBox {

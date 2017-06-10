@@ -18,7 +18,7 @@
                     let remainingEntries = list.data("remainingEntries");
                     if (remainingEntries && remainingEntries.length > 0) {
                         this.addBookmarkDir(remainingEntries, list, false, false);
-                        if (ext.firstRun || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false) {
+                        if (ext.refreshRun || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false) {
                             ext.helper.scroll.restoreScrollPos(box);
                         }
                     }
@@ -84,6 +84,11 @@
                 ext.helper.model.setData({
                     "u/sort": sort
                 }, () => {
+                    ext.helper.model.call("trackEvent", {
+                        category: "sorting",
+                        action: "change",
+                        label: sort.name + "_" + sort.dir
+                    });
                     ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
                 });
             }
@@ -106,9 +111,17 @@
             sort = ext.helper.model.getData("u/sort");
             ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
+            if (ext.firstRun) {
+                ext.helper.model.call("trackEvent", {
+                    category: "sorting",
+                    action: "initial",
+                    label: sort.name + "_" + sort.dir
+                });
+            }
+
             ext.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree
                 if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
-                    ext.firstRun = true;
+                    ext.refreshRun = true;
                     let list = ext.elements.bookmarkBox["all"].children("ul");
                     list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
 
@@ -153,7 +166,7 @@
             let childrenList = elm.next("ul");
 
             if (typeof instant === "undefined") {
-                instant = ext.firstRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false;
+                instant = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false;
             }
 
             if (elm.hasClass(ext.opts.classes.sidebar.dirOpened)) { // close children
@@ -212,11 +225,11 @@
 
             if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
                 setTimeout(() => {
-                    ext.firstRun = false;
-
                     ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"], () => {
                         ext.initImages();
                         ext.endLoading(200);
+                        ext.firstRun = false;
+                        ext.refreshRun = false;
                         ext.loaded();
                     });
                 }, 100);
@@ -476,7 +489,7 @@
                 }, 0);
             }
 
-            if (ext.firstRun === true) { // first run -> restore open states of child nodes
+            if (ext.refreshRun === true) { // restore open states of child nodes
                 this.restoreOpenStates(list);
             } else {
                 let openStates = ext.helper.model.getData("u/openStates");
@@ -504,6 +517,14 @@
                 }
                 list.css("height", "");
                 elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
+
+                if (!ext.firstRun) {
+                    ext.helper.model.call("trackEvent", {
+                        category: "directory",
+                        action: "openState_change",
+                        label: open ? "open" : "close"
+                    });
+                }
 
                 if (typeof callback === "function") {
                     callback();

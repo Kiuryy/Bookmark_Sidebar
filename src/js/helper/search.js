@@ -3,6 +3,8 @@
 
     window.SearchHelper = function (ext) {
 
+        let searchTimeout = null;
+
         /**
          * Initializes the helper
          */
@@ -55,6 +57,7 @@
          * @param {string} val
          */
         let handleSearch = (searchField, val) => {
+            let isFirstRun = ext.firstRun;
             ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
             ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
             ext.helper.scroll.focus();
@@ -63,6 +66,11 @@
             if (val !== searchField.data("lastVal")) { // search value is not the same
                 ext.startLoading();
                 searchField.data("lastVal", val);
+
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = null;
+                }
 
                 ext.helper.model.setData({"u/searchValue": val}, () => {
                     ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
@@ -82,7 +90,16 @@
                             $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox["search"]);
                         }
 
-                        ext.endLoading();
+                        searchTimeout = setTimeout(() => {
+                            ext.helper.model.call("trackEvent", {
+                                category: "search",
+                                action: "search",
+                                label: isFirstRun ? "initial" : "search",
+                                value: val.length
+                            });
+                        }, 500);
+
+                        ext.endLoading(500);
                     });
                 });
             }

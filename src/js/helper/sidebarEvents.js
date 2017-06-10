@@ -107,7 +107,7 @@
                 box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
-                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.firstRun)) { // only left click
+                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)) { // only left click
                         let _self = $(e.currentTarget);
                         let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
 
@@ -116,6 +116,21 @@
                         } else if (!data.isDir) { // Click on link
                             let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
                             let newTab = e.which === 2 || config.linkAction === "newtab";
+
+                            if (e.which === 2) {
+                                ext.helper.model.call("trackEvent", {
+                                    category: "url",
+                                    action: "open",
+                                    label: "new_tab_middle_click"
+                                });
+                            } else {
+                                ext.helper.model.call("trackEvent", {
+                                    category: "url",
+                                    action: "open",
+                                    label: (newTab ? "new" : "current") + "_tab_default"
+                                });
+                            }
+
                             ext.helper.utility.openUrl(data, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
                         }
                     }

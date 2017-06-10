@@ -44,7 +44,7 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if (ext.isNewTab) {
+            if (ext.helper.utility.getPageType() === "newtab") {
                 ext.elements.toggle.addClass(ext.opts.classes.page.isNewTab);
                 ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
 
@@ -75,7 +75,7 @@
                 if (e.pageX) {
                     let pageX = e.pageX;
                     if (sidebarPos === "right") {
-                        if (ext.isNewTab) {
+                        if (ext.helper.utility.getPageType() === "newtab") {
                             pageX = ext.elements.iframe.realWidth() - pageX;
                         } else {
                             pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
@@ -244,6 +244,7 @@
                 }
             });
 
+            ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
             ext.initImages();

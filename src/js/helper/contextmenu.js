@@ -21,6 +21,7 @@
                     .data("elm", elm)
                     .appendTo(ext.elements.sidebar);
 
+                let trackingLabel = type;
                 let elmId = elm.attr(ext.opts.attr.id);
                 if (elmId) {
                     contextmenu.attr(ext.opts.attr.id, elmId);
@@ -29,6 +30,8 @@
                 switch (type) {
                     case "list": {
                         handleListMenu(contextmenu, elm);
+                        let data = ext.helper.entry.getData(elmId);
+                        trackingLabel = data.isDir ? "directory" : "bookmark";
                         break;
                     }
                     case "separator": {
@@ -45,6 +48,7 @@
                     }
                 }
 
+                ext.helper.model.call("trackEvent", {category: "contextmenu", action: "open", label: trackingLabel});
                 initEvents(contextmenu);
 
                 setTimeout(() => {
@@ -315,10 +319,20 @@
                         break;
                     }
                     case "newTabIncognito": { // open bookmark in incognito window
+                        ext.helper.model.call("trackEvent", {
+                            category: "url",
+                            action: "open",
+                            label: "new_window_incognito"
+                        });
                         ext.helper.utility.openUrl(data, "incognito");
                         break;
                     }
                     case "newTab": { // open bookmark in new tab
+                        ext.helper.model.call("trackEvent", {
+                            category: "url",
+                            action: "open",
+                            label: "new_tab_contextmenu"
+                        });
                         ext.helper.utility.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
                         break;
                     }
@@ -343,6 +357,12 @@
                         if (bookmarks.length > 10) {
                             ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
                         } else {
+                            ext.helper.model.call("trackEvent", {
+                                category: "url",
+                                action: "open",
+                                label: "new_tab_all_children",
+                                value: bookmarks.length
+                            });
                             bookmarks.forEach((bookmark) => {
                                 ext.helper.utility.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
                             });

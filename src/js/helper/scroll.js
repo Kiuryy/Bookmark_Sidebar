@@ -129,7 +129,7 @@
          * @param {jsu} scrollBox
          */
         let saveScrollPos = (scrollBox) => {
-            if (ext.firstRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
+            if (ext.refreshRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
                 scrollPosSaved = +new Date();
 
                 let scrollPos = ext.helper.model.getData("u/scrollPos");

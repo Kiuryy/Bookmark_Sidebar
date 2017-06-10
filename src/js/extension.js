@@ -11,7 +11,7 @@
          * ################################
          */
         this.firstRun = true;
-        this.isNewTab = false;
+        this.refreshRun = true;
         this.elements = {};
         this.opts = opts;
 
@@ -78,17 +78,27 @@
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         this.loaded = () => {
-            let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
+            if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
+                this.helper.model.call("trackPageView", {page: "/loaded/" + this.helper.utility.getPageType()});
 
-            this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
-            document.dispatchEvent(new CustomEvent(opts.events.loaded, {
-                detail: {
-                    pxTolerance: data.pxTolerance,
-                    showIndicator: data.showIndicator
-                },
-                bubbles: true,
-                cancelable: false
-            }));
+                this.helper.model.call("trackEvent", {
+                    category: "directory",
+                    action: "openState_initial",
+                    label: "open",
+                    value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
+                });
+
+                let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
+                this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
+                document.dispatchEvent(new CustomEvent(opts.events.loaded, {
+                    detail: {
+                        pxTolerance: data.pxTolerance,
+                        showIndicator: data.showIndicator
+                    },
+                    bubbles: true,
+                    cancelable: false
+                }));
+            }
         };
 
         /**
@@ -204,7 +214,6 @@
          * Creates the basic html markup for the sidebar and the visual
          */
         let initSidebar = () => {
-            this.isNewTab = location.href.search(/https:\/\/www.google\..+\/_\/chrome\/newtab/gi) === 0;
             this.helper.stylesheet.addStylesheets(["content"]);
 
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");

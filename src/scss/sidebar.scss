@@ -41,6 +41,19 @@ body {
     color: rgba(#666, 0.8);
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($colorError, 0.3) 5px, rgba($colorError, 0.3) 10px);
   }
+
+  &.dark {
+
+    &::after {
+      color: $__textColor;
+      background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
+    }
+
+    &.isDragged.dragCancel::after {
+      color: $colorError;
+      background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
+    }
+  }
 }
 
 // Clipboard
@@ -450,49 +463,49 @@ section#sidebar {
       @extend %hidden;
     }
   }
+}
 
-  &.dark {
-    background: $darkContentBackground;
+body.dark section#sidebar {
+  background: $darkContentBackground;
 
-    > div.filter {
+  > div.filter {
+    background: $darkHoverBackground;
+  }
+
+  > div.scrollBox > ul {
+
+    li.isDragged {
+      width: calc(100% - 5px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    a {
+      @include darkBookmarkEntry;
+    }
+
+    a.hover:not(.separator) {
       background: $darkHoverBackground;
     }
 
-    > div.scrollBox > ul {
+    a > span.drag {
 
-      li.isDragged {
-        width: calc(100% - 5px);
-        border-color: rgba(255, 255, 255, 0.2);
+      &::before {
+        background-color: $darkReorderIconColor;
       }
 
-      a {
-        @include darkBookmarkEntry;
-      }
-
-      a.hover:not(.separator) {
-        background: $darkHoverBackground;
-      }
-
-      a > span.drag {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
 
         &::before {
-          background-color: $darkReorderIconColor;
-        }
-
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.1);
-
-          &::before {
-            background-color: $darkReorderIconColorActive;
-          }
+          background-color: $darkReorderIconColorActive;
         }
       }
     }
+  }
 
-    ~ a.dragHelper {
-      @include darkBookmarkEntry;
-      background: $darkHoverBackground;
-    }
+  ~ a.dragHelper {
+    @include darkBookmarkEntry;
+    background: $darkHoverBackground;
   }
 }
 

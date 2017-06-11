@@ -44,7 +44,7 @@ svg.loading > circle {
   animation: dash 1.5s ease-in-out infinite;
 }
 
-.dark svg.loading > circle {
+body.dark svg.loading > circle {
   stroke: "%textColor";
 }
 
@@ -75,7 +75,7 @@ div.scrollBox.hideScrollbar {
   background-color: transparent !important;
 }
 
-.dark div.scrollBox {
+body.dark div.scrollBox {
   background-color: #999;
 }
 
@@ -232,35 +232,36 @@ div.contextmenu > ul.list > li > a[data-name='showInDir']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.svg);
 }
 
-section#sidebar.dark div.contextmenu {
+section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sidebar[data-pos='right'] div.contextmenu[data-type='sort'] {
+  right: 0;
+}
+
+body.dark div.contextmenu {
   background: #555;
 }
-section#sidebar.dark div.contextmenu > ul.list > li > a {
+body.dark div.contextmenu > ul.list > li > a {
   transition: opacity 0.3s;
   opacity: 0.7;
 }
-section#sidebar.dark div.contextmenu > ul.list > li > a::before {
+body.dark div.contextmenu > ul.list > li > a::before {
   background-color: #999;
 }
-section#sidebar.dark div.contextmenu > ul.list > li > a:hover {
+body.dark div.contextmenu > ul.list > li > a:hover {
   color: "%textColor";
   opacity: 1;
 }
-section#sidebar.dark div.contextmenu > ul.list > li > a:hover::before {
+body.dark div.contextmenu > ul.list > li > a:hover::before {
   background-color: "%textColor";
   opacity: 0.8;
 }
-section#sidebar.dark div.contextmenu > ul.icons {
+body.dark div.contextmenu > ul.icons {
   background: #5d5d5d;
 }
-section#sidebar.dark div.contextmenu > ul.icons > li > a::before {
+body.dark div.contextmenu > ul.icons > li > a::before {
   background-color: #999;
 }
-section#sidebar.dark div.contextmenu > ul.icons > li > a:hover {
+body.dark div.contextmenu > ul.icons > li > a:hover {
   background-color: dimgray;
-}
-section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sidebar[data-pos='right'] div.contextmenu[data-type='sort'] {
-  right: 0;
 }
 
 div.checkbox {
@@ -328,20 +329,20 @@ div.checkbox > input[type='checkbox'] {
   display: none;
 }
 
-.dark div.checkbox::after {
+body.dark div.checkbox::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
 }
-.dark div.checkbox.focus::after, .dark div.checkbox.clicked::after {
+body.dark div.checkbox.focus::after, body.dark div.checkbox.clicked::after {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5);
 }
-.dark div.checkbox.active::before {
+body.dark div.checkbox.active::before {
   background-color: "%textColor";
 }
-.dark div.checkbox.active::after {
+body.dark div.checkbox.active::after {
   box-shadow: 0 0 0 0 "%textColor";
 }
-.dark div.checkbox.active.focus::after, .dark div.checkbox.active.clicked::after {
+body.dark div.checkbox.active.focus::after, body.dark div.checkbox.active.clicked::after {
   background: "%textColor";
   box-shadow: 0 0 0 20px "%textColor";
 }
@@ -401,6 +402,14 @@ body.isDragged::after {
 body.isDragged.dragCancel::after {
   color: rgba(102, 102, 102, 0.8);
   background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(255, 153, 153, 0.3) 5px, rgba(255, 153, 153, 0.3) 10px);
+}
+body.dark::after {
+  color: "%textColor";
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
+}
+body.dark.isDragged.dragCancel::after {
+  color: #f99;
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
 }
 
 body > textarea {
@@ -1075,59 +1084,60 @@ section#sidebar.loading > svg.loading {
   top: calc(50% - 18px);
   left: calc(50% - 18px);
 }
-section#sidebar.dark {
+
+body.dark section#sidebar {
   background: #444;
 }
-section#sidebar.dark > div.filter {
+body.dark section#sidebar > div.filter {
   background: #555;
 }
-section#sidebar.dark > div.scrollBox > ul li.isDragged {
+body.dark section#sidebar > div.scrollBox > ul li.isDragged {
   width: calc(100% - 5px);
   border-color: rgba(255, 255, 255, 0.2);
 }
-section#sidebar.dark > div.scrollBox > ul a.hover:not(.separator) {
+body.dark section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
   background: #555;
 }
-section#sidebar.dark > div.scrollBox > ul a.separator > span.label::after {
+body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {
   background: rgba(255, 255, 255, 0.15);
 }
-section#sidebar.dark > div.scrollBox > ul a > span.drag::before {
+body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
   background-color: #999;
 }
-section#sidebar.dark > div.scrollBox > ul a > span.drag:hover {
+body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-section#sidebar.dark > div.scrollBox > ul a > span.drag:hover::before {
+body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
   background-color: #ccc;
 }
-section#sidebar.dark > div.scrollBox > ul a.hover:not(.separator) {
+body.dark section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
   background: #555;
 }
-section#sidebar.dark > div.scrollBox > ul a > span.drag::before {
+body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
   background-color: #999;
 }
-section#sidebar.dark > div.scrollBox > ul a > span.drag:hover {
+body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-section#sidebar.dark > div.scrollBox > ul a > span.drag:hover::before {
+body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
   background-color: #ccc;
 }
-section#sidebar.dark ~ a.dragHelper {
+body.dark section#sidebar ~ a.dragHelper {
   background: #555;
 }
-section#sidebar.dark ~ a.dragHelper.hover:not(.separator) {
+body.dark section#sidebar ~ a.dragHelper.hover:not(.separator) {
   background: #555;
 }
-section#sidebar.dark ~ a.dragHelper.separator > span.label::after {
+body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
   background: rgba(255, 255, 255, 0.15);
 }
-section#sidebar.dark ~ a.dragHelper > span.drag::before {
+body.dark section#sidebar ~ a.dragHelper > span.drag::before {
   background-color: #999;
 }
-section#sidebar.dark ~ a.dragHelper > span.drag:hover {
+body.dark section#sidebar ~ a.dragHelper > span.drag:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-section#sidebar.dark ~ a.dragHelper > span.drag:hover::before {
+body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
   background-color: #ccc;
 }
 

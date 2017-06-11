@@ -44,7 +44,7 @@ svg.loading > circle {
   animation: dash 1.5s ease-in-out infinite;
 }
 
-.dark svg.loading > circle {
+body.dark svg.loading > circle {
   stroke: #666;
 }
 
@@ -113,20 +113,20 @@ div.checkbox > input[type='checkbox'] {
   display: none;
 }
 
-.dark div.checkbox::after {
+body.dark div.checkbox::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
 }
-.dark div.checkbox.focus::after, .dark div.checkbox.clicked::after {
+body.dark div.checkbox.focus::after, body.dark div.checkbox.clicked::after {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5);
 }
-.dark div.checkbox.active::before {
+body.dark div.checkbox.active::before {
   background-color: #666;
 }
-.dark div.checkbox.active::after {
+body.dark div.checkbox.active::after {
   box-shadow: 0 0 0 0 #666;
 }
-.dark div.checkbox.active.focus::after, .dark div.checkbox.active.clicked::after {
+body.dark div.checkbox.active.focus::after, body.dark div.checkbox.active.clicked::after {
   background: #666;
   box-shadow: 0 0 0 20px #666;
 }
@@ -447,7 +447,7 @@ div.scrollBox.hideScrollbar {
   background-color: transparent !important;
 }
 
-.dark div.scrollBox {
+body.dark div.scrollBox {
   background-color: #999;
 }
 

@@ -592,13 +592,15 @@
                         chrome.storage.sync.set({behaviour: obj.behaviour});
                     }
 
-                    if (typeof obj.appearance.styles.bookmarksDirIcon === "undefined" || obj.appearance.styles.bookmarksDirIcon === "dir") {
-                        obj.appearance.styles.bookmarksDirIcon = "dir-2";
-                    } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt1") {
-                        obj.appearance.styles.bookmarksDirIcon = "dir-1";
-                        obj.appearance.styles.bookmarksDirColor = "rgb(240,180,12)";
-                    } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt2") {
-                        obj.appearance.styles.bookmarksDirIcon = "dir-1";
+                    if (newVersion.search("1.7.") === 0) {
+                        if (typeof obj.appearance.styles.bookmarksDirIcon === "undefined" || obj.appearance.styles.bookmarksDirIcon === "dir") {
+                            obj.appearance.styles.bookmarksDirIcon = "dir-2";
+                        } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt1") {
+                            obj.appearance.styles.bookmarksDirIcon = "dir-1";
+                            obj.appearance.styles.bookmarksDirColor = "rgb(240,180,12)";
+                        } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt2") {
+                            obj.appearance.styles.bookmarksDirIcon = "dir-1";
+                        }
                     }
 
                     delete obj.appearance.addVisual;
@@ -658,7 +660,7 @@
                         callback();
                     }
                 });
-            } else { // data available
+            } else if (typeof obj.clickCounter !== "undefined") { // data available
                 clickCounter = obj.clickCounter;
 
                 if (clickCounter.data) { // @deprecated
@@ -680,7 +682,7 @@
             data = obj.model || {};
             shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
 
-            if (typeof data.uuid === "undefined") { // no uuid yet -> set new one
+            if (typeof data.uuid === "undefined") { // no uuid yet -> set new one @deprecated
                 data.uuid = (() => {
                     let d = +new Date();
                     if (window.performance && typeof window.performance.now === "function") {

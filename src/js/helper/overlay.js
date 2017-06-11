@@ -16,14 +16,16 @@
             elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
 
+            let iframeBody = elements.overlay.find("body");
+
             elements.modal = $("<div />")
                 .attr(ext.opts.attr.type, type)
                 .addClass(ext.opts.classes.overlay.modal)
-                .appendTo(elements.overlay.find("body"));
+                .appendTo(iframeBody);
 
             let darkMode = ext.helper.model.getData("a/darkMode");
             if (darkMode === true) {
-                elements.modal.addClass(ext.opts.classes.page.darkMode);
+                iframeBody.addClass(ext.opts.classes.page.darkMode);
             }
 
             let trackingLabel = type;

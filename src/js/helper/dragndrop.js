@@ -57,6 +57,7 @@
                 ext.helper.contextmenu.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
                 ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
+                trackStart("selection");
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
                 }
@@ -77,6 +78,8 @@
                                 title = $(document).find("title").text();
                             }
 
+                            trackEnd("selection");
+
                             ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
                                 values: {
                                     index: entryPlaceholder.prevAll("li").length(),
@@ -86,13 +89,61 @@
                                 }
                             });
                         }
+                    } else {
+                        trackEnd("selection", true);
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-                    if (ext.helper.utility.getPageType() ==="newtab") {
+                    if (ext.helper.utility.getPageType() === "newtab") {
                         ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
                     }
                 }
+            });
+        };
+
+        /**
+         * Returns the type of the element which is dragged
+         *
+         * @param {jsu|string} elm
+         */
+        let getDragType = (elm) => {
+            let type = "bookmark";
+
+            if (elm === "selection") {
+                type = elm;
+            } else if (elm.hasClass(ext.opts.classes.sidebar.bookmarkDir)) {
+                type = "directory";
+            } else if (elm.hasClass(ext.opts.classes.sidebar.separator)) {
+                type = "separator";
+            }
+
+            return type;
+        };
+
+        /**
+         * Tracks that an element is beeing dragged
+         *
+         * @param {jsu|string} elm
+         */
+        let trackStart = (elm) => {
+            ext.helper.model.call("trackEvent", {
+                category: "dragndrop",
+                action: getDragType(elm),
+                label: "dragstart"
+            });
+        };
+
+        /**
+         * Tracks that an element is no longer dragged
+         *
+         * @param {jsu|string} elm
+         * @param {boolean} cancel
+         */
+        let trackEnd = (elm, cancel = false) => {
+            ext.helper.model.call("trackEvent", {
+                category: "dragndrop",
+                action: getDragType(elm),
+                label: cancel ? "cancel" : "dragend"
             });
         };
 
@@ -107,6 +158,7 @@
             ext.helper.contextmenu.close();
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
             let elmParent = elm.parent("li");
+            let type = getDragType(elm);
 
             ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
             elmParent.clone().addClass(ext.opts.classes.drag.dragInitial).insertAfter(elmParent);
@@ -133,6 +185,8 @@
             }).addClass(ext.opts.classes.drag.helper);
 
             elmParent.addClass(ext.opts.classes.drag.isDragged);
+
+            trackStart(elm);
 
             if (!edgeScroll.running) {
                 window.requestAnimationFrame(edgeScrolling);
@@ -181,25 +235,27 @@
             let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
             let dragInitialElm = ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
+            let elm = entryElm.children("a");
+            let type = getDragType(elm);
 
             if (isDraggedElementOutside(draggedElm)) {// cancel drop if mouse position is outside the sidebar
                 entryElm.insertAfter(dragInitialElm).removeClass(ext.opts.classes.drag.isDragged);
                 dragInitialElm.remove();
                 draggedElm.remove();
+                trackEnd(elm, true);
             } else { // animate the helper back to the new position and save it
                 draggedElm.addClass(ext.opts.classes.drag.snap);
 
-                let elm = entryElm.children("a");
                 let parentId = entryElm.parent("ul").prev("a").attr(ext.opts.attr.id);
                 let index = 0;
 
-                entryElm.prevAll("li").forEach((elm) => {
-                    if (elm !== dragInitialElm && !$(elm).children("a").hasClass(ext.opts.classes.sidebar.separator)) {
+                entryElm.prevAll("li").forEach((el) => {
+                    if (el !== dragInitialElm && !$(el).children("a").hasClass(ext.opts.classes.sidebar.separator)) {
                         index++;
                     }
                 });
 
-                if (elm.hasClass(ext.opts.classes.sidebar.separator)) { // save separator position
+                if (type === "separator") { // save separator position
                     ext.helper.utility.removeSeparator(elm.data("infos"), () => {
                         let opts = {
                             id: parentId,
@@ -216,6 +272,8 @@
                         index: index
                     });
                 }
+
+                trackEnd(elm);
 
                 setTimeout(() => {
                     let boundClientRect = entryElm[0].getBoundingClientRect();
@@ -234,7 +292,7 @@
             }
 
             ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-            if (ext.helper.utility.getPageType() ==="newtab") {
+            if (ext.helper.utility.getPageType() === "newtab") {
                 setTimeout(() => {
                     ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
                 }, 500);
@@ -356,7 +414,7 @@
 
             ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 let x = e.pageX;
-                let isNewTab = ext.helper.utility.getPageType() ==="newtab";
+                let isNewTab = ext.helper.utility.getPageType() === "newtab";
 
                 if (isNewTab && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
                     let width = ext.elements.iframe.realWidth();

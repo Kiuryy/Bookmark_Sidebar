@@ -41,6 +41,6 @@ svg.loading {
   }
 }
 
-.dark svg.loading > circle {
+body.dark svg.loading > circle {
   stroke: $__textColor;
 }

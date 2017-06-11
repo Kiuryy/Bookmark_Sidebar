@@ -211,7 +211,12 @@
             let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
 
             if (data.isDir) {
-                list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + "</a></li>");
+                let bookmarks = data.children.filter(val => !!(val.url));
+
+                if (bookmarks.length > 0) {
+                    list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + "</a></li>");
+                }
+
                 if (data.children.length > 0) {
                     list.append("<li><a " + ext.opts.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
                 }

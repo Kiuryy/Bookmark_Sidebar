@@ -181,21 +181,13 @@
                     s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
                 }
 
-                if (overlay.length() > 0) {
-                    if (config.darkMode) {
-                        overlay.addClass(s.opts.classes.page.darkMode);
-                    } else {
-                        overlay.removeClass(s.opts.classes.page.darkMode);
-                    }
+                if (config.darkMode) {
+                    s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.darkMode);
+                } else {
+                    s.opts.elm.preview[key].find("body").removeClass(s.opts.classes.page.darkMode);
                 }
 
                 if (sidebar.length() > 0) {
-                    if (config.darkMode) {
-                        sidebar.addClass(s.opts.classes.page.darkMode);
-                    } else {
-                        sidebar.removeClass(s.opts.classes.page.darkMode);
-                    }
-
                     let sidebarHeader = sidebar.find("> header");
                     sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
                     let computedStyle = window.getComputedStyle(sidebarHeader[0]);

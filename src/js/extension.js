@@ -242,7 +242,7 @@
             }
 
             if (data.darkMode === true) {
-                this.elements.sidebar.addClass(opts.classes.page.darkMode);
+                this.elements.iframeBody.addClass(opts.classes.page.darkMode);
             }
         };
     };

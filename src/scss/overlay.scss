@@ -564,125 +564,124 @@ div.modal {
       }
     }
   }
+}
 
-  &.dark {
-    background: $darkContentBackground;
+body.dark div.modal {
+  background: $darkContentBackground;
 
-    > a.preview, > span.preview {
-      background: rgba(255, 255, 255, 0.05);
-    }
+  > a.preview, > span.preview {
+    background: rgba(255, 255, 255, 0.05);
+  }
 
-    &[data-type='edit'], &[data-type='add'] {
+  &[data-type='edit'], &[data-type='add'] {
 
-      > ul > li > input {
-        border-color: rgba(255, 255, 255, 0.1);
+    > ul > li > input {
+      border-color: rgba(255, 255, 255, 0.1);
 
-        &.error {
-          border-color: rgba($colorError, 0.5);
-        }
+      &.error {
+        border-color: rgba($colorError, 0.5);
+      }
 
-        &:focus {
-          border-color: rgba(255, 255, 255, 0.2);
-        }
+      &:focus {
+        border-color: rgba(255, 255, 255, 0.2);
       }
     }
+  }
 
-    &[data-type='add'] {
+  &[data-type='add'] {
 
-      > menu:not(.buttons) {
+    > menu:not(.buttons) {
 
-        > a {
-          background-color: $darkHoverBackground;
+      > a {
+        background-color: $darkHoverBackground;
 
-          &::before, &::after {
-            opacity: 0.5;
-            transition: opacity 0.5s;
-          }
-
-          &:hover {
-
-            &::before {
-              opacity: 1;
-              background-color: $__textColor;
-            }
-
-            &::after {
-              opacity: 1;
-              color: $__textColor;
-            }
-          }
+        &::before, &::after {
+          opacity: 0.5;
+          transition: opacity 0.5s;
         }
-      }
-
-      > menu.buttons > a.action {
-        display: none;
-
-        &.visible {
-          display: inline-block;
-        }
-      }
-    }
-
-    &[data-type='infos'] {
-
-      > h1::before {
-        @include maskImage('icon-info');
-      }
-
-      > ul > li > ul {
-        background: #222;
-        color: #eee;
-
-        &::before {
-          border-bottom-color: #222;
-        }
-      }
-    }
-
-    &[data-type='updateUrls'] {
-
-      > div#urlList > ul > li {
 
         &:hover {
-          background: $darkHoverBackground;
-        }
 
-        > a {
-
-          &:hover {
-            color: $__textColor;
-
-            > span {
-              opacity: 0.9;
-            }
+          &::before {
+            opacity: 1;
+            background-color: $__textColor;
           }
-        }
-      }
 
-      > div.progressBar {
-        background: rgba(255, 255, 255, 0.1);
-
-        > div {
-          background: $__textColor;
-        }
-      }
-
-      &.urlCheckList {
-
-        &::after {
-          background: $darkHoverBackground;
+          &::after {
+            opacity: 1;
+            color: $__textColor;
+          }
         }
       }
     }
 
-    > menu.buttons > a {
-      color: $__textColor;
+    > menu.buttons > a.action {
+      display: none;
+
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+
+  &[data-type='infos'] {
+
+    > h1::before {
+      @include maskImage('icon-info');
+    }
+
+    > ul > li > ul {
+      background: #222;
+      color: #eee;
 
       &::before {
+        border-bottom-color: #222;
+      }
+    }
+  }
+
+  &[data-type='updateUrls'] {
+
+    > div#urlList > ul > li {
+
+      &:hover {
+        background: $darkHoverBackground;
+      }
+
+      > a {
+
+        &:hover {
+          color: $__textColor;
+
+          > span {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+
+    > div.progressBar {
+      background: rgba(255, 255, 255, 0.1);
+
+      > div {
         background: $__textColor;
       }
     }
 
+    &.urlCheckList {
+
+      &::after {
+        background: $darkHoverBackground;
+      }
+    }
+  }
+
+  > menu.buttons > a {
+    color: $__textColor;
+
+    &::before {
+      background: $__textColor;
+    }
   }
 }
 

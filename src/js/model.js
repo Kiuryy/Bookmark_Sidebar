@@ -537,6 +537,12 @@
 
             chrome.storage.local.remove(["languageInfos"]);
 
+            trackEvent({
+                category: "extension",
+                action: "update",
+                label: details.previousVersion + " -> " + newVersion
+            }, true);
+
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
                 chrome.storage.sync.get(["model"], (obj) => {
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
@@ -693,10 +699,10 @@
             }
 
             let today = +new Date().setHours(0, 0, 0, 0);
-            //if (typeof data.lastTrackDate === "undefined" || data.lastTrackDate !== today) {
-            data.lastTrackDate = today;
-            trackUserData();
-            //}
+            if (typeof data.lastTrackDate === "undefined" || data.lastTrackDate !== today) {
+                data.lastTrackDate = today;
+                trackUserData();
+            }
 
             initClickCounter();
             saveModelData();
@@ -847,6 +853,15 @@
         }, true);
 
         if (shareUserdata === true) {
+            // track installation date
+            if (data.installationDate) {
+                trackEvent({
+                    category: "extension",
+                    action: "installationDate",
+                    label: data.installationDate.toISOString().slice(0, 10)
+                });
+            }
+
             // track bookmark amount
             bookmarkObj.getSubTree("0", (response) => {
                 let bookmarkAmount = 0;

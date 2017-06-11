@@ -1,6 +1,6 @@
 [tdb]
  - helpful hints
- - Update changelog
+ - Favorite bookmarks
 
 [1.8]
  - Added many translations

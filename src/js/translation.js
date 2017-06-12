@@ -197,25 +197,29 @@
                     let missingLanguages = Object.assign({}, languages);
 
                     infos.languages.forEach((lang) => {
-                        delete missingLanguages[lang.name];
 
                         if (languages[lang.name]) {
-                            let c = Math.PI * 12 * 2;
                             let percentage = lang.varsAmount / infos.varsAmount * 100;
-                            let status = "draft";
 
-                            if (languages[lang.name].available) {
-                                status = hasImcompleteCategories(lang.categories, infos.categories) ? "incomplete" : "released";
+                            if (percentage > 10) { // only list languages with more then 10% variables filled
+                                delete missingLanguages[lang.name];
+
+                                let c = Math.PI * 12 * 2;
+                                let status = "draft";
+
+                                if (languages[lang.name].available) {
+                                    status = hasImcompleteCategories(lang.categories, infos.categories) ? "incomplete" : "released";
+                                }
+
+                                $("<li />")
+                                    .data("lang", lang.name)
+                                    .append("<strong>" + languages[lang.name].label + "</strong>")
+                                    .append("<a href='#' class='" + this.opts.classes.edit + "' title='" + this.helper.i18n.get("translation_edit") + "'></a>")
+                                    .append("<svg class=" + this.opts.classes.progress + " width='32' height='32' viewPort='0 0 16 16'><circle r='12' cx='16' cy='16'></circle><circle r='12' cx='16' cy='16' stroke-dashoffset='" + ((100 - percentage) / 100 * c) + "' stroke-dasharray='" + c + "'></circle></svg>")
+                                    .append("<span class='" + this.opts.classes.progress + "'>" + Math.round(lang.varsAmount / infos.varsAmount * 100) + "%</span>")
+                                    .append("<span " + this.opts.attr.releaseStatus + "='" + status + "' title='" + this.helper.i18n.get("translation_status_" + status) + "'></span>")
+                                    .appendTo(list);
                             }
-
-                            $("<li />")
-                                .data("lang", lang.name)
-                                .append("<strong>" + languages[lang.name].label + "</strong>")
-                                .append("<a href='#' class='" + this.opts.classes.edit + "' title='" + this.helper.i18n.get("translation_edit") + "'></a>")
-                                .append("<svg class=" + this.opts.classes.progress + " width='32' height='32' viewPort='0 0 16 16'><circle r='12' cx='16' cy='16'></circle><circle r='12' cx='16' cy='16' stroke-dashoffset='" + ((100 - percentage) / 100 * c) + "' stroke-dasharray='" + c + "'></circle></svg>")
-                                .append("<span class='" + this.opts.classes.progress + "'>" + Math.round(lang.varsAmount / infos.varsAmount * 100) + "%</span>")
-                                .append("<span " + this.opts.attr.releaseStatus + "='" + status + "' title='" + this.helper.i18n.get("translation_status_" + status) + "'></span>")
-                                .appendTo(list);
                         }
                     });
 

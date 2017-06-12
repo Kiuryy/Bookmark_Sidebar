@@ -359,6 +359,9 @@
     "settings_remember_state_open_states": {
         "message": "Dossiers ouverts"
     },
+    "settings_remember_state_open_states_root": {
+        "message": "Dossiers ouverts de premier niveau"
+    },
     "settings_remember_state_nothing": {
         "message": "Rien du tout"
     },

@@ -8,6 +8,7 @@
  - Touchscreen support
  - Added separators
  - Added dark theme
+ - Added Google Analytics
 
 [1.7]
  - Added sort functionality

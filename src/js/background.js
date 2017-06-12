@@ -5,9 +5,10 @@
     let data = {};
     let clickCounter = null;
     let xhrList = [];
-    let xhrUrls = {
+    let urls = {
         updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
-        userdata: "https://blockbyte.de/ajax/extensions/userdata"
+        userdata: "https://blockbyte.de/ajax/extensions/userdata",
+        uninstall: "https://blockbyte.de/extensions/bs/uninstall"
     };
 
     let langVarsChache = {};
@@ -341,7 +342,7 @@
             });
         } else {
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", xhrUrls.updateUrls, true);
+            xhr.open("POST", urls.updateUrls, true);
             xhr.onload = () => {
                 let response = JSON.parse(xhr.responseText);
                 sendResponse(response);
@@ -526,6 +527,8 @@
             refreshAllTabs({type: eventName});
         });
     });
+
+    chrome.runtime.setUninstallURL(urls.uninstall);
 
     chrome.runtime.onInstalled.addListener((details) => {
         if (details.reason === 'install') {
@@ -772,7 +775,7 @@
 
                 let sendXhr = (obj) => {
                     let xhr = new XMLHttpRequest();
-                    xhr.open("POST", xhrUrls.userdata, true);
+                    xhr.open("POST", urls.userdata, true);
                     let formData = new FormData();
                     formData.append('data', JSON.stringify(obj));
                     xhr.send(formData);

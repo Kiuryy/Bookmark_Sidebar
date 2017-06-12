@@ -66,7 +66,7 @@ module.exports = function (grunt) {
                     ['tmp/translation-es5.js']: path.src + 'js/translation.js',
                     ['tmp/howto-es5.js']: path.src + 'js/howto.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
-                    ['tmp/model-es5.js']: path.src + 'js/model.js'
+                    ['tmp/background-es5.js']: path.src + 'js/background.js'
                 }
             }
         },
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
                     ['tmp/js/translation.js']: 'tmp/translation-es5.js',
                     ['tmp/js/howto.js']: 'tmp/howto-es5.js',
                     ['tmp/js/changelog.js']: 'tmp/changelog-es5.js',
-                    ['tmp/js/model.js']: 'tmp/model-es5.js'
+                    ['tmp/js/background.js']: 'tmp/background-es5.js'
                 }
             }
         },

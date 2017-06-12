@@ -10,7 +10,7 @@
   "homepage_url": "https://blockbyte.de/extensions",
   "background": {
     "scripts": [
-      "js/model.js"
+      "js/background.js"
     ],
     "persistent": false
   },

@@ -57,6 +57,7 @@ body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyt
 
 body > iframe#blockbyte-bs-sidebar {
   width: "%sidebarWidth";
+  max-width: none;
   height: 0;
   z-index: 2147483646;
   background-color: "%sidebarMaskColor";
@@ -81,6 +82,7 @@ body > iframe#blockbyte-bs-sidebar.blockbyte-bs-isNewTab {
 
 body > iframe#blockbyte-bs-overlay {
   width: 100%;
+  max-width: none;
   height: 100%;
   z-index: 2147483647;
   border: none;

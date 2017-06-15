@@ -557,6 +557,13 @@
                 });
 
                 chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
+                    // START UPGRADE CONFIG FOR v1.9
+                    if (typeof obj.behaviour !== "undefined" && typeof obj.behaviour.hideEmptyDirs !== "undefined") {
+                        delete obj.behaviour.hideEmptyDirs;
+                        chrome.storage.sync.set({behaviour: obj.behaviour});
+                    }
+                    // END UPGRADE CONFIG FOR v1.9
+
                     // START UPGRADE CONFIG FOR v1.8
                     if (typeof obj.appearance === "undefined") {
                         obj.appearance = {};
@@ -578,7 +585,6 @@
                         obj.behaviour.initialOpenOnNewTab = chrome.i18n.getUILanguage() == "de";
                         chrome.storage.sync.set({behaviour: obj.behaviour});
                     }
-
                     // END UPGRADE CONFIG FOR v1.8
 
                     // START UPGRADE CONFIG FOR v1.7

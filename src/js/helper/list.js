@@ -111,14 +111,6 @@
             sort = ext.helper.model.getData("u/sort");
             ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
-            if (ext.firstRun) {
-                ext.helper.model.call("trackEvent", {
-                    category: "sorting",
-                    action: "initial",
-                    label: sort.name + "_" + sort.dir
-                });
-            }
-
             ext.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree
                 if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
                     ext.refreshRun = true;
@@ -481,6 +473,7 @@
          * @param {function} callback
          */
         let expandCollapseDir = (elm, list, open, instant, callback) => {
+            let isFirstRun = ext.firstRun;
             list.css("height", list[0].scrollHeight + "px");
 
             if (open === false) { // parameter false -> close list
@@ -518,7 +511,7 @@
                 list.css("height", "");
                 elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
 
-                if (!ext.firstRun) {
+                if (!isFirstRun) {
                     ext.helper.model.call("trackEvent", {
                         category: "directory",
                         action: "openState_change",

@@ -75,12 +75,11 @@
         };
 
         /**
-         * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
+         * Tracks some events of the initial state of the extension,
+         * is called after opening the sidebar and is only executed the first time the sidebar is opened
          */
-        this.loaded = () => {
-            if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
-                this.helper.model.call("trackPageView", {page: "/loaded/" + this.helper.utility.getPageType()});
-
+        this.trackInitialEvents = () => {
+            if (!this.elements.sidebar.hasClass(this.opts.classes.sidebar.openedOnce)) {
                 this.helper.model.call("trackEvent", {
                     category: "directory",
                     action: "openState_initial",
@@ -88,6 +87,30 @@
                     value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
                 });
 
+                let sort = this.helper.list.getSort();
+                this.helper.model.call("trackEvent", {
+                    category: "sorting",
+                    action: "initial",
+                    label: sort.name + "_" + sort.dir
+                });
+
+                let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
+                if (searchVal.length > 0) {
+                    this.helper.model.call("trackEvent", {
+                        category: "search",
+                        action: "search",
+                        label: "initial",
+                        value: searchVal.length
+                    });
+                }
+            }
+        };
+
+        /**
+         * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
+         */
+        this.loaded = () => {
+            if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
                 document.dispatchEvent(new CustomEvent(opts.events.loaded, {

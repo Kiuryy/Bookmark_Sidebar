@@ -90,14 +90,16 @@
                             $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox["search"]);
                         }
 
-                        searchTimeout = setTimeout(() => {
-                            ext.helper.model.call("trackEvent", {
-                                category: "search",
-                                action: "search",
-                                label: isFirstRun ? "initial" : "search",
-                                value: val.length
-                            });
-                        }, 500);
+                        if (!isFirstRun) {
+                            searchTimeout = setTimeout(() => {
+                                ext.helper.model.call("trackEvent", {
+                                    category: "search",
+                                    action: "search",
+                                    label: "search",
+                                    value: val.length
+                                });
+                            }, 500);
+                        }
 
                         ext.endLoading(500);
                     });

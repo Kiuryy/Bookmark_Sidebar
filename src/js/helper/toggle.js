@@ -244,6 +244,8 @@
                 }
             });
 
+            ext.trackInitialEvents();
+
             ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);

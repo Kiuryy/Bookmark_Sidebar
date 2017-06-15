@@ -680,7 +680,7 @@
     /**
      * Initialises the model
      */
-    let initModel = () => {
+    let initData = () => {
         chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
             data = obj.model || {};
             shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
@@ -863,7 +863,7 @@
                 trackEvent({
                     category: "extension",
                     action: "installationDate",
-                    label: data.installationDate.toISOString().slice(0, 10)
+                    label: new Date(data.installationDate).toISOString().slice(0, 10)
                 });
             }
 
@@ -895,21 +895,26 @@
 
             // track configuration values
             let categories = ["behaviour", "appearance"];
+            let i = 0;
 
             let proceedConfig = (baseName, obj) => {
                 Object.keys(obj).forEach((attr) => {
                     if (typeof obj[attr] === "object") {
                         proceedConfig(baseName + "_" + attr, obj[attr])
                     } else {
+                        i++;
+
                         if (typeof obj[attr] !== "string") {
                             obj[attr] = JSON.stringify(obj[attr]);
                         }
 
-                        trackEvent({
-                            category: "configuration",
-                            action: baseName + "_" + attr,
-                            label: obj[attr]
-                        });
+                        setTimeout(() => {
+                            trackEvent({
+                                category: "configuration",
+                                action: baseName + "_" + attr,
+                                label: obj[attr]
+                            });
+                        }, i * 1000);
                     }
                 });
             };
@@ -950,7 +955,7 @@
      */
     (() => {
         initAnalytics();
-        initModel();
+        initData();
         handleShareUserdata();
     })();
 

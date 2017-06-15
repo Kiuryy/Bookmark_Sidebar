@@ -100,5 +100,50 @@
     },
     "sort_most_used_per_month": {
         "message": "Por meses"
+    },
+    "translation_title": {
+        "message": "Traducci\u00f3n"
+    },
+    "translation_headline_overview": {
+        "message": "Lenguajes Disponibles"
+    },
+    "translation_edit": {
+        "message": "Editar traducci\u00f3n"
+    },
+    "translation_add": {
+        "message": "Agregar traducci\u00f3n"
+    },
+    "translation_progress": {
+        "message": "Progreso"
+    },
+    "translation_back_to_overview": {
+        "message": "Regresar al resumen"
+    },
+    "translation_contribution_info": {
+        "message": "Puede editar las traducciones existentes o agregar las que faltan. Si env\u00eda sus cambios, revisar\u00e9 su opini\u00f3n y la aprobar\u00e9."
+    },
+    "translation_contribution_notice1": {
+        "message": "Tu no tiene que traducir todas las categor\u00edas, la traducci\u00f3n se publicar\u00e1 si al menos todos los textos relacionados con el frontend son traducidos."
+    },
+    "translation_contribution_notice2": {
+        "message": "No se publicar\u00e1n las categor\u00edas incompletas, para prevenir los textos incompletos (eje. algunas entradas del contextmenu se traducen, algunas no)"
+    },
+    "translation_submit": {
+        "message": "Enviar"
+    },
+    "translation_submit_message": {
+        "message": "Tu traducci\u00f3n se ha enviado correctamente"
+    },
+    "translation_status_released": {
+        "message": "traducci\u00f3n esta disponible"
+    },
+    "translation_status_incomplete": {
+        "message": "La traducci\u00f3n esta disponible, pero debido a una actualizaci\u00f3n algunas categor\u00edas est\u00e1n incompletas"
+    },
+    "translation_status_draft": {
+        "message": "La traducci\u00f3n esta incompleta o necesita una revisi\u00f3n y no esta disponible para los usuarios"
+    },
+    "translation_incomplete_info": {
+        "message": "Debido a una actualizaci\u00f3n las variables del lenguaje est\u00e1n incompletas"
     }
 }

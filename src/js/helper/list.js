@@ -174,7 +174,7 @@
 
                 if (childrenList.length() === 0) { // not yet loaded -> load and expand afterwards
                     ext.helper.model.call("bookmarks", {id: dirId}, (response) => {
-                        if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
+                        if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
                             childrenList = $("<ul />").insertAfter(elm);
                             this.addBookmarkDir(response.bookmarks[0].children, childrenList);
                             expandCollapseDir(elm, childrenList, true, instant, callback);

@@ -82,10 +82,16 @@
         /**
          * Closes the overlay
          */
-        let closeOverlay = () => {
+        let closeOverlay = (cancel = false, labelAdd = "") => {
             ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
             ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
             elements.overlay.removeClass(ext.opts.classes.page.visible);
+
+            ext.helper.model.call("trackEvent", {
+                category: "overlay",
+                action: cancel ? "cancel" : "action",
+                label: elements.modal.attr(ext.opts.attr.type) + labelAdd
+            });
 
             setTimeout(() => {
                 elements.overlay.remove();
@@ -191,7 +197,7 @@
 
                 if (type === "separator") {
                     ext.helper.utility.addSeparator({id: data.id, index: 0}, () => {
-                        closeOverlay();
+                        closeOverlay(false, "_separator");
                         ext.helper.model.call("refreshAllTabs", {type: "Separator"});
                     });
                 } else {
@@ -522,7 +528,7 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
-                        closeOverlay();
+                        closeOverlay(false, "_" + (obj.url ? "bookmark" : "directory"));
                     }
                 });
             }
@@ -557,13 +563,13 @@
         let initEvents = (data) => {
             elements.overlay.find("body").on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY") {
-                    closeOverlay();
+                    closeOverlay(true);
                 }
             });
 
             elements.modal.find("a." + ext.opts.classes.overlay.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
-                closeOverlay();
+                closeOverlay(true);
             });
 
             elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action

@@ -184,12 +184,10 @@
                     let scope = keyInfo.split("/")[0];
                     let key = keyInfo.split("/")[1];
                     let value = values[keyInfo];
-                    let dataSearchScope = null;
 
                     switch (scope) {
                         case "u": {
                             data.utility[key] = value;
-                            dataSearchScope = data.utility;
                             break;
                         }
                         case "b": {

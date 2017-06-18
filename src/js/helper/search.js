@@ -23,19 +23,22 @@
 
         /**
          * Clears the search field and shows the normal bookmark list again
+         *
+         * @param {function} callback
          */
-        this.clearSearch = () => {
+        this.clearSearch = (callback) => {
             ext.helper.contextmenu.close();
             ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
-            handleSearchValChanged("");
+            handleSearchValChanged("", callback);
         };
 
         /**
          * Handles the view of the search result list
          *
          * @param val
+         * @param {function} callback
          */
-        let handleSearchValChanged = (val = null) => {
+        let handleSearchValChanged = (val = null, callback) => {
             let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
             if (val === null) {
                 val = searchField[0].value;
@@ -44,9 +47,9 @@
             }
 
             if (val && val.length > 0) { // search field is not empty
-                handleSearch(searchField, val);
+                handleSearch(searchField, val, callback);
             } else { // empty search field -> reset list
-                handleSearchReset(searchField);
+                handleSearchReset(searchField, callback);
             }
         };
 
@@ -55,8 +58,9 @@
          *
          * @param {jsu} searchField
          * @param {string} val
+         * @param {function} callback
          */
-        let handleSearch = (searchField, val) => {
+        let handleSearch = (searchField, val, callback) => {
             let isFirstRun = ext.firstRun;
             ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
             ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
@@ -102,6 +106,10 @@
                         }
 
                         ext.endLoading(500);
+
+                        if (typeof callback === "function") {
+                            callback();
+                        }
                     });
                 });
             }
@@ -111,11 +119,12 @@
          * Resets the search results and shows the normal bookmark list again
          *
          * @param {jsu} searchField
+         * @param {function} callback
          */
-        let handleSearchReset = (searchField) => {
+        let handleSearchReset = (searchField, callback) => {
             searchField.removeData("lastVal");
 
-            ext.helper.model.setData({"u/searchValue": null}, () => {
+            ext.helper.model.setData({"u/searchValue": false}, () => {
                 if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
                     ext.startLoading();
                     ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
@@ -126,6 +135,10 @@
                 }
 
                 ext.helper.list.updateSortFilter();
+
+                if (typeof callback === "function") {
+                    callback();
+                }
             });
         };
 

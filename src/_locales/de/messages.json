@@ -389,6 +389,15 @@
     "settings_new_tab_background": {
         "message": "im Hintergrund \u00f6ffnen"
     },
+    "settings_new_tab_position_desc": {
+        "message": "Neue Tabs nach dem letzten Tab oder dem aktuellen Tab \u00f6ffnen"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Nach dem letzten Tab"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Nach dem aktuellen Tab"
+    },
     "settings_close_timeout": {
         "message": "Automatisch schlie\u00dfen"
     },

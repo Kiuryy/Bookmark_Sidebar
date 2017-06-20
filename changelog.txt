@@ -1,7 +1,6 @@
 [tbd]
  - helpful hints
  - Favorite bookmarks
- - new tab after current tab or after last tab
 
 [1.8]
  - Added many translations

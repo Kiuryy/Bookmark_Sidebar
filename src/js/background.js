@@ -144,17 +144,28 @@
         increaseViewAmount(opts);
 
         if (opts.newTab && opts.newTab === true) { // new tab
-            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                chrome.tabs.create({
-                    url: opts.href,
-                    active: typeof opts.active === "undefined" ? true : !!(opts.active),
-                    index: tabs[0].index + 1,
-                    openerTabId: tabs[0].id
-                }, (tab) => {
-                    data.openedByExtension = tab.id;
-                    saveModelData();
+
+            let createTab = (idx = null) => {
+                chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                    chrome.tabs.create({
+                        url: opts.href,
+                        active: typeof opts.active === "undefined" ? true : !!(opts.active),
+                        index: idx || tabs[0].index + 1,
+                        openerTabId: tabs[0].id
+                    }, (tab) => {
+                        data.openedByExtension = tab.id;
+                        saveModelData();
+                    });
                 });
-            });
+            };
+
+            if (opts.afterLast && opts.afterLast === true) {
+                chrome.tabs.query({}, (tabs) => {
+                    createTab(tabs[tabs.length - 1].index + 1);
+                });
+            } else {
+                createTab();
+            }
         } else if (opts.incognito && opts.incognito === true) { // incognito window
             chrome.windows.create({url: opts.href, state: "maximized", incognito: true});
         } else { // current tab
@@ -878,11 +889,13 @@
         if (shareUserdata === true) {
             // track installation date
             if (data.installationDate) {
-                trackEvent({
-                    category: "extension",
-                    action: "installationDate",
-                    label: new Date(data.installationDate).toISOString().slice(0, 10)
-                });
+                setTimeout(() => {
+                    trackEvent({
+                        category: "extension",
+                        action: "installationDate",
+                        label: new Date(data.installationDate).toISOString().slice(0, 10)
+                    });
+                }, 1200);
             }
 
             // track bookmark amount
@@ -913,7 +926,7 @@
 
             // track configuration values
             let categories = ["behaviour", "appearance"];
-            let i = 0;
+            let i = 1;
 
             let proceedConfig = (baseName, obj) => {
                 Object.keys(obj).forEach((attr) => {
@@ -932,7 +945,7 @@
                                 action: baseName + "_" + attr,
                                 label: obj[attr]
                             });
-                        }, i * 1000);
+                        }, i * 1200);
                     }
                 });
             };

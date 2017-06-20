@@ -19,7 +19,7 @@
             s.opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
             s.opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
 
-            ["openAction", "linkAction", "rememberState", "newTab"].forEach((field) => { // select
+            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition"].forEach((field) => { // select
                 s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.opts.elm.select[field].trigger("change");
             });
@@ -53,7 +53,7 @@
                 }
             };
 
-            ["openAction", "linkAction", "rememberState", "newTab"].forEach((field) => { // select
+            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition"].forEach((field) => { // select
                 config[field] = s.opts.elm.select[field][0].value;
             });
 

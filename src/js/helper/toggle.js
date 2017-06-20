@@ -244,8 +244,6 @@
                 }
             });
 
-            ext.trackInitialEvents();
-
             ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
             ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
@@ -257,6 +255,8 @@
 
             ext.helper.scroll.focus();
             $(document).trigger("mousemove"); // hide indicator
+
+            ext.trackInitialEvents();
         };
 
         /**

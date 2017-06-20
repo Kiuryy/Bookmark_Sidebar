@@ -181,7 +181,6 @@
 
             let entry = $("<li />").appendTo(contextmenu.children("ul." + ext.opts.classes.contextmenu.list));
             contextmenu.children("ul." + ext.opts.classes.contextmenu.icons).remove();
-            console.log(elm);
 
             $("<a />")
                 .attr(ext.opts.attr.name, "deleteSeparator")
@@ -391,7 +390,6 @@
                                 } else { // all parents opened -> close search and scroll to the bookmark
                                     ext.helper.search.clearSearch(() => {
                                         let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + elmId + "']");
-                                        console.log(entry[0].offsetTop);
                                         ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
                                         entry.addClass(ext.opts.classes.sidebar.mark);
                                     });

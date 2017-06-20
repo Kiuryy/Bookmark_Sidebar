@@ -94,15 +94,25 @@
                     label: sort.name + "_" + sort.dir
                 });
 
-                let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
-                if (searchVal.length > 0) {
-                    this.helper.model.call("trackEvent", {
-                        category: "search",
-                        action: "search",
-                        label: "initial",
-                        value: searchVal.length
-                    });
-                }
+                let trackSearchValue = (retry = 0) => {
+                    if (this.elements.header.find("div." + this.opts.classes.sidebar.searchBox).length() > 0) { // search box is loaded yet
+                        let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
+                        if (searchVal.length > 0) {
+                            this.helper.model.call("trackEvent", {
+                                category: "search",
+                                action: "search",
+                                label: "initial",
+                                value: searchVal.length
+                            });
+                        }
+                    } else if (retry < 20) { // no search box loaded -> wait a bit and try again
+                        setTimeout(() => {
+                            trackSearchValue(++retry);
+                        }, 100);
+                    }
+                };
+
+                trackSearchValue();
             }
         };
 

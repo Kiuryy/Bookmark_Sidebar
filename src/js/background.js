@@ -5,6 +5,7 @@
     let data = {};
     let clickCounter = null;
     let xhrList = [];
+    let bookmarkImportRunning = false;
     let urls = {
         updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
         userdata: "https://blockbyte.de/ajax/extensions/userdata",
@@ -522,9 +523,20 @@
         });
     });
 
-    ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event to all tabs after a changing/creating/removing a bookmark
+    chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
+        bookmarkImportRunning = true;
+    });
+
+    chrome.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
+        bookmarkImportRunning = false;
+        refreshAllTabs({type: "Created"});
+    });
+
+    ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
         chrome.bookmarks["on" + eventName].addListener(() => {
-            refreshAllTabs({type: eventName});
+            if (bookmarkImportRunning === false || eventName !== "Created") { // only refresh tabs when the bookmark was not created by the import process
+                refreshAllTabs({type: eventName});
+            }
         });
     });
 

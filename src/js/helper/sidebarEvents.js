@@ -170,15 +170,17 @@
 
             chrome.extension.onMessage.addListener((message) => { // listen for refresh event
                 if (message && message.action && message.action === "refresh") {
-                    let delay = 0;
-                    if (message.scrollTop) {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0);
-                        delay = 100;
-                    }
+                    if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.loading)) { // only refresh if the extension is not loading at the moment
+                        let delay = 0;
+                        if (message.scrollTop) {
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0);
+                            delay = 100;
+                        }
 
-                    setTimeout(() => {
-                        ext.refresh();
-                    }, delay);
+                        setTimeout(() => {
+                            ext.refresh();
+                        }, delay);
+                    }
                 }
             });
 

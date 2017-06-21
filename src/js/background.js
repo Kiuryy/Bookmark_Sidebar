@@ -7,6 +7,7 @@
     let xhrList = [];
     let bookmarkImportRunning = false;
     let urls = {
+        check404: "https://blockbyte.de/extensions",
         updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
         userdata: "https://blockbyte.de/ajax/extensions/userdata",
         uninstall: "https://blockbyte.de/extensions/bs/uninstall"
@@ -434,6 +435,26 @@
     };
 
     /**
+     * Checks whether the website is available
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let checkWebsiteStatus = (opts, sendResponse) => {
+        let xhr = new XMLHttpRequest();
+        ["load", "error", "timeout"].forEach((eventName) => {
+            xhr.addEventListener(eventName, () => {
+                sendResponse({
+                    status: (eventName !== "load" || xhr.status >= 400 ? "un" : "") + "available"
+                });
+            });
+        });
+        xhr.timeout = 5000;
+        xhr.open("HEAD", urls.check404, true);
+        xhr.send();
+    };
+
+    /**
      * Sends a message to all tabs, so they are reloading the sidebar
      *
      * @param {object} opts
@@ -460,7 +481,6 @@
             shareUserdata: opts.share
         });
         shareUserdata = opts.share;
-        data.lastShareDate = 0; // @deprecated
         saveModelData();
     };
 
@@ -515,6 +535,7 @@
         langvars: getLangVars,
         favicon: getFavicon,
         openLink: openLink,
+        websiteStatus: checkWebsiteStatus,
         trackPageView: trackPageView,
         trackEvent: trackEvent,
         viewAmounts: getViewAmounts
@@ -714,20 +735,6 @@
             data = obj.model || {};
             shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
 
-            if (typeof data.uuid === "undefined") { // no uuid yet -> set new one @deprecated
-                data.uuid = (() => {
-                    let d = +new Date();
-                    if (window.performance && typeof window.performance.now === "function") {
-                        d += window.performance.now(); //use high-precision timer if available
-                    }
-                    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-                        let r = (d + Math.random() * 16) % 16 | 0;
-                        d = Math.floor(d / 16);
-                        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-                    });
-                })();
-            }
-
             if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
                 data.installationDate = +new Date();
             }
@@ -786,77 +793,6 @@
                     xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
                     xhr.send();
                 });
-            }
-        });
-    };
-
-
-    /**
-     * Shares the userdata if the user allowed to
-     *
-     * @deprecated trackUserData() is the replacement using Google Analytics
-     */
-    let handleShareUserdata = () => {
-        chrome.storage.sync.get(null, (obj) => {
-            if (typeof obj.model !== "undefined" && typeof obj.model.uuid !== "undefined" && (typeof obj.model.lastShareDate === "undefined" || (+new Date() - obj.model.lastShareDate) / 36e5 > 8)) { // uuid is available and last time of sharing is over 8 hours ago
-                data.lastShareDate = +new Date();
-                saveModelData();
-
-                let sendXhr = (obj) => {
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", urls.userdata, true);
-                    let formData = new FormData();
-                    formData.append('data', JSON.stringify(obj));
-                    xhr.send(formData);
-                };
-
-                let manifest = chrome.runtime.getManifest();
-                obj.uuid = obj.model.uuid;
-
-                if (manifest.version_name === "Dev" || !('update_url' in manifest)) {
-                    obj.uuid = "Dev";
-                }
-
-                obj.extension = {
-                    name: manifest.name,
-                    version: manifest.version
-                };
-
-                if (typeof obj.shareUserdata !== "undefined" && obj.shareUserdata === true) { // share userdata
-                    bookmarkObj.getSubTree("0", (response) => {
-                        obj.bookmarkAmount = 0;
-                        let processBookmarks = (bookmarks) => {
-                            for (let i = 0; i < bookmarks.length; i++) {
-                                let bookmark = bookmarks[i];
-                                if (bookmark.url) {
-                                    obj.bookmarkAmount++
-                                } else if (bookmark.children) {
-                                    processBookmarks(bookmark.children);
-                                }
-                            }
-                        };
-
-                        if (response && response[0] && response[0].children && response[0].children.length > 0) {
-                            processBookmarks(response[0].children);
-                        }
-
-                        obj.ua = navigator.userAgent;
-                        obj.lang = chrome.i18n.getUILanguage();
-                        obj.installationDate = obj.model.installationDate;
-
-                        delete obj.utility;
-                        delete obj.model;
-                        delete obj.clickCounter;
-
-                        sendXhr(obj);
-                    });
-                } else { // do not share userdata -> only share extension infos
-                    sendXhr({
-                        uuid: obj.uuid,
-                        extension: obj.extension,
-                        shareUserdata: typeof obj.shareUserdata === "undefined" ? "undefined" : obj.shareUserdata
-                    });
-                }
             }
         });
     };
@@ -987,7 +923,6 @@
     (() => {
         initAnalytics();
         initData();
-        handleShareUserdata();
     })();
 
 })();

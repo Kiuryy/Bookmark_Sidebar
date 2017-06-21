@@ -185,6 +185,18 @@
     "overlay_check_urls_not_found": {
         "message": "Url nicht gefunden"
     },
+    "status_service_unavailable_headline": {
+        "message": "Dienst nicht erreichbar"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "Der Dienst der die Urls \u00fcberpr\u00fcft ist zur Zeit nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Der Feedback-Dienst ist aktuell nicht erreichbar. Wenn du Feedback geben willst, schreibe mir eine E-Mail."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Der \u00dcbersetzungsdienst ist aktuell nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
+    },
     "share_userdata_headline": {
         "message": "Ich brauche deine Unterst\u00fctzung"
     },

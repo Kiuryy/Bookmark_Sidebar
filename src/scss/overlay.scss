@@ -152,6 +152,25 @@ div.modal {
       }
     }
 
+    > div.error {
+      @include mask('icon-info', $colorNotice, 48px);
+      position: relative;
+      text-align: center;
+      margin-top: 50px;
+      line-height: 150%;
+      padding: 70px 30px 0;
+
+      &::before {
+        -webkit-mask-position-y: top;
+      }
+
+      > h3 {
+        font-size: 160%;
+        font-weight: $__fontWeightNormal;
+        margin-bottom: 25px;
+      }
+    }
+
     > div.progressBar {
       position: relative;
       background: rgba(0, 0, 0, 0.1);

@@ -36,8 +36,9 @@
             elements.buttonWrapper = $("<menu />").addClass(ext.opts.classes.overlay.buttonWrapper).appendTo(elements.modal);
             $("<a />")
                 .addClass(ext.opts.classes.overlay.close)
-                .text(ext.helper.i18n.get("overlay_" + (type === "infos" ? "close" : "cancel")))
                 .appendTo(elements.buttonWrapper);
+
+            setCloseButtonLabel(type === "infos" ? "close" : "cancel");
 
             switch (type) {
                 case "delete": {
@@ -80,7 +81,19 @@
         };
 
         /**
+         * Sets the text for the close button
+         *
+         * @param {string} type
+         */
+        let setCloseButtonLabel = (type = "close") => {
+            elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_" + type));
+        };
+
+        /**
          * Closes the overlay
+         *
+         * @param {boolean} cancel
+         * @param {string} labelAdd what to add the tracking event label
          */
         let closeOverlay = (cancel = false, labelAdd = "") => {
             ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
@@ -297,7 +310,7 @@
                 setTimeout(() => {
                     elements.loader.remove();
                     elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
-                    elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_close"));
+                    setCloseButtonLabel("close");
 
                     if (updateList.length === 0) {
                         $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
@@ -344,47 +357,62 @@
          * @param {object} data
          */
         let handleUpdateUrlsHtml = (data) => {
-            let bookmarks = [];
-
-            let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
-                entries.forEach((entry) => {
-                    if (entry.url) {
-                        bookmarks.push(entry);
-                    } else if (entry.children) {
-                        processBookmarks(entry.children);
-                    }
-                });
-            };
-            processBookmarks(data.children);
-            let bookmarkAmount = bookmarks.length;
-
-            elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_urls_loading")).appendTo(elements.modal);
-            elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
-            elements.progressLabel = $("<span />").addClass(ext.opts.classes.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
+            elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_urls_loading")).appendTo(elements.modal);
 
-            setTimeout(() => {
-                elements.modal.addClass(ext.opts.classes.overlay.urlCheckLoading);
-            }, 500);
+            ext.helper.model.call("websiteStatus", (opts) => {
+                if (opts.status === "available") {
+                    let bookmarks = [];
 
-            let finished = 0;
-            let updateList = [];
-            bookmarks.forEach((bookmark) => {
-                ext.helper.model.call("realUrl", {url: bookmark.url}, (response) => {
-                    finished++;
-                    elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
-                    elements.progressLabel.children("span").eq(0).text(finished);
+                    let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
+                        entries.forEach((entry) => {
+                            if (entry.url) {
+                                bookmarks.push(entry);
+                            } else if (entry.children) {
+                                processBookmarks(entry.children);
+                            }
+                        });
+                    };
+                    processBookmarks(data.children);
+                    let bookmarkAmount = bookmarks.length;
 
-                    if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
-                        bookmark.newUrl = response.url;
-                        bookmark.urlStatusCode = +response.code;
-                        updateList.push(bookmark);
-                    }
+                    elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
+                    elements.progressLabel = $("<span />").addClass(ext.opts.classes.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
 
-                    if (finished === bookmarkAmount) {
-                        handleUpdateUrlsFinished(updateList);
-                    }
-                });
+                    setTimeout(() => {
+                        elements.modal.addClass(ext.opts.classes.overlay.urlCheckLoading);
+                    }, 500);
+
+                    let finished = 0;
+                    let updateList = [];
+                    bookmarks.forEach((bookmark) => {
+                        ext.helper.model.call("realUrl", {url: bookmark.url}, (response) => {
+                            finished++;
+                            elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
+                            elements.progressLabel.children("span").eq(0).text(finished);
+
+                            if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
+                                bookmark.newUrl = response.url;
+                                bookmark.urlStatusCode = +response.code;
+                                updateList.push(bookmark);
+                            }
+
+                            if (finished === bookmarkAmount) {
+                                handleUpdateUrlsFinished(updateList);
+                            }
+                        });
+                    });
+                } else { // website not available -> show message
+                    elements.loader.remove();
+                    elements.desc.remove();
+
+                    $("<div />").addClass(ext.opts.classes.overlay.inputError)
+                        .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
+                        .append("<p>" + ext.helper.i18n.get("status_check_urls_unavailable_desc") + "</p>")
+                        .appendTo(elements.modal);
+
+                    setCloseButtonLabel("close");
+                }
             });
         };
 

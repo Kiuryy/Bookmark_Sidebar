@@ -185,6 +185,18 @@
     "overlay_check_urls_not_found": {
         "message": "Url not found"
     },
+    "status_service_unavailable_headline": {
+        "message": "Service unavailable"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "The service which checks the urls is not available at the moment. Please try again later."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "The feedback service is currently unavailable. If you want to give feedback, please send me an email."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "The translation service is not available at the moment. Please try again later."
+    },
     "share_userdata_headline": {
         "message": "I need your help"
     },

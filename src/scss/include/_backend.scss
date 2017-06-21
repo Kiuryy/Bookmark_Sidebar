@@ -114,6 +114,10 @@ section#content {
           width: 24px;
           height: 24px;
         }
+
+        &.hidden {
+          display: none;
+        }
       }
     }
 
@@ -201,6 +205,13 @@ body {
 
     &::after {
       transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.initLoading {
+
+    &::before {
+      @extend %visible;
     }
   }
 

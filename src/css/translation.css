@@ -3,7 +3,7 @@ body::before, body::after {
   pointer-events: none;
 }
 
-body.success::before, body.success::after, body.loading::before {
+body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto;
 }
@@ -353,6 +353,9 @@ section#content > div > header > button.restore::before {
   -webkit-mask: no-repeat center/24px;
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
   background-color: #aaa;
+}
+section#content > div > header > button.hidden {
+  display: none;
 }
 section#content > div > div.scrollBox {
   height: calc(100% - 50px);
@@ -744,6 +747,29 @@ section#content > div[data-name='langvars'] > div.scrollBox > div > div.category
   border: none;
   outline: none;
   background: #f2f2f2;
+}
+section#content > div[data-name='unavailable'] > div.scrollBox > div > p {
+  position: relative;
+  text-align: center;
+  margin-top: 30px;
+  background: #f2f2f2;
+  line-height: 150%;
+  padding: 90px 30px 30px;
+}
+section#content > div[data-name='unavailable'] > div.scrollBox > div > p::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/48px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+section#content > div[data-name='unavailable'] > div.scrollBox > div > p::before {
+  pointer-events: none;
+  -webkit-mask-position-y: 20px;
 }
 section#content > div.loading > div, section#content > div.loading > header > * {
   display: none;

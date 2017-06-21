@@ -319,6 +319,24 @@ section#content {
       }
     }
 
+    &[data-name='unavailable'] {
+
+      > div.scrollBox > div > p {
+        @include mask('icon-info', $colorNotice, 48px);
+        position: relative;
+        text-align: center;
+        margin-top: 30px;
+        background: $bodyBackground;
+        line-height: 150%;
+        padding: 90px 30px 30px;
+
+        &::before {
+          pointer-events: none;
+          -webkit-mask-position-y: 20px;
+        }
+      }
+    }
+
     &.loading {
 
       > div, > header > * {

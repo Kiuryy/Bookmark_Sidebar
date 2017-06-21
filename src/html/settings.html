@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <title data-i18n="settings_title"></title>
     <style>
-        body.loading > * {
+        body.initLoading > * {
             display: none !important;
         }
     </style>
 </head>
 
-<body class="loading">
+<body class="initLoading">
 <header></header>
 
 <section id="content">
@@ -200,9 +200,10 @@
 
                 <p class="notice" data-i18n="settings_feedback_notice"></p>
 
-                <div class="formElement" data-type="email" data-name="feedbackEmail"
-                     data-placeholder="your@email-address.com"></div>
-                <div class="formElement" data-type="textarea" data-name="feedbackMsg"></div>
+                <section class="form">
+                    <div class="formElement" data-type="email" data-name="feedbackEmail" data-placeholder="your@email-address.com"></div>
+                    <div class="formElement" data-type="textarea" data-name="feedbackMsg"></div>
+                </section>
             </div>
         </div>
     </div>

@@ -1,0 +1,620 @@
+{
+    "extension_name": {
+        "message": "Boczna lista zak\u0142adek"
+    },
+    "extension_desc": {
+        "message": "Dodaje wysuwan\u0105 boczn\u0105 list\u0119 ze wszystkimi twoimi zak\u0142adkami po lewej stronie ekranu."
+    },
+    "header_bookmarks": {
+        "message": "Zak\u0142adki"
+    },
+    "header_bookmarks_single": {
+        "message": "Zak\u0142adka"
+    },
+    "sidebar_dir_children": {
+        "message": "Element\u00f3w"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Wyszukaj zak\u0142adk\u0119"
+    },
+    "sidebar_search_no_results": {
+        "message": "Brak zak\u0142adek pasuj\u0105cych do twojego wyszukiwania"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "Skopiowano URL"
+    },
+    "sidebar_drag_cancel": {
+        "message": "Anuluj"
+    },
+    "contextmenu_settings": {
+        "message": "Ustawienia"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Mened\u017cer zak\u0142adek"
+    },
+    "contextmenu_update_urls": {
+        "message": "Uaktualnij URL"
+    },
+    "contextmenu_toggle_fix": {
+        "message": "Zablokuj pozycje"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Poka\u017c ukryte pozycje"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Usu\u0144 separator"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Usu\u0144 zak\u0142adk\u0119"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Edytuj zak\u0142adk\u0119"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Usu\u0144 folder"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Edytuj pozycj\u0119"
+    },
+    "contextmenu_infos": {
+        "message": "Informacje"
+    },
+    "contextmenu_new_tab": {
+        "message": "Otw\u00f3rz w nowej karcie"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Otw\u00f3rz w oknie incognito"
+    },
+    "contextmenu_add": {
+        "message": "Dodaj element"
+    },
+    "contextmenu_open_children": {
+        "message": "Otw\u00f3rz zak\u0142adki"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Ukryj z bocznej listy"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Poka\u017c na bocznej li\u015bcie"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Poka\u017c w folderze"
+    },
+    "sort_label_custom": {
+        "message": "Ustawienie u\u017cytkownika"
+    },
+    "sort_label_alphabetical": {
+        "message": "Alfabetycznie"
+    },
+    "sort_label_most_used": {
+        "message": "Najcz\u0119\u015bciej u\u017cywane"
+    },
+    "sort_label_recently_used": {
+        "message": "Ostatnio u\u017cywane"
+    },
+    "sort_label_recently_added": {
+        "message": "Ostatni dodane"
+    },
+    "sort_view_as_tree": {
+        "message": "Poka\u017c foldery"
+    },
+    "sort_most_used_per_month": {
+        "message": "W tym miesi\u0105cu"
+    },
+    "overlay_bookmark_title": {
+        "message": "Tytu\u0142"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_cancel": {
+        "message": "Anuluj"
+    },
+    "overlay_close": {
+        "message": "Zamknij"
+    },
+    "overlay_save": {
+        "message": "Zapisz"
+    },
+    "overlay_delete": {
+        "message": "Usu\u0144"
+    },
+    "overlay_update": {
+        "message": "Uaktualnij"
+    },
+    "overlay_open_children": {
+        "message": "Otw\u00f3rz wszystkie"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Czy na pewno chcesz otworzy\u0107 wszystkie {1} podrz\u0119dne zak\u0142adki?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Ukryj z bocznej listy"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Czy na pewno chcesz ukry\u0107 t\u0105 zak\u0142adk\u0119 z bocznej listy?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Czy na pewno chcesz usun\u0105\u0107 ten folder z bocznej listy? Wszystkie podrz\u0119dne zak\u0142adki zostan\u0105 tak\u017ce ukryte."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Czy na pewno chcesz usun\u0105\u0107 t\u0105 zak\u0142adk\u0119?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Czy na pewno chcesz usun\u0105\u0107 ten folder? Wszystkie podrz\u0119dne zak\u0142adki zostan\u0105 tak\u017ce usuni\u0119te."
+    },
+    "overlay_label_bookmark": {
+        "message": "Zak\u0142adka"
+    },
+    "overlay_label_dir": {
+        "message": "Folder"
+    },
+    "overlay_label_separator": {
+        "message": "Separator"
+    },
+    "overlay_bookmark_views": {
+        "message": "Wy\u015bwietle\u0144"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Wy\u015bwietlenie"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Zarejestrowane od"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "na miesi\u0105c"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Utworzono"
+    },
+    "overlay_dir_children": {
+        "message": "Element\u00f3w"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Zak\u0142adek"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Folder\u00f3w"
+    },
+    "overlay_check_urls_loading": {
+        "message": "Sprawdzanie URL zak\u0142adek"
+    },
+    "overlay_check_urls_no_results": {
+        "message": "Wszystkie URL zak\u0142adek s\u0105 w porz\u0105dku"
+    },
+    "overlay_check_urls_not_found": {
+        "message": "Nie znaleziono URL"
+    },
+    "share_userdata_headline": {
+        "message": "Potrzebuj\u0119 twojej pomocy"
+    },
+    "share_userdata_desc": {
+        "message": "Aby ulepszy\u0107 to rozszerzenie, musz\u0119 wiedzie\u0107 wi\u0119cej o tym, jak u\u017cywasz bocznej listy."
+    },
+    "share_userdata_desc2": {
+        "message": "Je\u015bli zgodzisz si\u0119 na udost\u0119pnianie swoich ustawie\u0144 anonimowo, bardzo mi pomo\u017cesz."
+    },
+    "share_userdata_notice": {
+        "message": "Informacje o twoich zak\u0142adkach [b]nie b\u0119d\u0105[\/b] przesy\u0142ane."
+    },
+    "share_userdata_accept": {
+        "message": "Zgadzam si\u0119"
+    },
+    "share_userdata_decline": {
+        "message": "Nie zgadzam si\u0119"
+    },
+    "howto_title": {
+        "message": "Jak to dzia\u0142a"
+    },
+    "howto_headline": {
+        "message": "Dzi\u0119kuj\u0119 ci za zainstalowanie tego rozszerzenia."
+    },
+    "howto_start_tutorial": {
+        "message": "Poka\u017c mi jak tego u\u017cywa\u0107"
+    },
+    "howto_replay_tutorial": {
+        "message": "Powt\u00f3rz t\u0105 animacj\u0119"
+    },
+    "howto_close": {
+        "message": "Zamknij t\u0105 stron\u0119"
+    },
+    "howto_tutorial_text_1": {
+        "message": "Na jakiejkolwiek stronie przesuwasz po prostu kursor do {1} brzegu okna"
+    },
+    "howto_tutorial_text_2": {
+        "message": "{1} Kliknij myszk\u0105, aby otworzy\u0107 boczn\u0105 list\u0119"
+    },
+    "howto_tutorial_text_3": {
+        "message": "Teraz masz dost\u0119p do wszystkich swoich zak\u0142adek i mo\u017cesz cieszy\u0107 si\u0119 z u\u017cytkowania tego rozszerzenia"
+    },
+    "howto_tutorial_left": {
+        "message": "lewa"
+    },
+    "howto_tutorial_right": {
+        "message": "prawa"
+    },
+    "changelog_title": {
+        "message": "Lista zmian"
+    },
+    "changelog_headline": {
+        "message": "Twoja boczna lista zak\u0142adek zosta\u0142a zaktualizowana."
+    },
+    "changelog_show_changelog": {
+        "message": "Co nowego?"
+    },
+    "changelog_close": {
+        "message": "Zamknij t\u0105 stron\u0119"
+    },
+    "settings_title": {
+        "message": "Ustawienia"
+    },
+    "settings_tab_behaviour": {
+        "message": "Zachowanie"
+    },
+    "settings_tab_appearance": {
+        "message": "Wygl\u0105d"
+    },
+    "settings_tab_contribute": {
+        "message": "Wspom\u00f3\u017c"
+    },
+    "settings_tab_feedback": {
+        "message": "Opinie"
+    },
+    "settings_headline_toggle": {
+        "message": "Wysuwanie"
+    },
+    "settings_headline_sidebar": {
+        "message": "Boczna lista"
+    },
+    "settings_headline_search": {
+        "message": "Wyszukiwanie"
+    },
+    "settings_headline_faq": {
+        "message": "Cz\u0119sto zadawane pytania"
+    },
+    "settings_headline_share_userdata": {
+        "message": "Udost\u0119pnianie informacji"
+    },
+    "settings_headline_donation": {
+        "message": "Darowizna"
+    },
+    "settings_headline_translation": {
+        "message": "Przet\u0142umacz"
+    },
+    "settings_px_tolerance": {
+        "message": "Tolerancja w pikselach"
+    },
+    "settings_px_tolerance_desc": {
+        "message": "Ilo\u015b\u0107 pikseli od lewej strony okna, w kt\u00f3r\u0105 je\u015bli kliknie myszka to otworzy si\u0119 boczna lista. Mo\u017cesz wybra\u0107 r\u00f3\u017cne warto\u015bci dla zmaksymalizowanego i normalnego okna przegl\u0105darki."
+    },
+    "settings_px_tolerance_maximized": {
+        "message": "Zmaksymalizowane okno"
+    },
+    "settings_px_tolerance_windowed": {
+        "message": "Normalne okno"
+    },
+    "settings_open_action": {
+        "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
+    },
+    "settings_open_action_desc": {
+        "message": "Otw\u00f3rz boczn\u0105 list\u0119 za pomoc\u0105 lewego lub prawego przycisku myszy albo najed\u017a kursorem na bok okna przegl\u0105darki. Alternatywnie mo\u017cesz te\u017c zmieni\u0107 tak, aby boczna lista otwiera\u0142a si\u0119 po klikni\u0119ciu na ikon\u0119 w menu chrome."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Lewy przycisk myszy"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Prawy przycisk myszy"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Najed\u017a myszk\u0105"
+    },
+    "settings_open_action_icon": {
+        "message": "Kliknij na ikon\u0119"
+    },
+    "settings_keyboard_shortcuts": {
+        "message": "Skr\u00f3ty klawiszowe"
+    },
+    "settings_keyboard_shortcuts_desc": {
+        "message": "Skr\u00f3ty mog\u0105 by\u0107 skonfigurowane na dole strony [a]Ustawienia Rozszerze\u0144 Chrome[\/a] poprzez wybranie [em]Skr\u00f3ty klawiaturowe[\/em]."
+    },
+    "settings_link_action": {
+        "message": "Otw\u00f3rz zak\u0142adki"
+    },
+    "settings_link_action_desc": {
+        "message": "Lewy przycisk myszy b\u0119dzie otwiera\u0142 zak\u0142adk\u0119 albo w bie\u017c\u0105cej karcie, albo w nowej karcie."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Bie\u017c\u0105ca karta"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nowa karta"
+    },
+    "settings_open_delay": {
+        "message": "Op\u00f3\u017anienie otwierania"
+    },
+    "settings_open_delay_desc": {
+        "message": "Zapobiega natychmiastowemu otwieraniu bocznej listy poprzez najechanie kursorem lub klikni\u0119cie myszk\u0105."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Zapobiegaj przewijaniu strony"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Zapobiega przewijaniu bie\u017c\u0105cej strony, podczas gdy boczna lista jest otwarta."
+    },
+    "settings_dir_accordion": {
+        "message": "Poka\u017c tylko bie\u017c\u0105cy folder"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Zamyka wszystkie foldery poza tym aktualnie aktywnym."
+    },
+    "settings_remember_state": {
+        "message": "Zapami\u0119taj"
+    },
+    "settings_remember_state_desc": {
+        "message": "Wybierz co zapami\u0119ta\u0107 mi\u0119dzy r\u00f3\u017cnymi stronami."
+    },
+    "settings_remember_state_all": {
+        "message": "Pozycj\u0119 przewijania i otwarte foldery"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Otwarte foldery"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Otwarte g\u0142\u00f3wne foldery"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Nic"
+    },
+    "settings_remember_search": {
+        "message": "Pami\u0119taj wyniki wyszukiwania"
+    },
+    "settings_remember_search_desc": {
+        "message": "Je\u015bli zaznaczone, wyniki wyszukiwania b\u0119d\u0105 zapami\u0119tane mi\u0119dzy stronami."
+    },
+    "settings_dir_open_duration": {
+        "message": "Czas trwania otwierania folderu"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Czas trwania animacji otwierania i zamykania folderu."
+    },
+    "settings_new_tab": {
+        "message": "Nowa karta"
+    },
+    "settings_new_tab_desc": {
+        "message": "Otwiera zak\u0142adki w nowej karcie na pierwszym planie lub w tle"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Otw\u00f3rz na pierwszym planie"
+    },
+    "settings_new_tab_background": {
+        "message": "Otw\u00f3rz w tle"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Otwieraj nowe kart po ostatniej karcie lub po bie\u017c\u0105cej karcie"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Po ostatniej karcie"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Po bie\u017c\u0105cej karcie"
+    },
+    "settings_close_timeout": {
+        "message": "Limit czasu zamykania"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Limit czasu w sekundach, po kt\u00f3rym boczna lista zostanie zamkni\u0119ta. Limit zacznie by\u0107 odliczany, gdy kursor opu\u015bci boczn\u0105 list\u0119 i zostanie wstrzymany, gdy kursor na ni\u0105 wr\u00f3ci."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Nie zamykaj automatycznie"
+    },
+    "settings_initial_open_on_new_tab": {
+        "message": "Pocz\u0105tkowo otwieraj na stronie nowej karty"
+    },
+    "settings_initial_open_on_new_tab_desc": {
+        "message": "Wybierz, czy boczna lista powinna by\u0107 otwierana automatycznie na stronie nowej karty."
+    },
+    "settings_appearance_label_general": {
+        "message": "Og\u00f3lne"
+    },
+    "settings_appearance_label_sidebar": {
+        "message": "Boczna lista"
+    },
+    "settings_appearance_label_indicator": {
+        "message": "Boczny pasek"
+    },
+    "settings_appearance_label_overlay": {
+        "message": "Okno"
+    },
+    "settings_dark_mode": {
+        "message": "Ciemny motyw"
+    },
+    "settings_color_scheme": {
+        "message": "Kolor motywu"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Kolor nag\u0142\u00f3wka bocznej listy, p\u00f3l wyboru itp."
+    },
+    "settings_text_color": {
+        "message": "Kolor tekstu"
+    },
+    "settings_language": {
+        "message": "J\u0119zyk"
+    },
+    "settings_language_default": {
+        "message": "Domy\u015blny przegl\u0105darki"
+    },
+    "settings_language_desc": {
+        "message": "J\u0119zyk interfejsu u\u017cytkownika"
+    },
+    "settings_font_family": {
+        "message": "Kr\u00f3j pisma"
+    },
+    "settings_font_family_default": {
+        "message": "Domy\u015blny"
+    },
+    "settings_font_family_desc": {
+        "message": "Kr\u00f3j pisma bocznej listy i okna"
+    },
+    "settings_indicator_width": {
+        "message": "Szeroko\u015b\u0107"
+    },
+    "settings_indicator_color": {
+        "message": "Kolor"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Rozmiar ikony"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Kolor ikony"
+    },
+    "settings_sidebar_position": {
+        "message": "Strona"
+    },
+    "settings_sidebar_position_left": {
+        "message": "Lewa"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Prawa"
+    },
+    "settings_sidebar_width": {
+        "message": "Szeroko\u015b\u0107"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Kolor t\u0142a"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Ikona folderu"
+    },
+    "settings_bookmarks_dir_icon_default": {
+        "message": "Folder"
+    },
+    "settings_bookmarks_dir_icon_alt_1": {
+        "message": "Kwadrat"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Kolor ikony folderu"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Rozmiar kroju pisma zak\u0142adek"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Rozmiar ikony folderu"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Interlinia mi\u0119dzy zak\u0142adkami"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Pole ochronne ikon"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Wci\u0119cie folder\u00f3w"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Kolor t\u0142a"
+    },
+    "settings_save": {
+        "message": "Zapisz zmiany"
+    },
+    "settings_saved_message": {
+        "message": "Zmiany zapisane pomy\u015blnie"
+    },
+    "settings_restore": {
+        "message": "Przywr\u00f3\u0107 ustawienia domy\u015blne"
+    },
+    "settings_restored_message": {
+        "message": "Konfiguracja przywr\u00f3cona pomy\u015blnie"
+    },
+    "settings_feedback_desc": {
+        "message": "Masz sugestie dotycz\u0105ce ulepsze\u0144, pytania, brakuje ci jakich\u015b ustawie\u0144 albo znalaz\u0142e\u015b b\u0142\u0105d? Aby poprawi\u0107 do\u015bwiadczenia zwi\u0105zane z u\u017cytkowaniem tego rozszerzenia, jestem got\u00f3w na ka\u017cd\u0105 opini\u0119, kt\u00f3r\u0105 chcesz mi przekaza\u0107."
+    },
+    "settings_feedback_notice": {
+        "message": "Prosz\u0119, napisz swoj\u0105 wiadomo\u015b\u0107 po angielsku, bo inaczej b\u0119d\u0119 mia\u0142 problemy ze zrozumieniem jej i odpowiedzeniem na ni\u0105."
+    },
+    "settings_feedback_email": {
+        "message": "Tw\u00f3j adres email"
+    },
+    "settings_feedback_send": {
+        "message": "Wy\u015blij opini\u0119"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Dzi\u0119kuj\u0119 za twoj\u0105 opini\u0119."
+    },
+    "settings_faq_usage_q": {
+        "message": "Mo\u017cesz mi powiedzie\u0107 jak otworzy\u0107 boczn\u0105 list\u0119?"
+    },
+    "settings_faq_usage_a": {
+        "message": "Mo\u017cesz obejrze\u0107 [a]samouczek[\/a], aby zobaczy\u0107 jak otworzy\u0107 boczn\u0105 list\u0119, a nast\u0119pnie spr\u00f3bowa\u0107 samemu na dowolnej stronie. Je\u017celi nadal masz problemy z tym rozszerzeniem, zach\u0119cam do przeczytania odpowiedzi na pytanie, dlaczego boczna lista nie dzia\u0142a poprawnie na ka\u017cdej stronie, lub wys\u0142a\u0107 mi wiadomo\u015b\u0107 opisuj\u0105c\u0105 tw\u00f3j problem."
+    },
+    "settings_faq_fixed_sidebar_q": {
+        "message": "Czy mo\u017cesz zrobi\u0107 tak, \u017ceby boczna lista by\u0142a otwarta ca\u0142y czas?"
+    },
+    "settings_faq_fixed_sidebar_a": {
+        "message": "Niestety nie mog\u0119 tego zrobi\u0107. Google usun\u0105\u0142 kilka lat temu mo\u017cliwo\u015b\u0107 zrobienia prawdziwej bocznej listy, takiej jaka jest w Firefoksie. Bez API (interfejs programistyczny aplikacji) boczna lista musi by\u0107 \u0142adowana za ka\u017cdym razem, kiedy otwierasz now\u0105 stron\u0119."
+    },
+    "settings_faq_not_working_q": {
+        "message": "Dlaczego boczna lista nie dzia\u0142a na niekt\u00f3rych stronach, np. na Chrome Web Store?"
+    },
+    "settings_faq_not_working_a": {
+        "message": "Mo\u017ce mie\u0107 to r\u00f3\u017cne przyczyny. Na stronie Chrome Web Store i stronach zaczynaj\u0105cych si\u0119 na [em]chrome-extension:\/\/[\/em] jest to spowodowane ograniczeniami zwi\u0105zanymi z bezpiecze\u0144stwem. Inne strony mog\u0105 blokowa\u0107 boczn\u0105 list\u0119 lub wykorzystuj\u0105 przestarza\u0142y kod \u017ar\u00f3d\u0142owy. Je\u015bli napotkasz problemy na jakich\u015b stronach, prosz\u0119, daj mi zna\u0107, abym m\u00f3g\u0142 na to rzuci\u0107 okiem i spr\u00f3bowa\u0142 to naprawi\u0107."
+    },
+    "settings_saved_share_userdata": {
+        "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
+    },
+    "settings_contribute_translation_link": {
+        "message": "Przenie\u015b do menu translacji"
+    },
+    "settings_contribute_translation_desc": {
+        "message": "Mo\u017cesz pom\u00f3c t\u0142umaczy\u0107 to rozszerzenie na sw\u00f3j j\u0119zyk lub ulepszy\u0107 istniej\u0105ce t\u0142umaczenia."
+    },
+    "settings_contribute_donation_link": {
+        "message": "Darowizna"
+    },
+    "settings_contribute_donation_desc": {
+        "message": "Darowizny s\u0105 ca\u0142kowicie dobrowolne, ale je\u015bli lubisz to rozszerzenie i chcesz je wspom\u00f3c niewielk\u0105 darowizn\u0105, mo\u017cesz to zrobi\u0107 klikaj\u0105c na poni\u017cszy link. Doceniam ka\u017cd\u0105 pomoc, kt\u00f3r\u0105 dostaj\u0119 na rozw\u00f3j tego rozszerzenia, tak\u0105 jak darowizny, pomoc w t\u0142umaczeniu, czy opinie."
+    },
+    "translation_title": {
+        "message": "Przet\u0142umacz"
+    },
+    "translation_headline_overview": {
+        "message": "Dost\u0119pne j\u0119zyki"
+    },
+    "translation_edit": {
+        "message": "Edytuj t\u0142umaczenie"
+    },
+    "translation_add": {
+        "message": "Dodaj t\u0142umaczenie"
+    },
+    "translation_progress": {
+        "message": "Post\u0119p"
+    },
+    "translation_back_to_overview": {
+        "message": "Powr\u00f3t do menu translacji"
+    },
+    "translation_contribution_info": {
+        "message": "Mo\u017cesz edytowa\u0107 istniej\u0105ce t\u0142umaczenia lub dodawa\u0107 brakuj\u0105ce. Je\u015bli zatwierdzisz swoje zmiany, przejrz\u0119 tw\u00f3j wk\u0142ad i zatwierdz\u0119 go."
+    },
+    "translation_contribution_notice1": {
+        "message": "Nie musisz t\u0142umaczy\u0107 ka\u017cdej kategorii, bo t\u0142umaczenie zostanie opublikowane, je\u015bli przynajmniej wszystkie konieczne do dzia\u0142ania teksty s\u0105 przet\u0142umaczone."
+    },
+    "translation_contribution_notice2": {
+        "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom (np. niekt\u00f3re elementy menu kontekstowego s\u0105 przet\u0142umaczone, a niekt\u00f3re nie)"
+    },
+    "translation_submit": {
+        "message": "Zatwierd\u017a"
+    },
+    "translation_submit_message": {
+        "message": "Twoje t\u0142umaczenie zosta\u0142o zatwierdzone pomy\u015blnie"
+    },
+    "translation_status_released": {
+        "message": "T\u0142umaczenie jest dost\u0119pne"
+    },
+    "translation_status_incomplete": {
+        "message": "T\u0142umaczenie jest dost\u0119pne, ale z powodu aktualizacji niekt\u00f3re kategorie s\u0105 niepe\u0142ne"
+    },
+    "translation_status_draft": {
+        "message": "T\u0142umaczenie jest niepe\u0142ne lub potrzebuje sprawdzenia i nie jest dost\u0119pne dla u\u017cytkownik\u00f3w"
+    },
+    "translation_incomplete_info": {
+        "message": "Z powodu aktualizacji t\u0142umaczenia s\u0105 niepe\u0142ne"
+    }
+}

@@ -383,6 +383,32 @@ div.modal[data-type='updateUrls'] > p.success::before {
 div.modal[data-type='updateUrls'] > p.success::before {
   -webkit-mask-position-y: bottom;
 }
+div.modal[data-type='updateUrls'] > div.error {
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
+  line-height: 150%;
+  padding: 70px 30px 0;
+}
+div.modal[data-type='updateUrls'] > div.error::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/48px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+div.modal[data-type='updateUrls'] > div.error::before {
+  -webkit-mask-position-y: top;
+}
+div.modal[data-type='updateUrls'] > div.error > h3 {
+  font-size: 160%;
+  font-weight: "%fontWeightNormal";
+  margin-bottom: 25px;
+}
 div.modal[data-type='updateUrls'] > div.progressBar {
   position: relative;
   background: rgba(0, 0, 0, 0.1);

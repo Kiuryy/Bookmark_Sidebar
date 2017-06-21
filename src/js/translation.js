@@ -22,12 +22,14 @@
                 save: $("section#content > div[data-name='langvars'] > header > button.save"),
                 wrapper: {
                     overview: $("section#content > div[data-name='overview']"),
-                    langvars: $("section#content > div[data-name='langvars']")
+                    langvars: $("section#content > div[data-name='langvars']"),
+                    unavailable: $("section#content > div[data-name='unavailable']")
                 }
             },
             classes: {
                 hidden: "hidden",
                 progress: "progress",
+                initLoading: "initLoading",
                 loading: "loading",
                 active: "active",
                 langVarCategory: "category",
@@ -69,10 +71,17 @@
                     this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                     initLanguages(() => {
-                        initOverview();
-                        initEvents();
+                        this.helper.model.call("websiteStatus", (opts) => {
+                            if (opts.status === "available") {
+                                initOverview();
+                                initEvents();
+                            } else {
+                                changeView("unavailable");
+                                endLoading();
+                            }
+                        });
 
-                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                     });
                 });
             });
@@ -123,14 +132,13 @@
          * Changes the view from the overview to edit form or back to overview
          */
         let changeView = (name) => {
-            if (name === "overview") {
+            if (name === "overview" || name === "unavailable") {
                 this.opts.elm.backToOverview.addClass(this.opts.classes.hidden);
             } else {
                 this.opts.elm.backToOverview.removeClass(this.opts.classes.hidden);
             }
 
             Object.keys(this.opts.elm.wrapper).forEach((key) => {
-
                 if (key === name) {
                     this.opts.elm.wrapper[key].removeClass(this.opts.classes.hidden);
                 } else {

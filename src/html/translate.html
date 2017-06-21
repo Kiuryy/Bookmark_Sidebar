@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <title data-i18n="translation_title"></title>
     <style>
-        body.loading > * {
+        body.initLoading > * {
             display: none !important;
         }
     </style>
 </head>
 
-<body class="loading">
+<body class="initLoading">
 <header></header>
 
 <section id="content">
@@ -41,6 +41,18 @@
                     <p data-i18n="translation_contribution_notice1"></p>
                     <p data-i18n="translation_contribution_notice2"></p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-name="unavailable">
+        <header>
+            <h2 data-i18n="status_service_unavailable_headline"></h2>
+        </header>
+
+        <div class="scrollBox">
+            <div>
+                <p data-i18n="status_translation_unavailable_desc"></p>
             </div>
         </div>
     </div>

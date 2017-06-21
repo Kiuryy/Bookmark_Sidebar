@@ -22,7 +22,7 @@
             classes: {
                 visible: "visible",
                 reversed: "reversed",
-                loading: "loading"
+                initLoading: "initLoading"
             },
             attr: {
                 i18nReplaces: "data-i18nReplaces"
@@ -54,7 +54,7 @@
                     initView();
 
                     setTimeout(() => {
-                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                     }, 100);
                 });
             });

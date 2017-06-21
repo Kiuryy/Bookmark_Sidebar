@@ -290,6 +290,51 @@ section#content {
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding: 20px 0;
       }
+
+      section.form {
+        position: relative;
+
+        &.loading {
+
+          > * {
+            display: none;
+          }
+
+          > svg.loading {
+            position: absolute;
+            display: block;
+            top: 80px;
+            left: calc(50% - 18px);
+            z-index: 99;
+          }
+        }
+
+        &.hidden {
+          display: none;
+
+          + p.error {
+            @include mask('icon-info', $colorNotice, 48px);
+            position: relative;
+            text-align: center;
+            margin-top: 30px;
+            background: $bodyBackground;
+            line-height: 150%;
+            padding: 90px 30px 30px;
+
+            &::before {
+              pointer-events: none;
+              -webkit-mask-position-y: 20px;
+            }
+
+            > a {
+              display: inline-block;
+              margin: 10px 0 0 0;
+              font-weight: $__fontWeightBold;
+              color: $mainColorAlt;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -721,66 +766,6 @@ body > footer {
       > strong {
         color: $mainColorAlt;
       }
-    }
-  }
-}
-
-//
-body {
-
-  &::before, &::after {
-    position: fixed;
-    @extend %hidden;
-  }
-
-  &::after {
-    content: attr(data-successtext);
-    top: 50px;
-    left: calc(50% - 300px);
-    width: 600px;
-    padding: 40px;
-    text-align: center;
-    font-size: 140%;
-    color: $textColorInverted;
-    background: $colorSuccess;
-    transform: translate3d(0, -50px, 0);
-    transition: opacity 0.5s, transform 0.5s;
-    z-index: 99;
-  }
-
-  &::before {
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    transition: opacity 0.3s;
-    z-index: 98;
-  }
-
-  &.success {
-
-    &::before, &::after {
-      @extend %visible;
-    }
-
-    &::after {
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  &.loading {
-
-    &::before {
-      @extend %visible;
-    }
-
-    > svg.loading {
-      position: fixed;
-      top: calc(50% - 18px);
-      left: calc(50% - 18px);
-      z-index: 99;
     }
   }
 }

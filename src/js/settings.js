@@ -36,6 +36,7 @@
                 configEntry: "configEntry",
                 success: "success",
                 error: "error",
+                initLoading: "initLoading",
                 loading: "loading",
                 revert: "revert",
                 visible: "visible",
@@ -92,8 +93,10 @@
                     action: $("div.tab[data-name='contribute'] a.action")
                 },
                 feedback: {
+                    form: $("section.form"),
                     textarea: $("textarea#feedback"),
                     email: $("input#feedbackEmail"),
+                    send: $("div.tab[data-name='feedback'] > header > button.save"),
                     faq: $("div.faq")
                 },
                 button: {
@@ -147,7 +150,7 @@
                         initButtonEvents();
                         initContentTabs();
 
-                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                     });
                 });
             });

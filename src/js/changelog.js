@@ -20,7 +20,7 @@
             classes: {
                 visible: "visible",
                 flipped: "flipped",
-                loading: "loading"
+                initLoading: "initLoading"
             },
             manifest: chrome.runtime.getManifest()
         };
@@ -44,7 +44,7 @@
                     this.opts.elm.infobox.addClass(this.opts.classes.visible);
 
                     setTimeout(() => {
-                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                     }, 100);
                 });
             });

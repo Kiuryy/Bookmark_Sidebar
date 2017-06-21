@@ -18,7 +18,7 @@
          */
         let initKeyboardEvents = () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
-                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible) && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
 
                     if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {

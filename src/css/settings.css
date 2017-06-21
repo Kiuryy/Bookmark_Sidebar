@@ -3,7 +3,7 @@ body::before, body::after {
   pointer-events: none;
 }
 
-body.success::before, body.success::after, body.loading::before {
+body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto;
 }
@@ -353,6 +353,9 @@ section#content > div > header > button.restore::before {
   -webkit-mask: no-repeat center/24px;
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
   background-color: #aaa;
+}
+section#content > div > header > button.hidden {
+  display: none;
 }
 section#content > div > div.scrollBox {
   height: calc(100% - 50px);
@@ -781,6 +784,51 @@ section#content > div.tab[data-name='feedback'] p.notice {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding: 20px 0;
 }
+section#content > div.tab[data-name='feedback'] section.form {
+  position: relative;
+}
+section#content > div.tab[data-name='feedback'] section.form.loading > * {
+  display: none;
+}
+section#content > div.tab[data-name='feedback'] section.form.loading > svg.loading {
+  position: absolute;
+  display: block;
+  top: 80px;
+  left: calc(50% - 18px);
+  z-index: 99;
+}
+section#content > div.tab[data-name='feedback'] section.form.hidden {
+  display: none;
+}
+section#content > div.tab[data-name='feedback'] section.form.hidden + p.error {
+  position: relative;
+  text-align: center;
+  margin-top: 30px;
+  background: #f2f2f2;
+  line-height: 150%;
+  padding: 90px 30px 30px;
+}
+section#content > div.tab[data-name='feedback'] section.form.hidden + p.error::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/48px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+  background-color: #f5c525;
+}
+section#content > div.tab[data-name='feedback'] section.form.hidden + p.error::before {
+  pointer-events: none;
+  -webkit-mask-position-y: 20px;
+}
+section#content > div.tab[data-name='feedback'] section.form.hidden + p.error > a {
+  display: inline-block;
+  margin: 10px 0 0 0;
+  font-weight: "%fontWeightBold";
+  color: #2b35c8;
+}
 section#content p.desc {
   font-size: 120%;
   line-height: 170%;
@@ -1124,43 +1172,6 @@ body > footer > a#copyright > strong {
 }
 body > footer > a#copyright:hover > strong {
   color: #2b35c8;
-}
-
-body::before, body::after {
-  position: fixed;
-}
-body::after {
-  content: attr(data-successtext);
-  top: 50px;
-  left: calc(50% - 300px);
-  width: 600px;
-  padding: 40px;
-  text-align: center;
-  font-size: 140%;
-  color: #fff;
-  background: #5eba7d;
-  transform: translate3d(0, -50px, 0);
-  transition: opacity 0.5s, transform 0.5s;
-  z-index: 99;
-}
-body::before {
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  transition: opacity 0.3s;
-  z-index: 98;
-}
-body.success::after {
-  transform: translate3d(0, 0, 0);
-}
-body.loading > svg.loading {
-  position: fixed;
-  top: calc(50% - 18px);
-  left: calc(50% - 18px);
-  z-index: 99;
 }
 
 /*# sourceMappingURL=settings.css.map */

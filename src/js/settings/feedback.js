@@ -20,6 +20,27 @@
                     window.open(chrome.extension.getURL("html/howto.html") + "?tutorial=1", '_blank');
                 }
             });
+
+            let loader = s.helper.template.loading().appendTo(s.opts.elm.feedback.form);
+            s.opts.elm.feedback.send.addClass(s.opts.classes.hidden);
+            s.opts.elm.feedback.form.addClass(s.opts.classes.loading);
+
+            s.helper.model.call("websiteStatus", (opts) => {
+                loader.remove();
+                s.opts.elm.feedback.form.removeClass(s.opts.classes.loading);
+
+                if (opts.status === "available") {
+                    s.opts.elm.feedback.send.removeClass(s.opts.classes.hidden);
+                } else {
+                    s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
+
+                    $("<p />")
+                        .addClass(s.opts.classes.error)
+                        .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
+                        .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
+                        .insertAfter(s.opts.elm.feedback.form);
+                }
+            });
         };
 
         /**

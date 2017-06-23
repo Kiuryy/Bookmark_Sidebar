@@ -27,8 +27,8 @@
                     this.helper.stylesheet.init();
                     initSidebar();
 
-                    this.helper.list.init();
                     this.helper.toggle.init();
+                    this.helper.list.init();
                     this.helper.sidebarEvents.init();
                     this.helper.dragndrop.init();
 
@@ -248,8 +248,12 @@
          */
         let initSidebar = () => {
             this.helper.stylesheet.addStylesheets(["content"]);
-
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
+
+            if (this.helper.model.getData("b/animations") === false) {
+                this.elements.iframe.addClass(this.opts.classes.page.noAnimations);
+            }
+
             this.elements.iframeBody = this.elements.iframe.find("body");
             this.elements.sidebar = $('<section id="' + opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
             this.elements.bookmarkBox = {};

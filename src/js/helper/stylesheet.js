@@ -19,12 +19,16 @@
          * @param {jsu} context
          */
         this.addStylesheets = (files, context = null) => {
-            if (context === null) {
+            if (context === null) { // page context
                 context = $(document);
-            } else {
+            } else { // extension context
                 ext.helper.font.addStylesheet(context);
                 if (styles.isEE && ext.opts.classes && ext.opts.classes.page && ext.opts.classes.page.ee) {
                     context.find("body").addClass(ext.opts.classes.page.ee);
+                }
+
+                if (ext.helper.model.getData("b/animations") === false) {
+                    context.find("body").addClass(ext.opts.classes.page.noAnimations);
                 }
             }
 

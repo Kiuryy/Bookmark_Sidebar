@@ -389,6 +389,15 @@
     "settings_new_tab_background": {
         "message": "\u30d0\u30c3\u30af\u30b0\u30e9\u30a6\u30f3\u30c9\u3067\u958b\u304f"
     },
+    "settings_new_tab_position_desc": {
+        "message": "\u6700\u5f8c\u307e\u305f\u306f\u73fe\u5728\u306e\u30bf\u30d6\u306e\u5f8c\u306b\u65b0\u3057\u3044\u30bf\u30d6\u3092\u958b\u304f"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "\u6700\u5f8c\u306e\u30bf\u30d6\u306e\u5f8c"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "\u73fe\u5728\u306e\u30bf\u30d6\u306e\u5f8c"
+    },
     "settings_close_timeout": {
         "message": "\u9589\u3058\u308b\u30bf\u30a4\u30e0\u30a2\u30a6\u30c8"
     },
@@ -417,7 +426,7 @@
         "message": "\u30aa\u30fc\u30d0\u30fc\u30ec\u30a4"
     },
     "settings_dark_mode": {
-        "message": "\u6697\u3044\u9762"
+        "message": "\u898b\u305f\u76ee\u3092\u6697\u304f\u3059\u308b"
     },
     "settings_color_scheme": {
         "message": "\u914d\u8272"

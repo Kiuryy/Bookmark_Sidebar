@@ -389,6 +389,15 @@
     "settings_new_tab_background": {
         "message": "Ouvrir en arri\u00e8re plan"
     },
+    "settings_new_tab_position_desc": {
+        "message": "Ouvrir les nouveaux onglets apr\u00e8s le dernier onglet ou apr\u00e8s l'onglet en cours"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Apr\u00e8s le dernier onglet"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Apr\u00e8s l'onglet en cours"
+    },
     "settings_close_timeout": {
         "message": "D\u00e9lai avant fermeture"
     },

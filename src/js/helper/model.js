@@ -35,12 +35,13 @@
                 viewAsTree: true
             },
             b: { // behaviour
+                animations: true,
+                preventPageScroll: false,
                 pxTolerance: {windowed: 20, maximized: 1},
                 openAction: "mousedown",
                 newTab: "foreground",
                 newTabPosition: "afterCurrent",
                 linkAction: "current",
-                preventPageScroll: false,
                 dirAccordion: false,
                 rememberState: "all",
                 rememberSearch: true,

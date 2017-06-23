@@ -14,6 +14,11 @@
          */
         this.create = (type, title, data) => {
             elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
+
+            if (ext.helper.model.getData("b/animations") === false) {
+                elements.overlay.addClass(ext.opts.classes.page.noAnimations);
+            }
+
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
 
             let iframeBody = elements.overlay.find("body");

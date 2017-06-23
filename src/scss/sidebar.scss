@@ -42,6 +42,13 @@ body {
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($colorError, 0.3) 5px, rgba($colorError, 0.3) 10px);
   }
 
+  &.noAnimations {
+
+    *, *::before, *::after {
+      transition: none !important;
+    }
+  }
+
   &.dark {
 
     &::after {

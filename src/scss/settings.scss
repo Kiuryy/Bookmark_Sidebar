@@ -734,6 +734,7 @@ div.configEntry {
     font-style: italic;
 
     &.shortcutInfo {
+      margin-bottom: 20px;
 
       > a {
         color: $mainColorAlt;

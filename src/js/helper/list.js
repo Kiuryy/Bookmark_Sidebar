@@ -156,12 +156,13 @@
             elm.addClass(ext.opts.classes.sidebar.dirAnimated);
             let dirId = elm.attr(ext.opts.attr.id);
             let childrenList = elm.next("ul");
+            let childrenLoaded = childrenList.length() > 0;
 
             if (typeof instant === "undefined") {
-                instant = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false;
+                instant = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false || ext.helper.model.getData("b/animations") === false;
             }
 
-            if (elm.hasClass(ext.opts.classes.sidebar.dirOpened)) { // close children
+            if (elm.hasClass(ext.opts.classes.sidebar.dirOpened) && childrenLoaded) { // close children
                 expandCollapseDir(elm, childrenList, false, instant, callback);
             } else { // open children
                 if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
@@ -172,7 +173,7 @@
                     });
                 }
 
-                if (childrenList.length() === 0) { // not yet loaded -> load and expand afterwards
+                if (!childrenLoaded) { // not yet loaded -> load and expand afterwards
                     ext.helper.model.call("bookmarks", {id: dirId}, (response) => {
                         if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
                             childrenList = $("<ul />").insertAfter(elm);

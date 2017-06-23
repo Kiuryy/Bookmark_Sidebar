@@ -15,7 +15,11 @@
          * Initializes the sidebar toggle
          */
         this.init = () => {
-            ext.elements.toggle = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
+            ext.elements.indicator = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
+
+            if (ext.helper.model.getData("b/animations") === false) {
+                ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
+            }
 
             let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
             pxToleranceObj = data.pxTolerance;
@@ -23,7 +27,7 @@
             sidebarPos = data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
 
-            ext.elements.toggle.css("width", getPixelTolerance() + "px");
+            ext.elements.indicator.css("width", getPixelTolerance() + "px");
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
             ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
 
@@ -32,12 +36,12 @@
             }
 
             if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
-                ext.elements.toggle
+                ext.elements.indicator
                     .addClass(ext.opts.classes.page.visible)
                     .attr(ext.opts.attr.position, sidebarPos);
 
                 if (data.showIndicatorIcon) {
-                    ext.elements.toggle.addClass(ext.opts.classes.page.indicatorIcon);
+                    ext.elements.indicator.addClass(ext.opts.classes.page.indicatorIcon);
                 }
             }
 
@@ -45,7 +49,7 @@
             initEvents();
 
             if (ext.helper.utility.getPageType() === "newtab") {
-                ext.elements.toggle.addClass(ext.opts.classes.page.isNewTab);
+                ext.elements.indicator.addClass(ext.opts.classes.page.isNewTab);
                 ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
 
                 if (data.initialOpenOnNewTab) {
@@ -68,7 +72,7 @@
          */
         let initEvents = () => {
             $(window).on("resize", () => {
-                ext.elements.toggle.css("width", getPixelTolerance() + "px");
+                ext.elements.indicator.css("width", getPixelTolerance() + "px");
             });
 
             ext.elements.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
@@ -120,7 +124,7 @@
 
             $(document).on("visibilitychange", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
                 if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
-                    ext.elements.toggle.removeClass(ext.opts.classes.page.hover);
+                    ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
 
                     if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                         closeSidebar();
@@ -134,12 +138,12 @@
 
                     if (!(timeout.indicator)) {
                         timeout.indicator = setTimeout(() => { // wait the duration of the open delay before showing the indicator
-                            ext.elements.toggle.addClass(ext.opts.classes.page.hover);
+                            ext.elements.indicator.addClass(ext.opts.classes.page.hover);
                         }, Math.max(openDelay - inPixelToleranceDelay, 0));
                     }
                 } else {
                     clearSidebarTimeout("indicator");
-                    ext.elements.toggle.removeClass(ext.opts.classes.page.hover);
+                    ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
                 }
             }, {passive: true});
 
@@ -192,7 +196,7 @@
 
                 let pixelTolerance = getPixelTolerance();
 
-                if (ext.elements.toggle.hasClass(ext.opts.classes.page.hover) && indicatorWidth > pixelTolerance) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
+                if (ext.elements.indicator.hasClass(ext.opts.classes.page.hover) && indicatorWidth > pixelTolerance) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
                     pixelTolerance = indicatorWidth;
                 }
 
@@ -264,11 +268,11 @@
          */
         let handleLeftsideBackExtension = () => {
             if ($(ext.opts.leftsideBackSelector).length() > 0) { // Extension already loaded
-                ext.elements.toggle.addClass(ext.opts.classes.page.hasLeftsideBack);
+                ext.elements.indicator.addClass(ext.opts.classes.page.hasLeftsideBack);
             } else {
                 $(document).on(ext.opts.events.lsbLoaded, (e) => { // Extension is now loaded
                     if (e.detail.showIndicator) {
-                        ext.elements.toggle.addClass(ext.opts.classes.page.hasLeftsideBack);
+                        ext.elements.indicator.addClass(ext.opts.classes.page.hasLeftsideBack);
                     }
                 });
             }

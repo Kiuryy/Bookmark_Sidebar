@@ -389,6 +389,15 @@
     "settings_new_tab_background": {
         "message": "\u540e\u53f0\u6253\u5f00\u65b0\u6807\u7b7e\u9875"
     },
+    "settings_new_tab_position_desc": {
+        "message": "\u6253\u5f00\u7684\u65b0\u6807\u7b7e\u9875\u7684\u4f4d\u7f6e\uff0c\u4f4d\u4e8e\u6700\u540e\u4e00\u4e2a\u6807\u7b7e\u9875\u4e4b\u540e\u6216\u4f4d\u4e8e\u5f53\u524d\u6807\u7b7e\u9875\u4e4b\u540e\u3002"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "\u4f4d\u4e8e\u6700\u540e\u4e00\u4e2a\u6807\u7b7e\u9875\u4e4b\u540e"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "\u4f4d\u4e8e\u5f53\u524d\u6807\u7b7e\u9875\u4e4b\u540e"
+    },
     "settings_close_timeout": {
         "message": "\u5173\u95ed\u8d85\u65f6"
     },

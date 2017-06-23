@@ -1,7 +1,7 @@
 @import "include/vars";
 @import "include/mixins";
 
-// Visual
+// Indicator
 body > div#blockbyte-bs-indicator {
   position: fixed;
   top: 0;
@@ -37,6 +37,16 @@ body > iframe#blockbyte-bs-overlay {
   top: 0;
   left: 0;
   @extend %hidden;
+}
+
+// No Animations
+body > div#blockbyte-bs-indicator.noAnimations,
+body > iframe#blockbyte-bs-sidebar.noAnimations,
+body > iframe#blockbyte-bs-overlay.noAnimations {
+
+  &, &::before, &::after {
+    transition: none !important;
+  }
 }
 
 // Print

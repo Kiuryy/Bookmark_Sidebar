@@ -1152,6 +1152,9 @@ div.configEntry p {
   line-height: 150%;
   font-style: italic;
 }
+div.configEntry p.shortcutInfo {
+  margin-bottom: 20px;
+}
 div.configEntry p.shortcutInfo > a {
   color: #2b35c8;
   font-weight: "%fontWeightMedium";

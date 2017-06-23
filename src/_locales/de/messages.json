@@ -272,6 +272,9 @@
     "settings_tab_feedback": {
         "message": "Feedback"
     },
+    "settings_headline_general": {
+        "message": "Allgemein"
+    },
     "settings_headline_toggle": {
         "message": "Ein\/Ausblenden"
     },
@@ -292,6 +295,12 @@
     },
     "settings_headline_translation": {
         "message": "\u00dcbersetzen"
+    },
+    "settings_animations": {
+        "message": "Animation aktivieren"
+    },
+    "settings_animations_desc": {
+        "message": "Erm\u00f6glicht die Deaktivierung aller Animationen der Sidebar. Dies kann hilfreich sein, wenn die Animationen ruckeln oder zu viel Leistung ben\u00f6tigen."
     },
     "settings_px_tolerance": {
         "message": "Toleranz in Pixeln"

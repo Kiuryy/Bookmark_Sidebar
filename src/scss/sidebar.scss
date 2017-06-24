@@ -466,7 +466,7 @@ section#sidebar {
       left: calc(50% - 18px);
     }
 
-    > div.scrollBox {
+    > div.scrollBox, > div.filter {
       @extend %hidden;
     }
   }

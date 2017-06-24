@@ -1,4 +1,4 @@
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, div#shareUserdata.hidden {
+div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none;
 }

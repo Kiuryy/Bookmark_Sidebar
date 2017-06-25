@@ -9,7 +9,7 @@ $__textColor: $textColor;
 //
 @import "generals";
 
-$headerHeight: 70px;
+$headerHeight: 50px;
 
 body {
   background: $bodyBackground;
@@ -30,16 +30,16 @@ body > header {
   height: $headerHeight;
   background-image: img('icon/icon.webp'), $gradient;
   background-repeat: no-repeat;
-  background-size: 58px, 100%;
-  background-position: 20px center, 0 0;
+  background-size: 40px, 100%;
+  background-position: 30px center, 0 0;
   box-shadow: inset 0 -12px 15px -10px rgba(0, 0, 0, 0.5);
 
   > svg {
     position: absolute;
-    top: calc(50% - 18px);
-    left: 75px;
-    width: 36px;
-    height: 36px;
+    top: calc(50% - 13px);
+    left: 70px;
+    width: 26px;
+    height: 26px;
     stroke: rgba(255, 255, 255, 0.5);
     fill: none;
   }
@@ -83,8 +83,8 @@ section#content {
 
     > header {
       position: relative;
-      padding: 10px 20px;
-      height: 50px;
+      padding: 8px 20px;
+      height: 45px;
       box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
       z-index: 2;
 

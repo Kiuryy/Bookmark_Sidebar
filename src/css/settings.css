@@ -1,9 +1,9 @@
-body::before, body::after {
+body::before, body::after, section#menu {
   opacity: 0;
   pointer-events: none;
 }
 
-body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body.success::before, body.success::after, body.initLoading::before, body.loading::before, section#menu.visible {
   opacity: 1;
   pointer-events: auto;
 }
@@ -263,19 +263,19 @@ body > header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 50px;
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   background-repeat: no-repeat;
-  background-size: 58px, 100%;
-  background-position: 20px center, 0 0;
+  background-size: 40px, 100%;
+  background-position: 30px center, 0 0;
   box-shadow: inset 0 -12px 15px -10px rgba(0, 0, 0, 0.5);
 }
 body > header > svg {
   position: absolute;
-  top: calc(50% - 18px);
-  left: 75px;
-  width: 36px;
-  height: 36px;
+  top: calc(50% - 13px);
+  left: 70px;
+  width: 26px;
+  height: 26px;
   stroke: rgba(255, 255, 255, 0.5);
   fill: none;
 }
@@ -300,8 +300,8 @@ h3:not(:first-of-type) {
 section#content {
   position: relative;
   width: 100%;
-  margin-top: 70px;
-  height: calc(100vh - 70px);
+  margin-top: 50px;
+  height: calc(100vh - 50px);
   padding: 40px 0 25px;
 }
 section#content > div {
@@ -315,8 +315,8 @@ section#content > div {
 }
 section#content > div > header {
   position: relative;
-  padding: 10px 20px;
-  height: 50px;
+  padding: 8px 20px;
+  height: 45px;
   box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
@@ -543,7 +543,7 @@ body > header > ul.tabBar {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 36px;
+  padding-top: 20px;
   overflow: hidden;
   text-align: center;
 }
@@ -551,7 +551,7 @@ body > header > ul.tabBar > li {
   position: relative;
   display: inline-block;
   margin: 0 20px;
-  height: 34px;
+  height: 30px;
   min-width: 50px;
 }
 body > header > ul.tabBar > li > a {
@@ -559,7 +559,7 @@ body > header > ul.tabBar > li > a {
   display: block;
   color: #fff;
   opacity: 0.7;
-  padding: 10px 0 0 0;
+  padding: 7px 0 0 0;
   height: 100%;
   z-index: 2;
 }
@@ -606,11 +606,11 @@ body > header > ul.tabBar > li.active > a::before, body > header > ul.tabBar > l
 }
 body > header > ul.tabBar > li.active > a::before {
   left: -40px;
-  transform: rotateZ(45deg);
+  transform: rotateZ(52deg);
 }
 body > header > ul.tabBar > li.active > a::after {
   right: -40px;
-  transform: rotateZ(135deg);
+  transform: rotateZ(128deg);
 }
 body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active) {
   padding-right: 24px;
@@ -633,13 +633,37 @@ body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active) >
 body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active)::before {
   -webkit-mask-position: right 8px;
 }
+body > header > a {
+  position: absolute;
+  display: block;
+  top: 5px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+body > header > a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: no-repeat center/26px;
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu-2.svg);
+  background-color: #fff;
+}
+body > header > a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
 section#content {
   position: relative;
   width: 100%;
-  margin-top: 70px;
-  height: calc(100vh - 70px);
-  padding: 40px 0 25px;
+  margin-top: 50px;
+  height: calc(100vh - 50px);
+  padding: 30px 0 25px;
 }
 section#content > div.tab.hidden {
   display: none;
@@ -1161,6 +1185,51 @@ div.configEntry p.shortcutInfo > a {
 }
 div.configEntry p.shortcutInfo > em {
   color: #666;
+}
+
+section#menu {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  min-width: 200px;
+  background: #fff;
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
+  transform: translate3d(0, -10px, 0);
+  transition: opacity 0.2s, transform 0.2s;
+}
+section#menu::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+}
+section#menu.visible {
+  transform: translate3d(0, 0, 0);
+}
+section#menu > ul > li > a {
+  display: block;
+  padding: 10px 10px;
+  transition: background 0.3s;
+}
+section#menu > ul > li > a:hover {
+  background: #f2f2f2;
+}
+section#menu > ul > li > a[data-name='import'] {
+  position: relative;
+  overflow: hidden;
+}
+section#menu > ul > li > a[data-name='import'] > input[type='file'] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: -400%;
+  width: 500%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  z-index: 2;
 }
 
 body > footer {

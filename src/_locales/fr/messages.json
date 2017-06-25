@@ -521,6 +521,9 @@
     "settings_bookmarks_icon_size": {
         "message": "Taille de l'ic\u00f4ne des favoris"
     },
+    "settings_directories_icon_size": {
+        "message": "Taille de l'ic\u00f4ne des r\u00e9pertoires"
+    },
     "settings_bookmarks_line_height": {
         "message": "Espacement vertical"
     },

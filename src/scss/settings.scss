@@ -6,7 +6,7 @@
 body > header {
 
   > ul.tabBar {
-    $tabHeight: 34px;
+    $tabHeight: 30px;
 
     position: absolute;
     bottom: 0;
@@ -29,7 +29,7 @@ body > header {
         display: block;
         color: $textColorInverted;
         opacity: 0.7;
-        padding: 10px 0 0 0;
+        padding: 7px 0 0 0;
         height: 100%;
         z-index: 2;
       }
@@ -81,12 +81,12 @@ body > header {
 
           &::before {
             left: -40px;
-            transform: rotateZ(45deg);
+            transform: rotateZ(52deg);
           }
 
           &::after {
             right: -40px;
-            transform: rotateZ(135deg);
+            transform: rotateZ(128deg);
           }
         }
       }
@@ -106,6 +106,22 @@ body > header {
       }
     }
   }
+
+  > a {
+    @include mask("icon-menu-2", $textColorInverted, 26px);
+    position: absolute;
+    display: block;
+    top: 5px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 }
 
 // Content
@@ -114,7 +130,7 @@ section#content {
   width: 100%;
   margin-top: $headerHeight;
   height: calc(100vh - #{$headerHeight});
-  padding: 40px 0 25px;
+  padding: 30px 0 25px;
 
   > div.tab {
 
@@ -699,7 +715,6 @@ input[type='range'] {
 }
 
 div.configEntry {
-  //margin-bottom: 30px;
   transition: transform 0.5s, opacity 0.5s;
 
   &.hidden {
@@ -743,6 +758,66 @@ div.configEntry {
 
       > em {
         color: $textColor;
+      }
+    }
+  }
+}
+
+// Menu
+section#menu {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  min-width: 200px;
+  background: $contentBackground;
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
+  transform: translate3d(0, -10px, 0);
+  transition: opacity 0.2s, transform 0.2s;
+  @extend %hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    border: 10px solid transparent;
+    border-bottom-color: $contentBackground;
+  }
+
+  &.visible {
+    @extend %visible;
+    transform: translate3d(0, 0, 0);
+  }
+
+  > ul {
+
+    > li {
+
+      > a {
+        display: block;
+        padding: 10px 10px;
+        transition: background 0.3s;
+
+        &:hover {
+          background: $bodyBackground;
+        }
+
+        &[data-name='import'] {
+          position: relative;
+          overflow: hidden;
+
+          > input[type='file'] {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: -400%;
+            width: 500%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+            z-index: 2;
+          }
+        }
       }
     }
   }

@@ -117,7 +117,7 @@ section#sidebar {
     position: relative;
     width: 100%;
     height: $sidebarHeaderHeight;
-    padding: 7px 12px 0 12px;
+    padding: 5px 12px 0 12px;
     background: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -429,7 +429,7 @@ section#sidebar {
         }
 
         &.menu::before {
-          @include maskImage('icon-menu');
+          @include maskImage('icon-menu-1');
         }
       }
 

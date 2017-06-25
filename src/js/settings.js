@@ -83,6 +83,8 @@
                 copyrightDate: $("a#copyright > span"),
                 keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
+                menuLink: $("body > header > a"),
+                menuContainer: $("section#menu"),
                 appearance: {
                     content: $("div.tab[data-name='appearance']"),
                     backgroundChanger: $("menu.backgroundChanger > a"),
@@ -147,7 +149,8 @@
                         this.helper.feedback.init();
                         this.helper.contribute.init();
 
-                        initButtonEvents();
+                        initEvents();
+                        initImportExport();
                         initContentTabs();
 
                         this.opts.elm.body.removeClass(this.opts.classes.initLoading);
@@ -286,9 +289,76 @@
         };
 
         /**
-         * Initialises the eventhandler for the buttons
+         * Initialises the import/export functionality
          */
-        let initButtonEvents = () => {
+        let initImportExport = () => {
+            let config = Object.assign({}, this.helper.model.getAllData());
+            delete config.utility;
+            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='export']").attr({ // export config
+                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config)),
+                download: "bookmark-sidebar.config"
+            });
+
+            let alertImportError = () => {
+                alert(this.helper.i18n.get("settings_import_failed"));
+            };
+
+            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='import'] > input[type='file']").on("change", (e) => { // import config
+                e.preventDefault();
+                let _self = e.currentTarget;
+
+                if (_self.files && _self.files[0] && _self.files[0].name.search(/\.config$/) > -1) {
+                    let reader = new FileReader();
+
+                    reader.onload = (e) => {
+                        try {
+                            let config = JSON.parse(e.target.result);
+                            if (config.behaviour && config.appearance) {
+                                chrome.storage.sync.set({
+                                    behaviour: config.behaviour,
+                                    appearance: config.appearance
+                                }, () => {
+                                    this.helper.model.call("refreshAllTabs", {type: "Settings"});
+                                    this.showSuccessMessage("import_saved");
+                                    setTimeout(() => {
+                                        location.reload(true);
+                                    }, 1500);
+                                });
+                            } else {
+                                alertImportError();
+                            }
+                        } catch (e) {
+                            alertImportError();
+                        }
+                    };
+
+                    reader.readAsText(_self.files[0]);
+                } else {
+                    alertImportError();
+                }
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers
+         */
+        let initEvents = () => {
+            $(document).on("click", (e) => {
+                this.opts.elm.menuContainer.removeClass(this.opts.classes.visible);
+            });
+
+            this.opts.elm.menuLink.on("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                this.opts.elm.menuContainer.addClass(this.opts.classes.visible);
+            });
+
+            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='close']").on("click", (e) => {
+                e.preventDefault();
+                window.close();
+            });
+
             this.opts.elm.button.save.on("click", (e) => {
                 e.preventDefault();
 

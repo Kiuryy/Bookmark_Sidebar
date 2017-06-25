@@ -106,6 +106,15 @@
         };
 
         /**
+         * Returns all stored configuration
+         *
+         * @returns {object}
+         */
+        this.getAllData = () => {
+            return data;
+        };
+
+        /**
          * Retrieves the stored values for the given keys,
          * if a value is undefined, it will be set to the default value
          *

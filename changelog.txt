@@ -1,7 +1,9 @@
 [tbd]
  - helpful hints
  - Favorite bookmarks
- - import/export
+
+[1.9]
+ - Import/Export configuration
 
 [1.8]
  - Added many translations

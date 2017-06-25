@@ -263,19 +263,19 @@ body > header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 50px;
   background-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp), linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   background-repeat: no-repeat;
-  background-size: 58px, 100%;
-  background-position: 20px center, 0 0;
+  background-size: 40px, 100%;
+  background-position: 30px center, 0 0;
   box-shadow: inset 0 -12px 15px -10px rgba(0, 0, 0, 0.5);
 }
 body > header > svg {
   position: absolute;
-  top: calc(50% - 18px);
-  left: 75px;
-  width: 36px;
-  height: 36px;
+  top: calc(50% - 13px);
+  left: 70px;
+  width: 26px;
+  height: 26px;
   stroke: rgba(255, 255, 255, 0.5);
   fill: none;
 }
@@ -300,8 +300,8 @@ h3:not(:first-of-type) {
 section#content {
   position: relative;
   width: 100%;
-  margin-top: 70px;
-  height: calc(100vh - 70px);
+  margin-top: 50px;
+  height: calc(100vh - 50px);
   padding: 40px 0 25px;
 }
 section#content > div {
@@ -315,8 +315,8 @@ section#content > div {
 }
 section#content > div > header {
   position: relative;
-  padding: 10px 20px;
-  height: 50px;
+  padding: 8px 20px;
+  height: 45px;
   box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }

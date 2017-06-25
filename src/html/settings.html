@@ -11,7 +11,9 @@
 </head>
 
 <body class="initLoading">
-<header></header>
+<header>
+    <a href="#"></a>
+</header>
 
 <section id="content">
     <div class="tab" data-name="behaviour">
@@ -251,6 +253,16 @@
             </div>
         </div>
     </div>
+
+    <section id="menu">
+        <ul>
+            <li><a href="#" data-name="export" data-i18n="settings_menu_export"></a></li>
+            <li>
+                <a href="#" data-name="import"><input type='file' accept=".config, text/json" /><span data-i18n="settings_menu_import"></span></a>
+            </li>
+            <li><a href="#" data-name="close" data-i18n="settings_menu_close"></a></li>
+        </ul>
+    </section>
 </section>
 
 <script src="/js/lib/jsu.js"></script>

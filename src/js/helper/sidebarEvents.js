@@ -51,21 +51,20 @@
                         });
                     } else { // focus search field to enter the value of the pressed key there
                         let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-                        searchField.data("l", (e.ctrlKey || e.metaKey) ? 0 : searchField[0].value.length);
-                        searchField[0].focus();
+
+                        if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                            searchField[0].focus();
+                        }
                     }
                 }
             }).on("keyup", () => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                     let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-                    let prevLength = searchField.data("l") || 0;
                     let searchVal = searchField[0].value;
 
                     if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
                         ext.helper.contextmenu.close();
                         ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                    } else {
-                        ext.helper.scroll.focus(+prevLength !== searchVal.length); // focus scrollbox if length of search field is unchanged
                     }
                 }
             });

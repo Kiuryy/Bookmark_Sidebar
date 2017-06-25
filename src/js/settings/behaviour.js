@@ -81,7 +81,7 @@
             s.opts.elm.keyboardShortcutInfo.children("a").on("click", (e) => {
                 e.preventDefault();
                 chrome.tabs.create({
-                    url: "chrome://extensions",
+                    url: "chrome://extensions/configureCommands",
                     active: true
                 });
             });

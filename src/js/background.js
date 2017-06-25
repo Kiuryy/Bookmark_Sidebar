@@ -99,16 +99,16 @@
         if (bookmark["id"]) {
             initClickCounter(() => {
                 if (typeof clickCounter[bookmark["id"]] === "undefined") {
-                    if (typeof clickCounter["node_" + bookmark["id"]] === "undefined") {
-                        clickCounter[bookmark["id"]] = {c: 0}
-                    } else { // @deprecated
+                    if (typeof clickCounter["node_" + bookmark["id"]] !== "undefined") { // @deprecated
                         clickCounter[bookmark["id"]] = {
                             c: clickCounter["node_" + bookmark["id"]]
                         };
+                    } else {
+                        clickCounter[bookmark["id"]] = {c: 0};
                     }
                 }
 
-                if (typeof clickCounter[bookmark["id"]] !== "object") {
+                if (typeof clickCounter[bookmark["id"]] !== "object") { // @deprecated
                     clickCounter[bookmark["id"]] = {
                         c: clickCounter[bookmark["id"]]
                     };
@@ -601,70 +601,47 @@
                 });
 
                 chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
-                    // START UPGRADE CONFIG FOR v1.9
-                    if (typeof obj.behaviour !== "undefined" && typeof obj.behaviour.hideEmptyDirs !== "undefined") {
-                        delete obj.behaviour.hideEmptyDirs;
-                        chrome.storage.sync.set({behaviour: obj.behaviour});
+                    if (typeof obj.behaviour === "undefined") {
+                        obj.behaviour = {};
                     }
-                    // END UPGRADE CONFIG FOR v1.9
 
-                    // START UPGRADE CONFIG FOR v1.8
                     if (typeof obj.appearance === "undefined") {
                         obj.appearance = {};
                     }
+
+                    // START UPGRADE // v1.9
+                    delete obj.behaviour.scrollSensitivity;
 
                     if (typeof obj.appearance.styles === "undefined") {
                         obj.appearance.styles = {};
                     }
 
+                    if (typeof obj.appearance.styles.directoriesIconSize === "undefined" && typeof obj.appearance.styles.bookmarksIconSize !== "undefined") {
+                        obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
+                    }
+                    // END UPGRADE // v1.9
+
+                    // START UPGRADE // v1.8
+                    delete obj.behaviour.hideEmptyDirs;
+
                     if (typeof obj.appearance.styles.colorScheme === "undefined") {
                         obj.appearance.styles.colorScheme = "rgb(0,137,123)";
                     }
 
-                    if (typeof obj.behaviour === "undefined") {
-                        obj.behaviour = {};
-                    }
-
                     if (typeof obj.behaviour.initialOpenOnNewTab === "undefined") {
-                        obj.behaviour.initialOpenOnNewTab = chrome.i18n.getUILanguage() == "de";
-                        chrome.storage.sync.set({behaviour: obj.behaviour});
+                        obj.behaviour.initialOpenOnNewTab = chrome.i18n.getUILanguage() === "de";
                     }
-                    // END UPGRADE CONFIG FOR v1.8
+                    // END UPGRADE // v1.8
 
-                    // START UPGRADE CONFIG FOR v1.7
-                    if (obj.behaviour) {
-                        if (typeof obj.behaviour.rememberState === "undefined" && typeof obj.behaviour.rememberScroll !== "undefined") {
-                            obj.behaviour.rememberState = obj.behaviour.rememberScroll === false ? "openStates" : "all";
-                        }
-
-                        delete obj.behaviour.rememberScroll;
-                        delete obj.behaviour.model;
-                        delete obj.behaviour.clickCounter;
-                        delete obj.behaviour.clickCounterStartDate;
-
-                        chrome.storage.sync.set({behaviour: obj.behaviour});
-                    }
-
-                    if (newVersion.search("1.7.") === 0) {
-                        if (typeof obj.appearance.styles.bookmarksDirIcon === "undefined" || obj.appearance.styles.bookmarksDirIcon === "dir") {
-                            obj.appearance.styles.bookmarksDirIcon = "dir-2";
-                        } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt1") {
-                            obj.appearance.styles.bookmarksDirIcon = "dir-1";
-                            obj.appearance.styles.bookmarksDirColor = "rgb(240,180,12)";
-                        } else if (obj.appearance.styles.bookmarksDirIcon === "dir-alt2") {
-                            obj.appearance.styles.bookmarksDirIcon = "dir-1";
-                        }
-                    }
-
+                    // START UPGRADE // v1.7
                     delete obj.appearance.addVisual;
+                    delete obj.behaviour.rememberScroll;
+                    delete obj.behaviour.model;
+                    delete obj.behaviour.clickCounter;
+                    delete obj.behaviour.clickCounterStartDate;
+                    // END UPGRADE // v1.7
 
-                    if (obj.shareUserdata && (obj.shareUserdata === "n" || obj.shareUserdata === "y")) {
-                        chrome.storage.sync.set({shareUserdata: obj.shareUserdata === "y"});
-                    }
-                    chrome.storage.sync.remove(["lastShareDate", "scrollPos", "openStates", "installationDate", "uuid", "entriesLocked", "addVisual", "middleClickActive"]);
-                    // END UPGRADE CONFIG FOR v1.7
-
-                    // SAVE APPEARANCE SETTINGS FOR v1.7 AND v1.8
+                    chrome.storage.sync.set({behaviour: obj.behaviour});
                     chrome.storage.sync.set({appearance: obj.appearance});
                 });
             }

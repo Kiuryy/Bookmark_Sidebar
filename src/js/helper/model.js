@@ -151,6 +151,10 @@
                 }
 
                 if (keyInfo === "a/styles") {
+                    if (typeof value.directoriesIconSize === "undefined" && typeof value.bookmarksIconSize !== "undefined") { // @deprecated
+                        value.directoriesIconSize = value.bookmarksIconSize;
+                    }
+
                     value = Object.assign({}, defaults.a.styles, value);
 
                     if (ext.helper.font && ext.helper.font.isLoaded()) { // FontHelper is available and loaded -> extend object with detailed font information

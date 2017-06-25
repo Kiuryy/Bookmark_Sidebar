@@ -260,6 +260,9 @@
     "settings_tab_feedback": {
         "message": "\u53cd\u9988"
     },
+    "settings_headline_general": {
+        "message": "\u603b\u9879"
+    },
     "settings_headline_toggle": {
         "message": "\u5207\u6362"
     },
@@ -280,6 +283,12 @@
     },
     "settings_headline_translation": {
         "message": "\u7ffb\u8bd1"
+    },
+    "settings_animations": {
+        "message": "\u542f\u7528\u52a8\u753b"
+    },
+    "settings_animations_desc": {
+        "message": "\u5141\u8bb8\u60a8\u7981\u7528\u4fa7\u8fb9\u680f\u7684\u6574\u4e2a\u52a8\u753b\u3002\u5982\u679c\u52a8\u753b\u5728\u7cfb\u7edf\u4e0a\u8fd0\u884c\u4e0d\u987a\u7545\uff0c\u8fd9\u53ef\u80fd\u5f88\u6709\u7528\u3002"
     },
     "settings_px_tolerance": {
         "message": "\u50cf\u7d20\u5bbd\u5ea6"

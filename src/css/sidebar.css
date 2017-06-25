@@ -519,6 +519,10 @@ a.dragHelper > img {
 a.dragHelper > img[src] {
   visibility: visible;
 }
+a.dragHelper.dir > span.icon {
+  width: "%directoriesIconSize";
+  height: "%directoriesIconSize";
+}
 a.dragHelper.dir > span.icon::before {
   content: "";
   position: absolute;
@@ -526,7 +530,7 @@ a.dragHelper.dir > span.icon::before {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-mask: no-repeat center/"%bookmarksIconSize";
+  -webkit-mask: no-repeat center/"%directoriesIconSize";
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
   background-color: "%bookmarksDirColor";
 }
@@ -926,6 +930,10 @@ section#sidebar > div.scrollBox > ul a > img {
 section#sidebar > div.scrollBox > ul a > img[src] {
   visibility: visible;
 }
+section#sidebar > div.scrollBox > ul a.dir > span.icon {
+  width: "%directoriesIconSize";
+  height: "%directoriesIconSize";
+}
 section#sidebar > div.scrollBox > ul a.dir > span.icon::before {
   content: "";
   position: absolute;
@@ -933,7 +941,7 @@ section#sidebar > div.scrollBox > ul a.dir > span.icon::before {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-mask: no-repeat center/"%bookmarksIconSize";
+  -webkit-mask: no-repeat center/"%directoriesIconSize";
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
   background-color: "%bookmarksDirColor";
 }

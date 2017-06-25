@@ -57,6 +57,7 @@
                 showIndicatorIcon: true,
                 darkMode: false,
                 showBookmarkIcons: true,
+                showDirectoryIcons: true,
                 styles: {
                     colorScheme: defaultColors.colorScheme.light,
                     textColor: defaultColors.textColor.light,
@@ -67,6 +68,7 @@
                     sidebarWidth: "350px",
                     sidebarMaskColor: defaultColors.sidebarMaskColor.light,
                     bookmarksFontSize: "14px",
+                    directoriesIconSize: "16px",
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "40px",
                     bookmarksDirIcon: "dir-1",

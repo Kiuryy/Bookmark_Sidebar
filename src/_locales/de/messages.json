@@ -521,6 +521,9 @@
     "settings_bookmarks_icon_size": {
         "message": "Lesezeichen Icongr\u00f6\u00dfe"
     },
+    "settings_directories_icon_size": {
+        "message": "Verzeichnisse Icongr\u00f6\u00dfe"
+    },
     "settings_bookmarks_line_height": {
         "message": "Lesezeichen Zeilenh\u00f6he"
     },

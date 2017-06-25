@@ -77,24 +77,6 @@
     "contextmenu_show_in_dir": {
         "message": "Hi\u1ec7n trong th\u01b0 m\u1ee5c"
     },
-    "sort_label_custom": {
-        "message": "Ng\u01b0\u1eddi d\u00f9ng \u0111\u1eb7t"
-    },
-    "sort_label_alphabetical": {
-        "message": "Th\u1ee9 t\u1ef1 ch\u1eef c\u00e1i"
-    },
-    "sort_label_most_used": {
-        "message": "D\u00f9ng nhi\u1ec1u nh\u1ea5t"
-    },
-    "sort_label_recently_added": {
-        "message": "Th\u00eam g\u1ea7n \u0111\u00e2y"
-    },
-    "sort_view_as_tree": {
-        "message": "Hi\u1ec7n th\u01b0 m\u1ee5c"
-    },
-    "sort_most_used_per_month": {
-        "message": "H\u00e0ng th\u00e1ng"
-    },
     "overlay_bookmark_title": {
         "message": "Ti\u00eau \u0111\u1ec1"
     },

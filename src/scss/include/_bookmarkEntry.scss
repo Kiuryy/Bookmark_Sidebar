@@ -103,7 +103,9 @@
   }
 
   &.dir > span.icon {
-    @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__bookmarksIconSize);
+    @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__directoriesIconSize);
+    width: $__directoriesIconSize;
+    height: $__directoriesIconSize;
   }
 
   &.link > span.icon {

@@ -185,6 +185,18 @@
     "overlay_check_urls_not_found": {
         "message": "URL non trouv\u00e9e"
     },
+    "status_service_unavailable_headline": {
+        "message": "Service indisponible"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "Le service de v\u00e9rification des URL n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Le retour d'exp\u00e9rience n'est pas disponible actuellement. Si vous voulez faire un retour d'exp\u00e9rience, envoyez-moi un courriel s'il vous pla\u00eet."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Le service de traduction n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
+    },
     "share_userdata_headline": {
         "message": "Aidez-moi"
     },
@@ -260,6 +272,9 @@
     "settings_tab_feedback": {
         "message": "Retour d'exp\u00e9rience"
     },
+    "settings_headline_general": {
+        "message": "G\u00e9n\u00e9ral"
+    },
     "settings_headline_toggle": {
         "message": "Activation de la barre lat\u00e9rale"
     },
@@ -280,6 +295,12 @@
     },
     "settings_headline_translation": {
         "message": "Traduire"
+    },
+    "settings_animations": {
+        "message": "Activer les animations"
+    },
+    "settings_animations_desc": {
+        "message": "Permet de d\u00e9sactiver l'ensemble des animations de la barre lat\u00e9rale. Cela peut \u00eatre utile si les animations ne sont pas fluides sur votre machine."
     },
     "settings_px_tolerance": {
         "message": "Marge en pixels"

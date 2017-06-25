@@ -906,7 +906,7 @@ body[data-tab='appearance'] section#content > div.tab menu.backgroundChanger > a
   border: 2px solid #2b35c8;
 }
 body[data-tab='appearance'] section#content > div.tab ul.labels {
-  padding: 7px 0 5px 0;
+  padding: 0 0 5px 0;
 }
 body[data-tab='appearance'] section#content > div.tab ul.labels > li {
   display: inline-block;

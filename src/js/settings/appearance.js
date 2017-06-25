@@ -216,6 +216,7 @@
                 showIndicator: true,
                 showIndicatorIcon: true,
                 showBookmarkIcons: true,
+                showDirectoryIcons: true,
                 styles: {}
             };
 
@@ -241,6 +242,10 @@
 
             if (parseInt(ret.styles.bookmarksIconSize) === 0) {
                 ret.showBookmarkIcons = false;
+            }
+
+            if (parseInt(ret.styles.directoriesIconSize) === 0) {
+                ret.showDirectoryIcons = false;
             }
 
             if (styles.isEE === true) {

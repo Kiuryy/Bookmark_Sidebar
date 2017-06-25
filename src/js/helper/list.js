@@ -288,7 +288,7 @@
          */
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
-            let config = ext.helper.model.getData(["a/showBookmarkIcons", "b/dirOpenDuration"]);
+            let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration"]);
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
             let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
@@ -346,7 +346,7 @@
                             .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.helper.i18n.get("sidebar_dir_children"))
                             .addClass(ext.opts.classes.sidebar.bookmarkDir);
 
-                        if (config.showBookmarkIcons) {
+                        if (config.showDirectoryIcons) {
                             entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
                         }
                     } else if (bookmark.url) { // link

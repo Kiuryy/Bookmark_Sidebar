@@ -285,7 +285,7 @@
         "message": "Search"
     },
     "settings_headline_faq": {
-        "message": "Frequently asked questions"
+        "message": "Frequently Asked Questions"
     },
     "settings_headline_share_userdata": {
         "message": "Share information"
@@ -521,6 +521,9 @@
     "settings_bookmarks_icon_size": {
         "message": "Bookmarks icon size"
     },
+    "settings_directories_icon_size": {
+        "message": "Directories icon size"
+    },
     "settings_bookmarks_line_height": {
         "message": "Bookmarks line height"
     },
@@ -546,10 +549,10 @@
         "message": "Configuration restored successfully"
     },
     "settings_feedback_desc": {
-        "message": "You have suggestions for improvements, questions, missing some configuration options or found a bug? To improve the experience with the extension I am very glad for every feedback you give me."
+        "message": "Have any suggestions for improvements, questions, notice missing configuration options, or found a bug? To help improve experiences with this extension I would be very grateful for any and all feedback given or you might have."
     },
     "settings_feedback_notice": {
-        "message": "Please write your message in English, otherwise I will have problems to understand and answer your message."
+        "message": "Please compose your feedback in English, otherwise It will be difficult to understand and answer your message."
     },
     "settings_feedback_email": {
         "message": "Your email address"
@@ -567,13 +570,13 @@
         "message": "You can watch the [a]tutorial[\/a] to see how to open the sidebar and test it yourself afterwards on every website. If you still have issues with the extension please read the other answered question regarding why the sidebar is not working on every page or send me a message with details about your problem."
     },
     "settings_faq_fixed_sidebar_q": {
-        "message": "Can you make the sidebar to be opened all the time?"
+        "message": "Can you make the sidebar remain open all the time?"
     },
     "settings_faq_fixed_sidebar_a": {
         "message": "Unfortunately I can not do this. Google removed the possibility to make a real sidebar, like in firefox, a few years ago. Without the application programming interface the sidebar needs to be loaded again every time you navigate to a new page."
     },
     "settings_faq_not_working_q": {
-        "message": "Why doesn't the sidebar work on some pages, like the chrome webstore?"
+        "message": "Why doesn't the sidebar work on some pages, like the Chrome Webstore?"
     },
     "settings_faq_not_working_a": {
         "message": "This can have many reasons. On the chrome webstore and pages starting with [em]chrome-extension:\/\/[\/em] this is a security restriction. But there might be other pages which block the sidebar, or use outdated source code structures. If you encounter problems on some pages, please let me know, so I can have a look at the particular page and try to fix it."

@@ -596,6 +596,21 @@
     "settings_contribute_donation_desc": {
         "message": "Faire un don est facultatif. Si vous appr\u00e9ciez cette extension souhaitez faire un petit don vous pouvez cliquer sur le lien ci-dessous. Toute aide est bienvenue pour am\u00e9liorer cette extension, que ce soit un don, une participation aux traductions ou un retour d'exp\u00e9rience."
     },
+    "settings_menu_export": {
+        "message": "Exporter la configuration"
+    },
+    "settings_menu_import": {
+        "message": "Importer une configuration"
+    },
+    "settings_menu_close": {
+        "message": "Fermer la page"
+    },
+    "settings_import_saved": {
+        "message": "Configuration import\u00e9e avec succ\u00e8s"
+    },
+    "settings_import_failed": {
+        "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
+    },
     "translation_title": {
         "message": "Traduction"
     },

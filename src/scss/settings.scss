@@ -773,6 +773,7 @@ section#menu {
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
   transform: translate3d(0, -10px, 0);
   transition: opacity 0.2s, transform 0.2s;
+  z-index: 5;
   @extend %hidden;
 
   &::before {

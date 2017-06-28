@@ -113,7 +113,6 @@
                 field: {}
             },
             events: {
-                checkboxChanged: "blockbyte-bs-checkboxChanged",
                 contentTabChanged: "blockbyte-bs-contentTabChanged"
             },
             ajax: {

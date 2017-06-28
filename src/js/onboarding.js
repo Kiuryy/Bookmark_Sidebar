@@ -65,7 +65,12 @@
 
                     setTimeout(() => { // finish loading
                         this.opts.elm.body.removeClass(this.opts.classes.initLoading);
-                        gotoSlide("intro");
+
+                        if (location.href.search(/(\?|\&)skip\=1/) > -1) {
+                            initHandsOn(true);
+                        } else {
+                            gotoSlide("intro");
+                        }
 
                         setTimeout(() => {
                             loader.remove();

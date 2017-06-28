@@ -8,6 +8,43 @@ section.infobox.visible {
   pointer-events: auto;
 }
 
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, input, textarea, select, button {
+  font-size: 14px;
+  font-family: "%fontFamily", sans-serif;
+  color: #666;
+  font-weight: "%fontWeightNormal";
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  font-weight: "%fontWeightBold";
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+body {
+  background: #f2f2f2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 section.infobox {
   position: absolute;
   top: 0;
@@ -19,6 +56,7 @@ section.infobox {
   justify-content: center;
   transform: translate3d(0, -40px, 0);
   transition: opacity 0.5s, transform 0.5s;
+  perspective: 800px;
 }
 section.infobox.visible {
   transform: translate3d(0, 0, 0);
@@ -27,16 +65,14 @@ section.infobox > div {
   position: relative;
   width: 100%;
   max-width: 650px;
+  height: 400px;
   padding: 30px;
   background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
   color: #fff;
   text-align: center;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-}
-@media (max-width: 650px) {
-  section.infobox > div {
-    width: 100%;
-  }
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 section.infobox > div span.icon {
   display: block;
@@ -83,55 +119,6 @@ section.infobox > div a.close {
   text-decoration: none;
   color: #fff;
   opacity: 0.5;
-}
-
-*, *::after, *::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
-
-body, input, textarea, select, button {
-  font-size: 14px;
-  font-family: "%fontFamily", sans-serif;
-  color: #666;
-  font-weight: "%fontWeightNormal";
-}
-
-ul {
-  list-style: none;
-}
-
-strong {
-  font-weight: "%fontWeightBold";
-}
-
-a {
-  color: #666;
-  text-decoration: none;
-}
-
-body {
-  background: #f2f2f2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-section.infobox {
-  perspective: 800px;
-}
-section.infobox > div {
-  position: relative;
-  width: 100%;
-  max-width: 650px;
-  height: 430px;
-  transform-style: preserve-3d;
-  transition: transform 1s;
 }
 section.infobox > div > div {
   position: absolute;
@@ -181,7 +168,7 @@ section.infobox.flipped > div {
   transform: rotateX(180deg);
 }
 section.infobox ul.changelog {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 section.infobox ul.changelog li {
   padding: 10px 0;

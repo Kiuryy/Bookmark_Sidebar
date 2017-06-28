@@ -1,8 +1,10 @@
 [tbd]
  - helpful hints
  - Favorite bookmarks
- - Onboarding (ga events, skip via url param, integrate _infoBox.scss)
+ - Onboarding (ga events)
  - Bugfix: ga event before pageload
+ - Bugfix: open children order
+ - Update changelog
 
 [1.9]
  - Import/Export configuration

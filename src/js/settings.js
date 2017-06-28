@@ -41,7 +41,6 @@
                 revert: "revert",
                 visible: "visible",
                 gotoFeedback: "gotoFeedback",
-                howto: "howto",
                 action: "action",
                 incomplete: "incomplete"
             },

@@ -25,6 +25,7 @@
                 this.helper.i18n.init(() => {
                     this.helper.font.init();
                     this.helper.stylesheet.init();
+                    this.helper.stylesheet.addStylesheets(["content"]);
                     initSidebar();
 
                     this.helper.toggle.init();
@@ -79,41 +80,39 @@
          * is called after opening the sidebar and is only executed the first time the sidebar is opened
          */
         this.trackInitialEvents = () => {
-            if (!this.elements.sidebar.hasClass(this.opts.classes.sidebar.openedOnce)) {
-                this.helper.model.call("trackEvent", {
-                    category: "directory",
-                    action: "openState_initial",
-                    label: "open",
-                    value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
-                });
+            this.helper.model.call("trackEvent", {
+                category: "directory",
+                action: "openState_initial",
+                label: "open",
+                value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
+            });
 
-                let sort = this.helper.list.getSort();
-                this.helper.model.call("trackEvent", {
-                    category: "sorting",
-                    action: "initial",
-                    label: sort.name + "_" + sort.dir
-                });
+            let sort = this.helper.list.getSort();
+            this.helper.model.call("trackEvent", {
+                category: "sorting",
+                action: "initial",
+                label: sort.name + "_" + sort.dir
+            });
 
-                let trackSearchValue = (retry = 0) => {
-                    if (this.elements.header.find("div." + this.opts.classes.sidebar.searchBox).length() > 0) { // search box is loaded yet
-                        let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
-                        if (searchVal.length > 0) {
-                            this.helper.model.call("trackEvent", {
-                                category: "search",
-                                action: "search",
-                                label: "initial",
-                                value: searchVal.length
-                            });
-                        }
-                    } else if (retry < 20) { // no search box loaded -> wait a bit and try again
-                        setTimeout(() => {
-                            trackSearchValue(++retry);
-                        }, 100);
+            let trackSearchValue = (retry = 0) => {
+                if (this.elements.header.find("div." + this.opts.classes.sidebar.searchBox).length() > 0) { // search box is loaded yet
+                    let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
+                    if (searchVal.length > 0) {
+                        this.helper.model.call("trackEvent", {
+                            category: "search",
+                            action: "search",
+                            label: "initial",
+                            value: searchVal.length
+                        });
                     }
-                };
+                } else if (retry < 20) { // no search box loaded -> wait a bit and try again
+                    setTimeout(() => {
+                        trackSearchValue(++retry);
+                    }, 100);
+                }
+            };
 
-                trackSearchValue();
-            }
+            trackSearchValue();
         };
 
         /**
@@ -123,14 +122,10 @@
             if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
-                document.dispatchEvent(new CustomEvent(opts.events.loaded, {
-                    detail: {
-                        pxTolerance: data.pxTolerance,
-                        showIndicator: data.showIndicator
-                    },
-                    bubbles: true,
-                    cancelable: false
-                }));
+                this.helper.utility.triggerEvent("loaded", {
+                    pxTolerance: data.pxTolerance,
+                    showIndicator: data.showIndicator
+                });
             }
         };
 
@@ -247,7 +242,6 @@
          * Creates the basic html markup for the sidebar and the visual
          */
         let initSidebar = () => {
-            this.helper.stylesheet.addStylesheets(["content"]);
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
 
             if (this.helper.model.getData("b/animations") === false) {

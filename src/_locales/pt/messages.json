@@ -203,36 +203,6 @@
     "share_userdata_decline": {
         "message": "N\u00e3o, obrigado"
     },
-    "howto_title": {
-        "message": "Como usar"
-    },
-    "howto_headline": {
-        "message": "Obrigado por instalar esta extens\u00e3o."
-    },
-    "howto_start_tutorial": {
-        "message": "Mostre-me como usar"
-    },
-    "howto_replay_tutorial": {
-        "message": "Repetir o tutorial"
-    },
-    "howto_close": {
-        "message": "Fechar esta p\u00e1gina"
-    },
-    "howto_tutorial_text_1": {
-        "message": "Em qualquer website, apenas mova seu cursor para o lado {1} da janela"
-    },
-    "howto_tutorial_text_2": {
-        "message": "{1} click com seu mouse abre a barra lateral"
-    },
-    "howto_tutorial_text_3": {
-        "message": "Agora voc\u00ea pode acessar todos os seus favoritos e aproveitar esta extens\u00e3o"
-    },
-    "howto_tutorial_left": {
-        "message": "esquerda"
-    },
-    "howto_tutorial_right": {
-        "message": "direita"
-    },
     "changelog_title": {
         "message": "Changelog"
     },

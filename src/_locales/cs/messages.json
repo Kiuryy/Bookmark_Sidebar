@@ -197,36 +197,6 @@
     "share_userdata_decline": {
         "message": "Ne, d\u011bkuji"
     },
-    "howto_title": {
-        "message": "Jak na to"
-    },
-    "howto_headline": {
-        "message": "D\u011bkujeme za instalaci tohoto roz\u0161\u00ed\u0159en\u00ed."
-    },
-    "howto_start_tutorial": {
-        "message": "Uka\u017e mi, jak to pou\u017e\u00edvat"
-    },
-    "howto_replay_tutorial": {
-        "message": "Zopakovat animaci"
-    },
-    "howto_close": {
-        "message": "Zav\u0159\u00edt str\u00e1nku"
-    },
-    "howto_tutorial_text_1": {
-        "message": "V okn\u011b sta\u010d\u00ed posunout my\u0161\u00ed ke stran\u011b {1}"
-    },
-    "howto_tutorial_text_2": {
-        "message": "{1} klikni pro otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
-    },
-    "howto_tutorial_text_3": {
-        "message": "Nyn\u00ed m\u00e1te p\u0159\u00edstupn\u00e9 v\u0161echny va\u0161e z\u00e1lo\u017eky. U\u017eijte si toto roz\u0161\u00ed\u0159en\u00ed"
-    },
-    "howto_tutorial_left": {
-        "message": "vlevo"
-    },
-    "howto_tutorial_right": {
-        "message": "vpravo"
-    },
     "changelog_title": {
         "message": "Z\u00e1znam zm\u011bn"
     },

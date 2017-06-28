@@ -203,36 +203,6 @@
     "share_userdata_decline": {
         "message": "Nie zgadzam si\u0119"
     },
-    "howto_title": {
-        "message": "Jak to dzia\u0142a"
-    },
-    "howto_headline": {
-        "message": "Dzi\u0119kuj\u0119 ci za zainstalowanie tego rozszerzenia."
-    },
-    "howto_start_tutorial": {
-        "message": "Poka\u017c mi jak tego u\u017cywa\u0107"
-    },
-    "howto_replay_tutorial": {
-        "message": "Powt\u00f3rz t\u0105 animacj\u0119"
-    },
-    "howto_close": {
-        "message": "Zamknij t\u0105 stron\u0119"
-    },
-    "howto_tutorial_text_1": {
-        "message": "Na jakiejkolwiek stronie przesuwasz po prostu kursor do {1} brzegu okna"
-    },
-    "howto_tutorial_text_2": {
-        "message": "{1} Kliknij myszk\u0105, aby otworzy\u0107 boczn\u0105 list\u0119"
-    },
-    "howto_tutorial_text_3": {
-        "message": "Teraz masz dost\u0119p do wszystkich swoich zak\u0142adek i mo\u017cesz cieszy\u0107 si\u0119 z u\u017cytkowania tego rozszerzenia"
-    },
-    "howto_tutorial_left": {
-        "message": "lewa"
-    },
-    "howto_tutorial_right": {
-        "message": "prawa"
-    },
     "changelog_title": {
         "message": "Lista zmian"
     },

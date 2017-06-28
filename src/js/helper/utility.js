@@ -40,6 +40,7 @@
             let types = {
                 newtab: "https?://www.google\..+/_/chrome/newtab",
                 website: "https?://",
+                onboarding: "chrome\-extension://.*/intro.html",
                 chrome: "chrome://",
                 extension: "chrome\-extension://",
                 local: "file://"
@@ -53,6 +54,31 @@
             });
 
             return ret;
+        };
+
+        /**
+         * Returns whether the the sidebar mask should be visible or not
+         *
+         * @returns {boolean}
+         */
+        this.sidebarHasMask = () => {
+            let pageType = ext.helper.utility.getPageType();
+            return pageType !== "newtab" && pageType !== "onboarding";
+        };
+
+        /**
+         * Triggers an event with the given name
+         *
+         * @param {string} name
+         * @param {object} data
+         * @param {Element} scope
+         */
+        this.triggerEvent = (name, data = {}, scope = null) => {
+            (scope || document).dispatchEvent(new CustomEvent(ext.opts.events[name], {
+                detail: data,
+                bubbles: true,
+                cancelable: false
+            }));
         };
 
         /**

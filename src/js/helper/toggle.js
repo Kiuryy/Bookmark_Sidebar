@@ -50,11 +50,14 @@
 
             if (ext.helper.utility.getPageType() === "newtab") {
                 ext.elements.indicator.addClass(ext.opts.classes.page.isNewTab);
-                ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
 
                 if (data.initialOpenOnNewTab) {
                     openSidebar();
                 }
+            }
+
+            if (ext.helper.utility.sidebarHasMask() === false) {
+                ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
             }
         };
 
@@ -248,9 +251,13 @@
                 }
             });
 
+            if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
+                ext.trackInitialEvents();
+                ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+            }
+
             ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
             ext.elements.iframe.addClass(ext.opts.classes.page.visible);
-            ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
             ext.initImages();
 
             if (preventPageScroll) {
@@ -260,7 +267,7 @@
             ext.helper.scroll.focus();
             $(document).trigger("mousemove"); // hide indicator
 
-            ext.trackInitialEvents();
+            ext.helper.utility.triggerEvent("sidebarOpened");
         };
 
         /**
@@ -277,7 +284,6 @@
                 });
             }
         };
-
     };
 
 })(jsu);

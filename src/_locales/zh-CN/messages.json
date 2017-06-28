@@ -203,36 +203,6 @@
     "share_userdata_decline": {
         "message": "\u59d4\u5a49\u62d2\u7edd"
     },
-    "howto_title": {
-        "message": "\u5982\u4f55\u4f7f\u7528"
-    },
-    "howto_headline": {
-        "message": "\u611f\u8c22\u60a8\u5b89\u88c5\u6b64\u63d2\u4ef6"
-    },
-    "howto_start_tutorial": {
-        "message": "\u4e3a\u6211\u5c55\u793a\u5982\u4f55\u4f7f\u7528"
-    },
-    "howto_replay_tutorial": {
-        "message": "\u91cd\u64ad\u52a8\u753b"
-    },
-    "howto_close": {
-        "message": "\u5173\u95ed\u6b64\u9875"
-    },
-    "howto_tutorial_text_1": {
-        "message": "\u5728\u4efb\u4f55\u7f51\u9875\u4e0a, \u79fb\u52a8\u9f20\u6807\u5149\u6807\u5230\u7a97\u53e3\u8fb9\u6cbf"
-    },
-    "howto_tutorial_text_2": {
-        "message": "\u70b9\u51fb\u9f20\u6807\u6253\u5f00\u4fa7\u8fb9\u680f"
-    },
-    "howto_tutorial_text_3": {
-        "message": "\u73b0\u5728\u60a8\u53ef\u4ee5\u770b\u5230\u6240\u6709\u4e66\u7b7e, \u5c3d\u60c5\u53d1\u6325\u5427"
-    },
-    "howto_tutorial_left": {
-        "message": "\u5de6"
-    },
-    "howto_tutorial_right": {
-        "message": "\u53f3"
-    },
     "changelog_title": {
         "message": "\u66f4\u65b0\u65e5\u5fd7"
     },

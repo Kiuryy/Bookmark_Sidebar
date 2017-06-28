@@ -75,7 +75,7 @@ body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible {
   transform: translate3d(0, 0, 0);
   transition: opacity 0.3s, transform 0.3s;
 }
-body > iframe#blockbyte-bs-sidebar.blockbyte-bs-isNewTab {
+body > iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask {
   width: calc(%sidebarWidth + 100px);
   background: none;
 }

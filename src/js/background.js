@@ -10,7 +10,8 @@
         check404: "https://blockbyte.de/extensions",
         updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
         userdata: "https://blockbyte.de/ajax/extensions/userdata",
-        uninstall: "https://blockbyte.de/extensions/bs/uninstall"
+        uninstall: "https://blockbyte.de/extensions/bs/uninstall",
+        onboarding: "https://blockbyte.de/extensions/bs/install"
     };
 
     let langVarsChache = {};
@@ -435,6 +436,21 @@
     };
 
     /**
+     * Returns whether the onboarding should be shown or not
+     *
+     * @param {object} opts
+     * @param {function} sendResponse
+     */
+    let onboarding = (opts, sendResponse) => {
+        sendResponse({
+            showOnboarding: typeof data.inited === "undefined",
+            defaultPage: urls.onboarding
+        });
+        data.inited = true;
+        saveModelData();
+    };
+
+    /**
      * Checks whether the website is available
      *
      * @param {object} opts
@@ -530,6 +546,7 @@
         deleteBookmark: deleteBookmark,
         refreshAllTabs: refreshAllTabs,
         shareUserdata: updateShareUserdataFlag,
+        onboarding: onboarding,
         shareUserdataMask: shareUserdataMask,
         languageInfos: getAllLanguages,
         langvars: getLangVars,
@@ -576,7 +593,7 @@
 
     chrome.runtime.onInstalled.addListener((details) => {
         if (details.reason === 'install') {
-            chrome.tabs.create({url: chrome.extension.getURL('html/howto.html')});
+            chrome.tabs.create({url: chrome.extension.getURL('html/intro.html')});
         } else if (details.reason === 'update') {
             let newVersion = chrome.runtime.getManifest().version;
             let versionPartsOld = details.previousVersion.split('.');
@@ -639,6 +656,10 @@
                     delete obj.behaviour.model;
                     delete obj.behaviour.clickCounter;
                     delete obj.behaviour.clickCounterStartDate;
+
+                    if (typeof obj.appearance.styles.bookmarksDirIcon !== "undefined" && obj.appearance.styles.bookmarksDirIcon === "dir") {
+                        obj.appearance.styles.bookmarksDirIcon = "dir-1";
+                    }
                     // END UPGRADE // v1.7
 
                     chrome.storage.sync.set({behaviour: obj.behaviour});

@@ -1,0 +1,216 @@
+@import "include/vars";
+@import "include/mixins";
+//
+$__colorScheme: $textColorInverted;
+$__textColor: $textColor;
+@import "include/loading";
+@import "include/generals";
+
+%button {
+  display: inline-block;
+  background: $contentBackground;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  color: $mainColor;
+  font-size: 140%;
+  font-weight: 300;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 3px;
+}
+
+body {
+  background: $gradient;
+  height: 100vh;
+  overflow: hidden;
+
+  > svg.loading {
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+  }
+}
+
+section.slide {
+  position: absolute;
+  width: 650px;
+  top: 30vh;
+  left: calc(50% - 325px);
+  text-align: center;
+  transition: opacity 0.3s, transform 0.3s;
+  @extend %hidden;
+
+  &.visible {
+    @extend %visible;
+  }
+
+  > p.large {
+    font-size: 200%;
+    font-weight: 200;
+    color: $textColorInverted;
+    margin: 0 0 40px 0;
+  }
+
+  &[data-name='intro'], &[data-name='finished'] {
+
+    > a.nextSlide, > a.close {
+      @extend %button;
+    }
+
+    > a.skip, > a.gotoSettings {
+      color: $textColorInverted;
+      font-size: 90%;
+      opacity: 0.5;
+    }
+  }
+
+  &[data-name='intro']::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: calc(50% - 32px);
+    width: 64px;
+    height: 64px;
+    background: img('icon/icon.webp') no-repeat center / 100%;
+  }
+
+  &[data-name='position'], &[data-name='openAction'], &[data-name='surface'] {
+
+    > a {
+      @extend %button;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+  }
+
+  &[data-name='surface'] {
+
+    > a[data-value="dark"] {
+      background: $darkContentBackground;
+      color: $textColorInverted;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &[data-name='handson'] {
+
+    > p.large {
+      margin-bottom: 70px;
+    }
+
+    > p:not(.large) {
+      color: $textColorInverted;
+      font-size: 120%;
+      opacity: 0.7;
+      padding: 7px 0;
+    }
+  }
+}
+
+// Sidebar placeholder
+div#sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: $contentBackground;
+  padding: 30px 30px 0 80px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  transform: translate3d(-350px, 0, 0);
+  transition: transform 0.5s, background-color 0.3s;
+  z-index: 3;
+
+  &[data-position='right'] {
+    transform: translate3d(350px, 0, 0);
+    left: auto;
+    right: 0;
+  }
+
+  &.visible {
+    transform: translate3d(0, 0, 0);
+  }
+
+  > p {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s;
+    margin: 50px 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -50px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: inherit;
+    }
+  }
+}
+
+body {
+
+  &[data-surface='dark'] {
+
+    div#sidebar {
+      background: $darkContentBackground;
+
+      > p {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  &[data-openType] {
+    @include mask(null, $textColorInverted, 48px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &[data-openType='icon']::before {
+    @include maskImage('onboarding/icon-arrow');
+    top: 50px;
+    left: auto;
+    right: 80px;
+  }
+
+  &[data-openType='mouse']::before {
+    @include maskImage('onboarding/icon-cursor');
+    top: calc(50% - 24px);
+  }
+
+  &[data-openType='mouse'][data-position='right']::before {
+    left: auto;
+    right: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+@media (max-width: 1500px) {
+  body {
+
+    &[data-position='left'] {
+
+      section.slide:not([data-name='position']):not([data-name='handson']) {
+        right: 40px;
+        left: auto;
+      }
+    }
+
+    &[data-position='right'] {
+
+      section.slide:not([data-name='position']):not([data-name='handson']) {
+        left: 40px;
+      }
+    }
+  }
+}

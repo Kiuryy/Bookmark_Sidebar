@@ -55,15 +55,11 @@
             let checkbox = container.children("input[type='checkbox']");
 
             checkbox.trigger("change");
-            body.document()[0].dispatchEvent(new CustomEvent(ext.opts.events.checkboxChanged, {
-                detail: {
-                    container: container,
-                    checkbox: checkbox,
-                    checked: container.hasClass(ext.opts.classes.checkbox.active)
-                },
-                bubbles: true,
-                cancelable: false
-            }));
+            ext.helper.utility.triggerEvent("checkboxChanged", {
+                container: container,
+                checkbox: checkbox,
+                checked: container.hasClass(ext.opts.classes.checkbox.active)
+            }, body.document()[0]);
         };
 
         /**

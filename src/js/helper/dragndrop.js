@@ -56,8 +56,9 @@
             ext.elements.iframeBody.on("dragenter", () => {
                 ext.helper.contextmenu.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
-                ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
+                ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
                 trackStart("selection");
+
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
                 }
@@ -94,8 +95,9 @@
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-                    if (ext.helper.utility.getPageType() === "newtab") {
-                        ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
+
+                    if (ext.helper.utility.sidebarHasMask() === false) {
+                        ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
                     }
                 }
             });
@@ -292,11 +294,12 @@
             }
 
             ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-            if (ext.helper.utility.getPageType() === "newtab") {
-                setTimeout(() => {
-                    ext.elements.iframe.addClass(ext.opts.classes.page.isNewTab);
-                }, 500);
-            }
+
+            setTimeout(() => {
+                if (ext.helper.utility.sidebarHasMask() === false) {
+                    ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
+                }
+            }, 500);
         };
 
         let clearDirOpenTimeout = (checkElm = null) => {
@@ -414,16 +417,16 @@
 
             ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 let x = e.pageX;
-                let isNewTab = ext.helper.utility.getPageType() === "newtab";
+                let hasMask = ext.helper.utility.sidebarHasMask();
 
-                if (isNewTab && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
+                if (hasMask === false && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
                     let width = ext.elements.iframe.realWidth();
-                    ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
+                    ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
+
                     x += ext.elements.iframe.realWidth() - width;
-                } else if (isNewTab) {
-                    ext.elements.iframe.removeClass(ext.opts.classes.page.isNewTab);
                 }
 
+                ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
                 dragstart(e.currentTarget, x, e.pageY);
             });
 

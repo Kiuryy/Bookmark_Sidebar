@@ -64,7 +64,7 @@ module.exports = function (grunt) {
                     ['tmp/lib/stylesheet-es5.js']: path.src + 'js/helper/stylesheet.js',
                     ['tmp/lib/font-es5.js']: path.src + 'js/helper/font.js',
                     ['tmp/translation-es5.js']: path.src + 'js/translation.js',
-                    ['tmp/howto-es5.js']: path.src + 'js/howto.js',
+                    ['tmp/onboarding-es5.js']: path.src + 'js/onboarding.js',
                     ['tmp/changelog-es5.js']: path.src + 'js/changelog.js',
                     ['tmp/background-es5.js']: path.src + 'js/background.js'
                 }
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
                     ['tmp/js/lib/font.js']: 'tmp/lib/font-es5.js',
                     ['tmp/js/settings.js']: 'tmp/settings-es5.js',
                     ['tmp/js/translation.js']: 'tmp/translation-es5.js',
-                    ['tmp/js/howto.js']: 'tmp/howto-es5.js',
+                    ['tmp/js/onboarding.js']: 'tmp/onboarding-es5.js',
                     ['tmp/js/changelog.js']: 'tmp/changelog-es5.js',
                     ['tmp/js/background.js']: 'tmp/background-es5.js'
                 }
@@ -141,7 +141,7 @@ module.exports = function (grunt) {
                     ['tmp/html/settings.html']: path.src + 'html/settings.html',
                     ['tmp/html/translate.html']: path.src + 'html/translate.html',
                     ['tmp/html/changelog.html']: path.src + 'html/changelog.html',
-                    ['tmp/html/howto.html']: path.src + 'html/howto.html',
+                    ['tmp/html/intro.html']: path.src + 'html/intro.html',
                 }
             },
             distManifest: {

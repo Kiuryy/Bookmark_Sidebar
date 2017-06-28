@@ -215,36 +215,6 @@
     "share_userdata_decline": {
         "message": "Non merci"
     },
-    "howto_title": {
-        "message": "Mode d'emploi"
-    },
-    "howto_headline": {
-        "message": "Merci d'avoir install\u00e9 cette extension."
-    },
-    "howto_start_tutorial": {
-        "message": "Montrez-moi comment m'en servir"
-    },
-    "howto_replay_tutorial": {
-        "message": "Rejouer la s\u00e9quence"
-    },
-    "howto_close": {
-        "message": "Fermer la page"
-    },
-    "howto_tutorial_text_1": {
-        "message": "Sur un site web, il suffit de placer le curseur sur le c\u00f4t\u00e9 {1} de la fen\u00eatre"
-    },
-    "howto_tutorial_text_2": {
-        "message": "{1} cliquer pour ouvrir la barre lat\u00e9rale"
-    },
-    "howto_tutorial_text_3": {
-        "message": "Vous pouvez maintenant utiliser vos favoris et profiter de cette extension"
-    },
-    "howto_tutorial_left": {
-        "message": "gauche"
-    },
-    "howto_tutorial_right": {
-        "message": "droite"
-    },
     "changelog_title": {
         "message": "Historique des modifications"
     },

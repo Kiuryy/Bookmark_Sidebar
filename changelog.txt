@@ -1,9 +1,12 @@
 [tbd]
  - helpful hints
  - Favorite bookmarks
+ - Onboarding (ga events, skip via url param, integrate _infoBox.scss)
+ - Bugfix: ga event before pageload
 
 [1.9]
  - Import/Export configuration
+ - Onboarding with setup
 
 [1.8]
  - Added many translations

@@ -215,35 +215,62 @@
     "share_userdata_decline": {
         "message": "Nein danke"
     },
-    "howto_title": {
-        "message": "Howto"
+    "onboarding_title": {
+        "message": "Einrichten"
     },
-    "howto_headline": {
+    "onboarding_headline": {
         "message": "Danke, dass du die Erweiterung installiert hast."
     },
-    "howto_start_tutorial": {
-        "message": "Wie funktioniert's?"
+    "onboarding_setup": {
+        "message": "Jetzt einrichten"
     },
-    "howto_replay_tutorial": {
-        "message": "Animation erneut abspielen"
+    "onboarding_skip": {
+        "message": "\u00dcberspringen"
     },
-    "howto_close": {
-        "message": "Diese Seite schlie\u00dfen"
+    "onboarding_sidebar_position_desc": {
+        "message": "Wo willst du deine Sidebar haben?"
     },
-    "howto_tutorial_text_1": {
-        "message": "Bewege auf einer Webseite den Cursor zur {1} Seite des Fensters"
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Wie willst du deine Sidebar \u00f6ffnen?"
     },
-    "howto_tutorial_text_2": {
+    "onboarding_sidebar_surface_desc": {
+        "message": "Welchen Stil bevorzugst du?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Hell"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Dunkel"
+    },
+    "onboarding_handson_desc_direct": {
+        "message": "Versuch's selbst."
+    },
+    "onboarding_handson_desc": {
+        "message": "Jetzt kannst du es selbst ausprobieren."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Bewege den Cursor zur {1} Seite des Fensters."
+    },
+    "onboarding_handson_mouse_desc_2": {
         "message": "Klicke mit der {1} Maustaste um die Sidebar zu \u00f6ffnen"
     },
-    "howto_tutorial_text_3": {
-        "message": "Jetzt kannst du auf all deine Lesezeichen zugreifen"
+    "onboarding_handson_icon_desc": {
+        "message": "Klicke auf das Symbol der Erweiterung."
     },
-    "howto_tutorial_left": {
+    "onboarding_left": {
         "message": "linken"
     },
-    "howto_tutorial_right": {
+    "onboarding_right": {
         "message": "rechten"
+    },
+    "onboarding_finish_desc": {
+        "message": "Viel Spa\u00df mit deiner Sidebar."
+    },
+    "onboarding_goto_settings": {
+        "message": "Mehr Einstellungsm\u00f6glichkeiten"
+    },
+    "onboarding_close": {
+        "message": "Diese Seite schlie\u00dfen"
     },
     "changelog_title": {
         "message": "\u00c4nderungen"
@@ -483,10 +510,10 @@
         "message": "Farbe"
     },
     "settings_indicator_icon_size": {
-        "message": "Icongr\u00f6\u00dfe"
+        "message": "Symbolgr\u00f6\u00dfe"
     },
     "settings_indicator_icon_color": {
-        "message": "Iconfarbe"
+        "message": "Symbolfarbe"
     },
     "settings_sidebar_position": {
         "message": "Position"
@@ -504,7 +531,7 @@
         "message": "Maskenfarbe"
     },
     "settings_bookmarks_dir_icon": {
-        "message": "Verzeichnis-Icon"
+        "message": "Verzeichnis-Symbol"
     },
     "settings_bookmarks_dir_icon_default": {
         "message": "Verzeichnis"
@@ -513,16 +540,16 @@
         "message": "Viereck"
     },
     "settings_bookmarks_dir_color": {
-        "message": "Farbe des Verzeichnis-Icons"
+        "message": "Farbe des Verzeichnis-Symbols"
     },
     "settings_bookmarks_font_size": {
         "message": "Lesezeichen Schriftgr\u00f6\u00dfe"
     },
     "settings_bookmarks_icon_size": {
-        "message": "Lesezeichen Icongr\u00f6\u00dfe"
+        "message": "Lesezeichen Symbolgr\u00f6\u00dfe"
     },
     "settings_directories_icon_size": {
-        "message": "Verzeichnisse Icongr\u00f6\u00dfe"
+        "message": "Verzeichnisse Symbolgr\u00f6\u00dfe"
     },
     "settings_bookmarks_line_height": {
         "message": "Lesezeichen Zeilenh\u00f6he"

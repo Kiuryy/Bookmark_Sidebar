@@ -87,7 +87,7 @@ body > iframe#blockbyte-bs-sidebar {
     transition: opacity 0.3s, transform 0.3s;
   }
 
-  &.blockbyte-bs-isNewTab {
+  &.blockbyte-bs-hideMask {
     width: calc(#{$__sidebarWidth} + 100px);
     background: none;
   }

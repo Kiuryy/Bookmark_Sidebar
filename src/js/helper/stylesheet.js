@@ -51,7 +51,12 @@
                         Object.keys(styles).forEach((key) => {
                             css = css.replace(new RegExp('"?%' + key + '"?', 'g'), styles[key]);
                         });
-                        head.append("<style>" + css + "</style>");
+                        if (ext.opts.classes && ext.opts.classes.page && ext.opts.classes.style && ext.opts.attr && ext.opts.attr.name) {
+                            head.find("style." + ext.opts.classes.page.style + "[" + ext.opts.attr.name + "='" + file + "]").remove();
+                            head.append("<style class='" + ext.opts.classes.page.style + "' " + ext.opts.attr.name + "='" + file + "'>" + css + "</style>");
+                        } else {
+                            head.append("<style>" + css + "</style>");
+                        }
                     }
                 };
                 xhr.send();

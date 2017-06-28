@@ -25,9 +25,11 @@
                 indicatorIcon: "blockbyte-bs-icon",
                 visible: "blockbyte-bs-visible",
                 isNewTab: "blockbyte-bs-isNewTab",
+                hideMask:"blockbyte-bs-hideMask",
                 hover: "blockbyte-bs-hover",
                 noscroll: "blockbyte-bs-noscroll",
                 hasLeftsideBack: "blockbyte-bs-has-lsb",
+                style: "blockbyte-bs-style",
                 noAnimations: "noAnimations",
                 darkMode: "dark",
                 ee: "ee"
@@ -122,8 +124,9 @@
         },
         events: {
             loaded: "blockbyte-bs-loaded",
-            checkboxChanged: "blockbyte-bs-checkboxChanged",
-            scrollBoxLastPart: "blockbyte-bs-scrollBoxLastPart",
+            sidebarOpened: "blockbyte-bs-sidebar-opened",
+            checkboxChanged: "blockbyte-bs-checkbox-changed",
+            scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
             lsbLoaded: "blockbyte-lsb-loaded"
         },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",

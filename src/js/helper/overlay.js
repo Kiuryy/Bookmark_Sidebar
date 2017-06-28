@@ -429,15 +429,7 @@
         let openChildren = (data) => {
             closeOverlay();
             let bookmarks = data.children.filter(val => !!(val.url));
-            ext.helper.model.call("trackEvent", {
-                category: "url",
-                action: "open",
-                label: "new_tab_all_children",
-                value: bookmarks.length
-            });
-            bookmarks.forEach((bookmark) => {
-                ext.helper.utility.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
-            });
+            ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
         };
 
         /**

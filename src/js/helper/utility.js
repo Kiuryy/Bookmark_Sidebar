@@ -29,6 +29,29 @@
         };
 
         /**
+         * Opens all given bookmarks in new tabs
+         *
+         * @param {Array} bookmarks
+         * @param {boolean} active
+         */
+        this.openAllBookmarks = (bookmarks, active = true) => {
+            ext.helper.model.call("trackEvent", {
+                category: "url",
+                action: "open",
+                label: "new_tab_all_children",
+                value: bookmarks.length
+            });
+
+            if (ext.helper.model.getData("b/newTabPosition") === "afterCurrent") { // reverse bookmarks to open them in the correct order
+                bookmarks.reverse();
+            }
+
+            bookmarks.forEach((bookmark) => {
+                this.openUrl(bookmark, "newTab", active);
+            });
+        };
+
+        /**
          * Returns the type of the current url
          *
          * @returns {string}

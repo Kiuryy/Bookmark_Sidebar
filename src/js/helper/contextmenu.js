@@ -358,18 +358,10 @@
                     }
                     case "openChildren": {
                         let bookmarks = data.children.filter(val => !!(val.url));
-                        if (bookmarks.length > 10) {
+                        if (bookmarks.length > 10) { // more than 10 bookmarks -> show confirm dialog
                             ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
-                        } else {
-                            ext.helper.model.call("trackEvent", {
-                                category: "url",
-                                action: "open",
-                                label: "new_tab_all_children",
-                                value: bookmarks.length
-                            });
-                            bookmarks.forEach((bookmark) => {
-                                ext.helper.utility.openUrl(bookmark, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
-                            });
+                        } else { // open bookmarks directly without confirmation
+                            ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
                         }
                         break;
                     }

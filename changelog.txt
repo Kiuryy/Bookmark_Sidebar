@@ -3,7 +3,6 @@
  - Favorite bookmarks
  - Onboarding (ga events)
  - Bugfix: ga event before pageload
- - Bugfix: open children order
  - Update changelog
 
 [1.9]

@@ -1,6 +1,9 @@
 # Bookmark Sidebar
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
+[![GitHub release](https://img.shields.io/github/release/kiuryy/bookmark_sidebar.svg)](https://github.com/Kiuryy/Bookmark_Sidebar/releases)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/d/jdbnofccmhefkmjbkkdkfiicjkgofkdh.svg)](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh)
+[![npm devDependencies](https://david-dm.org/kiuryy/bookmark_sidebar/dev-status.svg)](https://david-dm.org/kiuryy/bookmark_sidebar?type=dev)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-lightgray.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 <img src="dist/img/icon/256x256.webp" width="96" align="right" />
 

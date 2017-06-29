@@ -1,13 +1,12 @@
 [tbd]
  - helpful hints
  - Favorite bookmarks
- - Onboarding (ga events)
- - Bugfix: ga event before pageload
  - Update changelog
 
 [1.9]
  - Import/Export configuration
  - Onboarding with setup
+ - Replaced gruntjs with npm scripts
 
 [1.8]
  - Added many translations
@@ -47,6 +46,7 @@
  - Optional userdata sharing
  - Extended Options-Page (Tabs for 'Configuration', 'Feedback' and 'Help Improving')
  - Optimized favicon loading mechanism
+ - Restructured for gruntjs
 
 [1.2]
  - Middle click action configuration

@@ -42,6 +42,7 @@
 
                     initEvents();
                     this.opts.elm.infobox.addClass(this.opts.classes.visible);
+                    this.helper.model.call("trackPageView", {page: "/changelog"});
 
                     setTimeout(() => {
                         this.opts.elm.body.removeClass(this.opts.classes.initLoading);
@@ -79,6 +80,11 @@
 
             this.opts.elm.showChangelog.on("click", (e) => {
                 e.preventDefault();
+                this.helper.model.call("trackEvent", {
+                    category: "changelog",
+                    action: "view",
+                    label: "view"
+                });
                 this.opts.elm.infobox.addClass(this.opts.classes.flipped);
             });
         };

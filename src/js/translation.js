@@ -81,6 +81,7 @@
                             }
                         });
 
+                        this.helper.model.call("trackPageView", {page: "/translation"});
                         this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                     });
                 });

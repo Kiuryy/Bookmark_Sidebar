@@ -151,6 +151,7 @@
                         initImportExport();
                         initContentTabs();
 
+                        this.helper.model.call("trackPageView", {page: "/settings"});
                         this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                     });
                 });
@@ -276,13 +277,20 @@
 
                 location.hash = tabName;
                 this.opts.elm.body.attr(this.opts.attr.tab, tabName);
+
+                this.helper.model.call("trackEvent", {
+                    category: "settings",
+                    action: "tab",
+                    label: tabName
+                });
             });
 
             let hash = location.hash ? location.hash.substr(1) : null;
-            tabBar.find("> li > a").eq(0).trigger("click");
 
             if (hash) {
                 tabBar.find("> li[" + this.opts.attr.name + "='" + hash + "'] > a").trigger("click");
+            } else {
+                tabBar.find("> li > a").eq(0).trigger("click");
             }
         };
 

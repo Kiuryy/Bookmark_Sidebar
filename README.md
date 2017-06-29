@@ -14,7 +14,7 @@ Chrome extension, which adds a toggleable sidebar with all your bookmarks on the
 </a>
 
 ### Release History
-See the [changelog](changelog.txt).
+See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions, or the less detailed [Changelog](changelog.txt).
 
 ### License
 

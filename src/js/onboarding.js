@@ -63,6 +63,8 @@
                     initHandsOnEvents();
                     initFinishedEvents();
 
+                    this.helper.model.call("trackPageView", {page: "/onboarding"});
+
                     setTimeout(() => { // finish loading
                         this.opts.elm.body.removeClass(this.opts.classes.initLoading);
 
@@ -218,12 +220,19 @@
          * Shows the slide with the given name
          *
          * @param {string} name
+         * @param {boolean} direct
          */
-        let gotoSlide = (name) => {
+        let gotoSlide = (name, direct = false) => {
             let slide = $("section." + this.opts.classes.slide + "." + this.opts.classes.visible);
             slide.removeClass(this.opts.classes.visible);
 
             setTimeout(() => {
+                this.helper.model.call("trackEvent", {
+                    category: "onboarding",
+                    action: "view" + (direct ? "_direct" : ""),
+                    label: name
+                });
+
                 $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='" + name + "']").addClass(this.opts.classes.visible);
             }, 300);
         };
@@ -234,7 +243,7 @@
          * @param {boolean} direct
          */
         let initHandsOn = (direct = false) => {
-            gotoSlide("handson");
+            gotoSlide("handson", direct);
             loadSidebar();
 
             Object.values(this.opts.elm.sidebar).forEach((sidebar) => { // hide placeholder sidebar

@@ -151,9 +151,9 @@
         this.concat = (files, output) => {
             return new Promise((resolve) => {
                 find(files).then((matches) => {
-                    module.concat(matches, output).then(() => {
-                        resolve();
-                    })
+                    return module.concat(matches, output);
+                }).then(() => {
+                    resolve();
                 });
             });
         };
@@ -173,9 +173,9 @@
                             content = content.replace(replace[0], replace[1]);
                         });
 
-                        this.createFile(files[src], content).then(() => { // save file with new content
-                            resolve();
-                        });
+                        return this.createFile(files[src], content); // save file with new content
+                    }).then(() => {
+                        resolve();
                     });
                 });
             });
@@ -193,7 +193,7 @@
         this.copy = (files, exclude, dest, flatten = true) => {
             return new Promise((resolve) => {
                 find(exclude).then((exludeList) => {
-                    proceedFiles(files, flatten, (info, rslv) => {
+                    return proceedFiles(files, flatten, (info, rslv) => {
                         if (exludeList.indexOf(info.file) === -1) { // not excluded -> copy file
                             module.copy(info.file, dest + info.fileName).then(() => {
                                 rslv();
@@ -201,9 +201,9 @@
                         } else { // excluded -> don't copy
                             rslv();
                         }
-                    }).then(() => {
-                        resolve();
                     });
+                }).then(() => {
+                    resolve();
                 });
             });
         };
@@ -260,9 +260,9 @@
                             }
                         }
 
-                        this.createFile(dest + info.fileName, content).then(() => { // save file in the output directory
-                            rslv();
-                        });
+                        return this.createFile(dest + info.fileName, content); // save file in the output directory
+                    }).then(() => {
+                        rslv();
                     });
                 }).then(() => {
                     resolve();

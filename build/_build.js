@@ -11,9 +11,9 @@
         let cleanPre = () => {
             return new Promise((resolve) => {
                 func.remove([path.tmp + "*", path.dist + "*"]).then(() => {
-                    func.createFile(path.tmp + "info.txt", new Date().toISOString()).then(() => {
-                        resolve();
-                    });
+                    return func.createFile(path.tmp + "info.txt", new Date().toISOString());
+                }).then(() => {
+                    resolve();
                 });
             });
         };
@@ -83,34 +83,34 @@
                         ],
                         path.tmp + 'settings-merged.js'
                     )
-                ]).then(() => {
-                    func.replace({ // merge anonymous brackets
+                ]).then(() => { // merge anonymous brackets
+                    return func.replace({
                         [path.tmp + 'extension-merged.js']: path.tmp + 'extension.js',
                         [path.tmp + 'settings-merged.js']: path.tmp + 'settings.js'
                     }, [
                         [/\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, ""]
-                    ]).then(() => {
-                        Promise.all([ // minify in dist directory
-                            func.minify([
-                                path.tmp + 'extension.js',
-                                path.tmp + 'settings.js',
-                                path.src + 'js/translation.js',
-                                path.src + 'js/onboarding.js',
-                                path.src + 'js/changelog.js',
-                                path.src + 'js/background.js'
-                            ], path.dist + "js/"),
-                            func.minify([
-                                path.src + 'js/lib/jsu.js',
-                                path.src + 'js/helper/i18n.js',
-                                path.src + 'js/helper/model.js',
-                                path.src + 'js/helper/template.js',
-                                path.src + 'js/helper/stylesheet.js',
-                                path.src + 'js/helper/font.js'
-                            ], path.dist + "js/lib/"),
-                        ]).then(() => {
-                            resolve();
-                        });
-                    });
+                    ]);
+                }).then(() => { // minify in dist directory
+                    return Promise.all([
+                        func.minify([
+                            path.tmp + 'extension.js',
+                            path.tmp + 'settings.js',
+                            path.src + 'js/translation.js',
+                            path.src + 'js/onboarding.js',
+                            path.src + 'js/changelog.js',
+                            path.src + 'js/background.js'
+                        ], path.dist + "js/"),
+                        func.minify([
+                            path.src + 'js/lib/jsu.js',
+                            path.src + 'js/helper/i18n.js',
+                            path.src + 'js/helper/model.js',
+                            path.src + 'js/helper/template.js',
+                            path.src + 'js/helper/stylesheet.js',
+                            path.src + 'js/helper/font.js'
+                        ], path.dist + "js/lib/"),
+                    ]);
+                }).then(() => {
+                    resolve();
                 });
             });
         };
@@ -131,11 +131,11 @@
                     [/<\!\-\-\s*\[START\sREMOVE\]\s*\-\->[\s\S]*?<\!\-\-\s*\[END\sREMOVE\]\s*\-\->/mig, ""],
                     [/\/js\/helper\//ig, "/js/lib/"]
                 ]).then(() => { // minify in dist directory
-                    func.minify([path.src + "html/**/*.html"], path.dist, false).then(() => {
-                        func.minify([path.tmp + "html/**/*.html"], path.dist + "html/").then(() => {
-                            resolve();
-                        });
-                    });
+                    return func.minify([path.src + "html/**/*.html"], path.dist, false);
+                }).then(() => {
+                    return func.minify([path.tmp + "html/**/*.html"], path.dist + "html/");
+                }).then(() => {
+                    resolve();
                 });
             });
         };
@@ -155,9 +155,9 @@
                     [/"version_name":[^,]*,/ig, ""],
                     [/(img\/icon\/)dev\/(.*)\.png/ig, "$1$2.webp"]
                 ]).then(() => { // minify in dist directory
-                    func.minify([path.tmp + "manifest.json", path.src + "_locales/**/*.json"], path.dist, false).then(() => {
-                        resolve();
-                    });
+                    return func.minify([path.tmp + "manifest.json", path.src + "_locales/**/*.json"], path.dist, false);
+                }).then(() => {
+                    resolve();
                 });
             });
         };
@@ -168,13 +168,13 @@
         this.release = () => {
             return new Promise((resolve) => {
                 cleanPre().then(() => {
-                    Promise.all([js(), css(), img(), json(), html()]).catch(reason => {
-                        throw reason;
-                    }).then(() => {
-                        cleanPost().then(() => {
-                            resolve();
-                        });
-                    });
+                    return Promise.all([js(), css(), img(), json(), html()]);
+                }).catch(reason => {
+                    throw reason;
+                }).then(() => {
+                    return cleanPost();
+                }).then(() => {
+                    resolve();
                 });
             });
         };

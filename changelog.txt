@@ -1,6 +1,7 @@
 [tbd]
  - helpful hints
  - Update changelog
+ - drag&drop for pinned entries
  - improve middle click behaviour
 
 [1.9]
@@ -8,6 +9,7 @@
  - Onboarding with setup
  - Pin bookmarks to top
  - Replaced gruntjs with npm scripts
+ - Code optimization
 
 [1.8]
  - Added many translations

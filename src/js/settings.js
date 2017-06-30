@@ -356,7 +356,5 @@
         };
     };
 
-
     new window.settings().run();
-
 })(jsu);

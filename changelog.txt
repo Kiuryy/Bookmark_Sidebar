@@ -1,11 +1,13 @@
 [tbd]
  - helpful hints
- - Favorite bookmarks
  - Update changelog
+ - Replace callbacks with promises
+ - improve middle click behaviour
 
 [1.9]
  - Import/Export configuration
  - Onboarding with setup
+ - Pin bookmarks to top
  - Replaced gruntjs with npm scripts
 
 [1.8]

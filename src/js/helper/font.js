@@ -86,6 +86,12 @@
         this.isLoaded = () => !!(fontInfo.name);
         this.getFontInfo = () => fontInfo;
 
+        /**
+         * Returns the font-weights of the given font
+         *
+         * @param {string} font
+         * @returns {object}
+         */
         this.getFontWeights = (font) => {
             let ret = {};
             Object.keys(fontWeights["__default"]).forEach((key) => {

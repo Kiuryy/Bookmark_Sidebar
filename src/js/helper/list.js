@@ -130,7 +130,7 @@
                             this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
                         }
 
-                        if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                        if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                             list.addClass(ext.opts.classes.sidebar.hideRoot);
                             this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
                         } else {
@@ -278,6 +278,67 @@
         };
 
         /**
+         * Adds the given bookmark to the list
+         *
+         * @param {object} bookmark
+         * @param {jsu} list
+         * @param {object} opts
+         * @returns {jsu}
+         */
+        let addEntryToList = (bookmark, list, opts) => {
+            let entry = $("<li />").appendTo(list);
+            let entryContent = $("<a />")
+                .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
+                .appendTo(entry);
+
+            if (bookmark.id) {
+                entryContent.attr(ext.opts.attr.id, bookmark.id);
+            }
+
+            if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
+                entry.addClass(ext.opts.classes.sidebar.hidden);
+            }
+
+            ext.helper.entry.addData(bookmark.id, "element", entryContent);
+
+            if (bookmark.children && opts.asTree) { // dir
+                entryContent
+                    .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.helper.i18n.get("sidebar_dir_children"))
+                    .addClass(ext.opts.classes.sidebar.bookmarkDir);
+
+                if (opts.config.showDirectoryIcons) {
+                    entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
+                }
+            } else if (bookmark.url) { // link
+                entryContent
+                    .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
+                    .addClass(ext.opts.classes.sidebar.bookmarkLink);
+
+                if (opts.config.showBookmarkIcons) {
+                    if (ext.opts.demoMode) {
+                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                    } else {
+                        ext.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
+                            if (response.img) { // favicon found -> add to entry
+                                ext.helper.entry.addData(bookmark.id, "icon", response.img);
+                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
+                            }
+                        });
+                    }
+                }
+            } else if (bookmark.separator) { // separator
+                entryContent
+                    .addClass(ext.opts.classes.sidebar.separator)
+                    .data("infos", {
+                        id: bookmark.parentId,
+                        index: bookmark.index
+                    });
+            }
+
+            return entry;
+        };
+
+        /**
          * Adds the given bookmarks to the given list
          *
          * @param {Array} bookmarks
@@ -292,7 +353,24 @@
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
             let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
-            if (list.parents("li").length() > 0) {
+            if (list.parents("li").length() === 0) {
+                if (list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) {
+                    let hiddenEntries = ext.helper.entry.getAllPinnedData();
+                    sortEntries(hiddenEntries);
+
+                    hiddenEntries.forEach((entry) => {
+                        if (showHidden || ext.helper.entry.isVisible(entry.id)) {
+                            let elm = addEntryToList(entry, list, {
+                                config: config,
+                                asTree: asTree,
+                                sidebarOpen: sidebarOpen
+                            });
+
+                            elm.addClass(ext.opts.classes.sidebar.entryPinned);
+                        }
+                    });
+                }
+            } else {
                 list.css("transition", "height " + config.dirOpenDuration + "s");
             }
 
@@ -312,7 +390,7 @@
             list.removeData("remainingEntries");
 
             if (sorting) {
-                sortBookmarks(bookmarks);
+                sortEntries(bookmarks);
             }
 
             bookmarks.some((bookmark, idx) => {
@@ -326,55 +404,14 @@
                         }
                     }
 
-                    let entry = $("<li />").appendTo(list);
-                    let entryContent = $("<a />")
-                        .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
-                        .appendTo(entry);
+                    addEntryToList(bookmark, list, {
+                        config: config,
+                        asTree: asTree,
+                        sidebarOpen: sidebarOpen
+                    });
 
-                    if (bookmark.id) {
-                        entryContent.attr(ext.opts.attr.id, bookmark.id);
-                    }
-
-                    if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
-                        entry.addClass(ext.opts.classes.sidebar.hidden);
-                    }
-
-                    ext.helper.entry.addData(bookmark.id, "element", entryContent);
-
-                    if (bookmark.children && asTree) { // dir
-                        entryContent
-                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.helper.i18n.get("sidebar_dir_children"))
-                            .addClass(ext.opts.classes.sidebar.bookmarkDir);
-
-                        if (config.showDirectoryIcons) {
-                            entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
-                        }
-                    } else if (bookmark.url) { // link
-                        entryContent
-                            .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
-                            .addClass(ext.opts.classes.sidebar.bookmarkLink);
-
-                        if (config.showBookmarkIcons) {
-                            if (ext.opts.demoMode) {
-                                entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
-                            } else {
-                                ext.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
-                                    if (response.img) { // favicon found -> add to entry
-                                        ext.helper.entry.addData(bookmark.id, "icon", response.img);
-                                        entryContent.prepend("<img " + (sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
-                                    }
-                                });
-                            }
-                        }
-
+                    if (bookmark.url) { // link
                         bookmarkCounter++;
-                    } else if (bookmark.separator) { // separator
-                        entryContent
-                            .addClass(ext.opts.classes.sidebar.separator)
-                            .data("infos", {
-                                id: bookmark.parentId,
-                                index: bookmark.index
-                            });
                     }
 
                     hasEntries = true;
@@ -399,7 +436,7 @@
          *
          * @param {Array} bookmarks
          */
-        let sortBookmarks = (bookmarks) => {
+        let sortEntries = (bookmarks) => {
             if (bookmarks.length > 1) {
                 let collator = ext.helper.i18n.getLocaleSortCollator();
                 let doSort = (defaultDir, func) => {

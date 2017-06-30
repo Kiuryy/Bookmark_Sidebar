@@ -258,7 +258,7 @@
                 });
 
                 if (type === "separator") { // save separator position
-                    ext.helper.utility.removeSeparator(elm.data("infos"), () => {
+                    ext.helper.utility.removeSeparator(elm.data("infos")).then(() => {
                         let opts = {
                             id: parentId,
                             index: index

@@ -2,7 +2,7 @@
 div.contextmenu {
   position: absolute;
   top: 0;
-  min-width: 250px;
+  min-width: 240px;
   background: $contentBackground;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   border-radius: 2px;
@@ -14,15 +14,16 @@ div.contextmenu {
   &[data-type='list'], &[data-type='separator'] {
     left: -9999px;
     margin: 0 0 0 10px;
+    min-width: 260px;
   }
 
   &[data-type='menu'] {
-    right: -95px;
+    right: -93px;
     margin-top: -2px;
   }
 
   &[data-type='sort'] {
-    right: -60px;
+    right: -57px;
     margin-top: -2px;
   }
 
@@ -76,6 +77,16 @@ div.contextmenu {
 
         &[data-name='add']::before {
           @include maskImage('icon-add');
+        }
+
+        &[data-name='pin']::before {
+          @include maskImage('icon-pin');
+          -webkit-mask-size: 16px;
+        }
+
+        &[data-name='unpin']::before {
+          @include maskImage('icon-unpin');
+          -webkit-mask-size: 16px;
         }
 
         &[data-name='show']::before {

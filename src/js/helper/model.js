@@ -26,6 +26,9 @@
                 hiddenEntries: {},
                 scrollPos: {},
                 separators: {},
+                pinnedEntries: {
+                    "111": {index: 10}
+                },
                 entriesLocked: false,
                 sort: {
                     name: "custom",

@@ -364,6 +364,12 @@ section#sidebar {
         }
       }
 
+      > li.pinned + li:not(.pinned) {
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
       li {
 
         &.hidden {
@@ -400,7 +406,7 @@ section#sidebar {
 
       &.hideRoot {
 
-        > li {
+        > li:not(.pinned) {
 
           > a {
             display: none;
@@ -484,6 +490,10 @@ body.dark section#sidebar {
     li.isDragged {
       width: calc(100% - 5px);
       border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    > li.pinned + li:not(.pinned) {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     a {

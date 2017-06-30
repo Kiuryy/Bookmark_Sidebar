@@ -242,6 +242,14 @@
 
             if (data.isDir) {
                 iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
+            } else {
+                // ext.helper.i18n.get("contextmenu_pin")  ext.helper.i18n.get("contextmenu_unpin")
+
+                if (data.pinned) {
+                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='unpin' title='" + ("Unpin from top") + "'></a></li>");
+                } else {
+                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='pin' title='" + ("Pin to top") + "'></a></li>");
+                }
             }
 
             if (ext.helper.entry.isVisible(elmId)) {
@@ -341,7 +349,7 @@
                         break;
                     }
                     case "deleteSeparator": { // remove the separator
-                        ext.helper.utility.removeSeparator($(e.currentTarget).data("infos"), () => {
+                        ext.helper.utility.removeSeparator($(e.currentTarget).data("infos")).then(() => {
                             ext.helper.model.call("refreshAllTabs", {type: "Separator"});
                         });
                         break;
@@ -363,6 +371,18 @@
                         } else { // open bookmarks directly without confirmation
                             ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
                         }
+                        break;
+                    }
+                    case "pin": { // pin entry
+                        ext.helper.utility.pinEntry(data).then(() => {
+                            ext.helper.model.call("refreshAllTabs", {type: "Pin"});
+                        });
+                        break;
+                    }
+                    case "unpin": { // unpin entry
+                        ext.helper.utility.unpinEntry(data).then(() => {
+                            ext.helper.model.call("refreshAllTabs", {type: "Unpin"});
+                        });
                         break;
                     }
                     case "showInDir": { // show search result in normal bookmark list

@@ -14,24 +14,25 @@
          */
         this.update = (bookmarkTree, callback) => {
             ext.helper.model.call("viewAmounts", (info) => {
-                let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
+                let config = ext.helper.model.getData(["u/hiddenEntries", "u/pinnedEntries"]);
                 let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
                 entries = {
                     bookmarks: {},
-                    directories: {}
+                    directories: {},
+                    pinned: {}
                 };
 
                 let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
                     entriesList.forEach((entry, idx) => {
-                        if (showHidden || hiddenEntries[entry.id] !== true) {
+                        if (showHidden || config.hiddenEntries[entry.id] !== true) {
                             let thisParents = [...parents];
 
                             if (entry.parentId !== "0") {
                                 thisParents.push(entry.parentId);
                             }
 
-                            entry.hidden = parentIsHidden || hiddenEntries[entry.id] === true;
+                            entry.hidden = parentIsHidden || config.hiddenEntries[entry.id] === true;
                             entry.parents = thisParents;
 
                             let viewAmountStartDate = new Date(Math.max(entry.dateAdded, info.counterStartDate));
@@ -67,7 +68,18 @@
                                     entries.directories[parentId].views.lastView = Math.max(entries.directories[parentId].views.lastView || 0, lastView); // add lastView date
                                 });
 
+                                entry.pinned = false;
                                 entries.bookmarks[entry.id] = entry;
+
+                                if (config.pinnedEntries[entry.id]) { // pinned bookmark -> add entry to the respective object
+                                    entry.pinned = true;
+
+                                    let obj = Object.assign({}, entry);
+                                    obj.index = config.pinnedEntries[entry.id].index;
+                                    delete obj.parents;
+                                    delete obj.parentId;
+                                    entries.pinned[entry.id] = obj;
+                                }
                             } else if (entry.children) { // directory
                                 if (ext.opts.demoMode) {
                                     entry.title = ext.helper.i18n.get("overlay_label_dir") + " " + (idx + 1);
@@ -101,12 +113,12 @@
         };
 
         /**
-         * Returns the information about all directories
+         * Returns the information about all pinned entries
          *
          * @returns {Array}
          */
-        this.getAllDirectoryData = () => {
-            return Object.values(entries.directories);
+        this.getAllPinnedData = () => {
+            return Object.values(entries.pinned);
         };
 
         /**

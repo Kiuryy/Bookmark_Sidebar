@@ -105,26 +105,69 @@
         };
 
         /**
+         * Pins the given bookmarks
+         *
+         * @param {object} data
+         * @returns {Promise}
+         */
+        this.pinEntry = (data) => {
+            return new Promise((resolve) => {
+                let pinnedEntries = ext.helper.model.getData("u/pinnedEntries");
+                let idx = -1;
+                Object.values(pinnedEntries).forEach((entry) => { // determine the current highest index
+                    idx = Math.max(idx, entry.index);
+                });
+
+                pinnedEntries[data.id] = {index: idx + 1}; // add new entry at the last position
+
+                ext.helper.model.setData({
+                    "u/pinnedEntries": pinnedEntries
+                }, () => {
+                    resolve();
+                });
+            });
+        };
+
+        /**
+         * Unpins the given bookmarks
+         *
+         * @param {object} data
+         * @returns {Promise}
+         */
+        this.unpinEntry = (data) => {
+            return new Promise((resolve) => {
+                let pinnedEntries = ext.helper.model.getData("u/pinnedEntries");
+                delete pinnedEntries[data.id];
+
+                ext.helper.model.setData({
+                    "u/pinnedEntries": pinnedEntries
+                }, () => {
+                    resolve();
+                });
+            });
+        };
+
+        /**
          * Adds a separator to the given directory
          *
          * @param {object} data
-         * @param {function} callback
+         * @returns {Promise}
          */
-        this.addSeparator = (data, callback) => {
-            let separators = ext.helper.model.getData("u/separators");
+        this.addSeparator = (data) => {
+            return new Promise((resolve) => {
+                let separators = ext.helper.model.getData("u/separators");
 
-            if (typeof separators[data.id] === "undefined") {
-                separators[data.id] = [];
-            }
-
-            separators[data.id].push({index: (data.index || 0)});
-
-            ext.helper.model.setData({
-                "u/separators": separators
-            }, () => {
-                if (typeof callback === "function") {
-                    callback();
+                if (typeof separators[data.id] === "undefined") {
+                    separators[data.id] = [];
                 }
+
+                separators[data.id].push({index: (data.index || 0)});
+
+                ext.helper.model.setData({
+                    "u/separators": separators
+                }, () => {
+                    resolve();
+                });
             });
         };
 
@@ -132,24 +175,23 @@
          * Removes the separator from the given directory
          *
          * @param {object} data
-         * @param {function} callback
          */
-        this.removeSeparator = (data, callback) => {
-            let separators = ext.helper.model.getData("u/separators");
+        this.removeSeparator = (data) => {
+            return new Promise((resolve) => {
+                let separators = ext.helper.model.getData("u/separators");
 
-            separators[data.id].some((entry, i) => {
-                if (entry.index === data.index) {
-                    separators[data.id].splice(i, 1);
-                    return true;
-                }
-            });
+                separators[data.id].some((entry, i) => {
+                    if (entry.index === data.index) {
+                        separators[data.id].splice(i, 1);
+                        return true;
+                    }
+                });
 
-            ext.helper.model.setData({
-                "u/separators": separators
-            }, () => {
-                if (typeof callback === "function") {
-                    callback();
-                }
+                ext.helper.model.setData({
+                    "u/separators": separators
+                }, () => {
+                    resolve();
+                });
             });
         };
     };

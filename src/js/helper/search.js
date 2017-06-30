@@ -24,33 +24,37 @@
         /**
          * Clears the search field and shows the normal bookmark list again
          *
-         * @param {function} callback
+         * @returns {Promise}
          */
-        this.clearSearch = (callback) => {
-            ext.helper.contextmenu.close();
-            ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
-            handleSearchValChanged("", callback);
+        this.clearSearch = () => {
+            return new Promise((resolve) => {
+                ext.helper.contextmenu.close();
+                ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
+                handleSearchValChanged("").then(resolve);
+            });
         };
 
         /**
          * Handles the view of the search result list
          *
          * @param val
-         * @param {function} callback
+         * @returns {Promise}
          */
-        let handleSearchValChanged = (val = null, callback) => {
-            let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-            if (val === null) {
-                val = searchField[0].value;
-            } else {
-                searchField[0].value = val;
-            }
+        let handleSearchValChanged = (val = null) => {
+            return new Promise((resolve) => {
+                let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                if (val === null) {
+                    val = searchField[0].value;
+                } else {
+                    searchField[0].value = val;
+                }
 
-            if (val && val.length > 0) { // search field is not empty
-                handleSearch(searchField, val, callback);
-            } else { // empty search field -> reset list
-                handleSearchReset(searchField, callback);
-            }
+                if (val && val.length > 0) { // search field is not empty
+                    handleSearch(searchField, val).then(resolve);
+                } else { // empty search field -> reset list
+                    handleSearchReset(searchField).then(resolve);
+                }
+            });
         };
 
         /**
@@ -58,28 +62,29 @@
          *
          * @param {jsu} searchField
          * @param {string} val
-         * @param {function} callback
+         * @returns {Promise}
          */
-        let handleSearch = (searchField, val, callback) => {
-            let isFirstRun = ext.firstRun;
-            ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
-            ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
-            ext.helper.scroll.focus();
-            ext.helper.list.updateSortFilter();
+        let handleSearch = (searchField, val) => {
+            return new Promise((resolve) => {
+                let isFirstRun = ext.firstRun;
+                ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
+                ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
+                ext.helper.scroll.focus();
+                ext.helper.list.updateSortFilter();
 
-            if (val !== searchField.data("lastVal")) { // search value is not the same
-                ext.startLoading();
-                searchField.data("lastVal", val);
+                if (val !== searchField.data("lastVal")) { // search value is not the same
+                    ext.startLoading();
+                    searchField.data("lastVal", val);
 
-                if (searchTimeout) {
-                    clearTimeout(searchTimeout);
-                    searchTimeout = null;
-                }
+                    if (searchTimeout) {
+                        clearTimeout(searchTimeout);
+                        searchTimeout = null;
+                    }
 
-                ext.helper.model.setData({"u/searchValue": val}, () => {
-                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
-
-                    ext.helper.model.call("searchBookmarks", {searchVal: val}, (response) => {
+                    ext.helper.model.setData({"u/searchValue": val}).then(() => {
+                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
+                        return ext.helper.model.call("searchBookmarks", {searchVal: val});
+                    }).then((response) => {
                         ext.elements.bookmarkBox["search"].children("p").remove();
 
                         let hasResults = false;
@@ -106,39 +111,35 @@
                         }
 
                         ext.endLoading(500);
-
-                        if (typeof callback === "function") {
-                            callback();
-                        }
+                        resolve();
                     });
-                });
-            }
+                }
+            });
         };
 
         /**
          * Resets the search results and shows the normal bookmark list again
          *
          * @param {jsu} searchField
-         * @param {function} callback
+         * @returns {Promise}
          */
-        let handleSearchReset = (searchField, callback) => {
-            searchField.removeData("lastVal");
+        let handleSearchReset = (searchField) => {
+            return new Promise((resolve) => {
+                searchField.removeData("lastVal");
 
-            ext.helper.model.setData({"u/searchValue": false}, () => {
-                if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
-                    ext.startLoading();
-                    ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
-                    ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
-                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
-                    ext.helper.scroll.focus();
-                    ext.endLoading();
-                }
+                ext.helper.model.setData({"u/searchValue": false}).then(() => {
+                    if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
+                        ext.startLoading();
+                        ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
+                        ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
+                        ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
+                        ext.helper.scroll.focus();
+                        ext.endLoading();
+                    }
 
-                ext.helper.list.updateSortFilter();
-
-                if (typeof callback === "function") {
-                    callback();
-                }
+                    ext.helper.list.updateSortFilter();
+                    resolve();
+                });
             });
         };
 

@@ -60,31 +60,31 @@
             initHeader();
             startLoading();
 
-            this.helper.model.init(() => {
-                this.helper.i18n.init(() => {
-                    this.helper.font.init();
-                    this.helper.stylesheet.init();
-                    this.helper.stylesheet.addStylesheets(["translation"], $(document));
+            this.helper.model.init().then(() => {
+                return this.helper.i18n.init();
+            }).then(() => {
+                this.helper.font.init();
+                this.helper.stylesheet.init();
+                this.helper.stylesheet.addStylesheets(["translation"], $(document));
 
-                    this.helper.template.footer().insertAfter(this.opts.elm.content);
-                    this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                this.helper.template.footer().insertAfter(this.opts.elm.content);
+                this.helper.i18n.parseHtml(document);
+                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                    initLanguages(() => {
-                        this.helper.model.call("websiteStatus", (opts) => {
-                            if (opts.status === "available") {
-                                initOverview();
-                                initEvents();
-                            } else {
-                                changeView("unavailable");
-                                endLoading();
-                            }
-                        });
+                return initLanguages();
+            }).then(() => {
+                this.helper.model.call("trackPageView", {page: "/translation"});
+                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
 
-                        this.helper.model.call("trackPageView", {page: "/translation"});
-                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
-                    });
-                });
+                return this.helper.model.call("websiteStatus")
+            }).then((opts) => {
+                if (opts.status === "available") {
+                    initOverview();
+                    initEvents();
+                } else {
+                    changeView("unavailable");
+                    endLoading();
+                }
             });
         };
 
@@ -118,14 +118,14 @@
         /**
          * Initialises the language information
          *
-         * @param {function} callback
+         * @returns {Promise}
          */
-        let initLanguages = (callback) => {
-            this.helper.model.call("languageInfos", (opts) => {
-                languages = opts.infos;
-                if (typeof callback === "function") {
-                    callback();
-                }
+        let initLanguages = () => {
+            return new Promise((resolve) => {
+                this.helper.model.call("languageInfos").then((opts) => {
+                    languages = opts.infos;
+                    resolve();
+                });
             });
         };
 
@@ -206,7 +206,6 @@
                     let missingLanguages = Object.assign({}, languages);
 
                     infos.languages.forEach((lang) => {
-
                         if (languages[lang.name]) {
                             let percentage = lang.varsAmount / infos.varsAmount * 100;
 
@@ -293,36 +292,36 @@
          * also return the variables of the default language if the given language is not the default one
          *
          * @param {string} lang
-         * @param {function} callback
+         * @returns {Promise}
          */
-        let getLanguageInfos = (lang, callback) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", this.opts.ajax.langvars, true);
-            xhr.onload = () => {
-                let infos = JSON.parse(xhr.responseText);
+        let getLanguageInfos = (lang) => {
+            return new Promise((resolve) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", this.opts.ajax.langvars, true);
+                xhr.onload = () => {
+                    let infos = JSON.parse(xhr.responseText);
 
-                if (infos && Object.getOwnPropertyNames(infos).length > 0) {
-                    let ret = {[lang]: infos};
-                    let defaultLang = this.helper.i18n.getDefaultLanguage();
+                    if (infos && Object.getOwnPropertyNames(infos).length > 0) {
+                        let ret = {[lang]: infos};
+                        let defaultLang = this.helper.i18n.getDefaultLanguage();
 
-                    if (lang !== defaultLang) {
-                        getLanguageInfos(defaultLang, (infos) => {
-                            ret.default = infos[defaultLang];
-                            if (typeof callback === "function") {
-                                callback(ret);
-                            }
-                        });
-                    } else if (typeof callback === "function") {
-                        callback(ret);
+                        if (lang !== defaultLang) {
+                            getLanguageInfos(defaultLang).then((infos) => {
+                                ret.default = infos[defaultLang];
+                                resolve(ret);
+                            });
+                        } else {
+                            resolve(ret);
+                        }
+                    } else {
+                        resolve(null);
                     }
-                } else {
-                    callback(null);
-                }
-            };
+                };
 
-            let formData = new FormData();
-            formData.append('lang', lang);
-            xhr.send(formData);
+                let formData = new FormData();
+                formData.append('lang', lang);
+                xhr.send(formData);
+            });
         };
 
         /**
@@ -338,7 +337,7 @@
             changeView("langvars");
             startLoading();
 
-            getLanguageInfos(lang, (obj) => {
+            getLanguageInfos(lang).then((obj) => {
                 if (obj) {
                     let infos = obj[lang];
                     let totalFilled = 0;
@@ -399,6 +398,49 @@
         };
 
         /**
+         * Submits the changed translations of the selected language
+         */
+        let submit = () => {
+            let loadStartTime = +new Date();
+            let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
+            this.opts.elm.body.addClass(this.opts.classes.loading);
+
+            let vars = {};
+            this.opts.elm.wrapper.langvars.find("textarea").forEach((textarea) => {
+                let value = textarea.value;
+                if (value && value.trim().length > 0) {
+                    let initial = $(textarea).data("initial");
+                    value = value.trim();
+
+                    if (value !== initial) {
+                        let name = $(textarea).data("name");
+                        vars[name] = value;
+                    }
+                }
+            });
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", this.opts.ajax.submit, true);
+            xhr.onload = () => {
+                setTimeout(() => { // load at least 1s
+                    loader.remove();
+                    this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
+                    this.opts.elm.body.addClass(this.opts.classes.success);
+                    setTimeout(() => {
+                        this.opts.elm.body.removeClass(this.opts.classes.loading);
+                        this.opts.elm.body.removeClass(this.opts.classes.success);
+                        location.reload(true);
+                    }, 1500);
+                }, Math.max(0, 1000 - (+new Date() - loadStartTime)));
+            };
+
+            let formData = new FormData();
+            formData.append('lang', this.opts.elm.wrapper.langvars.data("lang"));
+            formData.append('vars', JSON.stringify(vars));
+            xhr.send(formData);
+        };
+
+        /**
          * Initialises general eventhandlers
          */
         let initEvents = () => {
@@ -409,44 +451,7 @@
 
             this.opts.elm.save.on("click", (e) => {
                 e.preventDefault();
-
-                let loadStartTime = +new Date();
-                let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
-                this.opts.elm.body.addClass(this.opts.classes.loading);
-
-                let vars = {};
-                this.opts.elm.wrapper.langvars.find("textarea").forEach((textarea) => {
-                    let value = textarea.value;
-                    if (value && value.trim().length > 0) {
-                        let initial = $(textarea).data("initial");
-                        value = value.trim();
-
-                        if (value !== initial) {
-                            let name = $(textarea).data("name");
-                            vars[name] = value;
-                        }
-                    }
-                });
-
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", this.opts.ajax.submit, true);
-                xhr.onload = () => {
-                    setTimeout(() => { // load at least 1s
-                        loader.remove();
-                        this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
-                        this.opts.elm.body.addClass(this.opts.classes.success);
-                        setTimeout(() => {
-                            this.opts.elm.body.removeClass(this.opts.classes.loading);
-                            this.opts.elm.body.removeClass(this.opts.classes.success);
-                            location.reload(true);
-                        }, 1500);
-                    }, Math.max(0, 1000 - (+new Date() - loadStartTime)));
-                };
-
-                let formData = new FormData();
-                formData.append('lang', this.opts.elm.wrapper.langvars.data("lang"));
-                formData.append('vars', JSON.stringify(vars));
-                xhr.send(formData);
+                submit();
             });
         };
 

@@ -12,7 +12,7 @@
                 $(e.currentTarget).next("p").toggleClass(s.opts.classes.visible);
             });
 
-            s.opts.elm.feedback.faq.children("p > a").on("click", (e) => { //
+            s.opts.elm.feedback.faq.children("p > a").on("click", (e) => { // handle links inside the faq answers
                 e.preventDefault();
                 let type = $(e.currentTarget).parent("p").attr(s.opts.attr.type);
 
@@ -25,7 +25,7 @@
             s.opts.elm.feedback.send.addClass(s.opts.classes.hidden);
             s.opts.elm.feedback.form.addClass(s.opts.classes.loading);
 
-            s.helper.model.call("websiteStatus", (opts) => {
+            s.helper.model.call("websiteStatus").then((opts) => {
                 loader.remove();
                 s.opts.elm.feedback.form.removeClass(s.opts.classes.loading);
 
@@ -87,8 +87,6 @@
                 $("." + s.opts.classes.error).removeClass(s.opts.classes.error);
             }, 700);
         };
-
-
     };
 
 })(jsu);

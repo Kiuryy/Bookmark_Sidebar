@@ -295,7 +295,7 @@
                 ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.showHidden);
                 ext.helper.model.setData({
                     "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
-                }, () => {
+                }).then(() => {
                     ext.helper.model.call("refreshAllTabs", {type: "ToggleHidden"});
                 });
                 this.close();
@@ -359,7 +359,7 @@
                         let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
                         delete hiddenEntries[elmId];
 
-                        ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
+                        ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
                             ext.helper.model.call("refreshAllTabs", {type: "Hide"});
                         });
                         break;
@@ -393,14 +393,14 @@
                                 if (data.parents[i]) {
                                     let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");
                                     if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
-                                        ext.helper.list.toggleBookmarkDir(entry, true, () => {
+                                        ext.helper.list.toggleBookmarkDir(entry, true).then(() => {
                                             openParent(i + 1);
                                         });
                                     } else {
                                         openParent(i + 1);
                                     }
                                 } else { // all parents opened -> close search and scroll to the bookmark
-                                    ext.helper.search.clearSearch(() => {
+                                    ext.helper.search.clearSearch().then(() => {
                                         let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + elmId + "']");
                                         ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
                                         entry.addClass(ext.opts.classes.sidebar.mark);

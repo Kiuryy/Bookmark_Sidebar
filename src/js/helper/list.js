@@ -83,7 +83,7 @@
                 ext.startLoading();
                 ext.helper.model.setData({
                     "u/sort": sort
-                }, () => {
+                }).then(() => {
                     ext.helper.model.call("trackEvent", {
                         category: "sorting",
                         action: "change",
@@ -111,32 +111,36 @@
             sort = ext.helper.model.getData("u/sort");
             ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
-            ext.helper.model.call("bookmarks", {id: 0}, (response) => { // Initialize the first layer of the bookmark tree
-                if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
-                    ext.refreshRun = true;
-                    let list = ext.elements.bookmarkBox["all"].children("ul");
-                    list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
+            let list = ext.elements.bookmarkBox["all"].children("ul");
+            let entries = [];
 
-                    ext.helper.entry.update(response.bookmarks[0].children, () => {
-                        updateSidebarHeader();
-                        this.updateSortFilter();
-                        ext.helper.search.init();
+            ext.helper.model.call("bookmarks", {id: 0}).then((response) => { // Initialize the first layer of the bookmark tree
+                ext.refreshRun = true;
+                list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
 
-                        let viewAsTree = ext.helper.model.getData("u/viewAsTree");
+                if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
+                    entries = response.bookmarks[0].children;
+                }
 
-                        if (viewAsTree || sort.name === "custom") { // with directories
-                            this.addBookmarkDir(response.bookmarks[0].children, list, true);
-                        } else { // one dimensional without directories
-                            this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
-                        }
+                return ext.helper.entry.update(entries);
+            }).then(() => {
+                updateSidebarHeader();
+                this.updateSortFilter();
+                ext.helper.search.init();
 
-                        if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                            list.addClass(ext.opts.classes.sidebar.hideRoot);
-                            this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
-                        } else {
-                            this.restoreOpenStates(list);
-                        }
-                    });
+                let viewAsTree = ext.helper.model.getData("u/viewAsTree");
+
+                if (viewAsTree || sort.name === "custom") { // with directories
+                    this.addBookmarkDir(entries, list, true);
+                } else { // one dimensional without directories
+                    this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
+                }
+
+                if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                    list.addClass(ext.opts.classes.sidebar.hideRoot);
+                    this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
+                } else {
+                    this.restoreOpenStates(list);
                 }
             });
 
@@ -150,41 +154,43 @@
          *
          * @param {jsu} elm
          * @param {boolean} instant
-         * @param {function} callback
+         * @returns {Promise}
          */
-        this.toggleBookmarkDir = (elm, instant, callback) => {
-            elm.addClass(ext.opts.classes.sidebar.dirAnimated);
-            let dirId = elm.attr(ext.opts.attr.id);
-            let childrenList = elm.next("ul");
-            let childrenLoaded = childrenList.length() > 0;
+        this.toggleBookmarkDir = (elm, instant) => {
+            return new Promise((resolve) => {
+                elm.addClass(ext.opts.classes.sidebar.dirAnimated);
+                let dirId = elm.attr(ext.opts.attr.id);
+                let childrenList = elm.next("ul");
+                let childrenLoaded = childrenList.length() > 0;
 
-            if (typeof instant === "undefined") {
-                instant = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false || ext.helper.model.getData("b/animations") === false;
-            }
-
-            if (elm.hasClass(ext.opts.classes.sidebar.dirOpened) && childrenLoaded) { // close children
-                expandCollapseDir(elm, childrenList, false, instant, callback);
-            } else { // open children
-                if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
-                    ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
-                        if ($(dir).next("ul").find("a[" + ext.opts.attr.id + "='" + dirId + "']").length() === 0) {
-                            this.toggleBookmarkDir($(dir), instant);
-                        }
-                    });
+                if (typeof instant === "undefined") {
+                    instant = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false || ext.helper.model.getData("b/animations") === false;
                 }
 
-                if (!childrenLoaded) { // not yet loaded -> load and expand afterwards
-                    ext.helper.model.call("bookmarks", {id: dirId}, (response) => {
-                        if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
-                            childrenList = $("<ul />").insertAfter(elm);
-                            this.addBookmarkDir(response.bookmarks[0].children, childrenList);
-                            expandCollapseDir(elm, childrenList, true, instant, callback);
-                        }
-                    });
-                } else { // already loaded -> just expand
-                    expandCollapseDir(elm, childrenList, true, instant, callback);
+                if (elm.hasClass(ext.opts.classes.sidebar.dirOpened) && childrenLoaded) { // close children
+                    expandCollapseDir(elm, childrenList, false, instant).then(resolve);
+                } else { // open children
+                    if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
+                        ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
+                            if ($(dir).next("ul").find("a[" + ext.opts.attr.id + "='" + dirId + "']").length() === 0) {
+                                this.toggleBookmarkDir($(dir), instant);
+                            }
+                        });
+                    }
+
+                    if (!childrenLoaded) { // not yet loaded -> load and expand afterwards
+                        ext.helper.model.call("bookmarks", {id: dirId}).then((response) => {
+                            if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
+                                childrenList = $("<ul />").insertAfter(elm);
+                                this.addBookmarkDir(response.bookmarks[0].children, childrenList);
+                                expandCollapseDir(elm, childrenList, true, instant).then(resolve());
+                            }
+                        });
+                    } else { // already loaded -> just expand
+                        expandCollapseDir(elm, childrenList, true, instant).then(resolve);
+                    }
                 }
-            }
+            });
         };
 
         /**
@@ -218,7 +224,7 @@
 
             if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
                 setTimeout(() => {
-                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"], () => {
+                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]).then(() => {
                         ext.initImages();
                         ext.endLoading(200);
                         ext.firstRun = false;
@@ -318,7 +324,7 @@
                     if (ext.opts.demoMode) {
                         entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
                     } else {
-                        ext.helper.model.call("favicon", {url: bookmark.url}, (response) => { // retrieve favicon of url
+                        ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
                                 ext.helper.entry.addData(bookmark.id, "icon", response.img);
                                 entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
@@ -508,59 +514,59 @@
          * @param {jsu} list
          * @param {boolean} open
          * @param {boolean} instant
-         * @param {function} callback
+         * @returns {Promise}
          */
-        let expandCollapseDir = (elm, list, open, instant, callback) => {
-            let isFirstRun = ext.firstRun;
-            list.css("height", list[0].scrollHeight + "px");
+        let expandCollapseDir = (elm, list, open, instant) => {
+            return new Promise((resolve) => {
+                let isFirstRun = ext.firstRun;
+                list.css("height", list[0].scrollHeight + "px");
 
-            if (open === false) { // parameter false -> close list
-                setTimeout(() => {
-                    list.css("height", 0);
-                }, 0);
-            }
-
-            if (ext.refreshRun === true) { // restore open states of child nodes
-                this.restoreOpenStates(list);
-            } else {
-                let openStates = ext.helper.model.getData("u/openStates");
-                openStates[elm.attr(ext.opts.attr.id)] = open;
-
-                if (open === false) {
-                    closeAllChildDirs(elm, openStates);
-                } else {
-                    ext.helper.model.setData({
-                        "u/openStates": openStates
-                    });
+                if (open === false) { // parameter false -> close list
+                    setTimeout(() => {
+                        list.css("height", 0);
+                    }, 0);
                 }
-            }
 
-            let dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
-
-            setTimeout(() => { // unset changes in css, so opening of children in child list works properly
-                if (open === false) {
-                    elm.removeClass(ext.opts.classes.sidebar.dirOpened);
+                if (ext.refreshRun === true) { // restore open states of child nodes
+                    this.restoreOpenStates(list);
                 } else {
-                    elm.addClass(ext.opts.classes.sidebar.dirOpened);
-                    if (ext.helper.model.getData("b/dirAccordion")) {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
+                    let openStates = ext.helper.model.getData("u/openStates");
+                    openStates[elm.attr(ext.opts.attr.id)] = open;
+
+                    if (open === false) {
+                        closeAllChildDirs(elm, openStates);
+                    } else {
+                        ext.helper.model.setData({
+                            "u/openStates": openStates
+                        });
                     }
                 }
-                list.css("height", "");
-                elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
 
-                if (!isFirstRun) {
-                    ext.helper.model.call("trackEvent", {
-                        category: "directory",
-                        action: "openState_change",
-                        label: open ? "open" : "close"
-                    });
-                }
+                let dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
 
-                if (typeof callback === "function") {
-                    callback();
-                }
-            }, instant ? 0 : (+dirOpenDurationRaw * 1000));
+                setTimeout(() => { // unset changes in css, so opening of children in child list works properly
+                    if (open === false) {
+                        elm.removeClass(ext.opts.classes.sidebar.dirOpened);
+                    } else {
+                        elm.addClass(ext.opts.classes.sidebar.dirOpened);
+                        if (ext.helper.model.getData("b/dirAccordion")) {
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
+                        }
+                    }
+                    list.css("height", "");
+                    elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
+
+                    if (!isFirstRun) {
+                        ext.helper.model.call("trackEvent", {
+                            category: "directory",
+                            action: "openState_change",
+                            label: open ? "open" : "close"
+                        });
+                    }
+
+                    resolve();
+                }, instant ? 0 : (+dirOpenDurationRaw * 1000));
+            });
         };
 
         /**

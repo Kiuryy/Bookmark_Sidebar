@@ -30,7 +30,7 @@
                                 let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
                                 if (elm.length() > 0) {
                                     let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
-                                    if (data && data.url && ext.copyToClipboard(data.url)) {
+                                    if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
                                         $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
                                         let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
@@ -90,7 +90,7 @@
                 if (name === "viewAsTree" || name === "mostViewedPerMonth") {
                     ext.helper.model.setData({
                         ["u/" + name]: e.detail.checked
-                    }, () => {
+                    }).then(() => {
                         ext.startLoading();
                         ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
                     });

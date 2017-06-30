@@ -77,6 +77,9 @@
             });
         };
 
+        /**
+         * Initialises the eventhandlers
+         */
         let initEvents = () => {
             s.opts.elm.keyboardShortcutInfo.children("a").on("click", (e) => {
                 e.preventDefault();
@@ -86,8 +89,6 @@
                 });
             });
         };
-
-
     };
 
 })(jsu);

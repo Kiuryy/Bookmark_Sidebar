@@ -3,13 +3,13 @@
 
     let shareUserdata = null;
     let data = {};
-    let clickCounter = null;
+    let bookmarkObj = {};
     let xhrList = [];
     let bookmarkImportRunning = false;
+
     let urls = {
         check404: "https://blockbyte.de/extensions",
         updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
-        userdata: "https://blockbyte.de/ajax/extensions/userdata",
         uninstall: "https://blockbyte.de/extensions/bs/uninstall",
         onboarding: "https://blockbyte.de/extensions/bs/install"
     };
@@ -66,31 +66,6 @@
         vi: "Vietnamese"
     };
 
-    let bookmarkObj = {
-        get: (id, callback) => {
-            chrome.bookmarks.get("" + id, callback);
-        },
-        getSubTree: (id, callback) => {
-            chrome.bookmarks.getSubTree("" + id, callback);
-        },
-        removeTree: (id, callback) => {
-            chrome.bookmarks.removeTree("" + id, callback);
-        },
-        update: (id, obj, callback) => {
-            chrome.bookmarks.update("" + id, obj, callback);
-        },
-        create: (obj, callback) => {
-            chrome.bookmarks.create(obj, callback);
-        },
-        move: (id, obj, callback) => {
-            chrome.bookmarks.move("" + id, obj, callback);
-        },
-        search: (obj, callback) => {
-            chrome.bookmarks.search(obj, callback);
-        }
-    };
-
-
     /**
      * Increases the Click Counter of the given bookmark
      *
@@ -98,15 +73,9 @@
      */
     let increaseViewAmount = (bookmark) => {
         if (bookmark["id"]) {
-            initClickCounter(() => {
+            getClickCounter().then((clickCounter) => {
                 if (typeof clickCounter[bookmark["id"]] === "undefined") {
-                    if (typeof clickCounter["node_" + bookmark["id"]] !== "undefined") { // @deprecated
-                        clickCounter[bookmark["id"]] = {
-                            c: clickCounter["node_" + bookmark["id"]]
-                        };
-                    } else {
-                        clickCounter[bookmark["id"]] = {c: 0};
-                    }
+                    clickCounter[bookmark["id"]] = {c: 0};
                 }
 
                 if (typeof clickCounter[bookmark["id"]] !== "object") { // @deprecated
@@ -121,17 +90,6 @@
 
                 chrome.storage.local.set({
                     clickCounter: clickCounter
-                }, () => { // @deprecated
-                    let lastError = chrome.runtime.lastError;
-
-                    if (typeof lastError === "undefined") {
-                        if (data.clickCounter) {
-                            delete data.clickCounter;
-                            saveModelData();
-                        }
-
-                        chrome.storage.sync.remove(["clickCounter"]);
-                    }
                 });
             });
         }
@@ -146,7 +104,6 @@
         increaseViewAmount(opts);
 
         if (opts.newTab && opts.newTab === true) { // new tab
-
             let createTab = (idx = null) => {
                 chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                     chrome.tabs.create({
@@ -209,7 +166,7 @@
      * @param {function} sendResponse
      */
     let getViewAmounts = (opts, sendResponse) => {
-        initClickCounter(() => {
+        getClickCounter().then((clickCounter) => {
             sendResponse({
                 viewAmounts: clickCounter,
                 counterStartDate: data.installationDate
@@ -224,7 +181,7 @@
      * @param {function} sendResponse
      */
     let getBookmarks = (opts, sendResponse) => {
-        bookmarkObj.getSubTree(opts.id, (bookmarks) => {
+        bookmarkObj.getSubTree(opts.id).then((bookmarks) => {
             sendResponse({bookmarks: bookmarks});
         });
     };
@@ -236,7 +193,7 @@
      * @param {function} sendResponse
      */
     let getBookmarksBySearchVal = (opts, sendResponse) => {
-        bookmarkObj.search(opts.searchVal, (bookmarks) => {
+        bookmarkObj.search(opts.searchVal).then((bookmarks) => {
             sendResponse({bookmarks: bookmarks});
         });
     };
@@ -249,7 +206,7 @@
      */
     let addViewAmountByUrl = (opts) => {
         if (typeof data.openedByExtension === "undefined") { // page was not opened by extension -> view was not counted yet
-            bookmarkObj.search({url: opts.url}, (bookmarks) => {
+            bookmarkObj.search({url: opts.url}).then((bookmarks) => {
                 bookmarks.some((bookmark) => {
                     if (bookmark.url === opts.url) {
                         increaseViewAmount(bookmark);
@@ -276,7 +233,7 @@
             index: opts.index
         };
 
-        bookmarkObj.move(opts.id, dest, () => {
+        bookmarkObj.move(opts.id, dest).then(() => {
             sendResponse({moved: opts.id});
         });
     };
@@ -296,13 +253,10 @@
             values.url = opts.url;
         }
 
-        bookmarkObj.update(opts.id, values, () => {
-            let lastError = chrome.runtime.lastError;
-            if (typeof lastError === "undefined") {
-                sendResponse({updated: opts.id});
-            } else {
-                sendResponse({error: lastError.message});
-            }
+        bookmarkObj.update(opts.id, values).then(() => {
+            sendResponse({updated: opts.id});
+        }).catch((error) => {
+            sendResponse({error: error});
         });
     };
 
@@ -320,13 +274,10 @@
             url: opts.url ? opts.url : null
         };
 
-        bookmarkObj.create(values, () => {
-            let lastError = chrome.runtime.lastError;
-            if (typeof lastError === "undefined") {
-                sendResponse({created: opts.id});
-            } else {
-                sendResponse({error: lastError.message});
-            }
+        bookmarkObj.create(values).then(() => {
+            sendResponse({created: opts.id});
+        }).catch((error) => {
+            sendResponse({error: error});
         });
     };
 
@@ -337,7 +288,7 @@
      * @param {function} sendResponse
      */
     let deleteBookmark = (opts, sendResponse) => {
-        bookmarkObj.removeTree(opts.id, () => {
+        bookmarkObj.removeTree(opts.id).then(() => {
             sendResponse({deleted: opts.id});
         });
     };
@@ -377,7 +328,7 @@
      * @param {function} sendResponse
      */
     let getAllLanguages = (opts, sendResponse) => {
-        getLanguageInfos((infos) => {
+        getLanguageInfos().then((infos) => {
             sendResponse({infos: infos});
         });
     };
@@ -497,7 +448,6 @@
             shareUserdata: opts.share
         });
         shareUserdata = opts.share;
-        saveModelData();
     };
 
     /**
@@ -611,7 +561,7 @@
                 chrome.storage.sync.get(["model"], (obj) => {
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         data.updateNotification = newVersion;
-                        saveModelData(() => {
+                        saveModelData().then(() => {
                             chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
                         });
                     }
@@ -636,6 +586,8 @@
                     if (typeof obj.appearance.styles.directoriesIconSize === "undefined" && typeof obj.appearance.styles.bookmarksIconSize !== "undefined") {
                         obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
                     }
+
+                    chrome.storage.sync.remove(["clickCounter"]);
                     // END UPGRADE // v1.9
 
                     // START UPGRADE // v1.8
@@ -672,126 +624,83 @@
     /**
      * Saves the current data-object in the chrome storage
      *
-     * @param {function} callback
+     * @returns {Promise}
      */
-    let saveModelData = (callback) => {
-        if (Object.getOwnPropertyNames(data).length > 0) {
-            chrome.storage.sync.set({
-                model: data
-            }, () => {
-                if (typeof callback === "function") {
-                    callback();
-                }
-            });
-        }
-    };
-
-    /**
-     * Initialises the infos about the views of the bookmarks
-     *
-     * @param {function} callback
-     */
-    let initClickCounter = (callback) => {
-        chrome.storage.local.get(["clickCounter"], (obj) => {
-            clickCounter = {};
-
-            if (typeof obj.clickCounter === "undefined") { // @deprecated
-                chrome.storage.sync.get(["clickCounter"], (obj2) => {
-                    if (typeof obj2.clickCounter !== "undefined") {
-                        clickCounter = obj2.clickCounter;
-                    } else if (data.clickCounter) {
-                        clickCounter = data.clickCounter;
-                    }
-
-                    if (clickCounter.data) {
-                        clickCounter = clickCounter.data;
-                    }
-
-                    if (typeof callback === "function") {
-                        callback();
-                    }
+    let saveModelData = () => {
+        return new Promise((resolve) => {
+            if (Object.getOwnPropertyNames(data).length > 0) {
+                chrome.storage.sync.set({
+                    model: data
+                }, () => {
+                    resolve();
                 });
-            } else if (typeof obj.clickCounter !== "undefined") { // data available
-                clickCounter = obj.clickCounter;
-
-                if (clickCounter.data) { // @deprecated
-                    clickCounter = clickCounter.data;
-                }
-
-                if (typeof callback === "function") {
-                    callback();
-                }
             }
         });
     };
 
     /**
-     * Initialises the model
+     * Retrieves infos about the views of the bookmarks
+     *
+     * @returns {Promise}
      */
-    let initData = () => {
-        chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
-            data = obj.model || {};
-            shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
+    let getClickCounter = () => {
+        return new Promise((resolve) => {
+            chrome.storage.local.get(["clickCounter"], (obj) => {
+                let clickCounter = {};
 
-            if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
-                data.installationDate = +new Date();
-            }
+                if (typeof obj.clickCounter !== "undefined") { // data available
+                    clickCounter = obj.clickCounter;
+                }
 
-            let today = +new Date().setHours(0, 0, 0, 0);
-            if (typeof data.lastTrackDate === "undefined" || data.lastTrackDate !== today) {
-                data.lastTrackDate = today;
-                trackUserData();
-            }
-
-            initClickCounter();
-            saveModelData();
+                resolve(clickCounter);
+            });
         });
     };
 
     /**
      * Returns information about all languages (e.g. if they are available in the extension)
+     *
+     * @returns {Promise}
      */
-    let getLanguageInfos = (callback) => {
-        chrome.storage.local.get(["languageInfos"], (obj) => {
-            if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) {
-                if (typeof callback === "function") {
-                    callback(obj.languageInfos.infos);
-                }
-            } else {
-                let total = Object.keys(allLanguages).length;
-                let loaded = 0;
-                let infos = {};
+    let getLanguageInfos = () => {
+        return new Promise((resolve) => {
+            chrome.storage.local.get(["languageInfos"], (obj) => {
+                if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) { // cached
+                    resolve(obj.languageInfos.infos);
+                } else { // not cached -> determine available languages
+                    let total = Object.keys(allLanguages).length;
+                    let loaded = 0;
+                    let infos = {};
 
-                Object.keys(allLanguages).forEach((lang) => {
-                    infos[lang] = {
-                        name: lang,
-                        label: allLanguages[lang],
-                        available: false
-                    };
+                    Object.keys(allLanguages).forEach((lang) => {
+                        infos[lang] = {
+                            name: lang,
+                            label: allLanguages[lang],
+                            available: false
+                        };
 
-                    let xhr = new XMLHttpRequest();
-                    ["load", "error"].forEach((eventName) => {
-                        xhr.addEventListener(eventName, () => {
-                            loaded++;
-                            if (eventName === "load") {
-                                infos[lang].available = true;
-                            }
-
-                            if (loaded === total) {
-                                chrome.storage.local.set({
-                                    languageInfos: {infos: infos, updated: +new Date()}
-                                });
-
-                                if (typeof callback === "function") {
-                                    callback(infos);
+                        let xhr = new XMLHttpRequest();
+                        ["load", "error"].forEach((eventName) => {
+                            xhr.addEventListener(eventName, () => {
+                                loaded++;
+                                if (eventName === "load") {
+                                    infos[lang].available = true;
                                 }
-                            }
+
+                                if (loaded === total) {
+                                    chrome.storage.local.set({
+                                        languageInfos: {infos: infos, updated: +new Date()}
+                                    });
+
+                                    resolve(infos);
+                                }
+                            });
                         });
+                        xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
+                        xhr.send();
                     });
-                    xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
-                    xhr.send();
-                });
-            }
+                }
+            });
         });
     };
 
@@ -833,7 +742,7 @@
             }
 
             // track bookmark amount
-            bookmarkObj.getSubTree("0", (response) => {
+            bookmarkObj.getSubTree("0").then((response) => {
                 let bookmarkAmount = 0;
                 let processBookmarks = (bookmarks) => {
                     for (let i = 0; i < bookmarks.length; i++) {
@@ -895,9 +804,31 @@
     };
 
     /**
+     * Initialises the data object
+     */
+    let initData = async () => {
+        chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
+            data = obj.model || {};
+            shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
+
+            if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
+                data.installationDate = +new Date();
+            }
+
+            let today = +new Date().setHours(0, 0, 0, 0);
+            if (typeof data.lastTrackDate === "undefined" || data.lastTrackDate !== today) {
+                data.lastTrackDate = today;
+                trackUserData();
+            }
+
+            saveModelData();
+        });
+    };
+
+    /**
      * Initialises the Google Analytics tracking
      */
-    let initAnalytics = () => {
+    let initAnalytics = async () => {
         window['GoogleAnalyticsObject'] = 'ga';
         window.ga = window.ga || function () {
                 (window.ga.q = window.ga.q || []).push(arguments)
@@ -916,10 +847,47 @@
     };
 
     /**
+     * Initialises the bookmark object as wrapper for the chrome.bookmarks methods as Promises
+     */
+    let initBookmarkObj = async () => {
+        let callback = (key, params) => {
+            return new Promise((resolve, reject) => {
+                chrome.bookmarks[key](...params, (result) => {
+                    let lastError = chrome.runtime.lastError;
+                    if (typeof lastError === "undefined") {
+                        resolve(result);
+                    } else { // reject with error
+                        reject(lastError.message);
+                    }
+                });
+            });
+        };
+
+        ["get", "getSubTree", "removeTree"].forEach((key) => {
+            bookmarkObj[key] = (id) => {
+                return callback(key, ["" + id]);
+            };
+        });
+
+        ["update", "move"].forEach((key) => {
+            bookmarkObj[key] = (id, obj) => {
+                return callback(key, ["" + id, obj]);
+            };
+        });
+
+        ["create", "search"].forEach((key) => {
+            bookmarkObj[key] = (obj) => {
+                return callback(key, [obj]);
+            };
+        });
+    };
+
+    /**
      *
      */
     (() => {
         initAnalytics();
+        initBookmarkObj();
         initData();
     })();
 

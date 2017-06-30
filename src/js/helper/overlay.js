@@ -111,6 +111,8 @@
                 label: elements.modal.attr(ext.opts.attr.type) + labelAdd
             });
 
+            ext.helper.scroll.focus();
+
             setTimeout(() => {
                 elements.overlay.remove();
             }, 500);
@@ -344,7 +346,7 @@
 
                             listEntry = listEntry.appendTo(scrollBox.children("ul"));
 
-                            ext.helper.model.call("favicon", {url: entry.url}, (response) => { // retrieve favicon of url
+                            ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
                                 if (response.img) { // favicon found -> add to entry
                                     $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box))
                                 }
@@ -365,7 +367,7 @@
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
             elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_urls_loading")).appendTo(elements.modal);
 
-            ext.helper.model.call("websiteStatus", (opts) => {
+            ext.helper.model.call("websiteStatus").then((opts) => {
                 if (opts.status === "available") {
                     let bookmarks = [];
 
@@ -391,7 +393,7 @@
                     let finished = 0;
                     let updateList = [];
                     bookmarks.forEach((bookmark) => {
-                        ext.helper.model.call("realUrl", {url: bookmark.url}, (response) => {
+                        ext.helper.model.call("realUrl", {url: bookmark.url}).then((response) => {
                             finished++;
                             elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
                             elements.progressLabel.children("span").eq(0).text(finished);
@@ -444,7 +446,7 @@
             let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
             hiddenEntries[data.id] = true;
 
-            ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}, () => {
+            ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
                 ext.helper.model.call("refreshAllTabs", {type: "Hide"});
             });
         };
@@ -457,7 +459,7 @@
         let deleteBookmark = (data) => {
             closeOverlay();
 
-            ext.helper.model.call("deleteBookmark", {id: data.id}, () => {
+            ext.helper.model.call("deleteBookmark", {id: data.id}).then(() => {
                 data.element.parent("li").remove();
             });
         };
@@ -510,7 +512,7 @@
                     id: data.id,
                     title: formValues.values.title,
                     url: formValues.values.url
-                }, (result) => {
+                }).then((result) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
@@ -549,7 +551,7 @@
                     }
                 }
 
-                ext.helper.model.call("createBookmark", obj, (result) => {
+                ext.helper.model.call("createBookmark", obj).then((result) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {

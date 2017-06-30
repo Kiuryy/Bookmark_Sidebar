@@ -31,23 +31,23 @@
         this.run = () => {
             initHelpers();
 
-            this.helper.model.init(() => {
-                this.helper.i18n.init(() => {
-                    this.helper.font.init();
-                    this.helper.stylesheet.init();
-                    this.helper.stylesheet.addStylesheets(["changelog"], $(document));
+            this.helper.model.init().then(() => {
+                return this.helper.i18n.init();
+            }).then(() => {
+                this.helper.font.init();
+                this.helper.stylesheet.init();
+                this.helper.stylesheet.addStylesheets(["changelog"], $(document));
 
-                    this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                this.helper.i18n.parseHtml(document);
+                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                    initEvents();
-                    this.opts.elm.infobox.addClass(this.opts.classes.visible);
-                    this.helper.model.call("trackPageView", {page: "/changelog"});
+                initEvents();
+                this.opts.elm.infobox.addClass(this.opts.classes.visible);
+                this.helper.model.call("trackPageView", {page: "/changelog"});
 
-                    setTimeout(() => {
-                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
-                    }, 100);
-                });
+                setTimeout(() => {
+                    this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                }, 100);
             });
         };
 

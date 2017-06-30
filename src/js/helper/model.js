@@ -26,9 +26,7 @@
                 hiddenEntries: {},
                 scrollPos: {},
                 separators: {},
-                pinnedEntries: {
-                    "111": {index: 10}
-                },
+                pinnedEntries: {},
                 entriesLocked: false,
                 sort: {
                     name: "custom",
@@ -87,24 +85,25 @@
         let data = {};
 
         /**
+         * Initialises the model
          *
-         * @param {function} callback
+         * @returns {Promise}
          */
-        this.init = (callback) => {
-            let keys = ["utility", "behaviour", "appearance"];
+        this.init = () => {
+            return new Promise((resolve) => {
+                let keys = ["utility", "behaviour", "appearance"];
 
-            chrome.storage.sync.get(keys, (obj) => {
-                data = obj;
+                chrome.storage.sync.get(keys, (obj) => {
+                    data = obj;
 
-                keys.forEach((key) => {
-                    if (typeof data[key] === "undefined") {
-                        data[key] = {};
-                    }
+                    keys.forEach((key) => {
+                        if (typeof data[key] === "undefined") {
+                            data[key] = {};
+                        }
+                    });
+
+                    resolve();
                 });
-
-                if (typeof callback === "function") {
-                    callback();
-                }
             });
         };
 
@@ -196,71 +195,65 @@
          * Saves the given values in the storage
          *
          * @param {object} values
-         * @param {function} callback
+         * @returns {Promise}
          */
-        this.setData = (values, callback) => {
-            this.init(() => { // init retrieves the newest data
-                Object.keys(values).forEach((keyInfo) => {
-                    let scope = keyInfo.split("/")[0];
-                    let key = keyInfo.split("/")[1];
-                    let value = values[keyInfo];
+        this.setData = (values) => {
+            return new Promise((resolve) => {
+                this.init().then(() => { // init retrieves the newest data
+                    Object.keys(values).forEach((keyInfo) => {
+                        let scope = keyInfo.split("/")[0];
+                        let key = keyInfo.split("/")[1];
+                        let value = values[keyInfo];
 
-                    switch (scope) {
-                        case "u": {
-                            data.utility[key] = value;
-                            break;
-                        }
-                        case "b": {
-                            data.behaviour[key] = value;
-                            break;
-                        }
-                        case "a": {
-                            data.appearance[key] = value;
-                            break;
-                        }
-                    }
-                });
-
-                try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                    chrome.storage.sync.set(data, () => {
-                        if (typeof callback === "function") {
-                            callback();
+                        switch (scope) {
+                            case "u": {
+                                data.utility[key] = value;
+                                break;
+                            }
+                            case "b": {
+                                data.behaviour[key] = value;
+                                break;
+                            }
+                            case "a": {
+                                data.appearance[key] = value;
+                                break;
+                            }
                         }
                     });
-                } catch (e) {
-                    if (typeof callback === "function") {
-                        callback();
+
+                    try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
+                        chrome.storage.sync.set(data, () => {
+                            resolve();
+                        });
+                    } catch (e) {
+                        resolve();
                     }
-                }
+                });
             });
         };
 
         /**
-         * Sends a message to the model and calls the callback function when receiving a response
+         * Sends a message to the model and resolves when receiving a response
          *
          * @param {string} key
-         * @param {object|function} opts
-         * @param {function} callback
+         * @param {object} opts
+         * @returns {Promise}
          */
-        this.call = (key, opts, callback) => {
-            if (typeof opts === "function") {
-                callback = opts;
-                opts = {};
-            }
-
-            opts.type = key;
-            chrome.extension.sendMessage(opts, (response) => {
-                if (typeof callback === "function") {
-                    callback(response);
-                }
+        this.call = (key, opts = {}) => {
+            return new Promise((resolve) => {
+                opts.type = key;
+                chrome.extension.sendMessage(opts, (response) => {
+                    resolve(response);
+                });
             });
         };
 
         /**
          * Returns the default text color for the given appearance (light or dark)
          *
+         * @param {string} name
          * @param {string} appearance
-         * @returns {string}
+         * @returns {string|null}
          */
         this.getDefaultColor = (name, appearance) => {
             if (defaultColors[name]) {

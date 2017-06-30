@@ -898,7 +898,7 @@ body.dark section#sidebar {
     width: calc(100% - 5px);
     border-color: rgba(255, 255, 255, 0.2); }
   body.dark section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned) {
-    border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    border-top: 1px solid rgba(255, 255, 255, 0.2); }
   body.dark section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
     background: #555; }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {

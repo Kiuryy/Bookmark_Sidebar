@@ -14,8 +14,6 @@
          * Initialises the appearance settings
          */
         this.init = () => {
-            initPreviews();
-
             ["sidebarPosition", "language"].forEach((field) => {
                 let value = s.helper.model.getData("a/" + field);
                 s.opts.elm.select[field][0].value = value;
@@ -31,9 +29,9 @@
                 s.opts.elm.checkbox[field].children("input").data("initial", checked);
             });
 
-            let styles = s.helper.model.getData("a/styles");
+            initPreviews().then(() => {
+                let styles = s.helper.model.getData("a/styles");
 
-            setTimeout(() => {
                 Object.keys(styles).forEach((key) => {
                     let value = styles[key];
 
@@ -55,7 +53,7 @@
                 });
 
                 initEvents();
-            }, 0);
+            });
         };
 
         /**
@@ -102,20 +100,22 @@
         };
 
         /**
-         * Sends a request to the given path and calls the callback function after retrieving
+         * Sends a request to the given path and resolves after retrieving
          *
          * @param path
-         * @param callback
+         * @returns {Promise}
          */
-        let sendAjax = (path, callback) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open("GET", chrome.extension.getURL(path), true);
-            xhr.onload = () => {
-                if (xhr.response) {
-                    callback(xhr.response);
-                }
-            };
-            xhr.send();
+        let sendAjax = (path) => {
+            return new Promise((resolve) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", chrome.extension.getURL(path), true);
+                xhr.onload = () => {
+                    if (xhr.response) {
+                        resolve(xhr.response);
+                    }
+                };
+                xhr.send();
+            });
         };
 
         /**
@@ -174,9 +174,6 @@
                 s.opts.elm.preview[key].find("[" + s.opts.attr.pos + "]").attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
 
-                let sidebar = s.opts.elm.preview[key].find("section#sidebar");
-                let overlay = s.opts.elm.preview[key].find("div.modal");
-
                 if (config.isEE === true) {
                     s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
                 }
@@ -187,6 +184,7 @@
                     s.opts.elm.preview[key].find("body").removeClass(s.opts.classes.page.darkMode);
                 }
 
+                let sidebar = s.opts.elm.preview[key].find("section#sidebar");
                 if (sidebar.length() > 0) {
                     let sidebarHeader = sidebar.find("> header");
                     sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
@@ -232,21 +230,16 @@
                 }
             });
 
-            if (parseInt(ret.styles.indicatorWidth) === 0) {
-                ret.showIndicator = false;
-            }
-
-            if (parseInt(ret.styles.indicatorIconSize) === 0) {
-                ret.showIndicatorIcon = false;
-            }
-
-            if (parseInt(ret.styles.bookmarksIconSize) === 0) {
-                ret.showBookmarkIcons = false;
-            }
-
-            if (parseInt(ret.styles.directoriesIconSize) === 0) {
-                ret.showDirectoryIcons = false;
-            }
+            Object.entries({
+                indicatorWidth: "showIndicator",
+                indicatorIconSize: "showIndicatorIcon",
+                bookmarksIconSize: "showBookmarkIcons",
+                directoriesIconSize: "showDirectoryIcons"
+            }).forEach(([field, attr]) => {
+                if (parseInt(ret.styles[field]) === 0) {
+                    ret[attr] = false;
+                }
+            });
 
             if (styles.isEE === true) {
                 ret.isEE = true;
@@ -257,28 +250,40 @@
 
         /**
          * Initialises the previews
+         *
+         * @returns {Promise}
          */
         let initPreviews = () => {
-            Object.keys(previews).forEach((key) => {
-                previews[key].css = "";
+            return new Promise((resolve) => {
+                let previewsLoaded = 0;
+                let previewAmount = Object.keys(previews).length;
+                Object.keys(previews).forEach((key) => {
+                    previews[key].css = "";
 
-                s.opts.elm.preview[key] = $("<iframe />")
-                    .attr(s.opts.attr.appearance, key)
-                    .addClass(s.opts.classes.hidden)
-                    .appendTo(s.opts.elm.body);
+                    s.opts.elm.preview[key] = $("<iframe />")
+                        .attr(s.opts.attr.appearance, key)
+                        .addClass(s.opts.classes.hidden)
+                        .appendTo(s.opts.elm.body);
 
-                sendAjax("html/template/" + previews[key].template + ".html", (html) => {
-                    html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
-                    html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
-                    s.opts.elm.preview[key].find("body").html(html);
-                    s.helper.i18n.parseHtml(s.opts.elm.preview[key]);
-                    s.helper.font.addStylesheet(s.opts.elm.preview[key]);
-                });
+                    sendAjax("html/template/" + previews[key].template + ".html").then((html) => {
+                        html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
+                        html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
+                        s.opts.elm.preview[key].find("body").html(html);
+                        s.helper.i18n.parseHtml(s.opts.elm.preview[key]);
+                        s.helper.font.addStylesheet(s.opts.elm.preview[key]);
 
-                previews[key].styles.forEach((stylesheet) => {
-                    sendAjax("css/" + stylesheet + ".css", (css) => {
-                        previews[key].css += css;
-                        updatePreviewStyle(key);
+                        previewsLoaded++;
+
+                        if (previewsLoaded === previewAmount) {
+                            resolve();
+                        }
+                    });
+
+                    previews[key].styles.forEach((stylesheet) => {
+                        sendAjax("css/" + stylesheet + ".css").then((css) => {
+                            previews[key].css += css;
+                            updatePreviewStyle(key);
+                        });
                     });
                 });
             });
@@ -309,7 +314,7 @@
                 if (elm.attr("type") === "checkbox") {
                     val = e.currentTarget.checked;
 
-                    if ($(elm).parent()[0] === s.opts.elm.checkbox.darkMode[0]) {
+                    if ($(elm).parent()[0] === s.opts.elm.checkbox.darkMode[0]) { // darkmode checkbox -> change some other colors, too
                         let textColor = s.helper.model.getDefaultColor("textColor", val ? "dark" : "light");
                         changeColorValue(s.opts.elm.color.textColor, textColor);
                         changeColorValue(s.opts.elm.color.bookmarksDirColor, textColor);
@@ -338,7 +343,7 @@
                 updatePreviewStyle(tabName);
             });
 
-            s.opts.elm.appearance.content.on("click", "a." + s.opts.classes.revert, (e) => {
+            s.opts.elm.appearance.content.on("click", "a." + s.opts.classes.revert, (e) => { // revert the changes of the specific field
                 e.preventDefault();
                 let elm = $(e.currentTarget).data("elm");
                 let value = elm.data("initial");
@@ -351,7 +356,7 @@
                 }
             });
 
-            s.opts.elm.appearance.backgroundChanger.on("click", (e) => {
+            s.opts.elm.appearance.backgroundChanger.on("click", (e) => { // change the background of the appearance page
                 e.preventDefault();
                 let bg = $(e.currentTarget).attr(s.opts.attr.bg);
                 s.opts.elm.appearance.backgroundChanger.removeClass(s.opts.classes.tabs.active);
@@ -367,9 +372,7 @@
 
                         if (key === e.detail.contentTab) {
                             elm.removeClass(s.opts.classes.hidden);
-                            setTimeout(() => {
-                                updatePreviewStyle(key);
-                            }, 50);
+                            updatePreviewStyle(key);
                         } else {
                             elm.addClass(s.opts.classes.hidden);
                         }

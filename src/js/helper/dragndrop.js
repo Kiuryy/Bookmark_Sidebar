@@ -187,7 +187,6 @@
             }).addClass(ext.opts.classes.drag.helper);
 
             elmParent.addClass(ext.opts.classes.drag.isDragged);
-
             trackStart(elm);
 
             if (!edgeScroll.running) {
@@ -302,6 +301,11 @@
             }, 500);
         };
 
+        /**
+         * Clears the directory open timeout
+         *
+         * @param {jsu} checkElm
+         */
         let clearDirOpenTimeout = (checkElm = null) => {
             if (dirOpenTimeout !== null && (checkElm === null || dirOpenTimeout.id !== checkElm.attr(ext.opts.attr.id))) {
                 dirOpenTimeout.elm.removeClass(ext.opts.classes.drag.dragHover);

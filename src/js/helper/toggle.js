@@ -243,7 +243,7 @@
          * Opens the sidebar
          */
         let openSidebar = () => {
-            ext.helper.model.call("shareUserdataMask", (opts) => { // check whether to show the share userdata mask or not
+            ext.helper.model.call("shareUserdataMask").then((opts) => { // check whether to show the share userdata mask or not
                 if (opts && opts.showMask) {
                     ext.addShareUserdataMask();
                 } else {

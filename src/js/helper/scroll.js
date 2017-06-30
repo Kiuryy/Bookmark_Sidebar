@@ -55,20 +55,23 @@
 
         /**
          * Restores the scroll position from the storage if configurated so
+         *
+         * @param {jsu} scrollBox
+         * @returns {Promise}
          */
-        this.restoreScrollPos = (scrollBox, callback) => {
-            let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
+        this.restoreScrollPos = (scrollBox) => {
+            return new Promise((resolve) => {
+                let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
 
-            if (data.rememberState === "all") {
-                this.setScrollPos(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
-                setTimeout(() => {
-                    if (typeof callback === "function") {
-                        callback();
-                    }
-                }, 100);
-            } else if (typeof callback === "function") {
-                callback();
-            }
+                if (data.rememberState === "all") {
+                    this.setScrollPos(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
+                    setTimeout(() => {
+                        resolve();
+                    }, 100);
+                } else {
+                    resolve();
+                }
+            });
         };
 
         /**

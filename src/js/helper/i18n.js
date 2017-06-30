@@ -13,34 +13,34 @@
         /**
          * Initialises the language file
          *
-         * @param {function} callback
+         * @returns {Promise}
          */
-        this.init = (callback) => {
-            langVars = {};
+        this.init = () => {
+            return new Promise((resolve) => {
+                langVars = {};
 
-            ext.helper.model.call("languageInfos", (obj) => {
-                let lang = ext.helper.model.getData("a/language");
-                if (lang === "default") {
-                    lang = chrome.i18n.getUILanguage();
-                }
-                let defaultLang = this.getDefaultLanguage();
-
-                [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
-                    if (obj.infos && obj.infos[name] && obj.infos[name].available) {
-                        language = name;
-                        ext.helper.model.call("langvars", {
-                            lang: name,
-                            defaultLang: defaultLang
-                        }, (data) => { // load language variables from model
-                            if (data && data.langVars) {
-                                langVars = data.langVars;
-                                if (typeof callback === "function") {
-                                    callback();
-                                }
-                            }
-                        });
-                        return true;
+                ext.helper.model.call("languageInfos").then((obj) => {
+                    let lang = ext.helper.model.getData("a/language");
+                    if (lang === "default") {
+                        lang = chrome.i18n.getUILanguage();
                     }
+                    let defaultLang = this.getDefaultLanguage();
+
+                    [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
+                        if (obj.infos && obj.infos[name] && obj.infos[name].available) {
+                            language = name;
+                            ext.helper.model.call("langvars", {
+                                lang: name,
+                                defaultLang: defaultLang
+                            }).then((data) => { // load language variables from model
+                                if (data && data.langVars) {
+                                    langVars = data.langVars;
+                                    resolve();
+                                }
+                            });
+                            return true;
+                        }
+                    });
                 });
             });
         };

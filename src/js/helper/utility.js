@@ -105,6 +105,26 @@
         };
 
         /**
+         * Copies the given text to the clipboard
+         *
+         * @param {string} text
+         * @returns {boolean}
+         */
+        this.copyToClipboard = (text) => {
+            let textarea = $("<textarea />").text(text).appendTo(this.elements.iframeBody);
+            textarea[0].select();
+
+            let success = false;
+            try {
+                success = this.elements.iframe[0].contentDocument.execCommand('copy');
+            } catch (err) {
+            }
+
+            textarea.remove();
+            return success;
+        };
+
+        /**
          * Pins the given bookmarks
          *
          * @param {object} data
@@ -122,9 +142,7 @@
 
                 ext.helper.model.setData({
                     "u/pinnedEntries": pinnedEntries
-                }, () => {
-                    resolve();
-                });
+                }).then(resolve);
             });
         };
 
@@ -141,9 +159,7 @@
 
                 ext.helper.model.setData({
                     "u/pinnedEntries": pinnedEntries
-                }, () => {
-                    resolve();
-                });
+                }).then(resolve());
             });
         };
 
@@ -165,9 +181,7 @@
 
                 ext.helper.model.setData({
                     "u/separators": separators
-                }, () => {
-                    resolve();
-                });
+                }).then(resolve);
             });
         };
 
@@ -189,9 +203,7 @@
 
                 ext.helper.model.setData({
                     "u/separators": separators
-                }, () => {
-                    resolve();
-                });
+                }).then(resolve);
             });
         };
     };

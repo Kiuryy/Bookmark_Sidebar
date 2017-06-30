@@ -44,41 +44,41 @@
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
 
-            this.helper.model.init(() => {
-                this.helper.i18n.init(() => {
-                    this.helper.font.init();
-                    this.helper.stylesheet.init();
-                    this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
+            this.helper.model.init().then(() => {
+                return this.helper.i18n.init();
+            }).then(() => {
+                this.helper.font.init();
+                this.helper.stylesheet.init();
+                this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
 
-                    this.helper.i18n.parseHtml(document);
-                    this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                this.helper.i18n.parseHtml(document);
+                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                    this.opts.elm.sidebar.right = $(this.opts.elm.sidebar.left[0].outerHTML).appendTo(this.opts.elm.body);
-                    this.opts.elm.sidebar.right.attr(this.opts.attr.position, "right");
+                this.opts.elm.sidebar.right = $(this.opts.elm.sidebar.left[0].outerHTML).appendTo(this.opts.elm.body);
+                this.opts.elm.sidebar.right.attr(this.opts.attr.position, "right");
 
-                    initIntroEvents();
-                    initPositionEvents();
-                    initSurfaceEvents();
-                    initOpenActionEvents();
-                    initHandsOnEvents();
-                    initFinishedEvents();
+                initIntroEvents();
+                initPositionEvents();
+                initSurfaceEvents();
+                initOpenActionEvents();
+                initHandsOnEvents();
+                initFinishedEvents();
 
-                    this.helper.model.call("trackPageView", {page: "/onboarding"});
+                this.helper.model.call("trackPageView", {page: "/onboarding"});
 
-                    setTimeout(() => { // finish loading
-                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                setTimeout(() => { // finish loading
+                    this.opts.elm.body.removeClass(this.opts.classes.initLoading);
 
-                        if (location.href.search(/(\?|\&)skip\=1/) > -1) {
-                            initHandsOn(true);
-                        } else {
-                            gotoSlide("intro");
-                        }
+                    if (location.href.search(/(\?|\&)skip\=1/) > -1) {
+                        initHandsOn(true);
+                    } else {
+                        gotoSlide("intro");
+                    }
 
-                        setTimeout(() => {
-                            loader.remove();
-                        }, 300);
-                    }, 500);
-                });
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 300);
+                }, 500);
             });
         };
 
@@ -88,6 +88,18 @@
          * ################################
          */
 
+        /**
+         * Initialises the helper objects
+         */
+        let initHelpers = () => {
+            this.helper = {
+                i18n: new window.I18nHelper(this),
+                font: new window.FontHelper(this),
+                stylesheet: new window.StylesheetHelper(this),
+                template: new window.TemplateHelper(this),
+                model: new window.ModelHelper(this)
+            };
+        };
 
         /**
          * Initialises the eventhandlers for the intro slide
@@ -120,7 +132,7 @@
                 this.opts.elm.sidebar[value].addClass(this.opts.classes.visible);
 
                 if (e.type === "click") {
-                    this.helper.model.setData({"a/sidebarPosition": value}, () => {
+                    this.helper.model.setData({"a/sidebarPosition": value}).then(() => {
                         gotoNextSlide();
                     });
                 }
@@ -156,7 +168,7 @@
                     this.helper.model.setData({
                         "a/darkMode": value === "dark",
                         "a/styles": styles
-                    }, () => {
+                    }).then(() => {
                         gotoNextSlide();
                     });
                 }
@@ -177,7 +189,7 @@
             $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] > a").on("click", (e) => {
                 e.preventDefault();
                 let value = $(e.currentTarget).attr(this.opts.attr.value);
-                this.helper.model.setData({"b/openAction": value}, () => {
+                this.helper.model.setData({"b/openAction": value}).then(() => {
                     initHandsOn();
                 });
             });
@@ -285,7 +297,6 @@
                 $("head").append("<link href='" + chrome.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
             });
 
-
             let loadJs = (i = 0) => {
                 let js = this.opts.manifest.content_scripts[0].js[i];
 
@@ -298,19 +309,6 @@
             };
 
             loadJs();
-        };
-
-        /**
-         * Initialises the helper objects
-         */
-        let initHelpers = () => {
-            this.helper = {
-                i18n: new window.I18nHelper(this),
-                font: new window.FontHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                template: new window.TemplateHelper(this),
-                model: new window.ModelHelper(this)
-            };
         };
     };
 

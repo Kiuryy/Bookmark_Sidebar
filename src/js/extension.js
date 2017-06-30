@@ -21,22 +21,22 @@
         this.run = () => {
             initHelpers();
 
-            this.helper.model.init(() => {
-                this.helper.i18n.init(() => {
-                    this.helper.font.init();
-                    this.helper.stylesheet.init();
-                    this.helper.stylesheet.addStylesheets(["content"]);
-                    initSidebar();
+            this.helper.model.init().then(() => {
+                return this.helper.i18n.init();
+            }).then(() => {
+                this.helper.font.init();
+                this.helper.stylesheet.init();
+                this.helper.stylesheet.addStylesheets(["content"]);
+                initSidebar();
 
-                    this.helper.toggle.init();
-                    this.helper.list.init();
-                    this.helper.sidebarEvents.init();
-                    this.helper.dragndrop.init();
+                this.helper.toggle.init();
+                this.helper.list.init();
+                this.helper.sidebarEvents.init();
+                this.helper.dragndrop.init();
 
-                    if (document.referrer === "") {
-                        this.helper.model.call("addViewAmount", {url: location.href});
-                    }
-                });
+                if (document.referrer === "") {
+                    this.helper.model.call("addViewAmount", {url: location.href});
+                }
             });
         };
 
@@ -54,24 +54,24 @@
          * reloads the model data, the language variables and the bookmark list
          */
         this.refresh = () => {
-            this.helper.model.init(() => {
-                this.helper.i18n.init(() => {
-                    let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
+            this.helper.model.init().then(() => {
+                return this.helper.i18n.init();
+            }).then(() => {
+                let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
 
-                    if (data.entriesLocked === false) {
-                        this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
-                    } else {
-                        this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
-                    }
+                if (data.entriesLocked === false) {
+                    this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
+                } else {
+                    this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
+                }
 
-                    if (data.showHidden === true) {
-                        this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
-                    } else {
-                        this.elements.sidebar.removeClass(opts.classes.sidebar.showHidden);
-                    }
+                if (data.showHidden === true) {
+                    this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
+                } else {
+                    this.elements.sidebar.removeClass(opts.classes.sidebar.showHidden);
+                }
 
-                    this.helper.list.updateBookmarkBox();
-                });
+                this.helper.list.updateBookmarkBox();
             });
         };
 
@@ -154,26 +154,6 @@
                 loadingInfo.loader && loadingInfo.loader.remove();
                 loadingInfo = {};
             }, timeout);
-        };
-
-        /**
-         * Copies the given text to the clipboard
-         *
-         * @param {string} text
-         * @returns {boolean}
-         */
-        this.copyToClipboard = (text) => {
-            let textarea = $("<textarea />").text(text).appendTo(this.elements.iframeBody);
-            textarea[0].select();
-
-            let success = false;
-            try {
-                success = this.elements.iframe[0].contentDocument.execCommand('copy');
-            } catch (err) {
-            }
-
-            textarea.remove();
-            return success;
         };
 
         /**

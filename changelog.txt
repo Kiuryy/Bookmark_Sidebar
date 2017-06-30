@@ -1,7 +1,6 @@
 [tbd]
  - helpful hints
  - Update changelog
- - Replace callbacks with promises
  - improve middle click behaviour
 
 [1.9]

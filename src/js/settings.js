@@ -130,31 +130,32 @@
             initHelpers();
             initHeader();
 
-            this.helper.model.init(() => {
-                this.helper.i18n.init(() => {
-                    this.helper.font.init();
-                    this.helper.stylesheet.init();
-                    this.helper.stylesheet.addStylesheets(["settings"], $(document));
-                    initHeaderTabs();
+            this.helper.model.init().then(() => {
+                return this.helper.i18n.init();
+            }).then(() => {
+                this.helper.font.init();
+                this.helper.stylesheet.init();
+                this.helper.stylesheet.addStylesheets(["settings"], $(document));
+                initHeaderTabs();
 
-                    this.helper.form.init(() => {
-                        this.helper.template.footer().insertAfter(this.opts.elm.content);
-                        this.helper.i18n.parseHtml(document);
-                        this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                return this.helper.form.init();
+            }).then(() => {
+                this.helper.template.footer().insertAfter(this.opts.elm.content);
+                this.helper.i18n.parseHtml(document);
+                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                this.opts.elm.button.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
-                        this.helper.behaviour.init();
-                        this.helper.appearance.init();
-                        this.helper.feedback.init();
-                        this.helper.contribute.init();
+                this.helper.behaviour.init();
+                this.helper.appearance.init();
+                this.helper.feedback.init();
+                this.helper.contribute.init();
+                this.helper.importExport.init();
 
-                        initEvents();
-                        initImportExport();
-                        initContentTabs();
+                initEvents();
+                initContentTabs();
 
-                        this.helper.model.call("trackPageView", {page: "/settings"});
-                        this.opts.elm.body.removeClass(this.opts.classes.initLoading);
-                    });
-                });
+                this.helper.model.call("trackPageView", {page: "/settings"});
+                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
             });
         };
 
@@ -192,6 +193,7 @@
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),
                 feedback: new window.FeedbackHelper(this),
+                importExport: new window.ImportExportHelper(this),
                 contribute: new window.ContributeHelper(this)
             };
         };
@@ -295,73 +297,6 @@
         };
 
         /**
-         * Initialises the import/export functionality
-         */
-        let initImportExport = () => {
-            let config = Object.assign({}, this.helper.model.getAllData());
-            delete config.utility;
-            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='export']").attr({ // export config
-                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config)),
-                download: "bookmark-sidebar.config"
-            }).on("click", () => {
-                this.helper.model.call("trackEvent", {
-                    category: "settings",
-                    action: "export",
-                    label: "export"
-                });
-            });
-
-            let alertImportError = () => {
-                this.helper.model.call("trackEvent", {
-                    category: "settings",
-                    action: "import",
-                    label: "failed"
-                });
-                alert(this.helper.i18n.get("settings_import_failed"));
-            };
-
-            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='import'] > input[type='file']").on("change", (e) => { // import config
-                e.preventDefault();
-                let _self = e.currentTarget;
-
-                if (_self.files && _self.files[0] && _self.files[0].name.search(/\.config$/) > -1) {
-                    let reader = new FileReader();
-
-                    reader.onload = (e) => {
-                        try {
-                            let config = JSON.parse(e.target.result);
-                            if (config.behaviour && config.appearance) {
-                                chrome.storage.sync.set({
-                                    behaviour: config.behaviour,
-                                    appearance: config.appearance
-                                }, () => {
-                                    this.helper.model.call("trackEvent", {
-                                        category: "settings",
-                                        action: "import",
-                                        label: "import"
-                                    });
-                                    this.helper.model.call("refreshAllTabs", {type: "Settings"});
-                                    this.showSuccessMessage("import_saved");
-                                    setTimeout(() => {
-                                        location.reload(true);
-                                    }, 1500);
-                                });
-                            } else {
-                                alertImportError();
-                            }
-                        } catch (e) {
-                            alertImportError();
-                        }
-                    };
-
-                    reader.readAsText(_self.files[0]);
-                } else {
-                    alertImportError();
-                }
-            });
-        };
-
-        /**
          * Initialises the eventhandlers
          */
         let initEvents = () => {
@@ -369,19 +304,19 @@
                 this.opts.elm.menuContainer.removeClass(this.opts.classes.visible);
             });
 
-            this.opts.elm.menuLink.on("click", (e) => {
+            this.opts.elm.menuLink.on("click", (e) => { // show menu with import/export links
                 e.preventDefault();
                 e.stopPropagation();
 
                 this.opts.elm.menuContainer.addClass(this.opts.classes.visible);
             });
 
-            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='close']").on("click", (e) => {
+            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='close']").on("click", (e) => { // close settings
                 e.preventDefault();
                 window.close();
             });
 
-            this.opts.elm.button.save.on("click", (e) => {
+            this.opts.elm.button.save.on("click", (e) => { // save button
                 e.preventDefault();
 
                 switch (this.opts.elm.body.attr(this.opts.attr.tab)) {
@@ -399,8 +334,6 @@
                     }
                 }
             });
-
-            this.opts.elm.button.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
             this.opts.elm.button.restore.on("click", (e) => {
                 e.preventDefault();

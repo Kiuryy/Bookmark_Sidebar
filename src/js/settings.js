@@ -303,9 +303,20 @@
             this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='export']").attr({ // export config
                 href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config)),
                 download: "bookmark-sidebar.config"
+            }).on("click", () => {
+                this.helper.model.call("trackEvent", {
+                    category: "settings",
+                    action: "export",
+                    label: "export"
+                });
             });
 
             let alertImportError = () => {
+                this.helper.model.call("trackEvent", {
+                    category: "settings",
+                    action: "import",
+                    label: "failed"
+                });
                 alert(this.helper.i18n.get("settings_import_failed"));
             };
 
@@ -324,6 +335,11 @@
                                     behaviour: config.behaviour,
                                     appearance: config.appearance
                                 }, () => {
+                                    this.helper.model.call("trackEvent", {
+                                        category: "settings",
+                                        action: "import",
+                                        label: "import"
+                                    });
                                     this.helper.model.call("refreshAllTabs", {type: "Settings"});
                                     this.showSuccessMessage("import_saved");
                                     setTimeout(() => {

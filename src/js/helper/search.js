@@ -148,7 +148,6 @@
          * Initializes the events for the search field
          */
         let initEvents = () => {
-
             ext.elements.header.on("click", "a." + ext.opts.classes.sidebar.search, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -167,7 +166,6 @@
                 e.stopPropagation();
                 this.clearSearch();
             });
-
         };
     };
 

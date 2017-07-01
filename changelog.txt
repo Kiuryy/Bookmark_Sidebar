@@ -1,7 +1,6 @@
 [tbd]
  - helpful hints
  - Update changelog
- - hide pinned entries in search results
  - improve middle click behaviour
 
 [1.9]

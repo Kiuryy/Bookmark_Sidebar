@@ -360,7 +360,7 @@
             let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
             if (list.parents("li").length() === 0) {
-                if (list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) {
+                if (!ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
                     let hiddenEntries = ext.helper.entry.getAllPinnedData();
                     sortEntries(hiddenEntries);
 

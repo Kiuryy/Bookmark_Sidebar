@@ -80,6 +80,12 @@
     "contextmenu_show_in_dir": {
         "message": "Show in directory"
     },
+    "contextmenu_pin": {
+        "message": "Pin to top"
+    },
+    "contextmenu_unpin": {
+        "message": "Unpin from top"
+    },
     "sort_label_custom": {
         "message": "User-defined"
     },
@@ -252,10 +258,10 @@
         "message": "Move your cursor to the {1} side of your window."
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "{1} click with your mouse to open the sidebar."
+        "message": "Then {1} click with your mouse to open the sidebar."
     },
     "onboarding_handson_icon_desc": {
-        "message": "Click on the extension icon."
+        "message": "Click on the extension icon to open the sidebar."
     },
     "onboarding_left": {
         "message": "left"
@@ -418,6 +424,12 @@
     },
     "settings_remember_search_desc": {
         "message": "If selected, the entered search value will be remembered across page changes."
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Open all children (Warn limit)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Amount of bookmarks at which a warning appears, when trying to open all children of a directory at once."
     },
     "settings_dir_open_duration": {
         "message": "Directory open duration"

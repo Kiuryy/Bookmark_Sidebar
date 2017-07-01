@@ -6,7 +6,7 @@
         /**
          *
          */
-        this.init = () => {
+        this.init = async() => {
             s.opts.elm.feedback.faq.children("strong").on("click", (e) => { // faq toggle
                 e.preventDefault();
                 $(e.currentTarget).next("p").toggleClass(s.opts.classes.visible);

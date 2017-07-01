@@ -203,6 +203,63 @@
     "share_userdata_decline": {
         "message": "\u59d4\u5a49\u62d2\u7edd"
     },
+    "onboarding_title": {
+        "message": "\u8bbe\u7f6e"
+    },
+    "onboarding_headline": {
+        "message": "\u611f\u8c22\u60a8\u5b89\u88c5\u6b64\u63d2\u4ef6"
+    },
+    "onboarding_setup": {
+        "message": "\u9a6c\u4e0a\u8bbe\u7f6e"
+    },
+    "onboarding_skip": {
+        "message": "\u8df3\u8fc7\u8bbe\u7f6e"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "\u4f60\u60f3\u5728\u54ea\u4e2a\u4f4d\u7f6e\u653e\u7f6e\u4fa7\u8fb9\u680f?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "\u4f60\u60f3\u600e\u6837\u6253\u5f00\u4fa7\u8fb9\u680f\uff1f"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "\u4f60\u559c\u6b22\u54ea\u79cd\u98ce\u683c\uff1f"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "\u6d45\u8272"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "\u6df1\u8272"
+    },
+    "onboarding_handson_desc_direct": {
+        "message": "\u67e5\u770b\u5b83\u662f\u5982\u4f55\u5de5\u4f5c\u7684"
+    },
+    "onboarding_handson_desc": {
+        "message": "\u73b0\u5728\u60a8\u53ef\u4ee5\u81ea\u5df1\u8fdb\u884c\u5c1d\u8bd5"
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "\u79fb\u52a8\u9f20\u6807\u5230\u6d4f\u89c8\u5668\u754c\u9762\u8fb9\u7f18"
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "\u70b9\u51fb\u9f20\u6807\u6253\u5f00\u4fa7\u8fb9\u680f"
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "\u70b9\u51fb\u6269\u5c55\u7a0b\u5e8f\u56fe\u6807\u6253\u5f00\u4fa7\u8fb9\u680f"
+    },
+    "onboarding_left": {
+        "message": "\u5de6"
+    },
+    "onboarding_right": {
+        "message": "\u53f3"
+    },
+    "onboarding_finish_desc": {
+        "message": "\u5c3d\u60c5\u4f7f\u7528\u60a8\u7684\u4fa7\u8fb9\u680f"
+    },
+    "onboarding_goto_settings": {
+        "message": "\u66f4\u591a\u8bbe\u7f6e"
+    },
+    "onboarding_close": {
+        "message": "\u5173\u95ed\u6b64\u9875"
+    },
     "changelog_title": {
         "message": "\u66f4\u65b0\u65e5\u5fd7"
     },
@@ -479,6 +536,9 @@
     "settings_bookmarks_icon_size": {
         "message": "\u4e66\u7b7e\u56fe\u6807\u5927\u5c0f"
     },
+    "settings_directories_icon_size": {
+        "message": "\u76ee\u5f55\u56fe\u6807\u5927\u5c0f"
+    },
     "settings_bookmarks_line_height": {
         "message": "\u4e66\u7b7e\u884c\u9ad8"
     },
@@ -550,6 +610,21 @@
     },
     "settings_contribute_donation_desc": {
         "message": "\u6350\u8d60\u662f\u5b8c\u5168\u53ef\u9009\u7684\uff0c\u4f46\u5982\u679c\u60a8\u559c\u6b22\u6269\u5c55\u7a0b\u5e8f\uff0c\u5e76\u5e0c\u671b\u5c11\u91cf\u6350\u8d60\u7684\u8bdd\uff0c\u53ef\u4ee5\u70b9\u51fb\u4ee5\u4e0b\u94fe\u63a5\u3002\u6211\u611f\u8c22\u6211\u5f97\u5230\u7684\u6bcf\u4e00\u4e2a\u5e2e\u52a9\uff0c\u65e0\u8bba\u662f\u6350\u6b3e\uff0c\u5e2e\u52a9\u7ffb\u8bd1\u6216\u63d0\u4f9b\u53cd\u9988\uff0c\u4ee5\u6539\u5584\u6269\u5c55\u3002"
+    },
+    "settings_menu_export": {
+        "message": "\u5bfc\u51fa\u8bbe\u7f6e"
+    },
+    "settings_menu_import": {
+        "message": "\u5bfc\u5165\u8bbe\u7f6e"
+    },
+    "settings_menu_close": {
+        "message": "\u5173\u95ed\u6b64\u9875\u9762"
+    },
+    "settings_import_saved": {
+        "message": "\u914d\u7f6e\u5bfc\u5165\u6210\u529f"
+    },
+    "settings_import_failed": {
+        "message": "\u914d\u7f6e\u5bfc\u5165\u5931\u8d25\uff0c\u8bf7\u9009\u62e9\u6b63\u786e\u7684\u6587\u4ef6\u3002"
     },
     "translation_title": {
         "message": "\u7ffb\u8bd1"

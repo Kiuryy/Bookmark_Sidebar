@@ -242,14 +242,10 @@
 
             if (data.isDir) {
                 iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
+            } else if (data.pinned) {
+                iconWrapper.append("<li><a " + ext.opts.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin") + "'></a></li>");
             } else {
-                // ext.helper.i18n.get("contextmenu_pin")  ext.helper.i18n.get("contextmenu_unpin")
-
-                if (data.pinned) {
-                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='unpin' title='" + ("Unpin from top") + "'></a></li>");
-                } else {
-                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='pin' title='" + ("Pin to top") + "'></a></li>");
-                }
+                iconWrapper.append("<li><a " + ext.opts.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin") + "'></a></li>");
             }
 
             if (ext.helper.entry.isVisible(elmId)) {
@@ -366,7 +362,7 @@
                     }
                     case "openChildren": {
                         let bookmarks = data.children.filter(val => !!(val.url));
-                        if (bookmarks.length > 10) { // more than 10 bookmarks -> show confirm dialog
+                        if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                             ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
                         } else { // open bookmarks directly without confirmation
                             ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");

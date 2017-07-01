@@ -145,12 +145,14 @@
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
                 this.opts.elm.button.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
-                this.helper.behaviour.init();
-                this.helper.appearance.init();
-                this.helper.feedback.init();
-                this.helper.contribute.init();
-                this.helper.importExport.init();
-
+                return Promise.all([
+                    this.helper.behaviour.init(),
+                    this.helper.appearance.init(),
+                    this.helper.feedback.init(),
+                    this.helper.contribute.init(),
+                    this.helper.importExport.init(),
+                ]);
+            }).then(() => {
                 initEvents();
                 initContentTabs();
 
@@ -208,7 +210,7 @@
         /**
          * Initialises the content tabs
          */
-        let initContentTabs = () => {
+        let initContentTabs = async () => {
             this.opts.elm.contentTabs.children("a").on("click", (e) => {
                 e.preventDefault();
                 let tabElm = $(e.currentTarget).parent("li");
@@ -299,8 +301,8 @@
         /**
          * Initialises the eventhandlers
          */
-        let initEvents = () => {
-            $(document).on("click", (e) => {
+        let initEvents = async () => {
+            $(document).on("click", () => {
                 this.opts.elm.menuContainer.removeClass(this.opts.classes.visible);
             });
 

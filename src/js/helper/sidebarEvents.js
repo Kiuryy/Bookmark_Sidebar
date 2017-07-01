@@ -6,7 +6,7 @@
         /**
          * Initializes the helper
          */
-        this.init = () => {
+        this.init = async () => {
             initBookmarkEntriesEvents();
             initFilterEvents();
             initKeyboardEvents();
@@ -16,7 +16,7 @@
         /**
          * Initializes the eventhandlers for keyboard input
          */
-        let initKeyboardEvents = () => {
+        let initKeyboardEvents = async () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible) && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
@@ -73,7 +73,7 @@
         /**
          * Initializes the eventhandlers for the filterbox
          */
-        let initFilterEvents = () => {
+        let initFilterEvents = async () => {
             ext.elements.filterBox.on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
                 e.preventDefault();
                 let currentDirection = $(e.target).attr(ext.opts.attr.direction);
@@ -101,7 +101,7 @@
         /**
          * Initializes the eventhandlers for the bookmark entries
          */
-        let initBookmarkEntriesEvents = () => {
+        let initBookmarkEntriesEvents = async () => {
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
                 box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
@@ -114,7 +114,7 @@
                         if (data.isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
                             if (e.which === 2) { // middle click -> open all children
                                 let bookmarks = data.children.filter(val => !!(val.url));
-                                if (bookmarks.length > 10) { // more than 10 bookmarks -> show confirm dialog
+                                if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                                     ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
                                 } else { // open bookmarks directly without confirmation
                                     ext.helper.utility.openAllBookmarks(bookmarks, config.newTab === "foreground");
@@ -169,7 +169,7 @@
         /**
          * Initializes general events for the sidebar
          */
-        let initGeneralEvents = () => {
+        let initGeneralEvents = async () => {
             $(window).on("beforeunload", () => { // save scroll position before unloading page
                 if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // sidebar has been open or is still open
                     ext.helper.scroll.updateAll();

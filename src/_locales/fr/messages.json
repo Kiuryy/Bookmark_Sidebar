@@ -215,6 +215,63 @@
     "share_userdata_decline": {
         "message": "Non merci"
     },
+    "onboarding_title": {
+        "message": "Configuration"
+    },
+    "onboarding_headline": {
+        "message": "Merci d'avoir install\u00e9 cette extension."
+    },
+    "onboarding_setup": {
+        "message": "Commencer la configuration"
+    },
+    "onboarding_skip": {
+        "message": "Ignorer la configuration"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "O\u00f9 souhaitez vous afficher la barre lat\u00e9rale?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Comment voulez-vous ouvrir la barre lat\u00e9rale?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Quel aspect pr\u00e9f\u00e9rez-vous?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Clair"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Sombre"
+    },
+    "onboarding_handson_desc_direct": {
+        "message": "Faites l'essai."
+    },
+    "onboarding_handson_desc": {
+        "message": "Vous pouvez maintenant essayez par vous m\u00eame."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "D\u00e9placez le curseur vers le bord {1} de votre fen\u00eatre."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Puis cliquez {1} pour ouvrir la barre lat\u00e9rale."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Cliquez sur l'ic\u00f4ne de l'extension pour ouvrir la barre lat\u00e9rale."
+    },
+    "onboarding_left": {
+        "message": "gauche"
+    },
+    "onboarding_right": {
+        "message": "droite"
+    },
+    "onboarding_finish_desc": {
+        "message": "A vous de jouer!"
+    },
+    "onboarding_goto_settings": {
+        "message": "Param\u00e8tres suppl\u00e9mentaires"
+    },
+    "onboarding_close": {
+        "message": "Fermer la page"
+    },
     "changelog_title": {
         "message": "Historique des modifications"
     },

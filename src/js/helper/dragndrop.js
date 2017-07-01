@@ -17,7 +17,7 @@
         /**
          * Initializes the events for the drag n drop functionality
          */
-        this.init = () => {
+        this.init = async () => {
             initEvents();
             initExternalDragDropEvents();
         };
@@ -52,7 +52,7 @@
         /**
          * Initialises the eventhandler for external elements beeing dragged into the sidebar (e.g. a link, an image, ...)
          */
-        let initExternalDragDropEvents = () => {
+        let initExternalDragDropEvents = async () => {
             ext.elements.iframeBody.on("dragenter", () => {
                 ext.helper.contextmenu.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
@@ -441,7 +441,7 @@
         /**
          * Initializes the eventhandlers for the dragDrop functionality of the bookmarks
          */
-        let initEvents = () => {
+        let initEvents = async () => {
 
             ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 let x = e.pageX;

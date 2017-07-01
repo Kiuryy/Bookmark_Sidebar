@@ -9,7 +9,7 @@
         /**
          *
          */
-        this.init = () => {
+        this.init = async () => {
             ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
 
             Object.values(ext.elements.bookmarkBox).forEach((box) => {

@@ -46,6 +46,7 @@
                 dirAccordion: false,
                 rememberState: "all",
                 rememberSearch: true,
+                openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.5,
                 openDelay: 0,
                 closeTimeout: 1,

@@ -6,7 +6,7 @@
         /**
          *
          */
-        this.init = () => {
+        this.init = async () => {
             initExport();
             initImport();
         };
@@ -26,7 +26,7 @@
         /**
          * Initialises the import function
          */
-        let initImport = () => {
+        let initImport = async () => {
 
             s.opts.elm.menuContainer.find("> ul > li > a[" + s.opts.attr.name + "='import'] > input[type='file']").on("change", (e) => { // import config
                 e.preventDefault();
@@ -72,7 +72,7 @@
         /**
          * Initialises the export function
          */
-        let initExport = () => {
+        let initExport = async () => {
             let config = Object.assign({}, s.helper.model.getAllData());
             delete config.utility;
 

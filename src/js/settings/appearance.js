@@ -13,7 +13,7 @@
         /**
          * Initialises the appearance settings
          */
-        this.init = () => {
+        this.init = async() => {
             ["sidebarPosition", "language"].forEach((field) => {
                 let value = s.helper.model.getData("a/" + field);
                 s.opts.elm.select[field][0].value = value;

@@ -80,6 +80,12 @@
     "contextmenu_show_in_dir": {
         "message": "In Verzeichnis anzeigen"
     },
+    "contextmenu_pin": {
+        "message": "Oben fixieren"
+    },
+    "contextmenu_unpin": {
+        "message": "Nicht mehr fixieren"
+    },
     "sort_label_custom": {
         "message": "Benutzerdefiniert"
     },
@@ -252,10 +258,10 @@
         "message": "Bewege den Cursor zur {1} Seite des Fensters."
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "Klicke mit der {1} Maustaste um die Sidebar zu \u00f6ffnen"
+        "message": "Dann klicke mit der {1} Maustaste um die Sidebar zu \u00f6ffnen."
     },
     "onboarding_handson_icon_desc": {
-        "message": "Klicke auf das Symbol der Erweiterung."
+        "message": "Klicke auf das Symbol der Erweiterung um die Sidebar zu \u00f6ffnen."
     },
     "onboarding_left": {
         "message": "linken"
@@ -418,6 +424,12 @@
     },
     "settings_remember_search_desc": {
         "message": "Wenn ausgew\u00e4hlt, wird der eingegebene Suchbegriff beim Navigieren gemerkt."
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Anzahl Lesezeichen bei denen eine Warnung erscheinen soll, wenn alle Lesezeichen eines Verzeichnisses auf einmal ge\u00f6ffnet werden sollen."
     },
     "settings_dir_open_duration": {
         "message": "Verzeichnis-Animationsdauer"

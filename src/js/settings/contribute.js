@@ -6,7 +6,7 @@
         /**
          * Initialises the contribution tab
          */
-        this.init = () => {
+        this.init = async () => {
             handleTranslationInfo();
             initEvents();
         };
@@ -14,7 +14,7 @@
         /**
          * Adds notices to the settings if the language of the user has published categories which are incomplete
          */
-        let handleTranslationInfo = () => {
+        let handleTranslationInfo = async () => {
             let language = s.helper.i18n.getLanguage();
 
             if (language !== s.helper.i18n.getDefaultLanguage()) {
@@ -55,7 +55,7 @@
         /**
          * Initialises the eventhandler for the contribution tab
          */
-        let initEvents = () => {
+        let initEvents = async () => {
             chrome.storage.sync.get(["shareUserdata"], (obj) => {
                 if (obj.shareUserdata && obj.shareUserdata === true) {
                     s.opts.elm.checkbox.shareUserdata.trigger("click");

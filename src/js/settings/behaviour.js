@@ -6,7 +6,7 @@
         /**
          * Initialises the behaviour settings
          */
-        this.init = () => {
+        this.init = async () => {
             initEvents();
 
             ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab"].forEach((field) => {
@@ -24,7 +24,7 @@
                 s.opts.elm.select[field].trigger("change");
             });
 
-            ["openDelay", "dirOpenDuration", "closeTimeout"].forEach((field) => { // range
+            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout"].forEach((field) => { // range
                 let val = s.helper.model.getData("b/" + field);
 
                 if (val === -1) {
@@ -57,7 +57,7 @@
                 config[field] = s.opts.elm.select[field][0].value;
             });
 
-            ["openDelay", "dirOpenDuration", "closeTimeout"].forEach((field) => { // range
+            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout"].forEach((field) => { // range
                 let val = -1;
 
                 if (s.opts.elm.range[field].hasClass(s.opts.classes.range.inactive) === false) { // if inactive set -1 as value else use the selected value

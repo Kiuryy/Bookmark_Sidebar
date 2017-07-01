@@ -216,7 +216,7 @@
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
 
                 if (type === "separator") {
-                    ext.helper.utility.addSeparator({id: data.id, index: 0}).then(() => {
+                    ext.helper.specialEntry.addSeparator({id: data.id, index: 0}).then(() => {
                         closeOverlay(false, "_separator");
                         ext.helper.model.call("refreshAllTabs", {type: "Separator"});
                     });

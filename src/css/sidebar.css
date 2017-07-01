@@ -881,6 +881,8 @@ section#sidebar {
     background-color: #ccc; }
   section#sidebar.openedOnce > div.scrollBox > ul a > span.drag:hover::before {
     background-color: #999; }
+  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox > ul > li.pinned > a > span.drag {
+    display: block; }
   section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox > ul ul a {
     padding-right: 46px; }
     section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox > ul ul a > span.drag {

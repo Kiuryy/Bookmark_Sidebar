@@ -41,15 +41,6 @@
         };
 
         /**
-         * Checks whether the browser is maximized or windowed
-         *
-         * @returns {boolean}
-         */
-        this.isWindowed = () => {
-            return window.screenX !== 0 || window.screenY !== 0 || window.screen.availWidth !== window.innerWidth;
-        };
-
-        /**
          * Refreshed the sidebar,
          * reloads the model data, the language variables and the bookmark list
          */
@@ -214,6 +205,7 @@
                 checkbox: new window.CheckboxHelper(this),
                 overlay: new window.OverlayHelper(this),
                 utility: new window.UtilityHelper(this),
+                specialEntry: new window.SpecialEntryHelper(this),
                 contextmenu: new window.ContextmenuHelper(this)
             };
         };

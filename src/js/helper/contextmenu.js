@@ -349,7 +349,7 @@
                         break;
                     }
                     case "deleteSeparator": { // remove the separator
-                        ext.helper.utility.removeSeparator($(e.currentTarget).data("infos")).then(() => {
+                        ext.helper.specialEntry.removeSeparator($(e.currentTarget).data("infos")).then(() => {
                             ext.helper.model.call("refreshAllTabs", {type: "Separator"});
                         });
                         break;
@@ -374,13 +374,13 @@
                         break;
                     }
                     case "pin": { // pin entry
-                        ext.helper.utility.pinEntry(data).then(() => {
+                        ext.helper.specialEntry.pinEntry(data).then(() => {
                             ext.helper.model.call("refreshAllTabs", {type: "Pin"});
                         });
                         break;
                     }
                     case "unpin": { // unpin entry
-                        ext.helper.utility.unpinEntry(data).then(() => {
+                        ext.helper.specialEntry.unpinEntry(data).then(() => {
                             ext.helper.model.call("refreshAllTabs", {type: "Unpin"});
                         });
                         break;

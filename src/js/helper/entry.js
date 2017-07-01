@@ -139,6 +139,10 @@
 
             if (typeof entries.bookmarks[id] === "object") {
                 ret = entries.bookmarks[id];
+
+                if (typeof entries.pinned[id] === "object") { // bookmark is pinned -> add info about the pinnedIndex
+                    ret.pinnedIndex = entries.pinned[id].index;
+                }
             } else if (typeof entries.directories[id] === "object") {
                 ret = entries.directories[id];
             }
@@ -155,7 +159,12 @@
          */
         this.addData = (id, key, val) => {
             if (typeof entries.bookmarks[id] === "object") {
-                entries.bookmarks[id][key] = val;
+                if (key === "pinnedIndex" && typeof entries.pinned[id] === "object") { // change the index of the pinned entry
+                    entries.pinned[id].index = val;
+                    entries.bookmarks[id][key] = val;
+                } else {
+                    entries.bookmarks[id][key] = val;
+                }
             } else if (typeof entries.directories[id] === "object") {
                 entries.directories[id][key] = val;
             }

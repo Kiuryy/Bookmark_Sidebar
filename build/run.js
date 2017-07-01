@@ -18,6 +18,6 @@
     });
 
     // Update devDependencies -> ncu -a
-    // SCSS Filewatcher -> <PATH_TO_GLOBAL_NPM>/npm/node-sass.cmd --source-map true -o src/css src/scss
+    // SCSS Filewatcher -> <PATH_TO_node>/npm.cmd run scss
 })();
 

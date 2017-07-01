@@ -111,12 +111,20 @@
         let getDragType = (elm) => {
             let type = "bookmark";
 
-            if (elm === "selection") {
+            if (elm === "selection") { // element is text
                 type = elm;
-            } else if (elm.hasClass(ext.opts.classes.sidebar.bookmarkDir)) {
-                type = "directory";
-            } else if (elm.hasClass(ext.opts.classes.sidebar.separator)) {
-                type = "separator";
+            } else if (elm.data("type")) { // element type is cached in data obj
+                type = elm.data("type");
+            } else { // determine type of given element
+                if (elm.hasClass(ext.opts.classes.sidebar.bookmarkDir)) {
+                    type = "directory";
+                } else if (elm.hasClass(ext.opts.classes.sidebar.separator)) {
+                    type = "separator";
+                } else if (elm.parent("li." + ext.opts.classes.sidebar.entryPinned).length() > 0) {
+                    type = "pinned";
+                }
+
+                elm.data("type", type);
             }
 
             return type;
@@ -160,7 +168,6 @@
             ext.helper.contextmenu.close();
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
             let elmParent = elm.parent("li");
-            let type = getDragType(elm);
 
             ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
             elmParent.clone().addClass(ext.opts.classes.drag.dragInitial).insertAfter(elmParent);
@@ -257,14 +264,19 @@
                 });
 
                 if (type === "separator") { // save separator position
-                    ext.helper.utility.removeSeparator(elm.data("infos")).then(() => {
+                    ext.helper.specialEntry.removeSeparator(elm.data("infos")).then(() => {
                         let opts = {
                             id: parentId,
                             index: index
                         };
 
-                        ext.helper.utility.addSeparator(opts);
+                        ext.helper.specialEntry.addSeparator(opts);
                         elm.data("infos", opts);
+                    });
+                } else if (type === "pinned") { // save position of pinned entry
+                    ext.helper.specialEntry.reorderPinnedEntries({
+                        id: entryElm.children("a").attr(ext.opts.attr.id),
+                        prevId: entryElm.prev("li").children("a").attr(ext.opts.attr.id)
                     });
                 } else { // save bookmark/directory position
                     ext.helper.model.call("moveBookmark", {
@@ -362,10 +374,19 @@
 
             let newAboveElm = null;
 
-            $([
-                ext.elements.bookmarkBox["all"].find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li"),
-                ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li")
-            ]).forEach((node) => { // determine the element which is above the current drag position
+
+            let elmList = null;
+            let type = getDragType(bookmarkElm.children("a"));
+            if (type === "pinned") {
+                elmList = ext.elements.bookmarkBox["all"].find("> ul > li." + ext.opts.classes.sidebar.entryPinned);
+            } else {
+                elmList = $([
+                    ext.elements.bookmarkBox["all"].find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li"),
+                    ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li")
+                ]);
+            }
+
+            elmList.forEach((node) => { // determine the element which is above the current drag position
                 let elmObj = $(node);
 
                 if (node !== bookmarkElm[0] && !elmObj.hasClass(ext.opts.classes.drag.dragInitial)) {
@@ -411,6 +432,9 @@
                     let elm = bookmarkElm.insertAfter(newAboveElm);
                     draggedElm && draggedElm.data("elm", elm);
                 }
+            } else if (type === "pinned") { // pinned entry -> no element above -> index = 0
+                let elm = bookmarkElm.prependTo(ext.elements.bookmarkBox["all"].find("> ul"));
+                draggedElm && draggedElm.data("elm", elm);
             }
         };
 

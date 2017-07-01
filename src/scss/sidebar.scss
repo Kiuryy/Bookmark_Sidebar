@@ -455,11 +455,21 @@ section#sidebar {
 
   &.entriesUnlocked[data-sort='custom'] {
 
-    > div.scrollBox > ul ul a {
-      padding-right: 46px;
+    > div.scrollBox {
 
-      > span.drag {
-        display: block;
+      > ul {
+        
+        > li.pinned > a > span.drag {
+          display: block;
+        }
+
+        ul a {
+          padding-right: 46px;
+
+          > span.drag {
+            display: block;
+          }
+        }
       }
     }
   }

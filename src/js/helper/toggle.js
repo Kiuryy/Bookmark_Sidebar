@@ -67,7 +67,7 @@
          * @returns {int}
          */
         let getPixelTolerance = () => {
-            return pxToleranceObj[ext.isWindowed() ? "windowed" : "maximized"];
+            return pxToleranceObj[ext.helper.utility.isWindowed() ? "windowed" : "maximized"];
         };
 
         /**

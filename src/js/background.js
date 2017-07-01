@@ -606,6 +606,10 @@
                                 obj.appearance.styles = {};
                             }
 
+                            if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily === "Roboto") {
+                                obj.appearance.styles.fontFamily = "default";
+                            }
+
                             if (typeof obj.appearance.styles.directoriesIconSize === "undefined" && typeof obj.appearance.styles.bookmarksIconSize !== "undefined") {
                                 obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
                             }

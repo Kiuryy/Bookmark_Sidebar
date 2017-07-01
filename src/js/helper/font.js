@@ -72,7 +72,7 @@
          */
         this.init = () => {
             let styles = ext.helper.model.getData("a/styles");
-            if (styles.fontFamily && styles.fontFamily !== "default" && styles.fontFamily !== "Roboto") {
+            if (styles.fontFamily && styles.fontFamily !== "default") {
                 fontInfo = {
                     name: styles.fontFamily
                 };
@@ -83,7 +83,18 @@
             fontInfo.fontWeights = this.getFontWeights(fontInfo.name);
         };
 
+        /**
+         * Returns whether the fontHelpers init method was already executed
+         *
+         * @returns {boolean}
+         */
         this.isLoaded = () => !!(fontInfo.name);
+
+        /**
+         * Returns information about the configurated font
+         *
+         *  @returns {object}
+         */
         this.getFontInfo = () => fontInfo;
 
         /**

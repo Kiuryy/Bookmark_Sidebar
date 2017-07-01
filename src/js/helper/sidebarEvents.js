@@ -109,13 +109,20 @@
                     if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)) { // only left click
                         let _self = $(e.currentTarget);
                         let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
+                        let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
 
                         if (data.isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
-                            ext.helper.list.toggleBookmarkDir(_self);
+                            if (e.which === 2) { // middle click -> open all children
+                                let bookmarks = data.children.filter(val => !!(val.url));
+                                if (bookmarks.length > 10) { // more than 10 bookmarks -> show confirm dialog
+                                    ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
+                                } else { // open bookmarks directly without confirmation
+                                    ext.helper.utility.openAllBookmarks(bookmarks, config.newTab === "foreground");
+                                }
+                            } else { // normal click -> toggle directory
+                                ext.helper.list.toggleBookmarkDir(_self);
+                            }
                         } else if (!data.isDir) { // Click on link
-                            let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
-                            let newTab = e.which === 2 || config.linkAction === "newtab";
-
                             if (e.which === 2) {
                                 ext.helper.model.call("trackEvent", {
                                     category: "url",
@@ -126,11 +133,17 @@
                                 ext.helper.model.call("trackEvent", {
                                     category: "url",
                                     action: "open",
-                                    label: (newTab ? "new" : "current") + "_tab_default"
+                                    label: (e.which === 2 || config.linkAction === "newtab" ? "new" : "current") + "_tab_default"
                                 });
                             }
 
-                            ext.helper.utility.openUrl(data, newTab ? "newTab" : "default", newTab ? config.newTab === "foreground" : true);
+                            if (e.which === 2) { // new tab -> middle click
+                                ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background
+                            } else if (config.linkAction === "newtab") { // new tab -> normal click
+                                ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
+                            } else { // current tab
+                                ext.helper.utility.openUrl(data, "default", true);
+                            }
                         }
                     }
                 }).on("mouseover", "a", (e) => { // add class to currently hovered element

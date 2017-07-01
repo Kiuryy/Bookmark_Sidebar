@@ -1,12 +1,12 @@
 [tbd]
  - helpful hints
  - Update changelog
- - improve middle click behaviour
 
 [1.9]
  - Import/Export configuration
  - Onboarding with setup
  - Pin bookmarks to top
+ - Improved middle click behaviour
  - Replaced gruntjs with npm scripts
  - Code optimization
 

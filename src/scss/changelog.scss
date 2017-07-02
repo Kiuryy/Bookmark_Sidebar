@@ -155,5 +155,17 @@ section.infobox {
         margin: 10px 0 0 25px;
       }
     }
+
+    & + a { // @deprecated only for changelog v1.9
+      display: inline-block;
+      background: $contentBackground;
+      padding: 5px 10px;
+      margin: 7px 0 0 13px;
+      font-size: 90%;
+      color: $mainColor;
+      border-radius: 3px;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
   }
 }

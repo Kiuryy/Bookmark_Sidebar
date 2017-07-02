@@ -1,6 +1,5 @@
 [tbd]
  - helpful hints
- - Update changelog
 
 [1.9]
  - Import/Export configuration

@@ -37,7 +37,9 @@
                 edit: "edit",
                 success: "success",
                 empty: "empty",
-                incomplete: "incomplete"
+                incomplete: "incomplete",
+                amountInfo: "amountInfo",
+                requiredInfo: "requiredInfo"
             },
             attr: {
                 success: "data-successtext",
@@ -247,7 +249,7 @@
          */
         let addSelectForMissingLangs = (langs) => {
             let select = $("<select class='" + this.opts.classes.languagesSelect + "' />").appendTo(this.opts.elm.wrapper.overview.find("> div.scrollBox > div"));
-            $("<option value='' />").text("Add language").appendTo(select);
+            $("<option value='' />").text(this.helper.i18n.get("translation_add_language")).appendTo(select);
 
             let optionList = [];
 
@@ -320,6 +322,7 @@
 
                 let formData = new FormData();
                 formData.append('lang', lang);
+                formData.append('n', 1); // @deprecated parameter just for backward compatibility
                 xhr.send(formData);
             });
         };
@@ -351,11 +354,11 @@
 
                         let list = $("<ul />").appendTo(wrapper);
                         let varsAmount = {
-                            total: infos[category].length,
+                            total: infos[category].vars.length,
                             filled: 0
                         };
 
-                        infos[category].forEach((field, i) => {
+                        infos[category].vars.forEach((field, i) => {
                             if (field.value) {
                                 varsAmount.filled++;
                                 totalFilled++;
@@ -380,7 +383,11 @@
                             }
                         });
 
-                        $("<span />").html("<span>" + varsAmount.filled + "</span>/" + varsAmount.total).insertBefore(list);
+                        if (infos[category].required) {
+                            $("<span />").addClass(this.opts.classes.requiredInfo).text("(" + this.helper.i18n.get("translation_required_category") + ")").insertBefore(list);
+                        }
+
+                        $("<span />").addClass(this.opts.classes.amountInfo).html("<span>" + varsAmount.filled + "</span>&thinsp;/&thinsp;" + varsAmount.total).insertBefore(list);
 
                         if (languages[lang].available && varsAmount.filled > 0 && varsAmount.total > varsAmount.filled) { // incomplete notice for already released translations
                             wrapper.addClass(this.opts.classes.incomplete);

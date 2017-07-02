@@ -560,18 +560,37 @@ section#content > div[data-name='langvars'] > div.scrollBox > div > div.category
     left: 0;
     width: 100%;
     height: 40px; }
-  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: no-repeat center/26px;
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
-    background-color: #f5c525; }
-  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > a::before {
-    -webkit-mask-position-x: right; }
+  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > strong {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: "%fontWeightMedium";
+    color: #2b35c8;
+    font-size: 120%; }
+  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > span.amountInfo {
+    position: relative;
+    display: block;
+    float: right;
+    margin: 2px 0 0 0;
+    color: #aaa; }
+  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > span.requiredInfo {
+    display: inline-block;
+    font-size: 80%;
+    margin: 4px 0 0 10px;
+    color: #aaa; }
+  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > span.amountInfo {
+    padding-left: 21px; }
+    section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > span.amountInfo::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/18px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+      background-color: #f5c525; }
+    section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > span.amountInfo::before {
+      -webkit-mask-position-x: left; }
   section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > label {
     padding-left: 22px; }
     section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > label::before {
@@ -588,21 +607,10 @@ section#content > div[data-name='langvars'] > div.scrollBox > div > div.category
       -webkit-mask-position-x: left; }
   section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.incomplete > ul > li.empty > textarea {
     border: 1px solid #f5c525; }
-  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > strong {
-    display: inline-block;
-    font-weight: "%fontWeightNormal";
-    font-size: 120%; }
-  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > span {
-    display: inline-block;
-    margin: 0 0 0 10px;
-    color: #aaa; }
   section#content > div[data-name='langvars'] > div.scrollBox > div > div.category > ul {
     display: none; }
   section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active::before {
     content: "-"; }
-  section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > strong {
-    color: #7b5fa4;
-    font-weight: "%fontWeightMedium"; }
   section#content > div[data-name='langvars'] > div.scrollBox > div > div.category.active > ul {
     position: relative;
     display: block;

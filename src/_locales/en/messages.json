@@ -694,5 +694,11 @@
     },
     "translation_incomplete_info": {
         "message": "Due to an update the language variables are incomplete"
+    },
+    "translation_add_language": {
+        "message": "Add language"
+    },
+    "translation_required_category": {
+        "message": "Required"
     }
 }

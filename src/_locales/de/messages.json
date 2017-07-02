@@ -429,7 +429,7 @@
         "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"
     },
     "settings_open_children_warn_limit_desc": {
-        "message": "Anzahl Lesezeichen bei denen eine Warnung erscheinen soll, wenn alle Lesezeichen eines Verzeichnisses auf einmal ge\u00f6ffnet werden sollen."
+        "message": "Anzahl Lesezeichen ab denen eine Warnung erscheinen soll, wenn alle Lesezeichen eines Verzeichnisses auf einmal ge\u00f6ffnet werden sollen."
     },
     "settings_dir_open_duration": {
         "message": "Verzeichnis-Animationsdauer"
@@ -694,5 +694,11 @@
     },
     "translation_incomplete_info": {
         "message": "Durch ein Update sind die Sprachvariablen unvollst\u00e4ndig"
+    },
+    "translation_add_language": {
+        "message": "Sprache hinzuf\u00fcgen"
+    },
+    "translation_required_category": {
+        "message": "Erforderlich"
     }
 }

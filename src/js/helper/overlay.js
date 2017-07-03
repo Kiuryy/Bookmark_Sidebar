@@ -86,21 +86,12 @@
         };
 
         /**
-         * Sets the text for the close button
-         *
-         * @param {string} type
-         */
-        let setCloseButtonLabel = (type = "close") => {
-            elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_" + type));
-        };
-
-        /**
          * Closes the overlay
          *
          * @param {boolean} cancel
          * @param {string} labelAdd what to add the tracking event label
          */
-        let closeOverlay = (cancel = false, labelAdd = "") => {
+        this.closeOverlay = (cancel = false, labelAdd = "") => {
             ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
             ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
             elements.overlay.removeClass(ext.opts.classes.page.visible);
@@ -116,6 +107,15 @@
             setTimeout(() => {
                 elements.overlay.remove();
             }, 500);
+        };
+
+        /**
+         * Sets the text for the close button
+         *
+         * @param {string} type
+         */
+        let setCloseButtonLabel = (type = "close") => {
+            elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_" + type));
         };
 
         /**
@@ -217,7 +217,7 @@
 
                 if (type === "separator") {
                     ext.helper.specialEntry.addSeparator({id: data.id, index: 0}).then(() => {
-                        closeOverlay(false, "_separator");
+                        this.closeOverlay(false, "_separator");
                         ext.helper.model.call("refreshAllTabs", {type: "Separator"});
                     });
                 } else {
@@ -429,7 +429,7 @@
          * @param {object} data
          */
         let openChildren = (data) => {
-            closeOverlay();
+            this.closeOverlay();
             let bookmarks = data.children.filter(val => !!(val.url));
             ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
         };
@@ -441,7 +441,7 @@
          */
         let hideBookmark = (data) => {
             ext.startLoading();
-            closeOverlay();
+            this.closeOverlay();
 
             let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
             hiddenEntries[data.id] = true;
@@ -457,7 +457,7 @@
          * @param {object} data
          */
         let deleteBookmark = (data) => {
-            closeOverlay();
+            this.closeOverlay();
 
             ext.helper.model.call("deleteBookmark", {id: data.id}).then(() => {
                 data.element.parent("li").remove();
@@ -516,7 +516,7 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
-                        closeOverlay();
+                        this.closeOverlay();
                         data.title = formValues.values.title;
                         data.url = formValues.values.url;
                         data.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(data.title);
@@ -555,7 +555,7 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
-                        closeOverlay(false, "_" + (obj.url ? "bookmark" : "directory"));
+                        this.closeOverlay(false, "_" + (obj.url ? "bookmark" : "directory"));
                     }
                 });
             }
@@ -579,7 +579,7 @@
                 }
             });
 
-            closeOverlay();
+            this.closeOverlay();
         };
 
         /**
@@ -590,13 +590,13 @@
         let initEvents = (data) => {
             elements.overlay.find("body").on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY") {
-                    closeOverlay(true);
+                    this.closeOverlay(true);
                 }
             });
 
             elements.modal.find("a." + ext.opts.classes.overlay.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
-                closeOverlay(true);
+                this.closeOverlay(true);
             });
 
             elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action

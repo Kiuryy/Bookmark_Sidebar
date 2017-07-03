@@ -52,13 +52,56 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.isNewTab);
 
                 if (data.initialOpenOnNewTab) {
-                    openSidebar();
+                    this.openSidebar();
                 }
             }
 
             if (ext.helper.utility.sidebarHasMask() === false) {
                 ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
             }
+        };
+
+        /**
+         * Closes the sidebar
+         */
+        this.closeSidebar = () => {
+            clearSidebarTimeout("close");
+            clearSidebarTimeout("open");
+            ext.helper.contextmenu.close();
+            ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
+            $("body").removeClass(ext.opts.classes.page.noscroll);
+            $(document).trigger("mousemove"); // hide indicator
+        };
+
+        /**
+         * Opens the sidebar
+         */
+        this.openSidebar = () => {
+            ext.helper.model.call("shareUserdataMask").then((opts) => { // check whether to show the share userdata mask or not
+                if (opts && opts.showMask) {
+                    ext.addShareUserdataMask();
+                } else {
+                    ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
+                }
+            });
+
+            if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
+                ext.trackInitialEvents();
+                ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+            }
+
+            ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
+            ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+            ext.initImages();
+
+            if (preventPageScroll) {
+                $("body").addClass(ext.opts.classes.page.noscroll);
+            }
+
+            ext.helper.scroll.focus();
+            $(document).trigger("mousemove"); // hide indicator
+
+            ext.helper.utility.triggerEvent("sidebarOpened");
         };
 
         /**
@@ -89,14 +132,14 @@
                         }
                     }
                     if (pageX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                        closeSidebar();
+                        this.closeSidebar();
                     }
                 }
             });
 
             $(document).on("click", (e) => { // click somewhere in the underlying page -> close
                 if (e.isTrusted) {
-                    closeSidebar();
+                    this.closeSidebar();
                 }
             });
 
@@ -109,7 +152,7 @@
                     if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
                         timeout.close = setTimeout(() => {
                             if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
-                                closeSidebar();
+                                this.closeSidebar();
                             }
                         }, +closeTimeoutRaw * 1000);
                     }
@@ -118,19 +161,12 @@
                 clearSidebarTimeout("close");
             });
 
-            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
-                if ((e.key === "Escape" || e.key === "Esc") && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // close when hitting esc
-                    e.preventDefault();
-                    closeSidebar();
-                }
-            });
-
             $(document).on("visibilitychange", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
                 if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
                     ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
 
                     if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                        closeSidebar();
+                        this.closeSidebar();
                     }
                 }
             }).on("mouseout", () => {
@@ -153,9 +189,9 @@
             chrome.extension.onMessage.addListener((message) => {
                 if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
                     if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                        closeSidebar();
+                        this.closeSidebar();
                     } else {
-                        openSidebar();
+                        this.openSidebar();
                     }
                 }
             });
@@ -171,11 +207,11 @@
                         if (openAction === "mousemove") {
                             if (!(timeout.open)) {
                                 timeout.open = setTimeout(() => {
-                                    openSidebar();
+                                    this.openSidebar();
                                 }, openDelay);
                             }
                         } else if (openDelay === 0 || inPixelToleranceTime === null || +new Date() - inPixelToleranceTime > openDelay) { // open delay = 0 or cursor is longer in pixel tolerance range than the delay -> open sidebar
-                            openSidebar();
+                            this.openSidebar();
                         }
                     } else {
                         clearSidebarTimeout("open");
@@ -225,49 +261,6 @@
                 clearTimeout(timeout[name]);
                 timeout[name] = null;
             }
-        };
-
-        /**
-         * Closes the sidebar
-         */
-        let closeSidebar = () => {
-            clearSidebarTimeout("close");
-            clearSidebarTimeout("open");
-            ext.helper.contextmenu.close();
-            ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
-            $("body").removeClass(ext.opts.classes.page.noscroll);
-            $(document).trigger("mousemove"); // hide indicator
-        };
-
-        /**
-         * Opens the sidebar
-         */
-        let openSidebar = () => {
-            ext.helper.model.call("shareUserdataMask").then((opts) => { // check whether to show the share userdata mask or not
-                if (opts && opts.showMask) {
-                    ext.addShareUserdataMask();
-                } else {
-                    ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
-                }
-            });
-
-            if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
-                ext.trackInitialEvents();
-                ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
-            }
-
-            ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
-            ext.elements.iframe.addClass(ext.opts.classes.page.visible);
-            ext.initImages();
-
-            if (preventPageScroll) {
-                $("body").addClass(ext.opts.classes.page.noscroll);
-            }
-
-            ext.helper.scroll.focus();
-            $(document).trigger("mousemove"); // hide indicator
-
-            ext.helper.utility.triggerEvent("sidebarOpened");
         };
 
         /**

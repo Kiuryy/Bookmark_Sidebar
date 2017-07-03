@@ -18,42 +18,52 @@
          */
         let initKeyboardEvents = async () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
-                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible) && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
-                    let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
-
-                    if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
-                        ext.helper.scroll.focus();
-                    } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
+                if ($("iframe#" + ext.opts.ids.page.overlay).length()) { // overlay is open
+                    if (e.key === "Escape" || e.key === "Esc") { // close when hitting esc
                         e.preventDefault();
-                        Object.values(ext.elements.bookmarkBox).forEach((box) => {
-                            if (box.hasClass(ext.opts.classes.sidebar.active)) {
-                                let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
-                                if (elm.length() > 0) {
-                                    let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
-                                    if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
-                                        $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
-                                        let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
+                        ext.helper.overlay.closeOverlay(true);
+                    }
+                } else {
+                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
+                        let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
 
-                                        setTimeout(() => {
-                                            $(elm).addClass(ext.opts.classes.sidebar.copied);
+                        if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
+                            ext.helper.scroll.focus();
+                        } else if (e.key === "Escape" || e.key === "Esc") { // close when hitting esc
+                            e.preventDefault();
+                            ext.helper.toggle.closeSidebar();
+                        } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
+                            e.preventDefault();
+                            Object.values(ext.elements.bookmarkBox).forEach((box) => {
+                                if (box.hasClass(ext.opts.classes.sidebar.active)) {
+                                    let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
+                                    if (elm.length() > 0) {
+                                        let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+                                        if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
+                                            $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
+                                            let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
                                             setTimeout(() => {
-                                                $(elm).removeClass(ext.opts.classes.sidebar.copied);
+                                                $(elm).addClass(ext.opts.classes.sidebar.copied);
 
                                                 setTimeout(() => {
-                                                    copiedNotice.remove();
-                                                }, 500);
-                                            }, 1500);
-                                        }, 100);
+                                                    $(elm).removeClass(ext.opts.classes.sidebar.copied);
+
+                                                    setTimeout(() => {
+                                                        copiedNotice.remove();
+                                                    }, 500);
+                                                }, 1500);
+                                            }, 100);
+                                        }
                                     }
                                 }
-                            }
-                        });
-                    } else { // focus search field to enter the value of the pressed key there
-                        let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                            });
+                        } else { // focus search field to enter the value of the pressed key there
+                            let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
 
-                        if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
-                            searchField[0].focus();
+                            if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                                searchField[0].focus();
+                            }
                         }
                     }
                 }

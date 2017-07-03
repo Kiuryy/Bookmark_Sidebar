@@ -27,15 +27,17 @@
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["content"]);
-                initSidebar();
+                return initSidebar();
+            }).then(() => {
+                if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
+                    this.helper.toggle.init();
+                    this.helper.list.init();
+                    this.helper.sidebarEvents.init();
+                    this.helper.dragndrop.init();
 
-                this.helper.toggle.init();
-                this.helper.list.init();
-                this.helper.sidebarEvents.init();
-                this.helper.dragndrop.init();
-
-                if (document.referrer === "") {
-                    this.helper.model.call("addViewAmount", {url: location.href});
+                    if (document.referrer === "") {
+                        this.helper.model.call("addViewAmount", {url: location.href});
+                    }
                 }
             });
         };
@@ -213,7 +215,7 @@
         /**
          * Creates the basic html markup for the sidebar and the visual
          */
-        let initSidebar = () => {
+        let initSidebar = async () => {
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
 
             if (this.helper.model.getData("b/animations") === false) {

@@ -168,14 +168,14 @@
          * @param {int} timeout
          */
         let endLoading = (timeout = 300) => {
-            setTimeout(() => {
+            $.delay(timeout).then(() => {
                 loader && loader.remove();
                 Object.keys(this.opts.elm.wrapper).forEach((key) => {
                     if (this.opts.elm.wrapper[key].hasClass(this.opts.classes.hidden) === false) {
                         this.opts.elm.wrapper[key].removeClass(this.opts.classes.loading);
                     }
                 });
-            }, timeout);
+            });
         };
 
         /**
@@ -429,16 +429,17 @@
             let xhr = new XMLHttpRequest();
             xhr.open("POST", this.opts.ajax.submit, true);
             xhr.onload = () => {
-                setTimeout(() => { // load at least 1s
+                $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))).then(() => {  // load at least 1s
                     loader.remove();
                     this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
                     this.opts.elm.body.addClass(this.opts.classes.success);
-                    setTimeout(() => {
-                        this.opts.elm.body.removeClass(this.opts.classes.loading);
-                        this.opts.elm.body.removeClass(this.opts.classes.success);
-                        location.reload(true);
-                    }, 1500);
-                }, Math.max(0, 1000 - (+new Date() - loadStartTime)));
+
+                    return $.delay(1500);
+                }).then(() => {
+                    this.opts.elm.body.removeClass(this.opts.classes.loading);
+                    this.opts.elm.body.removeClass(this.opts.classes.success);
+                    location.reload(true);
+                });
             };
 
             let formData = new FormData();

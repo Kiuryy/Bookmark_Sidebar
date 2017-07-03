@@ -45,9 +45,9 @@
                 this.opts.elm.infobox.addClass(this.opts.classes.visible);
                 this.helper.model.call("trackPageView", {page: "/changelog"});
 
-                setTimeout(() => {
+                $.delay(100).then(() => {
                     this.opts.elm.body.removeClass(this.opts.classes.initLoading);
-                }, 100);
+                });
             });
         };
 

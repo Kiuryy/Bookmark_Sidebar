@@ -66,7 +66,7 @@
 
                 this.helper.model.call("trackPageView", {page: "/onboarding"});
 
-                setTimeout(() => { // finish loading
+                $.delay(500).then(() => { // finish loading
                     this.opts.elm.body.removeClass(this.opts.classes.initLoading);
 
                     if (location.href.search(/(\?|\&)skip\=1/) > -1) {
@@ -75,10 +75,10 @@
                         gotoSlide("intro");
                     }
 
-                    setTimeout(() => {
-                        loader.remove();
-                    }, 300);
-                }, 500);
+                    return $.delay(300);
+                }).then(() => {
+                    loader.remove();
+                });
             });
         };
 
@@ -138,13 +138,13 @@
                 }
             }).on("mouseleave", (e) => {
                 let slide = $(e.currentTarget).parent();
-                setTimeout(() => {
+                $.delay().then(() => {
                     if (slide.hasClass(this.opts.classes.visible)) {
                         Object.values(this.opts.elm.sidebar).forEach((sidebar) => {
                             sidebar.removeClass(this.opts.classes.visible);
                         });
                     }
-                }, 0);
+                });
             });
 
         };
@@ -174,11 +174,11 @@
                 }
             }).on("mouseleave", (e) => {
                 let slide = $(e.currentTarget).parent();
-                setTimeout(() => {
+                $.delay().then(() => {
                     if (slide.hasClass(this.opts.classes.visible)) {
                         this.opts.elm.body.removeAttr(this.opts.attr.surface);
                     }
-                }, 0);
+                });
             });
         };
 
@@ -238,7 +238,7 @@
             let slide = $("section." + this.opts.classes.slide + "." + this.opts.classes.visible);
             slide.removeClass(this.opts.classes.visible);
 
-            setTimeout(() => {
+            $.delay(300).then(() => {
                 this.helper.model.call("trackEvent", {
                     category: "onboarding",
                     action: "view" + (direct ? "_direct" : ""),
@@ -246,7 +246,7 @@
                 });
 
                 $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='" + name + "']").addClass(this.opts.classes.visible);
-            }, 300);
+            });
         };
 
         /**
@@ -284,9 +284,9 @@
                 }
             }
 
-            setTimeout(() => { // show icon as help
+            $.delay(300).then(() => { // show icon as help
                 this.opts.elm.body.attr(this.opts.attr.openType, config.openAction === "icon" ? "icon" : "mouse");
-            }, 300);
+            });
         };
 
         /**

@@ -6,7 +6,7 @@
         /**
          *
          */
-        this.init = async() => {
+        this.init = async () => {
             s.opts.elm.feedback.faq.children("strong").on("click", (e) => { // faq toggle
                 e.preventDefault();
                 $(e.currentTarget).next("p").toggleClass(s.opts.classes.visible);
@@ -60,13 +60,13 @@
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", s.opts.ajax.feedback, true);
                 xhr.onload = () => {
-                    setTimeout(() => { // load at least 1s
+                    $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))).then(() => { // load at least 1s
                         s.opts.elm.textarea.feedbackMsg[0].value = "";
                         s.opts.elm.field.feedbackEmail[0].value = "";
                         s.opts.elm.body.removeClass(s.opts.classes.loading);
                         loader.remove();
                         s.showSuccessMessage("feedback_sent_message");
-                    }, Math.max(0, 1000 - (+new Date() - loadStartTime)));
+                    });
                 };
                 let formData = new FormData();
                 formData.append('email', emailText);
@@ -83,9 +83,9 @@
                 s.opts.elm.textarea.feedbackMsg.addClass(s.opts.classes.error);
             }
 
-            setTimeout(() => {
+            $.delay(700).then(() => {
                 $("." + s.opts.classes.error).removeClass(s.opts.classes.error);
-            }, 700);
+            });
         };
     };
 

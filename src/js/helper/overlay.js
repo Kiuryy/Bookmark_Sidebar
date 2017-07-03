@@ -79,10 +79,10 @@
             ext.helper.model.call("trackPageView", {page: "/overlay/" + trackingLabel});
             initEvents(data);
 
-            setTimeout(() => {
+            $.delay(100).then(() => {
                 elements.modal.addClass(ext.opts.classes.overlay.visible);
                 elements.overlay.addClass(ext.opts.classes.page.visible);
-            }, 100);
+            });
         };
 
         /**
@@ -104,9 +104,9 @@
 
             ext.helper.scroll.focus();
 
-            setTimeout(() => {
+            $.delay(500).then(() => {
                 elements.overlay.remove();
-            }, 500);
+            });
         };
 
         /**
@@ -250,10 +250,10 @@
 
                     menu.addClass(ext.opts.classes.sidebar.hidden);
 
-                    setTimeout(() => {
+                    $.delay(data && data.values ? 0 : 100).then(() => {
                         list.addClass(ext.opts.classes.overlay.visible);
                         submit.addClass(ext.opts.classes.overlay.visible);
-                    }, data && data.values ? 0 : 100);
+                    });
                 }
             });
 
@@ -307,55 +307,54 @@
         let handleUpdateUrlsFinished = (updateList) => {
             let hasResults = updateList.length > 0;
 
-            setTimeout(() => {
+            $.delay(1000).then(() => {
                 elements.desc.remove();
                 elements.progressBar.remove();
                 elements.progressLabel.remove();
 
                 hasResults && elements.modal.addClass(ext.opts.classes.overlay.urlCheckList);
 
-                setTimeout(() => {
-                    elements.loader.remove();
-                    elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
-                    setCloseButtonLabel("close");
+                return $.delay(hasResults ? 1000 : 0);
+            }).then(() => {
+                elements.loader.remove();
+                elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
+                setCloseButtonLabel("close");
 
-                    if (updateList.length === 0) {
-                        $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
-                    } else {
-                        $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
-                        let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
-                        let overlayBody = elements.overlay.find("body");
+                if (updateList.length === 0) {
+                    $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
+                } else {
+                    $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
+                    let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
+                    let overlayBody = elements.overlay.find("body");
 
-                        updateList.forEach((entry) => {
-                            let listEntry = $("<li />")
-                                .data("entry", entry)
-                                .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
-                                .append("<strong>" + entry.title + "</strong>");
+                    updateList.forEach((entry) => {
+                        let listEntry = $("<li />")
+                            .data("entry", entry)
+                            .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
+                            .append("<strong>" + entry.title + "</strong>");
 
+                        $("<a />").attr({
+                            href: entry.url, title: entry.url, target: "_blank"
+                        }).html("<span>" + entry.url + "</span>").appendTo(listEntry);
+
+                        if (entry.urlStatusCode === 404) {
+                            $("<span />").text(ext.helper.i18n.get("overlay_check_urls_not_found")).appendTo(listEntry);
+                        } else if (entry.newUrl !== entry.url) {
                             $("<a />").attr({
-                                href: entry.url, title: entry.url, target: "_blank"
-                            }).html("<span>" + entry.url + "</span>").appendTo(listEntry);
+                                href: entry.newUrl, title: entry.newUrl, target: "_blank"
+                            }).html("<span>" + entry.newUrl + "</span>").appendTo(listEntry);
+                        }
 
-                            if (entry.urlStatusCode === 404) {
-                                $("<span />").text(ext.helper.i18n.get("overlay_check_urls_not_found")).appendTo(listEntry);
-                            } else if (entry.newUrl !== entry.url) {
-                                $("<a />").attr({
-                                    href: entry.newUrl, title: entry.newUrl, target: "_blank"
-                                }).html("<span>" + entry.newUrl + "</span>").appendTo(listEntry);
+                        listEntry = listEntry.appendTo(scrollBox.children("ul"));
+
+                        ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
+                            if (response.img) { // favicon found -> add to entry
+                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box))
                             }
-
-                            listEntry = listEntry.appendTo(scrollBox.children("ul"));
-
-                            ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
-                                if (response.img) { // favicon found -> add to entry
-                                    $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box))
-                                }
-                            });
                         });
-                    }
-                }, hasResults ? 1000 : 0);
-
-            }, 1000);
+                    });
+                }
+            });
         };
 
         /**
@@ -386,9 +385,9 @@
                     elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
                     elements.progressLabel = $("<span />").addClass(ext.opts.classes.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
 
-                    setTimeout(() => {
+                    $.delay(500).then(() => {
                         elements.modal.addClass(ext.opts.classes.overlay.urlCheckLoading);
-                    }, 500);
+                    });
 
                     let finished = 0;
                     let updateList = [];

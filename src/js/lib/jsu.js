@@ -1,5 +1,5 @@
 /**
- * jsu v1.0.4
+ * jsu v1.1.0
  *
  * Philipp König
  * https://blockbyte.de/
@@ -13,6 +13,9 @@
     let forEach = "forEach";
     // <<< Global Methods
 
+    /**
+     * jsuHelper
+     */
     let jsuHelper = (() => {
         return class {
             static [isDefined](v) {
@@ -41,6 +44,30 @@
                 }
             }
         }
+    })();
+
+    /**
+     * jsuTools
+     */
+    let jsuTools = (() => {
+
+        // >>> Methods
+        let delay = "delay";
+        // <<< Methods
+
+        return {
+            /**
+             * Promise for a delay of the given duration
+             *
+             * @param {int} t
+             * @returns {Promise}
+             */
+            [delay]: (t = 0) => {
+                return new Promise((resolve) => {
+                    setTimeout(resolve, t)
+                });
+            }
+        };
     })();
 
 
@@ -1253,9 +1280,17 @@
         }
     })(jsuHelper);
 
+    /**
+     * Bind jsu to window object
+     */
+    (() => {
+        let obj = s => new jsuNode(s);
 
-    window.jsu = function (s) {
-        return new jsuNode(s);
-    }
+        Object.entries(jsuTools).forEach(([name, func]) => { // append tools
+            obj[name] = func;
+        });
+
+        window.jsu = obj;
+    })();
 
 })();

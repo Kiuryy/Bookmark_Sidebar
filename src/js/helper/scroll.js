@@ -65,9 +65,7 @@
 
                 if (data.rememberState === "all") {
                     this.setScrollPos(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
-                    setTimeout(() => {
-                        resolve();
-                    }, 100);
+                    $.delay(100).then(resolve);
                 } else {
                     resolve();
                 }

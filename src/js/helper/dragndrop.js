@@ -288,7 +288,7 @@
 
                 trackEnd(elm);
 
-                setTimeout(() => {
+                $.delay().then(() => {
                     let boundClientRect = entryElm[0].getBoundingClientRect();
 
                     draggedElm.css({
@@ -296,21 +296,21 @@
                         left: boundClientRect.left + "px"
                     });
 
-                    setTimeout(() => {
-                        entryElm.removeClass(ext.opts.classes.drag.isDragged);
-                        dragInitialElm.remove();
-                        draggedElm.remove();
-                    }, 200);
-                }, 0);
+                    return $.delay(200);
+                }).then(() => {
+                    entryElm.removeClass(ext.opts.classes.drag.isDragged);
+                    dragInitialElm.remove();
+                    draggedElm.remove();
+                });
             }
 
             ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
 
-            setTimeout(() => {
+            $.delay(500).then(() => {
                 if (ext.helper.utility.sidebarHasMask() === false) {
                     ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
                 }
-            }, 500);
+            });
         };
 
         /**

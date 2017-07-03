@@ -99,9 +99,9 @@
                         });
                     }
                 } else if (retry < 20) { // no search box loaded -> wait a bit and try again
-                    setTimeout(() => {
+                    $.delay(100).then(() => {
                         trackSearchValue(++retry);
-                    }, 100);
+                    });
                 }
             };
 

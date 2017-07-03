@@ -38,7 +38,7 @@
 
                 ext.helper.model.setData({
                     "u/pinnedEntries": pinnedEntries
-                }).then(resolve());
+                }).then(resolve);
             });
         };
 

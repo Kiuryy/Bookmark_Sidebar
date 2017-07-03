@@ -50,9 +50,9 @@
                                     });
                                     s.helper.model.call("refreshAllTabs", {type: "Settings"});
                                     s.showSuccessMessage("import_saved");
-                                    setTimeout(() => {
+                                    $.delay(1500).then(() => {
                                         location.reload(true);
-                                    }, 1500);
+                                    });
                                 });
                             } else {
                                 alertImportError();

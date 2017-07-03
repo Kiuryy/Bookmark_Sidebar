@@ -183,7 +183,7 @@
                             if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
                                 childrenList = $("<ul />").insertAfter(elm);
                                 this.addBookmarkDir(response.bookmarks[0].children, childrenList);
-                                expandCollapseDir(elm, childrenList, true, instant).then(resolve());
+                                expandCollapseDir(elm, childrenList, true, instant).then(resolve);
                             }
                         });
                     } else { // already loaded -> just expand
@@ -223,7 +223,7 @@
             }
 
             if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
-                setTimeout(() => {
+                $.delay(100).then(() => {
                     ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]).then(() => {
                         ext.initImages();
                         ext.endLoading(200);
@@ -231,7 +231,7 @@
                         ext.refreshRun = false;
                         ext.loaded();
                     });
-                }, 100);
+                });
             }
         };
 
@@ -522,9 +522,9 @@
                 list.css("height", list[0].scrollHeight + "px");
 
                 if (open === false) { // parameter false -> close list
-                    setTimeout(() => {
+                    $.delay(0).then(() => {
                         list.css("height", 0);
-                    }, 0);
+                    });
                 }
 
                 if (ext.refreshRun === true) { // restore open states of child nodes
@@ -544,7 +544,7 @@
 
                 let dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
 
-                setTimeout(() => { // unset changes in css, so opening of children in child list works properly
+                $.delay(instant ? 0 : (+dirOpenDurationRaw * 1000)).then(() => { // unset changes in css, so opening of children in child list works properly
                     if (open === false) {
                         elm.removeClass(ext.opts.classes.sidebar.dirOpened);
                     } else {
@@ -565,7 +565,7 @@
                     }
 
                     resolve();
-                }, instant ? 0 : (+dirOpenDurationRaw * 1000));
+                });
             });
         };
 
@@ -578,9 +578,9 @@
         let closeAllChildDirs = (elm, openStates) => {
             elm.next("ul").find("a." + ext.opts.classes.sidebar.bookmarkDir).forEach((node) => {
                 openStates[$(node).attr(ext.opts.attr.id)] = false;
-                setTimeout(() => {
+                $.delay(500).then(() => {
                     $(node).removeClass(ext.opts.classes.sidebar.dirOpened);
-                }, 500);
+                });
             });
 
             ext.helper.model.setData({

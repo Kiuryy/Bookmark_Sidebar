@@ -51,7 +51,7 @@
                 ext.helper.model.call("trackEvent", {category: "contextmenu", action: "open", label: trackingLabel});
                 initEvents(contextmenu);
 
-                setTimeout(() => {
+                $.delay().then(() => {
                     contextmenu.addClass(ext.opts.classes.contextmenu.visible);
 
                     let topVal = parseInt(contextmenu.css("top"));
@@ -59,7 +59,7 @@
                     if (topVal + height >= window.innerHeight) { // no space to show contextmenu on bottom -> show on top instead
                         contextmenu.css("top", topVal - height).addClass(ext.opts.classes.contextmenu.top);
                     }
-                }, 0);
+                });
             }
         };
 
@@ -92,9 +92,9 @@
                 $(contextmenu).data("elm").removeClass(ext.opts.classes.sidebar.active);
             });
 
-            setTimeout(() => {
+            $.delay(500).then(() => {
                 contextmenus.remove();
-            }, 500);
+            });
         };
 
         /**

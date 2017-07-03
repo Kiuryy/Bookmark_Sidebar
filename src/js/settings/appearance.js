@@ -71,9 +71,9 @@
                 s.showSuccessMessage("saved_message");
 
                 if (s.opts.elm.select.language.data("initial") !== config.language) {
-                    setTimeout(() => {
+                    $.delay(1500).then(() => {
                         location.reload(true);
-                    }, 1500);
+                    });
                 }
             });
         };

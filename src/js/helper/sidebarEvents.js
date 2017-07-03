@@ -19,7 +19,7 @@
         let initKeyboardEvents = async () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
                 if ($("iframe#" + ext.opts.ids.page.overlay).length()) { // overlay is open
-                    if (e.key === "Escape" || e.key === "Esc") { // close when hitting esc
+                    if (e.key === "Escape" || e.key === "Esc") { // close overlay
                         e.preventDefault();
                         ext.helper.overlay.closeOverlay(true);
                     }
@@ -29,7 +29,7 @@
 
                         if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                             ext.helper.scroll.focus();
-                        } else if (e.key === "Escape" || e.key === "Esc") { // close when hitting esc
+                        } else if (e.key === "Escape" || e.key === "Esc") { // close sidebar
                             e.preventDefault();
                             ext.helper.toggle.closeSidebar();
                         } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
@@ -43,17 +43,15 @@
                                             $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
                                             let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
-                                            setTimeout(() => {
+                                            $.delay(100).then(() => {
                                                 $(elm).addClass(ext.opts.classes.sidebar.copied);
-
-                                                setTimeout(() => {
-                                                    $(elm).removeClass(ext.opts.classes.sidebar.copied);
-
-                                                    setTimeout(() => {
-                                                        copiedNotice.remove();
-                                                    }, 500);
-                                                }, 1500);
-                                            }, 100);
+                                                return $.delay(1500);
+                                            }).then(() => {
+                                                $(elm).removeClass(ext.opts.classes.sidebar.copied);
+                                                return $.delay(500);
+                                            }).then(() => {
+                                                copiedNotice.remove();
+                                            });
                                         }
                                     }
                                 }
@@ -198,9 +196,7 @@
                         delay = 100;
                     }
 
-                    setTimeout(() => {
-                        ext.refresh();
-                    }, delay);
+                    $.delay(delay).then(ext.refresh);
                 }
             });
 

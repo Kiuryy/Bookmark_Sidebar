@@ -169,9 +169,10 @@
         this.showSuccessMessage = (i18nStr) => {
             this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("settings_" + i18nStr));
             this.opts.elm.body.addClass(this.opts.classes.success);
-            setTimeout(() => {
+
+            $.delay(1500).then(() => {
                 this.opts.elm.body.removeClass(this.opts.classes.success);
-            }, 1500);
+            });
         };
 
         /*
@@ -242,13 +243,13 @@
 
             this.opts.elm.contentTabSections.addClass(this.opts.classes.hidden);
 
-            setTimeout(() => {
+            $.delay().then(() => {
                 this.opts.elm.contentTabs.forEach((contentTab) => {
                     if ($(contentTab).hasClass(this.opts.classes.tabs.active)) {
                         $(contentTab).children("a").trigger("click");
                     }
                 });
-            }, 0);
+            });
         };
 
         /**
@@ -347,9 +348,9 @@
                         chrome.storage.sync.remove([tabName], () => {
                             this.helper.model.call("refreshAllTabs", {type: "Settings"});
                             this.showSuccessMessage("restored_message");
-                            setTimeout(() => {
+                            $.delay(1500).then(() => {
                                 location.reload(true);
-                            }, 1500);
+                            });
                         });
                         break;
                     }

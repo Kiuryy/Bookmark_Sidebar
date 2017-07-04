@@ -317,6 +317,9 @@
     "settings_headline_search": {
         "message": "Search"
     },
+    "settings_headline_tooltip": {
+        "message": "Tooltip"
+    },
     "settings_headline_faq": {
         "message": "Frequently Asked Questions"
     },
@@ -472,6 +475,30 @@
     },
     "settings_initial_open_on_new_tab_desc": {
         "message": "Choose whether the sidebar should be opened automatically on the new tab page."
+    },
+    "settings_tooltip_delay": {
+        "message": "Tooltip delay"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Delay before the tooltips for the bookmarks will be displayed when hovering with the mouse."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Never show tooltips"
+    },
+    "settings_tooltip_content": {
+        "message": "Tooltip content"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "Select what information the tooltip should contain."
+    },
+    "settings_tooltip_content_all": {
+        "message": "Title and url"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Only title"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Only url"
     },
     "settings_appearance_label_general": {
         "message": "General"
@@ -675,7 +702,7 @@
         "message": "You do not have to translate every category, the translation will be released if at least all frontend related texts are translated."
     },
     "translation_contribution_notice2": {
-        "message": "Incomplete categories will not be released, to prevent half translated texts (e.g. some contextmenu entries are translated, some not)."
+        "message": "Incomplete categories will not be released, to prevent half translated texts."
     },
     "translation_submit": {
         "message": "Submit"

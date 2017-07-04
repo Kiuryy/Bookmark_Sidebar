@@ -10,6 +10,8 @@
          * @param {jsu} elm
          */
         this.create = (type, elm) => {
+            ext.helper.tooltip.close();
+
             if (alreadyExists(type, elm) === false) { // contextmenu is not already opened
                 this.close(); // close other contextmenus
                 elm.addClass(ext.opts.classes.sidebar.active);
@@ -64,6 +66,22 @@
         };
 
         /**
+         * Closes all open contextmenus
+         */
+        this.close = () => {
+            let contextmenus = ext.elements.iframeBody.find("div." + ext.opts.classes.contextmenu.wrapper);
+
+            contextmenus.forEach((contextmenu) => {
+                $(contextmenu).removeClass(ext.opts.classes.contextmenu.visible);
+                $(contextmenu).data("elm").removeClass(ext.opts.classes.sidebar.active);
+            });
+
+            $.delay(500).then(() => {
+                contextmenus.remove();
+            });
+        };
+
+        /**
          * Returns whether a contextmenu from the same type and if available with the same element id already exists
          *
          * @param {string} type
@@ -79,22 +97,6 @@
             }
 
             return ext.elements.sidebar.find(existingElm).length() > 0;
-        };
-
-        /**
-         * Closes all open contextmenus
-         */
-        this.close = () => {
-            let contextmenus = ext.elements.iframeBody.find("div." + ext.opts.classes.contextmenu.wrapper);
-
-            contextmenus.forEach((contextmenu) => {
-                $(contextmenu).removeClass(ext.opts.classes.contextmenu.visible);
-                $(contextmenu).data("elm").removeClass(ext.opts.classes.sidebar.active);
-            });
-
-            $.delay(500).then(() => {
-                contextmenus.remove();
-            });
         };
 
         /**
@@ -176,7 +178,7 @@
         let handleSeparatorMenu = (contextmenu, elm) => {
             contextmenu.css({
                 top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
-                left: elm[0].offsetLeft + "px"
+                left: elm.parent("li")[0].offsetLeft + "px"
             });
 
             let entry = $("<li />").appendTo(contextmenu.children("ul." + ext.opts.classes.contextmenu.list));
@@ -201,7 +203,7 @@
 
             contextmenu.css({
                 top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
-                left: elm[0].offsetLeft + "px"
+                left: elm.parent("li")[0].offsetLeft + "px"
             });
 
             let i18nAppend = data.isDir ? "_dir" : "_bookmark";

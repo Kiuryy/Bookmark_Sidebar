@@ -3,6 +3,7 @@
 @import "include/loading";
 @import "include/scrollBox";
 @import "include/contextmenu";
+@import "include/tooltip";
 @import "include/checkbox";
 @import "include/bookmarkEntry";
 //
@@ -367,10 +368,11 @@ section#sidebar {
       > li.pinned + li:not(.pinned) {
         margin-top: 7px;
         padding-top: 7px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid $separatorColor;
       }
 
       li {
+        position: relative;
 
         &.hidden {
 
@@ -458,7 +460,7 @@ section#sidebar {
     > div.scrollBox {
 
       > ul {
-        
+
         > li.pinned > a > span.drag {
           display: block;
         }
@@ -503,7 +505,7 @@ body.dark section#sidebar {
     }
 
     > li.pinned + li:not(.pinned) {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-top: 1px solid $darkSeparatorColor;
     }
 
     a {

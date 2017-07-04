@@ -68,7 +68,7 @@ body > iframe#blockbyte-bs-sidebar {
     transform: translate3d(0, 0, 0);
     transition: opacity 0.3s, transform 0.3s; }
   body > iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask {
-    width: calc(%sidebarWidth + 100px);
+    width: calc(%sidebarWidth + 300px);
     background: none; }
 
 body > iframe#blockbyte-bs-overlay {

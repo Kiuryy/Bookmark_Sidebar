@@ -208,7 +208,8 @@
                 overlay: new window.OverlayHelper(this),
                 utility: new window.UtilityHelper(this),
                 specialEntry: new window.SpecialEntryHelper(this),
-                contextmenu: new window.ContextmenuHelper(this)
+                contextmenu: new window.ContextmenuHelper(this),
+                tooltip: new window.TooltipHelper(this)
             };
         };
 

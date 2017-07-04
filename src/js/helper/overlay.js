@@ -126,7 +126,7 @@
          */
         let appendPreviewLink = (data, addUrl) => {
             let preview = $("<" + (data.isDir ? "span" : "a") + " />")
-                .attr("title", data.title + (data.url ? "\n" + data.url : ""))
+                .attr("title", data.title)
                 .addClass(ext.opts.classes.overlay.preview)
                 .html(data.title)
                 .appendTo(elements.modal);

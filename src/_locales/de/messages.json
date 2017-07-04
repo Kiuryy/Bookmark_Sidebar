@@ -317,6 +317,9 @@
     "settings_headline_search": {
         "message": "Suche"
     },
+    "settings_headline_tooltip": {
+        "message": "Tooltip"
+    },
     "settings_headline_faq": {
         "message": "FAQ"
     },
@@ -472,6 +475,30 @@
     },
     "settings_initial_open_on_new_tab_desc": {
         "message": "Wenn ausgew\u00e4hlt, wird die Sidebar automatisch ge\u00f6ffnet wenn die 'Neuer Tab'-Seite aufgerufen wird."
+    },
+    "settings_tooltip_delay": {
+        "message": "Tooltip Verz\u00f6gerung"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Dauer bevor die Tooltips der Lesezeichen angezeigt werden sollen, wenn die Maus auf dem Eintrag ist."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Keine Tooltips anzeigen"
+    },
+    "settings_tooltip_content": {
+        "message": "Tooltip Inhalt"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "W\u00e4hle aus welche Informationen die Tooltips enthalten sollen."
+    },
+    "settings_tooltip_content_all": {
+        "message": "Titel und Url"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Nur Titel"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Nur Url"
     },
     "settings_appearance_label_general": {
         "message": "Allgemein"
@@ -675,7 +702,7 @@
         "message": "Du musst nicht jede Kategorie \u00fcbersetzen, sobald alle f\u00fcr das Frontend relevanten Texte \u00fcbersetzt wurden, wird die Sprache freigegeben."
     },
     "translation_contribution_notice2": {
-        "message": "Um halb \u00fcbersetzte Texte zu vermeiden, werden unvollst\u00e4ndige Kategorien nicht freigegeben (z.B. ein paar Sortieroptionen sind \u00fcbersetzt, ein paar jedoch nicht)"
+        "message": "Um halb \u00fcbersetzte Texte zu vermeiden, werden unvollst\u00e4ndige Kategorien nicht freigegeben."
     },
     "translation_submit": {
         "message": "Absenden"

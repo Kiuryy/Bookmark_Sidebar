@@ -186,7 +186,7 @@ div.modal {
     font-size: 150%;
     font-weight: "%fontWeightLight";
     height: 50px;
-    padding: 14px 75px 0 55px;
+    padding: 12px 75px 0 55px;
     background-color: "%colorScheme";
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); }
     div.modal > h1::before {
@@ -202,7 +202,7 @@ div.modal {
       -webkit-mask-position: 20px center; }
   div.modal > a.close {
     position: absolute;
-    top: 6px;
+    top: 4px;
     right: 15px;
     display: block;
     width: 42px;
@@ -490,20 +490,21 @@ div.modal {
       div.modal[data-type='infos'] > ul > li > ul {
         position: absolute;
         top: 27px;
-        right: -14px;
-        background: #333;
+        right: -10px;
+        background: #444;
         color: #fff;
-        font-size: 70%;
-        padding: 4px 10px;
+        font-size: 65%;
+        padding: 2px 5px;
+        border-radius: 2px;
         transform: translate3d(0, -5px, 0);
         transition: opacity 0.3s, transform 0.3s; }
         div.modal[data-type='infos'] > ul > li > ul::before {
           content: "";
           position: absolute;
           top: -14px;
-          right: 15px;
+          right: 10px;
           border: 7px solid transparent;
-          border-bottom-color: #333; }
+          border-bottom-color: #444; }
         div.modal[data-type='infos'] > ul > li > ul > li {
           white-space: nowrap;
           margin: 5px 0; }

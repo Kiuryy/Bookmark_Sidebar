@@ -1,8 +1,8 @@
-div.contextmenu, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden {
+div.contextmenu, div.tooltip, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden {
   opacity: 0;
   pointer-events: none; }
 
-div.contextmenu.visible, section#sidebar > header.searchVisible > div.searchBox {
+div.contextmenu.visible, div.tooltip.visible, section#sidebar > header.searchVisible > div.searchBox {
   opacity: 1;
   pointer-events: auto; }
 
@@ -210,6 +210,46 @@ body.dark div.contextmenu {
       background-color: #999; }
     body.dark div.contextmenu > ul.icons > li > a:hover {
       background-color: dimgray; }
+
+div.tooltip {
+  position: absolute;
+  background: #444;
+  border-radius: 2px;
+  color: #fff;
+  padding: 2px 4px 3px;
+  max-width: 300px;
+  font-size: 70%;
+  z-index: 2;
+  transform: translate3d(-5px, 0, 0);
+  transition: opacity 0.3s, transform 0.3s; }
+  div.tooltip.visible {
+    transform: translate3d(0, 0, 0) !important; }
+  div.tooltip::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 6px);
+    left: -12px;
+    border: 6px solid transparent;
+    border-right-color: #444; }
+  div.tooltip > h3 {
+    font-weight: "%fontWeightNormal"; }
+  div.tooltip > span {
+    opacity: 0.7;
+    word-wrap: break-word; }
+
+body.dark div.tooltip {
+  color: #eee;
+  background: #222; }
+  body.dark div.tooltip::before {
+    border-right-color: #222; }
+
+section#sidebar[data-pos='right'] ~ div.tooltip {
+  transform: translate3d(5px, 0, 0); }
+  section#sidebar[data-pos='right'] ~ div.tooltip::before {
+    left: auto;
+    right: -12px;
+    border-right-color: transparent;
+    border-left-color: #444; }
 
 div.checkbox {
   position: relative;
@@ -832,23 +872,25 @@ section#sidebar {
       section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned) {
         margin-top: 7px;
         padding-top: 7px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1); }
-      section#sidebar > div.scrollBox > ul li.hidden > a {
-        opacity: 0.3;
-        font-style: italic; }
-        section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active {
-          opacity: 0.5; }
-      section#sidebar > div.scrollBox > ul li.isDragged {
-        width: calc(100% - 5px);
-        border: 3px dashed rgba(0, 0, 0, 0.2);
-        pointer-events: none; }
-        section#sidebar > div.scrollBox > ul li.isDragged > a {
-          visibility: hidden;
-          line-height: calc(%bookmarksLineHeight - 6px); }
-          section#sidebar > div.scrollBox > ul li.isDragged > a > img {
-            visibility: hidden; }
-      section#sidebar > div.scrollBox > ul li.dragInitial {
-        display: none; }
+        border-top: 1px solid rgba(0, 0, 0, 0.15); }
+      section#sidebar > div.scrollBox > ul li {
+        position: relative; }
+        section#sidebar > div.scrollBox > ul li.hidden > a {
+          opacity: 0.3;
+          font-style: italic; }
+          section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active {
+            opacity: 0.5; }
+        section#sidebar > div.scrollBox > ul li.isDragged {
+          width: calc(100% - 5px);
+          border: 3px dashed rgba(0, 0, 0, 0.2);
+          pointer-events: none; }
+          section#sidebar > div.scrollBox > ul li.isDragged > a {
+            visibility: hidden;
+            line-height: calc(%bookmarksLineHeight - 6px); }
+            section#sidebar > div.scrollBox > ul li.isDragged > a > img {
+              visibility: hidden; }
+        section#sidebar > div.scrollBox > ul li.dragInitial {
+          display: none; }
       section#sidebar > div.scrollBox > ul.hideRoot > li:not(.pinned) > a {
         display: none; }
       section#sidebar > div.scrollBox > ul.hideRoot > li:not(.pinned) > ul {
@@ -900,7 +942,7 @@ body.dark section#sidebar {
     width: calc(100% - 5px);
     border-color: rgba(255, 255, 255, 0.2); }
   body.dark section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned) {
-    border-top: 1px solid rgba(255, 255, 255, 0.2); }
+    border-top: 1px solid rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
     background: #555; }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {

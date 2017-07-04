@@ -16,6 +16,13 @@
 </header>
 
 <section id="content">
+    <!--
+     #
+     #
+     # BEHAVIOUR
+     #
+     #
+     -->
     <div class="tab" data-name="behaviour">
         <header>
             <h2 data-i18n="settings_tab_behaviour"></h2>
@@ -25,6 +32,7 @@
 
         <div class="scrollBox">
             <div>
+                <!-- General -->
                 <h3 data-i18n="settings_headline_general"></h3>
 
                 <div class="configEntry">
@@ -45,6 +53,7 @@
                 </div>
 
 
+                <!-- Toggle -->
                 <h3 data-i18n="settings_headline_toggle"></h3>
 
                 <div class="configEntry">
@@ -74,6 +83,7 @@
                 </div>
 
 
+                <!-- Sidebar -->
                 <h3 data-i18n="settings_headline_sidebar"></h3>
 
                 <div class="configEntry">
@@ -118,6 +128,24 @@
                     <div class="formElement" data-type="range" data-name="dirOpenDuration" data-value="0.5" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
                 </div>
 
+
+                <!-- Tooltip -->
+                <h3 data-i18n="settings_headline_tooltip"></h3>
+
+                <div class="configEntry">
+                    <div class="formElement" data-type="range" data-name="tooltipDelay" data-value="1" data-min="0" data-max="3" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
+                </div>
+
+                <div class="configEntry">
+                    <div class="formElement" data-type="select" data-name="tooltipContent" data-i18n="settings_tooltip_content">
+                        <span data-value="all" data-i18n="settings_tooltip_content_all"></span>
+                        <span data-value="title" data-i18n="settings_tooltip_content_title"></span>
+                        <span data-value="url" data-i18n="settings_tooltip_content_url"></span>
+                    </div>
+                </div>
+
+
+                <!-- Search -->
                 <h3 data-i18n="settings_headline_search"></h3>
 
                 <div class="configEntry">
@@ -127,6 +155,13 @@
         </div>
     </div>
 
+    <!--
+     #
+     #
+     # APPEARANCE
+     #
+     #
+     -->
     <div class="tab" data-name="appearance">
         <header>
             <button class="save" data-i18n="settings_save"></button>
@@ -143,6 +178,7 @@
                     <li data-type="indicator"><a href="#" data-i18n="settings_appearance_label_indicator"></a></li>
                 </ul>
 
+                <!-- General -->
                 <div data-name="general">
                     <div class="formElement" data-type="language" data-name="language" data-i18n="settings_language"></div>
                     <div class="formElement" data-type="font" data-name="fontFamily" data-i18n="settings_font_family"></div>
@@ -151,6 +187,7 @@
                     <div class="formElement" data-type="color" data-name="textColor" data-i18n="settings_text_color"></div>
                 </div>
 
+                <!-- Sidebar -->
                 <div data-name="sidebar">
                     <div class="formElement" data-type="select" data-name="sidebarPosition" data-i18n="settings_sidebar_position">
                         <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
@@ -171,6 +208,7 @@
                     <div class="formElement" data-type="range" data-name="bookmarksHorizontalPadding" data-min="0" data-unit="px" data-max="40" data-i18n="settings_bookmarks_horizontal_padding"></div>
                 </div>
 
+                <!-- Indicator -->
                 <div data-name="indicator">
                     <div class="formElement" data-type="range" data-name="indicatorWidth" data-min="0" data-max="100" data-unit="px" data-i18n="settings_indicator_width"></div>
                     <div class="formElement" data-type="color" data-name="indicatorColor" data-alpha="1" data-i18n="settings_indicator_color"></div>
@@ -178,6 +216,7 @@
                     <div class="formElement" data-type="color" data-name="indicatorIconColor" data-alpha="1" data-i18n="settings_indicator_icon_color"></div>
                 </div>
 
+                <!-- Overlay -->
                 <div data-name="overlay">
                     <div class="formElement" data-type="color" data-name="overlayMaskColor" data-alpha="1" data-i18n="settings_overlay_mask_color"></div>
                 </div>
@@ -190,6 +229,13 @@
         </menu>
     </div>
 
+    <!--
+     #
+     #
+     # FEEDBACK
+     #
+     #
+     -->
     <div class="tab" data-name="feedback">
         <header>
             <h2 data-i18n="settings_tab_feedback"></h2>
@@ -222,6 +268,13 @@
         </div>
     </div>
 
+    <!--
+     #
+     #
+     # CONTRIBUTE
+     #
+     #
+     -->
     <div class="tab" data-name="contribute">
         <header>
             <h2 data-i18n="settings_tab_contribute"></h2>
@@ -258,6 +311,13 @@
         </div>
     </div>
 
+    <!--
+     #
+     #
+     # MENU
+     #
+     #
+     -->
     <section id="menu">
         <ul>
             <li><a href="#" data-name="export" data-i18n="settings_menu_export"></a></li>

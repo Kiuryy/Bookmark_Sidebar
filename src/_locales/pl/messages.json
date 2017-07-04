@@ -567,7 +567,7 @@
         "message": "Nie musisz t\u0142umaczy\u0107 ka\u017cdej kategorii, bo t\u0142umaczenie zostanie opublikowane, je\u015bli przynajmniej wszystkie konieczne do dzia\u0142ania teksty s\u0105 przet\u0142umaczone."
     },
     "translation_contribution_notice2": {
-        "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom (np. niekt\u00f3re elementy menu kontekstowego s\u0105 przet\u0142umaczone, a niekt\u00f3re nie)"
+        "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom."
     },
     "translation_submit": {
         "message": "Zatwierd\u017a"

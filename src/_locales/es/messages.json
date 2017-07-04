@@ -126,7 +126,7 @@
         "message": "Tu no tiene que traducir todas las categor\u00edas, la traducci\u00f3n se publicar\u00e1 si al menos todos los textos relacionados con el frontend son traducidos."
     },
     "translation_contribution_notice2": {
-        "message": "No se publicar\u00e1n las categor\u00edas incompletas, para prevenir los textos incompletos (eje. algunas entradas del contextmenu se traducen, algunas no)"
+        "message": "No se publicar\u00e1n las categor\u00edas incompletas, para prevenir los textos incompletos."
     },
     "translation_submit": {
         "message": "Enviar"

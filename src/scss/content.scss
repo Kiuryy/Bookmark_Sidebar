@@ -88,7 +88,7 @@ body > iframe#blockbyte-bs-sidebar {
   }
 
   &.blockbyte-bs-hideMask {
-    width: calc(#{$__sidebarWidth} + 100px);
+    width: calc(#{$__sidebarWidth} + 300px);
     background: none;
   }
 }

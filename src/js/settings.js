@@ -79,7 +79,6 @@
                 tab: $("section#content > div.tab"),
                 contentTabs: $("ul.labels > li"),
                 contentTabSections: $("ul.labels ~ div[data-name]"),
-                copyrightDate: $("a#copyright > span"),
                 keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
                 menuLink: $("body > header > a"),

@@ -19,12 +19,12 @@
             s.opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
             s.opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
 
-            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition"].forEach((field) => { // select
+            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.opts.elm.select[field].trigger("change");
             });
 
-            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout"].forEach((field) => { // range
+            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
                 let val = s.helper.model.getData("b/" + field);
 
                 if (val === -1) {
@@ -53,11 +53,11 @@
                 }
             };
 
-            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition"].forEach((field) => { // select
+            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 config[field] = s.opts.elm.select[field][0].value;
             });
 
-            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout"].forEach((field) => { // range
+            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
                 let val = -1;
 
                 if (s.opts.elm.range[field].hasClass(s.opts.classes.range.inactive) === false) { // if inactive set -1 as value else use the selected value

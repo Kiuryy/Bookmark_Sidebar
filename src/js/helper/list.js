@@ -308,17 +308,13 @@
             ext.helper.entry.addData(bookmark.id, "element", entryContent);
 
             if (bookmark.children && opts.asTree) { // dir
-                entryContent
-                    .attr("title", bookmark.title + "\n-------------\n" + bookmark.children.length + " " + ext.helper.i18n.get("sidebar_dir_children"))
-                    .addClass(ext.opts.classes.sidebar.bookmarkDir);
+                entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
 
                 if (opts.config.showDirectoryIcons) {
                     entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
                 }
             } else if (bookmark.url) { // link
-                entryContent
-                    .attr("title", bookmark.title + "\n-------------\n" + bookmark.url)
-                    .addClass(ext.opts.classes.sidebar.bookmarkLink);
+                entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
 
                 if (opts.config.showBookmarkIcons) {
                     if (ext.opts.demoMode) {

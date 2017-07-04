@@ -148,6 +148,7 @@
          */
         this.update = (scrollBox) => {
             ext.helper.contextmenu.close();
+            ext.helper.tooltip.close();
             saveScrollPos(scrollBox);
 
             let boxHeight = getScrollBoxHeight(scrollBox);

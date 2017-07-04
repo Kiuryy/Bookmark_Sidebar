@@ -72,6 +72,7 @@
 
                     if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
                         ext.helper.contextmenu.close();
+                        ext.helper.tooltip.close();
                         ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
                     }
                 }
@@ -155,10 +156,12 @@
                         }
                     }
                 }).on("mouseover", "a", (e) => { // add class to currently hovered element
+                    let _self = $(e.currentTarget);
+
                     box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                    $(e.currentTarget)
-                        .addClass(ext.opts.classes.sidebar.hover)
-                        .removeClass(ext.opts.classes.sidebar.mark);
+                    _self.addClass(ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.mark);
+
+                    ext.helper.tooltip.create(_self);
                 }).on("contextmenu", "a", (e) => { // right click
                     e.preventDefault();
                     let type = "list";
@@ -169,6 +172,7 @@
                 });
 
                 box.children("ul").on("mouseleave", (e) => {
+                    ext.helper.tooltip.close();
                     $(e.currentTarget).find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
                 });
             });
@@ -186,6 +190,7 @@
 
             ext.elements.iframe.find("body").on("click", () => {
                 ext.helper.contextmenu.close();
+                ext.helper.tooltip.close();
             });
 
             chrome.extension.onMessage.addListener((message) => { // listen for refresh event

@@ -29,6 +29,7 @@
         this.clearSearch = () => {
             return new Promise((resolve) => {
                 ext.helper.contextmenu.close();
+                ext.helper.tooltip.close();
                 ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
                 handleSearchValChanged("").then(resolve);
             });
@@ -152,6 +153,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 ext.helper.contextmenu.close();
+                ext.helper.tooltip.close();
                 ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
                 ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']")[0].focus();
             });

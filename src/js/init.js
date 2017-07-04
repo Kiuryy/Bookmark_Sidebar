@@ -63,6 +63,10 @@
                 searchVisible: "searchVisible",
                 shareUserdataNotice: "shareNotice"
             },
+            tooltip: {
+                wrapper: "tooltip",
+                visible: "visible"
+            },
             contextmenu: {
                 wrapper: "contextmenu",
                 top: "top",

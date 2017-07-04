@@ -3,6 +3,7 @@
 
     window.DragDropHelper = function (ext) {
 
+        let sidebarPos = null;
         let oldAboveElm = null;
         let oldTopVal = 0;
         let dirOpenTimeout = null;
@@ -18,6 +19,7 @@
          * Initializes the events for the drag n drop functionality
          */
         this.init = async () => {
+            sidebarPos = ext.helper.model.getData("a/sidebarPosition");
             initEvents();
             initExternalDragDropEvents();
         };
@@ -38,7 +40,7 @@
                 offset = +elm;
             }
 
-            if (ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
+            if (sidebarPos === "right") {
                 offset = window.innerWidth - offset;
             }
 
@@ -55,6 +57,7 @@
         let initExternalDragDropEvents = async () => {
             ext.elements.iframeBody.on("dragenter", () => {
                 ext.helper.contextmenu.close();
+                ext.helper.tooltip.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
                 ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
                 trackStart("selection");
@@ -166,6 +169,7 @@
          */
         let dragstart = (node, x, y) => {
             ext.helper.contextmenu.close();
+            ext.helper.tooltip.close();
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
             let elmParent = elm.parent("li");
 
@@ -447,7 +451,7 @@
                 let x = e.pageX;
                 let hasMask = ext.helper.utility.sidebarHasMask();
 
-                if (hasMask === false && ext.elements.iframe.attr(ext.opts.attr.position) === "right") {
+                if (hasMask === false && sidebarPos === "right") {
                     let width = ext.elements.iframe.realWidth();
                     ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
 

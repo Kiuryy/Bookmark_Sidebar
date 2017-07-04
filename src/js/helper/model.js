@@ -46,6 +46,8 @@
                 dirAccordion: false,
                 rememberState: "all",
                 rememberSearch: true,
+                tooltipDelay: 1,
+                tooltipContent: "all",
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.5,
                 openDelay: 0,

@@ -1,0 +1,57 @@
+
+div.tooltip {
+  position: absolute;
+  background: $tooltipBackground;
+  border-radius: 2px;
+  color: $tooltipTextColor;
+  padding: 2px 4px 3px;
+  max-width: 300px;
+  font-size: 70%;
+  z-index: 2;
+  transform: translate3d(-5px, 0, 0);
+  transition: opacity 0.3s, transform 0.3s;
+  @extend %hidden;
+
+  &.visible {
+    @extend %visible;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 6px);
+    left: -12px;
+    border: 6px solid transparent;
+    border-right-color: $tooltipBackground;
+  }
+
+  > h3 {
+    font-weight: $__fontWeightNormal;
+  }
+
+  > span {
+    opacity: 0.7;
+    word-wrap: break-word;
+  }
+}
+
+body.dark div.tooltip {
+  color: $darkTooltipTextColor;
+  background: $darkTooltipBackground;
+
+  &::before {
+    border-right-color: $darkTooltipBackground;
+  }
+}
+
+section#sidebar[data-pos='right'] ~ div.tooltip {
+  transform: translate3d(5px, 0, 0);
+
+  &::before {
+    left: auto;
+    right: -12px;
+    border-right-color: transparent;
+    border-left-color: $tooltipBackground;
+  }
+}

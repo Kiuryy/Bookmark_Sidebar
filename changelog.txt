@@ -2,7 +2,6 @@
  - helpful hints
  - onboarding openAction hint
  - test translation submission
- - rework tooltips
 
 [1.9]
  - Import/Export configuration

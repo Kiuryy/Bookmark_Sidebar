@@ -2,6 +2,7 @@
  - helpful hints
  - onboarding openAction hint
  - test translation submission
+ - indicator on new tab page
 
 [1.9]
  - Import/Export configuration

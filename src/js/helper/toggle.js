@@ -9,6 +9,7 @@
         let openDelay = 0;
         let indicatorWidth = null;
         let inPixelToleranceTime = null;
+        let mouseNotTopLeft = false;
         let timeout = {};
 
         /**
@@ -173,7 +174,7 @@
             }).on("mouseout", () => {
                 clearSidebarTimeout("open");
             }).on("mousemove dragover", (e) => { // check mouse position
-                if (e.isTrusted && isMousePosInPixelTolerance(e.pageX)) {
+                if (e.isTrusted && isMousePosInPixelTolerance(e.pageX, e.pageY)) {
                     let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
 
                     if (!(timeout.indicator)) {
@@ -201,7 +202,8 @@
 
             if (openAction !== "icon") {
                 $(document).on(openAction + " dragover", (e) => {
-                    if (e.isTrusted && (e.type === "dragover" || openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX)) { // check mouse position and mouse button
+                    console.log(">", e.pageX);
+                    if (e.isTrusted && (e.type === "dragover" || openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX, e.pageY)) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
 
@@ -225,22 +227,27 @@
          * Checks whether the given mouse position is in the configured pixel tolence
          *
          * @param {int} pageX
+         * @param {int} pageY
          * @returns {boolean}
          */
-        let isMousePosInPixelTolerance = (pageX) => {
+        let isMousePosInPixelTolerance = (pageX, pageY) => {
             let ret = false;
             if (typeof pageX !== "undefined" && pageX !== null) {
-                if (sidebarPos === "right") {
-                    pageX = window.innerWidth - pageX - 1;
+                if ((pageX > 0 || pageY > 0) || mouseNotTopLeft) { // protection from unwanted triggers with x = 0 and y = 0 on pageload
+                    mouseNotTopLeft = true;
+
+                    if (sidebarPos === "right") {
+                        pageX = window.innerWidth - pageX - 1;
+                    }
+
+                    let pixelTolerance = getPixelTolerance();
+
+                    if (ext.elements.indicator.hasClass(ext.opts.classes.page.hover) && indicatorWidth > pixelTolerance) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
+                        pixelTolerance = indicatorWidth;
+                    }
+
+                    ret = pageX < pixelTolerance;
                 }
-
-                let pixelTolerance = getPixelTolerance();
-
-                if (ext.elements.indicator.hasClass(ext.opts.classes.page.hover) && indicatorWidth > pixelTolerance) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
-                    pixelTolerance = indicatorWidth;
-                }
-
-                ret = pageX < pixelTolerance;
             }
 
             if (ret === false) {

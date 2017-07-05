@@ -4,7 +4,6 @@
  - test translation submission
  - indicator on new tab page
  - jsu.xhr
- - new tab: open before first
 
 [1.9]
  - Import/Export configuration

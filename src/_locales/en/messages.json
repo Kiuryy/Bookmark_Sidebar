@@ -461,6 +461,9 @@
     "settings_new_tab_position_after_current": {
         "message": "After the current tab"
     },
+    "settings_new_tab_position_before_first": {
+        "message": "Before the first tab"
+    },
     "settings_close_timeout": {
         "message": "Close timeout"
     },

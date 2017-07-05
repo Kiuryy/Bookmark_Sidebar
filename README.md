@@ -18,8 +18,8 @@ See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) f
 
 ### License
 
-This project is licensed under the GNU General Public License v3.0 - see the [license file](license.txt) for details
+This project is licensed under the GNU General Public License v3.0 - see the [license file](license.txt) for details.
 
 ### Contact
 
-If you have questions, problems or ideas, please do not hesitate to contact me at <a href="mailto:p.koenig@blockbyte.de">p.koenig@blockbyte.de</a>
+If you have questions, problems or ideas, please do not hesitate to contact me at <a href="mailto:p.koenig@blockbyte.de">p.koenig@blockbyte.de</a>.

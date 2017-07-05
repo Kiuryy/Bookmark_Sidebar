@@ -22,7 +22,7 @@
                     id: infos.id,
                     href: infos.url,
                     newTab: type === "newTab",
-                    afterLast: ext.helper.model.getData("b/newTabPosition") === "afterLast",
+                    position: ext.helper.model.getData("b/newTabPosition"),
                     active: active
                 });
             }

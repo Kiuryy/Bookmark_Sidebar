@@ -117,7 +117,7 @@
                         chrome.tabs.create({
                             url: opts.href,
                             active: typeof opts.active === "undefined" ? true : !!(opts.active),
-                            index: idx || tabs[0].index + 1,
+                            index: idx === null ? tabs[0].index + 1 : idx,
                             openerTabId: tabs[0].id
                         }, (tab) => {
                             data.openedByExtension = tab.id;
@@ -126,10 +126,13 @@
                     });
                 };
 
-                if (opts.afterLast && opts.afterLast === true) {
+
+                if (opts.position === "afterLast") {
                     chrome.tabs.query({}, (tabs) => {
                         createTab(tabs[tabs.length - 1].index + 1);
                     });
+                } else if (opts.position === "beforeFirst") {
+                    createTab(0);
                 } else {
                     createTab();
                 }

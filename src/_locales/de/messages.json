@@ -461,6 +461,9 @@
     "settings_new_tab_position_after_current": {
         "message": "Nach dem aktuellen Tab"
     },
+    "settings_new_tab_position_before_first": {
+        "message": "Vor dem ersten Tab"
+    },
     "settings_close_timeout": {
         "message": "Automatisch schlie\u00dfen"
     },

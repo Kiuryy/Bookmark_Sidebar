@@ -106,80 +106,87 @@
          * Opens the given url in the current tab or in a new tab
          *
          * @param {object} opts
+         * @returns {Promise}
          */
         let openLink = (opts) => {
-            increaseViewAmount(opts);
+            return new Promise((resolve) => {
+                increaseViewAmount(opts);
 
-            if (opts.newTab && opts.newTab === true) { // new tab
-                let createTab = (idx = null) => {
+                if (opts.newTab && opts.newTab === true) { // new tab
+                    let createTab = (idx = null) => {
+                        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                            chrome.tabs.create({
+                                url: opts.href,
+                                active: typeof opts.active === "undefined" ? true : !!(opts.active),
+                                index: idx === null ? tabs[0].index + 1 : idx,
+                                openerTabId: tabs[0].id
+                            }, (tab) => {
+                                data.openedByExtension = tab.id;
+                                saveModelData().then(resolve);
+                            });
+                        });
+                    };
+
+                    if (opts.position === "afterLast") {
+                        chrome.tabs.query({}, (tabs) => {
+                            createTab(tabs[tabs.length - 1].index + 1);
+                        });
+                    } else if (opts.position === "beforeFirst") {
+                        createTab(0);
+                    } else {
+                        createTab();
+                    }
+                } else if (opts.incognito && opts.incognito === true) { // incognito window
+                    chrome.windows.create({url: opts.href, state: "maximized", incognito: true});
+                    resolve();
+                } else { // current tab
                     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                        chrome.tabs.create({
-                            url: opts.href,
-                            active: typeof opts.active === "undefined" ? true : !!(opts.active),
-                            index: idx === null ? tabs[0].index + 1 : idx,
-                            openerTabId: tabs[0].id
-                        }, (tab) => {
+                        chrome.tabs.update(tabs[0].id, {url: opts.href}, (tab) => {
                             data.openedByExtension = tab.id;
-                            saveModelData();
+                            saveModelData().then(resolve);
                         });
                     });
-                };
-
-
-                if (opts.position === "afterLast") {
-                    chrome.tabs.query({}, (tabs) => {
-                        createTab(tabs[tabs.length - 1].index + 1);
-                    });
-                } else if (opts.position === "beforeFirst") {
-                    createTab(0);
-                } else {
-                    createTab();
                 }
-            } else if (opts.incognito && opts.incognito === true) { // incognito window
-                chrome.windows.create({url: opts.href, state: "maximized", incognito: true});
-            } else { // current tab
-                chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                    chrome.tabs.update(tabs[0].id, {url: opts.href}, (tab) => {
-                        data.openedByExtension = tab.id;
-                        saveModelData();
-                    });
-                });
-            }
+            });
         };
 
         /**
          * Returns the data url of the favicon of the given url
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getFavicon = (opts, sendResponse) => {
-            let img = new Image();
-            img.onload = function () {
-                let canvas = document.createElement("canvas");
-                canvas.width = this.width;
-                canvas.height = this.height;
+        let getFavicon = (opts) => {
+            return new Promise((resolve) => {
+                let img = new Image();
+                img.onload = function () {
+                    let canvas = document.createElement("canvas");
+                    canvas.width = this.width;
+                    canvas.height = this.height;
 
-                let ctx = canvas.getContext("2d");
-                ctx.drawImage(this, 0, 0);
+                    let ctx = canvas.getContext("2d");
+                    ctx.drawImage(this, 0, 0);
 
-                let dataURL = canvas.toDataURL("image/png");
-                sendResponse({img: dataURL});
-            };
-            img.src = 'chrome://favicon/size/16@2x/' + opts.url;
+                    let dataURL = canvas.toDataURL("image/png");
+                    resolve({img: dataURL});
+                };
+                img.src = 'chrome://favicon/size/16@2x/' + opts.url;
+            });
         };
 
         /**
          * Returns the view amounts of all bookmarks
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getViewAmounts = (opts, sendResponse) => {
-            getClickCounter().then((clickCounter) => {
-                sendResponse({
-                    viewAmounts: clickCounter,
-                    counterStartDate: data.installationDate
+        let getViewAmounts = (opts) => {
+            return new Promise((resolve) => {
+                getClickCounter().then((clickCounter) => {
+                    resolve({
+                        viewAmounts: clickCounter,
+                        counterStartDate: data.installationDate
+                    });
                 });
             });
         };
@@ -188,11 +195,13 @@
          * Returns all bookmarks under the given id
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getBookmarks = (opts, sendResponse) => {
-            bookmarkApi.getSubTree(opts.id).then((bookmarks) => {
-                sendResponse({bookmarks: bookmarks});
+        let getBookmarks = (opts) => {
+            return new Promise((resolve) => {
+                bookmarkApi.getSubTree(opts.id).then((bookmarks) => {
+                    resolve({bookmarks: bookmarks});
+                });
             });
         };
 
@@ -200,11 +209,13 @@
          * Returns all bookmarks matching the given search val
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getBookmarksBySearchVal = (opts, sendResponse) => {
-            bookmarkApi.search(opts.searchVal).then((bookmarks) => {
-                sendResponse({bookmarks: bookmarks});
+        let getBookmarksBySearchVal = (opts) => {
+            return new Promise((resolve) => {
+                bookmarkApi.search(opts.searchVal).then((bookmarks) => {
+                    resolve({bookmarks: bookmarks});
+                });
             });
         };
 
@@ -213,38 +224,44 @@
          * only if the tab was not previously opened or changed from the extension (these clicks are counted alreay)
          *
          * @param {object} opts
+         * @returns {Promise}
          */
         let addViewAmountByUrl = (opts) => {
-            if (typeof data.openedByExtension === "undefined") { // page was not opened by extension -> view was not counted yet
-                bookmarkApi.search({url: opts.url}).then((bookmarks) => {
-                    bookmarks.some((bookmark) => {
-                        if (bookmark.url === opts.url) {
-                            increaseViewAmount(bookmark);
-                            return true;
-                        }
-                        return false;
+            return new Promise((resolve) => {
+                if (typeof data.openedByExtension === "undefined") { // page was not opened by extension -> view was not counted yet
+                    bookmarkApi.search({url: opts.url}).then((bookmarks) => {
+                        bookmarks.some((bookmark) => {
+                            if (bookmark.url === opts.url) {
+                                increaseViewAmount(bookmark);
+                                return true;
+                            }
+                            return false;
+                        });
+                        resolve();
                     });
-                });
-            }
-            delete data.openedByExtension;
+                }
+                delete data.openedByExtension;
 
-            saveModelData();
+                saveModelData();
+            });
         };
 
         /**
          * Updates the position of the given bookmark
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let moveBookmark = (opts, sendResponse) => {
-            let dest = {
-                parentId: "" + opts.parentId,
-                index: opts.index
-            };
+        let moveBookmark = (opts) => {
+            return new Promise((resolve) => {
+                let dest = {
+                    parentId: "" + opts.parentId,
+                    index: opts.index
+                };
 
-            bookmarkApi.move(opts.id, dest).then(() => {
-                sendResponse({moved: opts.id});
+                bookmarkApi.move(opts.id, dest).then(() => {
+                    resolve({moved: opts.id});
+                });
             });
         };
 
@@ -252,21 +269,23 @@
          * Updates the given bookmark or directory with the given values (title, url)
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let updateBookmark = (opts, sendResponse) => {
-            let values = {
-                title: opts.title
-            };
+        let updateBookmark = (opts) => {
+            return new Promise((resolve) => {
+                let values = {
+                    title: opts.title
+                };
 
-            if (opts.url) {
-                values.url = opts.url;
-            }
+                if (opts.url) {
+                    values.url = opts.url;
+                }
 
-            bookmarkApi.update(opts.id, values).then(() => {
-                sendResponse({updated: opts.id});
-            }).catch((error) => {
-                sendResponse({error: error});
+                bookmarkApi.update(opts.id, values).then(() => {
+                    resolve({updated: opts.id});
+                }, (error) => {
+                    resolve({error: error});
+                });
             });
         };
 
@@ -274,20 +293,22 @@
          * Creates a bookmark or directory with the given values (title, url)
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let createBookmark = (opts, sendResponse) => {
-            let values = {
-                parentId: opts.parentId,
-                index: opts.index || 0,
-                title: opts.title,
-                url: opts.url ? opts.url : null
-            };
+        let createBookmark = (opts) => {
+            return new Promise((resolve) => {
+                let values = {
+                    parentId: opts.parentId,
+                    index: opts.index || 0,
+                    title: opts.title,
+                    url: opts.url ? opts.url : null
+                };
 
-            bookmarkApi.create(values).then(() => {
-                sendResponse({created: opts.id});
-            }).catch((error) => {
-                sendResponse({error: error});
+                bookmarkApi.create(values).then(() => {
+                    resolve({created: opts.id});
+                }, (error) => {
+                    resolve({error: error});
+                });
             });
         };
 
@@ -295,11 +316,13 @@
          * Removes the given bookmark or directory recursively
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let deleteBookmark = (opts, sendResponse) => {
-            bookmarkApi.removeTree(opts.id).then(() => {
-                sendResponse({deleted: opts.id});
+        let deleteBookmark = (opts) => {
+            return new Promise((resolve) => {
+                bookmarkApi.removeTree(opts.id).then(() => {
+                    resolve({deleted: opts.id});
+                });
             });
         };
 
@@ -308,37 +331,41 @@
          * if abort parameter is specified, all pending ajax calls will be aborted
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getRealUrl = (opts, sendResponse) => {
-            if (opts.abort && opts.abort === true) {
-                $.cancelXhr(opts.url);
-            } else {
-                $.xhr(s.urls.updateUrls, {
-                    method: "POST",
-                    data: {
-                        url: opts.url,
-                        ua: navigator.userAgent,
-                        lang: chrome.i18n.getUILanguage()
-                    }
-                }).then((xhr) => {
-                    let response = JSON.parse(xhr.responseText);
-                    sendResponse(response);
-                }).catch(() => {
-                    sendResponse({error: true});
-                });
-            }
+        let getRealUrl = (opts) => {
+            return new Promise((resolve) => {
+                if (opts.abort && opts.abort === true) {
+                    $.cancelXhr(opts.url);
+                } else {
+                    $.xhr(s.urls.updateUrls, {
+                        method: "POST",
+                        data: {
+                            url: opts.url,
+                            ua: navigator.userAgent,
+                            lang: chrome.i18n.getUILanguage()
+                        }
+                    }).then((xhr) => {
+                        let response = JSON.parse(xhr.responseText);
+                        resolve(response);
+                    }, () => {
+                        resolve({error: true});
+                    });
+                }
+            });
         };
 
         /**
          * Returns the information about the all languages
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getAllLanguages = (opts, sendResponse) => {
-            getLanguageInfos().then((infos) => {
-                sendResponse({infos: infos});
+        let getAllLanguages = (opts) => {
+            return new Promise((resolve) => {
+                getLanguageInfos().then((infos) => {
+                    resolve({infos: infos});
+                });
             });
         };
 
@@ -346,81 +373,72 @@
          * Returns the language variables for the given language
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let getLangVars = (opts, sendResponse) => {
-            if (opts.lang) {
-                let cacheVars = typeof opts.cache === "undefined" || opts.cache === true;
+        let getLangVars = (opts) => {
+            return new Promise((resolve) => {
+                if (opts.lang) {
+                    let cacheVars = typeof opts.cache === "undefined" || opts.cache === true;
 
-                if (langVarsChache[opts.lang] && cacheVars) { // take langvars from cache
-                    sendResponse({langVars: langVarsChache[opts.lang]});
-                } else { // load langvars with xhr request
-                    let sendXhr = (obj) => {
-                        let langVars = obj.langVars;
+                    if (langVarsChache[opts.lang] && cacheVars) { // take langvars from cache
+                        resolve({langVars: langVarsChache[opts.lang]});
+                    } else { // load langvars with xhr request
+                        let sendXhr = (obj) => {
+                            let langVars = obj.langVars;
 
-                        $.xhr(chrome.extension.getURL("_locales/" + opts.lang + "/messages.json")).then((xhr) => {
-                            let result = JSON.parse(xhr.responseText);
-                            Object.assign(langVars, result); // override all default variables with the one from the language file
+                            $.xhr(chrome.extension.getURL("_locales/" + opts.lang + "/messages.json")).then((xhr) => {
+                                let result = JSON.parse(xhr.responseText);
+                                Object.assign(langVars, result); // override all default variables with the one from the language file
 
-                            if (cacheVars) {
-                                langVarsChache[opts.lang] = langVars;
-                            }
-                            sendResponse({langVars: langVars});
-                        });
-                    };
+                                if (cacheVars) {
+                                    langVarsChache[opts.lang] = langVars;
+                                }
+                                resolve({langVars: langVars});
+                            });
+                        };
 
-                    if (opts.defaultLang && opts.defaultLang !== opts.lang) { // load default language variables first and replace them afterwards with the language specific ones
-                        getLangVars({lang: opts.defaultLang, cache: false}, sendXhr)
-                    } else {
-                        sendXhr({langVars: {}});
+                        if (opts.defaultLang && opts.defaultLang !== opts.lang) { // load default language variables first and replace them afterwards with the language specific ones
+                            getLangVars({lang: opts.defaultLang, cache: false}).then(sendXhr);
+                        } else {
+                            sendXhr({langVars: {}});
+                        }
                     }
                 }
-            }
+            });
         };
 
         /**
          * Returns whether the ShareUserdata-Mask should be shown or not
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let shareUserdataMask = (opts, sendResponse) => {
-            let showMask = false;
-            if (shareUserdata === null && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
-                showMask = true;
-            }
-            sendResponse({showMask: showMask});
-        };
-
-        /**
-         * Returns whether the onboarding should be shown or not
-         *
-         * @param {object} opts
-         * @param {function} sendResponse
-         */
-        let onboarding = (opts, sendResponse) => {
-            sendResponse({
-                showOnboarding: typeof data.inited === "undefined",
-                defaultPage: s.urls.onboarding
+        let shareUserdataMask = (opts) => {
+            return new Promise((resolve) => {
+                let showMask = false;
+                if (shareUserdata === null && (+new Date() - data.installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
+                    showMask = true;
+                }
+                resolve({showMask: showMask});
             });
-            data.inited = true;
-            saveModelData();
         };
 
         /**
          * Checks whether the website is available
          *
          * @param {object} opts
-         * @param {function} sendResponse
+         * @returns {Promise}
          */
-        let checkWebsiteStatus = (opts, sendResponse) => {
-            $.xhr(s.urls.check404, {
-                method: "HEAD",
-                timeout: 5000
-            }).then(() => {
-                sendResponse({status: "available"});
-            }).catch(() => {
-                sendResponse({status: "unavailable"});
+        let checkWebsiteStatus = (opts) => {
+            return new Promise((resolve) => {
+                $.xhr(s.urls.check404, {
+                    method: "HEAD",
+                    timeout: 5000
+                }).then(() => {
+                    resolve({status: "available"});
+                }, () => {
+                    resolve({status: "unavailable"});
+                });
             });
         };
 
@@ -428,15 +446,19 @@
          * Sends a message to all tabs, so they are reloading the sidebar
          *
          * @param {object} opts
+         * @returns {Promise}
          */
         let refreshAllTabs = (opts) => {
-            chrome.tabs.query({}, (tabs) => {
-                tabs.forEach((tab) => {
-                    chrome.tabs.sendMessage(tab.id, {
-                        action: "refresh",
-                        scrollTop: opts.scrollTop || false,
-                        type: opts.type
+            return new Promise((resolve) => {
+                chrome.tabs.query({}, (tabs) => {
+                    tabs.forEach((tab) => {
+                        chrome.tabs.sendMessage(tab.id, {
+                            action: "refresh",
+                            scrollTop: opts.scrollTop || false,
+                            type: opts.type
+                        });
                     });
+                    resolve();
                 });
             });
         };
@@ -445,12 +467,17 @@
          * Updates the shareUserdata-Flag
          *
          * @param {object} opts
+         * @returns {Promise}
          */
         let updateShareUserdataFlag = (opts) => {
-            chrome.storage.sync.set({
-                shareUserdata: opts.share
+            return new Promise((resolve) => {
+                chrome.storage.sync.set({
+                    shareUserdata: opts.share
+                }, () => {
+                    shareUserdata = opts.share;
+                    resolve();
+                });
             });
-            shareUserdata = opts.share;
         };
 
         /**
@@ -459,17 +486,23 @@
          *
          * @param {object} opts
          * @param {boolean} ignoreShareUserdata
+         * @returns {Promise}
          */
         let trackEvent = (opts, ignoreShareUserdata = false) => {
-            if (window.ga && (shareUserdata === true || ignoreShareUserdata === true)) {
-                window.ga('send', {
-                    hitType: 'event',
-                    eventCategory: opts.category,
-                    eventAction: opts.action,
-                    eventLabel: opts.label,
-                    eventValue: opts.value || 1
-                });
-            }
+            return new Promise((resolve) => {
+                if (window.ga && ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
+                    window.ga('send', {
+                        hitType: 'event',
+                        eventCategory: opts.category,
+                        eventAction: opts.action,
+                        eventLabel: opts.label,
+                        eventValue: opts.value || 1,
+                        hitCallback: resolve
+                    });
+                } else {
+                    resolve();
+                }
+            });
         };
 
         /**
@@ -478,11 +511,20 @@
          *
          * @param {object} opts
          * @param {boolean} ignoreShareUserdata
+         * @returns {Promise}
          */
         let trackPageView = (opts, ignoreShareUserdata = false) => {
-            if (window.ga && (shareUserdata === true || ignoreShareUserdata === true)) {
-                window.ga('send', 'pageview', opts.page);
-            }
+            return new Promise((resolve) => {
+                if (window.ga && ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
+                    window.ga('send', {
+                        hitType: 'pageview',
+                        page: opts.page,
+                        hitCallback: resolve
+                    });
+                } else {
+                    resolve();
+                }
+            });
         };
 
         /**
@@ -502,7 +544,6 @@
                 deleteBookmark: deleteBookmark,
                 refreshAllTabs: refreshAllTabs,
                 shareUserdata: updateShareUserdataFlag,
-                onboarding: onboarding,
                 shareUserdataMask: shareUserdataMask,
                 languageInfos: getAllLanguages,
                 langvars: getLangVars,
@@ -516,7 +557,9 @@
 
             chrome.extension.onMessage.addListener((message, sender, sendResponse) => {
                 if (mapping[message.type]) { // function for message type exists
-                    mapping[message.type](message, sendResponse);
+                    mapping[message.type](message).then((opts) => {
+                        sendResponse(opts)
+                    });
                 }
 
                 return true; // important to allow asynchronous responses
@@ -714,7 +757,7 @@
                             $.xhr(chrome.extension.getURL("_locales/" + lang + "/messages.json"), {method: "HEAD"}).then(() => {
                                 infos[lang].available = true;
                                 xhrDone();
-                            }).catch(xhrDone);
+                            }, xhrDone);
                         });
                     }
                 });
@@ -749,13 +792,13 @@
             if (shareUserdata === true) {
                 // track installation date
                 if (data.installationDate) {
-                    setTimeout(() => {
+                    $.delay(1200).then(() => {
                         trackEvent({
                             category: "extension",
                             action: "installationDate",
                             label: new Date(data.installationDate).toISOString().slice(0, 10)
                         });
-                    }, 1200);
+                    });
                 }
 
                 // track bookmark amount
@@ -799,13 +842,13 @@
                                 obj[attr] = JSON.stringify(obj[attr]);
                             }
 
-                            setTimeout(() => {
+                            $.delay(i * 1200).then(() => {
                                 trackEvent({
                                     category: "configuration",
                                     action: baseName + "_" + attr,
                                     label: obj[attr]
                                 });
-                            }, i * 1200);
+                            });
                         }
                     });
                 };

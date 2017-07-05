@@ -365,10 +365,12 @@ section#sidebar {
         }
       }
 
-      > li.pinned + li:not(.pinned) {
-        margin-top: 7px;
-        padding-top: 7px;
-        border-top: 1px solid $separatorColor;
+      > li.pinned + li:not(.pinned)::before {
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 7px $__bookmarksHorizontalPadding;
+        background: $separatorColor;
       }
 
       li {

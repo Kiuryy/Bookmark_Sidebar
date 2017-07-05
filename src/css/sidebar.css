@@ -869,10 +869,12 @@ section#sidebar {
           height: auto; }
         section#sidebar > div.scrollBox > ul a.opened:not(.animated) + ul {
           overflow: visible; }
-      section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned) {
-        margin-top: 7px;
-        padding-top: 7px;
-        border-top: 1px solid rgba(0, 0, 0, 0.15); }
+      section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned)::before {
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 7px "%bookmarksHorizontalPadding";
+        background: rgba(0, 0, 0, 0.15); }
       section#sidebar > div.scrollBox > ul li {
         position: relative; }
         section#sidebar > div.scrollBox > ul li.hidden > a {

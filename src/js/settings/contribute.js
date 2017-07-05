@@ -18,9 +18,7 @@
             let language = s.helper.i18n.getLanguage();
 
             if (language !== s.helper.i18n.getDefaultLanguage()) {
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", s.opts.ajax.translationInfo, true);
-                xhr.onload = () => {
+                $.xhr(s.opts.ajax.translationInfo).then((xhr) => {
                     let infos = JSON.parse(xhr.responseText);
 
                     if (infos && infos.languages) {
@@ -47,8 +45,7 @@
                             }
                         });
                     }
-                };
-                xhr.send();
+                });
             }
         };
 

@@ -1,14 +1,13 @@
 /**
- * jsu v1.1.0
+ * jsu v1.1.1
  *
  * Philipp König
  * https://blockbyte.de/
- *
- * toDo
- * - add xhr to tools
  */
 (() => {
     "use strict";
+
+    let runningXhr = [];
 
     // >>> Global Methods
     let isDefined = "isDefined";
@@ -55,6 +54,8 @@
 
         // >>> Methods
         let delay = "delay";
+        let xhr = "xhr";
+        let cancelXhr = "cancelXhr";
         // <<< Methods
 
         return {
@@ -67,6 +68,53 @@
             [delay]: (t = 0) => {
                 return new Promise((resolve) => {
                     setTimeout(resolve, t)
+                });
+            },
+            [xhr]: (url, opts = {}) => {
+                return new Promise((resolve, reject) => {
+                    let xhr = new XMLHttpRequest();
+                    let idx = runningXhr.push({url: url, xhr: xhr}) - 1;
+
+                    xhr.open(opts.method || "GET", url, true);
+                    ["load", "error", "timeout"].forEach((eventName) => {
+                        xhr.addEventListener(eventName, () => {
+                            runningXhr[idx] = null;
+
+                            if (eventName !== "load" || xhr.status >= 400) { // timeout, error or status code >= 400
+                                reject(xhr);
+                            } else {
+                                resolve(xhr);
+                            }
+                        });
+                    });
+
+                    let formData = null;
+                    if (opts.data) { // submit request parameters
+                        formData = new FormData();
+                        Object.entries(opts.data).forEach(([key, value]) => {
+                            if (typeof value === "object") {
+                                value = JSON.stringify(value);
+                            }
+
+                            formData.append(key, value);
+                        });
+                    }
+
+                    Object.entries(opts).forEach(([key, value]) => { // set specific variables
+                        if (key !== "method" && key !== "data") {
+                            xhr[key] = value;
+                        }
+                    });
+
+                    xhr.send(formData);
+                });
+            },
+            [cancelXhr]: (url = null) => {
+                runningXhr.forEach((obj) => {
+                    if (obj && obj.xhr && obj.xhr.readyState && obj.xhr.abort && obj.xhr.readyState !== 4 && (url === null || obj.url === url)) {
+                        obj.xhr.abort();
+                        obj = null;
+                    }
                 });
             }
         };

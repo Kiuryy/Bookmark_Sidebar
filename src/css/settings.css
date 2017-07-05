@@ -532,7 +532,7 @@ body > header > ul.tabBar {
         color: #f5c525;
         opacity: 1; }
       body > header > ul.tabBar > li[data-name='contribute'].incomplete:not(.active)::before {
-        -webkit-mask-position: right 8px; }
+        -webkit-mask-position: right center; }
 
 body > header > a {
   position: absolute;

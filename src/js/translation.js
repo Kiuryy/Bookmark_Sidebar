@@ -185,9 +185,7 @@
             this.opts.elm.wrapper.overview.find("> div.scrollBox > div > ul").remove();
             this.opts.elm.wrapper.overview.find("> div.scrollBox > div > select." + this.opts.classes.languagesSelect).remove();
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", this.opts.ajax.info, true);
-            xhr.onload = () => {
+            $.xhr(this.opts.ajax.info).then((xhr) => {
                 let infos = JSON.parse(xhr.responseText);
 
                 if (infos && infos.languages) {
@@ -238,8 +236,7 @@
 
                 initOverviewEvents();
                 endLoading();
-            };
-            xhr.send();
+            });
         };
 
         /**
@@ -298,9 +295,13 @@
          */
         let getLanguageInfos = (lang) => {
             return new Promise((resolve) => {
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", this.opts.ajax.langvars, true);
-                xhr.onload = () => {
+                $.xhr(this.opts.ajax.langvars, {
+                    method: "POST",
+                    data: {
+                        lang: lang,
+                        n: 1 // @deprecated parameter just for backward compatibility
+                    }
+                }).then((xhr) => {
                     let infos = JSON.parse(xhr.responseText);
 
                     if (infos && Object.getOwnPropertyNames(infos).length > 0) {
@@ -318,12 +319,7 @@
                     } else {
                         resolve(null);
                     }
-                };
-
-                let formData = new FormData();
-                formData.append('lang', lang);
-                formData.append('n', 1); // @deprecated parameter just for backward compatibility
-                xhr.send(formData);
+                });
             });
         };
 
@@ -426,26 +422,24 @@
                 }
             });
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", this.opts.ajax.submit, true);
-            xhr.onload = () => {
-                $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))).then(() => {  // load at least 1s
-                    loader.remove();
-                    this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
-                    this.opts.elm.body.addClass(this.opts.classes.success);
-
-                    return $.delay(1500);
-                }).then(() => {
-                    this.opts.elm.body.removeClass(this.opts.classes.loading);
-                    this.opts.elm.body.removeClass(this.opts.classes.success);
-                    location.reload(true);
-                });
-            };
-
-            let formData = new FormData();
-            formData.append('lang', this.opts.elm.wrapper.langvars.data("lang"));
-            formData.append('vars', JSON.stringify(vars));
-            xhr.send(formData);
+            $.xhr(this.opts.ajax.submit, {
+                method: "POST",
+                data: {
+                    lang: this.opts.elm.wrapper.langvars.data("lang"),
+                    vars: vars
+                }
+            }).then(() => { // load at least 1s
+                return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
+            }).then(() => { // show success message
+                loader.remove();
+                this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("translation_submit_message"));
+                this.opts.elm.body.addClass(this.opts.classes.success);
+                return $.delay(1500);
+            }).then(() => { // reload page
+                this.opts.elm.body.removeClass(this.opts.classes.loading);
+                this.opts.elm.body.removeClass(this.opts.classes.success);
+                location.reload(true);
+            });
         };
 
         /**

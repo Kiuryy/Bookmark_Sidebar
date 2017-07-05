@@ -43,9 +43,7 @@
             }
 
             files.forEach((file) => {
-                let xhr = new XMLHttpRequest();
-                xhr.open("GET", chrome.extension.getURL("css/" + file + ".css"), true);
-                xhr.onload = () => {
+                $.xhr(chrome.extension.getURL("css/" + file + ".css")).then((xhr) => {
                     if (xhr.response) {
                         let css = xhr.response;
                         Object.keys(styles).forEach((key) => {
@@ -58,8 +56,7 @@
                             head.append("<style>" + css + "</style>");
                         }
                     }
-                };
-                xhr.send();
+                });
             });
         };
     };

@@ -68,7 +68,6 @@
             return new Promise((resolve) => {
                 Promise.all([
                     func.concat([ // concat extension javascripts
-                            path.src + 'js/lib/jsu.js',
                             path.src + 'js/helper/**/*.js',
                             path.src + 'js/extension.js',
                             path.src + 'js/init.js'
@@ -150,7 +149,7 @@
                 func.replace({ // parse manifest.json
                     [ path.src + 'manifest.json']: path.tmp + 'manifest.json'
                 }, [
-                    [/("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig, '$1"js/extension.js"$3'],
+                    [/("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig, '$1"js/lib/jsu.js","js/extension.js"$3'],
                     [/("version":[\s]*")[^"]*("[\s]*,)/ig, "$1" + process.env.npm_package_version + "$2"],
                     [/"version_name":[^,]*,/ig, ""],
                     [/(img\/icon\/)dev\/(.*)\.png/ig, "$1$2.webp"]

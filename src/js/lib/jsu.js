@@ -70,20 +70,27 @@
                     setTimeout(resolve, t)
                 });
             },
+            /**
+             * Performs an XMLHttpRequest with the given options
+             *
+             * @param {string} url
+             * @param {object} opts
+             * @returns {Promise}
+             */
             [xhr]: (url, opts = {}) => {
                 return new Promise((resolve, reject) => {
                     let xhr = new XMLHttpRequest();
                     let idx = runningXhr.push({url: url, xhr: xhr}) - 1;
 
                     xhr.open(opts.method || "GET", url, true);
-                    ["load", "error", "timeout"].forEach((eventName) => {
+                    ["load", "error", "timeout", "abort"].forEach((eventName) => {
                         xhr.addEventListener(eventName, () => {
                             runningXhr[idx] = null;
 
-                            if (eventName !== "load" || xhr.status >= 400) { // timeout, error or status code >= 400
-                                reject(xhr);
-                            } else {
+                            if (eventName === "load" && xhr.status < 400) {
                                 resolve(xhr);
+                            } else {
+                                reject(xhr);
                             }
                         });
                     });
@@ -109,9 +116,14 @@
                     xhr.send(formData);
                 });
             },
+            /**
+             * Cancels all XMLHttpRequests or only the ones with the given url
+             *
+             * @param {string} url
+             */
             [cancelXhr]: (url = null) => {
                 runningXhr.forEach((obj) => {
-                    if (obj && obj.xhr && obj.xhr.readyState && obj.xhr.abort && obj.xhr.readyState !== 4 && (url === null || obj.url === url)) {
+                    if (obj && obj.xhr && obj.xhr.readyState && obj.xhr.abort && (url === null || obj.url === url)) {
                         obj.xhr.abort();
                         obj = null;
                     }

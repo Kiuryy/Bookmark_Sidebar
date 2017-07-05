@@ -1,4 +1,4 @@
-(() => {
+($ => {
     "use strict";
 
     let opts = {
@@ -70,7 +70,6 @@
         let shareUserdata = null;
         let data = {};
         let bookmarkApi = {};
-        let xhrList = [];
         let bookmarkImportRunning = false;
         let langVarsChache = {};
 
@@ -313,22 +312,21 @@
          */
         let getRealUrl = (opts, sendResponse) => {
             if (opts.abort && opts.abort === true) {
-                xhrList.forEach((xhr) => {
-                    xhr.abort();
-                });
+                $.cancelXhr(opts.url);
             } else {
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", s.urls.updateUrls, true);
-                xhr.onload = () => {
+                $.xhr(s.urls.updateUrls, {
+                    method: "POST",
+                    data: {
+                        url: opts.url,
+                        ua: navigator.userAgent,
+                        lang: chrome.i18n.getUILanguage()
+                    }
+                }).then((xhr) => {
                     let response = JSON.parse(xhr.responseText);
                     sendResponse(response);
-                };
-                let formData = new FormData();
-                formData.append('url', opts.url);
-                formData.append('ua', navigator.userAgent);
-                formData.append('lang', chrome.i18n.getUILanguage());
-                xhr.send(formData);
-                xhrList.push(xhr);
+                }).catch(() => {
+                    sendResponse({error: true});
+                });
             }
         };
 
@@ -360,9 +358,7 @@
                     let sendXhr = (obj) => {
                         let langVars = obj.langVars;
 
-                        let xhr = new XMLHttpRequest();
-                        xhr.open("GET", chrome.extension.getURL("_locales/" + opts.lang + "/messages.json"), true);
-                        xhr.onload = () => {
+                        $.xhr(chrome.extension.getURL("_locales/" + opts.lang + "/messages.json")).then((xhr) => {
                             let result = JSON.parse(xhr.responseText);
                             Object.assign(langVars, result); // override all default variables with the one from the language file
 
@@ -370,8 +366,7 @@
                                 langVarsChache[opts.lang] = langVars;
                             }
                             sendResponse({langVars: langVars});
-                        };
-                        xhr.send();
+                        });
                     };
 
                     if (opts.defaultLang && opts.defaultLang !== opts.lang) { // load default language variables first and replace them afterwards with the language specific ones
@@ -419,17 +414,14 @@
          * @param {function} sendResponse
          */
         let checkWebsiteStatus = (opts, sendResponse) => {
-            let xhr = new XMLHttpRequest();
-            ["load", "error", "timeout"].forEach((eventName) => {
-                xhr.addEventListener(eventName, () => {
-                    sendResponse({
-                        status: (eventName !== "load" || xhr.status >= 400 ? "un" : "") + "available"
-                    });
-                });
+            $.xhr(s.urls.check404, {
+                method: "HEAD",
+                timeout: 5000
+            }).then(() => {
+                sendResponse({status: "available"});
+            }).catch(() => {
+                sendResponse({status: "unavailable"});
             });
-            xhr.timeout = 5000;
-            xhr.open("HEAD", s.urls.check404, true);
-            xhr.send();
         };
 
         /**
@@ -710,25 +702,19 @@
                                 available: false
                             };
 
-                            let xhr = new XMLHttpRequest();
-                            ["load", "error"].forEach((eventName) => {
-                                xhr.addEventListener(eventName, () => {
-                                    loaded++;
-                                    if (eventName === "load") {
-                                        infos[lang].available = true;
-                                    }
+                            let xhrDone = () => {
+                                if (++loaded === total) {
+                                    chrome.storage.local.set({
+                                        languageInfos: {infos: infos, updated: +new Date()}
+                                    });
+                                    resolve(infos);
+                                }
+                            };
 
-                                    if (loaded === total) {
-                                        chrome.storage.local.set({
-                                            languageInfos: {infos: infos, updated: +new Date()}
-                                        });
-
-                                        resolve(infos);
-                                    }
-                                });
-                            });
-                            xhr.open("HEAD", chrome.extension.getURL("_locales/" + lang + "/messages.json"), true);
-                            xhr.send();
+                            $.xhr(chrome.extension.getURL("_locales/" + lang + "/messages.json"), {method: "HEAD"}).then(() => {
+                                infos[lang].available = true;
+                                xhrDone();
+                            }).catch(xhrDone);
                         });
                     }
                 });
@@ -926,7 +912,7 @@
     };
 
     new background(opts).run();
-})();
+})(jsu);
 
 
 

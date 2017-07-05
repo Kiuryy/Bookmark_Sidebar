@@ -3,7 +3,6 @@
  - onboarding openAction hint
  - test translation submission
  - indicator on new tab page
- - jsu.xhr
 
 [1.9]
  - Import/Export configuration

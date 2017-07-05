@@ -393,18 +393,20 @@
                     let updateList = [];
                     bookmarks.forEach((bookmark) => {
                         ext.helper.model.call("realUrl", {url: bookmark.url}).then((response) => {
-                            finished++;
-                            elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
-                            elements.progressLabel.children("span").eq(0).text(finished);
+                            if (!response.error) { // not cancelled -> proceed
+                                finished++;
+                                elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
+                                elements.progressLabel.children("span").eq(0).text(finished);
 
-                            if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
-                                bookmark.newUrl = response.url;
-                                bookmark.urlStatusCode = +response.code;
-                                updateList.push(bookmark);
-                            }
+                                if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
+                                    bookmark.newUrl = response.url;
+                                    bookmark.urlStatusCode = +response.code;
+                                    updateList.push(bookmark);
+                                }
 
-                            if (finished === bookmarkAmount) {
-                                handleUpdateUrlsFinished(updateList);
+                                if (finished === bookmarkAmount) {
+                                    handleUpdateUrlsFinished(updateList);
+                                }
                             }
                         });
                     });

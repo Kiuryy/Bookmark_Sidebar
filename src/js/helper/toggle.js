@@ -202,7 +202,6 @@
 
             if (openAction !== "icon") {
                 $(document).on(openAction + " dragover", (e) => {
-                    console.log(">", e.pageX);
                     if (e.isTrusted && (e.type === "dragover" || openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX, e.pageY)) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();

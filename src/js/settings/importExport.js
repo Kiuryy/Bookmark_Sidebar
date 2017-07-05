@@ -12,6 +12,17 @@
         };
 
         /**
+         * Returns the config which should be exported
+         *
+         * @returns {object}
+         */
+        this.getExportConfig = () => {
+            let config = Object.assign({}, s.helper.model.getAllData());
+            delete config.utility;
+            return config;
+        };
+
+        /**
          * Shows an alert popup with an error message that the import failed
          */
         let alertImportError = () => {
@@ -73,11 +84,8 @@
          * Initialises the export function
          */
         let initExport = async () => {
-            let config = Object.assign({}, s.helper.model.getAllData());
-            delete config.utility;
-
             s.opts.elm.menuContainer.find("> ul > li > a[" + s.opts.attr.name + "='export']").attr({
-                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(config)),
+                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.getExportConfig())),
                 download: "bookmark-sidebar.config"
             }).on("click", () => {
                 s.helper.model.call("trackEvent", {

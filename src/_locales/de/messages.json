@@ -629,6 +629,9 @@
     "settings_feedback_sent_message": {
         "message": "Vielen Dank f\u00fcr dein Feedback"
     },
+    "settings_feedback_send_failed": {
+        "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
+    },
     "settings_faq_usage_q": {
         "message": "Wie kann ich die Sidebar \u00f6ffnen?"
     },

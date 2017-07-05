@@ -60,21 +60,30 @@
                 let xhr = new XMLHttpRequest();
                 xhr.open("POST", s.opts.ajax.feedback, true);
                 xhr.onload = () => {
+                    let infos = JSON.parse(xhr.responseText);
+
                     $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))).then(() => { // load at least 1s
-                        s.opts.elm.textarea.feedbackMsg[0].value = "";
-                        s.opts.elm.field.feedbackEmail[0].value = "";
                         s.opts.elm.body.removeClass(s.opts.classes.loading);
                         loader.remove();
-                        s.showSuccessMessage("feedback_sent_message");
+
+                        if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
+                            s.opts.elm.textarea.feedbackMsg[0].value = "";
+                            s.opts.elm.field.feedbackEmail[0].value = "";
+                            s.showSuccessMessage("feedback_sent_message");
+                        } else { // not submitted -> raise error
+                            $.delay().then(() => {
+                                alert(s.helper.i18n.get("settings_feedback_send_failed"));
+                            });
+                        }
                     });
                 };
                 let formData = new FormData();
                 formData.append('email', emailText);
                 formData.append('msg', messageText);
-                formData.append('extension', JSON.stringify({
-                    name: s.opts.manifest.name,
-                    version: s.opts.manifest.version
-                }));
+                formData.append('version', s.opts.manifest.version);
+                formData.append('ua', navigator.userAgent);
+                formData.append('lang', s.helper.i18n.getLanguage());
+                formData.append('config', JSON.stringify(s.helper.importExport.getExportConfig()));
                 xhr.send(formData);
 
             } else if (!isEmailValid) {

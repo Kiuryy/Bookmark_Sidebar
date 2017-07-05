@@ -175,5 +175,50 @@
     },
     "overlay_check_urls_not_found": {
         "message": "Kh\u00f4ng t\u00ecm th\u1ea5y \u0111\u1ecba ch\u1ec9"
+    },
+    "translation_title": {
+        "message": "T\u00ean trang"
+    },
+    "translation_headline_overview": {
+        "message": "Ng\u00f4n ng\u1eef kh\u1ea3 d\u1ee5ng"
+    },
+    "translation_edit": {
+        "message": "Ch\u1ec9nh s\u1eeda b\u1ea3n d\u1ecbch"
+    },
+    "translation_add": {
+        "message": "Th\u00eam b\u1ea3n d\u1ecbch"
+    },
+    "translation_progress": {
+        "message": "Trong ti\u1ebfn \u0111\u1ed9"
+    },
+    "translation_back_to_overview": {
+        "message": "Quay l\u1ea1i t\u1ed5ng quan"
+    },
+    "translation_contribution_info": {
+        "message": "B\u1ea1n c\u00f3 th\u1ec3 ch\u1ec9nh s\u1eeda b\u1ea3n d\u1ecbch hi\u1ec7n t\u1ea1i ho\u1eb7c th\u00eam c\u00e1c b\u1ea3n d\u1ecbch b\u1ecb thi\u1ebfu. N\u1ebfu b\u1ea1n g\u1eedi c\u00e1c thay \u0111\u1ed5i c\u1ee7a m\u00ecnh, t\u00f4i s\u1ebd xem l\u1ea1i b\u1ea3n d\u1ecbch c\u1ee7a b\u1ea1n v\u00e0 ch\u1ea5p nh\u1eadn n\u00f3."
+    },
+    "translation_contribution_notice1": {
+        "message": "B\u1ea1n kh\u00f4ng ph\u1ea3i d\u1ecbch t\u1ea5t c\u1ea3 c\u00e1c lo\u1ea1i, b\u1ea3n d\u1ecbch s\u1ebd \u0111\u01b0\u1ee3c ph\u00e1t h\u00e0nh n\u1ebfu \u00edt nh\u1ea5t t\u1ea5t c\u1ea3 c\u00e1c v\u0103n b\u1ea3n li\u00ean quan \u0111\u1ebfn v\u0103n b\u1ea3n \u0111\u01b0\u1ee3c d\u1ecbch."
+    },
+    "translation_contribution_notice2": {
+        "message": "C\u00e1c b\u1ea3n d\u1ecbch kh\u00f4ng ho\u00e0n ch\u1ec9nh s\u1ebd kh\u00f4ng \u0111\u01b0\u1ee3c ti\u1ebft l\u1ed9, \u0111\u1ec3 ng\u0103n ch\u1eb7n m\u1ed9t n\u1eeda v\u0103n b\u1ea3n \u0111\u01b0\u1ee3c d\u1ecbch."
+    },
+    "translation_submit": {
+        "message": "G\u1eedi"
+    },
+    "translation_submit_message": {
+        "message": "B\u1ea3n d\u1ecbch c\u1ee7a b\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c g\u1eedi th\u00e0nh c\u00f4ng"
+    },
+    "translation_status_released": {
+        "message": "B\u1ea3n d\u1ecbch \u0111\u00e3 c\u00f3 s\u1eb5n"
+    },
+    "translation_status_incomplete": {
+        "message": "B\u1ea3n d\u1ecbch \u0111\u00e3 c\u00f3 s\u1eb5n, nh\u01b0ng c\u00f3 v\u00e0i m\u1ee5c ch\u01b0a ho\u00e0n thi\u1ec7n"
+    },
+    "translation_status_draft": {
+        "message": "B\u1ea3n d\u1ecbch kh\u00f4ng \u0111\u1ea7y \u0111\u1ee7 ho\u1eb7c c\u1ea7n \u0111\u00e1nh gi\u00e1"
+    },
+    "translation_incomplete_info": {
+        "message": "Do c\u1eadp nh\u1eadt c\u00e1c bi\u1ebfn ng\u00f4n ng\u1eef kh\u00f4ng \u0111\u1ea7y \u0111\u1ee7"
     }
 }

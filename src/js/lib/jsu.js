@@ -4,6 +4,8 @@
  * Philipp König
  * https://blockbyte.de/
  *
+ * toDo
+ * - add xhr to tools
  */
 (() => {
     "use strict";

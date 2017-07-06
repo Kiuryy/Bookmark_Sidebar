@@ -158,18 +158,6 @@
                     }
                 });
 
-                s.opts.elm.preview[key].find("[" + s.opts.attr.classOnTrue + "]").forEach((elm) => {
-                    let value = $(elm).attr(s.opts.attr.classOnTrue).split("?");
-                    let attr = value[0];
-                    let className = value[1];
-
-                    if (typeof config[attr] !== "undefined" && config[attr] === true) {
-                        $(elm).addClass(className);
-                    } else {
-                        $(elm).removeClass(className);
-                    }
-                });
-
                 s.opts.elm.body.attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("[" + s.opts.attr.pos + "]").attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");

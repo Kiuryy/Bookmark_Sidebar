@@ -9,57 +9,57 @@ body.blockbyte-bs-noscroll {
 // Indicator
 body > div#blockbyte-bs-indicator {
 
-  &.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab) { // indicator should be visible on hover
+  > div {
+    position: absolute;
+    transform: translate3d(-$__indicatorWidth, 0, 0);
+    top: 0;
+    left: 0;
+    width: $__indicatorWidth !important;
+    height: 100%;
+    background: $__indicatorColor;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 2;
+    @extend %hidden;
 
-    &.blockbyte-bs-icon { // show indicator icon
-      @include mask('icon-bookmark', $__indicatorIconColor, $__indicatorIconSize);
-    }
-
-    &::before, &::after {
-      content: "";
+    > span {
+      -webkit-mask: no-repeat center / $__indicatorIconSize;
+      @include maskImage('icon-bookmark');
+      background-color: $__indicatorIconColor;
       position: absolute;
-      transition: opacity 0.3s, transform 0.3s;
-      transform: translate3d(-$__indicatorWidth, 0, 0);
+      display: block;
       top: 0;
       left: 0;
-      width: $__indicatorWidth !important;
+      width: 100%;
       height: 100%;
-      z-index: 2;
-      @extend %hidden;
-    }
-
-    &::after {
-      background: $__indicatorColor;
-      z-index: 1;
-    }
-
-    &[data-pos='right'] {
-
-      &::before, &::after {
-        transform: translate3d($__indicatorWidth, 0, 0);
-        left: auto;
-        right: 0;
-      }
-    }
-
-    &.blockbyte-bs-hover { // hover
-
-      &::before, &::after {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-      }
     }
   }
-}
 
-body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb {
+  &[data-pos='right'] {
 
-  &::after {
-    background: transparent;
+    > div {
+      transform: translate3d($__indicatorWidth, 0, 0);
+      left: auto;
+      right: 0;
+    }
   }
 
-  &.blockbyte-bs-icon::before {
-    -webkit-mask-position-y: 20px;
+  &.blockbyte-bs-hover {
+
+    > div {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  &[data-pos='left'].blockbyte-bs-has-lsb {
+
+    > div {
+      background: transparent;
+
+      > span {
+        -webkit-mask-position-y: 20px;
+      }
+    }
   }
 }
 

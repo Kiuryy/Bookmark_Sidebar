@@ -54,7 +54,6 @@
                 success: "data-successtext",
                 style: "data-style",
                 hideOnFalse: "data-hideOnFalse",
-                classOnTrue: "data-classOnTrue",
                 pos: "data-pos",
                 bg: "data-bg",
                 range: {

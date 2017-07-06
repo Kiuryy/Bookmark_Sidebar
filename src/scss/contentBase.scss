@@ -8,9 +8,14 @@ body > div#blockbyte-bs-indicator {
   left: 0;
   width: 1px;
   height: 100%;
+  display: none;
   margin: 0;
   padding: 0;
   z-index: #{2147483647 - 2};
+
+  &.blockbyte-bs-visible {
+    display: block;
+  }
 
   &[data-pos='right'] {
     left: auto;
@@ -52,6 +57,6 @@ body > iframe#blockbyte-bs-overlay.noAnimations {
 // Print
 @media print {
   [id^='blockbyte-bs-'] {
-    display: none;
+    display: none !important;
   }
 }

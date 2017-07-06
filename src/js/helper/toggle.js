@@ -22,6 +22,7 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
+            let isNewTab = ext.helper.utility.getPageType() === "newtab";
             let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
@@ -37,24 +38,34 @@
             }
 
             if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
-                ext.elements.indicator
-                    .addClass(ext.opts.classes.page.visible)
-                    .attr(ext.opts.attr.position, sidebarPos);
+                ext.elements.indicator.html("<div />").attr(ext.opts.attr.position, sidebarPos);
 
-                if (data.showIndicatorIcon) {
-                    ext.elements.indicator.addClass(ext.opts.classes.page.indicatorIcon);
+                if (data.showIndicatorIcon) { // show indicator icon
+                    let icon = $("<span />").appendTo(ext.elements.indicator.children("div"));
+
+                    if (isNewTab) { // workaround for new tab page -> mask image as path is not loaded -> replace path with base64 url
+                        $.delay().then(() => {
+                            let computedStyle = window.getComputedStyle(icon[0]);
+                            let svgPath = computedStyle.getPropertyValue('-webkit-mask-image').replace(/(^url\("|"\)$)/gi, "");
+
+                            $.xhr(svgPath).then((xhr) => {
+                                icon.css("-webkit-mask-image", "url('data:image/svg+xml;base64," + window.btoa(xhr.responseText) + "')");
+                                indicatorLoaded();
+                            });
+                        });
+                    } else {
+                        indicatorLoaded();
+                    }
+                } else {
+                    indicatorLoaded();
                 }
             }
 
             handleLeftsideBackExtension();
             initEvents();
 
-            if (ext.helper.utility.getPageType() === "newtab") {
-                ext.elements.indicator.addClass(ext.opts.classes.page.isNewTab);
-
-                if (data.initialOpenOnNewTab) {
-                    this.openSidebar();
-                }
+            if (data.initialOpenOnNewTab && isNewTab) {
+                this.openSidebar();
             }
 
             if (ext.helper.utility.sidebarHasMask() === false) {
@@ -104,6 +115,15 @@
             $(document).trigger("mousemove"); // hide indicator
 
             ext.helper.utility.triggerEvent("sidebarOpened");
+        };
+
+        /**
+         * Adds a class to the indicator, so it will be displayed when moving into the pixel tolerance range
+         */
+        let indicatorLoaded = () => {
+            $.delay(100).then(() => {
+                ext.elements.indicator.addClass(ext.opts.classes.page.visible);
+            });
         };
 
         /**

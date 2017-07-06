@@ -72,8 +72,7 @@
                     if (location.href.search(/(\?|\&)skip\=1/) > -1) {
                         initHandsOn(true);
                     } else {
-                        //gotoSlide("intro");
-                        gotoSlide("openAction");
+                        gotoSlide("intro");
                     }
 
                     return $.delay(300);

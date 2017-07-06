@@ -8,9 +8,12 @@ body > div#blockbyte-bs-indicator {
   left: 0;
   width: 1px;
   height: 100%;
+  display: none;
   margin: 0;
   padding: 0;
   z-index: 2147483645; }
+  body > div#blockbyte-bs-indicator.blockbyte-bs-visible {
+    display: block; }
   body > div#blockbyte-bs-indicator[data-pos='right'] {
     left: auto;
     right: 0; }
@@ -39,6 +42,6 @@ body > iframe#blockbyte-bs-overlay.noAnimations::after {
 
 @media print {
   [id^='blockbyte-bs-'] {
-    display: none; } }
+    display: none !important; } }
 
 /*# sourceMappingURL=contentBase.css.map */

@@ -1,4 +1,4 @@
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::after {
+body > div#blockbyte-bs-indicator > div {
   opacity: 0;
   pointer-events: none; }
 
@@ -9,46 +9,40 @@ body > iframe#blockbyte-bs-sidebar.blockbyte-bs-visible, body > iframe#blockbyte
 body.blockbyte-bs-noscroll {
   overflow: hidden !important; }
 
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-icon::before {
-  content: "";
+body > div#blockbyte-bs-indicator > div {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -webkit-mask: no-repeat center/"%indicatorIconSize";
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg);
-  background-color: "%indicatorIconColor"; }
-
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::after {
-  content: "";
-  position: absolute;
-  transition: opacity 0.3s, transform 0.3s;
   transform: translate3d(-"%indicatorWidth", 0, 0);
   top: 0;
   left: 0;
   width: "%indicatorWidth" !important;
   height: 100%;
-  z-index: 2; }
-
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)::after {
   background: "%indicatorColor";
-  z-index: 1; }
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2; }
+  body > div#blockbyte-bs-indicator > div > span {
+    -webkit-mask: no-repeat center/"%indicatorIconSize";
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg);
+    background-color: "%indicatorIconColor";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)[data-pos='right']::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab)[data-pos='right']::after {
+body > div#blockbyte-bs-indicator[data-pos='right'] > div {
   transform: translate3d("%indicatorWidth", 0, 0);
   left: auto;
   right: 0; }
 
-body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-hover::before, body > div#blockbyte-bs-indicator.blockbyte-bs-visible:not(.blockbyte-bs-isNewTab).blockbyte-bs-hover::after {
+body > div#blockbyte-bs-indicator.blockbyte-bs-hover > div {
   transform: translate3d(0, 0, 0);
   opacity: 1; }
 
-body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb::after {
+body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div {
   background: transparent; }
-
-body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-visible.blockbyte-bs-has-lsb.blockbyte-bs-icon::before {
-  -webkit-mask-position-y: 20px; }
+  body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div > span {
+    -webkit-mask-position-y: 20px; }
 
 body > iframe#blockbyte-bs-sidebar {
   width: "%sidebarWidth";

@@ -22,9 +22,7 @@
         },
         classes: {
             page: {
-                indicatorIcon: "blockbyte-bs-icon",
                 visible: "blockbyte-bs-visible",
-                isNewTab: "blockbyte-bs-isNewTab",
                 hideMask: "blockbyte-bs-hideMask",
                 hover: "blockbyte-bs-hover",
                 noscroll: "blockbyte-bs-noscroll",

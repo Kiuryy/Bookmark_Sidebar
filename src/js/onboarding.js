@@ -72,7 +72,8 @@
                     if (location.href.search(/(\?|\&)skip\=1/) > -1) {
                         initHandsOn(true);
                     } else {
-                        gotoSlide("intro");
+                        //gotoSlide("intro");
+                        gotoSlide("openAction");
                     }
 
                     return $.delay(300);
@@ -189,9 +190,11 @@
             $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] > a").on("click", (e) => {
                 e.preventDefault();
                 let value = $(e.currentTarget).attr(this.opts.attr.value);
-                this.helper.model.setData({"b/openAction": value}).then(() => {
-                    initHandsOn();
-                });
+                if (value) {
+                    this.helper.model.setData({"b/openAction": value}).then(() => {
+                        initHandsOn();
+                    });
+                }
             });
         };
 

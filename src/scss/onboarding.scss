@@ -83,6 +83,47 @@ section.slide {
     }
   }
 
+  &[data-name='openAction'] {
+
+    > p.desc {
+      position: relative;
+      background: $contentBackground;
+      color: $textColor;
+      width: 400px;
+      font-size: 90%;
+      line-height: 140%;
+      margin: 15px auto 0;
+      padding: 7px 10px;
+      transform: translate3d(0, -7px, 0);
+      transition: opacity 0.3s, transform 0.3s;
+      @extend %hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: calc(50% - 7px);
+        border: 7px solid transparent;
+        border-bottom-color: $contentBackground;
+      }
+    }
+
+    > a.info {
+      @include mask('icon-info', $mainColor, 26px);
+      position: relative;
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin: 70px auto 0;
+      border-radius: 50%;
+
+      &:hover + p.desc {
+        @extend %visible;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
   &[data-name='surface'] {
 
     > a[data-value="dark"] {

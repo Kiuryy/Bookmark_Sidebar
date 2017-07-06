@@ -1,8 +1,8 @@
-section.slide {
+section.slide, section.slide[data-name='openAction'] > p.desc {
   opacity: 0;
   pointer-events: none; }
 
-section.slide.visible {
+section.slide.visible, section.slide[data-name='openAction'] > a.info:hover + p.desc {
   opacity: 1;
   pointer-events: auto; }
 
@@ -108,6 +108,43 @@ section.slide {
   section.slide[data-name='position'] > a, section.slide[data-name='openAction'] > a, section.slide[data-name='surface'] > a {
     margin-left: 12px;
     margin-right: 12px; }
+  section.slide[data-name='openAction'] > p.desc {
+    position: relative;
+    background: #fff;
+    color: #666;
+    width: 400px;
+    font-size: 90%;
+    line-height: 140%;
+    margin: 15px auto 0;
+    padding: 7px 10px;
+    transform: translate3d(0, -7px, 0);
+    transition: opacity 0.3s, transform 0.3s; }
+    section.slide[data-name='openAction'] > p.desc::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: calc(50% - 7px);
+      border: 7px solid transparent;
+      border-bottom-color: #fff; }
+  section.slide[data-name='openAction'] > a.info {
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin: 70px auto 0;
+    border-radius: 50%; }
+    section.slide[data-name='openAction'] > a.info::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/26px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+      background-color: #7b5fa4; }
+    section.slide[data-name='openAction'] > a.info:hover + p.desc {
+      transform: translate3d(0, 0, 0); }
   section.slide[data-name='surface'] > a[data-value="dark"] {
     background: #444;
     color: #fff;

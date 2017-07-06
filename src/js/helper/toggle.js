@@ -121,7 +121,7 @@
          * Adds a class to the indicator, so it will be displayed when moving into the pixel tolerance range
          */
         let indicatorLoaded = () => {
-            $.delay(100).then(() => {
+            $.delay().then(() => {
                 ext.elements.indicator.addClass(ext.opts.classes.page.visible);
             });
         };

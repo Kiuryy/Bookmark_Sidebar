@@ -18,7 +18,9 @@
                 let existingTooltip = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper + "[" + ext.opts.attr.id + "='" + id + "']");
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
-                    existingTooltip.addClass(ext.opts.classes.tooltip.visible);
+                    if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
+                        existingTooltip.addClass(ext.opts.classes.tooltip.visible);
+                    }
                 } else { // no tooltip for the given element yet -> generate and show it after the configured delay
                     let config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "a/sidebarPosition"]);
 

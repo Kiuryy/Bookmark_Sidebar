@@ -46,10 +46,10 @@
                     if (isNewTab) { // workaround for new tab page -> mask image as path is not loaded -> replace path with base64 url
                         $.delay().then(() => {
                             let computedStyle = window.getComputedStyle(icon[0]);
-                            let svgPath = computedStyle.getPropertyValue('-webkit-mask-image').replace(/(^url\("|"\)$)/gi, "");
+                            let svgName = computedStyle.getPropertyValue('-webkit-mask-image').replace(/(^url\("|"\)$)/gi, "").replace(/^.*\/([a-z-]+)\.svg$/gi, "$1"); // url(".../xy.svg") -> xy
 
-                            $.xhr(svgPath).then((xhr) => {
-                                icon.css("-webkit-mask-image", "url('data:image/svg+xml;base64," + window.btoa(xhr.responseText) + "')");
+                            ext.helper.template.svgByName(svgName).then((svg) => {
+                                icon.css("-webkit-mask-image", "url('data:image/svg+xml;base64," + window.btoa(svg) + "')");
                                 indicatorLoaded();
                             });
                         });

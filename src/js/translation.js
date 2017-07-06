@@ -366,8 +366,8 @@
                                 .append("<label>" + field.label + "</label>")
                                 .appendTo(list);
 
-                            if (obj.default && obj.default[category] && obj.default[category][i]) {
-                                $("<span />").html("<span>" + languages[this.helper.i18n.getDefaultLanguage()].label + ":</span>" + obj.default[category][i].value || "").appendTo(entry);
+                            if (obj.default && obj.default[category] && obj.default[category].vars && obj.default[category].vars[i]) { // show translation of the default language besides the title of the language variable
+                                $("<span />").html("<span>" + languages[this.helper.i18n.getDefaultLanguage()].label + ":</span>" + obj.default[category].vars[i].value || "").appendTo(entry);
                             }
 
                             let val = field.value || "";

@@ -117,10 +117,10 @@ body.dark div.checkbox.active.focus::after, body.dark div.checkbox.active.clicke
   .color-picker > input[type='range'] {
     margin: 10px 0 0 0;
     background: none;
-    background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.webp);
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.svg);
+    background-size: 14px;
     cursor: ew-resize; }
     .color-picker > input[type='range']::-webkit-slider-runnable-track {
-      background: transparent;
       height: 100%;
       z-index: 1; }
     .color-picker > input[type='range']::-webkit-slider-thumb {

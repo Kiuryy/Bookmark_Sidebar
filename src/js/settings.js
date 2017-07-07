@@ -64,7 +64,8 @@
                     infinity: "data-infinity"
                 },
                 color: {
-                    alpha: "data-alpha"
+                    alpha: "data-alpha",
+                    style:"data-color"
                 },
                 field: {
                     placeholder: "data-placeholder"

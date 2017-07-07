@@ -82,20 +82,22 @@
                         min: 0,
                         max: 1,
                         step: 0.01,
-                        value: 1
+                        value: 1,
+                        [s.opts.attr.name]: opts.name
                     }).appendTo(picker.picker);
 
                     picker.alpha.on("change input", () => picker.trigger("change"));
                 }
 
-                picker.on("change", (color) => {
+                picker.on("change", (color) => { // change preview and gradient of the opacity slider
                     let v = CP._HSV2RGB(picker.set());
 
                     if (color) {
                         v = CP.HEX2RGB(color);
                     }
 
-                    picker.alpha && picker.alpha.css("background-image", "linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%),url(" + chrome.extension.getURL("img/settings/alpha.webp") + ")");
+                    $("head > style[" + s.opts.attr.color.style + "='" + opts.name + "']").remove();
+                    $("head").append("<style " + s.opts.attr.color.style + "='" + opts.name + "'>.color-picker > input[type='range'][" + s.opts.attr.name + "='" + opts.name + "']::-webkit-slider-runnable-track{background-image:linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%)}</style>");
 
                     if (picker.alpha && +picker.alpha[0].value < 1) {
                         v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value + ')';

@@ -615,7 +615,8 @@ input.color {
     }
 
     &::before {
-      background-image: img('settings/alpha.webp');
+      background: $contentBackground img('settings/alpha.svg');
+      background-size: 14px;
     }
 
     &::after {

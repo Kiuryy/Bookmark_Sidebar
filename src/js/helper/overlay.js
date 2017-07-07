@@ -92,7 +92,7 @@
          * @param {string} labelAdd what to add the tracking event label
          */
         this.closeOverlay = (cancel = false, labelAdd = "") => {
-            ext.helper.model.call("realUrl", {abort: true}); // abort running check url ajax calls
+            ext.helper.model.call("checkUrls", {abort: true}); // abort running check url ajax calls
             ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
             elements.overlay.removeClass(ext.opts.classes.page.visible);
 
@@ -357,6 +357,7 @@
             });
         };
 
+
         /**
          * Extends the overlay html for the url update process
          *
@@ -391,24 +392,41 @@
 
                     let finished = 0;
                     let updateList = [];
-                    bookmarks.forEach((bookmark) => {
-                        ext.helper.model.call("realUrl", {url: bookmark.url}).then((response) => {
+                    let bookmarkInfos = {};
+
+                    let checkUrls = (urls) => {
+                        ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
                             if (!response.error) { // not cancelled -> proceed
-                                finished++;
-                                elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
-                                elements.progressLabel.children("span").eq(0).text(finished);
+                                Object.entries(response).forEach(([id, data]) => {
+                                    finished++;
+                                    elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
+                                    elements.progressLabel.children("span").eq(0).text(finished);
 
-                                if (+response.code === 404 || (bookmark.url !== response.url && +response.code !== 302)) { // show all urls which have changed permanently and broken links
-                                    bookmark.newUrl = response.url;
-                                    bookmark.urlStatusCode = +response.code;
-                                    updateList.push(bookmark);
-                                }
+                                    if (+data.code === 404 || (bookmarkInfos[id].url !== data.url && +data.code !== 302)) { // show all urls which have changed permanently and broken links
+                                        bookmarkInfos[id].newUrl = data.url;
+                                        bookmarkInfos[id].urlStatusCode = +data.code;
+                                        updateList.push(bookmarkInfos[id]);
+                                    }
 
-                                if (finished === bookmarkAmount) {
-                                    handleUpdateUrlsFinished(updateList);
-                                }
+                                    if (finished === bookmarkAmount) {
+                                        handleUpdateUrlsFinished(updateList);
+                                    }
+                                });
                             }
                         });
+                    };
+
+                    let i = 0;
+                    let chunk = {};
+                    bookmarks.forEach((bookmark) => {
+                        i++;
+                        chunk[bookmark.id] = bookmark.url;
+                        bookmarkInfos[bookmark.id] = bookmark;
+
+                        if (Object.keys(chunk).length >= 10 || i === bookmarkAmount) { // check multiple urls at once
+                            checkUrls(chunk);
+                            chunk = {};
+                        }
                     });
                 } else { // website not available -> show message
                     elements.loader.remove();

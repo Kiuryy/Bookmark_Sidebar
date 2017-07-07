@@ -333,15 +333,15 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        let getRealUrl = (opts) => {
+        let checkUrls = (opts) => {
             return new Promise((resolve) => {
                 if (opts.abort && opts.abort === true) {
-                    $.cancelXhr(opts.url);
+                    $.cancelXhr(s.urls.updateUrls);
                 } else {
                     $.xhr(s.urls.updateUrls, {
                         method: "POST",
                         data: {
-                            url: opts.url,
+                            urlList: opts.urls,
                             ua: navigator.userAgent,
                             lang: chrome.i18n.getUILanguage()
                         }
@@ -534,7 +534,7 @@
          */
         let initMessageListener = async () => {
             let mapping = {
-                realUrl: getRealUrl,
+                checkUrls: checkUrls,
                 addViewAmount: addViewAmountByUrl,
                 bookmarks: getBookmarks,
                 searchBookmarks: getBookmarksBySearchVal,

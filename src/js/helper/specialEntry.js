@@ -19,6 +19,12 @@
 
                 pinnedEntries[data.id] = {index: idx + 1}; // add new entry at the last position
 
+                ext.helper.model.call("trackEvent", {
+                    category: "extension",
+                    action: "pinnedEntry",
+                    label: "pin"
+                });
+
                 ext.helper.model.setData({
                     "u/pinnedEntries": pinnedEntries
                 }).then(resolve);
@@ -35,6 +41,12 @@
             return new Promise((resolve) => {
                 let pinnedEntries = ext.helper.model.getData("u/pinnedEntries");
                 delete pinnedEntries[data.id];
+
+                ext.helper.model.call("trackEvent", {
+                    category: "extension",
+                    action: "pinnedEntry",
+                    label: "unpin"
+                });
 
                 ext.helper.model.setData({
                     "u/pinnedEntries": pinnedEntries
@@ -89,6 +101,11 @@
                 }
 
                 separators[data.id].push({index: (data.index || 0)});
+                ext.helper.model.call("trackEvent", {
+                    category: "extension",
+                    action: "add",
+                    label: "separator"
+                });
 
                 ext.helper.model.setData({
                     "u/separators": separators
@@ -110,6 +127,12 @@
                         separators[data.id].splice(i, 1);
                         return true;
                     }
+                });
+
+                ext.helper.model.call("trackEvent", {
+                    category: "extension",
+                    action: "remove",
+                    label: "separator"
                 });
 
                 ext.helper.model.setData({

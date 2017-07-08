@@ -13,6 +13,7 @@
          * @param {object} data
          */
         this.create = (type, title, data) => {
+            ext.helper.tooltip.close();
             elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
 
             if (ext.helper.model.getData("b/animations") === false) {
@@ -481,6 +482,12 @@
         let deleteBookmark = (data) => {
             this.closeOverlay();
 
+            ext.helper.model.call("trackEvent", {
+                category: "extension",
+                action: "remove",
+                label: data.url ? "bookmark" : "directory"
+            });
+
             ext.helper.model.call("deleteBookmark", {id: data.id}).then(() => {
                 data.element.parent("li").remove();
             });
@@ -577,6 +584,11 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
+                        ext.helper.model.call("trackEvent", {
+                            category: "extension",
+                            action: "add",
+                            label: obj.url ? "bookmark" : "directory"
+                        });
                         this.closeOverlay(false, "_" + (obj.url ? "bookmark" : "directory"));
                     }
                 });

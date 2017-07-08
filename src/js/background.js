@@ -72,6 +72,8 @@
         let bookmarkApi = {};
         let bookmarkImportRunning = false;
         let langVarsChache = {};
+        let trackingQueue = [];
+        let trackingQueueProceeding = false;
 
         /**
          * Increases the Click Counter of the given bookmark
@@ -490,18 +492,14 @@
          */
         let trackEvent = (opts, ignoreShareUserdata = false) => {
             return new Promise((resolve) => {
-                if (window.ga && window.ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
-                    window.ga('send', {
-                        hitType: 'event',
-                        eventCategory: opts.category,
-                        eventAction: opts.action,
-                        eventLabel: opts.label,
-                        eventValue: opts.value || 1,
-                        hitCallback: resolve
-                    });
-                } else {
-                    resolve();
-                }
+                addObjectToTrackingQueue({
+                    hitType: 'event',
+                    eventCategory: opts.category,
+                    eventAction: opts.action,
+                    eventLabel: opts.label,
+                    eventValue: opts.value || 1
+                }, ignoreShareUserdata);
+                resolve();
             });
         };
 
@@ -515,14 +513,43 @@
          */
         let trackPageView = (opts, ignoreShareUserdata = false) => {
             return new Promise((resolve) => {
-                if (window.ga && window.ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
-                    window.ga('send', {
-                        hitType: 'pageview',
-                        page: opts.page,
-                        hitCallback: resolve
-                    });
+                addObjectToTrackingQueue({
+                    hitType: 'pageview',
+                    page: opts.page
+                }, ignoreShareUserdata);
+                resolve();
+            });
+        };
+
+        /**
+         * Adds the given object to the tracking queue and processes the queue if it is not already processing,
+         * only works if user allows userdata sharing or if the parameter is specified
+         *
+         * @param {object} obj
+         * @param {boolean} ignoreShareUserdata
+         */
+        let addObjectToTrackingQueue = (obj, ignoreShareUserdata) => {
+            if (shareUserdata === true || ignoreShareUserdata === true) {
+                trackingQueue.push(obj);
+                if (trackingQueueProceeding === false) {
+                    processTrackingQueue();
+                }
+            }
+        };
+
+        /**
+         * Processes the tracking queue,
+         * sends every 1000ms the oldest entry of the queue to Google Analytics
+         */
+        let processTrackingQueue = () => {
+            trackingQueueProceeding = true;
+            $.delay(1000).then(() => {
+                if (trackingQueue.length > 0 && window.ga && window.ga.loaded) {
+                    let entry = trackingQueue.shift();
+                    window.ga('send', entry);
+                    processTrackingQueue();
                 } else {
-                    resolve();
+                    trackingQueueProceeding = false;
                 }
             });
         };
@@ -602,10 +629,14 @@
          * @returns {Promise}
          */
         let initUpdateListener = async () => {
+            chrome.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
+                chrome.runtime.reload();
+            });
+
             chrome.runtime.onInstalled.addListener((details) => {
-                if (details.reason === 'install') {
+                if (details.reason === 'install') { // extension was installed newly -> show onboarding page
                     chrome.tabs.create({url: chrome.extension.getURL('html/intro.html')});
-                } else if (details.reason === 'update') {
+                } else if (details.reason === 'update') { // extension was updated
                     let newVersion = chrome.runtime.getManifest().version;
                     let versionPartsOld = details.previousVersion.split('.');
                     let versionPartsNew = newVersion.split('.');
@@ -618,7 +649,7 @@
                         label: details.previousVersion + " -> " + newVersion
                     }, true);
 
-                    if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) {
+                    if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                         chrome.storage.sync.get(["model"], (obj) => {
                             if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                                 data.updateNotification = newVersion;
@@ -792,12 +823,10 @@
             if (shareUserdata === true) {
                 // track installation date
                 if (data.installationDate) {
-                    $.delay(1200).then(() => {
-                        trackEvent({
-                            category: "extension",
-                            action: "installationDate",
-                            label: new Date(data.installationDate).toISOString().slice(0, 10)
-                        });
+                    trackEvent({
+                        category: "extension",
+                        action: "installationDate",
+                        label: new Date(data.installationDate).toISOString().slice(0, 10)
                     });
                 }
 
@@ -829,25 +858,20 @@
 
                 // track configuration values
                 let categories = ["behaviour", "appearance"];
-                let i = 1;
 
                 let proceedConfig = (baseName, obj) => {
                     Object.keys(obj).forEach((attr) => {
                         if (typeof obj[attr] === "object") {
                             proceedConfig(baseName + "_" + attr, obj[attr])
                         } else {
-                            i++;
-
                             if (typeof obj[attr] !== "string") {
                                 obj[attr] = JSON.stringify(obj[attr]);
                             }
 
-                            $.delay(i * 1200).then(() => {
-                                trackEvent({
-                                    category: "configuration",
-                                    action: baseName + "_" + attr,
-                                    label: obj[attr]
-                                });
+                            trackEvent({
+                                category: "configuration",
+                                action: baseName + "_" + attr,
+                                label: obj[attr]
                             });
                         }
                     });

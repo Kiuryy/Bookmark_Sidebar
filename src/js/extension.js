@@ -98,7 +98,7 @@
                             value: searchVal.length
                         });
                     }
-                } else if (retry < 20) { // no search box loaded -> wait a bit and try again
+                } else if (retry < 20) { // no search box loaded -> wait a bit and try again (mainly for initialOpenOnNewTab, where this method is called before the complete initialization)
                     $.delay(100).then(() => {
                         trackSearchValue(++retry);
                     });

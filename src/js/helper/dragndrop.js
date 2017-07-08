@@ -376,37 +376,39 @@
                 ext.elements.iframeBody.removeClass(ext.opts.classes.drag.cancel);
             }
 
-            let newAboveElm = null;
-
-
-            let elmList = null;
+            let newAboveElm = {elm: null};
             let type = getDragType(bookmarkElm.children("a"));
+            let elmLists = null;
+
             if (type === "pinned") {
-                elmList = ext.elements.bookmarkBox["all"].find("> ul > li." + ext.opts.classes.sidebar.entryPinned);
+                elmLists = [ext.elements.bookmarkBox["all"].find("> ul > li." + ext.opts.classes.sidebar.entryPinned)];
             } else {
-                elmList = $([
-                    ext.elements.bookmarkBox["all"].find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li"),
-                    ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li")
-                ]);
+                elmLists = [
+                    ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li"),
+                    ext.elements.bookmarkBox["all"].find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li")
+                ];
             }
 
-            elmList.forEach((node) => { // determine the element which is above the current drag position
-                let elmObj = $(node);
+            elmLists.some((list) => {
+                list.forEach((node) => { // determine the element which is above the current drag position
+                    let elmObj = $(node);
 
-                if (node !== bookmarkElm[0] && !elmObj.hasClass(ext.opts.classes.drag.dragInitial)) {
-                    let boundClientRect = node.getBoundingClientRect();
+                    if (elmObj[0] !== bookmarkElm[0] && !elmObj.hasClass(ext.opts.classes.drag.dragInitial)) {
+                        let boundClientRect = elmObj[0].getBoundingClientRect();
+                        let diff = topVal - boundClientRect.top;
 
-                    if (boundClientRect.top > topVal) {
-                        return false;
-                    } else {
-                        newAboveElm = elmObj;
+                        if (boundClientRect.top > topVal) {
+                            return false;
+                        } else if (newAboveElm.elm === null || newAboveElm.diff > diff) {
+                            newAboveElm = {elm: elmObj, diff: diff};
+                        }
                     }
-                }
+                });
             });
 
-            if (newAboveElm && newAboveElm !== oldAboveElm) {
-                oldAboveElm = newAboveElm;
-                let newAboveLink = newAboveElm.children("a").eq(0);
+            if (newAboveElm.elm && newAboveElm.elm !== oldAboveElm) {
+                oldAboveElm = newAboveElm.elm;
+                let newAboveLink = newAboveElm.elm.children("a").eq(0);
 
                 clearDirOpenTimeout(newAboveLink);
 
@@ -415,7 +417,7 @@
                         let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
                         draggedElm && draggedElm.data("elm", elm);
                     } else if (draggedElm && draggedElm.data("isDir")) {
-                        let elm = bookmarkElm.insertAfter(newAboveElm);
+                        let elm = bookmarkElm.insertAfter(newAboveElm.elm);
                         draggedElm && draggedElm.data("elm", elm);
                     } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) { // closed directory
                         if (dirOpenTimeout === null) {
@@ -433,7 +435,7 @@
                         $("<ul />").insertAfter(newAboveLink);
                     }
                 } else { // drag position is beneath a bookmark
-                    let elm = bookmarkElm.insertAfter(newAboveElm);
+                    let elm = bookmarkElm.insertAfter(newAboveElm.elm);
                     draggedElm && draggedElm.data("elm", elm);
                 }
             } else if (type === "pinned") { // pinned entry -> no element above -> index = 0

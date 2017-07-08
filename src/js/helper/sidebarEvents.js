@@ -183,7 +183,7 @@
          */
         let initGeneralEvents = async () => {
             $(window).on("beforeunload", () => { // save scroll position before unloading page
-                if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // sidebar has been open or is still open
+                if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // sidebar was opened or is still open
                     ext.helper.scroll.updateAll();
                 }
             });

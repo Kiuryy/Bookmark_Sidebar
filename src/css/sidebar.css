@@ -1,4 +1,4 @@
-div.contextmenu, div.tooltip, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden {
+div.contextmenu, div.tooltip, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
@@ -979,7 +979,7 @@ body.dark section#sidebar {
 body.ee section#sidebar > header {
   background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%); }
 
-div#shareUserdata {
+div#shareUserdata, div#reloadInfo {
   position: absolute;
   top: 0;
   left: 0;
@@ -991,20 +991,21 @@ div#shareUserdata {
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s; }
-  div#shareUserdata > div {
+  div#shareUserdata > div, div#reloadInfo > div {
     padding: 20px;
     text-align: center;
     color: #fff; }
-    div#shareUserdata > div > h2 {
+    div#shareUserdata > div > h2, div#reloadInfo > div > h2 {
       font-size: 250%;
       font-weight: "%fontWeightNormal";
       margin-bottom: 50px; }
-    div#shareUserdata > div > p {
+    div#shareUserdata > div > p, div#reloadInfo > div > p {
       font-size: 120%;
       margin: 20px 0; }
-      div#shareUserdata > div > p > strong {
+      div#shareUserdata > div > p > strong, div#reloadInfo > div > p > strong {
         text-decoration: underline; }
-    div#shareUserdata > div > a {
+    div#shareUserdata > div > a, div#reloadInfo > div > a {
+      position: relative;
       font-size: 120%;
       color: #fff;
       display: inline-block;
@@ -1013,9 +1014,26 @@ div#shareUserdata {
       padding: 5px 10px;
       transition: background 0.5s;
       border-radius: 2px;
-      cursor: pointer; }
-      div#shareUserdata > div > a:hover {
+      cursor: pointer;
+      z-index: 2; }
+      div#shareUserdata > div > a:hover, div#reloadInfo > div > a:hover {
         background: rgba(255, 255, 255, 0.2); }
+
+div#reloadInfo > div {
+  position: relative;
+  padding-top: 90px; }
+  div#reloadInfo > div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/64px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
+    background-color: #fff; }
+  div#reloadInfo > div::before {
+    -webkit-mask-position-y: 0; }
 
 body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
   display: none; }

@@ -213,6 +213,11 @@
                 });
             });
 
+            ext.elements.iframeBody.on("click", "#" + ext.opts.ids.sidebar.reloadInfo + " a", (e) => { // reload info
+                e.preventDefault();
+                location.reload(true);
+            });
+
             ext.elements.iframeBody.on("click", "#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => { // share userdata mask
                 e.preventDefault();
                 ext.helper.model.call("shareUserdata", {

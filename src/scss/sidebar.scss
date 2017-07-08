@@ -545,7 +545,7 @@ body.ee section#sidebar > header {
 }
 
 //
-div#shareUserdata {
+div#shareUserdata, div#reloadInfo {
   position: absolute;
   top: 0;
   left: 0;
@@ -583,6 +583,7 @@ div#shareUserdata {
     }
 
     > a {
+      position: relative;
       font-size: 120%;
       color: #fff;
       display: inline-block;
@@ -592,10 +593,24 @@ div#shareUserdata {
       transition: background 0.5s;
       border-radius: 2px;
       cursor: pointer;
+      z-index: 2;
 
       &:hover {
         background: rgba(255, 255, 255, 0.2);
       }
+    }
+  }
+}
+
+div#reloadInfo {
+
+  > div {
+    @include mask('icon-update', $textColorInverted, 64px);
+    position: relative;
+    padding-top: 90px;
+
+    &::before {
+      -webkit-mask-position-y: 0;
     }
   }
 }

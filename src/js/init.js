@@ -11,6 +11,7 @@
             sidebar: {
                 sidebar: "sidebar",
                 shareUserdata: "shareUserdata",
+                reloadInfo: "reloadInfo",
                 bookmarkBox: {
                     all: "bookmarkBox",
                     search: "bookmarkBoxSearch",

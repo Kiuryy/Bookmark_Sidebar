@@ -86,35 +86,49 @@
             $(document).trigger("mousemove"); // hide indicator
         };
 
+        let isBackgroundConnectable = () => {
+            let port = chrome.runtime.connect();
+            if (port) {
+                port.disconnect();
+                return true;
+            }
+            return false;
+        };
+
         /**
          * Opens the sidebar
          */
         this.openSidebar = () => {
-            ext.helper.model.call("shareUserdataMask").then((opts) => { // check whether to show the share userdata mask or not
-                if (opts && opts.showMask) {
-                    ext.addShareUserdataMask();
-                } else {
-                    ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
+            if (ext.helper.utility.isBackgroundConnected() === false) {
+                ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+                ext.addReloadMask();
+            } else {
+                ext.helper.model.call("shareUserdataMask").then((opts) => { // check whether to show the share userdata mask or not
+                    if (opts && opts.showMask) {
+                        ext.addShareUserdataMask();
+                    } else {
+                        ext.elements.sidebar.find("#" + ext.opts.ids.sidebar.shareUserdata).remove();
+                    }
+                });
+
+                if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
+                    ext.trackInitialEvents();
+                    ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
                 }
-            });
 
-            if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
-                ext.trackInitialEvents();
-                ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+                ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
+                ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+                ext.initImages();
+
+                if (preventPageScroll) {
+                    $("body").addClass(ext.opts.classes.page.noscroll);
+                }
+
+                ext.helper.scroll.focus();
+                $(document).trigger("mousemove"); // hide indicator
+
+                ext.helper.utility.triggerEvent("sidebarOpened");
             }
-
-            ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
-            ext.elements.iframe.addClass(ext.opts.classes.page.visible);
-            ext.initImages();
-
-            if (preventPageScroll) {
-                $("body").addClass(ext.opts.classes.page.noscroll);
-            }
-
-            ext.helper.scroll.focus();
-            $(document).trigger("mousemove"); // hide indicator
-
-            ext.helper.utility.triggerEvent("sidebarOpened");
         };
 
         /**

@@ -80,6 +80,20 @@
         };
 
         /**
+         * Checks whether the background script is connected
+         *
+         * @returns {boolean}
+         */
+        this.isBackgroundConnected = () => {
+            let port = chrome.runtime.connect();
+            if (port) {
+                port.disconnect();
+                return true;
+            }
+            return false;
+        };
+
+        /**
          * Returns whether the the sidebar mask should be visible or not
          *
          * @returns {boolean}

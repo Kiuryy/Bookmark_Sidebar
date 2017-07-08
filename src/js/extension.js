@@ -164,6 +164,18 @@
         };
 
         /**
+         * Adds a mask over the sidebar to notice that the page needs to be reloaded to make the sidebar work again
+         */
+        this.addReloadMask = () => {
+            this.elements.sidebar.text("");
+            let reloadMask = $("<div />").attr("id", opts.ids.sidebar.reloadInfo).prependTo(this.elements.sidebar);
+            let contentBox = $("<div />").prependTo(reloadMask);
+
+            $("<p />").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
+            $("<a />").text(this.helper.i18n.get("status_background_disconnected_reload_action")).appendTo(contentBox);
+        };
+
+        /**
          * Adds a mask over the sidebar to encourage the user the share their userdata
          */
         this.addShareUserdataMask = () => {
@@ -176,8 +188,8 @@
             $("<p />").html(this.helper.i18n.get("share_userdata_desc2")).appendTo(contentBox);
             $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(this.helper.i18n.get("share_userdata_notice")).appendTo(contentBox);
 
-            $("<a />").data("accept", true).html(this.helper.i18n.get("share_userdata_accept")).appendTo(contentBox);
-            $("<a />").data("accept", false).html(this.helper.i18n.get("share_userdata_decline")).appendTo(contentBox);
+            $("<a />").data("accept", true).text(this.helper.i18n.get("share_userdata_accept")).appendTo(contentBox);
+            $("<a />").data("accept", false).text(this.helper.i18n.get("share_userdata_decline")).appendTo(contentBox);
         };
 
 

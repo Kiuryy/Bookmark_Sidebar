@@ -397,20 +397,23 @@
                     let checkUrls = (urls) => {
                         ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
                             if (!response.error) { // not cancelled -> proceed
+                                let x = -1;
                                 Object.entries(response).forEach(([id, data]) => {
-                                    finished++;
-                                    elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
-                                    elements.progressLabel.children("span").eq(0).text(finished);
+                                    $.delay(++x * 50).then(() => { // smoothing the progress bar
+                                        finished++;
+                                        elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
+                                        elements.progressLabel.children("span").eq(0).text(finished);
 
-                                    if (+data.code === 404 || (bookmarkInfos[id].url !== data.url && +data.code !== 302)) { // show all urls which have changed permanently and broken links
-                                        bookmarkInfos[id].newUrl = data.url;
-                                        bookmarkInfos[id].urlStatusCode = +data.code;
-                                        updateList.push(bookmarkInfos[id]);
-                                    }
+                                        if (+data.code === 404 || (bookmarkInfos[id].url !== data.url && +data.code !== 302)) { // show all urls which have changed permanently and broken links
+                                            bookmarkInfos[id].newUrl = data.url;
+                                            bookmarkInfos[id].urlStatusCode = +data.code;
+                                            updateList.push(bookmarkInfos[id]);
+                                        }
 
-                                    if (finished === bookmarkAmount) {
-                                        handleUpdateUrlsFinished(updateList);
-                                    }
+                                        if (finished === bookmarkAmount) {
+                                            handleUpdateUrlsFinished(updateList);
+                                        }
+                                    });
                                 });
                             }
                         });

@@ -49,7 +49,7 @@ body > div#blockbyte-bs-indicator.noAnimations,
 body > iframe#blockbyte-bs-sidebar.noAnimations,
 body > iframe#blockbyte-bs-overlay.noAnimations {
 
-  &, &::before, &::after {
+  &, &::before, &::after, > * {
     transition: none !important;
   }
 }

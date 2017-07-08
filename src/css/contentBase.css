@@ -31,13 +31,15 @@ body > iframe#blockbyte-bs-overlay {
   top: 0;
   left: 0; }
 
-body > div#blockbyte-bs-indicator.noAnimations, body > div#blockbyte-bs-indicator.noAnimations::before, body > div#blockbyte-bs-indicator.noAnimations::after,
+body > div#blockbyte-bs-indicator.noAnimations, body > div#blockbyte-bs-indicator.noAnimations::before, body > div#blockbyte-bs-indicator.noAnimations::after, body > div#blockbyte-bs-indicator.noAnimations > *,
 body > iframe#blockbyte-bs-sidebar.noAnimations,
 body > iframe#blockbyte-bs-sidebar.noAnimations::before,
 body > iframe#blockbyte-bs-sidebar.noAnimations::after,
+body > iframe#blockbyte-bs-sidebar.noAnimations > *,
 body > iframe#blockbyte-bs-overlay.noAnimations,
 body > iframe#blockbyte-bs-overlay.noAnimations::before,
-body > iframe#blockbyte-bs-overlay.noAnimations::after {
+body > iframe#blockbyte-bs-overlay.noAnimations::after,
+body > iframe#blockbyte-bs-overlay.noAnimations > * {
   transition: none !important; }
 
 @media print {

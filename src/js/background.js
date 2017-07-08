@@ -490,7 +490,7 @@
          */
         let trackEvent = (opts, ignoreShareUserdata = false) => {
             return new Promise((resolve) => {
-                if (window.ga && ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
+                if (window.ga && window.ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
                     window.ga('send', {
                         hitType: 'event',
                         eventCategory: opts.category,
@@ -515,7 +515,7 @@
          */
         let trackPageView = (opts, ignoreShareUserdata = false) => {
             return new Promise((resolve) => {
-                if (window.ga && ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
+                if (window.ga && window.ga.loaded && (shareUserdata === true || ignoreShareUserdata === true)) {
                     window.ga('send', {
                         hitType: 'pageview',
                         page: opts.page,

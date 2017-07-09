@@ -73,39 +73,40 @@
          * is called after opening the sidebar and is only executed the first time the sidebar is opened
          */
         this.trackInitialEvents = () => {
-            this.helper.model.call("trackEvent", {
-                category: "directory",
-                action: "openState_initial",
-                label: "open",
-                value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
-            });
 
-            let sort = this.helper.list.getSort();
-            this.helper.model.call("trackEvent", {
-                category: "sorting",
-                action: "initial",
-                label: sort.name + "_" + sort.dir
-            });
+            let trackEvents = () => {
+                this.helper.model.call("trackEvent", {
+                    category: "directory",
+                    action: "openState_initial",
+                    label: "open",
+                    value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
+                });
 
-            let trackSearchValue = (retry = 0) => {
-                if (this.elements.header.find("div." + this.opts.classes.sidebar.searchBox).length() > 0) { // search box is loaded yet
-                    let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
-                    if (searchVal.length > 0) {
-                        this.helper.model.call("trackEvent", {
-                            category: "search",
-                            action: "search",
-                            label: "initial",
-                            value: searchVal.length
-                        });
-                    }
-                } else if (retry < 20) { // no search box loaded -> wait a bit and try again (mainly for initialOpenOnNewTab, where this method is called before the complete initialization)
-                    $.delay(100).then(() => {
-                        trackSearchValue(++retry);
+                let sort = this.helper.list.getSort();
+                this.helper.model.call("trackEvent", {
+                    category: "sorting",
+                    action: "initial",
+                    label: sort.name + "_" + sort.dir
+                });
+
+                let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
+                if (searchVal.length > 0) {
+                    this.helper.model.call("trackEvent", {
+                        category: "search",
+                        action: "search",
+                        label: "initial",
+                        value: searchVal.length
                     });
                 }
             };
 
-            trackSearchValue();
+            if (this.firstRun) { // extension is not loaded yet -> wait for the loaded event (happens when sidebar is automatically opened on new tab page)
+                $(document).on(this.opts.events.loaded, () => {
+                    trackEvents();
+                });
+            } else { // extension is loaded -> track events
+                trackEvents();
+            }
         };
 
         /**

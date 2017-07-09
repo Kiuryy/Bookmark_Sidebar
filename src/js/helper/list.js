@@ -284,63 +284,6 @@
         };
 
         /**
-         * Adds the given bookmark to the list
-         *
-         * @param {object} bookmark
-         * @param {jsu} list
-         * @param {object} opts
-         * @returns {jsu}
-         */
-        let addEntryToList = (bookmark, list, opts) => {
-            let entry = $("<li />").appendTo(list);
-            let entryContent = $("<a />")
-                .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
-                .appendTo(entry);
-
-            if (bookmark.id) {
-                entryContent.attr(ext.opts.attr.id, bookmark.id);
-            }
-
-            if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
-                entry.addClass(ext.opts.classes.sidebar.hidden);
-            }
-
-            ext.helper.entry.addData(bookmark.id, "element", entryContent);
-
-            if (bookmark.children && opts.asTree) { // dir
-                entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
-
-                if (opts.config.showDirectoryIcons) {
-                    entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
-                }
-            } else if (bookmark.url) { // link
-                entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
-
-                if (opts.config.showBookmarkIcons) {
-                    if (ext.opts.demoMode) {
-                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
-                    } else {
-                        ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
-                            if (response.img) { // favicon found -> add to entry
-                                ext.helper.entry.addData(bookmark.id, "icon", response.img);
-                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
-                            }
-                        });
-                    }
-                }
-            } else if (bookmark.separator) { // separator
-                entryContent
-                    .addClass(ext.opts.classes.sidebar.separator)
-                    .data("infos", {
-                        id: bookmark.parentId,
-                        index: bookmark.index
-                    });
-            }
-
-            return entry;
-        };
-
-        /**
          * Adds the given bookmarks to the given list
          *
          * @param {Array} bookmarks
@@ -431,6 +374,63 @@
             });
 
             return hasEntries;
+        };
+
+        /**
+         * Adds the given bookmark to the list
+         *
+         * @param {object} bookmark
+         * @param {jsu} list
+         * @param {object} opts
+         * @returns {jsu}
+         */
+        let addEntryToList = (bookmark, list, opts) => {
+            let entry = $("<li />").appendTo(list);
+            let entryContent = $("<a />")
+                .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
+                .appendTo(entry);
+
+            if (bookmark.id) {
+                entryContent.attr(ext.opts.attr.id, bookmark.id);
+            }
+
+            if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
+                entry.addClass(ext.opts.classes.sidebar.hidden);
+            }
+
+            ext.helper.entry.addData(bookmark.id, "element", entryContent);
+
+            if (bookmark.children && opts.asTree) { // dir
+                entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
+
+                if (opts.config.showDirectoryIcons) {
+                    entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
+                }
+            } else if (bookmark.url) { // link
+                entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
+
+                if (opts.config.showBookmarkIcons) {
+                    if (ext.opts.demoMode) {
+                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                    } else {
+                        ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
+                            if (response.img) { // favicon found -> add to entry
+                                ext.helper.entry.addData(bookmark.id, "icon", response.img);
+                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
+                            }
+                        });
+                    }
+                }
+            } else if (bookmark.separator) { // separator
+                entryContent
+                    .addClass(ext.opts.classes.sidebar.separator)
+                    .data("infos", {
+                        id: bookmark.parentId,
+                        index: bookmark.index
+                    });
+            }
+
+            return entry;
         };
 
         /**

@@ -75,13 +75,6 @@
         this.trackInitialEvents = () => {
 
             let trackEvents = () => {
-                this.helper.model.call("trackEvent", {
-                    category: "directory",
-                    action: "openState_initial",
-                    label: "open",
-                    value: this.elements.bookmarkBox["all"].find("a." + this.opts.classes.sidebar.dirOpened).length()
-                });
-
                 let sort = this.helper.list.getSort();
                 this.helper.model.call("trackEvent", {
                     category: "sorting",

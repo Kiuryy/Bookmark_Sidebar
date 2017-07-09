@@ -552,14 +552,6 @@
                     list.css("height", "");
                     elm.removeClass(ext.opts.classes.sidebar.dirAnimated);
 
-                    if (!isFirstRun) {
-                        ext.helper.model.call("trackEvent", {
-                            category: "directory",
-                            action: "openState_change",
-                            label: open ? "open" : "close"
-                        });
-                    }
-
                     resolve();
                 });
             });

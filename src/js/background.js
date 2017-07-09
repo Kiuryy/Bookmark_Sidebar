@@ -637,17 +637,19 @@
                 if (details.reason === 'install') { // extension was installed newly -> show onboarding page
                     chrome.tabs.create({url: chrome.extension.getURL('html/intro.html')});
                 } else if (details.reason === 'update') { // extension was updated
+                    chrome.storage.local.remove(["languageInfos"]);
                     let newVersion = chrome.runtime.getManifest().version;
+
+                    if (details.previousVersion !== newVersion) {
+                        trackEvent({
+                            category: "extension",
+                            action: "update",
+                            label: details.previousVersion + " -> " + newVersion
+                        }, true);
+                    }
+
                     let versionPartsOld = details.previousVersion.split('.');
                     let versionPartsNew = newVersion.split('.');
-
-                    chrome.storage.local.remove(["languageInfos"]);
-
-                    trackEvent({
-                        category: "extension",
-                        action: "update",
-                        label: details.previousVersion + " -> " + newVersion
-                    }, true);
 
                     if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                         chrome.storage.sync.get(["model"], (obj) => {

@@ -707,7 +707,7 @@
                             delete obj.behaviour.clickCounter;
                             delete obj.behaviour.clickCounterStartDate;
 
-                            if (typeof obj.appearance.styles.bookmarksDirIcon !== "undefined" && obj.appearance.styles.bookmarksDirIcon === "dir") {
+                            if (typeof obj.appearance.styles.bookmarksDirIcon !== "undefined" && (obj.appearance.styles.bookmarksDirIcon === "dir" || obj.appearance.styles.bookmarksDirIcon === "dir-alt1" || obj.appearance.styles.bookmarksDirIcon === "dir-alt2")) {
                                 obj.appearance.styles.bookmarksDirIcon = "dir-1";
                             }
                             // END UPGRADE // v1.7
@@ -866,7 +866,7 @@
                         if (typeof obj[attr] === "object") {
                             proceedConfig(baseName + "_" + attr, obj[attr])
                         } else {
-                            if (typeof obj[attr] !== "string") {
+                            if (typeof obj[attr] !== "string") { // parse everything to string
                                 obj[attr] = JSON.stringify(obj[attr]);
                             }
 

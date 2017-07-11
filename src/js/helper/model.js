@@ -165,7 +165,10 @@
                 }
 
                 if (keyInfo === "b/pxTolerance" && matchMedia("(min-resolution: 1.25dppx)").matches) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
-                    value.maximized++;
+                    value = Object.assign({}, value);
+                    Object.keys(value).forEach((k) => {
+                        value[k]++;
+                    });
                 }
 
                 if (keyInfo === "a/styles") {

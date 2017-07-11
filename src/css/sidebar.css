@@ -251,6 +251,9 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
     border-right-color: transparent;
     border-left-color: #444; }
 
+body.dark section#sidebar[data-pos='right'] ~ div.tooltip::before {
+  border-left-color: #222; }
+
 div.checkbox {
   position: relative;
   width: 20px;

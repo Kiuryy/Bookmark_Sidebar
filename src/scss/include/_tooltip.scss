@@ -45,6 +45,7 @@ body.dark div.tooltip {
   }
 }
 
+// right sidebar
 section#sidebar[data-pos='right'] ~ div.tooltip {
   transform: translate3d(5px, 0, 0);
 
@@ -53,5 +54,12 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
     right: -12px;
     border-right-color: transparent;
     border-left-color: $tooltipBackground;
+  }
+}
+
+body.dark section#sidebar[data-pos='right'] ~ div.tooltip {
+
+  &::before {
+    border-left-color: $darkTooltipBackground;
   }
 }

@@ -118,7 +118,7 @@ section#sidebar {
     position: relative;
     width: 100%;
     height: $sidebarHeaderHeight;
-    padding: 5px 12px 0 12px;
+    padding: 6px 12px 0 12px;
     background: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -130,7 +130,7 @@ section#sidebar {
       color: $textColorInverted;
       font-weight: $__fontWeightNormal;
       font-size: 100%;
-      margin: 5px 0 0 0;
+      margin: 4px 0 0 0;
       transition: transform 0.5s;
 
       > strong {
@@ -506,8 +506,8 @@ body.dark section#sidebar {
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    > li.pinned + li:not(.pinned) {
-      border-top: 1px solid $darkSeparatorColor;
+    > li.pinned + li:not(.pinned)::before {
+      background: $darkSeparatorColor;
     }
 
     a {

@@ -68,8 +68,9 @@ div.contextmenu {
   top: 0;
   min-width: 240px;
   background: #fff;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
+  overflow: hidden;
   transform: translate3d(0, -20px, 0);
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4; }
@@ -192,7 +193,8 @@ section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sid
   right: 0; }
 
 body.dark div.contextmenu {
-  background: #555; }
+  background: #555;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); }
   body.dark div.contextmenu > ul.list > li > a {
     transition: opacity 0.3s;
     opacity: 0.7; }
@@ -563,7 +565,7 @@ section#sidebar {
     position: relative;
     width: 100%;
     height: 50px;
-    padding: 5px 12px 0 12px;
+    padding: 6px 12px 0 12px;
     background: "%colorScheme";
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -574,7 +576,7 @@ section#sidebar {
       color: #fff;
       font-weight: "%fontWeightNormal";
       font-size: 100%;
-      margin: 5px 0 0 0;
+      margin: 4px 0 0 0;
       transition: transform 0.5s; }
       section#sidebar > header > h1 > strong {
         font-weight: "%fontWeightLight";
@@ -946,8 +948,8 @@ body.dark section#sidebar {
   body.dark section#sidebar > div.scrollBox > ul li.isDragged {
     width: calc(100% - 5px);
     border-color: rgba(255, 255, 255, 0.2); }
-  body.dark section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned) {
-    border-top: 1px solid rgba(255, 255, 255, 0.15); }
+  body.dark section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned)::before {
+    background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
     background: #555; }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {

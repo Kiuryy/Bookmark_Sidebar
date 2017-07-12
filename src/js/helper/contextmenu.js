@@ -90,10 +90,13 @@
          */
         let alreadyExists = (type, elm) => {
             let elmId = elm.attr(ext.opts.attr.id);
+            let value = elm.attr(ext.opts.attr.value);
 
             let existingElm = "div." + ext.opts.classes.contextmenu.wrapper + "[" + ext.opts.attr.type + "='" + type + "']";
             if (elmId) {
                 existingElm += "[" + ext.opts.attr.id + "='" + elmId + "']";
+            } else if (value) {
+                existingElm += "[" + ext.opts.attr.value + "='" + value + "']";
             }
 
             return ext.elements.sidebar.find(existingElm).length() > 0;

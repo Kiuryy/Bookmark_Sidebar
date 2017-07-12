@@ -4,8 +4,9 @@ div.contextmenu {
   top: 0;
   min-width: 240px;
   background: $contentBackground;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   border-radius: 2px;
+  overflow: hidden;
   transform: translate3d(0, -20px, 0);
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4;
@@ -194,6 +195,7 @@ section#sidebar {
 
 body.dark div.contextmenu {
   background: $darkHoverBackground;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 
   > ul.list > li > a {
     transition: opacity 0.3s;

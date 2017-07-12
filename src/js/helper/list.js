@@ -424,6 +424,7 @@
             } else if (bookmark.separator) { // separator
                 entryContent
                     .addClass(ext.opts.classes.sidebar.separator)
+                    .attr(ext.opts.attr.value, bookmark.index)
                     .data("infos", {
                         id: bookmark.parentId,
                         index: bookmark.index
@@ -514,7 +515,6 @@
          */
         let expandCollapseDir = (elm, list, open, instant) => {
             return new Promise((resolve) => {
-                let isFirstRun = ext.firstRun;
                 list.css("height", list[0].scrollHeight + "px");
 
                 if (open === false) { // parameter false -> close list

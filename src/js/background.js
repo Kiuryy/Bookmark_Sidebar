@@ -670,7 +670,15 @@
                                 obj.appearance = {};
                             }
 
+                            // START UPGRADE // v1.10
+                            // chrome.storage.sync.remove(["utility"]);
+                            // END UPGRADE // v1.10
+
                             // START UPGRADE // v1.9
+                            if (typeof obj.utility !== "undefined") {
+                                chrome.storage.local.set({utility: obj.utility});
+                            }
+
                             delete obj.behaviour.scrollSensitivity;
 
                             if (typeof obj.appearance.styles === "undefined") {

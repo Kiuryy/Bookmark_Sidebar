@@ -21,7 +21,7 @@
         };
 
         let defaults = {
-            u: { // utility
+            u: { // utility -> saved locally
                 openStates: {},
                 hiddenEntries: {},
                 scrollPos: {},
@@ -35,7 +35,7 @@
                 mostViewedPerMonth: false,
                 viewAsTree: true
             },
-            b: { // behaviour
+            b: { // behaviour -> synced across devices
                 animations: true,
                 preventPageScroll: false,
                 pxTolerance: {windowed: 20, maximized: 1},
@@ -54,7 +54,7 @@
                 closeTimeout: 1,
                 initialOpenOnNewTab: false
             },
-            a: { // appearance
+            a: { // appearance -> synced across devices
                 sidebarPosition: "left",
                 language: "default",
                 showIndicator: true,
@@ -95,17 +95,29 @@
         this.init = () => {
             return new Promise((resolve) => {
                 let keys = ["utility", "behaviour", "appearance"];
+                let newData = {};
 
-                chrome.storage.sync.get(keys, (obj) => {
-                    data = obj;
+                let len = keys.length;
+                let loaded = 0;
+                keys.forEach((key) => {
+                    chrome.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
+                        newData[key] = obj[key] || {};
 
-                    keys.forEach((key) => {
-                        if (typeof data[key] === "undefined") {
-                            data[key] = {};
+                        if (key === "utility" && Object.keys(newData[key]).length === 0) { // @deprecated fallback to sync storage for utility data
+                            chrome.storage.sync.get([key], (obj2) => {
+                                newData[key] = obj2[key] || {};
+                                if (++loaded === len) {
+                                    data = newData;
+                                    resolve();
+                                }
+                            });
+                        } else {
+                            if (++loaded === len) { // all data loaded from storage -> resolve promise
+                                data = newData;
+                                resolve();
+                            }
                         }
                     });
-
-                    resolve();
                 });
             });
         };
@@ -227,9 +239,24 @@
                         }
                     });
 
-                    try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                        chrome.storage.sync.set(data, () => {
+                    let savedAmount = 0;
+                    let saved = (amount = 1) => { // is getting called after data is saved in the chrome.storage
+                        savedAmount += amount;
+                        if (savedAmount >= 3) { // behaviour, appearance and utility has been saved -> resolve promise
                             resolve();
+                        }
+                    };
+
+                    try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
+                        chrome.storage.local.set({utility: data.utility}, () => {
+                            saved();
+                        });
+
+                        chrome.storage.sync.set({
+                            behaviour: data.behaviour,
+                            appearance: data.appearance
+                        }, () => {
+                            saved(2);
                         });
                     } catch (e) {
                         resolve();

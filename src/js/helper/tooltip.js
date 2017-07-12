@@ -4,6 +4,11 @@
     window.TooltipHelper = function (ext) {
 
         let timeout = {};
+        let config = {};
+
+        this.init = async () => {
+            config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "a/sidebarPosition"]);
+        };
 
         /**
          * Creates the tooltip for the given element and shows it after the configured delay,
@@ -22,8 +27,6 @@
                         existingTooltip.addClass(ext.opts.classes.tooltip.visible);
                     }
                 } else { // no tooltip for the given element yet -> generate and show it after the configured delay
-                    let config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "a/sidebarPosition"]);
-
                     if (+config.tooltipDelay !== -1) { // show only if delay > -1
                         let tooltip = $("<div />")
                             .addClass(ext.opts.classes.tooltip.wrapper)

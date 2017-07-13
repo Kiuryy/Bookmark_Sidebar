@@ -65,7 +65,7 @@
                 },
                 color: {
                     alpha: "data-alpha",
-                    style:"data-color"
+                    style: "data-color"
                 },
                 field: {
                     placeholder: "data-placeholder"
@@ -143,6 +143,7 @@
                 this.helper.i18n.parseHtml(document);
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
                 this.opts.elm.button.restore.attr("title", this.helper.i18n.get("settings_restore"));
+                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
 
                 return Promise.all([
                     this.helper.behaviour.init(),
@@ -156,7 +157,6 @@
                 initContentTabs();
 
                 this.helper.model.call("trackPageView", {page: "/settings"});
-                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
             });
         };
 
@@ -202,6 +202,8 @@
 
         /**
          * Initialises the header
+         *
+         * @returns {Promise}
          */
         let initHeader = async () => {
             this.helper.template.svgByName("icon-settings").then((svg) => {
@@ -211,6 +213,8 @@
 
         /**
          * Initialises the content tabs
+         *
+         * @returns {Promise}
          */
         let initContentTabs = async () => {
             this.opts.elm.contentTabs.children("a").on("click", (e) => {
@@ -302,6 +306,8 @@
 
         /**
          * Initialises the eventhandlers
+         *
+         * @returns {Promise}
          */
         let initEvents = async () => {
             $(document).on("click", () => {

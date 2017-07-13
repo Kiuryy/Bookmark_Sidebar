@@ -5,6 +5,7 @@
 
         /**
          *
+         * @returns {Promise}
          */
         this.init = async () => {
             s.opts.elm.feedback.faq.children("strong").on("click", (e) => { // faq toggle

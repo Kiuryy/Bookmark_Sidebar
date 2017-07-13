@@ -5,6 +5,7 @@
 
         /**
          *
+         * @returns {Promise}
          */
         this.init = async () => {
             initExport();
@@ -36,6 +37,8 @@
 
         /**
          * Initialises the import function
+         *
+         * @returns {Promise}
          */
         let initImport = async () => {
 
@@ -82,6 +85,8 @@
 
         /**
          * Initialises the export function
+         *
+         * @returns {Promise}
          */
         let initExport = async () => {
             s.opts.elm.menuContainer.find("> ul > li > a[" + s.opts.attr.name + "='export']").attr({

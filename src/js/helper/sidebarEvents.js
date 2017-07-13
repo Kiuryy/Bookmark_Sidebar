@@ -5,6 +5,8 @@
 
         /**
          * Initializes the helper
+         *
+         * @returns {Promise}
          */
         this.init = async () => {
             initBookmarkEntriesEvents();
@@ -15,6 +17,8 @@
 
         /**
          * Initializes the eventhandlers for keyboard input
+         *
+         * @returns {Promise}
          */
         let initKeyboardEvents = async () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
@@ -81,6 +85,8 @@
 
         /**
          * Initializes the eventhandlers for the filterbox
+         *
+         * @returns {Promise}
          */
         let initFilterEvents = async () => {
             ext.elements.filterBox.on("click", "a[" + ext.opts.attr.direction + "]", (e) => { // change sort direction
@@ -109,6 +115,8 @@
 
         /**
          * Initializes the eventhandlers for the bookmark entries
+         *
+         * @returns {Promise}
          */
         let initBookmarkEntriesEvents = async () => {
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
@@ -180,6 +188,8 @@
 
         /**
          * Initializes general events for the sidebar
+         *
+         * @returns {Promise}
          */
         let initGeneralEvents = async () => {
             $(window).on("beforeunload", () => { // save scroll position before unloading page

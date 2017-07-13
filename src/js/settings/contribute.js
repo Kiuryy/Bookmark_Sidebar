@@ -5,6 +5,8 @@
 
         /**
          * Initialises the contribution tab
+         *
+         * @returns {Promise}
          */
         this.init = async () => {
             handleTranslationInfo();
@@ -13,6 +15,8 @@
 
         /**
          * Adds notices to the settings if the language of the user has published categories which are incomplete
+         *
+         * @returns {Promise}
          */
         let handleTranslationInfo = async () => {
             let language = s.helper.i18n.getLanguage();
@@ -51,6 +55,8 @@
 
         /**
          * Initialises the eventhandler for the contribution tab
+         *
+         * @returns {Promise}
          */
         let initEvents = async () => {
             chrome.storage.sync.get(["shareUserdata"], (obj) => {

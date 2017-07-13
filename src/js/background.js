@@ -899,6 +899,8 @@
 
         /**
          * Initialises the data object
+         *
+         * @returns {Promise}
          */
         let initData = async () => {
             chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
@@ -921,6 +923,8 @@
 
         /**
          * Initialises the Google Analytics tracking
+         *
+         * @returns {Promise}
          */
         let initAnalytics = async () => {
             window['GoogleAnalyticsObject'] = 'ga';
@@ -942,6 +946,8 @@
 
         /**
          * Initialises wrappers for the chrome.bookmarks methods as Promises
+         *
+         * @returns {Promise}
          */
         let initBookmarkApi = async () => {
             let callback = (key, params) => {

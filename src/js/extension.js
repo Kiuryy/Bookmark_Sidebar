@@ -222,6 +222,8 @@
 
         /**
          * Creates the basic html markup for the sidebar and the visual
+         *
+         * @returns {Promise}
          */
         let initSidebar = async () => {
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");

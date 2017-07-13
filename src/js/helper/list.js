@@ -8,6 +8,7 @@
 
         /**
          *
+         * @returns {Promise}
          */
         this.init = async () => {
             ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);

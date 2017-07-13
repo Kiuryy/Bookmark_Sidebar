@@ -131,7 +131,7 @@
                     });
 
                     fontList.forEach((font) => {
-                        if (s.opts.elm.select[opts.name].children("option[value='" + font.fontId + "']").length() === 0) {
+                        if (s.opts.elm.select[opts.name].children("option[value='" + font.fontId.replace(/\'/g, "\\27") + "']").length() === 0) {
                             $("<option />").attr("value", font.fontId).text(font.displayName).appendTo(s.opts.elm.select[opts.name]);
                         }
                     });

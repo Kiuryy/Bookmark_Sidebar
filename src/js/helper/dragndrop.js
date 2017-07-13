@@ -17,6 +17,8 @@
 
         /**
          * Initializes the events for the drag n drop functionality
+         *
+         * @returns {Promise}
          */
         this.init = async () => {
             sidebarPos = ext.helper.model.getData("a/sidebarPosition");
@@ -53,6 +55,8 @@
 
         /**
          * Initialises the eventhandler for external elements beeing dragged into the sidebar (e.g. a link, an image, ...)
+         *
+         * @returns {Promise}
          */
         let initExternalDragDropEvents = async () => {
             ext.elements.iframeBody.on("dragenter", () => {
@@ -446,6 +450,8 @@
 
         /**
          * Initializes the eventhandlers for the dragDrop functionality of the bookmarks
+         *
+         * @returns {Promise}
          */
         let initEvents = async () => {
 

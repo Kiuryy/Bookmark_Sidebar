@@ -5,6 +5,8 @@
 
         /**
          * Initialises the behaviour settings
+         *
+         * @returns {Promise}
          */
         this.init = async () => {
             initEvents();

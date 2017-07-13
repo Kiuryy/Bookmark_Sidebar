@@ -12,47 +12,52 @@
 
         /**
          * Initialises the appearance settings
+         *
+         * @returns {Promise}
          */
-        this.init = async() => {
-            ["sidebarPosition", "language"].forEach((field) => {
-                let value = s.helper.model.getData("a/" + field);
-                s.opts.elm.select[field][0].value = value;
-                s.opts.elm.select[field].data("initial", value);
-            });
-
-            ["darkMode"].forEach((field) => {
-                let checked = false;
-                if (s.helper.model.getData("a/" + field) === true) {
-                    s.opts.elm.checkbox[field].trigger("click");
-                    checked = true;
-                }
-                s.opts.elm.checkbox[field].children("input").data("initial", checked);
-            });
-
-            initPreviews().then(() => {
-                let styles = s.helper.model.getData("a/styles");
-
-                Object.keys(styles).forEach((key) => {
-                    let value = styles[key];
-
-                    if (s.opts.elm.range[key]) {
-                        s.opts.elm.range[key][0].value = value.replace("px", "");
-                        s.opts.elm.range[key].data("initial", value.replace("px", ""));
-                        s.opts.elm.range[key].trigger("change");
-                    } else if (s.opts.elm.color[key]) {
-                        s.opts.elm.color[key].data("initial", value);
-                        changeColorValue(s.opts.elm.color[key], value);
-                    } else if (s.opts.elm.select[key]) {
-                        if (key === "fontFamily" && s.opts.elm.select[key].children("option[value='" + value + "']").length() === 0) {
-                            value = "default";
-                        }
-
-                        s.opts.elm.select[key][0].value = value;
-                        s.opts.elm.select[key].data("initial", value);
-                    }
+        this.init = () => {
+            return new Promise((resolve) => {
+                ["sidebarPosition", "language"].forEach((field) => {
+                    let value = s.helper.model.getData("a/" + field);
+                    s.opts.elm.select[field][0].value = value;
+                    s.opts.elm.select[field].data("initial", value);
                 });
 
-                initEvents();
+                ["darkMode"].forEach((field) => {
+                    let checked = false;
+                    if (s.helper.model.getData("a/" + field) === true) {
+                        s.opts.elm.checkbox[field].trigger("click");
+                        checked = true;
+                    }
+                    s.opts.elm.checkbox[field].children("input").data("initial", checked);
+                });
+
+                initPreviews().then(() => {
+                    let styles = s.helper.model.getData("a/styles");
+
+                    Object.keys(styles).forEach((key) => {
+                        let value = styles[key];
+
+                        if (s.opts.elm.range[key]) {
+                            s.opts.elm.range[key][0].value = value.replace("px", "");
+                            s.opts.elm.range[key].data("initial", value.replace("px", ""));
+                            s.opts.elm.range[key].trigger("change");
+                        } else if (s.opts.elm.color[key]) {
+                            s.opts.elm.color[key].data("initial", value);
+                            changeColorValue(s.opts.elm.color[key], value);
+                        } else if (s.opts.elm.select[key]) {
+                            if (key === "fontFamily" && s.opts.elm.select[key].children("option[value='" + value + "']").length() === 0) {
+                                value = "default";
+                            }
+
+                            s.opts.elm.select[key][0].value = value;
+                            s.opts.elm.select[key].data("initial", value);
+                        }
+                    });
+
+                    initEvents();
+                    resolve();
+                });
             });
         };
 

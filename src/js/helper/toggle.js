@@ -14,6 +14,8 @@
 
         /**
          * Initializes the sidebar toggle
+         *
+         * @returns {Promise}
          */
         this.init = async () => {
             ext.elements.indicator = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
@@ -142,6 +144,8 @@
 
         /**
          * Initializes the events to show and hide the bookmark sidebar
+         *
+         * @returns {Promise}
          */
         let initEvents = async () => {
             $(window).on("resize", () => {
@@ -297,6 +301,8 @@
 
         /**
          * Checks whether the user has also the Leftsideback-Extension enabled and if so set an additional class to the visual element
+         *
+         * @returns {Promise}
          */
         let handleLeftsideBackExtension = async () => {
             if ($(ext.opts.leftsideBackSelector).length() > 0) { // Extension already loaded

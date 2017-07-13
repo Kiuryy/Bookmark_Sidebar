@@ -101,6 +101,78 @@
     "sort_most_used_per_month": {
         "message": "Por meses"
     },
+    "overlay_bookmark_title": {
+        "message": "Titulo"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_cancel": {
+        "message": "Cancelar"
+    },
+    "overlay_close": {
+        "message": "Cerrar"
+    },
+    "overlay_save": {
+        "message": "Guardar"
+    },
+    "overlay_delete": {
+        "message": "Eliminar"
+    },
+    "overlay_update": {
+        "message": "Actualizar"
+    },
+    "overlay_open_children": {
+        "message": "Abrir todo"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Esconder desde la barra lateral"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Realmente desea ocultar este marcador desde la barra lateral?"
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Realmente desea eliminar este marcador?"
+    },
+    "overlay_label_bookmark": {
+        "message": "Marcador"
+    },
+    "overlay_label_dir": {
+        "message": "Directorio"
+    },
+    "overlay_label_separator": {
+        "message": "Separador"
+    },
+    "overlay_bookmark_views": {
+        "message": "Punto de vista"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Ver"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Grabado desde"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "por mes"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Creado en"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Marcadores"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Directorio"
+    },
+    "overlay_check_urls_loading": {
+        "message": "Checar las URL de los marcadores"
+    },
+    "overlay_check_urls_no_results": {
+        "message": "Todas las URLs de los marcadores est\u00e1n bien"
+    },
+    "overlay_check_urls_not_found": {
+        "message": "URL no encontrada"
+    },
     "translation_title": {
         "message": "Traducci\u00f3n"
     },

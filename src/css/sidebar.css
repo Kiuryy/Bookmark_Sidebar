@@ -880,24 +880,22 @@ section#sidebar {
         height: 1px;
         margin: 7px "%bookmarksHorizontalPadding";
         background: rgba(0, 0, 0, 0.15); }
-      section#sidebar > div.scrollBox > ul li {
-        position: relative; }
-        section#sidebar > div.scrollBox > ul li.hidden > a {
-          opacity: 0.3;
-          font-style: italic; }
-          section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active {
-            opacity: 0.5; }
-        section#sidebar > div.scrollBox > ul li.isDragged {
-          width: calc(100% - 5px);
-          border: 3px dashed rgba(0, 0, 0, 0.2);
-          pointer-events: none; }
-          section#sidebar > div.scrollBox > ul li.isDragged > a {
-            visibility: hidden;
-            line-height: calc(%bookmarksLineHeight - 6px); }
-            section#sidebar > div.scrollBox > ul li.isDragged > a > img {
-              visibility: hidden; }
-        section#sidebar > div.scrollBox > ul li.dragInitial {
-          display: none; }
+      section#sidebar > div.scrollBox > ul li.hidden > a {
+        opacity: 0.3;
+        font-style: italic; }
+        section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active {
+          opacity: 0.5; }
+      section#sidebar > div.scrollBox > ul li.isDragged {
+        width: calc(100% - 5px);
+        border: 3px dashed rgba(0, 0, 0, 0.2);
+        pointer-events: none; }
+        section#sidebar > div.scrollBox > ul li.isDragged > a {
+          visibility: hidden;
+          line-height: calc(%bookmarksLineHeight - 6px); }
+          section#sidebar > div.scrollBox > ul li.isDragged > a > img {
+            visibility: hidden; }
+      section#sidebar > div.scrollBox > ul li.dragInitial {
+        display: none; }
       section#sidebar > div.scrollBox > ul.hideRoot > li:not(.pinned) > a {
         display: none; }
       section#sidebar > div.scrollBox > ul.hideRoot > li:not(.pinned) > ul {
@@ -1006,6 +1004,7 @@ div#shareUserdata, div#reloadInfo {
       margin-bottom: 50px; }
     div#shareUserdata > div > p, div#reloadInfo > div > p {
       font-size: 120%;
+      line-height: 150%;
       margin: 20px 0; }
       div#shareUserdata > div > p > strong, div#reloadInfo > div > p > strong {
         text-decoration: underline; }

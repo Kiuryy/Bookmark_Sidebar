@@ -203,6 +203,12 @@
     "status_translation_unavailable_desc": {
         "message": "Der \u00dcbersetzungsdienst ist aktuell nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
+    "status_background_disconnected_reload_desc": {
+        "message": "Aufgrund eines Updates der Erweiterung muss die Seite neugeladen werden"
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Jetzt neuladen"
+    },
     "share_userdata_headline": {
         "message": "Ich brauche deine Unterst\u00fctzung"
     },
@@ -321,7 +327,7 @@
         "message": "Tooltip"
     },
     "settings_headline_faq": {
-        "message": "FAQ"
+        "message": "H\u00e4ufig gestellte Fragen"
     },
     "settings_headline_share_userdata": {
         "message": "Informationen teilen"

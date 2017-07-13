@@ -185,6 +185,18 @@
     "overlay_check_urls_not_found": {
         "message": "\u94fe\u63a5\u672a\u627e\u5230"
     },
+    "status_service_unavailable_headline": {
+        "message": "\u670d\u52a1\u4e0d\u53ef\u7528"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "\u68c0\u67e5\u5730\u5740\u7684\u670d\u52a1\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002"
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "\u53cd\u9988\u529f\u80fd\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u5982\u679c\u60a8\u60f3\u7ed9\u6211\u4eec\u53cd\u9988\u7684\u8bdd\uff0c\u8bf7\u7528\u7535\u5b50\u90ae\u4ef6\u7684\u5f62\u5f0f\u8fdb\u884c\u3002"
+    },
+    "status_translation_unavailable_desc": {
+        "message": "\u7ffb\u8bd1\u529f\u80fd\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002"
+    },
     "share_userdata_headline": {
         "message": "\u6211\u9700\u8981\u5e2e\u52a9"
     },

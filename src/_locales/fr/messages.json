@@ -203,6 +203,12 @@
     "status_translation_unavailable_desc": {
         "message": "Le service de traduction n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
     },
+    "status_background_disconnected_reload_desc": {
+        "message": "Suite \u00e0 une mise \u00e0 jour de l'extension, cette page doit \u00eatre recharg\u00e9e."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Recharger maintenant"
+    },
     "share_userdata_headline": {
         "message": "Aidez-moi"
     },
@@ -316,6 +322,9 @@
     },
     "settings_headline_search": {
         "message": "Recherche"
+    },
+    "settings_headline_tooltip": {
+        "message": "Infobulle"
     },
     "settings_headline_faq": {
         "message": "Questions fr\u00e9quentes"
@@ -458,6 +467,9 @@
     "settings_new_tab_position_after_current": {
         "message": "Apr\u00e8s l'onglet en cours"
     },
+    "settings_new_tab_position_before_first": {
+        "message": "Avant le premier onglet"
+    },
     "settings_close_timeout": {
         "message": "D\u00e9lai avant fermeture"
     },
@@ -472,6 +484,30 @@
     },
     "settings_initial_open_on_new_tab_desc": {
         "message": "Option pour afficher automatiquement la barre lat\u00e9rale dans les nouveaux onglets."
+    },
+    "settings_tooltip_delay": {
+        "message": "D\u00e9lai des infobulles"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "D\u00e9lai au bout duquel les infobulles des favoris seront affich\u00e9s au survol de la souris."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Ne jamais afficher les infobulles"
+    },
+    "settings_tooltip_content": {
+        "message": "Contenu des infobulles"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "S\u00e9lectionner quelles informations l'infobulle doit contenir."
+    },
+    "settings_tooltip_content_all": {
+        "message": "Titre et URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Titre uniquement"
+    },
+    "settings_tooltip_content_url": {
+        "message": "URL uniquement"
     },
     "settings_appearance_label_general": {
         "message": "G\u00e9n\u00e9ral"
@@ -602,8 +638,11 @@
     "settings_feedback_sent_message": {
         "message": "Merci pour votre retour d'exp\u00e9rience"
     },
+    "settings_feedback_send_failed": {
+        "message": "Votre message n'a pas pu \u00eatre envoy\u00e9. Veuillez r\u00e9essayer s'il vous pla\u00eet."
+    },
     "settings_faq_usage_q": {
-        "message": "Pouvez-vous me dire comment ouvrir la barre lat\u00e9rale?"
+        "message": "Pouvez-vous me dire comment ouvrir la barre lat\u00e9rale ?"
     },
     "settings_faq_usage_a": {
         "message": "Vous pouvez visionner le [a]tutoriel[\/a] pour voir comment ouvrir la barre lat\u00e9rale et tester ensuite par vous-m\u00eame sur chaque page web. Toutefois, si vous rencontrez toujours des difficult\u00e9s avec cette extension, merci de lire la r\u00e9ponse \u00e0 la question concernant la raison pour laquelle la barre lat\u00e9rale ne fonctionne pas sur la totalit\u00e9 des pages web ou envoyez moi un message avec des explications d\u00e9taill\u00e9es concernant le probl\u00e8me rencontr\u00e9."

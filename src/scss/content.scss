@@ -35,6 +35,8 @@ body > div#blockbyte-bs-indicator {
   }
 
   &[data-pos='right'] {
+    left: auto;
+    right: 0;
 
     > div {
       transform: translate3d($__indicatorWidth, 0, 0);
@@ -76,6 +78,8 @@ body > iframe#blockbyte-bs-sidebar {
   transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s;
 
   &[data-pos='right'] {
+    left: auto;
+    right: 0;
     transform: translate3d($__sidebarWidth, 0, 0);
   }
 

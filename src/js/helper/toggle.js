@@ -86,15 +86,6 @@
             $(document).trigger("mousemove"); // hide indicator
         };
 
-        let isBackgroundConnectable = () => {
-            let port = chrome.runtime.connect();
-            if (port) {
-                port.disconnect();
-                return true;
-            }
-            return false;
-        };
-
         /**
          * Opens the sidebar
          */
@@ -135,7 +126,7 @@
          * Adds a class to the indicator, so it will be displayed when moving into the pixel tolerance range
          */
         let indicatorLoaded = () => {
-            $.delay().then(() => {
+            $.delay(50).then(() => { // delay to prevent indicator beeing visible initial
                 ext.elements.indicator.addClass(ext.opts.classes.page.visible);
             });
         };

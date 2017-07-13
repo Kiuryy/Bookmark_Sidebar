@@ -3,23 +3,18 @@
 
 // Indicator
 body > div#blockbyte-bs-indicator {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 1px;
   height: 100%;
-  display: none;
   margin: 0;
   padding: 0;
   z-index: #{2147483647 - 2};
 
   &.blockbyte-bs-visible {
     display: block;
-  }
-
-  &[data-pos='right'] {
-    left: auto;
-    right: 0;
   }
 }
 
@@ -29,11 +24,6 @@ body > iframe#blockbyte-bs-sidebar {
   top: 0;
   left: 0;
   @extend %hidden;
-
-  &[data-pos='right'] {
-    left: auto;
-    right: 0;
-  }
 }
 
 // Overlay

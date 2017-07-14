@@ -46,14 +46,9 @@
                     let icon = $("<span />").appendTo(ext.elements.indicator.children("div"));
 
                     if (isNewTab) { // workaround for new tab page -> mask image as path is not loaded -> replace path with base64 url
-                        $.delay().then(() => {
-                            let computedStyle = window.getComputedStyle(icon[0]);
-                            let svgName = computedStyle.getPropertyValue('-webkit-mask-image').replace(/(^url\("|"\)$)/gi, "").replace(/^.*\/([a-z-]+)\.svg$/gi, "$1"); // url(".../xy.svg") -> xy
-
-                            ext.helper.template.svgByName(svgName).then((svg) => {
-                                icon.css("-webkit-mask-image", "url('data:image/svg+xml;base64," + window.btoa(svg) + "')");
-                                indicatorLoaded();
-                            });
+                        ext.helper.template.svgByName("icon-bookmark").then((svg) => {
+                            icon.css("-webkit-mask-image", "url('data:image/svg+xml;base64," + window.btoa(svg) + "')");
+                            indicatorLoaded();
                         });
                     } else {
                         indicatorLoaded();

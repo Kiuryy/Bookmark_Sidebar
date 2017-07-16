@@ -115,8 +115,8 @@
                 contentTabChanged: "blockbyte-bs-contentTabChanged"
             },
             ajax: {
-                feedback: "https://blockbyte.de/ajax/extensions/feedback",
-                translationInfo: "https://blockbyte.de/ajax/extensions/bs/i18n/info"
+                feedback: "https://extensions.blockbyte.de/ajax/feedback",
+                translationInfo: "https://extensions.blockbyte.de/ajax/bs/i18n/info"
             },
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
             manifest: chrome.runtime.getManifest()

@@ -10,10 +10,9 @@
             }
         },
         urls: {
-            check404: "https://blockbyte.de/extensions",
-            updateUrls: "https://blockbyte.de/ajax/extensions/updateUrls",
-            uninstall: "https://blockbyte.de/extensions/bs/uninstall",
-            onboarding: "https://blockbyte.de/extensions/bs/install"
+            check404: "https://extensions.blockbyte.de/",
+            updateUrls: "https://extensions.blockbyte.de/ajax/updateUrls",
+            uninstall: "https://extensions.blockbyte.de/bs/uninstall"
         },
         langs: {
             af: "Afrikaans",

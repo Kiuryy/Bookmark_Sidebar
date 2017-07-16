@@ -46,9 +46,9 @@
                 releaseStatus: "data-status"
             },
             ajax: {
-                info: "https://blockbyte.de/ajax/extensions/bs/i18n/info",
-                langvars: "https://blockbyte.de/ajax/extensions/bs/i18n/langvars",
-                submit: "https://blockbyte.de/ajax/extensions/bs/i18n/submit"
+                info: "https://extensions.blockbyte.de/ajax/bs/i18n/info",
+                langvars: "https://extensions.blockbyte.de/ajax/bs/i18n/langvars",
+                submit: "https://extensions.blockbyte.de/ajax/bs/i18n/submit"
             },
             manifest: chrome.runtime.getManifest()
         };

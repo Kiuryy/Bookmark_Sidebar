@@ -11,7 +11,7 @@
         this.init = async () => {
             initEvents();
 
-            ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab"].forEach((field) => {
+            ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab", "dndOpen"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
                 }
@@ -69,7 +69,7 @@
                 config[field] = val;
             });
 
-            ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab"].forEach((field) => { // checkbox
+            ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab", "dndOpen"].forEach((field) => { // checkbox
                 config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
             });
 

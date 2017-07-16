@@ -4,6 +4,7 @@
     window.ToggleHelper = function (ext) {
 
         let sidebarPos = null;
+        let dndOpen = null;
         let pxToleranceObj = null;
         let preventPageScroll = null;
         let openDelay = 0;
@@ -25,11 +26,12 @@
             }
 
             let isNewTab = ext.helper.utility.getPageType() === "newtab";
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab", "b/dndOpen"]);
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
+            dndOpen = data.dndOpen;
 
             ext.elements.indicator.css("width", getPixelTolerance() + "px");
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
@@ -197,7 +199,7 @@
                 }
             }).on("mouseout", () => {
                 clearSidebarTimeout("open");
-            }).on("mousemove dragover", (e) => { // check mouse position
+            }).on("mousemove", (e) => { // check mouse position
                 if (e.isTrusted && isMousePosInPixelTolerance(e.pageX, e.pageY)) {
                     let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
 
@@ -226,7 +228,16 @@
 
             if (openAction !== "icon") {
                 $(document).on(openAction + " dragover", (e) => {
-                    if (e.isTrusted && (e.type === "dragover" || openAction !== "mousedown" || e.button === 0) && isMousePosInPixelTolerance(e.pageX, e.pageY)) { // check mouse position and mouse button
+                    let openByType = false;
+                    if (e.type === "dragover") { // drag -> only open when configuration is set
+                        openByType = dndOpen;
+                    } else if (e.type === "mousedown") { // mousedown -> only open when the left mouse button is pressed
+                        openByType = e.button === 0;
+                    } else {
+                        openByType = true;
+                    }
+
+                    if (e.isTrusted && openByType && isMousePosInPixelTolerance(e.pageX, e.pageY)) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
 

@@ -80,6 +80,12 @@
     "contextmenu_show_in_dir": {
         "message": "\u663e\u793a\u5728\u76ee\u5f55\u4e2d"
     },
+    "contextmenu_pin": {
+        "message": "\u56fa\u5b9a\u5230\u9876\u90e8"
+    },
+    "contextmenu_unpin": {
+        "message": "\u4ece\u9876\u90e8\u53d6\u6d88\u56fa\u5b9a"
+    },
     "sort_label_custom": {
         "message": "\u81ea\u5b9a\u4e49"
     },
@@ -197,6 +203,12 @@
     "status_translation_unavailable_desc": {
         "message": "\u7ffb\u8bd1\u529f\u80fd\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002"
     },
+    "status_background_disconnected_reload_desc": {
+        "message": "\u7531\u4e8e\u6269\u5c55\u7a0b\u5e8f\u66f4\u65b0\uff0c\u9700\u8981\u91cd\u65b0\u52a0\u8f7d\u8be5\u9875\u9762\u3002"
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "\u7acb\u523b\u91cd\u65b0\u52a0\u8f7d"
+    },
     "share_userdata_headline": {
         "message": "\u6211\u9700\u8981\u5e2e\u52a9"
     },
@@ -310,6 +322,9 @@
     },
     "settings_headline_search": {
         "message": "\u641c\u7d22"
+    },
+    "settings_headline_tooltip": {
+        "message": "\u63d0\u793a"
     },
     "settings_headline_faq": {
         "message": "\u5e38\u89c1\u95ee\u9898"
@@ -461,6 +476,27 @@
     "settings_initial_open_on_new_tab_desc": {
         "message": "\u9009\u62e9\u5728\u65b0\u6807\u7b7e\u9875\u4e0a\u81ea\u52a8\u6253\u5f00\u4fa7\u8fb9\u680f\u3002"
     },
+    "settings_drag_n_drop_open": {
+        "message": "\u901a\u8fc7\u62d6\u62fd\u6253\u5f00"
+    },
+    "settings_tooltip_delay": {
+        "message": "\u63d0\u793a\u5ef6\u65f6"
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "\u4e0d\u518d\u663e\u793a\u63d0\u793a"
+    },
+    "settings_tooltip_content": {
+        "message": "\u63d0\u793a\u5185\u5bb9"
+    },
+    "settings_tooltip_content_all": {
+        "message": "\u6807\u9898\u548c\u7f51\u5740"
+    },
+    "settings_tooltip_content_title": {
+        "message": "\u53ea\u6709\u6807\u9898"
+    },
+    "settings_tooltip_content_url": {
+        "message": "\u53ea\u6709\u7f51\u5740"
+    },
     "settings_appearance_label_general": {
         "message": "\u4e00\u822c"
     },
@@ -590,6 +626,9 @@
     "settings_feedback_sent_message": {
         "message": "\u611f\u8c22\u60a8\u7684\u53cd\u9988"
     },
+    "settings_feedback_send_failed": {
+        "message": "\u4f60\u7684\u4fe1\u606f\u53d1\u9001\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\u3002"
+    },
     "settings_faq_usage_q": {
         "message": "\u4f60\u80fd\u544a\u8bc9\u6211\u5982\u4f55\u6253\u5f00\u8fb9\u680f\u5417\uff1f"
     },
@@ -682,5 +721,8 @@
     },
     "translation_incomplete_info": {
         "message": "\u7531\u4e8e\u66f4\u65b0\u8bed\u8a00\u53d8\u91cf\u4e0d\u5b8c\u6574"
+    },
+    "translation_add_language": {
+        "message": "\u6dfb\u52a0\u8bed\u8a00"
     }
 }

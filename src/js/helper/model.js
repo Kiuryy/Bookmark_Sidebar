@@ -48,6 +48,7 @@
                 rememberSearch: true,
                 tooltipDelay: 1,
                 tooltipContent: "all",
+                dndOpen: true,
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.5,
                 openDelay: 0,

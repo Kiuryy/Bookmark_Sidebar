@@ -1,5 +1,7 @@
 [tbd]
- - ...
+ - Load extension after installation
+ - Draggable sidebar width
+ - Override "Create Bookmark" (Search for directories)
 
 [1.9]
  - Import/Export configuration

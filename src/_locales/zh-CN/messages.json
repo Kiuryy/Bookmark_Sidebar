@@ -434,6 +434,12 @@
     "settings_remember_search_desc": {
         "message": "\u5982\u679c\u9009\u62e9\uff0c\u8f93\u5165\u7684\u641c\u7d22\u503c\u5c06\u5728\u9875\u9762\u66f4\u6539\u65f6\u88ab\u8bb0\u4f4f\u3002"
     },
+    "settings_open_children_warn_limit": {
+        "message": "\u6253\u5f00\u5168\u90e8\u76ee\u5f55\u9650\u5236\uff08\u8b66\u544a\u9650\u5236\uff09"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "\u5728\u5c1d\u8bd5\u540c\u65f6\u6253\u5f00\u76ee\u5f55\u7684\u6240\u6709\u5b50\u9879\u65f6\u51fa\u73b0\u8b66\u544a\u7684\u4e66\u7b7e\u6570\u91cf\u3002"
+    },
     "settings_dir_open_duration": {
         "message": "\u76ee\u5f55\u6253\u5f00\u65f6\u95f4"
     },
@@ -461,6 +467,9 @@
     "settings_new_tab_position_after_current": {
         "message": "\u4f4d\u4e8e\u5f53\u524d\u6807\u7b7e\u9875\u4e4b\u540e"
     },
+    "settings_new_tab_position_before_first": {
+        "message": "\u5728\u7b2c\u4e00\u4e2a\u6807\u7b7e\u4e4b\u524d"
+    },
     "settings_close_timeout": {
         "message": "\u5173\u95ed\u8d85\u65f6"
     },
@@ -479,14 +488,23 @@
     "settings_drag_n_drop_open": {
         "message": "\u901a\u8fc7\u62d6\u62fd\u6253\u5f00"
     },
+    "settings_drag_n_drop_open_desc": {
+        "message": "\u5141\u8bb8\u5c06\u6587\u5b57\u9009\u62e9\uff0c\u94fe\u63a5\u548c\u7f51\u5740\u62d6\u52a8\u5230\u4fa7\u680f\u4e2d\u3002\u5982\u679c\u60a8\u60f3\u5728\u7f51\u7ad9\u4e0a\u52a0\u5165\u5f53\u524d\u9875\u9762\u6216\u5176\u4ed6\u94fe\u63a5\uff0c\u8fd9\u53ef\u80fd\u4f1a\u5f88\u6709\u7528\u3002"
+    },
     "settings_tooltip_delay": {
         "message": "\u63d0\u793a\u5ef6\u65f6"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "\u5f53\u9f20\u6807\u60ac\u505c\u65f6\uff0c\u5c06\u663e\u793a\u62d6\u653e\u5de5\u5177\u63d0\u793a\u7684\u4e66\u7b7e\u3002"
     },
     "settings_tooltip_delay_infinity": {
         "message": "\u4e0d\u518d\u663e\u793a\u63d0\u793a"
     },
     "settings_tooltip_content": {
         "message": "\u63d0\u793a\u5185\u5bb9"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "\u9009\u62e9\u5de5\u5177\u63d0\u793a\u5e94\u5305\u542b\u54ea\u4e9b\u4fe1\u606f\u3002"
     },
     "settings_tooltip_content_all": {
         "message": "\u6807\u9898\u548c\u7f51\u5740"
@@ -724,5 +742,8 @@
     },
     "translation_add_language": {
         "message": "\u6dfb\u52a0\u8bed\u8a00"
+    },
+    "translation_required_category": {
+        "message": "\u5fc5\u987b"
     }
 }

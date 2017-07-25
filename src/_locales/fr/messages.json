@@ -485,11 +485,17 @@
     "settings_initial_open_on_new_tab_desc": {
         "message": "Option pour afficher automatiquement la barre lat\u00e9rale dans les nouveaux onglets."
     },
+    "settings_drag_n_drop_open": {
+        "message": "Ouvrir par glisser-d\u00e9poser"
+    },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Permet de glisser-d\u00e9poser du texte, des liens ou des URL dans la barre lat\u00e9rale. Pratique si vous voulez marquer comme favori la page en visit\u00e9e ou des liens pr\u00e9sents sur celle-ci."
+    },
     "settings_tooltip_delay": {
         "message": "D\u00e9lai des infobulles"
     },
     "settings_tooltip_delay_desc": {
-        "message": "D\u00e9lai au bout duquel les infobulles des favoris seront affich\u00e9s au survol de la souris."
+        "message": "D\u00e9lai au bout duquel les infobulles des favoris seront affich\u00e9es au survol de la souris."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Ne jamais afficher les infobulles"

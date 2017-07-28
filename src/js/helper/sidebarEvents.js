@@ -127,9 +127,10 @@
                         let _self = $(e.currentTarget);
                         let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
                         let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
+                        let middleClick = e.which === 2 || e.ctrlKey || e.metaKey;
 
                         if (data.isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
-                            if (e.which === 2) { // middle click -> open all children
+                            if (middleClick) { // middle click -> open all children
                                 let bookmarks = data.children.filter(val => !!(val.url));
                                 if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                                     ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
@@ -140,7 +141,7 @@
                                 ext.helper.list.toggleBookmarkDir(_self);
                             }
                         } else if (!data.isDir) { // Click on link
-                            if (e.which === 2) {
+                            if (middleClick) {
                                 ext.helper.model.call("trackEvent", {
                                     category: "url",
                                     action: "open",
@@ -154,7 +155,7 @@
                                 });
                             }
 
-                            if (e.which === 2) { // new tab -> middle click
+                            if (middleClick) { // new tab -> middle click
                                 ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background
                             } else if (config.linkAction === "newtab") { // new tab -> normal click
                                 ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");

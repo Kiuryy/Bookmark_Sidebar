@@ -230,6 +230,9 @@
     "settings_tab_feedback": {
         "message": "Opinie"
     },
+    "settings_headline_general": {
+        "message": "Og\u00f3lny"
+    },
     "settings_headline_toggle": {
         "message": "Wysuwanie"
     },
@@ -238,6 +241,9 @@
     },
     "settings_headline_search": {
         "message": "Wyszukiwanie"
+    },
+    "settings_headline_tooltip": {
+        "message": "Etykieta"
     },
     "settings_headline_faq": {
         "message": "Cz\u0119sto zadawane pytania"
@@ -250,6 +256,9 @@
     },
     "settings_headline_translation": {
         "message": "Przet\u0142umacz"
+    },
+    "settings_animations": {
+        "message": "W\u0142\u0105cz animacje"
     },
     "settings_px_tolerance": {
         "message": "Tolerancja w pikselach"
@@ -368,6 +377,9 @@
     "settings_new_tab_position_after_current": {
         "message": "Po bie\u017c\u0105cej karcie"
     },
+    "settings_new_tab_position_before_first": {
+        "message": "Przed pierwsz\u0105 kart\u0105"
+    },
     "settings_close_timeout": {
         "message": "Limit czasu zamykania"
     },
@@ -382,6 +394,12 @@
     },
     "settings_initial_open_on_new_tab_desc": {
         "message": "Wybierz, czy boczna lista powinna by\u0107 otwierana automatycznie na stronie nowej karty."
+    },
+    "settings_drag_n_drop_open": {
+        "message": "Otw\u00f3rz poprzez przeci\u0105gni\u0119cie i upuszczenie"
+    },
+    "settings_tooltip_delay": {
+        "message": "Op\u00f3\u017anienie etykiety"
     },
     "settings_appearance_label_general": {
         "message": "Og\u00f3lne"

@@ -80,6 +80,12 @@
     "contextmenu_show_in_dir": {
         "message": "Mostrar na pasta"
     },
+    "contextmenu_pin": {
+        "message": "Colocar no topo"
+    },
+    "contextmenu_unpin": {
+        "message": "Remover do topo"
+    },
     "sort_label_custom": {
         "message": "Definido pelo usu\u00e1rio"
     },
@@ -184,6 +190,24 @@
     },
     "overlay_check_urls_not_found": {
         "message": "URL n\u00e3o encontrada"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Servi\u00e7o indespon\u00edvel"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "O servi\u00e7o que verifica urls n\u00e3o est\u00e1 dispon\u00edvel de momento. Por favor tente mais tarde."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "O servi\u00e7o de feedback n\u00e3o est\u00e1 dispon\u00edvel. Se quiser dar feedback, por favor envie-me um email."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel de momento. Por favor tente mais tarde."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Devido a uma actualiza\u00e7\u00e3o da exten\u00e7\u00e3o, esta p\u00e1gina precisa de ser actualizada"
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Recarregar agora"
     },
     "share_userdata_headline": {
         "message": "Eu preciso da sua ajuda"

@@ -546,7 +546,7 @@
                         elm.removeClass(ext.opts.classes.sidebar.dirOpened);
                     } else {
                         elm.addClass(ext.opts.classes.sidebar.dirOpened);
-                        if (ext.helper.model.getData("b/dirAccordion")) {
+                        if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
                             ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
                         }
                     }

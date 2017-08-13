@@ -11,13 +11,13 @@
          */
         this.pinEntry = (data) => {
             return new Promise((resolve) => {
-                let pinnedEntries = ext.helper.model.getData("u/pinnedEntries");
+                let entries = ext.helper.model.getData("u/pinnedEntries");
                 let idx = -1;
-                Object.values(pinnedEntries).forEach((entry) => { // determine the current highest index
+                Object.values(entries).forEach((entry) => { // determine the current highest index
                     idx = Math.max(idx, entry.index);
                 });
 
-                pinnedEntries[data.id] = {index: idx + 1}; // add new entry at the last position
+                entries[data.id] = {index: idx + 1}; // add new entry at the last position
 
                 ext.helper.model.call("trackEvent", {
                     category: "extension",
@@ -25,9 +25,7 @@
                     label: "pin"
                 });
 
-                ext.helper.model.setData({
-                    "u/pinnedEntries": pinnedEntries
-                }).then(resolve);
+                savePinnedEntries(entries).then(resolve);
             });
         };
 
@@ -39,8 +37,8 @@
          */
         this.unpinEntry = (data) => {
             return new Promise((resolve) => {
-                let pinnedEntries = ext.helper.model.getData("u/pinnedEntries");
-                delete pinnedEntries[data.id];
+                let entries = ext.helper.model.getData("u/pinnedEntries");
+                delete entries[data.id];
 
                 ext.helper.model.call("trackEvent", {
                     category: "extension",
@@ -48,9 +46,7 @@
                     label: "unpin"
                 });
 
-                ext.helper.model.setData({
-                    "u/pinnedEntries": pinnedEntries
-                }).then(resolve);
+                savePinnedEntries(entries).then(resolve);
             });
         };
 
@@ -62,7 +58,7 @@
          */
         this.reorderPinnedEntries = (opts) => {
             return new Promise((resolve) => {
-                let pinnedEntries = ext.helper.model.getData("u/pinnedEntries");
+                let entries = ext.helper.model.getData("u/pinnedEntries");
 
                 let newIndex = 0;
                 if (opts.prevId) {
@@ -70,19 +66,50 @@
                     newIndex = prevInfo.pinnedIndex + 1;
                 }
 
-                Object.keys(pinnedEntries).forEach((id) => { // iterate all entries
+                Object.keys(entries).forEach((id) => { // iterate all entries
                     if (+id === +opts.id) { // changed element -> set index
-                        pinnedEntries[id].index = newIndex;
+                        entries[id].index = newIndex;
                         ext.helper.entry.addData(id, "pinnedIndex", newIndex);
-                    } else if (pinnedEntries[id].index >= newIndex) { // index of this entry is higher then the index of the changed entry -> increase
-                        pinnedEntries[id].index++;
-                        ext.helper.entry.addData(id, "pinnedIndex", pinnedEntries[id].index);
+                    } else if (entries[id].index >= newIndex) { // index of this entry is higher then the index of the changed entry -> increase
+                        entries[id].index++;
+                        ext.helper.entry.addData(id, "pinnedIndex", entries[id].index);
                     }
                 });
 
-                ext.helper.model.setData({
-                    "u/pinnedEntries": pinnedEntries
+                savePinnedEntries(entries).then(resolve);
+            });
+        };
+
+        /**
+         * Saves the given entries in the local storage,
+         * Triggers an update of the entries object
+         *
+         * @param {object} entries
+         * @returns {Promise}
+         */
+        let savePinnedEntries = (entries) => {
+            return new Promise((resolve) => {
+                Promise.all([
+                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.setData({"u/pinnedEntries": entries})
+                ]).then(() => {
+                    return ext.helper.model.call("updateEntries");
                 }).then(resolve);
+            });
+        };
+
+        /**
+         * Saves the separators in the local storage
+         *
+         * @param {object} separators
+         * @returns {Promise}
+         */
+        let saveSeperators = (separators) => {
+            return new Promise((resolve) => {
+                Promise.all([
+                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.setData({"u/separators": separators})
+                ]).then(resolve);
             });
         };
 
@@ -107,9 +134,7 @@
                     label: "separator"
                 });
 
-                ext.helper.model.setData({
-                    "u/separators": separators
-                }).then(resolve);
+                saveSeperators(separators).then(resolve);
             });
         };
 
@@ -135,9 +160,7 @@
                     label: "separator"
                 });
 
-                ext.helper.model.setData({
-                    "u/separators": separators
-                }).then(resolve);
+                saveSeperators(separators).then(resolve);
             });
         };
     };

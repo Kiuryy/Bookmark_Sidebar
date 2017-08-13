@@ -27,7 +27,11 @@
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["content"]);
-                return initSidebar();
+
+                return Promise.all([
+                    initSidebar(),
+                    this.helper.entry.init()
+                ]);
             }).then(() => {
                 if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
                     this.helper.toggle.init();
@@ -49,7 +53,10 @@
          */
         this.refresh = () => {
             this.helper.model.init().then(() => {
-                return this.helper.i18n.init();
+                return Promise.all([
+                    this.helper.i18n.init(),
+                    this.helper.entry.init()
+                ]);
             }).then(() => {
                 let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
 
@@ -110,6 +117,9 @@
             if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
+
+                console.log(+new Date() - window.start);
+
                 this.helper.utility.triggerEvent("loaded", {
                     pxTolerance: data.pxTolerance,
                     showIndicator: data.showIndicator

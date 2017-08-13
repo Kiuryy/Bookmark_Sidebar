@@ -74,6 +74,12 @@
                         ],
                         path.tmp + 'extension-merged.js'
                     ),
+                    func.concat([ // concat background javascripts
+                            path.src + 'js/background/**/*.js',
+                            path.src + 'js/background.js'
+                        ],
+                        path.tmp + 'background-merged.js'
+                    ),
                     func.concat([ // concat settings javascripts
                             path.src + 'js/lib/colorpicker.js',
                             path.src + 'js/helper/checkbox.js',
@@ -85,6 +91,7 @@
                 ]).then(() => { // merge anonymous brackets
                     return func.replace({
                         [path.tmp + 'extension-merged.js']: path.tmp + 'extension.js',
+                        [path.tmp + 'background-merged.js']: path.tmp + 'background.js',
                         [path.tmp + 'settings-merged.js']: path.tmp + 'settings.js'
                     }, [
                         [/\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, ""]
@@ -94,10 +101,10 @@
                         func.minify([
                             path.tmp + 'extension.js',
                             path.tmp + 'settings.js',
+                            path.tmp + 'background.js',
                             path.src + 'js/translation.js',
                             path.src + 'js/onboarding.js',
-                            path.src + 'js/changelog.js',
-                            path.src + 'js/background.js'
+                            path.src + 'js/changelog.js'
                         ], path.dist + "js/"),
                         func.minify([
                             path.src + 'js/lib/jsu.js',
@@ -150,6 +157,7 @@
                     [ path.src + 'manifest.json']: path.tmp + 'manifest.json'
                 }, [
                     [/("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig, '$1"js/lib/jsu.js","js/extension.js"$3'],
+                    [/("background":[\s\S]*?"scripts":\s?\[)([\s\S]*?)(\])/mig, '$1"js/lib/jsu.js","js/background.js"$3'],
                     [/("version":[\s]*")[^"]*("[\s]*,)/ig, "$1" + process.env.npm_package_version + "$2"],
                     [/"version_name":[^,]*,/ig, ""],
                     [/(img\/icon\/)dev\/(.*)\.png/ig, "$1$2.webp"]
@@ -171,10 +179,11 @@
                 }).catch(reason => {
                     throw reason;
                 }).then(() => {
-                    return cleanPost();
-                }).then(() => {
                     resolve();
-                });
+                    //return cleanPost();
+                })//.then(() => {
+                   // resolve();
+                //});
             });
         };
     };

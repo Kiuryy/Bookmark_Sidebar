@@ -37,6 +37,7 @@
                 extLoaded: "loaded",
                 openedOnce: "openedOnce",
                 active: "active",
+                cached: "cached",
                 mark: "mark",
                 hideRoot: "hideRoot",
                 entriesUnlocked: "entriesUnlocked",

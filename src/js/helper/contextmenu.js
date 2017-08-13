@@ -294,9 +294,13 @@
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", () => { // toggle visibility of hidden entries
                 ext.startLoading();
                 ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.showHidden);
-                ext.helper.model.setData({
-                    "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
-                }).then(() => {
+
+                Promise.all([
+                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.setData({
+                        "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
+                    })
+                ]).then(() => {
                     ext.helper.model.call("refreshAllTabs", {type: "ToggleHidden"});
                 });
                 this.close();
@@ -361,6 +365,11 @@
                         delete hiddenEntries[elmId];
 
                         ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
+                            return Promise.all([
+                                ext.helper.model.call("removeCache", {name: "html"}),
+                                ext.helper.model.call("updateEntries")
+                            ]);
+                        }).then(() => {
                             ext.helper.model.call("refreshAllTabs", {type: "Hide"});
                         });
                         break;
@@ -394,14 +403,17 @@
                                 if (data.parents[i]) {
                                     let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");
                                     if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
-                                        ext.helper.list.toggleBookmarkDir(entry, true).then(() => {
+                                        ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
                                             openParent(i + 1);
                                         });
                                     } else {
                                         openParent(i + 1);
                                     }
                                 } else { // all parents opened -> close search and scroll to the bookmark
-                                    ext.helper.search.clearSearch().then(() => {
+                                    Promise.all([
+                                        ext.helper.list.cacheList(),
+                                        ext.helper.search.clearSearch()
+                                    ]).then(() => {
                                         let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + elmId + "']");
                                         ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
                                         entry.addClass(ext.opts.classes.sidebar.mark);

@@ -6,11 +6,20 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "58",
+  "minimum_chrome_version": "59",
   "homepage_url": "https://extensions.blockbyte.de/",
   "background": {
     "scripts": [
       "js/lib/jsu.js",
+      "js/background/analytics.js",
+      "js/background/language.js",
+      "js/background/model.js",
+      "js/background/updates.js",
+      "js/background/bookmarkApi.js",
+      "js/background/viewAmount.js",
+      "js/background/entries.js",
+      "js/background/cache.js",
+      "js/background/port.js",
       "js/background.js"
     ],
     "persistent": false
@@ -68,6 +77,7 @@
   "permissions": [
     "bookmarks",
     "storage",
+    "unlimitedStorage",
     "fontSettings",
     "chrome://favicon/"
   ]

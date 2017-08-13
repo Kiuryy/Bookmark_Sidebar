@@ -3,6 +3,12 @@
  - Draggable sidebar width
  - add contextmenu entry (open sidebar, close sidebar)
  - Override "Create Bookmark" (Search for directories)
+ - Configuration for scrollbar (hide after x seconds), appearance
+ - mark last used bookmark
+
+[1.10]
+ - Added html caching
+ - Restructured background script
 
 [1.9]
  - Import/Export configuration

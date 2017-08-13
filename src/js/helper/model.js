@@ -87,6 +87,8 @@
         };
 
         let data = {};
+        let port = null;
+        let callbacks = {};
 
         /**
          * Initialises the model
@@ -94,6 +96,38 @@
          * @returns {Promise}
          */
         this.init = () => {
+            return new Promise((resolve) => {
+                Promise.all([
+                    initPort(),
+                    refresh()
+                ]).then(resolve);
+            });
+        };
+
+        let initPort = () => {
+            return new Promise((resolve) => {
+                if (port) {
+                    port.disconnect();
+                }
+
+                port = chrome.runtime.connect({name: "background"});
+
+                port.onMessage.addListener((obj) => {
+                    if (callbacks[obj.uid]) {
+                        callbacks[obj.uid](obj.result);
+                        delete callbacks[obj.uid];
+                    }
+                });
+
+                resolve();
+            });
+        };
+
+        /**
+         *
+         * @returns {Promise}
+         */
+        let refresh = () => {
             return new Promise((resolve) => {
                 let keys = ["utility", "behaviour", "appearance"];
                 let newData = {};
@@ -218,7 +252,7 @@
          */
         this.setData = (values) => {
             return new Promise((resolve) => {
-                this.init().then(() => { // init retrieves the newest data
+                refresh().then(() => { // refresh to retrieve the newest data
                     Object.keys(values).forEach((keyInfo) => {
                         let scope = keyInfo.split("/")[0];
                         let key = keyInfo.split("/")[1];
@@ -276,9 +310,13 @@
         this.call = (key, opts = {}) => {
             return new Promise((resolve) => {
                 opts.type = key;
-                chrome.extension.sendMessage(opts, (response) => {
+                opts.uid = key + "_" + JSON.stringify(opts) + "_" + (+new Date()) /* REMOVE --> */+ Math.random().toString(36).substr(2, 12);
+
+                callbacks[opts.uid] = (response) => {
                     resolve(response);
-                });
+                };
+
+                port.postMessage(opts);
             });
         };
 

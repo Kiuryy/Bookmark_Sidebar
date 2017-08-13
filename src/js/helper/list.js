@@ -82,9 +82,11 @@
                 };
 
                 ext.startLoading();
-                ext.helper.model.setData({
-                    "u/sort": sort
-                }).then(() => {
+
+                Promise.all([
+                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.setData({"u/sort": sort})
+                ]).then(() => {
                     ext.helper.model.call("trackEvent", {
                         category: "sorting",
                         action: "change",
@@ -112,36 +114,68 @@
             sort = ext.helper.model.getData("u/sort");
             ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
+            let viewAsTree = ext.helper.model.getData("u/viewAsTree");
             let list = ext.elements.bookmarkBox["all"].children("ul");
+            let promiseObj = null;
             let entries = [];
 
-            ext.helper.model.call("bookmarks", {id: 0}).then((response) => { // Initialize the first layer of the bookmark tree
-                ext.refreshRun = true;
-                list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
+            window.start = +new Date();
 
-                if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
-                    entries = response.bookmarks[0].children;
-                }
+            if (viewAsTree) {
+                promiseObj = ext.helper.model.call("getCache", {name: "html"});
+            } else {
+                promiseObj = new Promise((resolve) => {
+                    resolve()
+                });
+            }
 
-                return ext.helper.entry.update(entries);
-            }).then(() => {
-                updateSidebarHeader();
-                this.updateSortFilter();
-                ext.helper.search.init();
+            promiseObj.then((result) => {
+                if (result && result.val) { // load content from cache
+                    console.log("LOAD FROM CACHE");
+                    list.html(result.val);
+                    ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
 
-                let viewAsTree = ext.helper.model.getData("u/viewAsTree");
+                    updateSidebarHeader();
+                    this.updateSortFilter();
+                    ext.helper.search.init();
 
-                if (viewAsTree || sort.name === "custom") { // with directories
-                    this.addBookmarkDir(entries, list, true);
-                } else { // one dimensional without directories
-                    this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
-                }
+                    if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                        list.addClass(ext.opts.classes.sidebar.hideRoot);
+                    }
 
-                if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                    list.addClass(ext.opts.classes.sidebar.hideRoot);
-                    this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
-                } else {
-                    this.restoreOpenStates(list);
+                    restoreScrollPos();
+                } else { // load content from object
+                    console.log("LOAD FROM OBJECT");
+                    ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.cached);
+
+                    ext.helper.model.call("bookmarks", {id: 0}).then((response) => {
+                        ext.refreshRun = true;
+                        list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
+
+                        if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
+                            entries = response.bookmarks[0].children;
+                        }
+
+                        return $.delay(0);
+                    }).then(() => {
+                        updateSidebarHeader();
+                        this.updateSortFilter();
+                        ext.helper.search.init();
+
+                        if (viewAsTree || sort.name === "custom") { // with directories
+                            this.addBookmarkDir(entries, list, true);
+
+                            if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                                list.addClass(ext.opts.classes.sidebar.hideRoot);
+                                this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
+                            } else {
+                                this.restoreOpenStates(list);
+                            }
+                        } else { // one dimensional without directories
+                            this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
+                            restoreScrollPos();
+                        }
+                    });
                 }
             });
 
@@ -155,26 +189,36 @@
          *
          * @param {jsu} elm
          * @param {boolean} instant
+         * @param {boolean} cache
          * @returns {Promise}
          */
-        this.toggleBookmarkDir = (elm, instant) => {
+        this.toggleBookmarkDir = (elm, instant, cache = true) => {
             return new Promise((resolve) => {
                 elm.addClass(ext.opts.classes.sidebar.dirAnimated);
                 let dirId = elm.attr(ext.opts.attr.id);
                 let childrenList = elm.next("ul");
                 let childrenLoaded = childrenList.length() > 0;
+                let initial = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false;
 
                 if (typeof instant === "undefined") {
-                    instant = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.opts.classes.page.visible) === false || ext.helper.model.getData("b/animations") === false;
+                    instant = initial || ext.helper.model.getData("b/animations") === false;
                 }
 
+                let preResolve = () => {
+                    if ((ext.helper.model.getData("b/rememberState") !== "nothing" && cache) && !initial) {
+                        this.cacheList().then(resolve);
+                    } else {
+                        resolve();
+                    }
+                };
+
                 if (elm.hasClass(ext.opts.classes.sidebar.dirOpened) && childrenLoaded) { // close children
-                    expandCollapseDir(elm, childrenList, false, instant).then(resolve);
+                    expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
                     if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
                         ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
                             if ($(dir).next("ul").find("a[" + ext.opts.attr.id + "='" + dirId + "']").length() === 0) {
-                                this.toggleBookmarkDir($(dir), instant);
+                                this.toggleBookmarkDir($(dir), instant, false);
                             }
                         });
                     }
@@ -184,13 +228,26 @@
                             if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
                                 childrenList = $("<ul />").insertAfter(elm);
                                 this.addBookmarkDir(response.bookmarks[0].children, childrenList);
-                                expandCollapseDir(elm, childrenList, true, instant).then(resolve);
+                                expandCollapseDir(elm, childrenList, true, instant).then(preResolve);
                             }
                         });
                     } else { // already loaded -> just expand
-                        expandCollapseDir(elm, childrenList, true, instant).then(resolve);
+                        expandCollapseDir(elm, childrenList, true, instant).then(preResolve);
                     }
                 }
+            });
+        };
+
+        /**
+         * Caches the sidebar html
+         *
+         * @returns {Promise}
+         */
+        this.cacheList = () => {
+            console.log("CACHE");
+            return ext.helper.model.call("setCache", {
+                name: "html",
+                val: ext.elements.bookmarkBox["all"].children("ul").html()
             });
         };
 
@@ -201,39 +258,39 @@
          * @param {jsu} list
          */
         this.restoreOpenStates = (list) => {
-            let opened = 0;
+            let restore = false;
             let data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
 
-            if (data.rememberState === "all" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
-                restoreOpenStateRunning++;
+            let checkAllRestored = () => {
+                if (!restore && restoreOpenStateRunning === 0) { // all open statas restored -> restore scroll position
+                    $.delay(100).then(() => {
+                        restoreScrollPos();
+                    });
+                }
+            };
 
+            if (data.rememberState === "all" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
                 Object.keys(data.openStates).forEach((node) => {
                     if (data.openStates[node] === true) {
                         let entry = list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + (node) + "']");
 
                         if (entry.length() > 0) {
                             if (data.rememberState !== "openStatesRoot" || entry.parents("ul").length() === 1) { // if rememberState = openStatesRoot -> only open top level directories
-                                opened++;
-                                this.toggleBookmarkDir(entry);
+                                restore = true;
+                                restoreOpenStateRunning++;
+
+                                this.toggleBookmarkDir(entry).then(() => {
+                                    restoreOpenStateRunning--;
+                                    restore = false;
+                                    checkAllRestored();
+                                });
                             }
                         }
                     }
                 });
-
-                restoreOpenStateRunning--;
             }
 
-            if (opened === 0 && restoreOpenStateRunning === 0) { // alle OpenStates wiederhergestellt
-                $.delay(100).then(() => {
-                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]).then(() => {
-                        ext.initImages();
-                        ext.endLoading(200);
-                        ext.firstRun = false;
-                        ext.refreshRun = false;
-                        ext.loaded();
-                    });
-                });
-            }
+            checkAllRestored();
         };
 
         /**
@@ -386,50 +443,50 @@
          * @returns {jsu}
          */
         let addEntryToList = (bookmark, list, opts) => {
-            let entry = $("<li />").appendTo(list);
-            let entryContent = $("<a />")
-                .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
-                .appendTo(entry);
+            let entry;
+            for (let i = 0; i < (bookmark.url ? 1 : 1); i++) {
+                entry = $("<li />").appendTo(list);
+                let entryContent = $("<a />")
+                    .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
+                    .appendTo(entry);
 
-            if (bookmark.id) {
-                entryContent.attr(ext.opts.attr.id, bookmark.id);
-            }
-
-            if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
-                entry.addClass(ext.opts.classes.sidebar.hidden);
-            }
-
-            ext.helper.entry.addData(bookmark.id, "element", entryContent);
-
-            if (bookmark.children && opts.asTree) { // dir
-                entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
-
-                if (opts.config.showDirectoryIcons) {
-                    entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
+                if (bookmark.id) {
+                    entryContent.attr(ext.opts.attr.id, bookmark.id);
                 }
-            } else if (bookmark.url) { // link
-                entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
 
-                if (opts.config.showBookmarkIcons) {
-                    if (ext.opts.demoMode) {
-                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
-                    } else {
-                        ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
-                            if (response.img) { // favicon found -> add to entry
-                                ext.helper.entry.addData(bookmark.id, "icon", response.img);
-                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
-                            }
-                        });
+                if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
+                    entry.addClass(ext.opts.classes.sidebar.hidden);
+                }
+
+                if (bookmark.children && opts.asTree) { // dir
+                    entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
+
+                    if (opts.config.showDirectoryIcons) {
+                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
                     }
+                } else if (bookmark.url) { // link
+                    entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
+
+                    if (opts.config.showBookmarkIcons) {
+                        if (ext.opts.demoMode) {
+                            entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                        } else {
+                            ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
+                                if (response.img) { // favicon found -> add to entry
+                                    entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
+                                }
+                            });
+                        }
+                    }
+                } else if (bookmark.separator) { // separator
+                    entryContent
+                        .addClass(ext.opts.classes.sidebar.separator)
+                        .attr(ext.opts.attr.value, bookmark.index)
+                        .data("infos", {
+                            id: bookmark.parentId,
+                            index: bookmark.index
+                        });
                 }
-            } else if (bookmark.separator) { // separator
-                entryContent
-                    .addClass(ext.opts.classes.sidebar.separator)
-                    .attr(ext.opts.attr.value, bookmark.index)
-                    .data("infos", {
-                        id: bookmark.parentId,
-                        index: bookmark.index
-                    });
             }
 
             return entry;
@@ -578,11 +635,29 @@
         };
 
         /**
+         * Restores the scroll position and finishes loading
+         */
+        let restoreScrollPos = () => {
+            ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]).then(() => {
+                ext.initImages();
+                ext.endLoading(200);
+                ext.firstRun = false;
+                ext.refreshRun = false;
+
+                if (ext.helper.model.getData("u/viewAsTree") && !ext.elements.bookmarkBox["all"].hasClass(ext.opts.classes.sidebar.cached)) {
+                    this.cacheList();
+                }
+
+                ext.loaded();
+            });
+        };
+
+        /**
          * Updates the html for the sidebar header
          */
         let updateSidebarHeader = () => {
             ext.elements.header.text("");
-            let bookmarkAmount = ext.helper.entry.getAllBookmarkData().length;
+            let bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
 
             let headline = $("<h1 />")
                 .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")

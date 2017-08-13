@@ -134,10 +134,14 @@
 
             if (data.isDir) {
                 preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
-            } else if (data.icon) {
-                preview.prepend("<img src='" + data.icon + "' />");
             } else if (ext.opts.demoMode) {
                 preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+            } else {
+                ext.helper.model.call("favicon", {url: data.url}).then((response) => { // retrieve favicon of url
+                    if (response.img) { // favicon found -> add to entry
+                        preview.prepend("<img src='" + response.img + "' />");
+                    }
+                });
             }
 
             if (addUrl && addUrl === true && data.isDir !== true) {
@@ -294,8 +298,9 @@
                 .append(" " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.total === 1 ? "_single" : "")), false)
                 .appendTo(list);
 
+            let startDate = new Date(data.views.startDate);
             $("<ul />")
-                .append("<li>" + ext.helper.i18n.get("overlay_bookmark_views_since") + " " + ext.helper.i18n.getLocaleDate(data.views.startDate) + "</li>")
+                .append("<li>" + ext.helper.i18n.get("overlay_bookmark_views_since") + " " + ext.helper.i18n.getLocaleDate(startDate) + "</li>")
                 .append("<li>" + data.views.perMonth + " " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.perMonth === 1 ? "_single" : "")) + " " + ext.helper.i18n.get("overlay_bookmark_views_per_month") + "</li>")
                 .appendTo(viewsEntry);
         };
@@ -470,6 +475,11 @@
             hiddenEntries[data.id] = true;
 
             ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
+                return Promise.all([
+                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.call("updateEntries")
+                ]);
+            }).then(() => {
                 ext.helper.model.call("refreshAllTabs", {type: "Hide"});
             });
         };
@@ -488,9 +498,7 @@
                 label: data.url ? "bookmark" : "directory"
             });
 
-            ext.helper.model.call("deleteBookmark", {id: data.id}).then(() => {
-                data.element.parent("li").remove();
-            });
+            ext.helper.model.call("deleteBookmark", {id: data.id});
         };
 
         /**
@@ -546,9 +554,6 @@
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
                         this.closeOverlay();
-                        data.title = formValues.values.title;
-                        data.url = formValues.values.url;
-                        data.element.children("span." + ext.opts.classes.sidebar.bookmarkLabel).text(data.title);
                     }
                 });
             }

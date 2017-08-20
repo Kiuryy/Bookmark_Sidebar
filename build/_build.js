@@ -180,10 +180,10 @@
                     throw reason;
                 }).then(() => {
                     resolve();
-                    //return cleanPost();
-                })//.then(() => {
-                   // resolve();
-                //});
+                    return cleanPost();
+                }).then(() => {
+                    resolve();
+                });
             });
         };
     };

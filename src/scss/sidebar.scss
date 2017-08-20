@@ -133,6 +133,10 @@ section#sidebar {
       margin: 4px 0 0 0;
       transition: transform 0.5s;
 
+      &.hidden {
+        display: none;
+      }
+
       > strong {
         font-weight: $__fontWeightLight;
         font-size: 150%;

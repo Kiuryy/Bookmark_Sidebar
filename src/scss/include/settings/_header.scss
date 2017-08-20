@@ -1,0 +1,90 @@
+
+body > header {
+  position: relative;
+  width: 100%;
+  height: $settingsHeaderHeight;
+  background: $gradient;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $settingsHeaderHeight;
+    height: $settingsHeaderHeight;
+    background: img('icon/icon.webp') no-repeat center / 40px;
+  }
+
+  > svg {
+    position: absolute;
+    top: calc(50% - 14px);
+    left: 45px;
+    width: 26px;
+    height: 26px;
+    stroke: rgba(255, 255, 255, 0.5);
+    fill: none;
+  }
+
+  > h1 {
+    display: inline-block;
+    font-size: 150%;
+    margin: 0 0 0 100px;
+    padding: 10px 0 0 0;
+    color: $textColorInverted;
+    font-weight: $__fontWeightLight;
+
+    > span + span {
+      position: relative;
+      margin-left: 24px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: -14px;
+        border: 5px solid transparent;
+        border-left-color: $textColorInverted;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  > menu {
+    display: inline-block;
+    margin: 10px 30px 0 0;
+    float: right;
+
+    > button {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+
+      &.save {
+        background: $contentBackground;
+        color: $mainColor;
+        padding: 4px 8px;
+        font-weight: $__fontWeightMedium;
+        font-size: 100%;
+        border-radius: 5px;
+        box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      &.restore {
+        @include mask('icon-update', $textColorInverted, 24px);
+        background: transparent;
+        margin: 0 0 0 10px;
+        width: 24px;
+        height: 24px;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+}

@@ -17,7 +17,6 @@
                 },
                 tabs: {
                     content: "tab",
-                    list: "tabBar",
                     active: "active"
                 },
                 color: {
@@ -33,14 +32,16 @@
                     focus: "focus"
                 },
                 hidden: "hidden",
-                configEntry: "configEntry",
                 success: "success",
                 error: "error",
+                building: "building",
                 initLoading: "initLoading",
                 loading: "loading",
                 revert: "revert",
                 visible: "visible",
-                gotoFeedback: "gotoFeedback",
+                small: "small",
+                desc: "desc",
+                box: "box",
                 action: "action",
                 incomplete: "incomplete"
             },
@@ -50,12 +51,15 @@
                 name: "data-name",
                 i18n: "data-i18n",
                 value: "data-value",
-                tab: "data-tab",
                 success: "data-successtext",
                 style: "data-style",
                 hideOnFalse: "data-hideOnFalse",
                 pos: "data-pos",
                 bg: "data-bg",
+                buttons: {
+                    save: "data-save",
+                    restore: "data-restore"
+                },
                 range: {
                     min: "data-min",
                     max: "data-max",
@@ -74,8 +78,22 @@
             elm: {
                 body: $("body"),
                 title: $("head > title"),
+                aside: $("body > section#wrapper > aside"),
+                content: $("body > section#wrapper > main"),
                 header: $("body > header"),
-                content: $("section#content"),
+                headline: $("body > header > h1"),
+                buttons: {
+                    save: $("body > header > menu > button.save"),
+                    restore: $("body > header > menu > button.restore")
+                },
+                feedback: {
+                    form: $("section.form"),
+                    send: $("section.form button[type='submit']"),
+                    faq: $("div.faq")
+                },
+                //
+                //
+                //
                 tab: $("section#content > div.tab"),
                 contentTabs: $("ul.labels > li"),
                 contentTabSections: $("ul.labels ~ div[data-name]"),
@@ -85,24 +103,14 @@
                 menuContainer: $("section#menu"),
                 appearance: {
                     content: $("div.tab[data-name='appearance']"),
-                    backgroundChanger: $("menu.backgroundChanger > a"),
+                    backgroundChanger: $("menu.backgroundChanger > a"), // OLD
                 },
                 contribute: {
                     translationTabLink: $("div.tab[data-name='contribute'] ul.labels > li[data-type='translation'] > a"),
                     translationTabContent: $("div.tab[data-name='contribute'] div[data-name='translation']"),
-                    action: $("div.tab[data-name='contribute'] a.action")
+                    donateButton: $("div.tab[data-name='support'] button[type='submit']")
                 },
-                feedback: {
-                    form: $("section.form"),
-                    textarea: $("textarea#feedback"),
-                    email: $("input#feedbackEmail"),
-                    send: $("div.tab[data-name='feedback'] > header > button.save"),
-                    faq: $("div.faq")
-                },
-                button: {
-                    save: $("div.tab > header > button.save"),
-                    restore: $("div.tab > header > button.restore")
-                },
+
                 preview: {},
                 checkbox: {},
                 range: {},
@@ -112,7 +120,7 @@
                 field: {}
             },
             events: {
-                contentTabChanged: "blockbyte-bs-contentTabChanged"
+                pageChanged: "blockbyte-bs-pageChanged"
             },
             ajax: {
                 feedback: "https://extensions.blockbyte.de/ajax/feedback",
@@ -127,7 +135,9 @@
          */
         this.run = () => {
             initHelpers();
-            initHeader();
+            let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
+            this.opts.elm.body.addClass(this.opts.classes.initLoading);
+
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -135,17 +145,20 @@
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));
-                initHeaderTabs();
+
+                initHeader();
+                //this.helper.template.footer().appendTo(this.opts.elm.content);
 
                 return this.helper.form.init();
             }).then(() => {
-                this.helper.template.footer().insertAfter(this.opts.elm.content);
+                this.opts.elm.body.removeClass(this.opts.classes.building);
+
                 this.helper.i18n.parseHtml(document);
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
-                this.opts.elm.button.restore.attr("title", this.helper.i18n.get("settings_restore"));
-                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                this.opts.elm.buttons.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
                 return Promise.all([
+                    this.helper.menu.init(),
                     this.helper.behaviour.init(),
                     this.helper.appearance.init(),
                     this.helper.feedback.init(),
@@ -154,9 +167,11 @@
                 ]);
             }).then(() => {
                 initEvents();
-                initContentTabs();
 
+                loader.remove();
+                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                 this.helper.model.call("trackPageView", {page: "/settings"});
+
             });
         };
 
@@ -191,6 +206,7 @@
                 i18n: new window.I18nHelper(this),
                 font: new window.FontHelper(this),
                 stylesheet: new window.StylesheetHelper(this),
+                menu: new window.MenuHelper(this),
                 form: new window.FormHelper(this),
                 behaviour: new window.BehaviourHelper(this),
                 appearance: new window.AppearanceHelper(this),
@@ -200,108 +216,10 @@
             };
         };
 
-        /**
-         * Initialises the header
-         *
-         * @returns {Promise}
-         */
-        let initHeader = async () => {
+        let initHeader = () => {
             this.helper.template.svgByName("icon-settings").then((svg) => {
                 this.opts.elm.header.prepend(svg);
             });
-        };
-
-        /**
-         * Initialises the content tabs
-         *
-         * @returns {Promise}
-         */
-        let initContentTabs = async () => {
-            this.opts.elm.contentTabs.children("a").on("click", (e) => {
-                e.preventDefault();
-                let tabElm = $(e.currentTarget).parent("li");
-                let headerTabName = tabElm.parents("div." + this.opts.classes.tabs.content).eq(0).attr(this.opts.attr.name);
-                let tabName = tabElm.attr(this.opts.attr.type);
-
-                tabElm.siblings("li").removeClass(this.opts.classes.tabs.active);
-                tabElm.addClass(this.opts.classes.tabs.active);
-
-                $(e.currentTarget).parents("ul").eq(0).siblings("div[" + this.opts.attr.name + "]").forEach((section) => {
-                    let name = $(section).attr(this.opts.attr.name);
-
-                    if (name === tabName) {
-                        $(section).removeClass(this.opts.classes.hidden);
-                    } else {
-                        $(section).addClass(this.opts.classes.hidden);
-                    }
-                });
-
-                document.dispatchEvent(new CustomEvent(this.opts.events.contentTabChanged, {
-                    detail: {
-                        headerTab: headerTabName,
-                        contentTab: tabName
-                    },
-                    bubbles: true,
-                    cancelable: false
-                }));
-            });
-
-            this.opts.elm.contentTabSections.addClass(this.opts.classes.hidden);
-
-            $.delay().then(() => {
-                this.opts.elm.contentTabs.forEach((contentTab) => {
-                    if ($(contentTab).hasClass(this.opts.classes.tabs.active)) {
-                        $(contentTab).children("a").trigger("click");
-                    }
-                });
-            });
-        };
-
-        /**
-         * Initialises the header tab bar
-         */
-        let initHeaderTabs = () => {
-            let tabBar = $("<ul />").addClass(this.opts.classes.tabs.list).prependTo(this.opts.elm.header);
-
-            this.opts.elm.tab.forEach((elm) => {
-                let name = $(elm).attr(this.opts.attr.name);
-                $("<li />").attr(this.opts.attr.name, name).html("<a href='#'>" + this.helper.i18n.get("settings_tab_" + name) + "</a>").appendTo(tabBar);
-            });
-
-            tabBar.find("> li > a").on("click", (e) => {
-                e.preventDefault();
-                tabBar.children("li").removeClass(this.opts.classes.tabs.active);
-                let tabElm = $(e.currentTarget).parent("li");
-                let tabName = tabElm.attr(this.opts.attr.name);
-                tabElm.addClass(this.opts.classes.tabs.active);
-
-                this.opts.elm.tab.forEach((tab) => {
-                    let name = $(tab).attr(this.opts.attr.name);
-
-                    if (name === tabName) {
-                        $(tab).removeClass(this.opts.classes.hidden);
-                    } else {
-                        $(tab).addClass(this.opts.classes.hidden);
-                    }
-                });
-
-                location.hash = tabName;
-                this.opts.elm.body.attr(this.opts.attr.tab, tabName);
-
-                this.helper.model.call("trackEvent", {
-                    category: "settings",
-                    action: "tab",
-                    label: tabName
-                });
-            });
-
-            let hash = location.hash ? location.hash.substr(1) : null;
-
-            if (hash) {
-                tabBar.find("> li[" + this.opts.attr.name + "='" + hash + "'] > a").trigger("click");
-            } else {
-                tabBar.find("> li > a").eq(0).trigger("click");
-            }
         };
 
         /**
@@ -326,11 +244,12 @@
                 window.close();
             });
 
-            this.opts.elm.button.save.on("click", (e) => { // save button
+            this.opts.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
+                let path = this.helper.menu.getPath();
 
-                switch (this.opts.elm.body.attr(this.opts.attr.tab)) {
-                    case "behaviour": {
+                switch (path[0]) {
+                    case "settings": {
                         this.helper.behaviour.save();
                         break;
                     }
@@ -338,21 +257,21 @@
                         this.helper.appearance.save();
                         break;
                     }
-                    case "feedback": {
-                        this.helper.feedback.send();
-                        break;
-                    }
+                   // case "feedback": {
+                        //this.helper.feedback.send();
+                        //break;
+                   // }
                 }
             });
 
-            this.opts.elm.button.restore.on("click", (e) => {
+            this.opts.elm.buttons.restore.on("click", (e) => {
                 e.preventDefault();
-                let tabName = this.opts.elm.body.attr(this.opts.attr.tab);
+                let path = this.helper.menu.getPath();
 
-                switch (tabName) {
-                    case "behaviour":
+                switch (path[0]) {
+                    case "settings":
                     case "appearance": {
-                        chrome.storage.sync.remove([tabName], () => {
+                        chrome.storage.sync.remove([path[0]], () => {
                             this.helper.model.call("refreshAllTabs", {type: "Settings"});
                             this.showSuccessMessage("restored_message");
                             $.delay(1500).then(() => {

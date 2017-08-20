@@ -299,32 +299,53 @@
     "settings_title": {
         "message": "Einstellungen"
     },
-    "settings_tab_behaviour": {
-        "message": "Verhalten"
+    "settings_menu_settings": {
+        "message": "Einstellungen"
     },
-    "settings_tab_appearance": {
-        "message": "Aussehen"
-    },
-    "settings_tab_contribute": {
-        "message": "Unterst\u00fctzen"
-    },
-    "settings_tab_feedback": {
-        "message": "Feedback"
-    },
-    "settings_headline_general": {
+    "settings_menu_settings_general": {
         "message": "Allgemein"
     },
-    "settings_headline_toggle": {
+    "settings_menu_settings_toggle": {
         "message": "Ein\/Ausblenden"
     },
-    "settings_headline_sidebar": {
+    "settings_menu_settings_sidebar": {
         "message": "Sidebar"
     },
-    "settings_headline_search": {
+    "settings_menu_settings_tooltip": {
+        "message": "Tooltip"
+    },
+    "settings_menu_settings_search": {
         "message": "Suche"
     },
-    "settings_headline_tooltip": {
-        "message": "Tooltip"
+    "settings_menu_appearance": {
+        "message": "Aussehen"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Allgemein"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Sidebar"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indikator"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Overlay"
+    },
+    "settings_menu_language": {
+        "message": "Sprache"
+    },
+    "settings_menu_language_general": {
+        "message": "Allgemein"
+    },
+    "settings_menu_language_translate": {
+        "message": "\u00dcbersetzen"
+    },
+    "settings_menu_feedback": {
+        "message": "Feedback"
+    },
+    "settings_menu_support": {
+        "message": "Unterst\u00fctzen"
     },
     "settings_headline_faq": {
         "message": "H\u00e4ufig gestellte Fragen"
@@ -515,18 +536,6 @@
     "settings_tooltip_content_url": {
         "message": "Nur Url"
     },
-    "settings_appearance_label_general": {
-        "message": "Allgemein"
-    },
-    "settings_appearance_label_sidebar": {
-        "message": "Sidebar"
-    },
-    "settings_appearance_label_indicator": {
-        "message": "Indikator"
-    },
-    "settings_appearance_label_overlay": {
-        "message": "Overlay"
-    },
     "settings_dark_mode": {
         "message": "Dunkle Oberfl\u00e4che"
     },
@@ -538,15 +547,6 @@
     },
     "settings_text_color": {
         "message": "Textfarbe"
-    },
-    "settings_language": {
-        "message": "Sprache"
-    },
-    "settings_language_default": {
-        "message": "Browser Standard"
-    },
-    "settings_language_desc": {
-        "message": "Die Sprache der Oberfl\u00e4che"
     },
     "settings_font_family": {
         "message": "Schriftart"
@@ -664,6 +664,15 @@
     },
     "settings_faq_not_working_a": {
         "message": "Das kann mehrere Gr\u00fcnde haben. Im Chrome Webstore und Seiten die mit [em]chrome-extension:\/\/[\/em] beginnen funktioniert es durch Sicherheitseinschr\u00e4nkungen nicht. Es gibt jedoch auch Seiten, die das Laden der Sidebar blockieren oder veraltete Quellcode-Strukturen besitzen. Wenn du Probleme auf manchen Seiten feststellst, lass es mich wissen, damit ich mir die entsprechende Seite ansehen und versuchen kann das Problem zu beheben."
+    },
+    "settings_language": {
+        "message": "Sprache"
+    },
+    "settings_language_default": {
+        "message": "Browser Standard"
+    },
+    "settings_language_desc": {
+        "message": "Die Sprache der Oberfl\u00e4che"
     },
     "settings_saved_share_userdata": {
         "message": "Deine Einstellung wurde erfolgreich gespeichert"

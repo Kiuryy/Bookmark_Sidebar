@@ -14,7 +14,7 @@
                 chrome.storage.sync.set({
                     shareUserdata: opts.share
                 }, () => {
-                    resolve();
+                    b.helper.model.init().then(resolve);
                 });
             });
         };

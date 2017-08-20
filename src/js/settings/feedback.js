@@ -8,6 +8,31 @@
          * @returns {Promise}
          */
         this.init = async () => {
+            initEvents();
+
+            let loader = s.helper.template.loading().appendTo(s.opts.elm.feedback.form);
+            s.opts.elm.feedback.form.addClass(s.opts.classes.loading);
+
+            s.helper.model.call("websiteStatus").then((opts) => {
+                loader.remove();
+                s.opts.elm.feedback.form.removeClass(s.opts.classes.loading);
+
+                if (opts.status !== "available") {
+                    s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
+
+                    $("<p />")
+                        .addClass(s.opts.classes.error)
+                        .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
+                        .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
+                        .insertAfter(s.opts.elm.feedback.form);
+                }
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers
+         */
+        let initEvents = () => {
             s.opts.elm.feedback.faq.children("strong").on("click", (e) => { // faq toggle
                 e.preventDefault();
                 $(e.currentTarget).next("p").toggleClass(s.opts.classes.visible);
@@ -22,32 +47,16 @@
                 }
             });
 
-            let loader = s.helper.template.loading().appendTo(s.opts.elm.feedback.form);
-            s.opts.elm.feedback.send.addClass(s.opts.classes.hidden);
-            s.opts.elm.feedback.form.addClass(s.opts.classes.loading);
-
-            s.helper.model.call("websiteStatus").then((opts) => {
-                loader.remove();
-                s.opts.elm.feedback.form.removeClass(s.opts.classes.loading);
-
-                if (opts.status === "available") {
-                    s.opts.elm.feedback.send.removeClass(s.opts.classes.hidden);
-                } else {
-                    s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
-
-                    $("<p />")
-                        .addClass(s.opts.classes.error)
-                        .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
-                        .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
-                        .insertAfter(s.opts.elm.feedback.form);
-                }
+            s.opts.elm.feedback.send.on("click", (e) => { // submit feedback form
+                e.preventDefault();
+                sendFeedback();
             });
         };
 
         /**
          * Checks the content of the feedback fields and sends the content via ajax if they are filled properly
          */
-        this.send = () => {
+        let sendFeedback = () => {
             let messageText = s.opts.elm.textarea.feedbackMsg[0].value;
             let emailText = s.opts.elm.field.feedbackEmail[0].value;
             let isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);

@@ -672,11 +672,17 @@
             let computedStyle = window.getComputedStyle(ext.elements.header[0]);
             let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
 
-            headerIcons.some((icon) => {
-                if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove the label of the headline
-                    headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
-                    return true;
-                }
+            ["label", "amount"].forEach((type) => {
+                headerIcons.some((icon) => {
+                    if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
+                        if (type === "label") {
+                            headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
+                        } else if (type === "amount") {
+                            headline.addClass(ext.opts.classes.sidebar.hidden);
+                        }
+                        return true;
+                    }
+                });
             });
 
             $("<div />")

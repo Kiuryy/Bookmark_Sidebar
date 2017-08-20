@@ -1,4 +1,4 @@
-div.scrollBox {
+.scrollBox {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -29,6 +29,6 @@ div.scrollBox {
   }
 }
 
-body.dark div.scrollBox {
+body.dark .scrollBox {
   background-color: $darkScrollBarBackground;
 }

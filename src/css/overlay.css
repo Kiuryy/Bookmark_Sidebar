@@ -38,7 +38,7 @@ svg.loading {
 body.dark svg.loading > circle {
   stroke: "%textColor"; }
 
-div.scrollBox {
+.scrollBox {
   position: relative;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -46,21 +46,21 @@ div.scrollBox {
   background-color: #ccc;
   -webkit-background-clip: text;
   transition: background-color 0.3s; }
-  div.scrollBox::-webkit-scrollbar {
+  .scrollBox::-webkit-scrollbar {
     width: 11px;
     background: transparent; }
-  div.scrollBox::-webkit-scrollbar-thumb {
+  .scrollBox::-webkit-scrollbar-thumb {
     border-radius: 20px;
     border: 3px solid transparent;
     background-clip: content-box;
     background-color: inherit; }
-  div.scrollBox::-webkit-scrollbar-track {
+  .scrollBox::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 20px; }
-  div.scrollBox.hideScrollbar {
+  .scrollBox.hideScrollbar {
     background-color: transparent !important; }
 
-body.dark div.scrollBox {
+body.dark .scrollBox {
   background-color: #999; }
 
 div.checkbox {

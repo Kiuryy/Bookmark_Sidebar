@@ -1,0 +1,85 @@
+body > section#wrapper > aside {
+  width: 240px;
+  height: calc(100vh - #{$settingsHeaderHeight});
+  background: $settingsMenuBackground;
+  padding: 20px 10px 0;
+  overflow: auto;
+
+  > nav {
+
+    ul {
+
+      > li {
+        position: relative;
+        display: block;
+        line-height: 45px;
+
+        &[data-name='settings'] > a {
+          @include mask('icon-settings', $textColor, 20px);
+        }
+
+        &[data-name='appearance'] > a {
+          @include mask('settings/icon-appearance', $textColor, 20px);
+        }
+
+        &[data-name='language'] > a {
+          @include mask('settings/icon-translate', $textColor, 20px);
+        }
+
+        &[data-name='feedback'] > a {
+          @include mask('settings/icon-feedback', $textColor, 18px);
+        }
+
+        &[data-name='support'] > a {
+          @include mask('settings/icon-support', $textColor, 20px);
+        }
+
+        > a {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 0 10px 0 42px;
+          transition: background 0.5s;
+
+          &:hover {
+            background: $settingsMenuHoverBackground;
+          }
+
+          &::before {
+            -webkit-mask-position: 12px center !important;
+            pointer-events: none;
+          }
+        }
+
+        &.active {
+
+          > a {
+            font-weight: $__fontWeightMedium;
+          }
+        }
+
+        > ul {
+          margin-left: 30px;
+          height: 0;
+          transition: height 0.3s;
+          overflow: hidden;
+
+          > li {
+            line-height: 30px;
+
+            > a {
+              padding: 0 10px;
+              font-size: 90%;
+
+              &::before {
+                content: "-";
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+
+body[data-type^='appearance'] {
+
+  > section#wrapper > main {
+
+    div.boxWrapper {
+      justify-content: flex-start;
+      margin: 0 20px;
+
+      > div.box {
+        max-width: 400px;
+        margin-right: 20px;
+
+        label, input[type='range'], select, input.color, input.color + span {
+          margin-bottom: 5px;
+        }
+
+        a.revert {
+          @include mask('icon-update', $textColorLight, 24px);
+          position: absolute;
+          display: block;
+          top: 12px;
+          right: 16px;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          transform: rotateY(180deg);
+        }
+      }
+    }
+
+    &.small {
+
+      div.boxWrapper {
+        display: block;
+
+        > div.box {
+          width: 100%;
+          max-width: 520px;
+        }
+      }
+    }
+  }
+}
+
+iframe[data-appearance] {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  z-index: 4;
+}
+
+iframe[data-appearance='overlay'] {
+  width: 600px;
+  height: 500px;
+  top: 35px;
+  transform: scale(0.9);
+  transform-origin: top right;
+
+  @media (max-width: 1400px) {
+    top: 40px;
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 1200px) {
+    top: 45px;
+    transform: scale(0.7);
+  }
+}
+
+@media (min-width: 1024px) {
+  body[data-type='appearance_general'] > iframe[data-appearance='general'],
+  body[data-type='appearance_sidebar'] > iframe[data-appearance='sidebar'],
+  body[data-type='appearance_indicator'] > iframe[data-appearance='indicator'],
+  body[data-type='appearance_overlay'] > iframe[data-appearance='overlay'] {
+    display: block;
+  }
+}

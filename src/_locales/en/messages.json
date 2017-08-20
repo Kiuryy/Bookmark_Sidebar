@@ -299,32 +299,53 @@
     "settings_title": {
         "message": "Settings"
     },
-    "settings_tab_behaviour": {
-        "message": "Behaviour"
+    "settings_menu_settings": {
+        "message": "Settings"
     },
-    "settings_tab_appearance": {
-        "message": "Appearance"
-    },
-    "settings_tab_contribute": {
-        "message": "Contribute"
-    },
-    "settings_tab_feedback": {
-        "message": "Feedback"
-    },
-    "settings_headline_general": {
+    "settings_menu_settings_general": {
         "message": "General"
     },
-    "settings_headline_toggle": {
+    "settings_menu_settings_toggle": {
         "message": "Toggle"
     },
-    "settings_headline_sidebar": {
+    "settings_menu_settings_sidebar": {
         "message": "Sidebar"
     },
-    "settings_headline_search": {
+    "settings_menu_settings_tooltip": {
+        "message": "Tooltip"
+    },
+    "settings_menu_settings_search": {
         "message": "Search"
     },
-    "settings_headline_tooltip": {
-        "message": "Tooltip"
+    "settings_menu_appearance": {
+        "message": "Appearance"
+    },
+    "settings_menu_appearance_general": {
+        "message": "General"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Sidebar"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indicator"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Overlay"
+    },
+    "settings_menu_language": {
+        "message": "Language"
+    },
+    "settings_menu_language_general": {
+        "message": "General"
+    },
+    "settings_menu_language_translate": {
+        "message": "Translate"
+    },
+    "settings_menu_feedback": {
+        "message": "Feedback"
+    },
+    "settings_menu_support": {
+        "message": "Contribute"
     },
     "settings_headline_faq": {
         "message": "Frequently Asked Questions"
@@ -515,18 +536,6 @@
     "settings_tooltip_content_url": {
         "message": "Only url"
     },
-    "settings_appearance_label_general": {
-        "message": "General"
-    },
-    "settings_appearance_label_sidebar": {
-        "message": "Sidebar"
-    },
-    "settings_appearance_label_indicator": {
-        "message": "Indicator"
-    },
-    "settings_appearance_label_overlay": {
-        "message": "Overlay"
-    },
     "settings_dark_mode": {
         "message": "Dark surface"
     },
@@ -538,15 +547,6 @@
     },
     "settings_text_color": {
         "message": "Text color"
-    },
-    "settings_language": {
-        "message": "Language"
-    },
-    "settings_language_default": {
-        "message": "Browser default"
-    },
-    "settings_language_desc": {
-        "message": "The language of the user interface"
     },
     "settings_font_family": {
         "message": "Typeface"
@@ -664,6 +664,15 @@
     },
     "settings_faq_not_working_a": {
         "message": "This can have many reasons. On the chrome webstore and pages starting with [em]chrome-extension:\/\/[\/em] this is a security restriction. But there might be other pages which block the sidebar, or use outdated source code structures. If you encounter problems on some pages, please let me know, so I can have a look at the particular page and try to fix it."
+    },
+    "settings_language": {
+        "message": "Language"
+    },
+    "settings_language_default": {
+        "message": "Browser default"
+    },
+    "settings_language_desc": {
+        "message": "The language of the user interface"
     },
     "settings_saved_share_userdata": {
         "message": "Your preference has been saved successfully"

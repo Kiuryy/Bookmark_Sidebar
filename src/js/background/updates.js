@@ -65,7 +65,7 @@
                 }
 
                 // START UPGRADE // v1.10
-                // chrome.storage.sync.remove(["utility"]);
+                chrome.storage.sync.remove(["utility"]);
                 // END UPGRADE // v1.10
 
                 // START UPGRADE // v1.9

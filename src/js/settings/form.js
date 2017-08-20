@@ -52,9 +52,8 @@
                         i18n: $(elm).attr(s.opts.attr.i18n) || ""
                     };
 
-                    $("<br />").insertAfter(elm);
                     opts.label = $("<label />").attr(s.opts.attr.i18n, opts.i18n).insertAfter(elm);
-                    $("<p />").attr(s.opts.attr.i18n, opts.i18n + "_desc").insertAfter(opts.label);
+                    $("<p />").addClass(s.opts.classes.desc).attr(s.opts.attr.i18n, opts.i18n + "_desc").insertAfter(opts.label);
 
                     if (initField[opts.type]) {
                         initField[opts.type](opts).then(elementLoaded);
@@ -250,6 +249,7 @@
                 if (!!($(opts.elm).attr(s.opts.attr.range.infinity)) === true) { // add checkbox to disable range input
                     let checkbox = s.helper.checkbox.get(s.opts.elm.body).insertAfter(valTooltip);
                     $("<label />").attr(s.opts.attr.i18n, opts.i18n + "_infinity").insertAfter(checkbox);
+                    $("<br />").insertBefore(checkbox);
 
                     checkbox.children("input[type='checkbox'").on("change", (e) => {
                         if (e.currentTarget.checked) {

@@ -56,7 +56,11 @@
                     });
 
                     initEvents();
-                    resolve();
+
+                    $.delay(100).then(() => {
+                        updateAllPreviewStyles();
+                        resolve();
+                    });
                 });
             });
         };
@@ -123,6 +127,12 @@
             });
         };
 
+        let updateAllPreviewStyles = () => {
+            Object.keys(s.opts.elm.preview).forEach((key) => {
+                updatePreviewStyle(key);
+            });
+        };
+
         /**
          * Updates the given preview
          *
@@ -138,6 +148,7 @@
                     config.styles.fontFamily = fontInfo.name;
                 }
 
+                updatePageLayout(key);
                 Object.assign(config.styles, s.helper.font.getFontWeights(config.styles.fontFamily));
 
                 let css = previews[key].css;
@@ -163,8 +174,6 @@
                     }
                 });
 
-                s.opts.elm.body.attr(s.opts.attr.pos, config.sidebarPosition);
-                s.opts.elm.preview[key].find("[" + s.opts.attr.pos + "]").attr(s.opts.attr.pos, config.sidebarPosition);
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
 
                 if (config.isEE === true) {
@@ -180,16 +189,66 @@
                 let sidebar = s.opts.elm.preview[key].find("section#sidebar");
                 if (sidebar.length() > 0) {
                     let sidebarHeader = sidebar.find("> header");
+                    sidebarHeader.find("> h1").removeClass(s.opts.classes.hidden);
                     sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
                     let computedStyle = window.getComputedStyle(sidebarHeader[0]);
                     let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
 
-                    sidebarHeader.children("a").forEach((icon) => {
-                        if (icon.offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove the label of the headline
-                            sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
-                            return true;
+                    ["label", "amount"].forEach((type) => {
+                        sidebarHeader.children("a").forEach((icon) => {
+                            if (icon.offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
+                                if (type === "label") {
+                                    sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
+                                } else if (type === "amount") {
+                                    sidebarHeader.find("> h1").addClass(s.opts.classes.hidden);
+                                }
+                                return false;
+                            }
+                        });
+                    });
+
+                }
+            }
+        };
+
+        let updatePageLayout = (key) => {
+            if (s.opts.elm.preview[key]) {
+                let config = getCurrentConfig();
+                s.opts.elm.content.removeClass(s.opts.classes.small);
+
+                if (s.opts.elm.preview[key][0].offsetParent !== null) { // preview is visible -> if screen is too small it's hidden
+                    let headerRightPadding = 0;
+
+                    if (key === "indicator") {
+                        headerRightPadding = config.styles.indicatorWidth;
+                    } else if (key === "sidebar" || key === "general") {
+                        headerRightPadding = config.styles.sidebarWidth;
+                    }
+                    s.opts.elm.header.css("padding-right", headerRightPadding);
+                    s.opts.elm.content.css("padding-right", headerRightPadding);
+                } else {
+                    s.opts.elm.header.css("padding-right", "");
+                    s.opts.elm.content.css("padding-right", "");
+                }
+
+                let boxes = s.helper.menu.getPage().find("div." + s.opts.classes.box);
+
+                if (boxes.length() > 1) { // set class for wrapper if there is only one box per row
+                    let hasColumns = false;
+                    let top = null;
+
+                    s.helper.menu.getPage().find("div." + s.opts.classes.box).forEach((elm) => {
+                        if (top === elm.offsetTop) {
+                            hasColumns = true;
+                            return false;
+                        } else {
+                            top = elm.offsetTop;
                         }
                     });
+
+                    if (!hasColumns) {
+                        s.opts.elm.content.addClass(s.opts.classes.small);
+                    }
                 }
             }
         };
@@ -250,12 +309,12 @@
             return new Promise((resolve) => {
                 let previewsLoaded = 0;
                 let previewAmount = Object.keys(previews).length;
+
                 Object.keys(previews).forEach((key) => {
                     previews[key].css = "";
 
                     s.opts.elm.preview[key] = $("<iframe />")
                         .attr(s.opts.attr.appearance, key)
-                        .addClass(s.opts.classes.hidden)
                         .appendTo(s.opts.elm.body);
 
                     sendAjax("html/template/" + previews[key].template + ".html").then((html) => {
@@ -275,7 +334,6 @@
                     previews[key].styles.forEach((stylesheet) => {
                         sendAjax("css/" + stylesheet + ".css").then((css) => {
                             previews[key].css += css;
-                            updatePreviewStyle(key);
                         });
                     });
                 });
@@ -289,7 +347,9 @@
             let code = "blockbyte".split("");
             let pos = 0;
             $(document).on("keydown", (e) => {
-                if (e.key === code[pos] && !s.opts.elm.appearance.content.hasClass(s.opts.classes.hidden)) {
+                let path = s.helper.menu.getPath();
+
+                if (e.key === code[pos] && path[0] === "appearance") {
                     if (++pos >= code.length) {
                         s.opts.elm.color["colorScheme"][0].value = "__color_ee";
                         this.save();
@@ -297,6 +357,11 @@
                 } else {
                     pos = 0;
                 }
+            });
+
+            $(window).on("resize", function () {
+                let path = s.helper.menu.getPath();
+                updatePageLayout(path[1]);
             });
 
             s.opts.elm.appearance.content.find("input, select").on("change input", (e) => {
@@ -332,8 +397,8 @@
                     revertPrevSibling.next("a." + s.opts.classes.revert).remove();
                 }
 
-                let tabName = elm.parents("[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name);
-                updatePreviewStyle(tabName);
+                let path = s.helper.menu.getPath();
+                updatePreviewStyle(path[1]);
             });
 
             s.opts.elm.appearance.content.on("click", "a." + s.opts.classes.revert, (e) => { // revert the changes of the specific field
@@ -358,18 +423,9 @@
             });
             s.opts.elm.appearance.backgroundChanger.eq(0).trigger("click");
 
-            $(document).on(s.opts.events.contentTabChanged, (e) => {
-                if (e.detail.headerTab === "appearance") {
-                    Object.keys(s.opts.elm.preview).forEach((key) => {
-                        let elm = s.opts.elm.preview[key];
-
-                        if (key === e.detail.contentTab) {
-                            elm.removeClass(s.opts.classes.hidden);
-                            updatePreviewStyle(key);
-                        } else {
-                            elm.addClass(s.opts.classes.hidden);
-                        }
-                    });
+            $(document).on(s.opts.events.pageChanged, (e) => {
+                if (e.detail.path && e.detail.path[0] === "appearance") {
+                    updatePreviewStyle(e.detail.path[1]);
                 }
             });
         };

@@ -30,9 +30,9 @@
                             if (lang.name === language) { // current language
                                 Object.keys(lang.categories).some((name) => {
                                     if ((name !== "Settings" || lang.categories[name] / infos.categories[name] * 100 > 75) && infos.categories[name] > lang.categories[name]) { // a published category of this language is imcomplete
-                                        s.opts.elm.header.find("> ul." + s.opts.classes.tabs.list + " > li[" + s.opts.attr.name + "='contribute']")
-                                            .attr("title", s.helper.i18n.get("translation_incomplete_info"))
-                                            .addClass(s.opts.classes.incomplete);
+                                        // s.opts.elm.header.find("> ul." + s.opts.classes.tabs.list + " > li[" + s.opts.attr.name + "='contribute']")
+                                        //     .attr("title", s.helper.i18n.get("translation_incomplete_info"))
+                                        //     .addClass(s.opts.classes.incomplete);
 
                                         $("<br />").appendTo(s.opts.elm.contribute.translationTabContent);
                                         $("<p />")
@@ -73,19 +73,9 @@
                 });
             });
 
-            s.opts.elm.contribute.action.on("click", (e) => {
+            s.opts.elm.contribute.donateButton.on("click", (e) => {
                 e.preventDefault();
-                let type = $(e.currentTarget).parents("[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name);
-                switch (type) {
-                    case "donation": { // open donation link in new tab
-                        window.open(s.opts.donateLink, '_blank');
-                        break;
-                    }
-                    case "translation": { // open translation overview in new tab
-                        window.open(chrome.extension.getURL("html/translate.html"), '_blank');
-                        break;
-                    }
-                }
+                window.open(s.opts.donateLink, '_blank');
             });
         };
     };

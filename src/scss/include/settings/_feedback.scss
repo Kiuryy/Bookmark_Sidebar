@@ -1,0 +1,118 @@
+
+div.tab[data-name='feedback'] {
+
+  p {
+    line-height: 140%;
+  }
+
+  div.faq {
+    padding-top: 10px;
+
+    strong {
+      position: relative;
+      display: block;
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+      margin: 20px 0;
+      padding: 0 0 0 15px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 7px;
+        left: 0;
+        width: 6px;
+        height: 2px;
+        background: $textColorLight;
+      }
+    }
+
+    > p {
+      position: relative;
+      background: $bodyBackground;
+      padding: 5px 7px;
+      margin: -10px 0 15px 0;
+      border-radius: 5px;
+      display: none;
+
+      &.visible {
+        display: block;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: 20px;
+        border: 7px solid transparent;
+        border-bottom-color: $bodyBackground;
+      }
+
+      > a {
+        font-weight: $__fontWeightBold;
+        color: $mainColorAlt;
+      }
+    }
+  }
+
+  p.notice {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+
+  section.form {
+    position: relative;
+
+    &.loading {
+
+      > * {
+        display: none;
+      }
+
+      > svg.loading {
+        position: absolute;
+        display: block;
+        top: 80px;
+        left: calc(50% - 18px);
+        z-index: 99;
+      }
+    }
+
+    &.hidden {
+      display: none;
+
+      + p.error {
+        @include mask('icon-info', $colorNotice, 48px);
+        position: relative;
+        text-align: center;
+        margin-top: 30px;
+        background: $bodyBackground;
+        line-height: 150%;
+        padding: 90px 30px 30px;
+
+        &::before {
+          pointer-events: none;
+          -webkit-mask-position-y: 20px;
+        }
+
+        > a {
+          display: inline-block;
+          margin: 10px 0 0 0;
+          font-weight: $__fontWeightBold;
+          color: $mainColorAlt;
+        }
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      height: 180px;
+    }
+  }
+}

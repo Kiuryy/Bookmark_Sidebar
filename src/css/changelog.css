@@ -148,15 +148,5 @@ section.infobox {
         margin: 0 10px 0 0; }
       section.infobox ul.changelog li ul {
         margin: 10px 0 0 25px; }
-    section.infobox ul.changelog + a {
-      display: inline-block;
-      background: #fff;
-      padding: 5px 10px;
-      margin: 7px 0 0 13px;
-      font-size: 90%;
-      color: #7b5fa4;
-      border-radius: 3px;
-      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-      cursor: pointer; }
 
 /*# sourceMappingURL=changelog.css.map */

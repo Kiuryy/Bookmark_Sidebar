@@ -1,0 +1,180 @@
+label {
+  display: block;
+  font-weight: $__fontWeightBold;
+}
+
+div.checkbox {
+  margin: 10px 0 10px 1px;
+}
+
+select, input[type='email'], input[type='text'], textarea {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: 0;
+  height: 28px;
+  padding: 0 5px;
+  margin: 7px 0 10px;
+  background: rgba(0, 0, 0, 0.02);
+  transition: border-color 0.5s, box-shadow 0.5s;
+
+  &.error {
+    border-color: $colorError;
+    box-shadow: 0 0 10px $colorError;
+  }
+}
+
+select {
+  cursor: pointer;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  height: 300px;
+  padding: 5px;
+}
+
+input.color {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0;
+
+  + span {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+    margin: 7px 0 10px -32px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    &::before {
+      background: $contentBackground img('settings/alpha.svg');
+      background-size: 14px;
+    }
+
+    &::after {
+      background-color: inherit;
+    }
+  }
+}
+
+input[type='range'] {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-appearance: none;
+  width: 100%;
+  max-width: 250px;
+  height: 20px;
+  background-image: linear-gradient(to right, $mainColor 0%, $mainColor -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: 0 9px;
+  margin: 7px 0 20px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+
+  @media (max-width: 1000px) and (min-width: 900px) {
+    max-width: none;
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-slider-runnable-track {
+    position: relative;
+    cursor: pointer;
+    height: 3px;
+    width: 100%;
+    outline: 0;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: $mainColor;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-top: -4px;
+  }
+
+  + span {
+    position: relative;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.1);
+    color: $textColor;
+    font-size: 70%;
+    padding: 2px 5px 3px;
+    margin: 9px 0 0 6px;
+    text-align: center;
+    min-width: 35px;
+    transition: opacity 0.3s;
+
+    @media (max-width: 1000px) and (min-width: 900px) {
+      margin: 2px 0 10px 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      left: -8px;
+      border: 4px solid transparent;
+      border-right-color: rgba(0, 0, 0, 0.1);
+
+      @media (max-width: 1000px) and (min-width: 900px) {
+        top: -8px;
+        left: 4px;
+        border: 4px solid transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    + br + div.checkbox {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 7px 0 0;
+      width: 16px;
+      height: 16px;
+
+      &::before {
+        -webkit-mask-size: 18px;
+      }
+
+      + label {
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px 0 0 7px;
+        font-size: 90%;
+        font-weight: $__fontWeightMedium;
+      }
+    }
+  }
+
+  &.inactive {
+    opacity: 0.2;
+    pointer-events: none;
+
+    + span {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
+}

@@ -87,10 +87,6 @@
                 });
                 this.opts.elm.infobox.addClass(this.opts.classes.flipped);
             });
-
-            $("section.infobox ul.changelog + a").on("click", () => { // @deprecated only for changelog v1.9
-                location.href = chrome.extension.getURL("html/intro.html");
-            });
         };
     };
 

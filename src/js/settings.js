@@ -247,20 +247,28 @@
             this.opts.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
+                let isLanguage = false;
+
+                if (path[0] === "language" && path[1] === "general") { // language was been changed
+                    path[0] = "settings";
+                    isLanguage = true;
+                }
 
                 switch (path[0]) {
                     case "settings": {
-                        this.helper.behaviour.save();
+                        this.helper.behaviour.save().then(() => {
+                            if (isLanguage) { // reload page after language change
+                                $.delay(1500).then(() => {
+                                    location.reload(true);
+                                });
+                            }
+                        });
                         break;
                     }
                     case "appearance": {
                         this.helper.appearance.save();
                         break;
                     }
-                   // case "feedback": {
-                        //this.helper.feedback.send();
-                        //break;
-                   // }
                 }
             });
 
@@ -268,16 +276,29 @@
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
 
+                let restore = (name) => {
+                    let language = this.helper.model.getData("b/language");
+
+                    chrome.storage.sync.remove([name], () => {
+                        if (name === "behaviour") { // don't reset user language
+                            chrome.storage.sync.set({behaviour: {language: language}});
+                        }
+
+                        this.showSuccessMessage("restored_message");
+
+                        $.delay(1500).then(() => {
+                            this.helper.model.call("refreshAllTabs", {type: "Settings"});
+                            location.reload(true);
+                        });
+                    });
+                };
+
                 switch (path[0]) {
                     case "settings":
+                        restore("behaviour");
+                        break;
                     case "appearance": {
-                        chrome.storage.sync.remove([path[0]], () => {
-                            this.helper.model.call("refreshAllTabs", {type: "Settings"});
-                            this.showSuccessMessage("restored_message");
-                            $.delay(1500).then(() => {
-                                location.reload(true);
-                            });
-                        });
+                        restore("appearance");
                         break;
                     }
                 }

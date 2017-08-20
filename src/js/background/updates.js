@@ -46,6 +46,11 @@
             });
         };
 
+        /**
+         * Upgrade the stored data for the new version, show the changelog page if user hasn't seen it for the new version before
+         *
+         * @param {int} newVersion
+         */
         let handleVersionUpgrade = (newVersion) => {
             chrome.storage.sync.get(["model"], (obj) => {
                 if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
@@ -66,6 +71,14 @@
 
                 // START UPGRADE // v1.10
                 chrome.storage.sync.remove(["utility"]);
+
+                ["sidebarPosition", "language"].forEach((f) => {
+                    if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
+                        obj.behaviour[f] = obj.appearance[f];
+                    }
+
+                    delete obj.appearance[f];
+                });
                 // END UPGRADE // v1.10
 
                 // START UPGRADE // v1.9

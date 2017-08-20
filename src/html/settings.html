@@ -97,9 +97,9 @@
             <div data-name="sidebar">
                 <div class="boxWrapper">
                     <div class="box">
-                        <div class="formElement" data-type="select" data-name="linkAction" data-i18n="settings_link_action">
-                            <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
-                            <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
+                        <div class="formElement" data-type="select" data-name="sidebarPosition" data-i18n="settings_sidebar_position">
+                            <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
+                            <span data-value="right" data-i18n="settings_sidebar_position_right"></span>
                         </div>
                     </div>
 
@@ -113,6 +113,13 @@
                             <span data-value="afterCurrent" data-i18n="settings_new_tab_position_after_current"></span>
                             <span data-value="afterLast" data-i18n="settings_new_tab_position_after_last"></span>
                             <span data-value="beforeFirst" data-i18n="settings_new_tab_position_before_first"></span>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="select" data-name="linkAction" data-i18n="settings_link_action">
+                            <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
+                            <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
                         </div>
                     </div>
 
@@ -205,12 +212,6 @@
                         <div class="formElement" data-type="range" data-name="sidebarWidth" data-min="150" data-max="600" data-unit="px" data-step="10" data-i18n="settings_sidebar_width"></div>
                     </div>
                     <div class="box">
-                        <div class="formElement" data-type="select" data-name="sidebarPosition" data-i18n="settings_sidebar_position">
-                            <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
-                            <span data-value="right" data-i18n="settings_sidebar_position_right"></span>
-                        </div>
-                    </div>
-                    <div class="box">
                         <div class="formElement" data-type="color" data-name="sidebarMaskColor" data-alpha="1" data-i18n="settings_sidebar_mask_color"></div>
                     </div>
                     <div class="box">
@@ -285,7 +286,7 @@
         #
         #
         -->
-        <div class="tab" data-name="language" data-save="settings_save" data-restore="true">
+        <div class="tab" data-name="language" data-save="settings_save">
             <div data-name="general">
                 <div class="boxWrapper">
                     <div class="box">

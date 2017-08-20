@@ -21,7 +21,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            sidebarPos = ext.helper.model.getData("a/sidebarPosition");
+            sidebarPos = ext.helper.model.getData("b/sidebarPosition");
             initEvents();
             initExternalDragDropEvents();
         };

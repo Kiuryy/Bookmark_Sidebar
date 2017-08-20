@@ -11,7 +11,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "a/sidebarPosition"]);
+            config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "b/sidebarPosition"]);
         };
 
         /**

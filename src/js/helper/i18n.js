@@ -20,7 +20,7 @@
                 langVars = {};
 
                 ext.helper.model.call("languageInfos").then((obj) => {
-                    let lang = ext.helper.model.getData("a/language");
+                    let lang = ext.helper.model.getData("b/language");
                     if (lang === "default") {
                         lang = chrome.i18n.getUILanguage();
                     }

@@ -17,12 +17,6 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                ["sidebarPosition", "language"].forEach((field) => {
-                    let value = s.helper.model.getData("a/" + field);
-                    s.opts.elm.select[field][0].value = value;
-                    s.opts.elm.select[field].data("initial", value);
-                });
-
                 ["darkMode"].forEach((field) => {
                     let checked = false;
                     if (s.helper.model.getData("a/" + field) === true) {
@@ -67,23 +61,21 @@
 
         /**
          * Saves the appearance settings
+         * @returns {Promise}
          */
         this.save = () => {
-            let config = getCurrentConfig();
-            if (config.isEE) {
-                delete config.isEE;
-                config.styles.colorScheme = "__color_ee";
-            }
-
-            chrome.storage.sync.set({appearance: config}, () => {
-                s.helper.model.call("refreshAllTabs", {type: "Settings"});
-                s.showSuccessMessage("saved_message");
-
-                if (s.opts.elm.select.language.data("initial") !== config.language) {
-                    $.delay(1500).then(() => {
-                        location.reload(true);
-                    });
+            return new Promise((resolve) => {
+                let config = getCurrentConfig();
+                if (config.isEE) {
+                    delete config.isEE;
+                    config.styles.colorScheme = "__color_ee";
                 }
+
+                chrome.storage.sync.set({appearance: config}, () => {
+                    s.helper.model.call("refreshAllTabs", {type: "Settings"});
+                    s.showSuccessMessage("saved_message");
+                    resolve();
+                });
             });
         };
 
@@ -260,8 +252,6 @@
          */
         let getCurrentConfig = () => {
             let ret = {
-                sidebarPosition: s.opts.elm.select.sidebarPosition[0].value,
-                language: s.opts.elm.select.language[0].value,
                 darkMode: s.helper.checkbox.isChecked(s.opts.elm.checkbox.darkMode),
                 showIndicator: true,
                 showIndicatorIcon: true,

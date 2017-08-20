@@ -21,7 +21,7 @@
             s.opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
             s.opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
 
-            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+            ["openAction", "sidebarPosition", "language", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.opts.elm.select[field].trigger("change");
             });
@@ -46,36 +46,41 @@
 
         /**
          * Save the behaviour settings
+         *
+         * @returns {Promise}
          */
         this.save = () => {
-            let config = {
-                pxTolerance: {
-                    maximized: s.opts.elm.range.pxToleranceMaximized[0].value,
-                    windowed: s.opts.elm.range.pxToleranceWindowed[0].value
-                }
-            };
+            return new Promise((resolve) => {
+                let config = {
+                    pxTolerance: {
+                        maximized: s.opts.elm.range.pxToleranceMaximized[0].value,
+                        windowed: s.opts.elm.range.pxToleranceWindowed[0].value
+                    }
+                };
 
-            ["openAction", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
-                config[field] = s.opts.elm.select[field][0].value;
-            });
+                ["openAction", "sidebarPosition", "language", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+                    config[field] = s.opts.elm.select[field][0].value;
+                });
 
-            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
-                let val = -1;
+                ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
+                    let val = -1;
 
-                if (s.opts.elm.range[field].hasClass(s.opts.classes.range.inactive) === false) { // if inactive set -1 as value else use the selected value
-                    val = s.opts.elm.range[field][0].value;
-                }
+                    if (s.opts.elm.range[field].hasClass(s.opts.classes.range.inactive) === false) { // if inactive set -1 as value else use the selected value
+                        val = s.opts.elm.range[field][0].value;
+                    }
 
-                config[field] = val;
-            });
+                    config[field] = val;
+                });
 
-            ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab", "dndOpen"].forEach((field) => { // checkbox
-                config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
-            });
+                ["rememberSearch", "dirAccordion", "animations", "preventPageScroll", "initialOpenOnNewTab", "dndOpen"].forEach((field) => { // checkbox
+                    config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
+                });
 
-            chrome.storage.sync.set({behaviour: config}, () => {
-                s.helper.model.call("refreshAllTabs", {type: "Settings"});
-                s.showSuccessMessage("saved_message");
+                chrome.storage.sync.set({behaviour: config}, () => {
+                    s.helper.model.call("refreshAllTabs", {type: "Settings"});
+                    s.showSuccessMessage("saved_message");
+                    resolve();
+                });
             });
         };
 

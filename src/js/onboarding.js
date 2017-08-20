@@ -132,7 +132,7 @@
                 this.opts.elm.sidebar[value].addClass(this.opts.classes.visible);
 
                 if (e.type === "click") {
-                    this.helper.model.setData({"a/sidebarPosition": value}).then(() => {
+                    this.helper.model.setData({"b/sidebarPosition": value}).then(() => {
                         gotoNextSlide();
                     });
                 }
@@ -270,7 +270,7 @@
                 slide.children("p." + this.opts.classes.large).text(this.helper.i18n.get("onboarding_handson_desc_direct"));
             }
 
-            let config = this.helper.model.getData(["b/openAction", "a/sidebarPosition"]);
+            let config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
             this.opts.elm.body.attr(this.opts.attr.position, config.sidebarPosition);
 
             // change description how to open the sidebar based on sidebar position and configurated openAction

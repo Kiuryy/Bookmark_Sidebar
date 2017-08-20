@@ -26,7 +26,7 @@
             }
 
             let isNewTab = ext.helper.utility.getPageType() === "newtab";
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "a/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab", "b/dndOpen"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab", "b/dndOpen"]);
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;

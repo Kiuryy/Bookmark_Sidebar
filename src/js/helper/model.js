@@ -39,6 +39,8 @@
                 animations: true,
                 preventPageScroll: false,
                 pxTolerance: {windowed: 20, maximized: 1},
+                sidebarPosition: "left",
+                language: "default",
                 openAction: "mousedown",
                 newTab: "foreground",
                 newTabPosition: "afterCurrent",
@@ -56,8 +58,6 @@
                 initialOpenOnNewTab: false
             },
             a: { // appearance -> synced across devices
-                sidebarPosition: "left",
-                language: "default",
                 showIndicator: true,
                 showIndicatorIcon: true,
                 darkMode: false,
@@ -203,6 +203,17 @@
 
                 if (dataSearchScope !== null) {
                     if (typeof dataSearchScope[key] === "undefined") {
+                        ["sidebarPosition", "language"].some((f) => { // @deprecated backward compatibility
+                            if (keyInfo === "b/" + f) {
+                                value = this.getData("a/" + f);
+
+                                if (value !== null) {
+                                    scope = "__FOUND";
+                                }
+                                return true;
+                            }
+                        });
+
                         if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];
                         }
@@ -310,7 +321,7 @@
         this.call = (key, opts = {}) => {
             return new Promise((resolve) => {
                 opts.type = key;
-                opts.uid = key + "_" + JSON.stringify(opts) + "_" + (+new Date()) /* REMOVE --> */+ Math.random().toString(36).substr(2, 12);
+                opts.uid = key + "_" + JSON.stringify(opts) + "_" + (+new Date()) /* REMOVE --> */ + Math.random().toString(36).substr(2, 12);
 
                 callbacks[opts.uid] = (response) => {
                     resolve(response);

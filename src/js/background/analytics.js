@@ -106,16 +106,17 @@
 
             if (shareUserdata === true) {
                 // track installation date
-                if (data.installationDate) {
+                let installationDate = b.helper.model.getData("installationDate");
+                if (installationDate) {
                     this.trackEvent({
                         category: "extension",
                         action: "installationDate",
-                        label: new Date(data.installationDate).toISOString().slice(0, 10)
+                        label: new Date(installationDate).toISOString().slice(0, 10)
                     });
                 }
 
                 // track bookmark amount
-                bookmarkApi.getSubTree("0").then((response) => {
+                b.helper.bookmarkApi.func.getSubTree(0).then((response) => {
                     let bookmarkAmount = 0;
                     let processBookmarks = (bookmarks) => {
                         for (let i = 0; i < bookmarks.length; i++) {

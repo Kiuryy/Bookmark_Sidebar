@@ -203,6 +203,12 @@
             }
         };
 
+        /**
+         * Adds a right padding to the content, so the preview doesn't cover the controls,
+         * Adds a class to the content if the columns aren't lined next to each other anymore
+         *
+         * @param {string} key
+         */
         let updatePageLayout = (key) => {
             if (s.opts.elm.preview[key]) {
                 let config = getCurrentConfig();

@@ -26,6 +26,57 @@ body[data-type^='appearance'] {
           border-radius: 50%;
           transform: rotateY(180deg);
         }
+
+        &.darkMode {
+
+          div.checkbox {
+            @include mask('settings/icon-light', $textColorInverted, 20px);
+            border-radius: 15px;
+            height: 30px;
+            width: 60px;
+            background: linear-gradient(to right, #fec171 0%, #ff6c69 100%);
+            transition: background 0.5;
+
+            &::before {
+              -webkit-mask-position-x: 32px;
+              transition: -webkit-mask 0.3s;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 3px;
+              left: 3px;
+              width: 24px;
+              height: 24px;
+              border-radius: 50%;
+              background: $textColorInverted;
+              box-shadow: none;
+              opacity: 0.7;
+              -webkit-mask: none;
+              transition: transform 0.3s, opacity 0.3s;
+            }
+
+            &.active {
+              background: linear-gradient(to right, #3c5fe1 0%, #3a2b96 100%);
+
+              &::before {
+                @include maskImage('settings/icon-dark');
+                -webkit-mask-position-x: 6px;
+              }
+
+              &::after {
+                transform: translate3d(30px, 0, 0);
+                opacity: 0.9;
+              }
+            }
+
+            a.revert {
+              top: 3px;
+              right: -35px;
+            }
+          }
+        }
       }
     }
 

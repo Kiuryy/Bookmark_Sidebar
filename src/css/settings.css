@@ -411,6 +411,49 @@ body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
         -webkit-mask: no-repeat center/24px;
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
         background-color: #aaa; }
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox {
+      border-radius: 15px;
+      height: 30px;
+      width: 60px;
+      background: linear-gradient(to right, #fec171 0%, #ff6c69 100%);
+      transition: background 0.5; }
+      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/20px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-light.svg);
+        background-color: #fff; }
+      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox::before {
+        -webkit-mask-position-x: 32px;
+        transition: -webkit-mask 0.3s; }
+      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox::after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: none;
+        opacity: 0.7;
+        -webkit-mask: none;
+        transition: transform 0.3s, opacity 0.3s; }
+      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox.active {
+        background: linear-gradient(to right, #3c5fe1 0%, #3a2b96 100%); }
+        body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox.active::before {
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-dark.svg);
+          -webkit-mask-position-x: 6px; }
+        body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox.active::after {
+          transform: translate3d(30px, 0, 0);
+          opacity: 0.9; }
+      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox a.revert {
+        top: 3px;
+        right: -35px; }
 
 body[data-type^='appearance'] > section#wrapper > main.small div.boxWrapper {
   display: block; }

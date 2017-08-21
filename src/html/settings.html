@@ -39,11 +39,11 @@
             <div data-name="general">
                 <div class="boxWrapper">
                     <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="preventPageScroll" data-i18n="settings_prevent_pagescroll"></div>
+                        <div class="formElement" data-type="checkbox" data-name="initialOpenOnNewTab" data-i18n="settings_initial_open_on_new_tab"></div>
                     </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="initialOpenOnNewTab" data-i18n="settings_initial_open_on_new_tab"></div>
+                        <div class="formElement" data-type="checkbox" data-name="preventPageScroll" data-i18n="settings_prevent_pagescroll"></div>
                     </div>
 
                     <div class="box">
@@ -61,15 +61,6 @@
             <div data-name="toggle">
                 <div class="boxWrapper">
                     <div class="box">
-                        <label data-i18n="settings_px_tolerance"></label>
-                        <div class="sub">
-                            <div class="formElement" data-type="range" data-name="pxToleranceMaximized" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_maximized"></div>
-                            <div class="formElement" data-type="range" data-name="pxToleranceWindowed" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_windowed"></div>
-                        </div>
-                        <p class="desc" data-i18n="settings_px_tolerance_desc"></p>
-                    </div>
-
-                    <div class="box">
                         <div class="formElement" data-type="select" data-name="openAction" data-i18n="settings_open_action">
                             <span data-value="mousedown" data-i18n="settings_open_action_leftclick"></span>
                             <span data-value="contextmenu" data-i18n="settings_open_action_rightclick"></span>
@@ -79,11 +70,20 @@
                     </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
+                        <label data-i18n="settings_px_tolerance"></label>
+                        <div class="sub">
+                            <div class="formElement" data-type="range" data-name="pxToleranceMaximized" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_maximized"></div>
+                            <div class="formElement" data-type="range" data-name="pxToleranceWindowed" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_windowed"></div>
+                        </div>
+                        <p class="desc" data-i18n="settings_px_tolerance_desc"></p>
                     </div>
 
                     <div class="box">
                         <div class="formElement" data-type="range" data-name="closeTimeout" data-value="1" data-min="0" data-max="5" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
                     </div>
 
                     <div class="box">
@@ -117,14 +117,14 @@
                     </div>
 
                     <div class="box">
+                        <div class="formElement" data-type="checkbox" data-name="dirAccordion" data-i18n="settings_dir_accordion"></div>
+                    </div>
+
+                    <div class="box">
                         <div class="formElement" data-type="select" data-name="linkAction" data-i18n="settings_link_action">
                             <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
                             <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
                         </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="dirAccordion" data-i18n="settings_dir_accordion"></div>
                     </div>
 
                     <div class="box">
@@ -186,9 +186,6 @@
             <!-- General -->
             <div data-name="general">
                 <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="language" data-name="language" data-i18n="settings_language"></div>
-                    </div>
                     <div class="box">
                         <div class="formElement" data-type="font" data-name="fontFamily" data-i18n="settings_font_family"></div>
                     </div>

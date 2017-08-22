@@ -75,6 +75,7 @@
                 s.opts.elm.color[opts.name] = $("<input type='text' />").addClass(s.opts.classes.color.field).insertAfter(opts.label);
                 let colorInfo = $("<span />").insertAfter(s.opts.elm.color[opts.name]);
                 let picker = new CP(s.opts.elm.color[opts.name][0]);
+                picker.visible = false;
 
                 if ($(opts.elm).attr(s.opts.attr.color.alpha)) {
                     picker.alpha = $("<input type='range' />").attr({
@@ -88,8 +89,42 @@
                     picker.alpha.on("change input", () => picker.trigger("change"));
                 }
 
+                let updateMask = (color) => {
+                    let mask = s.opts.elm.body.children("div." + s.opts.classes.color.mask + "[" + s.opts.attr.name + "='" + opts.name + "']");
+
+                    if (color && picker.visible && opts.name.search(/MaskColor$/) !== -1) { // add a mask over the page for every color field ending with "MaskColor"
+                        if (mask.length() === 0) {
+                            mask = $("<div />")
+                                .addClass(s.opts.classes.color.mask)
+                                .attr(s.opts.attr.name, opts.name)
+                                .appendTo(s.opts.elm.body);
+                        }
+
+                        mask.css("background-color", color);
+                    } else if (mask.length() > 0) { // remove existing mask
+                        mask.remove();
+                    }
+                };
+
+                picker.on("enter", () => {
+                    picker.visible = true;
+                    let v = CP._HSV2RGB(picker.get());
+                    if (picker.alpha && +picker.alpha[0].value < 1) {
+                        v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value + ')';
+                    } else {
+                        v = 'rgb(' + v.join(',') + ')';
+                    }
+
+                    updateMask(v);
+                });
+
+                picker.on("exit", () => {
+                    picker.visible = false;
+                    updateMask();
+                });
+
                 picker.on("change", (color) => { // change preview and gradient of the opacity slider
-                    let v = CP._HSV2RGB(picker.set());
+                    let v = CP._HSV2RGB(picker.get());
 
                     if (color) {
                         v = CP.HEX2RGB(color);
@@ -107,6 +142,7 @@
                     s.opts.elm.color[opts.name][0].value = v;
                     s.opts.elm.color[opts.name].trigger("change");
                     colorInfo.css("background-color", v);
+                    updateMask(v);
                 });
 
                 s.opts.elm.color[opts.name].data("picker", picker);

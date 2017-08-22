@@ -20,7 +20,8 @@
                     active: "active"
                 },
                 color: {
-                    field: "color"
+                    field: "color",
+                    mask: "colorMask"
                 },
                 range: {
                     inactive: "inactive"

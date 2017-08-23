@@ -36,6 +36,7 @@
                 if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
                     this.helper.toggle.init();
                     this.helper.list.init();
+                    this.helper.scroll.init();
                     this.helper.tooltip.init();
                     this.helper.sidebarEvents.init();
                     this.helper.dragndrop.init();

@@ -8,7 +8,7 @@
   transition: background-color 0.3s;
 
   &::-webkit-scrollbar {
-    width: $scrollBarWidth;
+    width: $__scrollBarWidth;
     background: transparent;
   }
 

@@ -241,8 +241,8 @@ section#sidebar {
   > div.filter {
     position: absolute;
     top: $sidebarHeaderHeight;
-    left: $scrollBarWidth;
-    width: calc(100% - #{$scrollBarWidth * 2});
+    left: $filterMargin;
+    width: calc(100% - #{$filterMargin * 2});
     background: $hoverBackground;
     padding: 10px $__bookmarksHorizontalPadding 5px;
     border-radius: 0 0 5px 5px;

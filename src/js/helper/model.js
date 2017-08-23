@@ -53,6 +53,7 @@
                 dndOpen: true,
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.5,
+                scrollBarHide: 1.5,
                 openDelay: 0,
                 closeTimeout: 1,
                 initialOpenOnNewTab: false
@@ -80,6 +81,7 @@
                     bookmarksDirColor: defaultColors.textColor.light,
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
+                    scrollBarWidth: "11px",
                     overlayMaskColor: "rgba(0,0,0,0.5)",
                     fontFamily: "default"
                 }

@@ -23,7 +23,7 @@ $settingsMenuHoverBackground: #ddd;
 // Sidebar
 $sidebarHeaderHeight: 50px;
 $overlayHeaderHeight: 50px;
-$scrollBarWidth: 11px;
+$filterMargin: 11px;
 
 $hoverBackground: #f5f5f5;
 $scrollBarBackground: #ccc;
@@ -59,6 +59,7 @@ $__bookmarksDirIcon: "%bookmarksDirIcon";
 $__bookmarksDirColor: "%bookmarksDirColor";
 $__bookmarksDirIndentation: "%bookmarksDirIndentation";
 $__bookmarksHorizontalPadding: "%bookmarksHorizontalPadding";
+$__scrollBarWidth: "%scrollBarWidth";
 $__indicatorWidth: "%indicatorWidth";
 $__indicatorIconSize: "%indicatorIconSize";
 $__indicatorIconColor: "%indicatorIconColor";

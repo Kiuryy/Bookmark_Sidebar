@@ -329,6 +329,9 @@
     "settings_menu_appearance_indicator": {
         "message": "Indicator"
     },
+    "settings_menu_appearance_icon": {
+        "message": "Icon"
+    },
     "settings_menu_appearance_overlay": {
         "message": "Overlay"
     },
@@ -500,6 +503,15 @@
     "settings_close_timeout_infinity": {
         "message": "Don't close automatically"
     },
+    "settings_scrollbar_hide": {
+        "message": "Hide scrollbar"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "Timeout in seconds after the scrollbar will be hidden. Scrolling will show the scrollbar again."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Never hide"
+    },
     "settings_initial_open_on_new_tab": {
         "message": "Initial open on new tab page"
     },
@@ -537,7 +549,7 @@
         "message": "Only url"
     },
     "settings_dark_mode": {
-        "message": "Dark surface"
+        "message": "Surface"
     },
     "settings_color_scheme": {
         "message": "Color scheme"
@@ -556,6 +568,9 @@
     },
     "settings_font_family_desc": {
         "message": "The typeface of the sidebar and the overlays"
+    },
+    "settings_scrollbar_width": {
+        "message": "Scrollbar width"
     },
     "settings_indicator_width": {
         "message": "Width"

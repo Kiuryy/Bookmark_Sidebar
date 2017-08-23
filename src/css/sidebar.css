@@ -47,7 +47,7 @@ body.dark svg.loading > circle {
   -webkit-background-clip: text;
   transition: background-color 0.3s; }
   .scrollBox::-webkit-scrollbar {
-    width: 11px;
+    width: "%scrollBarWidth";
     background: transparent; }
   .scrollBox::-webkit-scrollbar-thumb {
     border-radius: 20px;

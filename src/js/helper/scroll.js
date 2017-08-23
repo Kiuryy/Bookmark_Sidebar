@@ -6,6 +6,17 @@
         let scrollPosSaved = +new Date();
         let scrollBarTimeout = {};
         let scrollBoxes = [];
+        let scrollBarHide = 0;
+
+        /**
+         * Initialize
+         *
+         * @returns {Promise}
+         */
+        this.init = async () => {
+            let delayRaw = ext.helper.model.getData("b/scrollBarHide");
+            scrollBarHide = +delayRaw * 1000;
+        };
 
         /**
          * Creates a new scrollbox for the given element
@@ -177,16 +188,18 @@
                 scrollBox.trigger(ext.opts.events.scrollBoxLastPart);
             }
 
-            if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // show scrollbar for 1.5s
-                scrollBox.removeClass(ext.opts.classes.scrollBox.hideScrollbar);
-                clearTimeout(scrollBarTimeout[scrollBox.attr("id")]);
-                scrollBarTimeout[scrollBox.attr("id")] = setTimeout(() => {
-                    scrollBox.addClass(ext.opts.classes.scrollBox.hideScrollbar);
-                }, 1500);
-            } else {
-                scrollBox.addClass(ext.opts.classes.scrollBox.hideScrollbar);
-            }
+            if (scrollBarHide > 0) {
+                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // hide scrollbar after the given delay
+                    scrollBox.removeClass(ext.opts.classes.scrollBox.hideScrollbar);
 
+                    clearTimeout(scrollBarTimeout[scrollBox.attr("id")]);
+                    scrollBarTimeout[scrollBox.attr("id")] = setTimeout(() => {
+                        scrollBox.addClass(ext.opts.classes.scrollBox.hideScrollbar);
+                    }, scrollBarHide);
+                } else {
+                    scrollBox.addClass(ext.opts.classes.scrollBox.hideScrollbar);
+                }
+            }
             ext.helper.scroll.focus();
         };
 

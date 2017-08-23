@@ -329,6 +329,9 @@
     "settings_menu_appearance_indicator": {
         "message": "Indikator"
     },
+    "settings_menu_appearance_icon": {
+        "message": "Symbol"
+    },
     "settings_menu_appearance_overlay": {
         "message": "Overlay"
     },
@@ -500,6 +503,15 @@
     "settings_close_timeout_infinity": {
         "message": "Nicht automatisch schlie\u00dfen"
     },
+    "settings_scrollbar_hide": {
+        "message": "Scrollbalken ausblenden"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "Dauer in Sekunden bis der Scrollbalken ausgeblendet wird. Scrollen blendet ihn wieder ein."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Nie ausblenden"
+    },
     "settings_initial_open_on_new_tab": {
         "message": "Auf der 'Neuer Tab'-Seite initial \u00f6ffnen"
     },
@@ -537,7 +549,7 @@
         "message": "Nur Url"
     },
     "settings_dark_mode": {
-        "message": "Dunkle Oberfl\u00e4che"
+        "message": "Oberfl\u00e4che"
     },
     "settings_color_scheme": {
         "message": "Farbschema"
@@ -556,6 +568,9 @@
     },
     "settings_font_family_desc": {
         "message": "Die Schriftart f\u00fcr die Sidebar und Overlays"
+    },
+    "settings_scrollbar_width": {
+        "message": "Scrollbalken-Breite"
     },
     "settings_indicator_width": {
         "message": "Breite"

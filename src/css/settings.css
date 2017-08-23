@@ -1,8 +1,8 @@
-body::before, body::after, section#menu {
+body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body.success::before, body.success::after, body.initLoading::before, body.loading::before, section#menu.visible {
+body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -895,46 +895,27 @@ main button[type='submit'] {
   border-radius: 5px;
   margin: 10px 0; }
 
-main > footer {
-  font-size: 90%; }
-
-section#menu {
-  position: absolute;
-  top: 0px;
-  right: 20px;
-  min-width: 200px;
-  background: #fff;
-  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
-  transform: translate3d(0, -10px, 0);
-  transition: opacity 0.2s, transform 0.2s;
-  z-index: 5; }
-  section#menu::before {
-    content: "";
+a.import, a.export {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  background: #7b5fa4;
+  color: #fff;
+  padding: 6px 12px;
+  font-weight: "%fontWeightMedium";
+  font-size: 100%;
+  border-radius: 5px;
+  margin: 10px 0; }
+  a.import > input[type='file'], a.export > input[type='file'] {
+    cursor: pointer;
     position: absolute;
-    top: -20px;
-    right: 20px;
-    border: 10px solid transparent;
-    border-bottom-color: #fff; }
-  section#menu.visible {
-    transform: translate3d(0, 0, 0); }
-  section#menu > ul > li > a {
-    display: block;
-    padding: 10px 10px;
-    transition: background 0.3s; }
-    section#menu > ul > li > a:hover {
-      background: #f2f2f2; }
-    section#menu > ul > li > a[data-name='import'] {
-      position: relative;
-      overflow: hidden; }
-      section#menu > ul > li > a[data-name='import'] > input[type='file'] {
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        left: -400%;
-        width: 500%;
-        height: 100%;
-        outline: none;
-        opacity: 0;
-        z-index: 2; }
+    top: 0;
+    left: -400%;
+    width: 500%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    z-index: 2; }
 
 /*# sourceMappingURL=settings.css.map */

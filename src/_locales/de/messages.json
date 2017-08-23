@@ -314,8 +314,8 @@
     "settings_menu_settings_tooltip": {
         "message": "Tooltip"
     },
-    "settings_menu_settings_search": {
-        "message": "Suche"
+    "settings_menu_settings_export": {
+        "message": "Import\/Export"
     },
     "settings_menu_appearance": {
         "message": "Aussehen"
@@ -451,12 +451,6 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nichts"
-    },
-    "settings_remember_search": {
-        "message": "Suchbegriff merken"
-    },
-    "settings_remember_search_desc": {
-        "message": "Wenn ausgew\u00e4hlt, wird der eingegebene Suchbegriff beim Navigieren gemerkt."
     },
     "settings_open_children_warn_limit": {
         "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"
@@ -707,11 +701,14 @@
     "settings_contribute_donation_desc": {
         "message": "Spenden sind komplett optional. Wenn dir die Erweiterung gef\u00e4llt und du einen kleinen Betrag spenden m\u00f6chtest, kannst du das \u00fcber den folgenden Link machen. Ich freue mich \u00fcber jede Unterst\u00fctzung, neben Spenden vor allem der Unterst\u00fctzung bei der \u00dcbersetzung und dem Feedback der Nutzer, die mir helfen die Erweiterung zu verbessern."
     },
-    "settings_menu_export": {
+    "settings_export": {
         "message": "Konfiguration exportieren"
     },
-    "settings_menu_import": {
+    "settings_import": {
         "message": "Konfiguration importieren"
+    },
+    "settings_import_export_desc": {
+        "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
     },
     "settings_menu_close": {
         "message": "Diese Seite schlie\u00dfen"

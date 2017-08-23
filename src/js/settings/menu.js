@@ -92,13 +92,14 @@
             });
         };
 
-        let updateHeaderMenu = (pageName) => {
-            let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + pageName + "']");
+        let updateHeaderMenu = () => {
+            let path = this.getPath();
+            let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']");
 
             ["save", "restore"].forEach((type) => {
                 let info = page.attr(s.opts.attr.buttons[type]);
 
-                if (info && info !== "false") {
+                if (info && info !== "false" && path[1] !== "export") { // show button is attribute is available and the current page is not the import/export sub page
                     s.opts.elm.buttons[type]
                         .html(info === "true" ? "" : s.helper.i18n.get(info))
                         .removeClass(s.opts.classes.hidden);
@@ -147,7 +148,6 @@
                 }
             }
 
-            updateHeaderMenu(path[0]);
             s.opts.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
             s.opts.elm.body.attr(s.opts.attr.type, path.join("_"));
 
@@ -155,6 +155,7 @@
             currentPage = page;
             currentPath = path;
 
+            updateHeaderMenu();
             s.opts.elm.header.css("padding-right", "");
             s.opts.elm.content.css("padding-right", "");
 

@@ -16,7 +16,7 @@
             },
             colorScheme: {
                 light: "rgb(27,130,241)",
-                dark: "rgb(31, 77, 128)"
+                dark: "rgb(31,77,128)"
             }
         };
 
@@ -47,7 +47,6 @@
                 linkAction: "current",
                 dirAccordion: false,
                 rememberState: "all",
-                rememberSearch: true,
                 tooltipDelay: 1,
                 tooltipContent: "all",
                 dndOpen: true,
@@ -224,7 +223,8 @@
                     }
                 }
 
-                if (keyInfo === "b/pxTolerance" && matchMedia("(min-resolution: 1.25dppx)").matches) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
+                let isSettingsPage = location.href.search(/chrome\-extension\:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
+                if (keyInfo === "b/pxTolerance" && matchMedia("(min-resolution: 1.25dppx)").matches && isSettingsPage === false) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
                     value = Object.assign({}, value);
                     Object.keys(value).forEach((k) => {
                         value[k]++;

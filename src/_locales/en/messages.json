@@ -314,8 +314,8 @@
     "settings_menu_settings_tooltip": {
         "message": "Tooltip"
     },
-    "settings_menu_settings_search": {
-        "message": "Search"
+    "settings_menu_settings_export": {
+        "message": "Import\/Export"
     },
     "settings_menu_appearance": {
         "message": "Appearance"
@@ -451,12 +451,6 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nothing"
-    },
-    "settings_remember_search": {
-        "message": "Remember search result"
-    },
-    "settings_remember_search_desc": {
-        "message": "If selected, the entered search value will be remembered across page changes."
     },
     "settings_open_children_warn_limit": {
         "message": "Open all children (Warn limit)"
@@ -707,11 +701,14 @@
     "settings_contribute_donation_desc": {
         "message": "Donating is completely optional, but if you like the extension and want to donate a small amount, you can so by clicking the following link. I appreciate every help I get, be it donation, helping with translations or giving feedback, to improve the extension."
     },
-    "settings_menu_export": {
+    "settings_export": {
         "message": "Export Settings"
     },
-    "settings_menu_import": {
+    "settings_import": {
         "message": "Import Settings"
+    },
+    "settings_import_export_desc": {
+        "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
     },
     "settings_menu_close": {
         "message": "Close this page"

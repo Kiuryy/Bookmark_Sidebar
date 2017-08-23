@@ -42,7 +42,7 @@
          */
         let initImport = async () => {
 
-            s.opts.elm.menuContainer.find("> ul > li > a[" + s.opts.attr.name + "='import'] > input[type='file']").on("change", (e) => { // import config
+            s.opts.elm.buttons.import.on("change", (e) => { // import config
                 e.preventDefault();
                 let _self = e.currentTarget;
 
@@ -89,7 +89,7 @@
          * @returns {Promise}
          */
         let initExport = async () => {
-            s.opts.elm.menuContainer.find("> ul > li > a[" + s.opts.attr.name + "='export']").attr({
+            s.opts.elm.buttons.export.attr({
                 href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.getExportConfig())),
                 download: "bookmark-sidebar.config"
             }).on("click", () => {

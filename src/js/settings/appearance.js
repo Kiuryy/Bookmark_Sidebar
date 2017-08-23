@@ -410,15 +410,6 @@
                 }
             });
 
-            s.opts.elm.appearance.backgroundChanger.on("click", (e) => { // change the background of the appearance page
-                e.preventDefault();
-                let bg = $(e.currentTarget).attr(s.opts.attr.bg);
-                s.opts.elm.appearance.backgroundChanger.removeClass(s.opts.classes.tabs.active);
-                $(e.currentTarget).addClass(s.opts.classes.tabs.active);
-                s.opts.elm.body.attr(s.opts.attr.bg, bg);
-            });
-            s.opts.elm.appearance.backgroundChanger.eq(0).trigger("click");
-
             $(document).on(s.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "appearance") {
                     updatePreviewStyle(e.detail.path[1]);

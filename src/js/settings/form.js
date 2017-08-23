@@ -20,11 +20,14 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            s.opts.elm.tab.children("div").on("scroll", () => {
-                Object.values(s.opts.elm.color).forEach((elm) => {
-                    let picker = elm.data("picker");
-                    picker.fit();
-                });
+            s.opts.elm.content.on("scroll", () => {
+                let path = s.helper.menu.getPath();
+                if (path[0] === "appearance") {
+                    Object.values(s.opts.elm.color).forEach((elm) => {
+                        let picker = elm.data("picker");
+                        picker.fit();
+                    });
+                }
             });
         };
 

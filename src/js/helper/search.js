@@ -9,13 +9,11 @@
          * Initializes the helper
          */
         this.init = () => {
-            let data = ext.helper.model.getData(["b/rememberSearch", "u/searchValue"]);
+            let searchValue = ext.helper.model.getData("u/searchValue");
 
-            if (data.rememberSearch) { // restore search result
-                if (data.searchValue && data.searchValue.length > 0) { // search value is not empty -> restore
-                    ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                    handleSearchValChanged(data.searchValue);
-                }
+            if (searchValue && searchValue.length > 0) { // search value is not empty -> restore
+                ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+                handleSearchValChanged(searchValue);
             }
 
             initEvents();

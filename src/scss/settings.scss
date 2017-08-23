@@ -121,68 +121,29 @@ main button[type='submit'] {
   margin: 10px 0;
 }
 
-// Footer
-main > footer {
-  font-size: 90%;
-}
-
 // Import/Export
-section#menu {
-  position: absolute;
-  top: 0px;
-  right: 20px;
-  min-width: 200px;
-  background: $contentBackground;
-  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
-  transform: translate3d(0, -10px, 0);
-  transition: opacity 0.2s, transform 0.2s;
-  z-index: 5;
-  @extend %hidden;
+a.import, a.export {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  background: $mainColor;
+  color: $textColorInverted;
+  padding: 6px 12px;
+  font-weight: $__fontWeightMedium;
+  font-size: 100%;
+  border-radius: 5px;
+  margin: 10px 0;
 
-  &::before {
-    content: "";
+  > input[type='file'] {
+    cursor: pointer;
     position: absolute;
-    top: -20px;
-    right: 20px;
-    border: 10px solid transparent;
-    border-bottom-color: $contentBackground;
-  }
-
-  &.visible {
-    @extend %visible;
-    transform: translate3d(0, 0, 0);
-  }
-
-  > ul {
-
-    > li {
-
-      > a {
-        display: block;
-        padding: 10px 10px;
-        transition: background 0.3s;
-
-        &:hover {
-          background: $bodyBackground;
-        }
-
-        &[data-name='import'] {
-          position: relative;
-          overflow: hidden;
-
-          > input[type='file'] {
-            cursor: pointer;
-            position: absolute;
-            top: 0;
-            left: -400%;
-            width: 500%;
-            height: 100%;
-            outline: none;
-            opacity: 0;
-            z-index: 2;
-          }
-        }
-      }
-    }
+    top: 0;
+    left: -400%;
+    width: 500%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    z-index: 2;
   }
 }

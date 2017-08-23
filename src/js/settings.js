@@ -55,8 +55,6 @@
                 success: "data-successtext",
                 style: "data-style",
                 hideOnFalse: "data-hideOnFalse",
-                pos: "data-pos",
-                bg: "data-bg",
                 buttons: {
                     save: "data-save",
                     restore: "data-restore"
@@ -85,33 +83,25 @@
                 headline: $("body > header > h1"),
                 buttons: {
                     save: $("body > header > menu > button.save"),
-                    restore: $("body > header > menu > button.restore")
+                    restore: $("body > header > menu > button.restore"),
+                    'import': $("body a.import > input[type='file']"),
+                    'export': $("body a.export"),
+                },
+                appearance: {
+                    content: $("div.tab[data-name='appearance']"),
                 },
                 feedback: {
                     form: $("section.form"),
                     send: $("section.form button[type='submit']"),
                     faq: $("div.faq")
                 },
-                //
-                //
-                //
-                tab: $("section#content > div.tab"),
-                contentTabs: $("ul.labels > li"),
-                contentTabSections: $("ul.labels ~ div[data-name]"),
                 keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
-                menuLink: $("body > header > a"),
-                menuContainer: $("section#menu"),
-                appearance: {
-                    content: $("div.tab[data-name='appearance']"),
-                    backgroundChanger: $("menu.backgroundChanger > a"), // OLD
-                },
                 contribute: {
                     translationTabLink: $("div.tab[data-name='contribute'] ul.labels > li[data-type='translation'] > a"),
                     translationTabContent: $("div.tab[data-name='contribute'] div[data-name='translation']"),
                     donateButton: $("div.tab[data-name='support'] button[type='submit']")
                 },
-
                 preview: {},
                 checkbox: {},
                 range: {},
@@ -229,22 +219,6 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            $(document).on("click", () => {
-                this.opts.elm.menuContainer.removeClass(this.opts.classes.visible);
-            });
-
-            this.opts.elm.menuLink.on("click", (e) => { // show menu with import/export links
-                e.preventDefault();
-                e.stopPropagation();
-
-                this.opts.elm.menuContainer.addClass(this.opts.classes.visible);
-            });
-
-            this.opts.elm.menuContainer.find("> ul > li > a[" + this.opts.attr.name + "='close']").on("click", (e) => { // close settings
-                e.preventDefault();
-                window.close();
-            });
-
             this.opts.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
                 let path = this.helper.menu.getPath();

@@ -21,7 +21,8 @@
                 },
                 color: {
                     field: "color",
-                    mask: "colorMask"
+                    mask: "colorMask",
+                    suggestion: "suggestion"
                 },
                 range: {
                     inactive: "inactive"
@@ -68,7 +69,8 @@
                 },
                 color: {
                     alpha: "data-alpha",
-                    style: "data-color"
+                    style: "data-color",
+                    suggestions: "data-suggestions"
                 },
                 field: {
                     placeholder: "data-placeholder"
@@ -136,9 +138,7 @@
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));
-
                 initHeader();
-                //this.helper.template.footer().appendTo(this.opts.elm.content);
 
                 return this.helper.form.init();
             }).then(() => {

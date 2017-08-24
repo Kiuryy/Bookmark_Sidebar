@@ -659,6 +659,13 @@ input.color {
       background-size: 14px; }
     input.color + span::after {
       background-color: inherit; }
+  input.color ~ span.suggestion {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    border-radius: 5px;
+    margin: 15px 0 0 10px;
+    cursor: pointer; }
 
 input[type='range'] {
   display: inline-block;

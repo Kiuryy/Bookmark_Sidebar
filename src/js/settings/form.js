@@ -80,6 +80,23 @@
                 let picker = new CP(s.opts.elm.color[opts.name][0]);
                 picker.visible = false;
 
+                let suggestionsRaw = $(opts.elm).attr(s.opts.attr.color.suggestions);
+                if (suggestionsRaw) {
+                    let suggestions = JSON.parse(suggestionsRaw);
+                    let suggestionElm = [];
+
+                    suggestions.forEach((suggestion) => {
+                        suggestionElm.push($("<span />").addClass(s.opts.classes.color.suggestion).css("background-color", suggestion).insertAfter(colorInfo));
+                    });
+
+                    $(suggestionElm).on("click", (e) => {
+                        let color = $(e.currentTarget).css("background-color");
+                        picker.set(color);
+                        picker.trigger("change");
+                    });
+                }
+
+
                 if ($(opts.elm).attr(s.opts.attr.color.alpha)) {
                     picker.alpha = $("<input type='range' />").attr({
                         min: 0,

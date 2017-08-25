@@ -82,7 +82,9 @@
                     bookmarksHorizontalPadding: "16px",
                     scrollBarWidth: "11px",
                     overlayMaskColor: "rgba(0,0,0,0.5)",
-                    fontFamily: "default"
+                    fontFamily: "default",
+                    iconShape: "bookmark",
+                    iconColor: "rgb(85,85,85)"
                 }
             }
         };

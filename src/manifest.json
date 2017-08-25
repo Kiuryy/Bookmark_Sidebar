@@ -19,6 +19,7 @@
       "js/background/viewAmount.js",
       "js/background/entries.js",
       "js/background/cache.js",
+      "js/background/icon.js",
       "js/background/port.js",
       "js/background.js"
     ],

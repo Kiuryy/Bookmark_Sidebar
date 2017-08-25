@@ -79,6 +79,11 @@
 
                     delete obj.appearance[f];
                 });
+
+                if (typeof obj.appearance.iconShape === "undefined") {
+                    obj.appearance.iconShape = "logo";
+                }
+
                 // END UPGRADE // v1.10
 
                 // START UPGRADE // v1.9

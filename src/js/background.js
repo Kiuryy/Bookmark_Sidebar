@@ -74,6 +74,7 @@
                 viewAmount: new window.ViewAmountHelper(this),
                 entries: new window.EntriesHelper(this),
                 port: new window.PortHelper(this),
+                icon: new window.IconHelper(this),
                 cache: new window.CacheHelper(this),
                 analytics: new window.AnalyticsHelper(this)
             };
@@ -89,6 +90,7 @@
 
             Promise.all([
                 this.helper.model.init(),
+                this.helper.icon.init(),
                 this.helper.analytics.init(),
                 this.helper.bookmarkApi.init()
             ]).then(() => {

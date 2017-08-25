@@ -162,7 +162,6 @@
                 loader.remove();
                 this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                 this.helper.model.call("trackPageView", {page: "/settings"});
-
             });
         };
 

@@ -46,6 +46,10 @@
 
                             s.opts.elm.select[key][0].value = value;
                             s.opts.elm.select[key].data("initial", value);
+                        } else if (s.opts.elm.radio[key]) {
+                            s.opts.elm.radio[key][0].value = value;
+                            s.opts.elm.radio[key].trigger("change");
+                            s.opts.elm.radio[key].data("initial", value);
                         }
                     });
 
@@ -74,6 +78,7 @@
                 chrome.storage.sync.set({appearance: config}, () => {
                     s.helper.model.call("refreshAllTabs", {type: "Settings"});
                     s.showSuccessMessage("saved_message");
+                    s.helper.model.call("reloadIcon");
                     resolve();
                 });
             });
@@ -200,6 +205,13 @@
                     });
 
                 }
+            } else if (key === "icon") {
+                let config = getCurrentConfig();
+                s.helper.model.call("updateIcon", {
+                    name: config.styles.iconShape,
+                    color: config.styles.iconColor,
+                    onlyCurrentTab: true
+                });
             }
         };
 
@@ -275,6 +287,8 @@
                     ret.styles[key] = s.opts.elm.color[key][0].value;
                 } else if (s.opts.elm.select[key]) {
                     ret.styles[key] = s.opts.elm.select[key][0].value;
+                } else if (s.opts.elm.radio[key]) {
+                    ret.styles[key] = s.opts.elm.radio[key][0].value;
                 }
             });
 
@@ -365,49 +379,52 @@
                 let val = e.currentTarget.value;
                 let initialVal = elm.data("initial");
 
-                if (elm.attr("type") === "checkbox") {
-                    val = e.currentTarget.checked;
+                if (typeof initialVal !== "undefined") {
 
-                    if ($(elm).parent()[0] === s.opts.elm.checkbox.darkMode[0]) { // darkmode checkbox -> change some other colors, too
-                        let textColor = s.helper.model.getDefaultColor("textColor", val ? "dark" : "light");
-                        changeColorValue(s.opts.elm.color.textColor, textColor);
-                        changeColorValue(s.opts.elm.color.bookmarksDirColor, textColor);
+                    if (elm.attr("type") === "checkbox") {
+                        val = e.currentTarget.checked;
 
-                        ["sidebarMaskColor", "colorScheme"].forEach((colorName) => {
-                            let color = s.helper.model.getDefaultColor(colorName, val ? "dark" : "light");
-                            changeColorValue(s.opts.elm.color[colorName], color);
-                        });
+                        if ($(elm).parent()[0] === s.opts.elm.checkbox.darkMode[0]) { // darkmode checkbox -> change some other colors, too
+                            let textColor = s.helper.model.getDefaultColor("textColor", val ? "dark" : "light");
+                            changeColorValue(s.opts.elm.color.textColor, textColor);
+                            changeColorValue(s.opts.elm.color.bookmarksDirColor, textColor);
+
+                            ["sidebarMaskColor", "colorScheme"].forEach((colorName) => {
+                                let color = s.helper.model.getDefaultColor(colorName, val ? "dark" : "light");
+                                changeColorValue(s.opts.elm.color[colorName], color);
+                            });
+                        }
                     }
-                }
 
-                let revertPrevSibling = elm;
-                if (elm.next("span").length() > 0) {
-                    revertPrevSibling = elm.next("span");
-                }
-
-                if (val !== initialVal) {
-                    if (revertPrevSibling.next("a." + s.opts.classes.revert).length() === 0) {
-                        $("<a href='#' />").addClass(s.opts.classes.revert).data("elm", elm).insertAfter(revertPrevSibling);
+                    let box = $(e.currentTarget).parents("div." + s.opts.classes.box).eq(0);
+                    if (val !== initialVal) {
+                        if (box.children("a." + s.opts.classes.revert).length() === 0) {
+                            $("<a href='#' />").addClass(s.opts.classes.revert).data("elm", box).appendTo(box);
+                        }
+                    } else {
+                        box.children("a." + s.opts.classes.revert).remove();
                     }
-                } else {
-                    revertPrevSibling.next("a." + s.opts.classes.revert).remove();
-                }
 
-                let path = s.helper.menu.getPath();
-                updatePreviewStyle(path[1]);
+                    let path = s.helper.menu.getPath();
+                    updatePreviewStyle(path[1]);
+                }
             });
 
             s.opts.elm.appearance.content.on("click", "a." + s.opts.classes.revert, (e) => { // revert the changes of the specific field
                 e.preventDefault();
-                let elm = $(e.currentTarget).data("elm");
-                let value = elm.data("initial");
+                let box = $(e.currentTarget).parent("div." + s.opts.classes.box);
 
-                if (elm.data("picker")) {
-                    changeColorValue(elm, value)
-                } else {
-                    elm[0].value = value;
-                    elm.trigger("change");
-                }
+                box.find("input, select").forEach((elm) => {
+                    let elmObj = $(elm);
+                    let value = elmObj.data("initial");
+
+                    if (elmObj.data("picker")) {
+                        changeColorValue(elmObj, value)
+                    } else if (typeof value !== "undefined") {
+                        elm.value = value;
+                        elmObj.trigger("change");
+                    }
+                });
             });
 
             $(document).on(s.opts.events.pageChanged, (e) => {

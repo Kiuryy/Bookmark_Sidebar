@@ -24,6 +24,9 @@
                     mask: "colorMask",
                     suggestion: "suggestion"
                 },
+                radio: {
+                    wrapper: "radioWrapper"
+                },
                 range: {
                     inactive: "inactive"
                 },
@@ -110,7 +113,8 @@
                 select: {},
                 color: {},
                 textarea: {},
-                field: {}
+                field: {},
+                radio: {}
             },
             events: {
                 pageChanged: "blockbyte-bs-pageChanged"
@@ -259,6 +263,7 @@
                         }
 
                         this.showSuccessMessage("restored_message");
+                        this.helper.model.call("reloadIcon");
 
                         $.delay(1500).then(() => {
                             this.helper.model.call("refreshAllTabs", {type: "Settings"});

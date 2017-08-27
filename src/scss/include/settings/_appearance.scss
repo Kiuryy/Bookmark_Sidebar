@@ -80,11 +80,34 @@ body[data-type^='appearance'] {
                 opacity: 0.9;
               }
             }
+          }
+        }
 
-            a.revert {
-              top: 3px;
-              right: -35px;
-            }
+        ul.radioWrapper {
+
+          span[class^='icon-'] {
+            @include mask(null, $mainColor, 24px);
+            position: relative;
+            display: inline-block;
+            margin-top: -2px;
+            width: 24px;
+            height: 24px;
+          }
+
+          span.icon-bookmark::before {
+            @include maskImage("icon/menu/icon-bookmark");
+          }
+
+          span.icon-bookmark-filled::before {
+            @include maskImage("icon/menu/icon-bookmark-filled");
+          }
+
+          span.icon-star::before {
+            @include maskImage("icon/menu/icon-star");
+          }
+
+          span.icon-star-filled::before {
+            @include maskImage("icon/menu/icon-star-filled");
           }
         }
       }

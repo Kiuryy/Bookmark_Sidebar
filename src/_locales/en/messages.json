@@ -542,6 +542,18 @@
     "settings_tooltip_content_url": {
         "message": "Only url"
     },
+    "settings_sidebar_position": {
+        "message": "Position"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Allows you to set whether the sidebar should open on the left or the right side of the screen."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Left"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Right"
+    },
     "settings_dark_mode": {
         "message": "Surface"
     },
@@ -566,6 +578,9 @@
     "settings_scrollbar_width": {
         "message": "Scrollbar width"
     },
+    "settings_icon_color": {
+        "message": "Color"
+    },
     "settings_indicator_width": {
         "message": "Width"
     },
@@ -577,18 +592,6 @@
     },
     "settings_indicator_icon_color": {
         "message": "Icon color"
-    },
-    "settings_sidebar_position": {
-        "message": "Position"
-    },
-    "settings_sidebar_position_desc": {
-        "message": "Allows you to set whether the sidebar should open on the left or the right side of the screen."
-    },
-    "settings_sidebar_position_left": {
-        "message": "Left"
-    },
-    "settings_sidebar_position_right": {
-        "message": "Right"
     },
     "settings_sidebar_width": {
         "message": "Width"

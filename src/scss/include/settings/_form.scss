@@ -24,6 +24,10 @@ select, input[type='email'], input[type='text'], textarea {
 
 select {
   cursor: pointer;
+
+  &.hidden {
+    display: none;
+  }
 }
 
 textarea {
@@ -79,6 +83,23 @@ input.color {
     border-radius: 5px;
     margin: 15px 0 0 10px;
     cursor: pointer;
+  }
+}
+
+ul.radioWrapper {
+
+  > li {
+    padding: 7px 0;
+
+    > div.checkbox {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 10px 0 0;
+    }
+
+    > span {
+      vertical-align: top;
+    }
   }
 }
 

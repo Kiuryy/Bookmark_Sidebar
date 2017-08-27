@@ -60,12 +60,15 @@
 
                     if (initField[opts.type]) {
                         initField[opts.type](opts).then(elementLoaded);
+                    } else {
+                        elementLoaded();
                     }
 
                     elm.remove();
                 });
             });
         };
+
 
         /**
          * Adds a colorpicker with the given information
@@ -256,6 +259,42 @@
             });
         };
 
+        initField.radio = (opts) => {
+            return new Promise((resolve) => {
+                s.opts.elm.radio[opts.name] = $("<select />").addClass(s.opts.classes.hidden).insertAfter(opts.label);
+                let wrapper = $("<ul />").addClass(s.opts.classes.radio.wrapper).insertAfter(s.opts.elm.radio[opts.name]);
+
+                $(opts.elm).children("span").forEach((span) => {
+                    let value = $(span).attr(s.opts.attr.value);
+                    let entry = $("<li />").attr(s.opts.attr.value, value).appendTo(wrapper);
+
+                    $(s.helper.checkbox.get(s.opts.elm.body, {
+                        [s.opts.attr.name]: opts.name,
+                        [s.opts.attr.value]: value
+                    }, "radio")).appendTo(entry);
+
+                    $(span).appendTo(entry);
+                    $("<option />").attr("value", value).text(value).appendTo(s.opts.elm.radio[opts.name]);
+                });
+
+                s.opts.elm.radio[opts.name].on("change", (e) => {
+                    if (typeof e.detail === "undefined" || e.detail !== "userAction") {
+                        let checkbox = wrapper.find("input[type='checkbox'][" + s.opts.attr.value + "='" + e.currentTarget.value + "']");
+                        if (checkbox.length() > 0) {
+                            checkbox.parent("div").trigger("click");
+                        }
+                    }
+                });
+
+                wrapper.find("input[type='checkbox']").on("change", (e) => {
+                    s.opts.elm.radio[opts.name][0].value = $(e.currentTarget).attr(s.opts.attr.value);
+                    s.opts.elm.radio[opts.name].trigger("change", {detail: "userAction"})
+                });
+
+                resolve();
+            });
+        };
+
         /**
          * Adds a range slidear with the given information
          *
@@ -307,7 +346,7 @@
                     $("<label />").attr(s.opts.attr.i18n, opts.i18n + "_infinity").insertAfter(checkbox);
                     $("<br />").insertBefore(checkbox);
 
-                    checkbox.children("input[type='checkbox'").on("change", (e) => {
+                    checkbox.children("input[type='checkbox']").on("change", (e) => {
                         if (e.currentTarget.checked) {
                             s.opts.elm.range[opts.name].addClass(s.opts.classes.range.inactive);
                         } else {
@@ -330,11 +369,16 @@
         initField.select = (opts) => {
             return new Promise((resolve) => {
                 s.opts.elm.select[opts.name] = $("<select />").insertAfter(opts.label);
-                $(opts.elm).children("span").forEach((option) => {
-                    $("<option />").attr({
-                        value: $(option).attr(s.opts.attr.value),
-                        [s.opts.attr.i18n]: $(option).attr(s.opts.attr.i18n)
-                    }).appendTo(s.opts.elm.select[opts.name]);
+                $(opts.elm).children("span").forEach((span) => {
+                    let i18n = $(span).attr(s.opts.attr.i18n);
+
+                    let option = $("<option />").attr({
+                        value: $(span).attr(s.opts.attr.value),
+                    }).html($(span).html()).appendTo(s.opts.elm.select[opts.name]);
+
+                    if (i18n) {
+                        option.attr(s.opts.attr.i18n, i18n);
+                    }
                 });
                 resolve();
             });

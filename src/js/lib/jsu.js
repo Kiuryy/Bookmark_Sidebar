@@ -1,5 +1,5 @@
 /**
- * jsu v1.1.1
+ * jsu v1.1.2
  *
  * Philipp König
  * https://blockbyte.de/
@@ -720,7 +720,7 @@
             [trigger](eventStr, opts) {
                 let events = eventStr.split(/\s+/g);
                 events[forEach]((event) => {
-                    let eventObj = new Event(event, opts);
+                    let eventObj = new CustomEvent(event, opts);
                     this[forEach]((node) => {
                         node.dispatchEvent(eventObj);
                     });

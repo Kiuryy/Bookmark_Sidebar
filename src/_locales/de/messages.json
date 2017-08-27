@@ -542,6 +542,18 @@
     "settings_tooltip_content_url": {
         "message": "Nur Url"
     },
+    "settings_sidebar_position": {
+        "message": "Position"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Erlaubt es einzustellen, ob die Sidebar sich auf der linken oder rechten Seite des Bildschirms \u00f6ffnen soll."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Links"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Rechts"
+    },
     "settings_dark_mode": {
         "message": "Oberfl\u00e4che"
     },
@@ -566,6 +578,9 @@
     "settings_scrollbar_width": {
         "message": "Scrollbalken-Breite"
     },
+    "settings_icon_color": {
+        "message": "Farbe"
+    },
     "settings_indicator_width": {
         "message": "Breite"
     },
@@ -577,18 +592,6 @@
     },
     "settings_indicator_icon_color": {
         "message": "Symbolfarbe"
-    },
-    "settings_sidebar_position": {
-        "message": "Position"
-    },
-    "settings_sidebar_position_desc": {
-        "message": "Erlaubt es einzustellen, ob die Sidebar sich auf der linken oder rechten Seite des Bildschirms \u00f6ffnen soll."
-    },
-    "settings_sidebar_position_left": {
-        "message": "Links"
-    },
-    "settings_sidebar_position_right": {
-        "message": "Rechts"
     },
     "settings_sidebar_width": {
         "message": "Breite"

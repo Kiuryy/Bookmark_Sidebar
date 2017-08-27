@@ -287,6 +287,8 @@
                     websiteStatus: checkWebsiteStatus,
                     trackPageView: b.helper.analytics.trackPageView,
                     trackEvent: b.helper.analytics.trackEvent,
+                    updateIcon: b.helper.icon.set,
+                    reloadIcon: b.helper.icon.init,
                     addViewAmount: b.helper.viewAmount.addByUrl,
                     viewAmounts: b.helper.viewAmount.getAll,
                     updateEntries: b.helper.entries.update,
@@ -295,8 +297,9 @@
 
                 chrome.runtime.onConnect.addListener((port) => {
                     if (port.name && port.name === "background") {
-                        port.onMessage.addListener((message) => {
+                        port.onMessage.addListener((message, info) => {
                             if (mapping[message.type]) { // function for message type exists
+                                message.tabInfo = info.sender.tab;
                                 mapping[message.type](message).then((result) => {
                                     port.postMessage({
                                         uid: message.uid,

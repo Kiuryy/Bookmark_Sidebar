@@ -460,9 +460,29 @@ body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
         body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox.active::after {
           transform: translate3d(30px, 0, 0);
           opacity: 0.9; }
-      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox a.revert {
-        top: 3px;
-        right: -35px; }
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span[class^='icon-'] {
+      position: relative;
+      display: inline-block;
+      margin-top: -2px;
+      width: 24px;
+      height: 24px; }
+      body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span[class^='icon-']::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/24px;
+        background-color: #7b5fa4; }
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-bookmark::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-bookmark.svg); }
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-bookmark-filled::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-bookmark-filled.svg); }
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-star::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-star.svg); }
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-star-filled::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-star-filled.svg); }
 
 body[data-type^='appearance'] > section#wrapper > main.small div.boxWrapper {
   display: block; }
@@ -622,6 +642,8 @@ select, input[type='email'], input[type='text'], textarea {
 
 select {
   cursor: pointer; }
+  select.hidden {
+    display: none; }
 
 textarea {
   display: block;
@@ -666,6 +688,15 @@ input.color {
     border-radius: 5px;
     margin: 15px 0 0 10px;
     cursor: pointer; }
+
+ul.radioWrapper > li {
+  padding: 7px 0; }
+  ul.radioWrapper > li > div.checkbox {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 0 0; }
+  ul.radioWrapper > li > span {
+    vertical-align: top; }
 
 input[type='range'] {
   display: inline-block;

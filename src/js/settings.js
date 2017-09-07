@@ -30,6 +30,19 @@
                 range: {
                     inactive: "inactive"
                 },
+                translation: {
+                    select: "languageSelect",
+                    category: "category",
+                    edit: "edit",
+                    progress: "progress",
+                    mark: "mark",
+                    requiredInfo: "requiredInfo",
+                    amountInfo: "amountInfo",
+                    empty: "empty",
+                    back: "back",
+                    hover: "hover",
+                    goto: "goto"
+                },
                 checkbox: {
                     box: "checkbox",
                     active: "active",
@@ -47,6 +60,8 @@
                 small: "small",
                 desc: "desc",
                 box: "box",
+                boxWrapper: "boxWrapper",
+                contentBox: "contentBox",
                 action: "action",
                 incomplete: "incomplete"
             },
@@ -77,6 +92,10 @@
                 },
                 field: {
                     placeholder: "data-placeholder"
+                },
+                translation: {
+                    releaseStatus: "data-status",
+                    language: "data-lang"
                 }
             },
             elm: {
@@ -100,6 +119,12 @@
                     send: $("section.form button[type='submit']"),
                     faq: $("div.faq")
                 },
+                translation: {
+                    wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
+                    overview: $("div.tab[data-name='language'] > div[data-name='translate'] > div.overview"),
+                    langvars: $("div.tab[data-name='language'] > div[data-name='translate'] > div.langvars"),
+                    unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")
+                },
                 keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
                 contribute: {
@@ -121,7 +146,11 @@
             },
             ajax: {
                 feedback: "https://extensions.blockbyte.de/ajax/feedback",
-                translationInfo: "https://extensions.blockbyte.de/ajax/bs/i18n/info"
+                translation: {
+                    info: "https://extensions.blockbyte.de/ajax/bs/i18n/info",
+                    langvars: "https://extensions.blockbyte.de/ajax/bs/i18n/langvars",
+                    submit: "https://extensions.blockbyte.de/ajax/bs/i18n/submit"
+                }
             },
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
             manifest: chrome.runtime.getManifest()
@@ -157,6 +186,7 @@
                     this.helper.behaviour.init(),
                     this.helper.appearance.init(),
                     this.helper.feedback.init(),
+                    this.helper.translation.init(),
                     this.helper.contribute.init(),
                     this.helper.importExport.init(),
                 ]);
@@ -200,6 +230,7 @@
                 i18n: new window.I18nHelper(this),
                 font: new window.FontHelper(this),
                 stylesheet: new window.StylesheetHelper(this),
+                translation: new window.TranslationHelper(this),
                 menu: new window.MenuHelper(this),
                 form: new window.FormHelper(this),
                 behaviour: new window.BehaviourHelper(this),
@@ -225,26 +256,26 @@
             this.opts.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
-                let isLanguage = false;
-
-                if (path[0] === "language" && path[1] === "general") { // language was been changed
-                    path[0] = "settings";
-                    isLanguage = true;
-                }
 
                 switch (path[0]) {
                     case "settings": {
-                        this.helper.behaviour.save().then(() => {
-                            if (isLanguage) { // reload page after language change
-                                $.delay(1500).then(() => {
-                                    location.reload(true);
-                                });
-                            }
-                        });
+                        this.helper.behaviour.save();
                         break;
                     }
                     case "appearance": {
                         this.helper.appearance.save();
+                        break;
+                    }
+                    case "language": {
+                        if (path[1] === "translate") {
+                            this.helper.translation.submit();
+                        } else {
+                            this.helper.behaviour.saveLanguage().then(() => {
+                                return $.delay(1500);
+                            }).then(() => {
+                                location.reload(true);
+                            });
+                        }
                         break;
                     }
                 }

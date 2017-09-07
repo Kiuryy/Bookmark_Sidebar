@@ -35,18 +35,26 @@ body > header {
     color: $textColorInverted;
     font-weight: $__fontWeightLight;
 
-    > span + span {
-      position: relative;
-      margin-left: 24px;
+    > span {
+      cursor: pointer;
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 9px;
-        left: -14px;
-        border: 5px solid transparent;
-        border-left-color: $textColorInverted;
-        opacity: 0.5;
+      + span {
+        position: relative;
+        margin-left: 24px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 9px;
+          left: -14px;
+          border: 5px solid transparent;
+          border-left-color: $textColorInverted;
+          opacity: 0.5;
+        }
+      }
+
+      &:last-child {
+        pointer-events: none;
       }
     }
   }

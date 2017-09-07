@@ -168,8 +168,9 @@
                 </div>
             </div>
 
+
             <!-- Import/Export -->
-            <div data-name="export">
+            <div data-name="export" data-save="false" data-restore="false">
                 <div class="boxWrapper">
                     <div class="box">
                         <a href="#" class="export" data-i18n="settings_export"></a>&ensp;
@@ -318,9 +319,29 @@
                 </div>
             </div>
 
-            <div data-name="translate">
-                <div class="contentBox">
-                    @toDo
+            <div data-name="translate" data-save="translation_submit">
+                <div class="overview">
+                    <div class="contentBox notice">
+                        <p data-i18n="translation_contribution_info"></p>
+                    </div>
+
+                    <div class="boxWrapper"></div>
+                </div>
+
+                <div class="langvars">
+                    <div class="contentBox notice">
+                        <p data-i18n="translation_contribution_notice1"></p>
+                        <p data-i18n="translation_contribution_notice2"></p>
+                    </div>
+
+                    <div class="boxWrapper"></div>
+                </div>
+
+                <div class="unavailable">
+                    <div class="contentBox notice">
+                        <h2 data-i18n="status_service_unavailable_headline"></h2>
+                        <p data-i18n="status_translation_unavailable_desc"></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,6 +431,7 @@
 <script src='/js/settings/appearance.js'></script>
 <script src='/js/settings/feedback.js'></script>
 <script src='/js/settings/contribute.js'></script>
+<script src='/js/settings/translation.js'></script>
 <script src='/js/settings/menu.js'></script>
 <script src='/js/settings/importExport.js'></script>
 <!-- [END REMOVE] -->

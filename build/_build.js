@@ -102,7 +102,6 @@
                             path.tmp + 'extension.js',
                             path.tmp + 'settings.js',
                             path.tmp + 'background.js',
-                            path.src + 'js/translation.js',
                             path.src + 'js/onboarding.js',
                             path.src + 'js/changelog.js'
                         ], path.dist + "js/"),
@@ -130,7 +129,6 @@
             return new Promise((resolve) => {
                 func.replace({
                     [path.src + 'html/settings.html']: path.tmp + 'html/settings.html',
-                    [path.src + 'html/translate.html']: path.tmp + 'html/translate.html',
                     [path.src + 'html/changelog.html']: path.tmp + 'html/changelog.html',
                     [path.src + 'html/intro.html']: path.tmp + 'html/intro.html'
                 }, [

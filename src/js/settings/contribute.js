@@ -9,48 +9,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            handleTranslationInfo();
             initEvents();
-        };
-
-        /**
-         * Adds notices to the settings if the language of the user has published categories which are incomplete
-         *
-         * @returns {Promise}
-         */
-        let handleTranslationInfo = async () => {
-            let language = s.helper.i18n.getLanguage();
-
-            if (language !== s.helper.i18n.getDefaultLanguage()) {
-                $.xhr(s.opts.ajax.translationInfo).then((xhr) => {
-                    let infos = JSON.parse(xhr.responseText);
-
-                    if (infos && infos.languages) {
-                        infos.languages.some((lang) => {
-                            if (lang.name === language) { // current language
-                                Object.keys(lang.categories).some((name) => {
-                                    if ((name !== "Settings" || lang.categories[name] / infos.categories[name] * 100 > 75) && infos.categories[name] > lang.categories[name]) { // a published category of this language is imcomplete
-                                        // s.opts.elm.header.find("> ul." + s.opts.classes.tabs.list + " > li[" + s.opts.attr.name + "='contribute']")
-                                        //     .attr("title", s.helper.i18n.get("translation_incomplete_info"))
-                                        //     .addClass(s.opts.classes.incomplete);
-
-                                        $("<br />").appendTo(s.opts.elm.contribute.translationTabContent);
-                                        $("<p />")
-                                            .addClass(s.opts.classes.incomplete)
-                                            .text(s.helper.i18n.get("translation_incomplete_info"))
-                                            .appendTo(s.opts.elm.contribute.translationTabContent);
-
-                                        s.opts.elm.contribute.translationTabLink.trigger("click");
-                                        return true;
-                                    }
-                                });
-
-                                return true;
-                            }
-                        });
-                    }
-                });
-            }
         };
 
         /**

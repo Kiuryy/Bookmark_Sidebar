@@ -261,17 +261,21 @@ body > header {
     padding: 10px 0 0 0;
     color: #fff;
     font-weight: "%fontWeightLight"; }
-    body > header > h1 > span + span {
-      position: relative;
-      margin-left: 24px; }
-      body > header > h1 > span + span::before {
-        content: "";
-        position: absolute;
-        top: 9px;
-        left: -14px;
-        border: 5px solid transparent;
-        border-left-color: #fff;
-        opacity: 0.5; }
+    body > header > h1 > span {
+      cursor: pointer; }
+      body > header > h1 > span + span {
+        position: relative;
+        margin-left: 24px; }
+        body > header > h1 > span + span::before {
+          content: "";
+          position: absolute;
+          top: 9px;
+          left: -14px;
+          border: 5px solid transparent;
+          border-left-color: #fff;
+          opacity: 0.5; }
+      body > header > h1 > span:last-child {
+        pointer-events: none; }
   body > header > menu {
     display: inline-block;
     margin: 10px 30px 0 0;
@@ -377,7 +381,7 @@ body > section#wrapper {
           font-style: italic; }
         body > section#wrapper > main div.boxWrapper > div.box p.info {
           margin: 20px 0 10px;
-          line-height: 140%; }
+          line-height: 150%; }
           body > section#wrapper > main div.boxWrapper > div.box p.info > a {
             color: #2b35c8;
             font-weight: "%fontWeightMedium"; }
@@ -524,7 +528,7 @@ iframe[data-appearance='overlay'] {
     display: block; } }
 
 div.tab[data-name='feedback'] p {
-  line-height: 140%; }
+  line-height: 150%; }
 
 div.tab[data-name='feedback'] div.faq {
   padding-top: 10px; }
@@ -613,7 +617,7 @@ div.tab[data-name='feedback'] section.form {
     height: 180px; }
 
 div.tab[data-name='support'] p {
-  line-height: 140%; }
+  line-height: 150%; }
 
 div.tab[data-name='support'] hr {
   border: none;
@@ -649,7 +653,8 @@ textarea {
   display: block;
   width: 100%;
   height: 300px;
-  padding: 5px; }
+  padding: 5px;
+  resize: vertical; }
 
 input.color {
   display: inline-block;
@@ -779,6 +784,250 @@ input[type='range'] {
     input[type='range'].inactive + span {
       opacity: 0.2;
       pointer-events: none; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div {
+  display: none; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.visible {
+    display: block; }
+
+div.tab[data-name='language'] > div[data-name='translate'] div.notice {
+  line-height: 140%; }
+  div.tab[data-name='language'] > div[data-name='translate'] div.notice::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/32px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+    background-color: #aaa; }
+  div.tab[data-name='language'] > div[data-name='translate'] div.notice::before {
+    -webkit-mask-position-x: 15px; }
+  div.tab[data-name='language'] > div[data-name='translate'] div.notice > p {
+    padding: 3px 0 3px 40px; }
+  div.tab[data-name='language'] > div[data-name='translate'] div.notice > h2 {
+    padding: 0 0 0 40px;
+    margin-bottom: 5px; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box {
+  cursor: pointer; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > select {
+    margin: 0; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > div.progress {
+    position: relative;
+    width: 200px;
+    height: 3px;
+    margin: 15px 0 0 0;
+    background: rgba(0, 0, 0, 0.1); }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > div.progress > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: auto;
+      height: 100%;
+      background: #7b5fa4; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > div.progress::before {
+      content: attr(data-value);
+      position: absolute;
+      top: -5px;
+      right: -50px;
+      width: 50px;
+      padding: 0 0 0 3px;
+      font-size: 80%;
+      color: #aaa; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > span {
+    display: block;
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: help; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box[data-status='released'] > span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/24px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.svg);
+    background-color: #5eba7d; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box[data-status='draft'] > span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/24px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
+    background-color: #f99; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box[data-status='incomplete'] > span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/22px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+    background-color: #f5c525; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box.mark > strong {
+    color: #fff;
+    padding: 3px 7px 4px; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box.mark[data-status='released'] > strong {
+    background: #5eba7d; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box.mark[data-status='draft'] > strong {
+    background: #f99; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box.mark[data-status='incomplete'] > strong {
+    background: #f5c525; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.langvars.loading > div.notice {
+  display: none; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.langvars > svg.loading {
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 18px); }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box {
+  cursor: pointer; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box > strong {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: "%fontWeightMedium";
+    color: #2b35c8;
+    font-size: 120%; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box > span.amountInfo {
+    position: relative;
+    display: block;
+    float: right;
+    margin: 2px 0 0 0;
+    color: #aaa; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box > span.requiredInfo {
+    display: inline-block;
+    font-size: 80%;
+    margin: 4px 0 0 10px;
+    color: #aaa; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box.incomplete > span.amountInfo > span {
+    color: #fff;
+    background: #f99;
+    font-weight: "%fontWeightMedium";
+    padding: 0 3px;
+    font-size: 90%; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.box > ul {
+    display: none; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.category {
+  padding: 0 !important; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.category > header {
+    position: sticky;
+    top: -35px;
+    background: #fff;
+    box-shadow: 0 5px 7px -2px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > span.amountInfo {
+      float: right;
+      margin-right: 15px; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a {
+      position: relative;
+      cursor: pointer; }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.back {
+        padding-left: 15px; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.back::before {
+          content: "";
+          position: absolute;
+          top: 3px;
+          left: 0;
+          width: 10px;
+          height: 10px;
+          border-top: 2px solid #aaa;
+          border-left: 2px solid #aaa;
+          transform: rotateZ(-45deg); }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.goto {
+        float: right;
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        margin: -5px 0 0 3px;
+        transition: background 0.5s; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.goto:hover {
+          background: #f5f5f5; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.goto::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 8px;
+          display: block;
+          border-top: 3px solid #aaa;
+          border-right: 3px solid #aaa;
+          width: 10px;
+          height: 10px; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.goto[data-value='up']::after {
+          transform: rotateZ(-45deg);
+          top: 10px; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > a.goto[data-value='down']::after {
+          transform: rotateZ(135deg);
+          top: 6px; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.category.incomplete > header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/24px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+    background-color: #f5c525; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.category.incomplete > header::before {
+    left: auto;
+    right: 80px;
+    width: 24px; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul {
+    margin-top: 15px; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      padding: 10px 0;
+      transition: background 0.5s;
+      border-top: 1px solid rgba(0, 0, 0, 0.1); }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li:first-child {
+        border: none; }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div {
+        width: 40%;
+        padding: 0 20px; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > label {
+          padding: 0 0 5px 0; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span {
+          font-size: 80%;
+          font-style: italic; }
+          div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span > span {
+            display: block;
+            font-weight: "%fontWeightMedium";
+            font-style: normal; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > textarea {
+          height: 70px;
+          margin: 0;
+          transition: box-shadow 0.5s, background 0.5s; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div + div {
+          width: 60%; }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li:hover, div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover {
+        background: #f5f5f5; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li:hover > div > textarea, div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > textarea {
+          background: rgba(255, 255, 255, 0.5); }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > textarea {
+        box-shadow: 0 0 10px rgba(43, 53, 200, 0.2); }
 
 body > section#wrapper > aside {
   width: 240px;

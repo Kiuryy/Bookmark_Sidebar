@@ -85,6 +85,27 @@
         };
 
         /**
+         * Save the user language
+         *
+         * @returns {Promise}
+         */
+        this.saveLanguage = () => {
+            return new Promise((resolve) => {
+                chrome.storage.sync.get(["behaviour"], (obj) => {
+                    let config = obj.behaviour || {};
+                    config.language = s.opts.elm.select.language[0].value;
+
+                    chrome.storage.sync.set({behaviour: config}, () => {
+                        s.helper.model.call("refreshAllTabs", {type: "Settings"});
+                        s.showSuccessMessage("saved_message");
+                        resolve();
+                    });
+                });
+
+            });
+        };
+
+        /**
          * Initialises the eventhandlers
          */
         let initEvents = () => {

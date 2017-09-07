@@ -1,5 +1,5 @@
 /**
- * jsu v1.1.2
+ * jsu v1.1.3
  *
  * Philipp König
  * https://blockbyte.de/
@@ -737,8 +737,14 @@
              * @returns {jsuNode}
              */
             [addClass](cl) {
+                if (typeof cl !== "object") {
+                    cl = [cl];
+                }
+
                 this[forEach]((node) => {
-                    node.classList.add(cl);
+                    cl.forEach((c) => {
+                        node.classList.add(c);
+                    });
                 });
                 return this;
             }
@@ -751,8 +757,14 @@
              * @returns {jsuNode}
              */
             [removeClass](cl) {
+                if (typeof cl !== "object") {
+                    cl = [cl];
+                }
+
                 this[forEach]((node) => {
-                    node.classList.remove(cl);
+                    cl.forEach((c) => {
+                        node.classList.remove(c);
+                    });
                 });
                 return this;
             }

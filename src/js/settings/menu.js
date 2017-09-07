@@ -2,6 +2,8 @@
     "use strict";
 
     window.MenuHelper = function (s) {
+        let running = false;
+        let initial = true;
         let list = null;
         let currentPath = null;
         let currentPage = null;
@@ -18,7 +20,10 @@
                 let menupointLoaded = () => {
                     menuParsing--;
                     if (menuParsing === 0) {
-                        handleNavigationChange().then(resolve);
+                        handleNavigationChange().then(() => {
+                            initial = false;
+                            resolve();
+                        });
                     }
                 };
 
@@ -51,12 +56,24 @@
             });
         };
 
-        this.getPage = () => {
-            return currentPage || $();
-        };
+        this.getPage = () => currentPage || $();
+        this.getPath = () => currentPath;
 
-        this.getPath = () => {
-            return currentPath;
+        this.addBreadcrumb = (obj) => {
+            s.opts.elm.content[0].scrollTop = 0;
+
+            if (obj.depth && currentPath.length >= obj.depth) { // change the breadcrumb entry at a specific position
+                currentPath[obj.depth - 1] = obj.alias;
+                s.opts.elm.headline.children("span").forEach((elm, i) => {
+                    if (i >= obj.depth - 1) {
+                        $(elm).remove();
+                    }
+                });
+            } else {
+                currentPath.push(obj.alias);
+            }
+
+            s.opts.elm.headline.append("<span>" + obj.label + "</span>");
         };
 
         let handleNavigationChange = () => {
@@ -87,6 +104,11 @@
                 }
             });
 
+            s.opts.elm.headline.on("click", "span", (e) => {
+                let idx = $(e.currentTarget).prevAll().length();
+                showPage(...currentPath.slice(0, idx + 1));
+            });
+
             $(window).on("popstate", () => {
                 handleNavigationChange();
             });
@@ -94,18 +116,29 @@
 
         let updateHeaderMenu = () => {
             let path = this.getPath();
-            let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']");
+            let pages = [
+                s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']")
+            ];
+
+            if (path[1]) {
+                pages.unshift(pages[0].children("div[" + s.opts.attr.name + "='" + path[1] + "']"));
+            }
 
             ["save", "restore"].forEach((type) => {
-                let info = page.attr(s.opts.attr.buttons[type]);
-
-                if (info && info !== "false" && path[1] !== "export") { // show button is attribute is available and the current page is not the import/export sub page
-                    s.opts.elm.buttons[type]
-                        .html(info === "true" ? "" : s.helper.i18n.get(info))
-                        .removeClass(s.opts.classes.hidden);
-                } else {
+                pages.some((page) => {
+                    let info = page.attr(s.opts.attr.buttons[type]);
                     s.opts.elm.buttons[type].addClass(s.opts.classes.hidden);
-                }
+
+                    if (info) { // attribute is available
+                        if (info !== "false") {
+                            s.opts.elm.buttons[type]
+                                .html(info === "true" ? "" : s.helper.i18n.get(info))
+                                .removeClass(s.opts.classes.hidden);
+                        }
+
+                        return true;
+                    }
+                });
             });
         };
 
@@ -120,57 +153,75 @@
         };
 
         let showPage = (...path) => {
-            hidePages();
+            return new Promise((resolve) => {
+                if (!running) { // prevent popstate and event both running this method
+                    running = true;
+                    let pathLen = path.length;
+                    let breadcrumb = [];
+                    let menu = list.children("li[" + s.opts.attr.name + "='" + path[0] + "']");
+                    let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']");
 
-            let pathLen = path.length;
-            let breadcrumb = [];
-            let menu = list.children("li[" + s.opts.attr.name + "='" + path[0] + "']");
-            let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']");
+                    if (pathLen === 1 && page.find("> div[" + s.opts.attr.name + "]").length() > 0) {
+                        path.push(page.find("> div[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name));
+                        pathLen++;
+                    }
 
-            if (pathLen === 1 && page.find("> div[" + s.opts.attr.name + "]").length() > 0) {
-                path.push(page.find("> div[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name));
-                pathLen++;
-            }
+                    let hash = path.join("_");
+                    hidePages();
 
-            for (let i = 1; i <= pathLen; i++) {
-                menu.addClass(s.opts.classes.tabs.active);
-                page.addClass(s.opts.classes.tabs.active);
-                breadcrumb.push(menu.children("a").html());
+                    for (let i = 1; i <= pathLen; i++) {
+                        let menuParent = menu.parent("ul");
 
-                let menuParent = menu.parent("ul");
-                if (menuParent.data("height")) {
-                    menuParent.css("height", menuParent.data("height"));
+                        if (menuParent && menuParent.length() > 0) {
+                            menu.addClass(s.opts.classes.tabs.active);
+                            page.addClass(s.opts.classes.tabs.active);
+                            breadcrumb.push(menu.children("a").html());
+
+
+                            if (menuParent.data("height")) {
+                                menuParent.css("height", menuParent.data("height"));
+                            }
+
+                            if (i < pathLen) {
+                                menu = menu.find("> ul > li[" + s.opts.attr.name + "='" + path[i] + "']");
+                                page = page.find("> div[" + s.opts.attr.name + "='" + path[i] + "']");
+                            }
+                        }
+                    }
+
+                    s.opts.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
+                    s.opts.elm.body.attr(s.opts.attr.type, hash);
+
+                    location.hash = hash;
+                    currentPage = page;
+                    currentPath = path;
+
+                    s.opts.elm.content[0].scrollTop = 0;
+                    updateHeaderMenu();
+                    s.opts.elm.header.css("padding-right", "");
+                    s.opts.elm.content.css("padding-right", "");
+
+                    document.dispatchEvent(new CustomEvent(s.opts.events.pageChanged, {
+                        detail: {
+                            path: path
+                        },
+                        bubbles: true,
+                        cancelable: false
+                    }));
+
+                    s.helper.model.call("trackEvent", {
+                        category: "settings",
+                        action: "page",
+                        label: hash
+                    });
+
+                    $.delay().then(() => {
+                        running = false;
+                        resolve();
+                    });
+                } else {
+                    resolve();
                 }
-
-                if (i < pathLen) {
-                    menu = menu.find("> ul > li[" + s.opts.attr.name + "='" + path[i] + "']");
-                    page = page.find("> div[" + s.opts.attr.name + "='" + path[i] + "']");
-                }
-            }
-
-            s.opts.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
-            s.opts.elm.body.attr(s.opts.attr.type, path.join("_"));
-
-            location.hash = path.join("_");
-            currentPage = page;
-            currentPath = path;
-
-            updateHeaderMenu();
-            s.opts.elm.header.css("padding-right", "");
-            s.opts.elm.content.css("padding-right", "");
-
-            document.dispatchEvent(new CustomEvent(s.opts.events.pageChanged, {
-                detail: {
-                    path: path
-                },
-                bubbles: true,
-                cancelable: false
-            }));
-
-            s.helper.model.call("trackEvent", {
-                category: "settings",
-                action: "page",
-                label: path.join("_")
             });
         };
     };

@@ -70,7 +70,7 @@
                 }
 
                 // START UPGRADE // v1.10
-                chrome.storage.sync.remove(["utility"]);
+                chrome.storage.sync.remove(["utility", "nt_notice"]);
 
                 ["sidebarPosition", "language"].forEach((f) => {
                     if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {

@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "60",
+  "minimum_chrome_version": "61",
   "homepage_url": "https://extensions.blockbyte.de/",
   "background": {
     "scripts": [
@@ -81,5 +81,9 @@
     "unlimitedStorage",
     "fontSettings",
     "chrome://favicon/"
+  ],
+  "optional_permissions": [
+    "tabs",
+    "topSites"
   ]
 }

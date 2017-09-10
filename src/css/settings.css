@@ -1035,60 +1035,70 @@ body > section#wrapper > aside {
   background: #e9e9e9;
   padding: 20px 10px 0;
   overflow: auto; }
+  body > section#wrapper > aside > nav > ul > li[data-name='sidebar'] > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/20px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg);
+    background-color: #666; }
+  body > section#wrapper > aside > nav > ul > li[data-name='appearance'] > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/20px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg);
+    background-color: #666; }
+  body > section#wrapper > aside > nav > ul > li[data-name='newtab'] > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/18px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-newtab.svg);
+    background-color: #666; }
+  body > section#wrapper > aside > nav > ul > li[data-name='language'] > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/20px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-translate.svg);
+    background-color: #666; }
+  body > section#wrapper > aside > nav > ul > li[data-name='feedback'] > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/16px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
+    background-color: #666; }
+  body > section#wrapper > aside > nav > ul > li[data-name='support'] > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/18px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-support.svg);
+    background-color: #666; }
   body > section#wrapper > aside > nav ul > li {
     position: relative;
     display: block;
     line-height: 45px; }
-    body > section#wrapper > aside > nav ul > li[data-name='settings'] > a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-mask: no-repeat center/20px;
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg);
-      background-color: #666; }
-    body > section#wrapper > aside > nav ul > li[data-name='appearance'] > a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-mask: no-repeat center/20px;
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg);
-      background-color: #666; }
-    body > section#wrapper > aside > nav ul > li[data-name='language'] > a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-mask: no-repeat center/20px;
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-translate.svg);
-      background-color: #666; }
-    body > section#wrapper > aside > nav ul > li[data-name='feedback'] > a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-mask: no-repeat center/18px;
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
-      background-color: #666; }
-    body > section#wrapper > aside > nav ul > li[data-name='support'] > a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-mask: no-repeat center/20px;
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-support.svg);
-      background-color: #666; }
     body > section#wrapper > aside > nav ul > li > a {
       position: relative;
       display: block;

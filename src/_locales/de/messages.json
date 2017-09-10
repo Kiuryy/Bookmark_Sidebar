@@ -299,22 +299,19 @@
     "settings_title": {
         "message": "Einstellungen"
     },
-    "settings_menu_settings": {
-        "message": "Einstellungen"
-    },
-    "settings_menu_settings_general": {
-        "message": "Allgemein"
-    },
-    "settings_menu_settings_toggle": {
-        "message": "Ein\/Ausblenden"
-    },
-    "settings_menu_settings_sidebar": {
+    "settings_menu_sidebar": {
         "message": "Sidebar"
     },
-    "settings_menu_settings_tooltip": {
+    "settings_menu_sidebar_general": {
+        "message": "Allgemein"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Ein\/Ausblenden"
+    },
+    "settings_menu_sidebar_tooltip": {
         "message": "Tooltip"
     },
-    "settings_menu_settings_export": {
+    "settings_menu_sidebar_export": {
         "message": "Import\/Export"
     },
     "settings_menu_appearance": {
@@ -335,6 +332,9 @@
     "settings_menu_appearance_overlay": {
         "message": "Overlay"
     },
+    "settings_menu_newtab": {
+        "message": "Neuer Tab"
+    },
     "settings_menu_language": {
         "message": "Sprache"
     },
@@ -350,17 +350,17 @@
     "settings_menu_support": {
         "message": "Unterst\u00fctzen"
     },
-    "settings_headline_faq": {
-        "message": "H\u00e4ufig gestellte Fragen"
+    "settings_save": {
+        "message": "\u00c4nderungen speichern"
     },
-    "settings_headline_share_userdata": {
-        "message": "Informationen teilen"
+    "settings_saved_message": {
+        "message": "\u00c4nderungen erfolgreich gespeichert"
     },
-    "settings_headline_donation": {
-        "message": "Spenden"
+    "settings_restore": {
+        "message": "Standard wiederherstellen"
     },
-    "settings_headline_translation": {
-        "message": "\u00dcbersetzen"
+    "settings_restored_message": {
+        "message": "Die Einstellungen wurden erfolgreich zur\u00fcckgesetzt"
     },
     "settings_animations": {
         "message": "Animation aktivieren"
@@ -554,11 +554,26 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_dark_mode": {
-        "message": "Oberfl\u00e4che"
+    "settings_import_export_desc": {
+        "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
+    },
+    "settings_export": {
+        "message": "Konfiguration exportieren"
+    },
+    "settings_import": {
+        "message": "Konfiguration importieren"
+    },
+    "settings_import_saved": {
+        "message": "Konfiguration erfolgreich importiert"
+    },
+    "settings_import_failed": {
+        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
     "settings_color_scheme": {
         "message": "Farbschema"
+    },
+    "settings_dark_mode": {
+        "message": "Oberfl\u00e4che"
     },
     "settings_color_scheme_desc": {
         "message": "Die Farbe der Kopfleiste der Sidebar, Checkboxen, usw."
@@ -632,54 +647,6 @@
     "settings_overlay_mask_color": {
         "message": "Maskenfarbe"
     },
-    "settings_save": {
-        "message": "\u00c4nderungen speichern"
-    },
-    "settings_saved_message": {
-        "message": "\u00c4nderungen erfolgreich gespeichert"
-    },
-    "settings_restore": {
-        "message": "Standard wiederherstellen"
-    },
-    "settings_restored_message": {
-        "message": "Die Einstellungen wurden erfolgreich zur\u00fcckgesetzt"
-    },
-    "settings_feedback_desc": {
-        "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern bin ich f\u00fcr jedes Feedback dankbar."
-    },
-    "settings_feedback_notice": {
-        "message": "Du kannst die Nachricht gerne auf Deutsch schreiben, oder alternativ in Englisch."
-    },
-    "settings_feedback_email": {
-        "message": "Deine E-Mail Adresse"
-    },
-    "settings_feedback_send": {
-        "message": "Feedback abschicken"
-    },
-    "settings_feedback_sent_message": {
-        "message": "Vielen Dank f\u00fcr dein Feedback"
-    },
-    "settings_feedback_send_failed": {
-        "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
-    },
-    "settings_faq_usage_q": {
-        "message": "Wie kann ich die Sidebar \u00f6ffnen?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Du kannst dir das [a]Tuturial[\/a] ansehen, um zu sehen, wie du die Sidebar \u00f6ffnen kannst und es anschlie\u00dfend auf jeder Webseite selbst ausprobieren. Wenn du weiterhin Probleme mit der Erweiterung hast, lies dir bitte die andere beantwortete Frage \u00fcber den Grund, warum die Sidebar nicht auf jeder Seite funktioniert, durch, oder sende mir eine Nachricht mit Details zu deinem Problem."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Kannst du die Sidebar permanent offen lassen?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Leider kann ich das nicht. Google hat die M\u00f6glichkeit einer echten Sidebar, wie im Firefox, vor ein paar Jahren entfernt. Ohne die Programmierschnittstelle muss die Sidebar bei jedem Seitenaufruf erneut geladen werden."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Warum funktioniert die Sidebar auf manchen Seiten, wie dem Chrome Webstore nicht?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Das kann mehrere Gr\u00fcnde haben. Im Chrome Webstore und Seiten die mit [em]chrome-extension:\/\/[\/em] beginnen funktioniert es durch Sicherheitseinschr\u00e4nkungen nicht. Es gibt jedoch auch Seiten, die das Laden der Sidebar blockieren oder veraltete Quellcode-Strukturen besitzen. Wenn du Probleme auf manchen Seiten feststellst, lass es mich wissen, damit ich mir die entsprechende Seite ansehen und versuchen kann das Problem zu beheben."
-    },
     "settings_language": {
         "message": "Sprache"
     },
@@ -689,53 +656,14 @@
     "settings_language_desc": {
         "message": "Die Sprache der Oberfl\u00e4che"
     },
-    "settings_saved_share_userdata": {
-        "message": "Deine Einstellung wurde erfolgreich gespeichert"
-    },
     "settings_contribute_translation_link": {
         "message": "Zur \u00dcbersicht"
     },
     "settings_contribute_translation_desc": {
         "message": "Du kannst helfen die Erweiterung in deine Sprache zu \u00fcbersetzen, oder falls bereits vorhanden, diese zu verbessern."
     },
-    "settings_contribute_donation_link": {
-        "message": "Spenden"
-    },
-    "settings_contribute_donation_desc": {
-        "message": "Spenden sind komplett optional. Wenn dir die Erweiterung gef\u00e4llt und du einen kleinen Betrag spenden m\u00f6chtest, kannst du das \u00fcber den folgenden Link machen. Ich freue mich \u00fcber jede Unterst\u00fctzung, neben Spenden vor allem der Unterst\u00fctzung bei der \u00dcbersetzung und dem Feedback der Nutzer, die mir helfen die Erweiterung zu verbessern."
-    },
-    "settings_export": {
-        "message": "Konfiguration exportieren"
-    },
-    "settings_import": {
-        "message": "Konfiguration importieren"
-    },
-    "settings_import_export_desc": {
-        "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
-    },
-    "settings_menu_close": {
-        "message": "Diese Seite schlie\u00dfen"
-    },
-    "settings_import_saved": {
-        "message": "Konfiguration erfolgreich importiert"
-    },
-    "settings_import_failed": {
-        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
-    },
-    "translation_title": {
-        "message": "\u00dcbersetzen"
-    },
-    "translation_headline_overview": {
-        "message": "Verf\u00fcgbare Sprachen"
-    },
-    "translation_edit": {
-        "message": "\u00dcbersetzung bearbeiten"
-    },
-    "translation_add": {
+    "translation_add_language": {
         "message": "Sprache hinzuf\u00fcgen"
-    },
-    "translation_progress": {
-        "message": "Fortschritt"
     },
     "translation_back_to_overview": {
         "message": "Zur\u00fcck zur \u00dcbersicht"
@@ -767,10 +695,61 @@
     "translation_incomplete_info": {
         "message": "Durch ein Update sind die Sprachvariablen unvollst\u00e4ndig"
     },
-    "translation_add_language": {
-        "message": "Sprache hinzuf\u00fcgen"
-    },
     "translation_required_category": {
         "message": "Erforderlich"
+    },
+    "settings_feedback_desc": {
+        "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern bin ich f\u00fcr jedes Feedback dankbar."
+    },
+    "settings_feedback_notice": {
+        "message": "Du kannst die Nachricht gerne auf Deutsch schreiben, oder alternativ in Englisch."
+    },
+    "settings_feedback_email": {
+        "message": "Deine E-Mail Adresse"
+    },
+    "settings_feedback_send": {
+        "message": "Feedback abschicken"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Vielen Dank f\u00fcr dein Feedback"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
+    },
+    "settings_headline_faq": {
+        "message": "H\u00e4ufig gestellte Fragen"
+    },
+    "settings_faq_usage_q": {
+        "message": "Wie kann ich die Sidebar \u00f6ffnen?"
+    },
+    "settings_faq_usage_a": {
+        "message": "Du kannst dir das [a]Tuturial[\/a] ansehen, um zu sehen, wie du die Sidebar \u00f6ffnen kannst und es anschlie\u00dfend auf jeder Webseite selbst ausprobieren. Wenn du weiterhin Probleme mit der Erweiterung hast, lies dir bitte die andere beantwortete Frage \u00fcber den Grund, warum die Sidebar nicht auf jeder Seite funktioniert, durch, oder sende mir eine Nachricht mit Details zu deinem Problem."
+    },
+    "settings_faq_fixed_sidebar_q": {
+        "message": "Kannst du die Sidebar permanent offen lassen?"
+    },
+    "settings_faq_fixed_sidebar_a": {
+        "message": "Leider kann ich das nicht. Google hat die M\u00f6glichkeit einer echten Sidebar, wie im Firefox, vor ein paar Jahren entfernt. Ohne die Programmierschnittstelle muss die Sidebar bei jedem Seitenaufruf erneut geladen werden."
+    },
+    "settings_faq_not_working_q": {
+        "message": "Warum funktioniert die Sidebar auf manchen Seiten, wie dem Chrome Webstore nicht?"
+    },
+    "settings_faq_not_working_a": {
+        "message": "Das kann mehrere Gr\u00fcnde haben. Im Chrome Webstore und Seiten die mit [em]chrome-extension:\/\/[\/em] beginnen funktioniert es durch Sicherheitseinschr\u00e4nkungen nicht. Es gibt jedoch auch Seiten, die das Laden der Sidebar blockieren oder veraltete Quellcode-Strukturen besitzen. Wenn du Probleme auf manchen Seiten feststellst, lass es mich wissen, damit ich mir die entsprechende Seite ansehen und versuchen kann das Problem zu beheben."
+    },
+    "settings_headline_donation": {
+        "message": "Spenden"
+    },
+    "settings_support_donation_link": {
+        "message": "Spenden"
+    },
+    "settings_support_donation_desc": {
+        "message": "Spenden sind komplett optional. Wenn dir die Erweiterung gef\u00e4llt und du einen kleinen Betrag spenden m\u00f6chtest, kannst du das \u00fcber den folgenden Link machen. Ich freue mich \u00fcber jede Unterst\u00fctzung, neben Spenden vor allem der Unterst\u00fctzung bei der \u00dcbersetzung und dem Feedback der Nutzer, die mir helfen die Erweiterung zu verbessern."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Informationen teilen"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Deine Einstellung wurde erfolgreich gespeichert"
     }
 }

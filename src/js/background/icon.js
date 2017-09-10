@@ -42,7 +42,6 @@
          * @returns {Promise}
          */
         this.set = (opts) => {
-            console.log(opts, cachedSvg[opts.name]);
             return new Promise((resolve) => {
                 let onlyCurrentTab = opts.onlyCurrentTab || false;
 

@@ -224,6 +224,7 @@
                             case "html": {
                                 content = module.minifyHtml(content, { // minify content
                                     collapseWhitespace: true,
+                                    removeComments: true,
                                     keepClosingSlash: true,
                                     minifyCSS: true
                                 });

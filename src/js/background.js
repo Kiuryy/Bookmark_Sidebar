@@ -63,6 +63,33 @@
         };
 
         /**
+         * Initialises eventlistener for the new tab replacement
+         *
+         * @returns {Promise}
+         */
+        let initNewTabReplace = async () => {
+            chrome.tabs.onCreated.addListener((tab) => {
+                if (tab.url && tab.url === 'chrome://newtab/') {
+                    chrome.storage.sync.get(["behaviour"], (obj) => {
+                        obj.behaviour.replaceNewTab = true;
+                        if (typeof obj.behaviour !== "undefined" && typeof obj.behaviour.replaceNewTab !== "undefined" && obj.behaviour.replaceNewTab === true) {
+                            let func = "create";
+                            if (tab.index === 0) {
+                                func = "update";
+                            } else {
+                                chrome.tabs.remove(id);
+                            }
+                            chrome.tabs[func]({
+                                url: chrome.extension.getURL('html/newtab.html'),
+                                active: true
+                            });
+                        }
+                    });
+                }
+            });
+        };
+
+        /**
          * Initialises the helper objects
          */
         let initHelpers = () => {
@@ -85,6 +112,7 @@
          */
         this.run = () => {
             chrome.runtime.setUninstallURL(this.urls.uninstall);
+            initNewTabReplace();
             initHelpers();
             let start = +new Date();
 

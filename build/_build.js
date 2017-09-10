@@ -103,7 +103,8 @@
                             path.tmp + 'settings.js',
                             path.tmp + 'background.js',
                             path.src + 'js/onboarding.js',
-                            path.src + 'js/changelog.js'
+                            path.src + 'js/changelog.js',
+                            path.src + 'js/newtab.js'
                         ], path.dist + "js/"),
                         func.minify([
                             path.src + 'js/lib/jsu.js',
@@ -130,6 +131,7 @@
                 func.replace({
                     [path.src + 'html/settings.html']: path.tmp + 'html/settings.html',
                     [path.src + 'html/changelog.html']: path.tmp + 'html/changelog.html',
+                    [path.src + 'html/newtab.html']: path.tmp + 'html/newtab.html',
                     [path.src + 'html/intro.html']: path.tmp + 'html/intro.html'
                 }, [
                     [/<\!\-\-\s*\[START\sREMOVE\]\s*\-\->[\s\S]*?<\!\-\-\s*\[END\sREMOVE\]\s*\-\->/mig, ""],
@@ -177,7 +179,6 @@
                 }).catch(reason => {
                     throw reason;
                 }).then(() => {
-                    resolve();
                     return cleanPost();
                 }).then(() => {
                     resolve();

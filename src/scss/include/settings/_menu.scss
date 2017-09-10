@@ -7,32 +7,39 @@ body > section#wrapper > aside {
 
   > nav {
 
+    > ul > li {
+
+      &[data-name='sidebar'] > a {
+        @include mask('icon-settings', $textColor, 20px);
+      }
+
+      &[data-name='appearance'] > a {
+        @include mask('settings/icon-appearance', $textColor, 20px);
+      }
+
+      &[data-name='newtab'] > a {
+        @include mask('settings/icon-newtab', $textColor, 18px);
+      }
+
+      &[data-name='language'] > a {
+        @include mask('settings/icon-translate', $textColor, 20px);
+      }
+
+      &[data-name='feedback'] > a {
+        @include mask('settings/icon-feedback', $textColor, 16px);
+      }
+
+      &[data-name='support'] > a {
+        @include mask('settings/icon-support', $textColor, 18px);
+      }
+    }
+
     ul {
 
       > li {
         position: relative;
         display: block;
         line-height: 45px;
-
-        &[data-name='settings'] > a {
-          @include mask('icon-settings', $textColor, 20px);
-        }
-
-        &[data-name='appearance'] > a {
-          @include mask('settings/icon-appearance', $textColor, 20px);
-        }
-
-        &[data-name='language'] > a {
-          @include mask('settings/icon-translate', $textColor, 20px);
-        }
-
-        &[data-name='feedback'] > a {
-          @include mask('settings/icon-feedback', $textColor, 18px);
-        }
-
-        &[data-name='support'] > a {
-          @include mask('settings/icon-support', $textColor, 20px);
-        }
 
         > a {
           position: relative;

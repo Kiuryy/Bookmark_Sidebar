@@ -29,17 +29,33 @@
         <!--
          #
          #
-         # BEHAVIOUR
+         # SIDEBAR
          #
          #
          -->
-        <div class="tab" data-name="settings" data-save="settings_save" data-restore="true">
+        <div class="tab" data-name="sidebar" data-save="settings_save" data-restore="true">
 
             <!-- General -->
             <div data-name="general">
                 <div class="boxWrapper">
                     <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="initialOpenOnNewTab" data-i18n="settings_initial_open_on_new_tab"></div>
+                        <div class="formElement" data-type="select" data-name="sidebarPosition" data-i18n="settings_sidebar_position">
+                            <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
+                            <span data-value="right" data-i18n="settings_sidebar_position_right"></span>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="select" data-name="newTab" data-i18n="settings_new_tab">
+                            <span data-value="foreground" data-i18n="settings_new_tab_foreground"></span>
+                            <span data-value="background" data-i18n="settings_new_tab_background"></span>
+                        </div>
+                        <br />
+                        <div class="formElement" data-type="select" data-name="newTabPosition" data-i18n="settings_new_tab_position">
+                            <span data-value="afterCurrent" data-i18n="settings_new_tab_position_after_current"></span>
+                            <span data-value="afterLast" data-i18n="settings_new_tab_position_after_last"></span>
+                            <span data-value="beforeFirst" data-i18n="settings_new_tab_position_before_first"></span>
+                        </div>
                     </div>
 
                     <div class="box">
@@ -47,12 +63,43 @@
                     </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="animations" data-i18n="settings_animations"></div>
+                        <div class="formElement" data-type="select" data-name="linkAction" data-i18n="settings_link_action">
+                            <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
+                            <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
+                        </div>
                     </div>
 
                     <div class="box">
-                        <strong data-i18n="settings_keyboard_shortcuts"></strong>
-                        <p class="info" data-i18n="settings_keyboard_shortcuts_desc"></p>
+                        <div class="formElement" data-type="select" data-name="rememberState" data-i18n="settings_remember_state">
+                            <span data-value="all" data-i18n="settings_remember_state_all"></span>
+                            <span data-value="openStates" data-i18n="settings_remember_state_open_states"></span>
+                            <span data-value="openStatesRoot" data-i18n="settings_remember_state_open_states_root"></span>
+                            <span data-value="nothing" data-i18n="settings_remember_state_nothing"></span>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="checkbox" data-name="dirAccordion" data-i18n="settings_dir_accordion"></div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="range" data-name="scrollBarHide" data-min="0.5" data-max="5" data-step="0.5" data-infinity="1" data-unit="s" data-i18n="settings_scrollbar_hide"></div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="range" data-name="openChildrenWarnLimit" data-value="10" data-min="1" data-max="100" data-i18n="settings_open_children_warn_limit"></div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="range" data-name="dirOpenDuration" data-value="0.5" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="checkbox" data-name="initialOpenOnNewTab" data-i18n="settings_initial_open_on_new_tab"></div>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="checkbox" data-name="animations" data-i18n="settings_animations"></div>
                     </div>
                 </div>
             </div>
@@ -89,63 +136,10 @@
                     <div class="box">
                         <div class="formElement" data-type="checkbox" data-name="dndOpen" data-i18n="settings_drag_n_drop_open"></div>
                     </div>
-                </div>
-            </div>
-
-
-            <!-- Sidebar -->
-            <div data-name="sidebar">
-                <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="sidebarPosition" data-i18n="settings_sidebar_position">
-                            <span data-value="left" data-i18n="settings_sidebar_position_left"></span>
-                            <span data-value="right" data-i18n="settings_sidebar_position_right"></span>
-                        </div>
-                    </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="select" data-name="newTab" data-i18n="settings_new_tab">
-                            <span data-value="foreground" data-i18n="settings_new_tab_foreground"></span>
-                            <span data-value="background" data-i18n="settings_new_tab_background"></span>
-                        </div>
-                        <br />
-                        <div class="formElement" data-type="select" data-name="newTabPosition" data-i18n="settings_new_tab_position">
-                            <span data-value="afterCurrent" data-i18n="settings_new_tab_position_after_current"></span>
-                            <span data-value="afterLast" data-i18n="settings_new_tab_position_after_last"></span>
-                            <span data-value="beforeFirst" data-i18n="settings_new_tab_position_before_first"></span>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="dirAccordion" data-i18n="settings_dir_accordion"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="linkAction" data-i18n="settings_link_action">
-                            <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
-                            <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="rememberState" data-i18n="settings_remember_state">
-                            <span data-value="all" data-i18n="settings_remember_state_all"></span>
-                            <span data-value="openStates" data-i18n="settings_remember_state_open_states"></span>
-                            <span data-value="openStatesRoot" data-i18n="settings_remember_state_open_states_root"></span>
-                            <span data-value="nothing" data-i18n="settings_remember_state_nothing"></span>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="scrollBarHide" data-min="0.5" data-max="5" data-step="0.5" data-infinity="1" data-unit="s" data-i18n="settings_scrollbar_hide"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="openChildrenWarnLimit" data-value="10" data-min="1" data-max="100" data-i18n="settings_open_children_warn_limit"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="dirOpenDuration" data-value="0.5" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
+                        <strong data-i18n="settings_keyboard_shortcuts"></strong>
+                        <p class="info" data-i18n="settings_keyboard_shortcuts_desc"></p>
                     </div>
                 </div>
             </div>
@@ -298,6 +292,8 @@
             </div>
         </div>
 
+
+
         <!--
         #
         #
@@ -408,8 +404,8 @@
 
                 <div class="box">
                     <h2 data-i18n="settings_headline_donation"></h2>
-                    <p class="text" data-i18n="settings_contribute_donation_desc"></p>
-                    <button type="submit" data-i18n="settings_contribute_donation_link"></button>
+                    <p class="text" data-i18n="settings_support_donation_desc"></p>
+                    <button type="submit" data-i18n="settings_support_donation_link"></button>
                 </div>
             </div>
         </div>

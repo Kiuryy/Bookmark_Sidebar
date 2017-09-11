@@ -292,7 +292,32 @@
             </div>
         </div>
 
+        <!--
+        #
+        #
+        # NEWTAB
+        #
+        #
+        -->
+        <div class="tab" data-name="newtab" data-save="settings_save" data-restore="true">
+            <div class="contentBox noticeBox">
+                <p data-i18n="settings_newtab_desc"></p>
+            </div>
 
+            <div class="boxWrapper">
+                <div class="box">
+                    <div class="formElement" data-type="checkbox" data-name="override" data-i18n="settings_newtab_override"></div>
+                </div>
+
+                <div class="box hideable">
+                    <div class="formElement" data-type="checkbox" data-name="initialOpen" data-i18n="settings_newtab_sidebar_initial_open"></div>
+                </div>
+
+                <div class="box hideable">
+                    <div class="formElement" data-type="text" data-name="website" data-i18n="settings_newtab_website"></div>
+                </div>
+            </div>
+        </div>
 
         <!--
         #
@@ -317,7 +342,7 @@
 
             <div data-name="translate" data-save="translation_submit">
                 <div class="overview">
-                    <div class="contentBox notice">
+                    <div class="contentBox noticeBox">
                         <p data-i18n="translation_contribution_info"></p>
                     </div>
 
@@ -325,7 +350,7 @@
                 </div>
 
                 <div class="langvars">
-                    <div class="contentBox notice">
+                    <div class="contentBox noticeBox">
                         <p data-i18n="translation_contribution_notice1"></p>
                         <p data-i18n="translation_contribution_notice2"></p>
                     </div>
@@ -334,7 +359,7 @@
                 </div>
 
                 <div class="unavailable">
-                    <div class="contentBox notice">
+                    <div class="contentBox noticeBox">
                         <h2 data-i18n="status_service_unavailable_headline"></h2>
                         <p data-i18n="status_translation_unavailable_desc"></p>
                     </div>
@@ -424,6 +449,7 @@
 <script src='/js/helper/checkbox.js'></script>
 <script src='/js/settings/form.js'></script>
 <script src='/js/settings/behaviour.js'></script>
+<script src='/js/settings/newtab.js'></script>
 <script src='/js/settings/appearance.js'></script>
 <script src='/js/settings/feedback.js'></script>
 <script src='/js/settings/contribute.js'></script>

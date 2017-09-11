@@ -69,6 +69,14 @@
                     obj.appearance = {};
                 }
 
+                if (typeof obj.newtab === "undefined") {
+                    obj.newtab = {};
+                }
+
+                // START UPGRADE // v1.11
+                //delete obj.behaviour.initialOpenOnNewTab;
+                // END UPGRADE // v1.11
+
                 // START UPGRADE // v1.10
                 chrome.storage.sync.remove(["utility", "nt_notice"]);
 
@@ -80,10 +88,13 @@
                     delete obj.appearance[f];
                 });
 
+                if (typeof obj.behaviour.initialOpenOnNewTab !== "undefined") {
+                    obj.newtab.initialOpen = obj.behaviour.initialOpenOnNewTab;
+                }
+
                 if (typeof obj.appearance.iconShape === "undefined") {
                     obj.appearance.iconShape = "logo";
                 }
-
                 // END UPGRADE // v1.10
 
                 // START UPGRADE // v1.9
@@ -108,32 +119,9 @@
                 chrome.storage.sync.remove(["clickCounter"]);
                 // END UPGRADE // v1.9
 
-                // START UPGRADE // v1.8
-                delete obj.behaviour.hideEmptyDirs;
-
-                if (typeof obj.appearance.styles.colorScheme === "undefined") {
-                    obj.appearance.styles.colorScheme = "rgb(0,137,123)";
-                }
-
-                if (typeof obj.behaviour.initialOpenOnNewTab === "undefined") {
-                    obj.behaviour.initialOpenOnNewTab = chrome.i18n.getUILanguage() === "de";
-                }
-                // END UPGRADE // v1.8
-
-                // START UPGRADE // v1.7
-                delete obj.appearance.addVisual;
-                delete obj.behaviour.rememberScroll;
-                delete obj.behaviour.model;
-                delete obj.behaviour.clickCounter;
-                delete obj.behaviour.clickCounterStartDate;
-
-                if (typeof obj.appearance.styles.bookmarksDirIcon !== "undefined" && (obj.appearance.styles.bookmarksDirIcon === "dir" || obj.appearance.styles.bookmarksDirIcon === "dir-alt1" || obj.appearance.styles.bookmarksDirIcon === "dir-alt2")) {
-                    obj.appearance.styles.bookmarksDirIcon = "dir-1";
-                }
-                // END UPGRADE // v1.7
-
                 chrome.storage.sync.set({behaviour: obj.behaviour});
                 chrome.storage.sync.set({appearance: obj.appearance});
+                chrome.storage.sync.set({newtab: obj.newtab});
             });
         };
 

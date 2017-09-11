@@ -54,8 +54,12 @@
                 dirOpenDuration: 0.5,
                 scrollBarHide: 1.5,
                 openDelay: 0,
-                closeTimeout: 1,
-                initialOpenOnNewTab: false
+                closeTimeout: 1
+            },
+            n: { // new tab -> synced across devices
+                override: false,
+                initialOpen: false,
+                website: ""
             },
             a: { // appearance -> synced across devices
                 showIndicator: true,
@@ -132,7 +136,7 @@
          */
         let refresh = () => {
             return new Promise((resolve) => {
-                let keys = ["utility", "behaviour", "appearance"];
+                let keys = ["utility", "behaviour", "appearance", "newtab"];
                 let newData = {};
 
                 let len = keys.length;
@@ -200,6 +204,10 @@
                     }
                     case "a": {
                         dataSearchScope = data.appearance;
+                        break;
+                    }
+                    case "n": {
+                        dataSearchScope = data.newtab;
                         break;
                     }
                 }
@@ -286,6 +294,10 @@
                                 data.appearance[key] = value;
                                 break;
                             }
+                            case "n": {
+                                data.newtab[key] = value;
+                                break;
+                            }
                         }
                     });
 
@@ -325,7 +337,7 @@
         this.call = (key, opts = {}) => {
             return new Promise((resolve) => {
                 opts.type = key;
-                opts.uid = key + "_" + JSON.stringify(opts) + "_" + (+new Date()) /* REMOVE --> */ + Math.random().toString(36).substr(2, 12);
+                opts.uid = key + "_" + JSON.stringify(opts) + "_" + (+new Date()) + Math.random().toString(36).substr(2, 12);
 
                 callbacks[opts.uid] = (response) => {
                     resolve(response);

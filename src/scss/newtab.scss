@@ -1,0 +1,216 @@
+@import "include/vars";
+@import "include/mixins";
+//
+$textColor: $__textColor;
+@import "include/generals";
+
+$searchWidth: 500px;
+$searchHeight: 50px;
+
+body {
+  background: $bodyBackground;
+}
+
+section#content {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  > nav {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    > ul {
+
+      > li {
+        display: inline-block;
+
+        > a {
+          color: $__textColor;
+          display: block;
+          cursor: pointer;
+          padding: 7px 10px;
+          border-radius: 20px;
+          transition: background 0.5s;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+    }
+  }
+
+  > section.mid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > div#search {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: $searchWidth;
+      height: $searchHeight;
+
+      > input[type='text'] {
+        width: 100%;
+        height: 100%;
+        border-radius: $searchHeight / 2;
+        padding: 0 30px;
+        border: none;
+        outline: none;
+        font-size: 125%;
+        background: $contentBackground;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+
+        &::-webkit-input-placeholder {
+          color: $__textColor;
+          opacity: 0.7;
+        }
+
+        &::-moz-placeholder {
+          color: $__textColor;
+          opacity: 0.7;
+        }
+      }
+
+      > button[type="submit"] {
+        @include mask('icon-search', $textColorLight, 26px);
+        position: absolute;
+        top: 4px;
+        right: 12px;
+        width: calc(#{$searchHeight} - 8px);
+        height: calc(#{$searchHeight} - 8px);
+        outline: none;
+        border: none;
+        background: none;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+          background: $hoverBackground;
+        }
+      }
+
+      > ul.suggestions {
+        position: absolute;
+        width: 100%;
+        max-width: $searchWidth;
+        padding: #{$searchHeight + 1px} 20px 0;
+        pointer-events: none;
+        filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+
+        > li {
+          @include mask(null, $textColorLight, 14px);
+          position: relative;
+          background: $contentBackground;
+          pointer-events: auto;
+          font-size: 110%;
+          pointer-events: auto;
+          padding: 3px 10px 3px 26px;
+          transition: background 0.3s;
+
+          &.active {
+            cursor: pointer;
+            background: $hoverBackground;
+          }
+
+          &::before {
+            -webkit-mask-position-x: 7px;
+          }
+
+          &[data-type='url']::before {
+            @include maskImage('icon-web');
+          }
+
+          &[data-type='word']::before {
+            @include maskImage('icon-search');
+          }
+        }
+      }
+    }
+
+    > ul.topPages {
+      text-align: center;
+      max-width: 600px;
+      margin: 30px auto 0;
+
+      > li {
+        display: inline-block;
+        padding: 7px 7px;
+        font-size: 90%;
+
+        > a {
+          display: block;
+          background: rgba(0, 0, 0, 0.05);
+          border-radius: 20px;
+          max-width: 135px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          padding: 3px 5px 3px 3px;
+          transition: background 0.5s;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.1);
+          }
+
+          > img {
+            display: inline-block;
+            width: 14px;
+            margin: 0px 5px 0 0;
+            vertical-align: top;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.dark {
+  background: $darkContentBackground;
+
+  section#content {
+
+    > nav > ul > li > a:hover {
+      background: $darkHoverBackground;
+    }
+
+    > section.mid {
+
+      > input#search {
+        background: $darkHoverBackground;
+      }
+
+      > ul.suggestions {
+        filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+
+        > li {
+          background: $darkHoverBackground;
+
+          &.active {
+            background: lighten($darkHoverBackground, 5%);
+          }
+
+        }
+      }
+
+      > ul.topPages > li > a {
+        background: $darkHoverBackground;
+
+        &:hover {
+          background: lighten($darkHoverBackground, 5%);
+        }
+      }
+    }
+  }
+}

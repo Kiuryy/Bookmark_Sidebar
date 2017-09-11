@@ -165,7 +165,7 @@
             }
 
             iconWrapper
-                .append("<li><a " + ext.opts.attr.name + "='settings' title='" + ext.helper.i18n.get("contextmenu_settings") + "'></a></li>")
+                .append("<li><a " + ext.opts.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title") + "'></a></li>")
                 .append("<li><a " + ext.opts.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();

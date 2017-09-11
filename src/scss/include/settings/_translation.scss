@@ -8,24 +8,6 @@ div.tab[data-name='language'] > div[data-name='translate'] {
     }
   }
 
-  div.notice {
-    @include mask('icon-info', $textColorLight, 32px);
-    line-height: 140%;
-
-    &::before {
-      -webkit-mask-position-x: 15px;
-    }
-
-    > p {
-      padding: 3px 0 3px 40px;
-    }
-
-    > h2 {
-      padding: 0 0 0 40px;
-      margin-bottom: 5px;
-    }
-  }
-
   > div.overview {
 
     div.box {

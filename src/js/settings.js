@@ -30,6 +30,9 @@
                 range: {
                     inactive: "inactive"
                 },
+                newtab: {
+                    hideable: "hideable"
+                },
                 translation: {
                     select: "languageSelect",
                     category: "category",
@@ -114,6 +117,9 @@
                 appearance: {
                     content: $("div.tab[data-name='appearance']"),
                 },
+                newtab: {
+                    content: $("div.tab[data-name='newtab']"),
+                },
                 feedback: {
                     form: $("section.form"),
                     send: $("section.form button[type='submit']"),
@@ -185,6 +191,7 @@
                     this.helper.menu.init(),
                     this.helper.behaviour.init(),
                     this.helper.appearance.init(),
+                    this.helper.newtab.init(),
                     this.helper.feedback.init(),
                     this.helper.translation.init(),
                     this.helper.contribute.init(),
@@ -234,6 +241,7 @@
                 menu: new window.MenuHelper(this),
                 form: new window.FormHelper(this),
                 behaviour: new window.BehaviourHelper(this),
+                newtab: new window.NewtabHelper(this),
                 appearance: new window.AppearanceHelper(this),
                 feedback: new window.FeedbackHelper(this),
                 importExport: new window.ImportExportHelper(this),
@@ -264,6 +272,10 @@
                     }
                     case "appearance": {
                         this.helper.appearance.save();
+                        break;
+                    }
+                    case "newtab": {
+                        this.helper.newtab.save();
                         break;
                     }
                     case "language": {
@@ -309,6 +321,10 @@
                         break;
                     case "appearance": {
                         restore("appearance");
+                        break;
+                    }
+                    case "newtab": {
+                        restore("newtab");
                         break;
                     }
                 }

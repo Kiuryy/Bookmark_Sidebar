@@ -25,8 +25,8 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
-            let isNewTab = ext.helper.utility.getPageType() === "newtab";
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/initialOpenOnNewTab", "b/dndOpen"]);
+            let isNewTab = ext.helper.utility.getPageType().startsWith("newtab_");
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen"]);
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
@@ -63,8 +63,10 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if (data.initialOpenOnNewTab && isNewTab) {
-                this.openSidebar();
+            if (isNewTab) {
+                if (ext.helper.model.getData("n/initialOpen")) {
+                    this.openSidebar();
+                }
             }
 
             if (ext.helper.utility.sidebarHasMask() === false) {
@@ -153,7 +155,7 @@
                 if (e.pageX) {
                     let pageX = e.pageX;
                     if (sidebarPos === "right") {
-                        if (ext.helper.utility.getPageType() === "newtab") {
+                        if (ext.helper.utility.getPageType().startsWith("newtab_")) {
                             pageX = ext.elements.iframe.realWidth() - pageX;
                         } else {
                             pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;

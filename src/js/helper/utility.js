@@ -59,19 +59,28 @@
         this.getPageType = () => {
             let url = location.href;
             let ret = "other";
+            let found = false;
 
             let types = {
-                newtab: "https?://www.google\..+/_/chrome/newtab",
-                website: "https?://",
-                onboarding: "chrome\-extension://.*/intro.html",
-                chrome: "chrome://",
-                extension: "chrome\-extension://",
-                local: "file://"
+                newtab_default: ["https?://www.google\..+/_/chrome/newtab"],
+                newtab_replacement: [chrome.extension.getURL('html/newtab.html')],
+                newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
+                website: ["https?://"],
+                onboarding: ["chrome\-extension://.*/intro.html"],
+                chrome: ["chrome://"],
+                extension: ["chrome\-extension://"],
+                local: ["file://"]
             };
 
             Object.keys(types).some((key) => {
-                if (url.search(new RegExp(types[key], "gi")) === 0) {
-                    ret = key;
+                types[key].some((str) => {
+                    if (url.search(new RegExp(str, "gi")) === 0) {
+                        ret = key;
+                        found = true;
+                        return true;
+                    }
+                });
+                if (found) {
                     return true;
                 }
             });
@@ -100,7 +109,7 @@
          */
         this.sidebarHasMask = () => {
             let pageType = ext.helper.utility.getPageType();
-            return pageType !== "newtab" && pageType !== "onboarding";
+            return !pageType.startsWith("newtab_") && pageType !== "onboarding";
         };
 
         /**

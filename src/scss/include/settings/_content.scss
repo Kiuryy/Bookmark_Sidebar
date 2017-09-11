@@ -64,6 +64,10 @@ body > section#wrapper {
           width: 100%;
         }
 
+        &.hidden {
+          display: none;
+        }
+
         > label {
           margin: 0 30px 20px 0;
         }

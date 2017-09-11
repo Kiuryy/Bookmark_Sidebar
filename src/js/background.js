@@ -3,6 +3,7 @@
 
     let background = function () {
         let bookmarkImportRunning = false;
+        let newTabConfig = {};
 
         this.urls = {
             check404: "https://extensions.blockbyte.de/",
@@ -19,6 +20,8 @@
          */
         this.refreshAllTabs = (opts) => {
             return new Promise((resolve) => {
+                this.helper.newtab.updateConfig();
+
                 chrome.tabs.query({}, (tabs) => {
                     tabs.forEach((tab) => {
                         chrome.tabs.sendMessage(tab.id, {
@@ -63,33 +66,6 @@
         };
 
         /**
-         * Initialises eventlistener for the new tab replacement
-         *
-         * @returns {Promise}
-         */
-        let initNewTabReplace = async () => {
-            chrome.tabs.onCreated.addListener((tab) => {
-                if (tab.url && tab.url === 'chrome://newtab/') {
-                    chrome.storage.sync.get(["behaviour"], (obj) => {
-                        obj.behaviour.replaceNewTab = true;
-                        if (typeof obj.behaviour !== "undefined" && typeof obj.behaviour.replaceNewTab !== "undefined" && obj.behaviour.replaceNewTab === true) {
-                            let func = "create";
-                            if (tab.index === 0) {
-                                func = "update";
-                            } else {
-                                chrome.tabs.remove(id);
-                            }
-                            chrome.tabs[func]({
-                                url: chrome.extension.getURL('html/newtab.html'),
-                                active: true
-                            });
-                        }
-                    });
-                }
-            });
-        };
-
-        /**
          * Initialises the helper objects
          */
         let initHelpers = () => {
@@ -99,6 +75,7 @@
                 language: new window.LanguageHelper(this),
                 updates: new window.UpdatesHelper(this),
                 viewAmount: new window.ViewAmountHelper(this),
+                newtab: new window.NewtabHelper(this),
                 entries: new window.EntriesHelper(this),
                 port: new window.PortHelper(this),
                 icon: new window.IconHelper(this),
@@ -112,13 +89,13 @@
          */
         this.run = () => {
             chrome.runtime.setUninstallURL(this.urls.uninstall);
-            initNewTabReplace();
             initHelpers();
             let start = +new Date();
 
             Promise.all([
                 this.helper.model.init(),
                 this.helper.icon.init(),
+                this.helper.newtab.init(),
                 this.helper.analytics.init(),
                 this.helper.bookmarkApi.init()
             ]).then(() => {

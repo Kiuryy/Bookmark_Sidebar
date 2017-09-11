@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>New tab</title>
+    <style>
+        body.initLoading > * {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="initLoading">
+<section id="content">
+    <nav>
+        <ul>
+            <li><a href="#" class="chromeApps">Chrome Apps</a></li>
+            <li><a href="https://mail.google.com/mail/">Gmail</a></li>
+            <li><a href="https://www.youtube.com/">YouTube</a></li>
+            <li><a href="https://www.facebook.com/">Facebook</a></li>
+        </ul>
+    </nav>
+
+    <section class="mid">
+        <div id="search">
+            <input type="text" placeholder="Search the web ..." autofocus />
+            <button type="submit"></button>
+        </div>
+        <ul class="topPages"></ul>
+    </section>
+</section>
+
+<script src="/js/lib/jsu.js"></script>
+<script src='/js/helper/i18n.js'></script>
+<script src='/js/helper/font.js'></script>
+<script src='/js/helper/stylesheet.js'></script>
+<script src='/js/helper/template.js'></script>
+<script src='/js/helper/model.js'></script>
+<script src='/js/newtab.js'></script>
+</body>
+</html>

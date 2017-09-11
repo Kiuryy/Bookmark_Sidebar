@@ -43,7 +43,7 @@
             }
 
             files.forEach((file) => {
-                $.xhr(chrome.extension.getURL("css/" + file + ".css")).then((xhr) => {
+                $.xhr($.api.extension.getURL("css/" + file + ".css")).then((xhr) => {
                     if (xhr.response) {
                         let css = xhr.response;
                         Object.keys(styles).forEach((key) => {

@@ -1,6 +1,8 @@
 ($ => {
     "use strict";
 
+    $.api = $.api || window.browser || window.chrome;
+
     let opts = {
         ids: {
             page: {
@@ -135,10 +137,9 @@
             lsbLoaded: "blockbyte-lsb-loaded"
         },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
-        manifest: chrome.runtime.getManifest(),
+        manifest: $.api.runtime.getManifest(),
         demoMode: false
     };
-
 
     new window.ext(opts).run();
 })(jsu);

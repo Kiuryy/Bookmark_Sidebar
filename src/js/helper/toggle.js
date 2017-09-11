@@ -216,7 +216,7 @@
                 }
             }, {passive: true});
 
-            chrome.extension.onMessage.addListener((message) => {
+            $.api.extension.onMessage.addListener((message) => {
                 if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
                     if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                         this.closeSidebar();

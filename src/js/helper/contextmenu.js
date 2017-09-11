@@ -231,7 +231,7 @@
 
                 list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
 
-                if (chrome.extension.inIncognitoContext === false) {
+                if ($.api.extension.inIncognitoContext === false) {
                     list.append("<li><a " + ext.opts.attr.name + "='newTabIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
                 }
             }
@@ -315,7 +315,7 @@
                 switch (name) {
                     case "settings": { // open settings
                         ext.helper.model.call("openLink", {
-                            href: chrome.extension.getURL("html/settings.html"),
+                            href: $.api.extension.getURL("html/settings.html"),
                             newTab: true
                         });
                         break;

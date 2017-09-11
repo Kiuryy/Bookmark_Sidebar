@@ -1,6 +1,8 @@
 ($ => {
     "use strict";
 
+    $.api = $.api || window.browser || window.chrome;
+
     window.newtab = function () {
 
         let suggestionCache = {};
@@ -34,20 +36,20 @@
                 },
                 topPages: $("ul.topPages")
             },
-            manifest: chrome.runtime.getManifest()
+            manifest: $.api.runtime.getManifest()
         };
 
         /**
          * Constructor
          */
         this.run = () => {
-            chrome.permissions.contains({
+            $.api.permissions.contains({
                 permissions: ['tabs', 'topSites']
             }, function (result) {
                 if (result) {
                     loadPage();
                 } else {
-                    chrome.tabs.update({url: "chrome-search://local-ntp/local-ntp.html"});
+                    $.api.tabs.update({url: "chrome-search://local-ntp/local-ntp.html"});
                 }
             });
         };
@@ -87,7 +89,7 @@
         let initEvents = () => {
             this.opts.elm.topNav.on("click", "a." + this.opts.classes.chromeApps, (e) => { // open chrome apps page
                 e.preventDefault();
-                chrome.tabs.update({url: "chrome://apps"});
+                $.api.tabs.update({url: "chrome://apps"});
             });
 
             this.opts.elm.search.submit.on("click", (e) => {
@@ -97,7 +99,7 @@
                 if (val && val.trim().length > 0) {
                     handleSearch(val);
                 } else {
-                    chrome.tabs.update({url: "https://www.google.com"});
+                    $.api.tabs.update({url: "https://www.google.com"});
                 }
             });
 
@@ -201,9 +203,9 @@
         let handleSearch = (val) => {
             if (val && val.trim().length > 0) {
                 if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
-                    chrome.tabs.update({url: val});
+                    $.api.tabs.update({url: val});
                 } else { // @toDo configure search engine
-                    chrome.tabs.update({url: "https://www.google.com/search?q=" + encodeURIComponent(val)});
+                    $.api.tabs.update({url: "https://www.google.com/search?q=" + encodeURIComponent(val)});
                 }
             }
         };
@@ -261,7 +263,7 @@
         };
 
         let initTopPages = () => {
-            chrome.topSites.get((list) => {
+            $.api.topSites.get((list) => {
                 list.some((page, i) => {
                     let entry = $("<li />").html("<a href='" + page.url + "' title='" + page.title + "'>" + page.title + "</a>").appendTo(this.opts.elm.topPages);
 
@@ -296,7 +298,7 @@
          */
         let loadSidebar = () => {
             this.opts.manifest.content_scripts[0].css.forEach((css) => {
-                $("head").append("<link href='" + chrome.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
+                $("head").append("<link href='" + $.api.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
             });
 
             let loadJs = (i = 0) => {

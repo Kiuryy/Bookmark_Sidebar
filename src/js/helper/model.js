@@ -117,7 +117,7 @@
                     port.disconnect();
                 }
 
-                port = chrome.runtime.connect({name: "background"});
+                port = $.api.runtime.connect({name: "background"});
 
                 port.onMessage.addListener((obj) => {
                     if (callbacks[obj.uid]) {
@@ -142,11 +142,11 @@
                 let len = keys.length;
                 let loaded = 0;
                 keys.forEach((key) => {
-                    chrome.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
+                    $.api.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
                         newData[key] = obj[key] || {};
 
                         if (key === "utility" && Object.keys(newData[key]).length === 0) { // @deprecated fallback to sync storage for utility data
-                            chrome.storage.sync.get([key], (obj2) => {
+                            $.api.storage.sync.get([key], (obj2) => {
                                 newData[key] = obj2[key] || {};
                                 if (++loaded === len) {
                                     data = newData;
@@ -302,7 +302,7 @@
                     });
 
                     let savedAmount = 0;
-                    let saved = (amount = 1) => { // is getting called after data is saved in the chrome.storage
+                    let saved = (amount = 1) => { // is getting called after data is saved in the storage
                         savedAmount += amount;
                         if (savedAmount >= 3) { // behaviour, appearance and utility has been saved -> resolve promise
                             resolve();
@@ -310,11 +310,11 @@
                     };
 
                     try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                        chrome.storage.local.set({utility: data.utility}, () => {
+                        $.api.storage.local.set({utility: data.utility}, () => {
                             saved();
                         });
 
-                        chrome.storage.sync.set({
+                        $.api.storage.sync.set({
                             behaviour: data.behaviour,
                             appearance: data.appearance
                         }, () => {

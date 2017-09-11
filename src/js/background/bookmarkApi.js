@@ -28,8 +28,8 @@
 
         let callback = (key, params) => {
             return new Promise((resolve, reject) => {
-                chrome.bookmarks[key](...params, (result) => {
-                    let lastError = chrome.runtime.lastError;
+                $.api.bookmarks[key](...params, (result) => {
+                    let lastError = $.api.runtime.lastError;
                     if (typeof lastError === "undefined") {
                         if (["update", "move", "create", "removeTree"].indexOf(key) !== -1) {
                             Promise.all([

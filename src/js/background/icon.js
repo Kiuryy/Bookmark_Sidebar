@@ -8,7 +8,7 @@
 
         this.init = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["appearance"], (obj) => {
+                $.api.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
                     let color = "rgb(85,85,85)";
 
@@ -58,7 +58,7 @@
                         if (cachedSvg[opts.name]) {
                             rslv(cachedSvg[opts.name]);
                         } else {
-                            $.xhr(chrome.extension.getURL("img/icon/menu/icon-" + opts.name + ".svg")).then((obj) => {
+                            $.xhr($.api.extension.getURL("img/icon/menu/icon-" + opts.name + ".svg")).then((obj) => {
                                 let svg = obj.responseText;
                                 cachedSvg[opts.name] = "data:image/svg+xml;charset=utf-8," + svg;
                                 rslv(cachedSvg[opts.name]);
@@ -70,7 +70,7 @@
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);
 
-                            chrome.browserAction.setIcon({
+                            $.api.browserAction.setIcon({
                                 imageData: ctx.getImageData(0, 0, size, size),
                                 tabId: onlyCurrentTab && opts.tabInfo ? opts.tabInfo.id : null
                             });

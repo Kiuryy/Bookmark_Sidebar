@@ -1,6 +1,8 @@
 ($ => {
     "use strict";
 
+    $.api = $.api || window.browser || window.chrome;
+
     window.settings = function () {
 
         /*
@@ -159,7 +161,7 @@
                 }
             },
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
-            manifest: chrome.runtime.getManifest()
+            manifest: $.api.runtime.getManifest()
         };
 
         /**
@@ -300,9 +302,9 @@
                 let restore = (name) => {
                     let language = this.helper.model.getData("b/language");
 
-                    chrome.storage.sync.remove([name], () => {
+                    $.api.storage.sync.remove([name], () => {
                         if (name === "behaviour") { // don't reset user language
-                            chrome.storage.sync.set({behaviour: {language: language}});
+                            $.api.storage.sync.set({behaviour: {language: language}});
                         }
 
                         this.showSuccessMessage("restored_message");

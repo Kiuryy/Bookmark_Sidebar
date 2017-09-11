@@ -17,16 +17,16 @@
         };
 
         let initListener = () => {
-            chrome.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
-                chrome.runtime.reload();
+            $.api.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
+                $.api.runtime.reload();
             });
 
-            chrome.runtime.onInstalled.addListener((details) => {
+            $.api.runtime.onInstalled.addListener((details) => {
                 if (details.reason === 'install') { // extension was installed newly -> show onboarding page
-                    chrome.tabs.create({url: chrome.extension.getURL('html/intro.html')});
+                    $.api.tabs.create({url: $.api.extension.getURL('html/intro.html')});
                 } else if (details.reason === 'update') { // extension was updated
-                    chrome.storage.local.remove(["languageInfos"]);
-                    let newVersion = chrome.runtime.getManifest().version;
+                    $.api.storage.local.remove(["languageInfos"]);
+                    let newVersion = $.api.runtime.getManifest().version;
 
                     if (details.previousVersion !== newVersion) {
                         b.helper.analytics.trackEvent({
@@ -52,15 +52,15 @@
          * @param {int} newVersion
          */
         let handleVersionUpgrade = (newVersion) => {
-            chrome.storage.sync.get(["model"], (obj) => {
+            $.api.storage.sync.get(["model"], (obj) => {
                 if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                     b.helper.model.setData("updateNotification", newVersion).then(() => {
-                        chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
+                        $.api.tabs.create({url: $.api.extension.getURL('html/changelog.html')});
                     });
                 }
             });
 
-            chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
+            $.api.storage.sync.get(null, (obj) => {  // upgrade configuration
                 if (typeof obj.behaviour === "undefined") {
                     obj.behaviour = {};
                 }
@@ -78,7 +78,7 @@
                 // END UPGRADE // v1.11
 
                 // START UPGRADE // v1.10
-                chrome.storage.sync.remove(["utility", "nt_notice"]);
+                $.api.storage.sync.remove(["utility", "nt_notice"]);
 
                 ["sidebarPosition", "language"].forEach((f) => {
                     if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
@@ -99,7 +99,7 @@
 
                 // START UPGRADE // v1.9
                 if (typeof obj.utility !== "undefined") {
-                    chrome.storage.local.set({utility: obj.utility});
+                    $.api.storage.local.set({utility: obj.utility});
                 }
 
                 delete obj.behaviour.scrollSensitivity;
@@ -116,12 +116,12 @@
                     obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
                 }
 
-                chrome.storage.sync.remove(["clickCounter"]);
+                $.api.storage.sync.remove(["clickCounter"]);
                 // END UPGRADE // v1.9
 
-                chrome.storage.sync.set({behaviour: obj.behaviour});
-                chrome.storage.sync.set({appearance: obj.appearance});
-                chrome.storage.sync.set({newtab: obj.newtab});
+                $.api.storage.sync.set({behaviour: obj.behaviour});
+                $.api.storage.sync.set({appearance: obj.appearance});
+                $.api.storage.sync.set({newtab: obj.newtab});
             });
         };
 

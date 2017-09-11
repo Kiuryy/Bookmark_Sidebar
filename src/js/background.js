@@ -1,9 +1,10 @@
 ($ => {
     "use strict";
 
+    $.api = $.api || window.browser || window.chrome;
+
     let background = function () {
         let bookmarkImportRunning = false;
-        let newTabConfig = {};
 
         this.urls = {
             check404: "https://extensions.blockbyte.de/",
@@ -22,9 +23,9 @@
             return new Promise((resolve) => {
                 this.helper.newtab.updateConfig();
 
-                chrome.tabs.query({}, (tabs) => {
+                $.api.tabs.query({}, (tabs) => {
                     tabs.forEach((tab) => {
-                        chrome.tabs.sendMessage(tab.id, {
+                        $.api.tabs.sendMessage(tab.id, {
                             action: "refresh",
                             scrollTop: opts.scrollTop || false,
                             type: opts.type
@@ -41,23 +42,23 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
-                chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                    chrome.tabs.sendMessage(tabs[0].id, {action: "toggleSidebar"});
+            $.api.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
+                $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                    $.api.tabs.sendMessage(tabs[0].id, {action: "toggleSidebar"});
                 });
             });
 
-            chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
+            $.api.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
                 bookmarkImportRunning = true;
             });
 
-            chrome.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
+            $.api.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
                 bookmarkImportRunning = false;
                 this.refreshAllTabs({type: "Created"});
             });
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
-                chrome.bookmarks["on" + eventName].addListener(() => {
+                $.api.bookmarks["on" + eventName].addListener(() => {
                     if (bookmarkImportRunning === false || eventName !== "Created") { // only refresh tabs when the bookmark was not created by the import process
                         this.refreshAllTabs({type: eventName});
                     }
@@ -88,7 +89,7 @@
          *
          */
         this.run = () => {
-            chrome.runtime.setUninstallURL(this.urls.uninstall);
+            $.api.runtime.setUninstallURL(this.urls.uninstall);
             initHelpers();
             let start = +new Date();
 

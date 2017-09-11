@@ -28,7 +28,7 @@
                 let m = document.getElementsByTagName('script')[0];
                 m.parentNode.insertBefore(script, m);
 
-                let manifest = chrome.runtime.getManifest();
+                let manifest = $.api.runtime.getManifest();
                 window.ga('create', 'UA-' + (trackingCode[manifest.version_name === "Dev" || !('update_url' in manifest) ? "dev" : "live"]), 'auto');
                 window.ga('set', 'checkProtocolTask', null);
                 window.ga('set', 'transport', 'beacon');
@@ -82,7 +82,7 @@
          * Send a sign of life and all configuration once per day to Google Analytics
          */
         this.trackUserData = () => {
-            let manifest = chrome.runtime.getManifest();
+            let manifest = $.api.runtime.getManifest();
             let shareState = "not_set";
             let shareUserdata = b.helper.model.shareUserdata();
 
@@ -162,7 +162,7 @@
                     });
                 };
 
-                chrome.storage.sync.get(categories, (obj) => {
+                $.api.storage.sync.get(categories, (obj) => {
                     categories.forEach((category) => {
                         if (typeof obj[category] === "object") {
                             proceedConfig(category, obj[category]);

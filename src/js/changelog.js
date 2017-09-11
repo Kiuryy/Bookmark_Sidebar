@@ -1,6 +1,8 @@
 ($ => {
     "use strict";
 
+    $.api = $.api || window.browser || window.chrome;
+
     window.changelog = function () {
 
         /*
@@ -22,7 +24,7 @@
                 flipped: "flipped",
                 initLoading: "initLoading"
             },
-            manifest: chrome.runtime.getManifest()
+            manifest: $.api.runtime.getManifest()
         };
 
         /**

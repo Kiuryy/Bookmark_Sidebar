@@ -69,7 +69,7 @@
                     clickCounter[bookmark["id"]].d = +new Date();
                     delete clickCounter["node_" + bookmark["id"]]; // @deprecated
 
-                    chrome.storage.local.set({
+                    $.api.storage.local.set({
                         clickCounter: clickCounter
                     }, () => {
                         b.helper.entries.update();
@@ -85,7 +85,7 @@
          */
         let getClickCounter = () => {
             return new Promise((resolve) => {
-                chrome.storage.local.get(["clickCounter"], (obj) => {
+                $.api.storage.local.get(["clickCounter"], (obj) => {
                     let ret = {};
 
                     if (typeof obj.clickCounter !== "undefined") { // data available

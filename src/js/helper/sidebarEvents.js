@@ -204,7 +204,7 @@
                 ext.helper.tooltip.close();
             });
 
-            chrome.extension.onMessage.addListener((message) => { // listen for refresh event
+            $.api.extension.onMessage.addListener((message) => { // listen for refresh event
                 if (message && message.action && message.action === "refresh") {
                     let delay = 0;
                     if (message.scrollTop) {

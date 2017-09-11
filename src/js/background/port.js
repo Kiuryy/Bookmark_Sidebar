@@ -11,7 +11,7 @@
          */
         let updateShareUserdataFlag = (opts) => {
             return new Promise((resolve) => {
-                chrome.storage.sync.set({
+                $.api.storage.sync.set({
                     shareUserdata: opts.share
                 }, () => {
                     b.helper.model.init().then(resolve);
@@ -72,7 +72,7 @@
                         data: {
                             urlList: opts.urls,
                             ua: navigator.userAgent,
-                            lang: chrome.i18n.getUILanguage()
+                            lang: $.api.i18n.getUILanguage()
                         }
                     }).then((xhr) => {
                         let response = JSON.parse(xhr.responseText);
@@ -204,8 +204,8 @@
 
                 if (opts.newTab && opts.newTab === true) { // new tab
                     let createTab = (idx = null) => {
-                        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                            chrome.tabs.create({
+                        $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                            $.api.tabs.create({
                                 url: opts.href,
                                 active: typeof opts.active === "undefined" ? true : !!(opts.active),
                                 index: idx === null ? tabs[0].index + 1 : idx,
@@ -217,7 +217,7 @@
                     };
 
                     if (opts.position === "afterLast") {
-                        chrome.tabs.query({}, (tabs) => {
+                        $.api.tabs.query({}, (tabs) => {
                             createTab(tabs[tabs.length - 1].index + 1);
                         });
                     } else if (opts.position === "beforeFirst") {
@@ -226,11 +226,11 @@
                         createTab();
                     }
                 } else if (opts.incognito && opts.incognito === true) { // incognito window
-                    chrome.windows.create({url: opts.href, state: "maximized", incognito: true});
+                    $.api.windows.create({url: opts.href, state: "maximized", incognito: true});
                     resolve();
                 } else { // current tab
-                    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                        chrome.tabs.update(tabs[0].id, {url: opts.href}, (tab) => {
+                    $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                        $.api.tabs.update(tabs[0].id, {url: opts.href}, (tab) => {
                             b.helper.model.setData("openedByExtension", tab.id).then(resolve);
                         });
                     });
@@ -295,7 +295,7 @@
                     entries: b.helper.entries.getEntries
                 };
 
-                chrome.runtime.onConnect.addListener((port) => {
+                $.api.runtime.onConnect.addListener((port) => {
                     if (port.name && port.name === "background") {
                         port.onMessage.addListener((message, info) => {
                             if (mapping[message.type]) { // function for message type exists

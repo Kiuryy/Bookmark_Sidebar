@@ -15,6 +15,7 @@
 
         this.opts = {
             classes: {
+                building: "building",
                 initLoading: "initLoading",
                 loading: "loading",
                 chromeApps: "chromeApps",
@@ -64,7 +65,15 @@
             loadSidebar();
             initHelpers();
 
+            let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
+            this.opts.elm.body.addClass(this.opts.classes.initLoading);
+
+
             this.helper.model.init().then(() => {
+                let darkMode = this.helper.model.getData("a/darkMode");
+                if (darkMode === true) {
+                    this.opts.elm.body.addClass(this.opts.classes.darkMode);
+                }
                 return this.helper.i18n.init();
             }).then(() => {
                 this.helper.font.init();
@@ -72,17 +81,12 @@
                 this.helper.stylesheet.addStylesheets(["newtab"], $(document));
                 this.helper.i18n.parseHtml(document);
 
-                let darkMode = this.helper.model.getData("a/darkMode");
-                if (darkMode === true) {
-                    this.opts.elm.body.addClass(this.opts.classes.darkMode);
-                }
-
                 initTopPages();
                 initEvents();
-
-                return $.delay();
+                return $.delay(500);
             }).then(() => {
-                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                loader.remove();
+                this.opts.elm.body.removeClass([this.opts.classes.building, this.opts.classes.initLoading]);
             });
         };
 

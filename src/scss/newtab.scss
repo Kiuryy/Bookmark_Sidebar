@@ -1,6 +1,8 @@
 @import "include/vars";
 @import "include/mixins";
 //
+@import "include/loading";
+
 $textColor: $__textColor;
 @import "include/generals";
 
@@ -9,6 +11,40 @@ $searchHeight: 50px;
 
 body {
   background: $bodyBackground;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: opacity 0.3s;
+    z-index: 98;
+    @extend %hidden;
+  }
+
+  &.initLoading {
+
+    &::before {
+      @extend %visible;
+    }
+  }
+
+  > svg.loading {
+    position: fixed;
+    display: block !important;
+    top: calc(50% - 18px);
+    left: calc(50% - 18px);
+    z-index: 99;
+  }
 }
 
 section#content {
@@ -32,7 +68,7 @@ section#content {
           cursor: pointer;
           padding: 7px 10px;
           border-radius: 20px;
-          transition: background 0.5s;
+          transition: background 0.3s;
 
           &:hover {
             background: rgba(0, 0, 0, 0.05);
@@ -95,6 +131,7 @@ section#content {
         background: none;
         border-radius: 50%;
         cursor: pointer;
+        transition: background 0.3s;
 
         &:hover {
           background: $hoverBackground;
@@ -158,7 +195,7 @@ section#content {
           text-overflow: ellipsis;
           overflow: hidden;
           padding: 3px 5px 3px 3px;
-          transition: background 0.5s;
+          transition: background 0.3s;
 
           &:hover {
             background: rgba(0, 0, 0, 0.1);
@@ -187,20 +224,30 @@ body.dark {
 
     > section.mid {
 
-      > input#search {
-        background: $darkHoverBackground;
-      }
+      > div#search {
 
-      > ul.suggestions {
-        filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-
-        > li {
+        > input[type='text'] {
           background: $darkHoverBackground;
+        }
 
-          &.active {
+        > button[type="submit"] {
+
+          &:hover {
             background: lighten($darkHoverBackground, 5%);
           }
+        }
 
+        > ul.suggestions {
+          filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+
+          > li {
+            background: $darkHoverBackground;
+
+            &.active {
+              background: lighten($darkHoverBackground, 5%);
+            }
+
+          }
         }
       }
 

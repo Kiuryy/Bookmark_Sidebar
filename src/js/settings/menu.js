@@ -162,7 +162,13 @@
                     let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']");
 
                     if (pathLen === 1 && page.find("> div[" + s.opts.attr.name + "]").length() > 0) {
-                        path.push(page.find("> div[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name));
+
+                        if (menu.hasClass(s.opts.classes.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
+                            path.push(page.find("> div[" + s.opts.attr.name + "='translate']").eq(0).attr(s.opts.attr.name));
+                        } else {
+                            path.push(page.find("> div[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name));
+                        }
+
                         pathLen++;
                     }
 

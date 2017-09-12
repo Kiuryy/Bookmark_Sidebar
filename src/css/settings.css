@@ -1057,6 +1057,24 @@ body > section#wrapper > aside {
     -webkit-mask: no-repeat center/20px;
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-translate.svg);
     background-color: #666; }
+  body > section#wrapper > aside > nav > ul > li[data-name='language'].incomplete > a > span {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin: 10px 0 0 5px;
+    vertical-align: top;
+    cursor: help; }
+    body > section#wrapper > aside > nav > ul > li[data-name='language'].incomplete > a > span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/20px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+      background-color: #f5c525; }
   body > section#wrapper > aside > nav > ul > li[data-name='feedback'] > a::before {
     content: "";
     position: absolute;

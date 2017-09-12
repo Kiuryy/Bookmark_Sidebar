@@ -21,8 +21,22 @@ body > section#wrapper > aside {
         @include mask('settings/icon-newtab', $textColor, 18px);
       }
 
-      &[data-name='language'] > a {
-        @include mask('settings/icon-translate', $textColor, 20px);
+      &[data-name='language'] {
+
+        > a {
+          @include mask('settings/icon-translate', $textColor, 20px);
+        }
+
+        &.incomplete > a > span {
+          @include mask('icon-info', $colorNotice, 20px);
+          display: inline-block;
+          position: relative;
+          width: 24px;
+          height: 24px;
+          margin: 10px 0 0 5px;
+          vertical-align: top;
+          cursor: help;
+        }
       }
 
       &[data-name='feedback'] > a {

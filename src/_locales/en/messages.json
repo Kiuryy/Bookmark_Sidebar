@@ -26,35 +26,20 @@
     "sidebar_drag_cancel": {
         "message": "Cancel"
     },
-    "contextmenu_settings": {
-        "message": "Settings"
+    "contextmenu_edit_bookmark": {
+        "message": "Edit Bookmark"
     },
-    "contextmenu_bookmark_manager": {
-        "message": "Bookmark Manager"
-    },
-    "contextmenu_update_urls": {
-        "message": "Update urls"
-    },
-    "contextmenu_toggle_fix": {
-        "message": "Lock entries"
-    },
-    "contextmenu_toggle_hidden": {
-        "message": "Show hidden entries"
-    },
-    "contextmenu_delete_separator": {
-        "message": "Delete Separator"
+    "contextmenu_edit_dir": {
+        "message": "Edit Directory"
     },
     "contextmenu_delete_bookmark": {
         "message": "Delete Bookmark"
     },
-    "contextmenu_edit_bookmark": {
-        "message": "Edit Bookmark"
-    },
     "contextmenu_delete_dir": {
         "message": "Delete Directory"
     },
-    "contextmenu_edit_dir": {
-        "message": "Edit Directory"
+    "contextmenu_delete_separator": {
+        "message": "Delete Separator"
     },
     "contextmenu_infos": {
         "message": "Information"
@@ -67,6 +52,15 @@
     },
     "contextmenu_add": {
         "message": "Add entry"
+    },
+    "contextmenu_update_urls": {
+        "message": "Update urls"
+    },
+    "contextmenu_toggle_fix": {
+        "message": "Lock entries"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Show hidden entries"
     },
     "contextmenu_open_children": {
         "message": "Open bookmarks"
@@ -85,6 +79,9 @@
     },
     "contextmenu_unpin": {
         "message": "Unpin from top"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Bookmark Manager"
     },
     "sort_label_custom": {
         "message": "User-defined"
@@ -647,6 +644,30 @@
     "settings_overlay_mask_color": {
         "message": "Mask color"
     },
+    "settings_icon_shape": {
+        "message": "Shape"
+    },
+    "settings_newtab_desc": {
+        "message": "Unfortunately Google removed the possibility of loading extensions on the default new tab page. Because of this I added some options allowing you to access your bookmarks when opening a new tab in another way."
+    },
+    "settings_newtab_override": {
+        "message": "Override new tab page"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Should the extension override your current new tab page with either a custom made or a website which should be loaded when opening a new tab?"
+    },
+    "settings_newtab_sidebar_initial_open": {
+        "message": "Open sidebar automatically"
+    },
+    "settings_newtab_sidebar_initial_open_desc": {
+        "message": "Configure whether the sidebar should be opened automatically when opening a new tab."
+    },
+    "settings_newtab_website": {
+        "message": "Load website"
+    },
+    "settings_newtab_website_desc": {
+        "message": "In place of opening the new tab replacement, you can set a website which is loaded instead."
+    },
     "settings_language": {
         "message": "Language"
     },
@@ -662,40 +683,40 @@
     "settings_contribute_translation_desc": {
         "message": "You can help translating the extension in your language or improve the existing one."
     },
-    "translation_add_language": {
+    "settings_translation_add_language": {
         "message": "Add language"
     },
-    "translation_back_to_overview": {
+    "settings_translation_back_to_overview": {
         "message": "Back to overview"
     },
-    "translation_contribution_info": {
+    "settings_translation_contribution_info": {
         "message": "You can edit existing translations or add missing ones. If you submit your changes, I will review your input and approve it."
     },
-    "translation_contribution_notice1": {
-        "message": "You do not have to translate every category, the translation will be released if at least all frontend related texts are translated."
+    "settings_translation_contribution_notice1": {
+        "message": "As soon as all categories marked as required are translated, the translation will be released."
     },
-    "translation_contribution_notice2": {
+    "settings_translation_contribution_notice2": {
         "message": "Incomplete categories will not be released, to prevent half translated texts."
     },
-    "translation_submit": {
+    "settings_translation_submit": {
         "message": "Submit"
     },
-    "translation_submit_message": {
+    "settings_translation_submit_message": {
         "message": "Your translation has been submitted successfully"
     },
-    "translation_status_released": {
+    "settings_translation_status_released": {
         "message": "Translation is available"
     },
-    "translation_status_incomplete": {
-        "message": "Translation is available, but due to an update some categories are incomplete"
+    "settings_translation_status_incomplete": {
+        "message": "Translation is available, but some categories are incomplete"
     },
-    "translation_status_draft": {
+    "settings_translation_status_draft": {
         "message": "Translation is incomplete or needs a review and is not available for users"
     },
-    "translation_incomplete_info": {
-        "message": "Due to an update the language variables are incomplete"
+    "settings_translation_incomplete_info": {
+        "message": "Some translations are missing"
     },
-    "translation_required_category": {
+    "settings_translation_required_category": {
         "message": "Required"
     },
     "settings_feedback_desc": {

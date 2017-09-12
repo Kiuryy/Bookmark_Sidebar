@@ -26,35 +26,20 @@
     "sidebar_drag_cancel": {
         "message": "Abbrechen"
     },
-    "contextmenu_settings": {
-        "message": "Einstellungen"
+    "contextmenu_edit_bookmark": {
+        "message": "Lesezeichen bearbeiten"
     },
-    "contextmenu_bookmark_manager": {
-        "message": "Lesezeichenmanager"
-    },
-    "contextmenu_update_urls": {
-        "message": "Urls aktualisieren"
-    },
-    "contextmenu_toggle_fix": {
-        "message": "Eintr\u00e4ge fixieren"
-    },
-    "contextmenu_toggle_hidden": {
-        "message": "Versteckte Eintr\u00e4ge"
-    },
-    "contextmenu_delete_separator": {
-        "message": "Trennlinie l\u00f6schen"
+    "contextmenu_edit_dir": {
+        "message": "Verzeichnis bearbeiten"
     },
     "contextmenu_delete_bookmark": {
         "message": "Lesezeichen l\u00f6schen"
     },
-    "contextmenu_edit_bookmark": {
-        "message": "Lesezeichen bearbeiten"
-    },
     "contextmenu_delete_dir": {
         "message": "Verzeichnis l\u00f6schen"
     },
-    "contextmenu_edit_dir": {
-        "message": "Verzeichnis bearbeiten"
+    "contextmenu_delete_separator": {
+        "message": "Trennlinie l\u00f6schen"
     },
     "contextmenu_infos": {
         "message": "Informationen"
@@ -67,6 +52,15 @@
     },
     "contextmenu_add": {
         "message": "Eintrag hinzuf\u00fcgen"
+    },
+    "contextmenu_update_urls": {
+        "message": "Urls aktualisieren"
+    },
+    "contextmenu_toggle_fix": {
+        "message": "Eintr\u00e4ge fixieren"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Versteckte Eintr\u00e4ge"
     },
     "contextmenu_open_children": {
         "message": "Lesezeichen \u00f6ffnen"
@@ -85,6 +79,9 @@
     },
     "contextmenu_unpin": {
         "message": "Nicht mehr fixieren"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Lesezeichenmanager"
     },
     "sort_label_custom": {
         "message": "Benutzerdefiniert"
@@ -647,6 +644,30 @@
     "settings_overlay_mask_color": {
         "message": "Maskenfarbe"
     },
+    "settings_icon_shape": {
+        "message": "Form"
+    },
+    "settings_newtab_desc": {
+        "message": "Leider hat Google die M\u00f6glichkeit ausgebaut, Erweiterungen auf der Standard-Neuer-Tab-Seite zu laden. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."
+    },
+    "settings_newtab_override": {
+        "message": "Neuer-Tab-Seite \u00fcberschreiben"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Soll die Erweiterung die aktuelle Neue-Tab-Seite mit entweder einer angepassten Seite, oder einer Webseite die geladen wird wenn ein neuer Tab ge\u00f6ffnet wird, \u00fcberschreiben?"
+    },
+    "settings_newtab_sidebar_initial_open": {
+        "message": "Sidebar automatisch \u00f6ffnen"
+    },
+    "settings_newtab_sidebar_initial_open_desc": {
+        "message": "Wenn ein neuer Tab ge\u00f6ffnet wird, kann eingestellt werden ob die Sidebar automatisch ge\u00f6ffnet werden soll."
+    },
+    "settings_newtab_website": {
+        "message": "Webseite laden"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Anstatt die angepasste Neue-Tab-Seite zu \u00f6ffnen, kann anstelle davon eine Webseite geladen werden."
+    },
     "settings_language": {
         "message": "Sprache"
     },
@@ -662,40 +683,40 @@
     "settings_contribute_translation_desc": {
         "message": "Du kannst helfen die Erweiterung in deine Sprache zu \u00fcbersetzen, oder falls bereits vorhanden, diese zu verbessern."
     },
-    "translation_add_language": {
+    "settings_translation_add_language": {
         "message": "Sprache hinzuf\u00fcgen"
     },
-    "translation_back_to_overview": {
+    "settings_translation_back_to_overview": {
         "message": "Zur\u00fcck zur \u00dcbersicht"
     },
-    "translation_contribution_info": {
+    "settings_translation_contribution_info": {
         "message": "Hier kannst du vorhandene \u00dcbersetzungen bearbeiten, oder fehlende hinzuf\u00fcgen. Wenn du deine \u00c4nderungen absendest, werde ich die Eingabe \u00fcberpr\u00fcfen und anschlie\u00dfend freigeben."
     },
-    "translation_contribution_notice1": {
-        "message": "Du musst nicht jede Kategorie \u00fcbersetzen, sobald alle f\u00fcr das Frontend relevanten Texte \u00fcbersetzt wurden, wird die Sprache freigegeben."
+    "settings_translation_contribution_notice1": {
+        "message": "Sobald alle als Erforderlich markierten Kategorien \u00fcbersetzt wurden, wird die \u00dcbersetzung freigegeben."
     },
-    "translation_contribution_notice2": {
+    "settings_translation_contribution_notice2": {
         "message": "Um halb \u00fcbersetzte Texte zu vermeiden, werden unvollst\u00e4ndige Kategorien nicht freigegeben."
     },
-    "translation_submit": {
+    "settings_translation_submit": {
         "message": "Absenden"
     },
-    "translation_submit_message": {
+    "settings_translation_submit_message": {
         "message": "Deine \u00dcbersetzung wurde erfolgreich \u00fcbermittelt"
     },
-    "translation_status_released": {
+    "settings_translation_status_released": {
         "message": "\u00dcbersetzung ist vorhanden"
     },
-    "translation_status_incomplete": {
-        "message": "\u00dcbersetzung ist vorhanden, aber durch ein Update sind manche Kategorien unvollst\u00e4ndig"
+    "settings_translation_status_incomplete": {
+        "message": "\u00dcbersetzung ist vorhanden, aber manche Kategorien sind unvollst\u00e4ndig"
     },
-    "translation_status_draft": {
+    "settings_translation_status_draft": {
         "message": "\u00dcbersetzung ist unvollst\u00e4ndig, oder muss noch \u00fcberpr\u00fcft werden und ist nicht f\u00fcr andere verf\u00fcgbar"
     },
-    "translation_incomplete_info": {
-        "message": "Durch ein Update sind die Sprachvariablen unvollst\u00e4ndig"
+    "settings_translation_incomplete_info": {
+        "message": "Die \u00dcbersetzung ist unvollst\u00e4ndig"
     },
-    "translation_required_category": {
+    "settings_translation_required_category": {
         "message": "Erforderlich"
     },
     "settings_feedback_desc": {

@@ -145,19 +145,21 @@
                                         .data("lang", lang.name)
                                         .addClass(s.opts.classes.box)
                                         .attr(s.opts.attr.translation.releaseStatus, status)
-                                        .append("<a href='#' class='" + s.opts.classes.translation.edit + "' title='" + s.helper.i18n.get("translation_edit") + "'></a>")
+                                        .append("<a href='#' class='" + s.opts.classes.translation.edit + "'></a>")
                                         .append("<strong>" + languages[lang.name].label + "</strong>")
                                         .append("<div class=" + s.opts.classes.translation.progress + " " + s.opts.attr.value + "='" + Math.round(percent) + "%'><div style='width:" + percent + "%'></div></div>")
-                                        .append("<span title='" + s.helper.i18n.get("translation_status_" + status) + "'></span>")
+                                        .append("<span title='" + s.helper.i18n.get("settings_translation_status_" + status) + "'></span>")
                                         .appendTo(s.opts.elm.translation.overview.children("div." + s.opts.classes.boxWrapper));
 
                                     if (language === lang.name) {
-                                        s.opts.elm.aside.find("li[" + s.opts.attr.name + "='language']")
-                                            .attr(s.opts.attr.value, s.helper.i18n.get("translation_incomplete_info"))
-                                            .addClass(s.opts.classes.incomplete);
-                                        s.opts.elm.aside.find("li[" + s.opts.attr.name + "='translate']")
-                                            .attr(s.opts.attr.value, s.helper.i18n.get("translation_incomplete_info"))
-                                            .addClass(s.opts.classes.incomplete);
+                                        if (infos.varsAmount > lang.varsAmount) { // translation is incomplete -> show icon in menu
+                                            s.opts.elm.aside.find("li[" + s.opts.attr.name + "='language']").addClass(s.opts.classes.incomplete);
+
+                                            $("<span />")
+                                                .attr("title", s.helper.i18n.get("settings_translation_incomplete_info"))
+                                                .appendTo(s.opts.elm.aside.find("li[" + s.opts.attr.name + "='language'] > a"));
+                                        }
+
                                         elm.addClass(s.opts.classes.translation.mark);
                                     }
                                 }
@@ -249,7 +251,7 @@
                 .appendTo(s.opts.elm.translation.overview.children("div." + s.opts.classes.boxWrapper));
 
             let select = $("<select class='" + s.opts.classes.translation.select + "' />").appendTo(box);
-            $("<option value='' />").text(s.helper.i18n.get("translation_add_language")).appendTo(select);
+            $("<option value='' />").text(s.helper.i18n.get("settings_translation_add_language")).appendTo(select);
 
             let optionList = [];
 
@@ -370,7 +372,7 @@
                         .appendTo(s.opts.elm.translation.wrapper);
 
                     let header = $("<header />").appendTo(elm);
-                    $("<a />").text(s.helper.i18n.get("translation_back_to_overview")).addClass(s.opts.classes.translation.back).appendTo(header);
+                    $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass(s.opts.classes.translation.back).appendTo(header);
 
                     if (varsAmount[key].total !== varsAmount[key].filled) {
                         $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "down").appendTo(header);
@@ -508,14 +510,14 @@
                         }
 
                         if (infos[category].required) {
-                            $("<span />").addClass(s.opts.classes.translation.requiredInfo).text("(" + s.helper.i18n.get("translation_required_category") + ")").appendTo(elm);
+                            $("<span />").addClass(s.opts.classes.translation.requiredInfo).text("(" + s.helper.i18n.get("settings_translation_required_category") + ")").appendTo(elm);
                         }
 
                         $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(elm);
 
                         if (varsAmount[key].total > varsAmount[key].filled) { // incomplete notice for already released translations
                             elm.addClass(s.opts.classes.incomplete);
-                            elm.children("a").attr("title", s.helper.i18n.get("translation_incomplete_info"));
+                            elm.children("a").attr("title", s.helper.i18n.get("settings_translation_incomplete_info"));
                         }
                     });
                 } else {

@@ -12,6 +12,7 @@
         let inPixelToleranceTime = null;
         let mouseNotTopLeft = false;
         let timeout = {};
+        let keypressed = null;
 
         /**
          * Initializes the sidebar toggle
@@ -173,6 +174,12 @@
                 }
             });
 
+            $(window).on("keydown", () => {
+                keypressed = +new Date();
+            }).on("keyup", () => {
+                keypressed = null;
+            });
+
             ext.elements.sidebar.on("mouseleave", () => {
                 if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0
                     && ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
@@ -268,7 +275,10 @@
          */
         let isMousePosInPixelTolerance = (pageX, pageY) => {
             let ret = false;
-            if (typeof pageX !== "undefined" && pageX !== null) {
+
+            if (keypressed !== null && +new Date() - keypressed < 500) {
+                // a key is pressed -> prevent opening the sidebar
+            } else if (typeof pageX !== "undefined" && pageX !== null) {
                 if ((pageX > 0 || pageY > 0) || mouseNotTopLeft) { // protection from unwanted triggers with x = 0 and y = 0 on pageload
                     mouseNotTopLeft = true;
 

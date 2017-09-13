@@ -5,6 +5,8 @@
 
     window.onboarding = function () {
 
+        let skipIntro = false;
+
         /*
          * ################################
          * PUBLIC
@@ -45,6 +47,7 @@
         this.run = () => {
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
+            skipIntro = location.href.search(/(\?|\&)skip\=1/) > -1;
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -66,13 +69,13 @@
                 initHandsOnEvents();
                 initFinishedEvents();
 
-                this.helper.model.call("trackPageView", {page: "/onboarding"});
+                this.helper.model.call("trackPageView", {page: "/onboarding", always: skipIntro ? false : true});
 
                 $.delay(500).then(() => { // finish loading
                     this.opts.elm.body.removeClass(this.opts.classes.initLoading);
 
-                    if (location.href.search(/(\?|\&)skip\=1/) > -1) {
-                        initHandsOn(true);
+                    if (skipIntro) {
+                        initHandsOn();
                     } else {
                         gotoSlide("intro");
                     }
@@ -236,17 +239,17 @@
          * Shows the slide with the given name
          *
          * @param {string} name
-         * @param {boolean} direct
          */
-        let gotoSlide = (name, direct = false) => {
+        let gotoSlide = (name) => {
             let slide = $("section." + this.opts.classes.slide + "." + this.opts.classes.visible);
             slide.removeClass(this.opts.classes.visible);
 
             $.delay(300).then(() => {
                 this.helper.model.call("trackEvent", {
                     category: "onboarding",
-                    action: "view" + (direct ? "_direct" : ""),
-                    label: name
+                    action: "view" + (skipIntro ? "_direct" : ""),
+                    label: name,
+                    always: skipIntro ? false : true
                 });
 
                 $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='" + name + "']").addClass(this.opts.classes.visible);
@@ -255,11 +258,9 @@
 
         /**
          * Initialises the Hands-On slide with the actual sidebar loaded
-         *
-         * @param {boolean} direct
          */
-        let initHandsOn = (direct = false) => {
-            gotoSlide("handson", direct);
+        let initHandsOn = () => {
+            gotoSlide("handson");
             loadSidebar();
 
             Object.values(this.opts.elm.sidebar).forEach((sidebar) => { // hide placeholder sidebar
@@ -268,7 +269,7 @@
 
             let slide = $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='handson']");
 
-            if (direct) { // user skipped the setup -> show different headline
+            if (skipIntro) { // user skipped the setup -> show different headline
                 slide.children("p." + this.opts.classes.large).text(this.helper.i18n.get("onboarding_handson_desc_direct"));
             }
 

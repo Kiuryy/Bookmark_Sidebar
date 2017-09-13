@@ -43,10 +43,9 @@
          * only do if user allows userdata sharing or if the parameter is specified
          *
          * @param {object} opts
-         * @param {boolean} ignoreShareUserdata
          * @returns {Promise}
          */
-        this.trackEvent = (opts, ignoreShareUserdata = false) => {
+        this.trackEvent = (opts) => {
             return new Promise((resolve) => {
                 addObjectToTrackingQueue({
                     hitType: 'event',
@@ -54,7 +53,7 @@
                     eventAction: opts.action,
                     eventLabel: opts.label,
                     eventValue: opts.value || 1
-                }, ignoreShareUserdata);
+                }, opts.always || false);
                 resolve();
             });
         };
@@ -64,15 +63,14 @@
          * only do if user allows userdata sharing or if the parameter is specified
          *
          * @param {object} opts
-         * @param {boolean} ignoreShareUserdata
          * @returns {Promise}
          */
-        this.trackPageView = (opts, ignoreShareUserdata = false) => {
+        this.trackPageView = (opts) => {
             return new Promise((resolve) => {
                 addObjectToTrackingQueue({
                     hitType: 'pageview',
                     page: opts.page
-                }, ignoreShareUserdata);
+                }, opts.always || false);
                 resolve();
             });
         };
@@ -95,14 +93,16 @@
             this.trackEvent({ // sign of life
                 category: "extension",
                 action: "user",
-                label: "share_" + shareState
-            }, true);
+                label: "share_" + shareState,
+                always: true
+            });
 
             this.trackEvent({ // extension version
                 category: "extension",
                 action: "version",
-                label: manifest.version
-            }, true);
+                label: manifest.version,
+                always: true
+            });
 
             if (shareUserdata === true) {
                 // track installation date

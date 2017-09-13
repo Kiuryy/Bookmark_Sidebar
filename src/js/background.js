@@ -21,17 +21,21 @@
          */
         this.refreshAllTabs = (opts) => {
             return new Promise((resolve) => {
-                this.helper.newtab.updateConfig();
-
-                $.api.tabs.query({}, (tabs) => {
-                    tabs.forEach((tab) => {
-                        $.api.tabs.sendMessage(tab.id, {
-                            action: "refresh",
-                            scrollTop: opts.scrollTop || false,
-                            type: opts.type
+                Promise.all([
+                    this.helper.newtab.updateConfig(),
+                    this.helper.cache.remove({name: "html"}),
+                    this.helper.entries.update()
+                ]).then(() => {
+                    $.api.tabs.query({}, (tabs) => {
+                        tabs.forEach((tab) => {
+                            $.api.tabs.sendMessage(tab.id, {
+                                action: "refresh",
+                                scrollTop: opts.scrollTop || false,
+                                type: opts.type
+                            });
                         });
+                        resolve();
                     });
-                    resolve();
                 });
             });
         };

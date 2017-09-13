@@ -446,8 +446,9 @@
             let entry;
             for (let i = 0; i < (bookmark.url ? 1 : 1); i++) {
                 entry = $("<li />").appendTo(list);
+                let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "&nbsp;";
                 let entryContent = $("<a />")
-                    .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + (bookmark.title || "") + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
+                    .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + label.trim() + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
                     .appendTo(entry);
 
                 if (bookmark.id) {

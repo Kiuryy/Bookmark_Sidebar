@@ -118,6 +118,7 @@
             if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
+                this.helper.list.updateSidebarHeader();
 
                 console.log(+new Date() - window.start);
 

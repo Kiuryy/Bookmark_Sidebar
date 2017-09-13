@@ -135,7 +135,7 @@
                     list.html(result.val);
                     ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
 
-                    updateSidebarHeader();
+                    this.updateSidebarHeader();
                     this.updateSortFilter();
                     ext.helper.search.init();
 
@@ -158,7 +158,7 @@
 
                         return $.delay(0);
                     }).then(() => {
-                        updateSidebarHeader();
+                        this.updateSidebarHeader();
                         this.updateSortFilter();
                         ext.helper.search.init();
 
@@ -249,6 +249,47 @@
                 name: "html",
                 val: ext.elements.bookmarkBox["all"].children("ul").html()
             });
+        };
+
+        /**
+         * Updates the html for the sidebar header
+         */
+        this.updateSidebarHeader = () => {
+            ext.elements.header.text("");
+            let bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
+
+            let headline = $("<h1 />")
+                .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
+                .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
+                .appendTo(ext.elements.header);
+
+            let headerIcons = [];
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.menu).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.sort).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.search).appendTo(ext.elements.header));
+
+            let computedStyle = window.getComputedStyle(ext.elements.header[0]);
+            let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
+
+            ["label", "amount"].forEach((type) => {
+                headerIcons.some((icon) => {
+                    console.log(ext.elements.header[0].offsetWidth, type, icon[0].offsetTop, headerPaddingTop)
+                    if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
+                        if (type === "label") {
+                            headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
+                        } else if (type === "amount") {
+                            headline.addClass(ext.opts.classes.sidebar.hidden);
+                        }
+                        return true;
+                    }
+                });
+            });
+
+            $("<div />")
+                .addClass(ext.opts.classes.sidebar.searchBox)
+                .append("<input type='text' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder") + "' />")
+                .append("<a class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
+                .appendTo(ext.elements.header);
         };
 
         /**
@@ -651,46 +692,6 @@
 
                 ext.loaded();
             });
-        };
-
-        /**
-         * Updates the html for the sidebar header
-         */
-        let updateSidebarHeader = () => {
-            ext.elements.header.text("");
-            let bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
-
-            let headline = $("<h1 />")
-                .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
-                .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
-                .appendTo(ext.elements.header);
-
-            let headerIcons = [];
-            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.menu).appendTo(ext.elements.header));
-            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.sort).appendTo(ext.elements.header));
-            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.search).appendTo(ext.elements.header));
-
-            let computedStyle = window.getComputedStyle(ext.elements.header[0]);
-            let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
-
-            ["label", "amount"].forEach((type) => {
-                headerIcons.some((icon) => {
-                    if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
-                        if (type === "label") {
-                            headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
-                        } else if (type === "amount") {
-                            headline.addClass(ext.opts.classes.sidebar.hidden);
-                        }
-                        return true;
-                    }
-                });
-            });
-
-            $("<div />")
-                .addClass(ext.opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder") + "' />")
-                .append("<a class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
-                .appendTo(ext.elements.header);
         };
     };
 

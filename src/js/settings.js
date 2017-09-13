@@ -268,7 +268,7 @@
                 let path = this.helper.menu.getPath();
 
                 switch (path[0]) {
-                    case "settings": {
+                    case "sidebar": {
                         this.helper.behaviour.save();
                         break;
                     }
@@ -303,7 +303,7 @@
                     let language = this.helper.model.getData("b/language");
 
                     $.api.storage.sync.remove([name], () => {
-                        if (name === "behaviour") { // don't reset user language
+                        if (name === "sidebar") { // don't reset user language
                             $.api.storage.sync.set({behaviour: {language: language}});
                         }
 
@@ -318,8 +318,8 @@
                 };
 
                 switch (path[0]) {
-                    case "settings":
-                        restore("behaviour");
+                    case "sidebar":
+                        restore("sidebar");
                         break;
                     case "appearance": {
                         restore("appearance");

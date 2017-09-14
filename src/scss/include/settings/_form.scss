@@ -24,6 +24,7 @@ select, input[type='email'], input[type='text'], textarea {
 
 select {
   cursor: pointer;
+  max-width: 100%;
 
   &.hidden {
     display: none;

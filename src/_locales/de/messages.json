@@ -435,10 +435,13 @@
         "message": "Merken"
     },
     "settings_remember_state_desc": {
-        "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll."
+        "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Scrollposition und ge\u00f6ffnete Verzeichnisse"
     },
     "settings_remember_state_all": {
-        "message": "Scrollposition und ge\u00f6ffnete Verzeichnisse"
+        "message": "Scrollposition, ge\u00f6ffnete Verzeichnisse und zuletzt ge\u00f6ffnetes Lesezeichen"
     },
     "settings_remember_state_open_states": {
         "message": "Ge\u00f6ffnete Verzeichnisse"
@@ -759,9 +762,6 @@
         "message": "Das kann mehrere Gr\u00fcnde haben. Im Chrome Webstore und Seiten die mit [em]chrome-extension:\/\/[\/em] beginnen funktioniert es durch Sicherheitseinschr\u00e4nkungen nicht. Es gibt jedoch auch Seiten, die das Laden der Sidebar blockieren oder veraltete Quellcode-Strukturen besitzen. Wenn du Probleme auf manchen Seiten feststellst, lass es mich wissen, damit ich mir die entsprechende Seite ansehen und versuchen kann das Problem zu beheben."
     },
     "settings_headline_donation": {
-        "message": "Spenden"
-    },
-    "settings_support_donation_link": {
         "message": "Spenden"
     },
     "settings_support_donation_desc": {

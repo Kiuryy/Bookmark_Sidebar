@@ -11,6 +11,8 @@
          * @param {boolean} active
          */
         this.openUrl = (infos, type = "default", active = true) => {
+            ext.helper.model.setData({"u/lastOpened": infos.id});
+
             if (type === "incognito") {
                 ext.helper.model.call("openLink", {
                     href: infos.url,
@@ -125,6 +127,35 @@
                 bubbles: true,
                 cancelable: false
             }));
+        };
+
+        /**
+         * Copies the url of the currently hovered entry into the clipboard
+         */
+        this.copyHoveredEntryUrl = () => {
+            Object.values(ext.elements.bookmarkBox).some((box) => {
+                if (box.hasClass(ext.opts.classes.sidebar.active)) {
+                    let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
+                    if (elm.length() > 0) {
+                        let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+                        if (data && data.url && this.copyToClipboard(data.url)) {
+                            $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
+                            let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
+
+                            $.delay(100).then(() => {
+                                $(elm).addClass(ext.opts.classes.sidebar.copied);
+                                return $.delay(1500);
+                            }).then(() => {
+                                $(elm).removeClass(ext.opts.classes.sidebar.copied);
+                                return $.delay(500);
+                            }).then(() => {
+                                copiedNotice.remove();
+                            });
+                        }
+                    }
+                    return true;
+                }
+            });
         };
 
         /**

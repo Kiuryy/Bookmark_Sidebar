@@ -108,78 +108,40 @@
 
         /**
          * Updates the sidebar with the newest set of bookmarks
+         *
+         * @returns {Promise}
          */
         this.updateBookmarkBox = () => {
-            ext.startLoading();
-            sort = ext.helper.model.getData("u/sort");
-            ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
+            return new Promise((resolve) => {
+                ext.startLoading();
+                sort = ext.helper.model.getData("u/sort");
+                ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
-            let viewAsTree = ext.helper.model.getData("u/viewAsTree");
-            let list = ext.elements.bookmarkBox["all"].children("ul");
-            let promiseObj = null;
-            let entries = [];
+                let list = ext.elements.bookmarkBox["all"].children("ul");
+                let promiseObj = null;
 
-            window.start = +new Date();
+                window.start = +new Date();
 
-            if (viewAsTree) {
-                promiseObj = ext.helper.model.call("getCache", {name: "html"});
-            } else {
-                promiseObj = new Promise((resolve) => {
-                    resolve()
-                });
-            }
-
-            promiseObj.then((result) => {
-                if (result && result.val) { // load content from cache
-                    console.log("LOAD FROM CACHE");
-                    list.html(result.val);
-                    ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
-
-                    this.updateSidebarHeader();
-                    this.updateSortFilter();
-                    ext.helper.search.init();
-
-                    if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                        list.addClass(ext.opts.classes.sidebar.hideRoot);
-                    }
-
-                    restoreScrollPos();
-                } else { // load content from object
-                    console.log("LOAD FROM OBJECT");
-                    ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.cached);
-
-                    ext.helper.model.call("bookmarks", {id: 0}).then((response) => {
-                        ext.refreshRun = true;
-                        list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
-
-                        if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
-                            entries = response.bookmarks[0].children;
-                        }
-
-                        return $.delay(0);
-                    }).then(() => {
-                        this.updateSidebarHeader();
-                        this.updateSortFilter();
-                        ext.helper.search.init();
-
-                        if (viewAsTree || sort.name === "custom") { // with directories
-                            this.addBookmarkDir(entries, list, true);
-
-                            if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                                list.addClass(ext.opts.classes.sidebar.hideRoot);
-                                this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
-                            } else {
-                                this.restoreOpenStates(list);
-                            }
-                        } else { // one dimensional without directories
-                            this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
-                            restoreScrollPos();
-                        }
+                if (ext.helper.model.getData("u/viewAsTree")) {
+                    promiseObj = ext.helper.model.call("getCache", {name: "html"});
+                } else {
+                    promiseObj = new Promise((resolve) => {
+                        resolve()
                     });
                 }
-            });
 
-            ext.helper.scroll.focus();
+                ext.helper.scroll.focus();
+
+                promiseObj.then((result) => {
+                    if (result && result.val) { // load content from cache
+                        return updateFromCache(list, result.val);
+                    } else { // load content from object
+                        return updateFromObject(list);
+                    }
+                }).then(() => {
+                    resolve();
+                });
+            });
         };
 
         /**
@@ -273,7 +235,6 @@
 
             ["label", "amount"].forEach((type) => {
                 headerIcons.some((icon) => {
-                    console.log(ext.elements.header[0].offsetWidth, type, icon[0].offsetTop, headerPaddingTop)
                     if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
                         if (type === "label") {
                             headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
@@ -310,7 +271,7 @@
                 }
             };
 
-            if (data.rememberState === "all" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
+            if (data.rememberState === "all" || data.rememberState === "openStatesAndPos" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
                 Object.keys(data.openStates).forEach((node) => {
                     if (data.openStates[node] === true) {
                         let entry = list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + (node) + "']");
@@ -399,10 +360,10 @@
 
             if (list.parents("li").length() === 0) {
                 if (!ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
-                    let hiddenEntries = ext.helper.entry.getAllPinnedData();
-                    sortEntries(hiddenEntries);
+                    let pinnedEntries = ext.helper.entry.getAllPinnedData();
+                    sortEntries(pinnedEntries);
 
-                    hiddenEntries.forEach((entry) => {
+                    pinnedEntries.forEach((entry) => {
                         if (showHidden || ext.helper.entry.isVisible(entry.id)) {
                             let elm = addEntryToList(entry, list, {
                                 config: config,
@@ -673,6 +634,78 @@
 
             ext.helper.model.setData({
                 "u/openStates": openStates
+            });
+        };
+
+        /**
+         * Updates the list by setting the content from the cache
+         *
+         * @param {jsu} list
+         * @param {string} cachedHtml
+         * @returns {Promise}
+         */
+        let updateFromCache = (list, cachedHtml) => {
+            return new Promise((resolve) => {
+                console.log("LOAD FROM CACHE");
+                list.html(cachedHtml);
+                ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
+
+                this.updateSidebarHeader();
+                this.updateSortFilter();
+                ext.helper.search.init();
+
+                if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                    list.addClass(ext.opts.classes.sidebar.hideRoot);
+                }
+
+                restoreScrollPos();
+                resolve();
+            });
+        };
+
+        /**
+         * Updates the list by building the content from the bookmark tree
+         *
+         * @param {jsu} list
+         * @returns {Promise}
+         */
+        let updateFromObject = (list) => {
+            return new Promise((resolve) => {
+                console.log("LOAD FROM OBJECT");
+                let entries = [];
+                let viewAsTree = ext.helper.model.getData("u/viewAsTree");
+                ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.cached);
+
+                ext.helper.model.call("bookmarks", {id: 0}).then((response) => {
+                    ext.refreshRun = true;
+                    list.removeClass(ext.opts.classes.sidebar.hideRoot).text("");
+
+                    if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
+                        entries = response.bookmarks[0].children;
+                    }
+
+                    return $.delay(0);
+                }).then(() => {
+                    this.updateSidebarHeader();
+                    this.updateSortFilter();
+                    ext.helper.search.init();
+
+                    if (viewAsTree || sort.name === "custom") { // with directories
+                        this.addBookmarkDir(entries, list, true);
+
+                        if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                            list.addClass(ext.opts.classes.sidebar.hideRoot);
+                            this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
+                        } else {
+                            this.restoreOpenStates(list);
+                        }
+                    } else { // one dimensional without directories
+                        this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
+                        restoreScrollPos();
+                    }
+
+                    resolve();
+                });
             });
         };
 

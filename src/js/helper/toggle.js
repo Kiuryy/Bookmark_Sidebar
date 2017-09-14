@@ -107,6 +107,13 @@
                 if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
                     ext.trackInitialEvents();
                     ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+
+                    let data = ext.helper.model.getData(["u/lastOpened", "b/rememberState"]);
+                    if (data.rememberState === "all" && data.lastOpened) { // mark last opened bookmark if there is one and user set so in the options
+                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + data.lastOpened + "']");
+                        entry.addClass(ext.opts.classes.sidebar.mark);
+                    }
+                    ext.helper.model.setData({"u/lastOpened": null});
                 }
 
                 ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});

@@ -74,7 +74,7 @@
             return new Promise((resolve) => {
                 let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
 
-                if (data.rememberState === "all") {
+                if (data.rememberState === "all" || data.rememberState === "openStatesAndPos") {
                     this.setScrollPos(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
                     $.delay(100).then(resolve);
                 } else {

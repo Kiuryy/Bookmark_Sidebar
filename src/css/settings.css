@@ -647,7 +647,8 @@ select, input[type='email'], input[type='text'], textarea {
     box-shadow: 0 0 10px #f99; }
 
 select {
-  cursor: pointer; }
+  cursor: pointer;
+  max-width: 100%; }
   select.hidden {
     display: none; }
 

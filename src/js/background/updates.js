@@ -92,6 +92,10 @@
                     obj.newtab.initialOpen = obj.behaviour.initialOpenOnNewTab;
                 }
 
+                if (typeof obj.behaviour.rememberState !== "undefined" && obj.behaviour.rememberState === "all") {
+                    obj.behaviour.rememberState = "openStatesAndPos";
+                }
+
                 if (typeof obj.appearance.iconShape === "undefined") {
                     obj.appearance.iconShape = "logo";
                 }

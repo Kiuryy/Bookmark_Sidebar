@@ -110,16 +110,6 @@
         };
 
         /**
-         * Returns the difference in months between the given timestamp and now
-         *
-         * @param {int} startDate
-         * @returns {int}
-         */
-        let getMonthDiff = (startDate) => {
-            return Math.max(1, Math.round((+new Date() - startDate) / (30.416666 * 24 * 60 * 60 * 1000)));
-        };
-
-        /**
          * Adds the information about the given entry to the directories object
          *
          * @param entry
@@ -193,6 +183,16 @@
                     amounts.pinned++;
                 }
             }
+        };
+
+        /**
+         * Returns the difference in months between the given timestamp and now
+         *
+         * @param {int} startDate
+         * @returns {int}
+         */
+        let getMonthDiff = (startDate) => {
+            return Math.max(1, Math.round((+new Date() - startDate) / (30.416666 * 24 * 60 * 60 * 1000)));
         };
     };
 

@@ -435,10 +435,13 @@
         "message": "Remember"
     },
     "settings_remember_state_desc": {
-        "message": "Select what to remember across page changes."
+        "message": "Select what to remember across page changes. If you choose to remember the last opened bookmark, it will be marked when opening the sidebar again."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Scroll position and opened directories"
     },
     "settings_remember_state_all": {
-        "message": "Scroll position and opened directories"
+        "message": "Scroll position, opened directories and last opened bookmark"
     },
     "settings_remember_state_open_states": {
         "message": "Opened directories"
@@ -759,9 +762,6 @@
         "message": "This can have many reasons. On the chrome webstore and pages starting with [em]chrome-extension:\/\/[\/em] this is a security restriction. But there might be other pages which block the sidebar, or use outdated source code structures. If you encounter problems on some pages, please let me know, so I can have a look at the particular page and try to fix it."
     },
     "settings_headline_donation": {
-        "message": "Donate"
-    },
-    "settings_support_donation_link": {
         "message": "Donate"
     },
     "settings_support_donation_desc": {

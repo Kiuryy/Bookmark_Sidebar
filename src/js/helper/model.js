@@ -28,6 +28,7 @@
                 separators: {},
                 pinnedEntries: {},
                 entriesLocked: false,
+                lastOpened: null,
                 sort: {
                     name: "custom",
                     dir: "ASC"
@@ -46,7 +47,7 @@
                 newTabPosition: "afterCurrent",
                 linkAction: "current",
                 dirAccordion: false,
-                rememberState: "all",
+                rememberState: "openStatesAndPos",
                 tooltipDelay: 1,
                 tooltipContent: "all",
                 dndOpen: true,

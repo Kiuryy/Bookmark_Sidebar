@@ -11,55 +11,48 @@
         this.init = async () => {
             initBookmarkEntriesEvents();
             initFilterEvents();
-            initKeyboardEvents();
             initGeneralEvents();
         };
 
-        /**
-         * Initializes the eventhandlers for keyboard input
-         *
-         * @returns {Promise}
-         */
-        let initKeyboardEvents = async () => {
-            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
-                if ($("iframe#" + ext.opts.ids.page.overlay).length()) { // overlay is open
-                    if (e.key === "Escape" || e.key === "Esc") { // close overlay
-                        e.preventDefault();
-                        ext.helper.overlay.closeOverlay(true);
+        this.handleEntryClick = (elm, opts) => {
+            let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+            let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
+            let middleClick = opts.which === 2 || opts.ctrlKey || opts.metaKey;
+
+            if (data.isDir && !elm.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
+                if (middleClick) { // middle click -> open all children
+                    let bookmarks = data.children.filter(val => !!(val.url));
+                    if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
+                        ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
+                    } else { // open bookmarks directly without confirmation
+                        ext.helper.utility.openAllBookmarks(bookmarks, config.newTab === "foreground");
                     }
+                } else { // normal click -> toggle directory
+                    ext.helper.list.toggleBookmarkDir(elm);
+                }
+            } else if (!data.isDir) { // Click on link
+                if (middleClick) {
+                    ext.helper.model.call("trackEvent", {
+                        category: "url",
+                        action: "open",
+                        label: "new_tab_middle_click"
+                    });
                 } else {
-                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
-                        let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
-
-                        if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
-                            ext.helper.scroll.focus();
-                        } else if (e.key === "Escape" || e.key === "Esc") { // close sidebar
-                            e.preventDefault();
-                            ext.helper.toggle.closeSidebar();
-                        } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
-                            e.preventDefault();
-                            ext.helper.utility.copyHoveredEntryUrl();
-                        } else { // focus search field to enter the value of the pressed key there
-                            let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-
-                            if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
-                                searchField[0].focus();
-                            }
-                        }
-                    }
+                    ext.helper.model.call("trackEvent", {
+                        category: "url",
+                        action: "open",
+                        label: (opts.which === 2 || config.linkAction === "newtab" ? "new" : "current") + "_tab_default"
+                    });
                 }
-            }).on("keyup", () => {
-                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                    let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-                    let searchVal = searchField[0].value;
 
-                    if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
-                        ext.helper.contextmenu.close();
-                        ext.helper.tooltip.close();
-                        ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                    }
+                if (middleClick) { // new tab -> middle click
+                    ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background
+                } else if (config.linkAction === "newtab") { // new tab -> normal click
+                    ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
+                } else { // current tab
+                    ext.helper.utility.openUrl(data, "default", true);
                 }
-            });
+            }
         };
 
         /**
@@ -103,45 +96,7 @@
                     e.preventDefault();
 
                     if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)) { // only left click
-                        let _self = $(e.currentTarget);
-                        let data = ext.helper.entry.getData(_self.attr(ext.opts.attr.id));
-                        let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
-                        let middleClick = e.which === 2 || e.ctrlKey || e.metaKey;
-
-                        if (data.isDir && !_self.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
-                            if (middleClick) { // middle click -> open all children
-                                let bookmarks = data.children.filter(val => !!(val.url));
-                                if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
-                                    ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
-                                } else { // open bookmarks directly without confirmation
-                                    ext.helper.utility.openAllBookmarks(bookmarks, config.newTab === "foreground");
-                                }
-                            } else { // normal click -> toggle directory
-                                ext.helper.list.toggleBookmarkDir(_self);
-                            }
-                        } else if (!data.isDir) { // Click on link
-                            if (middleClick) {
-                                ext.helper.model.call("trackEvent", {
-                                    category: "url",
-                                    action: "open",
-                                    label: "new_tab_middle_click"
-                                });
-                            } else {
-                                ext.helper.model.call("trackEvent", {
-                                    category: "url",
-                                    action: "open",
-                                    label: (e.which === 2 || config.linkAction === "newtab" ? "new" : "current") + "_tab_default"
-                                });
-                            }
-
-                            if (middleClick) { // new tab -> middle click
-                                ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background
-                            } else if (config.linkAction === "newtab") { // new tab -> normal click
-                                ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
-                            } else { // current tab
-                                ext.helper.utility.openUrl(data, "default", true);
-                            }
-                        }
+                        this.handleEntryClick($(e.currentTarget), e);
                     }
                 }).on("mouseover", "a", (e) => { // add class to currently hovered element
                     let _self = $(e.currentTarget);

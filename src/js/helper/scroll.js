@@ -119,37 +119,14 @@
         };
 
         /**
-         * Returns the content height of the given scrollbox
-         *
-         * @param scrollBox
-         * @returns {number}
-         */
-        let getContentHeight = (scrollBox) => {
-            let height = 0;
-            scrollBox.children().forEach((elm) => {
-                height += $(elm).realHeight(true);
-            });
-            return height;
-        };
-
-        /**
-         * Saves the scroll position of the given scrollbox
+         * Returns the current scroll position of the given scrollbox
          *
          * @param {jsu} scrollBox
+         * @returns {int}
          */
-        let saveScrollPos = (scrollBox) => {
-            if (ext.refreshRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
-                scrollPosSaved = +new Date();
-
-                let scrollPos = ext.helper.model.getData("u/scrollPos");
-                scrollPos[scrollBox.attr("id")] = scrollBox[0].scrollTop;
-
-                ext.helper.model.setData({
-                    "u/scrollPos": scrollPos
-                });
-            }
+        this.getScrollPos = (scrollBox) => {
+            return scrollBox[0].scrollTop;
         };
-
 
         /**
          * Triggers the update method of the given scrollbox and optionally saves the scroll position afterwards,
@@ -201,6 +178,38 @@
                 }
             }
             ext.helper.scroll.focus();
+        };
+
+        /**
+         * Returns the content height of the given scrollbox
+         *
+         * @param scrollBox
+         * @returns {number}
+         */
+        let getContentHeight = (scrollBox) => {
+            let height = 0;
+            scrollBox.children().forEach((elm) => {
+                height += $(elm).realHeight(true);
+            });
+            return height;
+        };
+
+        /**
+         * Saves the scroll position of the given scrollbox
+         *
+         * @param {jsu} scrollBox
+         */
+        let saveScrollPos = (scrollBox) => {
+            if (ext.refreshRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
+                scrollPosSaved = +new Date();
+
+                let scrollPos = ext.helper.model.getData("u/scrollPos");
+                scrollPos[scrollBox.attr("id")] = scrollBox[0].scrollTop;
+
+                ext.helper.model.setData({
+                    "u/scrollPos": scrollPos
+                });
+            }
         };
 
         /**

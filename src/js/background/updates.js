@@ -75,6 +75,7 @@
 
                 // START UPGRADE // v1.11
                 //delete obj.behaviour.initialOpenOnNewTab;
+                //delete obj.behaviour.replaceNewTab;
                 // END UPGRADE // v1.11
 
                 // START UPGRADE // v1.10
@@ -90,6 +91,10 @@
 
                 if (typeof obj.behaviour.initialOpenOnNewTab !== "undefined") {
                     obj.newtab.initialOpen = obj.behaviour.initialOpenOnNewTab;
+                }
+
+                if (typeof obj.behaviour.replaceNewTab !== "undefined") {
+                    obj.newtab.override = obj.behaviour.replaceNewTab;
                 }
 
                 if (typeof obj.behaviour.rememberState !== "undefined" && obj.behaviour.rememberState === "all") {

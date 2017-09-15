@@ -45,6 +45,7 @@
         "js/helper/search.js",
         "js/helper/stylesheet.js",
         "js/helper/dragndrop.js",
+        "js/helper/keyboard.js",
         "js/helper/checkbox.js",
         "js/helper/overlay.js",
         "js/helper/contextmenu.js",

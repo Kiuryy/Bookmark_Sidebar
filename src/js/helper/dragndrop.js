@@ -225,7 +225,7 @@
             if (edgeScroll.posY !== null) {
                 let bookmarkBoxTopOffset = ext.elements.bookmarkBox["all"][0].offsetTop;
                 let bookmarkBoxHeight = ext.elements.bookmarkBox["all"][0].offsetHeight;
-                let scrollPos = ext.elements.bookmarkBox["all"][0].scrollTop;
+                let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox["all"]);
                 let newScrollPos = null;
 
                 if (edgeScroll.posY - bookmarkBoxTopOffset < 60) {

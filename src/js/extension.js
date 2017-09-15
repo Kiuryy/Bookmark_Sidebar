@@ -40,6 +40,7 @@
                     this.helper.tooltip.init();
                     this.helper.sidebarEvents.init();
                     this.helper.dragndrop.init();
+                    this.helper.keyboard.init();
 
                     if (document.referrer === "") {
                         this.helper.model.call("addViewAmount", {url: location.href});
@@ -224,6 +225,7 @@
                 stylesheet: new window.StylesheetHelper(this),
                 dragndrop: new window.DragDropHelper(this),
                 checkbox: new window.CheckboxHelper(this),
+                keyboard: new window.KeyboardHelper(this),
                 overlay: new window.OverlayHelper(this),
                 utility: new window.UtilityHelper(this),
                 specialEntry: new window.SpecialEntryHelper(this),

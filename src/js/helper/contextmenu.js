@@ -306,7 +306,15 @@
                 this.close();
             });
 
-            contextmenu.find("a").on("click", (e) => {
+            contextmenu.on("mouseleave", (e) => {
+                $(e.currentTarget).find("a").removeClass(ext.opts.classes.sidebar.hover);
+            });
+
+            contextmenu.find("a").on("mouseenter", (e) => {
+                $(e.currentTarget).addClass(ext.opts.classes.sidebar.hover);
+            }).on("mouseleave", (e) => {
+                $(e.currentTarget).removeClass(ext.opts.classes.sidebar.hover);
+            }).on("click", (e) => {
                 e.preventDefault();
                 let name = $(e.currentTarget).attr(ext.opts.attr.name);
                 let elmId = contextmenu.attr(ext.opts.attr.id);

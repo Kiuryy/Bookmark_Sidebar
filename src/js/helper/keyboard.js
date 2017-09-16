@@ -25,18 +25,31 @@
                 } else {
                     if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
                         let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
+                        let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
 
                         if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                             ext.helper.scroll.focus();
                         } else if (e.key === "Tab") { // jump to the next entry
                             e.preventDefault();
-                            hoverNextEntry();
+                            if (isContextmenuOpen) {
+                                hoverNextContextmenuEntry();
+                            } else {
+                                hoverNextEntry();
+                            }
                         } else if (e.key === "Enter") { // click the current entry
                             e.preventDefault();
-                            handleClick(e.shiftKey, (e.ctrlKey || e.metaKey));
-                        } else if (e.key === "Escape" || e.key === "Esc") { // close sidebar
+                            if (isContextmenuOpen) {
+                                handleContextmenuClick();
+                            } else {
+                                handleClick(e.shiftKey, (e.ctrlKey || e.metaKey));
+                            }
+                        } else if (e.key === "Escape" || e.key === "Esc") {
                             e.preventDefault();
-                            ext.helper.toggle.closeSidebar();
+                            if (isContextmenuOpen) { // close contextmenu
+                                ext.helper.contextmenu.close();
+                            } else { // close sidebar
+                                ext.helper.toggle.closeSidebar();
+                            }
                         } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                             e.preventDefault();
                             copyHoveredEntryUrl();
@@ -61,6 +74,15 @@
                     }
                 }
             });
+        };
+
+        let handleContextmenuClick = () => {
+            let contextmenu = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper);
+            let hoveredEntry = contextmenu.find("a." + ext.opts.classes.sidebar.hover);
+
+            if (hoveredEntry.length() > 0) {
+                hoveredEntry.trigger("click");
+            }
         };
 
         /**
@@ -93,7 +115,29 @@
                     return true;
                 }
             });
+        };
 
+        let hoverNextContextmenuEntry = () => {
+            let contextmenu = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper);
+            let hoveredElm = null;
+            let entry = null;
+
+            if (contextmenu.find("a." + ext.opts.classes.sidebar.hover).length() > 0) {
+                entry = contextmenu.find("a." + ext.opts.classes.sidebar.hover).eq(0);
+            }
+
+            if (entry === null) { // hover the first entry
+                hoveredElm = contextmenu.find("a").eq(0);
+            } else if (entry.parent("li").next("li").length() > 0) { // hover the next entry
+                hoveredElm = entry.parent("li").next("li").find("a");
+            } else if (entry.parents("ul").eq(0).next("ul").length() > 0) { // hover the first entry of the next list
+                hoveredElm = entry.parents("ul").eq(0).next("ul").find("a").eq(0);
+            } else { // last entry of the last list -> hover the first entry
+                hoveredElm = contextmenu.find("a").eq(0);
+            }
+
+            contextmenu.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+            hoveredElm.addClass(ext.opts.classes.sidebar.hover)
         };
 
         /**
@@ -180,7 +224,7 @@
                     let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
                     if (elm.length() > 0) {
                         let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
-                        if (data && data.url && this.copyToClipboard(data.url)) {
+                        if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
                             $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
                             let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 

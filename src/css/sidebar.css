@@ -113,7 +113,7 @@ div.contextmenu {
           height: 100%;
           -webkit-mask: no-repeat center/22px;
           background-color: #ccc; }
-        div.contextmenu > ul.icons > li > a:hover {
+        div.contextmenu > ul.icons > li > a.hover {
           background-color: #ededed; }
         div.contextmenu > ul.icons > li > a[data-name='delete']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg);
@@ -149,7 +149,7 @@ div.contextmenu {
         padding-left: 50px; }
         div.contextmenu > ul.list > li > div.checkbox + a::before {
           display: none; }
-      div.contextmenu > ul.list > li > div.checkbox:hover + a {
+      div.contextmenu > ul.list > li > div.checkbox.hover + a {
         color: "%colorScheme"; }
     div.contextmenu > ul.list > li > a {
       position: relative;
@@ -173,9 +173,9 @@ div.contextmenu {
       div.contextmenu > ul.list > li > a::before {
         -webkit-mask-position: 12px center;
         transition: background-color 0.3s, opacity 0.3s; }
-      div.contextmenu > ul.list > li > a:hover {
+      div.contextmenu > ul.list > li > a.hover {
         color: "%colorScheme"; }
-        div.contextmenu > ul.list > li > a:hover::before {
+        div.contextmenu > ul.list > li > a.hover::before {
           background-color: "%colorScheme";
           opacity: 0.8; }
       div.contextmenu > ul.list > li > a[data-name='newTab']::before, div.contextmenu > ul.list > li > a[data-name='openChildren']::before {
@@ -200,17 +200,17 @@ body.dark div.contextmenu {
     opacity: 0.7; }
     body.dark div.contextmenu > ul.list > li > a::before {
       background-color: #999; }
-    body.dark div.contextmenu > ul.list > li > a:hover {
+    body.dark div.contextmenu > ul.list > li > a.hover {
       color: "%textColor";
       opacity: 1; }
-      body.dark div.contextmenu > ul.list > li > a:hover::before {
+      body.dark div.contextmenu > ul.list > li > a.hover::before {
         background-color: "%textColor";
         opacity: 0.8; }
   body.dark div.contextmenu > ul.icons {
     background: #5d5d5d; }
     body.dark div.contextmenu > ul.icons > li > a::before {
       background-color: #999; }
-    body.dark div.contextmenu > ul.icons > li > a:hover {
+    body.dark div.contextmenu > ul.icons > li > a.hover {
       background-color: dimgray; }
 
 div.tooltip {

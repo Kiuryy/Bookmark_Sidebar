@@ -7,58 +7,70 @@
          *
          */
         this.init = async () => {
-            initEvents();
+            initSidebarEvents();
         };
 
         /**
-         * Initializes the eventhandlers for keyboard input
+         * Initialises the eventhandlers for the given overlay
          *
-         * @returns {Promise}
+         * @param overlay
          */
-        let initEvents = async () => {
+        this.initOverlayEvents = (overlay) => {
+            $(overlay[0].contentDocument).on("keydown", (e) => {
+                if (e.key === "Escape" || e.key === "Esc") { // close overlay
+                    e.preventDefault();
+                    ext.helper.overlay.closeOverlay(true);
+                } else if (e.key === "Enter") { // submit
+                    e.preventDefault();
+                    handleOverlayClick(overlay);
+                } else if (e.key === "Tab") { // jump to the next entry
+                    e.preventDefault();
+                    hoverNextOverlayEntry(overlay);
+
+                }
+            });
+        };
+
+        /**
+         * Initializes the eventhandlers for the sidebar
+         */
+        let initSidebarEvents = () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
-                if ($("iframe#" + ext.opts.ids.page.overlay).length()) { // overlay is open
-                    if (e.key === "Escape" || e.key === "Esc") { // close overlay
+                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
+                    let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
+                    let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
+
+                    if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
+                        ext.helper.scroll.focus();
+                    } else if (e.key === "Tab") { // jump to the next entry
                         e.preventDefault();
-                        ext.helper.overlay.closeOverlay(true);
-                    }
-                } else {
-                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
-                        let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
-                        let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
+                        if (isContextmenuOpen) {
+                            hoverNextContextmenuEntry();
+                        } else {
+                            hoverNextEntry();
+                        }
+                    } else if (e.key === "Enter") { // click the current entry
+                        e.preventDefault();
+                        if (isContextmenuOpen) {
+                            handleContextmenuClick();
+                        } else {
+                            handleClick(e.shiftKey, (e.ctrlKey || e.metaKey));
+                        }
+                    } else if (e.key === "Escape" || e.key === "Esc") {
+                        e.preventDefault();
+                        if (isContextmenuOpen) { // close contextmenu
+                            ext.helper.contextmenu.close();
+                        } else { // close sidebar
+                            ext.helper.toggle.closeSidebar();
+                        }
+                    } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
+                        e.preventDefault();
+                        copyHoveredEntryUrl();
+                    } else { // focus search field to enter the value of the pressed key there
+                        let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
 
-                        if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
-                            ext.helper.scroll.focus();
-                        } else if (e.key === "Tab") { // jump to the next entry
-                            e.preventDefault();
-                            if (isContextmenuOpen) {
-                                hoverNextContextmenuEntry();
-                            } else {
-                                hoverNextEntry();
-                            }
-                        } else if (e.key === "Enter") { // click the current entry
-                            e.preventDefault();
-                            if (isContextmenuOpen) {
-                                handleContextmenuClick();
-                            } else {
-                                handleClick(e.shiftKey, (e.ctrlKey || e.metaKey));
-                            }
-                        } else if (e.key === "Escape" || e.key === "Esc") {
-                            e.preventDefault();
-                            if (isContextmenuOpen) { // close contextmenu
-                                ext.helper.contextmenu.close();
-                            } else { // close sidebar
-                                ext.helper.toggle.closeSidebar();
-                            }
-                        } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
-                            e.preventDefault();
-                            copyHoveredEntryUrl();
-                        } else { // focus search field to enter the value of the pressed key there
-                            let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-
-                            if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
-                                searchField[0].focus();
-                            }
+                        if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                            searchField[0].focus();
                         }
                     }
                 }
@@ -76,6 +88,22 @@
             });
         };
 
+        /**
+         * Clicks on the currently hovered overlay entry
+         */
+        let handleOverlayClick = (overlay) => {
+            let hoveredEntry = overlay.find("menu[" + ext.opts.attr.name + "='select'] > a." + ext.opts.classes.sidebar.hover);
+
+            if (hoveredEntry.length() > 0) {
+                hoveredEntry.trigger("click");
+            } else {
+                ext.helper.overlay.performAction();
+            }
+        };
+
+        /**
+         * Clicks on the currently hovered contextmenu entry
+         */
         let handleContextmenuClick = () => {
             let contextmenu = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper);
             let hoveredEntry = contextmenu.find("a." + ext.opts.classes.sidebar.hover);
@@ -96,7 +124,7 @@
         let handleClick = (shift, ctrl) => {
             Object.values(ext.elements.bookmarkBox).some((box) => {
                 if (box.hasClass(ext.opts.classes.sidebar.active)) {
-                    let hoveredEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover);
+                    let hoveredEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover + ", ul > li > a." + ext.opts.classes.sidebar.mark);
 
                     if (hoveredEntry.length() > 0) {
                         if (shift) { // open contextmenu
@@ -117,6 +145,45 @@
             });
         };
 
+        /**
+         * Hovers the next entry in the currently visible overlay
+         */
+        let hoverNextOverlayEntry = (overlay) => {
+            let hoveredEntry = overlay.find("menu[" + ext.opts.attr.name + "='select'] > a." + ext.opts.classes.sidebar.hover);
+            let doc = overlay[0].contentDocument;
+
+            if (hoveredEntry.length() > 0) {
+                let newActiveElm = null;
+
+                if (hoveredEntry.next("a").length() > 0) {
+                    newActiveElm = hoveredEntry.next("a");
+                } else {
+                    newActiveElm = overlay.find("menu[" + ext.opts.attr.name + "='select'] > a").eq(0);
+                }
+
+                overlay.find("menu[" + ext.opts.attr.name + "='select'] > a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                newActiveElm.addClass(ext.opts.classes.sidebar.hover);
+            } else if (doc.activeElement.tagName === "INPUT") {
+                let parentEntry = $(doc.activeElement).parent("li");
+                let newActiveElm = null;
+
+                if (parentEntry.length() > 0 && parentEntry.next("li").length() > 0) {
+                    newActiveElm = parentEntry.next("li").find("input");
+                } else {
+                    newActiveElm = overlay.find("input").eq(0);
+                }
+
+                newActiveElm[0].focus();
+            } else if (overlay.find("input").length() > 0) {
+                overlay.find("input")[0].focus();
+            } else if (overlay.find("menu[" + ext.opts.attr.name + "='select']").length() > 0) {
+                overlay.find("menu[" + ext.opts.attr.name + "='select'] > a").eq(0).addClass(ext.opts.classes.sidebar.hover);
+            }
+        };
+
+        /**
+         * Hovers the next entry in the currently visible contextmenu
+         */
         let hoverNextContextmenuEntry = () => {
             let contextmenu = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper);
             let hoveredElm = null;
@@ -164,10 +231,9 @@
 
                     if (firstVisibleEntry) {
                         let link = firstVisibleEntry.children("a");
-                        link.removeClass(ext.opts.classes.sidebar.mark);
                         let hoveredElm = null;
 
-                        if (link.hasClass(ext.opts.classes.sidebar.hover)) {
+                        if (link.hasClass(ext.opts.classes.sidebar.hover) || link.hasClass(ext.opts.classes.sidebar.mark)) {
                             if (link.hasClass(ext.opts.classes.sidebar.dirOpened) && link.next("ul").length() > 0) { // one layer deeper
                                 hoveredElm = link.next("ul").find("> li:first-child > a");
                             } else if (firstVisibleEntry.next("li").length() > 0) { // next element
@@ -197,7 +263,8 @@
 
                         if (hoveredElm) {
                             box.find("ul > li > a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                            hoveredElm.addClass(ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.mark);
+                            box.find("ul > li > a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
+                            hoveredElm.addClass(ext.opts.classes.sidebar.hover);
 
                             let offset = hoveredElm[0].offsetTop - scrollTop;
                             let pos = window.innerHeight - offset;

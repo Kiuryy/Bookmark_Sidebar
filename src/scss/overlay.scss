@@ -471,7 +471,7 @@ div.modal {
       }
     }
 
-    > menu:not(.buttons) {
+    > menu[data-name='select'] {
       position: absolute;
       top: 0;
       left: 0;
@@ -519,7 +519,7 @@ div.modal {
           transition: color 0.5s;
         }
 
-        &:hover {
+        &.hover {
           box-shadow: 1px 4px 7px rgba(0, 0, 0, 0.15);
 
           &::before {

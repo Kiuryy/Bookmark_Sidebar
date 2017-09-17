@@ -311,6 +311,7 @@
             });
 
             contextmenu.find("a").on("mouseenter", (e) => {
+                contextmenu.find("a").removeClass(ext.opts.classes.sidebar.hover);
                 $(e.currentTarget).addClass(ext.opts.classes.sidebar.hover);
             }).on("mouseleave", (e) => {
                 $(e.currentTarget).removeClass(ext.opts.classes.sidebar.hover);

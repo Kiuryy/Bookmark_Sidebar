@@ -14,7 +14,10 @@
          */
         this.create = (type, title, data) => {
             ext.helper.tooltip.close();
-            elements.overlay = $('<iframe />').attr("id", ext.opts.ids.page.overlay).appendTo("body");
+            elements.overlay = $('<iframe />')
+                .attr("id", ext.opts.ids.page.overlay)
+                .data("info", data)
+                .appendTo("body");
 
             if (ext.helper.model.getData("b/animations") === false) {
                 elements.overlay.addClass(ext.opts.classes.page.noAnimations);
@@ -77,13 +80,53 @@
                 }
             }
 
+            elements.overlay[0].focus();
+            if (elements.modal.find("input").length() > 0) {
+                elements.modal.find("input")[0].focus();
+            }
+
+            ext.helper.keyboard.initOverlayEvents(elements.overlay);
             ext.helper.model.call("trackPageView", {page: "/overlay/" + trackingLabel});
-            initEvents(data);
+            initEvents();
 
             $.delay(100).then(() => {
                 elements.modal.addClass(ext.opts.classes.overlay.visible);
                 elements.overlay.addClass(ext.opts.classes.page.visible);
             });
+        };
+
+        /**
+         * Performs the action of the current overlay
+         */
+        this.performAction = () => {
+            let data = elements.overlay.data("info");
+
+            switch (elements.modal.attr(ext.opts.attr.type)) {
+                case "delete": {
+                    deleteBookmark(data);
+                    break;
+                }
+                case "hide": {
+                    hideBookmark(data);
+                    break;
+                }
+                case "openChildren": {
+                    openChildren(data);
+                    break;
+                }
+                case "edit": {
+                    editEntry(data);
+                    break;
+                }
+                case "add": {
+                    addEntry(data);
+                    break;
+                }
+                case "updateUrls": {
+                    updateBookmarkUrls();
+                    break;
+                }
+            }
         };
 
         /**
@@ -211,12 +254,21 @@
          */
         let handleAddHtml = (data) => {
             let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
-            let menu = $("<menu />").appendTo(elements.modal);
+            let menu = $("<menu />").attr(ext.opts.attr.name, "select").appendTo(elements.modal);
             let bookmarkLink = $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
             $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
             $("<a />").attr(ext.opts.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
 
-            menu.children("a").on("click", (e) => {
+            menu.on("mouseleave", (e) => {
+                $(e.currentTarget).children("a").removeClass(ext.opts.classes.sidebar.hover);
+            });
+
+            menu.children("a").on("mouseenter", (e) => {
+                menu.children("a").removeClass(ext.opts.classes.sidebar.hover);
+                $(e.currentTarget).addClass(ext.opts.classes.sidebar.hover);
+            }).on("mouseleave", (e) => {
+                $(e.currentTarget).removeClass(ext.opts.classes.sidebar.hover);
+            }).on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
 
@@ -254,9 +306,11 @@
                     }
 
                     menu.addClass(ext.opts.classes.sidebar.hidden);
+                    menu.children("a").removeClass(ext.opts.classes.sidebar.hover);
 
                     $.delay(data && data.values ? 0 : 100).then(() => {
                         list.addClass(ext.opts.classes.overlay.visible);
+                        list.find("input")[0].focus();
                         submit.addClass(ext.opts.classes.overlay.visible);
                     });
                 }
@@ -623,10 +677,8 @@
 
         /**
          * Initializes the events for the currently displayed overlay
-         *
-         * @param {object} data
          */
-        let initEvents = (data) => {
+        let initEvents = () => {
             elements.overlay.find("body").on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY") {
                     this.closeOverlay(true);
@@ -640,33 +692,7 @@
 
             elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action
                 e.preventDefault();
-
-                switch (elements.modal.attr(ext.opts.attr.type)) {
-                    case "delete": {
-                        deleteBookmark(data);
-                        break;
-                    }
-                    case "hide": {
-                        hideBookmark(data);
-                        break;
-                    }
-                    case "openChildren": {
-                        openChildren(data);
-                        break;
-                    }
-                    case "edit": {
-                        editEntry(data);
-                        break;
-                    }
-                    case "add": {
-                        addEntry(data);
-                        break;
-                    }
-                    case "updateUrls": {
-                        updateBookmarkUrls();
-                        break;
-                    }
-                }
+                this.performAction();
             });
 
             elements.modal.on("focus", "input", (e) => { // remove error class from input fields
@@ -680,7 +706,7 @@
                     action: "open",
                     label: "new_tab_overlay"
                 });
-                ext.helper.utility.openUrl(data, "newTab");
+                ext.helper.utility.openUrl(elements.overlay.data("info"), "newTab");
             });
         };
     };

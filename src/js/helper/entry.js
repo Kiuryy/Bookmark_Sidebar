@@ -5,6 +5,7 @@
 
         let entries = {};
         let amounts = {};
+        let showHidden = false;
 
         /**
          *
@@ -12,6 +13,8 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
+                showHidden = ext.helper.model.getData("u/showHidden");
+
                 ext.helper.model.call("entries").then((result) => {
                     entries = result.entries;
                     amounts = result.amounts;
@@ -27,7 +30,15 @@
          * @returns {int|null}
          */
         this.getAmount = (type) => {
-            return amounts[type] || null;
+            if (amounts[type]) {
+                let amount = amounts[type].visible;
+                if (showHidden) { // hidden entries are visible -> add them to the counter
+                    amount += amounts[type].hidden;
+                }
+                return amount;
+            } else {
+                return null;
+            }
         };
 
         /**

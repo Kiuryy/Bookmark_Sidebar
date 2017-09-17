@@ -160,7 +160,7 @@
                 .append("<a " + ext.opts.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
 
-            if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true) {
+            if (ext.helper.model.getData("u/showHidden")) {
                 contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
             }
 
@@ -291,14 +291,13 @@
                 this.close();
             });
 
-            contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", () => { // toggle visibility of hidden entries
+            contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", (e) => { // toggle visibility of hidden entries
                 ext.startLoading();
-                ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.showHidden);
 
                 Promise.all([
                     ext.helper.model.call("removeCache", {name: "html"}),
                     ext.helper.model.setData({
-                        "u/showHidden": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden) === true
+                        "u/showHidden": ext.helper.checkbox.isChecked($(e.currentTarget).parent("div"))
                     })
                 ]).then(() => {
                     ext.helper.model.call("refreshAllTabs", {type: "ToggleHidden"});

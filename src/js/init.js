@@ -43,7 +43,6 @@
                 mark: "mark",
                 hideRoot: "hideRoot",
                 entriesUnlocked: "entriesUnlocked",
-                showHidden: "showHidden",
                 dirAnimated: "animated",
                 dirOpened: "opened",
                 bookmarkDir: "dir",

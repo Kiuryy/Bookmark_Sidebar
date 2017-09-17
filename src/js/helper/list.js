@@ -354,9 +354,8 @@
          */
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
-            let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration"]);
+            let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
-            let showHidden = ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.showHidden);
 
             if (list.parents("li").length() === 0) {
                 if (!ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
@@ -364,7 +363,7 @@
                     sortEntries(pinnedEntries);
 
                     pinnedEntries.forEach((entry) => {
-                        if (showHidden || ext.helper.entry.isVisible(entry.id)) {
+                        if (config.showHidden || ext.helper.entry.isVisible(entry.id)) {
                             let elm = addEntryToList(entry, list, {
                                 config: config,
                                 asTree: asTree,
@@ -399,7 +398,7 @@
             }
 
             bookmarks.some((bookmark, idx) => {
-                if ((showHidden || bookmark.separator || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url || bookmark.separator)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                if ((config.showHidden || bookmark.separator || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url || bookmark.separator)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     if (ext.opts.demoMode) {
                         if (bookmark.children) {
                             bookmark.title = "Directory " + (idx + 1);
@@ -648,6 +647,7 @@
             return new Promise((resolve) => {
                 console.log("LOAD FROM CACHE");
                 list.html(cachedHtml);
+                list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
                 ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
 
                 this.updateSidebarHeader();

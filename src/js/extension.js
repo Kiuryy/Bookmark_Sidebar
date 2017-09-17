@@ -68,12 +68,6 @@
                     this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
                 }
 
-                if (data.showHidden === true) {
-                    this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
-                } else {
-                    this.elements.sidebar.removeClass(opts.classes.sidebar.showHidden);
-                }
-
                 this.helper.list.updateBookmarkBox();
             });
         };
@@ -264,10 +258,6 @@
 
             if (data.entriesLocked === false) {
                 this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
-            }
-
-            if (data.showHidden === true) {
-                this.elements.sidebar.addClass(opts.classes.sidebar.showHidden);
             }
 
             if (data.darkMode === true) {

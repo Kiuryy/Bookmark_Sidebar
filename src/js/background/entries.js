@@ -40,9 +40,18 @@
                         };
 
                         amounts = {
-                            bookmarks: 0,
-                            directories: 0,
-                            pinned: 0
+                            bookmarks: {
+                                visible: 0,
+                                hidden: 0
+                            },
+                            directories: {
+                                visible: 0,
+                                hidden: 0
+                            },
+                            pinned: {
+                                visible: 0,
+                                hidden: 0
+                            }
                         };
 
                         processEntries(bookmarkTree);
@@ -132,9 +141,7 @@
             entry.childrenAmount.total = entry.childrenAmount.bookmarks + entry.childrenAmount.directories;
             entry.views.perMonth = Math.round(entry.views.total / getMonthDiff(entry.views.startDate) * 100) / 100;
 
-            if (entry.hidden === false) {
-                amounts.directories++;
-            }
+            amounts.directories[entry.hidden ? "hidden" : "visible"]++;
         };
 
         /**
@@ -165,10 +172,7 @@
 
             entry.pinned = false;
             entries.bookmarks[entry.id] = entry;
-
-            if (entry.hidden === false) {
-                amounts.bookmarks++;
-            }
+            amounts.bookmarks[entry.hidden ? "hidden" : "visible"]++;
 
             if (pinnedEntries[entry.id]) { // pinned bookmark -> add entry to the respective object
                 entry.pinned = true;
@@ -179,9 +183,7 @@
                 delete obj.parentId;
                 entries.pinned[entry.id] = obj;
 
-                if (entry.hidden === false) {
-                    amounts.pinned++;
-                }
+                amounts.pinned[entry.hidden ? "hidden" : "visible"]++;
             }
         };
 

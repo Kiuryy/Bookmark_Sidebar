@@ -217,9 +217,9 @@
                     let firstVisibleEntry = null;
 
                     if (box.find("ul > li > a." + ext.opts.classes.sidebar.mark).length() > 0) {
-                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.mark).parent("li");
+                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.mark).eq(0).parent("li");
                     } else if (box.find("ul > li > a." + ext.opts.classes.sidebar.hover).length() > 0) {
-                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover).parent("li");
+                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover).eq(0).parent("li");
                     } else {
                         box.find("ul > li").forEach((entry) => {
                             if (entry.offsetTop >= scrollTop) {

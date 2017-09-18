@@ -552,7 +552,10 @@
                 label: data.url ? "bookmark" : "directory"
             });
 
-            ext.helper.model.call("deleteBookmark", {id: data.id});
+            ext.elements.bookmarkBox["all"].find("a[data-id='" + data.id + "']").parent("li").remove();
+            ext.helper.specialEntry.reorderSeparators([data.parentId]).then(() => {
+                ext.helper.model.call("deleteBookmark", {id: data.id});
+            });
         };
 
         /**
@@ -639,7 +642,22 @@
                     }
                 }
 
-                ext.helper.model.call("createBookmark", obj).then((result) => {
+                let parentEntry = ext.elements.bookmarkBox["all"].find("a[data-id='" + obj.parentId + "']");
+
+                if (parentEntry.length() > 0 && parentEntry.next("ul").length() > 0) { // insert an empty element at the position of the new entry to correct the separator positions for the changed directory
+                    let entries = parentEntry.next("ul").children("li");
+                    if (entries.length() === 0) {
+                        parentEntry.next("ul").prepend("<li />");
+                    } else if (entries.eq(obj.index)) {
+                        $("<li />").insertBefore(entries.eq(obj.index));
+                    }
+                }
+
+                $.delay(100).then(() => {
+                    return ext.helper.specialEntry.reorderSeparators([obj.parentId]);
+                }).then(() => {
+                    return ext.helper.model.call("createBookmark", obj);
+                }).then((result) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
@@ -660,16 +678,29 @@
          * updates entries with changed urls
          */
         let updateBookmarkUrls = () => {
+            let deleteBuffer = [];
+            let parentIds = [];
+
             elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li").forEach((elm) => {
                 if ($(elm).find("input[type='checkbox']")[0].checked) {
                     let entry = $(elm).data("entry");
 
                     if (entry.urlStatusCode === 404) {
-                        ext.helper.model.call("deleteBookmark", {id: entry.id});
+                        ext.elements.bookmarkBox["all"].find("a[data-id='" + entry.id + "']").parent("li").remove();
+                        deleteBuffer.push({id: entry.id});
+                        if (parentIds.indexOf(entry.parentId) === -1) {
+                            parentIds.push(entry.parentId);
+                        }
                     } else if (entry.url !== entry.newUrl) {
                         ext.helper.model.call("updateBookmark", {id: entry.id, title: entry.title, url: entry.newUrl});
                     }
                 }
+            });
+
+            ext.helper.specialEntry.reorderSeparators(parentIds).then(() => { // reorder the separators of the directories with deleted entries to match its current position -> delete the entries afterwards
+                deleteBuffer.forEach((info) => {
+                    ext.helper.model.call("deleteBookmark", info);
+                });
             });
 
             this.closeOverlay();

@@ -179,9 +179,10 @@
          * @param {jsu} elm
          */
         let handleSeparatorMenu = (contextmenu, elm) => {
+            let listEntry = elm.parent("li");
             contextmenu.css({
                 top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
-                left: elm.parent("li")[0].offsetLeft + "px"
+                left: listEntry[0].offsetLeft + "px"
             });
 
             let entry = $("<li />").appendTo(contextmenu.children("ul." + ext.opts.classes.contextmenu.list));
@@ -190,7 +191,10 @@
             $("<a />")
                 .attr(ext.opts.attr.name, "deleteSeparator")
                 .text(ext.helper.i18n.get("contextmenu_delete_separator"))
-                .data("infos", elm.data("infos"))
+                .data("infos", {
+                    id: listEntry.parent("ul").prev("a").attr(ext.opts.attr.id),
+                    index: listEntry.prevAll("li").length()
+                })
                 .appendTo(entry);
         };
 

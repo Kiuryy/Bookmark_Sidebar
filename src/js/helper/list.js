@@ -481,13 +481,7 @@
                         }
                     }
                 } else if (bookmark.separator) { // separator
-                    entryContent
-                        .addClass(ext.opts.classes.sidebar.separator)
-                        .attr(ext.opts.attr.value, bookmark.index)
-                        .data("infos", {
-                            id: bookmark.parentId,
-                            index: bookmark.index
-                        });
+                    entryContent.addClass(ext.opts.classes.sidebar.separator);
                 }
             }
 

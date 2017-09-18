@@ -114,6 +114,49 @@
         };
 
         /**
+         * Saves the position of the separators for the given directory
+         *
+         * @param {Array} parentIds
+         * @returns {Promise}
+         */
+        this.reorderSeparators = (parentIds) => {
+            return new Promise((resolve) => {
+                let separators = ext.helper.model.getData("u/separators");
+
+                let processDir = (i = 0) => {
+                    let parentId = parentIds[i];
+
+                    if (typeof parentId !== "undefined") {
+                        let parentEntry = ext.elements.bookmarkBox["all"].find("a[data-id='" + parentId + "']");
+
+                        if (parentEntry.length() > 0 && parentEntry.next("ul").length() > 0) {
+                            let index = 0;
+                            let infos = [];
+
+                            parentEntry.next("ul").children("li").forEach((entry) => {
+                                if (!$(entry).hasClass(ext.opts.classes.drag.dragInitial)) {
+                                    if ($(entry).children("a." + ext.opts.classes.sidebar.separator).length() > 0) {
+                                        infos.push({index: index});
+                                    } else {
+                                        index++;
+                                    }
+                                }
+                            });
+
+                            separators[parentId] = infos;
+                        }
+
+                        processDir(i + 1);
+                    } else { // finished
+                        saveSeperators(separators).then(resolve);
+                    }
+                };
+
+                processDir();
+            });
+        };
+
+        /**
          * Adds a separator to the given directory
          *
          * @param {object} data
@@ -147,20 +190,24 @@
             return new Promise((resolve) => {
                 let separators = ext.helper.model.getData("u/separators");
 
-                separators[data.id].some((entry, i) => {
-                    if (entry.index === data.index) {
-                        separators[data.id].splice(i, 1);
-                        return true;
-                    }
-                });
+                if (typeof separators[data.id] !== "undefined") {
+                    separators[data.id].some((entry, i) => {
+                        if (entry.index === data.index) {
+                            separators[data.id].splice(i, 1);
+                            return true;
+                        }
+                    });
 
-                ext.helper.model.call("trackEvent", {
-                    category: "extension",
-                    action: "remove",
-                    label: "separator"
-                });
+                    ext.helper.model.call("trackEvent", {
+                        category: "extension",
+                        action: "remove",
+                        label: "separator"
+                    });
 
-                saveSeperators(separators).then(resolve);
+                    saveSeperators(separators).then(resolve);
+                } else {
+                    resolve();
+                }
             });
         };
     };

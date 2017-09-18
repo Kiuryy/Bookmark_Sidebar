@@ -9,6 +9,8 @@
         let info = {};
         let hiddenEntries = [];
         let pinnedEntries = [];
+        let isUpdating = false;
+        let rescheduledUpdate = false;
 
         /**
          * Updates the object with all bookmarks and directories,
@@ -18,52 +20,64 @@
          */
         this.update = () => {
             return new Promise((resolve) => {
-                Promise.all([
-                    b.helper.bookmarkApi.func.getSubTree(0),
-                    b.helper.viewAmount.getAll()
-                ]).then((values) => {
-                    info = values[1];
-                    let bookmarkTree = [];
+                if (isUpdating === false) { // update is not running at the moment
+                    isUpdating = true;
 
-                    if (values[0] && values[0][0] && values[0][0].children) { // children are existing
-                        bookmarkTree = values[0][0].children;
-                    }
+                    Promise.all([
+                        b.helper.bookmarkApi.func.getSubTree(0),
+                        b.helper.viewAmount.getAll()
+                    ]).then((values) => {
+                        info = values[1];
+                        let bookmarkTree = [];
 
-                    $.api.storage.local.get(["utility"], (result) => {
-                        hiddenEntries = result.utility ? (result.utility.hiddenEntries || []) : [];
-                        pinnedEntries = result.utility ? (result.utility.pinnedEntries || []) : [];
+                        if (values[0] && values[0][0] && values[0][0].children) { // children are existing
+                            bookmarkTree = values[0][0].children;
+                        }
 
-                        entries = {
-                            bookmarks: {},
-                            directories: {},
-                            pinned: {}
-                        };
+                        $.api.storage.local.get(["utility"], (result) => {
+                            hiddenEntries = result.utility ? (result.utility.hiddenEntries || []) : [];
+                            pinnedEntries = result.utility ? (result.utility.pinnedEntries || []) : [];
 
-                        amounts = {
-                            bookmarks: {
-                                visible: 0,
-                                hidden: 0
-                            },
-                            directories: {
-                                visible: 0,
-                                hidden: 0
-                            },
-                            pinned: {
-                                visible: 0,
-                                hidden: 0
-                            }
-                        };
+                            entries = {
+                                bookmarks: {},
+                                directories: {},
+                                pinned: {}
+                            };
 
-                        processEntries(bookmarkTree);
+                            amounts = {
+                                bookmarks: {
+                                    visible: 0,
+                                    hidden: 0
+                                },
+                                directories: {
+                                    visible: 0,
+                                    hidden: 0
+                                },
+                                pinned: {
+                                    visible: 0,
+                                    hidden: 0
+                                }
+                            };
 
-                        data = {
-                            entries: entries,
-                            amounts: amounts
-                        };
+                            processEntries(bookmarkTree);
 
-                        resolve();
+                            data = {
+                                entries: entries,
+                                amounts: amounts
+                            };
+
+                            isUpdating = false;
+                            resolve();
+                        });
                     });
-                });
+                } else if (rescheduledUpdate === false) { // update method is called while it's still running -> reschedule call and update in 5s again
+                    rescheduledUpdate = true;
+                    $.delay(5000).then(() => {
+                        rescheduledUpdate = false;
+                        this.update();
+                    });
+                    resolve();
+                }
             });
         };
 

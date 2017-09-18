@@ -176,6 +176,7 @@
             ext.helper.tooltip.close();
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
             let elmParent = elm.parent("li");
+            let parentTrigger = elmParent.parent("ul").prev("a");
 
             ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
             elmParent.clone().addClass(ext.opts.classes.drag.dragInitial).insertAfter(elmParent);
@@ -188,6 +189,13 @@
                 data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
             }
 
+            let index = 0;
+            elmParent.prevAll("li").forEach((entry) => {
+                if (!$(entry).hasClass(ext.opts.classes.drag.dragInitial) && $(entry).children("a." + ext.opts.classes.sidebar.separator).length() === 0) {
+                    index++;
+                }
+            });
+
             helper.removeAttr("title").css({
                 top: boundClientRect.top + "px",
                 left: boundClientRect.left + "px",
@@ -195,6 +203,8 @@
             }).data({
                 elm: elmParent,
                 isDir: !!(data.isDir),
+                parentId: parentTrigger.length() > 0 ? parentTrigger.attr(ext.opts.attr.id) : null,
+                index: index,
                 startPos: {
                     top: y - boundClientRect.top,
                     left: x - boundClientRect.left
@@ -251,6 +261,8 @@
             let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
             let dragInitialElm = ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
+            let prevParentId = draggedElm.data("parentId");
+            let prevIndex = draggedElm.data("index");
             let elm = entryElm.children("a");
             let type = getDragType(elm);
 
@@ -272,15 +284,11 @@
                 });
 
                 if (type === "separator") { // save separator position
-                    ext.helper.specialEntry.removeSeparator(elm.data("infos")).then(() => {
-                        let opts = {
-                            id: parentId,
-                            index: index
-                        };
+                    if (parentId !== prevParentId) { // separator is moved from one directory into another -> remove from previous directory
+                        ext.helper.specialEntry.removeSeparator({id: prevParentId, index: prevIndex});
+                    }
 
-                        ext.helper.specialEntry.addSeparator(opts);
-                        elm.data("infos", opts);
-                    });
+                    ext.helper.specialEntry.reorderSeparators([parentId]);
                 } else if (type === "pinned") { // save position of pinned entry
                     ext.helper.specialEntry.reorderPinnedEntries({
                         id: entryElm.children("a").attr(ext.opts.attr.id),
@@ -292,6 +300,7 @@
                         parentId: parentId,
                         index: index
                     });
+                    ext.helper.specialEntry.reorderSeparators([parentId]);
                 }
 
                 trackEnd(elm);

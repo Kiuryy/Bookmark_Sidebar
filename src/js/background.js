@@ -57,16 +57,17 @@
 
             $.api.tabs.query({}, (tabs) => {
                 tabs.forEach((tab) => {
-                    Object.entries(types).forEach(([type, func]) => {
-                        let files = manifest.content_scripts[0][type];
+                    if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
+                        Object.entries(types).forEach(([type, func]) => {
+                            let files = manifest.content_scripts[0][type];
 
-                        files.forEach((file) => {
-                            $.api.tabs[func](tab.id, {file: file}, function () {
-                                let lastError = $.api.runtime.lastError;
-                                console.log(lastError);
+                            files.forEach((file) => {
+                                $.api.tabs[func](tab.id, {file: file}, function () {
+                                    $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                });
                             });
                         });
-                    });
+                    }
                 });
             });
         };

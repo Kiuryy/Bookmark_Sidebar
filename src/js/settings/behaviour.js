@@ -77,7 +77,7 @@
                 });
 
                 $.api.storage.sync.set({behaviour: config}, () => {
-                    s.helper.model.call("reload", {type: "Settings"});
+                    s.helper.model.call("reinitialize");
                     s.showSuccessMessage("saved_message");
                     resolve();
                 });
@@ -96,7 +96,7 @@
                     config.language = s.opts.elm.select.language[0].value;
 
                     $.api.storage.sync.set({behaviour: config}, () => {
-                        s.helper.model.call("reload", {type: "Settings"});
+                        s.helper.model.call("reinitialize");
                         s.showSuccessMessage("saved_message");
                         resolve();
                     });

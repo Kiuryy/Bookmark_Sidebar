@@ -76,7 +76,7 @@
                 }
 
                 $.api.storage.sync.set({appearance: config}, () => {
-                    s.helper.model.call("reload", {type: "Settings"});
+                    s.helper.model.call("reinitialize");
                     s.showSuccessMessage("saved_message");
                     s.helper.model.call("reloadIcon");
                     resolve();

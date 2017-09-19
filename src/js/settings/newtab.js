@@ -49,7 +49,7 @@
                 }
 
                 $.api.storage.sync.set({newtab: config}, () => {
-                    s.helper.model.call("reload", {type: "Settings"});
+                    s.helper.model.call("reinitialize");
                     s.showSuccessMessage("saved_message");
                     resolve();
                 });

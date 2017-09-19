@@ -26,35 +26,20 @@
     "sidebar_drag_cancel": {
         "message": "M\u00e9gsem"
     },
-    "contextmenu_settings": {
-        "message": "Be\u00e1ll\u00edt\u00e1sok"
+    "contextmenu_edit_bookmark": {
+        "message": "K\u00f6nyvjelz\u0151 szerkeszt\u00e9se"
     },
-    "contextmenu_bookmark_manager": {
-        "message": "K\u00f6nyvjelz\u0151kezel\u0151"
-    },
-    "contextmenu_update_urls": {
-        "message": "Linkek friss\u00edt\u00e9se"
-    },
-    "contextmenu_toggle_fix": {
-        "message": "Z\u00e1rolja a tal\u00e1latokat"
-    },
-    "contextmenu_toggle_hidden": {
-        "message": "Mutassa a rejtett tal\u00e1latokat"
-    },
-    "contextmenu_delete_separator": {
-        "message": "Elv\u00e1laszt\u00f3 t\u00f6rl\u00e9se"
+    "contextmenu_edit_dir": {
+        "message": "Mappa szerkeszt\u00e9se"
     },
     "contextmenu_delete_bookmark": {
         "message": "K\u00f6nyvjelz\u0151 t\u00f6rl\u00e9se"
     },
-    "contextmenu_edit_bookmark": {
-        "message": "K\u00f6nyvjelz\u0151 szerkeszt\u00e9se"
-    },
     "contextmenu_delete_dir": {
         "message": "Mappa t\u00f6rl\u00e9se"
     },
-    "contextmenu_edit_dir": {
-        "message": "Mappa szerkeszt\u00e9se"
+    "contextmenu_delete_separator": {
+        "message": "Elv\u00e1laszt\u00f3 t\u00f6rl\u00e9se"
     },
     "contextmenu_infos": {
         "message": "Inform\u00e1ci\u00f3"
@@ -67,6 +52,15 @@
     },
     "contextmenu_add": {
         "message": "Tal\u00e1lat hozz\u00e1ad\u00e1sa"
+    },
+    "contextmenu_update_urls": {
+        "message": "Linkek friss\u00edt\u00e9se"
+    },
+    "contextmenu_toggle_fix": {
+        "message": "Z\u00e1rolja a tal\u00e1latokat"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Mutassa a rejtett tal\u00e1latokat"
     },
     "contextmenu_open_children": {
         "message": "Megnyit\u00e1s"
@@ -85,6 +79,9 @@
     },
     "contextmenu_unpin": {
         "message": "Elt\u00e1vol\u00edt\u00e1s a tet\u0151r\u0151l"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "K\u00f6nyvjelz\u0151kezel\u0151"
     },
     "sort_label_custom": {
         "message": "Felhaszn\u00e1l\u00f3 \u00e1ltal hozz\u00e1adott"

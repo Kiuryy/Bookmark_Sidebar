@@ -26,35 +26,20 @@
     "sidebar_drag_cancel": {
         "message": "Anuluj"
     },
-    "contextmenu_settings": {
-        "message": "Ustawienia"
+    "contextmenu_edit_bookmark": {
+        "message": "Edytuj zak\u0142adk\u0119"
     },
-    "contextmenu_bookmark_manager": {
-        "message": "Mened\u017cer zak\u0142adek"
-    },
-    "contextmenu_update_urls": {
-        "message": "Uaktualnij URL"
-    },
-    "contextmenu_toggle_fix": {
-        "message": "Zablokuj pozycje"
-    },
-    "contextmenu_toggle_hidden": {
-        "message": "Poka\u017c ukryte pozycje"
-    },
-    "contextmenu_delete_separator": {
-        "message": "Usu\u0144 separator"
+    "contextmenu_edit_dir": {
+        "message": "Edytuj pozycj\u0119"
     },
     "contextmenu_delete_bookmark": {
         "message": "Usu\u0144 zak\u0142adk\u0119"
     },
-    "contextmenu_edit_bookmark": {
-        "message": "Edytuj zak\u0142adk\u0119"
-    },
     "contextmenu_delete_dir": {
         "message": "Usu\u0144 folder"
     },
-    "contextmenu_edit_dir": {
-        "message": "Edytuj pozycj\u0119"
+    "contextmenu_delete_separator": {
+        "message": "Usu\u0144 separator"
     },
     "contextmenu_infos": {
         "message": "Informacje"
@@ -68,6 +53,15 @@
     "contextmenu_add": {
         "message": "Dodaj element"
     },
+    "contextmenu_update_urls": {
+        "message": "Uaktualnij URL"
+    },
+    "contextmenu_toggle_fix": {
+        "message": "Zablokuj pozycje"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Poka\u017c ukryte pozycje"
+    },
     "contextmenu_open_children": {
         "message": "Otw\u00f3rz zak\u0142adki"
     },
@@ -79,6 +73,15 @@
     },
     "contextmenu_show_in_dir": {
         "message": "Poka\u017c w folderze"
+    },
+    "contextmenu_pin": {
+        "message": "Przypnij na g\u00f3r\u0119"
+    },
+    "contextmenu_unpin": {
+        "message": "Odepnij z g\u00f3ry"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Mened\u017cer zak\u0142adek"
     },
     "sort_label_custom": {
         "message": "Ustawienie u\u017cytkownika"
@@ -185,6 +188,24 @@
     "overlay_check_urls_not_found": {
         "message": "Nie znaleziono URL"
     },
+    "status_service_unavailable_headline": {
+        "message": "Us\u0142uga niedost\u0119pna"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "Us\u0142uga sprawdzaj\u0105ca URL jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Us\u0142uga opinii jest teraz niedost\u0119pna. Je\u015bli chcesz wys\u0142a\u0107 opini\u0119, prosz\u0119 wy\u015blij mi e-mail."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Us\u0142uga t\u0142umacze\u0144 jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Z powodu aktualizacji rozszerzenia, ta strona powinna zosta\u0107 od\u015bwie\u017cona."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Od\u015bwie\u017c teraz"
+    },
     "share_userdata_headline": {
         "message": "Potrzebuj\u0119 twojej pomocy"
     },
@@ -203,6 +224,63 @@
     "share_userdata_decline": {
         "message": "Nie zgadzam si\u0119"
     },
+    "onboarding_title": {
+        "message": "Konfiguracja"
+    },
+    "onboarding_headline": {
+        "message": "Dzi\u0119kuj\u0119 ci za zainstalowanie tego rozszerzenia."
+    },
+    "onboarding_setup": {
+        "message": "Skonfiguruj teraz"
+    },
+    "onboarding_skip": {
+        "message": "Pomi\u0144 konfiguracj\u0119"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Gdzie chcesz, aby znajdowa\u0142a si\u0119 boczna lista?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Jak chcesz otwiera\u0107 boczn\u0105 list\u0119?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Kt\u00f3ry styl wolisz?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Jasny"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Ciemny"
+    },
+    "onboarding_handson_desc_direct": {
+        "message": "Wypr\u00f3buj jak to dzia\u0142a."
+    },
+    "onboarding_handson_desc": {
+        "message": "Teraz mo\u017cesz spr\u00f3bowa\u0107 samemu."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Przesu\u0144 kursor do {1} strony okna."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "{1} Kliknij myszk\u0105, aby otworzy\u0107 boczn\u0105 list\u0119"
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Kliknij na ikon\u0119 rozszerzenia, aby otworzy\u0107 boczn\u0105 list\u0119."
+    },
+    "onboarding_left": {
+        "message": "lewa"
+    },
+    "onboarding_right": {
+        "message": "prawa"
+    },
+    "onboarding_finish_desc": {
+        "message": "Baw si\u0119 dobrze u\u017cywaj\u0105c tego rozszerzenia."
+    },
+    "onboarding_goto_settings": {
+        "message": "Wi\u0119cej ustawie\u0144"
+    },
+    "onboarding_close": {
+        "message": "Zamknij t\u0105 stron\u0119"
+    },
     "changelog_title": {
         "message": "Lista zmian"
     },
@@ -218,47 +296,74 @@
     "settings_title": {
         "message": "Ustawienia"
     },
-    "settings_tab_behaviour": {
-        "message": "Zachowanie"
-    },
-    "settings_tab_appearance": {
-        "message": "Wygl\u0105d"
-    },
-    "settings_tab_contribute": {
-        "message": "Wspom\u00f3\u017c"
-    },
-    "settings_tab_feedback": {
-        "message": "Opinie"
-    },
-    "settings_headline_general": {
-        "message": "Og\u00f3lny"
-    },
-    "settings_headline_toggle": {
-        "message": "Wysuwanie"
-    },
-    "settings_headline_sidebar": {
+    "settings_menu_sidebar": {
         "message": "Boczna lista"
     },
-    "settings_headline_search": {
-        "message": "Wyszukiwanie"
+    "settings_menu_sidebar_general": {
+        "message": "Og\u00f3lny"
     },
-    "settings_headline_tooltip": {
+    "settings_menu_sidebar_toggle": {
+        "message": "Wysuwanie"
+    },
+    "settings_menu_sidebar_tooltip": {
         "message": "Etykieta"
     },
-    "settings_headline_faq": {
-        "message": "Cz\u0119sto zadawane pytania"
+    "settings_menu_sidebar_export": {
+        "message": "Importuj\/Eksportuj"
     },
-    "settings_headline_share_userdata": {
-        "message": "Udost\u0119pnianie informacji"
+    "settings_menu_appearance": {
+        "message": "Wygl\u0105d"
     },
-    "settings_headline_donation": {
-        "message": "Darowizna"
+    "settings_menu_appearance_general": {
+        "message": "Og\u00f3lne"
     },
-    "settings_headline_translation": {
+    "settings_menu_appearance_sidebar": {
+        "message": "Boczna lista"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Boczny pasek"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikona"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Okno"
+    },
+    "settings_menu_newtab": {
+        "message": "Nowa karta"
+    },
+    "settings_menu_language": {
+        "message": "J\u0119zyk"
+    },
+    "settings_menu_language_general": {
+        "message": "Og\u00f3lny"
+    },
+    "settings_menu_language_translate": {
         "message": "Przet\u0142umacz"
+    },
+    "settings_menu_feedback": {
+        "message": "Opinie"
+    },
+    "settings_menu_support": {
+        "message": "Wspom\u00f3\u017c"
+    },
+    "settings_save": {
+        "message": "Zapisz zmiany"
+    },
+    "settings_saved_message": {
+        "message": "Zmiany zapisane pomy\u015blnie"
+    },
+    "settings_restore": {
+        "message": "Przywr\u00f3\u0107 ustawienia domy\u015blne"
+    },
+    "settings_restored_message": {
+        "message": "Konfiguracja przywr\u00f3cona pomy\u015blnie"
     },
     "settings_animations": {
         "message": "W\u0142\u0105cz animacje"
+    },
+    "settings_animations_desc": {
+        "message": "Pozwala wy\u0142\u0105czy\u0107 wszystkie animacje bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli animacje nie s\u0105 p\u0142ynne."
     },
     "settings_px_tolerance": {
         "message": "Tolerancja w pikselach"
@@ -330,10 +435,13 @@
         "message": "Zapami\u0119taj"
     },
     "settings_remember_state_desc": {
-        "message": "Wybierz co zapami\u0119ta\u0107 mi\u0119dzy r\u00f3\u017cnymi stronami."
+        "message": "Wybierz co zapami\u0119ta\u0107 pomi\u0119dzy r\u00f3\u017cnymi stronami. Je\u015bli wybierzesz, aby zapami\u0119ta\u0107 ostatnio otwieran\u0105 zak\u0142adk\u0119, zostanie ona wybrana podczas nast\u0119pnego otwarcia bocznej listy."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Pozycj\u0119 przewijania i otwarte foldery"
     },
     "settings_remember_state_all": {
-        "message": "Pozycj\u0119 przewijania i otwarte foldery"
+        "message": "Pozycja przewijania, otwarte foldery i ostatnio otwierana zak\u0142adka"
     },
     "settings_remember_state_open_states": {
         "message": "Otwarte foldery"
@@ -344,11 +452,11 @@
     "settings_remember_state_nothing": {
         "message": "Nic"
     },
-    "settings_remember_search": {
-        "message": "Pami\u0119taj wyniki wyszukiwania"
+    "settings_open_children_warn_limit": {
+        "message": "Otw\u00f3rz wszystkie zak\u0142adki w folderze (limit ostrze\u017cenia)"
     },
-    "settings_remember_search_desc": {
-        "message": "Je\u015bli zaznaczone, wyniki wyszukiwania b\u0119d\u0105 zapami\u0119tane mi\u0119dzy stronami."
+    "settings_open_children_warn_limit_desc": {
+        "message": "Liczba zak\u0142adek przy kt\u00f3rych pojawia si\u0119 ostrze\u017cenie, kiedy pr\u00f3buje otworzy\u0107 si\u0119 na raz wszystkie zak\u0142adki w folderze."
     },
     "settings_dir_open_duration": {
         "message": "Czas trwania otwierania folderu"
@@ -389,6 +497,15 @@
     "settings_close_timeout_infinity": {
         "message": "Nie zamykaj automatycznie"
     },
+    "settings_scrollbar_hide": {
+        "message": "Ukryj pasek przewijania"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "Limit czasu w sekundach, po kt\u00f3rym pasek przewijania zostanie ukryty. Przewijanie spowoduje ponowne pokazanie paska przewijania."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Nigdy nie chowaj."
+    },
     "settings_initial_open_on_new_tab": {
         "message": "Pocz\u0105tkowo otwieraj na stronie nowej karty"
     },
@@ -398,41 +515,71 @@
     "settings_drag_n_drop_open": {
         "message": "Otw\u00f3rz poprzez przeci\u0105gni\u0119cie i upuszczenie"
     },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Zezwalaj na przeci\u0105ganie zaznaczonego tekstu, link\u00f3w i URL do bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli chcesz zapisa\u0107 aktualn\u0105 stron\u0119 lub inne linki na stronie."
+    },
     "settings_tooltip_delay": {
         "message": "Op\u00f3\u017anienie etykiety"
     },
-    "settings_appearance_label_general": {
-        "message": "Og\u00f3lne"
+    "settings_tooltip_delay_desc": {
+        "message": "Op\u00f3\u017anienie po jakim etykiety zak\u0142adek zostan\u0105 pokazane, po najechaniu na nie myszk\u0105."
     },
-    "settings_appearance_label_sidebar": {
-        "message": "Boczna lista"
+    "settings_tooltip_delay_infinity": {
+        "message": "Nigdy nie pokazuj etykiet"
     },
-    "settings_appearance_label_indicator": {
-        "message": "Boczny pasek"
+    "settings_tooltip_content": {
+        "message": "Zawarto\u015b\u0107 etykiety"
     },
-    "settings_appearance_label_overlay": {
-        "message": "Okno"
+    "settings_tooltip_content_desc": {
+        "message": "Wybierz jakie informacje ma zawiera\u0107 etykieta."
     },
-    "settings_dark_mode": {
-        "message": "Ciemny motyw"
+    "settings_tooltip_content_all": {
+        "message": "Tytu\u0142 i URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Tylko tytu\u0142"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Tylko URL"
+    },
+    "settings_sidebar_position": {
+        "message": "Strona"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Pozwala wybra\u0107, czy boczna lista ma by\u0107 otwierana po lewej, czy po lewej stronie."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Lewa"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Prawa"
+    },
+    "settings_import_export_desc": {
+        "message": "Mo\u017cesz eksportowa\u0107 swoje ustawienia tego rozszerzenia i zapisa\u0107 je lokalnie na swoim komputerze. Mo\u017cesz zaimportowa\u0107 wcze\u015bniej wyeksportowany plik na jakimkolwiek komputerze, na kt\u00f3rym jest zainstalowane to rozszerzenie."
+    },
+    "settings_export": {
+        "message": "Eksportuj ustawienia"
+    },
+    "settings_import": {
+        "message": "Importuj ustawienia"
+    },
+    "settings_import_saved": {
+        "message": "Konfiguracja zosta\u0142a zaimportowana pomy\u015blnie"
+    },
+    "settings_import_failed": {
+        "message": "Nie uda\u0142o zaimportowa\u0107 si\u0119 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
     },
     "settings_color_scheme": {
         "message": "Kolor motywu"
+    },
+    "settings_dark_mode": {
+        "message": "Powierzchnia"
     },
     "settings_color_scheme_desc": {
         "message": "Kolor nag\u0142\u00f3wka bocznej listy, p\u00f3l wyboru itp."
     },
     "settings_text_color": {
         "message": "Kolor tekstu"
-    },
-    "settings_language": {
-        "message": "J\u0119zyk"
-    },
-    "settings_language_default": {
-        "message": "Domy\u015blny przegl\u0105darki"
-    },
-    "settings_language_desc": {
-        "message": "J\u0119zyk interfejsu u\u017cytkownika"
     },
     "settings_font_family": {
         "message": "Kr\u00f3j pisma"
@@ -442,6 +589,12 @@
     },
     "settings_font_family_desc": {
         "message": "Kr\u00f3j pisma bocznej listy i okna"
+    },
+    "settings_scrollbar_width": {
+        "message": "Szeroko\u015b\u0107 paska przewijania."
+    },
+    "settings_icon_color": {
+        "message": "Kolor"
     },
     "settings_indicator_width": {
         "message": "Szeroko\u015b\u0107"
@@ -454,15 +607,6 @@
     },
     "settings_indicator_icon_color": {
         "message": "Kolor ikony"
-    },
-    "settings_sidebar_position": {
-        "message": "Strona"
-    },
-    "settings_sidebar_position_left": {
-        "message": "Lewa"
-    },
-    "settings_sidebar_position_right": {
-        "message": "Prawa"
     },
     "settings_sidebar_width": {
         "message": "Szeroko\u015b\u0107"
@@ -486,7 +630,10 @@
         "message": "Rozmiar kroju pisma zak\u0142adek"
     },
     "settings_bookmarks_icon_size": {
-        "message": "Rozmiar ikony folderu"
+        "message": "Rozmiar ikony zak\u0142adek"
+    },
+    "settings_directories_icon_size": {
+        "message": "Rozmiar ikony folder\u00f3w"
     },
     "settings_bookmarks_line_height": {
         "message": "Interlinia mi\u0119dzy zak\u0142adkami"
@@ -500,17 +647,80 @@
     "settings_overlay_mask_color": {
         "message": "Kolor t\u0142a"
     },
-    "settings_save": {
-        "message": "Zapisz zmiany"
+    "settings_icon_shape": {
+        "message": "Kszta\u0142t"
     },
-    "settings_saved_message": {
-        "message": "Zmiany zapisane pomy\u015blnie"
+    "settings_newtab_desc": {
+        "message": "Niestety Google usun\u0105\u0142 mo\u017cliwo\u015b\u0107 \u0142adowania rozszerze\u0144 na domy\u015blnej stronie nowej karty. Z tego powodu doda\u0142em kilka opcji, kt\u00f3re pozwalaj\u0105 uzyska\u0107 w inny spos\u00f3b dost\u0119p do twoich zak\u0142adek, kiedy otwierasz now\u0105 kart\u0119."
     },
-    "settings_restore": {
-        "message": "Przywr\u00f3\u0107 ustawienia domy\u015blne"
+    "settings_newtab_override": {
+        "message": "Zast\u0105p stron\u0119 nowej karty"
     },
-    "settings_restored_message": {
-        "message": "Konfiguracja przywr\u00f3cona pomy\u015blnie"
+    "settings_newtab_override_desc": {
+        "message": "Czy rozszerzenie powinno zast\u0105pi\u0107 obecn\u0105 stron\u0119 nowej karty swoj\u0105 w\u0142asn\u0105 zast\u0119pcz\u0105 stron\u0105, czy stron\u0105 internetow\u0105, kt\u00f3ra b\u0119dzie \u0142adowana po otwarciu nowej karty?"
+    },
+    "settings_newtab_sidebar_initial_open": {
+        "message": "Otw\u00f3rz boczn\u0105 list\u0119 automatycznie"
+    },
+    "settings_newtab_sidebar_initial_open_desc": {
+        "message": "Ustaw, czy boczna lista ma by\u0107 otwierana automatycznie po otwarciu nowej karty."
+    },
+    "settings_newtab_website": {
+        "message": "Za\u0142aduj stron\u0119 internetow\u0105"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Zamiast otwierania zast\u0119pczej nowej karty, mo\u017cesz ustawi\u0107 stron\u0119 internetow\u0105, kt\u00f3ra b\u0119dzie \u0142adowana w zamian."
+    },
+    "settings_language": {
+        "message": "J\u0119zyk"
+    },
+    "settings_language_default": {
+        "message": "Domy\u015blny przegl\u0105darki"
+    },
+    "settings_language_desc": {
+        "message": "J\u0119zyk interfejsu u\u017cytkownika"
+    },
+    "settings_contribute_translation_link": {
+        "message": "Przenie\u015b do menu translacji"
+    },
+    "settings_contribute_translation_desc": {
+        "message": "Mo\u017cesz pom\u00f3c t\u0142umaczy\u0107 to rozszerzenie na sw\u00f3j j\u0119zyk lub ulepszy\u0107 istniej\u0105ce t\u0142umaczenia."
+    },
+    "settings_translation_add_language": {
+        "message": "Dodaj j\u0119zyk"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Powr\u00f3t do menu translacji"
+    },
+    "settings_translation_contribution_info": {
+        "message": "Mo\u017cesz edytowa\u0107 istniej\u0105ce t\u0142umaczenia lub dodawa\u0107 brakuj\u0105ce. Je\u015bli zatwierdzisz swoje zmiany, przejrz\u0119 tw\u00f3j wk\u0142ad i zatwierdz\u0119 go."
+    },
+    "settings_translation_contribution_notice1": {
+        "message": "Jak tylko wszystkie kategorie oznaczone jako wymagane zostan\u0105 przet\u0142umaczone, t\u0142umaczenie zostanie opublikowane."
+    },
+    "settings_translation_contribution_notice2": {
+        "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom."
+    },
+    "settings_translation_submit": {
+        "message": "Zatwierd\u017a"
+    },
+    "settings_translation_submit_message": {
+        "message": "Twoje t\u0142umaczenie zosta\u0142o zatwierdzone pomy\u015blnie"
+    },
+    "settings_translation_status_released": {
+        "message": "T\u0142umaczenie jest dost\u0119pne"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "T\u0142umaczenie jest dost\u0119pne, ale niekt\u00f3re kategorie s\u0105 niepe\u0142ne"
+    },
+    "settings_translation_status_draft": {
+        "message": "T\u0142umaczenie jest niepe\u0142ne lub potrzebuje sprawdzenia i nie jest dost\u0119pne dla u\u017cytkownik\u00f3w"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Brakuje niekt\u00f3rych t\u0142umacze\u0144"
+    },
+    "settings_translation_required_category": {
+        "message": "Wymagane"
     },
     "settings_feedback_desc": {
         "message": "Masz sugestie dotycz\u0105ce ulepsze\u0144, pytania, brakuje ci jakich\u015b ustawie\u0144 albo znalaz\u0142e\u015b b\u0142\u0105d? Aby poprawi\u0107 do\u015bwiadczenia zwi\u0105zane z u\u017cytkowaniem tego rozszerzenia, jestem got\u00f3w na ka\u017cd\u0105 opini\u0119, kt\u00f3r\u0105 chcesz mi przekaza\u0107."
@@ -526,6 +736,12 @@
     },
     "settings_feedback_sent_message": {
         "message": "Dzi\u0119kuj\u0119 za twoj\u0105 opini\u0119."
+    },
+    "settings_feedback_send_failed": {
+        "message": "Twoja wiadomo\u015b\u0107 nie mog\u0142a zosta\u0107 wys\u0142ana. Prosz\u0119, spr\u00f3buj ponownie"
+    },
+    "settings_headline_faq": {
+        "message": "Cz\u0119sto zadawane pytania"
     },
     "settings_faq_usage_q": {
         "message": "Mo\u017cesz mi powiedzie\u0107 jak otworzy\u0107 boczn\u0105 list\u0119?"
@@ -545,64 +761,16 @@
     "settings_faq_not_working_a": {
         "message": "Mo\u017ce mie\u0107 to r\u00f3\u017cne przyczyny. Na stronie Chrome Web Store i stronach zaczynaj\u0105cych si\u0119 na [em]chrome-extension:\/\/[\/em] jest to spowodowane ograniczeniami zwi\u0105zanymi z bezpiecze\u0144stwem. Inne strony mog\u0105 blokowa\u0107 boczn\u0105 list\u0119 lub wykorzystuj\u0105 przestarza\u0142y kod \u017ar\u00f3d\u0142owy. Je\u015bli napotkasz problemy na jakich\u015b stronach, prosz\u0119, daj mi zna\u0107, abym m\u00f3g\u0142 na to rzuci\u0107 okiem i spr\u00f3bowa\u0142 to naprawi\u0107."
     },
-    "settings_saved_share_userdata": {
-        "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
-    },
-    "settings_contribute_translation_link": {
-        "message": "Przenie\u015b do menu translacji"
-    },
-    "settings_contribute_translation_desc": {
-        "message": "Mo\u017cesz pom\u00f3c t\u0142umaczy\u0107 to rozszerzenie na sw\u00f3j j\u0119zyk lub ulepszy\u0107 istniej\u0105ce t\u0142umaczenia."
-    },
-    "settings_contribute_donation_link": {
+    "settings_headline_donation": {
         "message": "Darowizna"
     },
-    "settings_contribute_donation_desc": {
+    "settings_support_donation_desc": {
         "message": "Darowizny s\u0105 ca\u0142kowicie dobrowolne, ale je\u015bli lubisz to rozszerzenie i chcesz je wspom\u00f3c niewielk\u0105 darowizn\u0105, mo\u017cesz to zrobi\u0107 klikaj\u0105c na poni\u017cszy link. Doceniam ka\u017cd\u0105 pomoc, kt\u00f3r\u0105 dostaj\u0119 na rozw\u00f3j tego rozszerzenia, tak\u0105 jak darowizny, pomoc w t\u0142umaczeniu, czy opinie."
     },
-    "translation_title": {
-        "message": "Przet\u0142umacz"
+    "settings_headline_share_userdata": {
+        "message": "Udost\u0119pnianie informacji"
     },
-    "translation_headline_overview": {
-        "message": "Dost\u0119pne j\u0119zyki"
-    },
-    "translation_edit": {
-        "message": "Edytuj t\u0142umaczenie"
-    },
-    "translation_add": {
-        "message": "Dodaj t\u0142umaczenie"
-    },
-    "translation_progress": {
-        "message": "Post\u0119p"
-    },
-    "translation_back_to_overview": {
-        "message": "Powr\u00f3t do menu translacji"
-    },
-    "translation_contribution_info": {
-        "message": "Mo\u017cesz edytowa\u0107 istniej\u0105ce t\u0142umaczenia lub dodawa\u0107 brakuj\u0105ce. Je\u015bli zatwierdzisz swoje zmiany, przejrz\u0119 tw\u00f3j wk\u0142ad i zatwierdz\u0119 go."
-    },
-    "translation_contribution_notice1": {
-        "message": "Nie musisz t\u0142umaczy\u0107 ka\u017cdej kategorii, bo t\u0142umaczenie zostanie opublikowane, je\u015bli przynajmniej wszystkie konieczne do dzia\u0142ania teksty s\u0105 przet\u0142umaczone."
-    },
-    "translation_contribution_notice2": {
-        "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom."
-    },
-    "translation_submit": {
-        "message": "Zatwierd\u017a"
-    },
-    "translation_submit_message": {
-        "message": "Twoje t\u0142umaczenie zosta\u0142o zatwierdzone pomy\u015blnie"
-    },
-    "translation_status_released": {
-        "message": "T\u0142umaczenie jest dost\u0119pne"
-    },
-    "translation_status_incomplete": {
-        "message": "T\u0142umaczenie jest dost\u0119pne, ale z powodu aktualizacji niekt\u00f3re kategorie s\u0105 niepe\u0142ne"
-    },
-    "translation_status_draft": {
-        "message": "T\u0142umaczenie jest niepe\u0142ne lub potrzebuje sprawdzenia i nie jest dost\u0119pne dla u\u017cytkownik\u00f3w"
-    },
-    "translation_incomplete_info": {
-        "message": "Z powodu aktualizacji t\u0142umaczenia s\u0105 niepe\u0142ne"
+    "settings_saved_share_userdata": {
+        "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
     }
 }

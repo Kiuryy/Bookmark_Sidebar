@@ -1,11 +1,15 @@
 /**
- * jsu v1.1.3
+ * jsu v1.2.0
  *
  * Philipp König
  * https://blockbyte.de/
  */
 (() => {
     "use strict";
+
+    if (window.jsu) { // already initialized
+        return false;
+    }
 
     let runningXhr = [];
 
@@ -416,8 +420,10 @@
                 if (!eventHandlerList[info.event]) {
                     eventHandlerList[info.event] = [];
                 }
+
                 eventHandlerList[info.event].push({
                     fn: info.fn,
+                    name: info.name || (info.event + "_" + (+new Date()) + Math.random().toString(36).substr(2, 12)),
                     opts: info.opts,
                     wantsUntrusted: info.wantsUntrusted
                 });
@@ -639,16 +645,17 @@
                 this[forEach]((node) => {
                     let events = eventStr.split(/\s+/g);
                     events[forEach]((event) => {
+                        let eventInfo = event.split(/\./);
 
                         let fn = (e) => {
-                            updateEventObject(e, {type: event});
+                            updateEventObject(e, {type: eventInfo[0]});
 
                             if (eventDelegation) { // event delegation
                                 h[forEach](node.querySelectorAll(":scope " + callbackOrElm), (element) => {
                                     let el = e.target;
                                     while (el && el !== node) {
                                         if (el === element) {
-                                            let clonedEventObj = new MouseEvent(event, e);
+                                            let clonedEventObj = new MouseEvent(eventInfo[0], e);
                                             updateEventObject(clonedEventObj, {
                                                 preventDefault: () => {
                                                     e.preventDefault()
@@ -670,7 +677,8 @@
                         };
 
                         jsuNode[private_addEventListener](node, {
-                            event: event,
+                            event: eventInfo[0],
+                            name: eventInfo[1],
                             fn: fn,
                             opts: opts,
                             wantsUntrusted: wantsUntrusted
@@ -693,13 +701,25 @@
                     let eventHandlerList = eventHandlerMap.get(node);
 
                     if (h[isDefined](eventHandlerList)) {
-
                         let events = eventStr.split(/\s+/g);
                         events[forEach]((event) => {
-                            if (eventHandlerList[event]) {
-                                h[forEach](eventHandlerList[event], (info, idx) => {
-                                    node.removeEventListener(event, info.fn);
-                                    eventHandlerList[event].splice(idx, 1);
+                            let eventInfo = event.split(/\./);
+
+                            if (eventInfo[0] === "*") { // remove all eventlisteners
+                                Object.entries(eventHandlerList)[forEach](([eventName, entries]) => {
+                                    h[forEach](entries, (info, idx) => {
+                                        if (typeof eventInfo[1] === "undefined" || eventInfo[1] === info.name) {
+                                            node.removeEventListener(eventName, info.fn);
+                                            eventHandlerList[eventName].splice(idx, 1);
+                                        }
+                                    }, true);
+                                });
+                            } else if (eventHandlerList[eventInfo[0]]) { // remove specific eventlisteners (e.g. click, mouseover, ...)
+                                h[forEach](eventHandlerList[eventInfo[0]], (info, idx) => {
+                                    if (typeof eventInfo[1] === "undefined" || eventInfo[1] === info.name) {
+                                        node.removeEventListener(eventInfo[0], info.fn);
+                                        eventHandlerList[eventInfo[0]].splice(idx, 1);
+                                    }
                                 }, true);
                             }
                         });
@@ -720,7 +740,8 @@
             [trigger](eventStr, opts) {
                 let events = eventStr.split(/\s+/g);
                 events[forEach]((event) => {
-                    let eventObj = new CustomEvent(event, opts);
+                    let eventInfo = event.split(/\./);
+                    let eventObj = new CustomEvent(eventInfo[0], opts);
                     this[forEach]((node) => {
                         node.dispatchEvent(eventObj);
                     });

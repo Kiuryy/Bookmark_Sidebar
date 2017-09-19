@@ -62,7 +62,7 @@
                                         action: "import",
                                         label: "import"
                                     });
-                                    s.helper.model.call("refreshAllTabs", {type: "Settings"});
+                                    s.helper.model.call("reload", {type: "Settings"});
                                     s.showSuccessMessage("import_saved");
                                     $.delay(1500).then(() => {
                                         location.reload(true);

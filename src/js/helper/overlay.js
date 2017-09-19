@@ -275,7 +275,7 @@
                 if (type === "separator") {
                     ext.helper.specialEntry.addSeparator({id: data.id, index: 0}).then(() => {
                         this.closeOverlay(false, "_separator");
-                        ext.helper.model.call("refreshAllTabs", {type: "Separator"});
+                        ext.helper.model.call("reload", {type: "Separator"});
                     });
                 } else {
                     let list = $("<ul />").appendTo(elements.modal);
@@ -534,7 +534,7 @@
                     ext.helper.model.call("updateEntries")
                 ]);
             }).then(() => {
-                ext.helper.model.call("refreshAllTabs", {type: "Hide"});
+                ext.helper.model.call("reload", {type: "Hide"});
             });
         };
 

@@ -304,7 +304,7 @@
                         "u/showHidden": ext.helper.checkbox.isChecked($(e.currentTarget).parent("div"))
                     })
                 ]).then(() => {
-                    ext.helper.model.call("refreshAllTabs", {type: "ToggleHidden"});
+                    ext.helper.model.call("reload", {type: "ToggleHidden"});
                 });
                 this.close();
             });
@@ -367,7 +367,7 @@
                     }
                     case "deleteSeparator": { // remove the separator
                         ext.helper.specialEntry.removeSeparator($(e.currentTarget).data("infos")).then(() => {
-                            ext.helper.model.call("refreshAllTabs", {type: "Separator"});
+                            ext.helper.model.call("reload", {type: "Separator"});
                         });
                         break;
                     }
@@ -382,7 +382,7 @@
                                 ext.helper.model.call("updateEntries")
                             ]);
                         }).then(() => {
-                            ext.helper.model.call("refreshAllTabs", {type: "Hide"});
+                            ext.helper.model.call("reload", {type: "Hide"});
                         });
                         break;
                     }
@@ -397,13 +397,13 @@
                     }
                     case "pin": { // pin entry
                         ext.helper.specialEntry.pinEntry(data).then(() => {
-                            ext.helper.model.call("refreshAllTabs", {type: "Pin"});
+                            ext.helper.model.call("reload", {type: "Pin"});
                         });
                         break;
                     }
                     case "unpin": { // unpin entry
                         ext.helper.specialEntry.unpinEntry(data).then(() => {
-                            ext.helper.model.call("refreshAllTabs", {type: "Unpin"});
+                            ext.helper.model.call("reload", {type: "Unpin"});
                         });
                         break;
                     }

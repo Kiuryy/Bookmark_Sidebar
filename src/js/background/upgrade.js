@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.UpdatesHelper = function (b) {
+    window.UpgradeHelper = function (b) {
 
 
         /**
@@ -24,6 +24,7 @@
             $.api.runtime.onInstalled.addListener((details) => {
                 if (details.reason === 'install') { // extension was installed newly -> show onboarding page
                     $.api.tabs.create({url: $.api.extension.getURL('html/intro.html')});
+                    b.reinitialize();
                 } else if (details.reason === 'update') { // extension was updated
                     $.api.storage.local.remove(["languageInfos"]);
                     let newVersion = $.api.runtime.getManifest().version;
@@ -32,8 +33,9 @@
                         b.helper.analytics.trackEvent({
                             category: "extension",
                             action: "update",
-                            label: details.previousVersion + " -> " + newVersion
-                        }, true);
+                            label: details.previousVersion + " -> " + newVersion,
+                            always: true
+                        });
                     }
 
                     let versionPartsOld = details.previousVersion.split('.');

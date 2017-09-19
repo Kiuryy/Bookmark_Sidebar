@@ -35,7 +35,7 @@
          * Initializes the eventhandlers for the sidebar
          */
         let initSidebarEvents = () => {
-            $([document, ext.elements.iframe[0].contentDocument]).on("keydown", (e) => {
+            $([document, ext.elements.iframe[0].contentDocument]).on("keydown.bs", (e) => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
                     let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
@@ -74,7 +74,7 @@
                         }
                     }
                 }
-            }).on("keyup", () => {
+            }).on("keyup.bs", () => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                     let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
                     let searchVal = searchField[0].value;

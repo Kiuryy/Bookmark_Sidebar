@@ -28,8 +28,7 @@
                 let m = document.getElementsByTagName('script')[0];
                 m.parentNode.insertBefore(script, m);
 
-                let manifest = $.api.runtime.getManifest();
-                window.ga('create', 'UA-' + (trackingCode[manifest.version_name === "Dev" || !('update_url' in manifest) ? "dev" : "live"]), 'auto');
+                window.ga('create', 'UA-' + (trackingCode[b.isDev ? "dev" : "live"]), 'auto');
                 window.ga('set', 'checkProtocolTask', null);
                 window.ga('set', 'transport', 'beacon');
 

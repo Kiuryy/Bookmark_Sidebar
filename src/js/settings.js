@@ -311,7 +311,7 @@
                         this.helper.model.call("reloadIcon");
 
                         $.delay(1500).then(() => {
-                            this.helper.model.call("refreshAllTabs", {type: "Settings"});
+                            this.helper.model.call("reload", {type: "Settings"});
                             location.reload(true);
                         });
                     });

@@ -92,7 +92,7 @@
                         action: "change",
                         label: sort.name + "_" + sort.dir
                     });
-                    ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
+                    ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                 });
             }
         };

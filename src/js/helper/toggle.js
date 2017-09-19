@@ -85,7 +85,7 @@
             ext.helper.tooltip.close();
             ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
             $("body").removeClass(ext.opts.classes.page.noscroll);
-            $(document).trigger("mousemove"); // hide indicator
+            $(document).trigger("mousemove.bs"); // hide indicator
         };
 
         /**
@@ -125,7 +125,7 @@
                 }
 
                 ext.helper.scroll.focus();
-                $(document).trigger("mousemove"); // hide indicator
+                $(document).trigger("mousemove.bs"); // hide indicator
 
                 ext.helper.utility.triggerEvent("sidebarOpened");
             }
@@ -155,7 +155,7 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            $(window).on("resize", () => {
+            $(window).on("resize.bs", () => {
                 ext.elements.indicator.css("width", getPixelTolerance() + "px");
             });
 
@@ -175,15 +175,15 @@
                 }
             });
 
-            $(document).on("click", (e) => { // click somewhere in the underlying page -> close
+            $(document).on("click.bs", (e) => { // click somewhere in the underlying page -> close
                 if (e.isTrusted) {
                     this.closeSidebar();
                 }
             });
 
-            $(window).on("keydown", () => {
+            $(window).on("keydown.bs", () => {
                 keypressed = +new Date();
-            }).on("keyup", () => {
+            }).on("keyup.bs", () => {
                 keypressed = null;
             });
 
@@ -205,7 +205,7 @@
                 clearSidebarTimeout("close");
             });
 
-            $(document).on("visibilitychange", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
+            $(document).on("visibilitychange.bs", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
                 if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
                     ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
 
@@ -213,9 +213,9 @@
                         this.closeSidebar();
                     }
                 }
-            }).on("mouseout", () => {
+            }).on("mouseout.bs", () => {
                 clearSidebarTimeout("open");
-            }).on("mousemove", (e) => { // check mouse position
+            }).on("mousemove.bs", (e) => { // check mouse position
                 if (e.isTrusted && isMousePosInPixelTolerance(e.pageX, e.pageY)) {
                     let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
 
@@ -243,7 +243,7 @@
             let openAction = ext.helper.model.getData("b/openAction");
 
             if (openAction !== "icon") {
-                $(document).on(openAction + " dragover", (e) => {
+                 $(document).on(openAction + ".bs dragover.bs", (e) => {
                     let openByType = false;
                     if (e.type === "dragover") { // drag -> only open when configuration is set
                         openByType = dndOpen;
@@ -333,7 +333,7 @@
             if ($(ext.opts.leftsideBackSelector).length() > 0) { // Extension already loaded
                 ext.elements.indicator.addClass(ext.opts.classes.page.hasLeftsideBack);
             } else {
-                $(document).on(ext.opts.events.lsbLoaded, (e) => { // Extension is now loaded
+                $(document).on(ext.opts.events.lsbLoaded + ".bs", (e) => { // Extension is now loaded
                     if (e.detail.showIndicator) {
                         ext.elements.indicator.addClass(ext.opts.classes.page.hasLeftsideBack);
                     }

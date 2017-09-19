@@ -14,7 +14,7 @@
       "js/background/analytics.js",
       "js/background/language.js",
       "js/background/model.js",
-      "js/background/updates.js",
+      "js/background/upgrade.js",
       "js/background/bookmarkApi.js",
       "js/background/viewAmount.js",
       "js/background/newtab.js",
@@ -78,6 +78,7 @@
     "48": "img/icon/dev/48x48.png"
   },
   "permissions": [
+    "<all_urls>",
     "bookmarks",
     "storage",
     "unlimitedStorage",

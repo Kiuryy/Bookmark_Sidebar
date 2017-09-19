@@ -10,6 +10,7 @@
          * PUBLIC
          * ################################
          */
+        this.initialized = null;
         this.firstRun = true;
         this.refreshRun = true;
         this.elements = {};
@@ -24,6 +25,8 @@
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
+                destroyOldInstance();
+
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["content"]);
@@ -50,10 +53,9 @@
         };
 
         /**
-         * Refreshed the sidebar,
-         * reloads the model data, the language variables and the bookmark list
+         * Reloads the sidebar, the model data, the language variables and the bookmark list
          */
-        this.refresh = () => {
+        this.reload = () => {
             this.helper.model.init().then(() => {
                 return Promise.all([
                     this.helper.i18n.init(),
@@ -77,7 +79,6 @@
          * is called after opening the sidebar and is only executed the first time the sidebar is opened
          */
         this.trackInitialEvents = () => {
-
             let trackEvents = () => {
                 let sort = this.helper.list.getSort();
                 this.helper.model.call("trackEvent", {
@@ -86,7 +87,7 @@
                     label: sort.name + "_" + sort.dir
                 });
 
-                let searchVal = this.elements.header.find("div." + this.opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
+                let searchVal = this.elements.header.find("div." + opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
                 if (searchVal.length > 0) {
                     this.helper.model.call("trackEvent", {
                         category: "search",
@@ -98,7 +99,7 @@
             };
 
             if (this.firstRun) { // extension is not loaded yet -> wait for the loaded event (happens when sidebar is automatically opened on new tab page)
-                $(document).on(this.opts.events.loaded, () => {
+                $(document).on(opts.events.loaded + ".bs", () => {
                     trackEvents();
                 });
             } else { // extension is loaded -> track events
@@ -114,7 +115,7 @@
                 let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
-
+                this.initialized = +new Date();
                 console.log(+new Date() - window.start);
 
                 this.helper.utility.triggerEvent("loaded", {
@@ -155,7 +156,7 @@
          * Initialises the not yet loaded images in the sidebar
          */
         this.initImages = () => {
-            if (this.elements.iframe.hasClass(this.opts.classes.page.visible)) {
+            if (this.elements.iframe.hasClass(opts.classes.page.visible)) {
                 this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
                     let img = $(_self);
                     let src = img.attr(opts.attr.src);
@@ -229,6 +230,24 @@
         };
 
         /**
+         * Removes the existing instance of the extension
+         */
+        let destroyOldInstance = () => {
+            let sidebarIframe = $("iframe#" + opts.ids.page.iframe);
+
+            if (sidebarIframe.length() > 0) {
+                console.log("DESTROY");
+
+                sidebarIframe.remove();
+                $("iframe#" + opts.ids.page.overlay).remove();
+                $("div#" + opts.ids.page.indicator).remove();
+
+                $(document).off("*.bs");
+                $(window).off("*.bs");
+            }
+        };
+
+        /**
          * Creates the basic html markup for the sidebar and the visual
          *
          * @returns {Promise}
@@ -237,7 +256,7 @@
             this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
 
             if (this.helper.model.getData("b/animations") === false) {
-                this.elements.iframe.addClass(this.opts.classes.page.noAnimations);
+                this.elements.iframe.addClass(opts.classes.page.noAnimations);
             }
 
             this.elements.iframeBody = this.elements.iframe.find("body");

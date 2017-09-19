@@ -77,6 +77,8 @@
                         this.update();
                     });
                     resolve();
+                } else {
+                    resolve();
                 }
             });
         };

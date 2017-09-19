@@ -79,7 +79,7 @@
                         ["u/" + name]: e.detail.checked
                     }).then(() => {
                         ext.startLoading();
-                        ext.helper.model.call("refreshAllTabs", {scrollTop: true, type: "Sort"});
+                        ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                     });
                 }
             });
@@ -127,7 +127,7 @@
          * @returns {Promise}
          */
         let initGeneralEvents = async () => {
-            $(window).on("beforeunload", () => { // save scroll position before unloading page
+            $(window).on("beforeunload.bs", () => { // save scroll position before unloading page
                 if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // sidebar was opened or is still open
                     ext.helper.scroll.updateAll();
                 }
@@ -138,15 +138,18 @@
                 ext.helper.tooltip.close();
             });
 
-            $.api.extension.onMessage.addListener((message) => { // listen for refresh event
-                if (message && message.action && message.action === "refresh") {
-                    let delay = 0;
-                    if (message.scrollTop) {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0);
-                        delay = 100;
-                    }
+            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
+                if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
-                    $.delay(delay).then(ext.refresh);
+                    if (message.action === "reload") { // reload the current instance of the extension
+                        let delay = 0;
+                        if (message.scrollTop) {
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0);
+                            delay = 100;
+                        }
+
+                        $.delay(delay).then(ext.reload);
+                    }
                 }
             });
 

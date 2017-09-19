@@ -6,6 +6,7 @@
     window.onboarding = function () {
 
         let skipIntro = false;
+        let configChanged = false;
 
         /*
          * ################################
@@ -25,6 +26,7 @@
                 skip: "skip",
                 close: "close",
                 gotoSettings: "gotoSettings",
+                hideOpenTypeIcon: "hideOpenType",
                 large: "large",
                 visible: "visible"
             },
@@ -62,6 +64,7 @@
                 this.opts.elm.sidebar.right = $(this.opts.elm.sidebar.left[0].outerHTML).appendTo(this.opts.elm.body);
                 this.opts.elm.sidebar.right.attr(this.opts.attr.position, "right");
 
+                initGeneralEvents();
                 initIntroEvents();
                 initPositionEvents();
                 initSurfaceEvents();
@@ -107,6 +110,17 @@
         };
 
         /**
+         * Initialises the general eventhandlers
+         */
+        let initGeneralEvents = () => {
+            $(window).on("beforeunload", () => { // reinitialize the other tabs after changing any configuration
+                if (configChanged) {
+                    this.helper.model.call("reinitialize");
+                }
+            });
+        };
+
+        /**
          * Initialises the eventhandlers for the intro slide
          */
         let initIntroEvents = () => {
@@ -138,6 +152,7 @@
 
                 if (e.type === "click") {
                     this.helper.model.setData({"b/sidebarPosition": value}).then(() => {
+                        configChanged = true;
                         gotoNextSlide();
                     });
                 }
@@ -170,10 +185,15 @@
                     styles.bookmarksDirColor = this.helper.model.getDefaultColor("textColor", value);
                     styles.sidebarMaskColor = this.helper.model.getDefaultColor("sidebarMaskColor", value);
 
+                    Object.values(this.opts.elm.sidebar).forEach((sidebar) => {
+                        sidebar.removeClass(this.opts.classes.visible);
+                    });
+
                     this.helper.model.setData({
                         "a/darkMode": value === "dark",
                         "a/styles": styles
                     }).then(() => {
+                        configChanged = true;
                         gotoNextSlide();
                     });
                 }
@@ -191,13 +211,25 @@
          * Initialises the eventhandlers for the openAction slide
          */
         let initOpenActionEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] > a").on("click", (e) => {
+            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] > a").on("mouseenter click", (e) => {
                 e.preventDefault();
                 let value = $(e.currentTarget).attr(this.opts.attr.value);
+
                 if (value) {
-                    this.helper.model.setData({"b/openAction": value}).then(() => {
-                        initHandsOn();
-                    });
+                    if (e.type === "click") {
+                        this.opts.elm.body.addClass(this.opts.classes.hideOpenTypeIcon);
+                        this.helper.model.setData({"b/openAction": value}).then(() => {
+                            configChanged = true;
+                            initHandsOn();
+                        });
+                    } else {
+                        this.opts.elm.body.removeClass(this.opts.classes.hideOpenTypeIcon);
+                        this.opts.elm.body.attr(this.opts.attr.openType, value === "icon" ? "icon" : "mouse");
+                    }
+                }
+            }).on("mouseleave", (e) => {
+                if ($(e.currentTarget).parent("section").hasClass(this.opts.classes.visible)) {
+                    this.opts.elm.body.addClass(this.opts.classes.hideOpenTypeIcon);
                 }
             });
         };
@@ -208,6 +240,7 @@
         let initHandsOnEvents = () => {
             $(document).on(this.opts.events.sidebarOpened, () => {
                 if (!$("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished']").hasClass(this.opts.classes.visible)) {
+                    this.opts.elm.body.addClass(this.opts.classes.hideOpenTypeIcon);
                     gotoSlide("finished");
                 }
             });
@@ -290,6 +323,7 @@
             }
 
             $.delay(300).then(() => { // show icon as help
+                this.opts.elm.body.removeClass(this.opts.classes.hideOpenTypeIcon);
                 this.opts.elm.body.attr(this.opts.attr.openType, config.openAction === "icon" ? "icon" : "mouse");
             });
         };

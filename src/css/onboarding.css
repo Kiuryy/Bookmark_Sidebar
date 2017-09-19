@@ -211,7 +211,8 @@ body[data-openType]::before {
   content: "";
   position: absolute;
   width: 48px;
-  height: 48px; }
+  height: 48px;
+  transition: opacity 0.2s; }
 
 body[data-openType='icon']::before {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/onboarding/icon-arrow.svg);
@@ -227,6 +228,9 @@ body[data-openType='mouse'][data-position='right']::before {
   left: auto;
   right: 0;
   transform: rotateY(180deg); }
+
+body.hideOpenType::before {
+  opacity: 0; }
 
 @media (max-width: 1500px) {
   body[data-position='left'] section.slide:not([data-name='position']):not([data-name='handson']) {

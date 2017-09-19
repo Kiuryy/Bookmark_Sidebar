@@ -214,6 +214,7 @@ body {
       position: absolute;
       width: 48px;
       height: 48px;
+      transition: opacity 0.2s;
     }
   }
 
@@ -233,6 +234,10 @@ body {
     left: auto;
     right: 0;
     transform: rotateY(180deg);
+  }
+
+  &.hideOpenType::before {
+    opacity: 0;
   }
 }
 

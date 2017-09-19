@@ -11,11 +11,13 @@
         this.init = () => {
             return new Promise((resolve) => {
                 initListener();
-
                 resolve();
             });
         };
 
+        /**
+         * Initialises the eventlisteners
+         */
         let initListener = () => {
             $.api.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
                 $.api.runtime.reload();
@@ -42,7 +44,11 @@
                     let versionPartsNew = newVersion.split('.');
 
                     if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
-                        handleVersionUpgrade(newVersion);
+                        handleVersionUpgrade(newVersion).then(() => {
+                            b.reinitialize();
+                        });
+                    } else {
+                        b.reinitialize();
                     }
                 }
             });
@@ -52,90 +58,101 @@
          * Upgrade the stored data for the new version, show the changelog page if user hasn't seen it for the new version before
          *
          * @param {int} newVersion
+         * @returns {Promise}
          */
         let handleVersionUpgrade = (newVersion) => {
-            $.api.storage.sync.get(["model"], (obj) => {
-                if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
-                    b.helper.model.setData("updateNotification", newVersion).then(() => {
-                        $.api.tabs.create({url: $.api.extension.getURL('html/changelog.html')});
-                    });
-                }
-            });
+            return new Promise((resolve) => {
+                let savedCount = 0;
 
-            $.api.storage.sync.get(null, (obj) => {  // upgrade configuration
-                if (typeof obj.behaviour === "undefined") {
-                    obj.behaviour = {};
-                }
-
-                if (typeof obj.appearance === "undefined") {
-                    obj.appearance = {};
-                }
-
-                if (typeof obj.newtab === "undefined") {
-                    obj.newtab = {};
-                }
-
-                // START UPGRADE // v1.11
-                //delete obj.behaviour.initialOpenOnNewTab;
-                //delete obj.behaviour.replaceNewTab;
-                // END UPGRADE // v1.11
-
-                // START UPGRADE // v1.10
-                $.api.storage.sync.remove(["utility", "nt_notice"]);
-
-                ["sidebarPosition", "language"].forEach((f) => {
-                    if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
-                        obj.behaviour[f] = obj.appearance[f];
+                let savedValues = () => {
+                    savedCount++;
+                    if (savedCount >= 3) { // newtab, behaviour and appearance
+                        resolve();
                     }
+                };
 
-                    delete obj.appearance[f];
+                $.api.storage.sync.get(["model"], (obj) => {
+                    if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
+                        b.helper.model.setData("updateNotification", newVersion).then(() => {
+                            $.api.tabs.create({url: $.api.extension.getURL('html/changelog.html')});
+                        });
+                    }
                 });
 
-                if (typeof obj.behaviour.initialOpenOnNewTab !== "undefined") {
-                    obj.newtab.initialOpen = obj.behaviour.initialOpenOnNewTab;
-                }
+                $.api.storage.sync.get(null, (obj) => {  // upgrade configuration
+                    if (typeof obj.behaviour === "undefined") {
+                        obj.behaviour = {};
+                    }
 
-                if (typeof obj.behaviour.replaceNewTab !== "undefined") {
-                    obj.newtab.override = obj.behaviour.replaceNewTab;
-                }
+                    if (typeof obj.appearance === "undefined") {
+                        obj.appearance = {};
+                    }
 
-                if (typeof obj.behaviour.rememberState !== "undefined" && obj.behaviour.rememberState === "all") {
-                    obj.behaviour.rememberState = "openStatesAndPos";
-                }
+                    if (typeof obj.newtab === "undefined") {
+                        obj.newtab = {};
+                    }
 
-                if (typeof obj.appearance.iconShape === "undefined") {
-                    obj.appearance.iconShape = "logo";
-                }
-                // END UPGRADE // v1.10
+                    // START UPGRADE // v1.11
+                    //delete obj.behaviour.initialOpenOnNewTab;
+                    //delete obj.behaviour.replaceNewTab;
+                    // END UPGRADE // v1.11
 
-                // START UPGRADE // v1.9
-                if (typeof obj.utility !== "undefined") {
-                    $.api.storage.local.set({utility: obj.utility});
-                }
+                    // START UPGRADE // v1.10
+                    $.api.storage.sync.remove(["utility", "nt_notice"]);
 
-                delete obj.behaviour.scrollSensitivity;
+                    ["sidebarPosition", "language"].forEach((f) => {
+                        if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
+                            obj.behaviour[f] = obj.appearance[f];
+                        }
 
-                if (typeof obj.appearance.styles === "undefined") {
-                    obj.appearance.styles = {};
-                }
+                        delete obj.appearance[f];
+                    });
 
-                if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily === "Roboto") {
-                    obj.appearance.styles.fontFamily = "default";
-                }
+                    if (typeof obj.behaviour.initialOpenOnNewTab !== "undefined") {
+                        obj.newtab.initialOpen = obj.behaviour.initialOpenOnNewTab;
+                    }
 
-                if (typeof obj.appearance.styles.directoriesIconSize === "undefined" && typeof obj.appearance.styles.bookmarksIconSize !== "undefined") {
-                    obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
-                }
+                    if (typeof obj.behaviour.replaceNewTab !== "undefined") {
+                        obj.newtab.override = obj.behaviour.replaceNewTab;
+                    }
 
-                $.api.storage.sync.remove(["clickCounter"]);
-                // END UPGRADE // v1.9
+                    if (typeof obj.behaviour.rememberState !== "undefined" && obj.behaviour.rememberState === "all") {
+                        obj.behaviour.rememberState = "openStatesAndPos";
+                    }
 
-                $.api.storage.sync.set({behaviour: obj.behaviour});
-                $.api.storage.sync.set({appearance: obj.appearance});
-                $.api.storage.sync.set({newtab: obj.newtab});
+                    if (typeof obj.appearance.iconShape === "undefined") {
+                        obj.appearance.iconShape = "logo";
+                    }
+                    // END UPGRADE // v1.10
+
+                    // START UPGRADE // v1.9
+                    if (typeof obj.utility !== "undefined") {
+                        $.api.storage.local.set({utility: obj.utility});
+                    }
+
+                    delete obj.behaviour.scrollSensitivity;
+
+                    if (typeof obj.appearance.styles === "undefined") {
+                        obj.appearance.styles = {};
+                    }
+
+                    if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily === "Roboto") {
+                        obj.appearance.styles.fontFamily = "default";
+                    }
+
+                    if (typeof obj.appearance.styles.directoriesIconSize === "undefined" && typeof obj.appearance.styles.bookmarksIconSize !== "undefined") {
+                        obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
+                    }
+
+                    $.api.storage.sync.remove(["clickCounter"]);
+                    // END UPGRADE // v1.9
+
+                    $.api.storage.sync.set({behaviour: obj.behaviour}, savedValues);
+                    $.api.storage.sync.set({newtab: obj.newtab}, savedValues);
+                    $.api.storage.sync.set({appearance: obj.appearance}, savedValues);
+                });
             });
         };
-
     };
 
 })(jsu);

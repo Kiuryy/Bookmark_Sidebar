@@ -150,11 +150,6 @@
             }).then(() => {
                 console.log("LOADED", +new Date() - start)
             });
-
-
-            $.delay(5000).then(() => {
-                this.reinitialize();
-            });
         };
     };
 

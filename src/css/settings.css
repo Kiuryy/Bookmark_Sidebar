@@ -1115,6 +1115,8 @@ body > section#wrapper > aside {
   background: #e9e9e9;
   padding: 20px 10px 0;
   overflow: auto; }
+  body > section#wrapper > aside > nav li.hidden {
+    display: none; }
   body > section#wrapper > aside > nav > ul > li[data-name='sidebar'] > a::before {
     content: "";
     position: absolute;

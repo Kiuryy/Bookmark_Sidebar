@@ -109,6 +109,16 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
+            s.opts.elm.select.openAction.on("change", (e) => { // hide menupoint for changing the appearance of the indicator if it is not visible at all
+                let indicatorMenuPoint = s.opts.elm.aside.find("li[" + s.opts.attr.name + "='indicator']");
+
+                if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
+                    indicatorMenuPoint.removeClass(s.opts.classes.hidden);
+                } else {
+                    indicatorMenuPoint.addClass(s.opts.classes.hidden);
+                }
+            });
+
             s.opts.elm.keyboardShortcutInfo.children("a").on("click", (e) => {
                 e.preventDefault();
                 $.api.tabs.create({

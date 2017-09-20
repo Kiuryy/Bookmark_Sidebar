@@ -7,6 +7,10 @@ body > section#wrapper > aside {
 
   > nav {
 
+    li.hidden {
+      display: none;
+    }
+
     > ul > li {
 
       &[data-name='sidebar'] > a {

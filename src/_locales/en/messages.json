@@ -345,7 +345,7 @@
         "message": "Feedback"
     },
     "settings_menu_support": {
-        "message": "Contribute"
+        "message": "Support"
     },
     "settings_save": {
         "message": "Save Changes"
@@ -680,10 +680,10 @@
     "settings_language_desc": {
         "message": "The language of the user interface"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "Goto translation overview"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "You can help translating the extension in your language or improve the existing one."
     },
     "settings_translation_add_language": {
@@ -692,13 +692,13 @@
     "settings_translation_back_to_overview": {
         "message": "Back to overview"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "You can edit existing translations or add missing ones. If you submit your changes, I will review your input and approve it."
     },
-    "settings_translation_contribution_notice1": {
+    "settings_translation_notice1": {
         "message": "As soon as all categories marked as required are translated, the translation will be released."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice2": {
         "message": "Incomplete categories will not be released, to prevent half translated texts."
     },
     "settings_translation_submit": {

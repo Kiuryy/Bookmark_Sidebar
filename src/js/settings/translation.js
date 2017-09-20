@@ -179,6 +179,11 @@
          * Initialises the general eventhandlers for the translation pages
          */
         let initEvents = () => {
+            s.opts.elm.translation.goto.on("click", (e) => {
+                e.preventDefault();
+                s.opts.elm.aside.find("li[" + s.opts.attr.name + "='translate'] > a").trigger("click");
+            });
+
             $(document).on(s.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[1] === "translate") {
                     if (e.detail.path[2]) {

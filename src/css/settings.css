@@ -215,7 +215,7 @@ a {
   -webkit-background-clip: text;
   transition: background-color 0.3s; }
   .scrollBox::-webkit-scrollbar {
-    width: 11px;
+    width: 14px;
     background: transparent; }
   .scrollBox::-webkit-scrollbar-thumb {
     border-radius: 20px;
@@ -389,6 +389,103 @@ body > section#wrapper {
             font-weight: "%fontWeightMedium"; }
           body > section#wrapper > main div.boxWrapper > div.box p.info > em {
             color: #666; }
+
+body > section#wrapper div.aboutMe {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto 40px;
+  display: flex; }
+  @media (max-width: 1024px) {
+    body > section#wrapper div.aboutMe {
+      flex-direction: column; } }
+  body > section#wrapper div.aboutMe > div.desc {
+    position: relative;
+    padding: 20px 40px 0 40px;
+    text-align: justify;
+    flex: 1; }
+    body > section#wrapper div.aboutMe > div.desc::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/32px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-quote.svg);
+      background-color: #aaa; }
+    body > section#wrapper div.aboutMe > div.desc > p {
+      line-height: 170%;
+      margin-bottom: 20px; }
+      body > section#wrapper div.aboutMe > div.desc > p + p {
+        margin: 0; }
+      body > section#wrapper div.aboutMe > div.desc > p > span {
+        font-size: 120%;
+        background: #f5c525;
+        color: #fff;
+        padding: 3px 7px;
+        vertical-align: top; }
+    body > section#wrapper div.aboutMe > div.desc::before {
+      width: 32px;
+      height: 32px;
+      left: -5px;
+      top: 20px; }
+    @media (max-width: 1024px) {
+      body > section#wrapper div.aboutMe > div.desc {
+        order: 2; } }
+  body > section#wrapper div.aboutMe > div.preview {
+    position: relative;
+    width: 220px;
+    height: 220px; }
+    @media (max-width: 1024px) {
+      body > section#wrapper div.aboutMe > div.preview {
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        order: 1; } }
+    body > section#wrapper div.aboutMe > div.preview > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); }
+    body > section#wrapper div.aboutMe > div.preview > a {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #666; }
+      body > section#wrapper div.aboutMe > div.preview > a.github {
+        left: -20px; }
+        body > section#wrapper div.aboutMe > div.preview > a.github::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-mask: no-repeat center/24px;
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-github.svg);
+          background-color: #fff; }
+        @media (max-width: 1024px) {
+          body > section#wrapper div.aboutMe > div.preview > a.github {
+            left: -40px; } }
+      body > section#wrapper div.aboutMe > div.preview > a.website {
+        left: -64px; }
+        body > section#wrapper div.aboutMe > div.preview > a.website::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-mask: no-repeat center/24px;
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg);
+          background-color: #fff; }
+        @media (max-width: 1024px) {
+          body > section#wrapper div.aboutMe > div.preview > a.website {
+            left: -84px; } }
 
 body[data-type^='appearance'] > div.colorMask {
   position: absolute;

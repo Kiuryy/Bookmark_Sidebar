@@ -344,9 +344,6 @@
     "settings_menu_feedback": {
         "message": "Opini\u00e3o"
     },
-    "settings_menu_support": {
-        "message": "Contribuir"
-    },
     "settings_save": {
         "message": "Salvar altera\u00e7\u00f5es"
     },
@@ -650,10 +647,10 @@
     "settings_language_desc": {
         "message": "O idioma da interface do usu\u00e1rio"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "V\u00e1 para a vis\u00e3o geral de tradu\u00e7\u00e3o"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "Voc\u00ea pode ajudar traduzindo a extens\u00e3o para o seu idioma ou melhorando a tradu\u00e7\u00e3o j\u00e1 existente."
     },
     "settings_translation_add_language": {
@@ -662,10 +659,10 @@
     "settings_translation_back_to_overview": {
         "message": "Voltar ao in\u00edcio"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar suas mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice2": {
         "message": "Categorias incompletas n\u00e3o ser\u00e3o liberadas para prevenir textos parcialmente traduzidos."
     },
     "settings_translation_submit": {

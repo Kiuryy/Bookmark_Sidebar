@@ -344,9 +344,6 @@
     "settings_menu_feedback": {
         "message": "Retour d'exp\u00e9rience"
     },
-    "settings_menu_support": {
-        "message": "Participer"
-    },
     "settings_save": {
         "message": "Enregistrer les modifications"
     },
@@ -680,10 +677,10 @@
     "settings_language_desc": {
         "message": "Langue de l'interface utilisateur"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "Aller \u00e0 la vue d'ensemble"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "Vous pouvez aider \u00e0 traduire cette extension dans votre langue ou \u00e0 am\u00e9liorer la traduction existante."
     },
     "settings_translation_add_language": {
@@ -692,13 +689,13 @@
     "settings_translation_back_to_overview": {
         "message": "Retour \u00e0 la vue d'ensemble"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "Vous pouvez modifier les traductions existantes ou en ajouter parmi celles qui manquent. Si vous proposez des changements, je les passerai en revue avant de les valider."
     },
-    "settings_translation_contribution_notice1": {
+    "settings_translation_notice1": {
         "message": "La traduction sera publi\u00e9e d\u00e8s que les cat\u00e9gories signal\u00e9es comme requises seront traduites."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice2": {
         "message": "Les cat\u00e9gories incompl\u00e8tes ne seront pas publi\u00e9es, afin d'\u00e9viter les textes traduits \u00e0 moiti\u00e9."
     },
     "settings_translation_submit": {

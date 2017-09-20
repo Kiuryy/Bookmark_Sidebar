@@ -129,6 +129,7 @@
                 },
                 translation: {
                     wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
+                    goto: $("div.tab[data-name='language'] > div[data-name='general'] button[type='submit']"),
                     overview: $("div.tab[data-name='language'] > div[data-name='translate'] > div.overview"),
                     langvars: $("div.tab[data-name='language'] > div[data-name='translate'] > div.langvars"),
                     unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")

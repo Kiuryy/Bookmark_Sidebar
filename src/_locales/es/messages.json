@@ -344,9 +344,6 @@
     "settings_menu_feedback": {
         "message": "Retroalimentaci\u00f3n"
     },
-    "settings_menu_support": {
-        "message": "Contribuir"
-    },
     "settings_save": {
         "message": "Grabar cambios"
     },
@@ -389,10 +386,10 @@
     "settings_language_desc": {
         "message": "El idioma de la interfaz de usuario"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "Ir a la traducci\u00f3n principal"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "Tu puedes ayudar a traducir la extensi\u00f3n a tu idioma o mejorar las existentes."
     },
     "settings_translation_add_language": {
@@ -401,13 +398,13 @@
     "settings_translation_back_to_overview": {
         "message": "Regresar al resumen"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "Puedes editar las traducciones existentes o agregar las que faltan. Si env\u00eda sus cambios, revisar\u00e9 tu opini\u00f3n y la aprobar\u00e9."
     },
-    "settings_translation_contribution_notice1": {
+    "settings_translation_notice1": {
         "message": "Tan pronto como se hayan traducido todas las categor\u00edas marcadas como necesarias, las traducciones ser\u00e1n lanzadas."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice2": {
         "message": "No se publicar\u00e1n las categor\u00edas incompletas, para prevenir los textos incompletos."
     },
     "settings_translation_submit": {

@@ -17,16 +17,16 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                ["darkMode"].forEach((field) => {
-                    let checked = false;
-                    if (s.helper.model.getData("a/" + field) === true) {
-                        s.opts.elm.checkbox[field].trigger("click");
-                        checked = true;
-                    }
-                    s.opts.elm.checkbox[field].children("input").data("initial", checked);
-                });
-
                 initPreviews().then(() => {
+                    ["darkMode"].forEach((field) => {
+                        let checked = false;
+                        if (s.helper.model.getData("a/" + field) === true) {
+                            s.opts.elm.checkbox[field].trigger("click");
+                            checked = true;
+                        }
+                        s.opts.elm.checkbox[field].children("input").data("initial", checked);
+                    });
+
                     let styles = s.helper.model.getData("a/styles");
 
                     Object.keys(styles).forEach((key) => {

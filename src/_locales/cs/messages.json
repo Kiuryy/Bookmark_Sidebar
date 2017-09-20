@@ -344,9 +344,6 @@
     "settings_menu_feedback": {
         "message": "Zp\u011btn\u00e1 vazba"
     },
-    "settings_menu_support": {
-        "message": "Pod\u00edlet se"
-    },
     "settings_save": {
         "message": "Ulo\u017eit zm\u011bny"
     },
@@ -434,8 +431,14 @@
     "settings_remember_state": {
         "message": "Zapamatov\u00e1n\u00ed"
     },
+    "settings_remember_state_desc": {
+        "message": "Vyberte, co si zapamatovat mezi zm\u011bnami str\u00e1nek. Pokud se rozhodnete zapamatovat posledn\u00ed otev\u0159enou z\u00e1lo\u017eku, bude p\u0159i otev\u0159en\u00ed postrann\u00edho panelu ozna\u010dena."
+    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Pozice posuvu a otev\u0159en\u00e9 adres\u00e1\u0159e"
+    },
+    "settings_remember_state_all": {
+        "message": "Posunut\u00ed pozice, otev\u0159en\u00ed adres\u00e1\u0159\u016f a posledn\u00ed otev\u0159en\u00e1 z\u00e1lo\u017eka"
     },
     "settings_remember_state_open_states": {
         "message": "Otev\u0159en\u00e9 adres\u00e1\u0159e"
@@ -641,6 +644,30 @@
     "settings_overlay_mask_color": {
         "message": "Barva masky"
     },
+    "settings_icon_shape": {
+        "message": "Tvar"
+    },
+    "settings_newtab_desc": {
+        "message": "Bohu\u017eel Google odstranil mo\u017enost na\u010d\u00edst roz\u0161\u00ed\u0159en\u00ed na v\u00fdchoz\u00ed str\u00e1nce nov\u00e9 karty. Z tohoto d\u016fvodu jsem p\u0159idal n\u011bkolik mo\u017enost\u00ed, kter\u00e9 v\u00e1m umo\u017e\u0148uj\u00ed p\u0159\u00edstup k va\u0161im z\u00e1lo\u017ek\u00e1m p\u0159i otev\u0159en\u00ed nov\u00e9 karty jin\u00fdm zp\u016fsobem."
+    },
+    "settings_newtab_override": {
+        "message": "P\u0159epsat str\u00e1nku nov\u00e9 karty"
+    },
+    "settings_newtab_override_desc": {
+        "message": "M\u00e1te-li roz\u0161\u00ed\u0159en\u00ed p\u0159ekr\u00fdt svou aktu\u00e1ln\u00ed str\u00e1nku s nov\u00fdmi kartami bu\u010f s vlastn\u00edm proveden\u00edm, nebo s webovou str\u00e1nkou, kterou je t\u0159eba na\u010d\u00edst p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty?"
+    },
+    "settings_newtab_sidebar_initial_open": {
+        "message": "Otev\u0159ete postrann\u00ed panel automaticky"
+    },
+    "settings_newtab_sidebar_initial_open_desc": {
+        "message": "Nastavte, zda se m\u00e1 bo\u010dn\u00ed panel otev\u0159\u00edt automaticky p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty."
+    },
+    "settings_newtab_website": {
+        "message": "Na\u010d\u00edst webovou str\u00e1nku"
+    },
+    "settings_newtab_website_desc": {
+        "message": "M\u00edsto nahrazen\u00ed nov\u00e9 z\u00e1lo\u017eky m\u016f\u017eete m\u00edsto toho na\u010d\u00edst web, kter\u00fd je na\u010dten."
+    },
     "settings_language": {
         "message": "Jazyk"
     },
@@ -650,10 +677,10 @@
     "settings_language_desc": {
         "message": "Jazyk tohoto u\u017eivatelsk\u00e9ho prost\u0159ed\u00ed"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "P\u0159ej\u00edt na n\u00e1hled p\u0159ekladu"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "M\u016f\u017eete p\u0159isp\u011bt p\u0159elo\u017een\u00edm do va\u0161eho jazyka nebo vylep\u0161it st\u00e1vaj\u00edc\u00ed p\u0159eklad."
     },
     "settings_translation_add_language": {
@@ -662,10 +689,13 @@
     "settings_translation_back_to_overview": {
         "message": "Zp\u011bt na p\u0159ehled"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "M\u016f\u017eete upravit existuj\u00edc\u00ed p\u0159eklady nebo p\u0159idat chyb\u011bj\u00edc\u00ed p\u0159eklady. Pokud sv\u00e9 zm\u011bny ode\u0161lete, p\u0159ezkoum\u00e1m v\u00e1\u0161 p\u0159\u00edsp\u011bvek a schv\u00e1l\u00edm ho."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice1": {
+        "message": "Jakmile budou v\u0161echny po\u017eadovan\u00e9 kategorie p\u0159elo\u017eeny, p\u0159eklad bude uvoln\u011bn."
+    },
+    "settings_translation_notice2": {
         "message": "Nedokon\u010den\u00e9 kategorie nebudou uvoln\u011bny, aby nedoch\u00e1zelo k p\u0159ekladu poloviny p\u0159elo\u017een\u00fdch text\u016f."
     },
     "settings_translation_submit": {
@@ -677,8 +707,14 @@
     "settings_translation_status_released": {
         "message": "P\u0159eklad je k dispozici"
     },
+    "settings_translation_status_incomplete": {
+        "message": "P\u0159eklad je k dispozici, ale n\u011bkter\u00e9 kategorie jsou ne\u00fapln\u00e9"
+    },
     "settings_translation_status_draft": {
         "message": "P\u0159eklad je ne\u00fapln\u00fd nebo pot\u0159ebuje recenzi a nen\u00ed k dispozici pro u\u017eivatele"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "N\u011bkter\u00e9 p\u0159eklady chyb\u00ed"
     },
     "settings_translation_required_category": {
         "message": "Povinn\u00fd"

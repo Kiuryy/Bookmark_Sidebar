@@ -507,10 +507,10 @@
         "message": "Nie ausblenden"
     },
     "settings_initial_open_on_new_tab": {
-        "message": "Auf der 'Neuer Tab'-Seite initial \u00f6ffnen"
+        "message": "Auf der New-Tab-Seite initial \u00f6ffnen"
     },
     "settings_initial_open_on_new_tab_desc": {
-        "message": "Wenn ausgew\u00e4hlt, wird die Sidebar automatisch ge\u00f6ffnet wenn die 'Neuer Tab'-Seite aufgerufen wird."
+        "message": "Wenn ausgew\u00e4hlt, wird die Sidebar automatisch ge\u00f6ffnet wenn die New-Tab-Seite aufgerufen wird."
     },
     "settings_drag_n_drop_open": {
         "message": "Per Drag&Drop \u00f6ffnen"
@@ -651,13 +651,13 @@
         "message": "Form"
     },
     "settings_newtab_desc": {
-        "message": "Leider hat Google die M\u00f6glichkeit ausgebaut, Erweiterungen auf der Standard-Neuer-Tab-Seite zu laden. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."
+        "message": "Leider hat Google die M\u00f6glichkeit ausgebaut, Erweiterungen auf der Standard-New-Tab-Seite zu laden. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."
     },
     "settings_newtab_override": {
-        "message": "Neuer-Tab-Seite \u00fcberschreiben"
+        "message": "New-Tab-Seite \u00fcberschreiben"
     },
     "settings_newtab_override_desc": {
-        "message": "Soll die Erweiterung die aktuelle Neue-Tab-Seite mit entweder einer angepassten Seite, oder einer Webseite die geladen wird wenn ein neuer Tab ge\u00f6ffnet wird, \u00fcberschreiben?"
+        "message": "Soll die Erweiterung die aktuelle New-Tab-Seite mit entweder einer angepassten Seite, oder einer Webseite die geladen wird wenn ein neuer Tab ge\u00f6ffnet wird, \u00fcberschreiben?"
     },
     "settings_newtab_sidebar_initial_open": {
         "message": "Sidebar automatisch \u00f6ffnen"
@@ -669,7 +669,7 @@
         "message": "Webseite laden"
     },
     "settings_newtab_website_desc": {
-        "message": "Anstatt die angepasste Neue-Tab-Seite zu \u00f6ffnen, kann anstelle davon eine Webseite geladen werden."
+        "message": "Anstatt die angepasste New-Tab-Seite zu \u00f6ffnen, kann stattdessen eine Webseite geladen werden."
     },
     "settings_language": {
         "message": "Sprache"
@@ -680,10 +680,10 @@
     "settings_language_desc": {
         "message": "Die Sprache der Oberfl\u00e4che"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "Zur \u00dcbersicht"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "Du kannst helfen die Erweiterung in deine Sprache zu \u00fcbersetzen, oder falls bereits vorhanden, diese zu verbessern."
     },
     "settings_translation_add_language": {
@@ -692,13 +692,13 @@
     "settings_translation_back_to_overview": {
         "message": "Zur\u00fcck zur \u00dcbersicht"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "Hier kannst du vorhandene \u00dcbersetzungen bearbeiten, oder fehlende hinzuf\u00fcgen. Wenn du deine \u00c4nderungen absendest, werde ich die Eingabe \u00fcberpr\u00fcfen und anschlie\u00dfend freigeben."
     },
-    "settings_translation_contribution_notice1": {
+    "settings_translation_notice1": {
         "message": "Sobald alle als Erforderlich markierten Kategorien \u00fcbersetzt wurden, wird die \u00dcbersetzung freigegeben."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice2": {
         "message": "Um halb \u00fcbersetzte Texte zu vermeiden, werden unvollst\u00e4ndige Kategorien nicht freigegeben."
     },
     "settings_translation_submit": {

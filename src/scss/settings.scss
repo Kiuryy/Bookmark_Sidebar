@@ -9,10 +9,11 @@ $__textColor: $textColor;
 //
 @import "include/generals";
 //
-$__scrollBarWidth: 11px;
+$__scrollBarWidth: 14px;
 @import "include/scrollBox";
 @import "include/settings/header";
 @import "include/settings/content";
+@import "include/settings/aboutme";
 @import "include/settings/appearance";
 @import "include/settings/feedback";
 @import "include/settings/support";

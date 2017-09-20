@@ -1,0 +1,98 @@
+body > section#wrapper {
+
+  div.aboutMe {
+    position: relative;
+    max-width: 1024px;
+    margin: 0 auto 40px;
+    display: flex;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
+
+    > div.desc {
+      @include mask('settings/icon-quote', $textColorLight, 32px);
+      position: relative;
+      padding: 20px 40px 0 40px;
+      text-align: justify;
+      flex: 1;
+
+      > p {
+        line-height: 170%;
+        margin-bottom: 20px;
+
+        + p {
+          margin: 0;
+        }
+
+        > span {
+          font-size: 120%;
+          background: $colorNotice;
+          color: $textColorInverted;
+          padding: 3px 7px;
+          vertical-align: top;
+        }
+      }
+
+      &::before {
+        width: 32px;
+        height: 32px;
+        left: -5px;
+        top: 20px;
+      }
+
+      @media (max-width: 1024px) {
+        order: 2;
+      }
+    }
+
+    > div.preview {
+      position: relative;
+      width: 220px;
+      height: 220px;
+
+      @media (max-width: 1024px) {
+        margin: auto;
+        width: 150px;
+        height: 150px;
+        order: 1;
+      }
+
+      > img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      > a {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: $textColor;
+
+        &.github {
+          @include mask('settings/icon-github', $textColorInverted, 24px);
+          left: -20px;
+
+          @media (max-width: 1024px) {
+            left: -40px;
+          }
+        }
+
+        &.website {
+          @include mask('icon-web', $textColorInverted, 24px);
+          left: -64px;
+
+          @media (max-width: 1024px) {
+            left: -84px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -344,9 +344,6 @@
     "settings_menu_feedback": {
         "message": "Opinie"
     },
-    "settings_menu_support": {
-        "message": "Wspom\u00f3\u017c"
-    },
     "settings_save": {
         "message": "Zapisz zmiany"
     },
@@ -680,10 +677,10 @@
     "settings_language_desc": {
         "message": "J\u0119zyk interfejsu u\u017cytkownika"
     },
-    "settings_contribute_translation_link": {
+    "settings_translation_link": {
         "message": "Przenie\u015b do menu translacji"
     },
-    "settings_contribute_translation_desc": {
+    "settings_translation_desc": {
         "message": "Mo\u017cesz pom\u00f3c t\u0142umaczy\u0107 to rozszerzenie na sw\u00f3j j\u0119zyk lub ulepszy\u0107 istniej\u0105ce t\u0142umaczenia."
     },
     "settings_translation_add_language": {
@@ -692,13 +689,13 @@
     "settings_translation_back_to_overview": {
         "message": "Powr\u00f3t do menu translacji"
     },
-    "settings_translation_contribution_info": {
+    "settings_translation_info": {
         "message": "Mo\u017cesz edytowa\u0107 istniej\u0105ce t\u0142umaczenia lub dodawa\u0107 brakuj\u0105ce. Je\u015bli zatwierdzisz swoje zmiany, przejrz\u0119 tw\u00f3j wk\u0142ad i zatwierdz\u0119 go."
     },
-    "settings_translation_contribution_notice1": {
+    "settings_translation_notice1": {
         "message": "Jak tylko wszystkie kategorie oznaczone jako wymagane zostan\u0105 przet\u0142umaczone, t\u0142umaczenie zostanie opublikowane."
     },
-    "settings_translation_contribution_notice2": {
+    "settings_translation_notice2": {
         "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom."
     },
     "settings_translation_submit": {

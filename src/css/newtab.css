@@ -65,8 +65,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden; }
   body::before {
     content: "";
@@ -86,9 +86,12 @@ body {
     z-index: 99; }
 
 section#content {
-  margin: 0;
-  padding: 0;
-  height: 100vh; }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f2f2f2; }
   section#content > nav {
     position: absolute;
     top: 10px;
@@ -222,21 +225,23 @@ section#content {
 
 body.dark {
   background: #444; }
-  body.dark section#content > nav > ul > li > a:hover {
-    background: #555; }
-  body.dark section#content > section.mid > div#search > input[type='text'] {
-    background: #555; }
-  body.dark section#content > section.mid > div#search > button[type="submit"]:hover {
-    background: #626262; }
-  body.dark section#content > section.mid > div#search > ul.suggestions {
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1)); }
-    body.dark section#content > section.mid > div#search > ul.suggestions > li {
+  body.dark section#content {
+    background: #444; }
+    body.dark section#content > nav > ul > li > a:hover {
       background: #555; }
-      body.dark section#content > section.mid > div#search > ul.suggestions > li.active {
-        background: #626262; }
-  body.dark section#content > section.mid > ul.topPages > li > a {
-    background: #555; }
-    body.dark section#content > section.mid > ul.topPages > li > a:hover {
+    body.dark section#content > section.mid > div#search > input[type='text'] {
+      background: #555; }
+    body.dark section#content > section.mid > div#search > button[type="submit"]:hover {
       background: #626262; }
+    body.dark section#content > section.mid > div#search > ul.suggestions {
+      filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1)); }
+      body.dark section#content > section.mid > div#search > ul.suggestions > li {
+        background: #555; }
+        body.dark section#content > section.mid > div#search > ul.suggestions > li.active {
+          background: #626262; }
+    body.dark section#content > section.mid > ul.topPages > li > a {
+      background: #555; }
+      body.dark section#content > section.mid > ul.topPages > li > a:hover {
+        background: #626262; }
 
 /*# sourceMappingURL=newtab.css.map */

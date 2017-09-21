@@ -6,7 +6,6 @@
         let languages = {};
         let langvarsCache = {};
         let varsAmount = {};
-        let available = false;
 
         /**
          *
@@ -15,12 +14,9 @@
         this.init = () => {
             return new Promise((resolve) => {
                 initLanguages().then(() => {
-                    return s.helper.model.call("websiteStatus");
-                }).then((opts) => {
                     initEvents();
-                    available = opts.status === "available";
 
-                    if (available) {
+                    if (s.serviceAvailable) {
                         initOverview().then(() => {
                             initOverviewEvents();
                             initFormEvents();
@@ -188,7 +184,7 @@
                 if (e.detail.path && e.detail.path[1] === "translate") {
                     if (e.detail.path[2]) {
                         initEditForm(e.detail.path[2]);
-                    } else if (available) {
+                    } else if (s.serviceAvailable) {
                         gotoOverview();
                     } else {
                         showUnavailableText();
@@ -222,7 +218,10 @@
 
         let showUnavailableText = () => {
             s.opts.elm.translation.unavailable.addClass(s.opts.classes.visible);
-            s.opts.elm.buttons.save.addClass(s.opts.classes.hidden);
+
+            if (s.opts.elm.translation.wrapper.hasClass(s.opts.classes.tabs.active)) {
+                s.opts.elm.buttons.save.addClass(s.opts.classes.hidden);
+            }
         };
 
         /**

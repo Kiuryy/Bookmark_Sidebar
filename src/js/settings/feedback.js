@@ -10,23 +10,15 @@
         this.init = async () => {
             initEvents();
 
-            let loader = s.helper.template.loading().appendTo(s.opts.elm.feedback.form);
-            s.opts.elm.feedback.form.addClass(s.opts.classes.loading);
+            if (s.serviceAvailable === false) {
+                s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
 
-            s.helper.model.call("websiteStatus").then((opts) => {
-                loader.remove();
-                s.opts.elm.feedback.form.removeClass(s.opts.classes.loading);
-
-                if (opts.status !== "available") {
-                    s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
-
-                    $("<p />")
-                        .addClass(s.opts.classes.error)
-                        .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
-                        .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
-                        .insertAfter(s.opts.elm.feedback.form);
-                }
-            });
+                $("<p />")
+                    .addClass(s.opts.classes.error)
+                    .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
+                    .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
+                    .insertAfter(s.opts.elm.feedback.form);
+            }
         };
 
         /**

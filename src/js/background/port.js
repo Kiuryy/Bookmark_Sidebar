@@ -26,7 +26,7 @@
          */
         let checkWebsiteStatus = () => {
             return new Promise((resolve) => {
-                $.xhr(b.urls.check404, {
+                $.xhr(b.urls.checkStatus, {
                     method: "HEAD",
                     timeout: 5000
                 }).then(() => {

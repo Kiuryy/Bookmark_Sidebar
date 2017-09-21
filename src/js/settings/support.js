@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ContributeHelper = function (s) {
+    window.SupportHelper = function (s) {
 
         /**
          * Initialises the contribution tab
@@ -32,7 +32,7 @@
                 });
             });
 
-            s.opts.elm.contribute.donateButton.on("click", (e) => {
+            s.opts.elm.support.donateButton.on("click", (e) => {
                 e.preventDefault();
                 window.open(s.opts.donateLink, '_blank');
             });

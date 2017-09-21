@@ -313,6 +313,14 @@ body > header {
       body > header > menu > button.hidden {
         display: none; }
 
+body > section#wrapper > main > div.loading.tab > svg.loading, body > section#wrapper > main > div.tab > div.loading[data-name] > svg.loading {
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 18px); }
+
+body > section#wrapper > main > div.loading.tab > div, body > section#wrapper > main > div.tab > div.loading[data-name] > div {
+  display: none; }
+
 body > section#wrapper {
   position: relative;
   display: flex;
@@ -676,14 +684,6 @@ div.tab[data-name='feedback'] p.notice {
 
 div.tab[data-name='feedback'] section.form {
   position: relative; }
-  div.tab[data-name='feedback'] section.form.loading > * {
-    display: none; }
-  div.tab[data-name='feedback'] section.form.loading > svg.loading {
-    position: absolute;
-    display: block;
-    top: 80px;
-    left: calc(50% - 18px);
-    z-index: 99; }
   div.tab[data-name='feedback'] section.form.hidden {
     display: none; }
     div.tab[data-name='feedback'] section.form.hidden + p.error {

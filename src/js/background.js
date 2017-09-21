@@ -7,7 +7,7 @@
         let bookmarkImportRunning = false;
 
         this.urls = {
-            check404: "https://extensions.blockbyte.de/",
+            checkStatus: "https://extensions.blockbyte.de/",
             updateUrls: "https://extensions.blockbyte.de/ajax/updateUrls",
             uninstall: "https://extensions.blockbyte.de/bs/uninstall"
         };

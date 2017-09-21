@@ -123,6 +123,7 @@
                     content: $("div.tab[data-name='newtab']"),
                 },
                 feedback: {
+                    wrapper: $("div.tab[data-name='feedback']"),
                     form: $("section.form"),
                     send: $("section.form button[type='submit']"),
                     faq: $("div.faq")
@@ -136,9 +137,7 @@
                 },
                 keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
-                contribute: {
-                    translationTabLink: $("div.tab[data-name='contribute'] ul.labels > li[data-type='translation'] > a"),
-                    translationTabContent: $("div.tab[data-name='contribute'] div[data-name='translation']"),
+                support: {
                     donateButton: $("div.tab[data-name='support'] button[type='submit']")
                 },
                 preview: {},
@@ -165,14 +164,17 @@
             manifest: $.api.runtime.getManifest()
         };
 
+        this.serviceAvailable = true;
+
         /**
          * Constructor
          */
         this.run = () => {
             initHelpers();
-            let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
+            let loader = {
+                body: this.helper.template.loading().appendTo(this.opts.elm.body)
+            };
             this.opts.elm.body.addClass(this.opts.classes.initLoading);
-
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -190,22 +192,36 @@
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
                 this.opts.elm.buttons.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
+                ["translation", "feedback"].forEach((name) => {
+                    loader[name] = this.helper.template.loading().appendTo(this.opts.elm[name].wrapper);
+                    this.opts.elm[name].wrapper.addClass(this.opts.classes.loading);
+                });
+
                 return Promise.all([
                     this.helper.menu.init(),
-                    this.helper.behaviour.init(),
+                    this.helper.sidebar.init(),
                     this.helper.appearance.init(),
                     this.helper.newtab.init(),
-                    this.helper.feedback.init(),
-                    this.helper.translation.init(),
-                    this.helper.contribute.init(),
+                    this.helper.support.init(),
                     this.helper.importExport.init(),
                 ]);
-            }).then(() => {
+            }).then(() => { // initialise events and remove loading mask
                 initEvents();
 
-                loader.remove();
+                loader.body.remove();
                 this.opts.elm.body.removeClass(this.opts.classes.initLoading);
                 this.helper.model.call("trackPageView", {page: "/settings"});
+
+                return this.helper.model.call("websiteStatus");
+            }).then((opts) => { // if website is available, feedback form and translation overview can be used
+                this.serviceAvailable = opts.status === "available";
+                this.helper.feedback.init();
+                this.helper.translation.init();
+
+                ["translation", "feedback"].forEach((name) => {
+                    loader[name].remove();
+                    this.opts.elm[name].wrapper.removeClass(this.opts.classes.loading);
+                });
             });
         };
 
@@ -243,12 +259,12 @@
                 translation: new window.TranslationHelper(this),
                 menu: new window.MenuHelper(this),
                 form: new window.FormHelper(this),
-                behaviour: new window.BehaviourHelper(this),
+                sidebar: new window.SidebarHelper(this),
                 newtab: new window.NewtabHelper(this),
                 appearance: new window.AppearanceHelper(this),
                 feedback: new window.FeedbackHelper(this),
                 importExport: new window.ImportExportHelper(this),
-                contribute: new window.ContributeHelper(this)
+                support: new window.SupportHelper(this)
             };
         };
 
@@ -270,7 +286,7 @@
 
                 switch (path[0]) {
                     case "sidebar": {
-                        this.helper.behaviour.save();
+                        this.helper.sidebar.save();
                         break;
                     }
                     case "appearance": {
@@ -285,7 +301,7 @@
                         if (path[1] === "translate") {
                             this.helper.translation.submit();
                         } else {
-                            this.helper.behaviour.saveLanguage().then(() => {
+                            this.helper.sidebar.saveLanguage().then(() => {
                                 return $.delay(1500);
                             }).then(() => {
                                 location.reload(true);

@@ -14,8 +14,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 
   &::before {
@@ -48,9 +48,12 @@ body {
 }
 
 section#content {
-  margin: 0;
-  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
+  background: $bodyBackground;
 
   > nav {
     position: absolute;
@@ -217,6 +220,7 @@ body.dark {
   background: $darkContentBackground;
 
   section#content {
+    background: $darkContentBackground;
 
     > nav > ul > li > a:hover {
       background: $darkHoverBackground;

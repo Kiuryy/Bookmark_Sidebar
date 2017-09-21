@@ -1,3 +1,19 @@
+%loadingTab {
+
+  &.loading {
+
+    > svg.loading {
+      position: absolute;
+      top: 30%;
+      left: calc(50% - 18px);
+    }
+
+    > div {
+      display: none;
+    }
+  }
+}
+
 body > section#wrapper {
   position: relative;
   display: flex;
@@ -20,12 +36,16 @@ body > section#wrapper {
         display: block;
       }
 
+      @extend %loadingTab;
+
       > div[data-name] {
         display: none;
 
         &.active {
           display: block;
         }
+
+        @extend %loadingTab;
       }
     }
 

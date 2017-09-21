@@ -69,21 +69,6 @@ div.tab[data-name='feedback'] {
   section.form {
     position: relative;
 
-    &.loading {
-
-      > * {
-        display: none;
-      }
-
-      > svg.loading {
-        position: absolute;
-        display: block;
-        top: 80px;
-        left: calc(50% - 18px);
-        z-index: 99;
-      }
-    }
-
     &.hidden {
       display: none;
 

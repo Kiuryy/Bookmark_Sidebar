@@ -19,17 +19,17 @@
          * Initialises the eventlisteners
          */
         let initListener = () => {
-            $.api.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
-                $.api.runtime.reload();
+            chrome.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
+                chrome.runtime.reload();
             });
 
-            $.api.runtime.onInstalled.addListener((details) => {
+            chrome.runtime.onInstalled.addListener((details) => {
                 if (details.reason === 'install') { // extension was installed newly -> show onboarding page
-                    $.api.tabs.create({url: $.api.extension.getURL('html/intro.html')});
+                    chrome.tabs.create({url: chrome.extension.getURL('html/intro.html')});
                     b.reinitialize();
                 } else if (details.reason === 'update') { // extension was updated
-                    $.api.storage.local.remove(["languageInfos"]);
-                    let newVersion = $.api.runtime.getManifest().version;
+                    chrome.storage.local.remove(["languageInfos"]);
+                    let newVersion = chrome.runtime.getManifest().version;
 
                     if (details.previousVersion !== newVersion) {
                         b.helper.analytics.trackEvent({
@@ -71,15 +71,15 @@
                     }
                 };
 
-                $.api.storage.sync.get(["model"], (obj) => {
+                chrome.storage.sync.get(["model"], (obj) => {
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            $.api.tabs.create({url: $.api.extension.getURL('html/changelog.html')});
+                            chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
                         });
                     }
                 });
 
-                $.api.storage.sync.get(null, (obj) => {  // upgrade configuration
+                chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
                     if (typeof obj.behaviour === "undefined") {
                         obj.behaviour = {};
                     }
@@ -98,7 +98,7 @@
                     // END UPGRADE // v1.11
 
                     // START UPGRADE // v1.10
-                    $.api.storage.sync.remove(["utility", "nt_notice"]);
+                    chrome.storage.sync.remove(["utility", "nt_notice"]);
 
                     ["sidebarPosition", "language"].forEach((f) => {
                         if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
@@ -127,7 +127,7 @@
 
                     // START UPGRADE // v1.9
                     if (typeof obj.utility !== "undefined") {
-                        $.api.storage.local.set({utility: obj.utility});
+                        chrome.storage.local.set({utility: obj.utility});
                     }
 
                     delete obj.behaviour.scrollSensitivity;
@@ -144,12 +144,12 @@
                         obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
                     }
 
-                    $.api.storage.sync.remove(["clickCounter"]);
+                    chrome.storage.sync.remove(["clickCounter"]);
                     // END UPGRADE // v1.9
 
-                    $.api.storage.sync.set({behaviour: obj.behaviour}, savedValues);
-                    $.api.storage.sync.set({newtab: obj.newtab}, savedValues);
-                    $.api.storage.sync.set({appearance: obj.appearance}, savedValues);
+                    chrome.storage.sync.set({behaviour: obj.behaviour}, savedValues);
+                    chrome.storage.sync.set({newtab: obj.newtab}, savedValues);
+                    chrome.storage.sync.set({appearance: obj.appearance}, savedValues);
                 });
             });
         };

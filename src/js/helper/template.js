@@ -23,7 +23,7 @@
          */
         this.svgByName = (name) => {
             return new Promise((resolve, reject) => {
-                $.xhr($.api.extension.getURL("img/" + name + ".svg")).then((xhr) => {
+                $.xhr(chrome.extension.getURL("img/" + name + ".svg")).then((xhr) => {
                     resolve(xhr.responseText);
                 }, () => {
                     reject();

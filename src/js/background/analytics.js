@@ -79,7 +79,7 @@
          * Send a sign of life and all configuration once per day to Google Analytics
          */
         this.trackUserData = () => {
-            let manifest = $.api.runtime.getManifest();
+            let manifest = chrome.runtime.getManifest();
             let shareState = "not_set";
             let shareUserdata = b.helper.model.shareUserdata();
 
@@ -161,7 +161,7 @@
                     });
                 };
 
-                $.api.storage.sync.get(categories, (obj) => {
+                chrome.storage.sync.get(categories, (obj) => {
                     categories.forEach((category) => {
                         if (typeof obj[category] === "object") {
                             proceedConfig(category, obj[category]);

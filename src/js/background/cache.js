@@ -12,7 +12,7 @@
         this.set = (opts) => {
             return new Promise((resolve) => {
                 try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                    $.api.storage.local.set({["cache_" + opts.name]: opts.val}, () => {
+                    chrome.storage.local.set({["cache_" + opts.name]: opts.val}, () => {
                         resolve();
                     });
                 } catch (e) {
@@ -29,7 +29,7 @@
          */
         this.get = (opts) => {
             return new Promise((resolve) => {
-                $.api.storage.local.get(["cache_" + opts.name], (result) => {
+                chrome.storage.local.get(["cache_" + opts.name], (result) => {
                     resolve({val: result["cache_" + opts.name]});
                 });
             });
@@ -43,7 +43,7 @@
          */
         this.remove = (opts) => {
             return new Promise((resolve) => {
-                $.api.storage.local.remove(["cache_" + opts.name], () => {
+                chrome.storage.local.remove(["cache_" + opts.name], () => {
                     resolve();
                 });
             });

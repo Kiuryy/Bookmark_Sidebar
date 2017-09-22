@@ -48,7 +48,7 @@
                     config.website = "http://" + config.website;
                 }
 
-                $.api.storage.sync.set({newtab: config}, () => {
+                chrome.storage.sync.set({newtab: config}, () => {
                     s.helper.model.call("reinitialize");
                     s.showSuccessMessage("saved_message");
                     resolve();
@@ -66,7 +66,7 @@
 
                 if (override) {
                     if (inited === true) {
-                        $.api.permissions.request({ // request additional permissions in order to override the new tab page
+                        chrome.permissions.request({ // request additional permissions in order to override the new tab page
                             permissions: ['tabs', 'topSites']
                         }, function (granted) {
                             if (!granted) { // not granted -> no overriding

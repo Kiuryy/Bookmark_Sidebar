@@ -65,7 +65,7 @@
 
             let types = {
                 newtab_default: ["https?://www.google\..+/_/chrome/newtab"],
-                newtab_replacement: [$.api.extension.getURL('html/newtab.html')],
+                newtab_replacement: [chrome.extension.getURL('html/newtab.html')],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],
                 onboarding: ["chrome\-extension://.*/intro.html"],
@@ -96,7 +96,7 @@
          * @returns {boolean}
          */
         this.isBackgroundConnected = () => {
-            let port = $.api.runtime.connect();
+            let port = chrome.runtime.connect();
             if (port) {
                 port.disconnect();
                 return true;

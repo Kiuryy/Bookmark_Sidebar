@@ -119,7 +119,7 @@
                     port.disconnect();
                 }
 
-                port = $.api.runtime.connect({name: "background"});
+                port = chrome.runtime.connect({name: "background"});
 
                 port.onMessage.addListener((obj) => {
                     if (callbacks[obj.uid]) {
@@ -144,11 +144,11 @@
                 let len = keys.length;
                 let loaded = 0;
                 keys.forEach((key) => {
-                    $.api.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
+                    chrome.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
                         newData[key] = obj[key] || {};
 
                         if (key === "utility" && Object.keys(newData[key]).length === 0) { // @deprecated fallback to sync storage for utility data
-                            $.api.storage.sync.get([key], (obj2) => {
+                            chrome.storage.sync.get([key], (obj2) => {
                                 newData[key] = obj2[key] || {};
                                 if (++loaded === len) {
                                     data = newData;
@@ -307,11 +307,11 @@
                     };
 
                     try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                        $.api.storage.local.set({utility: data.utility}, () => {
+                        chrome.storage.local.set({utility: data.utility}, () => {
                             saved();
                         });
 
-                        $.api.storage.sync.set({
+                        chrome.storage.sync.set({
                             behaviour: data.behaviour,
                             appearance: data.appearance
                         }, () => {

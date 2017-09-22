@@ -1,8 +1,6 @@
 ($ => {
     "use strict";
 
-    $.api = $.api || window.browser || window.chrome;
-
     let background = function () {
         let bookmarkImportRunning = false;
 
@@ -28,9 +26,9 @@
                     this.helper.cache.remove({name: "html"}),
                     this.helper.entries.update()
                 ]).then(() => {
-                    $.api.tabs.query({}, (tabs) => {
+                    chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab) => {
-                            $.api.tabs.sendMessage(tab.id, {
+                            chrome.tabs.sendMessage(tab.id, {
                                 action: "reload",
                                 scrollTop: opts.scrollTop || false,
                                 reinitialized: reinitialized,
@@ -47,7 +45,7 @@
          * Injects the content scripts to all tabs and because of this runs the extension there again
          */
         this.reinitialize = () => {
-            let manifest = $.api.runtime.getManifest();
+            let manifest = chrome.runtime.getManifest();
             reinitialized = +new Date();
 
             let types = {
@@ -55,15 +53,15 @@
                 js: "executeScript"
             };
 
-            $.api.tabs.query({}, (tabs) => {
+            chrome.tabs.query({}, (tabs) => {
                 tabs.forEach((tab) => {
                     if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
                         Object.entries(types).forEach(([type, func]) => {
                             let files = manifest.content_scripts[0][type];
 
                             files.forEach((file) => {
-                                $.api.tabs[func](tab.id, {file: file}, function () {
-                                    $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                chrome.tabs[func](tab.id, {file: file}, function () {
+                                    chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
                                 });
                             });
                         });
@@ -78,23 +76,23 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            $.api.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
-                $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                    $.api.tabs.sendMessage(tabs[0].id, {action: "toggleSidebar"});
+            chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
+                chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                    chrome.tabs.sendMessage(tabs[0].id, {action: "toggleSidebar"});
                 });
             });
 
-            $.api.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
+            chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
                 bookmarkImportRunning = true;
             });
 
-            $.api.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
+            chrome.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
                 bookmarkImportRunning = false;
                 this.reload({type: "Created"});
             });
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
-                $.api.bookmarks["on" + eventName].addListener(() => {
+                chrome.bookmarks["on" + eventName].addListener(() => {
                     if (bookmarkImportRunning === false || eventName !== "Created") { // only refresh tabs when the bookmark was not created by the import process
                         this.reload({type: eventName});
                     }
@@ -125,11 +123,11 @@
          *
          */
         this.run = () => {
-            let manifest = $.api.runtime.getManifest();
+            let manifest = chrome.runtime.getManifest();
             this.isDev = manifest.version_name === "Dev" || !('update_url' in manifest);
 
             if (this.isDev === false) {
-                $.api.runtime.setUninstallURL(this.urls.uninstall);
+                chrome.runtime.setUninstallURL(this.urls.uninstall);
             }
 
             initHelpers();

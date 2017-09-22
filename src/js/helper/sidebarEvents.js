@@ -138,7 +138,7 @@
                 ext.helper.tooltip.close();
             });
 
-            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
+            chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
                     if (message.action === "reload") { // reload the current instance of the extension

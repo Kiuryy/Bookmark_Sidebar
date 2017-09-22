@@ -1,8 +1,6 @@
 ($ => {
     "use strict";
 
-    $.api = $.api || window.browser || window.chrome;
-
     window.onboarding = function () {
 
         let skipIntro = false;
@@ -40,7 +38,7 @@
             events: {
                 sidebarOpened: "blockbyte-bs-sidebar-opened"
             },
-            manifest: $.api.runtime.getManifest()
+            manifest: chrome.runtime.getManifest()
         };
 
         /**
@@ -253,7 +251,7 @@
             $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished'] > a").on("click", (e) => {
                 e.preventDefault();
                 if ($(e.currentTarget).hasClass(this.opts.classes.gotoSettings)) {
-                    location.href = $.api.extension.getURL("html/settings.html");
+                    location.href = chrome.extension.getURL("html/settings.html");
                 } else if ($(e.currentTarget).hasClass(this.opts.classes.close)) {
                     window.close();
                 }
@@ -333,7 +331,7 @@
          */
         let loadSidebar = () => {
             this.opts.manifest.content_scripts[0].css.forEach((css) => {
-                $("head").append("<link href='" + $.api.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
+                $("head").append("<link href='" + chrome.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
             });
 
             let loadJs = (i = 0) => {

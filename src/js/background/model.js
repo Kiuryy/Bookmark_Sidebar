@@ -11,7 +11,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                $.api.storage.sync.get(["model", "shareUserdata"], (obj) => {
+                chrome.storage.sync.get(["model", "shareUserdata"], (obj) => {
                     data = obj.model || {};
                     shareUserdata = typeof obj.shareUserdata === "undefined" ? null : obj.shareUserdata;
 
@@ -48,7 +48,7 @@
         let saveData = () => {
             return new Promise((resolve) => {
                 if (Object.getOwnPropertyNames(data).length > 0) {
-                    $.api.storage.sync.set({
+                    chrome.storage.sync.set({
                         model: data
                     }, () => {
                         resolve();

@@ -19,7 +19,7 @@
          */
         this.updateConfig = () => {
             return new Promise((resolve) => {
-                $.api.storage.sync.get(["newtab"], (obj) => {
+                chrome.storage.sync.get(["newtab"], (obj) => {
                     if (typeof obj.newtab === "undefined") {
                         config = {};
                     } else {
@@ -36,14 +36,14 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            $.api.tabs.onCreated.addListener((tab) => {
+            chrome.tabs.onCreated.addListener((tab) => {
                 if (tab.url && tab.url === 'chrome://newtab/') {
                     if (typeof config.override !== "undefined" && config.override === true) {
                         let func = "create";
                         if (tab.index === 0) {
                             func = "update";
                         } else {
-                            $.api.tabs.remove(tab.id);
+                            chrome.tabs.remove(tab.id);
                         }
 
                         if (config.website && config.website.length > 0) {
@@ -63,8 +63,8 @@
          * @param {string} func
          */
         let overrideWithNewTabReplacement = (func) => {
-            $.api.tabs[func]({
-                url: $.api.extension.getURL('html/newtab.html'),
+            chrome.tabs[func]({
+                url: chrome.extension.getURL('html/newtab.html'),
                 active: true
             });
         };
@@ -75,7 +75,7 @@
          * @param {string} func
          */
         let overrideWithUrl = (func) => {
-            $.api.tabs[func]({
+            chrome.tabs[func]({
                 url: addParameterToUrl(config.website, "bs_nt", 1),
                 active: true
             });

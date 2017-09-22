@@ -1,8 +1,6 @@
 ($ => {
     "use strict";
 
-    $.api = $.api || window.browser || window.chrome;
-
     window.settings = function () {
 
         /*
@@ -161,7 +159,7 @@
                 }
             },
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
-            manifest: $.api.runtime.getManifest()
+            manifest: chrome.runtime.getManifest()
         };
 
         this.serviceAvailable = true;
@@ -319,9 +317,9 @@
                 let restore = (name) => {
                     let language = this.helper.model.getData("b/language");
 
-                    $.api.storage.sync.remove([name], () => {
+                    chrome.storage.sync.remove([name], () => {
                         if (name === "sidebar") { // don't reset user language
-                            $.api.storage.sync.set({behaviour: {language: language}});
+                            chrome.storage.sync.set({behaviour: {language: language}});
                         }
 
                         this.showSuccessMessage("restored_message");

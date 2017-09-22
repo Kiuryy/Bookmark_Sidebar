@@ -76,7 +76,7 @@
                     config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
                 });
 
-                $.api.storage.sync.set({behaviour: config}, () => {
+                chrome.storage.sync.set({behaviour: config}, () => {
                     s.helper.model.call("reinitialize");
                     s.showSuccessMessage("saved_message");
                     resolve();
@@ -91,11 +91,11 @@
          */
         this.saveLanguage = () => {
             return new Promise((resolve) => {
-                $.api.storage.sync.get(["behaviour"], (obj) => {
+                chrome.storage.sync.get(["behaviour"], (obj) => {
                     let config = obj.behaviour || {};
                     config.language = s.opts.elm.select.language[0].value;
 
-                    $.api.storage.sync.set({behaviour: config}, () => {
+                    chrome.storage.sync.set({behaviour: config}, () => {
                         s.helper.model.call("reinitialize");
                         s.showSuccessMessage("saved_message");
                         resolve();
@@ -121,7 +121,7 @@
 
             s.opts.elm.keyboardShortcutInfo.children("a").on("click", (e) => {
                 e.preventDefault();
-                $.api.tabs.create({
+                chrome.tabs.create({
                     url: "chrome://extensions/configureCommands",
                     active: true
                 });

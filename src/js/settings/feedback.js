@@ -35,7 +35,7 @@
                 let type = $(e.currentTarget).parent("p").attr(s.opts.attr.type);
 
                 if (type === "usage") {
-                    window.open($.api.extension.getURL("html/intro.html") + "?skip=1", '_blank');
+                    window.open(chrome.extension.getURL("html/intro.html") + "?skip=1", '_blank');
                 }
             });
 

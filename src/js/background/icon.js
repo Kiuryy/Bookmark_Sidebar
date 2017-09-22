@@ -8,7 +8,7 @@
 
         this.init = () => {
             return new Promise((resolve) => {
-                $.api.storage.sync.get(["appearance"], (obj) => {
+                chrome.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
                     let color = "rgb(85,85,85)";
 
@@ -29,6 +29,12 @@
                             color: color
                         });
                     }
+
+                    if (b.isDev) { // add badge for the dev version
+                        chrome.browserAction.setBadgeBackgroundColor({color: [245, 197, 37, 255]});
+                        chrome.browserAction.setBadgeText({text: "X"});
+                    }
+
                     resolve();
                 });
             });
@@ -58,7 +64,7 @@
                         if (cachedSvg[opts.name]) {
                             rslv(cachedSvg[opts.name]);
                         } else {
-                            $.xhr($.api.extension.getURL("img/icon/menu/icon-" + opts.name + ".svg")).then((obj) => {
+                            $.xhr(chrome.extension.getURL("img/icon/menu/icon-" + opts.name + ".svg")).then((obj) => {
                                 let svg = obj.responseText;
                                 cachedSvg[opts.name] = "data:image/svg+xml;charset=utf-8," + svg;
                                 rslv(cachedSvg[opts.name]);
@@ -70,7 +76,7 @@
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);
 
-                            $.api.browserAction.setIcon({
+                            chrome.browserAction.setIcon({
                                 imageData: ctx.getImageData(0, 0, size, size),
                                 tabId: onlyCurrentTab && opts.tabInfo ? opts.tabInfo.id : null
                             });

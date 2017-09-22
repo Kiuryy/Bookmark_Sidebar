@@ -34,7 +34,7 @@
                             bookmarkTree = values[0][0].children;
                         }
 
-                        $.api.storage.local.get(["utility"], (result) => {
+                        chrome.storage.local.get(["utility"], (result) => {
                             hiddenEntries = result.utility ? (result.utility.hiddenEntries || []) : [];
                             pinnedEntries = result.utility ? (result.utility.pinnedEntries || []) : [];
 

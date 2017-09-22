@@ -71,7 +71,7 @@
             return new Promise((resolve) => {
                 let config = getCurrentConfig();
 
-                $.api.storage.sync.set({appearance: config}, () => {
+                chrome.storage.sync.set({appearance: config}, () => {
                     s.helper.model.call("reinitialize");
                     s.showSuccessMessage("saved_message");
                     s.helper.model.call("reloadIcon");
@@ -110,7 +110,7 @@
         let sendAjax = (path) => {
             return new Promise((resolve) => {
                 let xhr = new XMLHttpRequest();
-                xhr.open("GET", $.api.extension.getURL(path), true);
+                xhr.open("GET", chrome.extension.getURL(path), true);
                 xhr.onload = () => {
                     if (xhr.response) {
                         resolve(xhr.response);
@@ -316,7 +316,7 @@
                         .appendTo(s.opts.elm.body);
 
                     sendAjax("html/template/" + previews[key].template + ".html").then((html) => {
-                        html = html.replace(/__MSG_\@\@extension_id__/g, $.api.runtime.id);
+                        html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
                         html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
                         s.opts.elm.preview[key].find("body").html(html);
                         s.helper.i18n.parseHtml(s.opts.elm.preview[key]);

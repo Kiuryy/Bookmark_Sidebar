@@ -53,7 +53,7 @@
                         try {
                             let config = JSON.parse(e.target.result);
                             if (config.behaviour && config.appearance) {
-                                $.api.storage.sync.set({
+                                chrome.storage.sync.set({
                                     behaviour: config.behaviour,
                                     appearance: config.appearance
                                 }, () => {

@@ -18,13 +18,13 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            $.api.storage.sync.get(["shareUserdata"], (obj) => {
+            chrome.storage.sync.get(["shareUserdata"], (obj) => {
                 if (obj.shareUserdata && obj.shareUserdata === true) {
                     s.opts.elm.checkbox.shareUserdata.trigger("click");
                 }
 
                 s.opts.elm.checkbox.shareUserdata.children("input[type='checkbox']").on("change", () => { // update the shareUserdata checkbox
-                    $.api.storage.sync.set({
+                    chrome.storage.sync.set({
                         shareUserdata: s.helper.checkbox.isChecked(s.opts.elm.checkbox.shareUserdata)
                     }, () => {
                         s.showSuccessMessage("saved_share_userdata");

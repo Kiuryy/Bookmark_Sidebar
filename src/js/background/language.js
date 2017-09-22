@@ -85,7 +85,7 @@
                         let sendXhr = (obj) => {
                             let langVars = obj.langVars;
 
-                            $.xhr($.api.extension.getURL("_locales/" + opts.lang + "/messages.json")).then((xhr) => {
+                            $.xhr(chrome.extension.getURL("_locales/" + opts.lang + "/messages.json")).then((xhr) => {
                                 let result = JSON.parse(xhr.responseText);
                                 Object.assign(langVars, result); // override all default variables with the one from the language file
 
@@ -113,7 +113,7 @@
          */
         let getInfos = () => {
             return new Promise((resolve) => {
-                $.api.storage.local.get(["languageInfos"], (obj) => {
+                chrome.storage.local.get(["languageInfos"], (obj) => {
                     if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) { // cached
                         resolve(obj.languageInfos.infos);
                     } else { // not cached -> determine available languages
@@ -130,14 +130,14 @@
 
                             let xhrDone = () => {
                                 if (++loaded === total) {
-                                    $.api.storage.local.set({
+                                    chrome.storage.local.set({
                                         languageInfos: {infos: infos, updated: +new Date()}
                                     });
                                     resolve(infos);
                                 }
                             };
 
-                            $.xhr($.api.extension.getURL("_locales/" + lang + "/messages.json"), {method: "HEAD"}).then(() => {
+                            $.xhr(chrome.extension.getURL("_locales/" + lang + "/messages.json"), {method: "HEAD"}).then(() => {
                                 infos[lang].available = true;
                                 xhrDone();
                             }, xhrDone);

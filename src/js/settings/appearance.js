@@ -70,10 +70,6 @@
         this.save = () => {
             return new Promise((resolve) => {
                 let config = getCurrentConfig();
-                if (config.isEE) {
-                    delete config.isEE;
-                    config.styles.colorScheme = "__color_ee";
-                }
 
                 $.api.storage.sync.set({appearance: config}, () => {
                     s.helper.model.call("reinitialize");
@@ -172,10 +168,6 @@
                 });
 
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
-
-                if (config.isEE === true) {
-                    s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.ee);
-                }
 
                 if (config.darkMode) {
                     s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.darkMode);
@@ -303,10 +295,6 @@
                 }
             });
 
-            if (styles.isEE === true) {
-                ret.isEE = true;
-            }
-
             return ret;
         };
 
@@ -354,21 +342,6 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            let code = "blockbyte".split("");
-            let pos = 0;
-            $(document).on("keydown", (e) => {
-                let path = s.helper.menu.getPath();
-
-                if (e.key === code[pos] && path[0] === "appearance") {
-                    if (++pos >= code.length) {
-                        s.opts.elm.color["colorScheme"][0].value = "__color_ee";
-                        this.save();
-                    }
-                } else {
-                    pos = 0;
-                }
-            });
-
             $(window).on("resize", function () {
                 let path = s.helper.menu.getPath();
                 updatePageLayout(path[1]);

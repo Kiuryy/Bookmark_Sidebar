@@ -25,10 +25,6 @@
                 ext.helper.font.addStylesheet(context);
 
                 if (ext.opts.classes && ext.opts.classes.page) {
-                    if (styles.isEE && ext.opts.classes.page.ee) {
-                        context.find("body").addClass(ext.opts.classes.page.ee);
-                    }
-
                     if (ext.helper.model.getData("b/animations") === false && ext.opts.classes.page.noAnimations) {
                         context.find("body").addClass(ext.opts.classes.page.noAnimations);
                     }

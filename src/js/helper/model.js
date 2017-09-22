@@ -28,6 +28,7 @@
                 separators: {},
                 pinnedEntries: {},
                 entriesLocked: false,
+                translationHelp: true,
                 lastOpened: null,
                 sort: {
                     name: "custom",
@@ -249,11 +250,6 @@
                         let fontInfo = ext.helper.font.getFontInfo();
                         value.fontFamily = fontInfo.name;
                         Object.assign(value, fontInfo.fontWeights);
-                    }
-
-                    if (value.colorScheme === "__color_ee") {
-                        value.isEE = true;
-                        value.colorScheme = mainColor;
                     }
                 }
 

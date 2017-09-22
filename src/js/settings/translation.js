@@ -127,14 +127,14 @@
                             if (languages[lang.name]) {
                                 let percentage = lang.varsAmount / infos.varsAmount * 100;
 
-                                if (percentage > 10) { // only list languages with more then 10% variables filled
+                                if (percentage >= 15) { // only list languages with more then 15% variables filled
                                     delete missingLanguages[lang.name];
 
-                                    let percent = lang.varsAmount / infos.varsAmount * 100;
                                     let status = "draft";
+                                    let percentageRounded = Math.floor(percentage);
 
                                     if (languages[lang.name].available) {
-                                        status = hasImcompleteCategories(lang.categories, infos.categories) ? "incomplete" : "released";
+                                        status = infos.varsAmount > lang.varsAmount ? "incomplete" : "released";
                                     }
 
                                     let elm = $("<div />")
@@ -143,12 +143,12 @@
                                         .attr(s.opts.attr.translation.releaseStatus, status)
                                         .append("<a href='#' class='" + s.opts.classes.translation.edit + "'></a>")
                                         .append("<strong>" + languages[lang.name].label + "</strong>")
-                                        .append("<div class=" + s.opts.classes.translation.progress + " " + s.opts.attr.value + "='" + Math.round(percent) + "%'><div style='width:" + percent + "%'></div></div>")
+                                        .append("<div class=" + s.opts.classes.translation.progress + " " + s.opts.attr.value + "='" + percentageRounded + "%'><div style='width:" + percentageRounded + "%'></div></div>")
                                         .append("<span title='" + s.helper.i18n.get("settings_translation_status_" + status) + "'></span>")
                                         .appendTo(s.opts.elm.translation.overview.children("div." + s.opts.classes.boxWrapper));
 
                                     if (language === lang.name) {
-                                        if (infos.varsAmount > lang.varsAmount) { // translation is incomplete -> show icon in menu
+                                        if (hasImcompleteCategories(lang.categories, infos.categories)) { // translation is incomplete -> show icon in menu
                                             s.opts.elm.aside.find("li[" + s.opts.attr.name + "='language']").addClass(s.opts.classes.incomplete);
 
                                             $("<span />")
@@ -338,23 +338,7 @@
                 e.preventDefault();
                 let dir = $(e.currentTarget).attr(s.opts.attr.value);
                 let list = $(e.currentTarget).parent("header").next("ul");
-                let entries = null;
-
-                if (list.find("li." + s.opts.classes.translation.hover).length() > 0) {
-                    if (dir === "up") {
-                        entries = list.find("li." + s.opts.classes.translation.hover).eq(0).prevAll("li." + s.opts.classes.translation.empty);
-                    } else {
-                        entries = list.find("li." + s.opts.classes.translation.hover).eq(0).nextAll("li." + s.opts.classes.translation.empty);
-                    }
-                } else if (dir === "down") {
-                    entries = list.find("li." + s.opts.classes.translation.empty);
-                }
-
-                if (entries && entries.length() > 0) {
-                    let entry = entries.eq(0);
-                    s.opts.elm.content[0].scrollTop = Math.max(0, entry[0].offsetTop - 40);
-                    entry.find("textarea")[0].focus();
-                }
+                gotoNextPrevEmptyField(dir, list);
             });
 
             s.opts.elm.translation.langvars.on("click", "div." + s.opts.classes.box, (e) => {
@@ -362,67 +346,145 @@
                 let wrapper = $(e.currentTarget);
                 let lang = wrapper.data("lang");
                 let name = wrapper.children("strong").text();
+                let info = wrapper.data("info");
 
-                let elm = s.opts.elm.translation.wrapper.find("div." + s.opts.classes.translation.category + "[" + s.opts.attr.name + "='" + name + "'][" + s.opts.attr.translation.language + "='" + lang + "']");
-                if (elm.length() === 0) {
-                    let info = wrapper.data("info");
-                    let key = lang + "_" + name;
+                showLangVarsList(lang, name, info);
+            });
+        };
 
-                    elm = $("<div />")
-                        .attr(s.opts.attr.name, name)
-                        .attr(s.opts.attr.translation.language, lang)
-                        .addClass(s.opts.classes.translation.category)
-                        .addClass(s.opts.classes.contentBox)
-                        .appendTo(s.opts.elm.translation.wrapper);
+        /**
+         * Shows the language variables for the given category and language
+         *
+         * @param {string} lang
+         * @param {string} name
+         * @param {object} info
+         */
+        let showLangVarsList = (lang, name, info) => {
+            let elm = s.opts.elm.translation.wrapper.find("div." + s.opts.classes.translation.category + "[" + s.opts.attr.name + "='" + name + "'][" + s.opts.attr.translation.language + "='" + lang + "']");
 
-                    let header = $("<header />").appendTo(elm);
-                    $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass(s.opts.classes.translation.back).appendTo(header);
+            if (elm.length() === 0) {
+                let key = lang + "_" + name;
 
-                    if (varsAmount[key].total !== varsAmount[key].filled) {
-                        $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "down").appendTo(header);
-                        $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "up").appendTo(header);
+                elm = $("<div />")
+                    .attr(s.opts.attr.name, name)
+                    .attr(s.opts.attr.translation.language, lang)
+                    .addClass(s.opts.classes.translation.category)
+                    .addClass(s.opts.classes.contentBox)
+                    .appendTo(s.opts.elm.translation.wrapper);
+
+                let header = $("<header />").appendTo(elm);
+                let list = $("<ul />").appendTo(elm);
+
+                info.category.vars.forEach((field, i) => {
+                    let entry = $("<li />")
+                        .append("<div><label>" + field.label + "</label></div>")
+                        .append("<div />")
+                        .appendTo(list);
+
+                    if (info.defaults && info.defaults.vars && info.defaults.vars[i]) { // show translation of the default language besides the title of the language variable
+                        $("<span />")
+                            .html("<span>" + languages[s.helper.i18n.getDefaultLanguage()].label + " translation:</span>" + info.defaults.vars[i].value || "")
+                            .appendTo(entry.children("div").eq(0));
                     }
 
-                    $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
+                    let val = field.value || "";
+                    $("<textarea />").data({
+                        initial: val,
+                        name: field.name
+                    }).text(val).appendTo(entry.children("div").eq(1));
 
-                    let list = $("<ul />").appendTo(elm);
+                    if (val.length === 0) { // mark empty fields
+                        entry.addClass(s.opts.classes.translation.empty);
+                    }
+                });
 
-                    info.category.vars.forEach((field, i) => {
-                        let entry = $("<li />")
-                            .append("<div><label>" + field.label + "</label></div>")
-                            .append("<div />")
-                            .appendTo(list);
+                initTextareaEvents(elm);
 
-                        if (info.defaults && info.defaults.vars && info.defaults.vars[i]) { // show translation of the default language besides the title of the language variable
-                            $("<span />")
-                                .html("<span>" + languages[s.helper.i18n.getDefaultLanguage()].label + " translation:</span>" + info.defaults.vars[i].value || "")
-                                .appendTo(entry.children("div").eq(0));
-                        }
+                $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass(s.opts.classes.translation.back).appendTo(header);
 
-                        let val = field.value || "";
-                        $("<textarea />").data({
-                            initial: val,
-                            name: field.name
-                        }).text(val).appendTo(entry.children("div").eq(1));
-
-                        if (val.length === 0) { // mark empty fields
-                            entry.addClass(s.opts.classes.translation.empty);
-                        }
-                    });
-
-                    initTextareaEvents(elm);
+                if (varsAmount[key].total !== varsAmount[key].filled) { // there are empty fields -> show navigation buttons
+                    $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "down").appendTo(header);
+                    $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "up").appendTo(header);
                 }
 
-                s.opts.elm.translation.langvars.removeClass(s.opts.classes.visible);
-                elm.addClass(s.opts.classes.visible);
+                $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
+            }
 
+            s.opts.elm.translation.langvars.removeClass(s.opts.classes.visible);
+            elm.addClass(s.opts.classes.visible);
 
-                s.helper.menu.addBreadcrumb({
-                    label: name,
-                    alias: name,
-                    depth: 4
-                });
+            s.helper.menu.addBreadcrumb({
+                label: name,
+                alias: name,
+                depth: 4
             });
+
+            $.delay(0).then(() => {
+                let list = elm.children("ul");
+
+                if (elm.find("a." + s.opts.classes.translation.goto).length() > 0) { // jump to the first empty field
+                    gotoNextPrevEmptyField("down", list);
+                }
+
+                showTranslationHint(lang, list);
+            });
+        };
+
+        /**
+         * Focusses the next/prev empty textarea of the given list
+         *
+         * @param {string} dir
+         * @param {jsu} list
+         */
+        let gotoNextPrevEmptyField = (dir, list) => {
+            let entries = null;
+
+            if (list.find("li." + s.opts.classes.translation.hover).length() > 0) {
+                if (dir === "up") {
+                    entries = list.find("li." + s.opts.classes.translation.hover).eq(0).prevAll("li." + s.opts.classes.translation.empty);
+                } else {
+                    entries = list.find("li." + s.opts.classes.translation.hover).eq(0).nextAll("li." + s.opts.classes.translation.empty);
+                }
+            } else if (dir === "down") {
+                entries = list.find("li." + s.opts.classes.translation.empty);
+            }
+
+            if (entries && entries.length() > 0) {
+                let entry = entries.eq(0);
+                s.opts.elm.content[0].scrollTop = Math.max(0, entry[0].offsetTop - 40);
+                entry.find("textarea")[0].focus();
+            }
+        };
+
+        /**
+         * Shows a help text for the first visible entry of the current langvar category
+         *
+         * @param {string} lang
+         * @param {jsu} list
+         */
+        let showTranslationHint = (lang, list) => {
+            let defaultLang = s.helper.i18n.getDefaultLanguage();
+
+            if (lang !== defaultLang && s.helper.model.getData("u/translationHelp")) { // only show one time
+                let activeEntry = null;
+
+                if (document.activeElement.tagName === "TEXTAREA") { // a textarea is focussed already -> show help text there
+                    activeEntry = $(document.activeElement).parents("li").eq(0);
+                } else { // show help text for the first entry of the list
+                    activeEntry = list.children("li").eq(0);
+                }
+
+                activeEntry.addClass(s.opts.classes.translation.mark);
+                let label = activeEntry.find("label").text();
+
+
+                $("<span />")
+                    .addClass(s.opts.classes.desc)
+                    .html(s.helper.i18n.get("settings_translation_help", ["<strong>" + label + "</strong>"]))
+                    .appendTo(activeEntry);
+
+                s.helper.model.setData({"u/translationHelp": false});
+            }
         };
 
         /**

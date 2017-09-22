@@ -32,8 +32,7 @@
                 hasLeftsideBack: "blockbyte-bs-has-lsb",
                 style: "blockbyte-bs-style",
                 noAnimations: "noAnimations",
-                darkMode: "dark",
-                ee: "ee"
+                darkMode: "dark"
             },
             sidebar: {
                 extLoaded: "loaded",

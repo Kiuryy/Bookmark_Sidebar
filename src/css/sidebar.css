@@ -981,9 +981,6 @@ body.dark section#sidebar {
       body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
         background-color: #ccc; }
 
-body.ee section#sidebar > header {
-  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%); }
-
 div#shareUserdata, div#reloadInfo {
   position: absolute;
   top: 0;

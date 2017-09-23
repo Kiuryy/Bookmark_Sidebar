@@ -45,27 +45,37 @@
          * Injects the content scripts to all tabs and because of this runs the extension there again
          */
         this.reinitialize = () => {
-            let manifest = chrome.runtime.getManifest();
-            reinitialized = +new Date();
+            return new Promise((resolve) => {
+                let manifest = chrome.runtime.getManifest();
+                reinitialized = +new Date();
 
-            let types = {
-                css: "insertCSS",
-                js: "executeScript"
-            };
+                let types = {
+                    css: "insertCSS",
+                    js: "executeScript"
+                };
 
-            chrome.tabs.query({}, (tabs) => {
-                tabs.forEach((tab) => {
-                    if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
-                        Object.entries(types).forEach(([type, func]) => {
-                            let files = manifest.content_scripts[0][type];
+                Promise.all([
+                    this.helper.newtab.updateConfig(),
+                    this.helper.cache.remove({name: "html"}),
+                    this.helper.entries.update()
+                ]).then(() => {
+                    chrome.tabs.query({}, (tabs) => {
+                        tabs.forEach((tab) => {
+                            if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
+                                Object.entries(types).forEach(([type, func]) => {
+                                    let files = manifest.content_scripts[0][type];
 
-                            files.forEach((file) => {
-                                chrome.tabs[func](tab.id, {file: file}, function () {
-                                    chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                    files.forEach((file) => {
+                                        chrome.tabs[func](tab.id, {file: file}, function () {
+                                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                        });
+                                    });
                                 });
-                            });
+                            }
                         });
-                    }
+
+                        resolve();
+                    });
                 });
             });
         };

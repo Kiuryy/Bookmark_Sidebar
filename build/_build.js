@@ -87,12 +87,19 @@
                             path.src + 'js/settings.js'
                         ],
                         path.tmp + 'settings-merged.js'
+                    ),
+                    func.concat([ // concat newtab javascripts
+                            path.src + 'js/newtab/*.js',
+                            path.src + 'js/newtab.js'
+                        ],
+                        path.tmp + 'newtab-merged.js'
                     )
                 ]).then(() => { // merge anonymous brackets
                     return func.replace({
                         [path.tmp + 'extension-merged.js']: path.tmp + 'extension.js',
                         [path.tmp + 'background-merged.js']: path.tmp + 'background.js',
-                        [path.tmp + 'settings-merged.js']: path.tmp + 'settings.js'
+                        [path.tmp + 'settings-merged.js']: path.tmp + 'settings.js',
+                        [path.tmp + 'newtab-merged.js']: path.tmp + 'newtab.js'
                     }, [
                         [/\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, ""]
                     ]);
@@ -102,9 +109,9 @@
                             path.tmp + 'extension.js',
                             path.tmp + 'settings.js',
                             path.tmp + 'background.js',
+                            path.tmp + 'newtab.js',
                             path.src + 'js/onboarding.js',
-                            path.src + 'js/changelog.js',
-                            path.src + 'js/newtab.js'
+                            path.src + 'js/changelog.js'
                         ], path.dist + "js/"),
                         func.minify([
                             path.src + 'js/lib/jsu.js',

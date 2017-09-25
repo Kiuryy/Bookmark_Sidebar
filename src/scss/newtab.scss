@@ -6,7 +6,7 @@
 $textColor: $__textColor;
 @import "include/generals";
 
-$searchWidth: 500px;
+$searchWidth: 630px;
 $searchHeight: 50px;
 
 body {
@@ -85,7 +85,7 @@ section#content {
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 800px;
+    max-width: 650px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -97,7 +97,7 @@ section#content {
       display: block;
       margin: 0 auto;
       width: 100%;
-      max-width: $searchWidth;
+      padding: 0 10px;
       height: $searchHeight;
 
       > input[type='text'] {
@@ -143,8 +143,7 @@ section#content {
 
       > ul.suggestions {
         position: absolute;
-        width: 100%;
-        max-width: $searchWidth;
+        width: calc(100% - 20px);
         padding: #{$searchHeight + 1px} 20px 0;
         pointer-events: none;
         filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
@@ -180,37 +179,67 @@ section#content {
     }
 
     > ul.topPages {
-      text-align: center;
-      max-width: 600px;
-      margin: 30px auto 0;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      margin: 50px auto 0;
+
+      $entryWidth: 145px;
+      $imageWidth: $entryWidth - 2px;
 
       > li {
-        display: inline-block;
-        padding: 7px 7px;
+        display: block;
+        padding: 8px 7px;
         font-size: 90%;
 
         > a {
           display: block;
+          margin: 0 auto;
           background: rgba(0, 0, 0, 0.05);
-          border-radius: 20px;
-          max-width: 135px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          padding: 3px 5px 3px 3px;
-          transition: background 0.3s;
+          width: $entryWidth;
+          border-radius: 2px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          transition: box-shadow 0.3s;
 
           &:hover {
-            background: rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.15)
+          }
+
+          > span {
+            display: block;
+            padding: 3px 5px 3px 3px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            > img {
+              display: inline-block;
+              width: 14px;
+              margin: 0px 5px 0 0;
+              vertical-align: top;
+            }
           }
 
           > img {
-            display: inline-block;
-            width: 14px;
-            margin: 0px 5px 0 0;
-            vertical-align: top;
+            display: block;
+            width: $imageWidth;
+            height: $imageWidth * 0.625;
+            opacity: 0;
+            transition: opacity 0.5s;
+
+            &.visible {
+              opacity: 1;
+            }
           }
         }
+      }
+
+      &[data-perRow='3'] {
+        max-width: ($entryWidth + 14) * 3;
+      }
+
+      &[data-perRow='2'] {
+        max-width: ($entryWidth + 14) * 2;
       }
     }
   }

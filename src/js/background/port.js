@@ -238,32 +238,6 @@
             });
         };
 
-
-        /**
-         * Returns the data url of the favicon of the given url
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let getFavicon = (opts) => {
-            return new Promise((resolve) => {
-                let img = new Image();
-                img.onload = function () {
-                    let canvas = document.createElement("canvas");
-                    canvas.width = this.width;
-                    canvas.height = this.height;
-
-                    let ctx = canvas.getContext("2d");
-                    ctx.drawImage(this, 0, 0);
-
-                    let dataURL = canvas.toDataURL("image/png");
-                    resolve({img: dataURL});
-                };
-                img.src = 'chrome://favicon/size/16@2x/' + opts.url;
-            });
-        };
-
-
         this.init = () => {
             return new Promise((resolve) => {
                 let mapping = {
@@ -280,7 +254,8 @@
                     shareUserdataMask: shareUserdataMask,
                     languageInfos: b.helper.language.getAll,
                     langvars: b.helper.language.getVars,
-                    favicon: getFavicon,
+                    favicon: b.helper.image.getFavicon,
+                    thumbnail: b.helper.image.getThumbnail,
                     openLink: openLink,
                     getCache: b.helper.cache.get,
                     setCache: b.helper.cache.set,

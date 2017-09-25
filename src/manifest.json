@@ -18,6 +18,7 @@
       "js/background/bookmarkApi.js",
       "js/background/viewAmount.js",
       "js/background/newtab.js",
+      "js/background/image.js",
       "js/background/entries.js",
       "js/background/cache.js",
       "js/background/icon.js",

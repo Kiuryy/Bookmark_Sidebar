@@ -17,10 +17,12 @@
                 chromeApps: "chromeApps",
                 suggestions: "suggestions",
                 active: "active",
+                visible: "visible",
                 darkMode: "dark"
             },
             attr: {
-                type: "data-type"
+                type: "data-type",
+                perRow:"data-perRow"
             },
             elm: {
                 body: $("body"),

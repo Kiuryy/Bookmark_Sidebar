@@ -7,7 +7,8 @@
         this.urls = {
             checkStatus: "https://extensions.blockbyte.de/",
             updateUrls: "https://extensions.blockbyte.de/ajax/updateUrls",
-            uninstall: "https://extensions.blockbyte.de/bs/uninstall"
+            uninstall: "https://extensions.blockbyte.de/bs/uninstall",
+            thumbnail: "https://4v1.de/t"
         };
 
         this.dev = false;
@@ -122,6 +123,7 @@
                 viewAmount: new window.ViewAmountHelper(this),
                 newtab: new window.NewtabHelper(this),
                 entries: new window.EntriesHelper(this),
+                image: new window.ImageHelper(this),
                 port: new window.PortHelper(this),
                 icon: new window.IconHelper(this),
                 cache: new window.CacheHelper(this),
@@ -148,6 +150,7 @@
                 this.helper.icon.init(),
                 this.helper.newtab.init(),
                 this.helper.analytics.init(),
+                this.helper.image.init(),
                 this.helper.bookmarkApi.init()
             ]).then(() => {
                 return Promise.all([

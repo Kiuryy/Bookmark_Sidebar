@@ -22,7 +22,7 @@
             },
             attr: {
                 type: "data-type",
-                perRow:"data-perRow"
+                perRow: "data-perRow"
             },
             elm: {
                 body: $("body"),
@@ -100,6 +100,7 @@
                 font: new window.FontHelper(this),
                 stylesheet: new window.StylesheetHelper(this),
                 search: new window.SearchHelper(this),
+                entry: new window.EntryHelper(this),
                 shortcuts: new window.ShortcutsHelper(this),
                 topPages: new window.TopPagesHelper(this),
                 edit: new window.EditHelper(this)

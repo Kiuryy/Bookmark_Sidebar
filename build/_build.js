@@ -89,6 +89,7 @@
                         path.tmp + 'settings-merged.js'
                     ),
                     func.concat([ // concat newtab javascripts
+                            path.src + 'js/helper/entry.js',
                             path.src + 'js/newtab/*.js',
                             path.src + 'js/newtab.js'
                         ],

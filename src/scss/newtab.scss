@@ -126,7 +126,7 @@ section#content {
         @include mask('icon-search', $textColorLight, 26px);
         position: absolute;
         top: 4px;
-        right: 12px;
+        right: 16px;
         width: calc(#{$searchHeight} - 8px);
         height: calc(#{$searchHeight} - 8px);
         outline: none;
@@ -225,6 +225,7 @@ section#content {
             width: $imageWidth;
             height: $imageWidth * 0.625;
             opacity: 0;
+            background: $contentBackground;
             transition: opacity 0.5s;
 
             &.visible {

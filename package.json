@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "concat": "^1.0.3",
-    "cp-file": "^4.2.0",
+    "cp-file": "^5.0.0",
     "create-file": "^1.0.1",
     "del": "^3.0.0",
     "glob-concat": "^1.0.1",
@@ -23,6 +23,6 @@
     "jsonminify": "^0.4.1",
     "node-sass": "^4.5.3",
     "read-file": "^0.2.0",
-    "uglify-es": "^3.1.1"
+    "uglify-es": "^3.1.2"
   }
 }

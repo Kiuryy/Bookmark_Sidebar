@@ -143,7 +143,7 @@ section#content {
       section#content > section.mid > div#search > button[type="submit"] {
         position: absolute;
         top: 4px;
-        right: 12px;
+        right: 16px;
         width: calc(50px - 8px);
         height: calc(50px - 8px);
         outline: none;
@@ -231,6 +231,7 @@ section#content {
             width: 143px;
             height: 89.375px;
             opacity: 0;
+            background: #fff;
             transition: opacity 0.5s; }
             section#content > section.mid > ul.topPages > li > a > img.visible {
               opacity: 1; }

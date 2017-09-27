@@ -45,7 +45,6 @@ body[data-type^='appearance'] {
             height: 30px;
             width: 60px;
             background: linear-gradient(to right, #fec171 0%, #ff6c69 100%);
-            transition: background 0.5;
 
             &::before {
               -webkit-mask-position-x: 32px;
@@ -84,6 +83,7 @@ body[data-type^='appearance'] {
         }
 
         ul.radioWrapper {
+          margin-top: 10px;
 
           span[class^='icon-'] {
             @include mask(null, $mainColor, 24px);
@@ -106,10 +106,27 @@ body[data-type^='appearance'] {
             @include maskImage("icon/menu/icon-star");
           }
 
+          span.icon-dir-1::before {
+            @include maskImage("icon-dir-1");
+          }
+
+          span.icon-dir-2::before {
+            @include maskImage("icon-dir-2");
+            -webkit-mask-size: 18px;
+          }
+
           span.icon-star-filled::before {
             @include maskImage("icon/menu/icon-star-filled");
           }
         }
+      }
+    }
+
+    div[data-name='sidebar'] ul.radioWrapper > li {
+      display: inline-block;
+
+      + li {
+        margin-left: 30px;
       }
     }
 

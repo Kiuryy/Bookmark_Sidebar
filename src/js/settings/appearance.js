@@ -394,8 +394,14 @@
                     if (elmObj.data("picker")) {
                         changeColorValue(elmObj, value)
                     } else if (typeof value !== "undefined") {
-                        elm.value = value;
-                        elmObj.trigger("change");
+                        if (elmObj.attr("type") === "checkbox" && typeof value === "boolean") { // revert checkbox
+                            if (elm.checked !== value) { // trigger click if value has changed
+                                elmObj.parent("div").trigger("click");
+                            }
+                        } else { // revert any other field
+                            elm.value = value;
+                            elmObj.trigger("change");
+                        }
                     }
                 });
             });

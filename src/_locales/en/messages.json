@@ -203,6 +203,9 @@
     "newtab_top_pages_most_used": {
         "message": "Most used bookmarks"
     },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Pinned bookmarks"
+    },
     "newtab_top_pages_hidden": {
         "message": "Don't show pages"
     },
@@ -634,12 +637,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "Directory icon"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "Folder"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "Square"
     },
     "settings_bookmarks_dir_color": {
         "message": "Directory icon color"

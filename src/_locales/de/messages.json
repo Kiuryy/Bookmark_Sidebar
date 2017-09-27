@@ -203,6 +203,9 @@
     "newtab_top_pages_most_used": {
         "message": "Meist verwendete Lesezeichen"
     },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Oben fixierte Lesezeichen"
+    },
     "newtab_top_pages_hidden": {
         "message": "Keine Seiten anzeigen"
     },
@@ -634,12 +637,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "Verzeichnis-Symbol"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "Verzeichnis"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "Viereck"
     },
     "settings_bookmarks_dir_color": {
         "message": "Farbe des Verzeichnis-Symbols"

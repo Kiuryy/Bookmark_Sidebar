@@ -9,6 +9,7 @@
             topPages: "default",
             mostUsed: "most_used",
             recentlyUsed: "recently_used",
+            pinnedEntries: "pinned_entries",
             hidden: "hidden"
         };
 
@@ -49,9 +50,9 @@
         let initEvents = () => {
             $(window).on("resize", () => {
                 let amount = getAmount();
-                let currentElm = n.opts.elm.topPages.find("> ul > li").length();
+                let currentTotal = n.opts.elm.topPages.children("ul").data("total");
 
-                if (amount.total !== currentElm) {
+                if (amount.total !== currentTotal) {
                     updateEntries();
                 }
             });
@@ -106,7 +107,7 @@
 
             if (type === "hidden") {
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
-                    n.opts.elm.topPages.children("ul").html("");
+                    n.opts.elm.topPages.children("ul").data("total", 0).html("");
                 }
             } else {
                 Promise.all([
@@ -115,8 +116,10 @@
                 ]).then(([list]) => {
                     let amount = getAmount();
 
-                    n.opts.elm.topPages.children("ul").html("");
-                    n.opts.elm.topPages.children("ul").attr(n.opts.attr.perRow, amount.total / amount.rows);
+                    n.opts.elm.topPages.children("ul")
+                        .html("")
+                        .data("total", amount.total)
+                        .attr(n.opts.attr.perRow, amount.total / amount.rows);
 
                     list.forEach((page) => {
                         let entry = $("<li />").html("<a href='" + page.url + "' title='" + page.title + "'><span>" + page.title + "</span></a>").appendTo(n.opts.elm.topPages.children("ul"));
@@ -179,6 +182,13 @@
                             });
                             break;
                         }
+                        case "pinnedEntries": {
+                            initEntryHelper().then(() => {
+                                let list = getPinnedEntries();
+                                resolve(list);
+                            });
+                            break;
+                        }
                         case "topPages":
                         default: {
                             chrome.topSites.get((list) => {
@@ -192,6 +202,30 @@
                     resolve([]);
                 }
             });
+        };
+
+        /**
+         * Returns the pinned bookmarks
+         *
+         * @returns {Array}
+         */
+        let getPinnedEntries = () => {
+            let pinnedEntries = n.helper.entry.getAllPinnedData();
+            let config = n.helper.model.getData(["u/showHidden"]);
+            let amount = getAmount();
+
+            let list = [];
+
+            pinnedEntries.some((bookmark) => {
+                if (config.showHidden || n.helper.entry.isVisible(bookmark.id)) {
+                    list.push(bookmark);
+                    if (list.length >= amount.total) {
+                        return true;
+                    }
+                }
+            });
+
+            return list;
         };
 
         /**

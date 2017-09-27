@@ -188,6 +188,24 @@
     "overlay_check_urls_not_found": {
         "message": "Url nicht gefunden"
     },
+    "newtab_title": {
+        "message": "Neuer Tab"
+    },
+    "newtab_search_placeholder": {
+        "message": "Bei {1} suchen oder URL eingeben"
+    },
+    "newtab_top_pages_default": {
+        "message": "Top-Seiten"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Zuletzt verwendete Lesezeichen"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Meist verwendete Lesezeichen"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Keine Seiten anzeigen"
+    },
     "status_service_unavailable_headline": {
         "message": "Dienst nicht erreichbar"
     },
@@ -700,6 +718,9 @@
     },
     "settings_translation_notice2": {
         "message": "Um halb \u00fcbersetzte Texte zu vermeiden, werden unvollst\u00e4ndige Kategorien nicht freigegeben."
+    },
+    "settings_translation_help": {
+        "message": "Zu jedem Eintrag gibt es eine englische \u00dcbersetzung, die in deine Sprache \u00fcbersetzt werden muss. Als Hilfestellung wo der Text verwendet wird und f\u00fcr was er ist, besitzt jeder Eintrag einen Namen (z.B. {1}), der nicht \u00fcbersetzt werden soll. Bitte nicht vergessen die \u00c4nderungen mit Hilfe des Buttons oben rechts abzusenden!"
     },
     "settings_translation_submit": {
         "message": "Absenden"

@@ -3,8 +3,6 @@
 
     window.ModelHelper = function (ext) {
 
-        let mainColor = "#7b5fa4";
-
         let defaultColors = {
             textColor: {
                 light: "rgb(100,100,100)",
@@ -61,6 +59,9 @@
             n: { // new tab -> synced across devices
                 override: false,
                 initialOpen: false,
+                searchEngine: "google",
+                topPagesType: "topPages",
+                shortcuts: [{label: "Chrome Apps", url: "chrome://apps"}],
                 website: ""
             },
             a: { // appearance -> synced across devices
@@ -301,7 +302,7 @@
                     let savedAmount = 0;
                     let saved = (amount = 1) => { // is getting called after data is saved in the storage
                         savedAmount += amount;
-                        if (savedAmount >= 3) { // behaviour, appearance and utility has been saved -> resolve promise
+                        if (savedAmount >= 4) { // behaviour, appearance and utility has been saved -> resolve promise
                             resolve();
                         }
                     };
@@ -313,9 +314,10 @@
 
                         chrome.storage.sync.set({
                             behaviour: data.behaviour,
-                            appearance: data.appearance
+                            appearance: data.appearance,
+                            newtab: data.newtab
                         }, () => {
-                            saved(2);
+                            saved(3);
                         });
                     } catch (e) {
                         resolve();

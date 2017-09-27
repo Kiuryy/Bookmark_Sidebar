@@ -65,9 +65,9 @@
         let checkUrls = (opts) => {
             return new Promise((resolve) => {
                 if (opts.abort && opts.abort === true) {
-                    $.cancelXhr(b.urls.updateUrls);
+                    $.cancelXhr(b.urls.checkUrls);
                 } else {
-                    $.xhr(b.urls.updateUrls, {
+                    $.xhr(b.urls.checkUrls, {
                         method: "POST",
                         data: {
                             urlList: opts.urls,

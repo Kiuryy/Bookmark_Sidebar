@@ -16,13 +16,18 @@
                 loading: "loading",
                 chromeApps: "chromeApps",
                 suggestions: "suggestions",
+                edit: "edit",
+                infoBar: "infoBar",
+                save: "save",
+                cancel: "cancel",
                 active: "active",
                 visible: "visible",
                 darkMode: "dark"
             },
             attr: {
                 type: "data-type",
-                perRow: "data-perRow"
+                perRow: "data-perRow",
+                pos: "data-pos"
             },
             elm: {
                 body: $("body"),
@@ -30,10 +35,11 @@
                 content: $("section#content"),
                 topNav: $("section#content > nav"),
                 search: {
+                    wrapper: $("div#search"),
                     field: $("div#search > input[type='text']"),
                     submit: $("div#search > button[type='submit']")
                 },
-                topPages: $("ul.topPages")
+                topPages: $("div#topPages")
             },
             manifest: chrome.runtime.getManifest()
         };

@@ -22,7 +22,7 @@
                 ext.helper.model.call("languageInfos").then((obj) => {
                     let lang = ext.helper.model.getData("b/language");
                     if (lang === "default") {
-                        lang = chrome.i18n.getUILanguage();
+                        lang = this.getUILanguage();
                     }
                     let defaultLang = this.getDefaultLanguage();
 
@@ -55,6 +55,15 @@
         };
 
         /**
+         * Returns the language of the user interface
+         *
+         * @returns {string}
+         */
+        this.getUILanguage = () => {
+            return chrome.i18n.getUILanguage();
+        };
+
+        /**
          * Returns the default language of the extension
          *
          * @returns {string}
@@ -69,7 +78,7 @@
          * @returns {Intl.Collator}
          */
         this.getLocaleSortCollator = () => {
-            return new Intl.Collator([chrome.i18n.getUILanguage(), this.getDefaultLanguage()]);
+            return new Intl.Collator([this.getUILanguage(), this.getDefaultLanguage()]);
         };
 
         /**
@@ -79,7 +88,7 @@
          * @returns {string}
          */
         this.getLocaleDate = (dateObj) => {
-            return dateObj.toLocaleDateString([chrome.i18n.getUILanguage(), this.getDefaultLanguage()], {
+            return dateObj.toLocaleDateString([this.getUILanguage(), this.getDefaultLanguage()], {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit"

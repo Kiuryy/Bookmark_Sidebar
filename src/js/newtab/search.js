@@ -4,13 +4,142 @@
     window.SearchHelper = function (n) {
 
         let suggestionCache = {};
+        let searchEngine = null;
+        let searchEngineList = {};
+
+        let searchEngineInfo = {
+            google: {
+                name: "Google",
+                url: "https://www.google.com/",
+                queryUrl: "https://www.google.com/search?q={1}",
+                sorting: 10
+            },
+            bing: {
+                name: "Bing",
+                url: "https://www.bing.com/",
+                queryUrl: "https://www.bing.com/search?q={1}",
+                sorting: 20
+            },
+            yahoo: {
+                name: "Yahoo",
+                url: "https://search.yahoo.com/",
+                queryUrl: "https://search.yahoo.com/search?p={1}",
+                sorting: 30,
+                lang: {
+                    de: {
+                        url: "https://de.search.yahoo.com/",
+                        queryUrl: "https://de.search.yahoo.com/search?p={1}",
+                    },
+                    jp: {
+                        url: "https://search.yahoo.co.jp/",
+                        queryUrl: "https://search.yahoo.co.jp/search?p={1}",
+                    }
+                }
+            },
+            yandex: {
+                name: "Yandex",
+                url: "https://yandex.com/",
+                queryUrl: "https://yandex.com/search/?text={1}",
+                sorting: 40,
+                lang: {
+                    ru: {
+                        name: "Яндекс",
+                        url: "https://yandex.ru/",
+                        queryUrl: "https://yandex.ru/search/?text={1}",
+                        sorting: 15
+                    },
+                    uk: {
+                        name: "Яндекс",
+                        url: "https://yandex.ua/",
+                        queryUrl: "https://yandex.ua/search/?text={1}",
+                        sorting: 15
+                    },
+                    tr: {
+                        url: "https://yandex.com.tr/",
+                        queryUrl: "https://yandex.com.tr/search/?text={1}",
+                        sorting: 15
+                    }
+                }
+            },
+            baidu: {
+                name: "Baidu",
+                url: "https://www.baidu.com/",
+                queryUrl: "https://www.baidu.com/s?wd={1}",
+                sorting: 50,
+                lang: {
+                    'zh-CN': {
+                        name: "百度",
+                        sorting: 15
+                    }
+                }
+            }
+        };
 
         /**
          *
          * @returns {Promise}
          */
         this.init = async () => {
+            initSearchEngineList();
             initEvents();
+
+            this.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
+        };
+
+        /**
+         * Updates the currently used search engine
+         *
+         * @param {string} name
+         */
+        this.updateSearchEngine = (name) => {
+            if (searchEngineList[name]) {
+                searchEngine = name;
+                let text = n.helper.i18n.get("newtab_search_placeholder", [searchEngineList[name].name]);
+                n.opts.elm.search.field.attr("placeholder", text);
+            }
+        };
+
+        /**
+         *
+         * @returns {object}
+         */
+        this.getSearchEngineList = () => searchEngineList;
+
+        /**
+         * Initialises the list of search engines depending on the language of the user
+         */
+        let initSearchEngineList = () => {
+            let lang = n.helper.i18n.getUILanguage();
+            let list = [];
+            
+            Object.entries(searchEngineInfo).forEach(([alias, searchEngine]) => {
+                let entry = {
+                    alias: alias,
+                    name: searchEngine.name,
+                    url: searchEngine.url,
+                    queryUrl: searchEngine.queryUrl,
+                    sorting: searchEngine.sorting
+                };
+
+                if (searchEngine.lang && searchEngine.lang[lang]) {
+                    Object.entries(searchEngine.lang[lang]).forEach(([field, val]) => {
+                        entry[field] = val;
+                    });
+                }
+
+                if (entry.name && entry.url && entry.queryUrl) {
+                    list.push(entry);
+                }
+            });
+
+            list.sort((a, b) => {
+                return (a.sorting || 9999) - (b.sorting || 9999);
+            });
+
+            searchEngineList = {};
+            list.forEach((entry) => {
+                searchEngineList[entry.alias] = entry;
+            });
         };
 
         /**
@@ -55,8 +184,8 @@
             if (val && val.trim().length > 0) {
                 if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
                     chrome.tabs.update({url: val});
-                } else { // @toDo configure search engine
-                    chrome.tabs.update({url: "https://www.google.com/search?q=" + encodeURIComponent(val)});
+                } else if (searchEngineList[searchEngine]) {
+                    chrome.tabs.update({url: searchEngineList[searchEngine].queryUrl.replace("{1}", encodeURIComponent(val))});
                 }
             }
         };
@@ -114,16 +243,14 @@
         };
 
         let initEvents = () => {
-
-
             n.opts.elm.search.submit.on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 let val = n.opts.elm.search.field[0].value;
                 if (val && val.trim().length > 0) {
                     handleSearch(val);
-                } else {
-                    chrome.tabs.update({url: "https://www.google.com"});
+                } else if (searchEngineList[searchEngine]) {
+                    chrome.tabs.update({url: searchEngineList[searchEngine].url});
                 }
             });
 
@@ -178,7 +305,9 @@
 
             $(document).on("click", () => {
                 $("ul." + n.opts.classes.suggestions).remove();
-                n.opts.elm.search.field[0].focus();
+                if (n.helper.edit.isEditMode() === false) {
+                    n.opts.elm.search.field[0].focus();
+                }
             });
 
             $(window).on("resize", () => {

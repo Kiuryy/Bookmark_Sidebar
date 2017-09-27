@@ -34,24 +34,26 @@
          */
         this.save = () => {
             return new Promise((resolve) => {
-                let config = {};
+                chrome.storage.sync.get(["newtab"], (obj) => {
+                    let config = obj.newtab || {};
 
-                ["override", "initialOpen"].forEach((field) => {
-                    config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
-                });
+                    ["override", "initialOpen"].forEach((field) => {
+                        config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
+                    });
 
-                ["website"].forEach((field) => {
-                    config[field] = s.opts.elm.field[field][0].value.trim();
-                });
+                    ["website"].forEach((field) => {
+                        config[field] = s.opts.elm.field[field][0].value.trim();
+                    });
 
-                if (config.website && config.website.length && config.website.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
-                    config.website = "http://" + config.website;
-                }
+                    if (config.website && config.website.length && config.website.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
+                        config.website = "http://" + config.website;
+                    }
 
-                chrome.storage.sync.set({newtab: config}, () => {
-                    s.helper.model.call("reinitialize");
-                    s.showSuccessMessage("saved_message");
-                    resolve();
+                    chrome.storage.sync.set({newtab: config}, () => {
+                        s.helper.model.call("reinitialize");
+                        s.showSuccessMessage("saved_message");
+                        resolve();
+                    });
                 });
             });
         };

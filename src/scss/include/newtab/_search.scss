@@ -1,0 +1,131 @@
+
+section#content {
+
+  > section.mid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+div#search {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
+  height: $newTabSearchHeight;
+
+  > input[type='text'] {
+    width: 100%;
+    height: 100%;
+    border-radius: $newTabSearchHeight / 2;
+    padding: 0 55px 0 30px;
+    border: none;
+    outline: none;
+    font-size: 125%;
+    background: $contentBackground;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+
+    &::-webkit-input-placeholder {
+      color: $__textColor;
+      opacity: 0.7;
+    }
+
+    &::-moz-placeholder {
+      color: $__textColor;
+      opacity: 0.7;
+    }
+  }
+
+  > button[type="submit"] {
+    @include mask('icon-search', $textColorLight, 26px);
+    position: absolute;
+    top: 4px;
+    right: 16px;
+    width: calc(#{$newTabSearchHeight} - 8px);
+    height: calc(#{$newTabSearchHeight} - 8px);
+    outline: none;
+    border: none;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $hoverBackground;
+    }
+  }
+
+  > ul.suggestions {
+    position: absolute;
+    width: calc(100% - 20px);
+    padding: #{$newTabSearchHeight + 1px} 20px 0;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+
+    > li {
+      @include mask(null, $textColorLight, 14px);
+      position: relative;
+      background: $contentBackground;
+      pointer-events: auto;
+      font-size: 110%;
+      pointer-events: auto;
+      padding: 3px 10px 3px 26px;
+      transition: background 0.3s;
+
+      &.active {
+        cursor: pointer;
+        background: $hoverBackground;
+      }
+
+      &::before {
+        -webkit-mask-position-x: 7px;
+      }
+
+      &[data-type='url']::before {
+        @include maskImage('icon-web');
+      }
+
+      &[data-type='word']::before {
+        @include maskImage('icon-search');
+      }
+    }
+  }
+}
+
+body.dark {
+
+  div#search {
+
+    > input[type='text'] {
+      background: $darkHoverBackground;
+    }
+
+    > button[type="submit"] {
+
+      &:hover {
+        background: lighten($darkHoverBackground, 5%);
+      }
+    }
+
+    > ul.suggestions {
+      filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+
+      > li {
+        background: $darkHoverBackground;
+
+        &.active {
+          background: lighten($darkHoverBackground, 5%);
+        }
+
+      }
+    }
+  }
+}

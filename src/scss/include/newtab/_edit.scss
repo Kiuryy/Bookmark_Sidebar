@@ -1,0 +1,137 @@
+
+a.edit {
+  @include mask('icon-edit', $textColorLight, 24px);
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  display: block;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &[data-pos='right'] {
+    right: auto;
+    left: 20px;
+  }
+}
+
+menu.infoBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: $textColor;
+  padding: 15px 20px;
+  transition: transform 0.5s;
+  transform: translate3d(0, 60px, 0);
+  text-align: right;
+
+  > a {
+    display: inline-block;
+    cursor: pointer;
+
+    &.save {
+      background: $contentBackground;
+      padding: 4px 8px;
+      font-weight: $__fontWeightMedium;
+      font-size: 100%;
+      border-radius: 5px;
+      box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    &.cancel {
+      color: $textColorInverted;
+      margin: 0 20px 0 0;
+      padding: 5px 3px;
+    }
+  }
+
+}
+
+body.edit {
+
+  a.edit {
+    display: none;
+  }
+
+  menu.infoBar {
+    transform: translate3d(0, 0, 0);
+  }
+
+  section#content {
+    height: calc(100vh - 50px);
+  }
+
+  div#search {
+
+    > input[type='text'] {
+      padding-right: 125px;
+    }
+
+    > button[type="submit"] {
+      display: none;
+    }
+
+    > select {
+      position: absolute;
+      top: 10px;
+      right: 23px;
+      background: $bodyBackground;
+      width: 100px;
+      height: $newTabSearchHeight - 20;
+      border-radius: ($newTabSearchHeight - 20) / 2;
+      padding: 0 7px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  div#topPages {
+
+    > select {
+      display: block;
+      background: $contentBackground;
+      height: 25px;
+      margin: -25px auto 0;
+      border-radius: 10px;
+      padding: 0 7px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+body.dark {
+
+  menu.infoBar {
+    background: $darkHoverBackground;
+
+    > a.save {
+      color: $darkHoverBackground;
+    }
+  }
+
+  div#search {
+
+    > select {
+      background: lighten($darkHoverBackground, 10%);
+    }
+  }
+
+  div#topPages {
+
+    > select {
+      background: lighten($darkHoverBackground, 10%);
+    }
+  }
+}

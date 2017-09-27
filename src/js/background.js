@@ -6,7 +6,7 @@
 
         this.urls = {
             checkStatus: "https://extensions.blockbyte.de/",
-            updateUrls: "https://extensions.blockbyte.de/ajax/updateUrls",
+            checkUrls: "https://4v1.de/u",
             uninstall: "https://extensions.blockbyte.de/bs/uninstall",
             thumbnail: "https://4v1.de/t"
         };

@@ -1,0 +1,39 @@
+
+section#content {
+
+  > nav {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+
+    > ul {
+
+      > li {
+        display: inline-block;
+
+        > a {
+          color: $__textColor;
+          display: block;
+          cursor: pointer;
+          padding: 7px 10px;
+          border-radius: 20px;
+          transition: background 0.3s;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+body.dark {
+
+  section#content {
+
+    > nav > ul > li > a:hover {
+      background: $darkHoverBackground;
+    }
+  }
+}

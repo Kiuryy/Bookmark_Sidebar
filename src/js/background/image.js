@@ -6,6 +6,10 @@
         let cache = {};
         let isSaving = false;
 
+        /**
+         *
+         * @returns {Promise}
+         */
         this.init = () => {
             return new Promise((resolve) => {
                 chrome.storage.local.get(["imageCache"], (obj) => {
@@ -33,7 +37,8 @@
                         timeout: 10000,
                         data: {
                             url: opts.url,
-                            lang: chrome.i18n.getUILanguage()
+                            lang: chrome.i18n.getUILanguage(),
+                            ua: navigator.userAgent
                         }
                     }).then((xhr) => {
                         let dataUrl = xhr.responseText;
@@ -74,6 +79,13 @@
             });
         };
 
+        /**
+         * Returns the cached image string for the given url if available
+         *
+         * @param {string} type
+         * @param {string} url
+         * @returns {string|null}
+         */
         let getCachedValue = (type, url) => {
             if (cache[type + "_" + url]) {
                 return cache[type + "_" + url].d;
@@ -82,6 +94,14 @@
             }
         };
 
+        /**
+         * Stored the given image string for the given url in the storage
+         *
+         * @param {string} type
+         * @param {string} url
+         * @param {string} data
+         * @returns {Promise}
+         */
         let updateImageCache = (type, url, data) => {
             cache[type + "_" + url] = {t: +new Date(), d: data};
 
@@ -105,7 +125,6 @@
                 });
             }
         };
-
     };
 
 })(jsu);

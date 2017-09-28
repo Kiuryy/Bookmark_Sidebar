@@ -121,15 +121,18 @@ section#content > nav {
   top: 10px;
   right: 20px; }
   section#content > nav > ul > li {
-    display: inline-block; }
-    section#content > nav > ul > li > a {
+    position: relative;
+    display: inline-block;
+    text-align: center; }
+    section#content > nav > ul > li > a.link {
+      position: relative;
       color: "%textColor";
       display: block;
       cursor: pointer;
       padding: 7px 10px;
       border-radius: 20px;
       transition: background 0.3s; }
-      section#content > nav > ul > li > a:hover {
+      section#content > nav > ul > li > a.link:hover {
         background: rgba(0, 0, 0, 0.05); }
 
 body.dark section#content > nav > ul > li > a:hover {
@@ -239,7 +242,7 @@ body.dark div#search > ul.suggestions {
     body.dark div#search > ul.suggestions > li.active {
       background: #626262; }
 
-a.edit {
+body > a.edit {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -249,7 +252,7 @@ a.edit {
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s; }
-  a.edit::before {
+  body > a.edit::before {
     content: "";
     position: absolute;
     top: 0;
@@ -259,9 +262,9 @@ a.edit {
     -webkit-mask: no-repeat center/24px;
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg);
     background-color: #aaa; }
-  a.edit:hover {
+  body > a.edit:hover {
     background: rgba(0, 0, 0, 0.05); }
-  a.edit[data-pos='right'] {
+  body > a.edit[data-pos='right'] {
     right: auto;
     left: 20px; }
 
@@ -291,7 +294,7 @@ menu.infoBar {
       margin: 0 20px 0 0;
       padding: 5px 3px; }
 
-body.edit a.edit {
+body.edit > a.edit {
   display: none; }
 
 body.edit menu.infoBar {
@@ -299,6 +302,105 @@ body.edit menu.infoBar {
 
 body.edit section#content {
   height: calc(100vh - 50px); }
+  body.edit section#content > nav a.add, body.edit section#content > nav a.remove, body.edit section#content > nav a.edit {
+    transition: background 0.3s;
+    border-radius: 50%;
+    cursor: pointer; }
+    body.edit section#content > nav a.add:hover, body.edit section#content > nav a.remove:hover, body.edit section#content > nav a.edit:hover {
+      background: rgba(0, 0, 0, 0.05); }
+  body.edit section#content > nav > a.add {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: -35px; }
+    body.edit section#content > nav > a.add::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/20px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg);
+      background-color: #aaa; }
+  body.edit section#content > nav > ul > li {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    min-width: 60px;
+    border-radius: 3px;
+    margin: 0 2px; }
+    body.edit section#content > nav > ul > li > a.link {
+      pointer-events: none; }
+      body.edit section#content > nav > ul > li > a.link:hover {
+        background: transparent; }
+    body.edit section#content > nav > ul > li > a.edit, body.edit section#content > nav > ul > li > a.remove {
+      position: relative;
+      display: inline-block;
+      width: 24px;
+      height: 24px; }
+    body.edit section#content > nav > ul > li > a.edit::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/14px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg);
+      background-color: #aaa; }
+    body.edit section#content > nav > ul > li > a.remove::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/14px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg);
+      background-color: #aaa; }
+    body.edit section#content > nav > ul > li > div {
+      position: absolute;
+      text-align: left;
+      background: #fff;
+      filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+      padding: 10px;
+      bottom: -170px;
+      right: -10px;
+      height: 160px;
+      width: 250px;
+      border-radius: 3px;
+      z-index: 9; }
+      body.edit section#content > nav > ul > li > div::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        right: 20px;
+        border: 10px solid transparent;
+        border-bottom-color: #fff; }
+      body.edit section#content > nav > ul > li > div > label {
+        font-weight: "%fontWeightMedium";
+        display: block; }
+      body.edit section#content > nav > ul > li > div > input[type='text'] {
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: transparent;
+        display: block;
+        width: 100%;
+        margin: 3px 0 10px;
+        padding: 5px; }
+        body.edit section#content > nav > ul > li > div > input[type='text']:focus {
+          border-color: rgba(0, 0, 0, 0.25); }
+      body.edit section#content > nav > ul > li > div > button[type='submit'] {
+        border: none;
+        outline: none;
+        background: none;
+        color: "%colorScheme";
+        font-weight: "%fontWeightMedium";
+        cursor: pointer;
+        float: right;
+        margin-top: 3px; }
 
 body.edit div#search > input[type='text'] {
   padding-right: 125px; }
@@ -336,10 +438,34 @@ body.dark menu.infoBar {
   body.dark menu.infoBar > a.save {
     color: #555; }
 
-body.dark div#search > select {
+body.dark > a.edit:hover {
+  background: #555; }
+
+body.dark.edit section#content > nav a.add:hover {
+  background: #555; }
+
+body.dark.edit section#content > nav > ul > li {
+  background: #555;
+  border-color: rgba(255, 255, 255, 0.075); }
+  body.dark.edit section#content > nav > ul > li > a.edit:hover, body.dark.edit section#content > nav > ul > li > a.remove:hover {
+    background: #6f6f6f; }
+  body.dark.edit section#content > nav > ul > li > div {
+    background: #555;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.2));
+    transform: translate3d(0, 3px, 0); }
+    body.dark.edit section#content > nav > ul > li > div::before {
+      border-bottom-color: #555; }
+    body.dark.edit section#content > nav > ul > li > div > input[type='text'] {
+      border-color: rgba(255, 255, 255, 0.2); }
+      body.dark.edit section#content > nav > ul > li > div > input[type='text']:focus {
+        border-color: rgba(255, 255, 255, 0.4); }
+    body.dark.edit section#content > nav > ul > li > div > button[type='submit'] {
+      color: "%textColor"; }
+
+body.dark.edit div#search > select {
   background: #6f6f6f; }
 
-body.dark div#topPages > select {
+body.dark.edit div#topPages > select {
   background: #6f6f6f; }
 
 body {

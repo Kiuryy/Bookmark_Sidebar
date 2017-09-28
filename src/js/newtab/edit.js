@@ -59,13 +59,27 @@
          */
         let saveChanges = () => {
             return new Promise((resolve) => {
+                let shortcuts = [];
+                n.opts.elm.topNav.find("a." + n.opts.classes.link).forEach((elm) => {
+                    let label = $(elm).text().trim();
+                    let url = ($(elm).data("href") || $(elm).attr("href")).trim();
+
+                    if (label && label.length > 0 && url && url.length > 0) {
+                        shortcuts.push({
+                            label: label,
+                            url: url
+                        });
+                    }
+                });
+
                 let loadStartTime = +new Date();
                 let loader = n.helper.template.loading().appendTo(n.opts.elm.body);
                 n.opts.elm.body.addClass(n.opts.classes.loading);
 
                 n.helper.model.setData({
                     "n/searchEngine": n.opts.elm.search.wrapper.children("select")[0].value,
-                    "n/topPagesType": n.opts.elm.topPages.children("select")[0].value
+                    "n/topPagesType": n.opts.elm.topPages.children("select")[0].value,
+                    "n/shortcuts": shortcuts
                 }).then(() => { // load at least 1s
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
                 }).then(() => {
@@ -86,9 +100,13 @@
 
             n.opts.elm.search.wrapper.children("select").remove();
             n.opts.elm.topPages.children("select").remove();
+            n.opts.elm.topNav.find("a." + n.opts.classes.edit).remove();
+            n.opts.elm.topNav.find("a." + n.opts.classes.remove).remove();
+            n.opts.elm.topNav.find("a." + n.opts.classes.add).remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
+            n.helper.shortcuts.refreshEntries();
 
             $.delay(500).then(() => {
                 $("menu." + n.opts.classes.infoBar).remove();
@@ -112,10 +130,97 @@
                 n.opts.elm.body.addClass(n.opts.classes.edit);
                 initSearchEngineConfig();
                 initTopPagesConfig();
+                initShortcutsConfig();
 
                 $.delay(500).then(() => {
                     $(window).trigger("resize");
                 });
+            });
+        };
+
+        /**
+         * Initialises the buttons to edit/remove the shortcuts in the top/right corner
+         */
+        let initShortcutsConfig = () => {
+            let buttons = ["<a class='" + n.opts.classes.edit + "' />", "<a class='" + n.opts.classes.remove + "' />"];
+
+            n.opts.elm.topNav.find("> ul > li").forEach((elm) => {
+                $(elm).append(buttons);
+            });
+
+            $("<a class='" + n.opts.classes.add + "' />").prependTo(n.opts.elm.topNav);
+
+            n.opts.elm.topNav.off("click.edit").on("click.edit", "a." + n.opts.classes.edit, (e) => { // edit
+                e.stopPropagation();
+                showShortcutEditTooltip($(e.currentTarget).parent("li"));
+            }).on("click.edit", "a." + n.opts.classes.add, () => {  // add
+                let entry = $("<li />")
+                    .append("<a class='" + n.opts.classes.link + "'>&nbsp;</a>")
+                    .append(buttons)
+                    .prependTo(n.opts.elm.topNav.children("ul"));
+
+                $.delay().then(() => {
+                    showShortcutEditTooltip(entry);
+                });
+            }).on("click.edit", "a." + n.opts.classes.remove, (e) => {  // remove
+                $(e.currentTarget).parent("li").remove();
+            }).on("click.edit", "> ul > li > div", (e) => {
+                if (e.target.tagName !== "BUTTON") {
+                    e.stopPropagation();
+                }
+            });
+
+            $(document).off("click.edit").on("click.edit", () => {
+                n.opts.elm.topNav.find("> ul > li > div").remove();
+            });
+        };
+
+        /**
+         * Shows the edit tooltip for the given element
+         *
+         * @param {jsu} elm
+         */
+        let showShortcutEditTooltip = (elm) => {
+            n.opts.elm.topNav.find("> ul > li > div").remove();
+
+            let link = elm.children("a." + n.opts.classes.link).eq(0);
+
+            let tooltip = $("<div />")
+                .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
+                .append("<input type='text' value='" + link.text().trim() + "' " + n.opts.attr.type + "='label' />")
+                .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
+                .append("<input type='text' value='" + (link.data("href") || link.attr("href")).trim() + "' " + n.opts.attr.type + "='url' />")
+                .append("<button type='submit'>" + n.helper.i18n.get("overlay_close") + "</button>")
+                .appendTo(elm);
+
+            tooltip.find("input[type='text']").on("change input", (e) => {
+                let val = e.currentTarget.value.trim();
+
+                switch ($(e.currentTarget).attr(n.opts.attr.type)) {
+                    case "url": {
+                        link.removeAttr("href").removeData("href");
+
+                        if (val && val.length > 0) {
+                            if (val.startsWith("chrome://") || val.startsWith("chrome-extension://")) {
+                                link.data("href", val);
+                            } else {
+                                if (val.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
+                                    val = "http://" + val;
+                                }
+                                link.attr("href", val);
+                            }
+                        }
+                        break;
+                    }
+                    case "label": {
+                        if (val && val.length > 0) {
+                            link.text(val.trim());
+                        } else {
+                            link.html("&nbsp;");
+                        }
+                        break;
+                    }
+                }
             });
         };
 

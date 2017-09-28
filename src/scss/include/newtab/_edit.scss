@@ -1,5 +1,5 @@
 
-a.edit {
+body > a.edit {
   @include mask('icon-edit', $textColorLight, 24px);
   position: absolute;
   bottom: 20px;
@@ -27,7 +27,7 @@ menu.infoBar {
   left: 0;
   width: 100%;
   height: 60px;
-  background: $textColor;
+  background: $__textColor;
   padding: 15px 20px;
   transition: transform 0.5s;
   transform: translate3d(0, 60px, 0);
@@ -57,7 +57,7 @@ menu.infoBar {
 
 body.edit {
 
-  a.edit {
+  > a.edit {
     display: none;
   }
 
@@ -67,6 +67,113 @@ body.edit {
 
   section#content {
     height: calc(100vh - 50px);
+
+    > nav {
+
+      a.add, a.remove, a.edit {
+        transition: background 0.3s;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      > a.add {
+        @include mask('icon-add', $textColorLight, 20px);
+        position: absolute;
+        display: block;
+        width: 30px;
+        height: 30px;
+        top: 0;
+        left: -35px;
+      }
+
+      > ul > li {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        min-width: 60px;
+        border-radius: 3px;
+        margin: 0 2px;
+
+        > a.link {
+          pointer-events: none;
+
+          &:hover {
+            background: transparent;
+          }
+        }
+
+        > a.edit, > a.remove {
+          position: relative;
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+        }
+
+        > a.edit {
+          @include mask('icon-edit', $textColorLight, 14px);
+        }
+
+        > a.remove {
+          @include mask('icon-delete', $textColorLight, 14px);
+        }
+
+        > div {
+          position: absolute;
+          text-align: left;
+          background: $contentBackground;
+          filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+          padding: 10px;
+          bottom: -170px;
+          right: -10px;
+          height: 160px;
+          width: 250px;
+          border-radius: 3px;
+          z-index: 9;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            border: 10px solid transparent;
+            border-bottom-color: $contentBackground;
+          }
+
+          > label {
+            font-weight: $__fontWeightMedium;
+            display: block;
+          }
+
+          > input[type='text'] {
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: transparent;
+            display: block;
+            width: 100%;
+            margin: 3px 0 10px;
+            padding: 5px;
+
+            &:focus {
+              border-color: rgba(0, 0, 0, 0.25);
+            }
+          }
+
+          > button[type='submit'] {
+            border: none;
+            outline: none;
+            background: none;
+            color: $__colorScheme;
+            font-weight: $__fontWeightMedium;
+            cursor: pointer;
+            float: right;
+            margin-top: 3px;
+          }
+        }
+      }
+    }
   }
 
   div#search {
@@ -121,17 +228,65 @@ body.dark {
     }
   }
 
-  div#search {
-
-    > select {
-      background: lighten($darkHoverBackground, 10%);
-    }
+  > a.edit:hover {
+    background: $darkHoverBackground;
   }
 
-  div#topPages {
+  &.edit {
 
-    > select {
-      background: lighten($darkHoverBackground, 10%);
+    section#content > nav {
+
+      a.add:hover {
+        background: $darkHoverBackground;
+      }
+
+      > ul > li {
+        background: $darkHoverBackground;
+        border-color: rgba(255, 255, 255, 0.075);
+
+        > a.edit, > a.remove {
+
+          &:hover {
+            background: lighten($darkHoverBackground, 10%);
+          }
+        }
+
+        > div {
+          background: $darkHoverBackground;
+          filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.2));
+          transform: translate3d(0, 3px, 0);
+
+          &::before {
+            border-bottom-color: $darkHoverBackground;
+          }
+
+          > input[type='text'] {
+            border-color: rgba(255, 255, 255, 0.2);
+
+            &:focus {
+              border-color: rgba(255, 255, 255, 0.4);
+            }
+          }
+
+          > button[type='submit'] {
+            color: $__textColor;
+          }
+        }
+      }
+    }
+
+    div#search {
+
+      > select {
+        background: lighten($darkHoverBackground, 10%);
+      }
+    }
+
+    div#topPages {
+
+      > select {
+        background: lighten($darkHoverBackground, 10%);
+      }
     }
   }
 }

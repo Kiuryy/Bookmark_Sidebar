@@ -9,9 +9,12 @@ section#content {
     > ul {
 
       > li {
+        position: relative;
         display: inline-block;
+        text-align: center;
 
-        > a {
+        > a.link {
+          position: relative;
           color: $__textColor;
           display: block;
           cursor: pointer;

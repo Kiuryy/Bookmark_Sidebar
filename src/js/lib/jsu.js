@@ -1,5 +1,5 @@
 /**
- * jsu v1.2.0
+ * jsu v1.2.1
  *
  * Philipp König
  * https://blockbyte.de/
@@ -981,37 +981,43 @@
              * @returns {jsuNode}
              */
             [private_elementMove](s, asSelector = true, type) {
-                if (typeof s === "string" && s.search("<") > -1) {
-                    asSelector = false;
-                }
-
-                let elmObj = new jsuNode(s, asSelector);
-
-                this[forEach]((node) => {
-                    let clonedElmObj = jsuNode[private_clone](elmObj);
-                    clonedElmObj[forEach]((elm) => {
-                        switch (type) {
-                            case "append": {
-                                node.appendChild(elm);
-                                break;
-                            }
-                            case "prepend": {
-                                node.insertBefore(elm, node.firstChild);
-                                break;
-                            }
-                            case "before": {
-                                node.parentNode.insertBefore(elm, node);
-                                break;
-                            }
-                            case "after": {
-                                node.parentNode.insertBefore(elm, node.nextSibling);
-                                break;
-                            }
-                        }
+                if (Array.isArray(s)) {
+                    s.forEach((s) => {
+                        this[private_elementMove](s, asSelector, type);
                     });
-                });
+                } else {
+                    if (typeof s === "string" && s.search("<") > -1) {
+                        asSelector = false;
+                    }
 
-                elmObj[remove]();
+                    let elmObj = new jsuNode(s, asSelector);
+
+                    this[forEach]((node) => {
+                        let clonedElmObj = jsuNode[private_clone](elmObj);
+                        clonedElmObj[forEach]((elm) => {
+                            switch (type) {
+                                case "append": {
+                                    node.appendChild(elm);
+                                    break;
+                                }
+                                case "prepend": {
+                                    node.insertBefore(elm, node.firstChild);
+                                    break;
+                                }
+                                case "before": {
+                                    node.parentNode.insertBefore(elm, node);
+                                    break;
+                                }
+                                case "after": {
+                                    node.parentNode.insertBefore(elm, node.nextSibling);
+                                    break;
+                                }
+                            }
+                        });
+                    });
+
+                    elmObj[remove]();
+                }
 
                 return this;
             }

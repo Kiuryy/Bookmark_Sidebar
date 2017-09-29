@@ -14,11 +14,6 @@ body > a.edit {
   &:hover {
     background: rgba(0, 0, 0, 0.05);
   }
-
-  &[data-pos='right'] {
-    right: auto;
-    left: 20px;
-  }
 }
 
 menu.infoBar {
@@ -31,10 +26,13 @@ menu.infoBar {
   padding: 15px 20px;
   transition: transform 0.5s;
   transform: translate3d(0, 60px, 0);
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-items: center;
 
   > a {
-    display: inline-block;
+    display: block;
     cursor: pointer;
 
     &.save {
@@ -48,11 +46,33 @@ menu.infoBar {
 
     &.cancel {
       color: $textColorInverted;
-      margin: 0 20px 0 0;
+      margin: 0 20px;
       padding: 5px 3px;
     }
   }
+}
 
+body[data-pos='right'] {
+
+  > a.edit {
+    right: auto;
+    left: 20px;
+  }
+
+  menu.infoBar {
+    justify-content: flex-start;
+
+    > a {
+
+      &.save {
+        order: 1;
+      }
+
+      &.cancel {
+        order: 2;
+      }
+    }
+  }
 }
 
 body.edit {

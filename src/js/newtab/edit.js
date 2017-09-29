@@ -12,10 +12,8 @@
         this.init = async () => {
             initEvents();
 
-            $("<a />")
-                .addClass(n.opts.classes.edit)
-                .attr(n.opts.attr.pos, n.helper.model.getData("b/sidebarPosition"))
-                .appendTo(n.opts.elm.body);
+            n.opts.elm.body.attr(n.opts.attr.pos, n.helper.model.getData("b/sidebarPosition"));
+            $("<a />").addClass(n.opts.classes.edit).appendTo(n.opts.elm.body);
 
             if (location.href.search(/#edit$/) > -1) {
                 enterEditMode();

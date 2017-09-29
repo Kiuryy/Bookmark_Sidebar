@@ -264,9 +264,6 @@ body > a.edit {
     background-color: #aaa; }
   body > a.edit:hover {
     background: rgba(0, 0, 0, 0.05); }
-  body > a.edit[data-pos='right'] {
-    right: auto;
-    left: 20px; }
 
 menu.infoBar {
   position: absolute;
@@ -278,9 +275,12 @@ menu.infoBar {
   padding: 15px 20px;
   transition: transform 0.5s;
   transform: translate3d(0, 60px, 0);
-  text-align: right; }
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-items: center; }
   menu.infoBar > a {
-    display: inline-block;
+    display: block;
     cursor: pointer; }
     menu.infoBar > a.save {
       background: #fff;
@@ -291,8 +291,19 @@ menu.infoBar {
       box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5); }
     menu.infoBar > a.cancel {
       color: #fff;
-      margin: 0 20px 0 0;
+      margin: 0 20px;
       padding: 5px 3px; }
+
+body[data-pos='right'] > a.edit {
+  right: auto;
+  left: 20px; }
+
+body[data-pos='right'] menu.infoBar {
+  justify-content: flex-start; }
+  body[data-pos='right'] menu.infoBar > a.save {
+    order: 1; }
+  body[data-pos='right'] menu.infoBar > a.cancel {
+    order: 2; }
 
 body.edit > a.edit {
   display: none; }

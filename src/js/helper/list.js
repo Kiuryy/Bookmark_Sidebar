@@ -600,7 +600,10 @@
                     } else {
                         elm.addClass(ext.opts.classes.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
-                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
+                            let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox["all"]);
+                            if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
+                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
+                            }
                         }
                     }
                     list.css("height", "");

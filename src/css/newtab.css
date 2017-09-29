@@ -330,7 +330,9 @@ body.edit section#content {
     border: 1px solid rgba(0, 0, 0, 0.1);
     min-width: 60px;
     border-radius: 3px;
-    margin: 0 2px; }
+    margin: 0 2px;
+    padding: 0 0 14px 0;
+    box-shadow: inset 0 -20px 0 -4px rgba(0, 0, 0, 0.05); }
     body.edit section#content > nav > ul > li > a.link {
       pointer-events: none; }
       body.edit section#content > nav > ul > li > a.link:hover {
@@ -360,6 +362,32 @@ body.edit section#content {
       -webkit-mask: no-repeat center/14px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg);
       background-color: #aaa; }
+    body.edit section#content > nav > ul > li > a[data-pos] {
+      position: absolute;
+      display: block;
+      width: 16px;
+      height: 16px;
+      right: 0;
+      bottom: 0;
+      cursor: pointer; }
+      body.edit section#content > nav > ul > li > a[data-pos]::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 6px;
+        height: 6px;
+        border-top: 2px solid #aaa;
+        border-left: 2px solid #aaa;
+        transform: rotateZ(135deg); }
+    body.edit section#content > nav > ul > li > a[data-pos='left'] {
+      right: auto;
+      left: 0; }
+      body.edit section#content > nav > ul > li > a[data-pos='left']::before {
+        transform: rotateZ(-45deg); }
+    body.edit section#content > nav > ul > li:last-child > a[data-pos='right'],
+    body.edit section#content > nav > ul > li:first-child > a[data-pos='left'] {
+      display: none; }
     body.edit section#content > nav > ul > li > div {
       position: absolute;
       text-align: left;

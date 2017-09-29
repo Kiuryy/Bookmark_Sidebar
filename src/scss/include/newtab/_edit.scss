@@ -96,6 +96,8 @@ body.edit {
         min-width: 60px;
         border-radius: 3px;
         margin: 0 2px;
+        padding: 0 0 14px 0;
+        box-shadow: inset 0 -20px 0 -4px rgba(0, 0, 0, 0.05);
 
         > a.link {
           pointer-events: none;
@@ -118,6 +120,42 @@ body.edit {
 
         > a.remove {
           @include mask('icon-delete', $textColorLight, 14px);
+        }
+
+        > a[data-pos] {
+          position: absolute;
+          display: block;
+          width: 16px;
+          height: 16px;
+          right: 0;
+          bottom: 0;
+          cursor: pointer;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 6px;
+            height: 6px;
+            border-top: 2px solid $textColorLight;
+            border-left: 2px solid $textColorLight;
+            transform: rotateZ(135deg);
+          }
+        }
+
+        > a[data-pos='left'] {
+          right: auto;
+          left: 0;
+
+          &::before {
+            transform: rotateZ(-45deg);
+          }
+        }
+
+        &:last-child > a[data-pos='right'],
+        &:first-child > a[data-pos='left'] {
+          display: none;
         }
 
         > div {

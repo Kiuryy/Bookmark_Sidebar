@@ -100,9 +100,7 @@
 
             n.opts.elm.search.wrapper.children("select").remove();
             n.opts.elm.topPages.children("select").remove();
-            n.opts.elm.topNav.find("a." + n.opts.classes.edit).remove();
-            n.opts.elm.topNav.find("a." + n.opts.classes.remove).remove();
-            n.opts.elm.topNav.find("a." + n.opts.classes.add).remove();
+            n.opts.elm.topNav.find("a:not(." + n.opts.classes.link + ")").remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
@@ -142,7 +140,7 @@
          * Initialises the buttons to edit/remove the shortcuts in the top/right corner
          */
         let initShortcutsConfig = () => {
-            let buttons = ["<a class='" + n.opts.classes.edit + "' />", "<a class='" + n.opts.classes.remove + "' />"];
+            let buttons = ["<a class='" + n.opts.classes.edit + "' />", "<a class='" + n.opts.classes.remove + "' />", "<a " + n.opts.attr.pos + "='left' />", "<a " + n.opts.attr.pos + "='right' />"];
 
             n.opts.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
@@ -152,7 +150,8 @@
 
             n.opts.elm.topNav.off("click.edit").on("click.edit", "a." + n.opts.classes.edit, (e) => { // edit
                 e.stopPropagation();
-                showShortcutEditTooltip($(e.currentTarget).parent("li"));
+                let entry = $(e.currentTarget).parent("li");
+                showShortcutEditTooltip(entry);
             }).on("click.edit", "a." + n.opts.classes.add, () => {  // add
                 let entry = $("<li />")
                     .append("<a class='" + n.opts.classes.link + "'>&nbsp;</a>")
@@ -164,7 +163,25 @@
                 });
             }).on("click.edit", "a." + n.opts.classes.remove, (e) => {  // remove
                 $(e.currentTarget).parent("li").remove();
-            }).on("click.edit", "> ul > li > div", (e) => {
+            }).on("click.edit", "a[" + n.opts.attr.pos + "]", (e) => { // move
+                let pos = $(e.currentTarget).attr(n.opts.attr.pos);
+                let entry = $(e.currentTarget).parent("li");
+
+                switch (pos) {
+                    case "left": {
+                        if (entry.prev("li").length() > 0) {
+                            entry.insertBefore(entry.prev("li"));
+                        }
+                        break;
+                    }
+                    case "right": {
+                        if (entry.next("li").length() > 0) {
+                            entry.insertAfter(entry.next("li"));
+                        }
+                        break;
+                    }
+                }
+            }).on("click.edit", "> ul > li > div", (e) => { // prevent closing when clicking inside the tooltip (except when clicking the close button)
                 if (e.target.tagName !== "BUTTON") {
                     e.stopPropagation();
                 }

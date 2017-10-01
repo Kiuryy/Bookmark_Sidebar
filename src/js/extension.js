@@ -31,10 +31,7 @@
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["content"]);
 
-                return Promise.all([
-                    initSidebar(),
-                    this.helper.entry.init()
-                ]);
+                return initSidebar();
             }).then(() => {
                 if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
                     this.helper.toggle.init();

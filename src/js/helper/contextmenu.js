@@ -33,7 +33,7 @@
                     case "list": {
                         handleListMenu(contextmenu, elm);
                         let data = ext.helper.entry.getData(elmId);
-                        trackingLabel = data.isDir ? "directory" : "bookmark";
+                        trackingLabel = data && data.isDir ? "directory" : "bookmark";
                         break;
                     }
                     case "separator": {
@@ -208,59 +208,61 @@
             let elmId = elm.attr(ext.opts.attr.id);
             let data = ext.helper.entry.getData(elmId);
 
-            contextmenu.css({
-                top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
-                left: elm.parent("li")[0].offsetLeft + "px"
-            });
+            if (data) {
+                contextmenu.css({
+                    top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
+                    left: elm.parent("li")[0].offsetLeft + "px"
+                });
 
-            let i18nAppend = data.isDir ? "_dir" : "_bookmark";
-            let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
-            let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
-            let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
+                let i18nAppend = data.isDir ? "_dir" : "_bookmark";
+                let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
+                let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
+                let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
 
-            if (data.isDir) {
-                let bookmarks = data.children.filter(val => !!(val.url));
+                if (data.isDir) {
+                    let bookmarks = data.children.filter(val => !!(val.url));
 
-                if (bookmarks.length > 0) {
-                    list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + "</a></li>");
+                    if (bookmarks.length > 0) {
+                        list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + "</a></li>");
+                    }
+
+                    if (data.children.length > 0) {
+                        list.append("<li><a " + ext.opts.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
+                    }
+                } else {
+                    if (isSearchList) {
+                        list.append("<li><a " + ext.opts.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
+                    }
+
+                    list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
+
+                    if (chrome.extension.inIncognitoContext === false) {
+                        list.append("<li><a " + ext.opts.attr.name + "='newTabIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
+                    }
                 }
 
-                if (data.children.length > 0) {
-                    list.append("<li><a " + ext.opts.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
+                iconWrapper.append("<li><a " + ext.opts.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos") + "'></a></li>");
+
+                if (data.parents.length > 0) { // root level can not be edited or deleted
+                    iconWrapper
+                        .append("<li><a " + ext.opts.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend) + "'></a></li>")
+                        .append("<li><a " + ext.opts.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend) + "'></a></li>");
                 }
-            } else {
-                if (isSearchList) {
-                    list.append("<li><a " + ext.opts.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
+
+
+                if (data.isDir) {
+                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
+                } else if (data.pinned) {
+                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin") + "'></a></li>");
+                } else {
+                    iconWrapper.append("<li><a " + ext.opts.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin") + "'></a></li>");
                 }
 
-                list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
-
-                if (chrome.extension.inIncognitoContext === false) {
-                    list.append("<li><a " + ext.opts.attr.name + "='newTabIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
+                if (ext.helper.entry.isVisible(elmId)) {
+                    iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
+                } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
+                    iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='show' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
                 }
-            }
-
-            iconWrapper.append("<li><a " + ext.opts.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos") + "'></a></li>");
-
-            if (data.parents.length > 0) { // root level can not be edited or deleted
-                iconWrapper
-                    .append("<li><a " + ext.opts.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend) + "'></a></li>")
-                    .append("<li><a " + ext.opts.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend) + "'></a></li>");
-            }
-
-
-            if (data.isDir) {
-                iconWrapper.append("<li><a " + ext.opts.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
-            } else if (data.pinned) {
-                iconWrapper.append("<li><a " + ext.opts.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin") + "'></a></li>");
-            } else {
-                iconWrapper.append("<li><a " + ext.opts.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin") + "'></a></li>");
-            }
-
-            if (ext.helper.entry.isVisible(elmId)) {
-                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
-            } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
-                iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='show' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
             }
         };
 
@@ -353,7 +355,9 @@
                             action: "open",
                             label: "new_window_incognito"
                         });
-                        ext.helper.utility.openUrl(data, "incognito");
+                        if (data) {
+                            ext.helper.utility.openUrl(data, "incognito");
+                        }
                         break;
                     }
                     case "newTab": { // open bookmark in new tab
@@ -362,7 +366,9 @@
                             action: "open",
                             label: "new_tab_contextmenu"
                         });
-                        ext.helper.utility.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                        if (data) {
+                            ext.helper.utility.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                        }
                         break;
                     }
                     case "deleteSeparator": { // remove the separator
@@ -377,21 +383,20 @@
                         delete hiddenEntries[elmId];
 
                         ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
-                            return Promise.all([
-                                ext.helper.model.call("removeCache", {name: "html"}),
-                                ext.helper.model.call("updateEntries")
-                            ]);
+                            return ext.helper.model.call("removeCache", {name: "html"});
                         }).then(() => {
                             ext.helper.model.call("reload", {type: "Hide"});
                         });
                         break;
                     }
                     case "openChildren": {
-                        let bookmarks = data.children.filter(val => !!(val.url));
-                        if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
-                            ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
-                        } else { // open bookmarks directly without confirmation
-                            ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
+                        if (data) {
+                            let bookmarks = data.children.filter(val => !!(val.url));
+                            if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
+                                ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
+                            } else { // open bookmarks directly without confirmation
+                                ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
+                            }
                         }
                         break;
                     }
@@ -410,7 +415,6 @@
                     case "showInDir": { // show search result in normal bookmark list
                         let data = ext.helper.entry.getData(elmId);
                         if (data && data.parents) {
-
                             let openParent = (i) => {
                                 if (data.parents[i]) {
                                     let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");

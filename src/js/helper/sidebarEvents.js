@@ -16,6 +16,10 @@
 
         this.handleEntryClick = (elm, opts) => {
             let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+            if (!data) {
+                return false;
+            }
+
             let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
             let middleClick = opts.which === 2 || opts.ctrlKey || opts.metaKey;
 

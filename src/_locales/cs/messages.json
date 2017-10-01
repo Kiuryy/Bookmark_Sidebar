@@ -344,6 +344,9 @@
     "settings_menu_feedback": {
         "message": "Zp\u011btn\u00e1 vazba"
     },
+    "settings_menu_support": {
+        "message": "Podpora"
+    },
     "settings_save": {
         "message": "Ulo\u017eit zm\u011bny"
     },
@@ -613,12 +616,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona adres\u00e1\u0159e"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "Slo\u017eka"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "\u010ctverce"
     },
     "settings_bookmarks_dir_color": {
         "message": "Barva ikony adres\u00e1\u0159e"

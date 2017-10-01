@@ -266,9 +266,7 @@
                     updateIcon: b.helper.icon.set,
                     reloadIcon: b.helper.icon.init,
                     addViewAmount: b.helper.viewAmount.addByUrl,
-                    viewAmounts: b.helper.viewAmount.getAll,
-                    updateEntries: b.helper.entries.update,
-                    entries: b.helper.entries.getEntries
+                    viewAmounts: b.helper.viewAmount.getAll
                 };
 
                 chrome.runtime.onConnect.addListener((port) => {

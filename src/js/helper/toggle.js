@@ -124,9 +124,13 @@
                     $("body").addClass(ext.opts.classes.page.noscroll);
                 }
 
-                ext.helper.scroll.focus();
-                $(document).trigger("mousemove.bs"); // hide indicator
+                $.delay(ext.helper.model.getData("b/animations") ? 300 : 0).then(() => { // initialise entries if not already done -> necessary for clicking entries, tooltips, etc.
+                    return ext.helper.entry.initOnce();
+                }).then(() => {
+                    ext.helper.scroll.focus();
+                });
 
+                $(document).trigger("mousemove.bs"); // hide indicator
                 ext.helper.utility.triggerEvent("sidebarOpened");
             }
         };
@@ -243,7 +247,7 @@
             let openAction = ext.helper.model.getData("b/openAction");
 
             if (openAction !== "icon") {
-                 $(document).on(openAction + ".bs dragover.bs", (e) => {
+                $(document).on(openAction + ".bs dragover.bs", (e) => {
                     let openByType = false;
                     if (e.type === "dragover") { // drag -> only open when configuration is set
                         openByType = dndOpen;

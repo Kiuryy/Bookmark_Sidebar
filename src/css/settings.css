@@ -297,7 +297,7 @@ body > header {
         box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5); }
       body > header > menu > button.restore {
         background: transparent;
-        margin: 0 0 0 10px;
+        margin: 1px 0 0 10px;
         width: 24px;
         height: 24px; }
         body > header > menu > button.restore::before {

@@ -32,38 +32,41 @@
                     }
                 } else { // no tooltip for the given element yet -> generate and show it after the configured delay
                     if (+config.tooltipDelay !== -1) { // show only if delay > -1
-                        let tooltip = $("<div />")
-                            .addClass(ext.opts.classes.tooltip.wrapper)
-                            .attr(ext.opts.attr.id, id)
-                            .appendTo(ext.elements.iframeBody);
-
                         let data = ext.helper.entry.getData(id);
 
-                        if (config.tooltipContent === "all" || config.tooltipContent === "title") {
-                            tooltip.append("<h3>" + data.title + "</h3>");
-                        }
+                        if(data) {
+                            let tooltip = $("<div />")
+                                .addClass(ext.opts.classes.tooltip.wrapper)
+                                .attr(ext.opts.attr.id, id)
+                                .appendTo(ext.elements.iframeBody);
 
-                        if (data.isDir) {
-                            tooltip.append("<span>" + data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children") + "</span>");
-                        } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
-                            tooltip.append("<span>" + data.url + "</span>");
-                        }
 
-                        if (timeout[id]) {
-                            clearTimeout(timeout[id]);
-                            timeout[id] = null;
-                        }
-
-                        timeout[id] = setTimeout(() => {
-                            tooltip.addClass(ext.opts.classes.tooltip.visible);
-                            tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
-
-                            if (config.sidebarPosition === "right") {
-                                tooltip.css("right", (elm.realWidth() + 10) + "px");
-                            } else {
-                                tooltip.css("left", (elm.parent("li")[0].offsetLeft + elm.realWidth()) + "px");
+                            if (config.tooltipContent === "all" || config.tooltipContent === "title") {
+                                tooltip.append("<h3>" + data.title + "</h3>");
                             }
-                        }, +config.tooltipDelay * 1000);
+
+                            if (data.isDir) {
+                                tooltip.append("<span>" + data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children") + "</span>");
+                            } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
+                                tooltip.append("<span>" + data.url + "</span>");
+                            }
+
+                            if (timeout[id]) {
+                                clearTimeout(timeout[id]);
+                                timeout[id] = null;
+                            }
+
+                            timeout[id] = setTimeout(() => {
+                                tooltip.addClass(ext.opts.classes.tooltip.visible);
+                                tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
+
+                                if (config.sidebarPosition === "right") {
+                                    tooltip.css("right", (elm.realWidth() + 10) + "px");
+                                } else {
+                                    tooltip.css("left", (elm.parent("li")[0].offsetLeft + elm.realWidth()) + "px");
+                                }
+                            }, +config.tooltipDelay * 1000);
+                        }
                     }
                 }
             } else {

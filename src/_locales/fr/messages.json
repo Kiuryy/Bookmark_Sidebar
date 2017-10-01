@@ -344,6 +344,9 @@
     "settings_menu_feedback": {
         "message": "Retour d'exp\u00e9rience"
     },
+    "settings_menu_support": {
+        "message": "Support"
+    },
     "settings_save": {
         "message": "Enregistrer les modifications"
     },
@@ -613,12 +616,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "Ic\u00f4ne des dossiers"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "Dossier"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "Carr\u00e9"
     },
     "settings_bookmarks_dir_color": {
         "message": "Couleur des ic\u00f4nes des dossiers"

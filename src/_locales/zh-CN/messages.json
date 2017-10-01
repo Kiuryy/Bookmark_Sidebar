@@ -45,7 +45,7 @@
         "message": "\u4fe1\u606f"
     },
     "contextmenu_new_tab": {
-        "message": "\u6253\u5f00\u65b0\u7684\u6807\u7b7e"
+        "message": "\u5728\u65b0\u6807\u7b7e\u9875\u6253\u5f00"
     },
     "contextmenu_new_tab_incognito": {
         "message": "\u5728\u65b0\u7a97\u53e3\u6253\u5f00"
@@ -344,6 +344,9 @@
     "settings_menu_feedback": {
         "message": "\u53cd\u9988"
     },
+    "settings_menu_support": {
+        "message": "\u652f\u6301"
+    },
     "settings_save": {
         "message": "\u4fdd\u5b58\u66f4\u6539"
     },
@@ -613,12 +616,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "\u76ee\u5f55\u56fe\u6807"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "\u6587\u4ef6\u5939"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "\u6b63\u65b9\u5f62"
     },
     "settings_bookmarks_dir_color": {
         "message": "\u76ee\u5f55\u56fe\u6807\u989c\u8272"

@@ -87,6 +87,20 @@
                 });
                 this.opts.elm.infobox.addClass(this.opts.classes.flipped);
             });
+
+            $("section.infobox ul.changelog > li > a").on("click", (e) => { // @deprecated only for changelog v1.10
+                let type = $(e.currentTarget).attr("data-type");
+                switch (type) {
+                    case "icon": {
+                        location.href = chrome.extension.getURL("html/settings.html#appearance_icon");
+                        break;
+                    }
+                    case "newtab": {
+                        location.href = chrome.extension.getURL("html/settings.html#newtab_general");
+                        break;
+                    }
+                }
+            });
         };
     };
 

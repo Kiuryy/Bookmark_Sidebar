@@ -344,6 +344,9 @@
     "settings_menu_feedback": {
         "message": "Opinie"
     },
+    "settings_menu_support": {
+        "message": "Wsparcie"
+    },
     "settings_save": {
         "message": "Zapisz zmiany"
     },
@@ -613,12 +616,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona folderu"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "Folder"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "Kwadrat"
     },
     "settings_bookmarks_dir_color": {
         "message": "Kolor ikony folderu"

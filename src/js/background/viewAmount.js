@@ -71,8 +71,6 @@
 
                     chrome.storage.local.set({
                         clickCounter: clickCounter
-                    }, () => {
-                        b.helper.entries.update();
                     });
                 });
             }

@@ -344,6 +344,9 @@
     "settings_menu_feedback": {
         "message": "\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af"
     },
+    "settings_menu_support": {
+        "message": "\u30b5\u30dd\u30fc\u30c8"
+    },
     "settings_save": {
         "message": "\u5909\u66f4\u5185\u5bb9\u3092\u4fdd\u5b58"
     },
@@ -613,12 +616,6 @@
     },
     "settings_bookmarks_dir_icon": {
         "message": "\u30d5\u30a9\u30eb\u30c0\u30a2\u30a4\u30b3\u30f3"
-    },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "\u30d5\u30a9\u30eb\u30c0"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "\u56db\u89d2"
     },
     "settings_bookmarks_dir_color": {
         "message": "\u30d5\u30a9\u30eb\u30c0\u30a2\u30a4\u30b3\u30f3\u8272"

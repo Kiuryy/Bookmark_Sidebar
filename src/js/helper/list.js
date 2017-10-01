@@ -133,6 +133,7 @@
                 ext.helper.scroll.focus();
 
                 promiseObj.then((result) => {
+                    //  result = null;
                     if (result && result.val) { // load content from cache
                         return updateFromCache(list, result.val);
                     } else { // load content from object
@@ -681,7 +682,7 @@
                         entries = response.bookmarks[0].children;
                     }
 
-                    return $.delay(0);
+                    return ext.helper.entry.init(entries);
                 }).then(() => {
                     this.updateSidebarHeader();
                     this.updateSortFilter();

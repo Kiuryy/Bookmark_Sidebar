@@ -1,6 +1,7 @@
 [1.10]
  - Added html caching
  - Redesigned settings/translation pages
+ - Configurable extension icon
  - Added new tab replacement page
  - Improved keyboard navigation
  - Restructured background script

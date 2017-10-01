@@ -344,6 +344,9 @@
     "settings_menu_feedback": {
         "message": "Retroalimentaci\u00f3n"
     },
+    "settings_menu_support": {
+        "message": "Soporte"
+    },
     "settings_save": {
         "message": "Grabar cambios"
     },

@@ -608,12 +608,6 @@
     "settings_bookmarks_dir_icon": {
         "message": "\u00cdcone da pasta"
     },
-    "settings_bookmarks_dir_icon_default": {
-        "message": "Pasta"
-    },
-    "settings_bookmarks_dir_icon_alt_1": {
-        "message": "Quadrado"
-    },
     "settings_bookmarks_dir_color": {
         "message": "Cor do \u00edcone da pasta"
     },

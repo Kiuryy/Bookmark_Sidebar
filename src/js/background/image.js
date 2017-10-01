@@ -27,30 +27,35 @@
          */
         this.getThumbnail = (opts) => {
             return new Promise((resolve) => {
-                let cachedValue = getCachedValue("thumb", opts.url);
-
-                if (cachedValue) {
-                    resolve({img: cachedValue});
+                if (typeof opts.url === "undefined" || opts.url.startsWith("chrome://") || opts.url.startsWith("chrome-extension://")) {
+                    resolve({img: null});
                 } else {
-                    $.xhr(b.urls.thumbnail, {
-                        method: "POST",
-                        timeout: 10000,
-                        data: {
-                            url: opts.url,
-                            lang: chrome.i18n.getUILanguage(),
-                            ua: navigator.userAgent
-                        }
-                    }).then((xhr) => {
-                        let dataUrl = xhr.responseText;
-                        if (dataUrl && dataUrl.length > 0) {
-                            updateImageCache("thumb", opts.url, dataUrl);
-                            resolve({img: dataUrl});
-                        } else {
+                    let cachedValue = getCachedValue("thumb", opts.url);
+
+                    if (cachedValue) {
+                        resolve({img: cachedValue});
+                    } else {
+                        $.xhr(b.urls.thumbnail, {
+                            method: "POST",
+                            timeout: 10000,
+                            data: {
+                                url: opts.url,
+                                lang: chrome.i18n.getUILanguage(),
+                                ua: navigator.userAgent
+                            }
+                        }).then((xhr) => {
+                            let dataUrl = xhr.responseText;
+                            console.log(xhr)
+                            if (dataUrl && dataUrl.length > 0) {
+                                updateImageCache("thumb", opts.url, dataUrl);
+                                resolve({img: dataUrl});
+                            } else {
+                                resolve({img: null});
+                            }
+                        }, () => {
                             resolve({img: null});
-                        }
-                    }, () => {
-                        resolve({img: null});
-                    });
+                        });
+                    }
                 }
             });
         };

@@ -24,8 +24,7 @@
             return new Promise((resolve) => {
                 Promise.all([
                     this.helper.newtab.updateConfig(),
-                    this.helper.cache.remove({name: "html"}),
-                    this.helper.entries.update()
+                    this.helper.cache.remove({name: "html"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab) => {
@@ -57,8 +56,7 @@
 
                 Promise.all([
                     this.helper.newtab.updateConfig(),
-                    this.helper.cache.remove({name: "html"}),
-                    this.helper.entries.update()
+                    this.helper.cache.remove({name: "html"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab) => {
@@ -122,7 +120,6 @@
                 upgrade: new window.UpgradeHelper(this),
                 viewAmount: new window.ViewAmountHelper(this),
                 newtab: new window.NewtabHelper(this),
-                entries: new window.EntriesHelper(this),
                 image: new window.ImageHelper(this),
                 port: new window.PortHelper(this),
                 icon: new window.IconHelper(this),
@@ -156,8 +153,7 @@
                 return Promise.all([
                     initEvents(),
                     this.helper.port.init(),
-                    this.helper.upgrade.init(),
-                    this.helper.entries.update()
+                    this.helper.upgrade.init()
                 ]);
             }).then(() => {
                 console.log("LOADED", +new Date() - start)

@@ -3,23 +3,42 @@
 
     window.EntryHelper = function (ext) {
 
-        let entries = {};
+        let inited = false;
+
         let amounts = {};
-        let showHidden = false;
+        let config = {};
+        let info = {};
+        let entries = {
+            bookmarks: {},
+            directories: {},
+            pinned: {}
+        };
 
         /**
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                showHidden = ext.helper.model.getData("u/showHidden");
+        this.init = (entries) => {
+            inited = true;
 
-                ext.helper.model.call("entries").then((result) => {
-                    entries = result.entries;
-                    amounts = result.amounts;
+            return new Promise((resolve) => {
+                config = ext.helper.model.getData(["u/hiddenEntries", "u/pinnedEntries", "u/showHidden"]);
+                this.update(entries).then(resolve);
+            });
+        };
+
+        /**
+         * Initialises the helper if not already initialized
+         *
+         * @returns {Promise}
+         */
+        this.initOnce = () => {
+            return new Promise((resolve) => {
+                if (!inited) {
+                    this.init().then(resolve);
+                } else {
                     resolve();
-                });
+                }
             });
         };
 
@@ -30,9 +49,13 @@
          * @returns {int|null}
          */
         this.getAmount = (type) => {
-            if (amounts[type]) {
+            if (Object.keys(amounts).length === 0) {
+                amounts = ext.helper.model.getData("u/entryAmounts");
+            }
+
+            if (amounts && amounts[type]) {
                 let amount = amounts[type].visible;
-                if (showHidden) { // hidden entries are visible -> add them to the counter
+                if (config.showHidden) { // hidden entries are visible -> add them to the counter
                     amount += amounts[type].hidden;
                 }
                 return amount;
@@ -116,6 +139,166 @@
             }
 
             return visible;
+        };
+
+        /**
+         * Updates the object with all bookmarks and directories,
+         * stores the infos of all entries in a one dimensional object and marks the hidden bookmarks or directories with a flag
+         *
+         * @returns {Promise}
+         */
+        this.update = (bookmarkTree = null) => {
+            return new Promise((resolve) => {
+                let promises = [
+                    ext.helper.model.call("viewAmounts")
+                ];
+
+                if (bookmarkTree === null) {
+                    promises.push(ext.helper.model.call("bookmarks", {id: 0}));
+                }
+
+                Promise.all(promises).then((values) => {
+                    info = values[0];
+
+                    if (bookmarkTree === null && values[1] && values[1].bookmarks && values[1].bookmarks[0] && values[1].bookmarks[0].children) { // children are existing
+                        bookmarkTree = values[1].bookmarks[0].children;
+                    }
+
+                    entries = {
+                        bookmarks: {},
+                        directories: {},
+                        pinned: {}
+                    };
+
+                    amounts = {
+                        bookmarks: {
+                            visible: 0,
+                            hidden: 0
+                        },
+                        directories: {
+                            visible: 0,
+                            hidden: 0
+                        },
+                        pinned: {
+                            visible: 0,
+                            hidden: 0
+                        }
+                    };
+                    processEntries(bookmarkTree);
+
+                    ext.helper.model.setData({"u/entryAmounts": amounts});
+                    resolve();
+                });
+            });
+        };
+
+        /**
+         *
+         * @param {Array} entriesList
+         * @param {Array} parents
+         * @param {bool} parentIsHidden
+         */
+        let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
+            entriesList.forEach((entry) => {
+                let thisParents = [...parents];
+
+                if (entry.parentId !== "0") {
+                    thisParents.push(entry.parentId);
+                }
+
+                entry.hidden = parentIsHidden || config.hiddenEntries[entry.id] === true;
+                entry.parents = thisParents;
+
+                entry.views = {
+                    startDate: +new Date(Math.max(entry.dateAdded, info.counterStartDate)),
+                    total: 0
+                };
+
+                if (entry.url) { // bookmark
+                    handleBookmarkEntry(entry);
+                } else if (entry.children) { // directory
+                    handleDirectoryEntry(entry);
+                }
+            });
+        };
+
+        /**
+         * Adds the information about the given entry to the directories object
+         *
+         * @param entry
+         */
+        let handleDirectoryEntry = (entry) => {
+            entry.childrenAmount = {
+                bookmarks: 0,
+                directories: 0,
+                total: 0
+            };
+
+            entry.parents.forEach((parentId) => {
+                entries.directories[parentId].childrenAmount.directories++; // increase children counter
+            });
+
+            entries.directories[entry.id] = entry;
+            processEntries(entry.children, entry.parents, entry.hidden);
+
+            entry.isDir = true;
+            entry.childrenAmount.total = entry.childrenAmount.bookmarks + entry.childrenAmount.directories;
+            entry.views.perMonth = Math.round(entry.views.total / getMonthDiff(entry.views.startDate) * 100) / 100;
+
+            amounts.directories[entry.hidden ? "hidden" : "visible"]++;
+        };
+
+        /**
+         * Adds the information about the given entry to the bookmarks object
+         *
+         * @param entry
+         */
+        let handleBookmarkEntry = (entry) => {
+            let viewAmount = 0;
+            let lastView = 0;
+
+            if (info.viewAmounts[entry.id]) {
+                viewAmount = info.viewAmounts[entry.id].c;
+                lastView = info.viewAmounts[entry.id].d || 0;
+            }
+
+            entry.views.total = viewAmount;
+            entry.views.lastView = lastView;
+            entry.views.perMonth = Math.round(viewAmount / getMonthDiff(entry.views.startDate) * 100) / 100;
+
+            entry.parents.forEach((parentId) => {
+                if (entries.directories[parentId]) {
+                    entries.directories[parentId].childrenAmount.bookmarks++; // increase children counter
+                    entries.directories[parentId].views.total += viewAmount; // add view amount to all parent directories counter
+                    entries.directories[parentId].views.lastView = Math.max(entries.directories[parentId].views.lastView || 0, lastView); // add lastView date
+                }
+            });
+
+            entry.pinned = false;
+            entries.bookmarks[entry.id] = entry;
+            amounts.bookmarks[entry.hidden ? "hidden" : "visible"]++;
+
+            if (config.pinnedEntries[entry.id]) { // pinned bookmark -> add entry to the respective object
+                entry.pinned = true;
+
+                let obj = Object.assign({}, entry);
+                obj.index = config.pinnedEntries[entry.id].index;
+                delete obj.parents;
+                delete obj.parentId;
+                entries.pinned[entry.id] = obj;
+
+                amounts.pinned[entry.hidden ? "hidden" : "visible"]++;
+            }
+        };
+
+        /**
+         * Returns the difference in months between the given timestamp and now
+         *
+         * @param {int} startDate
+         * @returns {int}
+         */
+        let getMonthDiff = (startDate) => {
+            return Math.max(1, Math.round((+new Date() - startDate) / (30.416666 * 24 * 60 * 60 * 1000)));
         };
 
     };

@@ -92,9 +92,7 @@
                 Promise.all([
                     ext.helper.model.call("removeCache", {name: "html"}),
                     ext.helper.model.setData({"u/pinnedEntries": entries})
-                ]).then(() => {
-                    return ext.helper.model.call("updateEntries");
-                }).then(resolve);
+                ]).then(resolve);
             });
         };
 

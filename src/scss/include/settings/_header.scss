@@ -85,7 +85,7 @@ body > header {
       &.restore {
         @include mask('icon-update', $textColorInverted, 24px);
         background: transparent;
-        margin: 0 0 0 10px;
+        margin: 1px 0 0 10px;
         width: 24px;
         height: 24px;
       }

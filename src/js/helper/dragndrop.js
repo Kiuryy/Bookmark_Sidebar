@@ -174,7 +174,18 @@
         let dragstart = (node, x, y) => {
             ext.helper.contextmenu.close();
             ext.helper.tooltip.close();
+
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
+            let data = {};
+
+            if (!elm.hasClass(ext.opts.classes.sidebar.separator)) {
+                data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+
+                if (data === null) {
+                    return false;
+                }
+            }
+
             let elmParent = elm.parent("li");
             let parentTrigger = elmParent.parent("ul").prev("a");
 
@@ -183,11 +194,7 @@
 
             let helper = elm.clone().appendTo(ext.elements.iframeBody);
             let boundClientRect = elm[0].getBoundingClientRect();
-            let data = {};
 
-            if (!elm.hasClass(ext.opts.classes.sidebar.separator)) {
-                data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
-            }
 
             let index = 0;
             elmParent.prevAll("li").forEach((entry) => {

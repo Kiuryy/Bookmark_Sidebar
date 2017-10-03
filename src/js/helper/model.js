@@ -27,7 +27,8 @@
                 pinnedEntries: {},
                 entriesLocked: false,
                 translationHelp: true,
-                entryAmounts:{},
+                entryAmounts: {},
+                searchValue: null,
                 lastOpened: null,
                 sort: {
                     name: "custom",

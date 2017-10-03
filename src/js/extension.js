@@ -112,7 +112,9 @@
                 let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
+                this.helper.search.init();
                 this.initialized = +new Date();
+
                 console.log(+new Date() - window.start);
 
                 this.helper.utility.triggerEvent("loaded", {

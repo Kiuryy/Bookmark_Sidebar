@@ -527,12 +527,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "Nie ausblenden"
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "Auf der New-Tab-Seite initial \u00f6ffnen"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "Wenn ausgew\u00e4hlt, wird die Sidebar automatisch ge\u00f6ffnet wenn die New-Tab-Seite aufgerufen wird."
-    },
     "settings_drag_n_drop_open": {
         "message": "Per Drag&Drop \u00f6ffnen"
     },

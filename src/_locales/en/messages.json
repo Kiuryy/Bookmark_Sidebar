@@ -527,12 +527,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "Never hide"
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "Initial open on new tab page"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "Choose whether the sidebar should be opened automatically on the new tab page."
-    },
     "settings_drag_n_drop_open": {
         "message": "Open by drag&drop"
     },

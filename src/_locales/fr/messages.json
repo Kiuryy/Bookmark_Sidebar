@@ -188,6 +188,27 @@
     "overlay_check_urls_not_found": {
         "message": "URL non trouv\u00e9e"
     },
+    "newtab_title": {
+        "message": "Nouvel onglet"
+    },
+    "newtab_search_placeholder": {
+        "message": "Rechercher {1} ou saisir l'URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "Top pages"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Favoris visit\u00e9s r\u00e9cemment"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Favoris les plus visit\u00e9s"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Favoris \u00e9pingl\u00e9s"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Ne rien afficher"
+    },
     "status_service_unavailable_headline": {
         "message": "Service indisponible"
     },
@@ -506,12 +527,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "Ne jamais cacher"
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "Affichage automatique \u00e0 l'ouverture d'un nouvel onglet"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "Option pour afficher automatiquement la barre lat\u00e9rale dans les nouveaux onglets."
-    },
     "settings_drag_n_drop_open": {
         "message": "Ouvrir par glisser-d\u00e9poser"
     },
@@ -693,7 +708,10 @@
         "message": "La traduction sera publi\u00e9e d\u00e8s que les cat\u00e9gories signal\u00e9es comme requises seront traduites."
     },
     "settings_translation_notice2": {
-        "message": "Les cat\u00e9gories incompl\u00e8tes ne seront pas publi\u00e9es, afin d'\u00e9viter les textes traduits \u00e0 moiti\u00e9."
+        "message": "Les cat\u00e9gories incompl\u00e8tes ne seront pas publi\u00e9es, afin d'\u00e9viter les textes \u00e0 moiti\u00e9 traduits."
+    },
+    "settings_translation_help": {
+        "message": "Pour chaque \u00e9l\u00e9ment, vous pouvez voir le texte en anglais qui doit \u00eatre traduit dans votre langue. Pour vous aider \u00e0 trouver o\u00f9 le texte est utilis\u00e9 et \u00e0 quoi il sert, chaque \u00e9l\u00e9ment a un nom (e.g. {1}), qui lui n'est pas \u00e0 traduire. N'oubliez pas d'envoyer votre traduction en cliquant sur le bouton en haut \u00e0 droite !"
     },
     "settings_translation_submit": {
         "message": "Envoyer"

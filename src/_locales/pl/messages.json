@@ -506,12 +506,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "Nigdy nie chowaj."
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "Pocz\u0105tkowo otwieraj na stronie nowej karty"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "Wybierz, czy boczna lista powinna by\u0107 otwierana automatycznie na stronie nowej karty."
-    },
     "settings_drag_n_drop_open": {
         "message": "Otw\u00f3rz poprzez przeci\u0105gni\u0119cie i upuszczenie"
     },

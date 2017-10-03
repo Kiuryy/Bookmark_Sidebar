@@ -135,9 +135,7 @@
             let manifest = chrome.runtime.getManifest();
             this.isDev = manifest.version_name === "Dev" || !('update_url' in manifest);
 
-            if (this.isDev === false) {
-                chrome.runtime.setUninstallURL(this.urls.uninstall);
-            }
+            chrome.runtime.setUninstallURL(this.urls[this.isDev ? "checkStatus" : "uninstall"]);
 
             initHelpers();
             let start = +new Date();

@@ -80,7 +80,9 @@
                         searchTimeout = null;
                     }
 
-                    ext.helper.model.setData({"u/searchValue": val}).then(() => {
+                    ext.helper.entry.initOnce().then(() => {
+                        return ext.helper.model.setData({"u/searchValue": val});
+                    }).then(() => {
                         ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
                         return ext.helper.model.call("searchBookmarks", {searchVal: val});
                     }).then((response) => {

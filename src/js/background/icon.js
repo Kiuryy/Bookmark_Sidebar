@@ -23,7 +23,12 @@
                         }
                     }
 
-                    if (name !== "logo") {
+                    if (name === "logo") {
+                        let manifest = chrome.runtime.getManifest();
+                        chrome.browserAction.setIcon({
+                            path: manifest.browser_action.default_icon
+                        });
+                    } else {
                         this.set({
                             name: name,
                             color: color

@@ -506,12 +506,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "Nikdy se neschov\u00e1vej"
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "Po\u010d\u00e1te\u010dn\u00ed otev\u0159en\u00ed v nov\u00e9 kart\u011b"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "Zvolte, jestli\u017ee se m\u00e1 bo\u010dn\u00ed li\u0161ta automaticky otev\u0159\u00edt na nov\u00e9 kart\u011b."
-    },
     "settings_drag_n_drop_open": {
         "message": "Otev\u0159ete t\u00e1hni&pus\u0165"
     },

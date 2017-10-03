@@ -145,19 +145,19 @@
 
                 let proceedConfig = (baseName, obj) => {
                     Object.keys(obj).forEach((attr) => {
+                        if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
+                            obj[attr] = obj[attr].length;
+                        }
+
                         if (typeof obj[attr] === "object") {
                             proceedConfig(baseName + "_" + attr, obj[attr])
                         } else {
-                            if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
-                                obj[attr] = obj[attr].length;
+                            if (typeof obj[attr] !== "string") { // parse everything to string
+                                obj[attr] = JSON.stringify(obj[attr]);
                             }
 
                             if (baseName === "newtab" && attr === "website") { // don't track the exact website, just true or false
                                 obj[attr] = obj[attr] && obj[attr].length > 0 ? "true" : "false";
-                            }
-
-                            if (typeof obj[attr] !== "string") { // parse everything to string
-                                obj[attr] = JSON.stringify(obj[attr]);
                             }
 
                             this.trackEvent({

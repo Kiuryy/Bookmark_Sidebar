@@ -506,12 +506,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "\u6c38\u4e0d\u9690\u85cf"
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "\u9996\u6b21\u5728\u65b0\u6807\u7b7e\u9875\u6253\u5f00"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "\u9009\u62e9\u5728\u65b0\u6807\u7b7e\u9875\u4e0a\u81ea\u52a8\u6253\u5f00\u4fa7\u8fb9\u680f\u3002"
-    },
     "settings_drag_n_drop_open": {
         "message": "\u901a\u8fc7\u62d6\u62fd\u6253\u5f00"
     },

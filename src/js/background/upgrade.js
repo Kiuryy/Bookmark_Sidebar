@@ -67,6 +67,7 @@
                 let savedValues = () => {
                     savedCount++;
                     if (savedCount >= 3) { // newtab, behaviour and appearance
+                        b.helper.icon.init(); // @deprecated only for upgrade to v1.0
                         resolve();
                     }
                 };
@@ -125,12 +126,16 @@
                         }
                     }
 
-                    if (typeof obj.behaviour.rememberState !== "undefined" && obj.behaviour.rememberState === "all") {
+                    if (typeof obj.behaviour.rememberState === "undefined" || obj.behaviour.rememberState === "all") {
                         obj.behaviour.rememberState = "openStatesAndPos";
                     }
 
-                    if (typeof obj.appearance.iconShape === "undefined") {
-                        obj.appearance.iconShape = "logo";
+                    if (typeof obj.appearance.styles === "undefined") {
+                        obj.appearance.styles = {};
+                    }
+
+                    if (typeof obj.appearance.styles.iconShape === "undefined") {
+                        obj.appearance.styles.iconShape = "logo";
                     }
                     // END UPGRADE // v1.10
 
@@ -140,10 +145,6 @@
                     }
 
                     delete obj.behaviour.scrollSensitivity;
-
-                    if (typeof obj.appearance.styles === "undefined") {
-                        obj.appearance.styles = {};
-                    }
 
                     if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily === "Roboto") {
                         obj.appearance.styles.fontFamily = "default";

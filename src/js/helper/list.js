@@ -650,7 +650,6 @@
 
                 this.updateSidebarHeader();
                 this.updateSortFilter();
-                ext.helper.search.init();
 
                 if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                     list.addClass(ext.opts.classes.sidebar.hideRoot);
@@ -686,7 +685,6 @@
                 }).then(() => {
                     this.updateSidebarHeader();
                     this.updateSortFilter();
-                    ext.helper.search.init();
 
                     if (viewAsTree || sort.name === "custom") { // with directories
                         this.addBookmarkDir(entries, list, true);

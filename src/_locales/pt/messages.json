@@ -497,12 +497,6 @@
     "settings_scrollbar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_initial_open_on_new_tab": {
-        "message": "Abertura inicial em uma nova p\u00e1gina"
-    },
-    "settings_initial_open_on_new_tab_desc": {
-        "message": "Escolha se a barra lateral dever\u00e1 ser aberta automaticamente na nova p\u00e1gina."
-    },
     "settings_drag_n_drop_open": {
         "message": "Abrir com Arrastar e Soltar"
     },

@@ -154,7 +154,9 @@
                     this.helper.upgrade.init()
                 ]);
             }).then(() => {
-                console.log("LOADED", +new Date() - start)
+                if (this.isDev) {
+                    console.log("LOADED", +new Date() - start);
+                }
             });
         };
     };

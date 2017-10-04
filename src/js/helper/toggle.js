@@ -26,8 +26,8 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
-            let isNewTab = ext.helper.utility.getPageType().startsWith("newtab_");
             let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen"]);
+
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
@@ -46,25 +46,18 @@
                 ext.elements.indicator.html("<div />").attr(ext.opts.attr.position, sidebarPos);
 
                 if (data.showIndicatorIcon) { // show indicator icon
-                    let icon = $("<span />").appendTo(ext.elements.indicator.children("div"));
-
-                    if (isNewTab) { // workaround for new tab page -> mask image as path is not loaded -> replace path with base64 url
-                        ext.helper.template.svgByName("icon-bookmark").then((svg) => {
-                            icon.css("-webkit-mask-image", "url('data:image/svg+xml;base64," + window.btoa(svg) + "')");
-                            indicatorLoaded();
-                        });
-                    } else {
-                        indicatorLoaded();
-                    }
-                } else {
-                    indicatorLoaded();
+                    $("<span />").appendTo(ext.elements.indicator.children("div"));
                 }
+
+                $.delay(50).then(() => { // delay to prevent indicator beeing visible initial
+                    ext.elements.indicator.addClass(ext.opts.classes.page.visible);
+                });
             }
 
             handleLeftsideBackExtension();
             initEvents();
 
-            if (isNewTab) {
+            if (ext.helper.utility.getPageType().startsWith("newtab_")) {
                 if (ext.helper.model.getData("n/initialOpen")) {
                     this.openSidebar();
                 }
@@ -133,15 +126,6 @@
                 $(document).trigger("mousemove.bs"); // hide indicator
                 ext.helper.utility.triggerEvent("sidebarOpened");
             }
-        };
-
-        /**
-         * Adds a class to the indicator, so it will be displayed when moving into the pixel tolerance range
-         */
-        let indicatorLoaded = () => {
-            $.delay(50).then(() => { // delay to prevent indicator beeing visible initial
-                ext.elements.indicator.addClass(ext.opts.classes.page.visible);
-            });
         };
 
         /**

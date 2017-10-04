@@ -47,7 +47,7 @@
                 let showMask = false;
                 let installationDate = b.helper.model.getData("installationDate");
 
-                if (b.helper.model.shareUserdata() === null && (+new Date() - installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
+                if (b.isDev === false && b.helper.model.shareUserdata() === null && (+new Date() - installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
                     showMask = true;
                 }
                 resolve({showMask: showMask});
@@ -275,10 +275,13 @@
                             if (mapping[message.type]) { // function for message type exists
                                 message.tabInfo = info.sender.tab;
                                 mapping[message.type](message).then((result) => {
-                                    port.postMessage({
-                                        uid: message.uid,
-                                        result: result
-                                    });
+                                    try { // can fail if port is closed in the meantime
+                                        port.postMessage({
+                                            uid: message.uid,
+                                            result: result
+                                        });
+                                    } catch (e) {
+                                    }
                                 });
                             }
                         });

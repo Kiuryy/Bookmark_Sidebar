@@ -3,7 +3,7 @@
 
     window.NewtabHelper = function (s) {
 
-        let inited = false;
+        let overrideCheckboxInited = false;
 
         /**
          * Initialises the behaviour settings
@@ -16,15 +16,25 @@
 
             ["override", "initialOpen"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
-                    s.opts.elm.checkbox[field].trigger("click");
+                    if (field === "override") { // only enable override checkbox if the user granted permissions
+                        chrome.permissions.contains({
+                            permissions: ['tabs', 'topSites']
+                        }, (result) => {
+                            if (result) {
+                                s.opts.elm.checkbox[field].trigger("click");
+                            }
+                        });
+                    } else {
+                        s.opts.elm.checkbox[field].trigger("click");
+                    }
+                } else {
+                    overrideCheckboxInited = true;
                 }
             });
 
             ["website"].forEach((field) => {
                 s.opts.elm.field[field][0].value = s.helper.model.getData("n/" + field);
             });
-
-            inited = true;
         };
 
         /**
@@ -67,10 +77,10 @@
                 let hideableBoxes = s.opts.elm.newtab.content.find("div." + s.opts.classes.newtab.hideable);
 
                 if (override) {
-                    if (inited === true) {
+                    if (overrideCheckboxInited === true) {
                         chrome.permissions.request({ // request additional permissions in order to override the new tab page
                             permissions: ['tabs', 'topSites']
-                        }, function (granted) {
+                        }, (granted) => {
                             if (!granted) { // not granted -> no overriding
                                 s.opts.elm.checkbox.override.trigger("click");
                                 override = false;

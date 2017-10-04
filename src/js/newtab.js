@@ -18,7 +18,7 @@
                 suggestions: "suggestions",
                 edit: "edit",
                 add: "add",
-                link:"link",
+                link: "link",
                 remove: "remove",
                 infoBar: "infoBar",
                 save: "save",
@@ -53,7 +53,7 @@
         this.run = () => {
             chrome.permissions.contains({
                 permissions: ['tabs', 'topSites']
-            }, function (result) {
+            }, (result) => {
                 if (result) {
                     loadPage();
                 } else { // no permission to continue -> show default page instead

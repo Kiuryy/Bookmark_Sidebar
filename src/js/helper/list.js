@@ -120,7 +120,7 @@
                 let list = ext.elements.bookmarkBox["all"].children("ul");
                 let promiseObj = null;
 
-                window.start = +new Date();
+                ext.updateBookmarkBoxStart = +new Date();
 
                 if (ext.helper.model.getData("u/viewAsTree")) {
                     promiseObj = ext.helper.model.call("getCache", {name: "html"});
@@ -207,7 +207,7 @@
          * @returns {Promise}
          */
         this.cacheList = () => {
-            console.log("CACHE");
+            ext.log("CACHE");
             return ext.helper.model.call("setCache", {
                 name: "html",
                 val: ext.elements.bookmarkBox["all"].children("ul").html()
@@ -643,7 +643,7 @@
          */
         let updateFromCache = (list, cachedHtml) => {
             return new Promise((resolve) => {
-                console.log("LOAD FROM CACHE");
+                ext.log("LOAD FROM CACHE");
                 list.html(cachedHtml);
                 list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
                 ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
@@ -668,7 +668,7 @@
          */
         let updateFromObject = (list) => {
             return new Promise((resolve) => {
-                console.log("LOAD FROM OBJECT");
+                ext.log("LOAD FROM OBJECT");
                 let entries = [];
                 let viewAsTree = ext.helper.model.getData("u/viewAsTree");
                 ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.cached);

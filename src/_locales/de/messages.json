@@ -402,7 +402,7 @@
         "message": "Sidebar \u00f6ffnen"
     },
     "settings_open_action_desc": {
-        "message": "\u00d6ffne die Sidebar per links- oder rechtsklick oder Mouseover des Browserrfensterrandes. Alternativ kannst du es so einstellen, dass nur der Klick auf das Symbol im Chrome-Men\u00fc die Sidebar \u00f6ffnet."
+        "message": "\u00d6ffne die Sidebar per Links- bzw. Rechtsklick oder Mouseover des Browserrfensterrandes. Alternativ kannst du es so einstellen, dass nur der Klick auf das Symbol im Chrome-Men\u00fc die Sidebar \u00f6ffnet."
     },
     "settings_open_action_leftclick": {
         "message": "Linksklick"

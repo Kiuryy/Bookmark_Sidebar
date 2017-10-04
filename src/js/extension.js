@@ -13,6 +13,7 @@
         this.initialized = null;
         this.firstRun = true;
         this.refreshRun = true;
+        this.isDev = false;
         this.elements = {};
         this.opts = opts;
 
@@ -20,6 +21,7 @@
          * Constructor
          */
         this.run = () => {
+            this.isDev = this.opts.manifest.version_name === "Dev" || !('update_url' in this.opts.manifest);
             initHelpers();
 
             this.helper.model.init().then(() => {
@@ -105,6 +107,17 @@
         };
 
         /**
+         * Prints the given parameters in the console (only if this.dev = true)
+         *
+         * @param {mixed} msg
+         */
+        this.log = (...msg) => {
+            if (this.isDev) {
+                console.log(...msg);
+            }
+        };
+
+        /**
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         this.loaded = () => {
@@ -115,7 +128,7 @@
                 this.helper.search.init();
                 this.initialized = +new Date();
 
-                console.log(+new Date() - window.start);
+                this.log(this.initialized - this.updateBookmarkBoxStart);
 
                 this.helper.utility.triggerEvent("loaded", {
                     pxTolerance: data.pxTolerance,
@@ -235,7 +248,7 @@
             let sidebarIframe = $("iframe#" + opts.ids.page.iframe);
 
             if (sidebarIframe.length() > 0) {
-                console.log("DESTROY");
+                this.log("DESTROY");
 
                 sidebarIframe.remove();
                 $("iframe#" + opts.ids.page.overlay).remove();

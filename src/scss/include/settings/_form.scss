@@ -22,6 +22,10 @@ select, input[type='email'], input[type='text'], textarea {
   }
 }
 
+input[type='text'] {
+  width: 100%;
+}
+
 select {
   cursor: pointer;
   max-width: 100%;

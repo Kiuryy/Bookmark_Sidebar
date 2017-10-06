@@ -192,8 +192,14 @@
                         case "topPages":
                         default: {
                             chrome.topSites.get((list) => {
-                                let filteredList = list.slice(0, amount.total);
-                                resolve(filteredList);
+                                let lastError = chrome.runtime.lastError;
+
+                                if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
+                                    let filteredList = list.slice(0, amount.total);
+                                    resolve(filteredList);
+                                } else {
+                                    resolve([]);
+                                }
                             });
                             break;
                         }

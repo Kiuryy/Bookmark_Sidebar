@@ -23,11 +23,12 @@
                             if (result) {
                                 s.opts.elm.checkbox[field].trigger("click");
                             }
+                            overrideCheckboxInited = true;
                         });
                     } else {
                         s.opts.elm.checkbox[field].trigger("click");
                     }
-                } else {
+                } else if (field === "override") {
                     overrideCheckboxInited = true;
                 }
             });

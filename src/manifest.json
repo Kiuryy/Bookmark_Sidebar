@@ -71,6 +71,7 @@
     "css/content.css",
     "img/*"
   ],
+  "incognito": "split",
   "options_page": "html/settings.html",
   "icons": {
     "256": "img/icon/dev/256x256.png",

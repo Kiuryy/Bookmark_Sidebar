@@ -11,7 +11,7 @@
             thumbnail: "https://4v1.de/t"
         };
 
-        this.dev = false;
+        this.isDev = false;
         let reinitialized = null;
 
         /**
@@ -87,7 +87,10 @@
         let initEvents = async () => {
             chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
                 chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                    chrome.tabs.sendMessage(tabs[0].id, {action: "toggleSidebar"});
+                    chrome.tabs.sendMessage(tabs[0].id, {
+                        action: "toggleSidebar",
+                        reinitialized: reinitialized
+                    });
                 });
             });
 
@@ -105,6 +108,12 @@
                     if (bookmarkImportRunning === false || eventName !== "Created") { // only refresh tabs when the bookmark was not created by the import process
                         this.reload({type: eventName});
                     }
+                });
+            });
+
+            ["Moved", "ChildrenReordered"].forEach((eventName) => { // deleted the html cache after moving a bookmark
+                chrome.bookmarks["on" + eventName].addListener(() => {
+                    this.helper.cache.remove({name: "html"});
                 });
             });
         };
@@ -132,13 +141,12 @@
          *
          */
         this.run = () => {
+            let start = +new Date();
             let manifest = chrome.runtime.getManifest();
             this.isDev = manifest.version_name === "Dev" || !('update_url' in manifest);
 
             chrome.runtime.setUninstallURL(this.urls[this.isDev ? "checkStatus" : "uninstall"]);
-
             initHelpers();
-            let start = +new Date();
 
             Promise.all([
                 this.helper.model.init(),

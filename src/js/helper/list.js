@@ -122,7 +122,7 @@
 
                 ext.updateBookmarkBoxStart = +new Date();
 
-                if (ext.helper.model.getData("u/viewAsTree")) {
+                if (ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") {
                     promiseObj = ext.helper.model.call("getCache", {name: "html"});
                 } else {
                     promiseObj = new Promise((resolve) => {
@@ -133,7 +133,6 @@
                 ext.helper.scroll.focus();
 
                 promiseObj.then((result) => {
-                    //  result = null;
                     if (result && result.val) { // load content from cache
                         return updateFromCache(list, result.val);
                     } else { // load content from object

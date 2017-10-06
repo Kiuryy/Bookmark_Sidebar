@@ -153,6 +153,12 @@
                         }
 
                         $.delay(delay).then(ext.reload);
+                    } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
+                        if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                            ext.helper.toggle.closeSidebar();
+                        } else {
+                            ext.helper.toggle.openSidebar();
+                        }
                     }
                 }
             });

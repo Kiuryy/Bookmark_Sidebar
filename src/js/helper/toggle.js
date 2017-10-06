@@ -218,16 +218,6 @@
                 }
             }, {passive: true});
 
-            chrome.extension.onMessage.addListener((message) => {
-                if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
-                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                        this.closeSidebar();
-                    } else {
-                        this.openSidebar();
-                    }
-                }
-            });
-
             let openAction = ext.helper.model.getData("b/openAction");
 
             if (openAction !== "icon") {

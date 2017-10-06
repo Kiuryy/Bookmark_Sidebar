@@ -116,6 +116,11 @@
             });
         };
 
+        /**
+         * Initialises the port to the background script
+         *
+         * @returns {Promise}
+         */
         let initPort = () => {
             return new Promise((resolve) => {
                 if (port) {
@@ -150,19 +155,9 @@
                     chrome.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
                         newData[key] = obj[key] || {};
 
-                        if (key === "utility" && Object.keys(newData[key]).length === 0) { // @deprecated fallback to sync storage for utility data
-                            chrome.storage.sync.get([key], (obj2) => {
-                                newData[key] = obj2[key] || {};
-                                if (++loaded === len) {
-                                    data = newData;
-                                    resolve();
-                                }
-                            });
-                        } else {
-                            if (++loaded === len) { // all data loaded from storage -> resolve promise
-                                data = newData;
-                                resolve();
-                            }
+                        if (++loaded === len) { // all data loaded from storage -> resolve promise
+                            data = newData;
+                            resolve();
                         }
                     });
                 });
@@ -329,7 +324,7 @@
         };
 
         /**
-         * Sends a message to the model and resolves when receiving a response
+         * Sends a message to the background script and resolves when receiving a response
          *
          * @param {string} key
          * @param {object} opts

@@ -297,8 +297,7 @@
                     $.xhr(s.opts.ajax.translation.langvars, {
                         method: "POST",
                         data: {
-                            lang: lang,
-                            n: 1 // @deprecated parameter just for backward compatibility
+                            lang: lang
                         }
                     }).then((xhr) => {
                         let infos = JSON.parse(xhr.responseText);

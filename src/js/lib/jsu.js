@@ -1,5 +1,5 @@
 /**
- * jsu v1.2.1
+ * jsu v1.2.2
  *
  * Philipp König
  * https://blockbyte.de/
@@ -1231,7 +1231,7 @@
                     ret.push(new jsuNode(elmList));
                 });
 
-                return this[nodes].length > 1 ? ret : ret[0];
+                return this[nodes].length > 1 ? new jsuNode(ret) : ret[0];
             }
 
 
@@ -1288,7 +1288,7 @@
                     ret.push(new jsuNode(parentElm));
                 });
 
-                return this[nodes].length > 1 ? ret : ret[0];
+                return this[nodes].length > 1 ? new jsuNode(ret) : ret[0];
             }
 
 
@@ -1317,7 +1317,7 @@
                     ret.push(new jsuNode(parentsList));
                 });
 
-                return this[nodes].length > 1 ? ret : ret[0];
+                return this[nodes].length > 1 ? new jsuNode(ret) : ret[0];
             }
 
 
@@ -1333,7 +1333,7 @@
                     ret.push(new jsuNode(node.ownerDocument));
                 });
 
-                return this[nodes].length > 1 ? ret : ret[0];
+                return this[nodes].length > 1 ? new jsuNode(ret) : ret[0];
             }
 
 

@@ -289,13 +289,8 @@
                     }
 
                     if (data && data.values) { // fill fields with given values
-                        if (data.values.title) {
-                            titleValue = data.values.title;
-                        }
-
-                        if (data.values.url) {
-                            urlValue = data.values.url;
-                        }
+                        titleValue = data.values.title || "";
+                        urlValue = data.values.url || "";
                     }
 
                     list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");

@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/kiuryy/bookmark_sidebar.svg)](https://github.com/Kiuryy/Bookmark_Sidebar/releases)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/jdbnofccmhefkmjbkkdkfiicjkgofkdh.svg)](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh)
 [![npm devDependencies](https://david-dm.org/kiuryy/bookmark_sidebar/dev-status.svg)](https://david-dm.org/kiuryy/bookmark_sidebar?type=dev)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-lightgray.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL_v3-lightgray.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ---
 
@@ -14,6 +14,20 @@ Bookmark Sidebar is an extension for Chrome, which adds a toggleable sidebar wit
 </a>
 
 The extension is currently available in 13 different languages...
+
+![English](https://img.shields.io/badge/English--green.svg?style=flat-square)
+![Deutsch](https://img.shields.io/badge/Deutsch--green.svg?style=flat-square)
+![Français](https://img.shields.io/badge/Français--green.svg?style=flat-square)
+![español](https://img.shields.io/badge/español--green.svg?style=flat-square)
+![português](https://img.shields.io/badge/português--green.svg?style=flat-square)
+![magyar](https://img.shields.io/badge/magyar--green.svg?style=flat-square)
+![polski](https://img.shields.io/badge/polski--green.svg?style=flat-square)
+![čeština](https://img.shields.io/badge/čeština--green.svg?style=flat-square)
+![русский](https://img.shields.io/badge/русский--green.svg?style=flat-square)
+![Tiếng Việt](https://img.shields.io/badge/Tiếng_Việt--green.svg?style=flat-square)
+![中文 (简体)](https://img.shields.io/badge/中文_(简体)--green.svg?style=flat-square)
+![日本語](https://img.shields.io/badge/日本語--green.svg?style=flat-square)
+![한국어](https://img.shields.io/badge/한국어--green.svg?style=flat-square)
 
 `Deutsch` `English` `Français` `español` `português` `magyar` `polski` `čeština` `русский` `Tiếng Việt` `中文 (简体)` `日本語` `한국어`
 

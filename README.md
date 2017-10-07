@@ -13,9 +13,9 @@ Bookmark Sidebar is an extension for Chrome, which adds a toggleable sidebar wit
 <img src="https://blockbyte.de/img/extensions/chromeWebStore.png" width="200" />
 </a>
 
-The extension is currently available in 11 different languages...
+The extension is currently available in 13 different languages...
 
-`Deutsch` `English` `Français` `Tiếng Việt` `español` `magyar` `polski` `čeština` `русский` `日本語` `한국어`
+`Deutsch` `English` `Français` `español` `português` `magyar` `polski` `čeština` `русский` `Tiếng Việt` `中文 (简体)` `日本語` `한국어`
 
 
 ## Release History

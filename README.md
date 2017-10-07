@@ -29,9 +29,6 @@ The extension is currently available in 13 different languages...
 ![日本語](https://img.shields.io/badge/日本語--green.svg?style=flat-square)
 ![한국어](https://img.shields.io/badge/한국어--green.svg?style=flat-square)
 
-`Deutsch` `English` `Français` `español` `português` `magyar` `polski` `čeština` `русский` `Tiếng Việt` `中文 (简体)` `日本語` `한국어`
-
-
 ## Release History
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions, or the less detailed [Changelog](changelog.txt).
 

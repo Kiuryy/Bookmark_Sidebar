@@ -714,7 +714,7 @@
                 ext.firstRun = false;
                 ext.refreshRun = false;
 
-                if (ext.helper.model.getData("u/viewAsTree") && !ext.elements.bookmarkBox["all"].hasClass(ext.opts.classes.sidebar.cached)) {
+                if ((ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") && !ext.elements.bookmarkBox["all"].hasClass(ext.opts.classes.sidebar.cached)) {
                     this.cacheList();
                 }
 

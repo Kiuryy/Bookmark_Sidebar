@@ -1115,6 +1115,9 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > textarea {
           height: 70px;
           margin: 0;
+          line-height: 150%;
+          resize: none;
+          overflow: hidden;
           transition: box-shadow 0.5s, background 0.5s; }
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div + div {
           width: 60%; }

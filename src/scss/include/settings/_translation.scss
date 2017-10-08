@@ -281,6 +281,9 @@ div.tab[data-name='language'] > div[data-name='translate'] {
           > textarea {
             height: 70px;
             margin: 0;
+            line-height: 150%;
+            resize: none;
+            overflow: hidden;
             transition: box-shadow 0.5s, background 0.5s;
           }
 

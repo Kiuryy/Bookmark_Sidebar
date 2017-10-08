@@ -493,15 +493,19 @@
          */
         let initTextareaEvents = (elm) => {
             elm.find("textarea").on("change input", (e) => {
+                let elmObj = $(e.currentTarget);
                 let val = e.currentTarget.value;
                 let category = elm.attr(s.opts.attr.name);
                 let lang = elm.attr(s.opts.attr.translation.language);
 
                 if (val) {
-                    $(e.currentTarget).parents("li").eq(0).removeClass(s.opts.classes.translation.empty);
+                    elmObj.parents("li").eq(0).removeClass(s.opts.classes.translation.empty);
                 } else {
-                    $(e.currentTarget).parents("li").eq(0).addClass(s.opts.classes.translation.empty);
+                    elmObj.parents("li").eq(0).addClass(s.opts.classes.translation.empty);
                 }
+
+                elmObj.css("height", "");
+                elmObj.css("height", Math.max(e.currentTarget.scrollHeight, 70) + "px");
 
                 let filled = 0;
                 elm.find("textarea").forEach((textarea) => {
@@ -520,6 +524,10 @@
                 $.delay(200).then(() => {
                     parentElm.removeClass(s.opts.classes.translation.hover);
                 });
+            });
+
+            $.delay().then(() => {
+                elm.find("textarea").trigger("change");
             });
         };
 

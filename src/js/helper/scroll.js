@@ -43,6 +43,7 @@
          */
         this.focus = () => {
             if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)
+                && ext.elements.iframe[0].contentDocument !== null
                 && ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']")[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
                 scrollBoxes.forEach((scrollBox) => {
                     if (scrollBox.hasClass(ext.opts.classes.sidebar.active)) {

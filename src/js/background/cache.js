@@ -43,9 +43,13 @@
          */
         this.remove = (opts) => {
             return new Promise((resolve) => {
-                chrome.storage.local.remove(["cache_" + opts.name], () => {
+                if (b.importRunning) { // don't remove cache while import in running
                     resolve();
-                });
+                } else {
+                    chrome.storage.local.remove(["cache_" + opts.name], () => {
+                        resolve();
+                    });
+                }
             });
         };
     };

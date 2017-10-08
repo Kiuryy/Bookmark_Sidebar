@@ -4,6 +4,7 @@
     window.ext = function (opts) {
 
         let loadingInfo = {};
+        let isReloading = false;
 
         /*
          * ################################
@@ -55,22 +56,25 @@
          * Reloads the sidebar, the model data, the language variables and the bookmark list
          */
         this.reload = () => {
-            this.helper.model.init().then(() => {
-                return Promise.all([
-                    this.helper.i18n.init(),
-                    this.helper.entry.init()
-                ]);
-            }).then(() => {
-                let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
+            if (isReloading === false) { // prevent multiple reload attempts -> only proceed if the previous run finished
+                isReloading = true;
+                this.helper.model.init().then(() => {
+                    return Promise.all([
+                        this.helper.i18n.init(),
+                        this.helper.entry.init()
+                    ]);
+                }).then(() => {
+                    let data = this.helper.model.getData(["u/entriesLocked", "u/showHidden"]);
 
-                if (data.entriesLocked === false) {
-                    this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
-                } else {
-                    this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
-                }
+                    if (data.entriesLocked === false) {
+                        this.elements.sidebar.addClass(opts.classes.sidebar.entriesUnlocked);
+                    } else {
+                        this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
+                    }
 
-                this.helper.list.updateBookmarkBox();
-            });
+                    this.helper.list.updateBookmarkBox();
+                });
+            }
         };
 
         /**
@@ -135,6 +139,8 @@
                     showIndicator: data.showIndicator
                 });
             }
+
+            isReloading = false;
         };
 
         /**

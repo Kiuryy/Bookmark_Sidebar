@@ -2,7 +2,7 @@
     "use strict";
 
     let background = function () {
-        let bookmarkImportRunning = false;
+        this.importRunning = false;
 
         this.urls = {
             checkStatus: "https://extensions.blockbyte.de/",
@@ -27,14 +27,19 @@
                     this.helper.cache.remove({name: "html"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
-                        tabs.forEach((tab) => {
-                            chrome.tabs.sendMessage(tab.id, {
-                                action: "reload",
-                                scrollTop: opts.scrollTop || false,
-                                reinitialized: reinitialized,
-                                type: opts.type
+                        tabs.forEach((tab, i) => {
+                            let delay = tab.active ? 0 : ((i * 100) + 1000); // stagger the reload event for all tabs which are not currently visible
+
+                            $.delay(delay).then(() => {
+                                chrome.tabs.sendMessage(tab.id, {
+                                    action: "reload",
+                                    scrollTop: opts.scrollTop || false,
+                                    reinitialized: reinitialized,
+                                    type: opts.type
+                                });
                             });
                         });
+
                         resolve();
                     });
                 });
@@ -59,14 +64,18 @@
                     this.helper.cache.remove({name: "html"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
-                        tabs.forEach((tab) => {
+                        tabs.forEach((tab, i) => {
                             if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
-                                Object.entries(types).forEach(([type, func]) => {
-                                    let files = manifest.content_scripts[0][type];
+                                let delay = tab.active ? 0 : ((i * 200) + 1000); // stagger script injection for all tabs which are not currently visible
 
-                                    files.forEach((file) => {
-                                        chrome.tabs[func](tab.id, {file: file}, function () {
-                                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                $.delay(delay).then(() => {
+                                    Object.entries(types).forEach(([type, func]) => {
+                                        let files = manifest.content_scripts[0][type];
+
+                                        files.forEach((file) => {
+                                            chrome.tabs[func](tab.id, {file: file}, () => {
+                                                chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                            });
                                         });
                                     });
                                 });
@@ -95,17 +104,17 @@
             });
 
             chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
-                bookmarkImportRunning = true;
+                this.importRunning = true;
             });
 
             chrome.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
-                bookmarkImportRunning = false;
+                this.importRunning = false;
                 this.reload({type: "Created"});
             });
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
                 chrome.bookmarks["on" + eventName].addListener(() => {
-                    if (bookmarkImportRunning === false || eventName !== "Created") { // only refresh tabs when the bookmark was not created by the import process
+                    if (this.importRunning === false) { // don't refresh while import in running
                         this.reload({type: eventName});
                     }
                 });

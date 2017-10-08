@@ -51,6 +51,7 @@
                     chrome.storage.sync.set({
                         model: data
                     }, () => {
+                        chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                         resolve();
                     });
                 }

@@ -314,6 +314,7 @@
                             appearance: data.appearance,
                             newtab: data.newtab
                         }, () => {
+                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                             saved(3);
                         });
                     } catch (e) {

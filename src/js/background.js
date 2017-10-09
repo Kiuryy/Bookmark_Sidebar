@@ -5,7 +5,8 @@
         this.importRunning = false;
 
         this.urls = {
-            checkStatus: "https://extensions.blockbyte.de/",
+            website: "https://extensions.blockbyte.de/",
+            checkStatus: "https://extensions.blockbyte.de/ajax/status",
             checkUrls: "https://4v1.de/u",
             uninstall: "https://extensions.blockbyte.de/bs/uninstall",
             thumbnail: "https://4v1.de/t"
@@ -154,7 +155,7 @@
             let manifest = chrome.runtime.getManifest();
             this.isDev = manifest.version_name === "Dev" || !('update_url' in manifest);
 
-            chrome.runtime.setUninstallURL(this.urls[this.isDev ? "checkStatus" : "uninstall"]);
+            chrome.runtime.setUninstallURL(this.urls[this.isDev ? "website" : "uninstall"]);
             initHelpers();
 
             Promise.all([

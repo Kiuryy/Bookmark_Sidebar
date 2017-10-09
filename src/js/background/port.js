@@ -27,10 +27,17 @@
         let checkWebsiteStatus = () => {
             return new Promise((resolve) => {
                 $.xhr(b.urls.checkStatus, {
-                    method: "HEAD",
-                    timeout: 5000
-                }).then(() => {
-                    resolve({status: "available"});
+                    method: "POST",
+                    responseType: "json",
+                    data: {
+                        version: b.isDev ? "9.9.9" : chrome.runtime.getManifest().version
+                    }
+                }).then((xhr) => {
+                    if (xhr.response && xhr.response.available) {
+                        resolve({status: "available"});
+                    } else {
+                        resolve({status: "unavailable"});
+                    }
                 }, () => {
                     resolve({status: "unavailable"});
                 });

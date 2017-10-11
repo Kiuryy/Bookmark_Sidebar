@@ -3,6 +3,8 @@
 
     window.SidebarEventsHelper = function (ext) {
 
+        let markTimeout = null;
+
         /**
          * Initializes the helper
          *
@@ -104,9 +106,20 @@
                     }
                 }).on("mouseover", "a", (e) => { // add class to currently hovered element
                     let _self = $(e.currentTarget);
-
                     box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                    _self.addClass(ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.mark);
+
+                    if (!_self.hasClass(ext.opts.classes.sidebar.mark)) {
+                        _self.addClass(ext.opts.classes.sidebar.hover);
+                    }
+
+                    if (markTimeout) {
+                        clearTimeout(markTimeout);
+                    }
+
+                    markTimeout = setTimeout(() => { // remove highlighting after 500ms of hovering
+                        _self.removeClass(ext.opts.classes.sidebar.mark);
+                        _self.addClass(ext.opts.classes.sidebar.hover);
+                    }, 500);
 
                     ext.helper.tooltip.create(_self);
                 }).on("contextmenu", "a", (e) => { // right click
@@ -115,6 +128,7 @@
                     if ($(e.target).hasClass(ext.opts.classes.sidebar.separator)) {
                         type = "separator";
                     }
+                    _self.removeClass(ext.opts.classes.sidebar.mark);
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
                 });
 

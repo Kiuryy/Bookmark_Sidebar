@@ -31,11 +31,11 @@ The extension is currently available in 14 different languages...
 ![한국어](https://img.shields.io/badge/한국어--green.svg?style=flat-square)
 
 ## Release History
-See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions, or the less detailed [Changelog](changelog.txt).
+See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions, or the less detailed [Changelog](changelog.md).
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [license file](license.md) for details.
+This project is licensed under the GNU General Public License v3.0 - see the [license file](license.txt) for details.
 
 ## Contact
 

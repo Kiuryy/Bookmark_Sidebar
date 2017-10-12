@@ -377,6 +377,9 @@
     "settings_restore": {
         "message": "Standard wiederherstellen"
     },
+    "settings_restore_confirm": {
+        "message": "M\u00f6chstest du wirklich die Standard-Konfiguration wiederherstellen?"
+    },
     "settings_restored_message": {
         "message": "Die Einstellungen wurden erfolgreich zur\u00fcckgesetzt"
     },

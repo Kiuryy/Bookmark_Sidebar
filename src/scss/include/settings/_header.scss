@@ -95,4 +95,83 @@ body > header {
       }
     }
   }
+
+  > div.dialog {
+    position: absolute;
+    top: $settingsHeaderHeight;
+    right: 0;
+    width: 300px;
+    padding: 12px 10px;
+    text-align: center;
+    background: $contentBackground;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translate3d(-12px, -10px, 0);
+    @extend %hidden;
+
+    &.visible {
+      @extend %visible;
+      transform: translate3d(-12px, 0, 0);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      border: 10px solid transparent;
+      border-bottom-color: $contentBackground;
+      top: -20px;
+      right: 20px;
+    }
+
+    > p {
+      line-height: 140%;
+    }
+
+    > a {
+      position: relative;
+      display: inline-block;
+      color: $mainColorAlt;
+      padding: 3px 5px 3px 15px;
+      margin-bottom: 5px;
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid $mainColorAlt;
+        border-left: 2px solid $mainColorAlt;
+        transform: rotateZ(135deg);
+      }
+    }
+
+    > span {
+      position: relative;
+      display: inline-block;
+      padding: 6px 10px 5px 30px;
+      margin: 10px 0 15px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+
+      &::before {
+        -webkit-mask-position: 8px center !important;
+      }
+    }
+
+    &[data-type='sidebar'] > span {
+      @include mask('icon-settings', $textColor, 16px);
+    }
+
+    &[data-type='appearance'] > span {
+      @include mask('settings/icon-appearance', $textColor, 16px);
+    }
+
+    &[data-type='newtab'] > span {
+      @include mask('settings/icon-newtab', $textColor, 14px);
+    }
+  }
 }

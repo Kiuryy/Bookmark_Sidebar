@@ -12,8 +12,7 @@
         this.opts = {
             classes: {
                 page: {
-                    darkMode: "dark",
-                    ee: "ee"
+                    darkMode: "dark"
                 },
                 tabs: {
                     content: "tab",
@@ -63,6 +62,7 @@
                 small: "small",
                 desc: "desc",
                 box: "box",
+                dialog: "dialog",
                 boxWrapper: "boxWrapper",
                 contentBox: "contentBox",
                 action: "action",
@@ -163,6 +163,7 @@
         };
 
         this.serviceAvailable = true;
+        let restoreTypes = ["sidebar", "appearance", "newtab"];
 
         /**
          * Constructor
@@ -188,7 +189,6 @@
 
                 this.helper.i18n.parseHtml(document);
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
-                this.opts.elm.buttons.restore.attr("title", this.helper.i18n.get("settings_restore"));
 
                 ["translation", "feedback"].forEach((name) => {
                     loader[name] = this.helper.template.loading().appendTo(this.opts.elm[name].wrapper);
@@ -278,6 +278,40 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
+            $(document).on("click", () => {
+                $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);
+            });
+
+            this.opts.elm.header.on("click", "div." + this.opts.classes.dialog, (e) => {
+                e.stopPropagation();
+            });
+
+            this.opts.elm.header.on("click", "div." + this.opts.classes.dialog + " > a", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let type = $(e.currentTarget).parent("div").attr(this.opts.attr.type);
+
+                if (restoreTypes.indexOf(type) !== -1) {
+                    let language = this.helper.model.getData("b/language");
+
+                    chrome.storage.sync.remove([type], () => {
+                        if (type === "sidebar") { // don't reset user language
+                            chrome.storage.sync.set({behaviour: {language: language}});
+                        }
+
+                        this.showSuccessMessage("restored_message");
+                        this.helper.model.call("reloadIcon");
+                        $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);
+
+                        $.delay(1500).then(() => {
+                            this.helper.model.call("reinitialize");
+                            location.reload(true);
+                        });
+                    });
+                }
+            });
+
             this.opts.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
@@ -314,36 +348,21 @@
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
 
-                let restore = (name) => {
-                    let language = this.helper.model.getData("b/language");
+                if (restoreTypes.indexOf(path[0]) !== -1) {
+                    $("div." + this.opts.classes.dialog).remove();
+                    let dialog = $("<div />")
+                        .attr(this.opts.attr.type, path[0])
+                        .addClass(this.opts.classes.dialog)
+                        .append("<p>" + this.helper.i18n.get("settings_restore_confirm") + "</p>")
+                        .append("<span>" + this.helper.i18n.get("settings_menu_" + path[0]) + "</span>")
+                        .append("<br />")
+                        .append("<a>" + this.helper.i18n.get("settings_restore") + "</a>")
+                        .css("right", this.opts.elm.header.css("padding-right"))
+                        .appendTo(this.opts.elm.header);
 
-                    chrome.storage.sync.remove([name], () => {
-                        if (name === "sidebar") { // don't reset user language
-                            chrome.storage.sync.set({behaviour: {language: language}});
-                        }
-
-                        this.showSuccessMessage("restored_message");
-                        this.helper.model.call("reloadIcon");
-
-                        $.delay(1500).then(() => {
-                            this.helper.model.call("reinitialize");
-                            location.reload(true);
-                        });
+                    $.delay().then(() => {
+                        dialog.addClass(this.opts.classes.visible);
                     });
-                };
-
-                switch (path[0]) {
-                    case "sidebar":
-                        restore("sidebar");
-                        break;
-                    case "appearance": {
-                        restore("appearance");
-                        break;
-                    }
-                    case "newtab": {
-                        restore("newtab");
-                        break;
-                    }
                 }
             });
         };

@@ -1,8 +1,8 @@
-body::before, body::after {
+body > header > div.dialog, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > header > div.dialog.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -234,6 +234,85 @@ body > header {
           background-color: #fff; }
       body > header > menu > button.hidden {
         display: none; }
+  body > header > div.dialog {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 300px;
+    padding: 12px 10px;
+    text-align: center;
+    background: #fff;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translate3d(-12px, -10px, 0); }
+    body > header > div.dialog.visible {
+      transform: translate3d(-12px, 0, 0); }
+    body > header > div.dialog::before {
+      content: "";
+      position: absolute;
+      border: 10px solid transparent;
+      border-bottom-color: #fff;
+      top: -20px;
+      right: 20px; }
+    body > header > div.dialog > p {
+      line-height: 140%; }
+    body > header > div.dialog > a {
+      position: relative;
+      display: inline-block;
+      color: #2b35c8;
+      padding: 3px 5px 3px 15px;
+      margin-bottom: 5px;
+      font-weight: "%fontWeightMedium";
+      cursor: pointer; }
+      body > header > div.dialog > a::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid #2b35c8;
+        border-left: 2px solid #2b35c8;
+        transform: rotateZ(135deg); }
+    body > header > div.dialog > span {
+      position: relative;
+      display: inline-block;
+      padding: 6px 10px 5px 30px;
+      margin: 10px 0 15px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px; }
+      body > header > div.dialog > span::before {
+        -webkit-mask-position: 8px center !important; }
+    body > header > div.dialog[data-type='sidebar'] > span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/16px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg);
+      background-color: #666; }
+    body > header > div.dialog[data-type='appearance'] > span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/16px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg);
+      background-color: #666; }
+    body > header > div.dialog[data-type='newtab'] > span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/14px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-newtab.svg);
+      background-color: #666; }
 
 body > section#wrapper > main > div.loading.tab > svg.loading, body > section#wrapper > main > div.tab > div.loading[data-name] > svg.loading {
   position: absolute;

@@ -377,6 +377,9 @@
     "settings_restore": {
         "message": "Restore default"
     },
+    "settings_restore_confirm": {
+        "message": "Do you really want to restore the default configuration?"
+    },
     "settings_restored_message": {
         "message": "Configuration restored successfully"
     },

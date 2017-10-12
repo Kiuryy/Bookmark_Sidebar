@@ -1,0 +1,145 @@
+
+div.color-picker {
+  position: absolute;
+  z-index: 9;
+  width: 225px;
+  background: $contentBackground;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  display: none;
+  user-select: none;
+  margin-left: -10px;
+  padding: 7px;
+  border-radius: 3px;
+
+  $leftColWidth: 160px;
+
+  &.visible {
+    display: block;
+  }
+
+  > div.picking-area {
+    position: relative;
+    background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    width: $leftColWidth;
+    height: $leftColWidth;
+
+    > div {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      position: absolute;
+      top: 45%;
+      left: 45%;
+
+      &::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        position: absolute;
+        border: 1px solid #666;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  > div.alpha, > div.hue {
+    position: relative;
+    width: $leftColWidth;
+    height: 14px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+
+    div.slider-picker {
+      width: 4px;
+      height: calc(100% + 4px);
+      background-color: #fff;
+      position: absolute;
+      top: -2px;
+      border: 1px solid #666;
+      border-radius: 3px;
+    }
+  }
+
+  > div.alpha {
+    background-image: img('settings/alpha.svg');
+    background-size: 12px;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+    }
+  }
+
+  > div.hue {
+    background: linear-gradient(to right, #f00 0%, #ff0 16.66%, #0f0 33.33%, #0ff 50%, #00f 66.66%, #f0f 83.33%, #f00 100%);
+  }
+
+  > div.input-r, > div.input-g, > div.input-b, > div.input-a {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 45px;
+    padding: 0 5px;
+    background: $settingsMenuBackground;
+    border-radius: 18px;
+    display: flex;
+
+    > span {
+      display: inline-block;
+      color: $textColor;
+      line-height: 18px;
+      font-size: 80%;
+      font-weight: $__fontWeightBold;
+      text-transform: capitalize;
+    }
+
+    > input {
+      display: inline-block;
+      margin: 0 0 0 3px;
+      padding: 0;
+      height: 18px;
+      line-height: 18px;
+      border: none;
+      color: $textColor;
+      text-align: right;
+      font-size: 80%;
+    }
+  }
+
+  > div.input-g {
+    top: 30px;
+  }
+
+  > div.input-b {
+    top: 53px;
+  }
+
+  > div.input-a {
+    top: 76px;
+  }
+
+  > div.input-color {
+
+    > span {
+      display: none;
+    }
+
+    > input {
+      width: $leftColWidth;
+      margin: 0;
+      padding: 0;
+      height: 18px;
+      line-height: 18px;
+      border-radius: 18px;
+      padding: 0 10px;
+      border: none;
+      color: $textColor;
+      background: $settingsMenuBackground;
+      font-size: 80%;
+    }
+  }
+}

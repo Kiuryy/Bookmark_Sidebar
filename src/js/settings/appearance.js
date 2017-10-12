@@ -88,17 +88,7 @@
          */
         let changeColorValue = (elm, value) => {
             let picker = elm.data("picker");
-
-            if (value.search(/rgba\(/) > -1) {
-                let colorParsed = value.replace(/(rgba|\(|\))/gi, "").split(",");
-                value = "rgb(" + colorParsed[0] + "," + colorParsed[1] + "," + colorParsed[2] + ")";
-                if (picker.alpha) {
-                    picker.alpha[0].value = colorParsed[3];
-                }
-            }
-
-            picker.set(value);
-            picker.trigger("change");
+            picker.setColor(value);
         };
 
         /**

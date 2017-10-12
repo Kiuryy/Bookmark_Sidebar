@@ -5,16 +5,16 @@
 
         let defaultColors = {
             textColor: {
-                light: "rgb(100,100,100)",
-                dark: "rgb(200,200,200)"
+                light: "#646464",
+                dark: "#c8c8c8"
             },
             sidebarMaskColor: {
                 light: "rgba(255,255,255,0.8)",
                 dark: "rgba(0,0,0,0.6)"
             },
             colorScheme: {
-                light: "rgb(27,130,241)",
-                dark: "rgb(31,77,128)"
+                light: "#1b82f1",
+                dark: "#1f4d80"
             }
         };
 
@@ -77,7 +77,7 @@
                     textColor: defaultColors.textColor.light,
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",
-                    indicatorIconColor: "rgb(255,255,255)",
+                    indicatorIconColor: "#ffffff",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",
                     sidebarMaskColor: defaultColors.sidebarMaskColor.light,
@@ -93,7 +93,7 @@
                     overlayMaskColor: "rgba(0,0,0,0.5)",
                     fontFamily: "default",
                     iconShape: "bookmark",
-                    iconColor: "rgb(85,85,85)"
+                    iconColor: "#555555"
                 }
             }
         };

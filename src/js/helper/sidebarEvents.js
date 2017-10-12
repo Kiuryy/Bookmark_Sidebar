@@ -128,7 +128,7 @@
                     if ($(e.target).hasClass(ext.opts.classes.sidebar.separator)) {
                         type = "separator";
                     }
-                    _self.removeClass(ext.opts.classes.sidebar.mark);
+                    $(e.currentTarget).removeClass(ext.opts.classes.sidebar.mark);
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
                 });
 

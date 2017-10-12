@@ -5,7 +5,6 @@ $__colorScheme: $mainColor;
 $__textColor: $textColor;
 @import "include/loading";
 @import "include/checkbox";
-@import "include/colorpicker";
 //
 @import "include/generals";
 //
@@ -20,6 +19,7 @@ $__scrollBarWidth: 14px;
 @import "include/settings/form";
 @import "include/settings/translation";
 @import "include/settings/menu";
+@import "include/settings/colorpicker";
 
 body {
   background: $bodyBackground;

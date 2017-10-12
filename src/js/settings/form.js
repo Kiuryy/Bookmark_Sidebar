@@ -25,7 +25,7 @@
                 if (path[0] === "appearance") {
                     Object.values(s.opts.elm.color).forEach((elm) => {
                         let picker = elm.data("picker");
-                        picker.fit();
+                        picker.reposition();
                     });
                 }
             });
@@ -69,7 +69,6 @@
             });
         };
 
-
         /**
          * Adds a colorpicker with the given information
          *
@@ -79,37 +78,26 @@
         initField.color = (opts) => {
             return new Promise((resolve) => {
                 s.opts.elm.color[opts.name] = $("<input type='text' />").addClass(s.opts.classes.color.field).insertAfter(opts.label);
-                let colorInfo = $("<span />").insertAfter(s.opts.elm.color[opts.name]);
-                let picker = new CP(s.opts.elm.color[opts.name][0]);
-                picker.visible = false;
+
+                let picker = new window.Colorpicker(s.opts.elm.color[opts.name][0], {
+                    alpha: !!$(opts.elm).attr(s.opts.attr.color.alpha)
+                });
 
                 let suggestionsRaw = $(opts.elm).attr(s.opts.attr.color.suggestions);
                 if (suggestionsRaw) {
                     let suggestions = JSON.parse(suggestionsRaw);
                     let suggestionElm = [];
+                    let preview = picker.getElements().preview;
 
                     suggestions.forEach((suggestion) => {
-                        suggestionElm.push($("<span />").addClass(s.opts.classes.color.suggestion).css("background-color", suggestion).insertAfter(colorInfo));
+                        suggestionElm.push($("<span />").addClass(s.opts.classes.color.suggestion).css("background-color", suggestion).insertAfter(preview));
                     });
 
                     $(suggestionElm).on("click", (e) => {
+                        e.stopPropagation();
                         let color = $(e.currentTarget).css("background-color");
-                        picker.set(color);
-                        picker.trigger("change");
+                        picker.setColor(color);
                     });
-                }
-
-
-                if ($(opts.elm).attr(s.opts.attr.color.alpha)) {
-                    picker.alpha = $("<input type='range' />").attr({
-                        min: 0,
-                        max: 1,
-                        step: 0.01,
-                        value: 1,
-                        [s.opts.attr.name]: opts.name
-                    }).appendTo(picker.picker);
-
-                    picker.alpha.on("change input", () => picker.trigger("change"));
                 }
 
                 let updateMask = (color) => {
@@ -129,43 +117,19 @@
                     }
                 };
 
-                picker.on("enter", () => {
+                picker.on("show", (obj) => {
                     picker.visible = true;
-                    let v = CP._HSV2RGB(picker.get());
-                    if (picker.alpha && +picker.alpha[0].value < 1) {
-                        v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value + ')';
-                    } else {
-                        v = 'rgb(' + v.join(',') + ')';
-                    }
-
-                    updateMask(v);
+                    updateMask(obj.color);
                 });
 
-                picker.on("exit", () => {
+                picker.on("hide", () => {
                     picker.visible = false;
                     updateMask();
                 });
 
-                picker.on("change", (color) => { // change preview and gradient of the opacity slider
-                    let v = CP._HSV2RGB(picker.get());
-
-                    if (color) {
-                        v = CP.HEX2RGB(color);
-                    }
-
-                    $("head > style[" + s.opts.attr.color.style + "='" + opts.name + "']").remove();
-                    $("head").append("<style " + s.opts.attr.color.style + "='" + opts.name + "'>.color-picker > input[type='range'][" + s.opts.attr.name + "='" + opts.name + "']::-webkit-slider-runnable-track{background-image:linear-gradient(to right, transparent 0%, rgb(" + v.join(',') + ") 100%)}</style>");
-
-                    if (picker.alpha && +picker.alpha[0].value < 1) {
-                        v = 'rgba(' + v.join(',') + ',' + picker.alpha[0].value + ')';
-                    } else {
-                        v = 'rgb(' + v.join(',') + ')';
-                    }
-
-                    s.opts.elm.color[opts.name][0].value = v;
+                picker.on("change", (obj) => { // change preview and gradient of the opacity slider
                     s.opts.elm.color[opts.name].trigger("change");
-                    colorInfo.css("background-color", v);
-                    updateMask(v);
+                    updateMask(obj.color);
                 });
 
                 s.opts.elm.color[opts.name].data("picker", picker);

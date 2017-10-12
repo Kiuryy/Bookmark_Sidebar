@@ -106,84 +106,6 @@ body.dark div.checkbox.active.focus::after, body.dark div.checkbox.active.clicke
   background: #666;
   box-shadow: 0 0 0 20px #666; }
 
-.color-picker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9;
-  background: #fff;
-  padding: 10px;
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3); }
-  .color-picker > input[type='range'] {
-    margin: 10px 0 0 0;
-    background: none;
-    background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.svg);
-    background-size: 14px;
-    cursor: ew-resize; }
-    .color-picker > input[type='range']::-webkit-slider-runnable-track {
-      height: 100%;
-      z-index: 1; }
-    .color-picker > input[type='range']::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      height: calc(100% + 4px);
-      width: 4px;
-      margin: -2px 0;
-      background: #fff;
-      border-radius: 0;
-      border: 1px solid #000; }
-  .color-picker > div {
-    display: flex;
-    flex-direction: row-reverse; }
-    .color-picker > div i {
-      display: block;
-      position: absolute; }
-    .color-picker > div > .color-picker-h {
-      position: relative;
-      width: 20px;
-      height: 150px;
-      cursor: ns-resize;
-      background-image: linear-gradient(to top, red 0, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, red 100%);
-      background-size: 100% 100%; }
-      .color-picker > div > .color-picker-h i {
-        top: 0;
-        left: -2px;
-        right: -2px;
-        height: 4px;
-        background: #fff;
-        border: 1px solid #000; }
-    .color-picker > div > .color-picker-sv {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      margin-right: 10px;
-      background-image: linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
-      background-size: 100% 100%;
-      cursor: crosshair; }
-      .color-picker > div > .color-picker-sv i {
-        color: #000;
-        top: -4px;
-        right: -4px;
-        z-index: 3;
-        width: 8px;
-        height: 8px; }
-        .color-picker > div > .color-picker-sv i::after, .color-picker > div > .color-picker-sv i::before {
-          content: "";
-          position: absolute;
-          display: block;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          border: 1px solid;
-          border-color: inherit;
-          border-radius: 100%; }
-        .color-picker > div > .color-picker-sv i::before {
-          top: -1px;
-          right: -1px;
-          bottom: -1px;
-          left: -1px;
-          border-color: #fff; }
-
 *, *::after, *::before {
   padding: 0;
   margin: 0;
@@ -785,8 +707,8 @@ input.color {
     height: 32px;
     margin: 7px 0 10px -32px;
     border-radius: 50%;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    pointer-events: none; }
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); }
     input.color + span::before, input.color + span::after {
       content: "";
       position: absolute;
@@ -1266,6 +1188,111 @@ body > section#wrapper > aside {
           body > section#wrapper > aside > nav ul > li > ul > li > a::before {
             content: "-";
             margin-right: 10px; }
+
+div.color-picker {
+  position: absolute;
+  z-index: 9;
+  width: 225px;
+  background: #fff;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  display: none;
+  user-select: none;
+  margin-left: -10px;
+  padding: 7px;
+  border-radius: 3px; }
+  div.color-picker.visible {
+    display: block; }
+  div.color-picker > div.picking-area {
+    position: relative;
+    background: linear-gradient(to top, #000 0%, transparent 100%), linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    width: 160px;
+    height: 160px; }
+    div.color-picker > div.picking-area > div {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      position: absolute;
+      top: 45%;
+      left: 45%; }
+      div.color-picker > div.picking-area > div::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        position: absolute;
+        border: 1px solid #666;
+        border-radius: 50%; }
+  div.color-picker > div.alpha, div.color-picker > div.hue {
+    position: relative;
+    width: 160px;
+    height: 14px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 2px; }
+    div.color-picker > div.alpha div.slider-picker, div.color-picker > div.hue div.slider-picker {
+      width: 4px;
+      height: calc(100% + 4px);
+      background-color: #fff;
+      position: absolute;
+      top: -2px;
+      border: 1px solid #666;
+      border-radius: 3px; }
+  div.color-picker > div.alpha {
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.svg);
+    background-size: 12px; }
+    div.color-picker > div.alpha > div {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit; }
+  div.color-picker > div.hue {
+    background: linear-gradient(to right, #f00 0%, #ff0 16.66%, #0f0 33.33%, #0ff 50%, #00f 66.66%, #f0f 83.33%, #f00 100%); }
+  div.color-picker > div.input-r, div.color-picker > div.input-g, div.color-picker > div.input-b, div.color-picker > div.input-a {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 45px;
+    padding: 0 5px;
+    background: #e9e9e9;
+    border-radius: 18px;
+    display: flex; }
+    div.color-picker > div.input-r > span, div.color-picker > div.input-g > span, div.color-picker > div.input-b > span, div.color-picker > div.input-a > span {
+      display: inline-block;
+      color: #666;
+      line-height: 18px;
+      font-size: 80%;
+      font-weight: "%fontWeightBold";
+      text-transform: capitalize; }
+    div.color-picker > div.input-r > input, div.color-picker > div.input-g > input, div.color-picker > div.input-b > input, div.color-picker > div.input-a > input {
+      display: inline-block;
+      margin: 0 0 0 3px;
+      padding: 0;
+      height: 18px;
+      line-height: 18px;
+      border: none;
+      color: #666;
+      text-align: right;
+      font-size: 80%; }
+  div.color-picker > div.input-g {
+    top: 30px; }
+  div.color-picker > div.input-b {
+    top: 53px; }
+  div.color-picker > div.input-a {
+    top: 76px; }
+  div.color-picker > div.input-color > span {
+    display: none; }
+  div.color-picker > div.input-color > input {
+    width: 160px;
+    margin: 0;
+    padding: 0;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 18px;
+    padding: 0 10px;
+    border: none;
+    color: #666;
+    background: #e9e9e9;
+    font-size: 80%; }
 
 body {
   background: #f2f2f2;

@@ -59,8 +59,8 @@ input.color {
     height: 32px;
     margin: 7px 0 10px -32px;
     border-radius: 50%;
+    cursor: pointer;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    pointer-events: none;
 
     &::before, &::after {
       content: "";

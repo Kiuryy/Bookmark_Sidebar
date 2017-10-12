@@ -1,5 +1,5 @@
 /**
- * Colorpicker v1.0.0
+ * Colorpicker v1.0.1
  *
  * Philipp König
  * https://blockbyte.de/
@@ -548,6 +548,10 @@ window.Colorpicker = (() => {
         this.setColor = (c) => {
             this.color.setFromRaw(c);
             updateUI();
+        };
+
+        this.getColorObj = () => {
+            return this.color;
         };
 
         this.getElements = () => {

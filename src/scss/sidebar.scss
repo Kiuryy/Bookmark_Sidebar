@@ -127,8 +127,8 @@ section#sidebar {
 
     > h1 {
       display: inline-block;
-      color: $textColorInverted;
-      font-weight: $__fontWeightNormal;
+      color: $__foregroundColor;
+      font-weight: $__fontWeightMedium;
       font-size: 100%;
       margin: 4px 0 0 0;
       transition: transform 0.5s;
@@ -138,7 +138,7 @@ section#sidebar {
       }
 
       > strong {
-        font-weight: $__fontWeightLight;
+        font-weight: $__fontWeightNormal;
         font-size: 150%;
       }
 
@@ -155,7 +155,7 @@ section#sidebar {
     }
 
     > a {
-      @include mask(null, $textColorInverted, 22px);
+      @include mask(null, $__foregroundColor, 22px);
       position: relative;
       vertical-align: top;
       display: block;
@@ -194,11 +194,11 @@ section#sidebar {
         outline: none;
         border: 0;
         background: transparent;
-        color: $textColorInverted;
+        color: $__foregroundColor;
         padding: 0 7px;
 
         &::-webkit-input-placeholder {
-          color: $textColorInverted;
+          color: $__foregroundColor;
           opacity: 0.7;
         }
       }
@@ -447,7 +447,7 @@ section#sidebar {
       }
 
       > div.searchBox > a.searchClose {
-        @include mask('icon-close', $textColorInverted, 18px);
+        @include mask('icon-close', $__foregroundColor, 18px);
       }
     }
 

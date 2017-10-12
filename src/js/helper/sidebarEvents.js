@@ -118,7 +118,6 @@
 
                     markTimeout = setTimeout(() => { // remove highlighting after 500ms of hovering
                         _self.removeClass(ext.opts.classes.sidebar.mark);
-                        _self.addClass(ext.opts.classes.sidebar.hover);
                     }, 500);
 
                     ext.helper.tooltip.create(_self);

@@ -88,7 +88,9 @@
          */
         let changeColorValue = (elm, value) => {
             let picker = elm.data("picker");
-            picker.setColor(value);
+            if (picker) {
+                picker.setColor(value);
+            }
         };
 
         /**
@@ -267,6 +269,10 @@
                     ret.styles[key] = s.opts.elm.range[key][0].value + "px";
                 } else if (s.opts.elm.color[key]) {
                     ret.styles[key] = s.opts.elm.color[key][0].value;
+
+                    if (key === "colorScheme") {
+                        ret.styles.foregroundColor = getForegroundColor(s.opts.elm.color[key]);
+                    }
                 } else if (s.opts.elm.select[key]) {
                     ret.styles[key] = s.opts.elm.select[key][0].value;
                 } else if (s.opts.elm.radio[key]) {
@@ -286,6 +292,23 @@
             });
 
             return ret;
+        };
+
+        /**
+         * Determines the foreground color for the current color scheme
+         *
+         * @param {jsu} field
+         * @returns {string|null}
+         */
+        let getForegroundColor = (field) => {
+            let picker = field.data("picker");
+            if (picker) {
+                let colorObj = picker.getColorObj();
+                let luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
+                return s.helper.model.getDefaultColor("foregroundColor", luminance > 170 ? "dark" : "light");
+            }
+
+            return null;
         };
 
         /**

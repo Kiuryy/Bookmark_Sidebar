@@ -15,6 +15,10 @@
             colorScheme: {
                 light: "#1b82f1",
                 dark: "#1f4d80"
+            },
+            foregroundColor: {
+                light: "#ffffff",
+                dark: "#333333"
             }
         };
 
@@ -74,6 +78,7 @@
                 showDirectoryIcons: true,
                 styles: {
                     colorScheme: defaultColors.colorScheme.light,
+                    foregroundColor: defaultColors.foregroundColor.light,
                     textColor: defaultColors.textColor.light,
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",

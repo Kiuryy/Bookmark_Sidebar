@@ -46,11 +46,11 @@ div.modal {
   }
 
   > h1 {
-    @include mask(null, $textColorInverted, 24px);
+    @include mask(null, $__foregroundColor, 24px);
     position: relative;
-    color: $textColorInverted;
+    color: $__foregroundColor;
     font-size: 150%;
-    font-weight: $__fontWeightLight;
+    font-weight: $__fontWeightNormal;
     height: $overlayHeaderHeight;
     padding: 12px 75px 0 55px;
     background-color: $__colorScheme;
@@ -62,7 +62,7 @@ div.modal {
   }
 
   > a.close {
-    @include mask('icon-close', $textColorInverted, 24px);
+    @include mask('icon-close', $__foregroundColor, 24px);
     position: absolute;
     top: 4px;
     right: 15px;

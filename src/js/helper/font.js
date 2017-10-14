@@ -15,6 +15,10 @@
             'zh-CN': {
                 name: "Noto Sans SC",
                 href: "https://fonts.googleapis.com/earlyaccess/notosanssc.css"
+            },
+            'zh-TW': {
+                name: "Noto Sans TC",
+                href: "https://fonts.googleapis.com/earlyaccess/notosanstc.css"
             }
         };
 
@@ -62,6 +66,17 @@
                 Bold: 400,
                 ExtraBold: 500,
                 Black: 500
+            },
+            "Noto Sans TC": {
+                Thin: 100,
+                ExtraLight: 100,
+                Light: 100,
+                Normal: 300,
+                Medium: 400,
+                SemiBold: 400,
+                Bold: 400,
+                ExtraBold: 500,
+                Black: 500
             }
         };
 
@@ -70,9 +85,10 @@
         /**
          *
          */
-        this.init = () => {
+        this.init = (type = "config") => {
             let styles = ext.helper.model.getData("a/styles");
-            if (styles.fontFamily && styles.fontFamily !== "default") {
+
+            if (type !== "default" && styles.fontFamily && styles.fontFamily !== "default") {
                 fontInfo = {
                     name: styles.fontFamily
                 };

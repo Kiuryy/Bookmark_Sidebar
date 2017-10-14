@@ -178,7 +178,7 @@
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
-                this.helper.font.init();
+                this.helper.font.init('default');
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));
                 initHeader();

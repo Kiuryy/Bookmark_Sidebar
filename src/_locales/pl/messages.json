@@ -188,6 +188,27 @@
     "overlay_check_urls_not_found": {
         "message": "Nie znaleziono URL"
     },
+    "newtab_title": {
+        "message": "Nowa karta"
+    },
+    "newtab_search_placeholder": {
+        "message": "Wyszukaj {1} lub wprowad\u017a URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "Domy\u015blne"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Ostatnio u\u017cywane zak\u0142adki"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Najcz\u0119\u015bciej u\u017cywane zak\u0142adki"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Przypi\u0119te zak\u0142adki"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Nie pokazuj stron"
+    },
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"
     },
@@ -355,6 +376,9 @@
     },
     "settings_restore": {
         "message": "Przywr\u00f3\u0107 ustawienia domy\u015blne"
+    },
+    "settings_restore_confirm": {
+        "message": "Czy na pewno chcesz przywr\u00f3ci\u0107 ustawienia domy\u015blne?"
     },
     "settings_restored_message": {
         "message": "Konfiguracja przywr\u00f3cona pomy\u015blnie"
@@ -688,6 +712,9 @@
     },
     "settings_translation_notice2": {
         "message": "Niepe\u0142ne kategorie nie zostan\u0105 opublikowane, aby zapobiec po\u0142owicznie przet\u0142umaczonym tekstom."
+    },
+    "settings_translation_help": {
+        "message": "Dla ka\u017cdego wpisu mo\u017cna zobaczy\u0107 t\u0142umaczenie w j\u0119zyku angielskim, kt\u00f3re nale\u017cy przet\u0142umaczy\u0107 na tw\u00f3j j\u0119zyk. Aby pom\u00f3c Ci zidentyfikowa\u0107, gdzie jest ten tekst i po co, ka\u017cdy wpis ma nazw\u0119 (np. {1}), kt\u00f3ra nie powinna by\u0107 t\u0142umaczona. Prosz\u0119 nie zapomnij o przes\u0142aniu t\u0142umaczenia, naciskaj\u0105c przycisk w prawym g\u00f3rnym rogu!"
     },
     "settings_translation_submit": {
         "message": "Zatwierd\u017a"

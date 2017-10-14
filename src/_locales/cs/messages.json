@@ -188,6 +188,27 @@
     "overlay_check_urls_not_found": {
         "message": "Adresa url neexistuje"
     },
+    "newtab_title": {
+        "message": "Nov\u00e1 karta"
+    },
+    "newtab_search_placeholder": {
+        "message": "Vyhledat {1} nebo typ URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "Nejnav\u0161t\u011bvovan\u011bj\u0161\u00ed str\u00e1nky"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Posledn\u011b pou\u017eit\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Nejpou\u017e\u00edvan\u011bj\u0161\u00ed z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "P\u0159ipnut\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Nezobrazovat str\u00e1nky"
+    },
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
     },
@@ -355,6 +376,9 @@
     },
     "settings_restore": {
         "message": "Obnovit z\u00e1kladn\u00ed nastaven\u00ed"
+    },
+    "settings_restore_confirm": {
+        "message": "Opravdu obnovit z\u00e1kladn\u00ed nastaven\u00ed?"
     },
     "settings_restored_message": {
         "message": "Z\u00e1kladn\u00ed nastaven\u00ed obnoveno"
@@ -688,6 +712,9 @@
     },
     "settings_translation_notice2": {
         "message": "Nedokon\u010den\u00e9 kategorie nebudou uvoln\u011bny, aby nedoch\u00e1zelo k p\u0159ekladu poloviny p\u0159elo\u017een\u00fdch text\u016f."
+    },
+    "settings_translation_help": {
+        "message": "U ka\u017ed\u00e9 polo\u017eky vid\u00edte anglick\u00fd p\u0159eklad, kter\u00fd je t\u0159eba p\u0159elo\u017eit. Pro lep\u0161\u00ed vyhled\u00e1n\u00ed a zasazen\u00ed do kontextu, m\u00e1 ka\u017ed\u00e1 polo\u017eka n\u00e1zev (nap\u0159. {1}), kter\u00fd se nep\u0159ekl\u00e1d\u00e1. Nezapome\u0148te pros\u00edm odeslat v\u00e1\u0161 p\u0159eklad pomoc\u00ed tla\u010d\u00edtka v horn\u00edm prav\u00e9m rohu!"
     },
     "settings_translation_submit": {
         "message": "Odeslat"

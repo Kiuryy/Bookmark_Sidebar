@@ -66,7 +66,7 @@
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         copyHoveredEntryUrl();
-                    } else { // focus search field to enter the value of the pressed key there
+                    } else if (ext.helper.toggle.openedByUser) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
                         let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
 
                         if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
@@ -77,12 +77,15 @@
             }).on("keyup.bs", () => {
                 if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                     let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
-                    let searchVal = searchField[0].value;
 
-                    if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
-                        ext.helper.contextmenu.close();
-                        ext.helper.tooltip.close();
-                        ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+                    if (searchField && searchField.length() > 0) {
+                        let searchVal = searchField[0].value;
+
+                        if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
+                            ext.helper.contextmenu.close();
+                            ext.helper.tooltip.close();
+                            ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+                        }
                     }
                 }
             });

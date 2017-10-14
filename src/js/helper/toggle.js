@@ -14,6 +14,8 @@
         let timeout = {};
         let keypressed = null;
 
+        this.openedByUser = false;
+
         /**
          * Initializes the sidebar toggle
          *
@@ -83,8 +85,14 @@
 
         /**
          * Opens the sidebar
+         *
+         * @param {bool} byUser
          */
-        this.openSidebar = () => {
+        this.openSidebar = (byUser = false) => {
+            if (byUser) {
+                this.openedByUser = true;
+            }
+
             if (ext.helper.utility.isBackgroundConnected() === false) {
                 ext.elements.iframe.addClass(ext.opts.classes.page.visible);
                 ext.addReloadMask();
@@ -238,11 +246,11 @@
                         if (openAction === "mousemove") {
                             if (!(timeout.open)) {
                                 timeout.open = setTimeout(() => {
-                                    this.openSidebar();
+                                    this.openSidebar(true);
                                 }, openDelay);
                             }
                         } else if (openDelay === 0 || inPixelToleranceTime === null || +new Date() - inPixelToleranceTime > openDelay) { // open delay = 0 or cursor is longer in pixel tolerance range than the delay -> open sidebar
-                            this.openSidebar();
+                            this.openSidebar(true);
                         }
                     } else {
                         clearSidebarTimeout("open");

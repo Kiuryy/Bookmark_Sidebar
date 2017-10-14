@@ -170,7 +170,7 @@
                         if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                             ext.helper.toggle.closeSidebar();
                         } else {
-                            ext.helper.toggle.openSidebar();
+                            ext.helper.toggle.openSidebar(true);
                         }
                     }
                 }

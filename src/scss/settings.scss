@@ -29,6 +29,7 @@ body {
   width: 100%;
   min-width: 800px;
   height: 100%;
+  user-select: none;
   overflow: hidden;
 
   @media (max-width: 800px) {

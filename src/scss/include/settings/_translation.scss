@@ -269,12 +269,16 @@ div.tab[data-name='language'] > div[data-name='translate'] {
             display: block;
             font-size: 80%;
             font-style: italic;
+            user-select: auto;
+            padding: 5px;
+            transition: background 0.5s;
 
             > span {
               display: block;
               font-weight: $__fontWeightMedium;
               font-style: normal;
               margin-bottom: 3px;
+              user-select: none;
             }
           }
 
@@ -304,14 +308,20 @@ div.tab[data-name='language'] > div[data-name='translate'] {
           }
         }
 
-        &.hover > div > textarea {
-          box-shadow: 0 0 10px rgba($mainColorAlt, 0.2);
+        &.hover > div {
+
+          > textarea {
+            box-shadow: 0 0 10px rgba($mainColorAlt, 0.2);
+          }
+
+          > span {
+            background: rgba($mainColor, 0.2);
+          }
         }
 
         &.mark {
 
           > div > span {
-            padding: 5px;
             background: rgba($colorNotice, 0.5);
           }
 

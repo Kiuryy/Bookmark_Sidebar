@@ -1107,12 +1107,16 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span {
           display: block;
           font-size: 80%;
-          font-style: italic; }
+          font-style: italic;
+          user-select: auto;
+          padding: 5px;
+          transition: background 0.5s; }
           div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span > span {
             display: block;
             font-weight: "%fontWeightMedium";
             font-style: normal;
-            margin-bottom: 3px; }
+            margin-bottom: 3px;
+            user-select: none; }
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > textarea {
           height: 70px;
           margin: 0;
@@ -1130,8 +1134,9 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
           background: rgba(255, 255, 255, 0.5); }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > textarea {
         box-shadow: 0 0 10px rgba(43, 53, 200, 0.2); }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > span {
+        background: rgba(123, 95, 164, 0.2); }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.mark > div > span {
-        padding: 5px;
         background: rgba(245, 197, 37, 0.5); }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.mark > span.desc {
         position: relative;
@@ -1381,6 +1386,7 @@ body {
   width: 100%;
   min-width: 800px;
   height: 100%;
+  user-select: none;
   overflow: hidden; }
   @media (max-width: 800px) {
     body {

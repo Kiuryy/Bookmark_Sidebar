@@ -72,7 +72,9 @@
                         this.elements.sidebar.removeClass(opts.classes.sidebar.entriesUnlocked);
                     }
 
-                    this.helper.list.updateBookmarkBox();
+                    this.helper.list.updateBookmarkBox().then(() => {
+                        this.helper.search.init();
+                    });
                 });
             }
         };

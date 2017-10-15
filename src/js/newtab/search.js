@@ -169,7 +169,7 @@
             }
 
             if (fromSuggestion === false) { // no suggestion matches -> show the typed input
-                n.opts.elm.search.field[0].value = n.opts.elm.search.field.data("typedVal");
+                n.opts.elm.search.field[0].value = n.opts.elm.search.field.data("typedVal") || "";
             }
         };
 

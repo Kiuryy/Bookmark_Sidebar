@@ -32,11 +32,26 @@
         };
 
         /**
+         * Returns whether the sidebar has the keyboard focus
+         *
+         * @returns {boolean}
+         */
+        let isSidebarFocussed = () => {
+            let ret = false;
+
+            if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible) && document && document.activeElement) {
+                ret = document.activeElement === ext.elements.iframe[0];
+            }
+
+            return ret;
+        };
+
+        /**
          * Initializes the eventhandlers for the sidebar
          */
         let initSidebarEvents = () => {
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown.bs", (e) => {
-                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) { // sidebar is open
+                if (isSidebarFocussed()) { // sidebar is focussed
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
                     let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
 
@@ -66,7 +81,7 @@
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         copyHoveredEntryUrl();
-                    } else if (ext.helper.toggle.openedByUser) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
+                    } else { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
                         let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
 
                         if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
@@ -75,7 +90,7 @@
                     }
                 }
             }).on("keyup.bs", () => {
-                if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                if (isSidebarFocussed()) {
                     let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
 
                     if (searchField && searchField.length() > 0) {

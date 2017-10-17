@@ -357,7 +357,9 @@
         let initEvents = () => {
             $(window).on("resize", function () {
                 let path = s.helper.menu.getPath();
-                updatePageLayout(path[1]);
+                if (path && path[1]) {
+                    updatePageLayout(path[1]);
+                }
             });
 
             s.opts.elm.appearance.content.find("input, select").on("change input", (e) => {

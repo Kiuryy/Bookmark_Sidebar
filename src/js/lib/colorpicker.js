@@ -1,5 +1,5 @@
 /**
- * Colorpicker v1.0.1
+ * Colorpicker v1.0.2
  *
  * Philipp König
  * https://blockbyte.de/
@@ -40,7 +40,7 @@ window.Colorpicker = (() => {
         };
 
         this.setByName = (name, value) => {
-            if ((name === 'r' || name === 'g' || name === 'b') && isValidRGBValue(value)) {
+            if ((name === 'r' || name === 'g' || name === 'b' || name === 'a') && isValidRGBValue(value)) {
                 this[name] = value;
                 RGBtoHSV();
             }
@@ -240,7 +240,14 @@ window.Colorpicker = (() => {
 
             rgbFields.forEach((c) => {
                 addInputField(c, (e) => {
-                    let val = parseInt(e.target.value);
+                    let val = e.target.value;
+
+                    if (c === "a") {
+                        val = +val.replace(/\,/g, ".");
+                    } else {
+                        val = parseInt(val);
+                    }
+
                     this.color.setByName(c, val);
                     e.target.value = this.color[c];
                     updateUI();

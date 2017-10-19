@@ -1,19 +1,4 @@
 
-section#content {
-
-  > section.mid {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    max-width: 650px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 div#search {
   position: relative;
   display: block;

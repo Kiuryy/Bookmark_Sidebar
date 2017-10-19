@@ -64,13 +64,30 @@ section#content {
   height: 100vh;
   background: $bodyBackground;
   transition: height 0.5s;
+
+  > section.mid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    > * {
+      pointer-events: auto;
+    }
+  }
 }
 
 body.dark {
   background: $darkContentBackground;
 
   &.loading::before {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
   }
 
   section#content {

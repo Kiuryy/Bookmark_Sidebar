@@ -138,17 +138,6 @@ section#content > nav {
 body.dark section#content > nav > ul > li > a:hover {
   background: #555; }
 
-section#content > section.mid {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 650px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
 div#search {
   position: relative;
   display: block;
@@ -542,6 +531,19 @@ section#content {
   height: 100vh;
   background: #f2f2f2;
   transition: height 0.5s; }
+  section#content > section.mid {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; }
+    section#content > section.mid > * {
+      pointer-events: auto; }
 
 body.dark {
   background: #444; }

@@ -148,7 +148,7 @@
 
             ext.helper.scroll.focus();
 
-            $.delay(500).then(() => {
+            $.delay(400).then(() => {
                 elements.overlay.remove();
             });
         };

@@ -105,22 +105,24 @@
                         this.handleEntryClick($(e.currentTarget), e);
                     }
                 }).on("mouseover", "a", (e) => { // add class to currently hovered element
-                    let _self = $(e.currentTarget);
-                    box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                    if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0) { // prevent hovering if overlay is open
+                        let _self = $(e.currentTarget);
+                        box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
 
-                    if (!_self.hasClass(ext.opts.classes.sidebar.mark)) {
-                        _self.addClass(ext.opts.classes.sidebar.hover);
+                        if (!_self.hasClass(ext.opts.classes.sidebar.mark)) {
+                            _self.addClass(ext.opts.classes.sidebar.hover);
+                        }
+
+                        if (markTimeout) {
+                            clearTimeout(markTimeout);
+                        }
+
+                        markTimeout = setTimeout(() => { // remove highlighting after 500ms of hovering
+                            _self.removeClass(ext.opts.classes.sidebar.mark);
+                        }, 500);
+
+                        ext.helper.tooltip.create(_self);
                     }
-
-                    if (markTimeout) {
-                        clearTimeout(markTimeout);
-                    }
-
-                    markTimeout = setTimeout(() => { // remove highlighting after 500ms of hovering
-                        _self.removeClass(ext.opts.classes.sidebar.mark);
-                    }, 500);
-
-                    ext.helper.tooltip.create(_self);
                 }).on("contextmenu", "a", (e) => { // right click
                     e.preventDefault();
                     let type = "list";

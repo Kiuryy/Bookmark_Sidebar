@@ -115,15 +115,6 @@
 
                     if (typeof obj.behaviour.replaceNewTab !== "undefined") {
                         obj.newtab.override = obj.behaviour.replaceNewTab;
-
-                        if (obj.newtab.override === true && newVersion.startsWith("1.10.")) {
-                            obj.newtab.shortcuts = [
-                                {label: "Chrome Apps", url: "chrome://apps"},
-                                {label: "Gmail", url: "https://mail.google.com/mail/"},
-                                {label: "YouTube", url: "https://www.youtube.com/"},
-                                {label: "Facebook", url: "https://www.facebook.com/"}
-                            ];
-                        }
                     }
 
                     if (typeof obj.behaviour.rememberState === "undefined" || obj.behaviour.rememberState === "all") {

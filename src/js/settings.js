@@ -153,9 +153,9 @@
             ajax: {
                 feedback: "https://extensions.blockbyte.de/ajax/feedback",
                 translation: {
-                    info: "https://extensions.blockbyte.de/ajax/bs/i18n/info",
-                    langvars: "https://extensions.blockbyte.de/ajax/bs/i18n/langvars",
-                    submit: "https://extensions.blockbyte.de/ajax/bs/i18n/submit"
+                    info: "https://extensions.blockbyte.de/ajax/translation/bs/info",
+                    langvars: "https://extensions.blockbyte.de/ajax/translation/bs/langvars",
+                    submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
                 }
             },
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",

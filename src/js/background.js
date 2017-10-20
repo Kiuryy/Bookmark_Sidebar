@@ -8,7 +8,7 @@
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
             checkUrls: "https://4v1.de/u",
-            uninstall: "https://extensions.blockbyte.de/bs/uninstall",
+            uninstall: "https://extensions.blockbyte.de/uninstall/bs",
             thumbnail: "https://4v1.de/t"
         };
 

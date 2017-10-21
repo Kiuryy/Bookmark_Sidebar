@@ -79,7 +79,6 @@
          * Send a sign of life and all configuration once per day to Google Analytics
          */
         this.trackUserData = () => {
-            let manifest = chrome.runtime.getManifest();
             let shareState = "not_set";
             let shareUserdata = b.helper.model.shareUserdata();
 
@@ -99,7 +98,7 @@
             this.trackEvent({ // extension version
                 category: "extension",
                 action: "version",
-                label: manifest.version,
+                label: b.manifest.version,
                 always: true
             });
 
@@ -141,7 +140,7 @@
                 });
 
                 // track configuration values
-                let categories = ["behaviour", "appearance", "newtab"];
+                let categories = ["behaviour", "appearance", "newtab", "language"];
 
                 let proceedConfig = (baseName, obj) => {
                     Object.keys(obj).forEach((attr) => {
@@ -171,6 +170,13 @@
 
                 chrome.storage.sync.get(categories, (obj) => {
                     categories.forEach((category) => {
+                        if (category === "language" && typeof obj[category] === "string") { // proceed with the actual language of the extension
+                            if (obj[category] === "default") {
+                                obj[category] = chrome.i18n.getUILanguage();
+                            }
+                            obj[category] = {ui: obj[category]};
+                        }
+
                         if (typeof obj[category] === "object") {
                             proceedConfig(category, obj[category]);
                         }

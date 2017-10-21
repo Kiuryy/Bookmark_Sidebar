@@ -46,7 +46,6 @@
                 preventPageScroll: false,
                 pxTolerance: {windowed: 20, maximized: 1},
                 sidebarPosition: "left",
-                language: "default",
                 openAction: "mousedown",
                 newTab: "foreground",
                 newTabPosition: "afterCurrent",

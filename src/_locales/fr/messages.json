@@ -227,6 +227,30 @@
     "status_background_disconnected_reload_action": {
         "message": "Recharger maintenant"
     },
+    "notification_sidebar_not_working_headline": {
+        "message": "Impossible d'afficher la barre lat\u00e9rale"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Plus d'info"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "Impossible d'afficher la barre lat\u00e9rale sur le store de google chrome et sur la page nouvel onglet."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le store de google chrome."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page nouvel onglet."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de chrome."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Si cela se produit r\u00e9guli\u00e8rement, faites-le-moi savoir."
+    },
     "share_userdata_headline": {
         "message": "Aidez-moi"
     },
@@ -309,7 +333,7 @@
         "message": "Bookmark Sidebar a \u00e9t\u00e9 mise \u00e0 jour."
     },
     "changelog_show_changelog": {
-        "message": "Quoi de nouveau ?"
+        "message": "Quoi de neuf ?"
     },
     "changelog_close": {
         "message": "Fermer la page"
@@ -376,6 +400,9 @@
     },
     "settings_restore": {
         "message": "R\u00e9tablir les param\u00e8tres par d\u00e9faut"
+    },
+    "settings_restore_confirm": {
+        "message": "Voulez-vous vraiment r\u00e9tablir la configuration par d\u00e9faut?"
     },
     "settings_restored_message": {
         "message": "Les param\u00e8tres par d\u00e9faut ont \u00e9t\u00e9 r\u00e9tablis"

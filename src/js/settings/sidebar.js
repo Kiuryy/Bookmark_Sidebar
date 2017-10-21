@@ -20,8 +20,9 @@
             let pxTolerance = s.helper.model.getData("b/pxTolerance");
             s.opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
             s.opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
+            s.opts.elm.select.language[0].value = s.helper.i18n.getLanguage();
 
-            ["openAction", "sidebarPosition", "language", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+            ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.opts.elm.select[field].trigger("change");
             });
@@ -58,7 +59,7 @@
                     }
                 };
 
-                ["openAction", "sidebarPosition", "language", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+                ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                     config[field] = s.opts.elm.select[field][0].value;
                 });
 
@@ -91,15 +92,18 @@
          */
         this.saveLanguage = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["behaviour"], (obj) => {
-                    let config = obj.behaviour || {};
-                    config.language = s.opts.elm.select.language[0].value;
+                let lang = s.opts.elm.select.language[0].value;
 
-                    chrome.storage.sync.set({behaviour: config}, () => {
-                        s.helper.model.call("reinitialize");
-                        s.showSuccessMessage("saved_message");
-                        resolve();
-                    });
+                if (lang === s.helper.i18n.getUILanguage()) {
+                    lang = "default";
+                }
+
+                chrome.storage.sync.set({
+                    language: lang
+                }, () => {
+                    s.helper.model.call("reinitialize");
+                    s.showSuccessMessage("saved_message");
+                    resolve();
                 });
             });
         };

@@ -9,6 +9,7 @@
          */
         this.init = async () => {
             initEvents();
+            highlightFaq();
 
             if (s.serviceAvailable === false) {
                 s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
@@ -18,6 +19,28 @@
                     .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
                     .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
                     .insertAfter(s.opts.elm.feedback.form);
+            }
+        };
+
+        /**
+         * Checks the current path from the menu helper and highlights the matching faq entry
+         */
+        let highlightFaq = () => {
+            let path = s.helper.menu.getPath();
+
+            if (path.length > 2 && path[1] === "faq" && path[2]) {
+                let faqLink = s.opts.elm.feedback.faq.children("strong[" + s.opts.attr.name + "='" + path[2] + "']");
+                if (faqLink.length() > 0) {
+                    faqLink.trigger("click");
+
+                    $.delay(300).then(() => {
+                        faqLink.next("p").addClass(s.opts.classes.highlight);
+
+                        return $.delay(1000);
+                    }).then(() => {
+                        faqLink.next("p").removeClass(s.opts.classes.highlight);
+                    });
+                }
             }
         };
 

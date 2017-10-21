@@ -227,6 +227,30 @@
     "status_background_disconnected_reload_action": {
         "message": "Reload now"
     },
+    "notification_sidebar_not_working_headline": {
+        "message": "Sidebar could not be opened"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "More information"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "On the Chrome Webstore and the New Tab page the sidebar is not working."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "The sidebar cannot be used on the Chrome Webstore."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "The sidebar cannot be used on extension pages."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "The sidebar cannot be used on the default new tab page."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "The sidebar cannot be used on chrome system pages."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "If this is happening regularly, please let me know."
+    },
     "share_userdata_headline": {
         "message": "I need your help"
     },

@@ -39,6 +39,7 @@ div.tab[data-name='feedback'] {
       margin: -10px 0 15px 0;
       border-radius: 5px;
       display: none;
+      transition: background 0.5s;
 
       &.visible {
         display: block;
@@ -51,6 +52,15 @@ div.tab[data-name='feedback'] {
         left: 20px;
         border: 7px solid transparent;
         border-bottom-color: $bodyBackground;
+        transition: border-bottom-color 0.5s;
+      }
+
+      &.highlight {
+        background: $colorNotice;
+
+        &::before {
+          border-bottom-color: $colorNotice;
+        }
       }
 
       > a {

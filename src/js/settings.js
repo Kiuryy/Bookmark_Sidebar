@@ -59,6 +59,7 @@
                 loading: "loading",
                 revert: "revert",
                 visible: "visible",
+                highlight: "highlight",
                 small: "small",
                 desc: "desc",
                 box: "box",
@@ -293,13 +294,7 @@
                 let type = $(e.currentTarget).parent("div").attr(this.opts.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    let language = this.helper.model.getData("b/language");
-
                     chrome.storage.sync.remove([type], () => {
-                        if (type === "sidebar") { // don't reset user language
-                            chrome.storage.sync.set({behaviour: {language: language}});
-                        }
-
                         this.showSuccessMessage("restored_message");
                         this.helper.model.call("reloadIcon");
                         $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);

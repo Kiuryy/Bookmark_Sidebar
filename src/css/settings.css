@@ -675,7 +675,8 @@ div.tab[data-name='feedback'] div.faq {
     padding: 5px 7px;
     margin: -10px 0 15px 0;
     border-radius: 5px;
-    display: none; }
+    display: none;
+    transition: background 0.5s; }
     div.tab[data-name='feedback'] div.faq > p.visible {
       display: block; }
     div.tab[data-name='feedback'] div.faq > p::before {
@@ -684,7 +685,12 @@ div.tab[data-name='feedback'] div.faq {
       top: -14px;
       left: 20px;
       border: 7px solid transparent;
-      border-bottom-color: #f2f2f2; }
+      border-bottom-color: #f2f2f2;
+      transition: border-bottom-color 0.5s; }
+    div.tab[data-name='feedback'] div.faq > p.highlight {
+      background: #f5c525; }
+      div.tab[data-name='feedback'] div.faq > p.highlight::before {
+        border-bottom-color: #f5c525; }
     div.tab[data-name='feedback'] div.faq > p > a {
       font-weight: "%fontWeightBold";
       color: #2b35c8; }

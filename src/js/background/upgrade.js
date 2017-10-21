@@ -29,7 +29,7 @@
                     b.reinitialize();
                 } else if (details.reason === 'update') { // extension was updated
                     chrome.storage.local.remove(["languageInfos"]);
-                    let newVersion = chrome.runtime.getManifest().version;
+                    let newVersion = b.manifest.version;
 
                     if (details.previousVersion !== newVersion) {
                         b.helper.analytics.trackEvent({
@@ -42,6 +42,15 @@
 
                     let versionPartsOld = details.previousVersion.split('.');
                     let versionPartsNew = newVersion.split('.');
+
+                    chrome.storage.sync.get(["behaviour", "language"], (obj) => { // @deprecated only for upgrade to v1.10.3
+                        if (typeof obj.behaviour !== "undefined" && obj.behaviour.language && typeof obj.language === "undefined") {
+                            let lang = obj.behaviour.language;
+                            chrome.storage.sync.set({language: lang}, () => {
+                                b.helper.language.init();
+                            });
+                        }
+                    });
 
                     if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                         handleVersionUpgrade(newVersion).then(() => {
@@ -67,7 +76,7 @@
                 let savedValues = () => {
                     savedCount++;
                     if (savedCount >= 3) { // newtab, behaviour and appearance
-                        b.helper.icon.init(); // @deprecated only for upgrade to v1.0
+                        b.helper.icon.init(); // @deprecated only for upgrade to v1.10
                         resolve();
                     }
                 };
@@ -96,12 +105,15 @@
                     // START UPGRADE // v1.11
                     //delete obj.behaviour.initialOpenOnNewTab;
                     //delete obj.behaviour.replaceNewTab;
+                    //delete obj.behaviour.language;
+                    //delete obj.appearance.language;
+                    //delete obj.appearance.sidebarPosition;
                     // END UPGRADE // v1.11
 
                     // START UPGRADE // v1.10
                     chrome.storage.sync.remove(["utility", "nt_notice"]);
 
-                    ["sidebarPosition", "language"].forEach((f) => {
+                    ["sidebarPosition"].forEach((f) => {
                         if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
                             obj.behaviour[f] = obj.appearance[f];
                         }

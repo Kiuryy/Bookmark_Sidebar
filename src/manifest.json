@@ -21,6 +21,7 @@
       "js/background/image.js",
       "js/background/cache.js",
       "js/background/icon.js",
+      "js/background/browserAction.js",
       "js/background/port.js",
       "js/background.js"
     ],
@@ -82,6 +83,7 @@
     "<all_urls>",
     "bookmarks",
     "storage",
+    "notifications",
     "unlimitedStorage",
     "fontSettings",
     "chrome://favicon/"

@@ -3,6 +3,7 @@
 
     let background = function () {
         this.importRunning = false;
+        this.manifest = chrome.runtime.getManifest();
 
         this.urls = {
             website: "https://extensions.blockbyte.de/",
@@ -13,7 +14,7 @@
         };
 
         this.isDev = false;
-        let reinitialized = null;
+        this.reinitialized = null;
 
         /**
          * Sends a message to all tabs, so they are reloading the sidebar
@@ -35,7 +36,7 @@
                                 chrome.tabs.sendMessage(tab.id, {
                                     action: "reload",
                                     scrollTop: opts.scrollTop || false,
-                                    reinitialized: reinitialized,
+                                    reinitialized: this.reinitialized,
                                     type: opts.type
                                 });
                             });
@@ -52,8 +53,7 @@
          */
         this.reinitialize = () => {
             return new Promise((resolve) => {
-                let manifest = chrome.runtime.getManifest();
-                reinitialized = +new Date();
+                this.reinitialized = +new Date();
 
                 let types = {
                     css: "insertCSS",
@@ -62,6 +62,7 @@
 
                 Promise.all([
                     this.helper.newtab.updateConfig(),
+                    this.helper.language.init(),
                     this.helper.cache.remove({name: "html"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
@@ -71,7 +72,7 @@
 
                                 $.delay(delay).then(() => {
                                     Object.entries(types).forEach(([type, func]) => {
-                                        let files = manifest.content_scripts[0][type];
+                                        let files = this.manifest.content_scripts[0][type];
 
                                         files.forEach((file) => {
                                             chrome.tabs[func](tab.id, {file: file}, () => {
@@ -95,15 +96,6 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
-                chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                    chrome.tabs.sendMessage(tabs[0].id, {
-                        action: "toggleSidebar",
-                        reinitialized: reinitialized
-                    });
-                });
-            });
-
             chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
                 this.importRunning = true;
             });
@@ -142,6 +134,7 @@
                 image: new window.ImageHelper(this),
                 port: new window.PortHelper(this),
                 icon: new window.IconHelper(this),
+                browserAction: new window.BrowserActionHelper(this),
                 cache: new window.CacheHelper(this),
                 analytics: new window.AnalyticsHelper(this)
             };
@@ -152,22 +145,23 @@
          */
         this.run = () => {
             let start = +new Date();
-            let manifest = chrome.runtime.getManifest();
-            this.isDev = manifest.version_name === "Dev" || !('update_url' in manifest);
+            this.isDev = this.manifest.version_name === "Dev" || !('update_url' in this.manifest);
 
             chrome.runtime.setUninstallURL(this.urls[this.isDev ? "website" : "uninstall"]);
             initHelpers();
 
             Promise.all([
                 this.helper.model.init(),
+                this.helper.language.init(),
                 this.helper.icon.init(),
-                this.helper.newtab.init(),
                 this.helper.analytics.init(),
-                this.helper.image.init(),
+                this.helper.browserAction.init(),
                 this.helper.bookmarkApi.init()
             ]).then(() => {
                 return Promise.all([
                     initEvents(),
+                    this.helper.newtab.init(),
+                    this.helper.image.init(),
                     this.helper.port.init(),
                     this.helper.upgrade.init()
                 ]);

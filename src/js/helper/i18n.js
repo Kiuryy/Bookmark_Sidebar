@@ -17,30 +17,10 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                langVars = {};
-
-                ext.helper.model.call("languageInfos").then((obj) => {
-                    let lang = ext.helper.model.getData("b/language");
-                    if (lang === "default") {
-                        lang = this.getUILanguage();
-                    }
-                    let defaultLang = this.getDefaultLanguage();
-
-                    [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
-                        if (obj.infos && obj.infos[name] && obj.infos[name].available) {
-                            language = name;
-                            ext.helper.model.call("langvars", {
-                                lang: name,
-                                defaultLang: defaultLang
-                            }).then((data) => { // load language variables from model
-                                if (data && data.langVars) {
-                                    langVars = data.langVars;
-                                    resolve();
-                                }
-                            });
-                            return true;
-                        }
-                    });
+                ext.helper.model.call("langvars").then((obj) => {
+                    language = obj.language;
+                    langVars = obj.vars;
+                    resolve();
                 });
             });
         };

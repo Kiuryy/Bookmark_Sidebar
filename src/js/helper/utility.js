@@ -64,7 +64,7 @@
             let found = false;
 
             let types = {
-                newtab_default: ["https?://www.google\..+/_/chrome/newtab"],
+                newtab_default: ["https?://www\.google\..+/_/chrome/newtab"],
                 newtab_replacement: [chrome.extension.getURL('html/newtab.html')],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],

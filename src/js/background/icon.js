@@ -6,11 +6,44 @@
         let cachedSvg = {};
         let currentIcon = null;
 
+        /**
+         *
+         * @returns {Promise}
+         */
         this.init = () => {
+            return new Promise((resolve) => {
+                this.getInfo().then((obj) => {
+                    if (obj.name === "logo") {
+                        chrome.browserAction.setIcon({
+                            path: b.manifest.browser_action.default_icon
+                        });
+                    } else {
+                        this.set({
+                            name: obj.name,
+                            color: obj.color
+                        });
+                    }
+
+                    if (b.isDev) { // add badge for the dev version
+                        chrome.browserAction.setBadgeBackgroundColor({color: [245, 197, 37, 255]});
+                        chrome.browserAction.setBadgeText({text: "X"});
+                    }
+
+                    resolve();
+                });
+            });
+        };
+
+        /**
+         * Returns information about the extension icon
+         *
+         * @returns {Promise}
+         */
+        this.getInfo = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
-                    let color = "rgb(85,85,85)";
+                    let color = "#555555";
 
                     if (obj && obj.appearance && obj.appearance.styles) {
 
@@ -23,24 +56,34 @@
                         }
                     }
 
-                    if (name === "logo") {
-                        let manifest = chrome.runtime.getManifest();
-                        chrome.browserAction.setIcon({
-                            path: manifest.browser_action.default_icon
-                        });
+                    resolve({
+                        name: name,
+                        color: color
+                    });
+                });
+            });
+        };
+
+        /**
+         * Returns the svg path with the given name and in the given color
+         *
+         * @returns {Promise}
+         */
+        this.getSvgImage = (name, color) => {
+            return new Promise((resolve) => {
+                new Promise((rslv) => {
+                    if (cachedSvg[name]) {
+                        rslv(cachedSvg[name]);
                     } else {
-                        this.set({
-                            name: name,
-                            color: color
+                        $.xhr(chrome.extension.getURL("img/icon/menu/icon-" + name + ".svg")).then((obj) => {
+                            let svg = obj.responseText;
+                            cachedSvg[name] = "data:image/svg+xml;charset=utf-8," + svg;
+                            rslv(cachedSvg[name]);
                         });
                     }
-
-                    if (b.isDev) { // add badge for the dev version
-                        chrome.browserAction.setBadgeBackgroundColor({color: [245, 197, 37, 255]});
-                        chrome.browserAction.setBadgeText({text: "X"});
-                    }
-
-                    resolve();
+                }).then((svg) => {
+                    svg = svg.replace(/\#000/g, color);
+                    resolve(svg);
                 });
             });
         };
@@ -65,18 +108,7 @@
                     canvas.height = size;
                     let ctx = canvas.getContext('2d');
 
-                    new Promise((rslv) => {
-                        if (cachedSvg[opts.name]) {
-                            rslv(cachedSvg[opts.name]);
-                        } else {
-                            $.xhr(chrome.extension.getURL("img/icon/menu/icon-" + opts.name + ".svg")).then((obj) => {
-                                let svg = obj.responseText;
-                                cachedSvg[opts.name] = "data:image/svg+xml;charset=utf-8," + svg;
-                                rslv(cachedSvg[opts.name]);
-                            });
-                        }
-                    }).then((svg) => {
-                        svg = svg.replace(/\#000/g, opts.color);
+                    this.getSvgImage(opts.name,opts.color).then((svg) => {
                         let img = new Image();
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);
@@ -96,8 +128,6 @@
                 }
             });
         };
-
-
     };
 
 })(jsu);

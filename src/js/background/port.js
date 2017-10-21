@@ -30,7 +30,7 @@
                     method: "POST",
                     responseType: "json",
                     data: {
-                        version: b.isDev ? "9.9.9" : chrome.runtime.getManifest().version
+                        version: b.isDev ? "9.9.9" : b.manifest.version
                     }
                 }).then((xhr) => {
                     if (xhr.response && xhr.response.available) {
@@ -259,8 +259,8 @@
                     reinitialize: b.reinitialize,
                     shareUserdata: updateShareUserdataFlag,
                     shareUserdataMask: shareUserdataMask,
-                    languageInfos: b.helper.language.getAll,
-                    langvars: b.helper.language.getVars,
+                    languageInfos: b.helper.language.getAvailableLanguages,
+                    langvars: b.helper.language.getLangVars,
                     favicon: b.helper.image.getFavicon,
                     thumbnail: b.helper.image.getThumbnail,
                     openLink: openLink,
@@ -272,6 +272,7 @@
                     trackEvent: b.helper.analytics.trackEvent,
                     updateIcon: b.helper.icon.set,
                     reloadIcon: b.helper.icon.init,
+                    clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
                     addViewAmount: b.helper.viewAmount.addByUrl,
                     viewAmounts: b.helper.viewAmount.getAll
                 };

@@ -227,6 +227,30 @@
     "status_background_disconnected_reload_action": {
         "message": "Jetzt neuladen"
     },
+    "notification_sidebar_not_working_headline": {
+        "message": "Sidebar konnte nicht ge\u00f6ffnet werden"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Mehr Informationen"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "Im Chrome Webstore und der Standard-New-Tab-Seite funktioniert die Sidebar nicht."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "Die Sidebar kann im Chrome Webstore nicht verwendet werden."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "Die Sidebar kann nicht auf Erweiterungsseiten verwendet werden."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "Die Sidebar kann nicht auf der Standard-New-Tab-Seite verwendet werden."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "Die Sidebar kann nicht auf Chrome-Systemseiten verwendet werden."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Wenn dies h\u00e4ufiger geschieht, lass es mich bitte wissen."
+    },
     "share_userdata_headline": {
         "message": "Ich brauche deine Unterst\u00fctzung"
     },

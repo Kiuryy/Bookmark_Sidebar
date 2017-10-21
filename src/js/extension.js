@@ -4,7 +4,7 @@
     window.ext = function (opts) {
 
         let loadingInfo = {};
-        let isReloading = false;
+        let isLoading = false;
 
         /*
          * ################################
@@ -17,6 +17,7 @@
         this.isDev = false;
         this.elements = {};
         this.opts = opts;
+        this.needsReload = false;
 
         /**
          * Constructor
@@ -25,39 +26,63 @@
             this.isDev = this.opts.manifest.version_name === "Dev" || !('update_url' in this.opts.manifest);
             initHelpers();
 
-            this.helper.model.init().then(() => {
-                return this.helper.i18n.init();
-            }).then(() => {
-                destroyOldInstance();
+            destroyOldInstance();
+            init();
 
-                this.helper.font.init();
-                this.helper.stylesheet.init();
-                this.helper.stylesheet.addStylesheets(["content"]);
-
-                return initSidebar();
-            }).then(() => {
-                if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
-                    this.helper.toggle.init();
-                    this.helper.list.init();
-                    this.helper.scroll.init();
-                    this.helper.tooltip.init();
-                    this.helper.sidebarEvents.init();
-                    this.helper.dragndrop.init();
-                    this.helper.keyboard.init();
-
-                    if (document.referrer === "") {
-                        this.helper.model.call("addViewAmount", {url: location.href});
+            $(document).on("visibilitychange.bs", () => { // listen for the document becoming visible/hidden
+                if (document.hidden === false) {
+                    if (this.initialized === null) { // extension is not initialized yet
+                        init();
+                    } else if (this.needsReload) { // extension needs a reload
+                        this.reload();
                     }
                 }
             });
         };
 
         /**
-         * Reloads the sidebar, the model data, the language variables and the bookmark list
+         * Initialises the extension,
+         * is only running if the current tab is visible and there is no other process running at the moment
+         */
+        let init = () => {
+            if (isLoading === false && document.hidden === false) { // prevent multiple init attempts -> only proceed if the previous run finished and if the document is visible
+                isLoading = true;
+
+                this.helper.model.init().then(() => {
+                    return this.helper.i18n.init();
+                }).then(() => {
+                    this.helper.font.init();
+                    this.helper.stylesheet.init();
+                    this.helper.stylesheet.addStylesheets(["content"]);
+
+                    return initSidebar();
+                }).then(() => {
+                    if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
+                        this.helper.toggle.init();
+                        this.helper.list.init();
+                        this.helper.scroll.init();
+                        this.helper.tooltip.init();
+                        this.helper.sidebarEvents.init();
+                        this.helper.dragndrop.init();
+                        this.helper.keyboard.init();
+
+                        if (document.referrer === "") {
+                            this.helper.model.call("addViewAmount", {url: location.href});
+                        }
+                    }
+                });
+            }
+        };
+
+        /**
+         * Reloads the sidebar, the model data, the language variables and the bookmark list,
+         * is only running if the current tab is visible and there is no other process running at the moment
          */
         this.reload = () => {
-            if (isReloading === false) { // prevent multiple reload attempts -> only proceed if the previous run finished
-                isReloading = true;
+            if (isLoading === false && document.hidden === false) { // prevent multiple reload attempts -> only proceed if the previous run finished and if the document is visible
+                this.needsReload = false;
+                isLoading = true;
+
                 this.helper.model.init().then(() => {
                     return Promise.all([
                         this.helper.i18n.init(),
@@ -142,7 +167,7 @@
                 });
             }
 
-            isReloading = false;
+            isLoading = false;
         };
 
         /**
@@ -254,6 +279,8 @@
          */
         let destroyOldInstance = () => {
             let sidebarIframe = $("iframe#" + opts.ids.page.iframe);
+            $(document).off("*.bs");
+            $(window).off("*.bs");
 
             if (sidebarIframe.length() > 0) {
                 this.log("DESTROY");
@@ -261,9 +288,6 @@
                 sidebarIframe.remove();
                 $("iframe#" + opts.ids.page.overlay).remove();
                 $("div#" + opts.ids.page.indicator).remove();
-
-                $(document).off("*.bs");
-                $(window).off("*.bs");
             }
         };
 

@@ -167,6 +167,7 @@
                             delay = 100;
                         }
 
+                        ext.needsReload = true;
                         $.delay(delay).then(ext.reload);
                     } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
                         ext.helper.model.call("clearNotWorkingTimeout");

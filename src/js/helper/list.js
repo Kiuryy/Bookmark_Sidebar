@@ -444,45 +444,42 @@
          * @returns {jsu}
          */
         let addEntryToList = (bookmark, list, opts) => {
-            let entry;
-            for (let i = 0; i < (bookmark.url ? 1 : 1); i++) {
-                entry = $("<li />").appendTo(list);
-                let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "&nbsp;";
-                let entryContent = $("<a />")
-                    .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + label.trim() + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
-                    .appendTo(entry);
+            let entry = $("<li />").appendTo(list);
+            let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "&nbsp;";
+            let entryContent = $("<a />")
+                .html("<span class='" + ext.opts.classes.sidebar.bookmarkLabel + "'>" + label.trim() + "</span><span class='" + ext.opts.classes.drag.trigger + "' />")
+                .appendTo(entry);
 
-                if (bookmark.id) {
-                    entryContent.attr(ext.opts.attr.id, bookmark.id);
+            if (bookmark.id) {
+                entryContent.attr(ext.opts.attr.id, bookmark.id);
+            }
+
+            if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
+                entry.addClass(ext.opts.classes.sidebar.hidden);
+            }
+
+            if (bookmark.children && opts.asTree) { // dir
+                entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
+
+                if (opts.config.showDirectoryIcons) {
+                    entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
                 }
+            } else if (bookmark.url) { // link
+                entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
 
-                if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
-                    entry.addClass(ext.opts.classes.sidebar.hidden);
-                }
-
-                if (bookmark.children && opts.asTree) { // dir
-                    entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
-
-                    if (opts.config.showDirectoryIcons) {
-                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
+                if (opts.config.showBookmarkIcons) {
+                    if (ext.opts.demoMode) {
+                        entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                    } else {
+                        ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
+                            if (response.img) { // favicon found -> add to entry
+                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
+                            }
+                        });
                     }
-                } else if (bookmark.url) { // link
-                    entryContent.addClass(ext.opts.classes.sidebar.bookmarkLink);
-
-                    if (opts.config.showBookmarkIcons) {
-                        if (ext.opts.demoMode) {
-                            entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
-                        } else {
-                            ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
-                                if (response.img) { // favicon found -> add to entry
-                                    entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
-                                }
-                            });
-                        }
-                    }
-                } else if (bookmark.separator) { // separator
-                    entryContent.addClass(ext.opts.classes.sidebar.separator);
                 }
+            } else if (bookmark.separator) { // separator
+                entryContent.addClass(ext.opts.classes.sidebar.separator);
             }
 
             return entry;

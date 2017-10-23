@@ -1,5 +1,5 @@
 /**
- * Colorpicker v1.0.2
+ * Colorpicker v1.0.3
  *
  * Philipp König
  * https://blockbyte.de/
@@ -22,7 +22,7 @@ window.Colorpicker = (() => {
         this.value = 0;
 
         let isValidRGBValue = (value) => {
-            return typeof(value) === 'number' && isNaN(value) === false && value >= 0 && value <= 255;
+            return typeof value === 'number' && isNaN(value) === false && value >= 0 && value <= 255;
         };
 
         /*========== Methods to set Color Properties ==========*/
@@ -34,13 +34,17 @@ window.Colorpicker = (() => {
                 this.b = blue | 0;
 
                 if (isValidRGBValue(alpha) === true) {
-                    this.a = alpha;
+                    this.a = Math.min(1, alpha);
                 }
             }
         };
 
         this.setByName = (name, value) => {
             if ((name === 'r' || name === 'g' || name === 'b' || name === 'a') && isValidRGBValue(value)) {
+                if (name === "a") {
+                    value = Math.min(1, value);
+                }
+
                 this[name] = value;
                 RGBtoHSV();
             }
@@ -65,7 +69,13 @@ window.Colorpicker = (() => {
         this.setFromRaw = (value) => {
             value = value.trim();
 
-            if (/(^#{0,1}[0-9A-F]{6}$)|(^#{0,1}[0-9A-F]{3}$)/i.test(value)) {
+            if (value === "transparent") {
+                this.r = 0;
+                this.g = 0;
+                this.b = 0;
+                this.a = 0;
+                RGBtoHSV();
+            } else if (/(^#{0,1}[0-9A-F]{6}$)|(^#{0,1}[0-9A-F]{3}$)/i.test(value)) {
                 setHexFromRaw(value);
             } else if (/^rgba?\([^)]+\)$/i.test(value)) {
                 setRGBAFromRaw(value);
@@ -444,7 +454,7 @@ window.Colorpicker = (() => {
                 x = width;
             }
 
-            this.color.a = (x / width).toFixed(2);
+            this.color.setByName("a", +(x / width).toFixed(2));
 
             updateSliderPosition(alpha.picker, x);
             updatePreview();

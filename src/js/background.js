@@ -30,7 +30,7 @@
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
-                            let delay = tab.active ? 0 : ((i * 100) + 1000); // stagger the reload event for all tabs which are not currently visible
+                            let delay = tab.active ? 0 : (i * 100); // stagger the reload event for all tabs which are not currently visible
 
                             $.delay(delay).then(() => {
                                 chrome.tabs.sendMessage(tab.id, {
@@ -68,7 +68,7 @@
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
                             if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
-                                let delay = tab.active ? 0 : ((i * 200) + 1000); // stagger script injection for all tabs which are not currently visible
+                                let delay = tab.active ? 0 : (i * 100); // stagger script injection for all tabs which are not currently visible
 
                                 $.delay(delay).then(() => {
                                     Object.entries(types).forEach(([type, func]) => {

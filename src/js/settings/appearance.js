@@ -37,8 +37,8 @@
                             s.opts.elm.range[key].data("initial", value.replace("px", ""));
                             s.opts.elm.range[key].trigger("change");
                         } else if (s.opts.elm.color[key]) {
-                            s.opts.elm.color[key].data("initial", value);
                             changeColorValue(s.opts.elm.color[key], value);
+                            s.opts.elm.color[key].data("initial", s.opts.elm.color[key][0].value);
                         } else if (s.opts.elm.select[key]) {
                             if (key === "fontFamily" && s.opts.elm.select[key].children("option[value='" + value + "']").length() === 0) {
                                 value = "default";
@@ -268,10 +268,11 @@
                 if (s.opts.elm.range[key]) {
                     ret.styles[key] = s.opts.elm.range[key][0].value + "px";
                 } else if (s.opts.elm.color[key]) {
-                    ret.styles[key] = s.opts.elm.color[key][0].value;
+                    let colorValue = getColorValue(key, s.opts.elm.color[key][0].value);
+                    ret.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
-                        ret.styles.foregroundColor = getForegroundColor(s.opts.elm.color[key]);
+                        ret.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor",colorValue.luminance && colorValue.luminance > 170 ? "dark" : "light");
                     }
                 } else if (s.opts.elm.select[key]) {
                     ret.styles[key] = s.opts.elm.select[key][0].value;
@@ -295,20 +296,29 @@
         };
 
         /**
-         * Determines the foreground color for the current color scheme
+         * Returns information about the color of the given field
          *
-         * @param {jsu} field
-         * @returns {string|null}
+         * @param {string} field
+         * @param {string} val
+         * @returns {object}
          */
-        let getForegroundColor = (field) => {
-            let picker = field.data("picker");
+        let getColorValue = (field, val) => {
+            let luminance =null;
+            let elm = s.opts.elm.color[field];
+            let picker = elm.data("picker");
+
             if (picker) {
                 let colorObj = picker.getColorObj();
-                let luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
-                return s.helper.model.getDefaultColor("foregroundColor", luminance > 170 ? "dark" : "light");
+                if (colorObj.a === 0) {
+                    val = "transparent";
+                }
+                 luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
             }
 
-            return null;
+            return {
+                color:val,
+                luminance:luminance
+            };
         };
 
         /**

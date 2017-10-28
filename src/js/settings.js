@@ -164,7 +164,7 @@
         };
 
         this.serviceAvailable = true;
-        let restoreTypes = ["sidebar", "appearance", "newtab"];
+        let restoreTypes = ["behaviour", "appearance", "newtab"];
 
         /**
          * Constructor
@@ -294,6 +294,7 @@
                 let type = $(e.currentTarget).parent("div").attr(this.opts.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
+                    console.log(type);
                     chrome.storage.sync.remove([type], () => {
                         this.showSuccessMessage("restored_message");
                         this.helper.model.call("reloadIcon");
@@ -342,11 +343,17 @@
             this.opts.elm.buttons.restore.on("click", (e) => {
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
+                let type = path[0];
 
-                if (restoreTypes.indexOf(path[0]) !== -1) {
+                if (type === "sidebar") {
+                    type = "behaviour";
+                }
+
+                if (restoreTypes.indexOf(type) !== -1) {
                     $("div." + this.opts.classes.dialog).remove();
+
                     let dialog = $("<div />")
-                        .attr(this.opts.attr.type, path[0])
+                        .attr(this.opts.attr.type, type)
                         .addClass(this.opts.classes.dialog)
                         .append("<p>" + this.helper.i18n.get("settings_restore_confirm") + "</p>")
                         .append("<span>" + this.helper.i18n.get("settings_menu_" + path[0]) + "</span>")

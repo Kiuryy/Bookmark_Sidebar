@@ -45,7 +45,7 @@
                             }
                         }).then((xhr) => {
                             let dataUrl = xhr.responseText;
-                            console.log(xhr)
+
                             if (dataUrl && dataUrl.length > 0) {
                                 updateImageCache("thumb", opts.url, dataUrl);
                                 resolve({img: dataUrl});

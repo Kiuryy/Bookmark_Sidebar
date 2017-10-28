@@ -283,7 +283,7 @@ body > header {
       border-radius: 20px; }
       body > header > div.dialog > span::before {
         -webkit-mask-position: 8px center !important; }
-    body > header > div.dialog[data-type='sidebar'] > span::before {
+    body > header > div.dialog[data-type='behaviour'] > span::before {
       content: "";
       position: absolute;
       top: 0;

@@ -162,7 +162,7 @@ body > header {
       }
     }
 
-    &[data-type='sidebar'] > span {
+    &[data-type='behaviour'] > span {
       @include mask('icon-settings', $textColor, 16px);
     }
 

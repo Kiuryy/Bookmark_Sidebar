@@ -508,7 +508,7 @@
         let openChildren = (data) => {
             this.closeOverlay();
             let bookmarks = data.children.filter(val => !!(val.url));
-            ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
+            ext.helper.utility.openAllBookmarks(bookmarks);
         };
 
         /**

@@ -395,7 +395,7 @@
                             if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                                 ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
                             } else { // open bookmarks directly without confirmation
-                                ext.helper.utility.openAllBookmarks(bookmarks, ext.helper.model.getData("b/newTab") === "foreground");
+                                ext.helper.utility.openAllBookmarks(bookmarks);
                             }
                         }
                         break;

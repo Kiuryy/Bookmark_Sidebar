@@ -34,9 +34,8 @@
          * Opens all given bookmarks in new tabs
          *
          * @param {Array} bookmarks
-         * @param {boolean} active
          */
-        this.openAllBookmarks = (bookmarks, active = true) => {
+        this.openAllBookmarks = (bookmarks) => {
             ext.helper.model.call("trackEvent", {
                 category: "url",
                 action: "open",
@@ -49,7 +48,7 @@
             }
 
             bookmarks.forEach((bookmark) => {
-                this.openUrl(bookmark, "newTab", active);
+                this.openUrl(bookmark, "newTab", false);
             });
         };
 

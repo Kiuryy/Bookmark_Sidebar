@@ -31,7 +31,7 @@
                     if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                         ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
                     } else { // open bookmarks directly without confirmation
-                        ext.helper.utility.openAllBookmarks(bookmarks, config.newTab === "foreground");
+                        ext.helper.utility.openAllBookmarks(bookmarks);
                     }
                 } else { // normal click -> toggle directory
                     ext.helper.list.toggleBookmarkDir(elm);

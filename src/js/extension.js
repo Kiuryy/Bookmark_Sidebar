@@ -24,28 +24,30 @@
          */
         this.run = () => {
             this.isDev = this.opts.manifest.version_name === "Dev" || !('update_url' in this.opts.manifest);
+            let removedOldInstance = destroyOldInstance();
             initHelpers();
 
-            destroyOldInstance();
-            init();
-
             $(document).on("visibilitychange.bs", () => { // listen for the document becoming visible/hidden
-                if (document.hidden === false) {
+                if (document.hidden !== true) {
                     if (this.initialized === null) { // extension is not initialized yet
                         init();
                     } else if (this.needsReload) { // extension needs a reload
                         this.reload();
                     }
                 }
-            });
+            }, {capture: false});
+
+            init(removedOldInstance === false);
         };
 
         /**
          * Initialises the extension,
          * is only running if the current tab is visible and there is no other process running at the moment
+         *
+         * @param {boolean} force if set to true the sidebar gets initialised regardless of the document visibility state
          */
-        let init = () => {
-            if (isLoading === false && document.hidden === false) { // prevent multiple init attempts -> only proceed if the previous run finished and if the document is visible
+        let init = (force = false) => {
+            if (isLoading === false && (force || document.hidden !== true)) { // prevent multiple init attempts -> only proceed if the previous run finished and if the document is visible
                 isLoading = true;
 
                 this.helper.model.init().then(() => {
@@ -276,9 +278,13 @@
 
         /**
          * Removes the existing instance of the extension
+         *
+         * @returns {boolean} old instance removed or not
          */
         let destroyOldInstance = () => {
+            let ret = false;
             let sidebarIframe = $("iframe#" + opts.ids.page.iframe);
+
             $(document).off("*.bs");
             $(window).off("*.bs");
 
@@ -288,7 +294,10 @@
                 sidebarIframe.remove();
                 $("iframe#" + opts.ids.page.overlay).remove();
                 $("div#" + opts.ids.page.indicator).remove();
+                ret = true;
             }
+
+            return ret;
         };
 
         /**

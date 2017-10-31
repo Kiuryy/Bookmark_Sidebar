@@ -272,7 +272,7 @@
                     ret.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
-                        ret.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor",colorValue.luminance && colorValue.luminance > 170 ? "dark" : "light");
+                        ret.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", colorValue.luminance && colorValue.luminance > 170 ? "dark" : "light");
                     }
                 } else if (s.opts.elm.select[key]) {
                     ret.styles[key] = s.opts.elm.select[key][0].value;
@@ -303,7 +303,7 @@
          * @returns {object}
          */
         let getColorValue = (field, val) => {
-            let luminance =null;
+            let luminance = null;
             let elm = s.opts.elm.color[field];
             let picker = elm.data("picker");
 
@@ -312,12 +312,12 @@
                 if (colorObj.a === 0) {
                     val = "transparent";
                 }
-                 luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
+                luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
             }
 
             return {
-                color:val,
-                luminance:luminance
+                color: val,
+                luminance: luminance
             };
         };
 
@@ -387,7 +387,7 @@
                             changeColorValue(s.opts.elm.color.textColor, textColor);
                             changeColorValue(s.opts.elm.color.bookmarksDirColor, textColor);
 
-                            ["sidebarMaskColor", "colorScheme"].forEach((colorName) => {
+                            ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
                                 let color = s.helper.model.getDefaultColor(colorName, val ? "dark" : "light");
                                 changeColorValue(s.opts.elm.color[colorName], color);
                             });

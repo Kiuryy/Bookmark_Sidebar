@@ -12,6 +12,10 @@
                 light: "rgba(255,255,255,0.8)",
                 dark: "rgba(0,0,0,0.6)"
             },
+            hoverColor: {
+                light: "#f5f5f5",
+                dark: "#555555"
+            },
             colorScheme: {
                 light: "#1b82f1",
                 dark: "#1f4d80"
@@ -79,6 +83,7 @@
                     colorScheme: defaultColors.colorScheme.light,
                     foregroundColor: defaultColors.foregroundColor.light,
                     textColor: defaultColors.textColor.light,
+                    hoverColor: defaultColors.hoverColor.light,
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",
                     indicatorIconColor: "#ffffff",

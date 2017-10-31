@@ -3,7 +3,7 @@
         "message": "Bookmark Sidebar"
     },
     "extension_desc": {
-        "message": "Adds a toggleable sidebar with all your bookmarks on the left side of your screen."
+        "message": "Adds a toggleable sidebar with all your bookmarks on the side of your screen."
     },
     "header_bookmarks": {
         "message": "Bookmarks"
@@ -417,7 +417,7 @@
         "message": "Tolerance in pixels"
     },
     "settings_px_tolerance_desc": {
-        "message": "Amount of pixels from the left side of every page, in which a mouse click will cause the sidebar to open. You can choose different values for maximized and windowed browser frame."
+        "message": "Amount of pixels from the side of every page, in which a mouse click will cause the sidebar to open. You can choose different values for maximized and windowed browser frame."
     },
     "settings_px_tolerance_maximized": {
         "message": "Maximized"
@@ -622,6 +622,9 @@
     },
     "settings_text_color": {
         "message": "Text color"
+    },
+    "settings_hover_color": {
+        "message": "Mouseover color"
     },
     "settings_font_family": {
         "message": "Typeface"

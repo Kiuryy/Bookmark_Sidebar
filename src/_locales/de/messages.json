@@ -3,7 +3,7 @@
         "message": "Bookmark Sidebar"
     },
     "extension_desc": {
-        "message": "F\u00fcgt eine ausklappbare Sidebar mit all deinen Lesezeichen auf der linken Bildschirmseite hinzu."
+        "message": "F\u00fcgt eine ausklappbare Sidebar mit all deinen Lesezeichen auf der Bildschirmseite hinzu."
     },
     "header_bookmarks": {
         "message": "Lesezeichen"
@@ -622,6 +622,9 @@
     },
     "settings_text_color": {
         "message": "Textfarbe"
+    },
+    "settings_hover_color": {
+        "message": "Mouseover-Farbe"
     },
     "settings_font_family": {
         "message": "Schriftart"

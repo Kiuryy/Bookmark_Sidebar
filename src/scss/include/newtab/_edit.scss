@@ -279,15 +279,15 @@ body.edit {
 body.dark {
 
   menu.infoBar {
-    background: $darkHoverBackground;
+    background: $darkContentBackground2;
 
     > a.save {
-      color: $darkHoverBackground;
+      color: $darkContentBackground2;
     }
   }
 
   > a.edit:hover {
-    background: $darkHoverBackground;
+    background: $darkContentBackground2;
   }
 
   &.edit {
@@ -295,27 +295,27 @@ body.dark {
     section#content > nav {
 
       a.add:hover {
-        background: $darkHoverBackground;
+        background: $darkContentBackground2;
       }
 
       > ul > li {
-        background: $darkHoverBackground;
+        background: $darkContentBackground2;
         border-color: rgba(255, 255, 255, 0.075);
 
         > a.edit, > a.remove {
 
           &:hover {
-            background: lighten($darkHoverBackground, 10%);
+            background: lighten($darkContentBackground2, 10%);
           }
         }
 
         > div {
-          background: $darkHoverBackground;
+          background: $darkContentBackground2;
           filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.2));
           transform: translate3d(0, 3px, 0);
 
           &::before {
-            border-bottom-color: $darkHoverBackground;
+            border-bottom-color: $darkContentBackground2;
           }
 
           > input[type='text'] {
@@ -336,14 +336,14 @@ body.dark {
     div#search {
 
       > select {
-        background: lighten($darkHoverBackground, 10%);
+        background: lighten($darkContentBackground2, 10%);
       }
     }
 
     div#topPages {
 
       > select {
-        background: lighten($darkHoverBackground, 10%);
+        background: lighten($darkContentBackground2, 10%);
       }
     }
   }

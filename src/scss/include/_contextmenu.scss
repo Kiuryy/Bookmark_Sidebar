@@ -38,7 +38,7 @@ div.contextmenu {
   }
 
   > ul.icons {
-    background: darken($hoverBackground, 0.5%);
+    background: darken($contentBackground2, 0.5%);
     padding: 4px 2px 6px 2px;
 
     > li {
@@ -60,7 +60,7 @@ div.contextmenu {
         transition: background-color 0.3s;
 
         &.hover {
-          background-color: darken($hoverBackground, 3%);
+          background-color: darken($contentBackground2, 3%);
         }
 
         &[data-name='delete']::before {
@@ -194,7 +194,7 @@ section#sidebar {
 }
 
 body.dark div.contextmenu {
-  background: $darkHoverBackground;
+  background: $darkContentBackground2;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 
   > ul.list > li > a {
@@ -217,7 +217,7 @@ body.dark div.contextmenu {
   }
 
   > ul.icons {
-    background: lighten($darkHoverBackground, 3%);
+    background: lighten($darkContentBackground2, 3%);
 
     > li > a {
 
@@ -226,7 +226,7 @@ body.dark div.contextmenu {
       }
 
       &.hover {
-        background-color: lighten($darkHoverBackground, 8%);
+        background-color: lighten($darkContentBackground2, 8%);
       }
     }
   }

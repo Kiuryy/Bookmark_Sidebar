@@ -222,7 +222,7 @@ div.modal {
           padding: 0 16px 7px 16px;
 
           &:hover {
-            background: $hoverBackground;
+            background: $__hoverColor;
           }
 
           > div.checkbox {
@@ -310,7 +310,7 @@ div.modal {
         width: 100%;
         height: 57px;
         z-index: 2;
-        background: $hoverBackground;
+        background: $contentBackground2;
       }
 
       > svg.loading {
@@ -496,7 +496,7 @@ div.modal {
         height: 86px;
         border-radius: 50%;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        background-color: $hoverBackground;
+        background-color: $contentBackground2;
         transition: box-shadow 0.5s;
         cursor: pointer;
 
@@ -620,7 +620,7 @@ body.dark div.modal {
     > menu:not(.buttons) {
 
       > a {
-        background-color: $darkHoverBackground;
+        background-color: $darkContentBackground2;
 
         &::before, &::after {
           opacity: 0.5;
@@ -671,10 +671,6 @@ body.dark div.modal {
 
     > div#urlList > ul > li {
 
-      &:hover {
-        background: $darkHoverBackground;
-      }
-
       > a {
 
         &:hover {
@@ -698,7 +694,7 @@ body.dark div.modal {
     &.urlCheckList {
 
       &::after {
-        background: $darkHoverBackground;
+        background: $darkContentBackground2;
       }
     }
   }

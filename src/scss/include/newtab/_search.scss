@@ -44,7 +44,7 @@ div#search {
     transition: background 0.3s;
 
     &:hover {
-      background: $hoverBackground;
+      background: $__hoverColor;
     }
   }
 
@@ -67,7 +67,7 @@ div#search {
 
       &.active {
         cursor: pointer;
-        background: $hoverBackground;
+        background: $__hoverColor;
       }
 
       &::before {
@@ -90,26 +90,14 @@ body.dark {
   div#search {
 
     > input[type='text'] {
-      background: $darkHoverBackground;
-    }
-
-    > button[type="submit"] {
-
-      &:hover {
-        background: lighten($darkHoverBackground, 5%);
-      }
+      background: $darkContentBackground2;
     }
 
     > ul.suggestions {
       filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
 
       > li {
-        background: $darkHoverBackground;
-
-        &.active {
-          background: lighten($darkHoverBackground, 5%);
-        }
-
+        background: $darkContentBackground2;
       }
     }
   }

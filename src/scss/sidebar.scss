@@ -78,7 +78,7 @@ body > textarea {
 a.dragHelper {
   @include bookmarkEntry;
   position: absolute;
-  background: $hoverBackground;
+  background: $__hoverColor;
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
   transition: none;
@@ -107,6 +107,7 @@ section#sidebar {
   display: flex;
   flex-direction: column;
   user-select: none;
+  transition: background 0.3s;
   z-index: 2;
 
   &[data-pos='right'] {
@@ -120,6 +121,7 @@ section#sidebar {
     height: $sidebarHeaderHeight;
     padding: 6px 12px 0 12px;
     background: $__colorScheme;
+    transition: background 0.3s;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     flex-shrink: 0;
@@ -243,7 +245,7 @@ section#sidebar {
     top: $sidebarHeaderHeight;
     left: $filterMargin;
     width: calc(100% - #{$filterMargin * 2});
-    background: $hoverBackground;
+    background: $contentBackground2;
     padding: 10px $__bookmarksHorizontalPadding 5px;
     border-radius: 0 0 5px 5px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -499,7 +501,7 @@ body.dark section#sidebar {
   background: $darkContentBackground;
 
   > div.filter {
-    background: $darkHoverBackground;
+    background: $darkContentBackground2;
   }
 
   > div.scrollBox > ul {
@@ -515,10 +517,6 @@ body.dark section#sidebar {
 
     a {
       @include darkBookmarkEntry;
-    }
-
-    a.hover:not(.separator) {
-      background: $darkHoverBackground;
     }
 
     a > span.drag {
@@ -539,7 +537,6 @@ body.dark section#sidebar {
 
   ~ a.dragHelper {
     @include darkBookmarkEntry;
-    background: $darkHoverBackground;
   }
 }
 

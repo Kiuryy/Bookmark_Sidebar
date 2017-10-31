@@ -1,9 +1,9 @@
 {
     "extension_name": {
-        "message": "Bokm\u00e4rkes sidopanel"
+        "message": "Bokm\u00e4rkessidopanel"
     },
     "extension_desc": {
-        "message": "L\u00e4gger till en v\u00e4xlingsbar sidopanel med dina bokm\u00e4rken till v\u00e4nster i webbl\u00e4saren."
+        "message": "L\u00e4gger till en poppuppsidopanel i webbl\u00e4sarens f\u00f6nster med alla dina bokm\u00e4rken"
     },
     "header_bookmarks": {
         "message": "Bokm\u00e4rken"
@@ -18,7 +18,7 @@
         "message": "S\u00f6k bokm\u00e4rke"
     },
     "sidebar_search_no_results": {
-        "message": "Inga bokm\u00e4rken matchar den s\u00f6kningen"
+        "message": "Inga bokm\u00e4rken matchar din s\u00f6kning"
     },
     "sidebar_copied_to_clipboard": {
         "message": "Url kopierad"
@@ -204,7 +204,7 @@
         "message": "Mest anv\u00e4nda bokm\u00e4rken"
     },
     "newtab_top_pages_pinned_entries": {
-        "message": "Uppstiftade bokm\u00e4rken"
+        "message": "Fastn\u00e5lade bokm\u00e4rken"
     },
     "newtab_top_pages_hidden": {
         "message": "Visa inte sidor"
@@ -227,6 +227,30 @@
     "status_background_disconnected_reload_action": {
         "message": "Ladda om nu"
     },
+    "notification_sidebar_not_working_headline": {
+        "message": "Sidopanelen kunde inte \u00f6ppnas"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Mer information"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "Sidopanelen fungerar inte i Chrome Webstore och p\u00e5 sidan Ny flik"
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas i Chrome Webstore"
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 till\u00e4gg-sidor"
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 den f\u00f6rvalda Ny flik-sidan"
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 Chrome systemsidor"
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Meddela mig g\u00e4rna om detta sker \u00e5terkommande"
+    },
     "share_userdata_headline": {
         "message": "Jag beh\u00f6ver din hj\u00e4lp"
     },
@@ -246,22 +270,22 @@
         "message": "Nej tack"
     },
     "onboarding_title": {
-        "message": "Inr\u00e4tta"
+        "message": "Installation"
     },
     "onboarding_headline": {
-        "message": "Tack f\u00f6r att du installerar detta till\u00e4gget."
+        "message": "Tack f\u00f6r att du installerar detta till\u00e4gg."
     },
     "onboarding_setup": {
-        "message": "Inr\u00e4tta nu"
+        "message": "Installera nu"
     },
     "onboarding_skip": {
-        "message": "Avbryt inr\u00e4ttningen"
+        "message": "Avbryt installationen"
     },
     "onboarding_sidebar_position_desc": {
         "message": "Var vill du ha din sidopanel?"
     },
     "onboarding_sidebar_open_action_desc": {
-        "message": "Var vill du \u00f6ppna din sidopanel?"
+        "message": "Hur vill du \u00f6ppna din sidopanel?"
     },
     "onboarding_sidebar_surface_desc": {
         "message": "Vilken stil f\u00f6redrar du?"
@@ -279,28 +303,28 @@
         "message": "Nu kan du testa sj\u00e4lv."
     },
     "onboarding_handson_mouse_desc_1": {
-        "message": "Flytta muspekaren till {1} sidan av f\u00f6nstret."
+        "message": "Flytta muspekaren till {1}sidan av f\u00f6nstret."
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "{1}klicka med musen p\u00e5 sidopanelen."
+        "message": "{1}klicka med musen f\u00f6r att \u00f6ppna sidopanelen."
     },
     "onboarding_handson_icon_desc": {
-        "message": "Klicka p\u00e5 till\u00e4ggsikonen f\u00f6r att \u00f6ppna sidopanelen."
+        "message": "Klicka p\u00e5 ikonen i verktygsf\u00e4ltet f\u00f6r att \u00f6ppna sidopanelen."
     },
     "onboarding_left": {
-        "message": "V\u00e4nster"
+        "message": "v\u00e4nster"
     },
     "onboarding_right": {
-        "message": "H\u00f6ger"
+        "message": "h\u00f6ger"
     },
     "onboarding_finish_desc": {
-        "message": "Ha kul med din sidopanel."
+        "message": "Mycket n\u00f6je med din sidopanel!"
     },
     "onboarding_goto_settings": {
-        "message": "Mer inst\u00e4llningar"
+        "message": "Fler inst\u00e4llningar"
     },
     "onboarding_close": {
-        "message": "St\u00e4ng denna sida"
+        "message": "St\u00e4ng sidan"
     },
     "changelog_title": {
         "message": "\u00c4ndringslogg"
@@ -327,10 +351,10 @@
         "message": "V\u00e4xla"
     },
     "settings_menu_sidebar_tooltip": {
-        "message": "Verktygstips"
+        "message": "Inforuta"
     },
     "settings_menu_sidebar_export": {
-        "message": "Importera\/Exportera"
+        "message": "Importera\/exportera"
     },
     "settings_menu_appearance": {
         "message": "Utseende"
@@ -363,7 +387,7 @@
         "message": "\u00d6vers\u00e4tt"
     },
     "settings_menu_feedback": {
-        "message": "\u00c5terkoppla"
+        "message": "Feedback"
     },
     "settings_menu_support": {
         "message": "Support"
@@ -372,16 +396,16 @@
         "message": "Spara \u00e4ndringar"
     },
     "settings_saved_message": {
-        "message": "\u00c4ndringar sparade"
+        "message": "\u00c4ndringarna har sparats"
     },
     "settings_restore": {
-        "message": "\u00c5terskapa f\u00f6rinst\u00e4lld"
+        "message": "\u00c5terst\u00e4ll standard"
     },
     "settings_restore_confirm": {
-        "message": "Vill du verkligen \u00e5terskapa f\u00f6rinst\u00e4lld konfiguration?"
+        "message": "\u00c4r du s\u00e4ker p\u00e5 att du vill \u00e5terst\u00e4lla standardkonfigurationen?"
     },
     "settings_restored_message": {
-        "message": "Konfiguration \u00e5terskapad"
+        "message": "\u00c5terst\u00e4lld till standard"
     },
     "settings_animations": {
         "message": "Aktivera animeringar"

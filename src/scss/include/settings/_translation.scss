@@ -201,7 +201,7 @@ div.tab[data-name='language'] > div[data-name='translate'] {
           transition: background 0.5s;
 
           &:hover {
-            background: $hoverBackground;
+            background: $contentBackground2;
           }
 
           &::after {
@@ -301,7 +301,7 @@ div.tab[data-name='language'] > div[data-name='translate'] {
         }
 
         &:hover, &.hover {
-          background: $hoverBackground;
+          background: $contentBackground2;
 
           > div > textarea {
             background: rgba($contentBackground, 0.5);

@@ -187,5 +187,71 @@
     },
     "overlay_check_urls_not_found": {
         "message": "Indirizzo non trovato"
+    },
+    "settings_title": {
+        "message": "Impostazioni"
+    },
+    "settings_menu_sidebar": {
+        "message": "Barra laterale"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Generali"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Suggerimento"
+    },
+    "settings_menu_sidebar_export": {
+        "message": "Importa\/Esporta"
+    },
+    "settings_menu_appearance": {
+        "message": "Aspetto"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Generali"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Barra"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indicatore"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Icona"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Sovrapposizione"
+    },
+    "settings_menu_newtab": {
+        "message": "Nuova scheda"
+    },
+    "settings_menu_language": {
+        "message": "Lingua"
+    },
+    "settings_menu_language_general": {
+        "message": "Generali"
+    },
+    "settings_menu_language_translate": {
+        "message": "Traduci"
+    },
+    "settings_menu_feedback": {
+        "message": "Feedback"
+    },
+    "settings_menu_support": {
+        "message": "Supporto"
+    },
+    "settings_save": {
+        "message": "Salva le modifiche"
+    },
+    "settings_saved_message": {
+        "message": "Modifiche salvate correttamente"
+    },
+    "settings_restore": {
+        "message": "Ripristina le impostazioni predefinite"
+    },
+    "settings_restore_confirm": {
+        "message": "Vuoi davvero ripristinare le impostazioni predefinite?"
+    },
+    "settings_restored_message": {
+        "message": "Impostazioni ripristinate correttamente"
     }
 }

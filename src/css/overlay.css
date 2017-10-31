@@ -370,7 +370,7 @@ div.modal {
         transition: background 0.3s;
         padding: 0 16px 7px 16px; }
         div.modal[data-type='updateUrls'] > div#urlList > ul > li:hover {
-          background: #f5f5f5; }
+          background: "%hoverColor"; }
         div.modal[data-type='updateUrls'] > div#urlList > ul > li > div.checkbox {
           display: inline-block;
           vertical-align: top;
@@ -673,8 +673,6 @@ body.dark div.modal {
     color: #eee; }
     body.dark div.modal[data-type='infos'] > ul > li > ul::before {
       border-bottom-color: #222; }
-  body.dark div.modal[data-type='updateUrls'] > div#urlList > ul > li:hover {
-    background: #555; }
   body.dark div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:hover {
     color: "%textColor"; }
     body.dark div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:hover > span {

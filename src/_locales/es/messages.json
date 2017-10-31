@@ -3,7 +3,7 @@
         "message": "Barra lateral de marcadores"
     },
     "extension_desc": {
-        "message": "A\u00f1ade una barra lateral con todos tus marcadores en la parte izquierda de tu pantalla"
+        "message": "A\u00f1ade una barra lateral con todos tus marcadores en la parte izquierda de tu pantalla."
     },
     "header_bookmarks": {
         "message": "marcadores"
@@ -188,6 +188,27 @@
     "overlay_check_urls_not_found": {
         "message": "URL no encontrada"
     },
+    "newtab_title": {
+        "message": "Nueva pesta\u00f1a"
+    },
+    "newtab_search_placeholder": {
+        "message": "Busca {1} o escribe la URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "P\u00e1ginas de arriba"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Marcadores usados recientemente"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Marcadores m\u00e1s usados"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Marcadores fijados"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "No mostrar p\u00e1ginas"
+    },
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"
     },
@@ -205,6 +226,30 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Recargar ahora"
+    },
+    "notification_sidebar_not_working_headline": {
+        "message": "La barra lateral no se pudo abrir"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "M\u00e1s informaci\u00f3n"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "En la Chrome Webstore y en la p\u00e1gina de nueva pesta\u00f1a, la barra lateral no funciona."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "La barra lateral no se puede usar en la Chrome Webstore."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de las extensiones."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "La barra lateral no se puede usar en la p\u00e1gina de nueva pesta\u00f1a."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Si esto sucede regularmente, h\u00e1zmelo saber."
     },
     "share_userdata_headline": {
         "message": "necesito tu ayuda"
@@ -409,6 +454,9 @@
     },
     "settings_translation_notice2": {
         "message": "No se publicar\u00e1n las categor\u00edas incompletas, para prevenir los textos incompletos."
+    },
+    "settings_translation_help": {
+        "message": "Para cada entrada, puede ver la traducci\u00f3n al ingl\u00e9s, que debe traducirse en su idioma. Para ayudarle a identificar d\u00f3nde se usa el texto y para qu\u00e9 sirve, cada entrada tiene un nombre (por ejemplo, {1}), que no debe traducirse. \u00a1No olvide enviar su traducci\u00f3n pulsando el bot\u00f3n en la esquina superior derecha!"
     },
     "settings_translation_submit": {
         "message": "Enviar"

@@ -9,11 +9,11 @@
   transition: background 0.3s, color 0.3s;
 
   &.hover:not(.separator) {
-    background: $hoverBackground;
+    background: $__hoverColor;
   }
 
   &.dragHover {
-    background: $hoverBackground;
+    background: $__hoverColor;
   }
 
   &.mark {
@@ -151,10 +151,6 @@
 }
 
 @mixin darkBookmarkEntry {
-
-  &.hover:not(.separator) {
-    background: $darkHoverBackground;
-  }
 
   &.separator > span.label::after {
     background: $darkSeparatorColor;

@@ -110,7 +110,14 @@
          */
         this.sidebarHasMask = () => {
             let pageType = ext.helper.utility.getPageType();
-            return !pageType.startsWith("newtab_") && pageType !== "onboarding";
+            let styles = ext.helper.model.getData("a/styles");
+            let maskColor = styles.sidebarMaskColor || null;
+
+            if (pageType.startsWith("newtab_") || pageType === "onboarding" || maskColor === "transparent") {
+                return false;
+            } else {
+                return true;
+            }
         };
 
         /**

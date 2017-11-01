@@ -14,7 +14,8 @@
             minifyJson: require("jsonminify"),
             uglifyjs: require("uglify-es"),
             sass: require("node-sass"),
-            copy: require("cp-file")
+            copy: require("cp-file"),
+            request: require("request")
         };
 
         /*
@@ -37,6 +38,28 @@
                         throw err;
                     }
                     resolve(matches);
+                });
+            });
+        };
+
+        /**
+         * Returns the content of the given url
+         *
+         * @param {string} url
+         * @returns {Promise}
+         */
+        this.getRemoteContent = (url) => {
+            return new Promise((resolve, reject) => {
+                module.request({
+                    url: url,
+                    timeout: 5000,
+                    method: "GET"
+                }, (error, response, body) => {
+                    if (error === null && body && body.length > 0) {
+                        resolve(body);
+                    } else {
+                        reject();
+                    }
                 });
             });
         };

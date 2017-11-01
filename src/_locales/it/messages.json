@@ -162,7 +162,7 @@
         "message": "Visualizzazione"
     },
     "overlay_bookmark_views_since": {
-        "message": "registrati a partire da"
+        "message": "Registrati a partire da"
     },
     "overlay_bookmark_views_per_month": {
         "message": "per mese"
@@ -188,6 +188,156 @@
     "overlay_check_urls_not_found": {
         "message": "Indirizzo non trovato"
     },
+    "newtab_title": {
+        "message": "Nuova Scheda"
+    },
+    "newtab_search_placeholder": {
+        "message": "Cerca su {1} o inserisci URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "Pagine migliori"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Preferiti usati di recente"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Preferiti pi\u00f9 usati"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Preferiti evidenziati"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Non mostrare le pagine"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Servizio non disponibile"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "Il servizio che controlla gli indirizzi non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Il servizio di feedback non \u00e8 al momento disponibile. Se vuoi lasciare un commento, puoi inviarmi un'email."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Il servizio di traduzione non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "A causa di un aggiornamento dell'estensione la pagina deve essere ricaricata."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Ricarica adesso"
+    },
+    "notification_sidebar_not_working_headline": {
+        "message": "La barra laterale non pu\u00f2 essere aperta"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Ulteriori informazioni"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "La barra laterale non funziona sul Chrome Webstore e sulla pagina \"Nuova Scheda\"."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sulle pagine delle estensioni."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nella pagina di default \"Nuova Scheda\"."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Se il problema persiste, ti prego di farmelo sapere."
+    },
+    "share_userdata_headline": {
+        "message": "Ho bisogno del tuo aiuto"
+    },
+    "share_userdata_desc": {
+        "message": "Per migliorare questa estensione ho bisogno di sapere come utilizzi la barra laterale."
+    },
+    "share_userdata_desc2": {
+        "message": "Puoi aiutarmi tantissimo accettando di condividere anonimamente le tue impostazioni."
+    },
+    "share_userdata_notice": {
+        "message": "Le informazioni riguardanti i tuoi preferiti [b]non saranno[\/b] condivise."
+    },
+    "share_userdata_accept": {
+        "message": "Accetta"
+    },
+    "share_userdata_decline": {
+        "message": "No, grazie"
+    },
+    "onboarding_title": {
+        "message": "Configurazione"
+    },
+    "onboarding_headline": {
+        "message": "Grazie per aver installato questa estensione."
+    },
+    "onboarding_setup": {
+        "message": "Configura adesso"
+    },
+    "onboarding_skip": {
+        "message": "Salta configurazione"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Dove desideri visualizzare la barra laterale?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Che metodo di attivazione vuoi utilizzare?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Quale stile preferisci?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Chiaro"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Scuro"
+    },
+    "onboarding_handson_desc_direct": {
+        "message": "Prova a vedere come funziona."
+    },
+    "onboarding_handson_desc": {
+        "message": "Ora puoi provare tu stesso."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Muovi il cursore sul lato {1} della finestra."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Ora clicca col tasto {1} del mouse per aprire la barra laterale."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Clicca sull'icona dell'estensione per aprire la barra laterale."
+    },
+    "onboarding_left": {
+        "message": "sinistro"
+    },
+    "onboarding_right": {
+        "message": "destro"
+    },
+    "onboarding_finish_desc": {
+        "message": "Buon divertimento con la tua barra laterale."
+    },
+    "onboarding_goto_settings": {
+        "message": "Ulteriori impostazioni"
+    },
+    "onboarding_close": {
+        "message": "Chiudi questa pagina"
+    },
+    "changelog_title": {
+        "message": "Changelog"
+    },
+    "changelog_headline": {
+        "message": "La tua barra laterale \u00e8 stata aggiornata."
+    },
+    "changelog_show_changelog": {
+        "message": "Cosa c'\u00e8 di nuovo?"
+    },
+    "changelog_close": {
+        "message": "Chiudi questa pagina."
+    },
     "settings_title": {
         "message": "Impostazioni"
     },
@@ -197,8 +347,11 @@
     "settings_menu_sidebar_general": {
         "message": "Generali"
     },
+    "settings_menu_sidebar_toggle": {
+        "message": "Attivazione"
+    },
     "settings_menu_sidebar_tooltip": {
-        "message": "Suggerimento"
+        "message": "Suggerimenti"
     },
     "settings_menu_sidebar_export": {
         "message": "Importa\/Esporta"
@@ -210,7 +363,7 @@
         "message": "Generali"
     },
     "settings_menu_appearance_sidebar": {
-        "message": "Barra"
+        "message": "Barra laterale"
     },
     "settings_menu_appearance_indicator": {
         "message": "Indicatore"
@@ -219,7 +372,7 @@
         "message": "Icona"
     },
     "settings_menu_appearance_overlay": {
-        "message": "Sovrapposizione"
+        "message": "Maschera"
     },
     "settings_menu_newtab": {
         "message": "Nuova scheda"
@@ -253,5 +406,17 @@
     },
     "settings_restored_message": {
         "message": "Impostazioni ripristinate correttamente"
+    },
+    "settings_headline_donation": {
+        "message": "Effettua una donazione"
+    },
+    "settings_support_donation_desc": {
+        "message": "La donazione \u00e8 assolutamente facoltativa, ma se ti piace l'estensione e vuoi donare un piccolo importo, puoi farlo cliccando sul pulsante qui sotto. Apprezzo qualsiasi forma di aiuto, che sia una donazione, un contributo alla traduzione o un commento di feedback, in modo da poter migliorare l'estensione."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Condividi informazioni"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Le tua scelta \u00e8 stata salvata correttamente"
     }
 }

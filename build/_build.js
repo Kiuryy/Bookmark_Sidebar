@@ -14,6 +14,7 @@
                 func.remove([path.tmp + "*", path.dist + "*"]).then(() => {
                     return func.createFile(path.tmp + "info.txt", new Date().toISOString());
                 }).then(() => {
+                    log("Cleaned tmp and dist directories");
                     resolve();
                 });
             });
@@ -27,6 +28,7 @@
         let cleanPost = () => {
             return new Promise((resolve) => {
                 func.remove([path.tmp]).then(() => {
+                    log("Cleaned tmp directory");
                     resolve();
                 });
             });
@@ -40,6 +42,7 @@
         let img = () => {
             return new Promise((resolve) => {
                 func.copy([path.src + "img/**/*"], [path.src + "**/*.xcf", path.src + "img/icon/dev/**"], path.dist, false).then(() => {
+                    log("Moved image files to dist directory");
                     resolve();
                 });
             });
@@ -55,6 +58,7 @@
                 func.minify([ // parse scss files
                     path.src + "scss/*.scss"
                 ], path.dist + "css/").then(() => {
+                    log("Moved css files to dist directory");
                     resolve();
                 });
             });
@@ -125,7 +129,45 @@
                         ], path.dist + "js/lib/"),
                     ]);
                 }).then(() => {
+                    log("Moved js files to dist directory");
                     resolve();
+                });
+            });
+        };
+
+        /**
+         * Retrieves the newest versions of the lib js files from Github
+         *
+         * @returns {Promise}
+         */
+        let remoteJs = () => {
+            return new Promise((resolve) => {
+                let i = 0;
+                let files = [
+                    {
+                        file: "colorpicker.js",
+                        urlPath: "Colorpicker/master/src/js/colorpicker.js"
+                    },
+                    {
+                        file: "jsu.js",
+                        urlPath: "jsu/master/src/js/jsu.js"
+                    }
+                ];
+
+                let fetched = () => {
+                    i++;
+                    if (i === files.length) {
+                        resolve();
+                    }
+                };
+
+                files.forEach((obj) => {
+                    func.getRemoteContent("https://raw.githubusercontent.com/Kiuryy/" + obj.urlPath).then((content) => {
+                        func.createFile(path.src + "js/lib/" + obj.file, content).then(() => {
+                            log("Fetched " + obj.file + " from Github");
+                            fetched();
+                        });
+                    }, fetched);
                 });
             });
         };
@@ -150,6 +192,7 @@
                 }).then(() => {
                     return func.minify([path.tmp + "html/**/*.html"], path.dist + "html/");
                 }).then(() => {
+                    log("Moved html files to dist directory");
                     resolve();
                 });
             });
@@ -173,6 +216,7 @@
                 ]).then(() => { // minify in dist directory
                     return func.minify([path.tmp + "manifest.json", path.src + "_locales/**/*.json"], path.dist, false);
                 }).then(() => {
+                    log("Moved json files to dist directory");
                     resolve();
                 });
             });
@@ -180,10 +224,21 @@
 
         /**
          *
+         * @param {string} msg
+         */
+        let log = (msg) => {
+            console.log(" - " + msg);
+        };
+
+        /**
+         *
          */
         this.release = () => {
             return new Promise((resolve) => {
-                cleanPre().then(() => {
+                Promise.all([
+                    cleanPre(),
+                    remoteJs()
+                ]).then(() => {
                     return Promise.all([js(), css(), img(), json(), html()]);
                 }).then(() => {
                     return cleanPost();

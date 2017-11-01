@@ -1,0 +1,44 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "impliedStrict": true
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "chrome": true,
+    "jsu": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-useless-escape": "off",
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "dot-notation": [
+      "error",
+      {
+        "allowKeywords": false
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ]
+  }
+}

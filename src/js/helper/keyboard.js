@@ -5,6 +5,7 @@
 
         /**
          *
+         * @returns {Promise}
          */
         this.init = async () => {
             initSidebarEvents();
@@ -222,7 +223,7 @@
             }
 
             contextmenu.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-            hoveredElm.addClass(ext.opts.classes.sidebar.hover)
+            hoveredElm.addClass(ext.opts.classes.sidebar.hover);
         };
 
         /**

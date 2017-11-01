@@ -138,13 +138,13 @@
 
                 let css = previews[key].css;
                 Object.keys(config.styles).forEach((key) => {
-                    css = css.replace(new RegExp('"?%' + key + '"?', 'g'), config.styles[key]);
+                    css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), config.styles[key]);
                 });
 
                 s.opts.elm.preview[key].find("[" + s.opts.attr.style + "]").forEach((elm) => {
                     let style = $(elm).attr(s.opts.attr.style);
                     Object.keys(config.styles).forEach((key) => {
-                        style = style.replace(new RegExp('"?%' + key + '"?', 'g'), config.styles[key]);
+                        style = style.replace(new RegExp("\"?%" + key + "\"?", "g"), config.styles[key]);
                     });
                     elm.style.cssText = style;
                 });
@@ -173,7 +173,7 @@
                     sidebarHeader.find("> h1").removeClass(s.opts.classes.hidden);
                     sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
                     let computedStyle = window.getComputedStyle(sidebarHeader[0]);
-                    let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
+                    let headerPaddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
 
                     ["label", "amount"].forEach((type) => {
                         sidebarHeader.children("a").forEach((icon) => {
@@ -417,7 +417,7 @@
                     let value = elmObj.data("initial");
 
                     if (elmObj.data("picker")) {
-                        changeColorValue(elmObj, value)
+                        changeColorValue(elmObj, value);
                     } else if (typeof value !== "undefined") {
                         if (elmObj.attr("type") === "checkbox" && typeof value === "boolean") { // revert checkbox
                             if (elm.checked !== value) { // trigger click if value has changed

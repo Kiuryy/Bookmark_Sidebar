@@ -117,7 +117,7 @@
             if (langVar && langVar.message) {
                 ret = langVar.message;
                 replaces.forEach((replace, i) => {
-                    ret = ret.replace(new RegExp("\\{" + (i + 1) + "\\}"), replace)
+                    ret = ret.replace(new RegExp("\\{" + (i + 1) + "\\}"), replace);
                 });
 
                 ret = ret.replace(/\[b\](.*)\[\/b\]/, "<strong>$1</strong>");

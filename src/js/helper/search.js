@@ -66,8 +66,8 @@
         let handleSearch = (searchField, val) => {
             return new Promise((resolve) => {
                 let isFirstRun = ext.firstRun;
-                ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
-                ext.elements.bookmarkBox["search"].addClass(ext.opts.classes.sidebar.active);
+                ext.elements.bookmarkBox.all.removeClass(ext.opts.classes.sidebar.active).removeClass(ext.opts.classes.scrollBox.scrolled);
+                ext.elements.bookmarkBox.search.addClass(ext.opts.classes.sidebar.active);
                 ext.helper.scroll.focus();
                 ext.helper.list.updateSortFilter();
 
@@ -83,13 +83,13 @@
                     ext.helper.entry.initOnce().then(() => {
                         return ext.helper.model.setData({"u/searchValue": val});
                     }).then(() => {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["search"], 0);
+                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.search, 0);
                         return ext.helper.model.call("searchBookmarks", {searchVal: val});
                     }).then((response) => {
-                        ext.elements.bookmarkBox["search"].children("p").remove();
+                        ext.elements.bookmarkBox.search.children("p").remove();
 
                         let hasResults = false;
-                        let list = ext.elements.bookmarkBox["search"].children("ul");
+                        let list = ext.elements.bookmarkBox.search.children("ul");
                         list.text("");
 
                         if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
@@ -97,7 +97,7 @@
                         }
 
                         if (hasResults === false) { // no results
-                            $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox["search"]);
+                            $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox.search);
                         }
 
                         if (!isFirstRun) {
@@ -129,11 +129,11 @@
                 searchField.removeData("lastVal");
 
                 ext.helper.model.setData({"u/searchValue": false}).then(() => {
-                    if (ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) {
+                    if (ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) {
                         ext.startLoading();
-                        ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
-                        ext.elements.bookmarkBox["search"].removeClass(ext.opts.classes.sidebar.active);
-                        ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]);
+                        ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.active);
+                        ext.elements.bookmarkBox.search.removeClass(ext.opts.classes.sidebar.active);
+                        ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox.all);
                         ext.helper.scroll.focus();
                         ext.endLoading();
                     }

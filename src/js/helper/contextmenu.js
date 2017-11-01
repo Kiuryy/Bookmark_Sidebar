@@ -118,7 +118,7 @@
                 let langName = value.replace(/([A-Z])/g, "_$1").toLowerCase();
                 $("<li />")
                     .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                        [ext.opts.attr.name]: 'sort',
+                        [ext.opts.attr.name]: "sort",
                         [ext.opts.attr.value]: value
                     }, "radio"))
                     .append("<a " + ext.opts.attr.name + "='sort'>" + ext.helper.i18n.get("sort_label_" + langName) + "</a>")
@@ -146,7 +146,7 @@
 
             if (currentSort.name === "custom") {
                 $("<li />")
-                    .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: 'toggleFix'}))
+                    .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: "toggleFix"}))
                     .append("<a " + ext.opts.attr.name + "='toggleFix'>" + ext.helper.i18n.get("contextmenu_toggle_fix") + "</a>")
                     .appendTo(list);
 
@@ -156,7 +156,7 @@
             }
 
             $("<li />")
-                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: 'toggleHidden'}))
+                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: "toggleHidden"}))
                 .append("<a " + ext.opts.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
 
@@ -217,7 +217,7 @@
                 let i18nAppend = data.isDir ? "_dir" : "_bookmark";
                 let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
                 let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
-                let isSearchList = ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active);
+                let isSearchList = ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active);
 
                 if (data.isDir) {
                     let bookmarks = data.children.filter(val => !!(val.url));
@@ -417,7 +417,7 @@
                         if (data && data.parents) {
                             let openParent = (i) => {
                                 if (data.parents[i]) {
-                                    let entry = ext.elements.bookmarkBox["all"].find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");
+                                    let entry = ext.elements.bookmarkBox.all.find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");
                                     if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
                                         ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
                                             openParent(i + 1);
@@ -430,8 +430,8 @@
                                         ext.helper.list.cacheList(),
                                         ext.helper.search.clearSearch()
                                     ]).then(() => {
-                                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + elmId + "']");
-                                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], entry[0].offsetTop - 50);
+                                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.opts.attr.id + "='" + elmId + "']");
+                                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, entry[0].offsetTop - 50);
                                         entry.addClass(ext.opts.classes.sidebar.mark);
                                     });
                                 }

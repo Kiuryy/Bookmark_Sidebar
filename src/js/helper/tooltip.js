@@ -57,14 +57,14 @@
                             }
 
                             timeout[id] = setTimeout(() => {
-                                    tooltip.addClass(ext.opts.classes.tooltip.visible);
-                                    tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
+                                tooltip.addClass(ext.opts.classes.tooltip.visible);
+                                tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
 
-                                    if (config.sidebarPosition === "right") {
-                                        tooltip.css("right", (elm.realWidth() + 10) + "px");
-                                    } else {
-                                        tooltip.css("left", (elm.parent("li")[0].offsetLeft + elm.realWidth()) + "px");
-                                    }
+                                if (config.sidebarPosition === "right") {
+                                    tooltip.css("right", (elm.realWidth() + 10) + "px");
+                                } else {
+                                    tooltip.css("left", (elm.parent("li")[0].offsetLeft + elm.realWidth()) + "px");
+                                }
                             }, +config.tooltipDelay * 1000);
                         }
                     }

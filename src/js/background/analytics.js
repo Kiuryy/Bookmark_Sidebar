@@ -15,25 +15,21 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                window['GoogleAnalyticsObject'] = 'ga';
-                window.ga = window.ga || function () {
-                    (window.ga.q = window.ga.q || []).push(arguments)
-                };
-                window.ga.l = +new Date();
-                let script = document.createElement('script');
-                script.async = 1;
-                script.src = url;
-                let m = document.getElementsByTagName('script')[0];
-                m.parentNode.insertBefore(script, m);
+        this.init = async () => {
+            window.GoogleAnalyticsObject = "ga";
+            window.ga = window.ga || function () {
+                (window.ga.q = window.ga.q || []).push(arguments);
+            };
+            window.ga.l = +new Date();
+            let script = document.createElement("script");
+            script.async = 1;
+            script.src = url;
+            let m = document.getElementsByTagName("script")[0];
+            m.parentNode.insertBefore(script, m);
 
-                window.ga('create', 'UA-' + (trackingCode[b.isDev ? "dev" : "live"]), 'auto');
-                window.ga('set', 'checkProtocolTask', null);
-                window.ga('set', 'transport', 'beacon');
-
-                resolve();
-            });
+            window.ga("create", "UA-" + (trackingCode[b.isDev ? "dev" : "live"]), "auto");
+            window.ga("set", "checkProtocolTask", null);
+            window.ga("set", "transport", "beacon");
         };
 
 
@@ -47,7 +43,7 @@
         this.trackEvent = (opts) => {
             return new Promise((resolve) => {
                 addObjectToTrackingQueue({
-                    hitType: 'event',
+                    hitType: "event",
                     eventCategory: opts.category,
                     eventAction: opts.action,
                     eventLabel: opts.label,
@@ -67,7 +63,7 @@
         this.trackPageView = (opts) => {
             return new Promise((resolve) => {
                 addObjectToTrackingQueue({
-                    hitType: 'pageview',
+                    hitType: "pageview",
                     page: opts.page
                 }, opts.always || false);
                 resolve();
@@ -120,7 +116,7 @@
                         for (let i = 0; i < bookmarks.length; i++) {
                             let bookmark = bookmarks[i];
                             if (bookmark.url) {
-                                bookmarkAmount++
+                                bookmarkAmount++;
                             } else if (bookmark.children) {
                                 processBookmarks(bookmark.children);
                             }
@@ -149,7 +145,7 @@
                         }
 
                         if (typeof obj[attr] === "object") {
-                            proceedConfig(baseName + "_" + attr, obj[attr])
+                            proceedConfig(baseName + "_" + attr, obj[attr]);
                         } else {
                             if (typeof obj[attr] !== "string") { // parse everything to string
                                 obj[attr] = JSON.stringify(obj[attr]);
@@ -210,7 +206,7 @@
             $.delay(1000).then(() => {
                 if (trackingQueue.length > 0 && window.ga && window.ga.loaded) {
                     let entry = trackingQueue.shift();
-                    window.ga('send', entry);
+                    window.ga("send", entry);
                     processTrackingQueue();
                 } else {
                     trackingQueueProceeding = false;

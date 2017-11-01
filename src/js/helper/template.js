@@ -9,10 +9,10 @@
          * @returns {jsu}
          */
         this.loading = () => {
-            return $('' +
-                '<svg class="loading" width="36px" height="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">' +
-                '<circle fill="none" stroke-width="3" stroke-linecap="round" cx="18" cy="18" r="16"></circle>' +
-                '</svg>');
+            return $("" +
+                "<svg class=\"loading\" width=\"36px\" height=\"36px\" viewBox=\"0 0 36 36\" xmlns=\"http://www.w3.org/2000/svg\">" +
+                "<circle fill=\"none\" stroke-width=\"3\" stroke-linecap=\"round\" cx=\"18\" cy=\"18\" r=\"16\"></circle>" +
+                "</svg>");
         };
 
         /**
@@ -37,12 +37,12 @@
          * @returns {jsu}
          */
         this.footer = () => {
-            let footer = $('' +
-                '<footer>' +
-                ' <a id="copyright" href="https://extensions.blockbyte.de/" target="_blank">' +
-                '  &copy; <span class="created">2016</span>&ensp;<strong>Blockbyte</strong>' +
-                ' </a>' +
-                '</footer>');
+            let footer = $("" +
+                "<footer>" +
+                " <a id=\"copyright\" href=\"https://extensions.blockbyte.de/\" target=\"_blank\">" +
+                "  &copy; <span class=\"created\">2016</span>&ensp;<strong>Blockbyte</strong>" +
+                " </a>" +
+                "</footer>");
 
             let createdDate = +footer.find("span.created").text();
             let currentYear = new Date().getFullYear();

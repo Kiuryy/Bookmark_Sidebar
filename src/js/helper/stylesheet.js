@@ -43,7 +43,7 @@
                     if (xhr.response) {
                         let css = xhr.response;
                         Object.keys(styles).forEach((key) => {
-                            css = css.replace(new RegExp('"?%' + key + '"?', 'g'), styles[key]);
+                            css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styles[key]);
                         });
                         if (ext.opts.classes && ext.opts.classes.page && ext.opts.classes.style && ext.opts.attr && ext.opts.attr.name) {
                             head.find("style." + ext.opts.classes.page.style + "[" + ext.opts.attr.name + "='" + file + "]").remove();

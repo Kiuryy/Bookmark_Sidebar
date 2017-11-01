@@ -289,6 +289,7 @@
                                             result: result
                                         });
                                     } catch (e) {
+                                        //
                                     }
                                 });
                             }

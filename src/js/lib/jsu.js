@@ -1,5 +1,5 @@
 /**
- * jsu v1.2.2
+ * jsu - Javascript Utilities
  *
  * Philipp König
  * https://blockbyte.de/
@@ -48,7 +48,7 @@
                     }
                 }
             }
-        }
+        };
     })();
 
     /**
@@ -71,7 +71,7 @@
              */
             [delay]: (t = 0) => {
                 return new Promise((resolve) => {
-                    setTimeout(resolve, t)
+                    setTimeout(resolve, t);
                 });
             },
             /**
@@ -229,7 +229,7 @@
                 let s = param;
 
                 if (typeof param === "string" && (asSelector === false || param.search("<") > -1)) {
-                    let div = d.createElement('div');
+                    let div = d.createElement("div");
                     div.innerHTML = param;
                     s = div.childNodes;
                 }
@@ -589,7 +589,7 @@
 
                     if (h[isDefined](elmDataList)) {
                         if (removeAll) { // remove all
-                            dataMap.delete(node);
+                            dataMap["delete"](node);
                         } else if (h[isDefined](elmDataList[key])) { // remove specific
                             delete elmDataList[key];
                         }
@@ -618,8 +618,7 @@
                                 value: overrideObj[key]
                             });
                         } catch (ex) {
-
-
+                            //
                         }
                     });
                 };
@@ -651,20 +650,25 @@
                             updateEventObject(e, {type: eventInfo[0]});
 
                             if (eventDelegation) { // event delegation
+                                let opts = {
+                                    preventDefault: () => {
+                                        e.preventDefault();
+                                    },
+                                    stopPropagation: () => {
+                                        e.stopPropagation();
+                                    }
+                                };
+
                                 h[forEach](node.querySelectorAll(":scope " + callbackOrElm), (element) => {
                                     let el = e.target;
                                     while (el && el !== node) {
                                         if (el === element) {
                                             let clonedEventObj = new MouseEvent(eventInfo[0], e);
                                             updateEventObject(clonedEventObj, {
-                                                preventDefault: () => {
-                                                    e.preventDefault()
-                                                },
-                                                stopPropagation: () => {
-                                                    e.stopPropagation()
-                                                },
-                                                target: e.target,
-                                                currentTarget: el
+                                                preventDefault: opts.preventDefault,
+                                                stopPropagation: opts.stopPropagation,
+                                                currentTarget: el,
+                                                target: e.target
                                             });
                                             callbackOrOpts(clonedEventObj);
                                         }
@@ -748,7 +752,7 @@
                 });
 
                 return this;
-            };
+            }
 
 
             /**
@@ -842,8 +846,8 @@
 
                     let dim = boundClientRect[type];
                     if (includeMargins) {
-                        dim += parseInt(computedStyle.getPropertyValue('margin-' + margins[0]));
-                        dim += parseInt(computedStyle.getPropertyValue('margin-' + margins[1]));
+                        dim += parseInt(computedStyle.getPropertyValue("margin-" + margins[0]));
+                        dim += parseInt(computedStyle.getPropertyValue("margin-" + margins[1]));
                     }
 
                     ret.push(dim);
@@ -935,7 +939,7 @@
                 });
 
                 return ret;
-            };
+            }
 
 
             /**
@@ -965,8 +969,8 @@
             [remove]() {
                 this[forEach]((node) => {
                     if (node && node.parentElement) {
-                        eventHandlerMap.delete(node);
-                        dataMap.delete(node);
+                        eventHandlerMap["delete"](node);
+                        dataMap["delete"](node);
                         node.parentElement.removeChild(node);
                     }
                 });
@@ -976,14 +980,14 @@
             /**
              *
              * @param s
-             * @param asSelector
              * @param type
+             * @param asSelector
              * @returns {jsuNode}
              */
-            [private_elementMove](s, asSelector = true, type) {
+            [private_elementMove](s, type, asSelector = true) {
                 if (Array.isArray(s)) {
                     s.forEach((s) => {
-                        this[private_elementMove](s, asSelector, type);
+                        this[private_elementMove](s, type, asSelector);
                     });
                 } else {
                     if (typeof s === "string" && s.search("<") > -1) {
@@ -1071,7 +1075,7 @@
              * @returns {jsuNode}
              */
             [append](s, asSelector) {
-                return this[private_elementMove](s, asSelector, "append");
+                return this[private_elementMove](s, "append", asSelector);
             }
 
 
@@ -1094,7 +1098,7 @@
              * @returns {jsuNode}
              */
             [prepend](s, asSelector = true) {
-                return this[private_elementMove](s, asSelector, "prepend");
+                return this[private_elementMove](s, "prepend", asSelector);
             }
 
 
@@ -1117,7 +1121,7 @@
              * @returns {jsuNode}
              */
             [before](s, asSelector = true) {
-                return this[private_elementMove](s, asSelector, "before");
+                return this[private_elementMove](s, "before", asSelector);
             }
 
 
@@ -1140,7 +1144,7 @@
              * @returns {jsuNode}
              */
             [after](s, asSelector = true) {
-                return this[private_elementMove](s, asSelector, "after");
+                return this[private_elementMove](s, "after", asSelector);
             }
 
 
@@ -1168,8 +1172,8 @@
                 this[forEach]((node) => {
                     let siblingElm = type === "prev" ? node.previousElementSibling : node.nextElementSibling;
 
-                    if (h[isDefined](siblingElm)
-                        && (!hasSelector || (h[isDefined](siblingElm.matches) && siblingElm.matches(s)))) {
+                    if (h[isDefined](siblingElm) &&
+                        (!hasSelector || (h[isDefined](siblingElm.matches) && siblingElm.matches(s)))) {
                         ret.push(siblingElm);
                     }
                 });
@@ -1378,7 +1382,7 @@
                 return this[nodes].length;
             }
 
-        }
+        };
     })(jsuHelper);
 
     /**

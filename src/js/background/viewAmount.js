@@ -53,21 +53,21 @@
          * @param {object} bookmark
          */
         this.addByEntry = (bookmark) => {
-            if (bookmark["id"]) {
+            if (bookmark.id) {
                 getClickCounter().then((clickCounter) => {
-                    if (typeof clickCounter[bookmark["id"]] === "undefined") {
-                        clickCounter[bookmark["id"]] = {c: 0};
+                    if (typeof clickCounter[bookmark.id] === "undefined") {
+                        clickCounter[bookmark.id] = {c: 0};
                     }
 
-                    if (typeof clickCounter[bookmark["id"]] !== "object") { // @deprecated
-                        clickCounter[bookmark["id"]] = {
-                            c: clickCounter[bookmark["id"]]
+                    if (typeof clickCounter[bookmark.id] !== "object") { // @deprecated
+                        clickCounter[bookmark.id] = {
+                            c: clickCounter[bookmark.id]
                         };
                     }
 
-                    clickCounter[bookmark["id"]].c++;
-                    clickCounter[bookmark["id"]].d = +new Date();
-                    delete clickCounter["node_" + bookmark["id"]]; // @deprecated
+                    clickCounter[bookmark.id].c++;
+                    clickCounter[bookmark.id].d = +new Date();
+                    delete clickCounter["node_" + bookmark.id]; // @deprecated
 
                     chrome.storage.local.set({
                         clickCounter: clickCounter

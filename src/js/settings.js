@@ -112,8 +112,8 @@
                 buttons: {
                     save: $("body > header > menu > button.save"),
                     restore: $("body > header > menu > button.restore"),
-                    'import': $("body a.import > input[type='file']"),
-                    'export': $("body a.export"),
+                    "import": $("body a.import > input[type='file']"),
+                    "export": $("body a.export"),
                 },
                 appearance: {
                     content: $("div.tab[data-name='appearance']"),
@@ -179,7 +179,7 @@
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
-                this.helper.font.init('default');
+                this.helper.font.init("default");
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));
                 initHeader();
@@ -294,7 +294,6 @@
                 let type = $(e.currentTarget).parent("div").attr(this.opts.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    console.log(type);
                     chrome.storage.sync.remove([type], () => {
                         this.showSuccessMessage("restored_message");
                         this.helper.model.call("reloadIcon");

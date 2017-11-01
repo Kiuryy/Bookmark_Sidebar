@@ -12,11 +12,11 @@
                 name: "Noto Sans Japanese",
                 href: "https://fonts.googleapis.com/earlyaccess/notosansjapanese.css"
             },
-            'zh-CN': {
+            "zh-CN": {
                 name: "Noto Sans SC",
                 href: "https://fonts.googleapis.com/earlyaccess/notosanssc.css"
             },
-            'zh-TW': {
+            "zh-TW": {
                 name: "Noto Sans TC",
                 href: "https://fonts.googleapis.com/earlyaccess/notosanstc.css"
             }
@@ -121,8 +121,8 @@
          */
         this.getFontWeights = (font) => {
             let ret = {};
-            Object.keys(fontWeights["__default"]).forEach((key) => {
-                let val = fontWeights["__default"][key];
+            Object.keys(fontWeights.__default).forEach((key) => {
+                let val = fontWeights.__default[key];
 
                 if (fontWeights[font] && fontWeights[font][key]) { // override font weights with font family specific one
                     val = fontWeights[font][key];

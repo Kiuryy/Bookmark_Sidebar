@@ -103,7 +103,7 @@
 
                     let data = ext.helper.model.getData(["u/lastOpened", "b/rememberState"]);
                     if (data.rememberState === "all" && data.lastOpened) { // mark last opened bookmark if there is one and user set so in the options
-                        let entry = ext.elements.bookmarkBox["all"].find("ul > li > a[" + ext.opts.attr.id + "='" + data.lastOpened + "']");
+                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.opts.attr.id + "='" + data.lastOpened + "']");
                         entry.addClass(ext.opts.classes.sidebar.mark);
                     }
                     ext.helper.model.setData({"u/lastOpened": null});
@@ -176,8 +176,8 @@
             });
 
             ext.elements.sidebar.on("mouseleave", () => {
-                if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0
-                    && ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
+                if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0 &&
+                    ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
                 ) {
                     let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 

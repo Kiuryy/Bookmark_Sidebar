@@ -219,7 +219,7 @@
                             if (val.startsWith("chrome://") || val.startsWith("chrome-extension://")) {
                                 link.data("href", val);
                             } else {
-                                if (val.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
+                                if (val.search(/^\w+:\/\//) !== 0) { // prepend http if no protocol specified
                                     val = "http://" + val;
                                 }
                                 link.attr("href", val);

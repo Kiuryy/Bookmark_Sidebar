@@ -52,7 +52,7 @@
          */
         this.run = () => {
             chrome.permissions.contains({
-                permissions: ['tabs', 'topSites']
+                permissions: ["tabs", "topSites"]
             }, (result) => {
                 if (result) {
                     loadPage();
@@ -128,7 +128,7 @@
                 let js = this.opts.manifest.content_scripts[0].js[i];
 
                 if (typeof js !== "undefined") {
-                    let script = document.createElement('script');
+                    let script = document.createElement("script");
                     document.head.appendChild(script);
                     script.onload = () => loadJs(i + 1);
                     script.src = "/" + js;

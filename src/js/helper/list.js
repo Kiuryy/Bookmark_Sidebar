@@ -11,7 +11,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.active);
+            ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.active);
 
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
                 box.on(ext.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
@@ -51,7 +51,7 @@
                 recentlyAdded: {
                     dir: "DESC"
                 }
-            }
+            };
         };
 
         /**
@@ -117,7 +117,7 @@
                 sort = ext.helper.model.getData("u/sort");
                 ext.elements.sidebar.attr(ext.opts.attr.sort, sort.name);
 
-                let list = ext.elements.bookmarkBox["all"].children("ul");
+                let list = ext.elements.bookmarkBox.all.children("ul");
                 let promiseObj = null;
 
                 ext.updateBookmarkBoxStart = +new Date();
@@ -126,7 +126,7 @@
                     promiseObj = ext.helper.model.call("getCache", {name: "html"});
                 } else {
                     promiseObj = new Promise((resolve) => {
-                        resolve()
+                        resolve();
                     });
                 }
 
@@ -178,7 +178,7 @@
                     expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
                     if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
-                        ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
+                        ext.elements.bookmarkBox.all.find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
                             if ($(dir).next("ul").find("a[" + ext.opts.attr.id + "='" + dirId + "']").length() === 0) {
                                 this.toggleBookmarkDir($(dir), instant, false);
                             }
@@ -209,7 +209,7 @@
             ext.log("CACHE");
             return ext.helper.model.call("setCache", {
                 name: "html",
-                val: ext.elements.bookmarkBox["all"].children("ul").html()
+                val: ext.elements.bookmarkBox.all.children("ul").html()
             });
         };
 
@@ -231,7 +231,7 @@
             headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.search).appendTo(ext.elements.header));
 
             let computedStyle = window.getComputedStyle(ext.elements.header[0]);
-            let headerPaddingTop = parseInt(computedStyle.getPropertyValue('padding-top'));
+            let headerPaddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
 
             ["label", "amount"].forEach((type) => {
                 headerIcons.some((icon) => {
@@ -311,10 +311,10 @@
                 $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elements.filterBox);
                 let checkList = $("<ul />").appendTo(ext.elements.filterBox);
 
-                if (!ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active)) { // show bookmarks as tree or one dimensional list
+                if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) { // show bookmarks as tree or one dimensional list
                     $("<li />")
                         .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                            [ext.opts.attr.name]: 'viewAsTree',
+                            [ext.opts.attr.name]: "viewAsTree",
                             checked: config.viewAsTree ? "checked" : ""
                         }))
                         .append("<a>" + ext.helper.i18n.get("sort_view_as_tree") + "</a>")
@@ -324,7 +324,7 @@
                 if (sort.name === "mostUsed") { // sort most used based on total clicks or clicks per month
                     $("<li />")
                         .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                            [ext.opts.attr.name]: 'mostViewedPerMonth',
+                            [ext.opts.attr.name]: "mostViewedPerMonth",
                             checked: config.mostViewedPerMonth ? "checked" : ""
                         }))
                         .append("<a>" + ext.helper.i18n.get("sort_most_used_per_month") + "</a>")
@@ -358,7 +358,7 @@
             let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
 
             if (list.parents("li").length() === 0) {
-                if (!ext.elements.bookmarkBox["search"].hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
+                if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
                     let pinnedEntries = ext.helper.entry.getAllPinnedData();
                     sortEntries(pinnedEntries);
 
@@ -424,7 +424,7 @@
                         let remainingEntries = bookmarks.slice(100);
 
                         if (remainingEntries.length > 0) {
-                            list.data("remainingEntries", remainingEntries)
+                            list.data("remainingEntries", remainingEntries);
                         }
 
                         return true;
@@ -473,7 +473,7 @@
                     } else {
                         ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />")
+                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />");
                             }
                         });
                     }
@@ -495,8 +495,11 @@
                 let collator = ext.helper.i18n.getLocaleSortCollator();
                 let doSort = (defaultDir, func) => {
                     bookmarks.sort((a, b) => {
-                        if (sort.name !== "custom" && !!(a.children) !== !!(b.children)) {
-                            return !!(a.children) ? -1 : 1;
+                        let aChildren = !!(a.children);
+                        let bChildren = !!(b.children);
+
+                        if (sort.name !== "custom" && aChildren !== bChildren) {
+                            return aChildren ? -1 : 1;
                         } else {
                             return (defaultDir === sort.dir ? 1 : -1) * func(a, b);
                         }
@@ -532,7 +535,7 @@
                             if (aViews === bViews) {
                                 return collator.compare(a.title, b.title);
                             } else {
-                                return bViews - aViews
+                                return bViews - aViews;
                             }
                         });
                         break;
@@ -597,9 +600,9 @@
                     } else {
                         elm.addClass(ext.opts.classes.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
-                            let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox["all"]);
+                            let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox.all);
                             if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
-                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], elm[0].offsetTop, 300);
+                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, elm[0].offsetTop, 300);
                             }
                         }
                     }
@@ -642,7 +645,7 @@
                 ext.log("LOAD FROM CACHE");
                 list.html(cachedHtml);
                 list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
-                ext.elements.bookmarkBox["all"].addClass(ext.opts.classes.sidebar.cached);
+                ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.cached);
 
                 this.updateSidebarHeader();
                 this.updateSortFilter();
@@ -667,7 +670,7 @@
                 ext.log("LOAD FROM OBJECT");
                 let entries = [];
                 let viewAsTree = ext.helper.model.getData("u/viewAsTree");
-                ext.elements.bookmarkBox["all"].removeClass(ext.opts.classes.sidebar.cached);
+                ext.elements.bookmarkBox.all.removeClass(ext.opts.classes.sidebar.cached);
 
                 ext.helper.model.call("bookmarks", {id: 0}).then((response) => {
                     ext.refreshRun = true;
@@ -705,13 +708,13 @@
          * Restores the scroll position and finishes loading
          */
         let restoreScrollPos = () => {
-            ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox["all"]).then(() => {
+            ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox.all).then(() => {
                 ext.initImages();
                 ext.endLoading(200);
                 ext.firstRun = false;
                 ext.refreshRun = false;
 
-                if ((ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") && !ext.elements.bookmarkBox["all"].hasClass(ext.opts.classes.sidebar.cached)) {
+                if ((ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") && !ext.elements.bookmarkBox.all.hasClass(ext.opts.classes.sidebar.cached)) {
                     this.cacheList();
                 }
 

@@ -43,7 +43,7 @@
 
             canvas.width = size;
             canvas.height = size;
-            let ctx = canvas.getContext('2d');
+            let ctx = canvas.getContext("2d");
 
             b.helper.icon.getInfo().then((result) => {
                 return Promise.all([
@@ -142,10 +142,10 @@
          * Opens an info page depending on the reason why the sidebar could not be opened
          */
         let openNotWorkingInfoPage = () => {
-            let url = 'html/settings.html#feedback_faq_notworking';
+            let url = "html/settings.html#feedback_faq_notworking";
 
             if (notificationReason === "new_tab") {
-                url = 'html/settings.html#newtab';
+                url = "html/settings.html#newtab";
             }
 
             chrome.tabs.create({url: chrome.extension.getURL(url)});

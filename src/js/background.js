@@ -145,7 +145,7 @@
          */
         this.run = () => {
             let start = +new Date();
-            this.isDev = this.manifest.version_name === "Dev" || !('update_url' in this.manifest);
+            this.isDev = this.manifest.version_name === "Dev" || !("update_url" in this.manifest);
 
             chrome.runtime.setUninstallURL(this.urls[this.isDev ? "website" : "uninstall"]);
             initHelpers();

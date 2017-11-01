@@ -76,10 +76,10 @@
 
                 if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged)) { // something has been dragged
                     if (!isDraggedElementOutside(e.pageX)) { // only proceed if mouse position is in the sidebar
-                        let entryPlaceholder = ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).eq(0);
+                        let entryPlaceholder = ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.isDragged).eq(0);
 
                         if (entryPlaceholder && entryPlaceholder.length() > 0) {
-                            let url = e.dataTransfer.getData('URL');
+                            let url = e.dataTransfer.getData("URL");
                             let title = "";
 
                             if (location.href === url) {
@@ -240,9 +240,9 @@
             }
 
             if (edgeScroll.posY !== null) {
-                let bookmarkBoxTopOffset = ext.elements.bookmarkBox["all"][0].offsetTop;
-                let bookmarkBoxHeight = ext.elements.bookmarkBox["all"][0].offsetHeight;
-                let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox["all"]);
+                let bookmarkBoxTopOffset = ext.elements.bookmarkBox.all[0].offsetTop;
+                let bookmarkBoxHeight = ext.elements.bookmarkBox.all[0].offsetHeight;
+                let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox.all);
                 let newScrollPos = null;
 
                 if (edgeScroll.posY - bookmarkBoxTopOffset < 60) {
@@ -252,7 +252,7 @@
                 }
 
                 if (newScrollPos) {
-                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], newScrollPos);
+                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, newScrollPos);
                 }
             }
 
@@ -266,7 +266,7 @@
             clearDirOpenTimeout();
 
             let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
-            let dragInitialElm = ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.dragInitial);
+            let dragInitialElm = ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
             let prevParentId = draggedElm.data("parentId");
             let prevIndex = draggedElm.data("index");
@@ -372,7 +372,7 @@
                     return false;
                 }
                 oldTopVal = topVal;
-                ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
+                ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.isDragged).remove();
                 bookmarkElm = $("<li />").html("<a>&nbsp;</a>").addClass(ext.opts.classes.drag.isDragged);
             } else { // dragging bookmark or directory
                 draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
@@ -401,11 +401,11 @@
             let elmLists = null;
 
             if (type === "pinned") {
-                elmLists = [ext.elements.bookmarkBox["all"].find("> ul > li." + ext.opts.classes.sidebar.entryPinned)];
+                elmLists = [ext.elements.bookmarkBox.all.find("> ul > li." + ext.opts.classes.sidebar.entryPinned)];
             } else {
                 elmLists = [
-                    ext.elements.bookmarkBox["all"].find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li"),
-                    ext.elements.bookmarkBox["all"].find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li")
+                    ext.elements.bookmarkBox.all.find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li"),
+                    ext.elements.bookmarkBox.all.find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li")
                 ];
             }
 
@@ -435,10 +435,14 @@
                 if (newAboveLink.hasClass(ext.opts.classes.sidebar.bookmarkDir)) { // drag position is beneath a directory
                     if (newAboveLink.hasClass(ext.opts.classes.sidebar.dirOpened)) { // opened directory
                         let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
-                        draggedElm && draggedElm.data("elm", elm);
+                        if (draggedElm) {
+                            draggedElm.data("elm", elm);
+                        }
                     } else if (draggedElm && draggedElm.data("isDir")) {
                         let elm = bookmarkElm.insertAfter(newAboveElm.elm);
-                        draggedElm && draggedElm.data("elm", elm);
+                        if (draggedElm) {
+                            draggedElm.data("elm", elm);
+                        }
                     } else if (!newAboveLink.hasClass(ext.opts.classes.sidebar.dirAnimated)) { // closed directory
                         if (dirOpenTimeout === null) {
                             dirOpenTimeout = {
@@ -456,11 +460,15 @@
                     }
                 } else { // drag position is beneath a bookmark
                     let elm = bookmarkElm.insertAfter(newAboveElm.elm);
-                    draggedElm && draggedElm.data("elm", elm);
+                    if (draggedElm) {
+                        draggedElm.data("elm", elm);
+                    }
                 }
             } else if (type === "pinned") { // pinned entry -> no element above -> index = 0
-                let elm = bookmarkElm.prependTo(ext.elements.bookmarkBox["all"].find("> ul"));
-                draggedElm && draggedElm.data("elm", elm);
+                let elm = bookmarkElm.prependTo(ext.elements.bookmarkBox.all.find("> ul"));
+                if (draggedElm) {
+                    draggedElm.data("elm", elm);
+                }
             }
         };
 
@@ -471,7 +479,7 @@
          */
         let initEvents = async () => {
 
-            ext.elements.bookmarkBox["all"].children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
+            ext.elements.bookmarkBox.all.children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 let x = e.pageX;
                 let hasMask = ext.helper.utility.sidebarHasMask();
 
@@ -495,13 +503,13 @@
                 }
             });
 
-            ext.elements.iframeBody.on('wheel', (e) => { // scroll the bookmark list
+            ext.elements.iframeBody.on("wheel", (e) => { // scroll the bookmark list
                 if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged)) {
                     e.preventDefault();
                     e.stopPropagation();
 
-                    let scrollPos = ext.elements.bookmarkBox["all"][0].scrollTop;
-                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], scrollPos - e.wheelDelta, 300);
+                    let scrollPos = ext.elements.bookmarkBox.all[0].scrollTop;
+                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, scrollPos - e.wheelDelta, 300);
                 }
             });
 
@@ -513,7 +521,7 @@
                 }
             });
 
-            ext.elements.iframeBody.on('contextmenu', "a." + ext.opts.classes.drag.helper, (e) => { // disable right click or the drag handle
+            ext.elements.iframeBody.on("contextmenu", "a." + ext.opts.classes.drag.helper, (e) => { // disable right click or the drag handle
                 e.preventDefault();
                 e.stopPropagation();
             });

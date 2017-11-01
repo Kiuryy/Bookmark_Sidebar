@@ -14,7 +14,7 @@
          */
         this.create = (type, title, data) => {
             ext.helper.tooltip.close();
-            elements.overlay = $('<iframe />')
+            elements.overlay = $("<iframe />")
                 .attr("id", ext.opts.ids.page.overlay)
                 .data("info", data)
                 .appendTo("body");
@@ -137,7 +137,7 @@
          */
         this.closeOverlay = (cancel = false, labelAdd = "") => {
             ext.helper.model.call("checkUrls", {abort: true}); // abort running check url ajax calls
-            ext.elements.bookmarkBox["all"].find("li." + ext.opts.classes.drag.isDragged).remove();
+            ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.isDragged).remove();
             elements.overlay.removeClass(ext.opts.classes.page.visible);
 
             ext.helper.model.call("trackEvent", {
@@ -367,7 +367,9 @@
                 elements.progressBar.remove();
                 elements.progressLabel.remove();
 
-                hasResults && elements.modal.addClass(ext.opts.classes.overlay.urlCheckList);
+                if (hasResults) {
+                    elements.modal.addClass(ext.opts.classes.overlay.urlCheckList);
+                }
 
                 return $.delay(hasResults ? 1000 : 0);
             }).then(() => {
@@ -404,7 +406,7 @@
 
                         ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box))
+                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box));
                             }
                         });
                     });
@@ -544,7 +546,7 @@
                 label: data.url ? "bookmark" : "directory"
             });
 
-            ext.elements.bookmarkBox["all"].find("a[data-id='" + data.id + "']").parent("li").remove();
+            ext.elements.bookmarkBox.all.find("a[data-id='" + data.id + "']").parent("li").remove();
             ext.helper.specialEntry.reorderSeparators([data.parentId]).then(() => {
                 ext.helper.model.call("deleteBookmark", {id: data.id});
             });
@@ -634,7 +636,7 @@
                     }
                 }
 
-                let parentEntry = ext.elements.bookmarkBox["all"].find("a[data-id='" + obj.parentId + "']");
+                let parentEntry = ext.elements.bookmarkBox.all.find("a[data-id='" + obj.parentId + "']");
 
                 if (parentEntry.length() > 0 && parentEntry.next("ul").length() > 0) { // insert an empty element at the position of the new entry to correct the separator positions for the changed directory
                     let entries = parentEntry.next("ul").children("li");
@@ -678,7 +680,7 @@
                     let entry = $(elm).data("entry");
 
                     if (entry.urlStatusCode === 404) {
-                        ext.elements.bookmarkBox["all"].find("a[data-id='" + entry.id + "']").parent("li").remove();
+                        ext.elements.bookmarkBox.all.find("a[data-id='" + entry.id + "']").parent("li").remove();
                         deleteBuffer.push({id: entry.id});
                         if (parentIds.indexOf(entry.parentId) === -1) {
                             parentIds.push(entry.parentId);

@@ -111,7 +111,7 @@
 
                         infos.languages.sort((a, b) => {
                             if (b.varsAmount !== a.varsAmount) {
-                                return b.varsAmount - a.varsAmount
+                                return b.varsAmount - a.varsAmount;
                             }
 
                             if (languages[a.name] && languages[b.name]) {
@@ -175,7 +175,7 @@
          * Initialises the general eventhandlers for the translation pages
          */
         let initEvents = () => {
-            s.opts.elm.translation.goto.on("click", (e) => {
+            s.opts.elm.translation["goto"].on("click", (e) => {
                 e.preventDefault();
                 s.opts.elm.aside.find("li[" + s.opts.attr.name + "='translate'] > a").trigger("click");
             });
@@ -308,7 +308,7 @@
 
                             if (lang !== defaultLang) {
                                 getLanguageInfos(defaultLang).then((infos) => {
-                                    ret.default = infos[defaultLang];
+                                    ret["default"] = infos[defaultLang];
                                     finished(ret);
                                 });
                             } else {
@@ -333,7 +333,7 @@
                 initEditForm(lang);
             });
 
-            s.opts.elm.translation.wrapper.on("click", "a." + s.opts.classes.translation.goto, (e) => {
+            s.opts.elm.translation.wrapper.on("click", "a." + s.opts.classes.translation["goto"], (e) => {
                 e.preventDefault();
                 let dir = $(e.currentTarget).attr(s.opts.attr.value);
                 let list = $(e.currentTarget).parent("header").next("ul");
@@ -402,8 +402,8 @@
                 $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass(s.opts.classes.translation.back).appendTo(header);
 
                 if (varsAmount[key].total !== varsAmount[key].filled) { // there are empty fields -> show navigation buttons
-                    $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "down").appendTo(header);
-                    $("<a />").addClass(s.opts.classes.translation.goto).attr(s.opts.attr.value, "up").appendTo(header);
+                    $("<a />").addClass(s.opts.classes.translation["goto"]).attr(s.opts.attr.value, "down").appendTo(header);
+                    $("<a />").addClass(s.opts.classes.translation["goto"]).attr(s.opts.attr.value, "up").appendTo(header);
                 }
 
                 $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
@@ -421,7 +421,7 @@
             $.delay(0).then(() => {
                 let list = elm.children("ul");
 
-                if (elm.find("a." + s.opts.classes.translation.goto).length() > 0) { // jump to the first empty field
+                if (elm.find("a." + s.opts.classes.translation["goto"]).length() > 0) { // jump to the first empty field
                     gotoNextPrevEmptyField("down", list);
                 }
 
@@ -562,7 +562,7 @@
                             .data("lang", lang)
                             .data("info", {
                                 category: infos[category],
-                                defaults: obj.default ? obj.default[category] : null
+                                defaults: obj["default"] ? obj["default"][category] : null
                             })
                             .append("<strong>" + category + "</strong>")
                             .appendTo(s.opts.elm.translation.langvars.children("div." + s.opts.classes.boxWrapper));

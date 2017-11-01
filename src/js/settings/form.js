@@ -252,7 +252,7 @@
 
                 wrapper.find("input[type='checkbox']").on("change", (e) => {
                     s.opts.elm.radio[opts.name][0].value = $(e.currentTarget).attr(s.opts.attr.value);
-                    s.opts.elm.radio[opts.name].trigger("change", {detail: "userAction"})
+                    s.opts.elm.radio[opts.name].trigger("change", {detail: "userAction"});
                 });
 
                 resolve();
@@ -281,13 +281,13 @@
                 let unit = $(opts.elm).attr(s.opts.attr.range.unit) || "";
                 let valTooltip = $("<span />").insertAfter(s.opts.elm.range[opts.name]);
 
-                s.opts.elm.range[opts.name].on('input change', (e) => {
+                s.opts.elm.range[opts.name].on("input change", (e) => {
                     let elm = e.currentTarget;
                     let max = elm.max || 100;
                     let min = elm.min || 0;
                     let val = Math.round(100 * (elm.value - min) / (max - min));
 
-                    let background = s.opts.elm.range[opts.name].css('background-image');
+                    let background = s.opts.elm.range[opts.name].css("background-image");
 
                     if (background.search("linear-gradient") === 0) {
                         let backgroundTemplate = $(elm).data("backgroundTemplate");
@@ -297,15 +297,14 @@
                             $(elm).data("backgroundTemplate", backgroundTemplate);
                         }
 
-                        s.opts.elm.range[opts.name].css('background-image', backgroundTemplate.replace(/\{percent\}/g, val + "%"));
+                        s.opts.elm.range[opts.name].css("background-image", backgroundTemplate.replace(/\{percent\}/g, val + "%"));
                     }
 
                     valTooltip.text(elm.value + unit);
                 });
                 s.opts.elm.range[opts.name].trigger("input");
 
-
-                if (!!($(opts.elm).attr(s.opts.attr.range.infinity)) === true) { // add checkbox to disable range input
+                if ($(opts.elm).attr(s.opts.attr.range.infinity) === "1") { // add checkbox to disable range input
                     let checkbox = s.helper.checkbox.get(s.opts.elm.body).insertAfter(valTooltip);
                     $("<label />").attr(s.opts.attr.i18n, opts.i18n + "_infinity").insertAfter(checkbox);
                     $("<br />").insertBefore(checkbox);

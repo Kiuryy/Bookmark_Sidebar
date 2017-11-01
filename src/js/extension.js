@@ -23,7 +23,7 @@
          * Constructor
          */
         this.run = () => {
-            this.isDev = this.opts.manifest.version_name === "Dev" || !('update_url' in this.opts.manifest);
+            this.isDev = this.opts.manifest.version_name === "Dev" || !("update_url" in this.opts.manifest);
             let removedOldInstance = destroyOldInstance();
             initHelpers();
 
@@ -194,7 +194,9 @@
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
                 this.elements.sidebar.removeClass(opts.classes.sidebar.loading);
-                loadingInfo.loader && loadingInfo.loader.remove();
+                if (loadingInfo.loader) {
+                    loadingInfo.loader.remove();
+                }
                 loadingInfo = {};
             }, timeout);
         };
@@ -306,14 +308,14 @@
          * @returns {Promise}
          */
         let initSidebar = async () => {
-            this.elements.iframe = $('<iframe id="' + opts.ids.page.iframe + '" />').appendTo("body");
+            this.elements.iframe = $("<iframe id=\"" + opts.ids.page.iframe + "\" />").appendTo("body");
 
             if (this.helper.model.getData("b/animations") === false) {
                 this.elements.iframe.addClass(opts.classes.page.noAnimations);
             }
 
             this.elements.iframeBody = this.elements.iframe.find("body");
-            this.elements.sidebar = $('<section id="' + opts.ids.sidebar.sidebar + '" />').appendTo(this.elements.iframeBody);
+            this.elements.sidebar = $("<section id=\"" + opts.ids.sidebar.sidebar + "\" />").appendTo(this.elements.iframeBody);
             this.elements.bookmarkBox = {};
 
             ["all", "search"].forEach((val) => {

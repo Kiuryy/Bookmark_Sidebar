@@ -126,7 +126,7 @@
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                entry.find("> a > span").prepend("<img src='" + response.img + "' />")
+                                entry.find("> a > span").prepend("<img src='" + response.img + "' />");
                             }
                         });
 
@@ -189,7 +189,7 @@
                             });
                             break;
                         }
-                        case "topPages":
+                        // case "topPages":
                         default: {
                             chrome.topSites.get((list) => {
                                 let lastError = chrome.runtime.lastError;
@@ -267,7 +267,7 @@
                     if (aViews === bViews) {
                         return collator.compare(a.title, b.title);
                     } else {
-                        return bViews - aViews
+                        return bViews - aViews;
                     }
                 });
             }

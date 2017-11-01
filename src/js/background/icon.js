@@ -82,7 +82,7 @@
                         });
                     }
                 }).then((svg) => {
-                    svg = svg.replace(/\#000/g, color);
+                    svg = svg.replace(/#000/g, color);
                     resolve(svg);
                 });
             });
@@ -106,9 +106,9 @@
                     let size = 128;
                     canvas.width = size;
                     canvas.height = size;
-                    let ctx = canvas.getContext('2d');
+                    let ctx = canvas.getContext("2d");
 
-                    this.getSvgImage(opts.name,opts.color).then((svg) => {
+                    this.getSvgImage(opts.name, opts.color).then((svg) => {
                         let img = new Image();
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);

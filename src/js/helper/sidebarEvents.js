@@ -163,7 +163,7 @@
                     if (message.action === "reload") { // reload the current instance of the extension
                         let delay = 0;
                         if (message.scrollTop) {
-                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox["all"], 0);
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0);
                             delay = 100;
                         }
 

@@ -8,11 +8,8 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                initListener();
-                resolve();
-            });
+        this.init = async () => {
+            initListener();
         };
 
         /**
@@ -24,10 +21,10 @@
             });
 
             chrome.runtime.onInstalled.addListener((details) => {
-                if (details.reason === 'install') { // extension was installed newly -> show onboarding page
-                    chrome.tabs.create({url: chrome.extension.getURL('html/intro.html')});
+                if (details.reason === "install") { // extension was installed newly -> show onboarding page
+                    chrome.tabs.create({url: chrome.extension.getURL("html/intro.html")});
                     b.reinitialize();
-                } else if (details.reason === 'update') { // extension was updated
+                } else if (details.reason === "update") { // extension was updated
                     chrome.storage.local.remove(["languageInfos"]);
                     let newVersion = b.manifest.version;
 
@@ -40,8 +37,8 @@
                         });
                     }
 
-                    let versionPartsOld = details.previousVersion.split('.');
-                    let versionPartsNew = newVersion.split('.');
+                    let versionPartsOld = details.previousVersion.split(".");
+                    let versionPartsNew = newVersion.split(".");
 
                     chrome.storage.sync.get(["behaviour", "language"], (obj) => { // @deprecated only for upgrade to v1.10.3
                         if (typeof obj.behaviour !== "undefined" && obj.behaviour.language && typeof obj.language === "undefined") {
@@ -84,7 +81,7 @@
                 chrome.storage.sync.get(["model"], (obj) => {
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            chrome.tabs.create({url: chrome.extension.getURL('html/changelog.html')});
+                            chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                         });
                     }
                 });

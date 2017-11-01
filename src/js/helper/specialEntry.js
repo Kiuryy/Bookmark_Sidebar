@@ -125,7 +125,7 @@
                     let parentId = parentIds[i];
 
                     if (typeof parentId !== "undefined") {
-                        let parentEntry = ext.elements.bookmarkBox["all"].find("a[data-id='" + parentId + "']");
+                        let parentEntry = ext.elements.bookmarkBox.all.find("a[data-id='" + parentId + "']");
 
                         if (parentEntry.length() > 0 && parentEntry.next("ul").length() > 0) {
                             let index = 0;

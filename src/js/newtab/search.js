@@ -67,7 +67,7 @@
                 queryUrl: "https://www.baidu.com/s?wd={1}",
                 sorting: 50,
                 lang: {
-                    'zh-CN': {
+                    "zh-CN": {
                         name: "百度",
                         sorting: 15
                     }
@@ -197,7 +197,7 @@
          * @returns {Promise}
          */
         let getSearchSuggestions = (val) => {
-            return new Promise((resolve,) => {
+            return new Promise((resolve) => {
                 if (!val) { // empty input -> no suggestions
                     resolve([]);
                 } else if (suggestionCache[val]) { // suggestions for the input already fetched -> return from cached object

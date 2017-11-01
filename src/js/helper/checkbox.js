@@ -85,7 +85,7 @@
                     container.addClass(ext.opts.classes.checkbox.active);
 
                     if (isChecked) { // radio button was not checked before already -> trigger change event
-                        checkbox.attr('checked', true);
+                        checkbox.attr("checked", true);
                         triggerChangeEvent(container, body);
                     }
 
@@ -96,10 +96,10 @@
                         }
                     });
                 } else {
-                    checkbox.attr('checked', false);
+                    checkbox.attr("checked", false);
                 }
             } else {
-                checkbox.attr('checked', isChecked);
+                checkbox.attr("checked", isChecked);
                 triggerChangeEvent(container, body);
             }
 

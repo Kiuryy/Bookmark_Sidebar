@@ -130,7 +130,7 @@
 
                     timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
                         showNotification(tabs[0]);
-                    }, 500);
+                    }, 750);
                 });
             });
 

@@ -11,7 +11,10 @@
          * @param {boolean} active
          */
         this.openUrl = (infos, type = "default", active = true) => {
-            ext.helper.model.setData({"u/lastOpened": infos.id});
+            ext.helper.model.setData({
+                "u/lastOpened": infos.id,
+                "u/autoOpen": infos.autoOpenSidebar || false
+            });
 
             if (type === "incognito") {
                 ext.helper.model.call("openLink", {

@@ -56,6 +56,7 @@
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
                 } else { // current tab
+                    data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
                     ext.helper.utility.openUrl(data, "default", true);
                 }
             }

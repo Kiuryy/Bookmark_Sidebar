@@ -560,6 +560,12 @@
     "settings_drag_n_drop_open_desc": {
         "message": "Erm\u00f6glicht es, markierten Text, Links und Urls in die Sidebar zu ziehen. Das kann hilfreich sein, wenn man ein Lesezeichen f\u00fcr die aktuelle Seite oder Links auf andere Webseiten erstellen m\u00f6chte."
     },
+    "settings_reopen_sidebar": {
+        "message": "Sidebar erneut \u00f6ffnen"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Sidebar automatisch wieder \u00f6ffnen, nachdem ein Lesezeichen aus der Sidebar heraus ge\u00f6ffnet wurde."
+    },
     "settings_tooltip_delay": {
         "message": "Tooltip Verz\u00f6gerung"
     },

@@ -26,7 +26,7 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen", "n/initialOpen", "u/autoOpen"]);
 
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
@@ -57,10 +57,9 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if (ext.helper.utility.getPageType().startsWith("newtab_")) {
-                if (ext.helper.model.getData("n/initialOpen")) {
-                    this.openSidebar();
-                }
+            if ((ext.helper.utility.getPageType().startsWith("newtab_") && data.initialOpen) || data.autoOpen) {
+                this.openSidebar();
+                ext.helper.model.setData({"u/autoOpen": false});
             }
 
             if (ext.helper.utility.sidebarHasMask() === false) {
@@ -163,8 +162,8 @@
                 }
             });
 
-            $(document).on("click.bs", (e) => { // click somewhere in the underlying page -> close
-                if (e.isTrusted) {
+            $(document).on("mousedown.bs click.bs", (e) => { // click somewhere in the underlying page -> close
+                if (e.isTrusted && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                     this.closeSidebar();
                 }
             });

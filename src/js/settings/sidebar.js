@@ -11,7 +11,7 @@
         this.init = async () => {
             initEvents();
 
-            ["dirAccordion", "animations", "preventPageScroll", "dndOpen"].forEach((field) => {
+            ["dirAccordion", "animations", "preventPageScroll", "autoOpen", "dndOpen"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
                 }
@@ -73,7 +73,7 @@
                     config[field] = val;
                 });
 
-                ["dirAccordion", "animations", "preventPageScroll", "dndOpen"].forEach((field) => { // checkbox
+                ["dirAccordion", "animations", "preventPageScroll", "autoOpen", "dndOpen"].forEach((field) => { // checkbox
                     config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
                 });
 

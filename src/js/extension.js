@@ -159,6 +159,11 @@
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
+
+                if (this.elements.iframe.hasClass(this.opts.classes.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
+                    this.helper.toggle.markLastUsed();
+                }
+
                 this.initialized = +new Date();
 
                 this.log(this.initialized - this.updateBookmarkBoxStart);

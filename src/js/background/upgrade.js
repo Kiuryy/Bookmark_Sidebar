@@ -3,61 +3,66 @@
 
     window.UpgradeHelper = function (b) {
 
+        this.loaded = false;
 
         /**
          *
          * @returns {Promise}
          */
         this.init = async () => {
-            initListener();
-        };
-
-        /**
-         * Initialises the eventlisteners
-         */
-        let initListener = () => {
             chrome.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
                 chrome.runtime.reload();
             });
 
-            chrome.runtime.onInstalled.addListener((details) => {
-                if (details.reason === "install") { // extension was installed newly -> show onboarding page
-                    chrome.tabs.create({url: chrome.extension.getURL("html/intro.html")});
-                    b.reinitialize();
-                } else if (details.reason === "update") { // extension was updated
-                    chrome.storage.local.remove(["languageInfos"]);
-                    let newVersion = b.manifest.version;
+            this.loaded = true;
+        };
 
-                    if (details.previousVersion !== newVersion) {
-                        b.helper.analytics.trackEvent({
-                            category: "extension",
-                            action: "update",
-                            label: details.previousVersion + " -> " + newVersion,
-                            always: true
-                        });
-                    }
+        /**
+         * Show onboarding page and reinitialize the content scripts after the extension was installed
+         */
+        this.onInstalled = () => {
+            chrome.tabs.create({url: chrome.extension.getURL("html/intro.html")});
+            b.reinitialize();
+        };
 
-                    let versionPartsOld = details.previousVersion.split(".");
-                    let versionPartsNew = newVersion.split(".");
+        /**
+         * Will be called after the extension was updated,
+         * calls the upgrade method after a version jump (1.6 -> 1.7) and reinitializes the content scripts
+         *
+         * @param {object} details
+         */
+        this.onUpdated = (details) => {
+            chrome.storage.local.remove(["languageInfos"]);
+            let newVersion = b.manifest.version;
 
-                    chrome.storage.sync.get(["behaviour", "language"], (obj) => { // @deprecated only for upgrade to v1.10.3
-                        if (typeof obj.behaviour !== "undefined" && obj.behaviour.language && typeof obj.language === "undefined") {
-                            let lang = obj.behaviour.language;
-                            chrome.storage.sync.set({language: lang}, () => {
-                                b.helper.language.init();
-                            });
-                        }
+            if (details.previousVersion !== newVersion) {
+                b.helper.analytics.trackEvent({
+                    category: "extension",
+                    action: "update",
+                    label: details.previousVersion + " -> " + newVersion,
+                    always: true
+                });
+            }
+
+            let versionPartsOld = details.previousVersion.split(".");
+            let versionPartsNew = newVersion.split(".");
+
+            chrome.storage.sync.get(["behaviour", "language"], (obj) => { // @deprecated only for upgrade to v1.10.3
+                if (typeof obj.behaviour !== "undefined" && obj.behaviour.language && typeof obj.language === "undefined") {
+                    let lang = obj.behaviour.language;
+                    chrome.storage.sync.set({language: lang}, () => {
+                        b.helper.language.init();
                     });
-
-                    if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
-                        handleVersionUpgrade(newVersion).then(() => {
-                            b.reinitialize();
-                        });
-                    } else {
-                        b.reinitialize();
-                    }
                 }
             });
+
+            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
+                handleVersionUpgrade(newVersion).then(() => {
+                    b.reinitialize();
+                });
+            } else {
+                b.reinitialize();
+            }
         };
 
         /**

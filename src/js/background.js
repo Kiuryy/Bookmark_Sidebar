@@ -141,13 +141,39 @@
         };
 
         /**
+         * Calls the according method of the upgrade helper after installing or updating the extension,
+         * waits 500ms if the helper is not initialized yet and calls itself again
+         *
+         * @param {object} details
+         * @param {int} i
+         */
+        let callOnInstalledCallback = (details, i = 0) => {
+            if (this.helper && this.helper.upgrade && this.helper.upgrade.loaded) {
+                if (details.reason === "install") { // extension was installed
+                    this.helper.upgrade.onInstalled(details);
+                } else if (details.reason === "update") { // extension was updated
+                    this.helper.upgrade.onUpdated(details);
+                }
+            } else if (i < 100) {
+                $.delay(500).then(() => {
+                    callOnInstalledCallback(details, i + 1);
+                });
+            }
+        };
+
+        /**
          *
          */
         this.run = () => {
             let start = +new Date();
             this.isDev = this.manifest.version_name === "Dev" || !("update_url" in this.manifest);
 
+            chrome.runtime.onInstalled.addListener((details) => {
+                callOnInstalledCallback(details);
+            });
+
             chrome.runtime.setUninstallURL(this.urls[this.isDev ? "website" : "uninstall"]);
+
             initHelpers();
 
             Promise.all([

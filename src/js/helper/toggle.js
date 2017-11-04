@@ -161,10 +161,10 @@
                 if (e.pageX) {
                     let pageX = e.pageX;
                     if (sidebarPos === "right") {
-                        if (ext.helper.utility.getPageType().startsWith("newtab_")) {
-                            pageX = ext.elements.iframe.realWidth() - pageX;
-                        } else {
+                        if (ext.helper.utility.sidebarHasMask()) {
                             pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
+                        } else {
+                            pageX = ext.elements.iframe.realWidth() - pageX;
                         }
                     }
                     if (pageX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {

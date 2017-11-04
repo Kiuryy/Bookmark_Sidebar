@@ -401,6 +401,9 @@
     "settings_restore": {
         "message": "Restaurar predeterminados"
     },
+    "settings_restore_confirm": {
+        "message": "\u00bfSeguro que deseas restaurar la configuraci\u00f3n predeterminada?"
+    },
     "settings_restored_message": {
         "message": "Configuraci\u00f3n restaurada correctamente"
     },

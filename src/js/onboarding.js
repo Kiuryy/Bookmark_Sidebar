@@ -182,6 +182,7 @@
                     styles.textColor = this.helper.model.getDefaultColor("textColor", value);
                     styles.bookmarksDirColor = this.helper.model.getDefaultColor("textColor", value);
                     styles.sidebarMaskColor = this.helper.model.getDefaultColor("sidebarMaskColor", value);
+                    styles.hoverColor = this.helper.model.getDefaultColor("hoverColor", value);
 
                     Object.values(this.opts.elm.sidebar).forEach((sidebar) => {
                         sidebar.removeClass(this.opts.classes.visible);

@@ -47,16 +47,7 @@
             let versionPartsOld = details.previousVersion.split(".");
             let versionPartsNew = newVersion.split(".");
 
-            chrome.storage.sync.get(["behaviour", "language"], (obj) => { // @deprecated only for upgrade to v1.10.3
-                if (typeof obj.behaviour !== "undefined" && obj.behaviour.language && typeof obj.language === "undefined") {
-                    let lang = obj.behaviour.language;
-                    chrome.storage.sync.set({language: lang}, () => {
-                        b.helper.language.init();
-                    });
-                }
-            });
-
-            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
+            if (/* REMOVE >>> */newVersion === "1.10.4" || /* <<< REMOVE*/ versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 handleVersionUpgrade(newVersion).then(() => {
                     b.reinitialize();
                 });
@@ -83,15 +74,13 @@
                     }
                 };
 
-                chrome.storage.sync.get(["model"], (obj) => {
-                    if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
+                chrome.storage.sync.get(null, (obj) => { // get all stored information
+                    if (/* REMOVE >>> */newVersion !== "1.10.4" && /* <<< REMOVE*/ typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
                             chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                         });
                     }
-                });
 
-                chrome.storage.sync.get(null, (obj) => {  // upgrade configuration
                     if (typeof obj.behaviour === "undefined") {
                         obj.behaviour = {};
                     }
@@ -105,11 +94,19 @@
                     }
 
                     // START UPGRADE // v1.11
-                    //delete obj.behaviour.initialOpenOnNewTab;
-                    //delete obj.behaviour.replaceNewTab;
-                    //delete obj.behaviour.language;
-                    //delete obj.appearance.language;
-                    //delete obj.appearance.sidebarPosition;
+                    delete obj.behaviour.initialOpenOnNewTab;
+                    delete obj.behaviour.replaceNewTab;
+                    delete obj.behaviour.language;
+                    delete obj.appearance.language;
+                    delete obj.appearance.sidebarPosition;
+
+                    if (typeof obj.appearance.styles === "undefined") {
+                        obj.appearance.styles = {};
+                    }
+
+                    if (typeof obj.appearance.styles.hoverColor === "undefined") {
+                        obj.appearance.styles.hoverColor = obj.appearance.darkMode ? "#555555" : "#f5f5f5";
+                    }
                     // END UPGRADE // v1.11
 
                     // START UPGRADE // v1.10
@@ -133,10 +130,6 @@
 
                     if (typeof obj.behaviour.rememberState === "undefined" || obj.behaviour.rememberState === "all") {
                         obj.behaviour.rememberState = "openStatesAndPos";
-                    }
-
-                    if (typeof obj.appearance.styles === "undefined") {
-                        obj.appearance.styles = {};
                     }
 
                     if (typeof obj.appearance.styles.iconShape === "undefined") {

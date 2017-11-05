@@ -75,11 +75,6 @@
                     ext.startLoading();
                     searchField.data("lastVal", val);
 
-                    if (searchTimeout) {
-                        clearTimeout(searchTimeout);
-                        searchTimeout = null;
-                    }
-
                     ext.helper.entry.initOnce().then(() => {
                         return ext.helper.model.setData({"u/searchValue": val});
                     }).then(() => {
@@ -101,14 +96,12 @@
                         }
 
                         if (!isFirstRun) {
-                            searchTimeout = setTimeout(() => {
-                                ext.helper.model.call("trackEvent", {
-                                    category: "search",
-                                    action: "search",
-                                    label: "search",
-                                    value: val.length
-                                });
-                            }, 500);
+                            ext.helper.model.call("trackEvent", {
+                                category: "search",
+                                action: "search",
+                                label: "search",
+                                value: val.length
+                            });
                         }
 
                         ext.endLoading(500);
@@ -160,7 +153,14 @@
 
             ext.elements.header.on("keyup", "div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']", (e) => {
                 e.preventDefault();
-                handleSearchValChanged();
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = null;
+                }
+
+                searchTimeout = setTimeout(() => {
+                    handleSearchValChanged();
+                }, 500);
             });
 
             ext.elements.header.on("click", "a." + ext.opts.classes.sidebar.searchClose, (e) => {

@@ -52,6 +52,7 @@
                 sort: "sort",
                 hidden: "hidden",
                 hover: "hover",
+                lastHover: "lastHover",
                 loading: "loading",
                 copied: "copied",
                 filterBox: "filter",

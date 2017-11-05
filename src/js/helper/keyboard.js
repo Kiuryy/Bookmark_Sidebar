@@ -239,6 +239,8 @@
                         firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.mark).eq(0).parent("li");
                     } else if (box.find("ul > li > a." + ext.opts.classes.sidebar.hover).length() > 0) {
                         firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover).eq(0).parent("li");
+                    } else if (box.find("ul > li > a." + ext.opts.classes.sidebar.lastHover).length() > 0) {
+                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.lastHover).eq(0).parent("li");
                     } else {
                         box.find("ul > li").forEach((entry) => {
                             if (entry.offsetTop >= scrollTop) {
@@ -283,7 +285,7 @@
                         if (hoveredElm) {
                             box.find("ul > li > a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
                             box.find("ul > li > a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
-                            hoveredElm.addClass(ext.opts.classes.sidebar.hover);
+                            hoveredElm.addClass([ext.opts.classes.sidebar.hover, ext.opts.classes.sidebar.lastHover]);
 
                             let offset = hoveredElm[0].offsetTop - scrollTop;
                             let pos = window.innerHeight - offset;

@@ -47,7 +47,7 @@
             let versionPartsOld = details.previousVersion.split(".");
             let versionPartsNew = newVersion.split(".");
 
-            if (/* REMOVE >>> */newVersion === "1.10.4" || /* <<< REMOVE*/ versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
+            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 handleVersionUpgrade(newVersion).then(() => {
                     b.reinitialize();
                 });
@@ -75,7 +75,7 @@
                 };
 
                 chrome.storage.sync.get(null, (obj) => { // get all stored information
-                    if (/* REMOVE >>> */newVersion !== "1.10.4" && /* <<< REMOVE*/ typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
+                    if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
                             chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                         });

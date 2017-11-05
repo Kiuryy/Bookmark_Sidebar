@@ -109,9 +109,10 @@
                     if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0) { // prevent hovering if overlay is open
                         let _self = $(e.currentTarget);
                         box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                        box.find("> ul a." + ext.opts.classes.sidebar.lastHover).removeClass(ext.opts.classes.sidebar.lastHover);
 
                         if (!_self.hasClass(ext.opts.classes.sidebar.mark)) {
-                            _self.addClass(ext.opts.classes.sidebar.hover);
+                            _self.addClass([ext.opts.classes.sidebar.hover, ext.opts.classes.sidebar.lastHover]);
                         }
 
                         if (markTimeout) {

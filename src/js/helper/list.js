@@ -644,6 +644,7 @@
                 list.html(cachedHtml);
                 list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
                 list.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                list.find("a." + ext.opts.classes.sidebar.lastHover).removeClass(ext.opts.classes.sidebar.lastHover);
                 ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.cached);
 
                 this.updateSidebarHeader();

@@ -211,11 +211,13 @@
          */
         this.initImages = () => {
             if (this.elements.iframe.hasClass(opts.classes.page.visible)) {
-                this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
-                    let img = $(_self);
-                    let src = img.attr(opts.attr.src);
-                    img.removeAttr(opts.attr.src);
-                    img.attr("src", src);
+                $.delay(0).then(() => {
+                    this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
+                        let img = $(_self);
+                        let src = img.attr(opts.attr.src);
+                        img.removeAttr(opts.attr.src);
+                        img.attr("src", src);
+                    });
                 });
             }
         };

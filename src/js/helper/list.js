@@ -355,7 +355,6 @@
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
-            let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
 
             if (list.parents("li").length() === 0) {
                 if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
@@ -366,8 +365,7 @@
                         if (config.showHidden || ext.helper.entry.isVisible(entry.id)) {
                             let elm = addEntryToList(entry, list, {
                                 config: config,
-                                asTree: asTree,
-                                sidebarOpen: sidebarOpen
+                                asTree: asTree
                             });
 
                             elm.addClass(ext.opts.classes.sidebar.entryPinned);
@@ -410,8 +408,7 @@
 
                     addEntryToList(bookmark, list, {
                         config: config,
-                        asTree: asTree,
-                        sidebarOpen: sidebarOpen
+                        asTree: asTree
                     });
 
                     if (bookmark.url) { // link
@@ -473,7 +470,8 @@
                     } else {
                         ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                entryContent.prepend("<img " + (opts.sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />");
+                                let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
+                                entryContent.prepend("<img " + (sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />");
                             }
                         });
                     }

@@ -560,6 +560,12 @@
     "settings_drag_n_drop_open_desc": {
         "message": "Permet de glisser-d\u00e9poser du texte, des liens ou des URL dans la barre lat\u00e9rale. Pratique si vous voulez marquer comme favori la page en visit\u00e9e ou des liens pr\u00e9sents sur celle-ci."
     },
+    "settings_reopen_sidebar": {
+        "message": "R\u00e9afficher la barre lat\u00e9rale"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "R\u00e9afficher automatiquement la barre lat\u00e9rale suite \u00e0 l'ouverture d'un favori depuis celle-ci."
+    },
     "settings_tooltip_delay": {
         "message": "D\u00e9lai des infobulles"
     },
@@ -622,6 +628,9 @@
     },
     "settings_text_color": {
         "message": "Couleur du texte"
+    },
+    "settings_hover_color": {
+        "message": "Couleur du survol de la souris"
     },
     "settings_font_family": {
         "message": "Police de caract\u00e8res"

@@ -13,7 +13,7 @@
         this.openUrl = (infos, type = "default", active = true) => {
             ext.helper.model.setData({
                 "u/lastOpened": infos.id,
-                "u/autoOpen": infos.autoOpenSidebar || false
+                "u/autoOpen": active ? (infos.autoOpenSidebar || false) : false
             });
 
             if (type === "incognito") {

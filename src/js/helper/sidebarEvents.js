@@ -4,6 +4,7 @@
     window.SidebarEventsHelper = function (ext) {
 
         let markTimeout = null;
+        let lockPinnedEntriesTimeout = null;
 
         /**
          * Initializes the helper
@@ -13,6 +14,7 @@
         this.init = async () => {
             initBookmarkEntriesEvents();
             initFilterEvents();
+            initPinnedEntriesEvents();
             initGeneralEvents();
         };
 
@@ -51,12 +53,13 @@
                     });
                 }
 
+                data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
+
                 if (middleClick) { // new tab -> middle click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
                 } else { // current tab
-                    data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
                     ext.helper.utility.openUrl(data, "default", true);
                 }
             }
@@ -98,18 +101,24 @@
          * @returns {Promise}
          */
         let initBookmarkEntriesEvents = async () => {
-            Object.values(ext.elements.bookmarkBox).forEach((box) => {
-                box.children("ul").on("click mousedown", "a", (e) => { // click on a bookmark (link or dir)
+            Object.values(ext.elements.bookmarkBox).forEach((box, i) => {
+                let selector = [box];
+                if (i === 0) {
+                    selector.push(ext.elements.pinnedBox);
+                }
+
+                $(selector).on("click mousedown", "> ul a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
                     if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)) { // only left click
                         this.handleEntryClick($(e.currentTarget), e);
                     }
-                }).on("mouseover", "a", (e) => { // add class to currently hovered element
+                }).on("mouseover", "> ul a", (e) => { // add class to currently hovered element
                     if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0) { // prevent hovering if overlay is open
                         let _self = $(e.currentTarget);
-                        box.find("> ul a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                        box.find("> ul a." + ext.opts.classes.sidebar.lastHover).removeClass(ext.opts.classes.sidebar.lastHover);
+                        let id = _self.attr(ext.opts.attr.id);
+                        box.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                        box.find("a." + ext.opts.classes.sidebar.lastHover).removeClass(ext.opts.classes.sidebar.lastHover);
 
                         if (!_self.hasClass(ext.opts.classes.sidebar.mark)) {
                             _self.addClass([ext.opts.classes.sidebar.hover, ext.opts.classes.sidebar.lastHover]);
@@ -120,12 +129,12 @@
                         }
 
                         markTimeout = setTimeout(() => { // remove highlighting after 500ms of hovering
-                            _self.removeClass(ext.opts.classes.sidebar.mark);
+                            box.find("a[" + ext.opts.attr.id + "='" + id + "']").removeClass(ext.opts.classes.sidebar.mark);
                         }, 500);
 
                         ext.helper.tooltip.create(_self);
                     }
-                }).on("contextmenu", "a", (e) => { // right click
+                }).on("contextmenu", "> ul a", (e) => { // right click
                     e.preventDefault();
                     let type = "list";
                     if ($(e.target).hasClass(ext.opts.classes.sidebar.separator)) {
@@ -133,12 +142,59 @@
                     }
                     $(e.currentTarget).removeClass(ext.opts.classes.sidebar.mark);
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
-                });
-
-                box.children("ul").on("mouseleave", (e) => {
+                }).on("mouseleave", (e) => {
                     ext.helper.tooltip.close();
                     $(e.currentTarget).find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
                 });
+            });
+        };
+
+        /**
+         * Initializes events for the pinned entry container
+         *
+         * @returns {Promise}
+         */
+        let initPinnedEntriesEvents = async () => {
+            let clTimeout = () => { // clear timeout for the lock icon
+                if (lockPinnedEntriesTimeout) {
+                    clearTimeout(lockPinnedEntriesTimeout);
+                }
+            };
+
+            let startTimeout = () => { // remove lock icon after 500ms of hovering
+                clTimeout();
+                lockPinnedEntriesTimeout = setTimeout(() => {
+                    ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.active);
+                }, 500);
+            };
+
+            ext.elements.pinnedBox.on("mouseenter", () => {
+                clTimeout();
+                ext.elements.lockPinned.addClass(ext.opts.classes.sidebar.active);
+            }).on("mouseleave", () => {
+                startTimeout();
+            });
+
+            ext.elements.lockPinned.on("mouseenter", () => {
+                clTimeout();
+            }).on("mouseleave", () => {
+                startTimeout();
+            }).on("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                ext.elements.lockPinned.toggleClass(ext.opts.classes.sidebar.fixed);
+                ext.elements.pinnedBox.toggleClass(ext.opts.classes.sidebar.fixed);
+
+                let isLocked = ext.elements.pinnedBox.hasClass(ext.opts.classes.sidebar.fixed);
+
+                ext.helper.model.setData({
+                    "u/lockPinned": isLocked
+                });
+
+                if (isLocked === false) { // scroll to top if the pinned entries got unlocked
+                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0, 200);
+                    ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.active);
+                }
             });
         };
 

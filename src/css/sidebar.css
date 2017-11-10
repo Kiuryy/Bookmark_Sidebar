@@ -1,8 +1,8 @@
-div.contextmenu, div.tooltip, body::after, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden, div#reloadInfo.hidden {
+div.contextmenu, div.tooltip, body::after, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
-div.contextmenu.visible, div.tooltip.visible, section#sidebar > header.searchVisible > div.searchBox {
+div.contextmenu.visible, div.tooltip.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag {
   opacity: 1;
   pointer-events: auto; }
 
@@ -525,7 +525,7 @@ a.dragHelper {
     height: 24px;
     border-radius: 2px;
     cursor: pointer;
-    transition: background-color 0.5s; }
+    transition: background-color 0.5s, opacity 0.5s; }
     a.dragHelper > span.drag::before {
       transition: inherit; }
     a.dragHelper > span.drag:hover {
@@ -654,6 +654,45 @@ section#sidebar {
     section#sidebar > header.searchVisible > div.searchBox {
       transform: translate3d(0, 0, 0);
       transition: transform 0.5s 0.1s, opacity 0.5s 0.1s; }
+  section#sidebar > a.lockPinned {
+    position: absolute;
+    top: 59px;
+    right: -22px;
+    display: block;
+    width: 18px;
+    height: 45px;
+    background: #fff;
+    border-radius: 10px;
+    transition: transform 0.5s, opacity 0.5s;
+    transform: translate3d(-7px, 0, 0);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer; }
+    section#sidebar > a.lockPinned > span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/16px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-lock.svg);
+      background-color: "%textColor"; }
+    section#sidebar > a.lockPinned::before, section#sidebar > a.lockPinned::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      border: 4px solid transparent;
+      opacity: 0.5; }
+    section#sidebar > a.lockPinned::before {
+      top: 0;
+      border-bottom-color: "%textColor"; }
+    section#sidebar > a.lockPinned::after {
+      bottom: 0;
+      border-top-color: "%textColor"; }
+    section#sidebar > a.lockPinned.active {
+      transform: translate3d(0, 0, 0); }
+    section#sidebar > a.lockPinned.fixed > span::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-unlock.svg); }
   section#sidebar > div.filter {
     position: absolute;
     top: 50px;
@@ -729,11 +768,11 @@ section#sidebar {
     section#sidebar > div.scrollBox.scrolled:not([data-direction='up']) ~ div.filter {
       transform: translate3d(0, -100%, 0);
       box-shadow: none; }
-    section#sidebar > div.scrollBox > ul {
+    section#sidebar > div.scrollBox > ul, section#sidebar > div.scrollBox > div.pinned > ul {
       position: relative;
       margin: 9px 0;
       z-index: 1; }
-      section#sidebar > div.scrollBox > ul a {
+      section#sidebar > div.scrollBox > ul a, section#sidebar > div.scrollBox > div.pinned > ul a {
         display: flex;
         align-items: center;
         font-size: "%bookmarksFontSize";
@@ -743,25 +782,25 @@ section#sidebar {
         cursor: pointer;
         transition: background 0.3s, color 0.3s;
         position: relative; }
-        section#sidebar > div.scrollBox > ul a.hover:not(.separator) {
+        section#sidebar > div.scrollBox > ul a.hover:not(.separator), section#sidebar > div.scrollBox > div.pinned > ul a.hover:not(.separator) {
           background: "%hoverColor"; }
-        section#sidebar > div.scrollBox > ul a.dragHover {
+        section#sidebar > div.scrollBox > ul a.dragHover, section#sidebar > div.scrollBox > div.pinned > ul a.dragHover {
           background: "%hoverColor"; }
-        section#sidebar > div.scrollBox > ul a.mark {
+        section#sidebar > div.scrollBox > ul a.mark, section#sidebar > div.scrollBox > div.pinned > ul a.mark {
           background: "%colorScheme";
           color: #fff; }
-        section#sidebar > div.scrollBox > ul a.active {
+        section#sidebar > div.scrollBox > ul a.active, section#sidebar > div.scrollBox > div.pinned > ul a.active {
           font-weight: "%fontWeightMedium"; }
-        section#sidebar > div.scrollBox > ul a.dir {
+        section#sidebar > div.scrollBox > ul a.dir, section#sidebar > div.scrollBox > div.pinned > ul a.dir {
           font-weight: "%fontWeightBold"; }
-        section#sidebar > div.scrollBox > ul a.separator {
+        section#sidebar > div.scrollBox > ul a.separator, section#sidebar > div.scrollBox > div.pinned > ul a.separator {
           height: "%bookmarksLineHeight";
           cursor: default; }
-          section#sidebar > div.scrollBox > ul a.separator > span.label {
+          section#sidebar > div.scrollBox > ul a.separator > span.label, section#sidebar > div.scrollBox > div.pinned > ul a.separator > span.label {
             position: relative;
             width: 100%;
             height: 100%; }
-            section#sidebar > div.scrollBox > ul a.separator > span.label::after {
+            section#sidebar > div.scrollBox > ul a.separator > span.label::after, section#sidebar > div.scrollBox > div.pinned > ul a.separator > span.label::after {
               content: "";
               position: absolute;
               top: 50%;
@@ -769,7 +808,7 @@ section#sidebar {
               width: 100%;
               height: 1px;
               background: rgba(0, 0, 0, 0.15); }
-        section#sidebar > div.scrollBox > ul a > span.copied {
+        section#sidebar > div.scrollBox > ul a > span.copied, section#sidebar > div.scrollBox > div.pinned > ul a > span.copied {
           position: absolute;
           top: -20px;
           left: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px);
@@ -783,19 +822,19 @@ section#sidebar {
           opacity: 0;
           transform: translate3d(0, 5px, 0);
           transition: opacity 0.3s, transform 0.3s; }
-          section#sidebar > div.scrollBox > ul a > span.copied::after {
+          section#sidebar > div.scrollBox > ul a > span.copied::after, section#sidebar > div.scrollBox > div.pinned > ul a > span.copied::after {
             content: "";
             position: absolute;
             bottom: -10px;
             left: calc(50% - 5px);
             border: 5px solid transparent;
             border-top-color: #5eba7d; }
-        section#sidebar > div.scrollBox > ul a.copied {
+        section#sidebar > div.scrollBox > ul a.copied, section#sidebar > div.scrollBox > div.pinned > ul a.copied {
           background: rgba(94, 186, 125, 0.2) !important; }
-          section#sidebar > div.scrollBox > ul a.copied > span.copied {
+          section#sidebar > div.scrollBox > ul a.copied > span.copied, section#sidebar > div.scrollBox > div.pinned > ul a.copied > span.copied {
             opacity: 1;
             transform: translate3d(0, 0, 0); }
-        section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon {
+        section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > ul a > span.icon, section#sidebar > div.scrollBox > div.pinned > ul a > img, section#sidebar > div.scrollBox > div.pinned > ul a > span.icon {
           position: relative;
           display: inline-block;
           width: "%bookmarksIconSize";
@@ -803,14 +842,14 @@ section#sidebar {
           margin: 0 "%bookmarksHorizontalPadding" 0 0;
           pointer-events: none;
           flex-shrink: 0; }
-        section#sidebar > div.scrollBox > ul a > img {
+        section#sidebar > div.scrollBox > ul a > img, section#sidebar > div.scrollBox > div.pinned > ul a > img {
           visibility: hidden; }
-          section#sidebar > div.scrollBox > ul a > img[src] {
+          section#sidebar > div.scrollBox > ul a > img[src], section#sidebar > div.scrollBox > div.pinned > ul a > img[src] {
             visibility: visible; }
-        section#sidebar > div.scrollBox > ul a.dir > span.icon {
+        section#sidebar > div.scrollBox > ul a.dir > span.icon, section#sidebar > div.scrollBox > div.pinned > ul a.dir > span.icon {
           width: "%directoriesIconSize";
           height: "%directoriesIconSize"; }
-          section#sidebar > div.scrollBox > ul a.dir > span.icon::before {
+          section#sidebar > div.scrollBox > ul a.dir > span.icon::before, section#sidebar > div.scrollBox > div.pinned > ul a.dir > span.icon::before {
             content: "";
             position: absolute;
             top: 0;
@@ -820,7 +859,7 @@ section#sidebar {
             -webkit-mask: no-repeat center/"%directoriesIconSize";
             -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
             background-color: "%bookmarksDirColor"; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon::before {
           content: "";
           position: absolute;
           top: 0;
@@ -830,33 +869,33 @@ section#sidebar {
           -webkit-mask: no-repeat center/"%bookmarksIconSize";
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-demo.svg);
           background-color: transparent; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='1']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='1']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='1']::before {
           background-color: #37bf99; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='2']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='2']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='2']::before {
           background-color: #d737d5; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='3']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='3']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='3']::before {
           background-color: #3e6bf2; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='4']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='4']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='4']::before {
           background-color: #f4572f; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='5']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='5']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='5']::before {
           background-color: #f74b58; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='6']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='6']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='6']::before {
           background-color: #f5a2bf; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='7']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='7']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='7']::before {
           background-color: #1a90ba; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='8']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='8']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='8']::before {
           background-color: #b4bd0e; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='9']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='9']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='9']::before {
           background-color: #fdde32; }
-        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='10']::before {
+        section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='10']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='10']::before {
           background-color: #8ccbce; }
-        section#sidebar > div.scrollBox > ul a > span.label {
+        section#sidebar > div.scrollBox > ul a > span.label, section#sidebar > div.scrollBox > div.pinned > ul a > span.label {
           text-overflow: ellipsis;
           overflow: hidden;
           pointer-events: none; }
-          section#sidebar > div.scrollBox > ul a > span.label[data-num]::after {
+          section#sidebar > div.scrollBox > ul a > span.label[data-num]::after, section#sidebar > div.scrollBox > div.pinned > ul a > span.label[data-num]::after {
             content: " " attr(data-num); }
-        section#sidebar > div.scrollBox > ul a > span.drag {
+        section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {
           display: none;
           position: absolute;
           top: calc(50% - 12px);
@@ -865,45 +904,58 @@ section#sidebar {
           height: 24px;
           border-radius: 2px;
           cursor: pointer;
-          transition: background-color 0.5s; }
-          section#sidebar > div.scrollBox > ul a > span.drag::before {
+          transition: background-color 0.5s, opacity 0.5s; }
+          section#sidebar > div.scrollBox > ul a > span.drag::before, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag::before {
             transition: inherit; }
-          section#sidebar > div.scrollBox > ul a > span.drag:hover {
+          section#sidebar > div.scrollBox > ul a > span.drag:hover, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag:hover {
             background-color: rgba(0, 0, 0, 0.1); }
-        section#sidebar > div.scrollBox > ul a + ul {
+        section#sidebar > div.scrollBox > ul a + ul, section#sidebar > div.scrollBox > div.pinned > ul a + ul {
           padding-left: "%bookmarksDirIndentation";
           height: 0;
           overflow: hidden; }
-        section#sidebar > div.scrollBox > ul a.opened + ul {
+        section#sidebar > div.scrollBox > ul a.opened + ul, section#sidebar > div.scrollBox > div.pinned > ul a.opened + ul {
           height: auto; }
-        section#sidebar > div.scrollBox > ul a.opened:not(.animated) + ul {
+        section#sidebar > div.scrollBox > ul a.opened:not(.animated) + ul, section#sidebar > div.scrollBox > div.pinned > ul a.opened:not(.animated) + ul {
           overflow: visible; }
-      section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned)::before {
+      section#sidebar > div.scrollBox > ul li.hidden > a, section#sidebar > div.scrollBox > div.pinned > ul li.hidden > a {
+        opacity: 0.3;
+        font-style: italic; }
+        section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active, section#sidebar > div.scrollBox > div.pinned > ul li.hidden > a:hover, section#sidebar > div.scrollBox > div.pinned > ul li.hidden > a.active {
+          opacity: 0.5; }
+      section#sidebar > div.scrollBox > ul li.isDragged, section#sidebar > div.scrollBox > div.pinned > ul li.isDragged {
+        width: calc(100% - 5px);
+        border: 3px dashed rgba(0, 0, 0, 0.2);
+        pointer-events: none; }
+        section#sidebar > div.scrollBox > ul li.isDragged > a, section#sidebar > div.scrollBox > div.pinned > ul li.isDragged > a {
+          visibility: hidden;
+          line-height: calc(%bookmarksLineHeight - 6px); }
+          section#sidebar > div.scrollBox > ul li.isDragged > a > img, section#sidebar > div.scrollBox > div.pinned > ul li.isDragged > a > img {
+            visibility: hidden; }
+      section#sidebar > div.scrollBox > ul li.dragInitial, section#sidebar > div.scrollBox > div.pinned > ul li.dragInitial {
+        display: none; }
+      section#sidebar > div.scrollBox > ul.hideRoot > li > a, section#sidebar > div.scrollBox > div.pinned > ul.hideRoot > li > a {
+        display: none; }
+      section#sidebar > div.scrollBox > ul.hideRoot > li > ul, section#sidebar > div.scrollBox > div.pinned > ul.hideRoot > li > ul {
+        padding-left: 0; }
+    section#sidebar > div.scrollBox > div.pinned {
+      position: relative;
+      background-color: #fff;
+      margin: 0 0 9px 0;
+      padding-top: 9px;
+      z-index: 2; }
+      section#sidebar > div.scrollBox > div.pinned.hidden {
+        display: none; }
+      section#sidebar > div.scrollBox > div.pinned.fixed {
+        position: sticky;
+        top: 0; }
+      section#sidebar > div.scrollBox > div.pinned::after {
         content: "";
         display: block;
         height: 1px;
         margin: 7px "%bookmarksHorizontalPadding";
         background: rgba(0, 0, 0, 0.15); }
-      section#sidebar > div.scrollBox > ul li.hidden > a {
-        opacity: 0.3;
-        font-style: italic; }
-        section#sidebar > div.scrollBox > ul li.hidden > a:hover, section#sidebar > div.scrollBox > ul li.hidden > a.active {
-          opacity: 0.5; }
-      section#sidebar > div.scrollBox > ul li.isDragged {
-        width: calc(100% - 5px);
-        border: 3px dashed rgba(0, 0, 0, 0.2);
-        pointer-events: none; }
-        section#sidebar > div.scrollBox > ul li.isDragged > a {
-          visibility: hidden;
-          line-height: calc(%bookmarksLineHeight - 6px); }
-          section#sidebar > div.scrollBox > ul li.isDragged > a > img {
-            visibility: hidden; }
-      section#sidebar > div.scrollBox > ul li.dragInitial {
-        display: none; }
-      section#sidebar > div.scrollBox > ul.hideRoot > li:not(.pinned) > a {
-        display: none; }
-      section#sidebar > div.scrollBox > ul.hideRoot > li:not(.pinned) > ul {
-        padding-left: 0; }
+      section#sidebar > div.scrollBox > div.pinned > ul {
+        margin: 0; }
   section#sidebar.openedOnce > header > a.search::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
   section#sidebar.openedOnce > header > a.sort::before {
@@ -920,7 +972,7 @@ section#sidebar {
     -webkit-mask: no-repeat center/18px;
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
     background-color: "%foregroundColor"; }
-  section#sidebar.openedOnce > div.scrollBox > ul a > span.drag::before {
+  section#sidebar.openedOnce > div.scrollBox a > span.drag::before {
     content: "";
     position: absolute;
     top: 0;
@@ -930,14 +982,12 @@ section#sidebar {
     -webkit-mask: no-repeat center/18px;
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
     background-color: #ccc; }
-  section#sidebar.openedOnce > div.scrollBox > ul a > span.drag:hover::before {
+  section#sidebar.openedOnce > div.scrollBox a > span.drag:hover::before {
     background-color: #999; }
-  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox > ul > li.pinned > a > span.drag {
-    display: block; }
-  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox > ul ul a {
+  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox a:hover {
     padding-right: 46px; }
-    section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox > ul ul a > span.drag {
-      display: block; }
+  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox a > span.drag {
+    display: block; }
   section#sidebar.loading > svg.loading {
     position: absolute;
     top: calc(50% - 18px);
@@ -950,8 +1000,12 @@ body.dark section#sidebar {
   body.dark section#sidebar > div.scrollBox > ul li.isDragged {
     width: calc(100% - 5px);
     border-color: rgba(255, 255, 255, 0.2); }
-  body.dark section#sidebar > div.scrollBox > ul > li.pinned + li:not(.pinned)::before {
-    background: rgba(255, 255, 255, 0.15); }
+  body.dark section#sidebar > div.scrollBox > ul > li.pinned {
+    background-color: #444; }
+    body.dark section#sidebar > div.scrollBox > ul > li.pinned:first-child {
+      box-shadow: 0 -10px 0 10px #444; }
+    body.dark section#sidebar > div.scrollBox > ul > li.pinned.last::after {
+      background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {

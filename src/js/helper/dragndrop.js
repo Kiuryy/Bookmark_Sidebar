@@ -127,7 +127,7 @@
                     type = "directory";
                 } else if (elm.hasClass(ext.opts.classes.sidebar.separator)) {
                     type = "separator";
-                } else if (elm.parent("li." + ext.opts.classes.sidebar.entryPinned).length() > 0) {
+                } else if (elm.parents("div." + ext.opts.classes.sidebar.entryPinned).length() > 0) {
                     type = "pinned";
                 }
 
@@ -358,8 +358,6 @@
          * @param {int} y
          */
         let dragmove = (eventType, x, y) => {
-            edgeScroll.posY = y;
-
             let draggedElm = null;
             let bookmarkElm = null;
             let topVal = 0;
@@ -401,8 +399,9 @@
             let elmLists = null;
 
             if (type === "pinned") {
-                elmLists = [ext.elements.bookmarkBox.all.find("> ul > li." + ext.opts.classes.sidebar.entryPinned)];
+                elmLists = [ext.elements.pinnedBox.find("> ul > li")];
             } else {
+                edgeScroll.posY = y;
                 elmLists = [
                     ext.elements.bookmarkBox.all.find("a." + ext.opts.classes.sidebar.dirOpened + " + ul > li"),
                     ext.elements.bookmarkBox.all.find("> ul > li > a." + ext.opts.classes.sidebar.dirOpened).parent("li")
@@ -465,7 +464,7 @@
                     }
                 }
             } else if (type === "pinned") { // pinned entry -> no element above -> index = 0
-                let elm = bookmarkElm.prependTo(ext.elements.bookmarkBox.all.find("> ul"));
+                let elm = bookmarkElm.prependTo(ext.elements.pinnedBox.children("ul"));
                 if (draggedElm) {
                     draggedElm.data("elm", elm);
                 }
@@ -479,7 +478,7 @@
          */
         let initEvents = async () => {
 
-            ext.elements.bookmarkBox.all.children("ul").on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
+            ext.elements.bookmarkBox.all.on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 let x = e.pageX;
                 let hasMask = ext.helper.utility.sidebarHasMask();
 

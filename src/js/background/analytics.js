@@ -142,6 +142,8 @@
                     Object.keys(obj).forEach((attr) => {
                         if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
                             obj[attr] = obj[attr].length;
+                        } else if (baseName === "utility" && attr === "pinnedEntries" && typeof obj[attr] === "object") { // only track the amount of pinned entries
+                            obj[attr] = Object.keys(obj[attr]).length;
                         }
 
                         if (typeof obj[attr] === "object") {
@@ -177,6 +179,19 @@
                             proceedConfig(category, obj[category]);
                         }
                     });
+                });
+
+                chrome.storage.local.get(["utility"], (obj) => {
+                    if (obj.utility) {
+                        let config = {};
+                        ["lockPinned", "entriesLocked", "pinnedEntries"].forEach((field) => {
+                            if (typeof obj.utility[field] !== "undefined") {
+                                config[field] = obj.utility[field];
+                            }
+                        });
+
+                        proceedConfig("utility", config);
+                    }
                 });
             }
         };

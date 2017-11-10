@@ -330,6 +330,8 @@
             });
 
             this.elements.filterBox = $("<div />").addClass(opts.classes.sidebar.filterBox).appendTo(this.elements.sidebar);
+            this.elements.pinnedBox = $("<div />").addClass(opts.classes.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
+            this.elements.lockPinned = $("<a />").addClass(opts.classes.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
 
             this.elements.iframeBody.attr(opts.attr.dragCancel, this.helper.i18n.get("sidebar_drag_cancel"));
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);

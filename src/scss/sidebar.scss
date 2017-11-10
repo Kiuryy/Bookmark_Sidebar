@@ -240,6 +240,53 @@ section#sidebar {
     }
   }
 
+  > a.lockPinned {
+    position: absolute;
+    top: #{$sidebarHeaderHeight + 9px};
+    right: -22px;
+    display: block;
+    width: 18px;
+    height: 45px;
+    background: $contentBackground;
+    border-radius: 10px;
+    transition: transform 0.5s, opacity 0.5s;
+    transform: translate3d(-7px, 0, 0);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    @extend %hidden;
+
+    > span {
+      @include mask('icon-lock', $__textColor, 16px);
+    }
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      border: 4px solid transparent;
+      opacity: 0.5;
+    }
+
+    &::before {
+      top: 0;
+      border-bottom-color: $__textColor;
+    }
+
+    &::after {
+      bottom: 0;
+      border-top-color: $__textColor;
+    }
+
+    &.active {
+      @extend %visible;
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.fixed > span::before {
+      @include maskImage('icon-unlock');
+    }
+  }
+
   > div.filter {
     position: absolute;
     top: $sidebarHeaderHeight;
@@ -341,7 +388,7 @@ section#sidebar {
       box-shadow: none;
     }
 
-    > ul {
+    > ul, > div.pinned > ul {
       position: relative;
       margin: 9px 0;
       z-index: 1;
@@ -369,14 +416,6 @@ section#sidebar {
             overflow: visible;
           }
         }
-      }
-
-      > li.pinned + li:not(.pinned)::before {
-        content: "";
-        display: block;
-        height: 1px;
-        margin: 7px $__bookmarksHorizontalPadding;
-        background: $separatorColor;
       }
 
       li {
@@ -415,7 +454,7 @@ section#sidebar {
 
       &.hideRoot {
 
-        > li:not(.pinned) {
+        > li {
 
           > a {
             display: none;
@@ -425,6 +464,35 @@ section#sidebar {
             padding-left: 0;
           }
         }
+      }
+    }
+
+    > div.pinned {
+      position: relative;
+      background-color: $contentBackground;
+      margin: 0 0 9px 0;
+      padding-top: 9px;
+      z-index: 2;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.fixed {
+        position: sticky;
+        top: 0;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        margin: 7px $__bookmarksHorizontalPadding;
+        background: $separatorColor;
+      }
+
+      > ul {
+        margin: 0;
       }
     }
   }
@@ -453,7 +521,7 @@ section#sidebar {
       }
     }
 
-    > div.scrollBox > ul a > span.drag {
+    > div.scrollBox a > span.drag {
       @include mask('icon-reorder', $reorderIconColor, 18px);
 
       &:hover::before {
@@ -466,18 +534,13 @@ section#sidebar {
 
     > div.scrollBox {
 
-      > ul {
-
-        > li.pinned > a > span.drag {
-          display: block;
+      a {
+        &:hover {
+          padding-right: 46px;
         }
 
-        ul a {
-          padding-right: 46px;
-
-          > span.drag {
-            display: block;
-          }
+        > span.drag {
+          display: block;
         }
       }
     }
@@ -511,25 +574,33 @@ body.dark section#sidebar {
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    > li.pinned + li:not(.pinned)::before {
-      background: $darkSeparatorColor;
+    > li.pinned {
+      background-color: $darkContentBackground;
+
+      &:first-child {
+        box-shadow: 0 -10px 0 10px $darkContentBackground;
+      }
+
+      &.last::after {
+        background: $darkSeparatorColor;
+      }
     }
 
     a {
       @include darkBookmarkEntry;
-    }
 
-    a > span.drag {
-
-      &::before {
-        background-color: $darkReorderIconColor;
-      }
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+      > span.drag {
 
         &::before {
-          background-color: $darkReorderIconColorActive;
+          background-color: $darkReorderIconColor;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+
+          &::before {
+            background-color: $darkReorderIconColorActive;
+          }
         }
       }
     }

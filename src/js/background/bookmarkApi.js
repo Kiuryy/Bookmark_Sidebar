@@ -32,7 +32,10 @@
                     let lastError = chrome.runtime.lastError;
                     if (typeof lastError === "undefined") {
                         if (["update", "move", "create", "removeTree"].indexOf(key) !== -1) {
-                            b.helper.cache.remove({name: "html"}).then(() => {
+                            Promise.all([
+                                b.helper.cache.remove({name: "htmlList"}),
+                                b.helper.cache.remove({name: "htmlPinnedEntries"})
+                            ]).then(() => {
                                 resolve(result);
                             });
                         } else {

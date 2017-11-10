@@ -301,7 +301,8 @@
                 ext.startLoading();
 
                 Promise.all([
-                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.call("removeCache", {name: "htmlList"}),
+                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
                     ext.helper.model.setData({
                         "u/showHidden": ext.helper.checkbox.isChecked($(e.currentTarget).parent("div"))
                     })
@@ -367,6 +368,7 @@
                             label: "new_tab_contextmenu"
                         });
                         if (data) {
+                            data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
                             ext.helper.utility.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
                         }
                         break;
@@ -383,7 +385,10 @@
                         delete hiddenEntries[elmId];
 
                         ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
-                            return ext.helper.model.call("removeCache", {name: "html"});
+                            return Promise.all([
+                                ext.helper.model.call("removeCache", {name: "htmlList"}),
+                                ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"})
+                            ]);
                         }).then(() => {
                             ext.helper.model.call("reload", {type: "Hide"});
                         });

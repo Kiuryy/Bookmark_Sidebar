@@ -84,7 +84,8 @@
                 ext.startLoading();
 
                 Promise.all([
-                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.call("removeCache", {name: "htmlList"}),
+                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
                     ext.helper.model.setData({"u/sort": sort})
                 ]).then(() => {
                     ext.helper.model.call("trackEvent", {
@@ -123,7 +124,10 @@
                 ext.updateBookmarkBoxStart = +new Date();
 
                 if (ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") {
-                    promiseObj = ext.helper.model.call("getCache", {name: "html"});
+                    promiseObj = Promise.all([
+                        ext.helper.model.call("getCache", {name: "htmlList"}),
+                        ext.helper.model.call("getCache", {name: "htmlPinnedEntries"}),
+                    ]);
                 } else {
                     promiseObj = new Promise((resolve) => {
                         resolve();
@@ -133,8 +137,16 @@
                 ext.helper.scroll.focus();
 
                 promiseObj.then((result) => {
-                    if (result && result.val) { // load content from cache
-                        return updateFromCache(list, result.val);
+                    if (result && result[0] && result[0].val) { // load content from cache
+                        if (result[1] && result[1].val) {
+                            ext.elements.pinnedBox.html(result[1].val);
+                            if (ext.helper.model.getData("u/lockPinned")) {
+                                ext.elements.lockPinned.addClass(ext.opts.classes.sidebar.fixed);
+                                ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.fixed);
+                            }
+                        }
+
+                        return updateFromCache(list, result[0].val);
                     } else { // load content from object
                         return updateFromObject(list);
                     }
@@ -207,10 +219,17 @@
          */
         this.cacheList = () => {
             ext.log("CACHE");
-            return ext.helper.model.call("setCache", {
-                name: "html",
-                val: ext.elements.bookmarkBox.all.children("ul").html()
-            });
+
+            return Promise.all([
+                ext.helper.model.call("setCache", {
+                    name: "htmlList",
+                    val: ext.elements.bookmarkBox.all.children("ul").html()
+                }),
+                ext.helper.model.call("setCache", {
+                    name: "htmlPinnedEntries",
+                    val: ext.elements.pinnedBox.html()
+                })
+            ]);
         };
 
         /**
@@ -340,6 +359,7 @@
 
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
                 box.css("padding-top", filterBoxHeight);
+                ext.elements.pinnedBox.css("top", -filterBoxHeight);
             });
         };
 
@@ -357,20 +377,8 @@
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
 
             if (list.parents("li").length() === 0) {
-                if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active) && list.find("li." + ext.opts.classes.sidebar.entryPinned).length() === 0) { // don't show in search results and don't render twice
-                    let pinnedEntries = ext.helper.entry.getAllPinnedData();
-                    sortEntries(pinnedEntries);
-
-                    pinnedEntries.forEach((entry) => {
-                        if (config.showHidden || ext.helper.entry.isVisible(entry.id)) {
-                            let elm = addEntryToList(entry, list, {
-                                config: config,
-                                asTree: asTree
-                            });
-
-                            elm.addClass(ext.opts.classes.sidebar.entryPinned);
-                        }
-                    });
+                if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) { // don't show in search results
+                    updatePinnedEntries(config);
                 }
             } else {
                 list.css("transition", "height " + config.dirOpenDuration + "s");
@@ -430,6 +438,40 @@
             });
 
             return hasEntries;
+        };
+
+        /**
+         * Updates the list with the pinned entries
+         *
+         * @param {object} config
+         */
+        let updatePinnedEntries = (config) => {
+            ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.fixed);
+            ext.elements.pinnedBox.removeClass([ext.opts.classes.sidebar.hidden, ext.opts.classes.sidebar.fixed]);
+
+            ext.elements.pinnedBox.children("ul").remove();
+            let pinnedEntries = ext.helper.entry.getAllPinnedData();
+
+            if (pinnedEntries.length === 0) {
+                ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.hidden);
+            } else {
+                sortEntries(pinnedEntries);
+                let list = $("<ul />").appendTo(ext.elements.pinnedBox);
+
+                if (ext.helper.model.getData("u/lockPinned")) {
+                    ext.elements.lockPinned.addClass(ext.opts.classes.sidebar.fixed);
+                    ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.fixed);
+                }
+
+                pinnedEntries.forEach((entry, i) => {
+                    if (config.showHidden || ext.helper.entry.isVisible(entry.id)) {
+                        addEntryToList(entry, list, {
+                            config: config,
+                            asTree: false
+                        });
+                    }
+                });
+            }
         };
 
         /**
@@ -650,7 +692,7 @@
                 this.updateSidebarHeader();
                 this.updateSortFilter();
 
-                if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                     list.addClass(ext.opts.classes.sidebar.hideRoot);
                 }
 
@@ -683,12 +725,11 @@
                     return ext.helper.entry.init(entries);
                 }).then(() => {
                     this.updateSidebarHeader();
-                    this.updateSortFilter();
 
                     if (viewAsTree || sort.name === "custom") { // with directories
                         this.addBookmarkDir(entries, list, true);
 
-                        if (list.children("li:not(." + ext.opts.classes.sidebar.entryPinned + ")").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                        if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                             list.addClass(ext.opts.classes.sidebar.hideRoot);
                             this.toggleBookmarkDir(list.find("> li > a." + ext.opts.classes.sidebar.bookmarkDir).eq(0));
                         } else {
@@ -699,6 +740,7 @@
                         restoreScrollPos();
                     }
 
+                    this.updateSortFilter();
                     resolve();
                 });
             });

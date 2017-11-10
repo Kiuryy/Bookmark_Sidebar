@@ -132,7 +132,6 @@
 
                 if (entry && entry.length() > 0) {
                     entry.addClass(ext.opts.classes.sidebar.mark);
-                    console.log("MARK", entry);
                     ext.helper.model.setData({"u/lastOpened": null});
                 }
             }

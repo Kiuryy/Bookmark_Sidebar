@@ -138,7 +138,8 @@
     height: 24px;
     border-radius: 2px;
     cursor: pointer;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, opacity 0.5s;
+    @extend %hidden;
 
     &::before {
       transition: inherit;
@@ -147,6 +148,10 @@
     &:hover {
       background-color: rgba(0, 0, 0, 0.1);
     }
+  }
+
+  &:hover > span.drag {
+    @extend %visible;
   }
 }
 

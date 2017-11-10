@@ -52,6 +52,8 @@
                 sort: "sort",
                 hidden: "hidden",
                 hover: "hover",
+                fixed: "fixed",
+                lockPinned:"lockPinned",
                 lastHover: "lastHover",
                 loading: "loading",
                 copied: "copied",

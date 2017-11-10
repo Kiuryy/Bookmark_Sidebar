@@ -526,7 +526,10 @@
             hiddenEntries[data.id] = true;
 
             ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
-                return ext.helper.model.call("removeCache", {name: "html"});
+                return Promise.all([
+                    ext.helper.model.call("removeCache", {name: "htmlList"}),
+                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"})
+                ]);
             }).then(() => {
                 ext.helper.model.call("reload", {type: "Hide"});
             });

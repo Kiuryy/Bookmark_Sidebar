@@ -90,7 +90,8 @@
         let savePinnedEntries = (entries) => {
             return new Promise((resolve) => {
                 Promise.all([
-                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.call("removeCache", {name: "htmlList"}),
+                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
                     ext.helper.model.setData({"u/pinnedEntries": entries})
                 ]).then(resolve);
             });
@@ -105,7 +106,8 @@
         let saveSeperators = (separators) => {
             return new Promise((resolve) => {
                 Promise.all([
-                    ext.helper.model.call("removeCache", {name: "html"}),
+                    ext.helper.model.call("removeCache", {name: "htmlList"}),
+                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
                     ext.helper.model.setData({"u/separators": separators})
                 ]).then(resolve);
             });

@@ -111,7 +111,7 @@
         let initSearchEngineList = () => {
             let lang = n.helper.i18n.getUILanguage();
             let list = [];
-            
+
             Object.entries(searchEngineInfo).forEach(([alias, searchEngine]) => {
                 let entry = {
                     alias: alias,

@@ -122,10 +122,13 @@
                 }
             });
 
-            s.opts.elm.keyboardShortcutInfo.children("a").on("click", (e) => {
+            s.opts.elm.buttons.keyboardShortcut.on("click", (e) => {
                 e.preventDefault();
+                let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./); // @deprecated url to shortcut page has changed with Chrome 64 -> switch for older versions can be removed in future
+                let version = versionRaw ? parseInt(versionRaw[2], 10) : null;
+
                 chrome.tabs.create({
-                    url: "chrome://extensions/configureCommands",
+                    url: version >= 64 ? "chrome://extensions/shortcuts" : "chrome://extensions/configureCommands",
                     active: true
                 });
             });

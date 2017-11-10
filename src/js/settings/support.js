@@ -32,7 +32,7 @@
                 });
             });
 
-            s.opts.elm.support.donateButton.on("click", (e) => {
+            s.opts.elm.support.donate.on("click", (e) => {
                 e.preventDefault();
                 window.open(s.opts.donateLink, "_blank");
             });

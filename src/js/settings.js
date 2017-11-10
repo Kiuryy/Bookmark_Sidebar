@@ -112,6 +112,7 @@
                 buttons: {
                     save: $("body > header > menu > button.save"),
                     restore: $("body > header > menu > button.restore"),
+                    keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
                     "import": $("body a.import > input[type='file']"),
                     "export": $("body a.export"),
                 },
@@ -129,15 +130,14 @@
                 },
                 translation: {
                     wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
-                    goto: $("div.tab[data-name='language'] > div[data-name='general'] button[type='submit']"),
+                    goto: $("div.tab[data-name='language'] > div[data-name='general'] a.button"),
                     overview: $("div.tab[data-name='language'] > div[data-name='translate'] > div.overview"),
                     langvars: $("div.tab[data-name='language'] > div[data-name='translate'] > div.langvars"),
                     unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")
                 },
-                keyboardShortcutInfo: $("p.shortcutInfo"),
                 formElement: $("div.formElement"),
                 support: {
-                    donateButton: $("div.tab[data-name='support'] button[type='submit']")
+                    donate: $("div.tab[data-name='support'] a.donate")
                 },
                 preview: {},
                 checkbox: {},

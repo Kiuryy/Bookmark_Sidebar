@@ -110,20 +110,6 @@ h2 {
   margin: 0 0 15px 0;
 }
 
-// Submit
-main button[type='submit'] {
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background: $mainColor;
-  color: $textColorInverted;
-  padding: 6px 12px;
-  font-weight: $__fontWeightMedium;
-  font-size: 100%;
-  border-radius: 5px;
-  margin: 10px 0;
-}
-
 // Notice
 div.noticeBox {
   @include mask('icon-info', $textColorLight, 32px);
@@ -143,29 +129,32 @@ div.noticeBox {
   }
 }
 
-// Import/Export
-a.import, a.export {
+// Button
+main button[type='submit'], a.button {
   position: relative;
   overflow: hidden;
   display: inline-block;
+  border: 0;
+  outline: 0;
   cursor: pointer;
   background: $mainColor;
   color: $textColorInverted;
   padding: 6px 12px;
   font-weight: $__fontWeightMedium;
   font-size: 100%;
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 10px 0;
+}
 
-  > input[type='file'] {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: -400%;
-    width: 500%;
-    height: 100%;
-    outline: none;
-    opacity: 0;
-    z-index: 2;
-  }
+// Import/Export
+a.import > input[type='file'] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: -400%;
+  width: 500%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  z-index: 2;
 }

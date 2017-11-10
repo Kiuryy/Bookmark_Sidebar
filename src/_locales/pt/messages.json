@@ -389,9 +389,6 @@
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
     },
-    "settings_keyboard_shortcut": {
-        "message": "Atalhos do teclado"
-    },
     "settings_link_action": {
         "message": "Abrir favoritos"
     },

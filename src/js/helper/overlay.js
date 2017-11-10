@@ -172,7 +172,7 @@
             let preview = $("<" + (data.isDir ? "span" : "a") + " />")
                 .attr("title", data.title)
                 .addClass(ext.opts.classes.overlay.preview)
-                .html(data.title)
+                .text(data.title)
                 .appendTo(elements.modal);
 
             if (data.isDir) {

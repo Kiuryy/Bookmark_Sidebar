@@ -26,7 +26,8 @@
             return new Promise((resolve) => {
                 Promise.all([
                     this.helper.newtab.updateConfig(),
-                    this.helper.cache.remove({name: "html"})
+                    this.helper.cache.remove({name: "htmlList"}),
+                    this.helper.cache.remove({name: "htmlPinnedEntries"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
@@ -63,7 +64,8 @@
                 Promise.all([
                     this.helper.newtab.updateConfig(),
                     this.helper.language.init(),
-                    this.helper.cache.remove({name: "html"})
+                    this.helper.cache.remove({name: "htmlList"}),
+                    this.helper.cache.remove({name: "htmlPinnedEntries"})
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
@@ -115,7 +117,10 @@
 
             ["Moved", "ChildrenReordered"].forEach((eventName) => { // deleted the html cache after moving a bookmark
                 chrome.bookmarks["on" + eventName].addListener(() => {
-                    this.helper.cache.remove({name: "html"});
+                    Promise.all([
+                        this.helper.cache.remove({name: "htmlList"}),
+                        this.helper.cache.remove({name: "htmlPinnedEntries"})
+                    ]);
                 });
             });
         };

@@ -42,13 +42,13 @@
 
 
                             if (config.tooltipContent === "all" || config.tooltipContent === "title") {
-                                tooltip.append("<h3>" + data.title + "</h3>");
+                                $("<h3 />").text(data.title).appendTo(tooltip);
                             }
 
                             if (data.isDir) {
-                                tooltip.append("<span>" + data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children") + "</span>");
+                                $("<span />").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
                             } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
-                                tooltip.append("<span>" + data.url + "</span>");
+                                $("<span />").text(data.url).appendTo(tooltip);
                             }
 
                             if (timeout[id]) {

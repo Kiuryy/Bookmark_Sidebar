@@ -997,15 +997,16 @@ body.dark section#sidebar {
   background: #444; }
   body.dark section#sidebar > div.filter {
     background: #555; }
+  body.dark section#sidebar > a.lockPinned {
+    background: #444;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2); }
+  body.dark section#sidebar > div.scrollBox > div.pinned {
+    background-color: #444; }
+    body.dark section#sidebar > div.scrollBox > div.pinned::after {
+      background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul li.isDragged {
     width: calc(100% - 5px);
     border-color: rgba(255, 255, 255, 0.2); }
-  body.dark section#sidebar > div.scrollBox > ul > li.pinned {
-    background-color: #444; }
-    body.dark section#sidebar > div.scrollBox > ul > li.pinned:first-child {
-      box-shadow: 0 -10px 0 10px #444; }
-    body.dark section#sidebar > div.scrollBox > ul > li.pinned.last::after {
-      background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {

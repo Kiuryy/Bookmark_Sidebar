@@ -567,39 +567,43 @@ body.dark section#sidebar {
     background: $darkContentBackground2;
   }
 
-  > div.scrollBox > ul {
+  > a.lockPinned {
+    background: $darkContentBackground;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+  }
 
-    li.isDragged {
-      width: calc(100% - 5px);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
+  > div.scrollBox {
 
-    > li.pinned {
+    > div.pinned {
       background-color: $darkContentBackground;
 
-      &:first-child {
-        box-shadow: 0 -10px 0 10px $darkContentBackground;
-      }
-
-      &.last::after {
+      &::after {
         background: $darkSeparatorColor;
       }
     }
 
-    a {
-      @include darkBookmarkEntry;
+    > ul {
 
-      > span.drag {
+      li.isDragged {
+        width: calc(100% - 5px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
 
-        &::before {
-          background-color: $darkReorderIconColor;
-        }
+      a {
+        @include darkBookmarkEntry;
 
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.1);
+        > span.drag {
 
           &::before {
-            background-color: $darkReorderIconColorActive;
+            background-color: $darkReorderIconColor;
+          }
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+
+            &::before {
+              background-color: $darkReorderIconColorActive;
+            }
           }
         }
       }

@@ -189,12 +189,14 @@
 
                 ext.helper.model.setData({
                     "u/lockPinned": isLocked
-                });
+                }).then(() => {
+                    if (isLocked === false) { // scroll to top if the pinned entries got unlocked
+                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0, 200);
+                        ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.active);
+                    }
 
-                if (isLocked === false) { // scroll to top if the pinned entries got unlocked
-                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0, 200);
-                    ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.active);
-                }
+                    ext.helper.list.updateSortFilter();
+                });
             });
         };
 

@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Update urls"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Lock entries"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
     },
@@ -443,11 +440,11 @@
     "settings_open_action_icon": {
         "message": "Click on icon"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Keybord shortcut"
     },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Shortcuts can be configured at the bottom of the [a]Chrome Extensions page[\/a] by selecting [em]Keyboard shortcuts[\/em]."
+    "settings_keyboard_shortcut_button": {
+        "message": "Set keyboard shortcut"
     },
     "settings_link_action": {
         "message": "Open bookmarks"

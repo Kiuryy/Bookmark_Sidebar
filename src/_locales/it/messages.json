@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Aggiorna indirizzi"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Blocca voci"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Mostra voci nascoste"
     },
@@ -443,11 +440,8 @@
     "settings_open_action_icon": {
         "message": "Click sull'icona"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Scorciatoie da tastiera"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Le scorciatoie da tastiera possono essere configurate in basso alla [a]pagina delle estensioni di Chrome[\/a] cliccando su [em]Scorciatoie da tastiera[\/em]."
     },
     "settings_link_action": {
         "message": "Apri preferiti"
@@ -559,6 +553,12 @@
     },
     "settings_drag_n_drop_open_desc": {
         "message": "Permette di trascinare del testo selezionato, link e URL nella barra laterale. Pu\u00f2 risultare utile se vuoi salvare velocemente nei preferiti la pagina attuale o altri collegamenti dei siti web che visiti."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Riapri la barra laterale"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Apre automaticamente la barra laterale dopo aver aperto un preferito dalla barra stessa."
     },
     "settings_tooltip_delay": {
         "message": "Ritardo descrizione"

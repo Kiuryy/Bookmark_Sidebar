@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Atualizar URLs"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Bloquear entradas"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
     },
@@ -392,11 +389,8 @@
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Atalhos do teclado"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Os atalhos podem ser configurados atrav\u00e9s do bot\u00e3o da [a]P\u00e1gina de Extens\u00f5es do Chrome[\/a], selecionando-se [em]Atalhos do teclado[\/em]."
     },
     "settings_link_action": {
         "message": "Abrir favoritos"

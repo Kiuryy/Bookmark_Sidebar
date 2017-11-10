@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Actualizar urls"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Bloquear entradas"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
     },

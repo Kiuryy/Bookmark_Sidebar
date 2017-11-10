@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Uppdatera url'er"
     },
-    "contextmenu_toggle_fix": {
-        "message": "L\u00e5s poster"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Visa dolda poster"
     },
@@ -443,11 +440,8 @@
     "settings_open_action_icon": {
         "message": "Klicka p\u00e5 ikon"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Tangengbordsgenv\u00e4g"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Genv\u00e4gar kan konfigureras l\u00e4ngst ner p\u00e5 sidan [a]Chrome Extensions[\/a] genom att v\u00e4lja [em]Tangentbordsgenv\u00e4gar[\/em]."
     },
     "settings_link_action": {
         "message": "\u00d6ppna bokm\u00e4rken"
@@ -560,6 +554,12 @@
     "settings_drag_n_drop_open_desc": {
         "message": "Till\u00e5t att dra textval, l\u00e4nkar och webbadresser till sidopanelen. Detta kan vara anv\u00e4ndbart om du vill bokm\u00e4rke den aktuella sidan eller andra l\u00e4nkar p\u00e5 webbplatser."
     },
+    "settings_reopen_sidebar": {
+        "message": "\u00d6ppna sidof\u00e4ltet igen"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "\u00d6ppna automatiskt sidf\u00e4ltet igen, efter att ha \u00f6ppnat ett bokm\u00e4rke innanf\u00f6r sidof\u00e4ltet."
+    },
     "settings_tooltip_delay": {
         "message": "Tipsf\u00f6rdr\u00f6jning"
     },
@@ -622,6 +622,9 @@
     },
     "settings_text_color": {
         "message": "Textf\u00e4rg"
+    },
+    "settings_hover_color": {
+        "message": "Mus \u00f6ver f\u00e4rg"
     },
     "settings_font_family": {
         "message": "Typsnitt"

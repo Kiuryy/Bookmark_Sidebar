@@ -144,17 +144,6 @@
             let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
             let currentSort = ext.helper.list.getSort();
 
-            if (currentSort.name === "custom") {
-                $("<li />")
-                    .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: "toggleFix"}))
-                    .append("<a " + ext.opts.attr.name + "='toggleFix'>" + ext.helper.i18n.get("contextmenu_toggle_fix") + "</a>")
-                    .appendTo(list);
-
-                if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false) {
-                    contextmenu.find("input[" + ext.opts.attr.name + "='toggleFix']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
-                }
-            }
-
             $("<li />")
                 .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: "toggleHidden"}))
                 .append("<a " + ext.opts.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
@@ -289,14 +278,6 @@
         let initEvents = (contextmenu) => {
             initSortEvents(contextmenu);
 
-            contextmenu.find("input[" + ext.opts.attr.name + "='toggleFix']").on("change", () => { // toggle fixation of the entries
-                ext.elements.sidebar.toggleClass(ext.opts.classes.sidebar.entriesUnlocked);
-                ext.helper.model.setData({
-                    "u/entriesLocked": ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.entriesUnlocked) === false
-                });
-                this.close();
-            });
-
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", (e) => { // toggle visibility of hidden entries
                 ext.startLoading();
 
@@ -336,7 +317,6 @@
                         break;
                     }
                     case "sort":
-                    case "toggleFix":
                     case "toggleHidden": { // change the checkbox state
                         e.stopPropagation();
                         $(e.currentTarget).prev("div." + ext.opts.classes.checkbox.box).trigger("click");

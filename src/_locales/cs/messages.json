@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Aktualizace adres URL"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Uzamknout polo\u017eky"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Zobrazit skryt\u00e9 polo\u017eky"
     },
@@ -419,11 +416,8 @@
     "settings_open_action_icon": {
         "message": "Kliknut\u00ed na ikonu"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Kl\u00e1vesov\u00e1 zkratka"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Kl\u00e1vesov\u00e9 zkratky lze nakonfigurovat v doln\u00ed \u010d\u00e1sti str\u00e1nky [a]Roz\u0161\u00ed\u0159en\u00ed Chrome[\/a] v\u00fdb\u011brem mo\u017enosti [em]Kl\u00e1vesov\u00e9 zkratky[\/em]."
     },
     "settings_link_action": {
         "message": "Otev\u0159\u00edt z\u00e1lo\u017eky"

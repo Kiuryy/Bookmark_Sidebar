@@ -984,9 +984,9 @@ section#sidebar {
     background-color: #ccc; }
   section#sidebar.openedOnce > div.scrollBox a > span.drag:hover::before {
     background-color: #999; }
-  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox a:hover {
+  section#sidebar[data-sort='custom'] > div.scrollBox a:hover {
     padding-right: 46px; }
-  section#sidebar.entriesUnlocked[data-sort='custom'] > div.scrollBox a > span.drag {
+  section#sidebar[data-sort='custom'] > div.scrollBox a > span.drag {
     display: block; }
   section#sidebar.loading > svg.loading {
     position: absolute;

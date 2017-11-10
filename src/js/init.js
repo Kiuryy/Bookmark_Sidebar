@@ -39,7 +39,6 @@
                 cached: "cached",
                 mark: "mark",
                 hideRoot: "hideRoot",
-                entriesUnlocked: "entriesUnlocked",
                 dirAnimated: "animated",
                 dirOpened: "opened",
                 bookmarkDir: "dir",

@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Mettre \u00e0 jour des Urls"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Epingler le contenu"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Afficher les contenus masqu\u00e9s"
     },
@@ -443,11 +440,8 @@
     "settings_open_action_icon": {
         "message": "Clic sur l'ic\u00f4ne"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Raccourcis clavier"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Les raccourcis peuvent \u00eatre configur\u00e9s en fin de page [a]Chrome Extensions page[\/a] en s\u00e9lectionnant [em]Raccourcis claviers[\/em]."
     },
     "settings_link_action": {
         "message": "Ouverture des favoris"

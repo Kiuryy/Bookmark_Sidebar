@@ -530,7 +530,7 @@ section#sidebar {
     }
   }
 
-  &.entriesUnlocked[data-sort='custom'] {
+  &[data-sort='custom'] {
 
     > div.scrollBox {
 

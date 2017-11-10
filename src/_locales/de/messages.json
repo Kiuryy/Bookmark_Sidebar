@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Urls aktualisieren"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Eintr\u00e4ge fixieren"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Versteckte Eintr\u00e4ge"
     },
@@ -443,11 +440,11 @@
     "settings_open_action_icon": {
         "message": "Klick auf das Symbol"
     },
-    "settings_keyboard_shortcuts": {
-        "message": "Tastaturk\u00fcrzel"
+    "settings_keyboard_shortcut": {
+        "message": "Tastenkombination"
     },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Die Tastaturk\u00fcrzel k\u00f6nnen ganz unten auf der [a]Chrome Extensions-\u00dcbersicht[\/a] konfiguriert werden, indem du auf [em]Tastenkombinationen[\/em] klickst."
+    "settings_keyboard_shortcut_button": {
+        "message": "Tastenkombination einrichten"
     },
     "settings_link_action": {
         "message": "Lesezeichen \u00f6ffnen"

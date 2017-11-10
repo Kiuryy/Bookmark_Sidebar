@@ -33,7 +33,6 @@
                 scrollPos: {},
                 separators: {},
                 pinnedEntries: {},
-                entriesLocked: false,
                 lockPinned: true,
                 translationHelp: true,
                 autoOpen: false,

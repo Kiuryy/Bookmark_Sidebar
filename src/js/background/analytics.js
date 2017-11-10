@@ -184,7 +184,7 @@
                 chrome.storage.local.get(["utility"], (obj) => {
                     if (obj.utility) {
                         let config = {};
-                        ["lockPinned", "entriesLocked", "pinnedEntries"].forEach((field) => {
+                        ["lockPinned", "pinnedEntries"].forEach((field) => {
                             if (typeof obj.utility[field] !== "undefined") {
                                 config[field] = obj.utility[field];
                             }

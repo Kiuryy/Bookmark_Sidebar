@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "Uaktualnij URL"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Zablokuj pozycje"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Poka\u017c ukryte pozycje"
     },
@@ -226,6 +223,30 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Od\u015bwie\u017c teraz"
+    },
+    "notification_sidebar_not_working_headline": {
+        "message": "Boczna lista nie mo\u017ce zosta\u0107 otwarta"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Wi\u0119cej informacji"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "Boczna lista nie dzia\u0142a na stronie Chrome Webstore oraz stronie nowej karty."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach rozszerze\u0144."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na domy\u015blnej stronie nowej karty."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Je\u015bli ta nieprawid\u0142owo\u015b\u0107 pojawia si\u0119 regularnie, prosz\u0119 o jej zg\u0142oszenie."
     },
     "share_userdata_headline": {
         "message": "Potrzebuj\u0119 twojej pomocy"
@@ -419,11 +440,8 @@
     "settings_open_action_icon": {
         "message": "Kliknij na ikon\u0119"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Skr\u00f3ty klawiszowe"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "Skr\u00f3ty mog\u0105 by\u0107 skonfigurowane na dole strony [a]Ustawienia Rozszerze\u0144 Chrome[\/a] poprzez wybranie [em]Skr\u00f3ty klawiaturowe[\/em]."
     },
     "settings_link_action": {
         "message": "Otw\u00f3rz zak\u0142adki"
@@ -536,6 +554,12 @@
     "settings_drag_n_drop_open_desc": {
         "message": "Zezwalaj na przeci\u0105ganie zaznaczonego tekstu, link\u00f3w i URL do bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli chcesz zapisa\u0107 aktualn\u0105 stron\u0119 lub inne linki na stronie."
     },
+    "settings_reopen_sidebar": {
+        "message": "Otw\u00f3rz ponownie boczn\u0105 list\u0119"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Automatycznie otw\u00f3rz boczn\u0105 list\u0119 po ka\u017cdym otwarciu zak\u0142adki za jej pomoc\u0105."
+    },
     "settings_tooltip_delay": {
         "message": "Op\u00f3\u017anienie etykiety"
     },
@@ -598,6 +622,9 @@
     },
     "settings_text_color": {
         "message": "Kolor tekstu"
+    },
+    "settings_hover_color": {
+        "message": "Kolor po najechaniu kursorem myszy"
     },
     "settings_font_family": {
         "message": "Kr\u00f3j pisma"

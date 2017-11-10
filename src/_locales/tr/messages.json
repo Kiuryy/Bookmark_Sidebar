@@ -56,9 +56,6 @@
     "contextmenu_update_urls": {
         "message": "URL'yi g\u00fcncelle"
     },
-    "contextmenu_toggle_fix": {
-        "message": "Girdileri kilitle"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Gizli girdileri g\u00f6ster"
     },
@@ -275,11 +272,8 @@
     "settings_open_action_icon": {
         "message": "Simgeye t\u0131klama"
     },
-    "settings_keyboard_shortcuts": {
+    "settings_keyboard_shortcut": {
         "message": "Klavye k\u0131sayolu"
-    },
-    "settings_keyboard_shortcuts_desc": {
-        "message": "K\u0131sayollar, [a]Chrome Uzant\u0131lar\u0131 sayfas\u0131[\/a]'n\u0131n alt k\u0131sm\u0131nda [em]Klavye k\u0131sayollar\u0131[\/em]'n\u0131 se\u00e7erek yap\u0131land\u0131r\u0131labilir."
     },
     "settings_link_action": {
         "message": "Yer imlerini a\u00e7"

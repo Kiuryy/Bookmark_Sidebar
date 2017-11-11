@@ -14,6 +14,10 @@ div.color-picker {
 
   $leftColWidth: 160px;
 
+  &[data-pos='bottom-right'], &[data-pos='top-right'] {
+    margin-left: 10px;
+  }
+
   &.visible {
     display: block;
   }

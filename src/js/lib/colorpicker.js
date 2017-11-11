@@ -24,7 +24,7 @@ window.Colorpicker = (() => {
         /**
          * Returns whether the given value is an numeric value or not
          *
-         * @param {int} value
+         * @param value
          * @returns {boolean}
          */
         let isNumeric = (value) => {
@@ -365,6 +365,10 @@ window.Colorpicker = (() => {
             preview.className = "color-preview";
             field.parentNode.insertBefore(preview, field.nextSibling);
 
+            field.ownerDocument.defaultView.addEventListener("resize", () => {
+                this.reposition();
+            });
+
             preview.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -692,9 +696,24 @@ window.Colorpicker = (() => {
          */
         this.reposition = () => {
             if (wrapper.classList.contains("visible")) {
+                let pos = ["bottom", "left"];
                 let rect = preview.getBoundingClientRect();
-                wrapper.style.top = (rect.top + preview.offsetHeight) + "px";
-                wrapper.style.left = rect.left + "px";
+                let top = rect.top + preview.offsetHeight;
+                let left = rect.left;
+
+                if (wrapper.offsetHeight + top > window.innerHeight) {
+                    top = rect.top - wrapper.offsetHeight;
+                    pos[0] = "top";
+                }
+
+                if (wrapper.offsetWidth + left > window.innerWidth) {
+                    left = rect.left - wrapper.offsetWidth + preview.offsetWidth;
+                    pos[1] = "right";
+                }
+
+                wrapper.setAttribute("data-pos", pos.join("-"));
+                wrapper.style.top = top + "px";
+                wrapper.style.left = left + "px";
             }
         };
 

@@ -1291,6 +1291,8 @@ div.color-picker {
   margin-left: -10px;
   padding: 7px;
   border-radius: 3px; }
+  div.color-picker[data-pos='bottom-right'], div.color-picker[data-pos='top-right'] {
+    margin-left: 10px; }
   div.color-picker.visible {
     display: block; }
   div.color-picker > div.picking-area {

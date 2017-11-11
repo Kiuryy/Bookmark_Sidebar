@@ -3,6 +3,7 @@
 
     let background = function () {
         this.importRunning = false;
+        this.preventReload = false;
         this.manifest = chrome.runtime.getManifest();
 
         this.urls = {
@@ -109,7 +110,7 @@
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
                 chrome.bookmarks["on" + eventName].addListener(() => {
-                    if (this.importRunning === false) { // don't refresh while import in running
+                    if (this.importRunning === false && this.preventReload === false) { // don't reload sidebar while import in running
                         this.reload({type: eventName});
                     }
                 });

@@ -122,15 +122,17 @@
                         .attr(n.opts.attr.perRow, amount.total / amount.rows);
 
                     list.forEach((page) => {
-                        let entry = $("<li />").html("<a href='" + page.url + "' title='" + page.title + "'><span>" + page.title + "</span></a>").appendTo(n.opts.elm.topPages.children("ul"));
+                        let entry = $("<li />").appendTo(n.opts.elm.topPages.children("ul"));
+                        let entryLink = $("<a />").attr({href: page.url, title: page.title}).appendTo(entry);
+                        let entryLabel = $("<span />").text(page.title).appendTo(entryLink);
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                entry.find("> a > span").prepend("<img src='" + response.img + "' />");
+                                entryLabel.prepend("<img src='" + response.img + "' />");
                             }
                         });
 
-                        let thumb = $("<img />").appendTo(entry.children("a"));
+                        let thumb = $("<img />").appendTo(entryLink);
                         n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
                             if (response.img) { //
                                 thumb.attr("src", response.img).addClass(n.opts.classes.visible);

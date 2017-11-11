@@ -387,8 +387,9 @@
                     updateList.forEach((entry) => {
                         let listEntry = $("<li />")
                             .data("entry", entry)
-                            .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}))
-                            .append("<strong>" + entry.title + "</strong>");
+                            .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}));
+
+                        $("<strong />").text(entry.title).appendTo(listEntry);
 
                         $("<a />").attr({
                             href: entry.url, title: entry.url, target: "_blank"
@@ -689,17 +690,24 @@
                             parentIds.push(entry.parentId);
                         }
                     } else if (entry.url !== entry.newUrl) {
-                        ext.helper.model.call("updateBookmark", {id: entry.id, title: entry.title, url: entry.newUrl});
+                        ext.helper.model.call("updateBookmark", {
+                            id: entry.id,
+                            title: entry.title,
+                            url: entry.newUrl,
+                            preventReload: true
+                        });
                     }
                 }
             });
 
             ext.helper.specialEntry.reorderSeparators(parentIds).then(() => { // reorder the separators of the directories with deleted entries to match its current position -> delete the entries afterwards
                 deleteBuffer.forEach((info) => {
+                    info.preventReload = true;
                     ext.helper.model.call("deleteBookmark", info);
                 });
             });
 
+            ext.helper.model.call("reload", {type: "Update"});
             this.closeOverlay();
         };
 

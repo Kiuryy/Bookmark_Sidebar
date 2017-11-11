@@ -99,18 +99,29 @@
          */
         let updateBookmark = (opts) => {
             return new Promise((resolve) => {
-                let values = {
-                    title: opts.title
-                };
+                new Promise((rslv) => {
+                    let values = {
+                        title: opts.title
+                    };
 
-                if (opts.url) {
-                    values.url = opts.url;
-                }
+                    if (opts.url) {
+                        values.url = opts.url;
+                    }
 
-                b.helper.bookmarkApi.func.update(opts.id, values).then(() => {
-                    resolve({updated: opts.id});
-                }, (error) => {
-                    resolve({error: error});
+                    if (opts.preventReload) {
+                        b.preventReload = true;
+                    }
+
+                    b.helper.bookmarkApi.func.update(opts.id, values).then(() => {
+                        rslv({updated: opts.id});
+                    }, (error) => {
+                        rslv({error: error});
+                    });
+                }).then((obj) => {
+                    if (opts.preventReload) {
+                        b.preventReload = false;
+                    }
+                    resolve(obj);
                 });
             });
         };
@@ -123,17 +134,28 @@
          */
         let createBookmark = (opts) => {
             return new Promise((resolve) => {
-                let values = {
-                    parentId: opts.parentId,
-                    index: opts.index || 0,
-                    title: opts.title,
-                    url: opts.url ? opts.url : null
-                };
+                new Promise((rslv) => {
+                    let values = {
+                        parentId: opts.parentId,
+                        index: opts.index || 0,
+                        title: opts.title,
+                        url: opts.url ? opts.url : null
+                    };
 
-                b.helper.bookmarkApi.func.create(values).then(() => {
-                    resolve({created: opts.id});
-                }, (error) => {
-                    resolve({error: error});
+                    if (opts.preventReload) {
+                        b.preventReload = true;
+                    }
+
+                    b.helper.bookmarkApi.func.create(values).then(() => {
+                        rslv({created: opts.id});
+                    }, (error) => {
+                        rslv({error: error});
+                    });
+                }).then((obj) => {
+                    if (opts.preventReload) {
+                        b.preventReload = false;
+                    }
+                    resolve(obj);
                 });
             });
         };
@@ -146,8 +168,21 @@
          */
         let deleteBookmark = (opts) => {
             return new Promise((resolve) => {
-                b.helper.bookmarkApi.func.removeTree(opts.id).then(() => {
-                    resolve({deleted: opts.id});
+                new Promise((rslv) => {
+                    if (opts.preventReload) {
+                        b.preventReload = true;
+                    }
+
+                    b.helper.bookmarkApi.func.removeTree(opts.id).then(() => {
+                        resolve({deleted: opts.id});
+                    }, (error) => {
+                        rslv({error: error});
+                    });
+                }).then((obj) => {
+                    if (opts.preventReload) {
+                        b.preventReload = false;
+                    }
+                    resolve(obj);
                 });
             });
         };

@@ -300,19 +300,19 @@
         "message": "\u73fe\u5728\u60a8\u53ef\u4ee5\u81ea\u5df1\u8a66\u8a66\u4e86\u3002"
     },
     "onboarding_handson_mouse_desc_1": {
-        "message": "\u79fb\u52d5\u60a8\u7684\u6e38\u6a19\u5230\u87a2\u5e55\u7684\u4e00\u5074\u3002"
+        "message": "\u79fb\u52d5\u60a8\u7684\u6e38\u6a19\u5230\u87a2\u5e55\u7684{1}\u5074\u3002"
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "\u7136\u5f8c\uff0c{1}\u7528\u60a8\u7684\u6e38\u6a19\u9ede\u64ca\u4ee5\u958b\u555f\u5074\u908a\u6b04\u3002"
+        "message": "\u7136\u5f8c\uff0c\u7528\u60a8\u7684\u6e38\u6a19\u9ede\u64ca{1}\u5074\u4ee5\u958b\u555f\u5074\u908a\u6b04\u3002"
     },
     "onboarding_handson_icon_desc": {
         "message": "\u9ede\u64ca\u64f4\u5145\u529f\u80fd\u7684\u5716\u793a\u4f86\u958b\u555f\u5074\u908a\u6b04\u3002"
     },
     "onboarding_left": {
-        "message": "\u5de6\u5074"
+        "message": "\u5de6"
     },
     "onboarding_right": {
-        "message": "\u53f3\u5074"
+        "message": "\u53f3"
     },
     "onboarding_finish_desc": {
         "message": "\u795d\u60a8\u4f7f\u7528\u6109\u5feb\u3002"
@@ -396,13 +396,13 @@
         "message": "\u6210\u529f\u8b8a\u66f4\u8a2d\u5b9a"
     },
     "settings_restore": {
-        "message": "\u56de\u5fa9\u9810\u8a2d"
+        "message": "\u6062\u5fa9\u9810\u8a2d"
     },
     "settings_restore_confirm": {
-        "message": "\u4f60\u771f\u7684\u8981\u9084\u539f\u9ed8\u8a8d\u914d\u7f6e\u55ce?"
+        "message": "\u4f60\u771f\u7684\u8981\u9084\u539f\u9810\u8a2d\u914d\u7f6e\u55ce?"
     },
     "settings_restored_message": {
-        "message": "\u6210\u529f\u56de\u5fa9\u914d\u7f6e"
+        "message": "\u6210\u529f\u6062\u5fa9\u914d\u7f6e"
     },
     "settings_animations": {
         "message": "\u555f\u7528\u52d5\u756b"
@@ -439,6 +439,9 @@
     },
     "settings_open_action_icon": {
         "message": "\u9ede\u64ca\u5716\u793a"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "\u8a2d\u5b9a\u9375\u76e4\u5feb\u901f\u9375"
     },
     "settings_link_action": {
         "message": "\u958b\u555f\u66f8\u7c64"
@@ -551,6 +554,12 @@
     "settings_drag_n_drop_open_desc": {
         "message": "\u5141\u8a31\u62d6\u66f3\u6587\u5b57\u3001\u9023\u7d50\u53ca\u7db2\u5740\u5230\u5074\u908a\u6b04\u4e2d\u3002\u5982\u679c\u60a8\u60f3\u8981\u5c07\u76ee\u524d\u7db2\u9801\u6216\u5176\u5b83\u9023\u7d50\u52a0\u5230\u66f8\u7c64\u7684\u8a71\uff0c\u9019\u500b\u9078\u9805\u53ef\u80fd\u6703\u5f88\u65b9\u4fbf\u3002"
     },
+    "settings_reopen_sidebar": {
+        "message": "\u518d\u6b21\u958b\u555f\u5074\u908a\u6b04"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "\u5f9e\u5074\u908a\u6b04\u4e2d\u6253\u958b\u66f8\u7c64\u4e4b\u5f8c\uff0c\u81ea\u52d5\u958b\u555f\u5074\u908a\u6b04"
+    },
     "settings_tooltip_delay": {
         "message": "\u5ef6\u9072\u63d0\u793a"
     },
@@ -613,6 +622,9 @@
     },
     "settings_text_color": {
         "message": "\u6587\u5b57\u8272\u5f69"
+    },
+    "settings_hover_color": {
+        "message": "\u6e38\u6a19\u61f8\u505c\u8272\u5f69"
     },
     "settings_font_family": {
         "message": "\u5b57\u9ad4"

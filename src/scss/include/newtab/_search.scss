@@ -67,7 +67,7 @@ div#search {
 
       &.active {
         cursor: pointer;
-        background: $__hoverColor;
+        background: $__hoverColor !important;
       }
 
       &::before {

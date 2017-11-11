@@ -146,7 +146,7 @@ section.slide {
     section.slide[data-name='openAction'] > a.info:hover + p.desc {
       transform: translate3d(0, 0, 0); }
   section.slide[data-name='surface'] > a[data-value="dark"] {
-    background: #444;
+    background: #3d3d3d;
     color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); }
   section.slide[data-name='handson'] > p.large {
@@ -193,7 +193,7 @@ div#sidebar {
       background: inherit; }
 
 body[data-surface='dark'] div#sidebar {
-  background: #444; }
+  background: #3d3d3d; }
   body[data-surface='dark'] div#sidebar > p {
     background: rgba(255, 255, 255, 0.1); }
 

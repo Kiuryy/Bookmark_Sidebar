@@ -193,7 +193,7 @@ section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sid
   right: 0; }
 
 body.dark div.contextmenu {
-  background: #555;
+  background: #4d4d4d;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); }
   body.dark div.contextmenu > ul.list > li > a {
     transition: opacity 0.3s;
@@ -207,11 +207,11 @@ body.dark div.contextmenu {
         background-color: "%textColor";
         opacity: 0.8; }
   body.dark div.contextmenu > ul.icons {
-    background: #5d5d5d; }
+    background: #555555; }
     body.dark div.contextmenu > ul.icons > li > a::before {
       background-color: #999; }
     body.dark div.contextmenu > ul.icons > li > a.hover {
-      background-color: dimgray; }
+      background-color: #616161; }
 
 div.tooltip {
   position: absolute;
@@ -994,14 +994,14 @@ section#sidebar {
     left: calc(50% - 18px); }
 
 body.dark section#sidebar {
-  background: #444; }
+  background: #3d3d3d; }
   body.dark section#sidebar > div.filter {
-    background: #555; }
+    background: #4d4d4d; }
   body.dark section#sidebar > a.lockPinned {
-    background: #444;
+    background: #3d3d3d;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2); }
   body.dark section#sidebar > div.scrollBox > div.pinned {
-    background-color: #444; }
+    background-color: #3d3d3d; }
     body.dark section#sidebar > div.scrollBox > div.pinned::after {
       background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul li.isDragged {

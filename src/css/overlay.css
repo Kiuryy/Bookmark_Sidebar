@@ -642,7 +642,7 @@ div.modal {
         opacity: 0.15; }
 
 body.dark div.modal {
-  background: #444; }
+  background: #3d3d3d; }
   body.dark div.modal > a.preview, body.dark div.modal > span.preview {
     background: rgba(255, 255, 255, 0.05); }
   body.dark div.modal[data-type='edit'] > ul > li > input, body.dark div.modal[data-type='add'] > ul > li > input {
@@ -652,7 +652,7 @@ body.dark div.modal {
     body.dark div.modal[data-type='edit'] > ul > li > input:focus, body.dark div.modal[data-type='add'] > ul > li > input:focus {
       border-color: rgba(255, 255, 255, 0.2); }
   body.dark div.modal[data-type='add'] > menu:not(.buttons) > a {
-    background-color: #555; }
+    background-color: #4d4d4d; }
     body.dark div.modal[data-type='add'] > menu:not(.buttons) > a::before, body.dark div.modal[data-type='add'] > menu:not(.buttons) > a::after {
       opacity: 0.5;
       transition: opacity 0.5s; }
@@ -682,7 +682,7 @@ body.dark div.modal {
     body.dark div.modal[data-type='updateUrls'] > div.progressBar > div {
       background: "%textColor"; }
   body.dark div.modal[data-type='updateUrls'].urlCheckList::after {
-    background: #555; }
+    background: #4d4d4d; }
   body.dark div.modal > menu.buttons > a {
     color: "%textColor"; }
     body.dark div.modal > menu.buttons > a::before {

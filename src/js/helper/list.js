@@ -144,6 +144,8 @@
                                 ext.elements.lockPinned.addClass(ext.opts.classes.sidebar.fixed);
                                 ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.fixed);
                             }
+                        } else {
+                            ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.hidden);
                         }
 
                         return updateFromCache(list, result[0].val);

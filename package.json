@@ -18,13 +18,13 @@
     "cp-file": "^5.0.0",
     "create-file": "^1.0.1",
     "del": "^3.0.0",
-    "eslint": "^4.10.0",
+    "eslint": "^4.11.0",
     "glob-concat": "^1.0.1",
     "html-minifier": "^3.5.6",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.6.0",
     "read-file": "^0.2.0",
     "request": "^2.83.0",
-    "uglify-es": "^3.1.8"
+    "uglify-es": "^3.1.9"
   }
 }

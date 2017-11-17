@@ -80,6 +80,9 @@
     "sort_label_most_used": {
         "message": "D\u00f9ng nhi\u1ec1u nh\u1ea5t"
     },
+    "sort_label_recently_used": {
+        "message": "D\u00f9ng d\u1ea7n \u0111\u00e2y"
+    },
     "sort_label_recently_added": {
         "message": "Th\u00eam g\u1ea7n \u0111\u00e2y"
     },
@@ -169,5 +172,92 @@
     },
     "overlay_check_urls_not_found": {
         "message": "Kh\u00f4ng t\u00ecm th\u1ea5y \u0111\u1ecba ch\u1ec9"
+    },
+    "newtab_title": {
+        "message": "T\u00ean trang"
+    },
+    "newtab_search_placeholder": {
+        "message": "T\u00ecm {1} ho\u1eb7c nh\u1eadp \u0111\u01b0\u1eddng d\u1eabn"
+    },
+    "newtab_top_pages_default": {
+        "message": "Nh\u1eefng trang h\u00e0ng \u0111\u1ea7u"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "C\u00e1c \u0111\u00e1nh d\u1ea5u g\u1ea7n \u0111\u00e2y"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "C\u00e1c \u0111\u00e1nh d\u1ea5u d\u00f9ng nhi\u1ec1u nh\u1ea5t"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "C\u00e1c \u0111\u00e1nh d\u1ea5u ghim"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "C\u00e1c trang \u1ea9n"
+    },
+    "settings_title": {
+        "message": "C\u00e0i \u0111\u1eb7t"
+    },
+    "settings_menu_sidebar": {
+        "message": "Thanh b\u00ean"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "T\u1ed5ng qu\u00e1t"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Chuy\u1ec3n"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "H\u1ed7 tr\u1ee3"
+    },
+    "settings_menu_sidebar_export": {
+        "message": "Nh\u1eadp\/Xu\u1ea5t"
+    },
+    "settings_menu_appearance": {
+        "message": "Giao di\u1ec7n"
+    },
+    "settings_menu_appearance_general": {
+        "message": "T\u1ed5ng qu\u00e1t"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Thanh b\u00ean"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Bi\u1ec3u t\u01b0\u1ee3ng"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Ph\u1ee7 n\u1ec1n"
+    },
+    "settings_menu_newtab": {
+        "message": "Trang m\u1edbi"
+    },
+    "settings_menu_language": {
+        "message": "Ng\u00f4n ng\u1eef"
+    },
+    "settings_menu_language_general": {
+        "message": "T\u1ed5ng qu\u00e1t"
+    },
+    "settings_menu_language_translate": {
+        "message": "T\u00ean trang"
+    },
+    "settings_menu_feedback": {
+        "message": "Ph\u1ea3n h\u1ed3i"
+    },
+    "settings_menu_support": {
+        "message": "H\u1ed7 tr\u1ee3"
+    },
+    "settings_save": {
+        "message": "L\u01b0u l\u1ea1i"
+    },
+    "settings_saved_message": {
+        "message": "Th\u00f4ng b\u00e1o"
+    },
+    "settings_restore": {
+        "message": "Ph\u1ee5c h\u1ed3i"
+    },
+    "settings_restore_confirm": {
+        "message": "X\u00e1c nh\u1eadn"
+    },
+    "settings_restored_message": {
+        "message": "Th\u00f4ng b\u00e1o"
     }
 }

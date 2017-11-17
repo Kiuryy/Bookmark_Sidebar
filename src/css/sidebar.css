@@ -690,9 +690,13 @@ section#sidebar {
       bottom: 0;
       border-top-color: "%textColor"; }
     section#sidebar > a.lockPinned.active {
-      transform: translate3d(0, 0, 0); }
+      transform: translate3d(0, 0, 0) !important; }
     section#sidebar > a.lockPinned.fixed > span::before {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-unlock.svg); }
+  section#sidebar[data-pos='right'] > a.lockPinned {
+    right: auto;
+    left: -22px;
+    transform: translate3d(7px, 0, 0); }
   section#sidebar > div.filter {
     position: absolute;
     top: 50px;

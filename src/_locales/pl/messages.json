@@ -440,6 +440,9 @@
     "settings_open_action_icon": {
         "message": "Kliknij na ikon\u0119"
     },
+    "settings_keyboard_shortcut_button": {
+        "message": "Ustaw skr\u00f3t klawiaturowy"
+    },
     "settings_link_action": {
         "message": "Otw\u00f3rz zak\u0142adki"
     },

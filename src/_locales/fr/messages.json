@@ -440,6 +440,9 @@
     "settings_open_action_icon": {
         "message": "Clic sur l'ic\u00f4ne"
     },
+    "settings_keyboard_shortcut_button": {
+        "message": "D\u00e9finir un raccourci clavier"
+    },
     "settings_link_action": {
         "message": "Ouverture des favoris"
     },

@@ -279,11 +279,20 @@ section#sidebar {
 
     &.active {
       @extend %visible;
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0) !important;
     }
 
     &.fixed > span::before {
       @include maskImage('icon-unlock');
+    }
+  }
+
+  &[data-pos='right'] {
+
+    > a.lockPinned {
+      right: auto;
+      left: -22px;
+      transform: translate3d(7px, 0, 0);
     }
   }
 

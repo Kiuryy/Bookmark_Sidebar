@@ -440,6 +440,9 @@
     "settings_open_action_icon": {
         "message": "\u70b9\u51fb\u56fe\u6807"
     },
+    "settings_keyboard_shortcut_button": {
+        "message": "\u8bbe\u7f6e\u952e\u76d8\u5feb\u6377"
+    },
     "settings_link_action": {
         "message": "\u6253\u5f00\u4e66\u7b7e"
     },

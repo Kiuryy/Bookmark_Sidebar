@@ -440,6 +440,9 @@
     "settings_open_action_icon": {
         "message": "Click sull'icona"
     },
+    "settings_keyboard_shortcut_button": {
+        "message": "Imposta la scorciatoia da tastiera"
+    },
     "settings_link_action": {
         "message": "Apri preferiti"
     },

@@ -487,7 +487,7 @@
          */
         let addEntryToList = (bookmark, list, opts) => {
             let entry = $("<li />").appendTo(list);
-            let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "&nbsp;";
+            let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "";
             let entryContent = $("<a />").appendTo(entry);
 
             $("<span />").addClass(ext.opts.classes.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);

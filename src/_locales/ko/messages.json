@@ -407,6 +407,9 @@
     "settings_color_scheme": {
         "message": "\uceec\ub7ec \uc2a4\ud0b4"
     },
+    "settings_dark_mode": {
+        "message": "\uc2a4\ud0a8 \uc0c9\uc0c1"
+    },
     "settings_color_scheme_desc": {
         "message": "\uc0ac\uc774\ub4dc\ubc14 \ud5e4\ub354\uc640 \uccb4\ud06c\ubc15\uc2a4 \ub4f1\uc758 \uc0c9\uc0c1"
     },

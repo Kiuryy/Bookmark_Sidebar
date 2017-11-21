@@ -514,6 +514,8 @@ a.dragHelper {
     text-overflow: ellipsis;
     overflow: hidden;
     pointer-events: none; }
+    a.dragHelper > span.label::before {
+      content: "\200B"; }
     a.dragHelper > span.label[data-num]::after {
       content: " " attr(data-num); }
   a.dragHelper > span.drag {
@@ -897,6 +899,8 @@ section#sidebar {
           text-overflow: ellipsis;
           overflow: hidden;
           pointer-events: none; }
+          section#sidebar > div.scrollBox > ul a > span.label::before, section#sidebar > div.scrollBox > div.pinned > ul a > span.label::before {
+            content: "\200B"; }
           section#sidebar > div.scrollBox > ul a > span.label[data-num]::after, section#sidebar > div.scrollBox > div.pinned > ul a > span.label[data-num]::after {
             content: " " attr(data-num); }
         section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {

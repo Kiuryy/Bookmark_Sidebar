@@ -10,7 +10,7 @@
   },
   "scripts": {
     "init": "npm install --save-dev node-sass && npm install --save-dev eslint && npm install --only=dev && node build/run.js",
-    "release": "eslint --fix src/js/**/*.js && eslint --fix build/**/*.js && node build/run.js",
+    "release": "ncu -a --packageFile package.json && eslint --fix src/js/**/*.js && eslint --fix build/**/*.js && node build/run.js",
     "scss": "node-sass --source-map true -o src/css src/scss"
   },
   "devDependencies": {
@@ -22,9 +22,9 @@
     "glob-concat": "^1.0.1",
     "html-minifier": "^3.5.6",
     "jsonminify": "^0.4.1",
-    "node-sass": "^4.6.1",
+    "node-sass": "^4.7.2",
     "read-file": "^0.2.0",
     "request": "^2.83.0",
-    "uglify-es": "^3.1.9"
+    "uglify-es": "^3.1.10"
   }
 }

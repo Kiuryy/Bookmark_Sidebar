@@ -124,7 +124,11 @@
     overflow: hidden;
     pointer-events: none;
 
-    &[data-num]::after {
+    &::before {
+      content: "\200B";
+    }
+
+    &[data-num]::after { // for appearance preview
       content: " " attr(data-num);
     }
   }

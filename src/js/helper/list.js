@@ -269,7 +269,7 @@
 
             $("<div />")
                 .addClass(ext.opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder") + "' />")
+                .append("<input type='text' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder").replace(/'/g, "&#x27;") + "' />")
                 .append("<a class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elements.header);
         };

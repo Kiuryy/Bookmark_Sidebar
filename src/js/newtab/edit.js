@@ -202,9 +202,9 @@
 
             let tooltip = $("<div />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
-                .append("<input type='text' value='" + link.text().trim() + "' " + n.opts.attr.type + "='label' />")
+                .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + n.opts.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
-                .append("<input type='text' value='" + (link.data("href") || link.attr("href")).trim() + "' " + n.opts.attr.type + "='url' />")
+                .append("<input type='text' value='" + (link.data("href") || link.attr("href")).trim().replace(/'/g, "&#x27;") + "' " + n.opts.attr.type + "='url' />")
                 .append("<button type='submit'>" + n.helper.i18n.get("overlay_close") + "</button>")
                 .appendTo(elm);
 

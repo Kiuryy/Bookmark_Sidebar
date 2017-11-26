@@ -215,9 +215,9 @@
         let handleEditHtml = (data) => {
             appendPreviewLink(data);
             let list = $("<ul />").appendTo(elements.modal);
-            list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + data.title + "' /></li>");
+            list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + data.title.replace(/'/g, "&#x27;") + "' /></li>");
             if (!data.isDir) {
-                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + data.url + "' /></li>");
+                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + data.url.replace(/'/g, "&#x27;") + "' /></li>");
             }
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
@@ -294,10 +294,10 @@
                     }
 
                     list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
-                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue + "' /></li>");
+                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue.replace(/'/g, "&#x27;") + "' /></li>");
 
                     if (type === "bookmark") {
-                        list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue + "'  /></li>");
+                        list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                     }
 
                     menu.addClass(ext.opts.classes.sidebar.hidden);

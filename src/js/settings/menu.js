@@ -44,7 +44,10 @@
                         });
 
                         $.delay(500).then(() => {
-                            subList.data("entryHeight", subList.children("li")[0].scrollHeight);
+                            subList.children("li").forEach((elm) => {
+                                $(elm).data("height", elm.scrollHeight);
+                            });
+
                             menupointLoaded();
                         });
                     } else {
@@ -183,10 +186,13 @@
                             page.addClass(s.opts.classes.tabs.active);
                             breadcrumb.push(menu.children("a").html());
 
-                            if (menuParent.data("entryHeight")) {
-                                let entryHeight = menuParent.data("entryHeight");
-                                let childrenLen = menuParent.children("li:not(." + s.opts.classes.hidden + ")").length();
-                                menuParent.css("height", (entryHeight * childrenLen) + "px");
+                            let listHeight = 0;
+                            menuParent.children("li:not(." + s.opts.classes.hidden + ")").forEach((menuEntry) => {
+                                listHeight += $(menuEntry).data("height") || 0;
+                            });
+
+                            if (listHeight > 0) {
+                                menuParent.css("height", listHeight + "px");
                             }
 
                             if (i < pathLen) {

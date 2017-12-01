@@ -259,8 +259,12 @@
                     };
 
                     if (opts.position === "afterLast") {
-                        chrome.tabs.query({}, (tabs) => {
-                            createTab(tabs[tabs.length - 1].index + 1);
+                        chrome.tabs.query({currentWindow: true}, (tabs) => {
+                            let idx = 0;
+                            tabs.forEach((tab) => {
+                                idx = Math.max(idx, tab.index);
+                            });
+                            createTab(idx + 1);
                         });
                     } else if (opts.position === "beforeFirst") {
                         createTab(0);

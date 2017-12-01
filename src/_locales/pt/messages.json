@@ -185,6 +185,27 @@
     "overlay_check_urls_not_found": {
         "message": "URL n\u00e3o encontrada"
     },
+    "newtab_title": {
+        "message": "Nova aba"
+    },
+    "newtab_search_placeholder": {
+        "message": "Busque {1} ou digite a URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "P\u00e1ginas mais visitadas"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "P\u00e1ginas recentes"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "P\u00e1ginas mais usadas"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "P\u00e1ginas fixas"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "N\u00e3o exibir p\u00e1ginas"
+    },
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"
     },
@@ -341,6 +362,9 @@
     "settings_menu_feedback": {
         "message": "Opini\u00e3o"
     },
+    "settings_menu_support": {
+        "message": "Suporte"
+    },
     "settings_save": {
         "message": "Salvar altera\u00e7\u00f5es"
     },
@@ -349,6 +373,9 @@
     },
     "settings_restore": {
         "message": "Restaurar padr\u00e3o"
+    },
+    "settings_restore_confirm": {
+        "message": "Deseja mesmo redefinir esta configura\u00e7\u00e3o?"
     },
     "settings_restored_message": {
         "message": "Configura\u00e7\u00e3o restaurada com sucesso"
@@ -388,6 +415,9 @@
     },
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Definir tecla de atalho"
     },
     "settings_link_action": {
         "message": "Abrir favoritos"
@@ -616,6 +646,9 @@
     },
     "settings_overlay_mask_color": {
         "message": "Cor da m\u00e1scara"
+    },
+    "settings_icon_shape": {
+        "message": "Forma"
     },
     "settings_language": {
         "message": "Idioma"

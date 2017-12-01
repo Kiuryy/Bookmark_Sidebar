@@ -272,6 +272,9 @@
     "settings_open_action_icon": {
         "message": "Simgeye t\u0131klama"
     },
+    "settings_keyboard_shortcut_button": {
+        "message": "Klavye k\u0131sayollar\u0131n\u0131 ayarla"
+    },
     "settings_link_action": {
         "message": "Yer imlerini a\u00e7"
     },
@@ -382,6 +385,12 @@
     },
     "settings_drag_n_drop_open_desc": {
         "message": "Metin se\u00e7imlerini, ba\u011flant\u0131lar\u0131 ve URL'leri kenar \u00e7ubu\u011fa s\u00fcr\u00fcklemeye izin ver. Ge\u00e7erli sayfay\u0131 veya web sitelerindeki di\u011fer ba\u011flant\u0131lar\u0131 yer imi koymak isterseniz bu yararl\u0131 olabilir."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Kenar \u00e7ubu\u011funu yeniden a\u00e7"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Kenar \u00e7ubu\u011funu otomatik olarak a\u00e7 (Kenar \u00e7ubu\u011fundan mevcut sekmede bir yer imi a\u00e7t\u0131ktan sonra)"
     },
     "settings_tooltip_delay": {
         "message": "Ara\u00e7 ipucu gecikmesi"

@@ -72,7 +72,7 @@
                 initialOpen: false,
                 searchEngine: "google",
                 topPagesType: "topPages",
-                shortcuts: [{label: "Chrome Apps", url: "chrome://apps"}],
+                shortcuts: [{label: "Google", url: "https://google.com"}],
                 website: ""
             },
             a: { // appearance -> synced across devices

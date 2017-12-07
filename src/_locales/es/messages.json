@@ -404,6 +404,291 @@
     "settings_restored_message": {
         "message": "Configuraci\u00f3n restaurada correctamente"
     },
+    "settings_animations": {
+        "message": "Activar animaciones"
+    },
+    "settings_animations_desc": {
+        "message": "Permite desactivar todas las animaciones de la barra lateral. Esto puede ser \u00fatil si las animaciones no funcionan correctamente en su sistema."
+    },
+    "settings_px_tolerance": {
+        "message": "Tolerancia en p\u00edxeles"
+    },
+    "settings_px_tolerance_desc": {
+        "message": "Cantidad de p\u00edxeles del lado izquierdo de cada p\u00e1gina, en la que un clic del rat\u00f3n har\u00e1 que la barra lateral se abra. Puede elegir diferentes valores para el marco de navegador maximizado y con ventanas."
+    },
+    "settings_px_tolerance_maximized": {
+        "message": "Maximizado"
+    },
+    "settings_px_tolerance_windowed": {
+        "message": "Modo Ventana"
+    },
+    "settings_open_action": {
+        "message": "Abrir barra lateral"
+    },
+    "settings_open_action_desc": {
+        "message": "Abre la barra lateral con el bot\u00f3n izquierdo o derecho o haz clic con el mouse sobre el borde de la ventana del navegador. Alternativamente, puede cambiarlo para que se abra s\u00f3lo si se hace clic en el icono del men\u00fa de Chrome."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Clic Izquierdo"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Clic Derecho"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Al pasar el rat\u00f3n"
+    },
+    "settings_open_action_icon": {
+        "message": "Clic en el icono"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Establecer atajo de teclado"
+    },
+    "settings_link_action": {
+        "message": "Abrir marcadores"
+    },
+    "settings_link_action_desc": {
+        "message": "Al hacer clic con el bot\u00f3n izquierdo del rat\u00f3n en un marcador este se abrir\u00e1 en la pesta\u00f1a actual o en una pesta\u00f1a nueva."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Pesta\u00f1a actual"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nueva pesta\u00f1a"
+    },
+    "settings_open_delay": {
+        "message": "Demora en la apertura"
+    },
+    "settings_open_delay_desc": {
+        "message": "Evita la apertura inmediata de la barra lateral al pasar el rat\u00f3n o haciendo clic con un retardo."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Evitar el desplazamiento de la p\u00e1gina"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Evita el desplazamiento del sitio web actual mientras la barra lateral est\u00e1 abierta."
+    },
+    "settings_dir_accordion": {
+        "message": "Mostrar s\u00f3lo el directorio actual"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Cierra todos los directorios excepto el activo actualmente."
+    },
+    "settings_remember_state": {
+        "message": "Recordar"
+    },
+    "settings_remember_state_desc": {
+        "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Posici\u00f3n de desplazamiento y directorios abiertos"
+    },
+    "settings_remember_state_all": {
+        "message": "Posici\u00f3n de desplazamiento, directorios abiertos y \u00faltimo marcador abierto"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Directorios abiertos"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Directorio de nivel superior abiertos"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Nada"
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Abrir todos los elementos secundarios de un directorio (Advertencia de l\u00edmite)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Cantidad de marcadores a los que aparece una advertencia al intentar abrir todos los elementos secundarios de un directorio a la vez."
+    },
+    "settings_dir_open_duration": {
+        "message": "Duraci\u00f3n del directorio abierto"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Duraci\u00f3n de la apertura y cierre de animaci\u00f3n de los directorios"
+    },
+    "settings_new_tab": {
+        "message": "Nueva Pesta\u00f1a"
+    },
+    "settings_new_tab_desc": {
+        "message": "Abrir marcadores en una pesta\u00f1a nueva en primer plano o en segundo plano"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Abrir en primer plano"
+    },
+    "settings_new_tab_background": {
+        "message": "Abrir en segundo plano"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Abrir pesta\u00f1as nuevas despu\u00e9s de la \u00faltima pesta\u00f1a o de la actual pesta\u00f1a"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Despu\u00e9s de la \u00faltima pesta\u00f1a"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Despu\u00e9s de la actual pesta\u00f1a"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Antes de la primera pesta\u00f1a"
+    },
+    "settings_close_timeout": {
+        "message": "Tiempo de espera para cerrar"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Tiempo de espera en segundos para que se cierre la barra lateral. Contar\u00e1 tan pronto como el rat\u00f3n abandone la barra lateral y se detendr\u00e1 al pasarlo de nuevo."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "No cerrar autom\u00e1ticamente"
+    },
+    "settings_scrollbar_hide": {
+        "message": "Esconder la barra de desplazamiento"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "Tiempo de espera en segundos para que se oculte la barra de desplazamiento. Al desplazar se mostrar\u00e1 la barra de desplazamiento de nuevo."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Nunca ocultar"
+    },
+    "settings_drag_n_drop_open": {
+        "message": "Abrir al arrastrar y soltar"
+    },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Permite arrastrar selecciones de texto, enlaces y URL a la barra lateral. Esto puede ser \u00fatil si desea marcar la p\u00e1gina actual u otros enlaces en sitios web."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Reabrir la barra lateral"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Abre autom\u00e1ticamente la barra lateral nuevamente despu\u00e9s de abrir un marcador desde la barra lateral."
+    },
+    "settings_tooltip_delay": {
+        "message": "Tiempo de espera para mostrar el tooltip"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Retraso antes de que la informaci\u00f3n para los marcadores se muestre al pasar el rat\u00f3n."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Nunca mostrar el tooltip"
+    },
+    "settings_tooltip_content": {
+        "message": "Contenido del tooltip"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "Seleccione qu\u00e9 informaci\u00f3n debe contener el tooltip"
+    },
+    "settings_tooltip_content_all": {
+        "message": "T\u00edtulo y URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Solo t\u00edtulo"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Solo URL"
+    },
+    "settings_sidebar_position": {
+        "message": "Posici\u00f3n"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Le permite establecer si la barra lateral debe abrirse en el lado izquierdo o derecho de la pantalla."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Izquierda"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Derecha"
+    },
+    "settings_import_export_desc": {
+        "message": "Puede exportar la configuraci\u00f3n de su extensi\u00f3n y guardarla de manera local en su computadora. Puede importar el archivo exportado previamente en cualquier computadora, donde est\u00e1 instalada la extensi\u00f3n."
+    },
+    "settings_export": {
+        "message": "Exportar los ajustes"
+    },
+    "settings_import": {
+        "message": "Importar los ajustes"
+    },
+    "settings_import_saved": {
+        "message": "Configuraci\u00f3n importada con \u00e9xito"
+    },
+    "settings_import_failed": {
+        "message": "Error al importar la configuraci\u00f3n. Por favor elija un archivo v\u00e1lido."
+    },
+    "settings_color_scheme": {
+        "message": "Esquema de colores"
+    },
+    "settings_dark_mode": {
+        "message": "Superficie"
+    },
+    "settings_color_scheme_desc": {
+        "message": "El color de la barra lateral, encabezado, casillas de verificaci\u00f3n, etc."
+    },
+    "settings_text_color": {
+        "message": "Color del texto"
+    },
+    "settings_hover_color": {
+        "message": "Color al poner el rat\u00f3n encima"
+    },
+    "settings_font_family": {
+        "message": "Tipo de letra"
+    },
+    "settings_font_family_default": {
+        "message": "Por defecto"
+    },
+    "settings_font_family_desc": {
+        "message": "El tipo de letra de la barra lateral y las superposiciones"
+    },
+    "settings_scrollbar_width": {
+        "message": "Ancho de la barra de desplazamiento"
+    },
+    "settings_icon_color": {
+        "message": "Color"
+    },
+    "settings_indicator_width": {
+        "message": "Ancho"
+    },
+    "settings_indicator_color": {
+        "message": "Color"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Tama\u00f1o del icono"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Color del icono"
+    },
+    "settings_sidebar_width": {
+        "message": "Ancho"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Color de la m\u00e1scara"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Icono del directorio"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Color del icono del directorio"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Tama\u00f1o de letra de los marcadores"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Tama\u00f1o del icono de los marcadores"
+    },
+    "settings_directories_icon_size": {
+        "message": "Tama\u00f1o del icono de los directorios"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Altura de la l\u00ednea de los marcadores"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Relleno horizontal de los marcadores"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Sangrado del directorio"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Color de m\u00e1scara"
+    },
+    "settings_icon_shape": {
+        "message": "Aspecto"
+    },
     "settings_newtab_desc": {
         "message": "Desafortunadamente Google elimin\u00f3 la posibilidad de cargar extensiones en la nueva pesta\u00f1a predeterminada. Debido a esto he a\u00f1adido algunas opciones que le permiten acceder a sus marcadores al abrir una nueva pesta\u00f1a de otra manera."
     },
@@ -478,6 +763,45 @@
     },
     "settings_translation_required_category": {
         "message": "Obligatorio"
+    },
+    "settings_feedback_desc": {
+        "message": "\u00bfTiene alguna sugerencia de mejoras, preguntas, aviso de opciones de configuraci\u00f3n que faltan, o encontr\u00f3 un error? Para ayudar a mejorar las experiencias con esta extensi\u00f3n, estar\u00eda muy agradecido por todos y cada uno de los comentarios recibidos o que pueda tener."
+    },
+    "settings_feedback_notice": {
+        "message": "Por favor, redacte sus comentarios en Ingl\u00e9s, de lo contrario ser\u00e1 dif\u00edcil de entender y responder a su mensaje."
+    },
+    "settings_feedback_email": {
+        "message": "Direcci\u00f3n e-mail"
+    },
+    "settings_feedback_send": {
+        "message": "Enviar su comentario"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Gracias por su comentario"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Su mensaje no pudo ser enviado. Por favor intente de nuevo."
+    },
+    "settings_headline_faq": {
+        "message": "Preguntas frecuentes."
+    },
+    "settings_faq_usage_q": {
+        "message": "\u00bfC\u00f3mo abrir la barra lateral?"
+    },
+    "settings_faq_usage_a": {
+        "message": "Puede ver el [a]tutorial[\/a] para ver c\u00f3mo abrir la barra lateral y luego probarla en cada sitio web. Si todav\u00eda tiene problemas con la extensi\u00f3n, lea la otra pregunta respondida sobre por qu\u00e9 la barra lateral no funciona en cada p\u00e1gina o env\u00edeme un mensaje con detalles sobre su problema."
+    },
+    "settings_faq_fixed_sidebar_q": {
+        "message": "\u00bfPuedo hacer que la barra lateral permanezca abierta todo el tiempo?"
+    },
+    "settings_faq_fixed_sidebar_a": {
+        "message": "Desafortunadamente no puede hacer esto. Google elimin\u00f3 la posibilidad de crear una barra lateral real, como en Firefox, hace unos a\u00f1os. Sin la interfaz de programaci\u00f3n de aplicaciones, la barra lateral debe cargarse nuevamente cada vez que navegue a una p\u00e1gina nueva."
+    },
+    "settings_faq_not_working_q": {
+        "message": "\u00bfPor qu\u00e9 la barra lateral no funciona en algunas p\u00e1ginas, como la Tienda de Chrome?"
+    },
+    "settings_faq_not_working_a": {
+        "message": "Esto puede deberse a muchas razones. En la Chrome WebStore y en las p\u00e1ginas que comienzan con [em]chrome-extension:\/\/[\/em] no podr\u00e1 abrir la barra lateral ya que esta es una restricci\u00f3n de seguridad. Pero puede haber otras p\u00e1ginas que bloquean la barra lateral o usan estructuras de c\u00f3digo fuente obsoletas. Si encuentras problemas en algunas p\u00e1ginas, hazmelo saber, para que pueda echar un vistazo a la p\u00e1gina en particular y tratar de solucionarlo."
     },
     "settings_headline_donation": {
         "message": "Donar"

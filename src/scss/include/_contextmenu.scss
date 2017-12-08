@@ -159,6 +159,14 @@ div.contextmenu {
           }
         }
 
+        &[data-name='reload']::before {
+          @include maskImage('icon-update');
+        }
+
+        &[data-name='closeAll']::before {
+          @include maskImage('icon-close');
+        }
+
         &[data-name='newTab']::before, &[data-name='openChildren']::before {
           @include maskImage('icon-newTab');
         }

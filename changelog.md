@@ -1,5 +1,8 @@
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions and more details about the individual releases
 
+## 1.11
+ - Additional contextmenu entries
+
 ## 1.10
  - Added html caching
  - Redesigned settings/translation pages

@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "Versteckte Eintr\u00e4ge"
     },
+    "contextmenu_close_all_directories": {
+        "message": "Alle Verzeichnisse schlie\u00dfen"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Sidebar neuladen"
+    },
     "contextmenu_open_children": {
         "message": "Lesezeichen \u00f6ffnen"
     },

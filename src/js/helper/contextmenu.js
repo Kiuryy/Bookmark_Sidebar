@@ -3,6 +3,8 @@
 
     window.ContextmenuHelper = function (ext) {
 
+        let clickFuncs = {};
+
         /**
          * Generates a contextmenu of the given type for the given element
          *
@@ -142,7 +144,6 @@
         let handleHeaderMenu = (contextmenu, elm) => {
             let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
             let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
-            let currentSort = ext.helper.list.getSort();
 
             $("<li />")
                 .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.opts.attr.name]: "toggleHidden"}))
@@ -151,6 +152,27 @@
 
             if (ext.helper.model.getData("u/showHidden")) {
                 contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
+            }
+
+            $("<li />")
+                .append("<a " + ext.opts.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
+                .appendTo(list);
+
+            let bookmarkList = ext.elements.bookmarkBox.all.children("ul");
+            let hideRoot = bookmarkList.hasClass(ext.opts.classes.sidebar.hideRoot);
+            let hasOpenedDirectories = false;
+
+            bookmarkList.find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
+                if (hideRoot === false || $(dir).parents("li").length() > 1) {
+                    hasOpenedDirectories = true;
+                    return false;
+                }
+            });
+
+            if (hasOpenedDirectories) { // show option to close all opened directories when at least one is opened
+                $("<li />")
+                    .append("<a " + ext.opts.attr.name + "='closeAll'>" + ext.helper.i18n.get("contextmenu_close_all_directories") + "</a>")
+                    .appendTo(list);
             }
 
             iconWrapper
@@ -256,16 +278,196 @@
         };
 
         /**
-         * Initializes the events for the sort checkboxes
+         * Show the extension settings
          *
-         * @param {jsu} contextmenu
+         * @param {object} opts
          */
-        let initSortEvents = (contextmenu) => {
-            contextmenu.find("input[" + ext.opts.attr.name + "='sort']").on("change", (e) => { // toggle fixation of the entries
-                if (e.currentTarget.checked) {
-                    let sort = $(e.currentTarget).attr(ext.opts.attr.value);
-                    ext.helper.list.updateSort(sort);
-                    this.close();
+        clickFuncs.settings = (opts) => {
+            ext.helper.model.call("openLink", {
+                href: chrome.extension.getURL("html/settings.html"),
+                newTab: true
+            });
+        };
+
+        /**
+         * Triggers a click event on the checkbox
+         *
+         * @param {object} opts
+         */
+        clickFuncs.checkbox = (opts) => {
+            opts.eventObj.stopPropagation();
+            $(opts.elm).prev("div." + ext.opts.classes.checkbox.box).trigger("click");
+        };
+
+        /**
+         *
+         * @param {object} opts
+         */
+        clickFuncs.bookmarkManager = (opts) => {
+            ext.helper.model.call("openLink", {
+                href: "chrome://bookmarks",
+                newTab: true,
+                active: true
+            });
+        };
+
+        /**
+         * Opens the bookmark in a new incognito window
+         *
+         * @param {object} opts
+         */
+        clickFuncs.newTabIncognito = (opts) => {
+            ext.helper.model.call("trackEvent", {
+                category: "url",
+                action: "open",
+                label: "new_window_incognito"
+            });
+            if (opts.data) {
+                ext.helper.utility.openUrl(opts.data, "incognito");
+            }
+        };
+
+        /**
+         * Opens the bookmark in a new tab
+         *
+         * @param {object} opts
+         */
+        clickFuncs.newTab = (opts) => {
+            ext.helper.model.call("trackEvent", {
+                category: "url",
+                action: "open",
+                label: "new_tab_contextmenu"
+            });
+            if (opts.data) {
+                opts.data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
+                ext.helper.utility.openUrl(opts.data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+            }
+        };
+
+        /**
+         * Deletes the given separator
+         *
+         * @param {object} opts
+         */
+        clickFuncs.deleteSeparator = (opts) => {
+            ext.helper.specialEntry.removeSeparator($(opts.elm).data("infos")).then(() => {
+                ext.helper.model.call("reload", {type: "Separator"});
+            });
+        };
+
+        /**
+         * Shows the hidden entries
+         *
+         * @param {object} opts
+         */
+        clickFuncs.showHidden = (opts) => {
+            ext.startLoading();
+            let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
+            delete hiddenEntries[opts.id];
+
+            ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
+                return Promise.all([
+                    ext.helper.model.call("removeCache", {name: "htmlList"}),
+                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"})
+                ]);
+            }).then(() => {
+                ext.helper.model.call("reload", {type: "Hide"});
+            });
+        };
+
+        /**
+         * Opens all children of the given directory
+         *
+         * @param {object} opts
+         */
+        clickFuncs.openChildren = (opts) => {
+            if (opts.data) {
+                let bookmarks = opts.data.children.filter(val => !!(val.url));
+                if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
+                    ext.helper.overlay.create(opts.name, $(opts.elm).attr("title") || $(opts.elm).text(), opts.data);
+                } else { // open bookmarks directly without confirmation
+                    ext.helper.utility.openAllBookmarks(bookmarks);
+                }
+            }
+        };
+
+        /**
+         * Pins the given entry to the top
+         *
+         * @param {object} opts
+         */
+        clickFuncs.pin = (opts) => {
+            ext.helper.specialEntry.pinEntry(opts.data).then(() => {
+                ext.helper.model.call("reload", {type: "Pin"});
+            });
+        };
+
+        /**
+         * Unpins the given entry from the top
+         *
+         * @param {object} opts
+         */
+        clickFuncs.unpin = (opts) => {
+            ext.helper.specialEntry.unpinEntry(opts.data).then(() => {
+                ext.helper.model.call("reload", {type: "Unpin"});
+            });
+        };
+
+        /**
+         * Shows search result in normal bookmark list
+         *
+         * @param {object} opts
+         */
+        clickFuncs.showInDir = (opts) => {
+            let data = ext.helper.entry.getData(opts.id);
+            if (data && data.parents) {
+                let openParent = (i) => {
+                    if (data.parents[i]) {
+                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");
+                        if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
+                            ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
+                                openParent(i + 1);
+                            });
+                        } else {
+                            openParent(i + 1);
+                        }
+                    } else { // all parents opened -> close search and scroll to the bookmark
+                        Promise.all([
+                            ext.helper.list.cacheList(),
+                            ext.helper.search.clearSearch()
+                        ]).then(() => {
+                            let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.opts.attr.id + "='" + opts.id + "']");
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, entry[0].offsetTop - 50);
+                            entry.addClass(ext.opts.classes.sidebar.mark);
+                        });
+                    }
+                };
+
+                openParent(0);
+            }
+        };
+
+        /**
+         * Forces the sidebar to reload
+         *
+         * @param {object} opts
+         */
+        clickFuncs.reload = (opts) => {
+            ext.helper.model.call("reload", {type: "Force"});
+        };
+
+        /**
+         * Closes all opened directories
+         *
+         * @param {object} opts
+         */
+        clickFuncs.closeAll = (opts) => {
+            let list = ext.elements.bookmarkBox.all.children("ul");
+            let hideRoot = list.hasClass(ext.opts.classes.sidebar.hideRoot);
+
+            list.find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
+                if (hideRoot === false || $(dir).parents("li").length() > 1) {
+                    ext.helper.list.toggleBookmarkDir($(dir), false, false);
                 }
             });
         };
@@ -276,7 +478,13 @@
          * @param {jsu} contextmenu
          */
         let initEvents = (contextmenu) => {
-            initSortEvents(contextmenu);
+            contextmenu.find("input[" + ext.opts.attr.name + "='sort']").on("change", (e) => { // toggle fixation of the entries
+                if (e.currentTarget.checked) {
+                    let sort = $(e.currentTarget).attr(ext.opts.attr.value);
+                    ext.helper.list.updateSort(sort);
+                    this.close();
+                }
+            });
 
             contextmenu.find("input[" + ext.opts.attr.name + "='toggleHidden']").on("change", (e) => { // toggle visibility of hidden entries
                 ext.startLoading();
@@ -304,132 +512,24 @@
                 $(e.currentTarget).removeClass(ext.opts.classes.sidebar.hover);
             }).on("click", (e) => {
                 e.preventDefault();
-                let name = $(e.currentTarget).attr(ext.opts.attr.name);
-                let elmId = contextmenu.attr(ext.opts.attr.id);
-                let data = elmId ? ext.helper.entry.getData(elmId) : null;
 
-                switch (name) {
-                    case "settings": { // open settings
-                        ext.helper.model.call("openLink", {
-                            href: chrome.extension.getURL("html/settings.html"),
-                            newTab: true
-                        });
-                        break;
-                    }
-                    case "sort":
-                    case "toggleHidden": { // change the checkbox state
-                        e.stopPropagation();
-                        $(e.currentTarget).prev("div." + ext.opts.classes.checkbox.box).trigger("click");
-                        break;
-                    }
-                    case "bookmarkManager": { // open bookmark manager
-                        ext.helper.model.call("openLink", {
-                            href: "chrome://bookmarks",
-                            newTab: true,
-                            active: true
-                        });
-                        break;
-                    }
-                    case "newTabIncognito": { // open bookmark in incognito window
-                        ext.helper.model.call("trackEvent", {
-                            category: "url",
-                            action: "open",
-                            label: "new_window_incognito"
-                        });
-                        if (data) {
-                            ext.helper.utility.openUrl(data, "incognito");
-                        }
-                        break;
-                    }
-                    case "newTab": { // open bookmark in new tab
-                        ext.helper.model.call("trackEvent", {
-                            category: "url",
-                            action: "open",
-                            label: "new_tab_contextmenu"
-                        });
-                        if (data) {
-                            data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
-                            ext.helper.utility.openUrl(data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
-                        }
-                        break;
-                    }
-                    case "deleteSeparator": { // remove the separator
-                        ext.helper.specialEntry.removeSeparator($(e.currentTarget).data("infos")).then(() => {
-                            ext.helper.model.call("reload", {type: "Separator"});
-                        });
-                        break;
-                    }
-                    case "show": { // show the hidden bookmark or directory again
-                        ext.startLoading();
-                        let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
-                        delete hiddenEntries[elmId];
+                let opts = {
+                    elm: e.currentTarget,
+                    eventObj: e,
+                    name: $(e.currentTarget).attr(ext.opts.attr.name),
+                    id: contextmenu.attr(ext.opts.attr.id)
+                };
 
-                        ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
-                            return Promise.all([
-                                ext.helper.model.call("removeCache", {name: "htmlList"}),
-                                ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"})
-                            ]);
-                        }).then(() => {
-                            ext.helper.model.call("reload", {type: "Hide"});
-                        });
-                        break;
-                    }
-                    case "openChildren": {
-                        if (data) {
-                            let bookmarks = data.children.filter(val => !!(val.url));
-                            if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
-                                ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
-                            } else { // open bookmarks directly without confirmation
-                                ext.helper.utility.openAllBookmarks(bookmarks);
-                            }
-                        }
-                        break;
-                    }
-                    case "pin": { // pin entry
-                        ext.helper.specialEntry.pinEntry(data).then(() => {
-                            ext.helper.model.call("reload", {type: "Pin"});
-                        });
-                        break;
-                    }
-                    case "unpin": { // unpin entry
-                        ext.helper.specialEntry.unpinEntry(data).then(() => {
-                            ext.helper.model.call("reload", {type: "Unpin"});
-                        });
-                        break;
-                    }
-                    case "showInDir": { // show search result in normal bookmark list
-                        let data = ext.helper.entry.getData(elmId);
-                        if (data && data.parents) {
-                            let openParent = (i) => {
-                                if (data.parents[i]) {
-                                    let entry = ext.elements.bookmarkBox.all.find("ul > li > a." + ext.opts.classes.sidebar.bookmarkDir + "[" + ext.opts.attr.id + "='" + data.parents[i] + "']");
-                                    if (!entry.hasClass(ext.opts.classes.sidebar.dirOpened)) {
-                                        ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
-                                            openParent(i + 1);
-                                        });
-                                    } else {
-                                        openParent(i + 1);
-                                    }
-                                } else { // all parents opened -> close search and scroll to the bookmark
-                                    Promise.all([
-                                        ext.helper.list.cacheList(),
-                                        ext.helper.search.clearSearch()
-                                    ]).then(() => {
-                                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.opts.attr.id + "='" + elmId + "']");
-                                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, entry[0].offsetTop - 50);
-                                        entry.addClass(ext.opts.classes.sidebar.mark);
-                                    });
-                                }
-                            };
+                opts.data = opts.id ? ext.helper.entry.getData(opts.id) : null;
 
-                            openParent(0);
-                        }
-                        break;
-                    }
-                    default: { // open overlay of the given type
-                        ext.helper.overlay.create(name, $(e.currentTarget).attr("title") || $(e.currentTarget).text(), data);
-                        break;
-                    }
+                if (opts.name === "sort" || opts.name === "toggleHidden") {
+                    opts.name = "checkbox";
+                }
+
+                if (typeof clickFuncs[opts.name] === "function") {
+                    clickFuncs[opts.name](opts);
+                } else {
+                    ext.helper.overlay.create(opts.name, $(opts.elm).attr("title") || $(opts.elm).text(), opts.data);
                 }
             });
         };

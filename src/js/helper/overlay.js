@@ -16,7 +16,7 @@
             ext.helper.tooltip.close();
             elements.overlay = $("<iframe />")
                 .attr("id", ext.opts.ids.page.overlay)
-                .data("info", data)
+                .data("info", data || {})
                 .appendTo("body");
 
             if (ext.helper.model.getData("b/animations") === false) {

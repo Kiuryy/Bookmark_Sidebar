@@ -178,6 +178,10 @@ div.contextmenu {
         div.contextmenu > ul.list > li > a.hover::before {
           background-color: "%colorScheme";
           opacity: 0.8; }
+      div.contextmenu > ul.list > li > a[data-name='reload']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg); }
+      div.contextmenu > ul.list > li > a[data-name='closeAll']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg); }
       div.contextmenu > ul.list > li > a[data-name='newTab']::before, div.contextmenu > ul.list > li > a[data-name='openChildren']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.svg); }
       div.contextmenu > ul.list > li > a[data-name='newTabIncognito']::before {

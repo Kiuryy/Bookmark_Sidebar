@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
     },
+    "contextmenu_close_all_directories": {
+        "message": "Close all directories"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Reload sidebar"
+    },
     "contextmenu_open_children": {
         "message": "Open bookmarks"
     },

@@ -569,73 +569,17 @@ section#sidebar {
   }
 }
 
-body.dark section#sidebar {
-  background: $darkContentBackground;
-
-  > div.filter {
-    background: $darkContentBackground2;
-  }
-
-  > a.lockPinned {
-    background: $darkContentBackground;
-    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  > div.scrollBox {
-
-    > div.pinned {
-      background-color: $darkContentBackground;
-
-      &::after {
-        background: $darkSeparatorColor;
-      }
-    }
-
-    > ul {
-
-      li.isDragged {
-        width: calc(100% - 5px);
-        border-color: rgba(255, 255, 255, 0.2);
-      }
-
-      a {
-        @include darkBookmarkEntry;
-
-        > span.drag {
-
-          &::before {
-            background-color: $darkReorderIconColor;
-          }
-
-          &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-
-            &::before {
-              background-color: $darkReorderIconColorActive;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  ~ a.dragHelper {
-    @include darkBookmarkEntry;
-  }
-}
-
 //
-div#shareUserdata, div#reloadInfo {
+div#shareInfo, div#reloadInfo {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 4;
-  background: $__colorScheme;
+  background: $contentBackground;
+  overflow: auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
   transition: opacity 0.3s;
 
   &.hidden {
@@ -645,7 +589,8 @@ div#shareUserdata, div#reloadInfo {
   > div {
     padding: 20px;
     text-align: center;
-    color: $textColorInverted;
+    margin: auto;
+    color: $textColor;
 
     > h2 {
       font-size: 250%;
@@ -663,10 +608,38 @@ div#shareUserdata, div#reloadInfo {
       }
     }
 
+    > label {
+      display: block;
+      text-align: center;
+      font-size: 120%;
+      margin-top: 40px;
+
+      > a {
+        @include mask('icon-info', $textColorLight, 18px);
+        position: relative;
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        vertical-align: top;
+        margin: -3px 0 0 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.5s;
+
+        &:hover {
+          background: $__hoverColor;
+        }
+      }
+    }
+
+    > div.checkbox {
+      margin: 20px auto 0;
+    }
+
     > a {
       position: relative;
       font-size: 120%;
-      color: #fff;
+      color: $textColor;
       display: inline-block;
       margin: 40px 20px 0;
       font-weight: $__fontWeightBold;
@@ -677,7 +650,7 @@ div#shareUserdata, div#reloadInfo {
       z-index: 2;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: $__hoverColor;
       }
     }
   }
@@ -686,13 +659,76 @@ div#shareUserdata, div#reloadInfo {
 div#reloadInfo {
 
   > div {
-    @include mask('icon-update', $textColorInverted, 64px);
+    @include mask('icon-update', $textColor, 64px);
     position: relative;
     padding-top: 90px;
 
     &::before {
       -webkit-mask-position-y: 0;
     }
+  }
+}
+
+// dark surface
+body.dark {
+
+  section#sidebar {
+    background: $darkContentBackground;
+
+    > div.filter {
+      background: $darkContentBackground2;
+    }
+
+    > a.lockPinned {
+      background: $darkContentBackground;
+      box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    > div.scrollBox {
+
+      > div.pinned {
+        background-color: $darkContentBackground;
+
+        &::after {
+          background: $darkSeparatorColor;
+        }
+      }
+
+      > ul {
+
+        li.isDragged {
+          width: calc(100% - 5px);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        a {
+          @include darkBookmarkEntry;
+
+          > span.drag {
+
+            &::before {
+              background-color: $darkReorderIconColor;
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.1);
+
+              &::before {
+                background-color: $darkReorderIconColorActive;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ~ a.dragHelper {
+      @include darkBookmarkEntry;
+    }
+  }
+
+  div#shareInfo, div#reloadInfo {
+    background: $darkContentBackground;
   }
 }
 

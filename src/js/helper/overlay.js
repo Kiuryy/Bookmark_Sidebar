@@ -78,6 +78,9 @@
                     handleUpdateUrlsHtml(data);
                     break;
                 }
+                case "shareInfoDesc": {
+                    handleShareInfoDescHtml(data);
+                }
             }
 
             elements.overlay[0].focus();
@@ -194,6 +197,33 @@
                     .text(data.url)
                     .insertAfter(preview);
             }
+        };
+
+        /**
+         * Extends the overlay html for the descriptions of the two types of user sharings (config and activity)
+         *
+         * @param {object} data
+         */
+        let handleShareInfoDescHtml = (data) => {
+            elements.modal.attr(ext.opts.attr.value, data.type);
+            let scrollBox = $("<div />").addClass(ext.opts.classes.scrollBox.wrapper).appendTo(elements.modal);
+
+            if (data.type === "activity") {
+                $("<p />").html(ext.helper.i18n.get("contribute_share_activity_desc1")).appendTo(scrollBox);
+                $("<p />").html(ext.helper.i18n.get("contribute_share_activity_examples_intro")).appendTo(scrollBox);
+                $("<ul />")
+                    .append("<li>" + ext.helper.i18n.get("contribute_share_activity_example_1") + "</li>")
+                    .append("<li>" + ext.helper.i18n.get("contribute_share_activity_example_2") + "</li>")
+                    .append("<li>" + ext.helper.i18n.get("contribute_share_activity_example_3") + "</li>")
+                    .append("<li>" + ext.helper.i18n.get("contribute_share_activity_example_4") + "</li>")
+                    .append("<li>" + ext.helper.i18n.get("contribute_share_activity_example_5") + "</li>")
+                    .appendTo(scrollBox);
+                $("<p />").html(ext.helper.i18n.get("contribute_share_activity_desc2")).appendTo(scrollBox);
+            } else if (data.type === "config") {
+                $("<p />").html(ext.helper.i18n.get("contribute_share_config_desc")).appendTo(scrollBox);
+            }
+
+            setCloseButtonLabel("close");
         };
 
         /**

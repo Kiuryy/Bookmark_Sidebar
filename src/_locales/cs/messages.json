@@ -224,24 +224,6 @@
     "status_background_disconnected_reload_action": {
         "message": "Znovu na\u010d\u00edst"
     },
-    "share_userdata_headline": {
-        "message": "Pot\u0159ebuji tvou pomoc"
-    },
-    "share_userdata_desc": {
-        "message": "Chcete-li zlep\u0161it toto roz\u0161\u00ed\u0159en\u00ed, mus\u00edm l\u00e9pe zn\u00e1t, jak pou\u017e\u00edv\u00e1te bo\u010dn\u00ed li\u0161tu."
-    },
-    "share_userdata_desc2": {
-        "message": "M\u016f\u017eete n\u00e1m v\u00fdrazn\u011b pomoci, pokud budete anonymn\u011b sd\u00edlet nastaven\u00ed bo\u010dn\u00ed li\u0161ty."
-    },
-    "share_userdata_notice": {
-        "message": "Informace o va\u0161ich z\u00e1lo\u017ek\u00e1ch [b]nebyli[\/b] p\u0159eneseny."
-    },
-    "share_userdata_accept": {
-        "message": "Souhlas"
-    },
-    "share_userdata_decline": {
-        "message": "Ne, d\u011bkuji"
-    },
     "onboarding_title": {
         "message": "Nastavit"
     },

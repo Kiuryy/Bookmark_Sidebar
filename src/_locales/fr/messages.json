@@ -248,24 +248,6 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Si cela se produit r\u00e9guli\u00e8rement, faites-le-moi savoir."
     },
-    "share_userdata_headline": {
-        "message": "Aidez-moi"
-    },
-    "share_userdata_desc": {
-        "message": "Pour am\u00e9liorer cette extension j'ai besoin de mieux conna\u00eetre la fa\u00e7on dont vous l'utilisez."
-    },
-    "share_userdata_desc2": {
-        "message": "Si vous acceptez de partager vos r\u00e9glages de fa\u00e7on anonyme vous pouvez beaucoup m'aider."
-    },
-    "share_userdata_notice": {
-        "message": "Les donn\u00e9es de vos favoris [b]ne seront pas[\/b] transf\u00e9r\u00e9es."
-    },
-    "share_userdata_accept": {
-        "message": "Accepter"
-    },
-    "share_userdata_decline": {
-        "message": "Non merci"
-    },
     "onboarding_title": {
         "message": "Configuration"
     },

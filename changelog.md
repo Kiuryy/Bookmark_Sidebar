@@ -2,6 +2,7 @@ See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) f
 
 ## 1.11
  - Additional contextmenu entries
+ - Updated sharing of user configuration and activity
 
 ## 1.10
  - Added html caching

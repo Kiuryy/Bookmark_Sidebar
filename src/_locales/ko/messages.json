@@ -248,24 +248,6 @@
     "notification_sidebar_not_working_unknown": {
         "message": "\uc0ac\uc774\ub4dc\ubc14\ub97c \uacc4\uc18d \uc5f4 \uc218 \uc5c6\ub294 \uacbd\uc6b0\uc5d0\ub294 \uac1c\ubc1c\uc790\uc5d0\uac8c \ubcf4\uace0\ud574 \uc8fc\uc138\uc694."
     },
-    "share_userdata_headline": {
-        "message": "\ub2f9\uc2e0\uc758 \ub3c4\uc6c0\uc774 \ud544\uc694\ud569\ub2c8\ub2e4."
-    },
-    "share_userdata_desc": {
-        "message": "\ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc744 \uac1c\uc120\ud558\uae30 \uc704\ud574\uc11c\ub294 \ud504\ub85c\uadf8\ub7a8 \uc774\uc6a9 \uc815\ubcf4\uac00 \ud544\uc694\ud569\ub2c8\ub2e4."
-    },
-    "share_userdata_desc2": {
-        "message": "\uc775\uba85\uc758 \uc0ac\uc6a9\uc790 \uc124\uc815 \uc815\ubcf4\ub97c \uc81c\uacf5\ud574 \uc8fc\uc2dc\uba74 \uc774 \ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc744 \uac1c\uc120\ud558\ub294 \ub370 \ud070 \ub3c4\uc6c0\uc774 \ub429\ub2c8\ub2e4."
-    },
-    "share_userdata_notice": {
-        "message": "\ubd81\ub9c8\ud06c\uc5d0 \ub300\ud55c \uc815\ubcf4\ub294 [b]\uc218\uc9d1\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.[\/b]"
-    },
-    "share_userdata_accept": {
-        "message": "\ud5c8\uc6a9"
-    },
-    "share_userdata_decline": {
-        "message": "\ub098\uc911\uc5d0"
-    },
     "onboarding_title": {
         "message": "\uc124\uce58"
     },

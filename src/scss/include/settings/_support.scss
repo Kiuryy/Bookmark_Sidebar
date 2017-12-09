@@ -3,12 +3,36 @@ div.tab[data-name='support'] {
 
   p {
     line-height: 150%;
+
+    + p {
+      margin-top: 10px;
+    }
   }
 
-  hr {
-    border: none;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.1);
-    margin: 15px 0;
+  div.shareInformation {
+
+    ul.bulletList {
+      font-size: 90%;
+      line-height: 150%;
+      margin: 10px 0;
+    }
+
+    label {
+      display: inline-block;
+      margin: 15px 20px 7px 0 !important;
+    }
+
+    div.checkbox {
+      display: inline-block;
+      vertical-align: top;
+      margin: 16px 0 0 0;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.1);
+      margin: 15px 0;
+    }
   }
 }

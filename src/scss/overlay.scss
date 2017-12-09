@@ -340,11 +340,60 @@ div.modal {
     @include maskImage('icon-newTab');
   }
 
-  &[data-type='infos'] {
+  &[data-type='infos'], &[data-type='shareInfoDesc'] {
 
     > h1::before {
       @include maskImage('icon-info');
     }
+  }
+
+  &[data-type='shareInfoDesc'] {
+    max-height: 100%;
+
+    &[data-value='activity'] {
+      width: 600px;
+      height: 550px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 57px;
+      z-index: 2;
+      background: $contentBackground2;
+    }
+
+    > div.scrollBox {
+      height: calc(100% - #{$overlayHeaderHeight} - 57px);
+      font-size: 120%;
+      line-height: 150%;
+
+      > p {
+        padding: 20px 30px 5px 30px;
+      }
+
+      > ul {
+        padding: 0 30px;
+
+        > li {
+          position: relative;
+          padding-left: 10px;
+          font-size: 80%;
+
+          &::before {
+            content: "-";
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &[data-type='infos'] {
 
     > ul {
       display: flex;
@@ -697,6 +746,10 @@ body.dark div.modal {
         background: $darkContentBackground2;
       }
     }
+  }
+
+  &[data-type='shareInfoDesc']::after {
+    background: $darkContentBackground2;
   }
 
   > menu.buttons > a {

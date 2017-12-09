@@ -248,24 +248,6 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Se il problema persiste, ti prego di farmelo sapere."
     },
-    "share_userdata_headline": {
-        "message": "Ho bisogno del tuo aiuto"
-    },
-    "share_userdata_desc": {
-        "message": "Per migliorare questa estensione ho bisogno di sapere come utilizzi la barra laterale."
-    },
-    "share_userdata_desc2": {
-        "message": "Puoi aiutarmi tantissimo accettando di condividere anonimamente le tue impostazioni."
-    },
-    "share_userdata_notice": {
-        "message": "Le informazioni riguardanti i tuoi preferiti [b]non saranno[\/b] condivise."
-    },
-    "share_userdata_accept": {
-        "message": "Accetta"
-    },
-    "share_userdata_decline": {
-        "message": "No, grazie"
-    },
     "onboarding_title": {
         "message": "Configurazione"
     },

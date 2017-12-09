@@ -248,24 +248,6 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Je\u015bli ta nieprawid\u0142owo\u015b\u0107 pojawia si\u0119 regularnie, prosz\u0119 o jej zg\u0142oszenie."
     },
-    "share_userdata_headline": {
-        "message": "Potrzebuj\u0119 twojej pomocy"
-    },
-    "share_userdata_desc": {
-        "message": "Aby ulepszy\u0107 to rozszerzenie, musz\u0119 wiedzie\u0107 wi\u0119cej o tym, jak u\u017cywasz bocznej listy."
-    },
-    "share_userdata_desc2": {
-        "message": "Je\u015bli zgodzisz si\u0119 na udost\u0119pnianie swoich ustawie\u0144 anonimowo, bardzo mi pomo\u017cesz."
-    },
-    "share_userdata_notice": {
-        "message": "Informacje o twoich zak\u0142adkach [b]nie b\u0119d\u0105[\/b] przesy\u0142ane."
-    },
-    "share_userdata_accept": {
-        "message": "Zgadzam si\u0119"
-    },
-    "share_userdata_decline": {
-        "message": "Nie zgadzam si\u0119"
-    },
     "onboarding_title": {
         "message": "Konfiguracja"
     },

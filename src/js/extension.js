@@ -23,7 +23,7 @@
          * Constructor
          */
         this.run = () => {
-            this.isDev = this.opts.manifest.version_name === "Dev" || !("update_url" in this.opts.manifest);
+            this.isDev = opts.manifest.version_name === "Dev" || !("update_url" in opts.manifest);
             let removedOldInstance = destroyOldInstance();
             initHelpers();
 
@@ -152,7 +152,7 @@
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
 
-                if (this.elements.iframe.hasClass(this.opts.classes.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
+                if (this.elements.iframe.hasClass(opts.classes.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
                     this.helper.toggle.markLastUsed();
                 }
 
@@ -229,18 +229,30 @@
         /**
          * Adds a mask over the sidebar to encourage the user the share their userdata
          */
-        this.addShareUserdataMask = () => {
-            this.elements.sidebar.find("#" + opts.ids.sidebar.shareUserdata).remove();
-            let shareUserdataMask = $("<div />").attr("id", opts.ids.sidebar.shareUserdata).prependTo(this.elements.sidebar);
-            let contentBox = $("<div />").prependTo(shareUserdataMask);
+        this.addShareInfoMask = () => {
+            this.elements.sidebar.find("#" + opts.ids.sidebar.shareInfo).remove();
+            let shareInfoMask = $("<div />").attr("id", opts.ids.sidebar.shareInfo).prependTo(this.elements.sidebar);
+            let contentBox = $("<div />").prependTo(shareInfoMask);
 
-            $("<h2 />").html(this.helper.i18n.get("share_userdata_headline")).appendTo(contentBox);
-            $("<p />").html(this.helper.i18n.get("share_userdata_desc")).appendTo(contentBox);
-            $("<p />").html(this.helper.i18n.get("share_userdata_desc2")).appendTo(contentBox);
-            $("<p />").addClass(opts.classes.sidebar.shareUserdataNotice).html(this.helper.i18n.get("share_userdata_notice")).appendTo(contentBox);
+            $("<h2 />").html(this.helper.i18n.get("contribute_headline")).appendTo(contentBox);
+            $("<p />").html(this.helper.i18n.get("contribute_intro")).appendTo(contentBox);
 
-            $("<a />").data("accept", true).text(this.helper.i18n.get("share_userdata_accept")).appendTo(contentBox);
-            $("<a />").data("accept", false).text(this.helper.i18n.get("share_userdata_decline")).appendTo(contentBox);
+            ["config", "activity"].forEach((type) => {
+                let label = $("<label />")
+                    .text(this.helper.i18n.get("contribute_share_" + type + "_label"))
+                    .appendTo(contentBox);
+
+                $("<a />").data({
+                    title: label.text(),
+                    type: type
+                }).appendTo(label);
+
+                this.helper.checkbox.get(this.elements.iframeBody, {
+                    [opts.attr.name]: type
+                }, "checkbox", "switch").appendTo(contentBox);
+            });
+
+            $("<a />").text(this.helper.i18n.get("contribute_dismiss")).appendTo(contentBox);
         };
 
 

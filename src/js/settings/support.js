@@ -18,14 +18,23 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            chrome.storage.sync.get(["shareUserdata"], (obj) => {
-                if (obj.shareUserdata && obj.shareUserdata === true) {
-                    s.opts.elm.checkbox.shareUserdata.trigger("click");
+            chrome.storage.sync.get(["shareInfo"], (obj) => {
+                if (obj.shareInfo) {
+                    if (obj.shareInfo.config) {
+                        s.opts.elm.checkbox.shareConfig.trigger("click");
+                    }
+
+                    if (obj.shareInfo.activity) {
+                        s.opts.elm.checkbox.shareActivity.trigger("click");
+                    }
                 }
 
-                s.opts.elm.checkbox.shareUserdata.children("input[type='checkbox']").on("change", () => { // update the shareUserdata checkbox
+                s.opts.elm.support.shareInfoWrapper.find("input[type='checkbox']").on("change", () => {
                     chrome.storage.sync.set({
-                        shareUserdata: s.helper.checkbox.isChecked(s.opts.elm.checkbox.shareUserdata)
+                        shareInfo: {
+                            config: s.helper.checkbox.isChecked(s.opts.elm.checkbox.shareConfig),
+                            activity: s.helper.checkbox.isChecked(s.opts.elm.checkbox.shareActivity)
+                        }
                     }, () => {
                         s.showSuccessMessage("saved_share_userdata");
                     });

@@ -248,24 +248,6 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Meddela mig g\u00e4rna om detta sker \u00e5terkommande"
     },
-    "share_userdata_headline": {
-        "message": "Jag beh\u00f6ver din hj\u00e4lp"
-    },
-    "share_userdata_desc": {
-        "message": "F\u00f6r att f\u00f6rb\u00e4ttra till\u00e4gget beh\u00f6ver jag veta lite b\u00e4ttre hur du anv\u00e4nder sidopanelen."
-    },
-    "share_userdata_desc2": {
-        "message": "Om du anonymt delar dina inst\u00e4llningar med mig hj\u00e4lper du mig mycket."
-    },
-    "share_userdata_notice": {
-        "message": "Information om dina bokm\u00e4rken [b]kommer inte[\/b] \u00f6verf\u00f6ras."
-    },
-    "share_userdata_accept": {
-        "message": "Acceptera"
-    },
-    "share_userdata_decline": {
-        "message": "Nej tack"
-    },
     "onboarding_title": {
         "message": "Installation"
     },

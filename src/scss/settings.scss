@@ -129,6 +129,21 @@ div.noticeBox {
   }
 }
 
+// List
+ul.bulletList {
+
+  > li {
+    position: relative;
+    padding-left: 10px;
+
+    &::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
 // Button
 main button[type='submit'], a.button {
   position: relative;

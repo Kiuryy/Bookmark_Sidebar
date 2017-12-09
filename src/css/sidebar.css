@@ -1,4 +1,4 @@
-div.contextmenu, div.tooltip, body::after, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareUserdata.hidden, div#reloadInfo.hidden {
+div.contextmenu, div.tooltip, body::after, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareInfo.hidden, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
@@ -262,71 +262,113 @@ body.dark section#sidebar[data-pos='right'] ~ div.tooltip::before {
 
 div.checkbox {
   position: relative;
-  width: 20px;
-  height: 20px;
   cursor: pointer; }
-  div.checkbox::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: no-repeat center/22px;
-    background-color: "%textColor"; }
-  div.checkbox::before {
-    transition: -webkit-mask 0.3s, background-color 0.3s; }
-  div.checkbox[data-type='checkbox']::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox-inactive.svg); }
-  div.checkbox[data-type='radio']::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-radio-inactive.svg); }
-  div.checkbox::after {
-    content: "";
-    position: absolute;
-    top: calc(50% - 1px);
-    left: calc(50% - 1px);
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
-    transition: background 0.2s, box-shadow 0.2s, opacity 0.5s;
-    opacity: 0.2; }
-  div.checkbox.focus::after, div.checkbox.clicked::after {
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.5); }
-  div.checkbox.clicked::after {
-    opacity: 0; }
-  div.checkbox.active::before {
-    background-color: "%colorScheme"; }
-  div.checkbox.active[data-type='checkbox']::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox.svg); }
-  div.checkbox.active[data-type='radio']::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-radio.svg); }
-  div.checkbox.active::after {
-    box-shadow: 0 0 0 0 "%colorScheme"; }
-  div.checkbox.active.focus::after, div.checkbox.active.clicked::after {
-    background: "%colorScheme";
-    box-shadow: 0 0 0 20px "%colorScheme"; }
   div.checkbox > input[type='checkbox'] {
     display: none; }
+  div.checkbox[data-style="default"] {
+    width: 20px;
+    height: 20px; }
+    div.checkbox[data-style="default"]::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/22px;
+      background-color: "%textColor"; }
+    div.checkbox[data-style="default"]::before {
+      transition: -webkit-mask 0.3s, background-color 0.3s; }
+    div.checkbox[data-style="default"][data-type='checkbox']::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox-inactive.svg); }
+    div.checkbox[data-style="default"][data-type='radio']::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-radio-inactive.svg); }
+    div.checkbox[data-style="default"]::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 1px);
+      left: calc(50% - 1px);
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+      transition: background 0.2s, box-shadow 0.2s, opacity 0.5s;
+      opacity: 0.2; }
+    div.checkbox[data-style="default"].focus::after, div.checkbox[data-style="default"].clicked::after {
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.5); }
+    div.checkbox[data-style="default"].clicked::after {
+      opacity: 0; }
+    div.checkbox[data-style="default"].active::before {
+      background-color: "%colorScheme"; }
+    div.checkbox[data-style="default"].active[data-type='checkbox']::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-checkbox.svg); }
+    div.checkbox[data-style="default"].active[data-type='radio']::before {
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-radio.svg); }
+    div.checkbox[data-style="default"].active::after {
+      box-shadow: 0 0 0 0 "%colorScheme"; }
+    div.checkbox[data-style="default"].active.focus::after, div.checkbox[data-style="default"].active.clicked::after {
+      background: "%colorScheme";
+      box-shadow: 0 0 0 20px "%colorScheme"; }
+  div.checkbox[data-style="switch"] {
+    width: 32px;
+    height: 14px;
+    transition: padding-left 0.2s, opacity 0.2s; }
+    div.checkbox[data-style="switch"]::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.2);
+      transition: background 0.2s, opacity 0.2s; }
+    div.checkbox[data-style="switch"]::after {
+      content: "";
+      position: relative;
+      display: block;
+      top: -3px;
+      left: -3px;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      transition: background-color 0.2s;
+      box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4);
+      border-radius: 50%; }
+    div.checkbox[data-style="switch"].active {
+      padding-left: 18px; }
+      div.checkbox[data-style="switch"].active::before {
+        opacity: 0.4; }
+      div.checkbox[data-style="switch"].active::before, div.checkbox[data-style="switch"].active::after {
+        background-color: "%colorScheme"; }
 
-body.dark div.checkbox::after {
+body.dark div.checkbox[data-style="default"]::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
 
-body.dark div.checkbox.focus::after, body.dark div.checkbox.clicked::after {
+body.dark div.checkbox[data-style="default"].focus::after, body.dark div.checkbox[data-style="default"].clicked::after {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5); }
 
-body.dark div.checkbox.active::before {
+body.dark div.checkbox[data-style="default"].active::before {
   background-color: "%textColor"; }
 
-body.dark div.checkbox.active::after {
+body.dark div.checkbox[data-style="default"].active::after {
   box-shadow: 0 0 0 0 "%textColor"; }
 
-body.dark div.checkbox.active.focus::after, body.dark div.checkbox.active.clicked::after {
+body.dark div.checkbox[data-style="default"].active.focus::after, body.dark div.checkbox[data-style="default"].active.clicked::after {
   background: "%textColor";
   box-shadow: 0 0 0 20px "%textColor"; }
+
+body.dark div.checkbox[data-style="switch"]::before {
+  background: rgba(255, 255, 255, 0.15); }
+
+body.dark div.checkbox[data-style="switch"]::after {
+  background-color: #aaa; }
+
+body.dark div.checkbox[data-style="switch"].active::before, body.dark div.checkbox[data-style="switch"].active::after {
+  background-color: #fff; }
 
 *, *::after, *::before {
   padding: 0;
@@ -1005,6 +1047,92 @@ section#sidebar {
     top: calc(50% - 18px);
     left: calc(50% - 18px); }
 
+div#shareInfo, div#reloadInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background: #fff;
+  overflow: auto;
+  display: flex;
+  transition: opacity 0.3s; }
+  div#shareInfo > div, div#reloadInfo > div {
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    color: "%textColor"; }
+    div#shareInfo > div > h2, div#reloadInfo > div > h2 {
+      font-size: 250%;
+      font-weight: "%fontWeightNormal";
+      margin-bottom: 50px; }
+    div#shareInfo > div > p, div#reloadInfo > div > p {
+      font-size: 120%;
+      line-height: 150%;
+      margin: 20px 0; }
+      div#shareInfo > div > p > strong, div#reloadInfo > div > p > strong {
+        text-decoration: underline; }
+    div#shareInfo > div > label, div#reloadInfo > div > label {
+      display: block;
+      text-align: center;
+      font-size: 120%;
+      margin-top: 40px; }
+      div#shareInfo > div > label > a, div#reloadInfo > div > label > a {
+        position: relative;
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        vertical-align: top;
+        margin: -3px 0 0 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.5s; }
+        div#shareInfo > div > label > a::before, div#reloadInfo > div > label > a::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-mask: no-repeat center/18px;
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+          background-color: #aaa; }
+        div#shareInfo > div > label > a:hover, div#reloadInfo > div > label > a:hover {
+          background: "%hoverColor"; }
+    div#shareInfo > div > div.checkbox, div#reloadInfo > div > div.checkbox {
+      margin: 20px auto 0; }
+    div#shareInfo > div > a, div#reloadInfo > div > a {
+      position: relative;
+      font-size: 120%;
+      color: "%textColor";
+      display: inline-block;
+      margin: 40px 20px 0;
+      font-weight: "%fontWeightBold";
+      padding: 5px 10px;
+      transition: background 0.5s;
+      border-radius: 2px;
+      cursor: pointer;
+      z-index: 2; }
+      div#shareInfo > div > a:hover, div#reloadInfo > div > a:hover {
+        background: "%hoverColor"; }
+
+div#reloadInfo > div {
+  position: relative;
+  padding-top: 90px; }
+  div#reloadInfo > div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/64px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
+    background-color: "%textColor"; }
+  div#reloadInfo > div::before {
+    -webkit-mask-position-y: 0; }
+
 body.dark section#sidebar {
   background: #3d3d3d; }
   body.dark section#sidebar > div.filter {
@@ -1042,62 +1170,8 @@ body.dark section#sidebar {
     body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
       background-color: #ccc; }
 
-div#shareUserdata, div#reloadInfo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 4;
-  background: "%colorScheme";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s; }
-  div#shareUserdata > div, div#reloadInfo > div {
-    padding: 20px;
-    text-align: center;
-    color: #fff; }
-    div#shareUserdata > div > h2, div#reloadInfo > div > h2 {
-      font-size: 250%;
-      font-weight: "%fontWeightNormal";
-      margin-bottom: 50px; }
-    div#shareUserdata > div > p, div#reloadInfo > div > p {
-      font-size: 120%;
-      line-height: 150%;
-      margin: 20px 0; }
-      div#shareUserdata > div > p > strong, div#reloadInfo > div > p > strong {
-        text-decoration: underline; }
-    div#shareUserdata > div > a, div#reloadInfo > div > a {
-      position: relative;
-      font-size: 120%;
-      color: #fff;
-      display: inline-block;
-      margin: 40px 20px 0;
-      font-weight: "%fontWeightBold";
-      padding: 5px 10px;
-      transition: background 0.5s;
-      border-radius: 2px;
-      cursor: pointer;
-      z-index: 2; }
-      div#shareUserdata > div > a:hover, div#reloadInfo > div > a:hover {
-        background: rgba(255, 255, 255, 0.2); }
-
-div#reloadInfo > div {
-  position: relative;
-  padding-top: 90px; }
-  div#reloadInfo > div::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: no-repeat center/64px;
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
-    background-color: #fff; }
-  div#reloadInfo > div::before {
-    -webkit-mask-position-y: 0; }
+body.dark div#shareInfo, body.dark div#reloadInfo {
+  background: #3d3d3d; }
 
 body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
   display: none; }

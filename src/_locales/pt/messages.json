@@ -224,24 +224,6 @@
     "status_background_disconnected_reload_action": {
         "message": "Recarregar agora"
     },
-    "share_userdata_headline": {
-        "message": "Eu preciso da sua ajuda"
-    },
-    "share_userdata_desc": {
-        "message": "Para melhorar esta extens\u00e3o, eu preciso saber melhor sobre como voc\u00ea usa a barra lateral."
-    },
-    "share_userdata_desc2": {
-        "message": "Se voc\u00ea concordar em compartilhar suas configura\u00e7\u00f5es anonimamente, voc\u00ea pode me ajudar muito."
-    },
-    "share_userdata_notice": {
-        "message": "Informa\u00e7\u00f5es sobre seus favoritos [b]n\u00e3o ser\u00e3o[\/b] transferidas."
-    },
-    "share_userdata_accept": {
-        "message": "Aceito"
-    },
-    "share_userdata_decline": {
-        "message": "N\u00e3o, obrigado"
-    },
     "onboarding_title": {
         "message": "Configura\u00e7\u00e3o inicial"
     },

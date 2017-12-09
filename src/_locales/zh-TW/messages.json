@@ -248,24 +248,6 @@
     "notification_sidebar_not_working_unknown": {
         "message": "\u5982\u679c\u6b64\u554f\u984c\u983b\u7e41\u51fa\u73fe\uff0c\u8acb\u806f\u7e6b\u4f5c\u8005"
     },
-    "share_userdata_headline": {
-        "message": "\u6211\u9700\u8981\u60a8\u7684\u5e6b\u52a9"
-    },
-    "share_userdata_desc": {
-        "message": "\u70ba\u4e86\u6539\u5584\u9019\u500b\u64f4\u5145\u529f\u80fd\uff0c\u6211\u9700\u8981\u9032\u4e00\u6b65\u77ad\u89e3\u60a8\u662f\u5982\u4f55\u4f7f\u7528\u9019\u500b\u5074\u908a\u6b04\u3002"
-    },
-    "share_userdata_desc2": {
-        "message": "\u5982\u679c\u60a8\u540c\u610f\u533f\u540d\u5206\u4eab\u60a8\u7684\u8a2d\u5b9a\uff0c\u5c0d\u6211\u6703\u6709\u83ab\u5927\u7684\u5e6b\u52a9\u3002"
-    },
-    "share_userdata_notice": {
-        "message": "\u66f8\u7c64\u7684\u76f8\u95dc\u8cc7\u8a0a\u4e0d\u6703\u88ab\u50b3\u9001\u3002"
-    },
-    "share_userdata_accept": {
-        "message": "\u540c\u610f"
-    },
-    "share_userdata_decline": {
-        "message": "\u4e0d\u7528\uff0c\u8b1d\u8b1d\u4e86"
-    },
     "onboarding_title": {
         "message": "\u8a2d\u7f6e"
     },

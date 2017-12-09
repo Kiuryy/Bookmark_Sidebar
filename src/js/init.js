@@ -10,7 +10,7 @@
             },
             sidebar: {
                 sidebar: "sidebar",
-                shareUserdata: "shareUserdata",
+                shareInfo: "shareInfo",
                 reloadInfo: "reloadInfo",
                 bookmarkBox: {
                     all: "bookmarkBox",
@@ -52,7 +52,7 @@
                 hidden: "hidden",
                 hover: "hover",
                 fixed: "fixed",
-                lockPinned:"lockPinned",
+                lockPinned: "lockPinned",
                 lastHover: "lastHover",
                 loading: "loading",
                 copied: "copied",
@@ -60,8 +60,7 @@
                 search: "search",
                 searchBox: "searchBox",
                 searchClose: "searchClose",
-                searchVisible: "searchVisible",
-                shareUserdataNotice: "shareNotice"
+                searchVisible: "searchVisible"
             },
             tooltip: {
                 wrapper: "tooltip",
@@ -125,6 +124,7 @@
             sort: "data-sort",
             direction: "data-direction",
             dragCancel: "data-dragCancel",
+            style: "data-style",
             id: "data-id"
         },
         events: {

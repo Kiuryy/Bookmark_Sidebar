@@ -254,12 +254,27 @@
                 location.reload(true);
             });
 
-            ext.elements.iframeBody.on("click", "#" + ext.opts.ids.sidebar.shareUserdata + " a", (e) => { // share userdata mask
+            ext.elements.iframeBody.on("click", "#" + ext.opts.ids.sidebar.shareInfo + " a", (e) => { // click on a link in the share info mask
                 e.preventDefault();
-                ext.helper.model.call("shareUserdata", {
-                    share: $(e.currentTarget).data("accept")
-                });
-                ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareUserdata).addClass(ext.opts.classes.sidebar.hidden);
+                let title = $(e.currentTarget).data("title");
+
+                if (title) {
+                    ext.helper.overlay.create("shareInfoDesc", title, {type: $(e.currentTarget).data("type")});
+                } else {
+                    let shareInfo = {
+                        config: false,
+                        activity: false
+                    };
+
+                    ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
+                        let wrapper = $(elm).parent();
+                        let name = wrapper.attr(ext.opts.attr.name);
+                        shareInfo[name] = ext.helper.checkbox.isChecked(wrapper);
+                    });
+
+                    ext.helper.model.call("updateShareInfo", shareInfo);
+                    ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo).addClass(ext.opts.classes.sidebar.hidden);
+                }
             });
         };
     };

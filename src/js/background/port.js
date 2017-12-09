@@ -4,22 +4,6 @@
     window.PortHelper = function (b) {
 
         /**
-         * Updates the shareUserdata-Flag
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let updateShareUserdataFlag = (opts) => {
-            return new Promise((resolve) => {
-                chrome.storage.sync.set({
-                    shareUserdata: opts.share
-                }, () => {
-                    b.helper.model.init().then(resolve);
-                });
-            });
-        };
-
-        /**
          * Checks whether the website is available
          *
          * @returns {Promise}
@@ -45,16 +29,17 @@
         };
 
         /**
-         * Returns whether the ShareUserdata-Mask should be shown or not
+         * Returns whether the ShareInfo-Mask should be shown or not
          *
          * @returns {Promise}
          */
-        let shareUserdataMask = () => {
+        let shareInfoMask = () => {
             return new Promise((resolve) => {
                 let showMask = false;
                 let installationDate = b.helper.model.getData("installationDate");
+                let shareInfo = b.helper.model.getShareInfo();
 
-                if (b.isDev === false && b.helper.model.shareUserdata() === null && (+new Date() - installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
+                if (b.isDev === false && shareInfo.config === null && shareInfo.activity === null && (+new Date() - installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
                     showMask = true;
                 }
                 resolve({showMask: showMask});
@@ -296,8 +281,8 @@
                     deleteBookmark: deleteBookmark,
                     reload: b.reload,
                     reinitialize: b.reinitialize,
-                    shareUserdata: updateShareUserdataFlag,
-                    shareUserdataMask: shareUserdataMask,
+                    updateShareInfo: b.helper.model.setShareInfo,
+                    shareInfoMask: shareInfoMask,
                     languageInfos: b.helper.language.getAvailableLanguages,
                     langvars: b.helper.language.getLangVars,
                     favicon: b.helper.image.getFavicon,

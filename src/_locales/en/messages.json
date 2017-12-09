@@ -254,23 +254,50 @@
     "notification_sidebar_not_working_unknown": {
         "message": "If this is happening regularly, please let me know."
     },
-    "share_userdata_headline": {
+    "contribute_headline": {
         "message": "I need your help"
     },
-    "share_userdata_desc": {
-        "message": "To improve this extension I need to know better about how you use the sidebar."
+    "contribute_intro": {
+        "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
     },
-    "share_userdata_desc2": {
-        "message": "If you agree to share your settings anonymously you can help me alot."
+    "contribute_outro": {
+        "message": "If you have questions or concerns about the sharing of information, please send me a feedback message."
     },
-    "share_userdata_notice": {
-        "message": "Information about your bookmarks [b]will not[\/b] be transfered."
+    "contribute_dismiss": {
+        "message": "Dismiss"
     },
-    "share_userdata_accept": {
-        "message": "Accept"
+    "contribute_share_config_label": {
+        "message": "Share configuration"
     },
-    "share_userdata_decline": {
-        "message": "No thanks"
+    "contribute_share_config_desc": {
+        "message": "You share your configuration anonymously, which helps me to identify popular settings and figure out, what to improve or change in future releases."
+    },
+    "contribute_share_activity_label": {
+        "message": "Share activity"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "You can share your activity within the sidebar anonymously, which helps me to know how users are using the sidebar in general. Information about your bookmarks or your visited websites [b]will not[\/b] be measured."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "This information is very useful to identify problems in usability or features which are for example not used very often."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Data which are shared are for example:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "How many bookmarks do users have in average?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Which platform are the users on (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Are users using the search?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Do users change the sorting of the bookmarks?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "How often are users rearranging or editing entries?"
     },
     "onboarding_title": {
         "message": "Setup"

@@ -91,7 +91,6 @@
                 },
                 color: {
                     alpha: "data-alpha",
-                    style: "data-color",
                     suggestions: "data-suggestions"
                 },
                 field: {
@@ -137,6 +136,7 @@
                 },
                 formElement: $("div.formElement"),
                 support: {
+                    shareInfoWrapper: $("div.tab[data-name='support'] div.shareInformation"),
                     donate: $("div.tab[data-name='support'] a.donate")
                 },
                 preview: {},

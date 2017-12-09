@@ -355,7 +355,11 @@
          */
         initField.checkbox = (opts) => {
             return new Promise((resolve) => {
-                s.opts.elm.checkbox[opts.name] = s.helper.checkbox.get(s.opts.elm.body).insertAfter(opts.label);
+                let style = $(opts.elm).attr(s.opts.attr.style) || "default";
+                s.opts.elm.checkbox[opts.name] = s.helper.checkbox.get(s.opts.elm.body, {
+                    [s.opts.attr.name]: opts.name
+                }, "checkbox", style).insertAfter(opts.label);
+
                 resolve();
             });
         };

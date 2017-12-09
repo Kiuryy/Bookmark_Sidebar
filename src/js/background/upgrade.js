@@ -69,7 +69,6 @@
                 let savedValues = () => {
                     savedCount++;
                     if (savedCount >= 3) { // newtab, behaviour and appearance
-                        b.helper.icon.init(); // @deprecated only for upgrade to v1.10
                         resolve();
                     }
                 };
@@ -77,7 +76,9 @@
                 chrome.storage.sync.get(null, (obj) => { // get all stored information
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                            if (obj.model.updateNotification.search("1.10.") !== 0) { // @deprecated don't show changelog when upgrading from 1.10 to 1.11
+                                chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                            }
                         });
                     }
 
@@ -102,6 +103,15 @@
 
                     if (typeof obj.appearance.styles === "undefined") {
                         obj.appearance.styles = {};
+                    }
+
+                    if (typeof obj.shareUserdata !== "undefined" && obj.shareUserdata === true || obj.shareUserdata === false) {
+                        chrome.storage.sync.set({
+                            shareInfo: {
+                                config: obj.shareUserdata,
+                                activity: obj.shareUserdata
+                            }
+                        });
                     }
 
                     if (typeof obj.appearance.styles.hoverColor === "undefined") {

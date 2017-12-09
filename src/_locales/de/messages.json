@@ -254,23 +254,50 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Wenn dies h\u00e4ufiger geschieht, lass es mich bitte wissen."
     },
-    "share_userdata_headline": {
+    "contribute_headline": {
         "message": "Ich brauche deine Unterst\u00fctzung"
     },
-    "share_userdata_desc": {
-        "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen wie du die Sidebar nutzt."
+    "contribute_intro": {
+        "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
     },
-    "share_userdata_desc2": {
-        "message": "Wenn du zustimmst, deine Einstellungen anonym zu \u00fcbermittelt w\u00fcrdest du mir sehr helfen."
+    "contribute_outro": {
+        "message": "Wenn du Fragen oder Bedenken bez\u00fcglich des Teilens von Nutzerinformationen hast, kannst du mir gerne Feedback hinterlassen."
     },
-    "share_userdata_notice": {
-        "message": "Informationen \u00fcber deine Lesezeichen [b]werden nicht[\/b] \u00fcbermittelt."
+    "contribute_dismiss": {
+        "message": "Ausblenden"
     },
-    "share_userdata_accept": {
-        "message": "Zustimmen"
+    "contribute_share_config_label": {
+        "message": "Einstellungen \u00fcbermittelt"
     },
-    "share_userdata_decline": {
-        "message": "Nein danke"
+    "contribute_share_config_desc": {
+        "message": "Du kannst deine Einstellungen anonym \u00fcbermitteln. Dies hilft mir um popul\u00e4re Einstellungen zu identifizieren und herauszufinden, was ich in Zukunft verbessern oder \u00e4ndern muss."
+    },
+    "contribute_share_activity_label": {
+        "message": "Nutzeraktivit\u00e4t \u00fcbermitteln"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Du kannst deine Nutzeraktivit\u00e4t anonym \u00fcbermitteln. Dies hilft mir herauszufinden wie die Nutzer die Sidebar im Allgemeinen verwenden. Informationen \u00fcber deine Lesezeichen, oder der besuchten Seiten [b]werden nicht[\/b] erfasst."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Diese Informationen sind sehr hilfreich, um die Benutzerfreundlichkeit zu verbessern und herauszufinden, welche Funktionen beispielsweise h\u00e4ufig verwendet werden."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Daten die \u00fcbermittelt werden sind beispielsweise:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Wie viele Lesezeichen haben die Nutzer im Durchschnitt?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Welche Plattformen verwenden die Nutzer (Windows, Max, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Verwenden die Nutzer die Suche?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "\u00c4ndern die Nutzer die Sortierung der Lesezeichen?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Wie oft verschieben, oder bearbeiten die Nutzer Eintr\u00e4ge?"
     },
     "onboarding_title": {
         "message": "Einrichten"

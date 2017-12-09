@@ -75,13 +75,17 @@
          * Send a sign of life and all configuration once per day to Google Analytics
          */
         this.trackUserData = () => {
+            let shareInfo = b.helper.model.getShareInfo();
             let shareState = "not_set";
-            let shareUserdata = b.helper.model.shareUserdata();
 
-            if (shareUserdata === true) {
-                shareState = "allowed";
-            } else if (shareUserdata === false) {
-                shareState = "not_allowed";
+            if (shareInfo.config === true && shareInfo.activity === true) {
+                shareState = "all";
+            } else if (shareInfo.config === true && shareInfo.activity === false) {
+                shareState = "config";
+            } else if (shareInfo.config === false && shareInfo.activity === true) {
+                shareState = "activity";
+            } else if (shareInfo.config === false && shareInfo.activity === false) {
+                shareState = "nothing";
             }
 
             this.trackEvent({ // sign of life
@@ -98,10 +102,9 @@
                 always: true
             });
 
-            if (shareUserdata === true) {
-                // track installation date
+            if (shareInfo.activity === true) {
                 let installationDate = b.helper.model.getData("installationDate");
-                if (installationDate) {
+                if (installationDate) { // track installation date
                     this.trackEvent({
                         category: "extension",
                         action: "installationDate",
@@ -109,8 +112,7 @@
                     });
                 }
 
-                // track bookmark amount
-                b.helper.bookmarkApi.func.getSubTree(0).then((response) => {
+                b.helper.bookmarkApi.func.getSubTree(0).then((response) => { // track bookmark amount
                     let bookmarkAmount = 0;
                     let processBookmarks = (bookmarks) => {
                         for (let i = 0; i < bookmarks.length; i++) {
@@ -134,8 +136,9 @@
                         value: bookmarkAmount
                     });
                 });
+            }
 
-                // track configuration values
+            if (shareInfo.config === true) { // track configuration values
                 let categories = ["behaviour", "appearance", "newtab", "language"];
 
                 let proceedConfig = (baseName, obj) => {
@@ -201,10 +204,21 @@
          * only works if user allows userdata sharing or if the parameter is specified
          *
          * @param {object} obj
-         * @param {boolean} ignoreShareUserdata
+         * @param {boolean} ignoreShareInfo
          */
-        let addObjectToTrackingQueue = (obj, ignoreShareUserdata) => {
-            if (b.helper.model.shareUserdata() === true || ignoreShareUserdata === true) {
+        let addObjectToTrackingQueue = (obj, ignoreShareInfo) => {
+            let shareInfo = b.helper.model.getShareInfo();
+            let allowed = true;
+
+            if (ignoreShareInfo !== true) {
+                if (obj.eventCategory && obj.eventCategory === "configuration") {
+                    allowed = shareInfo.config;
+                } else {
+                    allowed = shareInfo.activity;
+                }
+            }
+
+            if (allowed) {
                 trackingQueue.push(obj);
                 if (trackingQueueProceeding === false) {
                     processTrackingQueue();

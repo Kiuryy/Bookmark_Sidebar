@@ -10,17 +10,19 @@
          *
          * @param {jsu} body
          * @param {object} attrList
+         * @param {string} type
          * @param {string} style
          * @returns {jsu}
          */
-        this.get = (body, attrList, style = "checkbox") => {
+        this.get = (body, attrList, type = "checkbox", style = "default") => {
             let container = $("<div />")
                 .html("<input type='checkbox' />")
                 .data("uid", Math.random().toString(36).substr(2, 12))
-                .attr(ext.opts.attr.type, style)
+                .attr(ext.opts.attr.type, type)
+                .attr(ext.opts.attr.style, style)
                 .addClass(ext.opts.classes.checkbox.box);
 
-            if (typeof attrList !== "undefined") {
+            if (attrList) {
                 container.children("input[type='checkbox']").attr(attrList);
                 if (attrList[ext.opts.attr.name]) {
                     container.attr(ext.opts.attr.name, attrList[ext.opts.attr.name]);

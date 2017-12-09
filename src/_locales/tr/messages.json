@@ -206,24 +206,6 @@
     "newtab_top_pages_hidden": {
         "message": "Sayfalar\u0131 g\u00f6sterme"
     },
-    "share_userdata_headline": {
-        "message": "Yard\u0131ma ihtiyac\u0131m var"
-    },
-    "share_userdata_desc": {
-        "message": "Bu uzant\u0131y\u0131 geli\u015ftirmek i\u00e7in kenar \u00e7ubu\u011funu nas\u0131l kulland\u0131\u011f\u0131n\u0131z\u0131 daha iyi bilmem gerekiyor."
-    },
-    "share_userdata_desc2": {
-        "message": "Anonim bir \u015fekilde ayarlar\u0131n\u0131z\u0131 payla\u015fman\u0131z bana \u00e7ok yard\u0131mc\u0131 olacakt\u0131r."
-    },
-    "share_userdata_notice": {
-        "message": "Yer imleriniz hakk\u0131nda bilgi [b]payla\u015f\u0131lmayacakt\u0131r.[\/b]"
-    },
-    "share_userdata_accept": {
-        "message": "Kabul ederim"
-    },
-    "share_userdata_decline": {
-        "message": "Hay\u0131r, te\u015fekk\u00fcrler"
-    },
     "changelog_title": {
         "message": "G\u00fcnl\u00fck"
     },

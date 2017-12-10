@@ -235,7 +235,7 @@
             let ret = false;
 
             Object.keys(langCategories).some((name) => {
-                if (allCategories[name] > langCategories[name]) {
+                if (allCategories[name].total > langCategories[name]) {
                     ret = true;
                     return true;
                 }

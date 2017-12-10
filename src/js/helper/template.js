@@ -15,21 +15,6 @@
                 "</svg>");
         };
 
-        /**
-         * Resolves with the content to the given svg name
-         *
-         * @param {string} name
-         * @returns {Promise}
-         */
-        this.svgByName = (name) => {
-            return new Promise((resolve, reject) => {
-                $.xhr(chrome.extension.getURL("img/" + name + ".svg")).then((xhr) => {
-                    resolve(xhr.responseText);
-                }, () => {
-                    reject();
-                });
-            });
-        };
 
         /**
          * Returns the html for the footer

@@ -182,7 +182,6 @@
                 this.helper.font.init("default");
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));
-                initHeader();
 
                 return this.helper.form.init();
             }).then(() => {
@@ -265,12 +264,6 @@
                 importExport: new window.ImportExportHelper(this),
                 support: new window.SupportHelper(this)
             };
-        };
-
-        let initHeader = () => {
-            this.helper.template.svgByName("icon-settings").then((svg) => {
-                this.opts.elm.header.prepend(svg);
-            });
         };
 
         /**

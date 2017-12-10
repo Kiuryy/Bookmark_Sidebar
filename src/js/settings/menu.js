@@ -123,6 +123,8 @@
                 s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']")
             ];
 
+            s.opts.elm.header.attr(s.opts.attr.type, path[0]);
+
             if (path[1]) {
                 pages.unshift(pages[0].children("div[" + s.opts.attr.name + "='" + path[1] + "']"));
             }

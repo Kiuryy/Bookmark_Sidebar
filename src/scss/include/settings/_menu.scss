@@ -22,7 +22,7 @@ body > section#wrapper > aside {
       }
 
       &[data-name='newtab'] > a {
-        @include mask('settings/icon-newtab', $textColor, 18px);
+        @include mask('settings/icon-newtab', $textColor, 16px);
       }
 
       &[data-name='language'] {
@@ -94,12 +94,13 @@ body > section#wrapper > aside {
             line-height: 30px;
 
             > a {
-              padding: 0 10px;
+              padding: 0 10px 0 22px;
               font-size: 90%;
 
               &::before {
                 content: "-";
-                margin-right: 10px;
+                position: absolute;
+                left: 10px;
               }
             }
           }

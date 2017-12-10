@@ -89,7 +89,6 @@
                 ext.addReloadMask();
             } else {
                 ext.helper.model.call("shareInfoMask").then((opts) => { // check whether to show the share userdata mask or not
-                    opts.showMask=true;
                     if (opts && opts.showMask) {
                         ext.addShareInfoMask();
                     } else {

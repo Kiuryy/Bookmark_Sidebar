@@ -134,7 +134,7 @@
         /**
          * Prints the given parameters in the console (only if this.dev = true)
          *
-         * @param {mixed} msg
+         * @param {*} msg
          */
         this.log = (...msg) => {
             if (this.isDev) {

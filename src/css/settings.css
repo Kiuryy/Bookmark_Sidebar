@@ -801,6 +801,9 @@ div.tab[data-name='support'] p {
   div.tab[data-name='support'] p + p {
     margin-top: 10px; }
 
+div.tab[data-name='support'] a.donate {
+  margin-top: 30px; }
+
 div.tab[data-name='support'] div.shareInformation ul.bulletList {
   font-size: 90%;
   line-height: 150%;

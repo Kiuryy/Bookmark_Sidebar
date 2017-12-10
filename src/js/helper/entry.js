@@ -22,7 +22,6 @@
             inited = true;
 
             return new Promise((resolve) => {
-                config = ext.helper.model.getData(["u/hiddenEntries", "u/pinnedEntries", "u/showHidden"]);
                 this.update(entries).then(resolve);
             });
         };
@@ -49,6 +48,8 @@
          * @returns {int|null}
          */
         this.getAmount = (type) => {
+            updateConfigObj();
+
             if (Object.keys(amounts).length === 0) {
                 amounts = ext.helper.model.getData("u/entryAmounts");
             }
@@ -109,7 +110,7 @@
          *
          * @param {int} id
          * @param {string} key
-         * @param {mixed} val
+         * @param {*} val
          */
         this.addData = (id, key, val) => {
             if (typeof entries.bookmarks[id] === "object") {
@@ -149,6 +150,8 @@
          */
         this.update = (bookmarkTree = null) => {
             return new Promise((resolve) => {
+                updateConfigObj();
+
                 let promises = [
                     ext.helper.model.call("viewAmounts")
                 ];
@@ -190,6 +193,13 @@
                     resolve();
                 });
             });
+        };
+
+        /**
+         * Updates the config object with the newest data from the model
+         */
+        let updateConfigObj = () => {
+            config = ext.helper.model.getData(["u/hiddenEntries", "u/pinnedEntries", "u/showHidden"]);
         };
 
         /**

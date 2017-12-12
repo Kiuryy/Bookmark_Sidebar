@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "\u663e\u793a\u9690\u85cf\u76ee\u5f55"
     },
+    "contextmenu_close_all_directories": {
+        "message": "\u5173\u95ed\u6240\u6709\u76ee\u5f55"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "\u91cd\u65b0\u52a0\u8f7d\u4fa7\u8fb9\u680f"
+    },
     "contextmenu_open_children": {
         "message": "\u6253\u5f00\u4e66\u7b7e"
     },

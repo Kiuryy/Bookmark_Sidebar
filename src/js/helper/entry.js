@@ -199,7 +199,7 @@
          * Updates the config object with the newest data from the model
          */
         let updateConfigObj = () => {
-            config = ext.helper.model.getData(["u/hiddenEntries", "u/pinnedEntries", "u/showHidden"]);
+            config = ext.helper.model.getData(["u/hiddenEntries", "u/additionalInfo", "u/pinnedEntries", "u/showHidden"]);
         };
 
         /**
@@ -216,6 +216,7 @@
                     thisParents.push(entry.parentId);
                 }
 
+                entry.additionalInfo = config.additionalInfo[entry.id] || {};
                 entry.hidden = parentIsHidden || config.hiddenEntries[entry.id] === true;
                 entry.parents = thisParents;
 

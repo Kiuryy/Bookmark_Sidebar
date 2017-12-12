@@ -30,6 +30,7 @@
             u: { // utility -> saved locally
                 openStates: {},
                 hiddenEntries: {},
+                additionalInfo: {},
                 scrollPos: {},
                 separators: {},
                 pinnedEntries: {},

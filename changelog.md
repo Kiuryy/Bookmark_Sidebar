@@ -1,7 +1,8 @@
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions and more details about the individual releases
 
 ## 1.11
- - Additional contextmenu entries
+ - Additional info for entries
+ - Added new contextmenu entries
  - Updated sharing of user configuration and activity
 
 ## 1.10

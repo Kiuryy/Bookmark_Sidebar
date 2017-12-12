@@ -688,8 +688,8 @@ iframe[data-appearance] {
   z-index: 4; }
 
 iframe[data-appearance='overlay'] {
-  width: 600px;
-  height: 500px;
+  width: 700px;
+  height: 600px;
   top: 35px;
   transform: scale(0.9);
   transform-origin: top right; }
@@ -697,10 +697,10 @@ iframe[data-appearance='overlay'] {
     iframe[data-appearance='overlay'] {
       top: 40px;
       transform: scale(0.8); } }
-  @media (max-width: 1200px) {
+  @media (max-width: 1280px) {
     iframe[data-appearance='overlay'] {
       top: 45px;
-      transform: scale(0.7); } }
+      transform: scale(0.6); } }
 
 @media (min-width: 1024px) {
   body[data-type='appearance_general'] > iframe[data-appearance='general'],
@@ -1196,7 +1196,7 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
           display: block;
           font-size: 80%;
           font-style: italic;
-          user-select: auto;
+          user-select: text;
           padding: 5px;
           transition: background 0.5s; }
           div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span > span {

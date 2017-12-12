@@ -113,6 +113,12 @@
     "overlay_bookmark_url": {
         "message": "URL"
     },
+    "overlay_bookmark_additional_info": {
+        "message": "Zus\u00e4tzliche Infos"
+    },
+    "overlay_bookmark_additional_info_notice": {
+        "message": "Wird nicht zwischen deinen Ger\u00e4ten synchronisiert."
+    },
     "overlay_cancel": {
         "message": "Abbrechen"
     },
@@ -258,7 +264,7 @@
         "message": "Ich brauche deine Unterst\u00fctzung"
     },
     "contribute_intro": {
-        "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
+        "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen, wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
     },
     "contribute_outro": {
         "message": "Wenn du Fragen oder Bedenken bez\u00fcglich des Teilens von Nutzerinformationen hast, kannst du mir gerne Feedback hinterlassen."

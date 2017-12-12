@@ -22,8 +22,12 @@
                     e.preventDefault();
                     ext.helper.overlay.closeOverlay(true);
                 } else if (e.key === "Enter") { // submit
-                    e.preventDefault();
-                    handleOverlayClick(overlay);
+                    let activeElm = overlay[0].contentDocument.activeElement;
+
+                    if (activeElm === null || activeElm.tagName !== "TEXTAREA") { // prevent submit when pressing enter inside a textarea
+                        e.preventDefault();
+                        handleOverlayClick(overlay);
+                    }
                 } else if (e.key === "Tab") { // jump to the next entry
                     e.preventDefault();
                     hoverNextOverlayEntry(overlay);

@@ -211,8 +211,8 @@ body {
 
 div.modal {
   position: relative;
-  width: 500px;
-  height: 400px;
+  width: 600px;
+  height: 500px;
   background: #fff;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -337,6 +337,21 @@ div.modal {
       text-overflow: ellipsis;
       overflow: hidden;
       cursor: pointer; }
+  div.modal > div.info {
+    margin: 30px 30px 0 30px;
+    padding: 20px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); }
+    div.modal > div.info > h3 {
+      font-size: 100%;
+      font-weight: "%fontWeightMedium"; }
+    div.modal > div.info > p {
+      margin: 5px 0 0 0;
+      user-select: text;
+      max-height: 120px;
+      overflow: auto; }
+    div.modal > div.info + ul {
+      margin-top: 25px;
+      padding-top: 30px; }
   div.modal[data-type='updateUrls'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg); }
   div.modal[data-type='updateUrls'] > p {
@@ -536,8 +551,9 @@ div.modal {
     display: flex;
     flex-flow: row;
     font-size: 120%;
-    margin-top: 70px;
-    padding: 0 30px;
+    margin: 40px 30px 0 30px;
+    padding: 40px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     justify-content: space-between; }
     div.modal[data-type='infos'] > ul > li {
       position: relative; }
@@ -591,22 +607,43 @@ div.modal {
         font-size: 140%;
         display: inline-block;
         width: 80px; }
-      div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='add'] > ul > li > input {
-        display: inline-block;
+      div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='edit'] > ul > li > textarea, div.modal[data-type='add'] > ul > li > input, div.modal[data-type='add'] > ul > li > textarea {
         background: transparent;
         font-size: 120%;
-        width: calc(100% - 80px);
         padding: 5px 8px;
         outline: none;
         box-shadow: none;
         transition: border-color 0.5s;
         border: 1px solid rgba(0, 0, 0, 0.1); }
-        div.modal[data-type='edit'] > ul > li > input.error, div.modal[data-type='add'] > ul > li > input.error {
+        div.modal[data-type='edit'] > ul > li > input.error, div.modal[data-type='edit'] > ul > li > textarea.error, div.modal[data-type='add'] > ul > li > input.error, div.modal[data-type='add'] > ul > li > textarea.error {
           border-color: #f99; }
-        div.modal[data-type='edit'] > ul > li > input:focus, div.modal[data-type='add'] > ul > li > input:focus {
+        div.modal[data-type='edit'] > ul > li > input:focus, div.modal[data-type='edit'] > ul > li > textarea:focus, div.modal[data-type='add'] > ul > li > input:focus, div.modal[data-type='add'] > ul > li > textarea:focus {
           border-color: rgba(0, 0, 0, 0.25); }
+      div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='add'] > ul > li > input {
+        display: inline-block;
+        width: calc(100% - 80px); }
+      div.modal[data-type='edit'] > ul > li > textarea, div.modal[data-type='add'] > ul > li > textarea {
+        width: 100%;
+        height: 60px;
+        resize: none; }
   div.modal[data-type='edit'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg); }
+  div.modal[data-type='edit'] > ul > li.info {
+    margin-top: 40px;
+    padding: 30px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); }
+    div.modal[data-type='edit'] > ul > li.info > label {
+      width: 100%;
+      font-size: 100%;
+      font-weight: "%fontWeightMedium";
+      margin-bottom: 5px; }
+    div.modal[data-type='edit'] > ul > li.info > span {
+      opacity: 0;
+      font-size: 80%;
+      color: #f99;
+      transition: opacity 0.5s; }
+    div.modal[data-type='edit'] > ul > li.info.active > span {
+      opacity: 1; }
   div.modal[data-type='add'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg); }
   div.modal[data-type='add'] h2 {
@@ -717,11 +754,15 @@ body.dark div.modal {
   background: #3d3d3d; }
   body.dark div.modal > a.preview, body.dark div.modal > span.preview {
     background: rgba(255, 255, 255, 0.05); }
-  body.dark div.modal[data-type='edit'] > ul > li > input, body.dark div.modal[data-type='add'] > ul > li > input {
+  body.dark div.modal > div.info {
     border-color: rgba(255, 255, 255, 0.1); }
-    body.dark div.modal[data-type='edit'] > ul > li > input.error, body.dark div.modal[data-type='add'] > ul > li > input.error {
+  body.dark div.modal[data-type='edit'] > ul > li.info, body.dark div.modal[data-type='add'] > ul > li.info {
+    border-color: rgba(255, 255, 255, 0.1); }
+  body.dark div.modal[data-type='edit'] > ul > li > input, body.dark div.modal[data-type='edit'] > ul > li > textarea, body.dark div.modal[data-type='add'] > ul > li > input, body.dark div.modal[data-type='add'] > ul > li > textarea {
+    border-color: rgba(255, 255, 255, 0.1); }
+    body.dark div.modal[data-type='edit'] > ul > li > input.error, body.dark div.modal[data-type='edit'] > ul > li > textarea.error, body.dark div.modal[data-type='add'] > ul > li > input.error, body.dark div.modal[data-type='add'] > ul > li > textarea.error {
       border-color: rgba(255, 153, 153, 0.5); }
-    body.dark div.modal[data-type='edit'] > ul > li > input:focus, body.dark div.modal[data-type='add'] > ul > li > input:focus {
+    body.dark div.modal[data-type='edit'] > ul > li > input:focus, body.dark div.modal[data-type='edit'] > ul > li > textarea:focus, body.dark div.modal[data-type='add'] > ul > li > input:focus, body.dark div.modal[data-type='add'] > ul > li > textarea:focus {
       border-color: rgba(255, 255, 255, 0.2); }
   body.dark div.modal[data-type='add'] > menu:not(.buttons) > a {
     background-color: #4d4d4d; }
@@ -740,6 +781,8 @@ body.dark div.modal {
       display: inline-block; }
   body.dark div.modal[data-type='infos'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg); }
+  body.dark div.modal[data-type='infos'] > ul {
+    border-color: rgba(255, 255, 255, 0.1); }
   body.dark div.modal[data-type='infos'] > ul > li > ul {
     background: #222;
     color: #eee; }

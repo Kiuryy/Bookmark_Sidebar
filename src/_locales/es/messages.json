@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
     },
+    "contextmenu_close_all_directories": {
+        "message": "Cerrar todos los directorios"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Recargar barra lateral"
+    },
     "contextmenu_open_children": {
         "message": "Abrir Marcadores"
     },

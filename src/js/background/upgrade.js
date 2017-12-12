@@ -76,7 +76,7 @@
                 chrome.storage.sync.get(null, (obj) => { // get all stored information
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            if (obj.model.updateNotification.search("1.10.") !== 0) { // @deprecated don't show changelog when upgrading from 1.10 to 1.11
+                            if (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification.search("1.10.") !== 0) { // @deprecated don't show changelog when upgrading from 1.10 to 1.11
                                 chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                             }
                         });

@@ -103,6 +103,7 @@
                 visible: "visible",
                 preview: "preview",
                 previewUrl: "previewUrl",
+                info: "info",
                 action: "action",
                 close: "close",
                 hasTooltip: "tooltip",

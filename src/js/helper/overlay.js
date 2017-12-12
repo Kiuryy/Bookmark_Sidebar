@@ -110,7 +110,7 @@
                     break;
                 }
                 case "hide": {
-                    hideBookmark(data);
+                    hideEntry(data);
                     break;
                 }
                 case "openChildren": {
@@ -163,6 +163,20 @@
          */
         let setCloseButtonLabel = (type = "close") => {
             elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_" + type));
+        };
+
+        /**
+         * Appends the additional information for the given entry
+         *
+         * @param {object} data
+         */
+        let appendAdditionalInfo = (data) => {
+            if (data.additionalInfo && data.additionalInfo.desc) {
+                let container = $("<div />").addClass(ext.opts.classes.overlay.info).appendTo(elements.modal);
+
+                $("<h3 />").text(ext.helper.i18n.get("overlay_bookmark_additional_info")).appendTo(container);
+                $("<p />").text(data.additionalInfo.desc).appendTo(container);
+            }
         };
 
         /**
@@ -234,6 +248,7 @@
         let handleDeleteHtml = (data) => {
             $("<p />").text(ext.helper.i18n.get("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
+            appendAdditionalInfo(data);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
         };
 
@@ -245,10 +260,35 @@
         let handleEditHtml = (data) => {
             appendPreviewLink(data);
             let list = $("<ul />").appendTo(elements.modal);
-            list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + data.title.replace(/'/g, "&#x27;") + "' /></li>");
+
+            $("<li />")
+                .append("<label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label>")
+                .append("<input type='text' name='title' value='" + data.title.replace(/'/g, "&#x27;") + "' />")
+                .appendTo(list);
+
             if (!data.isDir) {
-                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + data.url.replace(/'/g, "&#x27;") + "' /></li>");
+                $("<li />")
+                    .append("<label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label>")
+                    .append("<input type='text' name='url' value='" + data.url.replace(/'/g, "&#x27;") + "' />")
+                    .appendTo(list);
             }
+
+            let infoEntry = $("<li />")
+                .addClass(ext.opts.classes.overlay.info)
+                .append("<label>" + ext.helper.i18n.get("overlay_bookmark_additional_info") + "</label>")
+                .appendTo(list);
+
+            let infoField = $("<textarea name='info' />").appendTo(infoEntry);
+            infoField[0].value = (data.additionalInfo ? (data.additionalInfo.desc || "") : "");
+
+            infoEntry.append("<span>" + ext.helper.i18n.get("overlay_bookmark_additional_info_notice") + "</span>");
+
+            infoField.on("focus", () => {
+                infoEntry.addClass(ext.opts.classes.sidebar.active);
+            }).on("blur", () => {
+                infoEntry.removeClass(ext.opts.classes.sidebar.active);
+            });
+
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
@@ -274,6 +314,7 @@
         let handleHideHtml = (data) => {
             $("<p />").text(ext.helper.i18n.get("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
+            appendAdditionalInfo(data);
             $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
@@ -353,6 +394,8 @@
          */
         let handleInfosHtml = (data) => {
             appendPreviewLink(data, true);
+            appendAdditionalInfo(data);
+
             let list = $("<ul />").appendTo(elements.modal);
             let createdDate = new Date(data.dateAdded);
 
@@ -549,7 +592,7 @@
          *
          * @param {object} data
          */
-        let hideBookmark = (data) => {
+        let hideEntry = (data) => {
             ext.startLoading();
             this.closeOverlay();
 
@@ -596,12 +639,14 @@
         let getFormValues = (isDir) => {
             let titleInput = elements.modal.find("input[name='title']").removeClass(ext.opts.classes.overlay.inputError);
             let urlInput = elements.modal.find("input[name='url']").removeClass(ext.opts.classes.overlay.inputError);
+            let infoField = elements.modal.find("textarea[name='info']");
 
             let ret = {
                 errors: false,
                 values: {
                     title: titleInput[0].value.trim(),
-                    url: isDir ? null : urlInput[0].value.trim()
+                    url: isDir ? null : urlInput[0].value.trim(),
+                    additionalInfo: infoField.length() > 0 ? (infoField[0].value || null) : null
                 }
             };
 
@@ -609,6 +654,7 @@
                 titleInput.addClass(ext.opts.classes.overlay.inputError);
                 ret.errors = true;
             }
+
             if (!isDir && ret.values.url.length === 0) {
                 urlInput.addClass(ext.opts.classes.overlay.inputError);
                 ret.errors = true;
@@ -622,7 +668,7 @@
         };
 
         /**
-         * Updates the given bookmark or directory (title, url)
+         * Updates the given bookmark or directory (title, url and additional info)
          *
          * @param {object} data
          */
@@ -630,14 +676,24 @@
             let formValues = getFormValues(data.isDir);
 
             if (formValues.errors === false) {
-                ext.helper.model.call("updateBookmark", {
-                    id: data.id,
-                    title: formValues.values.title,
-                    url: formValues.values.url
-                }).then((result) => {
+                let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+                additionalInfoList[data.id] = {
+                    desc: formValues.values.additionalInfo
+                };
+
+                Promise.all([
+                    ext.helper.model.call("updateBookmark", {
+                        id: data.id,
+                        title: formValues.values.title,
+                        url: formValues.values.url,
+                        preventReload: true
+                    }),
+                    ext.helper.model.setData({"u/additionalInfo": additionalInfoList})
+                ]).then(([result]) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
+                        ext.helper.model.call("reload", {type: "Edit"});
                         this.closeOverlay();
                     }
                 });

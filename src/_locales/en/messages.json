@@ -113,6 +113,12 @@
     "overlay_bookmark_url": {
         "message": "URL"
     },
+    "overlay_bookmark_additional_info": {
+        "message": "Additional info"
+    },
+    "overlay_bookmark_additional_info_notice": {
+        "message": "Will not be synced across your devices."
+    },
     "overlay_cancel": {
         "message": "Cancel"
     },

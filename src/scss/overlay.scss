@@ -31,8 +31,8 @@ body {
 
 div.modal {
   position: relative;
-  width: 500px;
-  height: 400px;
+  width: 600px;
+  height: 500px;
   background: $contentBackground;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -133,6 +133,29 @@ div.modal {
       text-overflow: ellipsis;
       overflow: hidden;
       cursor: pointer;
+    }
+  }
+
+  > div.info {
+    margin: 30px 30px 0 30px;
+    padding: 20px 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    > h3 {
+      font-size: 100%;
+      font-weight: $__fontWeightMedium;
+    }
+
+    > p {
+      margin: 5px 0 0 0;
+      user-select: text;
+      max-height: 120px;
+      overflow: auto;
+    }
+
+    + ul {
+      margin-top: 25px;
+      padding-top: 30px;
     }
   }
 
@@ -399,8 +422,9 @@ div.modal {
       display: flex;
       flex-flow: row;
       font-size: 120%;
-      margin-top: 70px;
-      padding: 0 30px;
+      margin: 40px 30px 0 30px;
+      padding: 40px 0 0 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       justify-content: space-between;
 
       > li {
@@ -469,11 +493,9 @@ div.modal {
           width: 80px;
         }
 
-        > input {
-          display: inline-block;
+        > input, > textarea {
           background: transparent;
           font-size: 120%;
-          width: calc(100% - 80px);
           padding: 5px 8px;
           outline: none;
           box-shadow: none;
@@ -488,12 +510,50 @@ div.modal {
             border-color: rgba(0, 0, 0, 0.25);
           }
         }
+
+        > input {
+          display: inline-block;
+          width: calc(100% - 80px);
+        }
+
+        > textarea {
+          width: 100%;
+          height: 60px;
+          resize: none;
+        }
       }
     }
   }
 
-  &[data-type='edit'] > h1::before {
-    @include maskImage('icon-edit');
+  &[data-type='edit'] {
+
+    > h1::before {
+      @include maskImage('icon-edit');
+    }
+
+    > ul > li.info {
+      margin-top: 40px;
+      padding: 30px 0 0 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+      > label {
+        width: 100%;
+        font-size: 100%;
+        font-weight: $__fontWeightMedium;
+        margin-bottom: 5px;
+      }
+
+      > span {
+        opacity: 0;
+        font-size: 80%;
+        color: $colorError;
+        transition: opacity 0.5s;
+      }
+
+      &.active > span {
+        opacity: 1;
+      }
+    }
   }
 
   &[data-type='add'] {
@@ -649,17 +709,28 @@ body.dark div.modal {
     background: rgba(255, 255, 255, 0.05);
   }
 
+  > div.info {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
   &[data-type='edit'], &[data-type='add'] {
 
-    > ul > li > input {
-      border-color: rgba(255, 255, 255, 0.1);
+    > ul > li {
 
-      &.error {
-        border-color: rgba($colorError, 0.5);
+      &.info {
+        border-color: rgba(255, 255, 255, 0.1);
       }
 
-      &:focus {
-        border-color: rgba(255, 255, 255, 0.2);
+      > input, > textarea {
+        border-color: rgba(255, 255, 255, 0.1);
+
+        &.error {
+          border-color: rgba($colorError, 0.5);
+        }
+
+        &:focus {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
       }
     }
   }
@@ -704,6 +775,10 @@ body.dark div.modal {
 
     > h1::before {
       @include maskImage('icon-info');
+    }
+
+    > ul {
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     > ul > li > ul {

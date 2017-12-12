@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "Poka\u017c ukryte pozycje"
     },
+    "contextmenu_close_all_directories": {
+        "message": "Zamknij wszystkie foldery"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Od\u015bwie\u017c boczn\u0105 list\u0119"
+    },
     "contextmenu_open_children": {
         "message": "Otw\u00f3rz zak\u0142adki"
     },

@@ -157,8 +157,8 @@ iframe[data-appearance] {
 }
 
 iframe[data-appearance='overlay'] {
-  width: 600px;
-  height: 500px;
+  width: 700px;
+  height: 600px;
   top: 35px;
   transform: scale(0.9);
   transform-origin: top right;
@@ -168,9 +168,9 @@ iframe[data-appearance='overlay'] {
     transform: scale(0.8);
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1280px) {
     top: 45px;
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
 }
 

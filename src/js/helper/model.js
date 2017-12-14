@@ -38,7 +38,6 @@
                 translationHelp: true,
                 autoOpen: false,
                 entryAmounts: {},
-                searchValue: null,
                 lastOpened: null,
                 sort: {
                     name: "custom",

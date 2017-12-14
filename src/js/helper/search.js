@@ -9,13 +9,6 @@
          * Initializes the helper
          */
         this.init = () => {
-            let searchValue = ext.helper.model.getData("u/searchValue");
-
-            if (searchValue && searchValue.length > 0) { // search value is not empty -> restore
-                ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
-                handleSearchValChanged(searchValue);
-            }
-
             initEvents();
         };
 
@@ -76,8 +69,6 @@
                     searchField.data("lastVal", val);
 
                     ext.helper.entry.initOnce().then(() => {
-                        return ext.helper.model.setData({"u/searchValue": val});
-                    }).then(() => {
                         ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.search, 0);
                         return ext.helper.model.call("searchBookmarks", {searchVal: val});
                     }).then((response) => {
@@ -121,19 +112,17 @@
             return new Promise((resolve) => {
                 searchField.removeData("lastVal");
 
-                ext.helper.model.setData({"u/searchValue": false}).then(() => {
-                    if (ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) {
-                        ext.startLoading();
-                        ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.active);
-                        ext.elements.bookmarkBox.search.removeClass(ext.opts.classes.sidebar.active);
-                        ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox.all);
-                        ext.helper.scroll.focus();
-                        ext.endLoading();
-                    }
+                if (ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) {
+                    ext.startLoading();
+                    ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.active);
+                    ext.elements.bookmarkBox.search.removeClass(ext.opts.classes.sidebar.active);
+                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox.all);
+                    ext.helper.scroll.focus();
+                    ext.endLoading();
+                }
 
-                    ext.helper.list.updateSortFilter();
-                    resolve();
-                });
+                ext.helper.list.updateSortFilter();
+                resolve();
             });
         };
 

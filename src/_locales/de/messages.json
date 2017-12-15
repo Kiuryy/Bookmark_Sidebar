@@ -47,6 +47,9 @@
     "contextmenu_new_tab": {
         "message": "In neuem Tab \u00f6ffnen"
     },
+    "contextmenu_new_window": {
+        "message": "In neuem Fenster \u00f6ffnen"
+    },
     "contextmenu_new_tab_incognito": {
         "message": "In Inkognito-Fenster \u00f6ffnen"
     },

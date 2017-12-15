@@ -246,9 +246,10 @@
                     }
 
                     list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
+                    list.append("<li><a " + ext.opts.attr.name + "='newWindow'>" + ext.helper.i18n.get("contextmenu_new_window") + "</a></li>");
 
                     if (chrome.extension.inIncognitoContext === false) {
-                        list.append("<li><a " + ext.opts.attr.name + "='newTabIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
+                        list.append("<li><a " + ext.opts.attr.name + "='newIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
                     }
                 }
 
@@ -316,7 +317,7 @@
          *
          * @param {object} opts
          */
-        clickFuncs.newTabIncognito = (opts) => {
+        clickFuncs.newIncognito = (opts) => {
             ext.helper.model.call("trackEvent", {
                 category: "url",
                 action: "open",
@@ -324,6 +325,22 @@
             });
             if (opts.data) {
                 ext.helper.utility.openUrl(opts.data, "incognito");
+            }
+        };
+
+        /**
+         * Opens the bookmark in a new window
+         *
+         * @param {object} opts
+         */
+        clickFuncs.newWindow = (opts) => {
+            ext.helper.model.call("trackEvent", {
+                category: "url",
+                action: "open",
+                label: "new_window"
+            });
+            if (opts.data) {
+                ext.helper.utility.openUrl(opts.data, "newWindow");
             }
         };
 

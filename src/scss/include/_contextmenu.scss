@@ -39,7 +39,7 @@ div.contextmenu {
 
   > ul.icons {
     background: darken($contentBackground2, 0.5%);
-    padding: 4px 2px 6px 2px;
+    padding: 3px 2px 5px 2px;
 
     > li {
       display: inline-block;
@@ -49,11 +49,11 @@ div.contextmenu {
       }
 
       > a {
-        @include mask(null, $contextMenuIconColor, 22px);
+        @include mask(null, $contextMenuIconColor, 20px);
         position: relative;
         display: block;
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         cursor: pointer;
         border-radius: 50%;
         margin: 0 3px;
@@ -65,7 +65,7 @@ div.contextmenu {
 
         &[data-name='delete']::before {
           @include maskImage('icon-delete');
-          -webkit-mask-size: 20px;
+          -webkit-mask-size: 19px;
         }
 
         &[data-name='edit']::before {
@@ -82,12 +82,12 @@ div.contextmenu {
 
         &[data-name='pin']::before {
           @include maskImage('icon-pin');
-          -webkit-mask-size: 16px;
+          -webkit-mask-size: 15px;
         }
 
         &[data-name='unpin']::before {
           @include maskImage('icon-unpin');
-          -webkit-mask-size: 16px;
+          -webkit-mask-size: 14px;
         }
 
         &[data-name='show']::before {
@@ -117,11 +117,11 @@ div.contextmenu {
       > div.checkbox {
         position: absolute;
         z-index: 2;
-        top: 13px;
-        left: 14px;
+        top: 9px;
+        left: 9px;
 
         + a {
-          padding-left: 50px;
+          padding-left: 38px;
 
           &::before {
             display: none;
@@ -137,8 +137,8 @@ div.contextmenu {
         @include mask(null, $contextMenuIconColor, 20px);
         position: relative;
         display: block;
-        line-height: 45px;
-        padding: 0 12px 0 42px;
+        line-height: 39px;
+        padding: 0 10px 0 38px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -146,7 +146,7 @@ div.contextmenu {
         transition: color 0.3s;
 
         &::before {
-          -webkit-mask-position: 12px center;
+          -webkit-mask-position: 9px center;
           transition: background-color 0.3s, opacity 0.3s;
         }
 
@@ -171,7 +171,11 @@ div.contextmenu {
           @include maskImage('icon-newTab');
         }
 
-        &[data-name='newTabIncognito']::before {
+        &[data-name='newWindow']::before {
+          @include maskImage('icon-newWindow');
+        }
+
+        &[data-name='newIncognito']::before {
           @include maskImage('icon-incognito');
         }
 

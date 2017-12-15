@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "Afficher les contenus masqu\u00e9s"
     },
+    "contextmenu_close_all_directories": {
+        "message": "Fermer tous les dossiers"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Recharger la barre lat\u00e9rale"
+    },
     "contextmenu_open_children": {
         "message": "Ouvrir les favoris"
     },
@@ -106,6 +112,12 @@
     },
     "overlay_bookmark_url": {
         "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Info compl\u00e9mentaire"
+    },
+    "overlay_bookmark_additional_info_notice": {
+        "message": "Ne sera pas synchronis\u00e9 sur vos appareils"
     },
     "overlay_cancel": {
         "message": "Annuler"

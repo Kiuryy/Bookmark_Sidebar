@@ -90,7 +90,7 @@ div.contextmenu {
       transform: translate3d(0, -40px, 0); }
   div.contextmenu > ul.icons {
     background: #f4f4f4;
-    padding: 4px 2px 6px 2px; }
+    padding: 3px 2px 5px 2px; }
     div.contextmenu > ul.icons > li {
       display: inline-block; }
       div.contextmenu > ul.icons > li.right {
@@ -98,8 +98,8 @@ div.contextmenu {
       div.contextmenu > ul.icons > li > a {
         position: relative;
         display: block;
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         cursor: pointer;
         border-radius: 50%;
         margin: 0 3px;
@@ -111,13 +111,13 @@ div.contextmenu {
           left: 0;
           width: 100%;
           height: 100%;
-          -webkit-mask: no-repeat center/22px;
+          -webkit-mask: no-repeat center/20px;
           background-color: #ccc; }
         div.contextmenu > ul.icons > li > a.hover {
           background-color: #ededed; }
         div.contextmenu > ul.icons > li > a[data-name='delete']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg);
-          -webkit-mask-size: 20px; }
+          -webkit-mask-size: 19px; }
         div.contextmenu > ul.icons > li > a[data-name='edit']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg); }
         div.contextmenu > ul.icons > li > a[data-name='infos']::before {
@@ -126,10 +126,10 @@ div.contextmenu {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg); }
         div.contextmenu > ul.icons > li > a[data-name='pin']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.svg);
-          -webkit-mask-size: 16px; }
+          -webkit-mask-size: 15px; }
         div.contextmenu > ul.icons > li > a[data-name='unpin']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-unpin.svg);
-          -webkit-mask-size: 16px; }
+          -webkit-mask-size: 14px; }
         div.contextmenu > ul.icons > li > a[data-name='show']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-show.svg); }
         div.contextmenu > ul.icons > li > a[data-name='hide']::before {
@@ -143,10 +143,10 @@ div.contextmenu {
     div.contextmenu > ul.list > li > div.checkbox {
       position: absolute;
       z-index: 2;
-      top: 13px;
-      left: 14px; }
+      top: 9px;
+      left: 9px; }
       div.contextmenu > ul.list > li > div.checkbox + a {
-        padding-left: 50px; }
+        padding-left: 38px; }
         div.contextmenu > ul.list > li > div.checkbox + a::before {
           display: none; }
       div.contextmenu > ul.list > li > div.checkbox.hover + a {
@@ -154,8 +154,8 @@ div.contextmenu {
     div.contextmenu > ul.list > li > a {
       position: relative;
       display: block;
-      line-height: 45px;
-      padding: 0 12px 0 42px;
+      line-height: 39px;
+      padding: 0 10px 0 38px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -171,7 +171,7 @@ div.contextmenu {
         -webkit-mask: no-repeat center/20px;
         background-color: #ccc; }
       div.contextmenu > ul.list > li > a::before {
-        -webkit-mask-position: 12px center;
+        -webkit-mask-position: 9px center;
         transition: background-color 0.3s, opacity 0.3s; }
       div.contextmenu > ul.list > li > a.hover {
         color: "%colorScheme"; }
@@ -184,7 +184,9 @@ div.contextmenu {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg); }
       div.contextmenu > ul.list > li > a[data-name='newTab']::before, div.contextmenu > ul.list > li > a[data-name='openChildren']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.svg); }
-      div.contextmenu > ul.list > li > a[data-name='newTabIncognito']::before {
+      div.contextmenu > ul.list > li > a[data-name='newWindow']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newWindow.svg); }
+      div.contextmenu > ul.list > li > a[data-name='newIncognito']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-incognito.svg); }
       div.contextmenu > ul.list > li > a[data-name='deleteSeparator']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg); }

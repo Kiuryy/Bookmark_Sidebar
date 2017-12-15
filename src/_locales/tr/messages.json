@@ -59,6 +59,12 @@
     "contextmenu_toggle_hidden": {
         "message": "Gizli girdileri g\u00f6ster"
     },
+    "contextmenu_close_all_directories": {
+        "message": "T\u00fcm Dizinleri Kapat"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Sidebar'\u0131 Yeniden Y\u00fckle"
+    },
     "contextmenu_open_children": {
         "message": "Yer imlerini a\u00e7"
     },

@@ -21,6 +21,11 @@
                     href: infos.url,
                     incognito: true
                 });
+            } else if (type === "newWindow") {
+                ext.helper.model.call("openLink", {
+                    href: infos.url,
+                    newWindow: true
+                });
             } else {
                 ext.helper.model.call("openLink", {
                     parentId: infos.parentId,

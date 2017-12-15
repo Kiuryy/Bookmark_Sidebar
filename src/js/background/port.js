@@ -220,7 +220,7 @@
         };
 
         /**
-         * Opens the given url in the current tab or in a new tab
+         * Opens the given url while regarding the specified parameters
          *
          * @param {object} opts
          * @returns {Promise}
@@ -256,6 +256,9 @@
                     } else {
                         createTab();
                     }
+                } else if (opts.newWindow && opts.newWindow === true) { // new normal window
+                    chrome.windows.create({url: opts.href, state: "maximized"});
+                    resolve();
                 } else if (opts.incognito && opts.incognito === true) { // incognito window
                     chrome.windows.create({url: opts.href, state: "maximized", incognito: true});
                     resolve();

@@ -281,6 +281,7 @@
                 dragndrop: new window.DragDropHelper(this),
                 checkbox: new window.CheckboxHelper(this),
                 keyboard: new window.KeyboardHelper(this),
+                bookmark: new window.BookmarkHelper(this),
                 overlay: new window.OverlayHelper(this),
                 utility: new window.UtilityHelper(this),
                 specialEntry: new window.SpecialEntryHelper(this),

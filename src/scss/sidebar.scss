@@ -242,9 +242,10 @@ section#sidebar {
 
   > a.lockPinned {
     position: absolute;
-    top: #{$sidebarHeaderHeight + 9px};
+    top: $sidebarHeaderHeight;
     right: -22px;
     display: block;
+    margin-top: 9px;
     width: 18px;
     height: 45px;
     background: $contentBackground;

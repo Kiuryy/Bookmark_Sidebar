@@ -50,6 +50,7 @@
         "js/helper/checkbox.js",
         "js/helper/overlay.js",
         "js/helper/contextmenu.js",
+        "js/helper/bookmark.js",
         "js/helper/tooltip.js",
         "js/helper/specialEntry.js",
         "js/helper/utility.js",

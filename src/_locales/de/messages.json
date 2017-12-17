@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Abbrechen"
     },
+    "sidebar_deleted": {
+        "message": "Gel\u00f6scht"
+    },
+    "sidebar_undo_deletion": {
+        "message": "R\u00fcckg\u00e4ngig"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Lesezeichen bearbeiten"
     },

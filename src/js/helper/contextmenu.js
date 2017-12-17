@@ -362,6 +362,15 @@
         };
 
         /**
+         * Deletes the given entry
+         *
+         * @param {object} opts
+         */
+        clickFuncs["delete"] = (opts) => {
+            ext.helper.bookmark.removeEntry(opts.data.id);
+        };
+
+        /**
          * Deletes the given separator
          *
          * @param {object} opts

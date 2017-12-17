@@ -131,8 +131,8 @@
                         b.preventReload = true;
                     }
 
-                    b.helper.bookmarkApi.func.create(values).then(() => {
-                        rslv({created: opts.id});
+                    b.helper.bookmarkApi.func.create(values).then((obj) => {
+                        rslv({created: obj.id});
                     }, (error) => {
                         rslv({error: error});
                     });

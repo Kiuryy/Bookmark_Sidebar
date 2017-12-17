@@ -3,6 +3,8 @@
 
     window.KeyboardHelper = function (ext) {
 
+        let isRemoving = false;
+
         /**
          *
          * @returns {Promise}
@@ -83,6 +85,9 @@
                         } else { // close sidebar
                             ext.helper.toggle.closeSidebar();
                         }
+                    } else if (e.key === "Delete") {
+                        e.preventDefault();
+                        removeHoveredEntry();
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         copyHoveredEntryUrl();
@@ -305,6 +310,28 @@
                     return true;
                 }
             });
+        };
+
+        /**
+         * Removes the currently hovered entry
+         */
+        let removeHoveredEntry = () => {
+            if (!isRemoving) {
+                isRemoving = true;
+
+                Object.values(ext.elements.bookmarkBox).some((box) => {
+                    if (box.hasClass(ext.opts.classes.sidebar.active)) {
+                        let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
+
+                        if (elm.length() > 0 && elm.children("span." + ext.opts.classes.sidebar.removeMask).length() === 0) {
+                            ext.helper.bookmark.removeEntry(elm.attr(ext.opts.attr.id)).then(() => {
+                                isRemoving = false;
+                            });
+                        }
+                        return true;
+                    }
+                });
+            }
         };
 
         /**

@@ -5,6 +5,7 @@
 
         let markTimeout = null;
         let lockPinnedEntriesTimeout = null;
+        let isRestoring = false;
 
         /**
          * Initializes the helper
@@ -110,7 +111,12 @@
                 $(selector).on("click mousedown", "> ul a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
 
-                    if (!$(e.target).hasClass(ext.opts.classes.drag.trigger) && !$(e.target).hasClass(ext.opts.classes.sidebar.separator) && ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)) { // only left click
+                    if (
+                        !$(e.target).hasClass(ext.opts.classes.drag.trigger) &&
+                        !$(e.target).hasClass(ext.opts.classes.sidebar.separator) &&
+                        !$(e.target).parent().hasClass(ext.opts.classes.sidebar.removeMask) &&
+                        ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)
+                    ) { // only left click
                         this.handleEntryClick($(e.currentTarget), e);
                     }
                 }).on("mouseover", "> ul a", (e) => { // add class to currently hovered element
@@ -145,6 +151,17 @@
                 }).on("mouseleave", (e) => {
                     ext.helper.tooltip.close();
                     $(e.currentTarget).find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                }).on("click", "span." + ext.opts.classes.sidebar.removeMask + " > span", (e) => { // undo deletion of an entry
+                    e.preventDefault();
+                    let elm = $(e.target).parents("a").eq(0);
+
+                    if (isRestoring === false) {
+                        isRestoring = true;
+
+                        ext.helper.bookmark.restoreEntry(elm).then(() => {
+                            isRestoring = false;
+                        });
+                    }
                 });
             });
         };
@@ -221,14 +238,31 @@
                 if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
                     if (message.action === "reload") { // reload the current instance of the extension
-                        let delay = 0;
-                        if (message.scrollTop) {
-                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0);
-                            delay = 100;
+                        let performReload = true;
+
+                        if (message.type === "Removed" || message.type === "Created") {
+                            Object.values(ext.elements.bookmarkBox).some((box) => {
+                                if (box.hasClass(ext.opts.classes.sidebar.active)) {
+
+                                    if (box.find("a." + ext.opts.classes.sidebar.restored).length() > 0 || box.find("span." + ext.opts.classes.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
+                                        performReload = false;
+                                    }
+
+                                    return true;
+                                }
+                            });
                         }
 
-                        ext.needsReload = true;
-                        $.delay(delay).then(ext.reload);
+                        if (performReload) {
+                            let delay = 0;
+                            if (message.scrollTop) {
+                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0);
+                                delay = 100;
+                            }
+
+                            ext.needsReload = true;
+                            $.delay(delay).then(ext.reload);
+                        }
                     } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
                         ext.helper.model.call("clearNotWorkingTimeout");
 

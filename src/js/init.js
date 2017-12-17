@@ -60,7 +60,10 @@
                 search: "search",
                 searchBox: "searchBox",
                 searchClose: "searchClose",
-                searchVisible: "searchVisible"
+                searchVisible: "searchVisible",
+                removeMask: "removeMask",
+                removed: "removed",
+                restored: "restored"
             },
             tooltip: {
                 wrapper: "tooltip",

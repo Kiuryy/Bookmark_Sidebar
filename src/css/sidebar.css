@@ -477,6 +477,27 @@ a.dragHelper {
         width: 100%;
         height: 1px;
         background: rgba(0, 0, 0, 0.15); }
+  a.dragHelper > span.removeMask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+    padding: 0 "%bookmarksHorizontalPadding";
+    transform: translateX(100%);
+    transition: transform 0.3s; }
+    a.dragHelper > span.removeMask::before {
+      -webkit-mask-position: "%bookmarksHorizontalPadding" center; }
+    a.dragHelper > span.removeMask > em {
+      font-style: italic; }
+    a.dragHelper > span.removeMask > span {
+      pointer-events: auto;
+      float: right; }
+  a.dragHelper.removed {
+    pointer-events: none; }
+    a.dragHelper.removed > span.removeMask {
+      transform: translateX(0); }
   a.dragHelper > span.copied {
     position: absolute;
     top: -20px;
@@ -706,9 +727,10 @@ section#sidebar {
       transition: transform 0.5s 0.1s, opacity 0.5s 0.1s; }
   section#sidebar > a.lockPinned {
     position: absolute;
-    top: 59px;
+    top: 50px;
     right: -22px;
     display: block;
+    margin-top: 9px;
     width: 18px;
     height: 45px;
     background: #fff;
@@ -862,6 +884,27 @@ section#sidebar {
               width: 100%;
               height: 1px;
               background: rgba(0, 0, 0, 0.15); }
+        section#sidebar > div.scrollBox > ul a > span.removeMask, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: #ddd;
+          padding: 0 "%bookmarksHorizontalPadding";
+          transform: translateX(100%);
+          transition: transform 0.3s; }
+          section#sidebar > div.scrollBox > ul a > span.removeMask::before, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask::before {
+            -webkit-mask-position: "%bookmarksHorizontalPadding" center; }
+          section#sidebar > div.scrollBox > ul a > span.removeMask > em, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > em {
+            font-style: italic; }
+          section#sidebar > div.scrollBox > ul a > span.removeMask > span, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > span {
+            pointer-events: auto;
+            float: right; }
+        section#sidebar > div.scrollBox > ul a.removed, section#sidebar > div.scrollBox > div.pinned > ul a.removed {
+          pointer-events: none; }
+          section#sidebar > div.scrollBox > ul a.removed > span.removeMask, section#sidebar > div.scrollBox > div.pinned > ul a.removed > span.removeMask {
+            transform: translateX(0); }
         section#sidebar > div.scrollBox > ul a > span.copied, section#sidebar > div.scrollBox > div.pinned > ul a > span.copied {
           position: absolute;
           top: -20px;
@@ -1151,6 +1194,8 @@ body.dark section#sidebar {
     border-color: rgba(255, 255, 255, 0.2); }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
+  body.dark section#sidebar > div.scrollBox > ul a > span.removeMask {
+    background: #666; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
     background-color: #999; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
@@ -1165,6 +1210,8 @@ body.dark section#sidebar {
       background-color: #ccc; }
   body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
+  body.dark section#sidebar ~ a.dragHelper > span.removeMask {
+    background: #666; }
   body.dark section#sidebar ~ a.dragHelper > span.drag::before {
     background-color: #999; }
   body.dark section#sidebar ~ a.dragHelper > span.drag:hover {

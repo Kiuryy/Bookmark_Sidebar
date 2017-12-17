@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Cancel"
     },
+    "sidebar_deleted": {
+        "message": "Removed"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Undo"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Edit Bookmark"
     },

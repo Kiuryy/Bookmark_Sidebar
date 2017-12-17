@@ -616,17 +616,8 @@
          */
         let deleteBookmark = (data) => {
             this.closeOverlay();
-
-            ext.helper.model.call("trackEvent", {
-                category: "extension",
-                action: "remove",
-                label: data.url ? "bookmark" : "directory"
-            });
-
             ext.elements.bookmarkBox.all.find("a[data-id='" + data.id + "']").parent("li").remove();
-            ext.helper.specialEntry.reorderSeparators([data.parentId]).then(() => {
-                ext.helper.model.call("deleteBookmark", {id: data.id});
-            });
+            ext.helper.bookmark.performDeletion(data);
         };
 
         /**
@@ -676,23 +667,20 @@
             let formValues = getFormValues(data.isDir);
 
             if (formValues.errors === false) {
-                let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
-                additionalInfoList[data.id] = {
-                    desc: formValues.values.additionalInfo
-                };
-
-                Promise.all([
-                    ext.helper.model.call("updateBookmark", {
-                        id: data.id,
-                        title: formValues.values.title,
-                        url: formValues.values.url,
-                        preventReload: true
-                    }),
-                    ext.helper.model.setData({"u/additionalInfo": additionalInfoList})
-                ]).then(([result]) => {
+                ext.helper.bookmark.editEntry({
+                    id: data.id,
+                    title: formValues.values.title,
+                    url: formValues.values.url,
+                    additionalInfo: formValues.values.additionalInfo
+                }).then(([result]) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
+                        ext.helper.model.call("trackEvent", {
+                            category: "extension",
+                            action: "edit",
+                            label: formValues.values.url ? "bookmark" : "directory"
+                        });
                         ext.helper.model.call("reload", {type: "Edit"});
                         this.closeOverlay();
                     }

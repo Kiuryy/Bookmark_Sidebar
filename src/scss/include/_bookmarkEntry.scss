@@ -50,6 +50,39 @@
     }
   }
 
+  > span.removeMask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: $removedBackground;
+    padding: 0 $__bookmarksHorizontalPadding;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+
+    &::before {
+      -webkit-mask-position: $__bookmarksHorizontalPadding center;
+    }
+
+    > em {
+      font-style: italic;
+    }
+
+    > span {
+      pointer-events: auto;
+      float: right;
+    }
+  }
+
+  &.removed {
+    pointer-events: none;
+
+    > span.removeMask {
+      transform: translateX(0);
+    }
+  }
+
   > span.copied {
     position: absolute;
     top: -20px;
@@ -163,6 +196,10 @@
 
   &.separator > span.label::after {
     background: $darkSeparatorColor;
+  }
+
+  > span.removeMask {
+    background: $darkRemovedBackground;
   }
 
   > span.drag {

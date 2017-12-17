@@ -95,7 +95,7 @@
                     bookmarksFontSize: "14px",
                     directoriesIconSize: "16px",
                     bookmarksIconSize: "16px",
-                    bookmarksLineHeight: "40px",
+                    bookmarksLineHeight: "38px",
                     bookmarksDirIcon: "dir-1",
                     bookmarksDirColor: defaultColors.textColor.light,
                     bookmarksDirIndentation: "25px",

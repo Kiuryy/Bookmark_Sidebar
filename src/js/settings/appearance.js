@@ -207,18 +207,22 @@
          * @param {string} key
          */
         let updatePageLayout = (key) => {
+            s.opts.elm.content.removeClass(s.opts.classes.small);
+
             if (s.opts.elm.preview[key]) {
                 let config = getCurrentConfig();
-                s.opts.elm.content.removeClass(s.opts.classes.small);
 
                 if (s.opts.elm.preview[key][0].offsetParent !== null) { // preview is visible -> if screen is too small it's hidden
                     let headerRightPadding = 0;
 
-                    if (key === "indicator") {
+                    if (key === "overlay") {
+                        s.opts.elm.content.addClass(s.opts.classes.small);
+                    } else if (key === "indicator") {
                         headerRightPadding = config.styles.indicatorWidth;
                     } else if (key === "sidebar" || key === "general") {
                         headerRightPadding = config.styles.sidebarWidth;
                     }
+
                     s.opts.elm.header.css("padding-right", headerRightPadding);
                     s.opts.elm.content.css("padding-right", headerRightPadding);
                 } else {

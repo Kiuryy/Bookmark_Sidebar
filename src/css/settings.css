@@ -691,8 +691,10 @@ iframe[data-appearance='overlay'] {
   width: 700px;
   height: 600px;
   top: 35px;
-  transform: scale(0.9);
   transform-origin: top right; }
+  @media (max-width: 1550px) {
+    iframe[data-appearance='overlay'] {
+      transform: scale(0.9); } }
   @media (max-width: 1400px) {
     iframe[data-appearance='overlay'] {
       top: 40px;
@@ -701,6 +703,9 @@ iframe[data-appearance='overlay'] {
     iframe[data-appearance='overlay'] {
       top: 45px;
       transform: scale(0.6); } }
+  @media (max-width: 1200px) {
+    iframe[data-appearance='overlay'] {
+      display: none !important; } }
 
 @media (min-width: 1024px) {
   body[data-type='appearance_general'] > iframe[data-appearance='general'],

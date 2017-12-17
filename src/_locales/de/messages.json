@@ -704,7 +704,7 @@
     "settings_sidebar_width": {
         "message": "Breite"
     },
-    "settings_sidebar_header_height": {
+    "settings_header_height": {
         "message": "H\u00f6he der Kopfzeile"
     },
     "settings_sidebar_mask_color": {

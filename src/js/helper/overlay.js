@@ -37,10 +37,9 @@
                 iframeBody.addClass(ext.opts.classes.page.darkMode);
             }
 
-            let trackingLabel = type;
-
-            elements.modal.append("<h1>" + title + "</h1>");
-            $("<a />").addClass(ext.opts.classes.overlay.close).appendTo(elements.modal);
+            let header = $("<header />").appendTo(elements.modal);
+            $("<h1 />").text(title).appendTo(header);
+            $("<a />").addClass(ext.opts.classes.overlay.close).appendTo(header);
 
             elements.buttonWrapper = $("<menu />").addClass(ext.opts.classes.overlay.buttonWrapper).appendTo(elements.modal);
             $("<a />")
@@ -89,7 +88,7 @@
             }
 
             ext.helper.keyboard.initOverlayEvents(elements.overlay);
-            ext.helper.model.call("trackPageView", {page: "/overlay/" + trackingLabel});
+            ext.helper.model.call("trackPageView", {page: "/overlay/" + type});
             initEvents();
 
             $.delay(100).then(() => {

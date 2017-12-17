@@ -103,6 +103,7 @@
                     bookmarksHorizontalPadding: "16px",
                     scrollBarWidth: "11px",
                     overlayMaskColor: "rgba(0,0,0,0.5)",
+                    overlayHeaderHeight: "50px",
                     fontFamily: "default",
                     iconShape: "bookmark",
                     iconColor: "#555555"

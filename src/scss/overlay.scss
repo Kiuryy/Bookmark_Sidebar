@@ -45,37 +45,41 @@ div.modal {
     transform: scale(1);
   }
 
-  > h1 {
+  > header {
     @include mask(null, $__foregroundColor, 24px);
     position: relative;
     color: $__foregroundColor;
-    font-size: 150%;
-    font-weight: $__fontWeightNormal;
-    height: $overlayHeaderHeight;
-    padding: 12px 75px 0 55px;
+    height: $__overlayHeaderHeight;
+    padding: 0 75px 0 52px;
     background-color: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 
     &::before {
-      -webkit-mask-position: 20px center;
+      -webkit-mask-position: 18px center;
     }
-  }
 
-  > a.close {
-    @include mask('icon-close', $__foregroundColor, 24px);
-    position: absolute;
-    top: 4px;
-    right: 15px;
-    display: block;
-    width: 42px;
-    height: 42px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s;
-    z-index: 2;
+    > h1 {
+      font-size: 150%;
+      font-weight: $__fontWeightNormal;
+      line-height: $__overlayHeaderHeight;
+    }
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    > a.close {
+      @include mask('icon-close', $__foregroundColor, 24px);
+      position: absolute;
+      top: calc(50% - 17px);
+      right: 15px;
+      display: block;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      z-index: 2;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
     }
   }
 
@@ -161,7 +165,7 @@ div.modal {
 
   &[data-type='updateUrls'] {
 
-    > h1::before {
+    > header::before {
       @include maskImage('icon-update');
     }
 
@@ -174,7 +178,7 @@ div.modal {
 
       &.success {
         @include mask('icon-check', $colorSuccess, 48px);
-        padding: 30px 0 80px;
+        padding: 90px 0 80px;
 
         &::before {
           -webkit-mask-position-y: bottom;
@@ -230,12 +234,11 @@ div.modal {
     }
 
     > svg.loading {
-      margin: $overlayHeaderHeight auto 0;
-      transition: margin-top 0.5s;
+      margin: 80px auto 0;
     }
 
     > div#urlList {
-      height: calc(100% - #{$overlayHeaderHeight} - 57px);
+      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
 
       > ul {
         margin: 12px 0;
@@ -317,7 +320,7 @@ div.modal {
     }
 
     &.urlCheckLoading {
-      transition: width 0.5s, height 0.5s, margin-top 0.5s;
+      transition: width 0.5s, height 0.5s;
     }
 
     &.urlCheckList {
@@ -337,7 +340,8 @@ div.modal {
       }
 
       > svg.loading {
-        margin-top: 150px;
+        transition: margin-top 0.5s;
+        margin-top: 210px;
       }
     }
   }
@@ -351,21 +355,21 @@ div.modal {
     }
   }
 
-  &[data-type='delete'] > h1::before {
+  &[data-type='delete'] > header::before {
     @include maskImage('icon-delete');
   }
 
-  &[data-type='hide'] > h1::before {
+  &[data-type='hide'] > header::before {
     @include maskImage('icon-hide');
   }
 
-  &[data-type='openChildren'] > h1::before {
+  &[data-type='openChildren'] > header::before {
     @include maskImage('icon-newTab');
   }
 
   &[data-type='infos'], &[data-type='shareInfoDesc'] {
 
-    > h1::before {
+    > header::before {
       @include maskImage('icon-info');
     }
   }
@@ -390,7 +394,7 @@ div.modal {
     }
 
     > div.scrollBox {
-      height: calc(100% - #{$overlayHeaderHeight} - 57px);
+      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
       font-size: 120%;
       line-height: 150%;
 
@@ -527,7 +531,7 @@ div.modal {
 
   &[data-type='edit'] {
 
-    > h1::before {
+    > header::before {
       @include maskImage('icon-edit');
     }
 
@@ -558,7 +562,7 @@ div.modal {
 
   &[data-type='add'] {
 
-    > h1::before {
+    > header::before {
       @include maskImage('icon-add');
     }
 
@@ -773,7 +777,7 @@ body.dark div.modal {
 
   &[data-type='infos'] {
 
-    > h1::before {
+    > header::before {
       @include maskImage('icon-info');
     }
 

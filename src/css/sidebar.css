@@ -671,8 +671,8 @@ section#sidebar {
     section#sidebar > header > a {
       position: relative;
       display: block;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.3s, opacity 0.5s; }

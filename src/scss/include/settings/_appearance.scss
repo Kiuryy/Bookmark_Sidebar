@@ -160,8 +160,11 @@ iframe[data-appearance='overlay'] {
   width: 700px;
   height: 600px;
   top: 35px;
-  transform: scale(0.9);
   transform-origin: top right;
+
+  @media (max-width: 1550px) {
+    transform: scale(0.9);
+  }
 
   @media (max-width: 1400px) {
     top: 40px;
@@ -171,6 +174,10 @@ iframe[data-appearance='overlay'] {
   @media (max-width: 1280px) {
     top: 45px;
     transform: scale(0.6);
+  }
+
+  @media (max-width: 1200px) {
+    display: none !important;
   }
 }
 

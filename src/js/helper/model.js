@@ -91,6 +91,7 @@
                     indicatorIconColor: "#ffffff",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",
+                    sidebarHeaderHeight: "50px",
                     sidebarMaskColor: defaultColors.sidebarMaskColor.light,
                     bookmarksFontSize: "14px",
                     directoriesIconSize: "16px",

@@ -92,6 +92,12 @@
                         if (result && result.created) {
                             elm.attr(ext.opts.attr.id, result.created);
 
+                            ext.helper.model.call("trackEvent", {
+                                category: "extension",
+                                action: "restore",
+                                label: data.url ? "bookmark" : "directory"
+                            });
+
                             let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
                             if (additionalInfoList[data.id]) { // restore the additional information
                                 additionalInfoList[result.created] = additionalInfoList[data.id];

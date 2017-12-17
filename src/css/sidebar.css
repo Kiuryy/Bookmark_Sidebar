@@ -635,9 +635,14 @@ section#sidebar {
     box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15); }
   section#sidebar > header {
     position: relative;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     width: 100%;
-    height: 50px;
-    padding: 6px 12px 0 12px;
+    height: "%sidebarHeaderHeight";
+    padding: 0 12px;
     background: "%colorScheme";
     transition: background 0.3s;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -645,11 +650,10 @@ section#sidebar {
     flex-shrink: 0;
     z-index: 3; }
     section#sidebar > header > h1 {
-      display: inline-block;
       color: "%foregroundColor";
       font-weight: "%fontWeightMedium";
+      margin-right: auto;
       font-size: 100%;
-      margin: 4px 0 0 0;
       transition: transform 0.5s; }
       section#sidebar > header > h1.hidden {
         display: none; }
@@ -660,16 +664,15 @@ section#sidebar {
         opacity: 0.7;
         font-size: 90%;
         display: inline-block;
+        line-height: normal;
         margin: 0 0 0 3px; }
         section#sidebar > header > h1 > span.hidden {
           display: none; }
     section#sidebar > header > a {
       position: relative;
-      vertical-align: top;
       display: block;
       width: 36px;
       height: 36px;
-      float: right;
       border-radius: 50%;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.3s, opacity 0.5s; }
@@ -688,7 +691,7 @@ section#sidebar {
         margin-right: -2px; }
     section#sidebar > header > div.searchBox {
       position: absolute;
-      top: 10px;
+      top: calc(50% - 15px);
       left: 16px;
       width: calc(100% - 105px);
       height: 30px;
@@ -727,7 +730,7 @@ section#sidebar {
       transition: transform 0.5s 0.1s, opacity 0.5s 0.1s; }
   section#sidebar > a.lockPinned {
     position: absolute;
-    top: 50px;
+    top: "%sidebarHeaderHeight";
     right: -22px;
     display: block;
     margin-top: 9px;
@@ -771,7 +774,7 @@ section#sidebar {
     transform: translate3d(7px, 0, 0); }
   section#sidebar > div.filter {
     position: absolute;
-    top: 50px;
+    top: "%sidebarHeaderHeight";
     left: 11px;
     width: calc(100% - 22px);
     background: #f5f5f5;

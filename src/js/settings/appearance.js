@@ -172,12 +172,14 @@
                     let sidebarHeader = sidebar.find("> header");
                     sidebarHeader.find("> h1").removeClass(s.opts.classes.hidden);
                     sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
-                    let computedStyle = window.getComputedStyle(sidebarHeader[0]);
-                    let headerPaddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
 
                     ["label", "amount"].forEach((type) => {
+                        let lastOffset = null;
+
                         sidebarHeader.children("a").forEach((icon) => {
-                            if (icon.offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
+                            if (lastOffset === null) {
+                                lastOffset = icon.offsetTop;
+                            } else if (lastOffset !== icon.offsetTop || sidebarHeader.find("> h1")[0].offsetTop === 0) { // header elements  are not in one line anymore -> header to small -> remove some markup
                                 if (type === "label") {
                                     sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
                                 } else if (type === "amount") {
@@ -187,7 +189,6 @@
                             }
                         });
                     });
-
                 }
             } else if (key === "icon") {
                 let config = getCurrentConfig();

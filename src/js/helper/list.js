@@ -247,16 +247,16 @@
                 .appendTo(ext.elements.header);
 
             let headerIcons = [];
-            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.menu).appendTo(ext.elements.header));
-            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.sort).appendTo(ext.elements.header));
             headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.search).appendTo(ext.elements.header));
-
-            let computedStyle = window.getComputedStyle(ext.elements.header[0]);
-            let headerPaddingTop = parseInt(computedStyle.getPropertyValue("padding-top"));
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.sort).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass(ext.opts.classes.sidebar.menu).appendTo(ext.elements.header));
 
             ["label", "amount"].forEach((type) => {
+                let lastOffset = null;
                 headerIcons.some((icon) => {
-                    if (icon[0].offsetTop > headerPaddingTop) { // icons are not in one line anymore -> header to small -> remove some markup
+                    if (lastOffset === null) {
+                        lastOffset = icon[0].offsetTop;
+                    } else if (lastOffset !== icon[0].offsetTop || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
                         if (type === "label") {
                             headline.children("span").addClass(ext.opts.classes.sidebar.hidden);
                         } else if (type === "amount") {

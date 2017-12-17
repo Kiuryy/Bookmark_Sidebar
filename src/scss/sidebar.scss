@@ -117,9 +117,14 @@ section#sidebar {
 
   > header {
     position: relative;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     width: 100%;
-    height: $sidebarHeaderHeight;
-    padding: 6px 12px 0 12px;
+    height: $__sidebarHeaderHeight;
+    padding: 0 12px;
     background: $__colorScheme;
     transition: background 0.3s;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -128,11 +133,10 @@ section#sidebar {
     z-index: 3;
 
     > h1 {
-      display: inline-block;
       color: $__foregroundColor;
       font-weight: $__fontWeightMedium;
+      margin-right: auto;
       font-size: 100%;
-      margin: 4px 0 0 0;
       transition: transform 0.5s;
 
       &.hidden {
@@ -148,6 +152,7 @@ section#sidebar {
         opacity: 0.7;
         font-size: 90%;
         display: inline-block;
+        line-height: normal;
         margin: 0 0 0 3px;
 
         &.hidden {
@@ -159,11 +164,9 @@ section#sidebar {
     > a {
       @include mask(null, $__foregroundColor, 22px);
       position: relative;
-      vertical-align: top;
       display: block;
       width: 36px;
       height: 36px;
-      float: right;
       border-radius: 50%;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.3s, opacity 0.5s;
@@ -179,7 +182,7 @@ section#sidebar {
 
     > div.searchBox {
       position: absolute;
-      top: 10px;
+      top: calc(50% - 15px);
       left: 16px;
       width: calc(100% - 105px);
       height: 30px;
@@ -242,7 +245,7 @@ section#sidebar {
 
   > a.lockPinned {
     position: absolute;
-    top: $sidebarHeaderHeight;
+    top: $__sidebarHeaderHeight;
     right: -22px;
     display: block;
     margin-top: 9px;
@@ -299,7 +302,7 @@ section#sidebar {
 
   > div.filter {
     position: absolute;
-    top: $sidebarHeaderHeight;
+    top: $__sidebarHeaderHeight;
     left: $filterMargin;
     width: calc(100% - #{$filterMargin * 2});
     background: $contentBackground2;

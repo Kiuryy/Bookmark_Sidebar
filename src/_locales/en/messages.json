@@ -704,6 +704,9 @@
     "settings_sidebar_width": {
         "message": "Width"
     },
+    "settings_sidebar_header_height": {
+        "message": "Header height"
+    },
     "settings_sidebar_mask_color": {
         "message": "Mask color"
     },

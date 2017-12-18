@@ -734,6 +734,9 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Directory indentation"
     },
+    "settings_tooltip_font_size": {
+        "message": "Tooltip font size"
+    },
     "settings_overlay_mask_color": {
         "message": "Mask color"
     },

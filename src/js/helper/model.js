@@ -102,6 +102,7 @@
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     scrollBarWidth: "11px",
+                    tooltipFontSize: "9px",
                     overlayMaskColor: "rgba(0,0,0,0.5)",
                     overlayHeaderHeight: "50px",
                     fontFamily: "default",
@@ -227,7 +228,7 @@
 
                 if (dataSearchScope !== null) {
                     if (typeof dataSearchScope[key] === "undefined") {
-                        ["sidebarPosition", "language"].some((f) => { // @deprecated backward compatibility
+                        ["sidebarPosition", "language"].some((f) => { // @deprecated backward compatibility (10-2017)
                             if (keyInfo === "b/" + f) {
                                 value = this.getData("a/" + f);
 

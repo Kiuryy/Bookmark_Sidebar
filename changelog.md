@@ -3,6 +3,7 @@ See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) f
 ## 1.11
  - Additional info for entries
  - Added new contextmenu entries
+ - Added more customization options
  - Updated sharing of user configuration and activity
  - Changed deletion mechanism
 

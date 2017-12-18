@@ -94,7 +94,7 @@
                         obj.newtab = {};
                     }
 
-                    // START UPGRADE // v1.11
+                    // START UPGRADE // v1.11 -> released 01-2018
                     delete obj.behaviour.initialOpenOnNewTab;
                     delete obj.behaviour.replaceNewTab;
                     delete obj.behaviour.language;
@@ -119,7 +119,7 @@
                     }
                     // END UPGRADE // v1.11
 
-                    // START UPGRADE // v1.10
+                    // START UPGRADE // v1.10 -> released 10-2017
                     chrome.storage.sync.remove(["utility", "nt_notice"]);
 
                     ["sidebarPosition"].forEach((f) => {
@@ -147,7 +147,7 @@
                     }
                     // END UPGRADE // v1.10
 
-                    // START UPGRADE // v1.9
+                    // START UPGRADE // v1.9 -> released 07-2017
                     if (typeof obj.utility !== "undefined") {
                         chrome.storage.local.set({utility: obj.utility});
                     }

@@ -88,7 +88,7 @@
                 this.opts.elm.infobox.addClass(this.opts.classes.flipped);
             });
 
-            $("section.infobox ul.changelog > li > a").on("click", (e) => { // @deprecated only for changelog v1.10
+            $("section.infobox ul.changelog > li > a").on("click", (e) => { // @deprecated only for changelog v1.10 and v1.11 -> can be removed with 1.12
                 let type = $(e.currentTarget).attr("data-type");
                 switch (type) {
                     case "icon": {

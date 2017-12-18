@@ -734,6 +734,9 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Verzeichnis Einr\u00fcckung"
     },
+    "settings_tooltip_font_size": {
+        "message": "Tooltip Schriftgr\u00f6\u00dfe"
+    },
     "settings_overlay_mask_color": {
         "message": "Maskenfarbe"
     },

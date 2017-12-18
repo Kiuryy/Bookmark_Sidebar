@@ -6,7 +6,7 @@ div.tooltip {
   color: $tooltipTextColor;
   padding: 2px 4px 3px;
   max-width: 300px;
-  font-size: 70%;
+  font-size: $__tooltipFontSize;
   z-index: 2;
   transform: translate3d(-5px, 0, 0);
   transition: opacity 0.3s, transform 0.3s;
@@ -15,6 +15,10 @@ div.tooltip {
   &.visible {
     @extend %visible;
     transform: translate3d(0, 0, 0) !important;
+  }
+
+  > h3[data-num]::after { // for appearance preview
+    content: " " attr(data-num);
   }
 
   &::before {
@@ -57,9 +61,12 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
   }
 }
 
-body.dark section#sidebar[data-pos='right'] ~ div.tooltip {
+body.dark {
 
-  &::before {
-    border-left-color: $darkTooltipBackground;
+  section#sidebar[data-pos='right'] ~ div.tooltip {
+
+    &::before {
+      border-left-color: $darkTooltipBackground;
+    }
   }
 }

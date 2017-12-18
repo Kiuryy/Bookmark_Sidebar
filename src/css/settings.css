@@ -1313,7 +1313,7 @@ body > section#wrapper > aside {
       height: 100%;
       -webkit-mask: no-repeat center/20px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
-      background-color: #f5c525; }
+      background-color: #f99; }
   body > section#wrapper > aside > nav > ul > li[data-name='feedback'] > a::before {
     content: "";
     position: absolute;

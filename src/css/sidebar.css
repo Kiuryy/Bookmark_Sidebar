@@ -226,12 +226,14 @@ div.tooltip {
   color: #fff;
   padding: 2px 4px 3px;
   max-width: 300px;
-  font-size: 70%;
+  font-size: "%tooltipFontSize";
   z-index: 2;
   transform: translate3d(-5px, 0, 0);
   transition: opacity 0.3s, transform 0.3s; }
   div.tooltip.visible {
     transform: translate3d(0, 0, 0) !important; }
+  div.tooltip > h3[data-num]::after {
+    content: " " attr(data-num); }
   div.tooltip::before {
     content: "";
     position: absolute;

@@ -32,7 +32,7 @@ body > section#wrapper > aside {
         }
 
         &.incomplete > a > span {
-          @include mask('icon-info', $colorNotice, 20px);
+          @include mask('icon-info', $colorError, 20px);
           display: inline-block;
           position: relative;
           width: 24px;

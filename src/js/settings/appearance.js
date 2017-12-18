@@ -10,6 +10,9 @@
             indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
+        let lastTooltipChange = null;
+        let tooltipTimeout = null;
+
         /**
          * Initialises the appearance settings
          *
@@ -167,29 +170,8 @@
                     s.opts.elm.preview[key].find("body").removeClass(s.opts.classes.page.darkMode);
                 }
 
-                let sidebar = s.opts.elm.preview[key].find("section#sidebar");
-                if (sidebar.length() > 0) {
-                    let sidebarHeader = sidebar.find("> header");
-                    sidebarHeader.find("> h1").removeClass(s.opts.classes.hidden);
-                    sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
-
-                    ["label", "amount"].forEach((type) => {
-                        let lastOffset = null;
-
-                        sidebarHeader.children("a").forEach((icon) => {
-                            if (lastOffset === null) {
-                                lastOffset = icon.offsetTop;
-                            } else if (lastOffset !== icon.offsetTop || sidebarHeader.find("> h1")[0].offsetTop === 0) { // header elements  are not in one line anymore -> header to small -> remove some markup
-                                if (type === "label") {
-                                    sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
-                                } else if (type === "amount") {
-                                    sidebarHeader.find("> h1").addClass(s.opts.classes.hidden);
-                                }
-                                return false;
-                            }
-                        });
-                    });
-                }
+                updatePreviewTooltip(s.opts.elm.preview[key]);
+                updatePreviewSidebarHeader(s.opts.elm.preview[key]);
             } else if (key === "icon") {
                 let config = getCurrentConfig();
                 s.helper.model.call("updateIcon", {
@@ -197,6 +179,63 @@
                     color: config.styles.iconColor,
                     onlyCurrentTab: true
                 });
+            }
+        };
+
+        /**
+         * Updates the preview of the sidebar header
+         *
+         * @param {jsu} preview
+         */
+        let updatePreviewSidebarHeader = (preview) => {
+            let sidebar = preview.find("section#sidebar");
+
+            if (sidebar.length() > 0) {
+                let sidebarHeader = sidebar.find("> header");
+                sidebarHeader.find("> h1").removeClass(s.opts.classes.hidden);
+                sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
+
+                ["label", "amount"].forEach((type) => {
+                    let lastOffset = null;
+
+                    sidebarHeader.children("a").forEach((icon) => {
+                        if (lastOffset === null) {
+                            lastOffset = icon.offsetTop;
+                        } else if (lastOffset !== icon.offsetTop || sidebarHeader.find("> h1")[0].offsetTop === 0) { // header elements  are not in one line anymore -> header to small -> remove some markup
+                            if (type === "label") {
+                                sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
+                            } else if (type === "amount") {
+                                sidebarHeader.find("> h1").addClass(s.opts.classes.hidden);
+                            }
+                            return false;
+                        }
+                    });
+                });
+            }
+        };
+
+        /**
+         * Updates the preview of the tooltip,
+         * shows the tooltip if the last change was within the last 2s
+         *
+         * @param {jsu} preview
+         */
+        let updatePreviewTooltip = (preview) => {
+            let tooltip = preview.find("div.tooltip");
+            let entry = preview.find("li > a.hover");
+
+            if (tooltip.length() > 0 && entry.length() > 0) {
+                if (+new Date() - lastTooltipChange < 2000) {
+                    let rect = entry[0].getBoundingClientRect();
+                    tooltip.addClass(s.opts.classes.visible);
+
+                    tooltip.css({
+                        top: (rect.y + entry.realHeight() / 2 - tooltip.realHeight() / 2) + "px",
+                        left: (rect.x - tooltip[0].offsetWidth) + "px"
+                    });
+                } else {
+                    tooltip.removeClass(s.opts.classes.visible);
+                }
             }
         };
 
@@ -375,6 +414,17 @@
                 if (path && path[1]) {
                     updatePageLayout(path[1]);
                 }
+            });
+
+            s.opts.elm.range.tooltipFontSize.on("change, input", () => { // show tooltip in preview for 2s when changing the font size
+                lastTooltipChange = +new Date();
+                if (tooltipTimeout) {
+                    clearTimeout(tooltipTimeout);
+                }
+
+                tooltipTimeout = setTimeout(() => {
+                    updatePreviewStyle("sidebar");
+                }, 2001);
             });
 
             s.opts.elm.appearance.content.find("input, select").on("change input", (e) => {

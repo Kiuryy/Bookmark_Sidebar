@@ -29,6 +29,20 @@ body {
   }
 }
 
+%modalFooterBackground {
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 57px;
+    z-index: 2;
+    background: $contentBackground2;
+  }
+}
+
 div.modal {
   position: relative;
   width: 600px;
@@ -53,6 +67,7 @@ div.modal {
     padding: 0 75px 0 52px;
     background-color: $__colorScheme;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
 
     &::before {
       -webkit-mask-position: 18px center;
@@ -324,24 +339,59 @@ div.modal {
     }
 
     &.urlCheckList {
+      @extend %modalFooterBackground;
       width: 600px;
       height: 600px;
       max-height: 100%;
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 57px;
-        z-index: 2;
-        background: $contentBackground2;
-      }
-
       > svg.loading {
         transition: margin-top 0.5s;
         margin-top: 210px;
+      }
+    }
+  }
+
+  &[data-type='keyboardShortcuts'] {
+    @extend %modalFooterBackground;
+    width: 600px;
+    height: 600px;
+    max-height: 100%;
+
+    > header::before {
+      @include maskImage('icon-keyboard');
+    }
+
+    > div.scrollBox {
+      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+
+      > ul {
+        padding: 30px 30px 5px 30px;
+        background: $contentBackground;
+
+        > li {
+          padding: 0 0 25px 0;
+
+          > strong {
+            font-size: 80%;
+            font-weight: normal;
+            margin-left: -2px;
+
+            > i {
+              display: inline-block;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              background: rgba(0, 0, 0, 0.05);
+              font-style: normal;
+              padding: 2px 4px;
+              border-radius: 2px;
+              margin: 0 2px;
+            }
+          }
+
+          > span {
+            display: block;
+            margin-top: 5px;
+          }
+        }
       }
     }
   }
@@ -375,22 +425,14 @@ div.modal {
   }
 
   &[data-type='shareInfoDesc'] {
+    @extend %modalFooterBackground;
+    width: 500px;
+    height: 300px;
     max-height: 100%;
 
     &[data-value='activity'] {
       width: 600px;
       height: 550px;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 57px;
-      z-index: 2;
-      background: $contentBackground2;
     }
 
     > div.scrollBox {
@@ -400,10 +442,12 @@ div.modal {
 
       > p {
         padding: 20px 30px 5px 30px;
+        background: $contentBackground;
       }
 
       > ul {
         padding: 0 30px;
+        background: $contentBackground;
 
         > li {
           position: relative;
@@ -827,8 +871,24 @@ body.dark div.modal {
     }
   }
 
-  &[data-type='shareInfoDesc']::after {
-    background: $darkContentBackground2;
+  &[data-type='shareInfoDesc'], &[data-type='keyboardShortcuts'] {
+
+    &::after {
+      background: $darkContentBackground2;
+    }
+
+    > div.scrollBox > * {
+      background: $darkContentBackground;
+    }
+  }
+
+  &[data-type='keyboardShortcuts'] {
+
+    > div.scrollBox > ul > li > strong > i {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.05);
+    }
   }
 
   > menu.buttons > a {

@@ -77,6 +77,10 @@
                     handleUpdateUrlsHtml(data);
                     break;
                 }
+                case "keyboardShortcuts": {
+                    handleKeyboardShortcutsDescHtml(data);
+                    break;
+                }
                 case "shareInfoDesc": {
                     handleShareInfoDescHtml(data);
                 }
@@ -210,6 +214,42 @@
                     .text(data.url)
                     .insertAfter(preview);
             }
+        };
+
+        /**
+         * Extends the overlay html for the list of available keyboard shortcuts
+         *
+         * @param {object} data
+         */
+        let handleKeyboardShortcutsDescHtml = (data) => {
+            let scrollBox = $("<div />").addClass(ext.opts.classes.scrollBox.wrapper).appendTo(elements.modal);
+            let list = $("<ul />").appendTo(scrollBox);
+
+            Object.entries({
+                tab: ["tab"],
+                enter: ["enter"],
+                shift_enter: ["shift", "enter"],
+                ctrl_c: ["ctrl", "c"],
+                del: ["del"],
+                esc: ["esc"]
+            }).forEach(([name, keys]) => {
+                keys = keys.map((k) => {
+                    let ret = "<i>";
+                    ret += ext.helper.i18n.get("keyboard_shortcuts_key_" + k) || k;
+                    if (k === "tab") {
+                        ret += " &#8633;";
+                    }
+                    ret += "</i>";
+                    return ret;
+                });
+
+                $("<li />")
+                    .append("<strong>" + keys.join("+") + "</strong>")
+                    .append("<span>" + ext.helper.i18n.get("keyboard_shortcuts_" + name + "_desc") + "</span>")
+                    .appendTo(list);
+            });
+
+            setCloseButtonLabel("close");
         };
 
         /**

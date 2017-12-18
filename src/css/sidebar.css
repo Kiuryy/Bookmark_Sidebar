@@ -138,6 +138,9 @@ div.contextmenu {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg); }
         div.contextmenu > ul.icons > li > a[data-name='bookmarkManager']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-star.svg); }
+        div.contextmenu > ul.icons > li > a[data-name='keyboardShortcuts']::before {
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-keyboard.svg);
+          -webkit-mask-size: 22px; }
   div.contextmenu > ul.list > li {
     position: relative; }
     div.contextmenu > ul.list > li > div.checkbox {

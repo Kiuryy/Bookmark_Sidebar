@@ -105,6 +105,11 @@ div.contextmenu {
         &[data-name='bookmarkManager']::before {
           @include maskImage('icon-star');
         }
+
+        &[data-name='keyboardShortcuts']::before {
+          @include maskImage('icon-keyboard');
+          -webkit-mask-size: 22px;
+        }
       }
     }
   }

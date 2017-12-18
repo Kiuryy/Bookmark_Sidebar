@@ -95,6 +95,9 @@
     "contextmenu_bookmark_manager": {
         "message": "Bookmark Manager"
     },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Keyboard shortcuts"
+    },
     "sort_label_custom": {
         "message": "User-defined"
     },
@@ -244,6 +247,42 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Reload now"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Hovers the next entry in the sidebar or currently opened contextmenu"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Performs a click on the currently hovered entry"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Opens the contextmenu for the currently hovered entry"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copies the url of the currently hovered entry"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Removes the currently hovered entry"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Closes the sidebar, the opened overlay or contextmenu"
     },
     "notification_sidebar_not_working_headline": {
         "message": "Sidebar could not be opened"

@@ -95,6 +95,9 @@
     "contextmenu_bookmark_manager": {
         "message": "Lesezeichenmanager"
     },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Tastenk\u00fcrzel"
+    },
     "sort_label_custom": {
         "message": "Benutzerdefiniert"
     },
@@ -244,6 +247,42 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Jetzt neuladen"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Umschalt"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Strg"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Entfernen"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Markiert den n\u00e4chsten Eintrag in der Sidebar oder dem aktuell ge\u00f6ffneten Rechtsklickmen\u00fc"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Klickt den aktuell markierten Eintrag an"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "\u00d6ffnet das Rechtsklickmen\u00fc f\u00fcr den aktuell markierten Eintrag"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Kopiert die Url des aktuell markierten Eintrags"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "L\u00f6scht den aktuell markierten Eintrag"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Schlie\u00dft die Sidebar, das ge\u00f6ffnete Overlay oder Rechtsklickmen\u00fc"
     },
     "notification_sidebar_not_working_headline": {
         "message": "Sidebar konnte nicht ge\u00f6ffnet werden"

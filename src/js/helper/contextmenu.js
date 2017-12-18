@@ -177,7 +177,8 @@
 
             iconWrapper
                 .append("<li><a " + ext.opts.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title") + "'></a></li>")
-                .append("<li><a " + ext.opts.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>");
+                .append("<li><a " + ext.opts.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>")
+                .append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='keyboardShortcuts' title='" + ext.helper.i18n.get("contextmenu_keyboard_shortcuts") + "'></a></li>");
 
             let elmBoundClientRect = elm[0].getBoundingClientRect();
             contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");

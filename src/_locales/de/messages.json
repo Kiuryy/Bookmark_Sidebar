@@ -260,6 +260,9 @@
     "keyboard_shortcuts_key_ctrl": {
         "message": "Strg"
     },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Cmd"
+    },
     "keyboard_shortcuts_key_del": {
         "message": "Entfernen"
     },

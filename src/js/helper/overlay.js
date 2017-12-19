@@ -225,19 +225,26 @@
             let scrollBox = $("<div />").addClass(ext.opts.classes.scrollBox.wrapper).appendTo(elements.modal);
             let list = $("<ul />").appendTo(scrollBox);
 
+            let icons = {
+                tab: "&#8633;",
+                shift: "&#8679;",
+                cmd: "&#8984;",
+                enter: "&#9166;"
+            };
+
             Object.entries({
                 tab: ["tab"],
                 enter: ["enter"],
                 shift_enter: ["shift", "enter"],
-                ctrl_c: ["ctrl", "c"],
+                ctrl_c: [navigator.platform.indexOf("Mac") > -1 ? "cmd" : "ctrl", "c"],
                 del: ["del"],
                 esc: ["esc"]
             }).forEach(([name, keys]) => {
                 keys = keys.map((k) => {
                     let ret = "<i>";
                     ret += ext.helper.i18n.get("keyboard_shortcuts_key_" + k) || k;
-                    if (k === "tab") {
-                        ret += " &#8633;";
+                    if (icons[k]) {
+                        ret += " " + icons[k];
                     }
                     ret += "</i>";
                     return ret;

@@ -105,7 +105,9 @@
 
             chrome.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
                 this.importRunning = false;
-                this.reload({type: "Created"});
+                $.delay(1000).then(() => {
+                    this.reload({type: "Created"});
+                });
             });
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark

@@ -98,7 +98,7 @@
             this.trackEvent({ // extension version
                 category: "extension",
                 action: "version",
-                label: b.manifest.version,
+                label: b.manifest.version_name,
                 always: true
             });
 
@@ -160,10 +160,19 @@
                                 obj[attr] = obj[attr] && obj[attr].length > 0 ? "true" : "false";
                             }
 
+                            let value = 1;
+
+                            if (!isNaN(parseFloat(obj[attr])) && isFinite(obj[attr])) {
+                                value = parseFloat(obj[attr]);
+                            } else if (obj[attr].search(/^\d+px$/i) === 0) {
+                                value = parseFloat(obj[attr].replace(/px$/i, ""));
+                            }
+
                             this.trackEvent({
                                 category: "configuration",
                                 action: baseName + "_" + attr,
-                                label: obj[attr]
+                                label: obj[attr],
+                                value: value
                             });
                         }
                     });

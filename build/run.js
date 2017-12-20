@@ -18,8 +18,6 @@
         console.log("Release built successfully (" + (+new Date() - start) + "ms)");
     });
 
-    // Update devDependencies -> ncu -a
     // SCSS Filewatcher -> <PATH_TO_node>/npm.cmd run scss
-    // Format code accordion to eslint rules -> eslint --fix src/js/**/*
 })();
 

@@ -88,7 +88,7 @@
                     data: {
                         email: emailText,
                         msg: messageText,
-                        version: s.opts.manifest.version,
+                        version: s.opts.manifest.version_name,
                         ua: navigator.userAgent,
                         lang: s.helper.i18n.getLanguage(),
                         config: s.helper.importExport.getExportConfig()

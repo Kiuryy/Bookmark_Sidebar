@@ -47,6 +47,9 @@
     "contextmenu_new_tab": {
         "message": "Ouvrir dans un nouvel onglet"
     },
+    "contextmenu_new_window": {
+        "message": "Ouvrir dans une nouvelle fen\u00eatre"
+    },
     "contextmenu_new_tab_incognito": {
         "message": "Ouvrir dans une nouvelle fen\u00eatre de navigation priv\u00e9e"
     },

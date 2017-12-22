@@ -270,7 +270,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Hovers the next entry in the sidebar or currently opened contextmenu"
+        "message": "Hovers the next entry in the sidebar or the currently opened contextmenu"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Performs a click on the currently hovered entry"

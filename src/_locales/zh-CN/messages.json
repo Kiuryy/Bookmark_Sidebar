@@ -26,6 +26,9 @@
     "sidebar_drag_cancel": {
         "message": "\u53d6\u6d88"
     },
+    "sidebar_deleted": {
+        "message": "\u79fb\u9664\u6761\u76ee"
+    },
     "contextmenu_edit_bookmark": {
         "message": "\u7f16\u8f91\u4e66\u7b7e"
     },

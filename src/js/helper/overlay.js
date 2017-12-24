@@ -662,7 +662,7 @@
          */
         let deleteBookmark = (data) => {
             this.closeOverlay();
-            ext.elements.bookmarkBox.all.find("a[data-id='" + data.id + "']").parent("li").remove();
+            ext.elements.bookmarkBox.all.find("a[" + ext.opts.attr.id + "='" + data.id + "']").parent("li").remove();
             ext.helper.bookmark.performDeletion(data);
         };
 
@@ -760,7 +760,7 @@
                     }
                 }
 
-                let parentEntry = ext.elements.bookmarkBox.all.find("a[data-id='" + obj.parentId + "']");
+                let parentEntry = ext.elements.bookmarkBox.all.find("a[" + ext.opts.attr.id + "='" + obj.parentId + "']");
 
                 if (parentEntry.length() > 0 && parentEntry.next("ul").length() > 0) { // insert an empty element at the position of the new entry to correct the separator positions for the changed directory
                     let entries = parentEntry.next("ul").children("li");
@@ -804,7 +804,7 @@
                     let entry = $(elm).data("entry");
 
                     if (entry.urlStatusCode === 404) {
-                        ext.elements.bookmarkBox.all.find("a[data-id='" + entry.id + "']").parent("li").remove();
+                        ext.elements.bookmarkBox.all.find("a[" + ext.opts.attr.id + "='" + entry.id + "']").parent("li").remove();
                         deleteBuffer.push({id: entry.id});
                         if (parentIds.indexOf(entry.parentId) === -1) {
                             parentIds.push(entry.parentId);

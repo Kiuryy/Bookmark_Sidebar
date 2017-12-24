@@ -388,7 +388,7 @@
             }
 
             if (asTree && sort.name === "custom" && list.prev("a").length() > 0) { // show separators in custom sorted view
-                let dirId = list.prev("a").attr("data-id");
+                let dirId = list.prev("a").attr(ext.opts.attr.id);
                 let separators = ext.helper.model.getData("u/separators");
                 if (separators[dirId]) {
                     separators[dirId].forEach((separator) => {

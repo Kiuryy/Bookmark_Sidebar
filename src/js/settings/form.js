@@ -198,7 +198,7 @@
          */
         initField.textarea = (opts) => {
             return new Promise((resolve) => {
-                s.opts.elm.textarea[opts.name] = $("<textarea />").insertAfter(opts.label);
+                s.opts.elm.textarea[opts.name] = $("<textarea />").attr(s.opts.attr.name, opts.name).insertAfter(opts.label);
                 resolve();
             });
         };

@@ -4,12 +4,14 @@
     window.StylesheetHelper = function (ext) {
 
         let styles = {};
+        let customCss = "";
 
         /**
          * Retrieves the replacements for the stylesheets from the storage
          */
         this.init = () => {
             styles = ext.helper.model.getData("a/styles");
+            customCss = ext.helper.model.getData("u/customCss");
         };
 
         /**
@@ -42,9 +44,12 @@
                 $.xhr(chrome.extension.getURL("css/" + file + ".css")).then((xhr) => {
                     if (xhr.response) {
                         let css = xhr.response;
+                        css += customCss;
+
                         Object.keys(styles).forEach((key) => {
                             css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styles[key]);
                         });
+
                         if (ext.opts.classes && ext.opts.classes.page && ext.opts.classes.style && ext.opts.attr && ext.opts.attr.name) {
                             head.find("style." + ext.opts.classes.page.style + "[" + ext.opts.attr.name + "='" + file + "]").remove();
                             head.append("<style class='" + ext.opts.classes.page.style + "' " + ext.opts.attr.name + "='" + file + "'>" + css + "</style>");

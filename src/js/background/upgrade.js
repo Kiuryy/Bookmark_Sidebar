@@ -105,7 +105,7 @@
                         obj.appearance.styles = {};
                     }
 
-                    if (typeof obj.shareUserdata !== "undefined" && obj.shareUserdata === true || obj.shareUserdata === false) {
+                    if (typeof obj.shareUserdata !== "undefined" && (obj.shareUserdata === true || obj.shareUserdata === false)) {
                         chrome.storage.sync.set({
                             shareInfo: {
                                 config: obj.shareUserdata,

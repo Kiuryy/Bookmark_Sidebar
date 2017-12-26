@@ -327,7 +327,7 @@
             let infoField = $("<textarea name='info' />").appendTo(infoEntry);
             infoField[0].value = (data.additionalInfo ? (data.additionalInfo.desc || "") : "");
 
-            infoEntry.append("<span>" + ext.helper.i18n.get("overlay_bookmark_additional_info_notice") + "</span>");
+            infoEntry.append("<span>" + ext.helper.i18n.get("settings_not_synced") + "</span>");
 
             infoField.on("focus", () => {
                 infoEntry.addClass(ext.opts.classes.sidebar.active);

@@ -1,0 +1,57 @@
+
+body > section#wrapper div.advanced {
+  position: relative;
+  margin: 20px;
+  background: $bodyBackground;
+  padding: 16px 20px;
+
+  > h3 {
+    @include mask('icon-add', $mainColor, 18px);
+    position: relative;
+    display: inline-block;
+    color: $mainColor;
+    font-weight: $__fontWeightMedium;
+    padding: 3px 5px 3px 22px;
+    font-size: 100%;
+    cursor: pointer;
+
+    &::before {
+      -webkit-mask-position-x: 0;
+    }
+  }
+
+  > div {
+    transform: translate3d(0, -10px, 0);
+    opacity: 0;
+    margin-top: 20px;
+    transition: opacity 0.3s, transform 0.3s;
+
+    &.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    textarea[data-name='customCss'] {
+      background: $contentBackground;
+      font-family: Consolas, sans-serif;
+      font-size: 90%;
+      height: 200px;
+      min-height: 200px;
+
+      ~ span {
+        display: block;
+        margin-top: 10px;
+        opacity: 0;
+        color: $colorError;
+        transition: opacity 0.5s;
+      }
+
+      &:focus {
+
+        ~ span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

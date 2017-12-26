@@ -30,6 +30,11 @@
                         s.opts.elm.checkbox[field].children("input").data("initial", checked);
                     });
 
+                    let customCss = s.helper.model.getData("u/customCss");
+                    s.opts.elm.textarea.customCss[0].value = customCss;
+                    s.opts.elm.textarea.customCss.data("initial", customCss);
+                    s.opts.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
+
                     let styles = s.helper.model.getData("a/styles");
 
                     Object.keys(styles).forEach((key) => {
@@ -74,11 +79,19 @@
             return new Promise((resolve) => {
                 let config = getCurrentConfig();
 
-                chrome.storage.sync.set({appearance: config}, () => {
-                    s.helper.model.call("reinitialize");
-                    s.showSuccessMessage("saved_message");
-                    s.helper.model.call("reloadIcon");
-                    resolve();
+                chrome.storage.sync.set({appearance: config.appearance}, () => {
+
+                    chrome.storage.local.get(["utility"], (obj) => {
+                        let utility = obj.utility || {};
+                        utility.customCss = config.utility.customCss;
+
+                        chrome.storage.local.set({utility: utility}, () => {
+                            s.helper.model.call("reinitialize");
+                            s.showSuccessMessage("saved_message");
+                            s.helper.model.call("reloadIcon");
+                            resolve();
+                        });
+                    });
                 });
             });
         };
@@ -127,27 +140,30 @@
          * @param key
          */
         let updatePreviewStyle = (key) => {
+            let config = getCurrentConfig();
+
             if (s.opts.elm.preview[key]) {
                 s.opts.elm.preview[key].find("head > style").remove();
 
-                let config = getCurrentConfig();
-                if (config.styles.fontFamily === "default") {
+                if (config.appearance.styles.fontFamily === "default") {
                     let fontInfo = s.helper.font.getDefaultFontInfo();
-                    config.styles.fontFamily = fontInfo.name;
+                    config.appearance.styles.fontFamily = fontInfo.name;
                 }
 
                 updatePageLayout(key);
-                Object.assign(config.styles, s.helper.font.getFontWeights(config.styles.fontFamily));
+                Object.assign(config.appearance.styles, s.helper.font.getFontWeights(config.appearance.styles.fontFamily));
 
                 let css = previews[key].css;
-                Object.keys(config.styles).forEach((key) => {
-                    css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), config.styles[key]);
+                css += config.utility.customCss;
+
+                Object.keys(config.appearance.styles).forEach((key) => {
+                    css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), config.appearance.styles[key]);
                 });
 
                 s.opts.elm.preview[key].find("[" + s.opts.attr.style + "]").forEach((elm) => {
                     let style = $(elm).attr(s.opts.attr.style);
-                    Object.keys(config.styles).forEach((key) => {
-                        style = style.replace(new RegExp("\"?%" + key + "\"?", "g"), config.styles[key]);
+                    Object.keys(config.appearance.styles).forEach((key) => {
+                        style = style.replace(new RegExp("\"?%" + key + "\"?", "g"), config.appearance.styles[key]);
                     });
                     elm.style.cssText = style;
                 });
@@ -155,7 +171,7 @@
                 s.opts.elm.preview[key].find("[" + s.opts.attr.hideOnFalse + "]").forEach((elm) => {
                     let attr = $(elm).attr(s.opts.attr.hideOnFalse);
 
-                    if (typeof config[attr] === "undefined" || config[attr] === false) {
+                    if (typeof config.appearance[attr] === "undefined" || config.appearance[attr] === false) {
                         $(elm).css("display", "none");
                     } else {
                         $(elm).css("display", "block");
@@ -164,7 +180,7 @@
 
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
 
-                if (config.darkMode) {
+                if (config.appearance.darkMode) {
                     s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.darkMode);
                 } else {
                     s.opts.elm.preview[key].find("body").removeClass(s.opts.classes.page.darkMode);
@@ -173,10 +189,9 @@
                 updatePreviewTooltip(s.opts.elm.preview[key]);
                 updatePreviewSidebarHeader(s.opts.elm.preview[key]);
             } else if (key === "icon") {
-                let config = getCurrentConfig();
                 s.helper.model.call("updateIcon", {
-                    name: config.styles.iconShape,
-                    color: config.styles.iconColor,
+                    name: config.appearance.styles.iconShape,
+                    color: config.appearance.styles.iconColor,
                     onlyCurrentTab: true
                 });
             }
@@ -257,9 +272,9 @@
                     if (key === "overlay") {
                         s.opts.elm.content.addClass(s.opts.classes.small);
                     } else if (key === "indicator") {
-                        headerRightPadding = config.styles.indicatorWidth;
+                        headerRightPadding = config.appearance.styles.indicatorWidth;
                     } else if (key === "sidebar" || key === "general") {
-                        headerRightPadding = config.styles.sidebarWidth;
+                        headerRightPadding = config.appearance.styles.sidebarWidth;
                     }
 
                     s.opts.elm.header.css("padding-right", headerRightPadding);
@@ -298,30 +313,35 @@
          */
         let getCurrentConfig = () => {
             let ret = {
-                darkMode: s.helper.checkbox.isChecked(s.opts.elm.checkbox.darkMode),
-                showIndicator: true,
-                showIndicatorIcon: true,
-                showBookmarkIcons: true,
-                showDirectoryIcons: true,
-                styles: {}
+                utility: {
+                    customCss: s.opts.elm.textarea.customCss[0].value
+                },
+                appearance: {
+                    darkMode: s.helper.checkbox.isChecked(s.opts.elm.checkbox.darkMode),
+                    showIndicator: true,
+                    showIndicatorIcon: true,
+                    showBookmarkIcons: true,
+                    showDirectoryIcons: true,
+                    styles: {}
+                }
             };
 
             let styles = s.helper.model.getData("a/styles");
 
             Object.keys(styles).forEach((key) => {
                 if (s.opts.elm.range[key]) {
-                    ret.styles[key] = s.opts.elm.range[key][0].value + "px";
+                    ret.appearance.styles[key] = s.opts.elm.range[key][0].value + "px";
                 } else if (s.opts.elm.color[key]) {
                     let colorValue = getColorValue(key, s.opts.elm.color[key][0].value);
-                    ret.styles[key] = colorValue.color;
+                    ret.appearance.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
-                        ret.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", colorValue.luminance && colorValue.luminance > 170 ? "dark" : "light");
+                        ret.appearance.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", colorValue.luminance && colorValue.luminance > 170 ? "dark" : "light");
                     }
                 } else if (s.opts.elm.select[key]) {
-                    ret.styles[key] = s.opts.elm.select[key][0].value;
+                    ret.appearance.styles[key] = s.opts.elm.select[key][0].value;
                 } else if (s.opts.elm.radio[key]) {
-                    ret.styles[key] = s.opts.elm.radio[key][0].value;
+                    ret.appearance.styles[key] = s.opts.elm.radio[key][0].value;
                 }
             });
 
@@ -331,7 +351,7 @@
                 bookmarksIconSize: "showBookmarkIcons",
                 directoriesIconSize: "showDirectoryIcons"
             }).forEach(([field, attr]) => {
-                if (parseInt(ret.styles[field]) === 0) {
+                if (parseInt(ret.appearance.styles[field]) === 0) {
                     ret[attr] = false;
                 }
             });
@@ -416,6 +436,24 @@
                 }
             });
 
+            s.opts.elm.appearance.advancedSettings.css("display", "none");
+            s.opts.elm.appearance.toggleAdvanced.on("click", () => {
+                if (s.opts.elm.appearance.advancedSettings.hasClass(s.opts.classes.visible)) {
+                    s.opts.elm.appearance.advancedSettings.removeClass(s.opts.classes.visible);
+
+                    $.delay(300).then(() => {
+                        s.opts.elm.appearance.advancedSettings.css("display", "none");
+                    });
+                } else {
+                    s.opts.elm.appearance.advancedSettings.css("display", "block");
+
+                    $.delay(0).then(() => {
+                        s.opts.elm.appearance.advancedSettings.addClass(s.opts.classes.visible);
+                    });
+                }
+            });
+
+
             s.opts.elm.range.tooltipFontSize.on("change, input", () => { // show tooltip in preview for 2s when changing the font size
                 lastTooltipChange = +new Date();
                 if (tooltipTimeout) {
@@ -427,7 +465,7 @@
                 }, 2001);
             });
 
-            s.opts.elm.appearance.content.find("input, select").on("change input", (e) => {
+            s.opts.elm.appearance.content.find("input, textarea, select").on("change input", (e) => {
                 let elm = $(e.currentTarget);
                 let val = e.currentTarget.value;
                 let initialVal = elm.data("initial");

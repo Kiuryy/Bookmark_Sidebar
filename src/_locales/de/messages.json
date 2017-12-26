@@ -128,9 +128,6 @@
     "overlay_bookmark_additional_info": {
         "message": "Zus\u00e4tzliche Infos"
     },
-    "overlay_bookmark_additional_info_notice": {
-        "message": "Wird nicht zwischen deinen Ger\u00e4ten synchronisiert."
-    },
     "overlay_cancel": {
         "message": "Abbrechen"
     },
@@ -494,6 +491,12 @@
     "settings_restored_message": {
         "message": "Die Einstellungen wurden erfolgreich zur\u00fcckgesetzt"
     },
+    "settings_advanced": {
+        "message": "Erweiterte Einstellungen"
+    },
+    "settings_not_synced": {
+        "message": "Wird nicht zwischen deinen Ger\u00e4ten synchronisiert."
+    },
     "settings_animations": {
         "message": "Animation aktivieren"
     },
@@ -784,6 +787,12 @@
     },
     "settings_icon_shape": {
         "message": "Form"
+    },
+    "settings_custom_css": {
+        "message": "Eigenes Stylesheet"
+    },
+    "settings_custom_css_desc": {
+        "message": "Du kanst dein eigenes Stylesheet definieren und das Standard-Styling \u00fcberschreiben. Bitte nutze diese Option nur, wenn du dich mit CSS auskennst und wei\u00dft, was du tust."
     },
     "settings_newtab_desc": {
         "message": "Leider hat Google die M\u00f6glichkeit ausgebaut, Erweiterungen auf der Standard-New-Tab-Seite zu laden. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."

@@ -462,6 +462,54 @@ body > section#wrapper {
           body > section#wrapper > main div.boxWrapper > div.box p.info > em {
             color: #666; }
 
+body > section#wrapper div.advanced {
+  position: relative;
+  margin: 20px;
+  background: #f2f2f2;
+  padding: 16px 20px; }
+  body > section#wrapper div.advanced > h3 {
+    position: relative;
+    display: inline-block;
+    color: #7b5fa4;
+    font-weight: "%fontWeightMedium";
+    padding: 3px 5px 3px 22px;
+    font-size: 100%;
+    cursor: pointer; }
+    body > section#wrapper div.advanced > h3::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/18px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg);
+      background-color: #7b5fa4; }
+    body > section#wrapper div.advanced > h3::before {
+      -webkit-mask-position-x: 0; }
+  body > section#wrapper div.advanced > div {
+    transform: translate3d(0, -10px, 0);
+    opacity: 0;
+    margin-top: 20px;
+    transition: opacity 0.3s, transform 0.3s; }
+    body > section#wrapper div.advanced > div.visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0); }
+    body > section#wrapper div.advanced > div textarea[data-name='customCss'] {
+      background: #fff;
+      font-family: Consolas, sans-serif;
+      font-size: 90%;
+      height: 200px;
+      min-height: 200px; }
+      body > section#wrapper div.advanced > div textarea[data-name='customCss'] ~ span {
+        display: block;
+        margin-top: 10px;
+        opacity: 0;
+        color: #f99;
+        transition: opacity 0.5s; }
+      body > section#wrapper div.advanced > div textarea[data-name='customCss']:focus ~ span {
+        opacity: 1; }
+
 body > section#wrapper div.aboutMe {
   position: relative;
   max-width: 1024px;

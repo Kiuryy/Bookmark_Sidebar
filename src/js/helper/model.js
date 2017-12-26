@@ -33,6 +33,7 @@
                 additionalInfo: {},
                 scrollPos: {},
                 separators: {},
+                customCss: "",
                 pinnedEntries: {},
                 lockPinned: true,
                 translationHelp: true,

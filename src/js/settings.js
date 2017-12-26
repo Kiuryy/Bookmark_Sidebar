@@ -117,6 +117,8 @@
                 },
                 appearance: {
                     content: $("div.tab[data-name='appearance']"),
+                    toggleAdvanced: $("div.tab[data-name='appearance'] div.advanced > h3"),
+                    advancedSettings: $("div.tab[data-name='appearance'] div.advanced > div")
                 },
                 newtab: {
                     content: $("div.tab[data-name='newtab']"),

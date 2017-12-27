@@ -166,7 +166,8 @@
          * @returns {boolean}
          */
         this.isWindowed = () => {
-            return window.screenX !== 0 || window.screenY !== 0 || window.screen.availWidth !== window.innerWidth;
+            let limit = 7;
+            return window.screenX > limit || window.screenY > limit || Math.abs(window.innerWidth - window.outerWidth) > limit * 2;
         };
     };
 

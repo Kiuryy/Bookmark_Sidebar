@@ -25,6 +25,8 @@
          */
         this.reload = (opts) => {
             return new Promise((resolve) => {
+                this.helper.analytics.trackUserData();
+
                 Promise.all([
                     this.helper.newtab.updateConfig(),
                     this.helper.cache.remove({name: "htmlList"}),
@@ -56,6 +58,7 @@
         this.reinitialize = () => {
             return new Promise((resolve) => {
                 this.reinitialized = +new Date();
+                this.helper.analytics.trackUserData();
 
                 let types = {
                     css: "insertCSS",
@@ -203,6 +206,10 @@
                 if (this.isDev) {
                     console.log("LOADED", +new Date() - start);
                 }
+
+                return $.delay(10000);
+            }).then(() => {
+                this.helper.analytics.trackUserData();
             });
         };
     };

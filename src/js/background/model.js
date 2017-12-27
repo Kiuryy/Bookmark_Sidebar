@@ -24,12 +24,6 @@
                         data.installationDate = +new Date();
                     }
 
-                    let today = +new Date().setHours(0, 0, 0, 0);
-                    if (typeof data.lastTrackDate === "undefined" || data.lastTrackDate !== today) {
-                        data.lastTrackDate = today;
-                        b.helper.analytics.trackUserData();
-                    }
-
                     saveData().then(resolve);
                 });
             });

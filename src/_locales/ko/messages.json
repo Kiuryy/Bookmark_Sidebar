@@ -113,6 +113,9 @@
     "overlay_bookmark_url": {
         "message": "\uc8fc\uc18c"
     },
+    "overlay_bookmark_additional_info": {
+        "message": "\ucd94\uac00 \uc815\ubcf4"
+    },
     "overlay_cancel": {
         "message": "\ucde8\uc18c"
     },

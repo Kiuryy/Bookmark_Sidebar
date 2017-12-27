@@ -128,9 +128,6 @@
     "overlay_bookmark_additional_info": {
         "message": "Meer informatie"
     },
-    "overlay_bookmark_additional_info_notice": {
-        "message": "Wordt niet gesynchroniseerd met je andere apparaten."
-    },
     "overlay_cancel": {
         "message": "Annuleer"
     },
@@ -493,6 +490,9 @@
     },
     "settings_restored_message": {
         "message": "De instellingen zijn teruggezet naar de beginwaarden"
+    },
+    "settings_not_synced": {
+        "message": "Wordt niet gesynchroniseerd met je andere apparaten."
     },
     "settings_color_scheme": {
         "message": "Kleurenschema"

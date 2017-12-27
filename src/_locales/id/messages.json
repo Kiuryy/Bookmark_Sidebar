@@ -119,9 +119,6 @@
     "overlay_bookmark_additional_info": {
         "message": "Info tambahan"
     },
-    "overlay_bookmark_additional_info_notice": {
-        "message": "Tidak akan disinkronkan di perangkat Anda"
-    },
     "overlay_cancel": {
         "message": "Batalkan"
     },
@@ -370,5 +367,8 @@
     },
     "settings_restored_message": {
         "message": "Konfigurasi pulih dengan sukses"
+    },
+    "settings_not_synced": {
+        "message": "Tidak akan disinkronkan di perangkat Anda"
     }
 }

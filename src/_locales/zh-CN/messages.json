@@ -29,6 +29,9 @@
     "sidebar_deleted": {
         "message": "\u79fb\u9664\u6761\u76ee"
     },
+    "sidebar_undo_deletion": {
+        "message": "\u64a4\u9500"
+    },
     "contextmenu_edit_bookmark": {
         "message": "\u7f16\u8f91\u4e66\u7b7e"
     },
@@ -49,6 +52,9 @@
     },
     "contextmenu_new_tab": {
         "message": "\u5728\u65b0\u6807\u7b7e\u9875\u6253\u5f00"
+    },
+    "contextmenu_new_window": {
+        "message": "\u5728\u65b0\u7a97\u53e3\u4e2d\u6253\u5f00"
     },
     "contextmenu_new_tab_incognito": {
         "message": "\u5728\u65b0\u7a97\u53e3\u6253\u5f00"
@@ -89,6 +95,9 @@
     "contextmenu_bookmark_manager": {
         "message": "\u4e66\u7b7e\u7ba1\u7406\u5668"
     },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "\u952e\u76d8\u5feb\u6377\u952e"
+    },
     "sort_label_custom": {
         "message": "\u81ea\u5b9a\u4e49"
     },
@@ -118,9 +127,6 @@
     },
     "overlay_bookmark_additional_info": {
         "message": "\u5176\u4ed6\u4fe1\u606f"
-    },
-    "overlay_bookmark_additional_info_notice": {
-        "message": "\u4e0d\u4f1a\u5728\u60a8\u7684\u8bbe\u5907\u4e0a\u540c\u6b65"
     },
     "overlay_cancel": {
         "message": "\u53d6\u6d88"
@@ -238,6 +244,45 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "\u7acb\u523b\u91cd\u65b0\u52a0\u8f7d"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "\u8f93\u5165"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "\u63a7\u5236"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "\u547d\u4ee4"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "\u5220\u9664"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "\u9000\u51fa"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "\u5c06\u4e0b\u4e00\u4e2a\u6761\u76ee\u60ac\u505c\u5728\u4fa7\u8fb9\u680f\u6216\u5f53\u524d\u6253\u5f00\u7684\u4e0a\u4e0b\u6587\u83dc\u5355\u4e2d"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "\u5bf9\u5f53\u524d\u60ac\u505c\u7684\u6761\u76ee\u6267\u884c\u4e00\u6b21\u70b9\u51fb"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "\u6253\u5f00\u5f53\u524d\u60ac\u505c\u6761\u76ee\u7684\u4e0a\u4e0b\u6587\u83dc\u5355"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "\u590d\u5236\u5f53\u524d\u60ac\u505c\u6761\u76ee\u7684\u7f51\u5740"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "\u5220\u9664\u5f53\u524d\u60ac\u505c\u7684\u6761\u76ee"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "\u5173\u95ed\u8fb9\u680f\uff0c\u6253\u5f00\u7684\u53e0\u52a0\u5c42\u6216\u4e0a\u4e0b\u6587\u83dc\u5355"
     },
     "notification_sidebar_not_working_headline": {
         "message": "\u65e0\u6cd5\u6253\u5f00\u4fa7\u680f"
@@ -445,6 +490,12 @@
     },
     "settings_restored_message": {
         "message": "\u914d\u7f6e\u6062\u590d\u6210\u529f"
+    },
+    "settings_advanced": {
+        "message": "\u9ad8\u7ea7\u914d\u7f6e"
+    },
+    "settings_not_synced": {
+        "message": "\u4e0d\u4f1a\u5728\u60a8\u7684\u8bbe\u5907\u4e0a\u540c\u6b65"
     },
     "settings_animations": {
         "message": "\u542f\u7528\u52a8\u753b"
@@ -698,6 +749,9 @@
     "settings_sidebar_width": {
         "message": "\u5bbd"
     },
+    "settings_header_height": {
+        "message": "\u9ad8"
+    },
     "settings_sidebar_mask_color": {
         "message": "\u9762\u677f\u989c\u8272"
     },
@@ -725,11 +779,20 @@
     "settings_bookmarks_dir_indentation": {
         "message": "\u76ee\u5f55\u7f29\u8fdb"
     },
+    "settings_tooltip_font_size": {
+        "message": "\u63d0\u793a\u5de5\u5177\u680f\u5b57\u4f53\u5927\u5c0f"
+    },
     "settings_overlay_mask_color": {
         "message": "\u9762\u677f\u989c\u8272"
     },
     "settings_icon_shape": {
         "message": "\u5f62\u72b6"
+    },
+    "settings_custom_css": {
+        "message": "\u81ea\u5b9a\u4e49\u6837\u5f0f"
+    },
+    "settings_custom_css_desc": {
+        "message": "\u5982\u679c\u60a8\u719f\u6089CSS\uff0c\u60a8\u53ef\u4ee5\u7528\u5b9a\u4e49\u81ea\u5df1\u7684\u6837\u5f0f\u8868\u8986\u76d6\u9ed8\u8ba4\u6837\u5f0f\u8868"
     },
     "settings_newtab_desc": {
         "message": "\u4e0d\u5e78\u7684\u662f\uff0cGoogle\u5220\u9664\u4e86\u5728\u9ed8\u8ba4\u65b0\u6807\u7b7e\u9875\u4e0a\u52a0\u8f7d\u6269\u5c55\u7a0b\u5e8f\u7684\u53ef\u80fd\u6027\u3002\u56e0\u6b64\uff0c\u6211\u6dfb\u52a0\u4e86\u4e00\u4e9b\u9009\u9879\uff0c\u5141\u8bb8\u60a8\u4ee5\u5176\u4ed6\u65b9\u5f0f\u6253\u5f00\u65b0\u9009\u9879\u5361\u65f6\u8bbf\u95ee\u60a8\u7684\u4e66\u7b7e\u3002"

@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Cancelar"
     },
+    "sidebar_deleted": {
+        "message": "Removida"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Deshacer"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Editar Marcador"
     },
@@ -46,6 +52,9 @@
     },
     "contextmenu_new_tab": {
         "message": "Abrir en nueva pesta\u00f1a"
+    },
+    "contextmenu_new_window": {
+        "message": "Abrir en una nueva ventana"
     },
     "contextmenu_new_tab_incognito": {
         "message": "Abrir en ventana de incc\u00f3gnito"
@@ -86,6 +95,9 @@
     "contextmenu_bookmark_manager": {
         "message": "Administrar Marcador"
     },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Accesos directos de teclado"
+    },
     "sort_label_custom": {
         "message": "Definido por el usuario"
     },
@@ -112,6 +124,9 @@
     },
     "overlay_bookmark_url": {
         "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Informaci\u00f3n adicional"
     },
     "overlay_cancel": {
         "message": "Cancelar"
@@ -644,6 +659,9 @@
     "settings_sidebar_width": {
         "message": "Ancho"
     },
+    "settings_header_height": {
+        "message": "Altura de cabecera"
+    },
     "settings_sidebar_mask_color": {
         "message": "Color de la m\u00e1scara"
     },
@@ -671,11 +689,17 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Sangrado del directorio"
     },
+    "settings_tooltip_font_size": {
+        "message": "Tama\u00f1o de fuente de informaci\u00f3n"
+    },
     "settings_overlay_mask_color": {
         "message": "Color de m\u00e1scara"
     },
     "settings_icon_shape": {
         "message": "Aspecto"
+    },
+    "settings_custom_css": {
+        "message": "Estilo de pagina personalizado"
     },
     "settings_newtab_desc": {
         "message": "Desafortunadamente Google elimin\u00f3 la posibilidad de cargar extensiones en la nueva pesta\u00f1a predeterminada. Debido a esto he a\u00f1adido algunas opciones que le permiten acceder a sus marcadores al abrir una nueva pesta\u00f1a de otra manera."

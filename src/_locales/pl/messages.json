@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Anuluj"
     },
+    "sidebar_deleted": {
+        "message": "Usuni\u0119to"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Cofnij"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Edytuj zak\u0142adk\u0119"
     },
@@ -88,6 +94,9 @@
     },
     "contextmenu_bookmark_manager": {
         "message": "Mened\u017cer zak\u0142adek"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Skr\u00f3ty klawiaturowe"
     },
     "sort_label_custom": {
         "message": "Ustawienie u\u017cytkownika"
@@ -398,6 +407,9 @@
     "settings_restored_message": {
         "message": "Konfiguracja przywr\u00f3cona pomy\u015blnie"
     },
+    "settings_advanced": {
+        "message": "Ustawienia zaawansowane"
+    },
     "settings_animations": {
         "message": "W\u0142\u0105cz animacje"
     },
@@ -650,6 +662,9 @@
     "settings_sidebar_width": {
         "message": "Szeroko\u015b\u0107"
     },
+    "settings_header_height": {
+        "message": "Wysoko\u015b\u0107 nag\u0142\u00f3wka"
+    },
     "settings_sidebar_mask_color": {
         "message": "Kolor t\u0142a"
     },
@@ -677,11 +692,20 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Wci\u0119cie folder\u00f3w"
     },
+    "settings_tooltip_font_size": {
+        "message": "Rozmiar czcionki dymk\u00f3w podpowiedzi"
+    },
     "settings_overlay_mask_color": {
         "message": "Kolor t\u0142a"
     },
     "settings_icon_shape": {
         "message": "Kszta\u0142t"
+    },
+    "settings_custom_css": {
+        "message": "W\u0142asny arkusz styl\u00f3w"
+    },
+    "settings_custom_css_desc": {
+        "message": "Mo\u017cesz zdefiniowa\u0107 w\u0142asny arkusz styl\u00f3w nadpisuj\u0105cy domy\u015bln\u0105 stylizacj\u0119. Opcja przeznaczona dla u\u017cytkownik\u00f3w znaj\u0105cych j\u0119zyk CSS."
     },
     "settings_newtab_desc": {
         "message": "Niestety Google usun\u0105\u0142 mo\u017cliwo\u015b\u0107 \u0142adowania rozszerze\u0144 na domy\u015blnej stronie nowej karty. Z tego powodu doda\u0142em kilka opcji, kt\u00f3re pozwalaj\u0105 uzyska\u0107 w inny spos\u00f3b dost\u0119p do twoich zak\u0142adek, kiedy otwierasz now\u0105 kart\u0119."

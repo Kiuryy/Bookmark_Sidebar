@@ -81,19 +81,6 @@
                 e.preventDefault();
                 $(e.target).prev("div[" + ext.opts.attr.name + "]").trigger("click");
             });
-
-            $(ext.elements.iframe[0].contentDocument).on(ext.opts.events.checkboxChanged, (e) => { // set sort specific config and reload list
-                let name = e.detail.checkbox.attr(ext.opts.attr.name);
-
-                if (name === "viewAsTree" || name === "mostViewedPerMonth") {
-                    ext.helper.model.setData({
-                        ["u/" + name]: e.detail.checked
-                    }).then(() => {
-                        ext.startLoading();
-                        ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
-                    });
-                }
-            });
         };
 
         /**
@@ -234,6 +221,35 @@
                 ext.helper.tooltip.close();
             });
 
+
+            $(ext.elements.iframe[0].contentDocument).on(ext.opts.events.checkboxChanged, (e) => {
+                let name = e.detail.checkbox.attr(ext.opts.attr.name);
+
+                if (name === "viewAsTree" || name === "mostViewedPerMonth") {  // set sort specific config and reload list
+                    ext.helper.model.setData({
+                        ["u/" + name]: e.detail.checked
+                    }).then(() => {
+                        ext.startLoading();
+                        ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
+                    });
+                } else if (name === "config" || name === "activity") { // check whether all tracking checkboxes are checked
+                    let allChecked = true;
+                    ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
+                        let wrapper = $(elm).parent();
+                        if (ext.helper.checkbox.isChecked(wrapper) === false) {
+                            allChecked = false;
+                            return false;
+                        }
+                    });
+
+                    if (allChecked) {
+                        $.delay(300).then(() => {
+                            saveTrackingPreferences();
+                        });
+                    }
+                }
+            });
+
             chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
@@ -295,21 +311,28 @@
                 if (title) {
                     ext.helper.overlay.create("shareInfoDesc", title, {type: $(e.currentTarget).data("type")});
                 } else {
-                    let shareInfo = {
-                        config: false,
-                        activity: false
-                    };
-
-                    ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
-                        let wrapper = $(elm).parent();
-                        let name = wrapper.attr(ext.opts.attr.name);
-                        shareInfo[name] = ext.helper.checkbox.isChecked(wrapper);
-                    });
-
-                    ext.helper.model.call("updateShareInfo", shareInfo);
-                    ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo).addClass(ext.opts.classes.sidebar.hidden);
+                    saveTrackingPreferences();
                 }
             });
+        };
+
+        /**
+         * Saves the preference of the user which data should be shared (configuration or activity)
+         */
+        let saveTrackingPreferences = () => {
+            let shareInfo = {
+                config: false,
+                activity: false
+            };
+
+            ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
+                let wrapper = $(elm).parent();
+                let name = wrapper.attr(ext.opts.attr.name);
+                shareInfo[name] = ext.helper.checkbox.isChecked(wrapper);
+            });
+
+            ext.helper.model.call("updateShareInfo", shareInfo);
+            ext.elements.iframeBody.find("div#" + ext.opts.ids.sidebar.shareInfo).addClass(ext.opts.classes.sidebar.hidden);
         };
     };
 

@@ -342,6 +342,7 @@
             });
             if (opts.data) {
                 ext.helper.utility.openUrl(opts.data, "newWindow");
+                ext.helper.toggle.closeSidebar();
             }
         };
 
@@ -357,8 +358,13 @@
                 label: "new_tab_contextmenu"
             });
             if (opts.data) {
+                let inForeground = ext.helper.model.getData("b/newTab") === "foreground";
                 opts.data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
-                ext.helper.utility.openUrl(opts.data, "newTab", ext.helper.model.getData("b/newTab") === "foreground");
+                ext.helper.utility.openUrl(opts.data, "newTab", inForeground);
+
+                if (inForeground) {
+                    ext.helper.toggle.closeSidebar();
+                }
             }
         };
 

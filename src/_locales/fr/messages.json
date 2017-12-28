@@ -11,21 +11,6 @@
     "header_bookmarks_single": {
         "message": "Favori"
     },
-    "sidebar_dir_children": {
-        "message": "Elements"
-    },
-    "sidebar_search_placeholder": {
-        "message": "Rechercher un favori"
-    },
-    "sidebar_search_no_results": {
-        "message": "Aucun favori ne correspond \u00e0 votre recherche"
-    },
-    "sidebar_copied_to_clipboard": {
-        "message": "Url copi\u00e9e"
-    },
-    "sidebar_drag_cancel": {
-        "message": "Annuler"
-    },
     "contextmenu_edit_bookmark": {
         "message": "Modifier le favori"
     },

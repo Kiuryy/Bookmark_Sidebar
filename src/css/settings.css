@@ -1540,7 +1540,9 @@ body {
   body::after {
     content: attr(data-successtext);
     top: 50px;
-    left: calc(50% - 300px);
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 600px;
     padding: 40px;
     text-align: center;

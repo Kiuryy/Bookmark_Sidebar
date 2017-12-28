@@ -169,12 +169,17 @@
   > span.drag {
     display: none;
     position: absolute;
-    top: calc(50% - 12px);
+    top: 0;
+    bottom: 0;
     right: 15px;
-    width: 24px;
-    height: 24px;
+    margin: auto;
+    width: $__bookmarksLineHeight;
+    height: $__bookmarksLineHeight;
+    max-width: 24px;
+    max-height: 24px;
     border-radius: 2px;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
     transition: background-color 0.5s, opacity 0.5s;
     @extend %hidden;
 
@@ -183,7 +188,7 @@
     }
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.125);
     }
   }
 
@@ -203,13 +208,14 @@
   }
 
   > span.drag {
+    background-color: rgba(255, 255, 255, 0.1);
 
     &::before {
       background-color: $darkReorderIconColor;
     }
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.25) !important;
 
       &::before {
         background-color: $darkReorderIconColorActive;

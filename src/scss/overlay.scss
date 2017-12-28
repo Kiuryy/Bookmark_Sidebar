@@ -82,7 +82,9 @@ div.modal {
     > a.close {
       @include mask('icon-close', $__foregroundColor, 24px);
       position: absolute;
-      top: calc(50% - 17px);
+      top: 0;
+      bottom: 0;
+      margin: auto;
       right: 15px;
       display: block;
       width: 34px;

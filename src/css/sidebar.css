@@ -595,17 +595,22 @@ a.dragHelper {
   a.dragHelper > span.drag {
     display: none;
     position: absolute;
-    top: calc(50% - 12px);
+    top: 0;
+    bottom: 0;
     right: 15px;
-    width: 24px;
-    height: 24px;
+    margin: auto;
+    width: "%bookmarksLineHeight";
+    height: "%bookmarksLineHeight";
+    max-width: 24px;
+    max-height: 24px;
     border-radius: 2px;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
     transition: background-color 0.5s, opacity 0.5s; }
     a.dragHelper > span.drag::before {
       transition: inherit; }
     a.dragHelper > span.drag:hover {
-      background-color: rgba(0, 0, 0, 0.1); }
+      background-color: rgba(0, 0, 0, 0.125); }
   a.dragHelper > span.drag {
     display: block;
     background-color: rgba(0, 0, 0, 0.1); }
@@ -618,7 +623,7 @@ a.dragHelper {
       height: 100%;
       -webkit-mask: no-repeat center/18px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
-      background-color: #999; }
+      background-color: #888; }
   a.dragHelper.snap {
     transition: 0.2s;
     box-shadow: none;
@@ -696,7 +701,9 @@ section#sidebar {
         margin-right: -2px; }
     section#sidebar > header > div.searchBox {
       position: absolute;
-      top: calc(50% - 15px);
+      top: 0;
+      bottom: 0;
+      margin: auto;
       left: 16px;
       width: calc(100% - 105px);
       height: 30px;
@@ -1005,17 +1012,22 @@ section#sidebar {
         section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {
           display: none;
           position: absolute;
-          top: calc(50% - 12px);
+          top: 0;
+          bottom: 0;
           right: 15px;
-          width: 24px;
-          height: 24px;
+          margin: auto;
+          width: "%bookmarksLineHeight";
+          height: "%bookmarksLineHeight";
+          max-width: 24px;
+          max-height: 24px;
           border-radius: 2px;
           cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.05);
           transition: background-color 0.5s, opacity 0.5s; }
           section#sidebar > div.scrollBox > ul a > span.drag::before, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag::before {
             transition: inherit; }
           section#sidebar > div.scrollBox > ul a > span.drag:hover, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag:hover {
-            background-color: rgba(0, 0, 0, 0.1); }
+            background-color: rgba(0, 0, 0, 0.125); }
         section#sidebar > div.scrollBox > ul a + ul, section#sidebar > div.scrollBox > div.pinned > ul a + ul {
           padding-left: "%bookmarksDirIndentation";
           height: 0;
@@ -1088,9 +1100,9 @@ section#sidebar {
     height: 100%;
     -webkit-mask: no-repeat center/18px;
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
-    background-color: #ccc; }
+    background-color: #aaa; }
   section#sidebar.openedOnce > div.scrollBox a > span.drag:hover::before {
-    background-color: #999; }
+    background-color: #888; }
   section#sidebar[data-sort='custom'] > div.scrollBox a:hover {
     padding-right: 46px; }
   section#sidebar[data-sort='custom'] > div.scrollBox a > span.drag {
@@ -1204,28 +1216,32 @@ body.dark section#sidebar {
     background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar > div.scrollBox > ul a > span.removeMask {
     background: #666; }
+  body.dark section#sidebar > div.scrollBox > ul a > span.drag {
+    background-color: rgba(255, 255, 255, 0.1); }
+    body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
+      background-color: #bbb; }
+    body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important; }
+      body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
+        background-color: #eee; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
-    background-color: #999; }
+    background-color: #bbb; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
     background-color: rgba(255, 255, 255, 0.1); }
     body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
-      background-color: #ccc; }
-  body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
-    background-color: #999; }
-  body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
-    background-color: rgba(255, 255, 255, 0.1); }
-    body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
-      background-color: #ccc; }
+      background-color: #eee; }
   body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar ~ a.dragHelper > span.removeMask {
     background: #666; }
-  body.dark section#sidebar ~ a.dragHelper > span.drag::before {
-    background-color: #999; }
-  body.dark section#sidebar ~ a.dragHelper > span.drag:hover {
+  body.dark section#sidebar ~ a.dragHelper > span.drag {
     background-color: rgba(255, 255, 255, 0.1); }
-    body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
-      background-color: #ccc; }
+    body.dark section#sidebar ~ a.dragHelper > span.drag::before {
+      background-color: #bbb; }
+    body.dark section#sidebar ~ a.dragHelper > span.drag:hover {
+      background-color: rgba(255, 255, 255, 0.25) !important; }
+      body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
+        background-color: #eee; }
 
 body.dark div#shareInfo, body.dark div#reloadInfo {
   background: #3d3d3d; }

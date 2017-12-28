@@ -35,7 +35,9 @@ section.slide {
   position: absolute;
   width: 650px;
   top: 30vh;
-  left: calc(50% - 325px);
+  left: 0;
+  right: 0;
+  margin: auto;
   text-align: center;
   transition: opacity 0.3s, transform 0.3s;
   @extend %hidden;
@@ -68,7 +70,9 @@ section.slide {
     content: "";
     position: absolute;
     top: -100px;
-    left: calc(50% - 32px);
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 64px;
     height: 64px;
     background: img('icon/icon.webp') no-repeat center / 100%;
@@ -227,7 +231,9 @@ body {
 
   &[data-openType='mouse']::before {
     @include maskImage('onboarding/icon-cursor');
-    top: calc(50% - 24px);
+    top: 0;
+    bottom: 0;
+    margin: auto;
   }
 
   &[data-openType='mouse'][data-position='right']::before {

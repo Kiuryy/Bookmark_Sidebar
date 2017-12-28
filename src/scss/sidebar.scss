@@ -182,7 +182,9 @@ section#sidebar {
 
     > div.searchBox {
       position: absolute;
-      top: calc(50% - 15px);
+      top: 0;
+      bottom: 0;
+      margin: auto;
       left: 16px;
       width: calc(100% - 105px);
       height: 30px;

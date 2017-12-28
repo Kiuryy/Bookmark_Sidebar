@@ -257,7 +257,9 @@ div.modal {
       line-height: "%overlayHeaderHeight"; }
     div.modal > header > a.close {
       position: absolute;
-      top: calc(50% - 17px);
+      top: 0;
+      bottom: 0;
+      margin: auto;
       right: 15px;
       display: block;
       width: 34px;

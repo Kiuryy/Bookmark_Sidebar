@@ -81,39 +81,48 @@ body > header {
     -webkit-mask-size: 20px;
   }
 
+  &[data-type='export'] > h1::before {
+    @include maskImage('settings/icon-importExport');
+    -webkit-mask-size: 26px;
+  }
+
   > menu {
     display: inline-block;
     margin: 10px 30px 0 0;
     float: right;
 
-    > button {
-      position: relative;
+    > li {
       display: inline-block;
-      vertical-align: top;
-      border: 0;
-      outline: 0;
-      cursor: pointer;
 
-      &.save {
-        background: $contentBackground;
-        color: $mainColor;
-        padding: 4px 8px;
-        font-weight: $__fontWeightMedium;
-        font-size: 100%;
-        border-radius: 5px;
-        box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
-      }
+      > button {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
 
-      &.restore {
-        @include mask('icon-update', $textColorInverted, 24px);
-        background: transparent;
-        margin: 1px 0 0 10px;
-        width: 24px;
-        height: 24px;
-      }
+        &.save {
+          background: $contentBackground;
+          color: $mainColor;
+          padding: 4px 8px;
+          font-weight: $__fontWeightMedium;
+          font-size: 100%;
+          border-radius: 5px;
+          box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+        }
 
-      &.hidden {
-        display: none;
+        &.restore {
+          @include mask('icon-update', $textColorInverted, 24px);
+          background: transparent;
+          margin: 1px 0 0 10px;
+          width: 24px;
+          height: 24px;
+        }
+
+        &.hidden {
+          display: none;
+        }
       }
     }
   }

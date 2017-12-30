@@ -1,106 +1,145 @@
-body > section#wrapper > aside {
-  width: 240px;
-  height: calc(100vh - #{$settingsHeaderHeight});
-  background: $settingsMenuBackground;
-  padding: 20px 10px 0;
-  overflow: auto;
+body > section#wrapper {
 
-  > nav {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background: $settingsMenuBackground;
+  }
 
-    li.hidden {
-      display: none;
-    }
+  > aside {
+    position: relative;
+    width: 240px;
+    height: calc(100vh - #{$settingsHeaderHeight});
+    padding: 20px 10px 10px;
+    overflow: auto;
 
-    > ul > li {
+    > nav {
+      height: 100%;
 
-      &[data-name='sidebar'] > a {
-        @include mask('icon-settings', $textColor, 20px);
+      li.hidden {
+        display: none;
       }
 
-      &[data-name='appearance'] > a {
-        @include mask('settings/icon-appearance', $textColor, 20px);
-      }
+      > ul {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
 
-      &[data-name='newtab'] > a {
-        @include mask('settings/icon-newtab', $textColor, 16px);
-      }
+        > li {
 
-      &[data-name='language'] {
-
-        > a {
-          @include mask('settings/icon-translate', $textColor, 20px);
-        }
-
-        &.incomplete > a > span {
-          @include mask('icon-info', $colorError, 20px);
-          display: inline-block;
-          position: relative;
-          width: 24px;
-          height: 24px;
-          margin: 10px 0 0 5px;
-          vertical-align: top;
-          cursor: help;
-        }
-      }
-
-      &[data-name='feedback'] > a {
-        @include mask('settings/icon-feedback', $textColor, 16px);
-      }
-
-      &[data-name='support'] > a {
-        @include mask('settings/icon-support', $textColor, 18px);
-      }
-    }
-
-    ul {
-
-      > li {
-        position: relative;
-        display: block;
-        line-height: 45px;
-
-        > a {
-          position: relative;
-          display: block;
-          width: 100%;
-          height: 100%;
-          padding: 0 10px 0 42px;
-          transition: background 0.5s;
-
-          &:hover {
-            background: $settingsMenuHoverBackground;
+          &[data-name='sidebar'] > a {
+            @include mask('icon-settings', $textColor, 20px);
           }
 
-          &::before {
-            -webkit-mask-position: 12px center !important;
-            pointer-events: none;
+          &[data-name='appearance'] > a {
+            @include mask('settings/icon-appearance', $textColor, 20px);
           }
-        }
 
-        &.active {
-
-          > a {
-            font-weight: $__fontWeightMedium;
+          &[data-name='newtab'] > a {
+            @include mask('settings/icon-newtab', $textColor, 16px);
           }
-        }
 
-        > ul {
-          margin-left: 30px;
-          height: 0;
-          transition: height 0.3s;
-          overflow: hidden;
-
-          > li {
-            line-height: 30px;
+          &[data-name='language'] {
 
             > a {
-              padding: 0 10px 0 22px;
-              font-size: 90%;
+              @include mask('settings/icon-translate', $textColor, 20px);
+            }
 
-              &::before {
-                content: "-";
-                position: absolute;
-                left: 10px;
+            &.incomplete > a > span {
+              @include mask('icon-info', $colorError, 20px);
+              display: inline-block;
+              position: relative;
+              width: 24px;
+              height: 24px;
+              margin: 10px 0 0 5px;
+              vertical-align: top;
+              cursor: help;
+            }
+          }
+
+          &[data-name='feedback'] > a {
+            @include mask('settings/icon-feedback', $textColor, 16px);
+          }
+
+          &[data-name='support'] > a {
+            @include mask('settings/icon-support', $textColor, 18px);
+          }
+
+          &[data-name='export'] {
+            padding-top: 20px;
+            margin-top: auto;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 10px;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background: rgba(0, 0, 0, 0.1);
+            }
+
+            > a {
+              @include mask('settings/icon-importExport', $textColor, 22px);
+            }
+          }
+        }
+      }
+
+      ul {
+
+        > li {
+          position: relative;
+          display: block;
+          line-height: 45px;
+
+          > a {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 0 10px 0 42px;
+            transition: background 0.5s;
+
+            &:hover {
+              background: $settingsMenuHoverBackground;
+            }
+
+            &::before {
+              -webkit-mask-position: 12px center !important;
+              pointer-events: none;
+            }
+          }
+
+          &.active {
+
+            > a {
+              font-weight: $__fontWeightMedium;
+            }
+          }
+
+          > ul {
+            margin-left: 30px;
+            height: 0;
+            transition: height 0.3s;
+            overflow: hidden;
+
+            > li {
+              line-height: 30px;
+
+              > a {
+                padding: 0 10px 0 22px;
+                font-size: 90%;
+
+                &::before {
+                  content: "-";
+                  position: absolute;
+                  left: 10px;
+                }
               }
             }
           }
@@ -109,3 +148,6 @@ body > section#wrapper > aside {
     }
   }
 }
+
+
+

@@ -15,8 +15,12 @@
     <h1 data-i18n="settings_title"></h1>
 
     <menu>
-        <button class="save"></button>
-        <button class="restore"></button>
+        <li>
+            <button class="save"></button>
+        </li>
+        <li>
+            <button class="restore"></button>
+        </li>
     </menu>
 </header>
 
@@ -59,23 +63,9 @@
                     </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="preventPageScroll" data-i18n="settings_prevent_pagescroll"></div>
-                    </div>
-
-                    <div class="box">
                         <div class="formElement" data-type="select" data-name="linkAction" data-i18n="settings_link_action">
                             <span data-value="current" data-i18n="settings_link_action_current_tab"></span>
                             <span data-value="newtab" data-i18n="settings_link_action_new_tab"></span>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="select" data-name="rememberState" data-i18n="settings_remember_state">
-                            <span data-value="openStatesAndPos" data-i18n="settings_remember_state_open_states_and_scroll"></span>
-                            <span data-value="all" data-i18n="settings_remember_state_all"></span>
-                            <span data-value="openStates" data-i18n="settings_remember_state_open_states"></span>
-                            <span data-value="openStatesRoot" data-i18n="settings_remember_state_open_states_root"></span>
-                            <span data-value="nothing" data-i18n="settings_remember_state_nothing"></span>
                         </div>
                     </div>
 
@@ -84,19 +74,38 @@
                     </div>
 
                     <div class="box">
+                        <div class="formElement" data-type="checkbox" data-name="preventPageScroll" data-i18n="settings_prevent_pagescroll"></div>
+                    </div>
+
+                    <div class="box">
                         <div class="formElement" data-type="range" data-name="scrollBarHide" data-min="0.5" data-max="5" data-step="0.5" data-infinity="1" data-unit="s" data-i18n="settings_scrollbar_hide"></div>
                     </div>
+                </div>
 
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="openChildrenWarnLimit" data-value="10" data-min="1" data-max="100" data-i18n="settings_open_children_warn_limit"></div>
-                    </div>
+                <div class=" advanced">
+                    <h3 data-i18n="settings_advanced"></h3>
+                    <div class="boxWrapper">
+                        <div class="box">
+                            <div class="formElement" data-type="checkbox" data-name="animations" data-i18n="settings_animations"></div>
+                        </div>
 
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="dirOpenDuration" data-value="0.5" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
-                    </div>
+                        <div class="box">
+                            <div class="formElement" data-type="range" data-name="dirOpenDuration" data-value="0.5" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
+                        </div>
 
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="animations" data-i18n="settings_animations"></div>
+                        <div class="box">
+                            <div class="formElement" data-type="select" data-name="rememberState" data-i18n="settings_remember_state">
+                                <span data-value="openStatesAndPos" data-i18n="settings_remember_state_open_states_and_scroll"></span>
+                                <span data-value="all" data-i18n="settings_remember_state_all"></span>
+                                <span data-value="openStates" data-i18n="settings_remember_state_open_states"></span>
+                                <span data-value="openStatesRoot" data-i18n="settings_remember_state_open_states_root"></span>
+                                <span data-value="nothing" data-i18n="settings_remember_state_nothing"></span>
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="formElement" data-type="range" data-name="openChildrenWarnLimit" data-value="10" data-min="1" data-max="100" data-i18n="settings_open_children_warn_limit"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,6 +123,10 @@
                     </div>
 
                     <div class="box">
+                        <div class="formElement" data-type="range" data-name="closeTimeout" data-value="1" data-min="0" data-max="5" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
+                    </div>
+
+                    <div class="box">
                         <label data-i18n="settings_px_tolerance"></label>
                         <div class="sub">
                             <div class="formElement" data-type="range" data-name="pxToleranceMaximized" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_maximized"></div>
@@ -123,35 +136,31 @@
                     </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="range" data-name="closeTimeout" data-value="1" data-min="0" data-max="5" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
-                    </div>
-
-                    <div class="box">
                         <div class="formElement" data-type="checkbox" data-name="autoOpen" data-i18n="settings_reopen_sidebar"></div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="checkbox" data-name="dndOpen" data-i18n="settings_drag_n_drop_open"></div>
                     </div>
 
                     <div class="box">
                         <a class="button keyboardShortcut" data-i18n="settings_keyboard_shortcut_button"></a>
                     </div>
                 </div>
-            </div>
 
+                <div class=" advanced">
+                    <h3 data-i18n="settings_advanced"></h3>
+                    <div class="boxWrapper">
+                        <div class="box">
+                            <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
+                        </div>
+
+                        <div class="box">
+                            <div class="formElement" data-type="checkbox" data-name="dndOpen" data-i18n="settings_drag_n_drop_open"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Tooltip -->
             <div data-name="tooltip">
                 <div class="boxWrapper">
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="tooltipDelay" data-value="1" data-min="0" data-max="3" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
-                    </div>
-
                     <div class="box">
                         <div class="formElement" data-type="select" data-name="tooltipContent" data-i18n="settings_tooltip_content">
                             <span data-value="all" data-i18n="settings_tooltip_content_all"></span>
@@ -159,21 +168,14 @@
                             <span data-value="url" data-i18n="settings_tooltip_content_url"></span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-
-            <!-- Import/Export -->
-            <div data-name="export" data-save="false" data-restore="false">
-                <div class="boxWrapper">
                     <div class="box">
-                        <a class="export button" data-i18n="settings_export"></a>&ensp;
-                        <a class="import button"><input type='file' accept=".config, text/json" /><span data-i18n="settings_import"></span></a>
-                        <p class="desc" data-i18n="settings_import_export_desc"></p>
+                        <div class="formElement" data-type="range" data-name="tooltipDelay" data-value="1" data-min="0" data-max="3" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!--
          #
@@ -312,6 +314,7 @@
             </div>
         </div>
 
+
         <!--
         #
         #
@@ -338,6 +341,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--
         #
@@ -387,6 +391,7 @@
             </div>
         </div>
 
+
         <!--
          #
          #
@@ -424,6 +429,7 @@
                 </div>
             </div>
         </div>
+
 
         <!--
          #
@@ -482,6 +488,22 @@
                     <p class="text" data-i18n="settings_support_donation_desc"></p>
                     <a class="button donate" data-i18n="settings_headline_donation"></a>
                 </div>
+            </div>
+        </div>
+
+
+        <!--
+        #
+        #
+        # IMPORT/EXPORT
+        #
+        #
+        -->
+        <div class="tab" data-name="export">
+            <div class="contentBox">
+                <p data-i18n="settings_import_export_desc"></p>
+                <a class="export button" data-i18n="settings_export"></a>
+                <a class="import button"><input type='file' accept=".config, text/json" /><span data-i18n="settings_import"></span></a>
             </div>
         </div>
     </main>

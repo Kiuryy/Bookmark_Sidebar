@@ -436,23 +436,6 @@
                 }
             });
 
-            s.opts.elm.appearance.advancedSettings.css("display", "none");
-            s.opts.elm.appearance.toggleAdvanced.on("click", () => {
-                if (s.opts.elm.appearance.advancedSettings.hasClass(s.opts.classes.visible)) {
-                    s.opts.elm.appearance.advancedSettings.removeClass(s.opts.classes.visible);
-
-                    $.delay(300).then(() => {
-                        s.opts.elm.appearance.advancedSettings.css("display", "none");
-                    });
-                } else {
-                    s.opts.elm.appearance.advancedSettings.css("display", "block");
-
-                    $.delay(0).then(() => {
-                        s.opts.elm.appearance.advancedSettings.addClass(s.opts.classes.visible);
-                    });
-                }
-            });
-
 
             s.opts.elm.range.tooltipFontSize.on("change, input", () => { // show tooltip in preview for 2s when changing the font size
                 lastTooltipChange = +new Date();

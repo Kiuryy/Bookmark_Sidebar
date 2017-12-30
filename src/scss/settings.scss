@@ -116,7 +116,6 @@ h2 {
 // Notice
 div.noticeBox {
   @include mask('icon-info', $textColorLight, 32px);
-  line-height: 140%;
 
   &::before {
     -webkit-mask-position-x: 15px;
@@ -165,6 +164,10 @@ main button[type='submit'], a.button {
 }
 
 // Import/Export
+a.import, a.export {
+  margin: 30px 15px 0 0;
+}
+
 a.import > input[type='file'] {
   cursor: pointer;
   position: absolute;

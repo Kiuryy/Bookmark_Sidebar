@@ -1,9 +1,10 @@
 
 body > section#wrapper div.advanced {
   position: relative;
-  margin: 20px;
+  margin: 20px auto;
+  max-width: 1024px;
   background: $bodyBackground;
-  padding: 16px 20px;
+  padding: 16px 0;
 
   > h3 {
     @include mask('icon-add', $mainColor, 18px);
@@ -53,5 +54,14 @@ body > section#wrapper div.advanced {
         }
       }
     }
+  }
+}
+
+body[data-type^='appearance'] > section#wrapper div.advanced {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  > div {
+    flex-direction: column;
   }
 }

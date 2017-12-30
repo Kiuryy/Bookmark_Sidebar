@@ -108,17 +108,19 @@
                 content: $("body > section#wrapper > main"),
                 header: $("body > header"),
                 headline: $("body > header > h1"),
+                advanced: {
+                    toggle: $("div.advanced > h3"),
+                    container: $("div.advanced > div")
+                },
                 buttons: {
-                    save: $("body > header > menu > button.save"),
-                    restore: $("body > header > menu > button.restore"),
+                    save: $("body > header > menu > li > button.save"),
+                    restore: $("body > header > menu > li > button.restore"),
                     keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
                     "import": $("body a.import > input[type='file']"),
                     "export": $("body a.export"),
                 },
                 appearance: {
-                    content: $("div.tab[data-name='appearance']"),
-                    toggleAdvanced: $("div.tab[data-name='appearance'] div.advanced > h3"),
-                    advancedSettings: $("div.tab[data-name='appearance'] div.advanced > div")
+                    content: $("div.tab[data-name='appearance']")
                 },
                 newtab: {
                     content: $("div.tab[data-name='newtab']"),
@@ -298,6 +300,25 @@
                             this.helper.model.call("reinitialize");
                             location.reload(true);
                         });
+                    });
+                }
+            });
+
+            this.opts.elm.advanced.container.css("display", "none");
+            this.opts.elm.advanced.toggle.on("click", (e) => {
+                let container = $(e.currentTarget).next("div");
+
+                if (container.hasClass(this.opts.classes.visible)) {
+                    container.removeClass(this.opts.classes.visible);
+
+                    $.delay(300).then(() => {
+                        container.css("display", "none");
+                    });
+                } else {
+                    container.css("display", "flex");
+
+                    $.delay(0).then(() => {
+                        container.addClass(this.opts.classes.visible);
                     });
                 }
             });

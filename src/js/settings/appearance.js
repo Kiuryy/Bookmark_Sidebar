@@ -350,7 +350,7 @@
                 directoriesIconSize: "showDirectoryIcons"
             }).forEach(([field, attr]) => {
                 if (parseInt(ret.appearance.styles[field]) === 0) {
-                    ret[attr] = false;
+                    ret.appearance[attr] = false;
                 }
             });
 

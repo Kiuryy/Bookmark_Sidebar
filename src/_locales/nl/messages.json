@@ -497,6 +497,9 @@
     "settings_not_synced": {
         "message": "Wordt niet gesynchroniseerd met je andere apparaten."
     },
+    "settings_presets": {
+        "message": "Voorselectie"
+    },
     "settings_color_scheme": {
         "message": "Kleurenschema"
     },
@@ -580,6 +583,12 @@
     },
     "settings_icon_shape": {
         "message": "Vorm"
+    },
+    "settings_custom_css": {
+        "message": "Aangepast stylesheet"
+    },
+    "settings_custom_css_desc": {
+        "message": "Je kan je eigen stylesheet defini\u00ebren welke de standaard stylesheet overschrijft. Gebruik deze optie alles als je bekend bent met CSS en je weet wat je aan het doen bent."
     },
     "settings_language": {
         "message": "Taal"

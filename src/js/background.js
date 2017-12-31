@@ -79,20 +79,39 @@
                                 $.delay(delay).then(() => {
                                     Object.entries(types).forEach(([type, func]) => {
                                         let files = this.manifest.content_scripts[0][type];
+                                        let failed = false;
 
                                         files.forEach((file) => {
                                             chrome.tabs[func](tab.id, {file: file}, () => {
-                                                chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                                let error = chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                                if (error && error.message && failed === false) { // send a notification instead to let the page deal with it
+                                                    failed = true;
+                                                    notifyReinitialization(tab.id);
+                                                }
                                             });
                                         });
                                     });
                                 });
+                            } else { // send a notification instead of loading the scripts to let the page deal with the reinitialization
+                                notifyReinitialization(tab.id);
                             }
                         });
 
                         resolve();
                     });
                 });
+            });
+        };
+
+        /**
+         * Sends a message to the given tab to notify it that a reinitialization needs to be performed,
+         * will be called if script injection failed (like on the newtab replacement page)
+         *
+         * @param {int} tabId
+         */
+        let notifyReinitialization = (tabId) => {
+            chrome.tabs.sendMessage(tabId, {
+                action: "reinitialize"
             });
         };
 

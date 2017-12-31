@@ -91,6 +91,8 @@
                 this.helper.search.init();
                 this.helper.shortcuts.init();
                 this.helper.edit.init();
+                initEvents();
+
                 return $.delay(500);
             }).then(() => {
                 loader.remove();
@@ -117,11 +119,31 @@
         };
 
         /**
-         * Loads the sidebar with the specified configuration
+         * Initialises the eventhandler
+         */
+        let initEvents = async () => {
+            chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
+                if (message && message.action && message.action === "reinitialize") {
+                    loadSidebar();
+                }
+            });
+        };
+
+        /**
+         * Injects the scripts and stylesheets to load the sidebar,
+         * Removes previously injected content before adding new one,
+         * Will be called multiple times (everytime a reinitialization is triggered)
          */
         let loadSidebar = () => {
+            $("[" + this.opts.attr.type + "='script_sidebar']").remove();
+
             this.opts.manifest.content_scripts[0].css.forEach((css) => {
-                $("head").append("<link href='" + chrome.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
+                $("<link />").attr({
+                    href: chrome.extension.getURL(css),
+                    type: "text/css",
+                    rel: "stylesheet",
+                    [this.opts.attr.type]: "script_sidebar"
+                }).appendTo("head");
             });
 
             let loadJs = (i = 0) => {
@@ -130,8 +152,9 @@
                 if (typeof js !== "undefined") {
                     let script = document.createElement("script");
                     document.head.appendChild(script);
-                    script.onload = () => loadJs(i + 1);
+                    script.onload = () => loadJs(i + 1); // load one after another
                     script.src = "/" + js;
+                    $(script).attr(this.opts.attr.type, "script_sidebar");
                 }
             };
 

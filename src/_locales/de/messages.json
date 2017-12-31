@@ -435,10 +435,7 @@
         "message": "Ein\/Ausblenden"
     },
     "settings_menu_sidebar_tooltip": {
-        "message": "Tooltip"
-    },
-    "settings_menu_sidebar_export": {
-        "message": "Import\/Export"
+        "message": "Tooltips"
     },
     "settings_menu_appearance": {
         "message": "Aussehen"
@@ -475,6 +472,9 @@
     },
     "settings_menu_support": {
         "message": "Unterst\u00fctzen"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Export"
     },
     "settings_save": {
         "message": "\u00c4nderungen speichern"
@@ -704,6 +704,9 @@
     "settings_import_failed": {
         "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
+    "settings_presets": {
+        "message": "Voreinstellung"
+    },
     "settings_color_scheme": {
         "message": "Farbschema"
     },
@@ -873,7 +876,7 @@
         "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern bin ich f\u00fcr jedes Feedback dankbar."
     },
     "settings_feedback_notice": {
-        "message": "Du kannst die Nachricht gerne auf Deutsch schreiben, oder alternativ in Englisch."
+        "message": "Du kannst die Nachricht gerne auf Deutsch schreiben."
     },
     "settings_feedback_email": {
         "message": "Deine E-Mail Adresse"

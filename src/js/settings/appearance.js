@@ -436,6 +436,33 @@
                 }
             });
 
+            s.opts.elm.appearance.presetWrapper.children("a").on("click", (e) => {
+                let type = $(e.currentTarget).attr(s.opts.attr.type);
+                let defaults = s.helper.model.getData("a/styles", true);
+
+                let elm = {
+                    sidebarHeaderHeight: {xs: 32, s: 36, l: 55},
+                    bookmarksFontSize: {xs: 11, s: 12, l: 16},
+                    bookmarksLineHeight: {xs: 20, s: 26, l: 45},
+                    sidebarWidth: {xs: 250, s: 300, l: 400},
+                    bookmarksDirIndentation: {xs: 20, s: 22, l: 30},
+                    bookmarksHorizontalPadding: {xs: 6, s: 10, l: 18},
+                    bookmarksIconSize: {xs: 12, s: 14, l: 18},
+                    directoriesIconSize: {xs: 12, s: 14, l: 18},
+                    scrollBarWidth: {xs: 10, s: 11, l: 12},
+                    tooltipFontSize: {xs: 9, s: 9, l: 12}
+                };
+
+                Object.entries(elm).forEach(([key, values]) => {
+                    if (values[type]) {
+                        s.opts.elm.range[key][0].value = values[type];
+                    } else {
+                        s.opts.elm.range[key][0].value = defaults[key].replace("px", "");
+                    }
+
+                    s.opts.elm.range[key].trigger("change");
+                });
+            });
 
             s.opts.elm.range.tooltipFontSize.on("change, input", () => { // show tooltip in preview for 2s when changing the font size
                 lastTooltipChange = +new Date();

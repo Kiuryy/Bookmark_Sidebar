@@ -120,7 +120,8 @@
                     "export": $("body a.export"),
                 },
                 appearance: {
-                    content: $("div.tab[data-name='appearance']")
+                    content: $("div.tab[data-name='appearance']"),
+                    presetWrapper: $("div.tab[data-name='appearance'] div.presets")
                 },
                 newtab: {
                     content: $("div.tab[data-name='newtab']"),

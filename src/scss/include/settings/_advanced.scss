@@ -56,12 +56,3 @@ body > section#wrapper div.advanced {
     }
   }
 }
-
-body[data-type^='appearance'] > section#wrapper div.advanced {
-  padding-left: 20px;
-  padding-right: 20px;
-
-  > div {
-    flex-direction: column;
-  }
-}

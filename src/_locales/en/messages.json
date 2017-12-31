@@ -435,10 +435,7 @@
         "message": "Toggle"
     },
     "settings_menu_sidebar_tooltip": {
-        "message": "Tooltip"
-    },
-    "settings_menu_sidebar_export": {
-        "message": "Import\/Export"
+        "message": "Tooltips"
     },
     "settings_menu_appearance": {
         "message": "Appearance"
@@ -475,6 +472,9 @@
     },
     "settings_menu_support": {
         "message": "Support"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Export"
     },
     "settings_save": {
         "message": "Save Changes"
@@ -703,6 +703,9 @@
     },
     "settings_import_failed": {
         "message": "Failed to import the configuration. Please choose a valid file."
+    },
+    "settings_presets": {
+        "message": "Preselection"
     },
     "settings_color_scheme": {
         "message": "Color scheme"

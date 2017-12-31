@@ -193,8 +193,9 @@
          * if a value is undefined, it will be set to the default value
          *
          * @param {object|string} keys
+         * @param {boolean} defaultVal
          */
-        this.getData = (keys) => {
+        this.getData = (keys, defaultVal = false) => {
             let configKeys = keys;
             if (typeof configKeys === "string") {
                 configKeys = [configKeys];
@@ -228,7 +229,7 @@
                 }
 
                 if (dataSearchScope !== null) {
-                    if (typeof dataSearchScope[key] === "undefined") {
+                    if (defaultVal === true || typeof dataSearchScope[key] === "undefined") {
                         ["sidebarPosition", "language"].some((f) => { // @deprecated backward compatibility (10-2017)
                             if (keyInfo === "b/" + f) {
                                 value = this.getData("a/" + f);

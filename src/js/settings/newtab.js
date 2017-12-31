@@ -60,11 +60,7 @@
                         config.website = "http://" + config.website;
                     }
 
-                    chrome.storage.sync.set({newtab: config}, () => {
-                        s.helper.model.call("reinitialize");
-                        s.showSuccessMessage("saved_message");
-                        resolve();
-                    });
+                    chrome.storage.sync.set({newtab: config}, resolve);
                 });
             });
         };

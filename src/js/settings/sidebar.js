@@ -46,7 +46,7 @@
         };
 
         /**
-         * Save the behaviour settings
+         * Save the behaviour settings and the user language
          *
          * @returns {Promise}
          */
@@ -77,21 +77,6 @@
                     config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
                 });
 
-                chrome.storage.sync.set({behaviour: config}, () => {
-                    s.helper.model.call("reinitialize");
-                    s.showSuccessMessage("saved_message");
-                    resolve();
-                });
-            });
-        };
-
-        /**
-         * Save the user language
-         *
-         * @returns {Promise}
-         */
-        this.saveLanguage = () => {
-            return new Promise((resolve) => {
                 let lang = s.opts.elm.select.language[0].value;
 
                 if (lang === s.helper.i18n.getUILanguage()) {
@@ -99,12 +84,9 @@
                 }
 
                 chrome.storage.sync.set({
+                    behaviour: config,
                     language: lang
-                }, () => {
-                    s.helper.model.call("reinitialize");
-                    s.showSuccessMessage("saved_message");
-                    resolve();
-                });
+                }, resolve);
             });
         };
 

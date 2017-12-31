@@ -328,31 +328,23 @@
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
 
-                switch (path[0]) {
-                    case "sidebar": {
-                        this.helper.sidebar.save();
-                        break;
-                    }
-                    case "appearance": {
-                        this.helper.appearance.save();
-                        break;
-                    }
-                    case "newtab": {
-                        this.helper.newtab.save();
-                        break;
-                    }
-                    case "language": {
-                        if (path[1] === "translate") {
-                            this.helper.translation.submit();
-                        } else {
-                            this.helper.sidebar.saveLanguage().then(() => {
-                                return $.delay(1500);
-                            }).then(() => {
+                if (path[1] === "translate") {
+                    this.helper.translation.submit();
+                } else {
+                    Promise.all([
+                        this.helper.sidebar.save(),
+                        this.helper.appearance.save(),
+                        this.helper.newtab.save()
+                    ]).then(() => {
+                        this.helper.model.call("reinitialize");
+                        this.showSuccessMessage("saved_message");
+
+                        if (path[0] === "language") {
+                            $.delay(1500).then(() => {
                                 location.reload(true);
                             });
                         }
-                        break;
-                    }
+                    });
                 }
             });
 

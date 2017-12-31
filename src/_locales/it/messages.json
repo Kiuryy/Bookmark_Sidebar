@@ -332,9 +332,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Suggerimenti"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importa\/Esporta"
-    },
     "settings_menu_appearance": {
         "message": "Aspetto"
     },
@@ -370,6 +367,9 @@
     },
     "settings_menu_support": {
         "message": "Supporto"
+    },
+    "settings_menu_export": {
+        "message": "Importa\/Esporta"
     },
     "settings_save": {
         "message": "Salva le modifiche"

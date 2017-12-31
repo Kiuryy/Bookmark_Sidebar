@@ -341,9 +341,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "\ub3c4\uc6c0\ub9d0"
     },
-    "settings_menu_sidebar_export": {
-        "message": "\ubd88\ub7ec\uc624\uae30\/\ub0b4\ubcf4\ub0b4\uae30"
-    },
     "settings_menu_appearance": {
         "message": "\ubaa8\uc591"
     },
@@ -379,6 +376,9 @@
     },
     "settings_menu_support": {
         "message": "\uc9c0\uc6d0"
+    },
+    "settings_menu_export": {
+        "message": "\ubd88\ub7ec\uc624\uae30\/\ub0b4\ubcf4\ub0b4\uae30"
     },
     "settings_save": {
         "message": "\ubcc0\uacbd \uc0ac\ud56d \uc800\uc7a5"

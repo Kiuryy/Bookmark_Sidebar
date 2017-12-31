@@ -392,9 +392,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "\u30c4\u30fc\u30eb\u30c1\u30c3\u30d7"
     },
-    "settings_menu_sidebar_export": {
-        "message": "\u30a4\u30f3\u30dd\u30fc\u30c8\/\u30a8\u30af\u30b9\u30dd\u30fc\u30c8"
-    },
     "settings_menu_appearance": {
         "message": "\u5916\u89b3"
     },
@@ -430,6 +427,9 @@
     },
     "settings_menu_support": {
         "message": "\u30b5\u30dd\u30fc\u30c8"
+    },
+    "settings_menu_export": {
+        "message": "\u30a4\u30f3\u30dd\u30fc\u30c8\/\u30a8\u30af\u30b9\u30dd\u30fc\u30c8"
     },
     "settings_save": {
         "message": "\u5909\u66f4\u5185\u5bb9\u3092\u4fdd\u5b58"

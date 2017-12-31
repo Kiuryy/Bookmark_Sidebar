@@ -314,9 +314,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltip"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Impor\/Ekspor"
-    },
     "settings_menu_appearance": {
         "message": "Penampilan"
     },
@@ -352,6 +349,9 @@
     },
     "settings_menu_support": {
         "message": "Support"
+    },
+    "settings_menu_export": {
+        "message": "Impor\/Ekspor"
     },
     "settings_save": {
         "message": "Simpan Perubahan"

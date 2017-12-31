@@ -353,9 +353,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Etykieta"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importuj\/Eksportuj"
-    },
     "settings_menu_appearance": {
         "message": "Wygl\u0105d"
     },
@@ -391,6 +388,9 @@
     },
     "settings_menu_support": {
         "message": "Wsparcie"
+    },
+    "settings_menu_export": {
+        "message": "Importuj\/Eksportuj"
     },
     "settings_save": {
         "message": "Zapisz zmiany"

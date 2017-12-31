@@ -11,6 +11,21 @@
     "header_bookmarks_single": {
         "message": "Favori"
     },
+    "sidebar_dir_children": {
+        "message": "Elements"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Rechercher un favori"
+    },
+    "sidebar_search_no_results": {
+        "message": "Aucun favori ne correspond \u00e0 votre recherche"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "Url copi\u00e9e"
+    },
+    "sidebar_drag_cancel": {
+        "message": "Annuler"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Modifier le favori"
     },
@@ -329,9 +344,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Infobulle"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importer\/Exporter"
-    },
     "settings_menu_appearance": {
         "message": "Apparence"
     },
@@ -367,6 +379,9 @@
     },
     "settings_menu_support": {
         "message": "Support"
+    },
+    "settings_menu_export": {
+        "message": "Importer\/Exporter"
     },
     "settings_save": {
         "message": "Enregistrer les modifications"

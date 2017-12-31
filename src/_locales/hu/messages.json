@@ -437,9 +437,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Helyi s\u00fag\u00f3"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Import\/Export"
-    },
     "settings_menu_appearance": {
         "message": "Megjelen\u00e9s"
     },
@@ -475,6 +472,9 @@
     },
     "settings_menu_support": {
         "message": "T\u00e1mogat\u00e1s"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Export"
     },
     "settings_save": {
         "message": "V\u00e1ltoz\u00e1sok ment\u00e9se"

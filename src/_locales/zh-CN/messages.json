@@ -437,9 +437,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "\u63d0\u793a"
     },
-    "settings_menu_sidebar_export": {
-        "message": "\u5bfc\u5165\/\u5bfc\u51fa"
-    },
     "settings_menu_appearance": {
         "message": "\u663e\u793a"
     },
@@ -475,6 +472,9 @@
     },
     "settings_menu_support": {
         "message": "\u652f\u6301"
+    },
+    "settings_menu_export": {
+        "message": "\u5bfc\u5165\/\u5bfc\u51fa"
     },
     "settings_save": {
         "message": "\u4fdd\u5b58\u66f4\u6539"

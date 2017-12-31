@@ -26,6 +26,9 @@
     "sidebar_drag_cancel": {
         "message": "Cancelar"
     },
+    "sidebar_deleted": {
+        "message": "Removida"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Editar favorito"
     },
@@ -308,9 +311,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Dica de ferramenta"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importar\/Exportar"
-    },
     "settings_menu_appearance": {
         "message": "Apar\u00eancia"
     },
@@ -346,6 +346,9 @@
     },
     "settings_menu_support": {
         "message": "Suporte"
+    },
+    "settings_menu_export": {
+        "message": "Importar\/Exportar"
     },
     "settings_save": {
         "message": "Salvar altera\u00e7\u00f5es"

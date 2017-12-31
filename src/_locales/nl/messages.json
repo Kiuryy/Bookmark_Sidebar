@@ -437,9 +437,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltip"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importeren\/Exporteren"
-    },
     "settings_menu_appearance": {
         "message": "Uiterlijk"
     },
@@ -476,6 +473,9 @@
     "settings_menu_support": {
         "message": "Support"
     },
+    "settings_menu_export": {
+        "message": "Importeren\/Exporteren"
+    },
     "settings_save": {
         "message": "Opslaan"
     },
@@ -490,6 +490,9 @@
     },
     "settings_restored_message": {
         "message": "De instellingen zijn teruggezet naar de beginwaarden"
+    },
+    "settings_advanced": {
+        "message": "Geavanceerde instellingen"
     },
     "settings_not_synced": {
         "message": "Wordt niet gesynchroniseerd met je andere apparaten."

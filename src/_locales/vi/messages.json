@@ -209,9 +209,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "H\u1ed7 tr\u1ee3"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Nh\u1eadp\/Xu\u1ea5t"
-    },
     "settings_menu_appearance": {
         "message": "Giao di\u1ec7n"
     },
@@ -244,6 +241,9 @@
     },
     "settings_menu_support": {
         "message": "H\u1ed7 tr\u1ee3"
+    },
+    "settings_menu_export": {
+        "message": "Nh\u1eadp\/Xu\u1ea5t"
     },
     "settings_save": {
         "message": "L\u01b0u l\u1ea1i"

@@ -308,9 +308,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Popisek"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importu\/Exportu"
-    },
     "settings_menu_appearance": {
         "message": "Vzhled"
     },
@@ -346,6 +343,9 @@
     },
     "settings_menu_support": {
         "message": "Podpora"
+    },
+    "settings_menu_export": {
+        "message": "Importu\/Exportu"
     },
     "settings_save": {
         "message": "Ulo\u017eit zm\u011bny"

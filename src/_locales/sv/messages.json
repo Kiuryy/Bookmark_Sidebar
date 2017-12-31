@@ -332,9 +332,6 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Inforuta"
     },
-    "settings_menu_sidebar_export": {
-        "message": "Importera\/exportera"
-    },
     "settings_menu_appearance": {
         "message": "Utseende"
     },
@@ -370,6 +367,9 @@
     },
     "settings_menu_support": {
         "message": "Support"
+    },
+    "settings_menu_export": {
+        "message": "Importera\/exportera"
     },
     "settings_save": {
         "message": "Spara \u00e4ndringar"

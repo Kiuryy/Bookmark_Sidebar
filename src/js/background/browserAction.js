@@ -93,7 +93,7 @@
                 let found = false;
                 let types = {
                     new_tab: ["chrome://newtab/"],
-                    system: ["chrome://"],
+                    system: ["chrome://", "about:blank"],
                     extension_page: ["chrome\-extension://"],
                     webstore: ["https?://chrome\.google\.com/webstore/"]
                 };

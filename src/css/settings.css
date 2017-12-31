@@ -517,12 +517,6 @@ body > section#wrapper div.advanced {
       body > section#wrapper div.advanced > div textarea[data-name='customCss']:focus ~ span {
         opacity: 1; }
 
-body[data-type^='appearance'] > section#wrapper div.advanced {
-  padding-left: 20px;
-  padding-right: 20px; }
-  body[data-type^='appearance'] > section#wrapper div.advanced > div {
-    flex-direction: column; }
-
 body > section#wrapper div.aboutMe {
   position: relative;
   max-width: 1024px;
@@ -725,6 +719,18 @@ body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
         -webkit-mask-size: 18px; }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-star-filled::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-star-filled.svg); }
+
+body[data-type^='appearance'] > section#wrapper > main div.contentBox {
+  margin: 0 20px 20px 20px;
+  max-width: 820px; }
+
+body[data-type^='appearance'] > section#wrapper > main div.advanced {
+  max-width: 860px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 20px 0; }
+  body[data-type^='appearance'] > section#wrapper > main div.advanced > div {
+    flex-direction: column; }
 
 body[data-type^='appearance'] > section#wrapper > main div[data-name='sidebar'] ul.radioWrapper > li {
   display: inline-block; }

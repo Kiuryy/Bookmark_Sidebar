@@ -26,6 +26,6 @@
     "node-sass": "^4.7.2",
     "read-file": "^0.2.0",
     "request": "^2.83.0",
-    "uglify-es": "^3.3.3"
+    "uglify-es": "^3.3.4"
   }
 }

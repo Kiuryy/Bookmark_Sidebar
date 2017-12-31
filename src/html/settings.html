@@ -503,7 +503,8 @@
             <div class="contentBox">
                 <p data-i18n="settings_import_export_desc"></p>
                 <a class="export button" data-i18n="settings_export"></a>
-                <a class="import button"><input type='file' accept=".config, text/json" /><span data-i18n="settings_import"></span></a>
+                <!-- @deprecated '.config' is not used anymore to avoid conflicts (01-2018) -->
+                <a class="import button"><input type='file' accept=".config,.bookmark_sidebar,text/json" /><span data-i18n="settings_import"></span></a>
             </div>
         </div>
     </main>

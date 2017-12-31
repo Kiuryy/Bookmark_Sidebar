@@ -46,7 +46,7 @@
                 e.preventDefault();
                 let _self = e.currentTarget;
 
-                if (_self.files && _self.files[0] && _self.files[0].name.search(/\.config$/) > -1) {
+                if (_self.files && _self.files[0] && (_self.files[0].name.search(/\.bookmark_sidebar$/) > -1 || _self.files[0].name.search(/\.config$/) > -1)) { // @deprecated '.config' is not used anymore to avoid conflicts (01-2018)
                     let reader = new FileReader();
 
                     reader.onload = (e) => {
@@ -91,7 +91,7 @@
         let initExport = async () => {
             s.opts.elm.buttons["export"].attr({
                 href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.getExportConfig())),
-                download: "bookmark-sidebar.config"
+                download: getExportFilename()
             }).on("click", () => {
                 s.helper.model.call("trackEvent", {
                     category: "settings",
@@ -101,6 +101,28 @@
             });
         };
 
+        /**
+         * Generates a filename for the export file, based on the current date and time
+         *
+         * @returns {string}
+         */
+        let getExportFilename = () => {
+            let monthNames = [
+                "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+            ];
+
+            let now = new Date();
+            let dateStr = now.getDate() + "-" + monthNames[now.getMonth()] + "-" + now.getFullYear();
+
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+            hour = hour > 9 ? hour : "0" + hour;
+            min = min > 9 ? min : "0" + min;
+            sec = sec > 9 ? sec : "0" + sec;
+
+            return "config_" + dateStr + "_" + hour + "" + min + "" + sec + ".bookmark_sidebar";
+        };
     };
 
 })(jsu);

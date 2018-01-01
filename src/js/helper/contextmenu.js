@@ -359,7 +359,7 @@
             });
             if (opts.data) {
                 let inForeground = ext.helper.model.getData("b/newTab") === "foreground";
-                opts.data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
+                opts.data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
                 ext.helper.utility.openUrl(opts.data, "newTab", inForeground);
 
                 if (inForeground) {

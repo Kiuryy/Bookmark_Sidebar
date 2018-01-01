@@ -11,7 +11,7 @@
         this.init = async () => {
             initEvents();
 
-            ["dirAccordion", "animations", "preventPageScroll", "autoOpen", "dndOpen"].forEach((field) => {
+            ["dirAccordion", "animations", "preventPageScroll", "reopenSidebar", "dndOpen"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.opts.elm.checkbox[field].trigger("click");
                 }
@@ -73,20 +73,28 @@
                     config[field] = val;
                 });
 
-                ["dirAccordion", "animations", "preventPageScroll", "autoOpen", "dndOpen"].forEach((field) => { // checkbox
+                ["dirAccordion", "animations", "preventPageScroll", "reopenSidebar", "dndOpen"].forEach((field) => { // checkbox
                     config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
                 });
 
                 let lang = s.opts.elm.select.language[0].value;
-
                 if (lang === s.helper.i18n.getUILanguage()) {
                     lang = "default";
                 }
 
-                chrome.storage.sync.set({
-                    behaviour: config,
-                    language: lang
-                }, resolve);
+                chrome.storage.sync.get(["language"], (obj) => {
+                    chrome.storage.sync.set({
+                        behaviour: config,
+                        language: lang
+                    }, () => {
+                        if (obj && obj.language && obj.language !== lang) {
+                            $.delay(1500).then(() => {
+                                location.reload(true);
+                            });
+                        }
+                        resolve();
+                    });
+                });
             });
         };
 

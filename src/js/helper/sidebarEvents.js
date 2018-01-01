@@ -54,7 +54,7 @@
                     });
                 }
 
-                data.autoOpenSidebar = ext.helper.model.getData("b/autoOpen");
+                data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
 
                 if (middleClick) { // new tab -> middle click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background

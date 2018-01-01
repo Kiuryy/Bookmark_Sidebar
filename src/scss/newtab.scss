@@ -65,6 +65,11 @@ section#content {
   background: $bodyBackground;
   transition: height 0.5s;
 
+  &.permanentSidebar {
+    width: calc(100vw - #{$__sidebarWidth});
+    margin-left: $__sidebarWidth;
+  }
+
   > section.mid {
     position: relative;
     width: 100%;
@@ -80,6 +85,13 @@ section#content {
     > * {
       pointer-events: auto;
     }
+  }
+}
+
+body[data-pos='right'] {
+
+  section#content.permanentSidebar {
+    margin-left: 0;
   }
 }
 

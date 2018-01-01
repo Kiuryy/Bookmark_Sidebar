@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Zru\u0161eni"
     },
+    "sidebar_deleted": {
+        "message": "Odstr\u00e1neno"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Vr\u00e1tit zp\u011bt"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Upravit z\u00e1lo\u017eku"
     },

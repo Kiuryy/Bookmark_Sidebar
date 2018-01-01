@@ -704,6 +704,9 @@
     "settings_import_failed": {
         "message": "\u914d\u7f6e\u5bfc\u5165\u5931\u8d25\uff0c\u8bf7\u9009\u62e9\u6b63\u786e\u7684\u6587\u4ef6\u3002"
     },
+    "settings_presets": {
+        "message": "\u9884\u9009"
+    },
     "settings_color_scheme": {
         "message": "\u914d\u8272\u65b9\u6848"
     },

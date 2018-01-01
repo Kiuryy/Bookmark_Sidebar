@@ -338,12 +338,6 @@
                     ]).then(() => {
                         this.helper.model.call("reinitialize");
                         this.showSuccessMessage("saved_message");
-
-                        if (path[0] === "language") {
-                            $.delay(1500).then(() => {
-                                location.reload(true);
-                            });
-                        }
                     });
                 }
             });

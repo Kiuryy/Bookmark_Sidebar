@@ -131,6 +131,7 @@ section#content > nav {
       cursor: pointer;
       padding: 7px 10px;
       border-radius: 20px;
+      white-space: nowrap;
       transition: background 0.3s; }
       section#content > nav > ul > li > a.link:hover {
         background: rgba(0, 0, 0, 0.05); }
@@ -526,6 +527,9 @@ section#content {
   height: 100vh;
   background: #f2f2f2;
   transition: height 0.5s; }
+  section#content.permanentSidebar {
+    width: calc(100vw - %sidebarWidth);
+    margin-left: "%sidebarWidth"; }
   section#content > section.mid {
     position: relative;
     width: 100%;
@@ -539,6 +543,9 @@ section#content {
     pointer-events: none; }
     section#content > section.mid > * {
       pointer-events: auto; }
+
+body[data-pos='right'] section#content.permanentSidebar {
+  margin-left: 0; }
 
 body.dark {
   background: #3d3d3d; }

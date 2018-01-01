@@ -26,7 +26,7 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen", "n/initialOpen", "u/autoOpen"]);
+            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
 
             pxToleranceObj = data.pxTolerance;
             openDelay = +data.openDelay * 1000;
@@ -57,9 +57,9 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if ((ext.helper.utility.getPageType().startsWith("newtab_") && data.initialOpen) || data.autoOpen) {
+            if ((ext.helper.utility.getPageType().startsWith("newtab_") && data.autoOpen) || data.performReopening) {
                 this.openSidebar();
-                ext.helper.model.setData({"u/autoOpen": false});
+                ext.helper.model.setData({"u/performReopening": false});
             }
 
             if (ext.helper.utility.sidebarHasMask() === false) {

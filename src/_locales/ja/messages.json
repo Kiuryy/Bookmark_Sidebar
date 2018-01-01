@@ -659,6 +659,9 @@
     "settings_import_failed": {
         "message": "\u8a2d\u5b9a\u306e\u30a4\u30f3\u30dd\u30fc\u30c8\u306b\u5931\u6557\u3057\u307e\u3057\u305f\u3002 \u6709\u52b9\u306a\u30d5\u30a1\u30a4\u30eb\u3092\u9078\u629e\u3057\u3066\u304f\u3060\u3055\u3044\u3002"
     },
+    "settings_presets": {
+        "message": "\u4e8b\u524d\u9078\u629e"
+    },
     "settings_color_scheme": {
         "message": "\u914d\u8272"
     },

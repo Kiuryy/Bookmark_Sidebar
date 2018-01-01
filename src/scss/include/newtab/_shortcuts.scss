@@ -20,6 +20,7 @@ section#content {
           cursor: pointer;
           padding: 7px 10px;
           border-radius: 20px;
+          white-space: nowrap;
           transition: background 0.3s;
 
           &:hover {

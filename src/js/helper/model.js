@@ -37,7 +37,7 @@
                 pinnedEntries: {},
                 lockPinned: true,
                 translationHelp: true,
-                autoOpen: false,
+                performReopening: false,
                 entryAmounts: {},
                 lastOpened: null,
                 sort: {
@@ -57,7 +57,7 @@
                 newTabPosition: "afterCurrent",
                 linkAction: "current",
                 dirAccordion: false,
-                autoOpen: false,
+                reopenSidebar: false,
                 rememberState: "openStatesAndPos",
                 tooltipDelay: 1,
                 tooltipContent: "all",
@@ -70,7 +70,7 @@
             },
             n: { // new tab -> synced across devices
                 override: false,
-                initialOpen: false,
+                autoOpen: false,
                 searchEngine: "google",
                 topPagesType: "topPages",
                 shortcuts: [{label: "Google", url: "https://google.com"}],
@@ -240,6 +240,20 @@
                                 return true;
                             }
                         });
+
+                        if (keyInfo === "n/autoOpen") { // @deprecated backward compatibility (01-2018)
+                            value = this.getData("n/initialOpen");
+                            if (value !== null) {
+                                scope = "__FOUND";
+                            }
+                        }
+
+                        if (keyInfo === "b/reopenSidebar") { // @deprecated backward compatibility (01-2018)
+                            value = this.getData("b/autoOpen");
+                            if (value !== null) {
+                                scope = "__FOUND";
+                            }
+                        }
 
                         if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];

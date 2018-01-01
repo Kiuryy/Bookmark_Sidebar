@@ -19,6 +19,7 @@
                 edit: "edit",
                 add: "add",
                 link: "link",
+                permanentSidebar: "permanentSidebar",
                 remove: "remove",
                 infoBar: "infoBar",
                 save: "save",
@@ -97,6 +98,7 @@
             }).then(() => {
                 loader.remove();
                 this.opts.elm.body.removeClass([this.opts.classes.building, this.opts.classes.initLoading]);
+                $(window).trigger("resize");
             });
         };
 
@@ -133,32 +135,38 @@
          * Injects the scripts and stylesheets to load the sidebar,
          * Removes previously injected content before adding new one,
          * Will be called multiple times (everytime a reinitialization is triggered)
+         *
+         * @returns {Promise}
          */
         let loadSidebar = () => {
-            $("[" + this.opts.attr.type + "='script_sidebar']").remove();
+            return new Promise((resolve) => {
+                $("[" + this.opts.attr.type + "='script_sidebar']").remove();
 
-            this.opts.manifest.content_scripts[0].css.forEach((css) => {
-                $("<link />").attr({
-                    href: chrome.extension.getURL(css),
-                    type: "text/css",
-                    rel: "stylesheet",
-                    [this.opts.attr.type]: "script_sidebar"
-                }).appendTo("head");
+                this.opts.manifest.content_scripts[0].css.forEach((css) => {
+                    $("<link />").attr({
+                        href: chrome.extension.getURL(css),
+                        type: "text/css",
+                        rel: "stylesheet",
+                        [this.opts.attr.type]: "script_sidebar"
+                    }).appendTo("head");
+                });
+
+                let loadJs = (i = 0) => {
+                    let js = this.opts.manifest.content_scripts[0].js[i];
+
+                    if (typeof js !== "undefined") {
+                        let script = document.createElement("script");
+                        document.head.appendChild(script);
+                        script.onload = () => loadJs(i + 1); // load one after another
+                        script.src = "/" + js;
+                        $(script).attr(this.opts.attr.type, "script_sidebar");
+                    } else {
+                        resolve();
+                    }
+                };
+
+                loadJs();
             });
-
-            let loadJs = (i = 0) => {
-                let js = this.opts.manifest.content_scripts[0].js[i];
-
-                if (typeof js !== "undefined") {
-                    let script = document.createElement("script");
-                    document.head.appendChild(script);
-                    script.onload = () => loadJs(i + 1); // load one after another
-                    script.src = "/" + js;
-                    $(script).attr(this.opts.attr.type, "script_sidebar");
-                }
-            };
-
-            loadJs();
         };
     };
 

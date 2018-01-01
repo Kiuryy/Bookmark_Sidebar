@@ -70,8 +70,8 @@
             };
 
             let dim = {
-                w: window.innerWidth,
-                h: window.innerHeight
+                w: n.opts.elm.content[0].offsetWidth || window.innerWidth,
+                h: n.opts.elm.content[0].offsetHeight || window.innerHeight
             };
 
             let editInfoBar = $("menu." + n.opts.classes.infoBar);

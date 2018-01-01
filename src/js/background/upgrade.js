@@ -94,6 +94,24 @@
                         obj.newtab = {};
                     }
 
+                    // START UPGRADE // v1.12 -> released [...]
+                    if (typeof obj.behaviour.reopenSidebar === "undefined" && typeof obj.behaviour.autoOpen !== "undefined") {
+                        obj.behaviour.reopenSidebar = obj.behaviour.autoOpen;
+                        delete obj.behaviour.autoOpen;
+                        delete obj.utility.autoOpen;
+                        if (typeof obj.utility !== "undefined") {
+                            chrome.storage.local.set({utility: obj.utility});
+                        }
+                    }
+
+                    if (typeof obj.newtab.autoOpen === "undefined" && typeof obj.newtab.initialOpen !== "undefined") {
+                        obj.newtab.autoOpen = obj.newtab.initialOpen;
+                        delete obj.newtab.initialOpen;
+                    }
+
+                    chrome.storage.sync.remove(["shareUserdata"]);
+                    // END UPGRADE // v1.12
+
                     // START UPGRADE // v1.11 -> released 01-2018
                     delete obj.behaviour.initialOpenOnNewTab;
                     delete obj.behaviour.replaceNewTab;
@@ -105,7 +123,7 @@
                         obj.appearance.styles = {};
                     }
 
-                    if (typeof obj.shareUserdata !== "undefined" && (obj.shareUserdata === true || obj.shareUserdata === false)) {
+                    if (typeof obj.shareInfo === "undefined" && typeof obj.shareUserdata !== "undefined" && (obj.shareUserdata === true || obj.shareUserdata === false)) {
                         chrome.storage.sync.set({
                             shareInfo: {
                                 config: obj.shareUserdata,
@@ -118,52 +136,6 @@
                         obj.appearance.styles.hoverColor = obj.appearance.darkMode ? "#555555" : "#f5f5f5";
                     }
                     // END UPGRADE // v1.11
-
-                    // START UPGRADE // v1.10 -> released 10-2017
-                    chrome.storage.sync.remove(["utility", "nt_notice"]);
-
-                    ["sidebarPosition"].forEach((f) => {
-                        if (typeof obj.behaviour[f] === "undefined" && typeof obj.appearance[f] !== "undefined") {
-                            obj.behaviour[f] = obj.appearance[f];
-                        }
-
-                        delete obj.appearance[f];
-                    });
-
-                    if (typeof obj.behaviour.initialOpenOnNewTab !== "undefined") {
-                        obj.newtab.initialOpen = obj.behaviour.initialOpenOnNewTab;
-                    }
-
-                    if (typeof obj.behaviour.replaceNewTab !== "undefined") {
-                        obj.newtab.override = obj.behaviour.replaceNewTab;
-                    }
-
-                    if (typeof obj.behaviour.rememberState === "undefined" || obj.behaviour.rememberState === "all") {
-                        obj.behaviour.rememberState = "openStatesAndPos";
-                    }
-
-                    if (typeof obj.appearance.styles.iconShape === "undefined") {
-                        obj.appearance.styles.iconShape = "logo";
-                    }
-                    // END UPGRADE // v1.10
-
-                    // START UPGRADE // v1.9 -> released 07-2017
-                    if (typeof obj.utility !== "undefined") {
-                        chrome.storage.local.set({utility: obj.utility});
-                    }
-
-                    delete obj.behaviour.scrollSensitivity;
-
-                    if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily === "Roboto") {
-                        obj.appearance.styles.fontFamily = "default";
-                    }
-
-                    if (typeof obj.appearance.styles.directoriesIconSize === "undefined" && typeof obj.appearance.styles.bookmarksIconSize !== "undefined") {
-                        obj.appearance.styles.directoriesIconSize = obj.appearance.styles.bookmarksIconSize;
-                    }
-
-                    chrome.storage.sync.remove(["clickCounter"]);
-                    // END UPGRADE // v1.9
 
                     chrome.storage.sync.set({behaviour: obj.behaviour}, savedValues);
                     chrome.storage.sync.set({newtab: obj.newtab}, savedValues);

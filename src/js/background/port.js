@@ -274,6 +274,7 @@
 
         this.init = () => {
             return new Promise((resolve) => {
+                let c = 0;
                 let mapping = {
                     checkUrls: checkUrls,
                     bookmarks: getBookmarks,
@@ -308,7 +309,12 @@
                     if (port.name && port.name === "background") {
                         port.onMessage.addListener((message, info) => {
                             if (mapping[message.type]) { // function for message type exists
+                                if (c === 50) { // check whether the userdata should be shared for today from time to time
+                                    b.helper.analytics.trackUserData();
+                                    c %= 50;
+                                }
                                 message.tabInfo = info.sender.tab;
+
                                 mapping[message.type](message).then((result) => {
                                     try { // can fail if port is closed in the meantime
                                         port.postMessage({
@@ -319,6 +325,8 @@
                                         //
                                     }
                                 });
+
+                                c++;
                             }
                         });
                     }

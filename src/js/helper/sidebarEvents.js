@@ -256,7 +256,7 @@
                     if (message.action === "reload") { // reload the current instance of the extension
                         let performReload = true;
 
-                        if (message.type === "Removed" || message.type === "Created") {
+                        if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
                             Object.values(ext.elements.bookmarkBox).some((box) => {
                                 if (box.hasClass(ext.opts.classes.sidebar.active)) {
 

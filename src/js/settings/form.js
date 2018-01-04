@@ -90,13 +90,20 @@
                     let preview = picker.getElements().preview;
 
                     suggestions.forEach((suggestion) => {
-                        suggestionElm.push($("<span />").addClass(s.opts.classes.color.suggestion).css("background-color", suggestion).insertAfter(preview));
+                        suggestionElm.push(
+                            $("<span />")
+                                .addClass(s.opts.classes.color.suggestion)
+                                .attr(s.opts.attr.value, suggestion)
+                                .css("background-color", suggestion)
+                                .insertAfter(preview)
+                        );
                     });
 
                     $(suggestionElm).on("click", (e) => {
                         e.stopPropagation();
-                        let color = $(e.currentTarget).css("background-color");
+                        let color = $(e.currentTarget).attr(s.opts.attr.value);
                         picker.setColor(color);
+                        picker.show();
                     });
                 }
 

@@ -114,14 +114,7 @@
             let now = new Date();
             let dateStr = now.getDate() + "-" + monthNames[now.getMonth()] + "-" + now.getFullYear();
 
-            let hour = now.getHours();
-            let min = now.getMinutes();
-            let sec = now.getSeconds();
-            hour = hour > 9 ? hour : "0" + hour;
-            min = min > 9 ? min : "0" + min;
-            sec = sec > 9 ? sec : "0" + sec;
-
-            return "config_" + dateStr + "_" + hour + "" + min + "" + sec + ".bookmark_sidebar";
+            return "config_" + dateStr + ".bookmark_sidebar";
         };
     };
 

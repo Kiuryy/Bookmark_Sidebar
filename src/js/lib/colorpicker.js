@@ -372,15 +372,7 @@ window.Colorpicker = (() => {
             preview.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-
-                [].forEach.call(document.getElementsByClassName("color-picker"), (elm) => {
-                    elm.classList.remove("visible");
-                });
-
-                wrapper.classList.add("visible");
-                this.reposition();
-                triggerEvent("show");
-                updateUI();
+                this.show();
             });
 
             document.addEventListener("click", (e) => {
@@ -718,7 +710,23 @@ window.Colorpicker = (() => {
         };
 
         /**
-         * Closes the color picker
+         * Opens the colorpicker
+         *
+         * @public
+         */
+        this.show = () => {
+            [].forEach.call(document.getElementsByClassName("color-picker"), (elm) => {
+                elm.classList.remove("visible");
+            });
+
+            wrapper.classList.add("visible");
+            this.reposition();
+            triggerEvent("show");
+            updateUI();
+        };
+
+        /**
+         * Closes the colorpicker
          *
          * @public
          */

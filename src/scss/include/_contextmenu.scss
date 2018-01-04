@@ -150,6 +150,13 @@ div.contextmenu {
         cursor: pointer;
         transition: color 0.3s;
 
+        > span {
+          display: inline-block;
+          margin: 0 0 0 3px;
+          font-size: 80%;
+          opacity: 0.8;
+        }
+
         &::before {
           -webkit-mask-position: 9px center;
           transition: background-color 0.3s, opacity 0.3s;

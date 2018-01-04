@@ -173,6 +173,11 @@ div.contextmenu {
         height: 100%;
         -webkit-mask: no-repeat center/20px;
         background-color: #ccc; }
+      div.contextmenu > ul.list > li > a > span {
+        display: inline-block;
+        margin: 0 0 0 3px;
+        font-size: 80%;
+        opacity: 0.8; }
       div.contextmenu > ul.list > li > a::before {
         -webkit-mask-position: 9px center;
         transition: background-color 0.3s, opacity 0.3s; }

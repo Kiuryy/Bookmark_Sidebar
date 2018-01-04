@@ -237,7 +237,7 @@
                     let bookmarks = data.children.filter(val => !!(val.url));
 
                     if (bookmarks.length > 0) {
-                        list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + "</a></li>");
+                        list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + " <span>(" + bookmarks.length + ")</span></a></li>");
                     }
 
                     if (data.children.length > 0) {
@@ -419,7 +419,7 @@
             if (opts.data) {
                 let bookmarks = opts.data.children.filter(val => !!(val.url));
                 if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
-                    ext.helper.overlay.create(opts.name, $(opts.elm).attr("title") || $(opts.elm).text(), opts.data);
+                    ext.helper.overlay.create(opts.name, ext.helper.i18n.get("contextmenu_open_children"), opts.data);
                 } else { // open bookmarks directly without confirmation
                     ext.helper.utility.openAllBookmarks(bookmarks);
                 }

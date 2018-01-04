@@ -982,7 +982,6 @@ input.color {
     height: 15px;
     border-radius: 5px;
     margin: 15px 0 0 10px;
-    overflow: hidden;
     cursor: pointer; }
     input.color ~ span.suggestion::before, input.color ~ span.suggestion::after {
       content: "";
@@ -990,7 +989,8 @@ input.color {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      border-radius: 5px; }
     input.color ~ span.suggestion::before {
       background: #fff url(chrome-extension://__MSG_@@extension_id__/img/settings/alpha.svg);
       background-size: 10px; }

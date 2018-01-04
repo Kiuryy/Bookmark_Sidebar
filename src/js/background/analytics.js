@@ -214,6 +214,12 @@
                             obj[category] = chrome.i18n.getUILanguage();
                         }
                         obj[category] = {ui: obj[category]};
+                    } else if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
+                        if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
+                            obj[category] = {
+                                override: false
+                            };
+                        }
                     }
 
                     if (typeof obj[category] === "object") {

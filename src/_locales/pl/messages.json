@@ -617,6 +617,9 @@
     "settings_import_failed": {
         "message": "Nie uda\u0142o zaimportowa\u0107 si\u0119 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
     },
+    "settings_presets": {
+        "message": "Wyb\u00f3r wst\u0119pny"
+    },
     "settings_color_scheme": {
         "message": "Kolor motywu"
     },
@@ -716,10 +719,10 @@
     "settings_newtab_override_desc": {
         "message": "Czy rozszerzenie powinno zast\u0105pi\u0107 obecn\u0105 stron\u0119 nowej karty swoj\u0105 w\u0142asn\u0105 zast\u0119pcz\u0105 stron\u0105, czy stron\u0105 internetow\u0105, kt\u00f3ra b\u0119dzie \u0142adowana po otwarciu nowej karty?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 automatycznie"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Ustaw, czy boczna lista ma by\u0107 otwierana automatycznie po otwarciu nowej karty."
     },
     "settings_newtab_website": {

@@ -23,6 +23,8 @@
         this.create = (elm) => {
             let id = elm.attr(ext.opts.attr.id);
             if (id) {
+                ext.helper.toggle.addSidebarHoverClass();
+
                 closeAllExcept(id);
                 let existingTooltip = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper + "[" + ext.opts.attr.id + "='" + id + "']");
 
@@ -86,7 +88,7 @@
          *
          * @param {int} except
          */
-        let closeAllExcept = (except) => {
+        let closeAllExcept = (except = null) => {
             Object.values(timeout).forEach((id) => {
                 if (id) {
                     clearTimeout(timeout[id]);
@@ -95,10 +97,19 @@
             timeout = {};
 
             let tooltips = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper + (except ? ":not([" + ext.opts.attr.id + "='" + except + "'])" : ""));
+            let hasVisibleTooltips = false;
+
+            tooltips.forEach((tooltip) => {
+                if ($(tooltip).hasClass(ext.opts.classes.tooltip.visible)) {
+                    hasVisibleTooltips = true;
+                    return false;
+                }
+            });
 
             tooltips.removeClass(ext.opts.classes.tooltip.visible);
-            $.delay(300).then(() => {
+            $.delay(hasVisibleTooltips ? 300 : 0).then(() => {
                 tooltips.remove();
+                ext.helper.toggle.removeSidebarHoverClass();
             });
         };
     };

@@ -650,10 +650,10 @@
     "settings_newtab_override_desc": {
         "message": "M\u00e1te-li roz\u0161\u00ed\u0159en\u00ed p\u0159ekr\u00fdt svou aktu\u00e1ln\u00ed str\u00e1nku s nov\u00fdmi kartami bu\u010f s vlastn\u00edm proveden\u00edm, nebo s webovou str\u00e1nkou, kterou je t\u0159eba na\u010d\u00edst p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Otev\u0159ete postrann\u00ed panel automaticky"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Nastavte, zda se m\u00e1 bo\u010dn\u00ed panel otev\u0159\u00edt automaticky p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty."
     },
     "settings_newtab_website": {

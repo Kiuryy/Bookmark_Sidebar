@@ -35,6 +35,7 @@
             sidebar: {
                 extLoaded: "loaded",
                 openedOnce: "openedOnce",
+                permanent: "permanent",
                 active: "active",
                 cached: "cached",
                 mark: "mark",
@@ -133,6 +134,7 @@
         },
         events: {
             loaded: "blockbyte-bs-loaded",
+            elementsCreated: "blockbyte-bs-created",
             sidebarOpened: "blockbyte-bs-sidebar-opened",
             checkboxChanged: "blockbyte-bs-checkbox-changed",
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",

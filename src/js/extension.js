@@ -157,12 +157,17 @@
                 }
 
                 this.initialized = +new Date();
-
                 this.log(this.initialized - this.updateBookmarkBoxStart);
 
                 this.helper.utility.triggerEvent("loaded", {
-                    pxTolerance: data.pxTolerance,
-                    showIndicator: data.showIndicator
+                    config: {
+                        pxTolerance: data.pxTolerance,
+                        showIndicator: data.showIndicator
+                    },
+                    elm: {
+                        iframe: this.elements.iframe,
+                        sidebar: this.elements.sidebar
+                    }
                 });
             }
 
@@ -345,6 +350,13 @@
             if (this.helper.model.getData("a/darkMode") === true) {
                 this.elements.iframeBody.addClass(opts.classes.page.darkMode);
             }
+
+            this.helper.utility.triggerEvent("elementsCreated", {
+                elm: {
+                    iframe: this.elements.iframe,
+                    sidebar: this.elements.sidebar
+                }
+            });
         };
     };
 

@@ -798,7 +798,7 @@
         "message": "Du kanst dein eigenes Stylesheet definieren und das Standard-Styling \u00fcberschreiben. Bitte nutze diese Option nur, wenn du dich mit CSS auskennst und wei\u00dft, was du tust."
     },
     "settings_newtab_desc": {
-        "message": "Leider hat Google die M\u00f6glichkeit ausgebaut, Erweiterungen auf der Standard-New-Tab-Seite zu laden. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."
+        "message": "Leider d\u00fcrfen Erweiterungen auf der Standard-New-Tab-Seite keine Inhalte mehr laden, Google hat die entsprechende Schnittstelle mittlerweile entfernt. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."
     },
     "settings_newtab_override": {
         "message": "New-Tab-Seite \u00fcberschreiben"
@@ -806,10 +806,10 @@
     "settings_newtab_override_desc": {
         "message": "Soll die Erweiterung die aktuelle New-Tab-Seite mit entweder einer angepassten Seite, oder einer Webseite die geladen wird wenn ein neuer Tab ge\u00f6ffnet wird, \u00fcberschreiben?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Sidebar automatisch \u00f6ffnen"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Wenn ein neuer Tab ge\u00f6ffnet wird, kann eingestellt werden ob die Sidebar automatisch ge\u00f6ffnet werden soll."
     },
     "settings_newtab_website": {

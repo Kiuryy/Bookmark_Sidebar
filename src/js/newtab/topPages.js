@@ -45,16 +45,23 @@
         };
 
         /**
+         * Updates the entries if the amount of visible elements has changes because of a different window size
+         */
+        this.handleWindowResize = () => {
+            let amount = getAmount();
+            let currentTotal = n.opts.elm.topPages.children("ul").data("total");
+
+            if (amount.total !== currentTotal) {
+                updateEntries();
+            }
+        };
+
+        /**
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            $(window).on("resize", () => {
-                let amount = getAmount();
-                let currentTotal = n.opts.elm.topPages.children("ul").data("total");
-
-                if (amount.total !== currentTotal) {
-                    updateEntries();
-                }
+            $(window).on("resize.topPages", () => {
+                this.handleWindowResize();
             });
         };
 
@@ -89,9 +96,9 @@
                 ret.total = 0;
             }
 
-            if (dim.h < 280) {
+            if (dim.h < 330) {
                 ret.total = 0;
-            } else if (dim.h < 420) {
+            } else if (dim.h < 470) {
                 ret.total /= 2;
                 ret.rows = 1;
             }

@@ -292,15 +292,35 @@
                 let type = $(e.currentTarget).parent("div").attr(this.opts.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    chrome.storage.sync.remove([type], () => {
-                        this.showSuccessMessage("restored_message");
-                        this.helper.model.call("reloadIcon");
-                        $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);
+                    let promises = [];
 
-                        $.delay(1500).then(() => {
-                            this.helper.model.call("reinitialize");
-                            location.reload(true);
+                    if (type === "appearance") { // restore custom css aswell
+                        promises.push(new Promise((resolve) => {
+                            chrome.storage.local.get(["utility"], (obj) => {
+                                let utility = obj.utility || {};
+                                delete utility.customCss;
+
+                                chrome.storage.local.set({utility: utility}, () => {
+                                    resolve();
+                                });
+                            });
+                        }));
+                    }
+
+                    promises.push(new Promise((resolve) => {
+                        chrome.storage.sync.remove([type], () => {
+                            this.showSuccessMessage("restored_message");
+                            this.helper.model.call("reloadIcon");
+                            $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);
+                            resolve();
                         });
+                    }));
+
+                    Promise.all(promises).then(() => {
+                        return $.delay(1500);
+                    }).then(() => {
+                        this.helper.model.call("reinitialize");
+                        location.reload(true);
                     });
                 }
             });

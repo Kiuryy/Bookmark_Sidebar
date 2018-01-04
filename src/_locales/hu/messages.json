@@ -803,10 +803,10 @@
     "settings_newtab_override_desc": {
         "message": "A b\u0151v\u00edtm\u00e9ny haszn\u00e1lhat-e saj\u00e1t k\u00e9sz\u00edt\u00e9s\u0171 \u00faj lapot vagy bet\u00f6lthet-e helyette saj\u00e1t weboldalr\u00f3l ilyet ?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Oldals\u00e1v automatikus megnyit\u00e1sa"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "\u00daj f\u00fcl eset\u00e9n az oldals\u00e1v automatikusan megnyit\u00e1sa"
     },
     "settings_newtab_website": {

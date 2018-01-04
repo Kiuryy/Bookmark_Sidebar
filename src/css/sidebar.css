@@ -640,9 +640,16 @@ section#sidebar {
   user-select: none;
   transition: background 0.3s;
   z-index: 2; }
+  section#sidebar.permanent {
+    box-shadow: none !important;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: rgba(0, 0, 0, 0.15); }
   section#sidebar[data-pos='right'] {
     float: right;
     box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15); }
+    section#sidebar[data-pos='right'].permanent {
+      border-width: 0 0 0 1px; }
   section#sidebar > header {
     position: relative;
     display: flex;
@@ -655,7 +662,7 @@ section#sidebar {
     padding: 0 12px;
     background: "%colorScheme";
     transition: background 0.3s;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px -3px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     flex-shrink: 0;
     z-index: 3; }
@@ -1200,6 +1207,8 @@ div#reloadInfo > div {
 
 body.dark section#sidebar {
   background: #3d3d3d; }
+  body.dark section#sidebar.permanent {
+    border-color: rgba(255, 255, 255, 0.1); }
   body.dark section#sidebar > div.filter {
     background: #4d4d4d; }
   body.dark section#sidebar > a.lockPinned {

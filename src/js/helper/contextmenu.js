@@ -12,6 +12,7 @@
          * @param {jsu} elm
          */
         this.create = (type, elm) => {
+            ext.helper.toggle.addSidebarHoverClass();
             ext.helper.tooltip.close();
 
             if (alreadyExists(type, elm) === false) { // contextmenu is not already opened
@@ -80,6 +81,7 @@
 
             $.delay(500).then(() => {
                 contextmenus.remove();
+                ext.helper.toggle.removeSidebarHoverClass();
             });
         };
 

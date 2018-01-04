@@ -70,7 +70,7 @@
             },
             n: { // new tab -> synced across devices
                 override: false,
-                autoOpen: false,
+                autoOpen: true,
                 searchEngine: "google",
                 topPagesType: "topPages",
                 shortcuts: [{label: "Google", url: "https://google.com"}],

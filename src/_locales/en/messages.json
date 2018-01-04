@@ -806,10 +806,10 @@
     "settings_newtab_override_desc": {
         "message": "Should the extension override your current new tab page with either a custom made or a website which should be loaded when opening a new tab?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Open sidebar automatically"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Configure whether the sidebar should be opened automatically when opening a new tab."
     },
     "settings_newtab_website": {

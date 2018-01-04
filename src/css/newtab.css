@@ -527,9 +527,11 @@ section#content {
   height: 100vh;
   background: #f2f2f2;
   transition: height 0.5s; }
-  section#content.permanentSidebar {
+  section#content.small {
     width: calc(100vw - %sidebarWidth);
     margin-left: "%sidebarWidth"; }
+    section#content.small ~ iframe:not(.blockbyte-bs-hover) {
+      width: "%sidebarWidth" !important; }
   section#content > section.mid {
     position: relative;
     width: 100%;
@@ -544,7 +546,7 @@ section#content {
     section#content > section.mid > * {
       pointer-events: auto; }
 
-body[data-pos='right'] section#content.permanentSidebar {
+body[data-pos='right'] section#content.small {
   margin-left: 0; }
 
 body.dark {

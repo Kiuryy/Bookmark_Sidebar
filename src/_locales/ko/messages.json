@@ -482,10 +482,10 @@
     "settings_newtab_override_desc": {
         "message": "\uc0c8 \ud0ed\uc744 \ub744\uc6b8 \ub54c \ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc774 '\uc0c8 \ud0ed' \ud398\uc774\uc9c0\ub97c \ub36e\uc5b4\uc4f0\uac8c \ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "\uc790\ub3d9\uc73c\ub85c \uc0ac\uc774\ub4dc\ubc14 \uc5f4\uae30"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "\uc0c8 \ud0ed\uc744 \uc5f4\uc5c8\uc744 \ub54c \uc0ac\uc774\ub4dc\ubc14\ub97c \uc790\ub3d9\uc73c\ub85c \uc5f4 \uac83\uc778\uc9c0 \uc124\uc815\ud569\ub2c8\ub2e4."
     },
     "settings_newtab_website": {

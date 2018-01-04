@@ -71,13 +71,17 @@
          * Closes the sidebar
          */
         this.closeSidebar = () => {
-            clearSidebarTimeout("close");
-            clearSidebarTimeout("open");
-            ext.helper.contextmenu.close();
-            ext.helper.tooltip.close();
-            ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
-            $("body").removeClass(ext.opts.classes.page.noscroll);
-            $(document).trigger("mousemove.bs"); // hide indicator
+            if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.permanent)) {
+                // don't close sidebar when configured to be automatically opened on the newtab page
+            } else {
+                clearSidebarTimeout("close");
+                clearSidebarTimeout("open");
+                ext.helper.contextmenu.close();
+                ext.helper.tooltip.close();
+                ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
+                $("body").removeClass(ext.opts.classes.page.noscroll);
+                $(document).trigger("mousemove.bs"); // hide indicator
+            }
         };
 
         /**
@@ -138,6 +142,32 @@
         };
 
         /**
+         * Adds the hover class to the iframe,
+         * will expand the width of the iframe to 100%, when the mask is hidden (e.g. on the newtab page)
+         */
+        this.addSidebarHoverClass = () => {
+            ext.elements.iframe.addClass(ext.opts.classes.page.hover);
+        };
+
+        /**
+         * Removes the hover class from the iframe,
+         * will collapse the width of the iframe back to the width of the sidebar, when the mask is hidden (e.g. on the newtab page)
+         */
+        this.removeSidebarHoverClass = () => {
+            let contextmenus = ext.elements.iframeBody.find("div." + ext.opts.classes.contextmenu.wrapper);
+            let tooltips = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper);
+
+            if (
+                contextmenus.length() === 0 &&
+                tooltips.length() === 0 &&
+                !ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) &&
+                !ext.elements.lockPinned.hasClass(ext.opts.classes.sidebar.active)
+            ) {
+                ext.elements.iframe.removeClass(ext.opts.classes.page.hover);
+            }
+        };
+
+        /**
          * Return the amount of pixel in which range the sidebar will open if the user clicks
          *
          * @returns {int}
@@ -185,6 +215,10 @@
             });
 
             ext.elements.sidebar.on("mouseleave", () => {
+                $.delay(100).then(() => {
+                    this.removeSidebarHoverClass();
+                });
+
                 if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0 &&
                     ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
                 ) {
@@ -199,6 +233,7 @@
                     }
                 }
             }).on("mouseenter", () => {
+                this.addSidebarHoverClass();
                 clearSidebarTimeout("close");
             });
 

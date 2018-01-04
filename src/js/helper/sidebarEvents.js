@@ -169,6 +169,7 @@
                 clTimeout();
                 lockPinnedEntriesTimeout = setTimeout(() => {
                     ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.active);
+                    ext.helper.toggle.removeSidebarHoverClass();
                 }, 500);
             };
 
@@ -199,6 +200,7 @@
                         ext.elements.lockPinned.removeClass(ext.opts.classes.sidebar.active);
                     }
 
+                    ext.helper.toggle.removeSidebarHoverClass();
                     ext.helper.list.updateSortFilter();
                 });
             });

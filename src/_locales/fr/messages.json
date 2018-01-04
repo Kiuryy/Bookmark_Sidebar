@@ -695,10 +695,10 @@
     "settings_newtab_override_desc": {
         "message": "Court-circuiter la page nouvel onglet en affichant une page de substitution, ou un site web, \u00e0 l'ouverture d'un nouvel onglet ?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Afficher la barre lat\u00e9rale automatiquement"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Affichage automatique de la barre lat\u00e9rale \u00e0 l'ouverture d'un nouvel onglet."
     },
     "settings_newtab_website": {

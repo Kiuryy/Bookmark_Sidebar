@@ -209,8 +209,8 @@
 
             chrome.storage.sync.get(categories, (obj) => {
                 categories.forEach((category) => {
-                    if (category === "language" && typeof obj[category] === "string") { // proceed with the actual language of the extension
-                        if (obj[category] === "default") {
+                    if (category === "language") { // proceed with the actual language of the extension
+                        if (typeof obj[category] === "undefined" || obj[category] === "default") {
                             obj[category] = chrome.i18n.getUILanguage();
                         }
                         obj[category] = {ui: obj[category]};

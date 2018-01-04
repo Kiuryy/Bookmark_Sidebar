@@ -13,6 +13,8 @@
             classes: {
                 building: "building",
                 initLoading: "initLoading",
+                sidebarPermanent: "permanent",
+                smallContent: "small",
                 loading: "loading",
                 chromeApps: "chromeApps",
                 suggestions: "suggestions",
@@ -44,6 +46,10 @@
                     submit: $("div#search > button[type='submit']")
                 },
                 topPages: $("div#topPages")
+            },
+            events: {
+                loaded: "blockbyte-bs-loaded",
+                elementsCreated: "blockbyte-bs-created"
             },
             manifest: chrome.runtime.getManifest()
         };
@@ -125,22 +131,44 @@
          */
         let initEvents = async () => {
             chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
-                if (message && message.action && message.action === "reinitialize") {
-                    loadSidebar();
+                if (message && message.action && message.action === "reinitialize") { // sidebar has changed (e.g. due to saving configuration
+                    location.reload(true);
                 }
             });
+
+            if (this.helper.model.getData("n/autoOpen")) { // sidebar should be opened automatically -> pin sidebar permanent if there is enough space to do so
+                $(window).on("resize", () => {
+                    if (this.opts.elm.sidebar && this.opts.elm.sidebar.iframe && this.opts.elm.sidebar.sidebar) {
+                        let sidebarWidth = this.opts.elm.sidebar.sidebar.realWidth();
+
+                        if (window.innerWidth - sidebarWidth >= 500) {
+                            this.opts.elm.sidebar.sidebar.addClass(this.opts.classes.sidebarPermanent);
+                            sidebarWidth > 0 && this.opts.elm.content.addClass(this.opts.classes.smallContent);
+                        } else {
+                            this.opts.elm.sidebar.sidebar.removeClass(this.opts.classes.sidebarPermanent);
+                            this.opts.elm.content.removeClass(this.opts.classes.smallContent);
+                        }
+
+                        this.helper.topPages.handleWindowResize();
+                    }
+                });
+            }
         };
 
         /**
-         * Injects the scripts and stylesheets to load the sidebar,
-         * Removes previously injected content before adding new one,
-         * Will be called multiple times (everytime a reinitialization is triggered)
+         * Injects the scripts and stylesheets to load the sidebar
          *
          * @returns {Promise}
          */
         let loadSidebar = () => {
             return new Promise((resolve) => {
                 $("[" + this.opts.attr.type + "='script_sidebar']").remove();
+
+                let sidebarEvents = [this.opts.events.loaded, this.opts.events.elementsCreated].join(" ");
+                $(document).off(sidebarEvents).on(sidebarEvents, (e) => {
+                    this.opts.elm.sidebar = e.detail.elm;
+                    $(window).trigger("resize");
+                });
 
                 this.opts.manifest.content_scripts[0].css.forEach((css) => {
                     $("<link />").attr({

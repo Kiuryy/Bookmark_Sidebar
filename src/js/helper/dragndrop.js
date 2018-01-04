@@ -63,7 +63,7 @@
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
-                ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
+                ext.helper.toggle.addSidebarHoverClass();
                 trackStart("selection");
 
                 if (!edgeScroll.running) {
@@ -102,10 +102,7 @@
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-
-                    if (ext.helper.utility.sidebarHasMask() === false) {
-                        ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
-                    }
+                    ext.helper.toggle.removeSidebarHoverClass();
                 }
             });
         };
@@ -331,9 +328,7 @@
             ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
 
             $.delay(500).then(() => {
-                if (ext.helper.utility.sidebarHasMask() === false) {
-                    ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
-                }
+                ext.helper.toggle.removeSidebarHoverClass();
             });
         };
 
@@ -479,18 +474,8 @@
         let initEvents = async () => {
 
             ext.elements.bookmarkBox.all.on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
-                let x = e.pageX;
-                let hasMask = ext.helper.utility.sidebarHasMask();
-
-                if (hasMask === false && sidebarPos === "right") {
-                    let width = ext.elements.iframe.realWidth();
-                    ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
-
-                    x += ext.elements.iframe.realWidth() - width;
-                }
-
-                ext.elements.iframe.removeClass(ext.opts.classes.page.hideMask);
-                dragstart(e.currentTarget, x, e.pageY);
+                ext.helper.toggle.addSidebarHoverClass();
+                dragstart(e.currentTarget, e.pageX, e.pageY);
             });
 
             ext.elements.iframeBody.on("mouseup", (e) => { // drag end

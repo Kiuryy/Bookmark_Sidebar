@@ -65,9 +65,13 @@ section#content {
   background: $bodyBackground;
   transition: height 0.5s;
 
-  &.permanentSidebar {
+  &.small {
     width: calc(100vw - #{$__sidebarWidth});
     margin-left: $__sidebarWidth;
+
+    ~ iframe:not(.blockbyte-bs-hover) {
+        width: $__sidebarWidth !important;
+    }
   }
 
   > section.mid {
@@ -90,7 +94,7 @@ section#content {
 
 body[data-pos='right'] {
 
-  section#content.permanentSidebar {
+  section#content.small {
     margin-left: 0;
   }
 }

@@ -80,10 +80,18 @@
 
                         if (entryPlaceholder && entryPlaceholder.length() > 0) {
                             let url = e.dataTransfer.getData("URL");
-                            let title = "";
+                            let title = e.dataTransfer.getData("text/plain");
 
                             if (location.href === url) {
                                 title = $(document).find("title").text();
+                            } else if (title === url) {
+                                let html = e.dataTransfer.getData("text/html");
+
+                                if (html && html.length > 0) {
+                                    title = $("<div />").html(html).text();
+                                } else {
+                                    title = "";
+                                }
                             }
 
                             trackEnd("selection");

@@ -22,9 +22,11 @@
             n.opts.elm.topPages.html("<ul />");
             this.setType(n.helper.model.getData("n/topPagesType"));
 
-            setInterval(() => { // refresh the entries every 5 minutes
-                updateEntries();
-            }, 5 * 60 * 1000);
+            setInterval(() => { // refresh the entries every 2 minutes
+                if (document.hidden) {
+                    updateEntries();
+                }
+            }, 2 * 60 * 1000);
         };
 
         /**

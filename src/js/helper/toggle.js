@@ -202,6 +202,10 @@
                 }
             });
 
+            $(document).on(ext.opts.events.openSidebar + ".bs", () => { // open sidebar when someone triggers the according event
+                this.openSidebar();
+            });
+
             $(document).on("mousedown.bs click.bs", (e) => { // click somewhere in the underlying page -> close
                 if (e.isTrusted && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                     this.closeSidebar();

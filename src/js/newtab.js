@@ -49,7 +49,8 @@
             },
             events: {
                 loaded: "blockbyte-bs-loaded",
-                elementsCreated: "blockbyte-bs-created"
+                elementsCreated: "blockbyte-bs-created",
+                openSidebar: "blockbyte-bs-sidebar-open"
             },
             manifest: chrome.runtime.getManifest()
         };
@@ -144,6 +145,7 @@
                         if (window.innerWidth - sidebarWidth >= 500) {
                             this.opts.elm.sidebar.sidebar.addClass(this.opts.classes.sidebarPermanent);
                             sidebarWidth > 0 && this.opts.elm.content.addClass(this.opts.classes.smallContent);
+                            $(document).trigger(this.opts.events.openSidebar);
                         } else {
                             this.opts.elm.sidebar.sidebar.removeClass(this.opts.classes.sidebarPermanent);
                             this.opts.elm.content.removeClass(this.opts.classes.smallContent);

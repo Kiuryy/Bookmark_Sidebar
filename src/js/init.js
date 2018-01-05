@@ -135,6 +135,7 @@
         events: {
             loaded: "blockbyte-bs-loaded",
             elementsCreated: "blockbyte-bs-created",
+            openSidebar: "blockbyte-bs-sidebar-open",
             sidebarOpened: "blockbyte-bs-sidebar-opened",
             checkboxChanged: "blockbyte-bs-checkbox-changed",
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",

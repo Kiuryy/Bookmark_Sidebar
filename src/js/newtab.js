@@ -146,6 +146,10 @@
                             this.opts.elm.sidebar.sidebar.addClass(this.opts.classes.sidebarPermanent);
                             sidebarWidth > 0 && this.opts.elm.content.addClass(this.opts.classes.smallContent);
                             $(document).trigger(this.opts.events.openSidebar);
+
+                            $.delay(500).then(() => {
+                                $(document).trigger("click");
+                            });
                         } else {
                             this.opts.elm.sidebar.sidebar.removeClass(this.opts.classes.sidebarPermanent);
                             this.opts.elm.content.removeClass(this.opts.classes.smallContent);

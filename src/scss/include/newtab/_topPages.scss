@@ -75,16 +75,4 @@ div#topPages {
   }
 }
 
-body.dark {
-
-  div#topPages > ul > li > a {
-    border-color: rgba(255, 255, 255, 0.075);
-    background: $darkContentBackground2;
-
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      background: lighten($darkContentBackground2, 5%);
-      box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.7);
-    }
-  }
-}
+@import "../../dark/include/newtab/topPages";

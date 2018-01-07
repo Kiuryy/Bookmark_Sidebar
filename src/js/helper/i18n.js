@@ -5,6 +5,8 @@
 
         let language = null;
         let langVars = {};
+        let dir = null;
+
         let attr = {
             i18n: "data-i18n",
             i18nReplaces: "data-i18nReplaces"
@@ -20,6 +22,7 @@
                 ext.helper.model.call("langvars").then((obj) => {
                     language = obj.language;
                     langVars = obj.vars;
+                    dir = obj.dir;
                     resolve();
                 });
             });
@@ -32,6 +35,15 @@
          */
         this.getLanguage = () => {
             return language;
+        };
+
+        /**
+         * Returns whether the direction of the current language is right-to-left
+         *
+         * @returns {string}
+         */
+        this.isRtl = () => {
+            return dir === "rtl";// || true;
         };
 
         /**

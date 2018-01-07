@@ -85,20 +85,5 @@ div#search {
   }
 }
 
-body.dark {
 
-  div#search {
-
-    > input[type='text'] {
-      background: $darkContentBackground2;
-    }
-
-    > ul.suggestions {
-      filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-
-      > li {
-        background: $darkContentBackground2;
-      }
-    }
-  }
-}
+@import "../../dark/include/newtab/search";

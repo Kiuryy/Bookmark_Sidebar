@@ -49,19 +49,6 @@ body {
       transition: none !important;
     }
   }
-
-  &.dark {
-
-    &::after {
-      color: $__textColor;
-      background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
-    }
-
-    &.isDragged.dragCancel::after {
-      color: $colorError;
-      background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
-    }
-  }
 }
 
 // Clipboard
@@ -105,6 +92,7 @@ section#sidebar {
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
   height: 100%;
   display: flex;
+  float: left;
   flex-direction: column;
   user-select: none;
   transition: background 0.3s;
@@ -315,8 +303,12 @@ section#sidebar {
 
   > div.filter {
     position: absolute;
+    display: flex;
+    align-content: flex-start;
     top: $__sidebarHeaderHeight;
-    left: $filterMargin;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: calc(100% - #{$filterMargin * 2});
     background: $contentBackground2;
     padding: 10px $__bookmarksHorizontalPadding 5px;
@@ -686,74 +678,6 @@ div#reloadInfo {
   }
 }
 
-// dark surface
-body.dark {
-
-  section#sidebar {
-    background: $darkContentBackground;
-
-    &.permanent {
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    > div.filter {
-      background: $darkContentBackground2;
-    }
-
-    > a.lockPinned {
-      background: $darkContentBackground;
-      box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    > div.scrollBox {
-
-      > div.pinned {
-        background-color: $darkContentBackground;
-
-        &::after {
-          background: $darkSeparatorColor;
-        }
-      }
-
-      > ul {
-
-        li.isDragged {
-          width: calc(100% - 5px);
-          border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        a {
-          @include darkBookmarkEntry;
-
-          > span.drag {
-
-            &::before {
-              background-color: $darkReorderIconColor;
-            }
-
-            &:hover {
-              background-color: rgba(255, 255, 255, 0.1);
-
-              &::before {
-                background-color: $darkReorderIconColorActive;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    ~ a.dragHelper {
-      @include darkBookmarkEntry;
-    }
-  }
-
-  div#shareInfo, div#reloadInfo {
-    background: $darkContentBackground;
-  }
-}
-
-// Body-Klassen
 body {
 
   &.dragCancel {
@@ -763,3 +687,6 @@ body {
     }
   }
 }
+
+@import "rtl/sidebar";
+@import "dark/sidebar";

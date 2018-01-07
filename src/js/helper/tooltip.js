@@ -12,6 +12,9 @@
          */
         this.init = async () => {
             config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "b/sidebarPosition"]);
+
+            let styles = ext.helper.model.getData("a/styles");
+            config.scrollBarWidth = +styles.scrollBarWidth.replace("px", "");
         };
 
         /**
@@ -62,11 +65,7 @@
                                 tooltip.addClass(ext.opts.classes.tooltip.visible);
                                 tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
 
-                                if (config.sidebarPosition === "right") {
-                                    tooltip.css("right", (elm.realWidth() + 10) + "px");
-                                } else {
-                                    tooltip.css("left", (elm.parent("li")[0].offsetLeft + elm.realWidth()) + "px");
-                                }
+                                setHorizontalPosition(tooltip, elm);
                             }, +config.tooltipDelay * 1000);
                         }
                     }
@@ -81,6 +80,26 @@
          */
         this.close = () => {
             closeAllExcept();
+        };
+
+        /**
+         * Sets the horizontal position of the given tooltip
+         *
+         * @param {jsu} tooltip
+         * @param {jsu} elm
+         */
+        let setHorizontalPosition = (tooltip, elm) => {
+            let isRtl = ext.helper.i18n.isRtl();
+            let ref = {
+                l: ext.elements.sidebar.realWidth() - config.scrollBarWidth,
+                r: elm.realWidth() + 10
+            };
+
+            if (config.sidebarPosition === "right") {
+                tooltip.css("right", ref[isRtl ? "l" : "r"] + "px");
+            } else {
+                tooltip.css("left", ref[isRtl ? "r" : "l"] + "px");
+            }
         };
 
         /**

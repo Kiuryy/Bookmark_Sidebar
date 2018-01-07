@@ -1,0 +1,20 @@
+
+@mixin bookmarkEntryRtl {
+
+  > span.copied {
+
+  }
+
+  > img, > span.icon {
+    margin: 0 0 0 $__bookmarksHorizontalPadding;
+  }
+
+  &.dir > span.icon::before {
+    transform: scaleX(-1);
+  }
+
+  > span.drag {
+    right: unset;
+    left: 15px;
+  }
+}

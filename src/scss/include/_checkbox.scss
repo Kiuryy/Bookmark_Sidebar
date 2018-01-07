@@ -117,51 +117,5 @@ div.checkbox {
   }
 }
 
-body.dark div.checkbox {
-
-  &[data-style="default"] {
-
-    &::after {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-    }
-
-    &.focus::after, &.clicked::after {
-      background: rgba(255, 255, 255, 0.5);
-      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.5);
-    }
-
-    &.active {
-
-      &::before {
-        background-color: $__textColor;
-      }
-
-      &::after {
-        box-shadow: 0 0 0 0 $__textColor;
-      }
-
-      &.focus::after, &.clicked::after {
-        background: $__textColor;
-        box-shadow: 0 0 0 20px $__textColor;
-      }
-    }
-  }
-
-  &[data-style="switch"] {
-
-    &::before {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    &::after {
-      background-color: $textColorLight;
-    }
-
-    &.active {
-
-      &::before, &::after {
-        background-color: $textColorInverted;
-      }
-    }
-  }
-}
+@import "../rtl/include/checkbox";
+@import "../dark/include/checkbox";

@@ -332,6 +332,8 @@
             }
 
             this.elements.iframeBody = this.elements.iframe.find("body");
+            this.elements.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+
             this.elements.sidebar = $("<section id=\"" + opts.ids.sidebar.sidebar + "\" />").appendTo(this.elements.iframeBody);
             this.elements.bookmarkBox = {};
 

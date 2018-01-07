@@ -53,8 +53,10 @@
             vi: "Vietnamese"
         };
 
+        let rtlLangs = ["ar", "fa", "iw"];
         let language = null;
         let langVars = {};
+        let isRtl = false;
 
         /**
          * Initialises the language file
@@ -76,6 +78,7 @@
                         [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
                             if (obj && obj.infos && obj.infos[name] && obj.infos[name].available) {
                                 language = name;
+                                isRtl = rtlLangs.indexOf(language) > -1;
 
                                 getVars(name, defaultLang).then((data) => { // load language variables from model
                                     if (data && data.langVars) {
@@ -100,6 +103,7 @@
             return new Promise((resolve) => {
                 resolve({
                     language: language,
+                    dir: isRtl ? "rtl" : "ltr",
                     vars: langVars
                 });
             });

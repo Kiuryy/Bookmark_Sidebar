@@ -29,6 +29,9 @@
     "sidebar_deleted": {
         "message": "Removida"
     },
+    "sidebar_undo_deletion": {
+        "message": "Desfazer"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Editar favorito"
     },

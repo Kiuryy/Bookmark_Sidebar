@@ -55,15 +55,10 @@
 
                 ext.helper.model.call("trackEvent", {category: "contextmenu", action: "open", label: trackingLabel});
                 initEvents(contextmenu);
+                setPosition(contextmenu, elm, type);
 
                 $.delay().then(() => {
                     contextmenu.addClass(ext.opts.classes.contextmenu.visible);
-
-                    let topVal = parseInt(contextmenu.css("top"));
-                    let height = contextmenu.realHeight();
-                    if (topVal + height >= window.innerHeight) { // no space to show contextmenu on bottom -> show on top instead
-                        contextmenu.css("top", topVal - height).addClass(ext.opts.classes.contextmenu.top);
-                    }
                 });
             }
         };
@@ -132,9 +127,6 @@
                     contextmenu.find("input[" + ext.opts.attr.name + "='sort'][" + ext.opts.attr.value + "='" + value + "']").parent("div." + ext.opts.classes.checkbox.box).trigger("click");
                 }
             });
-
-            let elmBoundClientRect = elm[0].getBoundingClientRect();
-            contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
         };
 
         /**
@@ -181,9 +173,6 @@
                 .append("<li><a " + ext.opts.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title") + "'></a></li>")
                 .append("<li><a " + ext.opts.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>")
                 .append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='keyboardShortcuts' title='" + ext.helper.i18n.get("contextmenu_keyboard_shortcuts") + "'></a></li>");
-
-            let elmBoundClientRect = elm[0].getBoundingClientRect();
-            contextmenu.css("top", (elmBoundClientRect.top + elmBoundClientRect.height) + "px");
         };
 
         /**
@@ -194,10 +183,6 @@
          */
         let handleSeparatorMenu = (contextmenu, elm) => {
             let listEntry = elm.parent("li");
-            contextmenu.css({
-                top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
-                left: listEntry[0].offsetLeft + "px"
-            });
 
             let entry = $("<li />").appendTo(contextmenu.children("ul." + ext.opts.classes.contextmenu.list));
             contextmenu.children("ul." + ext.opts.classes.contextmenu.icons).remove();
@@ -223,11 +208,6 @@
             let data = ext.helper.entry.getData(elmId);
 
             if (data) {
-                contextmenu.css({
-                    top: (elm[0].getBoundingClientRect().top + elm.realHeight()) + "px",
-                    left: elm.parent("li")[0].offsetLeft + "px"
-                });
-
                 let i18nAppend = data.isDir ? "_dir" : "_bookmark";
                 let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
                 let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
@@ -278,6 +258,28 @@
                 } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
                     iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='show' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
                 }
+            }
+        };
+
+        let setPosition = (contextmenu, elm, type) => {
+            let dim = {w: contextmenu.realWidth(), h: contextmenu.realHeight()};
+            let elmBoundClientRect = elm[0].getBoundingClientRect();
+            let top = elmBoundClientRect.top + elmBoundClientRect.height;
+
+            if (top + dim.h >= window.innerHeight) { // no space to show contextmenu on bottom -> show on top instead
+                contextmenu.css("top", top - dim.h).addClass(ext.opts.classes.contextmenu.top);
+            } else {
+                contextmenu.css("top", top + "px");
+            }
+
+            if (type !== "sort" && type !== "menu") {
+                let left = elm.parent("li")[0].offsetLeft;
+
+                if (ext.helper.i18n.isRtl()) {
+                    left = elmBoundClientRect.width - dim.w;
+                }
+
+                contextmenu.css("left", left + "px");
             }
         };
 

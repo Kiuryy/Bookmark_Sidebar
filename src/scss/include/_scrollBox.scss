@@ -29,6 +29,4 @@
   }
 }
 
-body.dark .scrollBox {
-  background-color: $darkScrollBarBackground;
-}
+@import "../dark/include/scrollBox";

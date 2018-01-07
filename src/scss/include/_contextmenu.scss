@@ -13,7 +13,7 @@ div.contextmenu {
   @extend %hidden;
 
   &[data-type='list'], &[data-type='separator'] {
-    left: -9999px;
+    left: -99999px;
     margin: 0 0 0 10px;
     min-width: 260px;
   }
@@ -217,41 +217,5 @@ section#sidebar {
   }
 }
 
-body.dark div.contextmenu {
-  background: $darkContentBackground2;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-
-  > ul.list > li > a {
-    transition: opacity 0.3s;
-    opacity: 0.7;
-
-    &::before {
-      background-color: $darkContextMenuIconColor;
-    }
-
-    &.hover {
-      color: $__textColor;
-      opacity: 1;
-
-      &::before {
-        background-color: $__textColor;
-        opacity: 0.8;
-      }
-    }
-  }
-
-  > ul.icons {
-    background: lighten($darkContentBackground2, 3%);
-
-    > li > a {
-
-      &::before {
-        background-color: $darkContextMenuIconColor;
-      }
-
-      &.hover {
-        background-color: lighten($darkContentBackground2, 8%);
-      }
-    }
-  }
-}
+@import "../rtl/include/contextmenu";
+@import "../dark/include/contextmenu";

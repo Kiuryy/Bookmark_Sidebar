@@ -1,0 +1,75 @@
+body.dark {
+
+  &::after {
+    color: $__textColor;
+    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
+  }
+
+  &.isDragged.dragCancel::after {
+    color: $colorError;
+    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
+  }
+
+  section#sidebar {
+    background: $darkContentBackground;
+
+    &.permanent {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    > div.filter {
+      background: $darkContentBackground2;
+    }
+
+    > a.lockPinned {
+      background: $darkContentBackground;
+      box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    > div.scrollBox {
+
+      > div.pinned {
+        background-color: $darkContentBackground;
+
+        &::after {
+          background: $darkSeparatorColor;
+        }
+      }
+
+      > ul {
+
+        li.isDragged {
+          width: calc(100% - 5px);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        a {
+          @include darkBookmarkEntry;
+
+          > span.drag {
+
+            &::before {
+              background-color: $darkReorderIconColor;
+            }
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.1);
+
+              &::before {
+                background-color: $darkReorderIconColorActive;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ~ a.dragHelper {
+      @include darkBookmarkEntry;
+    }
+  }
+
+  div#shareInfo, div#reloadInfo {
+    background: $darkContentBackground;
+  }
+}

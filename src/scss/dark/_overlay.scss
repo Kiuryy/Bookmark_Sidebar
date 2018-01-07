@@ -1,0 +1,150 @@
+
+body.dark div.modal {
+  background: $darkContentBackground;
+
+  > a.preview, > span.preview {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  > div.info {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &[data-type='edit'], &[data-type='add'] {
+
+    > ul > li {
+
+      &.info {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      > input, > textarea {
+        border-color: rgba(255, 255, 255, 0.1);
+
+        &.error {
+          border-color: rgba($colorError, 0.5);
+        }
+
+        &:focus {
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+
+  &[data-type='add'] {
+
+    > menu:not(.buttons) {
+
+      > a {
+        background-color: $darkContentBackground2;
+
+        &::before, &::after {
+          opacity: 0.5;
+          transition: opacity 0.5s;
+        }
+
+        &:hover {
+
+          &::before {
+            opacity: 1;
+            background-color: $__textColor;
+          }
+
+          &::after {
+            opacity: 1;
+            color: $__textColor;
+          }
+        }
+      }
+    }
+
+    > menu.buttons > a.action {
+      display: none;
+
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+
+  &[data-type='infos'] {
+
+    > header::before {
+      @include maskImage('icon-info');
+    }
+
+    > ul {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    > ul > li > ul {
+      background: $darkTooltipBackground;
+      color: $darkTooltipTextColor;
+
+      &::before {
+        border-bottom-color: $darkTooltipBackground;
+      }
+    }
+  }
+
+  &[data-type='updateUrls'] {
+
+    > div#urlList > ul > li {
+
+      > a {
+
+        &:hover {
+          color: $__textColor;
+
+          > span {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+
+    > div.progressBar {
+      background: rgba(255, 255, 255, 0.1);
+
+      > div {
+        background: $__textColor;
+      }
+    }
+
+    &.urlCheckList {
+
+      &::after {
+        background: $darkContentBackground2;
+      }
+    }
+  }
+
+  &[data-type='shareInfoDesc'], &[data-type='keyboardShortcuts'] {
+
+    &::after {
+      background: $darkContentBackground2;
+    }
+
+    > div.scrollBox > * {
+      background: $darkContentBackground;
+    }
+  }
+
+  &[data-type='keyboardShortcuts'] {
+
+    > div.scrollBox > ul > li > strong > i {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  > menu.buttons > a {
+    color: $__textColor;
+
+    &::before {
+      background: $__textColor;
+    }
+  }
+}

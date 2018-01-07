@@ -32,12 +32,5 @@ section#content {
   }
 }
 
-body.dark {
 
-  section#content {
-
-    > nav > ul > li > a:hover {
-      background: $darkContentBackground2;
-    }
-  }
-}
+@import "../../dark/include/newtab/shortcuts";

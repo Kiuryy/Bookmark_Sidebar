@@ -41,6 +41,4 @@ svg.loading {
   }
 }
 
-body.dark svg.loading > circle {
-  stroke: $__textColor;
-}
+@import "../dark/include/loading";

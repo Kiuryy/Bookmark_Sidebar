@@ -197,29 +197,5 @@
   }
 }
 
-@mixin darkBookmarkEntry {
-
-  &.separator > span.label::after {
-    background: $darkSeparatorColor;
-  }
-
-  > span.removeMask {
-    background: $darkRemovedBackground;
-  }
-
-  > span.drag {
-    background-color: rgba(255, 255, 255, 0.1);
-
-    &::before {
-      background-color: $darkReorderIconColor;
-    }
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.25) !important;
-
-      &::before {
-        background-color: $darkReorderIconColorActive;
-      }
-    }
-  }
-}
+@import "../rtl/include/bookmarkEntry";
+@import "../dark/include/bookmarkEntry";

@@ -1,0 +1,27 @@
+html[dir='rtl'] {
+
+  div.checkbox {
+
+    &[data-style="default"] {
+
+      &::before {
+        transform: scaleX(-1);
+      }
+    }
+
+    &[data-style="switch"] {
+      transition: padding-right 0.2s, opacity 0.2s;
+
+      &::after {
+        left: unset;
+        right: -3px;
+        box-shadow: -1px 1px 7px rgba(0, 0, 0, 0.4);
+      }
+
+      &.active {
+        padding-left: unset;
+        padding-right: 18px;
+      }
+    }
+  }
+}

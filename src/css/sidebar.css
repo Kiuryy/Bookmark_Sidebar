@@ -75,7 +75,7 @@ div.contextmenu {
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4; }
   div.contextmenu[data-type='list'], div.contextmenu[data-type='separator'] {
-    left: -9999px;
+    left: -99999px;
     margin: 0 0 0 10px;
     min-width: 260px; }
   div.contextmenu[data-type='menu'] {
@@ -206,6 +206,41 @@ div.contextmenu {
 section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'], section#sidebar[data-pos='right'] div.contextmenu[data-type='sort'] {
   right: 0; }
 
+html[dir='rtl'] div.contextmenu[data-type='list'], html[dir='rtl'] div.contextmenu[data-type='separator'] {
+  margin: 0 10px 0 0; }
+
+html[dir='rtl'] div.contextmenu[data-type='menu'], html[dir='rtl'] div.contextmenu[data-type='sort'] {
+  left: 0;
+  right: unset; }
+
+html[dir='rtl'] div.contextmenu > ul.icons > li.right {
+  float: left; }
+
+html[dir='rtl'] div.contextmenu > ul.icons > li > a::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] div.contextmenu > ul.list > li > div.checkbox {
+  left: unset;
+  right: 9px; }
+  html[dir='rtl'] div.contextmenu > ul.list > li > div.checkbox + a {
+    padding-left: 0;
+    padding-right: 38px; }
+
+html[dir='rtl'] div.contextmenu > ul.list > li > a {
+  padding: 0 38px 0 10px; }
+  html[dir='rtl'] div.contextmenu > ul.list > li > a > span {
+    margin: 0 3px 0 0; }
+  html[dir='rtl'] div.contextmenu > ul.list > li > a::before {
+    transform: scaleX(-1); }
+
+html[dir='rtl'] section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'] {
+  right: unset;
+  left: -93px; }
+
+html[dir='rtl'] section#sidebar[data-pos='right'] div.contextmenu[data-type='sort'] {
+  right: unset;
+  left: -57px; }
+
 body.dark div.contextmenu {
   background: #4d4d4d;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); }
@@ -255,12 +290,6 @@ div.tooltip {
     opacity: 0.7;
     word-wrap: break-word; }
 
-body.dark div.tooltip {
-  color: #eee;
-  background: #222; }
-  body.dark div.tooltip::before {
-    border-right-color: #222; }
-
 section#sidebar[data-pos='right'] ~ div.tooltip {
   transform: translate3d(5px, 0, 0); }
   section#sidebar[data-pos='right'] ~ div.tooltip::before {
@@ -268,6 +297,12 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
     right: -12px;
     border-right-color: transparent;
     border-left-color: #444; }
+
+body.dark div.tooltip {
+  color: #eee;
+  background: #222; }
+  body.dark div.tooltip::before {
+    border-right-color: #222; }
 
 body.dark section#sidebar[data-pos='right'] ~ div.tooltip::before {
   border-left-color: #222; }
@@ -356,6 +391,19 @@ div.checkbox {
       div.checkbox[data-style="switch"].active::before, div.checkbox[data-style="switch"].active::after {
         background-color: "%colorScheme"; }
 
+html[dir='rtl'] div.checkbox[data-style="default"]::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] div.checkbox[data-style="switch"] {
+  transition: padding-right 0.2s, opacity 0.2s; }
+  html[dir='rtl'] div.checkbox[data-style="switch"]::after {
+    left: unset;
+    right: -3px;
+    box-shadow: -1px 1px 7px rgba(0, 0, 0, 0.4); }
+  html[dir='rtl'] div.checkbox[data-style="switch"].active {
+    padding-left: unset;
+    padding-right: 18px; }
+
 body.dark div.checkbox[data-style="default"]::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
 
@@ -431,12 +479,6 @@ body {
     background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(255, 153, 153, 0.3) 5px, rgba(255, 153, 153, 0.3) 10px); }
   body.noAnimations *, body.noAnimations *::before, body.noAnimations *::after {
     transition: none !important; }
-  body.dark::after {
-    color: "%textColor";
-    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px); }
-  body.dark.isDragged.dragCancel::after {
-    color: #f99;
-    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px); }
 
 body > textarea {
   position: fixed;
@@ -641,6 +683,7 @@ section#sidebar {
   box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
   height: 100%;
   display: flex;
+  float: left;
   flex-direction: column;
   user-select: none;
   transition: background 0.3s;
@@ -798,8 +841,12 @@ section#sidebar {
     transform: translate3d(7px, 0, 0); }
   section#sidebar > div.filter {
     position: absolute;
+    display: flex;
+    align-content: flex-start;
     top: "%sidebarHeaderHeight";
-    left: 11px;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: calc(100% - 22px);
     background: #f5f5f5;
     padding: 10px "%bookmarksHorizontalPadding" 5px;
@@ -1210,6 +1257,87 @@ div#reloadInfo > div {
   div#reloadInfo > div::before {
     -webkit-mask-position-y: 0; }
 
+body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
+  display: none; }
+
+html[dir='rtl'] a.dragHelper {
+  padding-right: "%bookmarksHorizontalPadding";
+  padding-left: 46px; }
+  html[dir='rtl'] a.dragHelper > img, html[dir='rtl'] a.dragHelper > span.icon {
+    margin: 0 0 0 "%bookmarksHorizontalPadding"; }
+  html[dir='rtl'] a.dragHelper.dir > span.icon::before {
+    transform: scaleX(-1); }
+  html[dir='rtl'] a.dragHelper > span.drag {
+    right: unset;
+    left: 15px; }
+
+html[dir='rtl'] section#sidebar > header > h1 {
+  margin-left: auto;
+  margin-right: unset; }
+
+html[dir='rtl'] section#sidebar > header > a::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] section#sidebar > header > div.searchBox {
+  left: auto;
+  right: 16px; }
+
+html[dir='rtl'] section#sidebar > header.searchVisible > h1 {
+  transform: translate3d(200%, 0, 0); }
+
+html[dir='rtl'] section#sidebar > a.lockPinned > span::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] section#sidebar > div.filter > a[data-direction] {
+  margin-left: 10px;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 18px; }
+  html[dir='rtl'] section#sidebar > div.filter > a[data-direction]::before {
+    left: unset;
+    right: 0; }
+
+html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox {
+  left: unset;
+  right: 0; }
+  html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox + a {
+    padding-left: unset;
+    padding-right: 22px; }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a > img, html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.icon, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > img, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.icon {
+  margin: 0 0 0 "%bookmarksHorizontalPadding"; }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir > span.icon::before, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir > span.icon::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.drag, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {
+  right: unset;
+  left: 15px; }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a + ul, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a + ul {
+  padding-left: unset;
+  padding-right: "%bookmarksDirIndentation"; }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul.hideRoot > li > ul, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul.hideRoot > li > ul {
+  padding-left: 0;
+  padding-right: 0; }
+
+html[dir='rtl'] section#sidebar[data-sort='custom'] > div.scrollBox a:hover {
+  padding-right: "%bookmarksHorizontalPadding";
+  padding-left: 46px; }
+
+html[dir='rtl'] div#shareInfo > div > label > a, html[dir='rtl'] div#reloadInfo > div > label > a {
+  margin-right: 5px;
+  margin-left: unset; }
+
+body.dark::after {
+  color: "%textColor";
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px); }
+
+body.dark.isDragged.dragCancel::after {
+  color: #f99;
+  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px); }
+
 body.dark section#sidebar {
   background: #3d3d3d; }
   body.dark section#sidebar.permanent {
@@ -1259,8 +1387,5 @@ body.dark section#sidebar {
 
 body.dark div#shareInfo, body.dark div#reloadInfo {
   background: #3d3d3d; }
-
-body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
-  display: none; }
 
 /*# sourceMappingURL=sidebar.css.map */

@@ -99,14 +99,4 @@ body[data-pos='right'] {
   }
 }
 
-body.dark {
-  background: $darkContentBackground;
-
-  &.loading::before {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  section#content {
-    background: $darkContentBackground;
-  }
-}
+@import "dark/newtab";

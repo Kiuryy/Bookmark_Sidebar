@@ -1,0 +1,19 @@
+
+body.dark {
+
+  div.tooltip {
+    color: $darkTooltipTextColor;
+    background: $darkTooltipBackground;
+
+    &::before {
+      border-right-color: $darkTooltipBackground;
+    }
+  }
+
+  section#sidebar[data-pos='right'] ~ div.tooltip {
+
+    &::before {
+      border-left-color: $darkTooltipBackground;
+    }
+  }
+}

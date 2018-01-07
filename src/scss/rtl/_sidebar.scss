@@ -1,0 +1,128 @@
+
+html[dir='rtl'] {
+
+  // Sidebar
+  a.dragHelper {
+    @include bookmarkEntryRtl;
+    padding-right: $__bookmarksHorizontalPadding;
+    padding-left: 46px;
+  }
+
+  //
+  section#sidebar {
+
+    > header {
+
+      > h1 {
+        margin-left: auto;
+        margin-right: unset;
+      }
+
+      > a::before {
+        transform: scaleX(-1);
+      }
+
+      > div.searchBox {
+        left: auto;
+        right: 16px;
+      }
+
+      &.searchVisible {
+
+        > h1 {
+          transform: translate3d(200%, 0, 0);
+        }
+      }
+    }
+
+    > a.lockPinned {
+
+      > span::before {
+        transform: scaleX(-1);
+      }
+    }
+
+    > div.filter {
+
+      > a[data-direction] {
+        margin-left: 10px;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 18px;
+
+        &::before {
+          left: unset;
+          right: 0;
+        }
+      }
+
+      > ul {
+
+        > li {
+
+          > div.checkbox {
+            left: unset;
+            right: 0;
+
+            + a {
+              padding-left: unset;
+              padding-right: 22px;
+            }
+          }
+        }
+      }
+    }
+
+    > div.scrollBox {
+
+      > ul, > div.pinned > ul {
+
+        a {
+          @include bookmarkEntryRtl;
+
+          + ul {
+            padding-left: unset;
+            padding-right: $__bookmarksDirIndentation;
+          }
+        }
+
+        &.hideRoot {
+
+          > li {
+
+            > ul {
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-sort='custom'] {
+
+      > div.scrollBox {
+
+        a:hover {
+          padding-right: $__bookmarksHorizontalPadding;
+          padding-left: 46px;
+        }
+      }
+    }
+  }
+
+  //
+  div#shareInfo, div#reloadInfo {
+
+    > div {
+
+      > label {
+
+        > a {
+          margin-right: 5px;
+          margin-left: unset;
+        }
+      }
+    }
+  }
+}

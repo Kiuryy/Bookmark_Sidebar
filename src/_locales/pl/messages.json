@@ -410,6 +410,9 @@
     "settings_advanced": {
         "message": "Ustawienia zaawansowane"
     },
+    "settings_not_synced": {
+        "message": "Nie b\u0119dzie synchronizacji na innych urz\u0105dzeniach"
+    },
     "settings_animations": {
         "message": "W\u0142\u0105cz animacje"
     },

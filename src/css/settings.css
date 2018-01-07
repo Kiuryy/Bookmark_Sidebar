@@ -122,6 +122,19 @@ div.checkbox {
       div.checkbox[data-style="switch"].active::before, div.checkbox[data-style="switch"].active::after {
         background-color: #7b5fa4; }
 
+html[dir='rtl'] div.checkbox[data-style="default"]::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] div.checkbox[data-style="switch"] {
+  transition: padding-right 0.2s, opacity 0.2s; }
+  html[dir='rtl'] div.checkbox[data-style="switch"]::after {
+    left: unset;
+    right: -3px;
+    box-shadow: -1px 1px 7px rgba(0, 0, 0, 0.4); }
+  html[dir='rtl'] div.checkbox[data-style="switch"].active {
+    padding-left: unset;
+    padding-right: 18px; }
+
 body.dark div.checkbox[data-style="default"]::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
 

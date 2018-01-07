@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "\u0130ptal"
     },
+    "sidebar_deleted": {
+        "message": "Silindi"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Geri alma"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Yer imini d\u00fczenle"
     },
@@ -46,6 +52,9 @@
     },
     "contextmenu_new_tab": {
         "message": "Yeni sekmede a\u00e7"
+    },
+    "contextmenu_new_window": {
+        "message": "Yeni pencere a\u00e7"
     },
     "contextmenu_new_tab_incognito": {
         "message": "Yeni gizli sayfada a\u00e7"
@@ -86,6 +95,9 @@
     "contextmenu_bookmark_manager": {
         "message": "Yer imleri d\u00fczenleyicisi"
     },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Klavye k\u0131sayollar\u0131"
+    },
     "sort_label_custom": {
         "message": "Kullan\u0131c\u0131 tan\u0131ml\u0131"
     },
@@ -112,6 +124,9 @@
     },
     "overlay_bookmark_url": {
         "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "ilave bilgi"
     },
     "overlay_cancel": {
         "message": "\u0130ptal"

@@ -40,16 +40,6 @@ div.tooltip {
   }
 }
 
-body.dark div.tooltip {
-  color: $darkTooltipTextColor;
-  background: $darkTooltipBackground;
-
-  &::before {
-    border-right-color: $darkTooltipBackground;
-  }
-}
-
-// right sidebar
 section#sidebar[data-pos='right'] ~ div.tooltip {
   transform: translate3d(5px, 0, 0);
 
@@ -61,12 +51,4 @@ section#sidebar[data-pos='right'] ~ div.tooltip {
   }
 }
 
-body.dark {
-
-  section#sidebar[data-pos='right'] ~ div.tooltip {
-
-    &::before {
-      border-left-color: $darkTooltipBackground;
-    }
-  }
-}
+@import "../dark/include/tooltip";

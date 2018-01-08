@@ -122,9 +122,6 @@ div.checkbox {
       div.checkbox[data-style="switch"].active::before, div.checkbox[data-style="switch"].active::after {
         background-color: #7b5fa4; }
 
-html[dir='rtl'] div.checkbox[data-style="default"]::before {
-  transform: scaleX(-1); }
-
 html[dir='rtl'] div.checkbox[data-style="switch"] {
   transition: padding-right 0.2s, opacity 0.2s; }
   html[dir='rtl'] div.checkbox[data-style="switch"]::after {

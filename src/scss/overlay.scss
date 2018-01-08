@@ -70,7 +70,10 @@ div.modal {
     z-index: 2;
 
     &::before {
-      -webkit-mask-position: 18px center;
+      -webkit-mask-position: center;
+      width: $__overlayHeaderHeight;
+      height: $__overlayHeaderHeight;
+      left: 5px;
     }
 
     > h1 {
@@ -324,6 +327,11 @@ div.modal {
               text-decoration: line-through;
             }
 
+            &:last-of-type::before, &:first-of-type::before {
+              width: 20px;
+              height: 20px;
+            }
+
             &::before {
               -webkit-mask-position: 0 center !important;
             }
@@ -535,12 +543,14 @@ div.modal {
       padding: 2px 30px;
 
       > li {
+        display: flex;
         margin: 20px 0 30px 0;
 
         > label {
           font-size: 140%;
-          display: inline-block;
-          width: 80px;
+          padding: 4px 0;
+          margin: 0 12px 0 0;
+          min-width: 45px;
         }
 
         > input, > textarea {
@@ -562,14 +572,7 @@ div.modal {
         }
 
         > input {
-          display: inline-block;
-          width: calc(100% - 80px);
-        }
-
-        > textarea {
-          width: 100%;
-          height: 60px;
-          resize: none;
+          flex: 1;
         }
       }
     }
@@ -582,6 +585,7 @@ div.modal {
     }
 
     > ul > li.info {
+      display: block;
       margin-top: 40px;
       padding: 30px 0 0 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -590,7 +594,14 @@ div.modal {
         width: 100%;
         font-size: 100%;
         font-weight: $__fontWeightMedium;
-        margin-bottom: 5px;
+        margin: 0 !important;
+      }
+
+      > textarea {
+        width: 100%;
+        height: 60px;
+        resize: none;
+        margin: 5px 0 3px;
       }
 
       > span {
@@ -752,4 +763,5 @@ div.modal {
   }
 }
 
+@import "rtl/overlay";
 @import "dark/overlay";

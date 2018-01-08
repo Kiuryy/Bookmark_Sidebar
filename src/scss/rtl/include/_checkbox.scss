@@ -2,13 +2,6 @@ html[dir='rtl'] {
 
   div.checkbox {
 
-    &[data-style="default"] {
-
-      &::before {
-        transform: scaleX(-1);
-      }
-    }
-
     &[data-style="switch"] {
       transition: padding-right 0.2s, opacity 0.2s;
 

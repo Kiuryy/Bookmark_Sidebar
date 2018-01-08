@@ -1,5 +1,9 @@
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions and more details about the individual releases
 
+## 1.12
+ - Added support for right-to-left language
+ - (toDo) Changed separator mechanism
+
 ## 1.11
  - Additional info for entries
  - Added new contextmenu entries

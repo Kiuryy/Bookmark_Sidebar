@@ -158,8 +158,9 @@ div.contextmenu {
         }
 
         &::before {
-          -webkit-mask-position: 9px center;
           transition: background-color 0.3s, opacity 0.3s;
+          width: 39px;
+          height: 39px;
         }
 
         &.hover {

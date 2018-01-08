@@ -26,6 +26,7 @@
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
 
             let iframeBody = elements.overlay.find("body");
+            iframeBody.parent("html").attr("dir", ext.helper.i18n.isRtl() ? "rtl" : "ltr");
 
             elements.modal = $("<div />")
                 .attr(ext.opts.attr.type, type)

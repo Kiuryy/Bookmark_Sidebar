@@ -147,9 +147,6 @@ div.checkbox {
       div.checkbox[data-style="switch"].active::before, div.checkbox[data-style="switch"].active::after {
         background-color: "%colorScheme"; }
 
-html[dir='rtl'] div.checkbox[data-style="default"]::before {
-  transform: scaleX(-1); }
-
 html[dir='rtl'] div.checkbox[data-style="switch"] {
   transition: padding-right 0.2s, opacity 0.2s; }
   html[dir='rtl'] div.checkbox[data-style="switch"]::after {
@@ -263,7 +260,10 @@ div.modal {
       -webkit-mask: no-repeat center/24px;
       background-color: "%foregroundColor"; }
     div.modal > header::before {
-      -webkit-mask-position: 18px center; }
+      -webkit-mask-position: center;
+      width: "%overlayHeaderHeight";
+      height: "%overlayHeaderHeight";
+      left: 5px; }
     div.modal > header > h1 {
       font-size: 150%;
       font-weight: "%fontWeightNormal";
@@ -511,6 +511,9 @@ div.modal {
               -webkit-mask: no-repeat center/16px;
               -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
               background-color: #f99; }
+          div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:last-of-type::before, div.modal[data-type='updateUrls'] > div#urlList > ul > li > a:first-of-type::before {
+            width: 20px;
+            height: 20px; }
           div.modal[data-type='updateUrls'] > div#urlList > ul > li > a::before {
             -webkit-mask-position: 0 center !important; }
         div.modal[data-type='updateUrls'] > div#urlList > ul > li > span {
@@ -644,11 +647,13 @@ div.modal {
   div.modal[data-type='edit'] > ul, div.modal[data-type='add'] > ul {
     padding: 2px 30px; }
     div.modal[data-type='edit'] > ul > li, div.modal[data-type='add'] > ul > li {
+      display: flex;
       margin: 20px 0 30px 0; }
       div.modal[data-type='edit'] > ul > li > label, div.modal[data-type='add'] > ul > li > label {
         font-size: 140%;
-        display: inline-block;
-        width: 80px; }
+        padding: 4px 0;
+        margin: 0 12px 0 0;
+        min-width: 45px; }
       div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='edit'] > ul > li > textarea, div.modal[data-type='add'] > ul > li > input, div.modal[data-type='add'] > ul > li > textarea {
         background: transparent;
         font-size: 120%;
@@ -662,15 +667,11 @@ div.modal {
         div.modal[data-type='edit'] > ul > li > input:focus, div.modal[data-type='edit'] > ul > li > textarea:focus, div.modal[data-type='add'] > ul > li > input:focus, div.modal[data-type='add'] > ul > li > textarea:focus {
           border-color: rgba(0, 0, 0, 0.25); }
       div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='add'] > ul > li > input {
-        display: inline-block;
-        width: calc(100% - 80px); }
-      div.modal[data-type='edit'] > ul > li > textarea, div.modal[data-type='add'] > ul > li > textarea {
-        width: 100%;
-        height: 60px;
-        resize: none; }
+        flex: 1; }
   div.modal[data-type='edit'] > header::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg); }
   div.modal[data-type='edit'] > ul > li.info {
+    display: block;
     margin-top: 40px;
     padding: 30px 0 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1); }
@@ -678,7 +679,12 @@ div.modal {
       width: 100%;
       font-size: 100%;
       font-weight: "%fontWeightMedium";
-      margin-bottom: 5px; }
+      margin: 0 !important; }
+    div.modal[data-type='edit'] > ul > li.info > textarea {
+      width: 100%;
+      height: 60px;
+      resize: none;
+      margin: 5px 0 3px; }
     div.modal[data-type='edit'] > ul > li.info > span {
       opacity: 0;
       font-size: 80%;
@@ -791,6 +797,74 @@ div.modal {
         transition: opacity 0.5s; }
       div.modal > menu.buttons > a:hover::before {
         opacity: 0.15; }
+
+html[dir='rtl'] div.modal > header {
+  padding: 0 52px 0 75px; }
+  html[dir='rtl'] div.modal > header::before {
+    left: unset;
+    right: 5px; }
+  html[dir='rtl'] div.modal > header > a.close {
+    right: unset;
+    left: 15px; }
+
+html[dir='rtl'] div.modal > a.preview > img, html[dir='rtl'] div.modal > a.preview > span.icon, html[dir='rtl'] div.modal > span.preview > img, html[dir='rtl'] div.modal > span.preview > span.icon {
+  margin: 0 0 0 20px; }
+
+html[dir='rtl'] div.modal > a.preview > span.icon, html[dir='rtl'] div.modal > span.preview > span.icon {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] div.modal[data-type='updateUrls'] > div.progressBar > div {
+  left: unset;
+  right: 0; }
+
+html[dir='rtl'] div.modal[data-type='updateUrls'] > div#urlList > ul > li > div.checkbox {
+  margin-left: 16px;
+  margin-right: 0; }
+
+html[dir='rtl'] div.modal[data-type='updateUrls'] > div#urlList > ul > li > img {
+  margin-left: 18px;
+  margin-right: 0; }
+
+html[dir='rtl'] div.modal[data-type='updateUrls'] > div#urlList > ul > li > a, html[dir='rtl'] div.modal[data-type='updateUrls'] > div#urlList > ul > li > span {
+  margin-left: 0;
+  margin-right: 70px;
+  padding-left: 0;
+  padding-right: 22px; }
+
+html[dir='rtl'] div.modal[data-type='updateUrls'] > div#urlList > ul > li > a::before {
+  left: unset;
+  right: 0; }
+
+html[dir='rtl'] div.modal[data-type='openChildren'] > header::before {
+  transform: scaleX(-1); }
+
+html[dir='rtl'] div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li {
+  padding-right: 10px;
+  padding-left: 0; }
+  html[dir='rtl'] div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li::before {
+    left: unset;
+    right: 0; }
+
+html[dir='rtl'] div.modal[data-type='infos'] > ul > li.tooltip {
+  padding-right: 0;
+  padding-left: 18px; }
+  html[dir='rtl'] div.modal[data-type='infos'] > ul > li.tooltip::before {
+    -webkit-mask-position-x: left; }
+
+html[dir='rtl'] div.modal[data-type='infos'] > ul > li > ul {
+  right: unset;
+  left: -10px; }
+  html[dir='rtl'] div.modal[data-type='infos'] > ul > li > ul::before {
+    left: 10px;
+    right: unset; }
+
+html[dir='rtl'] div.modal[data-type='edit'] > ul > li > label, html[dir='rtl'] div.modal[data-type='add'] > ul > li > label {
+  margin-right: 0;
+  margin-left: 12px; }
+
+html[dir='rtl'] div.modal > menu.buttons {
+  right: unset;
+  left: 20px; }
 
 body.dark div.modal {
   background: #3d3d3d; }

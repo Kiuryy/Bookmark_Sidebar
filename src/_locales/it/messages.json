@@ -26,6 +26,9 @@
     "sidebar_drag_cancel": {
         "message": "Annulla"
     },
+    "sidebar_deleted": {
+        "message": "Rimosso"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Modifica preferito"
     },
@@ -680,10 +683,10 @@
     "settings_newtab_override_desc": {
         "message": "Permetti all'estensione di bypassare la pagina \"Nuova scheda\" con una personalizzata o con un sito a scelta che verr\u00e0 visualizzato quando si apre una nuova scheda."
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "Apri automaticamente la barra laterale"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Scegli se aprire automaticamente la barra laterale quando viene aperta una nuova scheda."
     },
     "settings_newtab_website": {

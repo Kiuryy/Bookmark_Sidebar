@@ -1,0 +1,144 @@
+
+html[dir='rtl'] {
+
+  div.modal {
+
+    > header {
+      padding: 0 52px 0 75px;
+
+      &::before {
+        left: unset;
+        right: 5px;
+      }
+
+      > a.close {
+        right: unset;
+        left: 15px;
+      }
+    }
+
+    > a.preview, > span.preview {
+
+      > img, > span.icon {
+        margin: 0 0 0 20px;
+      }
+
+      > span.icon {
+        transform: scaleX(-1);
+      }
+    }
+
+    &[data-type='updateUrls'] {
+
+      > div.progressBar {
+
+        > div {
+          left: unset;
+          right: 0;
+        }
+      }
+
+      > div#urlList {
+
+        > ul {
+
+          > li {
+
+            > div.checkbox {
+              margin-left: 16px;
+              margin-right: 0;
+            }
+
+            > img {
+              margin-left: 18px;
+              margin-right: 0;
+            }
+
+            > a, > span {
+              margin-left: 0;
+              margin-right: 70px;
+              padding-left: 0;
+              padding-right: 22px;
+            }
+
+            > a::before {
+              left: unset;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-type='openChildren'] > header::before {
+      transform: scaleX(-1);
+    }
+
+
+    &[data-type='shareInfoDesc'] {
+
+      > div.scrollBox {
+
+        > ul {
+
+          > li {
+            padding-right: 10px;
+            padding-left: 0;
+
+            &::before {
+              left: unset;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-type='infos'] {
+
+      > ul {
+
+        > li {
+
+          &.tooltip {
+            padding-right: 0;
+            padding-left: 18px;
+
+            &::before {
+              -webkit-mask-position-x: left;
+            }
+          }
+
+          > ul {
+            right: unset;
+            left: -10px;
+
+            &::before {
+              left: 10px;
+              right: unset;
+            }
+          }
+        }
+      }
+    }
+
+    &[data-type='edit'], &[data-type='add'] {
+
+      > ul {
+
+        > li {
+
+          > label {
+            margin-right: 0;
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+
+    > menu.buttons {
+      right: unset;
+      left: 20px;
+    }
+  }
+}

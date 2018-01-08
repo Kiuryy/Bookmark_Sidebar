@@ -179,8 +179,9 @@ div.contextmenu {
         font-size: 80%;
         opacity: 0.8; }
       div.contextmenu > ul.list > li > a::before {
-        -webkit-mask-position: 9px center;
-        transition: background-color 0.3s, opacity 0.3s; }
+        transition: background-color 0.3s, opacity 0.3s;
+        width: 39px;
+        height: 39px; }
       div.contextmenu > ul.list > li > a.hover {
         color: "%colorScheme"; }
         div.contextmenu > ul.list > li > a.hover::before {
@@ -216,9 +217,6 @@ html[dir='rtl'] div.contextmenu[data-type='menu'], html[dir='rtl'] div.contextme
 html[dir='rtl'] div.contextmenu > ul.icons > li.right {
   float: left; }
 
-html[dir='rtl'] div.contextmenu > ul.icons > li > a::before {
-  transform: scaleX(-1); }
-
 html[dir='rtl'] div.contextmenu > ul.list > li > div.checkbox {
   left: unset;
   right: 9px; }
@@ -231,7 +229,11 @@ html[dir='rtl'] div.contextmenu > ul.list > li > a {
   html[dir='rtl'] div.contextmenu > ul.list > li > a > span {
     margin: 0 3px 0 0; }
   html[dir='rtl'] div.contextmenu > ul.list > li > a::before {
-    transform: scaleX(-1); }
+    transform: scaleX(-1);
+    left: unset;
+    right: 0; }
+  html[dir='rtl'] div.contextmenu > ul.list > li > a[data-name='reload']::before {
+    transform: scaleX(1); }
 
 html[dir='rtl'] section#sidebar[data-pos='right'] div.contextmenu[data-type='menu'] {
   right: unset;
@@ -390,9 +392,6 @@ div.checkbox {
         opacity: 0.4; }
       div.checkbox[data-style="switch"].active::before, div.checkbox[data-style="switch"].active::after {
         background-color: "%colorScheme"; }
-
-html[dir='rtl'] div.checkbox[data-style="default"]::before {
-  transform: scaleX(-1); }
 
 html[dir='rtl'] div.checkbox[data-style="switch"] {
   transition: padding-right 0.2s, opacity 0.2s; }

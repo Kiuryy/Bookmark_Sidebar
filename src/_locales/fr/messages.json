@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Annuler"
     },
+    "sidebar_deleted": {
+        "message": "Retir\u00e9"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Annuler"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Modifier le favori"
     },
@@ -88,6 +94,9 @@
     },
     "contextmenu_bookmark_manager": {
         "message": "Gestionnaire de favoris"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Raccourcis clavier"
     },
     "sort_label_custom": {
         "message": "R\u00e9glages utilisateur"
@@ -235,6 +244,45 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Recharger maintenant"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tabulation"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Maj"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Entr\u00e9e"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Cmd"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Suppr"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Echap"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Mise en surbrillance du prochain \u00e9l\u00e9ment de la barre lat\u00e9rale ou de l'\u00e9l\u00e9ment ouvert actuellement"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Clic sur l'\u00e9l\u00e9ment en surbrillance"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Ouverture du menu contextuel de l'\u00e9l\u00e9ment en surbrillance"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copie de l'URL de l'\u00e9l\u00e9ment en surbrillance"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Suppression de l'\u00e9l\u00e9ment en surbrillance"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Fermeture de la barre lat\u00e9rale, de l'\u00e9l\u00e9ment ou du menu contextuel"
     },
     "notification_sidebar_not_working_headline": {
         "message": "Impossible d'afficher la barre lat\u00e9rale"
@@ -397,6 +445,9 @@
     },
     "settings_restored_message": {
         "message": "Les param\u00e8tres par d\u00e9faut ont \u00e9t\u00e9 r\u00e9tablis"
+    },
+    "settings_advanced": {
+        "message": "Param\u00e8tres avanc\u00e9s"
     },
     "settings_not_synced": {
         "message": "Ne sera pas synchronis\u00e9 sur vos appareils"
@@ -608,6 +659,9 @@
     "settings_import_failed": {
         "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
     },
+    "settings_presets": {
+        "message": "Pr\u00e9s\u00e9lection"
+    },
     "settings_color_scheme": {
         "message": "Couleur"
     },
@@ -653,6 +707,9 @@
     "settings_sidebar_width": {
         "message": "Largeur"
     },
+    "settings_header_height": {
+        "message": "Hauteur de l'ent\u00eate"
+    },
     "settings_sidebar_mask_color": {
         "message": "Couleur du masque"
     },
@@ -680,11 +737,20 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Retrait \u00e0 gauche dans les dossiers"
     },
+    "settings_tooltip_font_size": {
+        "message": "Taille de la police des infobulles"
+    },
     "settings_overlay_mask_color": {
         "message": "Couleur du masque"
     },
     "settings_icon_shape": {
         "message": "Forme"
+    },
+    "settings_custom_css": {
+        "message": "Feuille de style personnalis\u00e9e"
+    },
+    "settings_custom_css_desc": {
+        "message": "Vous pouvez surcharger le style par d\u00e9faut avec votre propre feuille de style. N'utilisez cette option que si vous connaissez le CSS et savez ce que vous faites."
     },
     "settings_newtab_desc": {
         "message": "Google a malheureusement retir\u00e9 la possibilit\u00e9 de charger des extensions sur la page nouvel onglet par d\u00e9faut. De fait, j'ai ajout\u00e9 quelques options pour vous permettre d'acc\u00e9der de fa\u00e7on diff\u00e9rente \u00e0 vos favoris \u00e0 l'ouverture d'un nouvel onglet."

@@ -18,10 +18,6 @@ html[dir='rtl'] {
         &.right {
           float: left;
         }
-
-        > a::before {
-          transform: scaleX(-1);
-        }
       }
     }
 
@@ -48,6 +44,12 @@ html[dir='rtl'] {
 
           &::before {
             transform: scaleX(-1);
+            left: unset;
+            right: 0;
+          }
+
+          &[data-name='reload']::before {
+            transform: scaleX(1);
           }
         }
       }

@@ -102,7 +102,10 @@
       content: "";
       position: absolute;
       bottom: -10px;
-      left: calc(50% - 5px);
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
       border: 5px solid transparent;
       border-top-color: $colorSuccess;
     }

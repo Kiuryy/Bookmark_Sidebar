@@ -567,7 +567,10 @@ a.dragHelper {
       content: "";
       position: absolute;
       bottom: -10px;
-      left: calc(50% - 5px);
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0;
       border: 5px solid transparent;
       border-top-color: #5eba7d; }
   a.dragHelper.copied {
@@ -996,7 +999,10 @@ section#sidebar {
             content: "";
             position: absolute;
             bottom: -10px;
-            left: calc(50% - 5px);
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
             border: 5px solid transparent;
             border-top-color: #5eba7d; }
         section#sidebar > div.scrollBox > ul a.copied, section#sidebar > div.scrollBox > div.pinned > ul a.copied {
@@ -1262,10 +1268,11 @@ body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
 html[dir='rtl'] a.dragHelper {
   padding-right: "%bookmarksHorizontalPadding";
   padding-left: 46px; }
+  html[dir='rtl'] a.dragHelper > span.copied {
+    left: unset;
+    right: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px); }
   html[dir='rtl'] a.dragHelper > img, html[dir='rtl'] a.dragHelper > span.icon {
     margin: 0 0 0 "%bookmarksHorizontalPadding"; }
-  html[dir='rtl'] a.dragHelper.dir > span.icon::before {
-    transform: scaleX(-1); }
   html[dir='rtl'] a.dragHelper > span.drag {
     right: unset;
     left: 15px; }
@@ -1303,11 +1310,12 @@ html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox {
     padding-left: unset;
     padding-right: 22px; }
 
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.copied, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.copied {
+  left: unset;
+  right: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px); }
+
 html[dir='rtl'] section#sidebar > div.scrollBox > ul a > img, html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.icon, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > img, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.icon {
   margin: 0 0 0 "%bookmarksHorizontalPadding"; }
-
-html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir > span.icon::before, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir > span.icon::before {
-  transform: scaleX(-1); }
 
 html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.drag, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {
   right: unset;

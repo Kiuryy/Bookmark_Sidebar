@@ -97,8 +97,12 @@
                     // START UPGRADE // v1.12 -> released [...]
                     if (typeof obj.behaviour.reopenSidebar === "undefined" && typeof obj.behaviour.autoOpen !== "undefined") {
                         obj.behaviour.reopenSidebar = obj.behaviour.autoOpen;
-                        delete obj.behaviour.autoOpen;
-                        delete obj.utility.autoOpen;
+                        try {
+                            delete obj.behaviour.autoOpen;
+                            delete obj.utility.autoOpen;
+                        } catch (e) {
+                            //
+                        }
                         if (typeof obj.utility !== "undefined") {
                             chrome.storage.local.set({utility: obj.utility});
                         }
@@ -106,18 +110,26 @@
 
                     if (typeof obj.newtab.autoOpen === "undefined" && typeof obj.newtab.initialOpen !== "undefined") {
                         obj.newtab.autoOpen = obj.newtab.initialOpen;
-                        delete obj.newtab.initialOpen;
+                        try {
+                            delete obj.newtab.initialOpen;
+                        } catch (e) {
+                            //
+                        }
                     }
 
                     chrome.storage.sync.remove(["shareUserdata"]);
                     // END UPGRADE // v1.12
 
                     // START UPGRADE // v1.11 -> released 01-2018
-                    delete obj.behaviour.initialOpenOnNewTab;
-                    delete obj.behaviour.replaceNewTab;
-                    delete obj.behaviour.language;
-                    delete obj.appearance.language;
-                    delete obj.appearance.sidebarPosition;
+                    try {
+                        delete obj.behaviour.initialOpenOnNewTab;
+                        delete obj.behaviour.replaceNewTab;
+                        delete obj.behaviour.language;
+                        delete obj.appearance.language;
+                        delete obj.appearance.sidebarPosition;
+                    } catch (e) {
+                        //
+                    }
 
                     if (typeof obj.appearance.styles === "undefined") {
                         obj.appearance.styles = {};

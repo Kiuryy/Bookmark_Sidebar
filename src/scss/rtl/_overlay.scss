@@ -22,10 +22,6 @@ html[dir='rtl'] {
       > img, > span.icon {
         margin: 0 0 0 20px;
       }
-
-      > span.icon {
-        transform: scaleX(-1);
-      }
     }
 
     &[data-type='updateUrls'] {

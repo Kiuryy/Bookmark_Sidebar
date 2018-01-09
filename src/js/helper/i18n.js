@@ -43,7 +43,7 @@
          * @returns {string}
          */
         this.isRtl = () => {
-            return dir === "rtl";// || true;
+            return dir === "rtl";
         };
 
         /**

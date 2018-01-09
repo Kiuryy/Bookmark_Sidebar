@@ -1,16 +1,12 @@
-
 @mixin bookmarkEntryRtl {
 
   > span.copied {
-
+    left: unset;
+    right: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 10px);
   }
 
   > img, > span.icon {
     margin: 0 0 0 $__bookmarksHorizontalPadding;
-  }
-
-  &.dir > span.icon::before {
-    transform: scaleX(-1);
   }
 
   > span.drag {

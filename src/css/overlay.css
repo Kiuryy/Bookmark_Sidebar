@@ -810,9 +810,6 @@ html[dir='rtl'] div.modal > header {
 html[dir='rtl'] div.modal > a.preview > img, html[dir='rtl'] div.modal > a.preview > span.icon, html[dir='rtl'] div.modal > span.preview > img, html[dir='rtl'] div.modal > span.preview > span.icon {
   margin: 0 0 0 20px; }
 
-html[dir='rtl'] div.modal > a.preview > span.icon, html[dir='rtl'] div.modal > span.preview > span.icon {
-  transform: scaleX(-1); }
-
 html[dir='rtl'] div.modal[data-type='updateUrls'] > div.progressBar > div {
   left: unset;
   right: 0; }

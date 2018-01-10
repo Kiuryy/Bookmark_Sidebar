@@ -90,7 +90,7 @@ div.contextmenu {
           -webkit-mask-size: 14px;
         }
 
-        &[data-name='show']::before {
+        &[data-name='showHidden']::before {
           @include maskImage('icon-show');
         }
 

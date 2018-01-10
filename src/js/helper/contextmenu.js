@@ -256,7 +256,7 @@
                 if (ext.helper.entry.isVisible(elmId)) {
                     iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
                 } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
-                    iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='show' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
+                    iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
                 }
             }
         };

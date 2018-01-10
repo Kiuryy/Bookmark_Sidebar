@@ -130,7 +130,7 @@ div.contextmenu {
         div.contextmenu > ul.icons > li > a[data-name='unpin']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-unpin.svg);
           -webkit-mask-size: 14px; }
-        div.contextmenu > ul.icons > li > a[data-name='show']::before {
+        div.contextmenu > ul.icons > li > a[data-name='showHidden']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-show.svg); }
         div.contextmenu > ul.icons > li > a[data-name='hide']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.svg); }

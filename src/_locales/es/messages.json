@@ -245,6 +245,45 @@
     "status_background_disconnected_reload_action": {
         "message": "Recargar ahora"
     },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Control"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Comando"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Suprimir"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Escape"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Desplaza la siguiente entrada en la barra lateral o el men\u00fa contextual actualmente abierto"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Realiza un clic en la entrada actualmente suspendida"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Abre el men\u00fa contextual para la entrada actualmente suspendida"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copia la url de la entrada actualmente suspendida"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Elimina la entrada actualmente suspendida"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Cierra la barra lateral, la superposici\u00f3n abierta o el men\u00fa contextual"
+    },
     "notification_sidebar_not_working_headline": {
         "message": "La barra lateral no se pudo abrir"
     },
@@ -268,6 +307,51 @@
     },
     "notification_sidebar_not_working_unknown": {
         "message": "Si esto sucede regularmente, h\u00e1zmelo saber."
+    },
+    "contribute_headline": {
+        "message": "Necesito tu ayuda"
+    },
+    "contribute_intro": {
+        "message": "Para mejorar la extensi\u00f3n, me gustar\u00eda saber mejor c\u00f3mo los usuarios usan la barra lateral y qu\u00e9 configuraci\u00f3n usan."
+    },
+    "contribute_outro": {
+        "message": "Si tiene preguntas o inquietudes sobre el intercambio de informaci\u00f3n, env\u00edeme un mensaje de comentarios."
+    },
+    "contribute_dismiss": {
+        "message": "Despedir"
+    },
+    "contribute_share_config_label": {
+        "message": "Compartir configuraci\u00f3n"
+    },
+    "contribute_share_config_desc": {
+        "message": "Compartes tu configuraci\u00f3n de forma an\u00f3nima, lo que me ayuda a identificar configuraciones populares y descubrir qu\u00e9 cosas mejorar o cambiar en versiones futuras."
+    },
+    "contribute_share_activity_label": {
+        "message": "Compartir actividad"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Puede compartir su actividad en la barra lateral de forma an\u00f3nima, lo que me ayuda a saber c\u00f3mo los usuarios utilizan la barra lateral en general. La informaci\u00f3n sobre sus marcadores o sitios web visitados [b]no[\/b] se medir\u00e1."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Esta informaci\u00f3n es muy \u00fatil para identificar problemas de usabilidad o caracter\u00edsticas que, por ejemplo, no se utilizan con mucha frecuencia."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Los datos que se comparten son, por ejemplo:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Cu\u00e1ntos marcadores tienen los usuarios en promedio?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "En qu\u00e9 plataforma est\u00e1n los usuarios (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Los usuarios usan la b\u00fasqueda?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Los usuarios cambian la clasificaci\u00f3n de los marcadores?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Con qu\u00e9 frecuencia los usuarios reorganizan o editan las entradas?"
     },
     "onboarding_title": {
         "message": "Configuraci\u00f3n"
@@ -406,6 +490,12 @@
     },
     "settings_restored_message": {
         "message": "Configuraci\u00f3n restaurada correctamente"
+    },
+    "settings_advanced": {
+        "message": "Ajustes avanzados"
+    },
+    "settings_not_synced": {
+        "message": "No se sincronizar\u00e1 en sus dispositivos."
     },
     "settings_animations": {
         "message": "Activar animaciones"
@@ -614,6 +704,9 @@
     "settings_import_failed": {
         "message": "Error al importar la configuraci\u00f3n. Por favor elija un archivo v\u00e1lido."
     },
+    "settings_presets": {
+        "message": "Preselecci\u00f3n"
+    },
     "settings_color_scheme": {
         "message": "Esquema de colores"
     },
@@ -700,6 +793,9 @@
     },
     "settings_custom_css": {
         "message": "Estilo de pagina personalizado"
+    },
+    "settings_custom_css_desc": {
+        "message": "Puede definir su propia hoja de estilo para anular el estilo predeterminado. Utilice esta opci\u00f3n solo si est\u00e1 familiarizado con CSS y sabe lo que est\u00e1 haciendo."
     },
     "settings_newtab_desc": {
         "message": "Desafortunadamente Google elimin\u00f3 la posibilidad de cargar extensiones en la nueva pesta\u00f1a predeterminada. Debido a esto he a\u00f1adido algunas opciones que le permiten acceder a sus marcadores al abrir una nueva pesta\u00f1a de otra manera."

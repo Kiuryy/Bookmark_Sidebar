@@ -3,7 +3,7 @@
         "message": "Bookmark Sidebar"
     },
     "extension_desc": {
-        "message": "Vous permet de regrouper tous vos favoris dans une barre lat\u00e9rale \u00e0 gauche de l'\u00e9cran"
+        "message": "Vous permet de regrouper tous vos favoris dans une barre lat\u00e9rale \u00e0 gauche de l'\u00e9cran."
     },
     "header_bookmarks": {
         "message": "Favoris"
@@ -307,6 +307,51 @@
     },
     "notification_sidebar_not_working_unknown": {
         "message": "Si cela se produit r\u00e9guli\u00e8rement, faites-le-moi savoir."
+    },
+    "contribute_headline": {
+        "message": "Aidez-moi"
+    },
+    "contribute_intro": {
+        "message": "Pour am\u00e9liorer l'extension il faudrait que j'en sache plus sur l'utilisation et le param\u00e9trage des diff\u00e9rents utilisateurs."
+    },
+    "contribute_outro": {
+        "message": "Si vous vous interrogez ou avez des questions sur le partage d'information, faites-moi un retour d'exp\u00e9rience par message."
+    },
+    "contribute_dismiss": {
+        "message": "Ne plus afficher"
+    },
+    "contribute_share_config_label": {
+        "message": "Param\u00e8tres de partage"
+    },
+    "contribute_share_config_desc": {
+        "message": "Votre configuration est transmise de fa\u00e7on anonyme pour m'aider \u00e0 identifier les r\u00e9glages populaires et savoir quoi am\u00e9liorer ou changer dans les prochaines versions."
+    },
+    "contribute_share_activity_label": {
+        "message": "Partager mon activit\u00e9"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Vous pouvez partager votre activit\u00e9 de fa\u00e7on anonyme pour m'aider \u00e0 savoir comment l'extension est utilis\u00e9e de mani\u00e8re g\u00e9n\u00e9rale. Vos sites favoris et votre historique de navigation [b]ne seront pas[\/b] observ\u00e9s."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Ces informations sont tr\u00e8s utiles pour identifier les probl\u00e8mes d'ergonomie ou les fonctionnalit\u00e9s qui sont, par exemple, utilis\u00e9es peu souvent."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Les donn\u00e9es qui sont partag\u00e9es sont par exemple:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Combien de favoris ont en moyenne les utilisateurs?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Quel est l'environnement des utilisateurs (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Les utilisateurs utilisent ils la fonction recherche?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Les utilisateurs changent ils le classement des favoris?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Tous les combiens les utilisateurs r\u00e9organisent ils ou modifient ils les favoris?"
     },
     "onboarding_title": {
         "message": "Configuration"

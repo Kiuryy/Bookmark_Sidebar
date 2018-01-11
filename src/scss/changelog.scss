@@ -65,7 +65,6 @@ section.infobox {
       @media (max-width: 400px) {
         font-size: 170%;
       }
-
     }
 
     a.cta {
@@ -151,27 +150,22 @@ section.infobox {
         margin: 0 10px 0 0;
       }
 
-      > span.sub { // @deprecated only for changelog v1.10
-        display: block;
-        margin: 5px 0 0 17px;
-        font-size: 90%;
-        opacity: 0.6;
-      }
-
       ul {
         margin: 10px 0 0 25px;
       }
     }
+  }
 
-    a { // @deprecated only for changelog v1.10
-      display: inline-block;
-      background: $contentBackground;
-      padding: 2px 7px;
-      margin: 0px 0 0 10px;
-      color: $mainColor;
-      border-radius: 3px;
-      box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-      cursor: pointer;
-    }
+  a.translate { // @deprecated only for changelog v1.12
+    display: inline-block;
+    background: $contentBackground;
+    padding: 2px 7px;
+    margin: 15px 0 0 0;
+    color: $mainColor;
+    border-radius: 3px;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
   }
 }
+
+@import "rtl/changelog";

@@ -34,6 +34,8 @@
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
+                this.opts.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["changelog"], $(document));
@@ -88,18 +90,8 @@
                 this.opts.elm.infobox.addClass(this.opts.classes.flipped);
             });
 
-            $("section.infobox ul.changelog > li > a").on("click", (e) => { // @deprecated only for changelog v1.10 and v1.11 -> can be removed with 1.12
-                let type = $(e.currentTarget).attr("data-type");
-                switch (type) {
-                    case "icon": {
-                        location.href = chrome.extension.getURL("html/settings.html#appearance_icon");
-                        break;
-                    }
-                    case "newtab": {
-                        location.href = chrome.extension.getURL("html/settings.html#newtab_general");
-                        break;
-                    }
-                }
+            $("section.infobox a.translate").on("click", (e) => { // @deprecated only for changelog v1.12 -> can be removed with 1.13
+                location.href = chrome.extension.getURL("html/settings.html#language_translate");
             });
         };
     };

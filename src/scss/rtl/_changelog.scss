@@ -1,0 +1,36 @@
+html[dir='rtl'] {
+
+  section.infobox {
+
+    > div {
+
+      > div {
+
+        &.back {
+          text-align: right;
+
+          a.close {
+            left: 35px;
+            right: unset;
+          }
+        }
+      }
+    }
+
+    ul.changelog {
+
+      li {
+
+        &:not(.noIndicator)::before {
+          margin-left: 10px;
+          margin-right: unset;
+        }
+
+        ul {
+          margin-right: 25px;
+          margin-left: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+
+html[dir='rtl'] {
+
+  body[data-type^='appearance'] {
+
+    > section#wrapper > main {
+
+      div.boxWrapper {
+
+        > div.box {
+          margin-right: unset;
+          margin-left: 20px;
+
+          a.revert {
+            left: 16px;
+            right: unset;
+          }
+
+          &.darkMode {
+
+            div.checkbox {
+              background: linear-gradient(to left, #fec171 0%, #ff6c69 100%);
+
+              &::before {
+                -webkit-mask-position-x: 6px;
+              }
+
+              &::after {
+                right: 3px;
+                left: unset;
+              }
+
+              &.active {
+                background: linear-gradient(to left, #3c5fe1 0%, #3a2b96 100%);
+
+                &::before {
+                  -webkit-mask-position-x: 32px;
+                }
+
+                &::after {
+                  transform: translate3d(-30px, 0, 0);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      div.presets {
+
+        > a {
+          margin-right: 0;
+          margin-left: 7px;
+        }
+      }
+
+      div[data-name='sidebar'] ul.radioWrapper > li {
+
+        + li {
+          margin-right: 30px;
+          margin-left: unset;
+        }
+      }
+    }
+  }
+
+  iframe[data-appearance] {
+    right: unset;
+    left: 0;
+  }
+}

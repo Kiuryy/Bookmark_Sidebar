@@ -213,8 +213,10 @@
 
                     s.opts.elm.content[0].scrollTop = 0;
                     updateHeaderMenu();
-                    s.opts.elm.header.css("padding-right", "");
-                    s.opts.elm.content.css("padding-right", "");
+
+                    let padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
+                    s.opts.elm.header.css(padding, "");
+                    s.opts.elm.content.css(padding, "");
 
                     document.dispatchEvent(new CustomEvent(s.opts.events.pageChanged, {
                         detail: {

@@ -184,6 +184,7 @@
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
+                this.opts.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
                 this.helper.font.init("default");
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));
@@ -373,6 +374,7 @@
 
                 if (restoreTypes.indexOf(type) !== -1) {
                     $("div." + this.opts.classes.dialog).remove();
+                    let paddingDir = this.helper.i18n.isRtl() ? "left" : "right";
 
                     let dialog = $("<div />")
                         .attr(this.opts.attr.type, type)
@@ -381,7 +383,7 @@
                         .append("<span>" + this.helper.i18n.get("settings_menu_" + path[0]) + "</span>")
                         .append("<br />")
                         .append("<a>" + this.helper.i18n.get("settings_restore") + "</a>")
-                        .css("right", this.opts.elm.header.css("padding-right"))
+                        .css(paddingDir, this.opts.elm.header.css("padding-" + paddingDir))
                         .appendTo(this.opts.elm.header);
 
                     $.delay().then(() => {

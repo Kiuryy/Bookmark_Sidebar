@@ -1,0 +1,30 @@
+
+html[dir='rtl'] {
+
+  body > section#wrapper {
+
+    > main {
+      padding-right: 20px;
+      padding-left: 30px;
+
+      @media (max-width: 1400px) {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      div.boxWrapper {
+
+        > div.box {
+
+          > div.sub {
+
+            label {
+              margin-right: 0;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

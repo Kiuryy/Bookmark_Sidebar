@@ -1,0 +1,37 @@
+
+html[dir='rtl'] {
+
+  div.aboutMe {
+
+    > div.desc {
+
+      &::before {
+        left: unset;
+        right: -5px;
+      }
+    }
+
+    > div.preview {
+
+      > a {
+        left: unset;
+
+        &.github {
+          right: -20px;
+
+          @media (max-width: 1080px) {
+            right: -40px;
+          }
+        }
+
+        &.website {
+          right: -64px;
+
+          @media (max-width: 1080px) {
+            right: -84px;
+          }
+        }
+      }
+    }
+  }
+}

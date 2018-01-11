@@ -1,0 +1,34 @@
+
+html[dir='rtl'] {
+
+  div.noticeBox {
+
+    &::before {
+      left: unset;
+      right: 15px;
+    }
+
+    > p, > h2 {
+      padding-left: 0;
+      padding-right: 40px;
+    }
+  }
+
+  ul.bulletList {
+
+    > li {
+      padding-left: unset;
+      padding-right: 10px;
+
+      &::before {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
+
+  a.import, a.export {
+    margin-left: 15px;
+    margin-right: unset;
+  }
+}

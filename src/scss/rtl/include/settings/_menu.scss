@@ -1,0 +1,71 @@
+html[dir='rtl'] {
+
+  body > section#wrapper {
+
+    &::before {
+      right: 0;
+      left: unset;
+    }
+
+    > aside {
+
+      > nav {
+
+        > ul {
+
+          > li {
+
+            &[data-name='language'] {
+
+              &.incomplete > a > span {
+                margin-right: 5px;
+                margin-left: unset;
+              }
+            }
+
+            &[data-name='newtab'] > a::before, &[data-name='feedback'] > a::before {
+              transform: scaleX(-1);
+              -webkit-mask-position-x: left !important;
+            }
+          }
+        }
+
+        ul {
+
+          > li {
+
+            > a {
+              padding-right: 42px;
+              padding-left: 10px;
+
+              &::before {
+                left: unset !important;
+                right: 12px !important;
+                -webkit-mask-position: right center !important;
+              }
+            }
+
+            > ul {
+              margin-left: unset;
+              margin-right: 30px;
+
+              > li {
+
+                > a {
+                  padding-right: 22px;
+                  padding-left: 10px;
+
+                  &::before {
+                    right: 10px;
+                    left: unset;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

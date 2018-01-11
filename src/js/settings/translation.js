@@ -590,7 +590,6 @@
 
                         if (varsAmount[key].total > varsAmount[key].filled) { // incomplete notice for already released translations
                             elm.addClass(s.opts.classes.incomplete);
-                            elm.children("a").attr("title", s.helper.i18n.get("settings_translation_incomplete_info"));
                         }
                     });
                 } else {

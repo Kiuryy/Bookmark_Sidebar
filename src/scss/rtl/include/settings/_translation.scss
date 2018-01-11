@@ -1,0 +1,95 @@
+
+html[dir='rtl'] {
+
+  div.tab[data-name='language'] > div[data-name='translate'] {
+
+    > div.overview {
+
+      div.box {
+
+        > div.progress {
+
+          > div {
+            right: 0;
+            left: unset;
+          }
+
+          &::before {
+            left: -50px;
+            right: unset;
+            padding-right: 5px;
+            padding-left: 0;
+          }
+        }
+
+        > span {
+          left: 20px;
+          right: unset;
+        }
+      }
+    }
+
+    > div.langvars {
+
+      div.box {
+
+        > span.amountInfo {
+          float: left;
+          direction: ltr;
+        }
+
+        > span.requiredInfo {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+      }
+    }
+
+    > div.category {
+
+      > header {
+
+        > span.amountInfo {
+          float: left;
+          margin-right: unset;
+          margin-left: 15px;
+          direction: ltr;
+        }
+
+        > a {
+
+          &.back {
+            padding-right: 17px;
+            padding-left: 5px;
+
+            &::before {
+              left: unset;
+              right: 0;
+              transform: rotateZ(135deg);
+            }
+          }
+
+          &.goto {
+            float: left;
+            margin-right: 3px;
+            margin-left: 0;
+          }
+        }
+      }
+
+      > ul {
+
+        > li {
+
+          > div {
+
+            > span {
+              direction: ltr;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}

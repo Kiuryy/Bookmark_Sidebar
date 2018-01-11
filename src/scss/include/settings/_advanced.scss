@@ -17,7 +17,7 @@ body > section#wrapper div.advanced {
     cursor: pointer;
 
     &::before {
-      -webkit-mask-position-x: 0;
+      -webkit-mask-position-x: left;
     }
   }
 
@@ -56,3 +56,5 @@ body > section#wrapper div.advanced {
     }
   }
 }
+
+@import "../../rtl/include/settings/advanced";

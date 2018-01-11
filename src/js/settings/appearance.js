@@ -242,9 +242,14 @@
                     let rect = entry[0].getBoundingClientRect();
                     tooltip.addClass(s.opts.classes.visible);
 
+                    let left = rect.x - tooltip[0].offsetWidth;
+                    if (s.helper.i18n.isRtl()) {
+                        left = rect.x + entry[0].offsetWidth;
+                    }
+
                     tooltip.css({
                         top: (rect.y + entry.realHeight() / 2 - tooltip.realHeight() / 2) + "px",
-                        left: (rect.x - tooltip[0].offsetWidth) + "px"
+                        left: left + "px"
                     });
                 } else {
                     tooltip.removeClass(s.opts.classes.visible);
@@ -262,6 +267,7 @@
             s.opts.elm.content.removeClass(s.opts.classes.small);
 
             if (s.opts.elm.preview[key]) {
+                let padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
                 let config = getCurrentConfig();
 
                 if (s.opts.elm.preview[key][0].offsetParent !== null) { // preview is visible -> if screen is too small it's hidden
@@ -275,11 +281,11 @@
                         headerRightPadding = config.appearance.styles.sidebarWidth;
                     }
 
-                    s.opts.elm.header.css("padding-right", headerRightPadding);
-                    s.opts.elm.content.css("padding-right", headerRightPadding);
+                    s.opts.elm.header.css(padding, headerRightPadding);
+                    s.opts.elm.content.css(padding, headerRightPadding);
                 } else {
-                    s.opts.elm.header.css("padding-right", "");
-                    s.opts.elm.content.css("padding-right", "");
+                    s.opts.elm.header.css(padding, "");
+                    s.opts.elm.content.css(padding, "");
                 }
 
                 let boxes = s.helper.menu.getPage().find("div." + s.opts.classes.box);
@@ -401,9 +407,13 @@
                         .appendTo(s.opts.elm.body);
 
                     sendAjax("html/template/" + previews[key].template + ".html").then((html) => {
-                        html = html.replace(/__MSG_\@\@extension_id__/g, chrome.runtime.id);
                         html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
-                        s.opts.elm.preview[key].find("body").html(html);
+                        html = html.replace(/__POSITION__/g, s.helper.i18n.isRtl() ? "left" : "right");
+
+                        let previewBody = s.opts.elm.preview[key].find("body");
+                        previewBody.html(html);
+                        previewBody.parent("html").attr("dir", s.helper.i18n.isRtl() ? "rtl" : "ltr");
+
                         s.helper.i18n.parseHtml(s.opts.elm.preview[key]);
                         s.helper.font.addStylesheet(s.opts.elm.preview[key]);
 

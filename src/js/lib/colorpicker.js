@@ -688,10 +688,17 @@ window.Colorpicker = (() => {
          */
         this.reposition = () => {
             if (wrapper.classList.contains("visible")) {
-                let pos = ["bottom", "left"];
+                let isRtl = document.documentElement.getAttribute("dir") === "rtl";
                 let rect = preview.getBoundingClientRect();
+
+                let leftDefaults = {
+                    l: rect.left,
+                    r: rect.left - wrapper.offsetWidth + preview.offsetWidth
+                };
+
+                let pos = ["bottom", isRtl ? "right" : "left"];
                 let top = rect.top + preview.offsetHeight;
-                let left = rect.left;
+                let left = leftDefaults[isRtl ? "r" : "l"];
 
                 if (wrapper.offsetHeight + top > window.innerHeight) {
                     top = rect.top - wrapper.offsetHeight;
@@ -699,8 +706,13 @@ window.Colorpicker = (() => {
                 }
 
                 if (wrapper.offsetWidth + left > window.innerWidth) {
-                    left = rect.left - wrapper.offsetWidth + preview.offsetWidth;
+                    left = leftDefaults.r;
                     pos[1] = "right";
+                }
+
+                if (left < 0) {
+                    left = leftDefaults.l;
+                    pos[1] = "left";
                 }
 
                 wrapper.setAttribute("data-pos", pos.join("-"));

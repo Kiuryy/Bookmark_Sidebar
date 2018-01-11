@@ -45,7 +45,6 @@
                                 .attr(ext.opts.attr.id, id)
                                 .appendTo(ext.elements.iframeBody);
 
-
                             if (config.tooltipContent === "all" || config.tooltipContent === "title") {
                                 $("<h3 />").text(data.title).appendTo(tooltip);
                             }

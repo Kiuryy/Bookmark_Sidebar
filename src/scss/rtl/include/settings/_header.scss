@@ -1,0 +1,94 @@
+
+html[dir='rtl'] {
+
+  body > header {
+    background: $gradientRtl;
+
+    &::before {
+      left: unset;
+      right: 8px;
+    }
+
+    > h1 {
+      margin-right: 70px;
+      margin-left: 0;
+      padding-right: 30px;
+      padding-left: 0;
+
+      &::before {
+        -webkit-mask-position-x: right;
+      }
+
+      > span {
+
+        + span {
+          margin-right: 24px;
+          margin-left: 0;
+
+          &::before {
+            left: unset;
+            right: -14px;
+            border-right-color: $textColorInverted;
+            border-left-color: transparent;
+          }
+        }
+      }
+    }
+
+    &[data-type='newtab'] > h1::before, &[data-type='feedback'] > h1::before {
+      transform: scaleX(-1);
+      -webkit-mask-position-x: left;
+    }
+
+    > menu {
+      margin-left: 30px;
+      margin-right: 0;
+      float: left;
+
+      > li {
+
+        > button {
+
+          &.restore {
+            margin-right: 10px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    > div.dialog {
+      transform: translate3d(12px, -10px, 0);
+
+      &.visible {
+        transform: translate3d(12px, 0, 0);
+      }
+
+      &::before {
+        left: 20px;
+        right: unset;
+      }
+
+      > a {
+        padding-right: 15px;
+        padding-left: 5px;
+
+        &::before {
+          right: 0;
+          left: unset;
+          transform: rotateZ(-45deg);
+        }
+      }
+
+      > span {
+        padding-right: 30px;
+        padding-left: 10px;
+
+        &::before {
+          right: 8px;
+          left: unset;
+        }
+      }
+    }
+  }
+}

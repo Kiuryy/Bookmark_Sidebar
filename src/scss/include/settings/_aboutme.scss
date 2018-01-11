@@ -6,7 +6,7 @@ body > section#wrapper {
     margin: 0 auto 40px;
     display: flex;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1080px) {
       flex-direction: column;
     }
 
@@ -41,7 +41,7 @@ body > section#wrapper {
         top: 20px;
       }
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1080px) {
         order: 2;
       }
     }
@@ -51,7 +51,7 @@ body > section#wrapper {
       width: 220px;
       height: 220px;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 1080px) {
         margin: auto;
         width: 150px;
         height: 150px;
@@ -79,7 +79,7 @@ body > section#wrapper {
           @include mask('settings/icon-github', $textColorInverted, 24px);
           left: -20px;
 
-          @media (max-width: 1024px) {
+          @media (max-width: 1080px) {
             left: -40px;
           }
         }
@@ -88,7 +88,7 @@ body > section#wrapper {
           @include mask('icon-web', $textColorInverted, 24px);
           left: -64px;
 
-          @media (max-width: 1024px) {
+          @media (max-width: 1080px) {
             left: -84px;
           }
         }
@@ -96,3 +96,5 @@ body > section#wrapper {
     }
   }
 }
+
+@import "../../rtl/include/settings/aboutme";

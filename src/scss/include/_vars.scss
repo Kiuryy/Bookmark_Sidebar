@@ -4,6 +4,7 @@ $baseFontSize: 14px;
 $mainColor: #7b5fa4;
 $mainColorAlt: #2b35c8;
 $gradient: linear-gradient(45deg, $mainColor 0%, $mainColorAlt 100%);
+$gradientRtl: linear-gradient(45deg, $mainColorAlt 0%, $mainColor 100%);
 
 $textColor: #666;
 $textColorLight: #aaa;

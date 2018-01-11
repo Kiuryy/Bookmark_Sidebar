@@ -43,6 +43,14 @@ body > section#wrapper {
             @include mask('settings/icon-newtab', $textColor, 16px);
           }
 
+          &[data-name='feedback'] > a {
+            @include mask('settings/icon-feedback', $textColor, 16px);
+          }
+
+          &[data-name='support'] > a {
+            @include mask('settings/icon-support', $textColor, 18px);
+          }
+
           &[data-name='language'] {
 
             > a {
@@ -59,14 +67,6 @@ body > section#wrapper {
               vertical-align: top;
               cursor: help;
             }
-          }
-
-          &[data-name='feedback'] > a {
-            @include mask('settings/icon-feedback', $textColor, 16px);
-          }
-
-          &[data-name='support'] > a {
-            @include mask('settings/icon-support', $textColor, 18px);
           }
 
           &[data-name='export'] {
@@ -110,7 +110,9 @@ body > section#wrapper {
             }
 
             &::before {
-              -webkit-mask-position: 12px center !important;
+              width: 32px !important;
+              left: 12px !important;
+              -webkit-mask-position: left center !important;
               pointer-events: none;
             }
           }
@@ -149,5 +151,6 @@ body > section#wrapper {
   }
 }
 
+@import "../../rtl/include/settings/menu";
 
 

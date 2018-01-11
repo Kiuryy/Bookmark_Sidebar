@@ -1,0 +1,15 @@
+
+html[dir='rtl'] {
+
+  body > section#wrapper div.advanced {
+
+    > h3 {
+      padding-right: 22px;
+      padding-left: 5px;
+
+      &::before {
+        -webkit-mask-position-x: right;
+      }
+    }
+  }
+}

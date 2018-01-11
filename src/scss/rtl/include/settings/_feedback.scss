@@ -1,0 +1,27 @@
+
+html[dir='rtl'] {
+
+  div.tab[data-name='feedback'] {
+
+    div.faq {
+
+      strong {
+        padding-right: 15px;
+        padding-left: 0;
+
+        &::before {
+          right: 0;
+          left: unset;
+        }
+      }
+
+      > p {
+
+        &::before {
+          right: 20px;
+          left: unset;
+        }
+      }
+    }
+  }
+}

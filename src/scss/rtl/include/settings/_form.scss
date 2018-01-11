@@ -1,0 +1,68 @@
+html[dir='rtl'] {
+
+  div.checkbox {
+    margin: 10px 0 10px 1px;
+  }
+
+  input.color {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: top;
+    cursor: pointer;
+    opacity: 0;
+
+    + span {
+      margin-right: -32px;
+      margin-left: unset;
+      box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    ~ span.suggestion {
+      margin-right: 10px;
+      margin-left: unset;
+    }
+  }
+
+  ul.radioWrapper {
+
+    > li {
+
+      > div.checkbox {
+        margin-left: 10px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  input[type='range'] {
+    background-image: linear-gradient(to left, $mainColor 0%, $mainColor -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
+
+    + span {
+      margin-right: 6px;
+      margin-left: 0;
+
+      &::before {
+        right: -8px;
+        left: unset;
+        border-right-color: transparent;
+        border-left-color: rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 1000px) and (min-width: 900px) {
+          right: 4px;
+          left: unset;
+        }
+      }
+
+      + br + div.checkbox {
+        margin-left: 7px;
+        margin-right: unset;
+
+        + label {
+          margin-right: 7px;
+          margin-left: unset;
+        }
+      }
+    }
+  }
+}

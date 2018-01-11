@@ -39,7 +39,7 @@ div.tab[data-name='language'] > div[data-name='translate'] {
           top: -5px;
           right: -50px;
           width: 50px;
-          padding: 0 0 0 3px;
+          padding: 0 0 0 5px;
           font-size: 80%;
           color: $textColorLight;
         }
@@ -48,7 +48,9 @@ div.tab[data-name='language'] > div[data-name='translate'] {
       > span {
         display: block;
         position: absolute;
-        top: calc(50% - 10px);
+        top: 0;
+        bottom: 0;
+        margin: auto;
         right: 20px;
         width: 20px;
         height: 20px;
@@ -106,15 +108,6 @@ div.tab[data-name='language'] > div[data-name='translate'] {
 
     div.box {
       cursor: pointer;
-
-      > a {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-      }
 
       > strong {
         display: inline-block;
@@ -229,19 +222,6 @@ div.tab[data-name='language'] > div[data-name='translate'] {
       }
     }
 
-    &.incomplete {
-
-      > header {
-        @include mask('icon-info', $colorNotice, 24px);
-
-        &::before {
-          left: auto;
-          right: 80px;
-          width: 24px;
-        }
-      }
-    }
-
     > ul {
       margin-top: 15px;
 
@@ -271,11 +251,12 @@ div.tab[data-name='language'] > div[data-name='translate'] {
             font-style: italic;
             user-select: text;
             padding: 5px;
+            border-top: 1px solid rgba(0,0,0,0.2);
             transition: background 0.5s;
 
             > span {
               display: block;
-              font-weight: $__fontWeightMedium;
+              font-weight: $__fontWeightBold;
               font-style: normal;
               margin-bottom: 3px;
               user-select: none;
@@ -315,7 +296,7 @@ div.tab[data-name='language'] > div[data-name='translate'] {
           }
 
           > span {
-            background: rgba($mainColor, 0.2);
+            background: rgba($colorNotice, 0.4);
           }
         }
 
@@ -349,3 +330,5 @@ div.tab[data-name='language'] > div[data-name='translate'] {
     }
   }
 }
+
+@import "../../rtl/include/settings/translation";

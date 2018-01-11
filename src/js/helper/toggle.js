@@ -78,6 +78,8 @@
                 clearSidebarTimeout("open");
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
+                ext.helper.dragndrop.cancel();
+
                 ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
                 $("body").removeClass(ext.opts.classes.page.noscroll);
                 $(document).trigger("mousemove.bs"); // hide indicator

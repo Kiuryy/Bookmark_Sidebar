@@ -27,6 +27,30 @@
         };
 
         /**
+         * Cancels the dragging and resets the position of the dragged element
+         */
+        this.cancel = () => {
+            let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
+            let dragInitialElm = ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.dragInitial);
+            let entryElm = draggedElm.data("elm");
+
+            if (entryElm) {
+                let elm = entryElm.children("a");
+                entryElm.insertAfter(dragInitialElm).removeClass(ext.opts.classes.drag.isDragged);
+                trackEnd(elm, true);
+            }
+
+            dragInitialElm.remove();
+            draggedElm.remove();
+
+            ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
+
+            $.delay(500).then(() => {
+                ext.helper.toggle.removeSidebarHoverClass();
+            });
+        };
+
+        /**
          * Checks if the dragged element is outside of the sidebar, so the mouseup will cause an abort and not a repositioning
          *
          * @param {jsu|int} elm
@@ -279,10 +303,7 @@
             let type = getDragType(elm);
 
             if (isDraggedElementOutside(draggedElm)) {// cancel drop if mouse position is outside the sidebar
-                entryElm.insertAfter(dragInitialElm).removeClass(ext.opts.classes.drag.isDragged);
-                dragInitialElm.remove();
-                draggedElm.remove();
-                trackEnd(elm, true);
+                this.cancel();
             } else { // animate the helper back to the new position and save it
                 draggedElm.addClass(ext.opts.classes.drag.snap);
 
@@ -316,6 +337,7 @@
                 }
 
                 trackEnd(elm);
+                ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
 
                 $.delay().then(() => {
                     let boundClientRect = entryElm[0].getBoundingClientRect();
@@ -330,14 +352,12 @@
                     entryElm.removeClass(ext.opts.classes.drag.isDragged);
                     dragInitialElm.remove();
                     draggedElm.remove();
+
+                    return $.delay(300);
+                }).then(() => {
+                    ext.helper.toggle.removeSidebarHoverClass();
                 });
             }
-
-            ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
-
-            $.delay(500).then(() => {
-                ext.helper.toggle.removeSidebarHoverClass();
-            });
         };
 
         /**

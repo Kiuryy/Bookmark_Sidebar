@@ -61,6 +61,7 @@
                 if (isSidebarFocussed()) { // sidebar is focussed
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
                     let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
+                    let isDragged = ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged);
 
                     if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                         ext.helper.scroll.focus();
@@ -80,7 +81,9 @@
                         }
                     } else if (e.key === "Escape" || e.key === "Esc") {
                         e.preventDefault();
-                        if (isContextmenuOpen) { // close contextmenu
+                        if (isDragged) { // cancel drag&drop
+                            ext.helper.dragndrop.cancel();
+                        } else if (isContextmenuOpen) { // close contextmenu
                             ext.helper.contextmenu.close();
                         } else { // close sidebar
                             ext.helper.toggle.closeSidebar();

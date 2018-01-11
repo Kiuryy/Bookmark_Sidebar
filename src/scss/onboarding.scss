@@ -80,10 +80,15 @@ section.slide {
 
   &[data-name='position'], &[data-name='openAction'], &[data-name='surface'] {
 
-    > a {
-      @extend %button;
-      margin-left: 12px;
-      margin-right: 12px;
+    > div {
+      display: flex;
+      justify-content: center;
+
+      > a {
+        @extend %button;
+        margin-left: 12px;
+        margin-right: 12px;
+      }
     }
   }
 
@@ -106,13 +111,17 @@ section.slide {
         content: "";
         position: absolute;
         top: -14px;
-        left: calc(50% - 7px);
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0;
         border: 7px solid transparent;
         border-bottom-color: $contentBackground;
       }
     }
 
     > a.info {
+      @extend %button;
       @include mask('icon-info', $mainColor, 26px);
       position: relative;
       display: block;
@@ -130,7 +139,7 @@ section.slide {
 
   &[data-name='surface'] {
 
-    > a[data-value="dark"] {
+    a[data-value="dark"] {
       background: $darkContentBackground;
       color: $textColorInverted;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
@@ -160,7 +169,7 @@ div#sidebar {
   width: 300px;
   height: 100%;
   background: $contentBackground;
-  padding: 30px 30px 0 80px;
+  padding: 10px 30px 0 80px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   transform: translate3d(-350px, 0, 0);
   transition: transform 0.5s, background-color 0.3s;
@@ -266,3 +275,5 @@ body {
     }
   }
 }
+
+@import "rtl/onboarding";

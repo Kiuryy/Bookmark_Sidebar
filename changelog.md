@@ -2,7 +2,8 @@ See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) f
 
 ## 1.12
  - Added support for right-to-left language
- - (toDo) Changed separator mechanism
+ - Language specific font weights
+ - Code optimization
 
 ## 1.11
  - Additional info for entries

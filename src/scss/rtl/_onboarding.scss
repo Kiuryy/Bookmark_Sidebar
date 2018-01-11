@@ -1,0 +1,23 @@
+html[dir='rtl'] {
+
+  section.slide {
+
+    &[data-name='position'] {
+
+      > div {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  // Sidebar placeholder
+  div#sidebar {
+    padding-right: 80px;
+    padding-left: 30px;
+
+    > p::before {
+      right: -50px;
+      left: unset;
+    }
+  }
+}

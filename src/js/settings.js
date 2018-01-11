@@ -185,6 +185,7 @@
                 return this.helper.i18n.init();
             }).then(() => {
                 this.opts.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+
                 this.helper.font.init("default");
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["settings"], $(document));

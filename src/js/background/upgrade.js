@@ -76,7 +76,8 @@
                 chrome.storage.sync.get(null, (obj) => { // get all stored information
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            if (newVersion.search("1.11.") !== 0) { // @deprecated don't show changelog when upgrading to 1.11
+                            let lang = chrome.i18n.getUILanguage();
+                            if (["ar", "fa", "iw"].indexOf(lang)) { // @deprecated only show changelog for users with rtl languages for v1.12
                                 chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                             }
                         });
@@ -94,7 +95,7 @@
                         obj.newtab = {};
                     }
 
-                    // START UPGRADE // v1.12 -> released [...]
+                    // START UPGRADE // v1.12 -> released 01-2018
                     if (typeof obj.behaviour.reopenSidebar === "undefined" && typeof obj.behaviour.autoOpen !== "undefined") {
                         obj.behaviour.reopenSidebar = obj.behaviour.autoOpen;
                         try {

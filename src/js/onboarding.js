@@ -52,6 +52,8 @@
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
+                this.opts.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
@@ -122,7 +124,7 @@
          * Initialises the eventhandlers for the intro slide
          */
         let initIntroEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='intro'] > a").on("click", (e) => {
+            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='intro'] a").on("click", (e) => {
                 e.preventDefault();
 
                 if ($(e.currentTarget).hasClass(this.opts.classes.skip)) {
@@ -137,7 +139,7 @@
          * Initialises the eventhandlers for the position slide
          */
         let initPositionEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='position'] > a").on("mouseenter click", (e) => {
+            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='position'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
                 let value = $(e.currentTarget).attr(this.opts.attr.value);
                 this.opts.elm.body.attr(this.opts.attr.position, value);
@@ -171,7 +173,7 @@
          * Initialises the eventhandlers for the surface slide
          */
         let initSurfaceEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='surface'] > a").on("mouseenter click", (e) => {
+            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='surface'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
                 let value = $(e.currentTarget).attr(this.opts.attr.value);
                 this.opts.elm.body.attr(this.opts.attr.surface, value);
@@ -210,7 +212,7 @@
          * Initialises the eventhandlers for the openAction slide
          */
         let initOpenActionEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] > a").on("mouseenter click", (e) => {
+            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
                 let value = $(e.currentTarget).attr(this.opts.attr.value);
 
@@ -249,7 +251,7 @@
          * Initialises the eventhandlers for the last slide
          */
         let initFinishedEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished'] > a").on("click", (e) => {
+            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished'] a").on("click", (e) => {
                 e.preventDefault();
                 if ($(e.currentTarget).hasClass(this.opts.classes.gotoSettings)) {
                     location.href = chrome.extension.getURL("html/settings.html");

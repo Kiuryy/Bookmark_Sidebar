@@ -6,7 +6,8 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "61", // released 05.09.2017
+  "minimum_chrome_version": "61",
+  // released 05.09.2017
   "homepage_url": "https://extensions.blockbyte.de/",
   "background": {
     "scripts": [
@@ -91,6 +92,7 @@
   ],
   "optional_permissions": [
     "tabs",
-    "topSites"
+    "topSites",
+    "downloads"
   ]
 }

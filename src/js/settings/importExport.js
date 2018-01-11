@@ -52,10 +52,11 @@
                     reader.onload = (e) => {
                         try {
                             let config = JSON.parse(e.target.result);
-                            if (config.behaviour && config.appearance) {
+                            if (config.behaviour && config.appearance && config.newtab) {
                                 chrome.storage.sync.set({
                                     behaviour: config.behaviour,
-                                    appearance: config.appearance
+                                    appearance: config.appearance,
+                                    newtab: config.newtab
                                 }, () => {
                                     s.helper.model.call("trackEvent", {
                                         category: "settings",
@@ -89,14 +90,27 @@
          * @returns {Promise}
          */
         let initExport = async () => {
-            s.opts.elm.buttons["export"].attr({
-                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.getExportConfig())),
-                download: getExportFilename()
-            }).on("click", () => {
-                s.helper.model.call("trackEvent", {
-                    category: "settings",
-                    action: "export",
-                    label: "export"
+            s.opts.elm.buttons["export"].on("click", (e) => {
+                e.preventDefault();
+
+                chrome.permissions.request({ // request additional permissions in order to trigger a download with the configuration
+                    permissions: ["downloads"]
+                }, (granted) => {
+                    if (granted) { // not granted -> no download
+                        let blob = new Blob([JSON.stringify(this.getExportConfig())], {type: "application/json"});
+
+                        chrome.downloads.download({
+                            url: URL.createObjectURL(blob),
+                            filename: getExportFilename(),
+                            saveAs: true
+                        });
+
+                        s.helper.model.call("trackEvent", {
+                            category: "settings",
+                            action: "export",
+                            label: "export"
+                        });
+                    }
                 });
             });
         };

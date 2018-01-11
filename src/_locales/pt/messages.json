@@ -53,6 +53,9 @@
     "contextmenu_new_tab": {
         "message": "Abrir em uma nova aba"
     },
+    "contextmenu_new_window": {
+        "message": "Abrir em uma nova janela"
+    },
     "contextmenu_new_tab_incognito": {
         "message": "Abrir em uma janela an\u00f4nima"
     },
@@ -64,6 +67,12 @@
     },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Fechar todas as pastas"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Recarregar barra lateral"
     },
     "contextmenu_open_children": {
         "message": "Abrir favoritos"
@@ -85,6 +94,9 @@
     },
     "contextmenu_bookmark_manager": {
         "message": "Gerenciador de favoritos"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Telhas de atalho"
     },
     "sort_label_custom": {
         "message": "Definido pelo usu\u00e1rio"
@@ -112,6 +124,9 @@
     },
     "overlay_bookmark_url": {
         "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Informa\u00e7\u00e3o adicional"
     },
     "overlay_cancel": {
         "message": "Cancelar"
@@ -229,6 +244,114 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Recarregar agora"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Posiciona a pr\u00f3xima entrada na barra lateral ou no menu de contexto aberto no momento"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Executa um clique na atual entrada suspensa"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Abre o menu de contexto para a atual entrada suspensa"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copia a URL da atual entrada suspensa"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Remove a atual entrada suspensa"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Fecha a barra lateral, a sobreposi\u00e7\u00e3o aberta ou o menu de contexto"
+    },
+    "notification_sidebar_not_working_headline": {
+        "message": "A barra lateral n\u00e3o p\u00f4de ser aberta"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Mais informa\u00e7\u00f5es"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "A barra lateral n\u00e3o funciona na Chrome Web Store e na P\u00e1gina Nova Guia."
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Web Store."
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o."
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Se isto estiver acontecendo frequentemente, por favor, me informe."
+    },
+    "contribute_headline": {
+        "message": "Eu preciso da sua ajuda"
+    },
+    "contribute_intro": {
+        "message": "Para melhorar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
+    },
+    "contribute_outro": {
+        "message": "Se voc\u00ea tiver d\u00favidas ou estiver preocupado em compartilhar informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
+    },
+    "contribute_dismiss": {
+        "message": "Remover"
+    },
+    "contribute_share_config_label": {
+        "message": "Compartilhar configura\u00e7\u00e3o"
+    },
+    "contribute_share_config_desc": {
+        "message": "Voc\u00ea compartilha sua configura\u00e7\u00e3o anonimamente, o que me ajuda a identificar configura\u00e7\u00f5es populares e descobrir o que melhorar ou mudar em vers\u00f5es futuras."
+    },
+    "contribute_share_activity_label": {
+        "message": "Compartilhar atividade"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Voc\u00ea pode compartilhar sua atividade dentro da barra lateral anonimamente, o que me ajuda a saber como os usu\u00e1rios est\u00e3o usando a barra lateral de forma geral. As informa\u00e7\u00f5es sobre seus favoritos ou seus sites visitados [b]n\u00e3o ser\u00e3o[\/ b] medidas."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Esta informa\u00e7\u00e3o \u00e9 muito \u00fatil para identificar problemas na usabilidade ou caracter\u00edsticas que, por exemplo, n\u00e3o s\u00e3o usadas frequentemente."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Os dados compartilhados s\u00e3o, por exemplo:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Quantos favoritos os usu\u00e1rios t\u00eam em m\u00e9dia?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Em qual plataforma os usu\u00e1rios est\u00e3o (Windows, Mac, Linux,...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Os usu\u00e1rios t\u00eam usado a pesquisa?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Os usu\u00e1rios mudam a classifica\u00e7\u00e3o dos favoritos?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Com que frequ\u00eancia os usu\u00e1rios reorganizam ou editam as entradas?"
     },
     "onboarding_title": {
         "message": "Configura\u00e7\u00e3o inicial"
@@ -368,6 +491,12 @@
     "settings_restored_message": {
         "message": "Configura\u00e7\u00e3o restaurada com sucesso"
     },
+    "settings_advanced": {
+        "message": "Configura\u00e7\u00f5es avan\u00e7adas"
+    },
+    "settings_not_synced": {
+        "message": "N\u00e3o ser\u00e1 sincronizado com seus dispositivos."
+    },
     "settings_animations": {
         "message": "Habilitar anima\u00e7\u00f5es"
     },
@@ -440,8 +569,14 @@
     "settings_remember_state": {
         "message": "Lembrar"
     },
+    "settings_remember_state_desc": {
+        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
+    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Posi\u00e7\u00e3o de rolamento e pastas abertas"
+    },
+    "settings_remember_state_all": {
+        "message": "Posi\u00e7\u00e3o de rolamento, pastas abertas e \u00faltimo favorito aberto"
     },
     "settings_remember_state_open_states": {
         "message": "Pastas abertas"
@@ -512,6 +647,12 @@
     "settings_drag_n_drop_open_desc": {
         "message": "Permite arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar aos favoritos a p\u00e1gina atual ou quaisquer outros links em p\u00e1ginas."
     },
+    "settings_reopen_sidebar": {
+        "message": "Abrir a barra lateral novamente"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Automaticamente abrir a barra lateral novamente, ap\u00f3s abrir um favorito a partir da barra lateral."
+    },
     "settings_tooltip_delay": {
         "message": "Atraso da dica de ferramenta"
     },
@@ -563,6 +704,9 @@
     "settings_import_failed": {
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
+    "settings_presets": {
+        "message": "Pr\u00e9-sele\u00e7\u00e3o"
+    },
     "settings_color_scheme": {
         "message": "Esquema de cores"
     },
@@ -574,6 +718,9 @@
     },
     "settings_text_color": {
         "message": "Cor do texto"
+    },
+    "settings_hover_color": {
+        "message": "Cor ao passar o mouse sobre o item"
     },
     "settings_font_family": {
         "message": "Estilo da fonte"
@@ -605,6 +752,9 @@
     "settings_sidebar_width": {
         "message": "Largura"
     },
+    "settings_header_height": {
+        "message": "Altura do cabe\u00e7alho"
+    },
     "settings_sidebar_mask_color": {
         "message": "Cor da m\u00e1scara"
     },
@@ -632,11 +782,41 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Recuo da pasta"
     },
+    "settings_tooltip_font_size": {
+        "message": "Tamanho da fonte da dica de ferramenta"
+    },
     "settings_overlay_mask_color": {
         "message": "Cor da m\u00e1scara"
     },
     "settings_icon_shape": {
         "message": "Forma"
+    },
+    "settings_custom_css": {
+        "message": "Folha de estilo personalizada"
+    },
+    "settings_custom_css_desc": {
+        "message": "Voc\u00ea pode definir sua pr\u00f3pria folha de estilo para substituir o estilo padr\u00e3o. Por favor, somente use esta op\u00e7\u00e3o se voc\u00ea estiver familiarizado com CSS e sabe o que est\u00e1 fazendo."
+    },
+    "settings_newtab_desc": {
+        "message": "Infelizmente, o Google removeu a possibilidade de carregar extens\u00f5es na p\u00e1gina nova guia padr\u00e3o. Por isso, adicionei algumas op\u00e7\u00f5es que permitem acessar seus favoritos ao abrir uma nova aba de outra maneira."
+    },
+    "settings_newtab_override": {
+        "message": "Sobrepor a p\u00e1gina nova guia"
+    },
+    "settings_newtab_override_desc": {
+        "message": "A extens\u00e3o deve substituir sua p\u00e1gina nova guia atual com uma p\u00e1gina personalizada ou um site que deve ser carregado ao abrir uma nova guia?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Abrir a barra lateral automaticamente"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Configurar se a barra lateral deve ser aberta automaticamente quando uma nova guia for aberta."
+    },
+    "settings_newtab_website": {
+        "message": "Carregar site"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Em vez de abrir a substitui\u00e7\u00e3o da nova guia, voc\u00ea pode configurar um site para ser carregado no lugar."
     },
     "settings_language": {
         "message": "Idioma"
@@ -662,8 +842,14 @@
     "settings_translation_info": {
         "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar suas mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
     },
+    "settings_translation_notice1": {
+        "message": "Assim que todas as categorias marcadas como requeridas forem traduzidas, a tradu\u00e7\u00e3o ser\u00e1 lan\u00e7ada."
+    },
     "settings_translation_notice2": {
         "message": "Categorias incompletas n\u00e3o ser\u00e3o liberadas para prevenir textos parcialmente traduzidos."
+    },
+    "settings_translation_help": {
+        "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, que precisa ser traduzida no seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que \u00e9, cada entrada tem um nome (por exemplo, {1}), que n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o pressionando o bot\u00e3o no canto superior direito!"
     },
     "settings_translation_submit": {
         "message": "Enviar"
@@ -674,8 +860,14 @@
     "settings_translation_status_released": {
         "message": "Tradu\u00e7\u00e3o dispon\u00edvel"
     },
+    "settings_translation_status_incomplete": {
+        "message": "A tradu\u00e7\u00e3o est\u00e1 dispon\u00edvel, mas algumas categorias est\u00e3o incompletas."
+    },
     "settings_translation_status_draft": {
         "message": "A tradu\u00e7\u00e3o est\u00e1 incompleta ou precisa de uma revis\u00e3o e n\u00e3o est\u00e1 dispon\u00edvel para os usu\u00e1rios"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Algumas tradu\u00e7\u00f5es est\u00e3o faltando."
     },
     "settings_translation_required_category": {
         "message": "Obrigat\u00f3rio"

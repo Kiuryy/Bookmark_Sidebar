@@ -26,6 +26,12 @@
     "sidebar_drag_cancel": {
         "message": "Avbryt"
     },
+    "sidebar_deleted": {
+        "message": "Tog bort"
+    },
+    "sidebar_undo_deletion": {
+        "message": "\u00c5ngra"
+    },
     "contextmenu_edit_bookmark": {
         "message": "\u00c4ndra bokm\u00e4rke"
     },
@@ -47,6 +53,9 @@
     "contextmenu_new_tab": {
         "message": "\u00d6ppna i ny flik"
     },
+    "contextmenu_new_window": {
+        "message": "\u00d6ppna i nytt f\u00f6nster"
+    },
     "contextmenu_new_tab_incognito": {
         "message": "\u00d6ppna i nytt inkognito f\u00f6nster"
     },
@@ -58,6 +67,12 @@
     },
     "contextmenu_toggle_hidden": {
         "message": "Visa dolda poster"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "St\u00e4ng alla mappar"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Ladda om sidopanel"
     },
     "contextmenu_open_children": {
         "message": "\u00d6ppna bokm\u00e4rken"
@@ -79,6 +94,9 @@
     },
     "contextmenu_bookmark_manager": {
         "message": "Bokm\u00e4rkeshanterare"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Tangentbordsgenv\u00e4gar"
     },
     "sort_label_custom": {
         "message": "Anv\u00e4ndardefinierad"
@@ -106,6 +124,9 @@
     },
     "overlay_bookmark_url": {
         "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Mer info"
     },
     "overlay_cancel": {
         "message": "Avbryt"
@@ -386,6 +407,12 @@
     "settings_restored_message": {
         "message": "\u00c5terst\u00e4lld till standard"
     },
+    "settings_advanced": {
+        "message": "Avancerade inst\u00e4llningar"
+    },
+    "settings_not_synced": {
+        "message": "Kommer inte synkroniseras mellan dina enheter"
+    },
     "settings_animations": {
         "message": "Aktivera animeringar"
     },
@@ -593,6 +620,9 @@
     "settings_import_failed": {
         "message": "Misslyckades att importera konfiguration. V\u00e4nligen v\u00e4lj giltlig fil."
     },
+    "settings_presets": {
+        "message": "F\u00f6rvald"
+    },
     "settings_color_scheme": {
         "message": "F\u00e4rgschema"
     },
@@ -638,6 +668,9 @@
     "settings_sidebar_width": {
         "message": "Bredd"
     },
+    "settings_header_height": {
+        "message": "Huvudh\u00f6jd"
+    },
     "settings_sidebar_mask_color": {
         "message": "Maskeringsf\u00e4rg"
     },
@@ -665,6 +698,9 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Mappindentation"
     },
+    "settings_tooltip_font_size": {
+        "message": "Verktygstips typsnittsstorlek"
+    },
     "settings_overlay_mask_color": {
         "message": "Maskeringsf\u00e4rg"
     },
@@ -680,10 +716,10 @@
     "settings_newtab_override_desc": {
         "message": "Skulle utvidgningen \u00e5sidos\u00e4tta din nuvarande nya fliksida med antingen en skr\u00e4ddarsydd eller en webbplats som ska laddas n\u00e4r du \u00f6ppnar en ny flik?"
     },
-    "settings_newtab_sidebar_initial_open": {
+    "settings_newtab_sidebar_auto_open": {
         "message": "\u00d6ppna sidopanelen automatiskt"
     },
-    "settings_newtab_sidebar_initial_open_desc": {
+    "settings_newtab_sidebar_auto_open_desc": {
         "message": "Konfigurera om sidopanelen ska \u00f6ppnas automatiskt n\u00e4r en ny flik \u00f6ppnas."
     },
     "settings_newtab_website": {

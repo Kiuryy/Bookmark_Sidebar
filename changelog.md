@@ -2,7 +2,7 @@ See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) f
 
 ## 1.12
  - Added support for right-to-left language
- - Language specific font weights
+ - Changed export mechanism
  - Code optimization
 
 ## 1.11

@@ -4,56 +4,62 @@
     window.LanguageHelper = function (b) {
 
         let allLanguages = {
-            af: "Afrikaans",
             ar: "Arabic",
-            hy: "Armenian",
-            be: "Belarusian",
+            am: "Amharic",
             bg: "Bulgarian",
+            bn: "Bengali",
             ca: "Catalan",
-            "zh-CN": "Chinese (Simplified)",
-            "zh-TW": "Chinese (Traditional)",
-            hr: "Croatian",
             cs: "Czech",
             da: "Danish",
-            nl: "Dutch",
-            en: "English",
-            eo: "Esperanto",
-            et: "Estonian",
-            tl: "Filipino",
-            fi: "Finnish",
-            fr: "French",
             de: "German",
             el: "Greek",
-            iw: "Hebrew",
+            en: "English",
+            es: "Spanish",
+            //es_419: "Spanish (Latin America and Caribbean)",
+            et: "Estonian",
+            fa: "Persian",
+            fi: "Finnish",
+            fil: "Filipino",
+            fr: "French",
+            gu: "Gujarati",
+            he: "Hebrew",
             hi: "Hindi",
+            hr: "Croatian",
             hu: "Hungarian",
-            is: "Icelandic",
             id: "Indonesian",
             it: "Italian",
             ja: "Japanese",
+            kn: "Kannada",
             ko: "Korean",
-            lv: "Latvian",
             lt: "Lithuanian",
+            lv: "Latvian",
+            ml: "Malayalam",
+            mr: "Marathi",
+            ms: "Malay",
+            nl: "Dutch",
             no: "Norwegian",
-            fa: "Persian",
             pl: "Polish",
-            pt: "Portuguese",
+            pt_BR: "Portuguese (Brazil)",
+            pt_PT: "Portuguese (Portugal)",
             ro: "Romanian",
             ru: "Russian",
-            sr: "Serbian",
             sk: "Slovak",
             sl: "Slovenian",
-            es: "Spanish",
-            sw: "Swahili",
+            sr: "Serbian",
             sv: "Swedish",
+            sw: "Swahili",
             ta: "Tamil",
+            te: "Telugu",
             th: "Thai",
             tr: "Turkish",
             uk: "Ukrainian",
-            vi: "Vietnamese"
+            vi: "Vietnamese",
+            zh_CN: "Chinese (Simplified)",
+            zh_TW: "Chinese (Traditional)",
         };
 
         let rtlLangs = ["ar", "fa", "iw"];
+        let aliasLangs = {pt: "pt_PT"};
         let language = null;
         let langVars = {};
         let isRtl = false;
@@ -66,17 +72,26 @@
         this.init = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["language"], (data) => {
+                    let defaultLang = b.manifest.default_locale;
                     let lang = data.language || "default";
+                    let fallbackLang = null;
 
                     if (lang === "default") {
                         lang = chrome.i18n.getUILanguage();
                     }
+                    lang = lang.replace("-", "_");
 
-                    let defaultLang = b.manifest.default_locale;
+                    if (aliasLangs[lang]) { // language code is an alias for another one (e.g. pt -> pt_PT)
+                        lang = aliasLangs[lang];
+                    }
+
+                    if (lang.search("_") > -1) { // search for a language file with short language code, too (e.g. de_DE -> de)
+                        fallbackLang = lang.replace(/_.*$/, "");
+                    }
 
                     this.getAvailableLanguages().then((obj) => {
-                        [lang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
-                            if (obj && obj.infos && obj.infos[name] && obj.infos[name].available) {
+                        [lang, fallbackLang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
+                            if (name !== null && obj && obj.infos && obj.infos[name] && obj.infos[name].available) {
                                 language = name;
                                 isRtl = rtlLangs.indexOf(language) > -1;
 
@@ -93,6 +108,13 @@
                 });
             });
         };
+
+        /**
+         * Returns the language which is used for the language variables
+         *
+         * @returns {string}
+         */
+        this.getLanguage = () => language;
 
         /**
          * Returns the name and the language variables of the user language

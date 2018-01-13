@@ -3,7 +3,7 @@
         "message": "Barra lateral de favoritos"
     },
     "extension_desc": {
-        "message": "Adiciona uma barra lateral que pode ser ativada ou desativada contendo todos os seus favoritos no lado esquerdo da tela."
+        "message": "Adiciona uma barra lateral, que pode ser ativada ou desativada, contendo todos os seus favoritos na lateral da sua tela."
     },
     "header_bookmarks": {
         "message": "Favoritos"
@@ -48,10 +48,10 @@
         "message": "Apagar separador"
     },
     "contextmenu_infos": {
-        "message": "Informa\u00e7\u00f5es"
+        "message": "Informa\u00e7\u00e3o"
     },
     "contextmenu_new_tab": {
-        "message": "Abrir em uma nova aba"
+        "message": "Abrir em uma nova guia"
     },
     "contextmenu_new_window": {
         "message": "Abrir em uma nova janela"
@@ -147,22 +147,22 @@
         "message": "Abrir todos"
     },
     "overlay_confirm_open_children": {
-        "message": "Voc\u00ea realmente gostaria de abrir todos os {1} favoritos subordinados?"
+        "message": "Voc\u00ea realmente deseja abrir todos os {1} favoritos subordinados?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Esconder da barra lateral"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Voc\u00ea realmente gostaria de esconder este favorito da barra lateral?"
+        "message": "Voc\u00ea realmente deseja esconder este favorito da barra lateral?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Voc\u00ea realmente gostaria de esconder esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o escondidos tamb\u00e9m."
+        "message": "Voc\u00ea realmente deseja esconder esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o escondidos tamb\u00e9m."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Voc\u00ea realmente gostaria de apagar este favorito?"
+        "message": "Voc\u00ea realmente deseja apagar este favorito?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Voc\u00ea realmente gostaria de apagar esta pasta? Todos os favoritos subordinados ser\u00e3o removidos tamb\u00e9m."
+        "message": "Voc\u00ea realmente deseja apagar esta pasta? Todos os favoritos subordinados ser\u00e3o removidos tamb\u00e9m."
     },
     "overlay_label_bookmark": {
         "message": "Favorito"
@@ -207,22 +207,22 @@
         "message": "URL n\u00e3o encontrada"
     },
     "newtab_title": {
-        "message": "Nova aba"
+        "message": "Nova guia"
     },
     "newtab_search_placeholder": {
-        "message": "Busque {1} ou digite a URL"
+        "message": "Pesquisar no {1} ou digite a URL"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
     },
     "newtab_top_pages_recently_used": {
-        "message": "P\u00e1ginas recentes"
+        "message": "Favoritos usados recentemente"
     },
     "newtab_top_pages_most_used": {
-        "message": "P\u00e1ginas mais usadas"
+        "message": "Favoritos mais usados"
     },
     "newtab_top_pages_pinned_entries": {
-        "message": "P\u00e1ginas fixas"
+        "message": "Favoritos fixados"
     },
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
@@ -234,7 +234,7 @@
         "message": "O servi\u00e7o que verifica URLs n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
     },
     "status_feedback_unavailable_desc": {
-        "message": "O servi\u00e7o de feedback n\u00e3o est\u00e1 dispon\u00edvel no momento. Se quiser dar feedback, por favor envie-me um email."
+        "message": "O servi\u00e7o de coment\u00e1rios n\u00e3o est\u00e1 dispon\u00edvel no momento. Se quiser enviar coment\u00e1rios, por favor envie-me um e-mail."
     },
     "status_translation_unavailable_desc": {
         "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
@@ -291,10 +291,10 @@
         "message": "Mais informa\u00e7\u00f5es"
     },
     "notification_sidebar_not_working_general": {
-        "message": "A barra lateral n\u00e3o funciona na Chrome Web Store e na P\u00e1gina Nova Guia."
+        "message": "A barra lateral n\u00e3o funciona no Chrome Webstore e na P\u00e1gina Nova Guia."
     },
     "notification_sidebar_not_working_webstore": {
-        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Web Store."
+        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore."
     },
     "notification_sidebar_not_working_extension_page": {
         "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o."
@@ -315,7 +315,7 @@
         "message": "Para melhorar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
     },
     "contribute_outro": {
-        "message": "Se voc\u00ea tiver d\u00favidas ou estiver preocupado em compartilhar informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
+        "message": "Se voc\u00ea tiver d\u00favidas ou estiver preocupado por compartilhar informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
     },
     "contribute_dismiss": {
         "message": "Remover"
@@ -354,7 +354,7 @@
         "message": "Com que frequ\u00eancia os usu\u00e1rios reorganizam ou editam as entradas?"
     },
     "onboarding_title": {
-        "message": "Configura\u00e7\u00e3o inicial"
+        "message": "Configura\u00e7\u00e3o"
     },
     "onboarding_headline": {
         "message": "Obrigado por instalar esta extens\u00e3o."
@@ -372,7 +372,7 @@
         "message": "Como voc\u00ea quer abrir a sua barra lateral?"
     },
     "onboarding_sidebar_surface_desc": {
-        "message": "Que estilo prefere?"
+        "message": "Que estilo voc\u00ea prefere?"
     },
     "onboarding_sidebar_surface_light": {
         "message": "Claro"
@@ -387,10 +387,10 @@
         "message": "Agora pode experimentar voc\u00ea mesmo."
     },
     "onboarding_handson_mouse_desc_1": {
-        "message": "Mova o cursor para o lado {1} da tela."
+        "message": "Mova o cursor para o lado {1} da janela."
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "Depois clique com o lado {1} do seu mouse para abrir a barra lateral."
+        "message": "Depois clique com o bot\u00e3o {1} do mouse para abrir a barra lateral."
     },
     "onboarding_handson_icon_desc": {
         "message": "Clique no \u00edcone da extens\u00e3o para abrir a barra lateral."
@@ -435,7 +435,7 @@
         "message": "Ativar e desativar"
     },
     "settings_menu_sidebar_tooltip": {
-        "message": "Dica de ferramenta"
+        "message": "Dicas de contexto"
     },
     "settings_menu_appearance": {
         "message": "Apar\u00eancia"
@@ -456,7 +456,7 @@
         "message": "Sobreposi\u00e7\u00e3o"
     },
     "settings_menu_newtab": {
-        "message": "Nova aba"
+        "message": "Nova guia"
     },
     "settings_menu_language": {
         "message": "Idioma"
@@ -468,7 +468,7 @@
         "message": "Tradu\u00e7\u00e3o"
     },
     "settings_menu_feedback": {
-        "message": "Opini\u00e3o"
+        "message": "Feedback"
     },
     "settings_menu_support": {
         "message": "Suporte"
@@ -486,7 +486,7 @@
         "message": "Restaurar padr\u00e3o"
     },
     "settings_restore_confirm": {
-        "message": "Deseja mesmo redefinir esta configura\u00e7\u00e3o?"
+        "message": "Voc\u00ea deseja mesmo restaurar a configura\u00e7\u00e3o padr\u00e3o?"
     },
     "settings_restored_message": {
         "message": "Configura\u00e7\u00e3o restaurada com sucesso"
@@ -507,7 +507,7 @@
         "message": "Toler\u00e2ncia em pixels"
     },
     "settings_px_tolerance_desc": {
-        "message": "Quantidade de pixels do lado esquerdo de todas as p\u00e1ginas na qual um clique do mouse far\u00e1 a barra lateral abrir. Voc\u00ea pode escolher entre diferentes valores para frames do navegador maximizados ou em janela."
+        "message": "Quantidade de pixels da lateral de cada p\u00e1gina, na qual um clique do mouse far\u00e1 a barra lateral abrir. Voc\u00ea pode escolher entre diferentes valores para o navegador maximizado ou em janela."
     },
     "settings_px_tolerance_maximized": {
         "message": "Maximizado"
@@ -519,16 +519,16 @@
         "message": "Abrir barra lateral"
     },
     "settings_open_action_desc": {
-        "message": "Abra a barra lateral clicando com o lado esquerdo ou direito do mouse ou posicionando o cursor do mouse na lateral da janela do navegador. De modo alternativo, voc\u00ea pode optar por abrir apenas se clicar o \u00edcone no menu do Chrome."
+        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o cursor do mouse sobre a lateral da janela do navegador. De modo alternativo, voc\u00ea pode optar por abrir apenas se clicar no \u00edcone no menu do Chrome."
     },
     "settings_open_action_leftclick": {
-        "message": "Clique com o lado esquerdo"
+        "message": "Clicar com o bot\u00e3o esquerdo"
     },
     "settings_open_action_rightclick": {
-        "message": "Clique com o lado direito"
+        "message": "Clicar com o bot\u00e3o direito"
     },
     "settings_open_action_mouseover": {
-        "message": "Posicione o cursor do mouse"
+        "message": "Posicionar o cursor do mouse"
     },
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
@@ -540,19 +540,19 @@
         "message": "Abrir favoritos"
     },
     "settings_link_action_desc": {
-        "message": "Clicar com o bot\u00e3o esquerdo em um favorito o abrir\u00e1 na aba atual ou em uma nova aba."
+        "message": "Ao clicar com o bot\u00e3o esquerdo em um favorito, este ser\u00e1 aberto na guia atual ou em uma nova guia."
     },
     "settings_link_action_current_tab": {
-        "message": "Aba atual"
+        "message": "Guia atual"
     },
     "settings_link_action_new_tab": {
-        "message": "Nova aba"
+        "message": "Nova guia"
     },
     "settings_open_delay": {
         "message": "Atraso de abertura"
     },
     "settings_open_delay_desc": {
-        "message": "Evita abrir imediatamente a barra lateral posicionando o cursor do mouse ou clicando com um atraso."
+        "message": "Evita abrir imediatamente a barra lateral ao posicionar o cursor do mouse ou clicando com um atraso."
     },
     "settings_prevent_pagescroll": {
         "message": "Impede a rolagem da p\u00e1gina"
@@ -588,10 +588,10 @@
         "message": "Nada"
     },
     "settings_open_children_warn_limit": {
-        "message": "Abrir todos os itens da pasta"
+        "message": "Abrir todos as subpastas (avisar limite)"
     },
     "settings_open_children_warn_limit_desc": {
-        "message": "Quantidade de favoritos com a qual um aviso aparece ao tentar abrir todos os itens da pasta ao mesmo tempo."
+        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todos as subpastas da pasta ao mesmo tempo."
     },
     "settings_dir_open_duration": {
         "message": "Dura\u00e7\u00e3o de abertura da pasta"
@@ -600,10 +600,10 @@
         "message": "Dura\u00e7\u00e3o da anima\u00e7\u00e3o de abertura e fechamento das pastas"
     },
     "settings_new_tab": {
-        "message": "Nova aba"
+        "message": "Nova guia"
     },
     "settings_new_tab_desc": {
-        "message": "Abrir favoritos em uma nova aba em primeiro ou segundo plano"
+        "message": "Abrir favoritos em uma nova guia em primeiro ou segundo plano"
     },
     "settings_new_tab_foreground": {
         "message": "Abrir em primeiro plano"
@@ -612,31 +612,31 @@
         "message": "Abrir em segundo plano"
     },
     "settings_new_tab_position_desc": {
-        "message": "Abrir novas abas ap\u00f3s o \u00faltimo ou a aba atual"
+        "message": "Abrir novas guias ap\u00f3s o \u00faltimo ou a guia atual"
     },
     "settings_new_tab_position_after_last": {
-        "message": "Ap\u00f3s a \u00faltima aba"
+        "message": "Ap\u00f3s a \u00faltima guia"
     },
     "settings_new_tab_position_after_current": {
-        "message": "Ap\u00f3s a aba atual"
+        "message": "Ap\u00f3s a guia atual"
     },
     "settings_new_tab_position_before_first": {
-        "message": "Antes da primeira aba"
+        "message": "Antes da primeira guia"
     },
     "settings_close_timeout": {
-        "message": "Intervalo de fechamento"
+        "message": "Tempo limite de fechamento"
     },
     "settings_close_timeout_desc": {
-        "message": "Intervalo em segundos ap\u00f3s a qual a barra lateral ser\u00e1 fechada. A contagem ser\u00e1 feita logo ap\u00f3s o cursor do mouse sair da barra lateral e para quando for posicionado sobre a mesma novamente."
+        "message": "Tempo limite em segundos at\u00e9 que a barra lateral seja fechada. A contagem ser\u00e1 iniciada logo ap\u00f3s o cursor do mouse sair da barra lateral e ser\u00e1 interrompida quando o cursor for posicionado sobre a mesma novamente."
     },
     "settings_close_timeout_infinity": {
-        "message": "N\u00e3o fecha automaticamente"
+        "message": "N\u00e3o fechar automaticamente"
     },
     "settings_scrollbar_hide": {
         "message": "Ocultar barra de rolagem"
     },
     "settings_scrollbar_hide_desc": {
-        "message": "Tempo em segundos at\u00e9 que a barra de rolagem seja ocultada. Ao rolar-se a p\u00e1gina, a barra de rolagem aparecer\u00e1 novamente."
+        "message": "Tempo limite em segundos at\u00e9 que a barra de rolagem seja ocultada. Ao rolar-se a p\u00e1gina, a barra de rolagem aparecer\u00e1 novamente."
     },
     "settings_scrollbar_hide_infinity": {
         "message": "Nunca ocultar"
@@ -645,28 +645,28 @@
         "message": "Abrir com Arrastar e Soltar"
     },
     "settings_drag_n_drop_open_desc": {
-        "message": "Permite arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar aos favoritos a p\u00e1gina atual ou quaisquer outros links em p\u00e1ginas."
+        "message": "Permite arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar a p\u00e1gina atual aos favoritos ou quaisquer outros links em sites."
     },
     "settings_reopen_sidebar": {
-        "message": "Abrir a barra lateral novamente"
+        "message": "Reabrir a barra lateral."
     },
     "settings_reopen_sidebar_desc": {
-        "message": "Automaticamente abrir a barra lateral novamente, ap\u00f3s abrir um favorito a partir da barra lateral."
+        "message": "Abrir automaticamente a barra lateral novamente, ap\u00f3s abrir um favorito a partir da barra lateral."
     },
     "settings_tooltip_delay": {
-        "message": "Atraso da dica de ferramenta"
+        "message": "Atraso da dica de contexto"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Atraso antes que a dica de ferramenta para os favoritos seja mostrada ao posicionar-se o mouse."
+        "message": "Atraso antes que as dicas de contexto para os favoritos sejas mostradas ao posicionar-se o mouse."
     },
     "settings_tooltip_delay_infinity": {
-        "message": "Nunca mostrar dicas de ferramenta"
+        "message": "Nunca mostrar dicas de contexto"
     },
     "settings_tooltip_content": {
-        "message": "Conte\u00fado da dica de ferramenta"
+        "message": "Conte\u00fado da dica de contexto"
     },
     "settings_tooltip_content_desc": {
-        "message": "Descri\u00e7\u00e3o da dica de ferramenta."
+        "message": "Selecionar qual informa\u00e7\u00e3o a dica de contexto deve conter."
     },
     "settings_tooltip_content_all": {
         "message": "T\u00edtulo e URL"
@@ -681,7 +681,7 @@
         "message": "Posi\u00e7\u00e3o"
     },
     "settings_sidebar_position_desc": {
-        "message": "Permite que voc\u00ea escolha se a barra de rolagem abrir\u00e1 no lado esquerdo ou direito da tela."
+        "message": "Permite que voc\u00ea defina se a barra lateral deve abrir no lado esquerdo ou direito da tela."
     },
     "settings_sidebar_position_left": {
         "message": "Esquerda"
@@ -690,7 +690,7 @@
         "message": "Direita"
     },
     "settings_import_export_desc": {
-        "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para o seu computador, onde a extens\u00e3o est\u00e1 instalada."
+        "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para qualquer computador onde a extens\u00e3o esteja instalada."
     },
     "settings_export": {
         "message": "Exportar Configura\u00e7\u00f5es"
@@ -783,7 +783,7 @@
         "message": "Recuo da pasta"
     },
     "settings_tooltip_font_size": {
-        "message": "Tamanho da fonte da dica de ferramenta"
+        "message": "Tamanho da fonte da dica de contexto"
     },
     "settings_overlay_mask_color": {
         "message": "Cor da m\u00e1scara"
@@ -798,7 +798,7 @@
         "message": "Voc\u00ea pode definir sua pr\u00f3pria folha de estilo para substituir o estilo padr\u00e3o. Por favor, somente use esta op\u00e7\u00e3o se voc\u00ea estiver familiarizado com CSS e sabe o que est\u00e1 fazendo."
     },
     "settings_newtab_desc": {
-        "message": "Infelizmente, o Google removeu a possibilidade de carregar extens\u00f5es na p\u00e1gina nova guia padr\u00e3o. Por isso, adicionei algumas op\u00e7\u00f5es que permitem acessar seus favoritos ao abrir uma nova aba de outra maneira."
+        "message": "Infelizmente, a Google removeu a possibilidade de carregar extens\u00f5es na p\u00e1gina nova guia padr\u00e3o. Por isso, adicionei algumas op\u00e7\u00f5es que lhe permitem acessar seus favoritos ao abrir uma nova guia de outra maneira."
     },
     "settings_newtab_override": {
         "message": "Sobrepor a p\u00e1gina nova guia"
@@ -834,7 +834,7 @@
         "message": "Voc\u00ea pode ajudar traduzindo a extens\u00e3o para o seu idioma ou melhorando a tradu\u00e7\u00e3o j\u00e1 existente."
     },
     "settings_translation_add_language": {
-        "message": "Adicionar linguagem"
+        "message": "Adicionar idioma"
     },
     "settings_translation_back_to_overview": {
         "message": "Voltar ao in\u00edcio"
@@ -849,7 +849,7 @@
         "message": "Categorias incompletas n\u00e3o ser\u00e3o liberadas para prevenir textos parcialmente traduzidos."
     },
     "settings_translation_help": {
-        "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, que precisa ser traduzida no seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que \u00e9, cada entrada tem um nome (por exemplo, {1}), que n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o pressionando o bot\u00e3o no canto superior direito!"
+        "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, a qual precisa ser traduzida para o seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que \u00e9, cada entrada tem um nome (por exemplo, {1}), o qual n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o, pressionando o bot\u00e3o no canto superior direito!"
     },
     "settings_translation_submit": {
         "message": "Enviar"
@@ -861,7 +861,7 @@
         "message": "Tradu\u00e7\u00e3o dispon\u00edvel"
     },
     "settings_translation_status_incomplete": {
-        "message": "A tradu\u00e7\u00e3o est\u00e1 dispon\u00edvel, mas algumas categorias est\u00e3o incompletas."
+        "message": "A tradu\u00e7\u00e3o est\u00e1 dispon\u00edvel, mas algumas categorias est\u00e3o incompletas"
     },
     "settings_translation_status_draft": {
         "message": "A tradu\u00e7\u00e3o est\u00e1 incompleta ou precisa de uma revis\u00e3o e n\u00e3o est\u00e1 dispon\u00edvel para os usu\u00e1rios"
@@ -897,25 +897,25 @@
         "message": "Voc\u00ea pode me dizer como abrir a barra lateral?"
     },
     "settings_faq_usage_a": {
-        "message": "Voc\u00ea pode assistir ao [a]tutorial[\/a] para ver como abrir a barra lateral e testar voc\u00ea mesmo mais tarde em qualquer site. Se voc\u00ea ainda tiver problemas com a extens\u00e3o, por favor leia a outra d\u00favida respondida com rela\u00e7\u00e3o ao motivo de a barra lateral n\u00e3o estar abrindo em todos os sites ou envie-me uma mensagem com detalhes sobre seu problema."
+        "message": "Voc\u00ea pode assistir ao [a]tutorial[\/a] para entender como abrir a barra lateral e depois testar voc\u00ea mesmo em qualquer site. Se voc\u00ea ainda tiver problemas com a extens\u00e3o, por favor leia a outra pergunta respondida sobre o porqu\u00ea de a barra lateral n\u00e3o estar abrindo em todos os sites ou envie-me uma mensagem com detalhes sobre seu problema."
     },
     "settings_faq_fixed_sidebar_q": {
         "message": "Voc\u00ea pode fazer com que a barra lateral mantenha-se aberta o tempo todo?"
     },
     "settings_faq_fixed_sidebar_a": {
-        "message": "Infelizmente, eu n\u00e3o posso fazer isso. Google removeu a possibilidade de fazer uma barra lateral real, como no Firefox, h\u00e1 alguns anos. Sem a interface se programa\u00e7\u00e3o de aplicativos, a barra lateral precisa ser carregada novamente todas as vezes que voc\u00ea for para uma nova p\u00e1gina."
+        "message": "Infelizmente, eu n\u00e3o posso fazer isso. A Google removeu a possibilidade de se produzir uma barra lateral real, como no Firefox, h\u00e1 alguns anos. Sem a interface se programa\u00e7\u00e3o de aplicativos, a barra lateral precisa ser carregada novamente todas as vezes que voc\u00ea for para uma nova p\u00e1gina."
     },
     "settings_faq_not_working_q": {
         "message": "Por que a barra lateral n\u00e3o funciona em algumas p\u00e1ginas, como o Chrome Webstore?"
     },
     "settings_faq_not_working_a": {
-        "message": "Isso pode ter muitas raz\u00f5es. No Chrome Webstore e nas p\u00e1ginas que come\u00e7am com [em]chrome-extension:\/\/[\/em], esta \u00e9 uma restri\u00e7\u00e3o de seguran\u00e7a. Mas pode haver outras p\u00e1ginas que bloqueiam a barra lateral ou usam estruturas de c\u00f3digo-fonte desatualizadas. Se voc\u00ea encontrar problemas em algumas p\u00e1ginas, por favor avise-me, ent\u00e3o eu poderei dar uma olhada na p\u00e1gina espec\u00edfica e tentar corrigi-la."
+        "message": "Isto pode ter muitas raz\u00f5es. No Chrome Webstore e nas p\u00e1ginas que come\u00e7am com [em]chrome-extension:\/\/[\/em], esta \u00e9 uma restri\u00e7\u00e3o de seguran\u00e7a. Mas pode haver outras p\u00e1ginas que bloqueiam a barra lateral ou usam estruturas de c\u00f3digo-fonte desatualizadas. Se voc\u00ea encontrar problemas em algumas p\u00e1ginas, por favor avise-me, ent\u00e3o eu poderei dar uma olhada na p\u00e1gina espec\u00edfica e tentar corrigi-la."
     },
     "settings_headline_donation": {
         "message": "Doar"
     },
     "settings_support_donation_desc": {
-        "message": "A doa\u00e7\u00e3o \u00e9 completamente opcional, mas se voc\u00ea gosta da extens\u00e3o e quer doar uma pequena quantia, pode clicar no seguinte link. Agrade\u00e7o todas as ajudas que recebo, seja doa\u00e7\u00e3o, ajuda com tradu\u00e7\u00f5es ou coment\u00e1rios, para melhorar a extens\u00e3o."
+        "message": "A doa\u00e7\u00e3o \u00e9 completamente opcional, mas se voc\u00ea gosta da extens\u00e3o e quer doar uma pequena quantia, voc\u00ea pode ent\u00e3o clicando no seguinte link. Agrade\u00e7o por toda ajuda que recebo, seja doa\u00e7\u00e3o, ajuda com tradu\u00e7\u00f5es ou envio de coment\u00e1rios, para melhorar a extens\u00e3o."
     },
     "settings_headline_share_userdata": {
         "message": "Compartilhar informa\u00e7\u00f5es"

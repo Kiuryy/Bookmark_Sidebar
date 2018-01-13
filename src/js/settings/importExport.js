@@ -41,7 +41,6 @@
          * @returns {Promise}
          */
         let initImport = async () => {
-
             s.opts.elm.buttons["import"].on("change", (e) => { // import config
                 e.preventDefault();
                 let _self = e.currentTarget;

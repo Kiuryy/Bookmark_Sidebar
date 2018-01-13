@@ -77,7 +77,7 @@
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
                             let lang = chrome.i18n.getUILanguage();
-                            if (["ar", "fa", "iw"].indexOf(lang)) { // @deprecated only show changelog for users with rtl languages for v1.12
+                            if (["ar", "fa", "iw"].indexOf(lang) > -1) { // @deprecated only show changelog for users with rtl languages for v1.12
                                 chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                             }
                         });
@@ -94,6 +94,12 @@
                     if (typeof obj.newtab === "undefined") {
                         obj.newtab = {};
                     }
+
+                    // START UPGRADE // v1.13 -> released [...]
+                    if (typeof obj.language === "string" && obj.language.search("-") > -1) {
+                        chrome.storage.local.set({language: obj.language.replace("-", "_")});
+                    }
+                    // END UPGRADE // v1.13
 
                     // START UPGRADE // v1.12 -> released 01-2018
                     if (typeof obj.behaviour.reopenSidebar === "undefined" && typeof obj.behaviour.autoOpen !== "undefined") {

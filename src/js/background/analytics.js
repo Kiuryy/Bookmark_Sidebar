@@ -210,10 +210,12 @@
             chrome.storage.sync.get(categories, (obj) => {
                 categories.forEach((category) => {
                     if (category === "language") { // proceed with the actual language of the extension
-                        if (typeof obj[category] === "undefined" || obj[category] === "default") {
-                            obj[category] = chrome.i18n.getUILanguage();
+                        obj[category] = {};
+                        let lang = b.helper.language.getLanguage();
+
+                        if (lang) {
+                            obj[category].ui = lang;
                         }
-                        obj[category] = {ui: obj[category]};
                     } else if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
                         if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
                             obj[category] = {

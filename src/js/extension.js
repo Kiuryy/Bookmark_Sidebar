@@ -60,6 +60,8 @@
                     return initSidebar();
                 }).then(() => {
                     if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
+                        this.elements.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+
                         this.helper.toggle.init();
                         this.helper.list.init();
                         this.helper.scroll.init();
@@ -332,8 +334,6 @@
             }
 
             this.elements.iframeBody = this.elements.iframe.find("body");
-            this.elements.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
-
             this.elements.sidebar = $("<section id=\"" + opts.ids.sidebar.sidebar + "\" />").appendTo(this.elements.iframeBody);
             this.elements.bookmarkBox = {};
 

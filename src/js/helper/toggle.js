@@ -57,12 +57,12 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if ((ext.helper.utility.getPageType().startsWith("newtab_") && data.autoOpen) || data.performReopening) {
+            if ((getPageType().startsWith("newtab_") && data.autoOpen) || data.performReopening) {
                 this.openSidebar();
                 ext.helper.model.setData({"u/performReopening": false});
             }
 
-            if (ext.helper.utility.sidebarHasMask() === false) {
+            if (sidebarHasMask() === false) {
                 ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
             }
         };
@@ -108,7 +108,7 @@
                     this.markLastUsed();
                 }
 
-                ext.helper.model.call("trackPageView", {page: "/sidebar/" + ext.helper.utility.getPageType()});
+                ext.helper.model.call("trackPageView", {page: "/sidebar/" + getPageType()});
                 ext.elements.iframe.addClass(ext.opts.classes.page.visible);
                 ext.initImages();
 
@@ -192,7 +192,7 @@
                 if (e.pageX) {
                     let pageX = e.pageX;
                     if (sidebarPos === "right") {
-                        if (ext.helper.utility.sidebarHasMask()) {
+                        if (sidebarHasMask()) {
                             pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
                         } else {
                             pageX = ext.elements.iframe.realWidth() - pageX;
@@ -299,6 +299,57 @@
                     }
                 });
             }
+        };
+
+        /**
+         * Returns whether the the sidebar mask should be visible or not
+         *
+         * @returns {boolean}
+         */
+        let sidebarHasMask = () => {
+            let pageType = getPageType();
+            let styles = ext.helper.model.getData("a/styles");
+            let newtabAutoOpen = ext.helper.model.getData("n/autoOpen");
+            let maskColor = styles.sidebarMaskColor || null;
+
+            return !((pageType.startsWith("newtab_") && newtabAutoOpen) || pageType === "onboarding" || maskColor === "transparent");
+        };
+
+        /**
+         * Returns the type of the current url
+         *
+         * @returns {string}
+         */
+        let getPageType = () => {
+            let url = location.href;
+            let ret = "other";
+            let found = false;
+
+            let types = {
+                newtab_default: ["https?://www\.google\..+/_/chrome/newtab"],
+                newtab_replacement: [chrome.extension.getURL("html/newtab.html")],
+                newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
+                website: ["https?://"],
+                onboarding: ["chrome\-extension://.*/intro.html"],
+                chrome: ["chrome://"],
+                extension: ["chrome\-extension://"],
+                local: ["file://"]
+            };
+
+            Object.keys(types).some((key) => {
+                types[key].some((str) => {
+                    if (url.search(new RegExp(str, "gi")) === 0) {
+                        ret = key;
+                        found = true;
+                        return true;
+                    }
+                });
+                if (found) {
+                    return true;
+                }
+            });
+
+            return ret;
         };
 
         /**

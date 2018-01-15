@@ -61,43 +61,6 @@
         };
 
         /**
-         * Returns the type of the current url
-         *
-         * @returns {string}
-         */
-        this.getPageType = () => {
-            let url = location.href;
-            let ret = "other";
-            let found = false;
-
-            let types = {
-                newtab_default: ["https?://www\.google\..+/_/chrome/newtab"],
-                newtab_replacement: [chrome.extension.getURL("html/newtab.html")],
-                newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
-                website: ["https?://"],
-                onboarding: ["chrome\-extension://.*/intro.html"],
-                chrome: ["chrome://"],
-                extension: ["chrome\-extension://"],
-                local: ["file://"]
-            };
-
-            Object.keys(types).some((key) => {
-                types[key].some((str) => {
-                    if (url.search(new RegExp(str, "gi")) === 0) {
-                        ret = key;
-                        found = true;
-                        return true;
-                    }
-                });
-                if (found) {
-                    return true;
-                }
-            });
-
-            return ret;
-        };
-
-        /**
          * Checks whether the background script is connected
          *
          * @returns {boolean}
@@ -109,20 +72,6 @@
                 return true;
             }
             return false;
-        };
-
-        /**
-         * Returns whether the the sidebar mask should be visible or not
-         *
-         * @returns {boolean}
-         */
-        this.sidebarHasMask = () => {
-            let pageType = this.getPageType();
-            let styles = ext.helper.model.getData("a/styles");
-            let newtabAutoOpen = ext.helper.model.getData("n/autoOpen");
-            let maskColor = styles.sidebarMaskColor || null;
-            
-            return !((pageType.startsWith("newtab_") && newtabAutoOpen) || pageType === "onboarding" || maskColor === "transparent");
         };
 
         /**

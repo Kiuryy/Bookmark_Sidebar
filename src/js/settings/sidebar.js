@@ -87,7 +87,7 @@
                         behaviour: config,
                         language: lang
                     }, () => {
-                        if (obj && obj.language && obj.language !== lang) {
+                        if (!(obj && obj.language && obj.language === lang)) {
                             $.delay(1500).then(() => {
                                 location.reload(true);
                             });

@@ -704,6 +704,9 @@
     "settings_import_failed": {
         "message": "Az import\u00e1l\u00e1s sikertelen. \u00c9rv\u00e9nyes f\u00e1jlt adjon meg."
     },
+    "settings_presets": {
+        "message": "El\u0151re be\u00e1ll\u00edtott m\u00e9retek"
+    },
     "settings_color_scheme": {
         "message": "Sz\u00edn s\u00e9ma"
     },

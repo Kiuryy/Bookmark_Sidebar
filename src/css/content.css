@@ -52,7 +52,7 @@ body > iframe#blockbyte-bs-sidebar {
   max-width: none;
   height: 0;
   z-index: 2147483646;
-  background-color: "%sidebarMaskColor";
+  background-color: "%sidebarMaskColor" !important;
   border: none;
   display: block !important;
   transform: translate3d(-"%sidebarWidth", 0, 0);
@@ -77,7 +77,7 @@ body > iframe#blockbyte-bs-overlay {
   height: 100%;
   z-index: 2147483647;
   border: none;
-  background: "%overlayMaskColor";
+  background: "%overlayMaskColor" !important;
   transition: opacity 0.3s; }
 
 /*# sourceMappingURL=content.css.map */

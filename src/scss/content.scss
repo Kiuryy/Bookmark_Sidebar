@@ -92,7 +92,7 @@ body > iframe#blockbyte-bs-sidebar {
   }
 
   &.blockbyte-bs-hideMask {
-    background: none;
+    background: none !important;
 
     &:not(.blockbyte-bs-hover) {
       width: calc(#{$__sidebarWidth} + 50px);

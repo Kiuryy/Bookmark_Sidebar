@@ -37,7 +37,7 @@
             if (entryElm) {
                 let elm = entryElm.children("a");
                 entryElm.insertAfter(dragInitialElm).removeClass(ext.opts.classes.drag.isDragged);
-                trackEnd(elm, true);
+                trackEvent(elm, {type: "end", cancel: true});
             }
 
             dragInitialElm.remove();
@@ -88,7 +88,7 @@
                 ext.helper.tooltip.close();
                 ext.elements.iframeBody.addClass(ext.opts.classes.drag.isDragged);
                 ext.helper.toggle.addSidebarHoverClass();
-                trackStart("selection");
+                trackEvent("selection", {type: "start"});
 
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
@@ -118,7 +118,7 @@
                                 }
                             }
 
-                            trackEnd("selection");
+                            trackEvent("selection", {type: "end"});
 
                             ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
                                 values: {
@@ -130,7 +130,7 @@
                             });
                         }
                     } else {
-                        trackEnd("selection", true);
+                        trackEvent("selection", {type: "end", cancel: true});
                     }
 
                     ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
@@ -167,30 +167,27 @@
         };
 
         /**
-         * Tracks that an element is beeing dragged
+         * Tracks that an element is beeing dragged (no longer dragged)
          *
          * @param {jsu|string} elm
+         * @param {object} opts
          */
-        let trackStart = (elm) => {
-            ext.helper.model.call("trackEvent", {
-                category: "dragndrop",
-                action: getDragType(elm),
-                label: "dragstart"
-            });
-        };
+        let trackEvent = (elm, opts = {}) => {
+            let label = null;
 
-        /**
-         * Tracks that an element is no longer dragged
-         *
-         * @param {jsu|string} elm
-         * @param {boolean} cancel
-         */
-        let trackEnd = (elm, cancel = false) => {
-            ext.helper.model.call("trackEvent", {
-                category: "dragndrop",
-                action: getDragType(elm),
-                label: cancel ? "cancel" : "dragend"
-            });
+            if (opts.type === "end") {
+                label = opts.cancel ? "cancel" : "dragend";
+            } else if (opts.type === "start") {
+                label = "dragstart";
+            }
+
+            if (label) {
+                ext.helper.model.call("trackEvent", {
+                    category: "dragndrop",
+                    action: getDragType(elm),
+                    label: label
+                });
+            }
         };
 
         /**
@@ -248,7 +245,7 @@
             }).addClass(ext.opts.classes.drag.helper);
 
             elmParent.addClass(ext.opts.classes.drag.isDragged);
-            trackStart(elm);
+            trackEvent(elm, {type: "start"});
 
             if (!edgeScroll.running) {
                 window.requestAnimationFrame(edgeScrolling);
@@ -336,7 +333,7 @@
                     ext.helper.specialEntry.reorderSeparators([parentId]);
                 }
 
-                trackEnd(elm);
+                trackEvent(elm, {type: "end"});
                 ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
 
                 $.delay().then(() => {
@@ -504,6 +501,7 @@
             ext.elements.bookmarkBox.all.on("mousedown", "span." + ext.opts.classes.drag.trigger, (e) => { // drag start
                 ext.helper.toggle.addSidebarHoverClass();
                 dragstart(e.currentTarget, e.pageX, e.pageY);
+                dragmove(e.type, e.pageX, e.pageY);
             });
 
             ext.elements.iframeBody.on("mouseup", (e) => { // drag end

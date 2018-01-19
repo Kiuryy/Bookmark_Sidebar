@@ -1,0 +1,68 @@
+
+body.highContrast:not(.dark) div.modal {
+
+  &[data-type='updateUrls'] {
+
+    > div.progressBar {
+
+      > div {
+        background: $__textColor;
+      }
+    }
+
+    > div#urlList {
+
+      > ul {
+
+        > li {
+
+          > a {
+
+            &:hover {
+              color: $__textColor;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &[data-type='add'] {
+
+    > menu[data-name='select'] {
+
+      > a {
+
+        &.hover {
+
+          &::before {
+            background-color: $__textColor;
+          }
+
+          &::after {
+            color: $__textColor;
+          }
+        }
+      }
+    }
+
+    > menu.buttons > a.action {
+      display: none;
+
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+
+  > menu.buttons {
+
+    > a {
+      color: $__textColor;
+
+      &::before {
+        background: $__textColor;
+      }
+    }
+  }
+}

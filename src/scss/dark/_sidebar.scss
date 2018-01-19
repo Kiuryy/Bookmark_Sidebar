@@ -1,15 +1,5 @@
 body.dark {
 
-  &::after {
-    color: $__textColor;
-    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
-  }
-
-  &.isDragged.dragCancel::after {
-    color: $colorError;
-    background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px);
-  }
-
   section#sidebar {
     background: $darkContentBackground;
 

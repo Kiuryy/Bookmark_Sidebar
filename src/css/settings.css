@@ -38,6 +38,9 @@ svg.loading {
 body.dark svg.loading > circle {
   stroke: #666; }
 
+body.highContrast:not(.dark) svg.loading > circle {
+  stroke: #666; }
+
 div.checkbox {
   position: relative;
   cursor: pointer; }
@@ -131,6 +134,19 @@ html[dir='rtl'] div.checkbox[data-style="switch"] {
   html[dir='rtl'] div.checkbox[data-style="switch"].active {
     padding-left: unset;
     padding-right: 18px; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="default"].active::before {
+  background-color: #666; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="default"].active::after {
+  box-shadow: 0 0 0 0 #666; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="default"].active.focus::after, body.highContrast:not(.dark) div.checkbox[data-style="default"].active.clicked::after {
+  background: #666;
+  box-shadow: 0 0 0 20px #666; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="switch"].active::before, body.highContrast:not(.dark) div.checkbox[data-style="switch"].active::after {
+  background-color: #666; }
 
 body.dark div.checkbox[data-style="default"]::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }

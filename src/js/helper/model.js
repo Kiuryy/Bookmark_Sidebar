@@ -80,6 +80,7 @@
                 showIndicator: true,
                 showIndicatorIcon: true,
                 darkMode: false,
+                highContrast: false,
                 showBookmarkIcons: true,
                 showDirectoryIcons: true,
                 styles: {

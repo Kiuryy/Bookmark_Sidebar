@@ -327,9 +327,10 @@
          * @returns {Promise}
          */
         let initSidebar = async () => {
+            let config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
             this.elements.iframe = $("<iframe id=\"" + opts.ids.page.iframe + "\" />").appendTo("body");
 
-            if (this.helper.model.getData("b/animations") === false) {
+            if (config.animations === false) {
                 this.elements.iframe.addClass(opts.classes.page.noAnimations);
             }
 
@@ -349,8 +350,10 @@
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
-            if (this.helper.model.getData("a/darkMode") === true) {
+            if (config.darkMode === true) {
                 this.elements.iframeBody.addClass(opts.classes.page.darkMode);
+            } else if (config.highContrast === true) {
+                this.elements.iframeBody.addClass(opts.classes.page.highContrast);
             }
 
             this.helper.utility.triggerEvent("elementsCreated", {

@@ -28,7 +28,8 @@
                 cancel: "cancel",
                 active: "active",
                 visible: "visible",
-                darkMode: "dark"
+                darkMode: "dark",
+                highContrast: "highContrast"
             },
             attr: {
                 type: "data-type",
@@ -84,9 +85,11 @@
             this.opts.elm.body.addClass(this.opts.classes.initLoading);
 
             this.helper.model.init().then(() => {
-                let darkMode = this.helper.model.getData("a/darkMode");
-                if (darkMode === true) {
+                let config = this.helper.model.getData(["a/darkMode", "a/highContrast"]);
+                if (config.darkMode === true) {
                     this.opts.elm.body.addClass(this.opts.classes.darkMode);
+                } else if (config.highContrast === true) {
+                    this.opts.elm.body.addClass(this.opts.classes.highContrast);
                 }
                 return this.helper.i18n.init();
             }).then(() => {

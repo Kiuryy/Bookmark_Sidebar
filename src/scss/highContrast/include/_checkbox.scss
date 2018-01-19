@@ -1,0 +1,32 @@
+
+body.highContrast:not(.dark) div.checkbox {
+
+  &[data-style="default"] {
+
+    &.active {
+
+      &::before {
+        background-color: $__textColor;
+      }
+
+      &::after {
+        box-shadow: 0 0 0 0 $__textColor;
+      }
+
+      &.focus::after, &.clicked::after {
+        background: $__textColor;
+        box-shadow: 0 0 0 20px $__textColor;
+      }
+    }
+  }
+
+  &[data-style="switch"] {
+
+    &.active {
+
+      &::before, &::after {
+        background-color: $__textColor;
+      }
+    }
+  }
+}

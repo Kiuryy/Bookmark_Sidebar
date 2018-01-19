@@ -38,6 +38,9 @@ svg.loading {
 body.dark svg.loading > circle {
   stroke: "%textColor"; }
 
+body.highContrast:not(.dark) svg.loading > circle {
+  stroke: "%textColor"; }
+
 *, *::after, *::before {
   padding: 0;
   margin: 0;

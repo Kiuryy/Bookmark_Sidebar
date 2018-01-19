@@ -322,6 +322,7 @@
                 },
                 appearance: {
                     darkMode: s.helper.checkbox.isChecked(s.opts.elm.checkbox.darkMode),
+                    highContrast: false,
                     showIndicator: true,
                     showIndicatorIcon: true,
                     showBookmarkIcons: true,
@@ -340,7 +341,12 @@
                     ret.appearance.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
-                        ret.appearance.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", colorValue.luminance && colorValue.luminance > 170 ? "dark" : "light");
+                        let lum = colorValue.luminance ? colorValue.luminance : 0;
+                        ret.appearance.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", lum > 170 ? "dark" : "light");
+
+                        if (lum > 215) {
+                            ret.appearance.highContrast = true;
+                        }
                     }
                 } else if (s.opts.elm.select[key]) {
                     ret.appearance.styles[key] = s.opts.elm.select[key][0].value;

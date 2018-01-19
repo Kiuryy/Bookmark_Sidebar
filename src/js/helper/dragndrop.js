@@ -42,8 +42,7 @@
 
             dragInitialElm.remove();
             draggedElm.remove();
-
-            ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
+            ext.elements.iframeBody.removeClass([ext.opts.classes.drag.isDragged, ext.opts.classes.drag.cancel]);
 
             $.delay(500).then(() => {
                 ext.helper.toggle.removeSidebarHoverClass();

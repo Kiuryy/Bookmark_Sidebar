@@ -1,4 +1,4 @@
-div.contextmenu, div.tooltip, body::after, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareInfo.hidden, div#reloadInfo.hidden {
+div.contextmenu, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#shareInfo.hidden, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
@@ -36,6 +36,9 @@ svg.loading {
     animation: dash 1.5s ease-in-out infinite; }
 
 body.dark svg.loading > circle {
+  stroke: "%textColor"; }
+
+body.highContrast:not(.dark) svg.loading > circle {
   stroke: "%textColor"; }
 
 .scrollBox {
@@ -243,6 +246,15 @@ html[dir='rtl'] section#sidebar[data-pos='right'] div.contextmenu[data-type='sor
   right: unset;
   left: -57px; }
 
+body.highContrast:not(.dark) div.contextmenu > ul.list > li > a {
+  transition: opacity 0.3s; }
+  body.highContrast:not(.dark) div.contextmenu > ul.list > li > a.hover {
+    color: "%textColor";
+    opacity: 1; }
+    body.highContrast:not(.dark) div.contextmenu > ul.list > li > a.hover::before {
+      background-color: "%textColor";
+      opacity: 0.8; }
+
 body.dark div.contextmenu {
   background: #4d4d4d;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); }
@@ -403,6 +415,19 @@ html[dir='rtl'] div.checkbox[data-style="switch"] {
     padding-left: unset;
     padding-right: 18px; }
 
+body.highContrast:not(.dark) div.checkbox[data-style="default"].active::before {
+  background-color: "%textColor"; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="default"].active::after {
+  box-shadow: 0 0 0 0 "%textColor"; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="default"].active.focus::after, body.highContrast:not(.dark) div.checkbox[data-style="default"].active.clicked::after {
+  background: "%textColor";
+  box-shadow: 0 0 0 20px "%textColor"; }
+
+body.highContrast:not(.dark) div.checkbox[data-style="switch"].active::before, body.highContrast:not(.dark) div.checkbox[data-style="switch"].active::after {
+  background-color: "%textColor"; }
+
 body.dark div.checkbox[data-style="default"]::after {
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
 
@@ -455,27 +480,6 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden; }
-  body::after {
-    content: attr(data-dragCancel);
-    position: absolute;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 500%;
-    font-weight: "%fontWeightExtraLight";
-    color: "%colorScheme";
-    top: 0;
-    left: "%sidebarWidth";
-    height: 100%;
-    width: calc(100% - %sidebarWidth - %sidebarWidth);
-    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(200, 200, 200, 0.3) 5px, rgba(200, 200, 200, 0.3) 10px);
-    transition: 0.5s; }
-  body.isDragged::after {
-    opacity: 1; }
-  body.isDragged.dragCancel::after {
-    color: rgba(102, 102, 102, 0.8);
-    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(255, 153, 153, 0.3) 5px, rgba(255, 153, 153, 0.3) 10px); }
   body.noAnimations *, body.noAnimations *::before, body.noAnimations *::after {
     transition: none !important; }
 
@@ -1262,6 +1266,9 @@ div#reloadInfo > div {
   div#reloadInfo > div::before {
     -webkit-mask-position-y: 0; }
 
+body.dragCancel * {
+  cursor: no-drop !important; }
+
 body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
   display: none; }
 
@@ -1337,13 +1344,13 @@ html[dir='rtl'] div#shareInfo > div > label > a, html[dir='rtl'] div#reloadInfo 
   margin-right: 5px;
   margin-left: unset; }
 
-body.dark::after {
-  color: "%textColor";
-  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px); }
+body.highContrast:not(.dark) section#sidebar > header > a:hover, body.highContrast:not(.dark) section#sidebar > header > a.active {
+  background-color: rgba(0, 0, 0, 0.07); }
 
-body.dark.isDragged.dragCancel::after {
-  color: #f99;
-  background: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) 5px, rgba(0, 0, 0, 0.2) 5px, rgba(0, 0, 0, 0.2) 10px); }
+body.highContrast:not(.dark) section#sidebar > header > div.searchBox {
+  background-color: rgba(0, 0, 0, 0.07); }
+  body.highContrast:not(.dark) section#sidebar > header > div.searchBox > a.searchClose:hover {
+    background-color: rgba(0, 0, 0, 0.07); }
 
 body.dark section#sidebar {
   background: #3d3d3d; }

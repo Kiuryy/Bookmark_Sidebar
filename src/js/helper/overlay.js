@@ -14,14 +14,12 @@
          */
         this.create = (type, title, data) => {
             ext.helper.tooltip.close();
+            let config = ext.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
+
             elements.overlay = $("<iframe />")
                 .attr("id", ext.opts.ids.page.overlay)
                 .data("info", data || {})
                 .appendTo("body");
-
-            if (ext.helper.model.getData("b/animations") === false) {
-                elements.overlay.addClass(ext.opts.classes.page.noAnimations);
-            }
 
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
 
@@ -33,9 +31,14 @@
                 .addClass(ext.opts.classes.overlay.modal)
                 .appendTo(iframeBody);
 
-            let darkMode = ext.helper.model.getData("a/darkMode");
-            if (darkMode === true) {
+            if (config.animations === false) {
+                elements.overlay.addClass(ext.opts.classes.page.noAnimations);
+            }
+
+            if (config.darkMode) {
                 iframeBody.addClass(ext.opts.classes.page.darkMode);
+            } else if (config.highContrast) {
+                iframeBody.addClass(ext.opts.classes.page.highContrast);
             }
 
             let header = $("<header />").appendTo(elements.modal);

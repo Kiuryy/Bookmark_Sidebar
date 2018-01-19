@@ -57,7 +57,7 @@
         "message": "Ouvrir dans une nouvelle fen\u00eatre"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Ouvrir dans une nouvelle fen\u00eatre de navigation priv\u00e9e"
+        "message": "Ouvrir dans une nouvelle fen\u00eatre priv\u00e9e"
     },
     "contextmenu_add": {
         "message": "Ajouter l'\u00e9l\u00e9ment"
@@ -711,7 +711,7 @@
         "message": "Couleur"
     },
     "settings_dark_mode": {
-        "message": "Surface"
+        "message": "Arri\u00e8re plan"
     },
     "settings_color_scheme_desc": {
         "message": "Couleur de la zone de titre de la fen\u00eatre d'info, du nombre de favoris, etc."

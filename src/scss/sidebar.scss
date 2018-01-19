@@ -15,34 +15,6 @@ body {
   height: 100%;
   overflow: hidden;
 
-  &::after {
-    content: attr(data-dragCancel);
-    position: absolute;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 500%;
-    font-weight: $__fontWeightExtraLight;
-    color: $__colorScheme;
-    top: 0;
-    left: $__sidebarWidth;
-    height: 100%;
-    width: calc(100% - #{$__sidebarWidth} - #{$__sidebarWidth});
-    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba(200, 200, 200, 0.3) 5px, rgba(200, 200, 200, 0.3) 10px);
-    transition: 0.5s;
-    @extend %hidden;
-  }
-
-  &.isDragged::after {
-    opacity: 1;
-  }
-
-  &.isDragged.dragCancel::after {
-    color: rgba(#666, 0.8);
-    background: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 5px, rgba($colorError, 0.3) 5px, rgba($colorError, 0.3) 10px);
-  }
-
   &.noAnimations {
 
     *, *::before, *::after {
@@ -682,6 +654,10 @@ body {
 
   &.dragCancel {
 
+    * {
+      cursor: no-drop !important;
+    }
+
     section#sidebar > div.scrollBox > ul li.isDragged {
       display: none;
     }
@@ -689,4 +665,5 @@ body {
 }
 
 @import "rtl/sidebar";
+@import "highContrast/sidebar";
 @import "dark/sidebar";

@@ -227,6 +227,24 @@
     "newtab_top_pages_hidden": {
         "message": "Sayfalar\u0131 g\u00f6sterme"
     },
+    "status_service_unavailable_headline": {
+        "message": "Hizmet kullan\u0131lam\u0131yor"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "URL'leri kontrol eden servis \u015fu an kullan\u0131lam\u0131yor. L\u00fctfen daha sonra tekrar deneyin."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Geri Bildirim servisi \u015fu an kullan\u0131lam\u0131yor. Geri bildirim b\u0131rakmak isterseniz, l\u00fctfen bana e-posta yollay\u0131n."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "\u00c7eviri servisi \u015fu an kullan\u0131lam\u0131yor. L\u00fctfen daha sonra tekrar deneyin."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Uzant\u0131n\u0131n g\u00fcncellenmesinden dolay\u0131 sayfan\u0131n yenilenmesi gerekiyor."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Yeniden y\u00fckle."
+    },
     "changelog_title": {
         "message": "G\u00fcnl\u00fck"
     },

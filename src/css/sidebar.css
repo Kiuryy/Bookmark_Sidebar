@@ -638,10 +638,11 @@ a.dragHelper {
   a.dragHelper.link > span.icon[data-color='10']::before {
     background-color: #8ccbce; }
   a.dragHelper > span.label {
+    position: relative;
     text-overflow: ellipsis;
     overflow: hidden;
     pointer-events: none; }
-    a.dragHelper > span.label::before {
+    a.dragHelper > span.label::after {
       content: "\200B"; }
     a.dragHelper > span.label[data-num]::after {
       content: " " attr(data-num); }
@@ -1070,10 +1071,11 @@ section#sidebar {
         section#sidebar > div.scrollBox > ul a.link > span.icon[data-color='10']::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon[data-color='10']::before {
           background-color: #8ccbce; }
         section#sidebar > div.scrollBox > ul a > span.label, section#sidebar > div.scrollBox > div.pinned > ul a > span.label {
+          position: relative;
           text-overflow: ellipsis;
           overflow: hidden;
           pointer-events: none; }
-          section#sidebar > div.scrollBox > ul a > span.label::before, section#sidebar > div.scrollBox > div.pinned > ul a > span.label::before {
+          section#sidebar > div.scrollBox > ul a > span.label::after, section#sidebar > div.scrollBox > div.pinned > ul a > span.label::after {
             content: "\200B"; }
           section#sidebar > div.scrollBox > ul a > span.label[data-num]::after, section#sidebar > div.scrollBox > div.pinned > ul a > span.label[data-num]::after {
             content: " " attr(data-num); }

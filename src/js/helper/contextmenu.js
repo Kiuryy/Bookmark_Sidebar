@@ -261,6 +261,13 @@
             }
         };
 
+        /**
+         * Sets the correct position for the contextmenu based on the type
+         *
+         * @param {jsu} contextmenu
+         * @param {jsu} elm
+         * @param {string} type
+         */
         let setPosition = (contextmenu, elm, type) => {
             let dim = {w: contextmenu.realWidth(), h: contextmenu.realHeight()};
             let elmBoundClientRect = elm[0].getBoundingClientRect();
@@ -501,11 +508,16 @@
         clickFuncs.closeAll = (opts) => {
             let list = ext.elements.bookmarkBox.all.children("ul");
             let hideRoot = list.hasClass(ext.opts.classes.sidebar.hideRoot);
+            let promises = [];
 
             list.find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
                 if (hideRoot === false || $(dir).parents("li").length() > 1) {
-                    ext.helper.list.toggleBookmarkDir($(dir), false, false);
+                    promises.push(ext.helper.list.toggleBookmarkDir($(dir), false, false));
                 }
+            });
+
+            Promise.all(promises).then(() => {
+                ext.helper.list.cacheList();
             });
         };
 

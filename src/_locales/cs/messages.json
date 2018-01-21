@@ -404,6 +404,9 @@
     "settings_open_action_icon": {
         "message": "Kliknut\u00ed na ikonu"
     },
+    "settings_keyboard_shortcut_button": {
+        "message": "Nastav kl\u00e1vesovou zkratku"
+    },
     "settings_link_action": {
         "message": "Otev\u0159\u00edt z\u00e1lo\u017eky"
     },
@@ -514,6 +517,9 @@
     },
     "settings_drag_n_drop_open_desc": {
         "message": "Umo\u017e\u0148uje p\u0159eta\u017een\u00ed textov\u00fdch voleb, odkaz\u016f a adres URL do postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud chcete ulo\u017eit na z\u00e1lo\u017eku aktu\u00e1ln\u00ed str\u00e1nku nebo jin\u00e9 odkazy na webov\u00fdch str\u00e1nk\u00e1ch."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Znovu otev\u0159\u00edt bo\u010dn\u00ed li\u0161tu z\u00e1lo\u017eek"
     },
     "settings_tooltip_delay": {
         "message": "Odlo\u017een\u00ed n\u00e1stroje"

@@ -1,6 +1,13 @@
 
 body.highContrast:not(.dark) div.modal {
 
+  > header {
+
+    > a.close:hover {
+      background-color: rgba(0, 0, 0, 0.07);
+    }
+  }
+
   &[data-type='updateUrls'] {
 
     > div.progressBar {

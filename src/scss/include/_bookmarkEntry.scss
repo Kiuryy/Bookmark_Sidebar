@@ -156,12 +156,13 @@
   }
 
   > span.label {
+    position: relative;
     text-overflow: ellipsis;
     overflow: hidden;
     pointer-events: none;
 
-    &::before {
-      content: "\200B";
+    &::after {
+      content: "\200B"; // maintain height even with empty label
     }
 
     &[data-num]::after { // for appearance preview

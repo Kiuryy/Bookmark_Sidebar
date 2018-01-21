@@ -879,6 +879,9 @@ html[dir='rtl'] div.modal > menu.buttons {
   right: unset;
   left: 20px; }
 
+body.highContrast:not(.dark) div.modal > header > a.close:hover {
+  background-color: rgba(0, 0, 0, 0.07); }
+
 body.highContrast:not(.dark) div.modal[data-type='updateUrls'] > div.progressBar > div {
   background: "%textColor"; }
 

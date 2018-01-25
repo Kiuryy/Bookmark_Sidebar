@@ -9,6 +9,14 @@
     margin: 0 0 0 $__bookmarksHorizontalPadding;
   }
 
+  > span.removeMask {
+    transform: translateX(-100%);
+
+    > span {
+      float: left;
+    }
+  }
+
   > span.drag {
     right: unset;
     left: 15px;

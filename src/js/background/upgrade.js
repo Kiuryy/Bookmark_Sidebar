@@ -104,6 +104,7 @@
                                 Object.entries(d.utility.separators).forEach(([parentId, separators]) => {
                                     if (separators && separators.length > 0) {
                                         separators.forEach((separator) => {
+                                            b.preventReload = true;
                                             b.helper.bookmarkApi.func.create({
                                                 title: "----------",
                                                 url: "about:blank",
@@ -118,6 +119,9 @@
                             } finally {
                                 delete d.utility.separators;
                                 chrome.storage.local.set({utility: d.utility});
+                                setTimeout(() => {
+                                    b.preventReload = false;
+                                }, 2000);
                             }
                         }
                     });

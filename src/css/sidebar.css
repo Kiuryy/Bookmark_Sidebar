@@ -542,8 +542,6 @@ a.dragHelper {
     padding: 0 "%bookmarksHorizontalPadding";
     transform: translateX(100%);
     transition: transform 0.3s; }
-    a.dragHelper > span.removeMask::before {
-      -webkit-mask-position: "%bookmarksHorizontalPadding" center; }
     a.dragHelper > span.removeMask > em {
       font-style: italic; }
     a.dragHelper > span.removeMask > span {
@@ -553,7 +551,7 @@ a.dragHelper {
   a.dragHelper.removed {
     pointer-events: none; }
     a.dragHelper.removed > span.removeMask {
-      transform: translateX(0); }
+      transform: translateX(0) !important; }
   a.dragHelper > span.copied {
     position: absolute;
     top: -20px;
@@ -976,8 +974,6 @@ section#sidebar {
           padding: 0 "%bookmarksHorizontalPadding";
           transform: translateX(100%);
           transition: transform 0.3s; }
-          section#sidebar > div.scrollBox > ul a > span.removeMask::before, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask::before {
-            -webkit-mask-position: "%bookmarksHorizontalPadding" center; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > em, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > em {
             font-style: italic; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > span, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > span {
@@ -987,7 +983,7 @@ section#sidebar {
         section#sidebar > div.scrollBox > ul a.removed, section#sidebar > div.scrollBox > div.pinned > ul a.removed {
           pointer-events: none; }
           section#sidebar > div.scrollBox > ul a.removed > span.removeMask, section#sidebar > div.scrollBox > div.pinned > ul a.removed > span.removeMask {
-            transform: translateX(0); }
+            transform: translateX(0) !important; }
         section#sidebar > div.scrollBox > ul a > span.copied, section#sidebar > div.scrollBox > div.pinned > ul a > span.copied {
           position: absolute;
           top: -20px;
@@ -1284,6 +1280,10 @@ html[dir='rtl'] a.dragHelper {
     right: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px); }
   html[dir='rtl'] a.dragHelper > img, html[dir='rtl'] a.dragHelper > span.icon {
     margin: 0 0 0 "%bookmarksHorizontalPadding"; }
+  html[dir='rtl'] a.dragHelper > span.removeMask {
+    transform: translateX(-100%); }
+    html[dir='rtl'] a.dragHelper > span.removeMask > span {
+      float: left; }
   html[dir='rtl'] a.dragHelper > span.drag {
     right: unset;
     left: 15px; }
@@ -1327,6 +1327,11 @@ html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.copied, html[dir='
 
 html[dir='rtl'] section#sidebar > div.scrollBox > ul a > img, html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.icon, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > img, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.icon {
   margin: 0 0 0 "%bookmarksHorizontalPadding"; }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.removeMask, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask {
+  transform: translateX(-100%); }
+  html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.removeMask > span, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > span {
+    float: left; }
 
 html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.drag, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {
   right: unset;

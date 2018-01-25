@@ -61,10 +61,6 @@
     transform: translateX(100%);
     transition: transform 0.3s;
 
-    &::before {
-      -webkit-mask-position: $__bookmarksHorizontalPadding center;
-    }
-
     > em {
       font-style: italic;
     }
@@ -80,7 +76,7 @@
     pointer-events: none;
 
     > span.removeMask {
-      transform: translateX(0);
+      transform: translateX(0) !important;
     }
   }
 

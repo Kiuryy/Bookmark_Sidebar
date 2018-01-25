@@ -30,7 +30,7 @@
 
             if (data.isDir && !elm.hasClass(ext.opts.classes.sidebar.dirAnimated)) {  // Click on dir
                 if (middleClick) { // middle click -> open all children
-                    let bookmarks = data.children.filter(val => !!(val.url));
+                    let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
                     if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                         ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
                     } else { // open bookmarks directly without confirmation

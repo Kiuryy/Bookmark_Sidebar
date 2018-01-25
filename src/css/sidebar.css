@@ -200,7 +200,7 @@ div.contextmenu {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newWindow.svg); }
       div.contextmenu > ul.list > li > a[data-name='newIncognito']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-incognito.svg); }
-      div.contextmenu > ul.list > li > a[data-name='deleteSeparator']::before {
+      div.contextmenu > ul.list > li > a[data-name='delete']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg); }
       div.contextmenu > ul.list > li > a[data-name='updateUrls']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg); }
@@ -548,6 +548,7 @@ a.dragHelper {
       font-style: italic; }
     a.dragHelper > span.removeMask > span {
       pointer-events: auto;
+      cursor: pointer;
       float: right; }
   a.dragHelper.removed {
     pointer-events: none; }
@@ -981,6 +982,7 @@ section#sidebar {
             font-style: italic; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > span, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > span {
             pointer-events: auto;
+            cursor: pointer;
             float: right; }
         section#sidebar > div.scrollBox > ul a.removed, section#sidebar > div.scrollBox > div.pinned > ul a.removed {
           pointer-events: none; }
@@ -1176,7 +1178,7 @@ section#sidebar {
   section#sidebar[data-sort='custom'] > div.scrollBox a:hover {
     padding-right: 46px; }
   section#sidebar[data-sort='custom'] > div.scrollBox a > span.drag {
-    display: block; }
+    display: block !important; }
   section#sidebar.loading > svg.loading {
     position: absolute;
     top: calc(50% - 18px);
@@ -1271,7 +1273,7 @@ div#reloadInfo > div {
 body.dragCancel * {
   cursor: no-drop !important; }
 
-body.dragCancel section#sidebar > div.scrollBox > ul li.isDragged {
+body.dragCancel section#sidebar > div.scrollBox ul li.isDragged {
   display: none; }
 
 html[dir='rtl'] a.dragHelper {

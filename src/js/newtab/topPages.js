@@ -234,7 +234,7 @@
             let list = [];
 
             pinnedEntries.some((bookmark) => {
-                if (config.showHidden || n.helper.entry.isVisible(bookmark.id)) {
+                if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
                     list.push(bookmark);
                     if (list.length >= amount.total) {
                         return true;
@@ -286,7 +286,7 @@
             let list = [];
 
             allBookmarks.some((bookmark) => {
-                if (config.showHidden || n.helper.entry.isVisible(bookmark.id)) {
+                if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
                     list.push(bookmark);
                     if (list.length >= amount.total) {
                         return true;

@@ -153,8 +153,6 @@
             } else { // determine type of given element
                 if (elm.hasClass(ext.opts.classes.sidebar.bookmarkDir)) {
                     type = "directory";
-                } else if (elm.hasClass(ext.opts.classes.sidebar.separator)) {
-                    type = "separator";
                 } else if (elm.parents("div." + ext.opts.classes.sidebar.entryPinned).length() > 0) {
                     type = "pinned";
                 }
@@ -201,14 +199,10 @@
             ext.helper.tooltip.close();
 
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
-            let data = {};
+            let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
 
-            if (!elm.hasClass(ext.opts.classes.sidebar.separator)) {
-                data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
-
-                if (data === null) {
-                    return false;
-                }
+            if (data === null) {
+                return false;
             }
 
             let elmParent = elm.parent("li");
@@ -223,7 +217,7 @@
 
             let index = 0;
             elmParent.prevAll("li").forEach((entry) => {
-                if (!$(entry).hasClass(ext.opts.classes.drag.dragInitial) && $(entry).children("a." + ext.opts.classes.sidebar.separator).length() === 0) {
+                if (!$(entry).hasClass(ext.opts.classes.drag.dragInitial)) {
                     index++;
                 }
             });
@@ -307,19 +301,13 @@
                 let index = 0;
 
                 entryElm.prevAll("li").forEach((el) => {
-                    if (el !== dragInitialElm && !$(el).children("a").hasClass(ext.opts.classes.sidebar.separator)) {
+                    if (el !== dragInitialElm) {
                         index++;
                     }
                 });
 
-                if (type === "separator") { // save separator position
-                    if (parentId !== prevParentId) { // separator is moved from one directory into another -> remove from previous directory
-                        ext.helper.specialEntry.removeSeparator({id: prevParentId, index: prevIndex});
-                    }
-
-                    ext.helper.specialEntry.reorderSeparators([parentId]);
-                } else if (type === "pinned") { // save position of pinned entry
-                    ext.helper.specialEntry.reorderPinnedEntries({
+                if (type === "pinned") { // save position of pinned entry
+                    ext.helper.bookmark.reorderPinnedEntries({
                         id: entryElm.children("a").attr(ext.opts.attr.id),
                         prevId: entryElm.prev("li").children("a").attr(ext.opts.attr.id)
                     });
@@ -329,7 +317,6 @@
                         parentId: parentId,
                         index: index
                     });
-                    ext.helper.specialEntry.reorderSeparators([parentId]);
                 }
 
                 trackEvent(elm, {type: "end"});

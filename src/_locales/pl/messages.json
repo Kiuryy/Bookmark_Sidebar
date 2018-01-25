@@ -269,6 +269,48 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Je\u015bli ta nieprawid\u0142owo\u015b\u0107 pojawia si\u0119 regularnie, prosz\u0119 o jej zg\u0142oszenie."
     },
+    "contribute_headline": {
+        "message": "Potrzebuj\u0119 Twojej pomocy"
+    },
+    "contribute_intro": {
+        "message": "W celu udoskonalenia tego dodatku chcia\u0142bym dok\u0142adniej dowiedzie\u0107 si\u0119 w jaki spos\u00f3b u\u017cytkownicy korzystaj\u0105 z panelu bocznego oraz jakich u\u017cywaj\u0105 konfiguracji."
+    },
+    "contribute_outro": {
+        "message": "Je\u015bli masz pytania lub w\u0105tpliwo\u015bci zwi\u0105zane z udost\u0119pnianiem informacji, wy\u015blij do mnie prosz\u0119 wiadomo\u015b\u0107 z komentarzem."
+    },
+    "contribute_dismiss": {
+        "message": "Odrzu\u0107"
+    },
+    "contribute_share_config_label": {
+        "message": "Udost\u0119pnij konfiguracj\u0119"
+    },
+    "contribute_share_activity_label": {
+        "message": "Podziel si\u0119 aktywno\u015bci\u0105"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Mo\u017ce udost\u0119pnia\u0107 swoj\u0105 aktywno\u015b\u0107 w obr\u0119bie paska bocznego anonimowo. Pomaga mi to pozna\u0107 sposoby w jakie u\u017cytkownicy korzystaj\u0105 z paska zak\u0142adek. Informacje na temat Twoich zak\u0142adek lub odwiedzonych stron [b]nie b\u0119d\u0105[\/b] przetwarzane."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Te informacje s\u0105 bardzo u\u017cyteczne i s\u0142u\u017c\u0105 do wykrywania problem\u00f3w zwi\u0105zanych z funkcjonalno\u015bci\u0105 lub opcjami, kt\u00f3re na przyk\u0142ad s\u0105 rzadko wykorzystywane."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Oto przyk\u0142ady udost\u0119pnianych informacji:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Ile \u015brednio, zak\u0142adek posiadaj\u0105 u\u017cytkownicy?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Na jakim systemie pracuj\u0105 u\u017cytkownicy (Windows, Mac, Linux...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Czy u\u017cytkownicy korzystaj\u0105 z wyszukiwania?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Czy u\u017cytkownicy zmieniaj\u0105 spos\u00f3b sortowania?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Jak cz\u0119sto u\u017cytkownicy zmieniaj\u0105 lub edytuj\u0105 ustawienia?"
+    },
     "onboarding_title": {
         "message": "Konfiguracja"
     },

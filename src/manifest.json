@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "61", // released 05.09.2017
+  "minimum_chrome_version": "62", // released 17.10.2017
   "homepage_url": "https://extensions.blockbyte.de/",
   "background": {
     "scripts": [
@@ -52,7 +52,6 @@
         "js/helper/contextmenu.js",
         "js/helper/bookmark.js",
         "js/helper/tooltip.js",
-        "js/helper/specialEntry.js",
         "js/helper/utility.js",
         "js/extension.js",
         "js/init.js"

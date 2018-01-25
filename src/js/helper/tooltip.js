@@ -25,7 +25,8 @@
          */
         this.create = (elm) => {
             let id = elm.attr(ext.opts.attr.id);
-            if (id) {
+
+            if (id && ext.helper.entry.isSeparator(id) === false) {
                 ext.helper.toggle.addSidebarHoverClass();
 
                 closeAllExcept(id);

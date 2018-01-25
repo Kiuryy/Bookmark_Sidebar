@@ -377,6 +377,7 @@
          */
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
+            let showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
 
             if (list.parents("li").length() === 0) {
@@ -387,18 +388,6 @@
                 list.css("transition", "height " + config.dirOpenDuration + "s");
             }
 
-            if (asTree && sort.name === "custom" && list.prev("a").length() > 0) { // show separators in custom sorted view
-                let dirId = list.prev("a").attr(ext.opts.attr.id);
-                let separators = ext.helper.model.getData("u/separators");
-                if (separators[dirId]) {
-                    separators[dirId].forEach((separator) => {
-                        separator.separator = true;
-                        separator.parentId = dirId;
-                        bookmarks.push(separator);
-                    });
-                }
-            }
-
             let bookmarkCounter = 0;
             list.removeData("remainingEntries");
 
@@ -407,7 +396,7 @@
             }
 
             bookmarks.some((bookmark, idx) => {
-                if ((config.showHidden || bookmark.separator || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url || bookmark.separator)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
+                if ((config.showHidden || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
                     if (ext.opts.demoMode) {
                         if (bookmark.children) {
                             bookmark.title = "Directory " + (idx + 1);
@@ -417,10 +406,12 @@
                         }
                     }
 
-                    addEntryToList(bookmark, list, {
-                        config: config,
-                        asTree: asTree
-                    });
+                    if (ext.helper.entry.isSeparator(bookmark.id) === false || showSeparators) { // entry is no separator or separators should be displayed
+                        addEntryToList(bookmark, list, {
+                            config: config,
+                            asTree: asTree
+                        });
+                    }
 
                     if (bookmark.url) { // link
                         bookmarkCounter++;
@@ -490,18 +481,21 @@
             let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "";
             let entryContent = $("<a />").appendTo(entry);
 
-            $("<span />").addClass(ext.opts.classes.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
-            $("<span />").addClass(ext.opts.classes.drag.trigger).appendTo(entryContent);
+            let labelElm = $("<span />").addClass(ext.opts.classes.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
+            let dragElm = $("<span />").addClass(ext.opts.classes.drag.trigger).appendTo(entryContent);
 
             if (bookmark.id) {
                 entryContent.attr(ext.opts.attr.id, bookmark.id);
             }
 
-            if (!(bookmark.separator) && ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
+            if (ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
                 entry.addClass(ext.opts.classes.sidebar.hidden);
             }
 
-            if (bookmark.children && opts.asTree) { // dir
+            if (ext.helper.entry.isSeparator(bookmark.id)) { // separator
+                entryContent.addClass(ext.opts.classes.sidebar.separator);
+                labelElm.text("");
+            } else if (bookmark.children && opts.asTree) { // dir
                 entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
 
                 if (opts.config.showDirectoryIcons) {
@@ -522,8 +516,6 @@
                         });
                     }
                 }
-            } else if (bookmark.separator) { // separator
-                entryContent.addClass(ext.opts.classes.sidebar.separator);
             }
 
             return entry;
@@ -553,7 +545,7 @@
                 switch (sort.name) {
                     case "custom": {
                         doSort("ASC", (a, b) => {
-                            return (a.index - (a.separator ? 0.5 : 0)) - (b.index - (b.separator ? 0.5 : 0));
+                            return a.index - b.index;
                         });
                         break;
                     }

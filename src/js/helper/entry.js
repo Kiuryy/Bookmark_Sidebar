@@ -125,6 +125,24 @@
         };
 
         /**
+         * Returns whether the given entry is a separator,
+         * if the url is 'about:blank' and the title only contains dashes or underscores, the method will return true
+         *
+         * @param {int} id
+         * @returns {boolean}
+         */
+        this.isSeparator = (id) => {
+            let ret = false;
+
+            if (typeof entries.bookmarks[id] === "object") {
+                let titleFiltered = entries.bookmarks[id].title.replace(/[^-_]/g, "");
+                ret = entries.bookmarks[id].url === "about:blank" && titleFiltered.length === entries.bookmarks[id].title.length;
+            }
+
+            return ret;
+        };
+
+        /**
          * Returns false for all entries which are not in the entries object or have the hidden flag set to true
          *
          * @param {int} id
@@ -287,7 +305,10 @@
 
             entry.pinned = false;
             entries.bookmarks[entry.id] = entry;
-            amounts.bookmarks[entry.hidden ? "hidden" : "visible"]++;
+
+            if (this.isSeparator(entry.id) === false) {
+                amounts.bookmarks[entry.hidden ? "hidden" : "visible"]++;
+            }
 
             if (config.pinnedEntries[entry.id]) { // pinned bookmark -> add entry to the respective object
                 entry.pinned = true;
@@ -297,7 +318,6 @@
                 delete obj.parents;
                 delete obj.parentId;
                 entries.pinned[entry.id] = obj;
-
                 amounts.pinned[entry.hidden ? "hidden" : "visible"]++;
             }
         };

@@ -530,7 +530,7 @@ section#sidebar {
         }
 
         > span.drag {
-          display: block;
+          display: block !important;
         }
       }
     }
@@ -658,7 +658,7 @@ body {
       cursor: no-drop !important;
     }
 
-    section#sidebar > div.scrollBox > ul li.isDragged {
+    section#sidebar > div.scrollBox ul li.isDragged {
       display: none;
     }
   }

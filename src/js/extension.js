@@ -291,7 +291,6 @@
                 bookmark: new window.BookmarkHelper(this),
                 overlay: new window.OverlayHelper(this),
                 utility: new window.UtilityHelper(this),
-                specialEntry: new window.SpecialEntryHelper(this),
                 contextmenu: new window.ContextmenuHelper(this),
                 tooltip: new window.TooltipHelper(this)
             };
@@ -346,7 +345,6 @@
             this.elements.pinnedBox = $("<div />").addClass(opts.classes.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
             this.elements.lockPinned = $("<a />").addClass(opts.classes.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
 
-            this.elements.iframeBody.attr(opts.attr.dragCancel, this.helper.i18n.get("sidebar_drag_cancel"));
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 

@@ -76,10 +76,8 @@
                 chrome.storage.sync.get(null, (obj) => { // get all stored information
                     if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
                         b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            let lang = chrome.i18n.getUILanguage();
-                            if (["ar", "fa", "iw"].indexOf(lang) > -1) { // @deprecated only show changelog for users with rtl languages for v1.12
-                                chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
-                            }
+                            // --> don't show changelog for v1.13, because there aren't new visual features
+                            // chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
                         });
                     }
 
@@ -95,10 +93,34 @@
                         obj.newtab = {};
                     }
 
-                    // START UPGRADE // v1.13 -> released [...]
+                    // START UPGRADE // v1.13 -> released [02-2018]
                     if (typeof obj.language === "string" && obj.language.search("-") > -1) {
                         chrome.storage.local.set({language: obj.language.replace("-", "_")});
                     }
+
+                    chrome.storage.local.get(["utility"], (d) => { // replace old separator data with new format (special bookmarks)
+                        if (d && d.utility && d.utility.separators) {
+                            try {
+                                Object.entries(d.utility.separators).forEach(([parentId, separators]) => {
+                                    if (separators && separators.length > 0) {
+                                        separators.forEach((separator) => {
+                                            b.helper.bookmarkApi.func.create({
+                                                title: "----------",
+                                                url: "about:blank",
+                                                parentId: parentId,
+                                                index: separator.index || 0
+                                            });
+                                        });
+                                    }
+                                });
+                            } catch (e) {
+                                //
+                            } finally {
+                                delete d.utility.separators;
+                                chrome.storage.local.set({utility: d.utility});
+                            }
+                        }
+                    });
                     // END UPGRADE // v1.13
 
                     // START UPGRADE // v1.12 -> released 01-2018
@@ -109,9 +131,6 @@
                             delete obj.utility.autoOpen;
                         } catch (e) {
                             //
-                        }
-                        if (typeof obj.utility !== "undefined") {
-                            chrome.storage.local.set({utility: obj.utility});
                         }
                     }
 

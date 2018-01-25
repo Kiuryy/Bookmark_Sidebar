@@ -348,7 +348,7 @@
          * @param {object} data
          */
         let handleOpenChildrenHtml = (data) => {
-            let bookmarks = data.children.filter(val => !!(val.url));
+            let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
             let text = ext.helper.i18n.get("overlay_confirm_open_children", [bookmarks.length]);
 
             $("<p />").text(text).appendTo(elements.modal);
@@ -394,10 +394,7 @@
                 let type = $(e.currentTarget).attr(ext.opts.attr.type);
 
                 if (type === "separator") {
-                    ext.helper.specialEntry.addSeparator({id: data.id, index: 0}).then(() => {
-                        this.closeOverlay(false, "_separator");
-                        ext.helper.model.call("reload", {type: "Separator"});
-                    });
+                    addSeparator(data);
                 } else {
                     let list = $("<ul />").appendTo(elements.modal);
 
@@ -633,7 +630,7 @@
          */
         let openChildren = (data) => {
             this.closeOverlay();
-            let bookmarks = data.children.filter(val => !!(val.url));
+            let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
             ext.helper.utility.openAllBookmarks(bookmarks);
         };
 
@@ -739,6 +736,28 @@
         };
 
         /**
+         * Adds a separator to the given directory
+         *
+         * @param {object} data
+         */
+        let addSeparator = (data) => {
+            console.log(data);
+            ext.helper.model.call("createBookmark", {
+                title: "----------",
+                url: "about:blank",
+                parentId: data.id || null,
+                index: 0
+            }).then(() => {
+                ext.helper.model.call("trackEvent", {
+                    category: "extension",
+                    action: "add",
+                    label: "separator"
+                });
+                this.closeOverlay(false, "_separator");
+            });
+        };
+
+        /**
          * Adds a bookmark or directory to the given directory
          *
          * @param {object} data
@@ -764,22 +783,7 @@
                     }
                 }
 
-                let parentEntry = ext.elements.bookmarkBox.all.find("a[" + ext.opts.attr.id + "='" + obj.parentId + "']");
-
-                if (parentEntry.length() > 0 && parentEntry.next("ul").length() > 0) { // insert an empty element at the position of the new entry to correct the separator positions for the changed directory
-                    let entries = parentEntry.next("ul").children("li");
-                    if (entries.length() === 0) {
-                        parentEntry.next("ul").prepend("<li />");
-                    } else if (entries.eq(obj.index)) {
-                        $("<li />").insertBefore(entries.eq(obj.index));
-                    }
-                }
-
-                $.delay(100).then(() => {
-                    return ext.helper.specialEntry.reorderSeparators([obj.parentId]);
-                }).then(() => {
-                    return ext.helper.model.call("createBookmark", obj);
-                }).then((result) => {
+                ext.helper.model.call("createBookmark", obj).then((result) => {
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
                     } else {
@@ -800,19 +804,15 @@
          * updates entries with changed urls
          */
         let updateBookmarkUrls = () => {
-            let deleteBuffer = [];
-            let parentIds = [];
-
             elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li").forEach((elm) => {
                 if ($(elm).find("input[type='checkbox']")[0].checked) {
                     let entry = $(elm).data("entry");
 
                     if (entry.urlStatusCode === 404) {
-                        ext.elements.bookmarkBox.all.find("a[" + ext.opts.attr.id + "='" + entry.id + "']").parent("li").remove();
-                        deleteBuffer.push({id: entry.id});
-                        if (parentIds.indexOf(entry.parentId) === -1) {
-                            parentIds.push(entry.parentId);
-                        }
+                        ext.helper.model.call("deleteBookmark", {
+                            id: entry.id,
+                            preventReload: true
+                        });
                     } else if (entry.url !== entry.newUrl) {
                         ext.helper.model.call("updateBookmark", {
                             id: entry.id,
@@ -822,13 +822,6 @@
                         });
                     }
                 }
-            });
-
-            ext.helper.specialEntry.reorderSeparators(parentIds).then(() => { // reorder the separators of the directories with deleted entries to match its current position -> delete the entries afterwards
-                deleteBuffer.forEach((info) => {
-                    info.preventReload = true;
-                    ext.helper.model.call("deleteBookmark", info);
-                });
             });
 
             ext.helper.model.call("reload", {type: "Update"});

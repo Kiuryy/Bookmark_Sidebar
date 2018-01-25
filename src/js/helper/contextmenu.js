@@ -182,19 +182,18 @@
          * @param {jsu} elm
          */
         let handleSeparatorMenu = (contextmenu, elm) => {
-            let listEntry = elm.parent("li");
+            let elmId = elm.attr(ext.opts.attr.id);
+            let data = ext.helper.entry.getData(elmId);
 
-            let entry = $("<li />").appendTo(contextmenu.children("ul." + ext.opts.classes.contextmenu.list));
+            if (data && data.parents && data.parents.length > 0) {
+                let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
+
+                if (data.parents.length > 0) { // root level can not be edited or deleted
+                    list.append("<li><a " + ext.opts.attr.name + "='delete'>" + ext.helper.i18n.get("contextmenu_delete_separator") + "</a></li>");
+                }
+            }
+
             contextmenu.children("ul." + ext.opts.classes.contextmenu.icons).remove();
-
-            $("<a />")
-                .attr(ext.opts.attr.name, "deleteSeparator")
-                .text(ext.helper.i18n.get("contextmenu_delete_separator"))
-                .data("infos", {
-                    id: listEntry.parent("ul").prev("a").attr(ext.opts.attr.id),
-                    index: listEntry.prevAll("li").length()
-                })
-                .appendTo(entry);
         };
 
         /**
@@ -214,7 +213,7 @@
                 let isSearchList = ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active);
 
                 if (data.isDir) {
-                    let bookmarks = data.children.filter(val => !!(val.url));
+                    let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
 
                     if (bookmarks.length > 0) {
                         list.append("<li><a " + ext.opts.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + " <span>(" + bookmarks.length + ")</span></a></li>");
@@ -389,17 +388,6 @@
         };
 
         /**
-         * Deletes the given separator
-         *
-         * @param {object} opts
-         */
-        clickFuncs.deleteSeparator = (opts) => {
-            ext.helper.specialEntry.removeSeparator($(opts.elm).data("infos")).then(() => {
-                ext.helper.model.call("reload", {type: "Separator"});
-            });
-        };
-
-        /**
          * Shows the hidden entries
          *
          * @param {object} opts
@@ -426,7 +414,7 @@
          */
         clickFuncs.openChildren = (opts) => {
             if (opts.data) {
-                let bookmarks = opts.data.children.filter(val => !!(val.url));
+                let bookmarks = opts.data.children.filter(val => val.url && val.url !== "about:blank");
                 if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                     ext.helper.overlay.create(opts.name, ext.helper.i18n.get("contextmenu_open_children"), opts.data);
                 } else { // open bookmarks directly without confirmation
@@ -441,7 +429,7 @@
          * @param {object} opts
          */
         clickFuncs.pin = (opts) => {
-            ext.helper.specialEntry.pinEntry(opts.data).then(() => {
+            ext.helper.bookmark.pinEntry(opts.data).then(() => {
                 ext.helper.model.call("reload", {type: "Pin"});
             });
         };
@@ -452,7 +440,7 @@
          * @param {object} opts
          */
         clickFuncs.unpin = (opts) => {
-            ext.helper.specialEntry.unpinEntry(opts.data).then(() => {
+            ext.helper.bookmark.unpinEntry(opts.data).then(() => {
                 ext.helper.model.call("reload", {type: "Unpin"});
             });
         };

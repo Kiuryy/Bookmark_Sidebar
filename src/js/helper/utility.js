@@ -11,6 +11,10 @@
          * @param {boolean} active
          */
         this.openUrl = (infos, type = "default", active = true) => {
+            if (infos.url === "about:blank") {
+                return;
+            }
+
             ext.helper.model.setData({
                 "u/lastOpened": infos.id,
                 "u/performReopening": active ? (infos.reopenSidebar || false) : false

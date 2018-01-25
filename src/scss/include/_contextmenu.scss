@@ -192,7 +192,7 @@ div.contextmenu {
           @include maskImage('icon-incognito');
         }
 
-        &[data-name='deleteSeparator']::before {
+        &[data-name='delete']::before {
           @include maskImage('icon-delete');
         }
 

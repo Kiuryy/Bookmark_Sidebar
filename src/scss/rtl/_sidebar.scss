@@ -18,7 +18,7 @@ html[dir='rtl'] {
         margin-right: unset;
       }
 
-      > a::before {
+      > a:not(.search)::before {
         transform: scaleX(-1);
       }
 

@@ -95,7 +95,7 @@ div#topPages {
           div#topPages > ul > li > a > span > img {
             display: inline-block;
             width: 14px;
-            margin: 0px 5px 0 0;
+            margin: 0 5px 0 0;
             vertical-align: top; }
         div#topPages > ul > li > a > img {
           display: block;
@@ -110,6 +110,9 @@ div#topPages {
       max-width: 477px; }
     div#topPages > ul[data-perRow='2'] {
       max-width: 318px; }
+
+html[dir='rtl'] div#topPages > ul > li > a > span > img {
+  margin: 0 0 0 5px; }
 
 body.dark div#topPages > ul > li > a {
   border-color: rgba(255, 255, 255, 0.075);
@@ -138,6 +141,10 @@ section#content > nav {
       transition: background 0.3s; }
       section#content > nav > ul > li > a.link:hover {
         background: rgba(0, 0, 0, 0.05); }
+
+html[dir='rtl'] section#content > nav {
+  left: 20px;
+  right: unset; }
 
 body.dark section#content > nav > ul > li > a:hover {
   background: #4d4d4d; }
@@ -201,7 +208,7 @@ div#search {
       pointer-events: auto;
       font-size: 110%;
       pointer-events: auto;
-      padding: 3px 10px 3px 26px;
+      padding: 3px 10px 3px 28px;
       transition: background 0.1s; }
       div#search > ul.suggestions > li::before {
         content: "";
@@ -216,11 +223,31 @@ div#search {
         cursor: pointer;
         background: "%hoverColor" !important; }
       div#search > ul.suggestions > li::before {
-        -webkit-mask-position-x: 7px; }
+        width: 14px;
+        height: 14px;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        margin: auto; }
       div#search > ul.suggestions > li[data-type='url']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg); }
       div#search > ul.suggestions > li[data-type='word']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
+
+html[dir='rtl'] div#search > input[type='text'] {
+  padding: 0 30px 0 55px;
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2); }
+
+html[dir='rtl'] div#search > button[type="submit"] {
+  left: 16px;
+  right: unset; }
+
+html[dir='rtl'] div#search > ul.suggestions > li {
+  padding-right: 28px;
+  padding-left: 10px; }
+  html[dir='rtl'] div#search > ul.suggestions > li::before {
+    left: unset;
+    right: 7px; }
 
 body.dark div#search > input[type='text'] {
   background: #4d4d4d; }
@@ -459,6 +486,55 @@ body.edit div#topPages > select {
   outline: none;
   cursor: pointer;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); }
+
+html[dir='rtl'] menu.infoBar {
+  justify-content: flex-start; }
+  html[dir='rtl'] menu.infoBar > a.save {
+    order: 1; }
+  html[dir='rtl'] menu.infoBar > a.cancel {
+    order: 2; }
+
+html[dir='rtl'] body[data-pos='right'] menu.infoBar {
+  justify-content: flex-end; }
+  html[dir='rtl'] body[data-pos='right'] menu.infoBar > a.save {
+    order: 2; }
+  html[dir='rtl'] body[data-pos='right'] menu.infoBar > a.cancel {
+    order: 1; }
+
+html[dir='rtl'] body.edit section#content > nav > a.add {
+  right: -35px;
+  left: unset; }
+
+html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='left'] {
+  right: 0;
+  left: unset; }
+  html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='left']::before {
+    transform: rotateZ(135deg); }
+
+html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='right'] {
+  right: unset;
+  left: 0; }
+  html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='right']::before {
+    transform: rotateZ(-45deg); }
+
+html[dir='rtl'] body.edit section#content > nav > ul > li > div {
+  text-align: right;
+  left: -10px;
+  right: unset; }
+  html[dir='rtl'] body.edit section#content > nav > ul > li > div::before {
+    left: 20px;
+    right: unset; }
+
+html[dir='rtl'] body.edit div#search > input[type='text'] {
+  padding-right: 30px;
+  padding-left: 125px; }
+
+html[dir='rtl'] body.edit div#search > select {
+  left: 23px;
+  right: unset; }
+
+html[dir='rtl'] body.edit div#topPages > select {
+  box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1); }
 
 body.dark menu.infoBar {
   background: #4d4d4d; }

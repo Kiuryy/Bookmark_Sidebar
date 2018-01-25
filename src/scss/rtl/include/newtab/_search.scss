@@ -1,0 +1,28 @@
+html[dir='rtl'] {
+
+  div#search {
+
+    > input[type='text'] {
+      padding: 0 30px 0 55px;
+      box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    > button[type="submit"] {
+      left: 16px;
+      right: unset;
+    }
+
+    > ul.suggestions {
+
+      > li {
+        padding-right: 28px;
+        padding-left: 10px;
+
+        &::before {
+          left: unset;
+          right: 7px;
+        }
+      }
+    }
+  }
+}

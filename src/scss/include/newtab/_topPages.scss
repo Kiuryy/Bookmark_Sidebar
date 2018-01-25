@@ -45,7 +45,7 @@ div#topPages {
           > img {
             display: inline-block;
             width: 14px;
-            margin: 0px 5px 0 0;
+            margin: 0 5px 0 0;
             vertical-align: top;
           }
         }
@@ -75,4 +75,5 @@ div#topPages {
   }
 }
 
+@import "../../rtl/include/newtab/topPages";
 @import "../../dark/include/newtab/topPages";

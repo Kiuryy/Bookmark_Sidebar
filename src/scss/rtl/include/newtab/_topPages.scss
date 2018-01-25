@@ -1,0 +1,21 @@
+html[dir='rtl'] {
+
+  div#topPages {
+
+    > ul {
+
+      > li {
+
+        > a {
+
+          > span {
+
+            > img {
+              margin: 0 0 0 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -62,7 +62,7 @@ div#search {
       pointer-events: auto;
       font-size: 110%;
       pointer-events: auto;
-      padding: 3px 10px 3px 26px;
+      padding: 3px 10px 3px 28px;
       transition: background 0.1s;
 
       &.active {
@@ -71,7 +71,12 @@ div#search {
       }
 
       &::before {
-        -webkit-mask-position-x: 7px;
+        width: 14px;
+        height: 14px;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
       }
 
       &[data-type='url']::before {
@@ -85,5 +90,5 @@ div#search {
   }
 }
 
-
+@import "../../rtl/include/newtab/search";
 @import "../../dark/include/newtab/search";

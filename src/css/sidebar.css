@@ -1292,7 +1292,7 @@ html[dir='rtl'] section#sidebar > header > h1 {
   margin-left: auto;
   margin-right: unset; }
 
-html[dir='rtl'] section#sidebar > header > a::before {
+html[dir='rtl'] section#sidebar > header > a:not(.search)::before {
   transform: scaleX(-1); }
 
 html[dir='rtl'] section#sidebar > header > div.searchBox {

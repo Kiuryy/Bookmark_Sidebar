@@ -1,0 +1,10 @@
+html[dir='rtl'] {
+
+  section#content {
+
+    > nav {
+      left: 20px;
+      right: unset;
+    }
+  }
+}

@@ -402,7 +402,7 @@
                     let urlValue = "";
 
                     if (type === "bookmark") { // default bookmark values -> current page information
-                        titleValue = $(document).find("title").text();
+                        titleValue = $(document).find("head > title").eq(0).text();
                         urlValue = location.href;
                     }
 
@@ -741,7 +741,6 @@
          * @param {object} data
          */
         let addSeparator = (data) => {
-            console.log(data);
             ext.helper.model.call("createBookmark", {
                 title: "----------",
                 url: "about:blank",

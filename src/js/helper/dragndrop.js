@@ -106,7 +106,7 @@
                             let title = e.dataTransfer.getData("text/plain");
 
                             if (location.href === url) {
-                                title = $(document).find("title").text();
+                                title = $(document).find("head > title").eq(0).text();
                             } else if (title === url) {
                                 let html = e.dataTransfer.getData("text/html");
 
@@ -132,7 +132,7 @@
                         trackEvent("selection", {type: "end", cancel: true});
                     }
 
-                    ext.elements.iframeBody.removeClass(ext.opts.classes.drag.isDragged);
+                    ext.elements.iframeBody.removeClass([ext.opts.classes.drag.isDragged, ext.opts.classes.drag.cancel]);
                     ext.helper.toggle.removeSidebarHoverClass();
                 }
             });
@@ -287,8 +287,6 @@
             let draggedElm = ext.elements.iframeBody.children("a." + ext.opts.classes.drag.helper);
             let dragInitialElm = ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
-            let prevParentId = draggedElm.data("parentId");
-            let prevIndex = draggedElm.data("index");
             let elm = entryElm.children("a");
             let type = getDragType(elm);
 

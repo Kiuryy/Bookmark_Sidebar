@@ -23,9 +23,6 @@
     "sidebar_copied_to_clipboard": {
         "message": "Url kopiert"
     },
-    "sidebar_drag_cancel": {
-        "message": "Abbrechen"
-    },
     "sidebar_deleted": {
         "message": "Gel\u00f6scht"
     },
@@ -533,6 +530,21 @@
     "settings_open_action_icon": {
         "message": "Klick auf das Symbol"
     },
+    "settings_toggle_area": {
+        "message": "Bereich konfigurieren"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Standardm\u00e4ssig kann die gesamte Seite des Browserfesters mit der Maus \u00fcberfahren, oder geklickt werden, um die Sidebar zu \u00f6ffnen. Dies l\u00e4sst sich einschr\u00e4nken und genauer bestimmen, wo sich die Sidebar \u00f6ffnen lassen soll."
+    },
+    "settings_toggle_area_width": {
+        "message": "Breite"
+    },
+    "settings_toggle_area_height": {
+        "message": "H\u00f6he"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Du kannst die H\u00f6he des Bereichts verringern, so dass die Sidebar nur ge\u00f6ffnet wird, wenn der Mauszeiger in diesen Bereich des Browserrands bewegt wird."
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Tastenkombination einrichten"
     },
@@ -681,7 +693,7 @@
         "message": "Position"
     },
     "settings_sidebar_position_desc": {
-        "message": "Erlaubt es einzustellen, ob die Sidebar sich auf der linken oder rechten Seite des Bildschirms \u00f6ffnen soll."
+        "message": "Erlaubt es einzustellen, ob die Sidebar sich auf der linken oder rechten Seite des Browserfensters \u00f6ffnen soll."
     },
     "settings_sidebar_position_left": {
         "message": "Links"

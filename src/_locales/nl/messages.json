@@ -23,9 +23,6 @@
     "sidebar_copied_to_clipboard": {
         "message": "URL gekopieerd"
     },
-    "sidebar_drag_cancel": {
-        "message": "Annuleren"
-    },
     "sidebar_deleted": {
         "message": "Verwijderd"
     },
@@ -496,6 +493,213 @@
     },
     "settings_not_synced": {
         "message": "Wordt niet gesynchroniseerd met je andere apparaten."
+    },
+    "settings_animations": {
+        "message": "Animaties gebruiken"
+    },
+    "settings_animations_desc": {
+        "message": "Hiermee kun je de animaties van de zijbalk uitschakelen, wat handig kan zijn als de animaties niet vloeiend bewegen op je systeem."
+    },
+    "settings_px_tolerance": {
+        "message": "Tolerantie in pixels"
+    },
+    "settings_px_tolerance_desc": {
+        "message": "Het aantal pixels vanaf de zijde van elke pagina waarvan een muis klik ervoor zorgt dat de zijbalk opent."
+    },
+    "settings_px_tolerance_maximized": {
+        "message": "Gemaximaliseerd"
+    },
+    "settings_px_tolerance_windowed": {
+        "message": "In een venster"
+    },
+    "settings_open_action": {
+        "message": "Open de zijbalk"
+    },
+    "settings_open_action_desc": {
+        "message": "Open de zijbalk door"
+    },
+    "settings_open_action_leftclick": {
+        "message": "Linkermuisklik"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Rechtermuisklik"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Muis-over"
+    },
+    "settings_open_action_icon": {
+        "message": "Klik op het symbool"
+    },
+    "settings_toggle_area": {
+        "message": "Configureer gebied"
+    },
+    "settings_toggle_area_width": {
+        "message": "Breedte"
+    },
+    "settings_toggle_area_height": {
+        "message": "Hoogte"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Een toetsencombinatie instellen"
+    },
+    "settings_link_action": {
+        "message": "Open bladwijzers"
+    },
+    "settings_link_action_desc": {
+        "message": "Klikken met de linkermuis knop opent de url in huidige of nieuwe tab."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Huidige tabblad"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nieuwe tabblad"
+    },
+    "settings_open_delay": {
+        "message": "Open vertraging"
+    },
+    "settings_open_delay_desc": {
+        "message": "Voorkomt onmiddellijke opening van de zijbalk bij muis over of bij klikken met vertraging."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Voorkom pagina scrollen"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Voorkomt dat de huidige pagina doorscrollt wanneer de zijbalk geopend is."
+    },
+    "settings_dir_accordion": {
+        "message": "Alleen de huidige map"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Sluit alle mappen behalve alleen de huidige acrieve map."
+    },
+    "settings_remember_state": {
+        "message": "Onthoud"
+    },
+    "settings_remember_state_desc": {
+        "message": "Selecteer wat er onthouden moet worden tijdens pagina wisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Scroll positie en geopende mappen"
+    },
+    "settings_remember_state_all": {
+        "message": "Scroll positie, geopende mappen en laatst geopende bladwijzer"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Geopende mappen"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Geopende mappen alleen 1e niveau"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Niets"
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Waarschuwingslimiet aantal geopende bladwijzers"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Het aantal geopende bladwijzers waarbij een waarschuwing verschijnt wanneer je alle bladwijzers van een map tegelijkertijd probeert te openen."
+    },
+    "settings_dir_open_duration": {
+        "message": "Tijdsduur mapopening"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Tijdsduur van de open en sluiten animatie"
+    },
+    "settings_new_tab": {
+        "message": "Nieuwe tab"
+    },
+    "settings_new_tab_desc": {
+        "message": "Open bladwijzers in een nieuwe tab op de voorgrond of op de achtergrond"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Open op de voorgrond"
+    },
+    "settings_new_tab_background": {
+        "message": "Open op de achtergrond"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Open nieuwe tabs na de laatste tab of de huidige tab"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Na de laatste tab"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Na de huidige tab"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Voor de eerste tab"
+    },
+    "settings_close_timeout": {
+        "message": "Sluitingstijd"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Sluitingstijd in seconden nadat de zijbalk is gesloten. aftellen begint wanneer de muis zich niet meer boven de zijbalk bevindt en stopt wanneer de muis zich weer boven de zijbalk bevindt"
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Niet automatisch sluiten"
+    },
+    "settings_scrollbar_hide": {
+        "message": "Verberg scrollbar"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "Sluitingstijd in seconden nadat de scrollbar zal verdwijnen. Scrollen zorgt ervoor dat de scrollbar weer tevoorschijn komt."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Nooit verbergen"
+    },
+    "settings_drag_n_drop_open": {
+        "message": "Openen door slepen en droppen"
+    },
+    "settings_reopen_sidebar": {
+        "message": "heropen zijbalk"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Heropen de zijbalk automatisch opnieuw, na het openen van een bladwijzer via de zijbalk."
+    },
+    "settings_tooltip_delay": {
+        "message": "Tooltip vertraging"
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Toon nooit tooltips"
+    },
+    "settings_tooltip_content": {
+        "message": "Tooltip inhoud"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "Selecteer welke informatie de tooltips moeten bevatten."
+    },
+    "settings_tooltip_content_all": {
+        "message": "Titel en URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Alleen titel"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Alleen URL"
+    },
+    "settings_sidebar_position": {
+        "message": "Positie"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Laat je toe of de zijbalk moet openen aan de linker- of rechterkant van het scherm."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Links"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Rechts"
+    },
+    "settings_export": {
+        "message": "Instellingen exporteren"
+    },
+    "settings_import": {
+        "message": "Instellingen Importeren"
+    },
+    "settings_import_saved": {
+        "message": "Instellingen succesvol geimporteert"
+    },
+    "settings_import_failed": {
+        "message": "Het importeren van de configuraties is mislukt - Gelieve een geldig veld te kiezen."
     },
     "settings_presets": {
         "message": "Voorselectie"

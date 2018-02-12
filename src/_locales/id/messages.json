@@ -18,13 +18,16 @@
         "message": "Cari Bookmark"
     },
     "sidebar_search_no_results": {
-        "message": "Tidak ada bookmark yang sesuai dengan hasil yang kamu cari."
+        "message": "Tidak ada bookmark yang sesuai dengan hasil yang Anda cari."
     },
     "sidebar_copied_to_clipboard": {
-        "message": "Url di salin"
+        "message": "Url telah disalin"
     },
-    "sidebar_drag_cancel": {
-        "message": "Batalkan"
+    "sidebar_deleted": {
+        "message": "Dihapus"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Ulangi"
     },
     "contextmenu_edit_bookmark": {
         "message": "Ubah Bookmark"

@@ -3,7 +3,7 @@
         "message": "Bookmark Sidebar"
     },
     "extension_desc": {
-        "message": "Adds a toggleable sidebar with all your bookmarks on the side of your screen."
+        "message": "Adds a toggleable sidebar with all your bookmarks on the edge of your browser window."
     },
     "header_bookmarks": {
         "message": "Bookmarks"
@@ -22,9 +22,6 @@
     },
     "sidebar_copied_to_clipboard": {
         "message": "Url copied"
-    },
-    "sidebar_drag_cancel": {
-        "message": "Cancel"
     },
     "sidebar_deleted": {
         "message": "Removed"
@@ -387,7 +384,7 @@
         "message": "Now you can try it out yourself."
     },
     "onboarding_handson_mouse_desc_1": {
-        "message": "Move your cursor to the {1} side of your window."
+        "message": "Move your cursor to the {1} edge of your window."
     },
     "onboarding_handson_mouse_desc_2": {
         "message": "Then {1} click with your mouse to open the sidebar."
@@ -507,7 +504,7 @@
         "message": "Tolerance in pixels"
     },
     "settings_px_tolerance_desc": {
-        "message": "Amount of pixels from the side of every page, in which a mouse click will cause the sidebar to open. You can choose different values for maximized and windowed browser frame."
+        "message": "Amount of pixels from the edge of every page, in which a mouse click will cause the sidebar to open. You can choose different values for maximized and windowed browser frame."
     },
     "settings_px_tolerance_maximized": {
         "message": "Maximized"
@@ -519,7 +516,7 @@
         "message": "Open sidebar"
     },
     "settings_open_action_desc": {
-        "message": "Open the sidebar by left or right clicking or mouseover on the side of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
+        "message": "Open the sidebar by left or right clicking or mouseover on the edge of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
     },
     "settings_open_action_leftclick": {
         "message": "Left click"
@@ -532,6 +529,21 @@
     },
     "settings_open_action_icon": {
         "message": "Click on icon"
+    },
+    "settings_toggle_area": {
+        "message": "Configure area"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Per default, the whole edge of your browser window can be hovered to open the sidebar. You can change this and configure where to open the sidebar exactly."
+    },
+    "settings_toggle_area_width": {
+        "message": "Width"
+    },
+    "settings_toggle_area_height": {
+        "message": "Height"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "You can reduce the height of the area, so the sidebar will only open when you move your cursor into that location of the edge of your browser window."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Set keyboard shortcut"
@@ -681,7 +693,7 @@
         "message": "Position"
     },
     "settings_sidebar_position_desc": {
-        "message": "Allows you to set whether the sidebar should open on the left or the right side of the screen."
+        "message": "Allows you to set whether the sidebar should open on the left or the right edge of the browser window."
     },
     "settings_sidebar_position_left": {
         "message": "Left"

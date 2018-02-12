@@ -23,9 +23,6 @@
     "sidebar_copied_to_clipboard": {
         "message": "URL copiada al portapapeles"
     },
-    "sidebar_drag_cancel": {
-        "message": "Cancelar"
-    },
     "sidebar_deleted": {
         "message": "Removida"
     },
@@ -532,6 +529,18 @@
     },
     "settings_open_action_icon": {
         "message": "Clic en el icono"
+    },
+    "settings_toggle_area": {
+        "message": "configure el area"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Puede reducir la altura del \u00e1rea asi que la barra lateral s\u00f3lo se abrir\u00e1 cuando se mueve el cursor en la esa ubicaci\u00f3n del borde."
+    },
+    "settings_toggle_area_width": {
+        "message": "Ancho"
+    },
+    "settings_toggle_area_height": {
+        "message": "Altura"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Establecer atajo de teclado"

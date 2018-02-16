@@ -52,8 +52,8 @@
                     toggleArea: {}
                 };
 
-                ["Width", "Height", "Top", "WidthWindowed"].forEach((field) => {
-                    config.toggleArea[field.toLowerCase()] = s.opts.elm.range["toggleArea" + field][0].value;
+                ["width", "height", "top", "widthWindowed"].forEach((field) => {
+                    config.toggleArea[field] = s.opts.elm.range["toggleArea_" + field][0].value;
                 });
 
                 ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
@@ -100,9 +100,10 @@
          */
         let initToggleAreaFields = () => {
             let toggleArea = s.helper.model.getData("b/toggleArea");
-            ["Width", "Height", "Top", "WidthWindowed"].forEach((field) => {
-                s.opts.elm.range["toggleArea" + field][0].value = toggleArea[field.toLowerCase()];
-                s.opts.elm.range["toggleArea" + field].trigger("change");
+
+            ["width", "height", "top", "widthWindowed"].forEach((field) => {
+                s.opts.elm.range["toggleArea_" + field][0].value = toggleArea[field];
+                s.opts.elm.range["toggleArea_" + field].trigger("change");
             });
         };
 
@@ -115,27 +116,27 @@
             let modal = s.opts.elm.body.children("div." + s.opts.classes.toggleArea.modal);
             let preview = modal.children("div." + s.opts.classes.toggleArea.preview);
 
-            $([s.opts.elm.range.toggleAreaWidth, s.opts.elm.range.toggleAreaHeight, s.opts.elm.range.toggleAreaTop]).on("change input", (e) => {
+            $([s.opts.elm.range.toggleArea_width, s.opts.elm.range.toggleArea_height, s.opts.elm.range.toggleArea_top]).on("change input", (e) => {
                 let minWidth = 14;
 
                 let val = {
-                    width: +s.opts.elm.range.toggleAreaWidth[0].value,
-                    height: +s.opts.elm.range.toggleAreaHeight[0].value,
-                    top: +s.opts.elm.range.toggleAreaTop[0].value
+                    width: +s.opts.elm.range.toggleArea_width[0].value,
+                    height: +s.opts.elm.range.toggleArea_height[0].value,
+                    top: +s.opts.elm.range.toggleArea_top[0].value
                 };
 
                 if (val.height + val.top > 100) {
                     let topVal = null;
 
-                    if (e.currentTarget === s.opts.elm.range.toggleAreaHeight[0]) {
+                    if (e.currentTarget === s.opts.elm.range.toggleArea_height[0]) {
                         topVal = val.top - (val.height + val.top - 100);
-                    } else if (e.currentTarget === s.opts.elm.range.toggleAreaTop[0]) {
+                    } else if (e.currentTarget === s.opts.elm.range.toggleArea_top[0]) {
                         topVal = 100 - val.height;
                     }
 
                     if (topVal !== null) {
-                        s.opts.elm.range.toggleAreaTop[0].value = topVal;
-                        s.opts.elm.range.toggleAreaTop.trigger("change");
+                        s.opts.elm.range.toggleArea_top[0].value = topVal;
+                        s.opts.elm.range.toggleArea_top.trigger("change");
                     }
                 } else {
                     preview.css({
@@ -198,8 +199,8 @@
             }).on("mousemove", (e) => { // drag move
                 if (preview.hasClass(s.opts.classes.toggleArea.dragging) && e.which === 1) {
                     let pos = preview.data("pos");
-                    s.opts.elm.range.toggleAreaTop[0].value = ((pos.start + e.pageY - pos.y) / modal[0].offsetHeight) * 100;
-                    s.opts.elm.range.toggleAreaTop.trigger("change");
+                    s.opts.elm.range.toggleArea_top[0].value = ((pos.start + e.pageY - pos.y) / modal[0].offsetHeight) * 100;
+                    s.opts.elm.range.toggleArea_top.trigger("change");
                 }
             }, {passive: true});
         };

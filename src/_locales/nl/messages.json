@@ -3,7 +3,7 @@
         "message": "Bladwijzer Zijbalk"
     },
     "extension_desc": {
-        "message": "Voeg een zijbalk toe aan je browser voor snelle en makkelijke toegang tot al je bladwijzers."
+        "message": "Voegd een zijbalk toe aan je browser voor snelle en makkelijke toegang tot al je bladwijzers."
     },
     "header_bookmarks": {
         "message": "Bladwijzers"
@@ -500,18 +500,6 @@
     "settings_animations_desc": {
         "message": "Hiermee kun je de animaties van de zijbalk uitschakelen, wat handig kan zijn als de animaties niet vloeiend bewegen op je systeem."
     },
-    "settings_px_tolerance": {
-        "message": "Tolerantie in pixels"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Het aantal pixels vanaf de zijde van elke pagina waarvan een muis klik ervoor zorgt dat de zijbalk opent."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Gemaximaliseerd"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "In een venster"
-    },
     "settings_open_action": {
         "message": "Open de zijbalk"
     },
@@ -533,11 +521,20 @@
     "settings_toggle_area": {
         "message": "Configureer gebied"
     },
+    "settings_toggle_area_desc": {
+        "message": "Per standaard kan de hele zijkant van de browser gebruikt worden om de zijbalk te openen, maar dan kan aangepast worden in de instellingen."
+    },
     "settings_toggle_area_width": {
         "message": "Breedte"
     },
+    "settings_toggle_area_width_windowed": {
+        "message": "Breedte (In een venster)"
+    },
     "settings_toggle_area_height": {
         "message": "Hoogte"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Je kan de hoogte van het oppervlak verkleinen zodat de balk alleen opent als je met je muis over het randje van de browser gaat."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Een toetsencombinatie instellen"
@@ -650,6 +647,9 @@
     "settings_drag_n_drop_open": {
         "message": "Openen door slepen en droppen"
     },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Laat het slepen & neerzetten van tekst selecties, links en URL's toe in de zijbalk. Dit kan handig zijn voor als je de huidige pagina als bladwijzer wilt toevoegen of links naar andere websites."
+    },
     "settings_reopen_sidebar": {
         "message": "heropen zijbalk"
     },
@@ -658,6 +658,9 @@
     },
     "settings_tooltip_delay": {
         "message": "Tooltip vertraging"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Verander hoelang het duurt voordat de info bubbels omhoog komen wanneer er met de muis over een bladwijzer wordt gezweven."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Toon nooit tooltips"
@@ -688,6 +691,9 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
+    },
+    "settings_import_export_desc": {
+        "message": "Je kan de instellingen van deze extensie lokaal opslaan. je kunt het opgeslagen bestand dan op elke computer importeren zolang de extensie maar is geinstalleerd."
     },
     "settings_export": {
         "message": "Instellingen exporteren"
@@ -794,6 +800,27 @@
     "settings_custom_css_desc": {
         "message": "Je kan je eigen stylesheet defini\u00ebren welke de standaard stylesheet overschrijft. Gebruik deze optie alles als je bekend bent met CSS en je weet wat je aan het doen bent."
     },
+    "settings_newtab_desc": {
+        "message": "Helaas heeft Google de functie om extensies te laden op een new tabblad verwijderd, vanwege dit probleem heb ik wat andere opties toegevoegd om bij je bladwijzers te komen."
+    },
+    "settings_newtab_override": {
+        "message": "Nieuwe tab overschrijven"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Moet de extensie jouw nieuwe tabblad overschrijven?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Sidebar automatisch openen"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Kies of de sidebar automatisch geopend moet worden wanneer er een nieuwe tab wordt geopend"
+    },
+    "settings_newtab_website": {
+        "message": "Website laden"
+    },
+    "settings_newtab_website_desc": {
+        "message": "In plaats van het laden van de aangepaste nieuwe tab een website laden"
+    },
     "settings_language": {
         "message": "Taal"
     },
@@ -847,6 +874,45 @@
     },
     "settings_translation_required_category": {
         "message": "Vereist"
+    },
+    "settings_feedback_desc": {
+        "message": "Heb je suggesties voor verbeteringen, vragen of een probleem gevonden? Help ons dan door feedback achter te laten."
+    },
+    "settings_feedback_notice": {
+        "message": "A.u.b stuur uw ondersteuning in het Engels, anders is het lastig om het bericht te begrijpen en beandwoorden."
+    },
+    "settings_feedback_email": {
+        "message": "Jou email address"
+    },
+    "settings_feedback_send": {
+        "message": "Verstuur ondersteuning"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Bedankt voor de hulp"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Je bericht kon niet verzonden worden. Probeer het opnieuw."
+    },
+    "settings_headline_faq": {
+        "message": "Veel voorkomende vragen"
+    },
+    "settings_faq_usage_q": {
+        "message": "Kan je mij vertellen hoe je de zijbalk opent?"
+    },
+    "settings_faq_usage_a": {
+        "message": "Je kan de [a]uitleg[\/a] kijken om door te krijgen hoe je alles moet gebruiken. als de zijbalk daarna nog niet werkt geef me dan feedback in het Engels met betrekking tot het probleem en de betreffende website."
+    },
+    "settings_faq_fixed_sidebar_q": {
+        "message": "Kan je de zijbalk altijd open laten blijven?"
+    },
+    "settings_faq_fixed_sidebar_a": {
+        "message": "Helaas kan ik dit niet doen,. Google heeft de functie om een echte zijbalk te maken verwijderd (net zoals Firefox een paar jaar geleden)."
+    },
+    "settings_faq_not_working_q": {
+        "message": "Waarom werkt de zijbalk niet op een aantal pagina's, zoals de Chrome Webstore?"
+    },
+    "settings_faq_not_working_a": {
+        "message": "Dit kan vele oorzaken hebben. bijvoorbeeld op in de chrome webstore kun je hem niet gebruiken wegens een beveiliging risico. indien er meer pagina's zijn waarop de zijbalk het niet doet laat dan feedback achter met de betreffende website erin vermeld."
     },
     "settings_headline_donation": {
         "message": "Doneer"

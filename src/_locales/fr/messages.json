@@ -500,18 +500,6 @@
     "settings_animations_desc": {
         "message": "Permet de d\u00e9sactiver l'ensemble des animations de la barre lat\u00e9rale. Cela peut \u00eatre utile si les animations ne sont pas fluides sur votre machine."
     },
-    "settings_px_tolerance": {
-        "message": "Marge en pixels"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Marge pr\u00e9sente sur chaque page, un clic sur celle-ci d\u00e9clenchera l'ouverture de la barre lat\u00e9rale. Vous pouvez choisir des valeurs diff\u00e9rentes pour le navigateur maximis\u00e9 et en mode fen\u00eatr\u00e9."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Maximis\u00e9"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Mode fen\u00eatr\u00e9"
-    },
     "settings_open_action": {
         "message": "Affichage de la barre"
     },

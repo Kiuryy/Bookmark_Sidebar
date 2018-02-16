@@ -458,18 +458,6 @@
     "settings_animations_desc": {
         "message": "Pozwala wy\u0142\u0105czy\u0107 wszystkie animacje bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli animacje nie s\u0105 p\u0142ynne."
     },
-    "settings_px_tolerance": {
-        "message": "Tolerancja w pikselach"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Ilo\u015b\u0107 pikseli od lewej strony okna, w kt\u00f3r\u0105 je\u015bli kliknie myszka to otworzy si\u0119 boczna lista. Mo\u017cesz wybra\u0107 r\u00f3\u017cne warto\u015bci dla zmaksymalizowanego i normalnego okna przegl\u0105darki."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Zmaksymalizowane okno"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Normalne okno"
-    },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
     },

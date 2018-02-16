@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="box">
-                            <div class="formElement" data-type="range" data-name="dirOpenDuration" data-value="0.5" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
+                            <div class="formElement" data-type="range" data-name="dirOpenDuration" data-min="0" data-max="1" data-step="0.1" data-unit="s" data-i18n="settings_dir_open_duration"></div>
                         </div>
 
                         <div class="box">
@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="box">
-                            <div class="formElement" data-type="range" data-name="openChildrenWarnLimit" data-value="10" data-min="1" data-max="100" data-i18n="settings_open_children_warn_limit"></div>
+                            <div class="formElement" data-type="range" data-name="openChildrenWarnLimit" data-min="1" data-max="100" data-i18n="settings_open_children_warn_limit"></div>
                         </div>
                     </div>
                 </div>
@@ -120,19 +120,15 @@
                             <span data-value="mousemove" data-i18n="settings_open_action_mouseover"></span>
                             <span data-value="icon" data-i18n="settings_open_action_icon"></span>
                         </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="formElement" data-type="range" data-name="closeTimeout" data-value="1" data-min="0" data-max="5" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
-                    </div>
-
-                    <div class="box">
-                        <label data-i18n="settings_px_tolerance"></label>
-                        <div class="sub">
-                            <div class="formElement" data-type="range" data-name="pxToleranceMaximized" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_maximized"></div>
-                            <div class="formElement" data-type="range" data-name="pxToleranceWindowed" data-value="1" data-min="1" data-max="50" data-unit="px" data-i18n="settings_px_tolerance_windowed"></div>
+                        <div class="toggleAreaDesc">
+                            <hr />
+                            <p data-i18n="settings_toggle_area_desc"></p>
+                            <a class="button" data-i18n="settings_toggle_area"></a>
                         </div>
-                        <p class="desc" data-i18n="settings_px_tolerance_desc"></p>
+                    </div>
+
+                    <div class="box">
+                        <div class="formElement" data-type="range" data-name="closeTimeout" data-min="0" data-max="5" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_close_timeout"></div>
                     </div>
 
                     <div class="box">
@@ -144,11 +140,11 @@
                     </div>
                 </div>
 
-                <div class=" advanced">
+                <div class="advanced">
                     <h3 data-i18n="settings_advanced"></h3>
                     <div class="boxWrapper">
                         <div class="box">
-                            <div class="formElement" data-type="range" data-name="openDelay" data-value="0" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
+                            <div class="formElement" data-type="range" data-name="openDelay" data-min="0" data-max="2" data-step="0.1" data-unit="s" data-i18n="settings_open_delay"></div>
                         </div>
 
                         <div class="box">
@@ -170,7 +166,7 @@
                     </div>
 
                     <div class="box">
-                        <div class="formElement" data-type="range" data-name="tooltipDelay" data-value="1" data-min="0" data-max="3" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
+                        <div class="formElement" data-type="range" data-name="tooltipDelay" data-min="0" data-max="3" data-infinity="1" data-step="0.25" data-unit="s" data-i18n="settings_tooltip_delay"></div>
                     </div>
                 </div>
             </div>
@@ -517,6 +513,21 @@
         </div>
     </main>
 </section>
+
+<div class="modal toggleAreaModal">
+    <h2 data-i18n="settings_toggle_area"></h2>
+    <div class="preview"></div>
+    <div class="formElement" data-type="range" data-name="toggleAreaWidth" data-min="1" data-max="50" data-unit="px" data-i18n="settings_toggle_area_width"></div>
+    <div class="formElement" data-type="range" data-name="toggleAreaWidthWindowed" data-min="1" data-max="100" data-unit="px" data-i18n="settings_toggle_area_width_windowed"></div>
+    <div class="formElement" data-type="range" data-name="toggleAreaHeight" data-min="5" data-max="100" data-unit="%" data-i18n="settings_toggle_area_height"></div>
+    <div class="hidden">
+        <div class="formElement" data-type="range" data-name="toggleAreaTop" data-min="0" data-max="100" data-unit="%"></div>
+    </div>
+    <p class="buttons">
+        <a class="button save" data-i18n="settings_save"></a>
+        <a class="cancel" data-i18n="overlay_cancel"></a>
+    </p>
+</div>
 
 <script src="/js/lib/jsu.js"></script>
 <script src='/js/helper/i18n.js'></script>

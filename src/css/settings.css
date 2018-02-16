@@ -1,8 +1,8 @@
-body > header > div.dialog, body::before, body::after {
+body > header > div.dialog, body > div.toggleAreaModal, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > header > div.dialog.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > header > div.dialog.visible, body.showModal > div.toggleAreaModal, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -453,6 +453,13 @@ body > section#wrapper > main > div.loading.tab > svg.loading, body > section#wr
 body > section#wrapper > main > div.loading.tab > div, body > section#wrapper > main > div.tab > div.loading[data-name] > div {
   display: none; }
 
+p.desc {
+  font-size: 90%;
+  color: #aaa;
+  margin-top: 10px;
+  line-height: 150%;
+  font-style: italic; }
+
 body > section#wrapper {
   position: relative;
   display: flex;
@@ -516,12 +523,6 @@ body > section#wrapper {
           @media (max-width: 1300px) {
             body > section#wrapper > main div.boxWrapper > div.box > div.sub label {
               display: block; } }
-        body > section#wrapper > main div.boxWrapper > div.box p.desc {
-          font-size: 90%;
-          color: #aaa;
-          margin-top: 10px;
-          line-height: 150%;
-          font-style: italic; }
         body > section#wrapper > main div.boxWrapper > div.box p.info {
           margin: 20px 0 10px;
           line-height: 150%; }
@@ -710,6 +711,132 @@ html[dir='rtl'] div.aboutMe > div.preview > a {
     @media (max-width: 1080px) {
       html[dir='rtl'] div.aboutMe > div.preview > a.website {
         right: -84px; } }
+
+@keyframes moveUpDown {
+  25% {
+    transform: translate3d(0, 15px, 0); }
+  75% {
+    transform: translate3d(0, -15px, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
+body > section#wrapper div.toggleAreaDesc {
+  position: relative; }
+  body > section#wrapper div.toggleAreaDesc::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/32px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+    background-color: #aaa; }
+  body > section#wrapper div.toggleAreaDesc::before {
+    top: 18px;
+    left: 0;
+    width: 32px;
+    height: 32px; }
+  body > section#wrapper div.toggleAreaDesc.hidden {
+    display: none; }
+  body > section#wrapper div.toggleAreaDesc > p {
+    padding: 3px 0 3px 40px;
+    line-height: 150%; }
+  body > section#wrapper div.toggleAreaDesc > a {
+    margin: 10px 0 0 40px; }
+
+body > div.toggleAreaModal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px 25px;
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 99;
+  transform: scale(0.7);
+  transition: transform 0.3s, opacity 0.3s; }
+  body > div.toggleAreaModal > div.preview {
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.15) 5px, rgba(0, 0, 0, 0.15) 10px);
+    border: 1px solid #aaa;
+    transition: width 0.2s, height 0.2s, top 0.2s;
+    cursor: ns-resize; }
+    body > div.toggleAreaModal > div.preview::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/28px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
+      background-color: #666; }
+    body > div.toggleAreaModal > div.preview::before {
+      animation: moveUpDown 1.2s 1.5s; }
+    body > div.toggleAreaModal > div.preview.fullHeight {
+      cursor: default; }
+      body > div.toggleAreaModal > div.preview.fullHeight::before {
+        display: none; }
+    body > div.toggleAreaModal > div.preview.dragging {
+      transition: none; }
+  body > div.toggleAreaModal > div.hidden {
+    display: none; }
+  body > div.toggleAreaModal > p.buttons {
+    margin: 40px 0 0 0; }
+    body > div.toggleAreaModal > p.buttons > a {
+      cursor: pointer;
+      vertical-align: top;
+      margin: 0; }
+      body > div.toggleAreaModal > p.buttons > a.cancel {
+        margin: 7px 0 0 10px;
+        display: inline-block; }
+  body > div.toggleAreaModal[data-type='left'] {
+    padding-left: 75px; }
+    body > div.toggleAreaModal[data-type='left'] > div.preview {
+      border-radius: 0 7px 7px 0;
+      border-left: 0;
+      left: 0; }
+  body > div.toggleAreaModal[data-type='right'] {
+    padding-right: 75px; }
+    body > div.toggleAreaModal[data-type='right'] > div.preview {
+      border-radius: 7px 0 0 7px;
+      border-right: 0;
+      right: 0; }
+
+body.showModal::before {
+  opacity: 1; }
+
+body.showModal > * {
+  pointer-events: none; }
+
+body.showModal > div.toggleAreaModal {
+  transform: scale(1); }
+
+html[dir='rtl'] body > section#wrapper div.toggleAreaDesc::before {
+  top: 18px;
+  right: 0;
+  left: unset; }
+
+html[dir='rtl'] body > section#wrapper div.toggleAreaDesc > p {
+  padding-right: 40px;
+  padding-left: unset; }
+
+html[dir='rtl'] body > section#wrapper div.toggleAreaDesc > a {
+  margin-right: 40px;
+  margin-left: unset; }
+
+html[dir='rtl'] body > div.toggleAreaModal > p.buttons > a.cancel {
+  margin-right: 10px;
+  margin-left: unset; }
 
 body[data-type^='appearance'] > div.colorMask {
   position: absolute;
@@ -1043,12 +1170,6 @@ div.tab[data-name='support'] div.shareInformation div.checkbox {
   display: inline-block;
   vertical-align: top;
   margin: 16px 0 0 0; }
-
-div.tab[data-name='support'] div.shareInformation hr {
-  border: none;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 15px 0; }
 
 html[dir='rtl'] div.tab[data-name='support'] div.shareInformation label {
   margin-right: 0 !important;
@@ -1955,6 +2076,12 @@ ul.bulletList > li {
     content: "-";
     position: absolute;
     left: 0; }
+
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 15px 0; }
 
 main button[type='submit'], a.button {
   position: relative;

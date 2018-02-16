@@ -500,18 +500,6 @@
     "settings_animations_desc": {
         "message": "Permite desactivar todas las animaciones de la barra lateral. Esto puede ser \u00fatil si las animaciones no funcionan correctamente en su sistema."
     },
-    "settings_px_tolerance": {
-        "message": "Tolerancia en p\u00edxeles"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Cantidad de p\u00edxeles del lado izquierdo de cada p\u00e1gina, en la que un clic del rat\u00f3n har\u00e1 que la barra lateral se abra. Puede elegir diferentes valores para el marco de navegador maximizado y con ventanas."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Maximizado"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Modo Ventana"
-    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },
@@ -539,8 +527,14 @@
     "settings_toggle_area_width": {
         "message": "Ancho"
     },
+    "settings_toggle_area_width_windowed": {
+        "message": "Ancho (Modo Ventana)"
+    },
     "settings_toggle_area_height": {
         "message": "Altura"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Puede reducir la altura del \u00e1rea, por lo que la barra lateral solo se abrir\u00e1 cuando mueva el cursor a esa ubicaci\u00f3n del borde de la ventana de su navegador."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Establecer atajo de teclado"

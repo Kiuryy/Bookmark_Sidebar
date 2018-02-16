@@ -29,6 +29,7 @@
                 noscroll: "blockbyte-bs-noscroll",
                 hasLeftsideBack: "blockbyte-bs-has-lsb",
                 style: "blockbyte-bs-style",
+                fullHeight: "blockbyte-bs-fullHeight",
                 noAnimations: "noAnimations",
                 darkMode: "dark",
                 highContrast: "highContrast"

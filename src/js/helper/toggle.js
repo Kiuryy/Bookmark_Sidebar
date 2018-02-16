@@ -5,7 +5,7 @@
 
         let sidebarPos = null;
         let dndOpen = null;
-        let pxToleranceObj = null;
+        let toggleArea = {};
         let preventPageScroll = null;
         let openDelay = 0;
         let indicatorWidth = null;
@@ -26,15 +26,27 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
-            let data = ext.helper.model.getData(["b/pxTolerance", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
+            let data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
 
-            pxToleranceObj = data.pxTolerance;
+            Object.entries(data.toggleArea).forEach(([key, val]) => {
+                toggleArea[key] = +val;
+            });
+
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
             dndOpen = data.dndOpen;
 
-            ext.elements.indicator.css("width", getPixelTolerance() + "px");
+            ext.elements.indicator.css({
+                width: getToggleAreaWidth() + "px",
+                height: toggleArea.height + "%",
+                top: toggleArea.top + "%"
+            });
+
+            if (toggleArea.height === 100) {
+                ext.elements.indicator.addClass(ext.opts.classes.page.fullHeight);
+            }
+
             ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
             ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
 
@@ -174,8 +186,8 @@
          *
          * @returns {int}
          */
-        let getPixelTolerance = () => {
-            return pxToleranceObj[ext.helper.utility.isWindowed() ? "windowed" : "maximized"];
+        let getToggleAreaWidth = () => {
+            return toggleArea[ext.helper.utility.isWindowed() ? "width" : "width"];
         };
 
         /**
@@ -185,20 +197,20 @@
          */
         let initEvents = async () => {
             $(window).on("resize.bs", () => {
-                ext.elements.indicator.css("width", getPixelTolerance() + "px");
+                ext.elements.indicator.css("width", getToggleAreaWidth() + "px");
             });
 
             ext.elements.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
-                if (e.pageX) {
-                    let pageX = e.pageX;
+                if (e.clientX) {
+                    let clientX = e.clientX;
                     if (sidebarPos === "right") {
                         if (sidebarHasMask()) {
-                            pageX = window.innerWidth - pageX + ext.elements.sidebar.realWidth() - 1;
+                            clientX = window.innerWidth - clientX + ext.elements.sidebar.realWidth() - 1;
                         } else {
-                            pageX = ext.elements.iframe.realWidth() - pageX;
+                            clientX = ext.elements.iframe.realWidth() - clientX;
                         }
                     }
-                    if (pageX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    if (clientX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                         this.closeSidebar();
                     }
                 }
@@ -254,7 +266,7 @@
             }).on("mouseout.bs", () => {
                 clearSidebarTimeout("open");
             }).on("mousemove.bs", (e) => { // check mouse position
-                if (e.isTrusted && isMousePosInPixelTolerance(e.pageX, e.pageY)) {
+                if (e.isTrusted && isMousePosInPixelTolerance(e.clientX, e.clientY)) {
                     let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
 
                     if (!(timeout.indicator)) {
@@ -281,7 +293,7 @@
                         openByType = true;
                     }
 
-                    if (e.isTrusted && openByType && isMousePosInPixelTolerance(e.pageX, e.pageY)) { // check mouse position and mouse button
+                    if (e.isTrusted && openByType && isMousePosInPixelTolerance(e.clientX, e.clientY)) { // check mouse position and mouse button
                         e.stopPropagation();
                         e.preventDefault();
 
@@ -355,30 +367,33 @@
         /**
          * Checks whether the given mouse position is in the configured pixel tolence
          *
-         * @param {int} pageX
-         * @param {int} pageY
+         * @param {int} clientX
+         * @param {int} clientY
          * @returns {boolean}
          */
-        let isMousePosInPixelTolerance = (pageX, pageY) => {
+        let isMousePosInPixelTolerance = (clientX, clientY) => {
             let ret = false;
 
             if (keypressed !== null && +new Date() - keypressed < 500) {
                 // a key is pressed -> prevent opening the sidebar
-            } else if (typeof pageX !== "undefined" && pageX !== null) {
-                if ((pageX > 0 || pageY > 0) || mouseNotTopLeft) { // protection from unwanted triggers with x = 0 and y = 0 on pageload
+            } else if (typeof clientX !== "undefined" && clientX !== null) {
+                if ((clientX > 0 || clientY > 0) || mouseNotTopLeft) { // protection from unwanted triggers with x = 0 and y = 0 on pageload
                     mouseNotTopLeft = true;
 
                     if (sidebarPos === "right") {
-                        pageX = window.innerWidth - pageX - 1;
+                        clientX = window.innerWidth - clientX - 1;
                     }
 
-                    let pixelTolerance = getPixelTolerance();
+                    let area = {
+                        w: getToggleAreaWidth(),
+                        h: clientY / window.innerHeight * 100
+                    };
 
-                    if (ext.elements.indicator.hasClass(ext.opts.classes.page.hover) && indicatorWidth > pixelTolerance) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
-                        pixelTolerance = indicatorWidth;
+                    if (ext.elements.indicator.hasClass(ext.opts.classes.page.hover) && indicatorWidth > area.w) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
+                        area.w = indicatorWidth;
                     }
 
-                    ret = pageX < pixelTolerance;
+                    ret = clientX < area.w && (area.h >= toggleArea.top && area.h <= toggleArea.top + toggleArea.height);
                 }
             }
 

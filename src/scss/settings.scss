@@ -14,6 +14,7 @@ $__scrollBarWidth: 14px;
 @import "include/settings/content";
 @import "include/settings/advanced";
 @import "include/settings/aboutme";
+@import "include/settings/toggleAdvanced";
 @import "include/settings/appearance";
 @import "include/settings/feedback";
 @import "include/settings/support";
@@ -149,6 +150,14 @@ ul.bulletList {
       left: 0;
     }
   }
+}
+
+// Separator
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
 }
 
 // Button

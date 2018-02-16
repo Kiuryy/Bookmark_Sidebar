@@ -500,18 +500,6 @@
     "settings_animations_desc": {
         "message": "Erm\u00f6glicht die Deaktivierung aller Animationen der Sidebar. Dies kann hilfreich sein, wenn die Animationen ruckeln oder zu viel Leistung ben\u00f6tigen."
     },
-    "settings_px_tolerance": {
-        "message": "Toleranz in Pixeln"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Anzahl Pixel vom Rand jeder Seite, in dem ein Mausklick die Sidebar \u00f6ffnet. Du kannst verschiedene Werte f\u00fcr Vollbild- und Fenstermodus angeben."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Vollbild"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Fenstermodus"
-    },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"
     },
@@ -538,6 +526,9 @@
     },
     "settings_toggle_area_width": {
         "message": "Breite"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Breite (Fenstermodus)"
     },
     "settings_toggle_area_height": {
         "message": "H\u00f6he"

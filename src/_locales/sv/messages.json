@@ -416,18 +416,6 @@
     "settings_animations_desc": {
         "message": "L\u00e5ter dig inaktivera hela animeringen i sidof\u00e4ltet. Detta kan vara anv\u00e4ndbart om animationerna inte l\u00f6per smidigt p\u00e5 ditt system."
     },
-    "settings_px_tolerance": {
-        "message": "Tolerans i pixlar"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Antal pixlar fr\u00e5n v\u00e4nster sida av varje sida, d\u00e4r ett musklick kommer att leda till att sidof\u00e4ltet \u00f6ppnas. Du kan v\u00e4lja olika v\u00e4rden f\u00f6r maximerad och f\u00f6nsterbaserad webbl\u00e4sarram."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Maximerad"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "F\u00f6nsterbaserad"
-    },
     "settings_open_action": {
         "message": "\u00d6ppna sidopanel"
     },

@@ -371,18 +371,6 @@
     "settings_animations_desc": {
         "message": "Umo\u017e\u0148uje zak\u00e1zat v\u0161echny animace postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud animace nefunguj\u00ed hladce ve va\u0161em syst\u00e9mu."
     },
-    "settings_px_tolerance": {
-        "message": "Tolerance v pixelech"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "P\u00e1smo pixel\u016f od kraje, kde za\u010dne li\u0161ta reagovat. M\u016f\u017eete zvolit r\u016fzn\u00e9 hodnoty pro maxim\u00e1ln\u00ed okno a zmen\u0161en\u00e9 okno prohl\u00ed\u017ee\u010de."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Maximalizov\u00e1no"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Zmen\u0161en\u00e9 okno"
-    },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },

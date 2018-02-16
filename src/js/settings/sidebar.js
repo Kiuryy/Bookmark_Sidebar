@@ -10,6 +10,8 @@
          */
         this.init = async () => {
             initEvents();
+            initToggleAreaEvents();
+            initToggleAreaFields();
 
             ["dirAccordion", "animations", "preventPageScroll", "reopenSidebar", "dndOpen"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
@@ -17,9 +19,6 @@
                 }
             });
 
-            let pxTolerance = s.helper.model.getData("b/pxTolerance");
-            s.opts.elm.range.pxToleranceMaximized[0].value = pxTolerance.maximized;
-            s.opts.elm.range.pxToleranceWindowed[0].value = pxTolerance.windowed;
             s.opts.elm.select.language[0].value = s.helper.i18n.getLanguage();
 
             ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
@@ -40,9 +39,6 @@
                 s.opts.elm.range[field][0].value = val;
                 s.opts.elm.range[field].trigger("change");
             });
-
-            s.opts.elm.range.pxToleranceMaximized.trigger("change");
-            s.opts.elm.range.pxToleranceWindowed.trigger("change");
         };
 
         /**
@@ -53,11 +49,12 @@
         this.save = () => {
             return new Promise((resolve) => {
                 let config = {
-                    pxTolerance: {
-                        maximized: s.opts.elm.range.pxToleranceMaximized[0].value,
-                        windowed: s.opts.elm.range.pxToleranceWindowed[0].value
-                    }
+                    toggleArea: {}
                 };
+
+                ["Width", "Height", "Top", "WidthWindowed"].forEach((field) => {
+                    config.toggleArea[field.toLowerCase()] = s.opts.elm.range["toggleArea" + field][0].value;
+                });
 
                 ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                     config[field] = s.opts.elm.select[field][0].value;
@@ -99,26 +96,147 @@
         };
 
         /**
-         * Initialises the eventhandlers
+         * Initialises the toggleArea sliders
          */
-        let initEvents = () => {
-            s.opts.elm.select.openAction.on("change", (e) => { // hide menupoint for changing the appearance of the indicator if it is not visible at all
+        let initToggleAreaFields = () => {
+            let toggleArea = s.helper.model.getData("b/toggleArea");
+            ["Width", "Height", "Top", "WidthWindowed"].forEach((field) => {
+                s.opts.elm.range["toggleArea" + field][0].value = toggleArea[field.toLowerCase()];
+                s.opts.elm.range["toggleArea" + field].trigger("change");
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers for the toggleArea modal
+         *
+         * @returns {Promise}
+         */
+        let initToggleAreaEvents = async () => {
+            let modal = s.opts.elm.body.children("div." + s.opts.classes.toggleArea.modal);
+            let preview = modal.children("div." + s.opts.classes.toggleArea.preview);
+
+            $([s.opts.elm.range.toggleAreaWidth, s.opts.elm.range.toggleAreaHeight, s.opts.elm.range.toggleAreaTop]).on("change input", (e) => {
+                let minWidth = 14;
+
+                let val = {
+                    width: +s.opts.elm.range.toggleAreaWidth[0].value,
+                    height: +s.opts.elm.range.toggleAreaHeight[0].value,
+                    top: +s.opts.elm.range.toggleAreaTop[0].value
+                };
+
+                if (val.height + val.top > 100) {
+                    let topVal = null;
+
+                    if (e.currentTarget === s.opts.elm.range.toggleAreaHeight[0]) {
+                        topVal = val.top - (val.height + val.top - 100);
+                    } else if (e.currentTarget === s.opts.elm.range.toggleAreaTop[0]) {
+                        topVal = 100 - val.height;
+                    }
+
+                    if (topVal !== null) {
+                        s.opts.elm.range.toggleAreaTop[0].value = topVal;
+                        s.opts.elm.range.toggleAreaTop.trigger("change");
+                    }
+                } else {
+                    preview.css({
+                        width: (minWidth + val.width) + "px",
+                        height: (val.height) + "%",
+                        top: val.top + "%"
+                    });
+
+                    if (val.height === 100) {
+                        preview.addClass(s.opts.classes.toggleArea.fullHeight);
+                    } else {
+                        preview.removeClass(s.opts.classes.toggleArea.fullHeight);
+                    }
+                }
+            });
+
+            s.opts.elm.buttons.toggleAreaOpen.on("click", (e) => { // open modal for advanced toggle options
+                e.preventDefault();
+
+                $.delay(100).then(() => {
+                    modal.attr(s.opts.attr.type, s.opts.elm.select.sidebarPosition[0].value);
+                    s.opts.elm.body.addClass(s.opts.classes.showModal);
+                });
+            });
+
+            s.opts.elm.buttons.toggleAreaSave.on("click", (e) => { // save settings
+                e.preventDefault();
+                s.opts.elm.buttons.save.trigger("click");
+                s.opts.elm.body.trigger("click");
+            });
+
+            s.opts.elm.buttons.toggleAreaCancel.on("click", (e) => { // close modal
+                e.preventDefault();
+                s.opts.elm.body.trigger("click");
+                $.delay(500).then(() => {
+                    initToggleAreaFields();
+                });
+            });
+
+            s.opts.elm.body.on("click", (e) => { // close modal when click something outside the overlay
+                let _target = $(e.target);
+                if (
+                    !preview.hasClass(s.opts.classes.toggleArea.dragging) &&
+                    !_target.hasClass(s.opts.classes.toggleArea.modal) &&
+                    _target.parents("div." + s.opts.classes.toggleArea.modal).length() === 0
+                ) {
+                    s.opts.elm.body.removeClass(s.opts.classes.showModal);
+                }
+            });
+
+            preview.on("mousedown", (e) => { // drag start
+                preview.addClass([s.opts.classes.toggleArea.dragged, s.opts.classes.toggleArea.dragging]);
+                preview.data("pos", {start: preview[0].offsetTop, y: e.pageY});
+            });
+
+            s.opts.elm.body.on("mouseup", () => { // drag end
+                $.delay(0).then(() => {
+                    preview.removeClass(s.opts.classes.toggleArea.dragging);
+                });
+            }).on("mousemove", (e) => { // drag move
+                if (preview.hasClass(s.opts.classes.toggleArea.dragging) && e.which === 1) {
+                    let pos = preview.data("pos");
+                    s.opts.elm.range.toggleAreaTop[0].value = ((pos.start + e.pageY - pos.y) / modal[0].offsetHeight) * 100;
+                    s.opts.elm.range.toggleAreaTop.trigger("change");
+                }
+            }, {passive: true});
+        };
+
+        /**
+         * Initialises the eventhandlers
+         *
+         * @returns {Promise}
+         */
+        let initEvents = async () => {
+            s.opts.elm.select.openAction.on("change", (e) => {
                 let indicatorMenuPoint = s.opts.elm.aside.find("li[" + s.opts.attr.name + "='indicator']");
 
+                // hide menupoint for changing the appearance of the indicator if it is not visible at all
                 if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
                     indicatorMenuPoint.removeClass(s.opts.classes.hidden);
                 } else {
                     indicatorMenuPoint.addClass(s.opts.classes.hidden);
                 }
+
+                // hide "configure area" when user wants to open the sidebar by clicking the extension icon only
+                let toggleAreaWrapper = s.opts.elm.buttons.toggleAreaOpen.parent("div");
+
+                if (e.currentTarget.value === "icon") {
+                    toggleAreaWrapper.addClass(s.opts.classes.hidden);
+                } else {
+                    toggleAreaWrapper.removeClass(s.opts.classes.hidden);
+                }
             });
 
             s.opts.elm.buttons.keyboardShortcut.on("click", (e) => {
                 e.preventDefault();
-                let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./); // @deprecated url to shortcut page has changed with Chrome X -> switch for older versions can be removed when min required version >= X
+                let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./); // @deprecated url of shortcut page has changed with Chrome 66 -> switch for older versions can be removed when min required version >= 66
                 let version = versionRaw ? parseInt(versionRaw[2], 10) : null;
 
                 chrome.tabs.create({
-                    url: version >= 99999 ? "chrome://extensions/shortcuts" : "chrome://extensions/configureCommands", // Google withdraw the changes of the extension overview, so don't use the new url until Google added it back
+                    url: version >= 66 ? "chrome://extensions/shortcuts" : "chrome://extensions/configureCommands",
                     active: true
                 });
             });

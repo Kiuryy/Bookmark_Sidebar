@@ -395,18 +395,6 @@
     "settings_animations_desc": {
         "message": "Permette di disattivare tutte le animazioni della barra. Pu\u00f2 essere utile se le animazioni non sono riprodotte in maniera fluida sul tuo sistema."
     },
-    "settings_px_tolerance": {
-        "message": "Tolleranza in pixel"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "La distanza in pixel dal lato di ogni pagina, all'interno della quale un click del mouse far\u00e0 apparire la barra laterale. Puoi scegliere diversi valori per il browser in modalit\u00e0 finestra o massimizzato."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Massimizzato"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "In finestra"
-    },
     "settings_open_action": {
         "message": "Apri la barra laterale"
     },

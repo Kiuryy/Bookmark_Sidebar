@@ -1,0 +1,35 @@
+html[dir='rtl'] {
+
+  body > section#wrapper {
+
+    div.toggleAreaDesc {
+
+      &::before {
+        top: 18px;
+        right: 0;
+        left: unset;
+      }
+
+      > p {
+        padding-right: 40px;
+        padding-left: unset;
+      }
+
+      > a {
+        margin-right: 40px;
+        margin-left: unset;
+      }
+    }
+  }
+
+  body > div.toggleAreaModal {
+
+    > p.buttons {
+
+      > a.cancel {
+        margin-right: 10px;
+        margin-left: unset;
+      }
+    }
+  }
+}

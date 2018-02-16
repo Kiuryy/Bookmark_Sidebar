@@ -1,0 +1,143 @@
+@keyframes moveUpDown {
+  25% {
+    transform: translate3d(0, 15px, 0);
+  }
+  75% {
+    transform: translate3d(0, -15px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+body > section#wrapper {
+
+  div.toggleAreaDesc {
+    @include mask('icon-info', $textColorLight, 32px);
+    position: relative;
+
+    &::before {
+      top: 18px;
+      left: 0;
+      width: 32px;
+      height: 32px;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    > p {
+      padding: 3px 0 3px 40px;
+      line-height: 150%;
+    }
+
+    > a {
+      margin: 10px 0 0 40px;
+    }
+  }
+}
+
+body > div.toggleAreaModal {
+  @extend %hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px 25px;
+  width: 600px;
+  height: 400px;
+  background: $contentBackground;
+  box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 99;
+  transform: scale(0.7);
+  transition: transform 0.3s, opacity 0.3s;
+
+  > div.preview {
+    @include mask('icon-reorder', $textColor, 28px);
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.15) 5px, rgba(0, 0, 0, 0.15) 10px);
+    border: 1px solid $textColorLight;
+    transition: width 0.2s, height 0.2s, top 0.2s;
+    cursor: ns-resize;
+
+    &::before {
+      animation: moveUpDown 1.2s 1.5s;
+    }
+
+    &.fullHeight {
+      cursor: default;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &.dragging {
+      transition: none;
+    }
+  }
+
+  > div.hidden {
+    display: none;
+  }
+
+  > p.buttons {
+    margin: 40px 0 0 0;
+
+    > a {
+      cursor: pointer;
+      vertical-align: top;
+      margin: 0;
+
+      &.cancel {
+        margin: 7px 0 0 10px;
+        display: inline-block;
+      }
+    }
+  }
+
+  &[data-type='left'] {
+    padding-left: 75px;
+
+    > div.preview {
+      border-radius: 0 7px 7px 0;
+      border-left: 0;
+      left: 0;
+    }
+  }
+
+  &[data-type='right'] {
+    padding-right: 75px;
+
+    > div.preview {
+      border-radius: 7px 0 0 7px;
+      border-right: 0;
+      right: 0;
+    }
+  }
+}
+
+body.showModal {
+
+  &::before {
+    opacity: 1;
+  }
+
+  > * {
+    pointer-events: none;
+  }
+
+  > div.toggleAreaModal {
+    @extend %visible;
+    transform: scale(1);
+  }
+}
+
+@import "../../rtl/include/settings/toggleAdvanced";

@@ -93,9 +93,24 @@
                         obj.newtab = {};
                     }
 
-                    // START UPGRADE // v1.13 -> released [02-2018]
+                    // START UPGRADE // v1.13 -> released [03-2018]
                     if (typeof obj.language === "string" && obj.language.search("-") > -1) {
                         chrome.storage.local.set({language: obj.language.replace("-", "_")});
+                    }
+
+                    if (typeof obj.behaviour.toggleArea === "undefined" && typeof obj.behaviour.pxTolerance !== "undefined") { // pxTolerance is replaced by a toggleArea object
+                        obj.behaviour.toggleArea = {
+                            width: obj.behaviour.pxTolerance.maximized || 1,
+                            widthWindowed: obj.behaviour.pxTolerance.windowed || 20,
+                            height: 100,
+                            top: 0
+                        };
+
+                        try {
+                            delete obj.behaviour.pxTolerance;
+                        } catch (e) {
+                            //
+                        }
                     }
 
                     chrome.storage.local.get(["utility"], (d) => { // replace old separator data with new format (special bookmarks)

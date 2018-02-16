@@ -500,18 +500,6 @@
     "settings_animations_desc": {
         "message": "Permite que voc\u00ea desabilite todas as anima\u00e7\u00f5es da barra lateral. Isto pode ser \u00fatil se as anima\u00e7\u00f5es n\u00e3o est\u00e3o funcionando suavemente em seu sistema."
     },
-    "settings_px_tolerance": {
-        "message": "Toler\u00e2ncia em pixels"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "Quantidade de pixels da lateral de cada p\u00e1gina, na qual um clique do mouse far\u00e1 a barra lateral abrir. Voc\u00ea pode escolher entre diferentes valores para o navegador maximizado ou em janela."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Maximizado"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Em janela"
-    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },

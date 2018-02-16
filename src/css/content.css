@@ -17,6 +17,7 @@ body > div#blockbyte-bs-indicator > div {
   width: "%indicatorWidth" !important;
   height: 100%;
   background: "%indicatorColor";
+  border-radius: 0 10px 10px 0;
   transition: opacity 0.3s, transform 0.3s;
   z-index: 2; }
   body > div#blockbyte-bs-indicator > div > span {
@@ -36,7 +37,11 @@ body > div#blockbyte-bs-indicator[data-pos='right'] {
   body > div#blockbyte-bs-indicator[data-pos='right'] > div {
     transform: translate3d("%indicatorWidth", 0, 0);
     left: auto;
-    right: 0; }
+    right: 0;
+    border-radius: 10px 0 0 10px; }
+
+body > div#blockbyte-bs-indicator.blockbyte-bs-fullHeight > div {
+  border-radius: 0; }
 
 body > div#blockbyte-bs-indicator.blockbyte-bs-hover > div {
   transform: translate3d(0, 0, 0);

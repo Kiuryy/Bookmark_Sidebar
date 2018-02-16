@@ -149,7 +149,7 @@
          */
         this.loaded = () => {
             if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
-                let data = this.helper.model.getData(["b/pxTolerance", "a/showIndicator"]);
+                let data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
                 this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
@@ -163,7 +163,7 @@
 
                 this.helper.utility.triggerEvent("loaded", {
                     config: {
-                        pxTolerance: data.pxTolerance,
+                        toggleArea: data.toggleArea,
                         showIndicator: data.showIndicator
                     },
                     elm: {

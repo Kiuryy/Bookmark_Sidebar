@@ -14,6 +14,14 @@
   }
 }
 
+p.desc {
+  font-size: 90%;
+  color: $textColorLight;
+  margin-top: 10px;
+  line-height: 150%;
+  font-style: italic;
+}
+
 body > section#wrapper {
   position: relative;
   display: flex;
@@ -106,14 +114,6 @@ body > section#wrapper {
               display: block;
             }
           }
-        }
-
-        p.desc {
-          font-size: 90%;
-          color: $textColorLight;
-          margin-top: 10px;
-          line-height: 150%;
-          font-style: italic;
         }
 
         p.info {

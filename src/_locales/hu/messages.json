@@ -500,18 +500,6 @@
     "settings_animations_desc": {
         "message": "Tilthatja az oldals\u00e1v anim\u00e1ci\u00f3j\u00e1t. Akkor lehet hasznos, ha akad\u00e1sokat tapasztal."
     },
-    "settings_px_tolerance": {
-        "message": "T\u0171r\u00e9shat\u00e1r pixelben"
-    },
-    "settings_px_tolerance_desc": {
-        "message": "A lap sz\u00e9l\u00e9t\u0151l sz\u00e1molt t\u00e1vols\u00e1g pixelben, amelyen bel\u00fcl t\u00f6rt\u00e9n\u0151 kattint\u00e1s megnyitja az oldals\u00e1vot. K\u00fcl\u00f6n adhatja meg az ablak maximaliz\u00e1lt \u00e9s ablakos m\u00e9ret\u00e9hez."
-    },
-    "settings_px_tolerance_maximized": {
-        "message": "Maximaliz\u00e1lt"
-    },
-    "settings_px_tolerance_windowed": {
-        "message": "Ablakos"
-    },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
     },

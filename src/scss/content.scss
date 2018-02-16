@@ -17,6 +17,7 @@ body > div#blockbyte-bs-indicator {
     width: $__indicatorWidth !important;
     height: 100%;
     background: $__indicatorColor;
+    border-radius: 0 10px 10px 0;
     transition: opacity 0.3s, transform 0.3s;
     z-index: 2;
     @extend %hidden;
@@ -42,6 +43,14 @@ body > div#blockbyte-bs-indicator {
       transform: translate3d($__indicatorWidth, 0, 0);
       left: auto;
       right: 0;
+      border-radius: 10px 0 0 10px;
+    }
+  }
+
+  &.blockbyte-bs-fullHeight {
+
+    > div {
+      border-radius: 0;
     }
   }
 

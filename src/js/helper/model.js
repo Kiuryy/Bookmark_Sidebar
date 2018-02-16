@@ -50,7 +50,12 @@
             b: { // behaviour -> synced across devices
                 animations: true,
                 preventPageScroll: false,
-                pxTolerance: {windowed: 20, maximized: 1},
+                toggleArea: {
+                    width: 1,
+                    widthWindowed: 20,
+                    height: 100,
+                    top: 0
+                },
                 sidebarPosition: "left",
                 openAction: "mousedown",
                 newTab: "foreground",
@@ -231,16 +236,16 @@
 
                 if (dataSearchScope !== null) {
                     if (defaultVal === true || typeof dataSearchScope[key] === "undefined") {
-                        ["sidebarPosition", "language"].some((f) => { // @deprecated backward compatibility (10-2017)
-                            if (keyInfo === "b/" + f) {
-                                value = this.getData("a/" + f);
 
-                                if (value !== null) {
-                                    scope = "__FOUND";
-                                }
-                                return true;
+                        if (keyInfo === "b/toggleArea") { // @deprecated backward compatibility (03-2018)
+                            let pxTolerance = this.getData("n/pxTolerance");
+                            if (pxTolerance !== null) {
+                                value = defaults[scope][key];
+                                value.width = pxTolerance.maximized;
+                                value.widthWindowed = pxTolerance.windowed;
+                                scope = "__FOUND";
                             }
-                        });
+                        }
 
                         if (keyInfo === "n/autoOpen") { // @deprecated backward compatibility (01-2018)
                             value = this.getData("n/initialOpen");
@@ -265,10 +270,12 @@
                 }
 
                 let isSettingsPage = location.href.search(/chrome\-extension\:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
-                if (keyInfo === "b/pxTolerance" && matchMedia("(min-resolution: 1.25dppx)").matches && isSettingsPage === false) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
+                if (keyInfo === "b/toggleArea" && matchMedia("(min-resolution: 1.25dppx)").matches && isSettingsPage === false) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
                     value = Object.assign({}, value);
                     Object.keys(value).forEach((k) => {
-                        value[k]++;
+                        if (k.startsWith("width")) {
+                            value[k]++;
+                        }
                     });
                 }
 

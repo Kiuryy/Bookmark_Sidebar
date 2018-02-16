@@ -13,6 +13,7 @@
         let mouseNotTopLeft = false;
         let timeout = {};
         let keypressed = null;
+        let hoveredOnce = false;
 
         /**
          * Initializes the sidebar toggle
@@ -156,11 +157,19 @@
         };
 
         /**
+         * Returns whether the sidebar was hovered by the user already
+         *
+         * @returns {boolean}
+         */
+        this.sidebarHoveredOnce = () => hoveredOnce;
+
+        /**
          * Adds the hover class to the iframe,
          * will expand the width of the iframe to 100%, when the mask is hidden (e.g. on the newtab page)
          */
         this.addSidebarHoverClass = () => {
             ext.elements.iframe.addClass(ext.opts.classes.page.hover);
+            hoveredOnce = true;
         };
 
         /**
@@ -337,7 +346,7 @@
             let ret = "other";
             let found = false;
 
-            let types = {
+            Object.entries({
                 newtab_default: ["https?://www\.google\..+/_/chrome/newtab"],
                 newtab_replacement: [chrome.extension.getURL("html/newtab.html")],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
@@ -346,10 +355,8 @@
                 chrome: ["chrome://"],
                 extension: ["chrome\-extension://"],
                 local: ["file://"]
-            };
-
-            Object.keys(types).some((key) => {
-                types[key].some((str) => {
+            }).some(([key, patterns]) => {
+                patterns.some((str) => {
                     if (url.search(new RegExp(str, "gi")) === 0) {
                         ret = key;
                         found = true;

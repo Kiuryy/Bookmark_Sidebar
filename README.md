@@ -13,7 +13,7 @@ Bookmark Sidebar is an extension for Chrome, which adds a toggleable sidebar wit
 <img src="https://blockbyte.de/img/extensions/chromeWebStore.png" width="200" />
 </a>
 
-The extension is currently available in 20 different languages...
+The extension is currently available in 22 different languages...
 
 ![English](https://img.shields.io/badge/English--green.svg?style=flat-square) <!-- English -->
 ![Deutsch](https://img.shields.io/badge/Deutsch--green.svg?style=flat-square) <!-- German -->
@@ -21,12 +21,14 @@ The extension is currently available in 20 different languages...
 ![Nederlands](https://img.shields.io/badge/Nederlands--green.svg?style=flat-square) <!-- Dutch -->
 ![italiano](https://img.shields.io/badge/italiano--green.svg?style=flat-square) <!-- Italian -->
 ![español](https://img.shields.io/badge/español--green.svg?style=flat-square) <!-- Spanish -->
-![português](https://img.shields.io/badge/português--green.svg?style=flat-square) <!-- Portuguese -->
+![português (Brasil)](https://img.shields.io/badge/português_(Brasil)--green.svg?style=flat-square) <!-- Portuguese (Brasil) -->
+![português (Portugal)](https://img.shields.io/badge/português_(Portugal)--green.svg?style=flat-square) <!-- Portuguese (Portugal) -->
 ![svenska](https://img.shields.io/badge/svenska--green.svg?style=flat-square) <!-- Swedish -->
 ![magyar](https://img.shields.io/badge/magyar--green.svg?style=flat-square) <!-- Hungarian -->
 ![polski](https://img.shields.io/badge/polski--green.svg?style=flat-square) <!-- Polish -->
 ![Türkçe](https://img.shields.io/badge/Türkçe--green.svg?style=flat-square) <!-- Turkish -->
 ![čeština](https://img.shields.io/badge/čeština--green.svg?style=flat-square) <!-- Czech -->
+![română](https://img.shields.io/badge/română--green.svg?style=flat-square) <!-- Czech -->
 ![русский](https://img.shields.io/badge/русский--green.svg?style=flat-square) <!-- Russian -->
 ![Fārsi](https://img.shields.io/badge/Fārsi--green.svg?style=flat-square) <!-- Persian -->
 ![Bahasa Indonesia](https://img.shields.io/badge/Bahasa_Indonesia--green.svg?style=flat-square) <!-- Indonesian -->

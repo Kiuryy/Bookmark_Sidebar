@@ -4,6 +4,15 @@
     window.OverlayHelper = function (ext) {
 
         let elements = {};
+        let checkUrlWhitelist = [
+            "about:",
+            "https?://192\.168\.",
+            "192\.168\.",
+            "127.0.0.",
+            "localhost",
+            "chrome://",
+            "chrome\-extension://"
+        ];
 
         /**
          * Creates a new overlay for the given bookmark
@@ -552,7 +561,18 @@
                     let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
                         entries.forEach((entry) => {
                             if (entry.url) {
-                                bookmarks.push(entry);
+                                let isValidUrl = true;
+
+                                checkUrlWhitelist.some((str) => {
+                                    if (entry.url.search(new RegExp(str, "gi")) === 0) {
+                                        isValidUrl = false;
+                                        return true;
+                                    }
+                                });
+
+                                if (isValidUrl) {
+                                    bookmarks.push(entry);
+                                }
                             } else if (entry.children) {
                                 processBookmarks(entry.children);
                             }
@@ -803,28 +823,46 @@
          * updates entries with changed urls
          */
         let updateBookmarkUrls = () => {
-            elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li").forEach((elm) => {
-                if ($(elm).find("input[type='checkbox']")[0].checked) {
-                    let entry = $(elm).data("entry");
+            let entries = elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li");
+            elements.modal.find("a." + ext.opts.classes.overlay.action).remove();
 
-                    if (entry.urlStatusCode === 404) {
-                        ext.helper.model.call("deleteBookmark", {
-                            id: entry.id,
-                            preventReload: true
-                        });
-                    } else if (entry.url !== entry.newUrl) {
-                        ext.helper.model.call("updateBookmark", {
-                            id: entry.id,
-                            title: entry.title,
-                            url: entry.newUrl,
-                            preventReload: true
-                        });
+            new Promise((resolve) => {
+                let proceedList = (i = 0) => {
+                    if (entries[i]) { // go through the list one by one and update or delete the bookmark
+                        if ($(entries[i]).find("input[type='checkbox']")[0].checked) {
+                            let entry = $(entries[i]).data("entry");
+                            console.log(entry);
+
+                            new Promise((rslv) => {
+                                if (entry.urlStatusCode === 404) {
+                                    ext.helper.model.call("deleteBookmark", {
+                                        id: entry.id,
+                                        preventReload: true
+                                    }).then(rslv);
+                                } else if (entry.url !== entry.newUrl) {
+                                    ext.helper.model.call("updateBookmark", {
+                                        id: entry.id,
+                                        title: entry.title,
+                                        url: entry.newUrl,
+                                        preventReload: true
+                                    }).then(rslv);
+                                } else {
+                                    rslv();
+                                }
+                            }).then(() => {
+                                proceedList(i + 1);
+                            });
+                        }
+                    } else { // all elements iterated -> close overlay and reload sidebar
+                        resolve();
                     }
-                }
-            });
+                };
 
-            ext.helper.model.call("reload", {type: "Update"});
-            this.closeOverlay();
+                proceedList();
+            }).then(() => {
+                ext.helper.model.call("reload", {type: "Update"});
+                this.closeOverlay();
+            });
         };
 
         /**

@@ -518,6 +518,24 @@
     "settings_open_action_icon": {
         "message": "Clic sur l'ic\u00f4ne"
     },
+    "settings_toggle_area": {
+        "message": "Configurer la zone de bordure"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Par d\u00e9faut, vous pouvez passer votre souris sur toute la bordure du navigateur pour ouvrir la barre lat\u00e9rale. Vous pouvez le changer et configurer pr\u00e9cis\u00e9ment la zone pour ouvrir la barre lat\u00e9rale."
+    },
+    "settings_toggle_area_width": {
+        "message": "Largeur"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Largeur (mode fen\u00eatr\u00e9)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Hauteur"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Vous pouvez r\u00e9duire la hauteur de la zone pour que la barre lat\u00e9rale s'ouvre uniquement lorsque vous passez la souris dans cette zone de la bordure du navigateur."
+    },
     "settings_keyboard_shortcut_button": {
         "message": "D\u00e9finir un raccourci clavier"
     },

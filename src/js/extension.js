@@ -4,6 +4,7 @@
     window.ext = function (opts) {
 
         let loadingInfo = {};
+        let existenceTimeout = null;
         let isLoading = false;
 
         /*
@@ -158,6 +159,7 @@
                     this.helper.toggle.markLastUsed();
                 }
 
+                checkExistence();
                 this.initialized = +new Date();
                 this.log(this.initialized - this.updateBookmarkBoxStart);
 
@@ -294,6 +296,25 @@
                 contextmenu: new window.ContextmenuHelper(this),
                 tooltip: new window.TooltipHelper(this)
             };
+        };
+
+        /**
+         * Checks whether the sidebar iframe is still available and reinitialized the extension if not,
+         * calls itself every 2s as long the sidebar is not missing
+         */
+        let checkExistence = () => {
+            if (existenceTimeout !== null) {
+                clearTimeout(existenceTimeout);
+            }
+
+            existenceTimeout = setTimeout(() => {
+                if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
+                    console.log("SIDEBAR GONE...");
+                    init(true);
+                } else {
+                    checkExistence();
+                }
+            }, 2000);
         };
 
         /**

@@ -518,6 +518,24 @@
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
     },
+    "settings_toggle_area": {
+        "message": "Configurar \u00e1rea"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Por padr\u00e3o, a borda inteira da janela do navegador pode ser suspensa para abrir a barra lateral. Voc\u00ea pode alterar isso e configurar onde abrir a barra lateral exatamente."
+    },
+    "settings_toggle_area_width": {
+        "message": "Largura"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Largura (em janela)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Altura"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Voc\u00ea pode reduzir a altura da \u00e1rea, de forma que a barra lateral seja aberta somente quando voc\u00ea mover o cursor para dentro deste local da borda da janela do navegador."
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
     },

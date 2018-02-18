@@ -220,7 +220,7 @@
          * @returns {Promise}
          */
         this.cacheList = () => {
-            ext.log("CACHE");
+            ext.log("Cache sidebar html");
 
             return Promise.all([
                 ext.helper.model.call("setCache", {
@@ -678,7 +678,7 @@
          */
         let updateFromCache = (list, cachedHtml) => {
             return new Promise((resolve) => {
-                ext.log("LOAD FROM CACHE");
+                ext.log("Load html from cache");
                 list.html(cachedHtml);
                 list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
                 list.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
@@ -705,7 +705,7 @@
          */
         let updateFromObject = (list) => {
             return new Promise((resolve) => {
-                ext.log("LOAD FROM OBJECT");
+                ext.log("Load html from object");
                 let entries = [];
                 let viewAsTree = ext.helper.model.getData("u/viewAsTree");
                 ext.elements.bookmarkBox.all.removeClass(ext.opts.classes.sidebar.cached);

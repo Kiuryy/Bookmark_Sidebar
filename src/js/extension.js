@@ -135,13 +135,27 @@
         };
 
         /**
-         * Prints the given parameters in the console (only if this.dev = true)
+         * Prints the given message in the console (only if this.dev = true)
          *
          * @param {*} msg
          */
-        this.log = (...msg) => {
+        this.log = (msg) => {
             if (this.isDev) {
-                console.log(...msg);
+                let styles = [
+                    "padding: 0 0 5px 0",
+                    "font-size:90%",
+                    "color:#666"
+                ].join(";");
+
+                console.log(...[
+                    // message
+                    "%c[] %cBookmark Sidebar %c-> %c" + msg,
+                    // styles
+                    styles,
+                    styles + ";color:#09d;font-weight: bold",
+                    styles + ";color: #000;font-weight: bold",
+                    styles
+                ]);
             }
         };
 
@@ -161,7 +175,7 @@
 
                 checkExistence();
                 this.initialized = +new Date();
-                this.log(this.initialized - this.updateBookmarkBoxStart);
+                this.log("Finished loading in " + (this.initialized - this.updateBookmarkBoxStart) + "ms");
 
                 this.helper.utility.triggerEvent("loaded", {
                     config: {
@@ -309,7 +323,7 @@
 
             existenceTimeout = setTimeout(() => {
                 if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
-                    console.log("SIDEBAR GONE...");
+                    this.log("Detected: Sidebar missing from DOM");
                     init(true);
                 } else {
                     checkExistence();
@@ -330,12 +344,12 @@
             $(window).off("*.bs");
 
             if (sidebarIframe.length() > 0) {
-                this.log("DESTROY");
-
                 sidebarIframe.remove();
                 $("iframe#" + opts.ids.page.overlay).remove();
                 $("div#" + opts.ids.page.indicator).remove();
                 ret = true;
+
+                this.log("Destroyed old instance");
             }
 
             return ret;

@@ -220,7 +220,7 @@
                 ]);
             }).then(() => {
                 if (this.isDev) {
-                    console.log("LOADED", +new Date() - start);
+                    console.log("Finished loading background script", +new Date() - start);
                 }
             });
         };

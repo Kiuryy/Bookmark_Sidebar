@@ -142,11 +142,14 @@
                         });
 
                         let thumb = $("<img />").appendTo(entryLink);
-                        n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
-                            if (response.img) { //
-                                thumb.attr("src", response.img).addClass(n.opts.classes.visible);
-                            }
-                        });
+
+                        if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
+                            n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
+                                if (response.img) { //
+                                    thumb.attr("src", response.img).addClass(n.opts.classes.visible);
+                                }
+                            });
+                        }
                     });
 
                     return $.delay(100);

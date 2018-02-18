@@ -4,15 +4,6 @@
     window.OverlayHelper = function (ext) {
 
         let elements = {};
-        let checkUrlWhitelist = [
-            "about:",
-            "https?://192\.168\.",
-            "192\.168\.",
-            "127.0.0.",
-            "localhost",
-            "chrome://",
-            "chrome\-extension://"
-        ];
 
         /**
          * Creates a new overlay for the given bookmark
@@ -560,19 +551,8 @@
 
                     let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
                         entries.forEach((entry) => {
-                            if (entry.url) {
-                                let isValidUrl = true;
-
-                                checkUrlWhitelist.some((str) => {
-                                    if (entry.url.search(new RegExp(str, "gi")) === 0) {
-                                        isValidUrl = false;
-                                        return true;
-                                    }
-                                });
-
-                                if (isValidUrl) {
-                                    bookmarks.push(entry);
-                                }
+                            if (entry.url && ext.helper.utility.isUrlOnBlacklist(entry.url) === false) {
+                                bookmarks.push(entry);
                             } else if (entry.children) {
                                 processBookmarks(entry.children);
                             }

@@ -124,6 +124,7 @@
                 i18n: new window.I18nHelper(this),
                 font: new window.FontHelper(this),
                 stylesheet: new window.StylesheetHelper(this),
+                utility: new window.UtilityHelper(this),
                 search: new window.SearchHelper(this),
                 entry: new window.EntryHelper(this),
                 shortcuts: new window.ShortcutsHelper(this),

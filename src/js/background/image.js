@@ -27,7 +27,7 @@
          */
         this.getThumbnail = (opts) => {
             return new Promise((resolve) => {
-                if (typeof opts.url === "undefined" || opts.url.startsWith("chrome://") || opts.url.startsWith("chrome-extension://")) {
+                if (typeof opts.url === "undefined") {
                     resolve({img: null});
                 } else {
                     let cachedValue = getCachedValue("thumb", opts.url);

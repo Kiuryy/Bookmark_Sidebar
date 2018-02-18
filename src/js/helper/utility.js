@@ -115,6 +115,36 @@
         };
 
         /**
+         * Returns true if the given url matches the list of blacklisted urls,
+         * this is useful to prevent checking the existence of non existing urls or trying to retrieve thumbnails for them
+         *
+         * @param {string} url
+         * @returns {boolean}
+         */
+        this.isUrlOnBlacklist = (url) => {
+            let ret = false;
+
+            [
+                "about:",
+                "https?://192\.168\.",
+                "192\.168\.",
+                "https?://localhost",
+                "localhost",
+                "https?://127\.0\.0\.",
+                "127\.0\.0\.",
+                "chrome://",
+                "chrome\-extension://"
+            ].some((str) => {
+                if (url.search(new RegExp(str, "gi")) === 0) {
+                    ret = true;
+                    return true;
+                }
+            });
+
+            return ret;
+        };
+
+        /**
          * Checks whether the browser is maximized or windowed
          *
          * @returns {boolean}

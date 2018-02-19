@@ -5,6 +5,7 @@
 
         let entryHelperInited = false;
         let type = null;
+        let updateRunning = false;
         let types = {
             topPages: "default",
             mostUsed: "most_used",
@@ -118,7 +119,9 @@
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
                     n.opts.elm.topPages.children("ul").data("total", 0).html("");
                 }
-            } else {
+            } else if (updateRunning === false) {
+                updateRunning = true;
+
                 Promise.all([
                     getEntryData(),
                     $.delay(200) // allows smooth fading between switching of types
@@ -155,6 +158,7 @@
                     return $.delay(100);
                 }).then(() => {
                     n.opts.elm.topPages.children("ul").addClass(n.opts.classes.visible);
+                    updateRunning = false;
                 });
             }
         };

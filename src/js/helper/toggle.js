@@ -164,6 +164,14 @@
         this.sidebarHoveredOnce = () => hoveredOnce;
 
         /**
+         * Sets the variable whether the sidebar was hovered by the user to true,
+         * will be called by the hotkey callback for example, to allow navigating with the keyboard after opening the sidebar with the hotkey
+         */
+        this.setSidebarHoveredOnce = () => {
+            hoveredOnce = true;
+        };
+
+        /**
          * Adds the hover class to the iframe,
          * will expand the width of the iframe to 100%, when the mask is hidden (e.g. on the newtab page)
          */

@@ -287,6 +287,7 @@
                         if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
                             ext.helper.toggle.closeSidebar();
                         } else {
+                            ext.helper.toggle.setSidebarHoveredOnce(true);
                             ext.helper.toggle.openSidebar();
                         }
                     }

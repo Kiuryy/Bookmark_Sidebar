@@ -118,13 +118,13 @@
                             try {
                                 Object.entries(d.utility.separators).forEach(([parentId, separators]) => {
                                     if (separators && separators.length > 0) {
-                                        separators.forEach((separator) => {
+                                        separators.forEach((separator, i) => {
                                             b.preventReload = true;
                                             b.helper.bookmarkApi.func.create({
                                                 title: "----------",
                                                 url: "about:blank",
                                                 parentId: parentId,
-                                                index: separator.index || 0
+                                                index: (separator.index || 0) + i
                                             });
                                         });
                                     }

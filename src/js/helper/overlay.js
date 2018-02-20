@@ -811,7 +811,6 @@
                     if (entries[i]) { // go through the list one by one and update or delete the bookmark
                         if ($(entries[i]).find("input[type='checkbox']")[0].checked) {
                             let entry = $(entries[i]).data("entry");
-                            console.log(entry);
 
                             new Promise((rslv) => {
                                 if (entry.urlStatusCode === 404) {
@@ -832,6 +831,8 @@
                             }).then(() => {
                                 proceedList(i + 1);
                             });
+                        } else {
+                            proceedList(i + 1);
                         }
                     } else { // all elements iterated -> close overlay and reload sidebar
                         resolve();

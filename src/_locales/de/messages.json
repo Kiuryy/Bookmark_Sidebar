@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
     },
-    "settings_headline_faq": {
-        "message": "H\u00e4ufig gestellte Fragen"
-    },
-    "settings_faq_usage_q": {
-        "message": "Wie kann ich die Sidebar \u00f6ffnen?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Du kannst dir das [a]Tuturial[\/a] ansehen, um zu sehen, wie du die Sidebar \u00f6ffnen kannst und es anschlie\u00dfend auf jeder Webseite selbst ausprobieren. Wenn du weiterhin Probleme mit der Erweiterung hast, lies dir bitte die andere beantwortete Frage \u00fcber den Grund, warum die Sidebar nicht auf jeder Seite funktioniert, durch, oder sende mir eine Nachricht mit Details zu deinem Problem."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Kannst du die Sidebar permanent offen lassen?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Leider kann ich das nicht. Google hat die M\u00f6glichkeit einer echten Sidebar, wie im Firefox, vor ein paar Jahren entfernt. Ohne die Programmierschnittstelle muss die Sidebar bei jedem Seitenaufruf erneut geladen werden."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Warum funktioniert die Sidebar auf manchen Seiten, wie dem Chrome Webstore nicht?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Das kann mehrere Gr\u00fcnde haben. Im Chrome Webstore und Seiten die mit [em]chrome-extension:\/\/[\/em] beginnen funktioniert es durch Sicherheitseinschr\u00e4nkungen nicht. Es gibt jedoch auch Seiten, die das Laden der Sidebar blockieren oder veraltete Quellcode-Strukturen besitzen. Wenn du Probleme auf manchen Seiten feststellst, lass es mich wissen, damit ich mir die entsprechende Seite ansehen und versuchen kann das Problem zu beheben."
-    },
     "settings_headline_donation": {
         "message": "Spenden"
     },

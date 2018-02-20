@@ -755,27 +755,6 @@
     "settings_feedback_send_failed": {
         "message": "Il tuo messaggio non \u00e8 stato inviato. Riprova."
     },
-    "settings_headline_faq": {
-        "message": "Domande frequenti"
-    },
-    "settings_faq_usage_q": {
-        "message": "Come posso aprire la barra laterale?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Puoi guardare il [a]tutorial[\/a] per vedere come aprire la barra laterale e provare tu stesso subito dopo su qualsiasi sito web. Se hai ancora dei problemi con l'estensione puoi provare a leggere le altre domande frequenti o inviarmi un messaggio con i dettagli del problema riscontrato."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "E' possibile lasciare la barra laterale aperta costantemente?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Sfortunatamente, non \u00e8 possibile. Google ha rimosso da qualche anno la possibilit\u00e0 di creare una vera e propria barra laterale, come quella di Firefox. Senza l'interfaccia di programmazione dell'applicazione la barra laterale deve essere caricata nuovamente ad ogni cambio di pagina."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Perch\u00e9 la barra laterale non funziona in alcune pagine, come il Chrome Webstore?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Possono esserci diversi motivi. Sul Chrome Webstore e sulle pagine che iniziano con [em]chrome-extension:\/\/[\/em] si tratta di misure di sicurezza. Ma possono esserci altre pagine che bloccano l'esecuzione della barra laterale o utilizzano strutture di codice sorgente obsolete. Se riscontri problemi in alcune pagine, ti prego di farmelo sapere, in modo da permettermi di controllare la pagina e provare e risolvere il problema specifico."
-    },
     "settings_headline_donation": {
         "message": "Effettua una donazione"
     },

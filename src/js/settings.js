@@ -58,6 +58,12 @@
                     dragging: "dragging",
                     modal: "toggleAreaModal",
                 },
+                feedback: {
+                    suggestion: "suggestion",
+                    answer: "answer",
+                    noHeight: "noHeight",
+                    absolute: "absolute"
+                },
                 hidden: "hidden",
                 success: "success",
                 error: "error",
@@ -141,7 +147,8 @@
                     wrapper: $("div.tab[data-name='feedback']"),
                     form: $("section.form"),
                     send: $("section.form button[type='submit']"),
-                    faq: $("div.faq")
+                    feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),
+                    suggestions: $("div.tab[data-name='feedback'] div.suggestedAnswers")
                 },
                 translation: {
                     wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
@@ -168,7 +175,10 @@
                 pageChanged: "blockbyte-bs-pageChanged"
             },
             ajax: {
-                feedback: "https://extensions.blockbyte.de/ajax/feedback",
+                feedback: {
+                    form: "https://extensions.blockbyte.de/ajax/feedback",
+                    suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"
+                },
                 translation: {
                     info: "https://extensions.blockbyte.de/ajax/translation/bs/info",
                     langvars: "https://extensions.blockbyte.de/ajax/translation/bs/langvars",

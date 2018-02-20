@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Mesajul dvs. nu a putut fi trimis. V\u0103 rug\u0103m s\u0103 re\u00eencerca\u021bi."
     },
-    "settings_headline_faq": {
-        "message": "\u00centreb\u0103ri frecvente"
-    },
-    "settings_faq_usage_q": {
-        "message": "\u00cemi pute\u021bi spune cum s\u0103 deschid bara lateral\u0103?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Pute\u021bi urm\u0103ri [a]tutorialul[\/a] pentru a vedea cum s\u0103 deschide\u021bi bara lateral\u0103 \u0219i apoi s\u0103 o testa\u021bi ulterior pe fiecare site web. Dac\u0103 ave\u021bi \u00een continuare probleme cu extensia, citi\u021bi cea de-a doua \u00eentrebare cu privire la motivul pentru care bara lateral\u0103 nu func\u021bioneaz\u0103 pe fiecare pagin\u0103 sau trimite\u021bi-mi un mesaj cu detalii despre problema dvs."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Po\u021bi face ca bara lateral\u0103 s\u0103 r\u0103m\u00e2n\u0103 deschis\u0103 tot timpul ?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Din p\u0103cate, nu pot face asta. Google a eliminat posibilitatea de a face o adev\u0103rat\u0103 bara lateral\u0103, ca \u00een firefox, cu c\u00e2\u021biva ani \u00een urm\u0103. F\u0103r\u0103 interfa\u021ba de programare a aplica\u021biilor, bara lateral\u0103 trebuie s\u0103 fie \u00eenc\u0103rcat\u0103 din nou de fiecare dat\u0103 c\u00e2nd naviga\u021bi la o pagin\u0103 nou\u0103."
-    },
-    "settings_faq_not_working_q": {
-        "message": "De ce nu merge bara lateral\u0103 pe unele pagini cum ar fi Chrome Webstore?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Acest lucru poate fi din mai multe motive. Pe Chrome Webstore \u0219i pe paginile care \u00eencep cu [em]chrome-extension:\/\/[\/em] aceasta este o restric\u021bie de securitate. Dar ar putea exista \u0219i alte pagini care s\u0103 blocheze bara lateral\u0103 sau s\u0103 utilizeze structuri de cod surs\u0103 \u00eenvechite. Dac\u0103 \u00eent\u00e2mpina\u021bi probleme pe unele pagini, v\u0103 rog s\u0103-mi spune\u021bi, pentru a putea vedea o anumit\u0103 pagin\u0103 \u0219i s\u0103 \u00eencerc\u0103m s\u0103 o remediem."
-    },
     "settings_headline_donation": {
         "message": "Dona\u021bi"
     },

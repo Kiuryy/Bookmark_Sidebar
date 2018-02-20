@@ -142,7 +142,7 @@
          * Opens an info page depending on the reason why the sidebar could not be opened
          */
         let openNotWorkingInfoPage = () => {
-            let url = "html/settings.html#feedback_faq_notworking";
+            let url = "html/settings.html#feedback_notification";
 
             if (notificationReason === "new_tab") {
                 url = "html/settings.html#newtab";

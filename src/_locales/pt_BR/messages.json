@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
     },
-    "settings_headline_faq": {
-        "message": "Perguntas frequentes"
-    },
-    "settings_faq_usage_q": {
-        "message": "Voc\u00ea pode me dizer como abrir a barra lateral?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Voc\u00ea pode assistir ao [a]tutorial[\/a] para entender como abrir a barra lateral e depois testar voc\u00ea mesmo em qualquer site. Se voc\u00ea ainda tiver problemas com a extens\u00e3o, por favor leia a outra pergunta respondida sobre o porqu\u00ea de a barra lateral n\u00e3o estar abrindo em todos os sites ou envie-me uma mensagem com detalhes sobre seu problema."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Voc\u00ea pode fazer com que a barra lateral mantenha-se aberta o tempo todo?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Infelizmente, eu n\u00e3o posso fazer isso. A Google removeu a possibilidade de se produzir uma barra lateral real, como no Firefox, h\u00e1 alguns anos. Sem a interface se programa\u00e7\u00e3o de aplicativos, a barra lateral precisa ser carregada novamente todas as vezes que voc\u00ea for para uma nova p\u00e1gina."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Por que a barra lateral n\u00e3o funciona em algumas p\u00e1ginas, como o Chrome Webstore?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Isto pode ter muitas raz\u00f5es. No Chrome Webstore e nas p\u00e1ginas que come\u00e7am com [em]chrome-extension:\/\/[\/em], esta \u00e9 uma restri\u00e7\u00e3o de seguran\u00e7a. Mas pode haver outras p\u00e1ginas que bloqueiam a barra lateral ou usam estruturas de c\u00f3digo-fonte desatualizadas. Se voc\u00ea encontrar problemas em algumas p\u00e1ginas, por favor avise-me, ent\u00e3o eu poderei dar uma olhada na p\u00e1gina espec\u00edfica e tentar corrigi-la."
-    },
     "settings_headline_donation": {
         "message": "Doar"
     },

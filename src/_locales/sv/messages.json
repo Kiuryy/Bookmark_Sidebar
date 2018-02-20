@@ -785,27 +785,6 @@
     "settings_feedback_send_failed": {
         "message": "Ditt meddelande kunde inte skickas. V\u00e4nligen f\u00f6rs\u00f6k igen."
     },
-    "settings_headline_faq": {
-        "message": "Vanliga fr\u00e5gor"
-    },
-    "settings_faq_usage_q": {
-        "message": "Kan du ber\u00e4tta f\u00f6r mig hur man \u00f6ppnar sidopanelen?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Du kan titta p\u00e5 [a]handledningen[\/a] f\u00f6r att se hur man \u00f6ppnar sidopanelen och testar det sj\u00e4lv efter\u00e5t p\u00e5 varje hemsida. Om du fortfarande har problem med till\u00e4gget, l\u00e4s den andra svarade fr\u00e5gan om varf\u00f6r sidopanelen inte fungerar p\u00e5 varje sida eller skicka ett meddelande med detaljer om ditt problem."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Kan du g\u00f6ra att sidopanelen f\u00f6rblir \u00f6ppen hela tiden?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Tyv\u00e4rr kan jag inte g\u00f6ra det h\u00e4r. Google tog bort m\u00f6jligheten att g\u00f6ra en riktig sidopanel, som i Firefox, f\u00f6r n\u00e5gra \u00e5r sedan. Utan programmeringsgr\u00e4nssnittet m\u00e5ste sidopanelen laddas igen varje g\u00e5ng du navigerar till en ny sida."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Varf\u00f6r fungerar inte sidopanelen p\u00e5 vissa sidor, som Chrome Webstore?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Detta kan ha m\u00e5nga orsaker. P\u00e5 Chrome Webshop och sidor som b\u00f6rjar med [em]Chrome-extension: \/\/[\/em] \u00e4r detta en s\u00e4kerhetsrestriktion. Men det kan finnas andra sidor som blockerar sidopanelen, eller anv\u00e4nd f\u00f6r\u00e5ldrade k\u00e4llkodstrukturer. Om du st\u00f6ter p\u00e5 problem p\u00e5 vissa sidor, var sn\u00e4ll och l\u00e5t mig veta, s\u00e5 jag kan kolla p\u00e5 den specifika sidan och f\u00f6rs\u00f6ka fixa den."
-    },
     "settings_headline_donation": {
         "message": "Donera"
     },

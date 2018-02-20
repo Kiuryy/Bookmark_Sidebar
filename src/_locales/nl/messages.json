@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Je bericht kon niet verzonden worden. Probeer het opnieuw."
     },
-    "settings_headline_faq": {
-        "message": "Veel voorkomende vragen"
-    },
-    "settings_faq_usage_q": {
-        "message": "Kan je mij vertellen hoe je de zijbalk opent?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Je kan de [a]uitleg[\/a] kijken om door te krijgen hoe je alles moet gebruiken. als de zijbalk daarna nog niet werkt geef me dan feedback in het Engels met betrekking tot het probleem en de betreffende website."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Kan je de zijbalk altijd open laten blijven?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Helaas kan ik dit niet doen,. Google heeft de functie om een echte zijbalk te maken verwijderd (net zoals Firefox een paar jaar geleden)."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Waarom werkt de zijbalk niet op een aantal pagina's, zoals de Chrome Webstore?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Dit kan vele oorzaken hebben. bijvoorbeeld op in de chrome webstore kun je hem niet gebruiken wegens een beveiliging risico. indien er meer pagina's zijn waarop de zijbalk het niet doet laat dan feedback achter met de betreffende website erin vermeld."
-    },
     "settings_headline_donation": {
         "message": "Doneer"
     },

@@ -725,27 +725,6 @@
     "settings_feedback_send_failed": {
         "message": "Va\u0161e zpr\u00e1va nemohla b\u00fdt odesl\u00e1na. Pros\u00edm zkuste to znovu."
     },
-    "settings_headline_faq": {
-        "message": "Nej\u010dast\u011bj\u0161\u00ed ot\u00e1zky"
-    },
-    "settings_faq_usage_q": {
-        "message": "M\u016f\u017eete mi \u0159\u00edct, jak otev\u0159\u00edt postrann\u00ed panel?"
-    },
-    "settings_faq_usage_a": {
-        "message": "M\u016f\u017eete si prohl\u00e9dnout [a] tutori\u00e1l [\/ a] a zjistit, jak otev\u0159\u00edt postrann\u00ed panel a vyzkou\u0161et si je na ka\u017ed\u00e9m webu. Pokud m\u00e1te probl\u00e9my s roz\u0161\u00ed\u0159en\u00edm, p\u0159e\u010dt\u011bte si dal\u0161\u00ed odpov\u011b\u010f na ot\u00e1zku, pro\u010d postrann\u00ed panel nefunguje na ka\u017ed\u00e9 str\u00e1nce nebo mi po\u0161lete zpr\u00e1vu s podrobnostmi o va\u0161em probl\u00e9mu."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "M\u016f\u017eete vytvo\u0159it trval\u00e9 otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Bohu\u017eel to nemohu ud\u011blat. Spole\u010dnost Google p\u0159ed n\u011bkolika lety odstranila mo\u017enost vytvo\u0159it trval\u00fd postrann\u00ed panel, jako ve Firefoxu. Bez rozhran\u00ed pro programov\u00e1n\u00ed aplikac\u00ed mus\u00ed b\u00fdt postrann\u00ed panel znovu na\u010dten v\u017edy p\u0159i ka\u017ed\u00e9m p\u0159echodu na novou str\u00e1nku."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Pro\u010d nefunguje bo\u010dn\u00ed li\u0161ta na n\u011bkter\u00fdch str\u00e1nk\u00e1ch, jako je nap\u0159\u00edklad webov\u00fd server Chrome?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "To m\u016f\u017ee m\u00edt mnoho d\u016fvod\u016f. Na Chrome WebStore a na str\u00e1nk\u00e1ch za\u010d\u00ednaj\u00edc\u00edch [em]chrome-extension: \/\/[\/em] je to bezpe\u010dnostn\u00ed omezen\u00ed. Mohou v\u0161ak existovat dal\u0161\u00ed str\u00e1nky, kter\u00e9 blokuj\u00ed postrann\u00ed panel nebo pou\u017e\u00edvaj\u00ed zastaral\u00e9 struktury zdrojov\u00e9ho k\u00f3du. Pokud na n\u011bkter\u00fdch str\u00e1nk\u00e1ch naraz\u00edte na probl\u00e9my, dejte n\u00e1m v\u011bd\u011bt, abych se mohl pod\u00edvat na konkr\u00e9tn\u00ed str\u00e1nku a pokusit se ji opravit."
-    },
     "settings_headline_donation": {
         "message": "P\u0159isp\u011bt"
     },

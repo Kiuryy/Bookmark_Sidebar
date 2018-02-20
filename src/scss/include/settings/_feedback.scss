@@ -5,75 +5,10 @@ div.tab[data-name='feedback'] {
     line-height: 150%;
   }
 
-  div.faq {
-    padding-top: 10px;
-
-    strong {
-      position: relative;
-      display: block;
-      font-weight: $__fontWeightMedium;
-      cursor: pointer;
-      margin: 20px 0;
-      padding: 0 0 0 15px;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        display: block;
-        top: 7px;
-        left: 0;
-        width: 6px;
-        height: 2px;
-        background: $textColorLight;
-      }
-    }
-
-    > p {
-      position: relative;
-      background: $bodyBackground;
-      padding: 5px 7px;
-      margin: -10px 0 15px 0;
-      border-radius: 5px;
-      display: none;
-      transition: background 0.5s;
-
-      &.visible {
-        display: block;
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -14px;
-        left: 20px;
-        border: 7px solid transparent;
-        border-bottom-color: $bodyBackground;
-        transition: border-bottom-color 0.5s;
-      }
-
-      &.highlight {
-        background: $colorNotice;
-
-        &::before {
-          border-bottom-color: $colorNotice;
-        }
-      }
-
-      > a {
-        font-weight: $__fontWeightBold;
-        color: $mainColorAlt;
-      }
-    }
-  }
-
   p.notice {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 15px;
-    margin-top: 15px;
+    margin: 15px 0;
   }
 
   section.form {
@@ -90,6 +25,7 @@ div.tab[data-name='feedback'] {
         background: $bodyBackground;
         line-height: 150%;
         padding: 90px 30px 30px;
+        margin: 0 0 10px 0;
 
         &::before {
           pointer-events: none;
@@ -107,7 +43,145 @@ div.tab[data-name='feedback'] {
 
     textarea {
       resize: vertical;
-      height: 180px;
+      height: 200px;
+    }
+  }
+
+  @mixin suggestion {
+    transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s;
+
+    &.hidden {
+      @extend %hidden;
+    }
+
+    &.noHeight {
+      height: 0 !important;
+      padding: 0;
+      margin: 0;
+    }
+
+  }
+
+  div.suggestedAnswers {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 10px 10px 80px 10px !important;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transform: translate3d(0, 20px, 0);
+    transition: opacity 0.3s, transform 0.3s;
+    @extend %hidden;
+
+    &.visible {
+      @extend %visible;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @media (min-width: 901px) {
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        pointer-events: none;
+        background: linear-gradient(to bottom, $bodyBackground 0%, transparent 100%);
+        z-index: 2;
+      }
+    }
+
+    > span.icon {
+      @include mask('settings/support', $textColorInverted, 36px);
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: $mainColor;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    > div.suggestion {
+      position: relative;
+      width: 100%;
+      background: $contentBackground;
+      filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1));
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      @include suggestion;
+
+      &:last-of-type::before {
+        content: "";
+        position: absolute;
+        bottom: -32px;
+        right: 20px;
+        border: 16px solid transparent;
+        border-top-color: $contentBackground;
+      }
+
+      &.hidden {
+        @extend %hidden;
+      }
+
+      &.noHeight {
+        height: 0 !important;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0;
+      }
+
+      &.absolute {
+        position: absolute;
+        bottom: -9999px;
+        width: calc(100% - 20px);
+      }
+
+      > strong {
+        font-size: 120%;
+        font-weight: $__fontWeightNormal;
+        line-height: 150%;
+      }
+
+      > p {
+        margin: 15px 0 5px;
+        text-align: right;
+        font-size: 120%;
+
+        > a {
+          display: inline-block;
+          padding: 2px 7px;
+          font-weight: $__fontWeightMedium;
+          border-radius: 3px;
+          margin: 0 3px;
+          cursor: pointer;
+          transition: background 0.5s;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.05);
+          }
+
+          &[href] {
+            float: left;
+          }
+        }
+      }
+
+      > div.answer {
+        margin-top: 20px;
+        @include suggestion;
+
+        p + p {
+          margin-top: 10px;
+        }
+      }
     }
   }
 }

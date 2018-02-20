@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Your message could not be sent. Please try again."
     },
-    "settings_headline_faq": {
-        "message": "Frequently Asked Questions"
-    },
-    "settings_faq_usage_q": {
-        "message": "Can you tell me how to open the sidebar?"
-    },
-    "settings_faq_usage_a": {
-        "message": "You can watch the [a]tutorial[\/a] to see how to open the sidebar and test it yourself afterwards on every website. If you still have issues with the extension please read the other answered question regarding why the sidebar is not working on every page or send me a message with details about your problem."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Can you make the sidebar remain open all the time?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Unfortunately I can not do this. Google removed the possibility to make a real sidebar, like in firefox, a few years ago. Without the application programming interface the sidebar needs to be loaded again every time you navigate to a new page."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Why doesn't the sidebar work on some pages, like the Chrome Webstore?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "This can have many reasons. On the chrome webstore and pages starting with [em]chrome-extension:\/\/[\/em] this is a security restriction. But there might be other pages which block the sidebar, or use outdated source code structures. If you encounter problems on some pages, please let me know, so I can have a look at the particular page and try to fix it."
-    },
     "settings_headline_donation": {
         "message": "Donate"
     },

@@ -281,6 +281,9 @@
     "contribute_share_config_label": {
         "message": "Udost\u0119pnij konfiguracj\u0119"
     },
+    "contribute_share_config_desc": {
+        "message": "Udost\u0119pniasz swoj\u0105 konfiguracj\u0119 anonimowo, pomagaj\u0105c mi w ten spos\u00f3b ustali\u0107 popularne ustawienia i zorientowa\u0107 si\u0119, kt\u00f3re elementy bocznej listy zak\u0142adek mog\u0105 wymaga\u0107 usprawnienia lub zmiany w kolejnych wydaniach."
+    },
     "contribute_share_activity_label": {
         "message": "Podziel si\u0119 aktywno\u015bci\u0105"
     },
@@ -475,6 +478,12 @@
     },
     "settings_open_action_icon": {
         "message": "Kliknij na ikon\u0119"
+    },
+    "settings_toggle_area_width": {
+        "message": "Szeroko\u015b\u0107"
+    },
+    "settings_toggle_area_height": {
+        "message": "Wysoko\u015b\u0107"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Ustaw skr\u00f3t klawiaturowy"
@@ -832,27 +841,6 @@
     },
     "settings_feedback_send_failed": {
         "message": "Twoja wiadomo\u015b\u0107 nie mog\u0142a zosta\u0107 wys\u0142ana. Prosz\u0119, spr\u00f3buj ponownie"
-    },
-    "settings_headline_faq": {
-        "message": "Cz\u0119sto zadawane pytania"
-    },
-    "settings_faq_usage_q": {
-        "message": "Mo\u017cesz mi powiedzie\u0107 jak otworzy\u0107 boczn\u0105 list\u0119?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Mo\u017cesz obejrze\u0107 [a]samouczek[\/a], aby zobaczy\u0107 jak otworzy\u0107 boczn\u0105 list\u0119, a nast\u0119pnie spr\u00f3bowa\u0107 samemu na dowolnej stronie. Je\u017celi nadal masz problemy z tym rozszerzeniem, zach\u0119cam do przeczytania odpowiedzi na pytanie, dlaczego boczna lista nie dzia\u0142a poprawnie na ka\u017cdej stronie, lub wys\u0142a\u0107 mi wiadomo\u015b\u0107 opisuj\u0105c\u0105 tw\u00f3j problem."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Czy mo\u017cesz zrobi\u0107 tak, \u017ceby boczna lista by\u0142a otwarta ca\u0142y czas?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Niestety nie mog\u0119 tego zrobi\u0107. Google usun\u0105\u0142 kilka lat temu mo\u017cliwo\u015b\u0107 zrobienia prawdziwej bocznej listy, takiej jaka jest w Firefoksie. Bez API (interfejs programistyczny aplikacji) boczna lista musi by\u0107 \u0142adowana za ka\u017cdym razem, kiedy otwierasz now\u0105 stron\u0119."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Dlaczego boczna lista nie dzia\u0142a na niekt\u00f3rych stronach, np. na Chrome Web Store?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Mo\u017ce mie\u0107 to r\u00f3\u017cne przyczyny. Na stronie Chrome Web Store i stronach zaczynaj\u0105cych si\u0119 na [em]chrome-extension:\/\/[\/em] jest to spowodowane ograniczeniami zwi\u0105zanymi z bezpiecze\u0144stwem. Inne strony mog\u0105 blokowa\u0107 boczn\u0105 list\u0119 lub wykorzystuj\u0105 przestarza\u0142y kod \u017ar\u00f3d\u0142owy. Je\u015bli napotkasz problemy na jakich\u015b stronach, prosz\u0119, daj mi zna\u0107, abym m\u00f3g\u0142 na to rzuci\u0107 okiem i spr\u00f3bowa\u0142 to naprawi\u0107."
     },
     "settings_headline_donation": {
         "message": "Darowizna"

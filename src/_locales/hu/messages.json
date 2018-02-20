@@ -875,27 +875,6 @@
     "settings_feedback_send_failed": {
         "message": "Az \u00fczenet\u00e9t nem tudjuk elk\u00fcldeni. K\u00e9rj\u00fck pr\u00f3b\u00e1lja meg k\u00e9s\u0151bb."
     },
-    "settings_headline_faq": {
-        "message": "Gyakran Ism\u00e9telt K\u00e9rd\u00e9sek"
-    },
-    "settings_faq_usage_q": {
-        "message": "Hogyan ny\u00edlik meg az oldals\u00e1v ?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Elv\u00e9gezheti a [a]kezdeti l\u00e9p\u00e9seket[\/a] hogy megn\u00e9zze, hogyan nyithat\u00f3 meg az oldals\u00e1v, majd tesztelheti azt minden weblapon. Ha probl\u00e9m\u00e1ja akad, akkor megn\u00e9zheti a m\u00e1r feltett k\u00e9rd\u00e9sekre adott v\u00e1laszokat vagy k\u00fcldhet \u00fczenetet is nek\u00fcnk, r\u00e9szletesen le\u00edrva a hiba jelleg\u00e9t."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Nyitva tarthat\u00f3 \u00e1lland\u00f3an az oldals\u00e1v?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Sajnos ez nem lehets\u00e9ges. A Google \u00e9vekkel ezel\u0151tt megsz\u0171ntette a firefoxhoz hasonl\u00f3 val\u00f3di oldals\u00e1v lehet\u0151s\u00e9g\u00e9t. Az sz\u00fcks\u00e9ges API n\u00e9lk\u00fcl minden egyes alkalommal be kell t\u00f6lteni az oldals\u00e1vot, ah\u00e1nyszor csak \u00faj lapra l\u00e9p."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Mi\u00e9rt nem m\u0171k\u00f6dik bizonyos lapokon az oldals\u00e1v, pl. a Chrome \u00e1ruh\u00e1zban ?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Ennek t\u00f6bb oka is lehet. A Chrome \u00e1ruh\u00e1zban \u00e9s a [em]chrome-extension:\/\/[\/em] kezdet\u0171 lapokon ez biztons\u00e1gi megfontol\u00e1s miatt van \u00edgy. De vannak egy\u00e9b lapok, amelyek blokkolj\u00e1k az oldals\u00e1vot vagy elavult szerkezetek vannak a forr\u00e1sk\u00f3djukban. Ha tal\u00e1lkozik ilyen lapokkal, k\u00e9rem tudassa \u00e9s a konkr\u00e9t lap ismeret\u00e9ben esetleg tudjuk jav\u00edtani a hib\u00e1t."
-    },
     "settings_headline_donation": {
         "message": "Adom\u00e1nyoz\u00e1s"
     },

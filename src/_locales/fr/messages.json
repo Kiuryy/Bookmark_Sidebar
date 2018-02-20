@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Votre message n'a pas pu \u00eatre envoy\u00e9. Veuillez r\u00e9essayer s'il vous pla\u00eet."
     },
-    "settings_headline_faq": {
-        "message": "Questions fr\u00e9quentes"
-    },
-    "settings_faq_usage_q": {
-        "message": "Pouvez-vous me dire comment ouvrir la barre lat\u00e9rale ?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Vous pouvez visionner le [a]tutoriel[\/a] pour voir comment ouvrir la barre lat\u00e9rale et tester ensuite par vous-m\u00eame sur chaque page web. Toutefois, si vous rencontrez toujours des difficult\u00e9s avec cette extension, merci de lire la r\u00e9ponse \u00e0 la question concernant la raison pour laquelle la barre lat\u00e9rale ne fonctionne pas sur la totalit\u00e9 des pages web ou envoyez moi un message avec des explications d\u00e9taill\u00e9es concernant le probl\u00e8me rencontr\u00e9."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "Pouvez vous faire en sorte que la barre lat\u00e9rale soit constamment affich\u00e9e ?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Malheureusement je ne peux pas faire cela. Google a retir\u00e9 la possibilit\u00e9 de faire une vraie barre lat\u00e9rale (comme dans firefox) il y a quelques ann\u00e9es."
-    },
-    "settings_faq_not_working_q": {
-        "message": "Pourquoi la barre lat\u00e9rale ne s'affiche-t-elle pas sur certaines pages comme le store de chrome ?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Plusieurs explications sont possibles. Par exemple, pour des raisons de s\u00e9curit\u00e9 sur le store et les pages commen\u00e7ant par [em]chrome-extension:\/\/[\/em]. Mais d'autres pages peuvent aussi bloquer la barre lat\u00e9rale ou utiliser du code obsol\u00e8te. Si vous avez des probl\u00e8mes sur des pages en particulier, indiquez-moi lesquelles pour que je puisse y jeter un oeil et essayer de r\u00e9soudre le probl\u00e8me."
-    },
     "settings_headline_donation": {
         "message": "Aider le d\u00e9veloppeur"
     },

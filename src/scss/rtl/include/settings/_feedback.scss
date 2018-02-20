@@ -3,23 +3,28 @@ html[dir='rtl'] {
 
   div.tab[data-name='feedback'] {
 
-    div.faq {
+    div.suggestedAnswers {
 
-      strong {
-        padding-right: 15px;
-        padding-left: 0;
-
-        &::before {
-          right: 0;
-          left: unset;
-        }
+      > span.icon {
+        left: 12px;
+        right: unset;
+        box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
       }
 
-      > p {
+      > div.suggestion {
+        direction: ltr;
 
-        &::before {
-          right: 20px;
-          left: unset;
+        &:last-of-type::before {
+          left: 20px;
+          right: unset;
+        }
+
+        > p {
+          text-align: left;
+
+          > a[href] {
+            float: right;
+          }
         }
       }
     }

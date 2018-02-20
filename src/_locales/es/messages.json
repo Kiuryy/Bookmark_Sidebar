@@ -893,27 +893,6 @@
     "settings_feedback_send_failed": {
         "message": "Su mensaje no pudo ser enviado. Por favor intente de nuevo."
     },
-    "settings_headline_faq": {
-        "message": "Preguntas frecuentes."
-    },
-    "settings_faq_usage_q": {
-        "message": "\u00bfC\u00f3mo abrir la barra lateral?"
-    },
-    "settings_faq_usage_a": {
-        "message": "Puede ver el [a]tutorial[\/a] para ver c\u00f3mo abrir la barra lateral y luego probarla en cada sitio web. Si todav\u00eda tiene problemas con la extensi\u00f3n, lea la otra pregunta respondida sobre por qu\u00e9 la barra lateral no funciona en cada p\u00e1gina o env\u00edeme un mensaje con detalles sobre su problema."
-    },
-    "settings_faq_fixed_sidebar_q": {
-        "message": "\u00bfPuedo hacer que la barra lateral permanezca abierta todo el tiempo?"
-    },
-    "settings_faq_fixed_sidebar_a": {
-        "message": "Desafortunadamente no puede hacer esto. Google elimin\u00f3 la posibilidad de crear una barra lateral real, como en Firefox, hace unos a\u00f1os. Sin la interfaz de programaci\u00f3n de aplicaciones, la barra lateral debe cargarse nuevamente cada vez que navegue a una p\u00e1gina nueva."
-    },
-    "settings_faq_not_working_q": {
-        "message": "\u00bfPor qu\u00e9 la barra lateral no funciona en algunas p\u00e1ginas, como la Tienda de Chrome?"
-    },
-    "settings_faq_not_working_a": {
-        "message": "Esto puede deberse a muchas razones. En la Chrome WebStore y en las p\u00e1ginas que comienzan con [em]chrome-extension:\/\/[\/em] no podr\u00e1 abrir la barra lateral ya que esta es una restricci\u00f3n de seguridad. Pero puede haber otras p\u00e1ginas que bloquean la barra lateral o usan estructuras de c\u00f3digo fuente obsoletas. Si encuentras problemas en algunas p\u00e1ginas, hazmelo saber, para que pueda echar un vistazo a la p\u00e1gina en particular y tratar de solucionarlo."
-    },
     "settings_headline_donation": {
         "message": "Donar"
     },

@@ -377,9 +377,6 @@
     "onboarding_sidebar_surface_dark": {
         "message": "\u0422\u0435\u043c\u043d\u0430\u044f"
     },
-    "onboarding_handson_desc_direct": {
-        "message": "\u041f\u0440\u043e\u0432\u0435\u0440\u044c\u0442\u0435, \u043a\u0430\u043a \u044d\u0442\u043e \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442."
-    },
     "onboarding_handson_desc": {
         "message": "\u0422\u0435\u043f\u0435\u0440\u044c \u043f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u0441\u0430\u043c\u0438."
     },

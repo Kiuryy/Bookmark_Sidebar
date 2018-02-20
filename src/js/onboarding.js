@@ -3,7 +3,6 @@
 
     window.onboarding = function () {
 
-        let skipIntro = false;
         let configChanged = false;
 
         /*
@@ -47,7 +46,6 @@
         this.run = () => {
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
-            skipIntro = location.href.search(/(\?|\&)skip\=1/) > -1;
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -72,17 +70,11 @@
                 initHandsOnEvents();
                 initFinishedEvents();
 
-                this.helper.model.call("trackPageView", {page: "/onboarding", always: skipIntro ? false : true});
+                this.helper.model.call("trackPageView", {page: "/onboarding", always: true});
 
                 $.delay(500).then(() => { // finish loading
                     this.opts.elm.body.removeClass(this.opts.classes.initLoading);
-
-                    if (skipIntro) {
-                        initHandsOn();
-                    } else {
-                        gotoSlide("intro");
-                    }
-
+                    gotoSlide("intro");
                     return $.delay(300);
                 }).then(() => {
                     loader.remove();
@@ -281,9 +273,9 @@
             $.delay(300).then(() => {
                 this.helper.model.call("trackEvent", {
                     category: "onboarding",
-                    action: "view" + (skipIntro ? "_direct" : ""),
+                    action: "view",
                     label: name,
-                    always: skipIntro ? false : true
+                    always: true
                 });
 
                 $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='" + name + "']").addClass(this.opts.classes.visible);
@@ -302,10 +294,6 @@
             });
 
             let slide = $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='handson']");
-
-            if (skipIntro) { // user skipped the setup -> show different headline
-                slide.children("p." + this.opts.classes.large).text(this.helper.i18n.get("onboarding_handson_desc_direct"));
-            }
 
             let config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
             this.opts.elm.body.attr(this.opts.attr.position, config.sidebarPosition);

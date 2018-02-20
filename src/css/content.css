@@ -47,10 +47,13 @@ body > div#blockbyte-bs-indicator.blockbyte-bs-hover > div {
   transform: translate3d(0, 0, 0);
   opacity: 1; }
 
-body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div {
-  background: transparent; }
-  body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div > span {
-    -webkit-mask-position-y: 20px; }
+body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb {
+  height: 100% !important;
+  top: 0 !important; }
+  body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div {
+    background: transparent; }
+    body > div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb > div > span {
+      -webkit-mask-position-y: 20px; }
 
 body > iframe#blockbyte-bs-sidebar {
   width: "%sidebarWidth";

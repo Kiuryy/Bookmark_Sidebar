@@ -58,6 +58,11 @@
                     dragging: "dragging",
                     modal: "toggleAreaModal",
                 },
+                appearance: {
+                    preview: {
+                        fullHeight: "blockbyte-bs-fullHeight"
+                    }
+                },
                 feedback: {
                     suggestion: "suggestion",
                     answer: "answer",

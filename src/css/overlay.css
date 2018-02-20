@@ -277,7 +277,7 @@ div.modal {
       background-color: "%foregroundColor"; }
     div.modal > header::before {
       -webkit-mask-position: center;
-      width: "%overlayHeaderHeight";
+      width: 50px;
       height: "%overlayHeaderHeight";
       left: 5px; }
     div.modal > header > h1 {

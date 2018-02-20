@@ -89,10 +89,6 @@
                 });
                 this.opts.elm.infobox.addClass(this.opts.classes.flipped);
             });
-
-            $("section.infobox a.translate").on("click", (e) => { // @deprecated only for changelog v1.12 -> can be removed with 1.13
-                location.href = chrome.extension.getURL("html/settings.html#language_translate");
-            });
         };
     };
 

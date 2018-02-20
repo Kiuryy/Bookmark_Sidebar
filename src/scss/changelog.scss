@@ -155,17 +155,6 @@ section.infobox {
       }
     }
   }
-
-  a.translate { // @deprecated only for changelog v1.12
-    display: inline-block;
-    background: $contentBackground;
-    padding: 2px 7px;
-    margin: 15px 0 0 0;
-    color: $mainColor;
-    border-radius: 3px;
-    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-  }
 }
 
 @import "rtl/changelog";

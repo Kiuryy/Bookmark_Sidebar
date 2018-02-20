@@ -10,6 +10,19 @@
             indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
+        let presets = {
+            sidebarHeaderHeight: {xs: 32, s: 36, l: 55},
+            bookmarksFontSize: {xs: 11, s: 12, l: 16},
+            bookmarksLineHeight: {xs: 20, s: 26, l: 45},
+            sidebarWidth: {xs: 250, s: 300, l: 400},
+            bookmarksDirIndentation: {xs: 20, s: 22, l: 30},
+            bookmarksHorizontalPadding: {xs: 6, s: 10, l: 18},
+            bookmarksIconSize: {xs: 12, s: 14, l: 18},
+            directoriesIconSize: {xs: 12, s: 14, l: 18},
+            scrollBarWidth: {xs: 10, s: 11, l: 12},
+            tooltipFontSize: {xs: 9, s: 9, l: 12}
+        };
+
         let lastTooltipChange = null;
         let tooltipTimeout = null;
 
@@ -37,9 +50,7 @@
 
                     let styles = s.helper.model.getData("a/styles");
 
-                    Object.keys(styles).forEach((key) => {
-                        let value = styles[key];
-
+                    Object.entries(styles).forEach(([key, value]) => {
                         if (s.opts.elm.range[key]) {
                             s.opts.elm.range[key][0].value = value.replace("px", "");
                             s.opts.elm.range[key].data("initial", value.replace("px", ""));
@@ -108,24 +119,8 @@
         };
 
         /**
-         * Sends a request to the given path and resolves after retrieving
-         *
-         * @param path
-         * @returns {Promise}
+         * Updates all previews
          */
-        let sendAjax = (path) => {
-            return new Promise((resolve) => {
-                let xhr = new XMLHttpRequest();
-                xhr.open("GET", chrome.extension.getURL(path), true);
-                xhr.onload = () => {
-                    if (xhr.response) {
-                        resolve(xhr.response);
-                    }
-                };
-                xhr.send();
-            });
-        };
-
         let updateAllPreviewStyles = () => {
             Object.keys(s.opts.elm.preview).forEach((key) => {
                 updatePreviewStyle(key);
@@ -186,12 +181,38 @@
 
                 updatePreviewTooltip(s.opts.elm.preview[key]);
                 updatePreviewSidebarHeader(s.opts.elm.preview[key]);
+                updatePreviewIndicator(s.opts.elm.preview[key]);
             } else if (key === "icon") {
                 s.helper.model.call("updateIcon", {
                     name: config.appearance.styles.iconShape,
                     color: config.appearance.styles.iconColor,
                     onlyCurrentTab: true
                 });
+            }
+        };
+
+        /**
+         * Updates the preview of the indicator
+         *
+         * @param {jsu} preview
+         */
+        let updatePreviewIndicator = (preview) => {
+            let indicator = preview.find("div#blockbyte-bs-indicator");
+
+            if (indicator.length() > 0) {
+                let height = +s.opts.elm.range.toggleArea_height[0].value;
+                let top = +s.opts.elm.range.toggleArea_top[0].value;
+
+                indicator.css({
+                    height: height + "%",
+                    top: top + "%"
+                });
+
+                if (height === 100) {
+                    indicator.addClass(s.opts.classes.appearance.preview.fullHeight);
+                } else {
+                    indicator.removeClass(s.opts.classes.appearance.preview.fullHeight);
+                }
             }
         };
 
@@ -412,27 +433,32 @@
                         .attr(s.opts.attr.appearance, key)
                         .appendTo(s.opts.elm.body);
 
-                    sendAjax("html/template/" + previews[key].template + ".html").then((html) => {
-                        html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
-                        html = html.replace(/__POSITION__/g, s.helper.i18n.isRtl() ? "left" : "right");
+                    $.xhr(chrome.extension.getURL("html/template/" + previews[key].template + ".html")).then((xhr) => {
+                        if (xhr && xhr.responseText) {
+                            let html = xhr.responseText;
+                            html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
+                            html = html.replace(/__POSITION__/g, s.helper.i18n.isRtl() ? "left" : "right");
 
-                        let previewBody = s.opts.elm.preview[key].find("body");
-                        previewBody.html(html);
-                        previewBody.parent("html").attr("dir", s.helper.i18n.isRtl() ? "rtl" : "ltr");
+                            let previewBody = s.opts.elm.preview[key].find("body");
+                            previewBody.html(html);
+                            previewBody.parent("html").attr("dir", s.helper.i18n.isRtl() ? "rtl" : "ltr");
 
-                        s.helper.i18n.parseHtml(s.opts.elm.preview[key]);
-                        s.helper.font.addStylesheet(s.opts.elm.preview[key]);
+                            s.helper.i18n.parseHtml(s.opts.elm.preview[key]);
+                            s.helper.font.addStylesheet(s.opts.elm.preview[key]);
 
-                        previewsLoaded++;
+                            previewsLoaded++;
 
-                        if (previewsLoaded === previewAmount) {
-                            resolve();
+                            if (previewsLoaded === previewAmount) {
+                                resolve();
+                            }
                         }
                     });
 
                     previews[key].styles.forEach((stylesheet) => {
-                        sendAjax("css/" + stylesheet + ".css").then((css) => {
-                            previews[key].css += css;
+                        $.xhr(chrome.extension.getURL("css/" + stylesheet + ".css")).then((xhr) => {
+                            if (xhr && xhr.responseText) {
+                                previews[key].css += xhr.responseText;
+                            }
                         });
                     });
                 });
@@ -454,20 +480,7 @@
                 let type = $(e.currentTarget).attr(s.opts.attr.type);
                 let defaults = s.helper.model.getData("a/styles", true);
 
-                let elm = {
-                    sidebarHeaderHeight: {xs: 32, s: 36, l: 55},
-                    bookmarksFontSize: {xs: 11, s: 12, l: 16},
-                    bookmarksLineHeight: {xs: 20, s: 26, l: 45},
-                    sidebarWidth: {xs: 250, s: 300, l: 400},
-                    bookmarksDirIndentation: {xs: 20, s: 22, l: 30},
-                    bookmarksHorizontalPadding: {xs: 6, s: 10, l: 18},
-                    bookmarksIconSize: {xs: 12, s: 14, l: 18},
-                    directoriesIconSize: {xs: 12, s: 14, l: 18},
-                    scrollBarWidth: {xs: 10, s: 11, l: 12},
-                    tooltipFontSize: {xs: 9, s: 9, l: 12}
-                };
-
-                Object.entries(elm).forEach(([key, values]) => {
+                Object.entries(presets).forEach(([key, values]) => {
                     if (values[type]) {
                         s.opts.elm.range[key][0].value = values[type];
                     } else {

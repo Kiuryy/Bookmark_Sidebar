@@ -71,7 +71,7 @@ div.modal {
 
     &::before {
       -webkit-mask-position: center;
-      width: $__overlayHeaderHeight;
+      width: 50px;
       height: $__overlayHeaderHeight;
       left: 5px;
     }

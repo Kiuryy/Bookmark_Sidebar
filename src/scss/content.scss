@@ -63,6 +63,8 @@ body > div#blockbyte-bs-indicator {
   }
 
   &[data-pos='left'].blockbyte-bs-has-lsb {
+    height: 100% !important;
+    top: 0 !important;
 
     > div {
       background: transparent;

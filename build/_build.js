@@ -123,6 +123,7 @@
                             path.src + "js/lib/jsu.js",
                             path.src + "js/helper/i18n.js",
                             path.src + "js/helper/model.js",
+                            path.src + "js/helper/utility.js",
                             path.src + "js/helper/template.js",
                             path.src + "js/helper/stylesheet.js",
                             path.src + "js/helper/font.js"

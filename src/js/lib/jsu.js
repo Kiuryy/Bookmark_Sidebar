@@ -304,7 +304,7 @@
              *
              * @param opts
              * @param val
-             * @returns {mixed|jsuNode}
+             * @returns {*|jsuNode}
              */
             [css](opts, val) {
                 let isSetter = false;
@@ -343,7 +343,7 @@
              *
              * @param opts
              * @param val
-             * @returns {mixed|jsuNode}
+             * @returns {*|jsuNode}
              */
             [attr](opts, val) {
                 let isSetter = false;
@@ -535,7 +535,7 @@
              *
              * @param key
              * @param val
-             * @returns {mixed|jsuNode}
+             * @returns {*|jsuNode}
              */
             [data](key, val) {
                 let isSetter = false;

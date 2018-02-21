@@ -242,6 +242,45 @@
     "status_background_disconnected_reload_action": {
         "message": "Od\u015bwie\u017c teraz"
     },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Przechodzi do nast\u0119pnej pozycji bocznej listy zak\u0142adek lub aktualnie otwartego menu kontekstowego"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Uruchamia akcj\u0119 klikni\u0119cia lewym przyciskiem myszki na aktualnie wskazywanej pozycji"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Otwiera menu kontekstowe dla aktualnie wskazywanej pozycji"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Kopiuje adres URL aktualnie wskazywanej pozycji"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Usuwa aktualnie wskazywan\u0105 pozycj\u0119"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Zamyka boczn\u0105 list\u0119 zak\u0142adek, menu kontekstowe lub inny otwarty element"
+    },
     "notification_sidebar_not_working_headline": {
         "message": "Boczna lista nie mo\u017ce zosta\u0107 otwarta"
     },
@@ -476,11 +515,23 @@
     "settings_open_action_icon": {
         "message": "Kliknij na ikon\u0119"
     },
+    "settings_toggle_area": {
+        "message": "Skonfiguruj obszar"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Domy\u015blnie ca\u0142y obszar w pobli\u017cu kraw\u0119dzi okna przegl\u0105darki odpowiada za otwieranie bocznej listy zak\u0142adek po najechaniu na niego wska\u017anikiem myszki. Domy\u015blne zachowanie mo\u017cna zmieni\u0107 ograniczaj\u0105c wysoko\u015b\u0107 tego obszaru."
+    },
     "settings_toggle_area_width": {
         "message": "Szeroko\u015b\u0107"
     },
+    "settings_toggle_area_width_windowed": {
+        "message": "Szeroko\u015b\u0107 (w trybie zwyk\u0142ego okna)"
+    },
     "settings_toggle_area_height": {
         "message": "Wysoko\u015b\u0107"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Mo\u017cesz ograniczy\u0107 wysoko\u015b\u0107 obszaru odpowiedzialnego za otwieranie bocznej listy zak\u0142adek po najechaniu na niego wska\u017anikiem myszki."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Ustaw skr\u00f3t klawiaturowy"

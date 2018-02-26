@@ -6,6 +6,7 @@
         let loadingInfo = {};
         let existenceTimeout = null;
         let isLoading = false;
+        let uid = Math.floor(Math.random() * 99999) + 10000;
 
         /*
          * ################################
@@ -24,6 +25,8 @@
          * Constructor
          */
         this.run = () => {
+            $("html").attr(opts.attr.uid, uid);
+            
             this.isDev = opts.manifest.version_name === "Dev" || !("update_url" in opts.manifest);
             let removedOldInstance = destroyOldInstance();
             initHelpers();
@@ -322,11 +325,15 @@
             }
 
             existenceTimeout = setTimeout(() => {
-                if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
-                    this.log("Detected: Sidebar missing from DOM");
-                    init(true);
-                } else {
-                    checkExistence();
+                let htmlUid = $("html").attr(opts.attr.uid);
+
+                if (typeof htmlUid === "undefined" || uid === +htmlUid) {
+                    if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
+                        this.log("Detected: Sidebar missing from DOM");
+                        init(true);
+                    } else {
+                        checkExistence();
+                    }
                 }
             }, 2000);
         };

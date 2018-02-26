@@ -123,6 +123,7 @@
             }
         },
         attr: {
+            uid: "data-blockbyte-bs-uid",
             src: "data-src",
             position: "data-pos",
             type: "data-type",

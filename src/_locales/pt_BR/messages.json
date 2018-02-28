@@ -689,6 +689,12 @@
     "settings_sidebar_position_right": {
         "message": "Direita"
     },
+    "settings_import_saved": {
+        "message": "Configura\u00e7\u00e3o importada com sucesso"
+    },
+    "settings_import_failed": {
+        "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
+    },
     "settings_import_export_desc": {
         "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para qualquer computador onde a extens\u00e3o esteja instalada."
     },
@@ -697,12 +703,6 @@
     },
     "settings_import": {
         "message": "Importar Configura\u00e7\u00f5es"
-    },
-    "settings_import_saved": {
-        "message": "Configura\u00e7\u00e3o importada com sucesso"
-    },
-    "settings_import_failed": {
-        "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
     "settings_presets": {
         "message": "Pr\u00e9-sele\u00e7\u00e3o"

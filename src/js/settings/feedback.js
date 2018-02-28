@@ -20,8 +20,8 @@
                 initSuggestions().then(() => {
                     let path = s.helper.menu.getPath();
 
-                    if (path.length >= 2 && path[0] === "feedback" && path[1] === "notification") {
-                        showCommonSuggestions();
+                    if (path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2]) {
+                        showCommonSuggestions(path[2]);
                     }
                 });
             } else {
@@ -67,9 +67,19 @@
         /**
          * Shows the most common reasons why the sidebar could not be opened,
          * Will be called when a user clicks the notification, that the sidebar could not be opened
+         *
+         * @param {string} type
          */
-        let showCommonSuggestions = () => {
-            ["not_working", "webstore", "system_pages"].forEach((key, i) => {
+        let showCommonSuggestions = (type) => {
+            let suggestions = [];
+
+            if (type === "general") {
+                suggestions = ["not_working", "webstore", "system_pages"];
+            } else if (type === "filter") {
+                suggestions = ["blacklisted_whitelisted"];
+            }
+
+            suggestions.forEach((key, i) => {
                 $.delay(i * 700).then(() => {
                     if (data && data.suggestions && data.suggestions[key]) {
                         suggestionInfo.displayed.push(key);
@@ -117,7 +127,8 @@
                 s.helper.model.call("trackEvent", {
                     category: "settings",
                     action: "suggestion_display",
-                    label: key
+                    label: key,
+                    always: true
                 });
 
                 let suggestion = $("<div />")
@@ -170,7 +181,8 @@
             s.helper.model.call("trackEvent", {
                 category: "settings",
                 action: "suggestion_true",
-                label: type
+                label: type,
+                always: true
             });
 
             let controlWrapper = suggestion.children("p").html("");
@@ -294,6 +306,13 @@
                     loader.remove();
 
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
+                        s.helper.model.call("trackEvent", {
+                            category: "settings",
+                            action: "feedback",
+                            label: "submitted",
+                            always: true
+                        });
+
                         s.opts.elm.textarea.feedbackMsg[0].value = "";
                         s.opts.elm.field.feedbackEmail[0].value = "";
                         s.showSuccessMessage("feedback_sent_message");

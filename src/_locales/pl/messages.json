@@ -327,7 +327,7 @@
         "message": "Podziel si\u0119 aktywno\u015bci\u0105"
     },
     "contribute_share_activity_desc1": {
-        "message": "Mo\u017ce udost\u0119pnia\u0107 swoj\u0105 aktywno\u015b\u0107 w obr\u0119bie paska bocznego anonimowo. Pomaga mi to pozna\u0107 sposoby w jakie u\u017cytkownicy korzystaj\u0105 z paska zak\u0142adek. Informacje na temat Twoich zak\u0142adek lub odwiedzonych stron [b]nie b\u0119d\u0105[\/b] przetwarzane."
+        "message": "Mo\u017cesz anonimowo udost\u0119pnia\u0107 swoj\u0105 aktywno\u015b\u0107 w obr\u0119bie bocznej listy zak\u0142adek. Pomaga mi to pozna\u0107, w jaki spos\u00f3b u\u017cytkownicy korzystaj\u0105 z listy zak\u0142adek. Informacje na temat Twoich zak\u0142adek lub odwiedzonych stron [b]nie b\u0119d\u0105[\/b] przetwarzane."
     },
     "contribute_share_activity_desc2": {
         "message": "Te informacje s\u0105 bardzo u\u017cyteczne i s\u0142u\u017c\u0105 do wykrywania problem\u00f3w zwi\u0105zanych z funkcjonalno\u015bci\u0105 lub opcjami, kt\u00f3re na przyk\u0142ad s\u0105 rzadko wykorzystywane."
@@ -689,6 +689,12 @@
     "settings_sidebar_position_right": {
         "message": "Prawa"
     },
+    "settings_import_saved": {
+        "message": "Konfiguracja zosta\u0142a zaimportowana pomy\u015blnie"
+    },
+    "settings_import_failed": {
+        "message": "Nie uda\u0142o zaimportowa\u0107 si\u0119 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
+    },
     "settings_import_export_desc": {
         "message": "Mo\u017cesz eksportowa\u0107 swoje ustawienia tego rozszerzenia i zapisa\u0107 je lokalnie na swoim komputerze. Mo\u017cesz zaimportowa\u0107 wcze\u015bniej wyeksportowany plik na jakimkolwiek komputerze, na kt\u00f3rym jest zainstalowane to rozszerzenie."
     },
@@ -697,12 +703,6 @@
     },
     "settings_import": {
         "message": "Importuj ustawienia"
-    },
-    "settings_import_saved": {
-        "message": "Konfiguracja zosta\u0142a zaimportowana pomy\u015blnie"
-    },
-    "settings_import_failed": {
-        "message": "Nie uda\u0142o zaimportowa\u0107 si\u0119 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
     },
     "settings_presets": {
         "message": "Wyb\u00f3r wst\u0119pny"

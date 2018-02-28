@@ -12,6 +12,7 @@
             initEvents();
             initToggleAreaEvents();
             initToggleAreaFields();
+            initFilter();
 
             ["dirAccordion", "animations", "preventPageScroll", "reopenSidebar", "dndOpen"].forEach((field) => {
                 if (s.helper.model.getData("b/" + field) === true) {
@@ -21,7 +22,7 @@
 
             s.opts.elm.select.language[0].value = s.helper.i18n.getLanguage();
 
-            ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+            ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 s.opts.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.opts.elm.select[field].trigger("change");
             });
@@ -49,14 +50,16 @@
         this.save = () => {
             return new Promise((resolve) => {
                 let config = {
-                    toggleArea: {}
+                    toggleArea: {},
+                    blacklist: [],
+                    whitelist: []
                 };
 
                 ["width", "height", "top", "widthWindowed"].forEach((field) => {
                     config.toggleArea[field] = s.opts.elm.range["toggleArea_" + field][0].value;
                 });
 
-                ["openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+                ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                     config[field] = s.opts.elm.select[field][0].value;
                 });
 
@@ -73,6 +76,15 @@
                 ["dirAccordion", "animations", "preventPageScroll", "reopenSidebar", "dndOpen"].forEach((field) => { // checkbox
                     config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
                 });
+
+                if (config.visibility === "blacklist" || config.visibility === "whitelist") {
+                    let rules = s.opts.elm.textarea.visibilityFilter[0].value;
+                    config[config.visibility] = rules.split(/\n+/);
+
+                    if (config[config.visibility][0] === "") {
+                        config.visibility = "always";
+                    }
+                }
 
                 let lang = s.opts.elm.select.language[0].value;
                 if (lang === s.helper.i18n.getUILanguage()) {
@@ -92,6 +104,30 @@
                         resolve();
                     });
                 });
+            });
+        };
+
+        /**
+         * Initialises the filter to allow specified control over where to load the sidebar (or where not to)
+         */
+        let initFilter = () => {
+            s.opts.elm.textarea.visibilityFilter.attr("placeholder", "example.com/*\n*.example.com/*");
+
+            s.opts.elm.select.visibility.on("change", (e) => {
+                let val = e.currentTarget.value;
+
+                if (val === "always") { // always show sidebar -> don't show url rules
+                    s.opts.elm.sidebar.filterExplanation.addClass(s.opts.classes.hidden);
+                    s.opts.elm.sidebar.filterPatters.addClass(s.opts.classes.hidden);
+                } else if (val === "blacklist" || val === "whitelist") { // show url rules
+                    s.opts.elm.sidebar.filterExplanation.removeClass(s.opts.classes.hidden);
+                    s.opts.elm.sidebar.filterPatters.removeClass(s.opts.classes.hidden);
+
+                    if (s.opts.elm.textarea.visibilityFilter[0].value.length === 0) { // fill with the already set rules, if the field is empty
+                        let rules = s.helper.model.getData("b/" + val);
+                        s.opts.elm.textarea.visibilityFilter[0].value = rules.join("\n");
+                    }
+                }
             });
         };
 

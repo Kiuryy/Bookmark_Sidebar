@@ -141,6 +141,10 @@
                     "import": $("body a.import > input[type='file']"),
                     "export": $("body a.export"),
                 },
+                sidebar: {
+                    filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
+                    filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation")
+                },
                 appearance: {
                     content: $("div.tab[data-name='appearance']"),
                     presetWrapper: $("div.tab[data-name='appearance'] div.presets")

@@ -56,10 +56,13 @@
                     height: 100,
                     top: 0
                 },
+                blacklist: [],
+                whitelist: [],
                 sidebarPosition: "left",
                 openAction: "mousedown",
                 newTab: "foreground",
                 newTabPosition: "afterCurrent",
+                visibility: "always",
                 linkAction: "current",
                 dirAccordion: false,
                 reopenSidebar: false,

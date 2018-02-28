@@ -587,6 +587,12 @@
     "settings_sidebar_position_right": {
         "message": "H\u00f6ger"
     },
+    "settings_import_saved": {
+        "message": "Konfiguration importerad"
+    },
+    "settings_import_failed": {
+        "message": "Misslyckades att importera konfiguration. V\u00e4nligen v\u00e4lj giltlig fil."
+    },
     "settings_import_export_desc": {
         "message": "Du kan exportera dina till\u00e4ggsinst\u00e4llningar och spara dem lokalt p\u00e5 din dator. Du kan importera den tidigare exporterade filen p\u00e5 vilken dator som helst, d\u00e4r till\u00e4gget \u00e4r installerat."
     },
@@ -595,12 +601,6 @@
     },
     "settings_import": {
         "message": "Importera inst\u00e4llningar"
-    },
-    "settings_import_saved": {
-        "message": "Konfiguration importerad"
-    },
-    "settings_import_failed": {
-        "message": "Misslyckades att importera konfiguration. V\u00e4nligen v\u00e4lj giltlig fil."
     },
     "settings_presets": {
         "message": "F\u00f6rvald"

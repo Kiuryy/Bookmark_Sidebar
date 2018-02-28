@@ -515,6 +515,24 @@
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
     },
+    "settings_toggle_area": {
+        "message": "Configurar \u00e1rea"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Por defeito, todo o bordo da janela do seu navegador pode ser usado pelo cursor para abrir a barra lateral. Pode mudar este comportamento e configurar onde abrir exactamente a barra lateral."
+    },
+    "settings_toggle_area_width": {
+        "message": "Largura"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Largura (em janela)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Altura"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Pode reduzir a altura da \u00e1rea de modo a que a barra lateral abra somente quando mover o cursor para essa localiza\u00e7\u00e3o do bordo da janela do navegador."
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
     },
@@ -570,10 +588,10 @@
         "message": "Nada"
     },
     "settings_open_children_warn_limit": {
-        "message": "Abrir todos as subpastas (avisar limite)"
+        "message": "Abrir todos as subpastas (limite de aviso)"
     },
     "settings_open_children_warn_limit_desc": {
-        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todos as subpastas da pasta ao mesmo tempo."
+        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todos as subpastas ao mesmo tempo."
     },
     "settings_dir_open_duration": {
         "message": "Dura\u00e7\u00e3o de abertura da pasta"
@@ -671,6 +689,12 @@
     "settings_sidebar_position_right": {
         "message": "Direita"
     },
+    "settings_import_saved": {
+        "message": "Configura\u00e7\u00e3o importada com sucesso"
+    },
+    "settings_import_failed": {
+        "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
+    },
     "settings_import_export_desc": {
         "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para qualquer computador onde a extens\u00e3o esteja instalada."
     },
@@ -679,12 +703,6 @@
     },
     "settings_import": {
         "message": "Importar Configura\u00e7\u00f5es"
-    },
-    "settings_import_saved": {
-        "message": "Configura\u00e7\u00e3o importada com sucesso"
-    },
-    "settings_import_failed": {
-        "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
     "settings_presets": {
         "message": "Pr\u00e9-sele\u00e7\u00e3o"

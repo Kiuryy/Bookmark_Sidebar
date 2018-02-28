@@ -598,6 +598,26 @@ html[dir='rtl'] body > section#wrapper div.advanced > h3 {
   html[dir='rtl'] body > section#wrapper div.advanced > h3::before {
     -webkit-mask-position-x: right; }
 
+div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns {
+  margin-top: 30px; }
+  div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns.hidden {
+    display: none; }
+
+div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation ul.bulletList {
+  line-height: 200%; }
+
+div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation em {
+  position: relative;
+  font-size: 120%;
+  font-style: normal;
+  line-height: normal;
+  font-weight: "%fontWeightBold";
+  padding: 0 5px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  color: #666; }
+
 body > section#wrapper div.aboutMe {
   position: relative;
   max-width: 1024px;
@@ -1270,6 +1290,7 @@ textarea {
   width: 100%;
   height: 300px;
   padding: 5px;
+  line-height: 150%;
   resize: vertical; }
 
 input.color {
@@ -2125,6 +2146,7 @@ div.noticeBox::before {
   margin: auto; }
 
 div.noticeBox > p {
+  line-height: 150%;
   padding: 3px 0 3px 40px; }
 
 div.noticeBox > h2 {

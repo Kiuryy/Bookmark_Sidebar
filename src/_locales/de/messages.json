@@ -305,6 +305,12 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Wenn dies h\u00e4ufiger geschieht, lass es mich bitte wissen."
     },
+    "notification_sidebar_blacklisted": {
+        "message": "Die aktuelle Url ist auf deiner Blacklist und deshalb wurde die Sidebar nicht geladen."
+    },
+    "notification_sidebar_not_whitelisted": {
+        "message": "Die aktuelle Url ist nicht auf deiner Whitelist und deshalb wurde die Sidebar nicht geladen."
+    },
     "contribute_headline": {
         "message": "Ich brauche deine Unterst\u00fctzung"
     },
@@ -430,6 +436,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Aussehen"
@@ -689,6 +698,42 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
+    "settings_import_saved": {
+        "message": "Konfiguration erfolgreich importiert"
+    },
+    "settings_import_failed": {
+        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
+    },
+    "settings_filter_intro": {
+        "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Nur eine Url-Regel pro Zeile"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Verwende <em>*<\/em> f\u00fcr beliebige Zeichen (z.B. example.com\/* trifft f\u00fcr alle Seiten unterhalb von example.com zu)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Wenn kein <em>*<\/em> in einer Regel verwendet wird, trifft nur die exakte Url zu (z.B. \"example.com\" trifft nicht f\u00fcr die Url \"example.com\/about.html\" zu)"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Das Protokoll (z.b. http:\/\/) muss in den Regeln nicht vorangestellt werden"
+    },
+    "settings_filter_visibility": {
+        "message": "Sidebar laden"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Auf jeder Seite"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Auf jeder Seite, au\u00dfer spezifischen Seiten"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Nur auf spezifischen Seiten"
+    },
+    "settings_filter_rules": {
+        "message": "Url-Regeln"
+    },
     "settings_import_export_desc": {
         "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
     },
@@ -697,12 +742,6 @@
     },
     "settings_import": {
         "message": "Konfiguration importieren"
-    },
-    "settings_import_saved": {
-        "message": "Konfiguration erfolgreich importiert"
-    },
-    "settings_import_failed": {
-        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
     "settings_presets": {
         "message": "Voreinstellung"

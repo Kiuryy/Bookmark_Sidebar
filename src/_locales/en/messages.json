@@ -305,6 +305,12 @@
     "notification_sidebar_not_working_unknown": {
         "message": "If this is happening regularly, please let me know."
     },
+    "notification_sidebar_blacklisted": {
+        "message": "The current url is on your blacklist and therefore the sidebar is not being loaded."
+    },
+    "notification_sidebar_not_whitelisted": {
+        "message": "The current url is not on your whitelist and therefore the sidebar is not being loaded."
+    },
     "contribute_headline": {
         "message": "I need your help"
     },
@@ -430,6 +436,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltips"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Appearance"
@@ -689,6 +698,42 @@
     "settings_sidebar_position_right": {
         "message": "Right"
     },
+    "settings_import_saved": {
+        "message": "Configuration imported successfully"
+    },
+    "settings_import_failed": {
+        "message": "Failed to import the configuration. Please choose a valid file."
+    },
+    "settings_filter_intro": {
+        "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to (blacklist)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Only add one url pattern per line"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Use <em>*<\/em> to match any character (e.g. example.com\/* matches all pages under example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "If you don't include any <em>*<\/em> in a rule, only the exact url will match (e.g. \"example.com\" won't match for the url \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"
+    },
+    "settings_filter_visibility": {
+        "message": "Load sidebar"
+    },
+    "settings_filter_visibility_always": {
+        "message": "On every page"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "On every page except specific pages"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Only on specific pages"
+    },
+    "settings_filter_rules": {
+        "message": "Url patterns"
+    },
     "settings_import_export_desc": {
         "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
     },
@@ -697,12 +742,6 @@
     },
     "settings_import": {
         "message": "Import Settings"
-    },
-    "settings_import_saved": {
-        "message": "Configuration imported successfully"
-    },
-    "settings_import_failed": {
-        "message": "Failed to import the configuration. Please choose a valid file."
     },
     "settings_presets": {
         "message": "Preselection"

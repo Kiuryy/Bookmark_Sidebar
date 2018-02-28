@@ -20,13 +20,14 @@
         this.elements = {};
         this.opts = opts;
         this.needsReload = false;
+        this.state = null;
 
         /**
          * Constructor
          */
         this.run = () => {
             $("html").attr(opts.attr.uid, uid);
-            
+
             this.isDev = opts.manifest.version_name === "Dev" || !("update_url" in opts.manifest);
             let removedOldInstance = destroyOldInstance();
             initHelpers();
@@ -55,28 +56,37 @@
                 isLoading = true;
 
                 this.helper.model.init().then(() => {
-                    return this.helper.i18n.init();
-                }).then(() => {
-                    this.helper.font.init();
-                    this.helper.stylesheet.init();
-                    this.helper.stylesheet.addStylesheets(["content"]);
+                    if (isAllowedToInitialize()) { // check against blacklist or whitelist (if one is set)
+                        this.helper.i18n.init().then(() => {
+                            this.helper.font.init();
+                            this.helper.stylesheet.init();
+                            this.helper.stylesheet.addStylesheets(["content"]);
 
-                    return initSidebar();
-                }).then(() => {
-                    if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
-                        this.elements.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+                            return initSidebar();
+                        }).then(() => {
+                            if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
+                                this.elements.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
-                        this.helper.toggle.init();
-                        this.helper.list.init();
-                        this.helper.scroll.init();
-                        this.helper.tooltip.init();
-                        this.helper.sidebarEvents.init();
-                        this.helper.dragndrop.init();
-                        this.helper.keyboard.init();
+                                this.helper.toggle.init();
+                                this.helper.list.init();
+                                this.helper.scroll.init();
+                                this.helper.tooltip.init();
+                                this.helper.sidebarEvents.init();
+                                this.helper.dragndrop.init();
+                                this.helper.keyboard.init();
 
-                        if (document.referrer === "") {
-                            this.helper.model.call("addViewAmount", {url: location.href});
-                        }
+                                if (document.referrer === "") {
+                                    this.helper.model.call("addViewAmount", {url: location.href});
+                                }
+                            }
+                        });
+                    } else { // disallowed to load sidebar (blacklisted or not whitelisted)
+                        chrome.extension.onMessage.addListener((message) => {
+                            if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
+                                this.helper.model.call("setNotWorkingReason", {reason: this.state});
+                            }
+                        });
+                        this.log("Don't load sidebar for url '" + location.href + "'");
                     }
                 });
             }
@@ -178,6 +188,7 @@
 
                 checkExistence();
                 this.initialized = +new Date();
+                this.state = "loaded";
                 this.log("Finished loading in " + (this.initialized - this.updateBookmarkBoxStart) + "ms");
 
                 this.helper.utility.triggerEvent("loaded", {
@@ -313,6 +324,53 @@
                 contextmenu: new window.ContextmenuHelper(this),
                 tooltip: new window.TooltipHelper(this)
             };
+        };
+
+        /**
+         * Returns whether the sidebar is allowed to be initialized for the current url,
+         * Checks the configured url rules
+         *
+         * @returns {boolean}
+         */
+        let isAllowedToInitialize = () => {
+            let ret = true;
+            let visibility = this.helper.model.getData("b/visibility");
+
+            if (visibility === "always" || location.href.search(chrome.extension.getURL("html/newtab.html")) === 0) {
+                ret = true;
+            } else if (visibility === "blacklist" || visibility === "whitelist") {
+                let rules = this.helper.model.getData("b/" + visibility);
+                let match = false;
+
+                rules.some((rule) => {
+                    rule = rule.replace(/^https?:\/\//i, "");
+                    rule = rule.replace(/\./g, "\\.");
+                    rule = rule.replace(/\*/g, ".*");
+
+                    let regex = new RegExp("^https?://" + rule + "$");
+
+                    if (location.href.search(regex) === 0) {
+                        match = true;
+                        return true;
+                    }
+                });
+
+                if (visibility === "blacklist") {
+                    ret = match === false;
+
+                    if (ret === false) {
+                        this.state = "blacklisted";
+                    }
+                } else if (visibility === "whitelist") {
+                    ret = match === true;
+
+                    if (ret === false) {
+                        this.state = "notWhitelisted";
+                    }
+                }
+            }
+
+            return ret;
         };
 
         /**

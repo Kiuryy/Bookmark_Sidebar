@@ -689,6 +689,12 @@
     "settings_sidebar_position_right": {
         "message": "Dreapta"
     },
+    "settings_import_saved": {
+        "message": "Configura\u021bie importat\u0103 cu succes"
+    },
+    "settings_import_failed": {
+        "message": "Nu s-au putut importa set\u0103rile. V\u0103 rug\u0103m s\u0103 selecta\u021bi un fi\u0219ier valid."
+    },
     "settings_import_export_desc": {
         "message": "Pute\u021bi exporta set\u0103rile extensiei \u0219i le pute\u021bi salva local pe computer. Pute\u021bi importa fi\u0219ierul exportat anterior pe orice computer, unde este instalat\u0103 extensia."
     },
@@ -697,12 +703,6 @@
     },
     "settings_import": {
         "message": "Import\u0103 set\u0103rile"
-    },
-    "settings_import_saved": {
-        "message": "Configura\u021bie importat\u0103 cu succes"
-    },
-    "settings_import_failed": {
-        "message": "Nu s-au putut importa set\u0103rile. V\u0103 rug\u0103m s\u0103 selecta\u021bi un fi\u0219ier valid."
     },
     "settings_presets": {
         "message": "Preselec\u021bie"

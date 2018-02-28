@@ -431,6 +431,9 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Infobulle"
     },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtre"
+    },
     "settings_menu_appearance": {
         "message": "Apparence"
     },
@@ -689,6 +692,12 @@
     "settings_sidebar_position_right": {
         "message": "Droite"
     },
+    "settings_import_saved": {
+        "message": "Configuration import\u00e9e avec succ\u00e8s"
+    },
+    "settings_import_failed": {
+        "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
+    },
     "settings_import_export_desc": {
         "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."
     },
@@ -697,12 +706,6 @@
     },
     "settings_import": {
         "message": "Importer une configuration"
-    },
-    "settings_import_saved": {
-        "message": "Configuration import\u00e9e avec succ\u00e8s"
-    },
-    "settings_import_failed": {
-        "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
     },
     "settings_presets": {
         "message": "Pr\u00e9s\u00e9lection"

@@ -301,6 +301,7 @@
                     updateIcon: b.helper.icon.set,
                     reloadIcon: b.helper.icon.init,
                     clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
+                    setNotWorkingReason: b.helper.browserAction.setReason,
                     addViewAmount: b.helper.viewAmount.addByUrl,
                     viewAmounts: b.helper.viewAmount.getAll
                 };

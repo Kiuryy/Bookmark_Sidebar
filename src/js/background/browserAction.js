@@ -4,7 +4,8 @@
     window.BrowserActionHelper = function (b) {
 
         let timeout = null;
-        let notificationReason = "unknown";
+        let reason = null;
+        let type = "unknown";
 
         /**
          *
@@ -13,6 +14,23 @@
         this.init = () => {
             return new Promise((resolve) => {
                 initEvents();
+                resolve();
+            });
+        };
+
+        /**
+         * Sets the state of the sidebar (blacklisted or notWhitelisted),
+         * this is important to know, because the reason why the sidebar is not working are the user defined url rules
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.setReason = (opts) => {
+            return new Promise((resolve) => {
+                if (opts.reason) {
+                    reason = opts.reason;
+                }
+
                 resolve();
             });
         };
@@ -79,7 +97,7 @@
          * @returns {object}
          */
         let getNotificationText = (url) => {
-            notificationReason = "unknown";
+            type = "unknown";
 
             let ret = {
                 title: "notification_sidebar_not_working_headline",
@@ -87,7 +105,18 @@
                 desc: "notification_sidebar_not_working_general"
             };
 
-            if (url) {
+            if (reason) { // the sidebar is not working because it's blacklisted for the current url (or not whitelisted)
+
+                if (reason === "blacklisted") {
+                    ret.desc = "notification_sidebar_blacklisted";
+                    type = "filter";
+                } else if (reason === "notWhitelisted") {
+                    ret.desc = "notification_sidebar_not_whitelisted";
+                    type = "filter";
+                }
+
+                reason = null;
+            } else if (url) { // check whether the user tries to open the sidebar on urls where the sidebar is not working
                 ret.desc = "notification_sidebar_not_working_unknown";
 
                 let found = false;
@@ -101,7 +130,7 @@
                 Object.keys(types).some((key) => {
                     types[key].some((str) => {
                         if (url.search(new RegExp(str, "gi")) === 0) {
-                            notificationReason = key;
+                            type = key;
                             ret.desc = "notification_sidebar_not_working_" + key;
                             found = true;
                             return true;
@@ -142,10 +171,12 @@
          * Opens an info page depending on the reason why the sidebar could not be opened
          */
         let openNotWorkingInfoPage = () => {
-            let url = "html/settings.html#feedback_notification";
+            let url = "html/settings.html#feedback_error_general";
 
-            if (notificationReason === "new_tab") {
+            if (type === "new_tab") {
                 url = "html/settings.html#newtab";
+            } else if (type === "filter") {
+                url = "html/settings.html#feedback_error_filter";
             }
 
             chrome.tabs.create({url: chrome.extension.getURL(url)});

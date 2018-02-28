@@ -1,0 +1,31 @@
+
+div.tab[data-name='sidebar'] div[data-name='filter'] {
+
+  div.patterns {
+    margin-top: 30px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  div.patternExplanation {
+
+    ul.bulletList {
+      line-height: 200%;
+    }
+
+    em {
+      position: relative;
+      font-size: 120%;
+      font-style: normal;
+      line-height: normal;
+      font-weight: $__fontWeightBold;
+      padding: 0 5px;
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      color: $textColor;
+    }
+  }
+}

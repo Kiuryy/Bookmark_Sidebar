@@ -113,7 +113,7 @@
                         trackGeneralInfo();
                     }
 
-                    if (shareInfo.config === true) { // user allowed to share configuration
+                    if (shareInfo.config === true && Math.random() >= 0.5) { // user allowed to share configuration -> only track with a 50% chance to reduce ga calls
                         trackConfiguration();
                     }
 
@@ -173,6 +173,8 @@
                         obj[attr] = obj[attr].length;
                     } else if (baseName === "utility" && attr === "pinnedEntries" && typeof obj[attr] === "object") { // only track the amount of pinned entries
                         obj[attr] = Object.keys(obj[attr]).length;
+                    } else if (baseName === "behaviour" && (attr === "blacklist" || attr === "whitelist")) { // only track the amount of url rules
+                        obj[attr] = obj[attr].length;
                     }
 
                     if (typeof obj[attr] === "object") {
@@ -273,11 +275,11 @@
 
         /**
          * Processes the tracking queue,
-         * sends every 1000ms the oldest entry of the queue to Google Analytics
+         * sends every 1200ms the oldest entry of the queue to Google Analytics
          */
         let processTrackingQueue = () => {
             trackingQueueProceeding = true;
-            $.delay(1000).then(() => {
+            $.delay(1200).then(() => {
                 if (trackingQueue.length > 0 && window.ga && window.ga.loaded) {
                     let entry = trackingQueue.shift();
                     window.ga("send", entry);

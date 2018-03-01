@@ -698,12 +698,6 @@
     "settings_sidebar_position_right": {
         "message": "\u53f3"
     },
-    "settings_import_saved": {
-        "message": "\u914d\u7f6e\u5bfc\u5165\u6210\u529f"
-    },
-    "settings_import_failed": {
-        "message": "\u914d\u7f6e\u5bfc\u5165\u5931\u8d25\uff0c\u8bf7\u9009\u62e9\u6b63\u786e\u7684\u6587\u4ef6\u3002"
-    },
     "settings_filter_intro": {
         "message": "\u5982\u679c\u4e0d\u60f3\u4fa7\u8fb9\u680f\u5728\u6bcf\u4e2a\u9875\u9762\u4e0a\u90fd\u52a0\u8f7d\uff0c\u53ef\u4ee5\u901a\u8fc7\u767d\u540d\u5355\uff08\u9ed1\u540d\u5355\uff09\u8bbe\u5b9a\u5728\u54ea\u4e9b\u9875\u9762\uff08\u4e0d\uff09\u52a0\u8f7d\u4fa7\u8fb9\u680f\u3002"
     },
@@ -742,6 +736,12 @@
     },
     "settings_import": {
         "message": "\u5bfc\u5165\u8bbe\u7f6e"
+    },
+    "settings_import_saved": {
+        "message": "\u914d\u7f6e\u5bfc\u5165\u6210\u529f"
+    },
+    "settings_import_failed": {
+        "message": "\u914d\u7f6e\u5bfc\u5165\u5931\u8d25\uff0c\u8bf7\u9009\u62e9\u6b63\u786e\u7684\u6587\u4ef6\u3002"
     },
     "settings_presets": {
         "message": "\u9884\u9009"

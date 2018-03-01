@@ -698,12 +698,6 @@
     "settings_sidebar_position_right": {
         "message": "Right"
     },
-    "settings_import_saved": {
-        "message": "Configuration imported successfully"
-    },
-    "settings_import_failed": {
-        "message": "Failed to import the configuration. Please choose a valid file."
-    },
     "settings_filter_intro": {
         "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to (blacklist)."
     },
@@ -742,6 +736,12 @@
     },
     "settings_import": {
         "message": "Import Settings"
+    },
+    "settings_import_saved": {
+        "message": "Configuration imported successfully"
+    },
+    "settings_import_failed": {
+        "message": "Failed to import the configuration. Please choose a valid file."
     },
     "settings_presets": {
         "message": "Preselection"

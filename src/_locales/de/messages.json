@@ -698,12 +698,6 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_import_saved": {
-        "message": "Konfiguration erfolgreich importiert"
-    },
-    "settings_import_failed": {
-        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
-    },
     "settings_filter_intro": {
         "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
     },
@@ -742,6 +736,12 @@
     },
     "settings_import": {
         "message": "Konfiguration importieren"
+    },
+    "settings_import_saved": {
+        "message": "Konfiguration erfolgreich importiert"
+    },
+    "settings_import_failed": {
+        "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
     "settings_presets": {
         "message": "Voreinstellung"

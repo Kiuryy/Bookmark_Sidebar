@@ -293,7 +293,7 @@
             let list = [];
 
             allBookmarks.some((bookmark) => {
-                if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
+                if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false && bookmark.url.search(/^file:\/\//) !== 0) {
                     list.push(bookmark);
                     if (list.length >= amount.total) {
                         return true;

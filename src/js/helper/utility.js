@@ -132,6 +132,7 @@
                 "localhost",
                 "https?://127\.0\.0\.",
                 "127\.0\.0\.",
+                "file://",
                 "chrome://",
                 "chrome\-extension://"
             ].some((str) => {

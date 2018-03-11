@@ -1,0 +1,596 @@
+{
+    "extension_name": {
+        "message": "Kirjanmerkkien Sivupalkki"
+    },
+    "extension_desc": {
+        "message": "Lis\u00e4\u00e4 napin painalluksella vaihdettavan sivupalkin n\u00e4yt\u00f6n reunaan, joka sis\u00e4lt\u00e4\u00e4 kaikki kirjanmerkkisi."
+    },
+    "header_bookmarks": {
+        "message": "Kirjanmerkit"
+    },
+    "header_bookmarks_single": {
+        "message": "Kirjanmerkki"
+    },
+    "sidebar_dir_children": {
+        "message": "Kohdetta"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Etsi kirjanmerkki\u00e4"
+    },
+    "sidebar_search_no_results": {
+        "message": "Mik\u00e4\u00e4n kirjanmerkki ei vastannut haku kriteereit\u00e4"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "Linkki kopioitu"
+    },
+    "sidebar_deleted": {
+        "message": "Poistettu"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Kumoa"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Muokkaa Kirjanmerkki\u00e4"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Muokkaa Kansiota"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Poista Kirjanmerkki"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Poista Kansio"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Poista Erotin"
+    },
+    "contextmenu_infos": {
+        "message": "Tietoja"
+    },
+    "contextmenu_new_tab": {
+        "message": "Avaa uudessa v\u00e4lilehdess\u00e4"
+    },
+    "contextmenu_new_window": {
+        "message": "Avaa uudessa ikkunassa"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Avaa incognito-ikkunassa"
+    },
+    "contextmenu_add": {
+        "message": "Lis\u00e4\u00e4"
+    },
+    "contextmenu_update_urls": {
+        "message": "P\u00e4ivit\u00e4 linkit"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "N\u00e4yt\u00e4 piilotetut"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Sulje kaikki kansiot"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Lataa sivupalkki uudelleen"
+    },
+    "contextmenu_open_children": {
+        "message": "Avaa kirjanmerkit"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Piilota sivupalkista"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "N\u00e4yt\u00e4 sivupalkissa"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "N\u00e4yt\u00e4 kansiossa"
+    },
+    "contextmenu_pin": {
+        "message": "Kiinnit\u00e4"
+    },
+    "contextmenu_unpin": {
+        "message": "Poista kiinnitys"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Kirjanmerkkien hallinta"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Pikan\u00e4pp\u00e4imet"
+    },
+    "sort_label_custom": {
+        "message": "K\u00e4ytt\u00e4j\u00e4n m\u00e4\u00e4rittelem\u00e4"
+    },
+    "sort_label_alphabetical": {
+        "message": "Aakkosj\u00e4rjestyksess\u00e4"
+    },
+    "sort_label_most_used": {
+        "message": "Eniten k\u00e4ytetty"
+    },
+    "sort_label_recently_used": {
+        "message": "Viimeksi k\u00e4ytetty"
+    },
+    "sort_label_recently_added": {
+        "message": "Viimeksi lis\u00e4tty"
+    },
+    "sort_view_as_tree": {
+        "message": "N\u00e4yt\u00e4 kansiot"
+    },
+    "sort_most_used_per_month": {
+        "message": "Kuukausittain"
+    },
+    "overlay_bookmark_title": {
+        "message": "Otsikko"
+    },
+    "overlay_bookmark_url": {
+        "message": "Linkki"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Lis\u00e4tietoja"
+    },
+    "overlay_cancel": {
+        "message": "Peruuta"
+    },
+    "overlay_close": {
+        "message": "Sulje"
+    },
+    "overlay_save": {
+        "message": "Tallenna"
+    },
+    "overlay_delete": {
+        "message": "Poista"
+    },
+    "overlay_update": {
+        "message": "P\u00e4ivit\u00e4"
+    },
+    "overlay_open_children": {
+        "message": "Avaa kaikki"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Haluatko varmasti avata kaikki {1} kirjanmerkki\u00e4?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Piilota sivupalkista"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Haluatko varmasti piilottaa t\u00e4m\u00e4n kirjanmerkin sivupalkista?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Haluatko varmasti piilottaa t\u00e4m\u00e4n kansion? Kaikki kansion kirjanmerkit piilotetaan my\u00f6s."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Haluatko varmasti poistaa t\u00e4m\u00e4n kirjanmerkin?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Haluatko varmasti poistaa t\u00e4m\u00e4n kansion? Kaikki kansion kirjanmerkit poistetaan my\u00f6s."
+    },
+    "overlay_label_bookmark": {
+        "message": "Kirjanmerkki"
+    },
+    "overlay_label_dir": {
+        "message": "Kansio"
+    },
+    "overlay_label_separator": {
+        "message": "Erotin"
+    },
+    "overlay_bookmark_views": {
+        "message": "N\u00e4kym\u00e4t"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "N\u00e4kym\u00e4"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Tallennettu"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "Kuukausittain"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Luotu"
+    },
+    "overlay_dir_children": {
+        "message": "Kohdetta"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Kirjanmerkit"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Kansiota"
+    },
+    "overlay_check_urls_loading": {
+        "message": "Tarkistetaan kirjanmerkkien linkkej\u00e4"
+    },
+    "overlay_check_urls_no_results": {
+        "message": "Kaikki linkit ovat kunnossa"
+    },
+    "overlay_check_urls_not_found": {
+        "message": "Linkki\u00e4 ei l\u00f6ytynyt"
+    },
+    "newtab_title": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "newtab_search_placeholder": {
+        "message": "Etsi {1} tai kirjoita linkki"
+    },
+    "newtab_top_pages_default": {
+        "message": "Parhaat verkkosivustot"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Viimeksi k\u00e4ytetyt kirjanmerkit"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Eniten k\u00e4ytetyt kirjanmerkit"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Kiinnitetyt kirjanmerkit"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Palvelu ei saatavilla"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "Linkkej\u00e4 tarkastava palvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Palutepalvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "K\u00e4\u00e4nn\u00f6spalvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Laajennuksen p\u00e4ivittymisen vuoksi t\u00e4m\u00e4 sivu on ladattava uudelleen."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Lataa uudelleen nyt"
+    },
+    "notification_sidebar_not_working_headline": {
+        "message": "Sivupalkkia ei voitu avata"
+    },
+    "notification_sidebar_not_working_link": {
+        "message": "Enemm\u00e4n tietoa"
+    },
+    "notification_sidebar_not_working_general": {
+        "message": "Sivupalkki ei toimi Chrome Webstoressa ja Uusi V\u00e4lilehti -sivuilla"
+    },
+    "notification_sidebar_not_working_webstore": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Chrome Webstoressa"
+    },
+    "notification_sidebar_not_working_extension_page": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Laajennukset sivulla"
+    },
+    "notification_sidebar_not_working_new_tab": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 oletus uusi v\u00e4lilehti sivulla."
+    },
+    "notification_sidebar_not_working_system": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 chromen j\u00e4rjestelm\u00e4sivuilla."
+    },
+    "notification_sidebar_not_working_unknown": {
+        "message": "Jos t\u00e4m\u00e4 tapahtuu usein, ole hyv\u00e4 ilmoita minulle."
+    },
+    "onboarding_title": {
+        "message": "Asennus"
+    },
+    "onboarding_headline": {
+        "message": "Kiitos ett\u00e4 asensit t\u00e4m\u00e4n laajennuksen."
+    },
+    "onboarding_setup": {
+        "message": "Aseta nyt"
+    },
+    "onboarding_skip": {
+        "message": "Ohita"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Minne haluat sijoitta sivupalkkisi?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Miten haluat avata sivupalkin?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Kummasta tyylist\u00e4 pid\u00e4t enemm\u00e4n?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Vaalea"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Tumma"
+    },
+    "onboarding_handson_desc": {
+        "message": "Nyt voit kokeilla sit\u00e4 itse."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Siirr\u00e4 kursori kohti ikkunan {1} reunaa."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Klikkaa hiiren {1} nappia avataksesi sivupalkin."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Klikkaa laajennuksen kuvaketta avataksesi sivupalkin."
+    },
+    "onboarding_left": {
+        "message": "vasenta"
+    },
+    "onboarding_right": {
+        "message": "oikeata"
+    },
+    "onboarding_finish_desc": {
+        "message": "Pid\u00e4 hauskaa sivupalkin kanssa"
+    },
+    "onboarding_goto_settings": {
+        "message": "Lis\u00e4\u00e4 asetuksia"
+    },
+    "onboarding_close": {
+        "message": "Sulje t\u00e4m\u00e4 sivu"
+    },
+    "changelog_title": {
+        "message": "Muutos loki"
+    },
+    "changelog_headline": {
+        "message": "Sinun Kirjanmerkki Sivupalkki on p\u00e4ivitetty."
+    },
+    "changelog_show_changelog": {
+        "message": "Mik\u00e4 on uutta?"
+    },
+    "changelog_close": {
+        "message": "Sulje t\u00e4m\u00e4 sivu"
+    },
+    "settings_title": {
+        "message": "Asetukset"
+    },
+    "settings_menu_sidebar": {
+        "message": "Sivupalkki"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Yleiset"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Ty\u00f6kaluvinkit"
+    },
+    "settings_menu_appearance": {
+        "message": "Ulkoasu"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Yleiset"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Sivupalkki"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Kuvake"
+    },
+    "settings_menu_newtab": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "settings_menu_language": {
+        "message": "Kieli"
+    },
+    "settings_menu_language_general": {
+        "message": "Yleiset"
+    },
+    "settings_menu_language_translate": {
+        "message": "K\u00e4\u00e4nn\u00e4"
+    },
+    "settings_menu_feedback": {
+        "message": "Palaute"
+    },
+    "settings_menu_support": {
+        "message": "Tuki"
+    },
+    "settings_menu_export": {
+        "message": "Tuo\/Vie"
+    },
+    "settings_save": {
+        "message": "Tallenna muutokset"
+    },
+    "settings_saved_message": {
+        "message": "Muutokset tallennettiin"
+    },
+    "settings_restore": {
+        "message": "Palauta oletusasetukset"
+    },
+    "settings_restore_confirm": {
+        "message": "Haluatko varmasti palauttaa oletusasetukset?"
+    },
+    "settings_restored_message": {
+        "message": "Asetukset palautettiin onnistuneesti"
+    },
+    "settings_advanced": {
+        "message": "Lis\u00e4asetukset"
+    },
+    "settings_animations": {
+        "message": "Salli animaatiot"
+    },
+    "settings_animations_desc": {
+        "message": "Voit poistaa kaikki sivupalkin animaatiot k\u00e4yt\u00f6st\u00e4. T\u00e4m\u00e4 voi olla hy\u00f6dyllist\u00e4 jos animaatiot eiv\u00e4t ole sujuvia j\u00e4rjestelm\u00e4ss\u00e4si."
+    },
+    "settings_open_action": {
+        "message": "Avaa sivupalkki"
+    },
+    "settings_open_action_desc": {
+        "message": "Avaa sivupalkki hiiren vasemmalla tai oikealla painikkeella tai siirt\u00e4m\u00e4ll\u00e4 hiiri selainikkunan reunaan. Vaihtoehtoisesti voit avata sivupalkin vain chrome valikossa laajennuksen kuvaketta painamalla."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Vasen hiiri"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Oikea hiiri"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Hiiri p\u00e4\u00e4ll\u00e4"
+    },
+    "settings_open_action_icon": {
+        "message": "Klikkaa kuvaketta"
+    },
+    "settings_toggle_area": {
+        "message": "M\u00e4\u00e4rit\u00e4 alue"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Oletuksena koko selaimen reunaa voi k\u00e4ytt\u00e4\u00e4 sivupalkin avaamiseen. Voit muuttaa aluetta joka avaa sivupalkin kun hiiri siirret\u00e4\u00e4n alueelle."
+    },
+    "settings_toggle_area_width": {
+        "message": "Leveys"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Leveys (Ikkunassa)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Korkeus"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Voit pienent\u00e4\u00e4 alueen korkeutta jossa sivupalkki aukaistaan. Vain kun hiiri siirret\u00e4\u00e4n t\u00e4lle alueelle, sivupalkki aukeaa."
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "M\u00e4\u00e4rit\u00e4 pikan\u00e4pp\u00e4imet"
+    },
+    "settings_link_action": {
+        "message": "Avaa kirjanmerkit"
+    },
+    "settings_link_action_current_tab": {
+        "message": "Nykyinen v\u00e4lilehti"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "settings_open_delay": {
+        "message": "Avaamisen viive"
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Est\u00e4 sivun vieritys"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Poistaa web-sivun vierityksen k\u00e4yt\u00f6st\u00e4 kun sivupalkki on auki."
+    },
+    "settings_dir_accordion": {
+        "message": "N\u00e4yt\u00e4 vain nykyinen kansio"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Sulkee kaikki kansiot paitsi nyt aktiivisena olevan."
+    },
+    "settings_remember_state": {
+        "message": "Muista"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Vierityksen sijainti ja avatut kansiot"
+    },
+    "settings_remember_state_all": {
+        "message": "Vierityksen sijainti, avatut kansiot ja viimeksi avattu kirjanmerkki"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Avatut kansiot"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Avatut yl\u00e4tason kansiot"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Ei mit\u00e4\u00e4n"
+    },
+    "settings_dir_open_duration": {
+        "message": "Kansion avaamisen kesto"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Kansion avaamisen ja sulkemisen animaation kesto."
+    },
+    "settings_new_tab": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "settings_new_tab_desc": {
+        "message": "Avaa kirjanmerkit uudessa v\u00e4lilehdess\u00e4 etualalla tai taustalla."
+    },
+    "settings_new_tab_foreground": {
+        "message": "Avaa etualalla"
+    },
+    "settings_new_tab_background": {
+        "message": "Avaa taustalla"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Avaa uudet v\u00e4lilehdet viimeisen tai nykyisen v\u00e4lilehden j\u00e4lkeen"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Viimeisen v\u00e4lilehden j\u00e4lkeen"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Nykyisen v\u00e4lilehden j\u00e4lkeen"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Ennen ensimm\u00e4ist\u00e4 v\u00e4lilehte\u00e4"
+    },
+    "settings_close_timeout": {
+        "message": "Sulkemisen viive"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Viive sekunneissa jonka j\u00e4lkeen sivupalkki suljetaan. Aika aletaan laskea siit\u00e4 kun hiiri siirret\u00e4\u00e4n pois sivupalkista ja lopetetaan kun hiiri palaa takaisin sivupalkin p\u00e4\u00e4lle."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "\u00c4l\u00e4 sulje automaattisesti"
+    },
+    "settings_scrollbar_hide": {
+        "message": "Piilota vierityspalkki"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "Viive sekunneissa jonka j\u00e4lkeen vierityspalkki piilotetaan. Vieritys n\u00e4ytt\u00e4\u00e4 vierityspalkin uudelleen."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "\u00c4l\u00e4 piilota"
+    },
+    "settings_drag_n_drop_open": {
+        "message": "Ved\u00e4 ja pudota"
+    },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Mahdollistaa tekstivalintojen, linkkien ja urlien vet\u00e4misen sivupalkkiin. T\u00e4m\u00e4 voi olla hy\u00f6dyllist\u00e4 jos haluat lis\u00e4t\u00e4 kirjanmekin avoimeen sivuun tai johonkin sivun linkeist\u00e4."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Avaa sivupalkki uudelleen"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Avaa sivupalkki automaattisesti uudelleen sen j\u00e4lkeen kun linkki on avattu."
+    },
+    "settings_tooltip_delay": {
+        "message": "Ty\u00f6kaluvinkin viive"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Viive ennen ty\u00f6kaluvinkin n\u00e4ytt\u00e4mist\u00e4 kun hiirt\u00e4 pidet\u00e4\u00e4n linkin p\u00e4\u00e4ll\u00e4."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 ty\u00f6kaluvinkkej\u00e4"
+    },
+    "settings_tooltip_content": {
+        "message": "Ty\u00f6kaluvinkin sis\u00e4lt\u00f6"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "Valitse mit\u00e4 tietoa ty\u00f6kaluvinkki sis\u00e4lt\u00e4\u00e4."
+    },
+    "settings_tooltip_content_all": {
+        "message": "Otsikko ja linkki"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Vain otsikko"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Vain linkki"
+    },
+    "settings_sidebar_position": {
+        "message": "Sijainti"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Valitse avataanko sivupalkki selainikkunan oikeassa tai vasemmassa reunassa."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Vasen"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Oikea"
+    },
+    "settings_import_export_desc": {
+        "message": "Voit tallentaa laajennuksen asetukset tietokoneellesi. Voit palauttaa tallentamasi asetukset mille tietokoneelle tahansa jossa laajennus on asennettuna."
+    },
+    "settings_export": {
+        "message": "Vie asetukset"
+    },
+    "settings_import": {
+        "message": "Tuo asetukset"
+    },
+    "settings_import_saved": {
+        "message": "Asetukset tuotiin onnistuneesti"
+    },
+    "settings_import_failed": {
+        "message": "Asetusten tuonti ep\u00e4onnistui. Ole hyv\u00e4 ja valitse kelvollinen tiedosto."
+    }
+}

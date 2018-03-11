@@ -1165,6 +1165,7 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
     border-radius: 10px;
     margin-bottom: 20px;
     padding: 10px 15px;
+    user-select: text;
     transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
     div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.noHeight {
       height: 0 !important;

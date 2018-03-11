@@ -23,11 +23,11 @@
     "sidebar_copied_to_clipboard": {
         "message": "Indirizzo copiato"
     },
-    "sidebar_drag_cancel": {
-        "message": "Annulla"
-    },
     "sidebar_deleted": {
         "message": "Rimosso"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Disfare"
     },
     "contextmenu_edit_bookmark": {
         "message": "Modifica preferito"
@@ -50,6 +50,9 @@
     "contextmenu_new_tab": {
         "message": "Apri in una nuova scheda"
     },
+    "contextmenu_new_window": {
+        "message": "Apri in una nuova finestra"
+    },
     "contextmenu_new_tab_incognito": {
         "message": "Apri in una finestra di navigazione in incognito"
     },
@@ -61,6 +64,12 @@
     },
     "contextmenu_toggle_hidden": {
         "message": "Mostra voci nascoste"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Chiudi tutte le cartelle"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Ricarica barra laterale"
     },
     "contextmenu_open_children": {
         "message": "Apri preferiti"
@@ -82,6 +91,9 @@
     },
     "contextmenu_bookmark_manager": {
         "message": "Gestione Preferiti"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Scorciatoie di tastiera"
     },
     "sort_label_custom": {
         "message": "Manuale"
@@ -332,6 +344,9 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Suggerimenti"
     },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtro"
+    },
     "settings_menu_appearance": {
         "message": "Aspetto"
     },
@@ -386,6 +401,12 @@
     "settings_restored_message": {
         "message": "Impostazioni ripristinate correttamente"
     },
+    "settings_advanced": {
+        "message": "Impostazioni avanzate"
+    },
+    "settings_not_synced": {
+        "message": "Non verr\u00e0 sincronizzato fra i tuoi dispositivi."
+    },
     "settings_animations": {
         "message": "Abilita animazioni"
     },
@@ -409,6 +430,18 @@
     },
     "settings_open_action_icon": {
         "message": "Click sull'icona"
+    },
+    "settings_toggle_area": {
+        "message": "Configura area"
+    },
+    "settings_toggle_area_width": {
+        "message": "Larghezza"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Larghezza (In finestra)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Altezza"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Imposta la scorciatoia da tastiera"
@@ -566,6 +599,21 @@
     "settings_sidebar_position_right": {
         "message": "Destro"
     },
+    "settings_filter_explanation_4": {
+        "message": "Non c'\u00e8 bisogno di aggiungere il protocollo nelle regole (per esempio http:\/\/)"
+    },
+    "settings_filter_visibility": {
+        "message": "Carica barra laterale"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Su ogni pagina"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Su ogni pagina eccetto pagine specificate"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Solo su pagine specificate"
+    },
     "settings_import_export_desc": {
         "message": "Puoi esportare e salvare in locale le impostazioni dell'estensione sul tuo computer. Puoi importare i file esportati in precedenza in qualsiasi computer dove sia installata l'estensione."
     },
@@ -580,6 +628,9 @@
     },
     "settings_import_failed": {
         "message": "Impossibile importare le impostazioni. Seleziona un file valido."
+    },
+    "settings_presets": {
+        "message": "Preselezione"
     },
     "settings_color_scheme": {
         "message": "Schema colori"
@@ -626,6 +677,9 @@
     "settings_sidebar_width": {
         "message": "Larghezza"
     },
+    "settings_header_height": {
+        "message": "Altezza dell'intestazione"
+    },
     "settings_sidebar_mask_color": {
         "message": "Colore maschera"
     },
@@ -652,6 +706,9 @@
     },
     "settings_bookmarks_dir_indentation": {
         "message": "Indentazione delle cartelle"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Grandezza del font dei consigli"
     },
     "settings_overlay_mask_color": {
         "message": "Colore della maschera"

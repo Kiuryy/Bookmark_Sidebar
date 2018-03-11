@@ -377,6 +377,198 @@
     "settings_restored_message": {
         "message": "Z\u00e1kladn\u00ed nastaven\u00ed obnoveno"
     },
+    "settings_animations": {
+        "message": "Povolit animace"
+    },
+    "settings_animations_desc": {
+        "message": "Umo\u017e\u0148uje zak\u00e1zat v\u0161echny animace postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud animace nefunguj\u00ed hladce ve va\u0161em syst\u00e9mu."
+    },
+    "settings_open_action": {
+        "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
+    },
+    "settings_open_action_desc": {
+        "message": "Li\u0161tu otev\u0159ete lev\u00fdm nebo prav\u00fdm klikem my\u0161i na stran\u011b okna. P\u0159\u00edpadn\u011b m\u016f\u017eete nastaven\u00ed zm\u011bnit na otev\u0159en\u00ed pomoc\u00ed kliknut\u00ed na ikonu v menu Chrome."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Lev\u00fd klik"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Prav\u00fd klik"
+    },
+    "settings_open_action_mouseover": {
+        "message": "P\u0159ibl\u00ed\u017een\u00ed se my\u0161\u00ed"
+    },
+    "settings_open_action_icon": {
+        "message": "Kliknut\u00ed na ikonu"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Nastav kl\u00e1vesovou zkratku"
+    },
+    "settings_link_action": {
+        "message": "Otev\u0159\u00edt z\u00e1lo\u017eky"
+    },
+    "settings_link_action_desc": {
+        "message": "Lev\u00fd klik otev\u0159e z\u00e1lo\u017eku v aktu\u00e1ln\u00ed nebo nov\u00e9 kart\u011b."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Aktu\u00e1ln\u00ed karta"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_open_delay": {
+        "message": "Prodleva otev\u0159en\u00ed"
+    },
+    "settings_open_delay_desc": {
+        "message": "Okam\u017eit\u00e9 otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty p\u0159i p\u0159ibl\u00ed\u017een\u00ed my\u0161i nebo kliknut\u00edm, je zdr\u017eeno prodlevou."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Zabra\u0148te posouv\u00e1n\u00ed str\u00e1nek"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Zabra\u0148uje proch\u00e1zen\u00ed aktu\u00e1ln\u00edho webu p\u0159i otev\u0159en\u00e9m postrann\u00edm panelu."
+    },
+    "settings_dir_accordion": {
+        "message": "Zobraz jen aktu\u00e1ln\u00ed adres\u00e1\u0159"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Uzav\u0159e v\u0161echny adres\u00e1\u0159e s v\u00fdjimkou aktu\u00e1ln\u00edho adres\u00e1\u0159e."
+    },
+    "settings_remember_state": {
+        "message": "Zapamatov\u00e1n\u00ed"
+    },
+    "settings_remember_state_desc": {
+        "message": "Vyberte, co si zapamatovat mezi zm\u011bnami str\u00e1nek. Pokud se rozhodnete zapamatovat posledn\u00ed otev\u0159enou z\u00e1lo\u017eku, bude p\u0159i otev\u0159en\u00ed postrann\u00edho panelu ozna\u010dena."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Pozice posuvu a otev\u0159en\u00e9 adres\u00e1\u0159e"
+    },
+    "settings_remember_state_all": {
+        "message": "Posunut\u00ed pozice, otev\u0159en\u00ed adres\u00e1\u0159\u016f a posledn\u00ed otev\u0159en\u00e1 z\u00e1lo\u017eka"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Otev\u0159en\u00e9 adres\u00e1\u0159e"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Otev\u0159en\u00e9 adres\u00e1\u0159e nejvy\u0161\u0161\u00ed \u00farovn\u011b"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Nic"
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Otev\u0159\u00edt v\u0161echny d\u011bti (limit upozorn\u011bn\u00ed)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Mno\u017estv\u00ed z\u00e1lo\u017eek, p\u0159i kter\u00fdch se zobraz\u00ed upozorn\u011bn\u00ed, kdy\u017e se sna\u017e\u00edte otev\u0159\u00edt v\u0161echny d\u011bti adres\u00e1\u0159e najednou."
+    },
+    "settings_dir_open_duration": {
+        "message": "Doba otev\u0159en\u00ed adres\u00e1\u0159e"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Doba animace otev\u00edr\u00e1n\u00ed a zav\u00edr\u00e1n\u00ed adres\u00e1\u0159\u016f"
+    },
+    "settings_new_tab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_new_tab_desc": {
+        "message": "Otev\u0159\u00edt z\u00e1lo\u017eky v nov\u00e9 kart\u011b v pop\u0159ed\u00ed nebo v pozad\u00ed"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Otev\u0159\u00edt v pop\u0159ed\u00ed"
+    },
+    "settings_new_tab_background": {
+        "message": "Otev\u0159\u00edt v pozad\u00ed"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Otev\u0159ete nov\u00e9 z\u00e1lo\u017eky po posledn\u00ed nebo aktu\u00e1ln\u00ed z\u00e1lo\u017ece"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Po posledn\u00ed z\u00e1lo\u017ece"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Po aktu\u00e1ln\u00ed kart\u011b"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "P\u0159ed prvn\u00ed kartou"
+    },
+    "settings_close_timeout": {
+        "message": "Prodleva zav\u0159en\u00ed"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Prodleva po uzav\u0159en\u00ed bo\u010dn\u00ed li\u0161ty - v sekund\u00e1ch. Bude odpo\u010d\u00edt\u00e1vat jakmile my\u0161 opust\u00ed bo\u010dn\u00ed li\u0161tu a zastav\u00ed se kdy\u017e se my\u0161\u00ed op\u011bt vr\u00e1t\u00edte."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Nezav\u00edrat automaticky"
+    },
+    "settings_scrollbar_hide": {
+        "message": "Skr\u00fdt posuvn\u00edk"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "\u010casov\u00fd limit v sekund\u00e1ch po posuvn\u00edku bude skryt. Posunem se znovu zobraz\u00ed posuvn\u00edk."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Nikdy se neschov\u00e1vej"
+    },
+    "settings_drag_n_drop_open": {
+        "message": "Otev\u0159ete t\u00e1hni&pus\u0165"
+    },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Umo\u017e\u0148uje p\u0159eta\u017een\u00ed textov\u00fdch voleb, odkaz\u016f a adres URL do postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud chcete ulo\u017eit na z\u00e1lo\u017eku aktu\u00e1ln\u00ed str\u00e1nku nebo jin\u00e9 odkazy na webov\u00fdch str\u00e1nk\u00e1ch."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Znovu otev\u0159\u00edt bo\u010dn\u00ed li\u0161tu z\u00e1lo\u017eek"
+    },
+    "settings_tooltip_delay": {
+        "message": "Odlo\u017een\u00ed n\u00e1stroje"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Zpo\u017ed\u011bn\u00e9 p\u0159edt\u00edm, ne\u017e se objev\u00ed n\u00e1pisy pro z\u00e1lo\u017eky, se zobraz\u00ed p\u0159i podr\u017een\u00ed kurzoru my\u0161\u00ed."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Nikdy nezobrazovat n\u00e1pov\u011bdy"
+    },
+    "settings_tooltip_content": {
+        "message": "Obsah n\u00e1pov\u011bdy"
+    },
+    "settings_tooltip_content_desc": {
+        "message": "Vyberte, jak\u00e9 informace m\u00e1 obsahovat popiska n\u00e1stroje."
+    },
+    "settings_tooltip_content_all": {
+        "message": "N\u00e1zev a url"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Pouze titul"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Pouze url"
+    },
+    "settings_sidebar_position": {
+        "message": "Pozice"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Umo\u017e\u0148uje nastavit, zda se m\u00e1 bo\u010dn\u00ed li\u0161ta otev\u0159\u00edt na lev\u00e9 nebo prav\u00e9 stran\u011b obrazovky."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Vlevo"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Vpravo"
+    },
+    "settings_import_export_desc": {
+        "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed m\u016f\u017eete exportovat a ulo\u017eit je m\u00edstn\u011b do po\u010d\u00edta\u010de. P\u0159edt\u00edm exportovan\u00fd soubor m\u016f\u017eete importovat do libovoln\u00e9ho po\u010d\u00edta\u010de, ve kter\u00e9m je nainstalov\u00e1na roz\u0161\u00ed\u0159en\u00ed."
+    },
+    "settings_export": {
+        "message": "Nastaven\u00ed exportu"
+    },
+    "settings_import": {
+        "message": "Nastaven\u00ed importu"
+    },
+    "settings_import_saved": {
+        "message": "Konfigurace byla importov\u00e1na \u00fasp\u011b\u0161n\u011b"
+    },
+    "settings_import_failed": {
+        "message": "Import konfigurace se nepoda\u0159ilo. Zvolte pros\u00edm platn\u00fd soubor."
+    },
     "settings_color_scheme": {
         "message": "Barevn\u00e9 sch\u00e9ma"
     },

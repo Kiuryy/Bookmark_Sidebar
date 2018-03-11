@@ -689,12 +689,6 @@
     "settings_sidebar_position_right": {
         "message": "\uc624\ub978\ucabd"
     },
-    "settings_import_saved": {
-        "message": "\uc124\uc815\uc744 \uc131\uacf5\uc801\uc73c\ub85c \ub0b4\ubcf4\ub0c8\uc2b5\ub2c8\ub2e4."
-    },
-    "settings_import_failed": {
-        "message": "\uc124\uc815\uc744 \ub0b4\ubcf4\ub0b4\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4."
-    },
     "settings_import_export_desc": {
         "message": "\ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc758 \uc124\uc815\uc744 \ucef4\ud4e8\ud130\uc5d0 \uc800\uc7a5\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc774\uc804\uc5d0 \ucd94\ucd9c\ub41c \ud30c\uc77c\uc744 \uac00\uc838\uc62c \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4."
     },
@@ -703,6 +697,12 @@
     },
     "settings_import": {
         "message": "\uc124\uc815 \uac00\uc838\uc624\uae30"
+    },
+    "settings_import_saved": {
+        "message": "\uc124\uc815\uc744 \uc131\uacf5\uc801\uc73c\ub85c \ub0b4\ubcf4\ub0c8\uc2b5\ub2c8\ub2e4."
+    },
+    "settings_import_failed": {
+        "message": "\uc124\uc815\uc744 \ub0b4\ubcf4\ub0b4\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4."
     },
     "settings_presets": {
         "message": "\ubbf8\ub9ac \uc815\ud558\ub2e4"

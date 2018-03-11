@@ -689,12 +689,6 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_import_saved": {
-        "message": "Instellingen succesvol geimporteert"
-    },
-    "settings_import_failed": {
-        "message": "Het importeren van de configuraties is mislukt - Gelieve een geldig veld te kiezen."
-    },
     "settings_import_export_desc": {
         "message": "Je kan de instellingen van deze extensie lokaal opslaan. je kunt het opgeslagen bestand dan op elke computer importeren zolang de extensie maar is geinstalleerd."
     },
@@ -703,6 +697,12 @@
     },
     "settings_import": {
         "message": "Instellingen Importeren"
+    },
+    "settings_import_saved": {
+        "message": "Instellingen succesvol geimporteert"
+    },
+    "settings_import_failed": {
+        "message": "Het importeren van de configuraties is mislukt - Gelieve een geldig veld te kiezen."
     },
     "settings_presets": {
         "message": "Voorselectie"

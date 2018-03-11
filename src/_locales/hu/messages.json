@@ -671,12 +671,6 @@
     "settings_sidebar_position_right": {
         "message": "Jobb"
     },
-    "settings_import_saved": {
-        "message": "Be\u00e1ll\u00edt\u00e1sok sikeresen import\u00e1lva"
-    },
-    "settings_import_failed": {
-        "message": "Az import\u00e1l\u00e1s sikertelen. \u00c9rv\u00e9nyes f\u00e1jlt adjon meg."
-    },
     "settings_import_export_desc": {
         "message": "Export\u00e1lhatja a be\u00e1ll\u00edt\u00e1sait a helyi g\u00e9pre. Kor\u00e1bban export\u00e1lt be\u00e1ll\u00edt\u00e1sait import\u00e1lhatja b\u00e1rmely g\u00e9pen, amelyen telep\u00edtve van ez a b\u0151v\u00edtm\u00e9ny."
     },
@@ -685,6 +679,12 @@
     },
     "settings_import": {
         "message": "Be\u00e1ll\u00edt\u00e1sok import\u00e1l\u00e1sa"
+    },
+    "settings_import_saved": {
+        "message": "Be\u00e1ll\u00edt\u00e1sok sikeresen import\u00e1lva"
+    },
+    "settings_import_failed": {
+        "message": "Az import\u00e1l\u00e1s sikertelen. \u00c9rv\u00e9nyes f\u00e1jlt adjon meg."
     },
     "settings_presets": {
         "message": "El\u0151re be\u00e1ll\u00edtott m\u00e9retek"

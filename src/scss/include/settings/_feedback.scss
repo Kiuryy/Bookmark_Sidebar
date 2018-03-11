@@ -116,6 +116,7 @@ div.tab[data-name='feedback'] {
       border-radius: 10px;
       margin-bottom: 20px;
       padding: 10px 15px;
+      user-select: text;
       @include suggestion;
 
       &:last-of-type::before {

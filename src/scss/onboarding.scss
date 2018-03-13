@@ -53,29 +53,29 @@ section.slide {
     margin: 0 0 40px 0;
   }
 
-  &[data-name='intro'], &[data-name='finished'] {
+  &[data-name='intro'] {
 
-    > a.nextSlide, > a.close {
+    &::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 64px;
+      height: 64px;
+      background: img('icon/icon.webp') no-repeat center / 100%;
+    }
+
+    > a.nextSlide {
       @extend %button;
     }
 
-    > a.skip, > a.gotoSettings {
+    > a.skip {
       color: $textColorInverted;
       font-size: 90%;
       opacity: 0.5;
     }
-  }
-
-  &[data-name='intro']::before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 64px;
-    height: 64px;
-    background: img('icon/icon.webp') no-repeat center / 100%;
   }
 
   &[data-name='position'], &[data-name='openAction'], &[data-name='surface'] {
@@ -83,6 +83,7 @@ section.slide {
     > div {
       display: flex;
       justify-content: center;
+      align-items: center;
 
       > a {
         @extend %button;
@@ -157,6 +158,38 @@ section.slide {
       font-size: 120%;
       opacity: 0.7;
       padding: 7px 0;
+    }
+  }
+
+  &[data-name='finished'] {
+
+    a.settings, a.appearance {
+      @include mask(null, $textColorInverted, 72px);
+      position: relative;
+      display: inline-block;
+      width: 150px;
+      padding: 85px 15px 10px 15px;
+      margin: 0 10px;
+      color: $textColorInverted;
+      vertical-align: top;
+      border-radius: 3px;
+      transition: background 0.5s;
+
+      &::before {
+        -webkit-mask-position-y: 7px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    a.settings::before {
+      @include maskImage('icon-settings');
+    }
+
+    a.appearance::before {
+      @include maskImage('settings/icon-appearance');
     }
   }
 }

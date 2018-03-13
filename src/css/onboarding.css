@@ -63,7 +63,7 @@ a {
   color: #666;
   text-decoration: none; }
 
-section.slide[data-name='intro'] > a.nextSlide, section.slide[data-name='intro'] > a.close, section.slide[data-name='finished'] > a.nextSlide, section.slide[data-name='finished'] > a.close, section.slide[data-name='position'] > div > a, section.slide[data-name='openAction'] > div > a, section.slide[data-name='surface'] > div > a, section.slide[data-name='openAction'] > a.info {
+section.slide[data-name='intro'] > a.nextSlide, section.slide[data-name='position'] > div > a, section.slide[data-name='openAction'] > div > a, section.slide[data-name='surface'] > div > a, section.slide[data-name='openAction'] > a.info {
   display: inline-block;
   background: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
@@ -98,10 +98,6 @@ section.slide {
     font-weight: 200;
     color: #fff;
     margin: 0 0 40px 0; }
-  section.slide[data-name='intro'] > a.skip, section.slide[data-name='intro'] > a.gotoSettings, section.slide[data-name='finished'] > a.skip, section.slide[data-name='finished'] > a.gotoSettings {
-    color: #fff;
-    font-size: 90%;
-    opacity: 0.5; }
   section.slide[data-name='intro']::before {
     content: "";
     position: absolute;
@@ -112,9 +108,14 @@ section.slide {
     width: 64px;
     height: 64px;
     background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp) no-repeat center/100%; }
+  section.slide[data-name='intro'] > a.skip {
+    color: #fff;
+    font-size: 90%;
+    opacity: 0.5; }
   section.slide[data-name='position'] > div, section.slide[data-name='openAction'] > div, section.slide[data-name='surface'] > div {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    align-items: center; }
     section.slide[data-name='position'] > div > a, section.slide[data-name='openAction'] > div > a, section.slide[data-name='surface'] > div > a {
       margin-left: 12px;
       margin-right: 12px; }
@@ -169,6 +170,33 @@ section.slide {
     font-size: 120%;
     opacity: 0.7;
     padding: 7px 0; }
+  section.slide[data-name='finished'] a.settings, section.slide[data-name='finished'] a.appearance {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    padding: 85px 15px 10px 15px;
+    margin: 0 10px;
+    color: #fff;
+    vertical-align: top;
+    border-radius: 3px;
+    transition: background 0.5s; }
+    section.slide[data-name='finished'] a.settings::before, section.slide[data-name='finished'] a.appearance::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/72px;
+      background-color: #fff; }
+    section.slide[data-name='finished'] a.settings::before, section.slide[data-name='finished'] a.appearance::before {
+      -webkit-mask-position-y: 7px; }
+    section.slide[data-name='finished'] a.settings:hover, section.slide[data-name='finished'] a.appearance:hover {
+      background: rgba(255, 255, 255, 0.1); }
+  section.slide[data-name='finished'] a.settings::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg); }
+  section.slide[data-name='finished'] a.appearance::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg); }
 
 div#sidebar {
   position: absolute;

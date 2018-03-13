@@ -22,7 +22,8 @@
                 slide: "slide",
                 skip: "skip",
                 close: "close",
-                gotoSettings: "gotoSettings",
+                settings: "settings",
+                appearance: "appearance",
                 hideOpenTypeIcon: "hideOpenType",
                 large: "large",
                 visible: "visible"
@@ -245,10 +246,10 @@
         let initFinishedEvents = () => {
             $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished'] a").on("click", (e) => {
                 e.preventDefault();
-                if ($(e.currentTarget).hasClass(this.opts.classes.gotoSettings)) {
+                if ($(e.currentTarget).hasClass(this.opts.classes.settings)) {
                     location.href = chrome.extension.getURL("html/settings.html");
-                } else if ($(e.currentTarget).hasClass(this.opts.classes.close)) {
-                    window.close();
+                } else if ($(e.currentTarget).hasClass(this.opts.classes.appearance)) {
+                    location.href = chrome.extension.getURL("html/settings.html") + "#appearance_sidebar";
                 }
             });
         };

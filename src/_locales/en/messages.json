@@ -407,6 +407,9 @@
     "onboarding_goto_settings": {
         "message": "More settings"
     },
+    "onboarding_goto_appearance": {
+        "message": "Configure appearance"
+    },
     "onboarding_close": {
         "message": "Close this page"
     },

@@ -405,7 +405,10 @@
         "message": "Viel Spa\u00df mit deiner Sidebar."
     },
     "onboarding_goto_settings": {
-        "message": "Mehr Einstellungsm\u00f6glichkeiten"
+        "message": "Mehr Einstellungen"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Aussehen konfigurieren"
     },
     "onboarding_close": {
         "message": "Diese Seite schlie\u00dfen"

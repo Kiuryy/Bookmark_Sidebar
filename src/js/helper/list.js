@@ -140,10 +140,13 @@
                     if (result && result[0] && result[0].val) { // load content from cache
                         if (result[1] && result[1].val) {
                             ext.elements.pinnedBox.html(result[1].val);
+
                             if (ext.helper.model.getData("u/lockPinned")) {
                                 ext.elements.lockPinned.addClass(ext.opts.classes.sidebar.fixed);
                                 ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.fixed);
                             }
+
+                            loadMissingFavicons(ext.elements.pinnedBox);
                         } else {
                             ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.hidden);
                         }
@@ -508,17 +511,68 @@
                     if (ext.opts.demoMode) {
                         entryContent.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
                     } else {
-                        ext.helper.model.call("favicon", {url: bookmark.url}).then((response) => { // retrieve favicon of url
-                            if (response.img) { // favicon found -> add to entry
-                                let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
-                                entryContent.prepend("<img " + (sidebarOpen ? "src" : ext.opts.attr.src) + "='" + response.img + "' />");
-                            }
-                        });
+                        addFavicon(entryContent, bookmark.url);
                     }
                 }
             }
 
             return entry;
+        };
+
+        /**
+         * Loads the missing favicons of the entries in the given wrapper element
+         *
+         * @param {jsu} wrapper
+         * @param {boolean} cache whether to cache the html when at least one favicon was missing
+         * @returns {Promise}
+         */
+        let loadMissingFavicons = (wrapper, cache = false) => {
+            return new Promise((resolve) => {
+                let promises = [];
+                wrapper.find("a." + ext.opts.classes.sidebar.bookmarkLink + " > img[" + ext.opts.attr.value + "]").forEach((img) => {
+                    let entry = $(img).parent("a");
+                    let url = $(img).attr(ext.opts.attr.value);
+                    promises.push(addFavicon(entry, url));
+                });
+
+                if (promises.length > 0) {
+                    this.log("Detected: Missing bookmark favicons");
+
+                    Promise.all(promises).then(() => {
+                        if (cache) {
+                            this.cacheList().then(resolve);
+                        } else {
+                            resolve();
+                        }
+                    });
+                } else {
+                    resolve();
+                }
+            });
+        };
+
+        /**
+         * Adds the favicon to the given element
+         *
+         * @param {jsu} elm
+         * @param {string} url
+         * @returns {Promise}
+         */
+        let addFavicon = (elm, url) => {
+            elm.children("img").remove();
+            let favicon = $("<img />").prependTo(elm);
+            favicon.attr(ext.opts.attr.value, url);
+
+            return new Promise((resolve) => {
+                ext.helper.model.call("favicon", {url: url}).then((response) => { // retrieve favicon of url
+                    if (response.img) { // favicon found -> add to entry
+                        let sidebarOpen = ext.elements.iframe.hasClass(ext.opts.classes.page.visible);
+                        favicon.attr(sidebarOpen ? "src" : ext.opts.attr.src, response.img);
+                    }
+                    favicon.removeAttr(ext.opts.attr.value);
+                    resolve();
+                });
+            });
         };
 
         /**
@@ -683,6 +737,8 @@
                 list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
                 list.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
                 list.find("a." + ext.opts.classes.sidebar.lastHover).removeClass(ext.opts.classes.sidebar.lastHover);
+
+                loadMissingFavicons(list, true);
                 ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.cached);
 
                 this.updateSidebarHeader();

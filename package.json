@@ -25,7 +25,7 @@
     "jsonminify": "^0.4.1",
     "node-sass": "^4.7.2",
     "read-file": "^0.2.0",
-    "request": "^2.83.0",
+    "request": "^2.85.0",
     "uglify-es": "^3.3.10"
   }
 }

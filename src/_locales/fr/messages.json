@@ -305,6 +305,12 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Si cela se produit r\u00e9guli\u00e8rement, faites-le-moi savoir."
     },
+    "notification_sidebar_blacklisted": {
+        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL est sur votre liste noire."
+    },
+    "notification_sidebar_not_whitelisted": {
+        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL n'est pas sur votre liste blanche."
+    },
     "contribute_headline": {
         "message": "Aidez-moi"
     },
@@ -400,6 +406,9 @@
     },
     "onboarding_goto_settings": {
         "message": "Param\u00e8tres suppl\u00e9mentaires"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Param\u00e8tres d'affichage"
     },
     "onboarding_close": {
         "message": "Fermer la page"
@@ -691,6 +700,36 @@
     },
     "settings_sidebar_position_right": {
         "message": "Droite"
+    },
+    "settings_filter_intro": {
+        "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Ne saisir qu'un masque d'URL par ligne"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Utiliser <em>*<\/em> pour remplacer un ou plusieurs caract\u00e8res (ex; exemple.com\/* retournera toutes les pages qui d\u00e9butent par exemple.com\/).<em>"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Si vous n'utilisez pas le caract\u00e8re de substitution (<em>*<\/em>) la recherche retournera une pas que si elle est \u00e9gale au masque (ex; exemple.com ne retournera que l'URL exemple.com)."
+    },
+    "settings_filter_explanation_4": {
+        "message": "Vous n'avez pas besoin d'inclure le protocole (http:\/\/, https:\/\/) dans le masque."
+    },
+    "settings_filter_visibility": {
+        "message": "Charger la page"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Sur chaque page"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Sur toutes les pages sauf les pages sp\u00e9cifi\u00e9es"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Uniquement sur les pages sp\u00e9cifi\u00e9es"
+    },
+    "settings_filter_rules": {
+        "message": "Masque d'URL"
     },
     "settings_import_export_desc": {
         "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."

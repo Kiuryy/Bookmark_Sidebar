@@ -21,7 +21,7 @@
     "del": "^3.0.0",
     "eslint": "^4.18.2",
     "glob-concat": "^1.0.1",
-    "html-minifier": "^3.5.10",
+    "html-minifier": "^3.5.11",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.7.2",
     "read-file": "^0.2.0",

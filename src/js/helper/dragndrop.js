@@ -423,7 +423,7 @@
                         if (boundClientRect.top > topVal) {
                             return false;
                         } else if (newAboveElm.elm === null || newAboveElm.diff > diff) {
-                            newAboveElm = {elm: elmObj, diff: diff};
+                            newAboveElm = {elm: elmObj, height: elmObj[0].offsetHeight, diff: diff};
                         }
                     }
                 });
@@ -432,10 +432,17 @@
             if (newAboveElm.elm && newAboveElm.elm !== oldAboveElm) {
                 oldAboveElm = newAboveElm.elm;
                 let newAboveLink = newAboveElm.elm.children("a").eq(0);
+                let aboveIsDir = newAboveLink.hasClass(ext.opts.classes.sidebar.bookmarkDir);
+                let hoverPosPercentage = newAboveElm.diff / newAboveElm.height * 100;
 
                 clearDirOpenTimeout(newAboveLink);
 
-                if (newAboveLink.hasClass(ext.opts.classes.sidebar.bookmarkDir)) { // drag position is beneath a directory
+                if (newAboveElm.elm.nextAll("li:not(." + ext.opts.classes.drag.isDragged + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
+                    let elm = bookmarkElm.insertAfter(newAboveElm.elm.parents("li").eq(0));
+                    if (draggedElm) {
+                        draggedElm.data("elm", elm);
+                    }
+                } else if (aboveIsDir && hoverPosPercentage < 50) { // directory is hovered
                     if (newAboveLink.hasClass(ext.opts.classes.sidebar.dirOpened)) { // opened directory
                         let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
                         if (draggedElm) {
@@ -455,13 +462,15 @@
 
                             dirOpenTimeout.instance = setTimeout(() => { // open closed directory after short delay -> possibility for user to cancel timeout
                                 ext.helper.list.toggleBookmarkDir(newAboveLink);
-                            }, 700);
+                            }, 1000);
                         }
                     } else if (newAboveLink.next("ul").length() === 0) { // empty directory
                         newAboveLink.addClass(ext.opts.classes.sidebar.dirOpened);
                         $("<ul />").insertAfter(newAboveLink);
                     }
-                } else { // drag position is beneath a bookmark
+                } else { // drag position is below a bookmark
+                    clearDirOpenTimeout();
+
                     let elm = bookmarkElm.insertAfter(newAboveElm.elm);
                     if (draggedElm) {
                         draggedElm.data("elm", elm);

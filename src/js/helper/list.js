@@ -736,7 +736,10 @@
                 list.html(cachedHtml);
                 list.find("a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
                 list.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
+                list.find("a." + ext.opts.classes.drag.dragHover).removeClass(ext.opts.classes.drag.dragHover);
                 list.find("a." + ext.opts.classes.sidebar.lastHover).removeClass(ext.opts.classes.sidebar.lastHover);
+                list.find("li." + ext.opts.classes.drag.dragInitial).removeClass(ext.opts.classes.drag.dragInitial);
+                list.find("li." + ext.opts.classes.drag.isDragged).remove();
 
                 loadMissingFavicons(list, true);
                 ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.cached);

@@ -70,7 +70,9 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            if ((getPageType().startsWith("newtab_") && data.autoOpen) || data.performReopening) {
+            let pageType = getPageType();
+
+            if (((pageType === "newtab_website" || pageType === "newtab_replacement") && data.autoOpen) || data.performReopening) {
                 this.openSidebar();
                 ext.helper.model.setData({"u/performReopening": false});
             }
@@ -341,7 +343,11 @@
             let newtabAutoOpen = ext.helper.model.getData("n/autoOpen");
             let maskColor = styles.sidebarMaskColor || null;
 
-            return !((pageType.startsWith("newtab_") && newtabAutoOpen) || pageType === "onboarding" || maskColor === "transparent");
+            return !(
+                ((pageType === "newtab_website" || pageType === "newtab_replacement") && newtabAutoOpen)
+                || pageType === "onboarding"
+                || maskColor === "transparent"
+            );
         };
 
         /**

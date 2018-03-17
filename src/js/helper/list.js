@@ -536,7 +536,7 @@
                 });
 
                 if (promises.length > 0) {
-                    this.log("Detected: Missing bookmark favicons");
+                    ext.log("Detected: Missing bookmark favicons");
 
                     Promise.all(promises).then(() => {
                         if (cache) {

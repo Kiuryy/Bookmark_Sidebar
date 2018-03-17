@@ -407,6 +407,9 @@
     "onboarding_goto_settings": {
         "message": "\u66f4\u591a\u8a2d\u5b9a"
     },
+    "onboarding_goto_appearance": {
+        "message": "\u6253\u958b\u5916\u89c0\u8a2d\u7f6e"
+    },
     "onboarding_close": {
         "message": "\u95dc\u9589\u672c\u9801\u9762"
     },

@@ -305,6 +305,12 @@
     "notification_sidebar_not_working_unknown": {
         "message": "Je\u015bli ta nieprawid\u0142owo\u015b\u0107 pojawia si\u0119 regularnie, prosz\u0119 o jej zg\u0142oszenie."
     },
+    "notification_sidebar_blacklisted": {
+        "message": "Ten adres znajduje si\u0119 na Twojej czarnej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
+    },
+    "notification_sidebar_not_whitelisted": {
+        "message": "Ten adres nie znajduje si\u0119 na Twojej bia\u0142ej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
+    },
     "contribute_headline": {
         "message": "Potrzebuj\u0119 Twojej pomocy"
     },
@@ -401,6 +407,9 @@
     "onboarding_goto_settings": {
         "message": "Wi\u0119cej ustawie\u0144"
     },
+    "onboarding_goto_appearance": {
+        "message": "Konfiguracja wygl\u0105du"
+    },
     "onboarding_close": {
         "message": "Zamknij t\u0105 stron\u0119"
     },
@@ -430,6 +439,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Etykieta"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtr"
     },
     "settings_menu_appearance": {
         "message": "Wygl\u0105d"
@@ -688,6 +700,15 @@
     },
     "settings_sidebar_position_right": {
         "message": "Prawa"
+    },
+    "settings_filter_intro": {
+        "message": "Je\u015bli nie chcesz, by boczny panel pojawia\u0142 si\u0119 na ka\u017cdej stronie, mo\u017cesz skonfigurowa\u0107, gdzie rozszerzenie ma si\u0119 pojawi\u0107 [bia\u0142a lista] lub gdzie nie ma si\u0119 pojawi\u0107 [czarna lista]."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Dodaj tylko jeden adres w linii."
+    },
+    "settings_filter_explanation_2": {
+        "message": "U\u017cyj * by por\u00f3wna\u0107 znaki (e.g. example.com\/* pasuje do wszystkich stron example.com)"
     },
     "settings_import_export_desc": {
         "message": "Mo\u017cesz eksportowa\u0107 swoje ustawienia tego rozszerzenia i zapisa\u0107 je lokalnie na swoim komputerze. Mo\u017cesz zaimportowa\u0107 wcze\u015bniej wyeksportowany plik na jakimkolwiek komputerze, na kt\u00f3rym jest zainstalowane to rozszerzenie."

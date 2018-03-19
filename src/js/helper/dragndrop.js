@@ -502,7 +502,14 @@
                 if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged)) { // bookmark has been dragged
                     e.preventDefault();
                     e.stopPropagation();
-                    dragend();
+
+                    if (e.which === 1) { // only perform rearrangement of elements when the left mouse button is released
+                        dragend();
+                    } else { // cancel drag
+                        $.delay(0).then(() => {
+                            this.cancel();
+                        });
+                    }
                 }
             });
 

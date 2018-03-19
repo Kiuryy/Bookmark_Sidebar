@@ -65,12 +65,12 @@
 
                     if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                         ext.helper.scroll.focus();
-                    } else if (e.key === "Tab") { // jump to the next entry
+                    } else if (e.key === "Tab") { // jump to the next or previous entry
                         e.preventDefault();
                         if (isContextmenuOpen) {
                             hoverNextContextmenuEntry();
                         } else {
-                            hoverNextEntry();
+                            hoverNextPrevEntry(e.shiftKey ? "prev" : "next");
                         }
                     } else if (e.key === "Enter") { // click the current entry
                         e.preventDefault();
@@ -239,9 +239,74 @@
         };
 
         /**
-         * Hovers the next element in the currently visible bookmark list
+         * Determines the next element in the given list element
+         *
+         * @param {jsu} elm
+         * @returns {jsu}
          */
-        let hoverNextEntry = () => {
+        let getNextEntry = (elm) => {
+            let link = elm.children("a");
+            let ret = null;
+
+            if (link.hasClass(ext.opts.classes.sidebar.dirOpened) && link.next("ul").length() > 0) { // one layer deeper
+                ret = link.next("ul").find("> li:first-child > a");
+            } else if (elm.next("li").length() > 0) { // next element
+                ret = elm.next("li").children("a");
+            } else { // go to the next entry in a higher layer
+                let found = false;
+                let i = 0;
+
+                while (found === false) {
+                    let parentEntry = elm.parents("li").eq(i);
+
+                    if (parentEntry.length() > 0) { // there is a higher layer
+                        if (parentEntry.next("li").length() > 0) { // there is a next element in this layer -> mark next
+                            ret = parentEntry.next("li").children("a");
+                            found = true;
+                        } else { // in this layer is no next element -> go one layer higher
+                            i++;
+                        }
+                    } else { // no higher layer anymore -> end of the list
+                        found = true;
+                    }
+                }
+            }
+
+            return ret;
+        };
+
+        /**
+         * Determines the previous element in the given list element
+         *
+         * @param {jsu} elm
+         * @returns {jsu}
+         */
+        let getPrevEntry = (elm) => {
+            let ret = null;
+
+            if (elm.prev("li").length() > 0) { // prev element
+                let prev = elm.prev("li").children("a");
+
+                while (prev.hasClass(ext.opts.classes.sidebar.dirOpened) && prev.next("ul").length() > 0) {
+                    prev = prev.next("ul").find("> li:last-child > a");
+                }
+
+                ret = prev;
+            } else { // go to the prev entry in a higher layer
+                let parentEntry = elm.parents("li").eq(0);
+
+                if (parentEntry.length() > 0) { // there is a higher layer
+                    ret = parentEntry.children("a");
+                }
+            }
+
+            return ret;
+        };
+
+        /**
+         * Hovers the next or previous element in the currently visible bookmark list
+         */
+        let hoverNextPrevEntry = (type) => {
             Object.values(ext.elements.bookmarkBox).some((box) => {
                 if (box.hasClass(ext.opts.classes.sidebar.active)) {
                     let scrollTop = ext.helper.scroll.getScrollPos(box);
@@ -267,28 +332,10 @@
                         let hoveredElm = null;
 
                         if (link.hasClass(ext.opts.classes.sidebar.hover) || link.hasClass(ext.opts.classes.sidebar.mark)) {
-                            if (link.hasClass(ext.opts.classes.sidebar.dirOpened) && link.next("ul").length() > 0) { // one layer deeper
-                                hoveredElm = link.next("ul").find("> li:first-child > a");
-                            } else if (firstVisibleEntry.next("li").length() > 0) { // next element
-                                hoveredElm = firstVisibleEntry.next("li").children("a");
-                            } else { // go to the next entry in a higher layer
-                                let found = false;
-                                let i = 0;
-
-                                while (found === false) {
-                                    let parentEntry = firstVisibleEntry.parents("li").eq(i);
-
-                                    if (parentEntry.length() > 0) { // there is a higher layer
-                                        if (parentEntry.next("li").length() > 0) { // there is a next element in this layer -> mark next
-                                            hoveredElm = parentEntry.next("li").children("a");
-                                            found = true;
-                                        } else { // in this layer is no next element -> go one layer higher
-                                            i++;
-                                        }
-                                    } else { // no higher layer anymore -> end of the list
-                                        found = true;
-                                    }
-                                }
+                            if (type === "prev") {
+                                hoveredElm = getPrevEntry(firstVisibleEntry);
+                            } else if (type === "next") {
+                                hoveredElm = getNextEntry(firstVisibleEntry);
                             }
                         } else {
                             hoveredElm = link;

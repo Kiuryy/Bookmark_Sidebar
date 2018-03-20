@@ -77,12 +77,13 @@
                     } else {
                         $.xhr(chrome.extension.getURL("img/icon/menu/icon-" + name + ".svg")).then((obj) => {
                             let svg = obj.responseText;
-                            cachedSvg[name] = "data:image/svg+xml;charset=utf-8," + svg;
+                            cachedSvg[name] = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
                             rslv(cachedSvg[name]);
                         });
                     }
                 }).then((svg) => {
-                    svg = svg.replace(/#000/g, color);
+                    color = color.replace(/#/g, "%23");
+                    svg = svg.replace(/(#|%23)000/g, color);
                     resolve(svg);
                 });
             });

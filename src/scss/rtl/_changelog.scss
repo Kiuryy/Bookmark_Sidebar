@@ -1,34 +1,47 @@
 html[dir='rtl'] {
 
-  section.infobox {
+  body > header {
+    background: $gradientRtl;
+  }
 
-    > div {
+  body > main {
 
-      > div {
+    > div.checkbox + a {
+      margin-left: 0;
+      margin-right: 12px;
+    }
 
-        &.back {
-          text-align: right;
+    > div.version {
+      left: 0;
+      right: unset;
 
-          a.close {
-            left: 35px;
-            right: unset;
-          }
-        }
+      > span {
+        margin-right: 3px;
+        margin-left: 0;
       }
     }
 
-    ul.changelog {
+    > p.error {
+      padding-right: 40px;
+      padding-left: 0;
 
-      li {
+      &::before {
+        left: unset;
+        right: 0;
+      }
+    }
 
-        &:not(.noIndicator)::before {
-          margin-left: 10px;
-          margin-right: unset;
-        }
+    > article > div > ul {
+      margin-right: 5px;
+      margin-left: 0;
 
-        ul {
-          margin-right: 25px;
-          margin-left: unset;
+      > li {
+        padding-right: 10px;
+        padding-left: 0;
+
+        &::before {
+          left: unset;
+          right: 0;
         }
       }
     }

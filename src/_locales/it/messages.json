@@ -314,21 +314,6 @@
     "onboarding_goto_settings": {
         "message": "Ulteriori impostazioni"
     },
-    "onboarding_close": {
-        "message": "Chiudi questa pagina"
-    },
-    "changelog_title": {
-        "message": "Changelog"
-    },
-    "changelog_headline": {
-        "message": "La tua barra laterale \u00e8 stata aggiornata."
-    },
-    "changelog_show_changelog": {
-        "message": "Cosa c'\u00e8 di nuovo?"
-    },
-    "changelog_close": {
-        "message": "Chiudi questa pagina."
-    },
     "settings_title": {
         "message": "Impostazioni"
     },

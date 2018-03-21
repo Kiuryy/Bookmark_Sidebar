@@ -401,21 +401,6 @@
     "onboarding_goto_settings": {
         "message": "Meer instellingen"
     },
-    "onboarding_close": {
-        "message": "Sluit deze pagina"
-    },
-    "changelog_title": {
-        "message": "Logboek"
-    },
-    "changelog_headline": {
-        "message": "Je Bladwijzer Zijbalk is bijgewerkt."
-    },
-    "changelog_show_changelog": {
-        "message": "Wat is er nieuw?"
-    },
-    "changelog_close": {
-        "message": "Sluit deze pagina"
-    },
     "settings_title": {
         "message": "Instellingen"
     },

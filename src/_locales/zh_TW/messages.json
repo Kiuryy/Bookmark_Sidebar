@@ -410,21 +410,6 @@
     "onboarding_goto_appearance": {
         "message": "\u6253\u958b\u5916\u89c0\u8a2d\u7f6e"
     },
-    "onboarding_close": {
-        "message": "\u95dc\u9589\u672c\u9801\u9762"
-    },
-    "changelog_title": {
-        "message": "\u66f4\u65b0\u65e5\u8a8c"
-    },
-    "changelog_headline": {
-        "message": "\u60a8\u7684\u66f8\u7c64\u5074\u908a\u6b04\u5df2\u7d93\u66f4\u65b0\u3002"
-    },
-    "changelog_show_changelog": {
-        "message": "\u6709\u4ec0\u9ebc\u65b0\u7684\u55ce\uff1f"
-    },
-    "changelog_close": {
-        "message": "\u95dc\u9589\u672c\u9801\u9762"
-    },
     "settings_title": {
         "message": "\u8a2d\u5b9a"
     },

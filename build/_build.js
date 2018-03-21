@@ -93,6 +93,12 @@
                     ],
                     path.tmp + "settings-merged.js"
                     ),
+                    func.concat([ // concat changelog javascripts
+                        path.src + "js/helper/checkbox.js",
+                        path.src + "js/changelog.js"
+                    ],
+                    path.tmp + "changelog-merged.js"
+                    ),
                     func.concat([ // concat newtab javascripts
                         path.src + "js/helper/entry.js",
                         path.src + "js/newtab/*.js",
@@ -105,6 +111,7 @@
                         [path.tmp + "extension-merged.js"]: path.tmp + "extension.js",
                         [path.tmp + "background-merged.js"]: path.tmp + "background.js",
                         [path.tmp + "settings-merged.js"]: path.tmp + "settings.js",
+                        [path.tmp + "changelog-merged.js"]: path.tmp + "changelog.js",
                         [path.tmp + "newtab-merged.js"]: path.tmp + "newtab.js"
                     }, [
                         [/\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, ""]
@@ -116,8 +123,8 @@
                             path.tmp + "settings.js",
                             path.tmp + "background.js",
                             path.tmp + "newtab.js",
-                            path.src + "js/onboarding.js",
-                            path.src + "js/changelog.js"
+                            path.tmp + "changelog.js",
+                            path.src + "js/onboarding.js"
                         ], path.dist + "js/"),
                         func.minify([
                             path.src + "js/lib/jsu.js",

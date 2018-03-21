@@ -1,5 +1,9 @@
 html[dir='rtl'] {
 
+  body {
+    background: $gradientRtl;
+  }
+
   section.slide {
 
     &[data-name='position'] {

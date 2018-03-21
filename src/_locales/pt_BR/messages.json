@@ -236,6 +236,9 @@
     "status_translation_unavailable_desc": {
         "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
     },
+    "status_changelog_unavailable_desc": {
+        "message": "N\u00e3o foi poss\u00edvel recuperar o log de altera\u00e7\u00f5es. Por favor, tente novamente mais tarde."
+    },
     "status_background_disconnected_reload_desc": {
         "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
     },
@@ -410,20 +413,14 @@
     "onboarding_goto_appearance": {
         "message": "Configurar apar\u00eancia"
     },
-    "onboarding_close": {
-        "message": "Fechar esta p\u00e1gina"
-    },
     "changelog_title": {
         "message": "Registro de altera\u00e7\u00f5es"
     },
-    "changelog_headline": {
-        "message": "Sua Barra Lateral de Favoritos foi atualizada."
+    "changelog_current_version": {
+        "message": "Vers\u00e3o instalada atualmente"
     },
-    "changelog_show_changelog": {
-        "message": "O que h\u00e1 de novo?"
-    },
-    "changelog_close": {
-        "message": "Fechar esta p\u00e1gina"
+    "changelog_show_release_history": {
+        "message": "Mostrar hist\u00f3rico detalhado de lan\u00e7amentos"
     },
     "settings_title": {
         "message": "Configura\u00e7\u00f5es"

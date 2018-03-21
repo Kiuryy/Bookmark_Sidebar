@@ -410,21 +410,6 @@
     "onboarding_goto_appearance": {
         "message": "Param\u00e8tres d'affichage"
     },
-    "onboarding_close": {
-        "message": "Fermer la page"
-    },
-    "changelog_title": {
-        "message": "Historique des modifications"
-    },
-    "changelog_headline": {
-        "message": "Bookmark Sidebar a \u00e9t\u00e9 mise \u00e0 jour."
-    },
-    "changelog_show_changelog": {
-        "message": "Quoi de neuf ?"
-    },
-    "changelog_close": {
-        "message": "Fermer la page"
-    },
     "settings_title": {
         "message": "Param\u00e8tres"
     },

@@ -401,21 +401,6 @@
     "onboarding_goto_settings": {
         "message": "Mais configura\u00e7\u00f5es"
     },
-    "onboarding_close": {
-        "message": "Fechar esta p\u00e1gina"
-    },
-    "changelog_title": {
-        "message": "Registro de altera\u00e7\u00f5es"
-    },
-    "changelog_headline": {
-        "message": "Sua Barra Lateral de Favoritos foi atualizada."
-    },
-    "changelog_show_changelog": {
-        "message": "O que h\u00e1 de novo?"
-    },
-    "changelog_close": {
-        "message": "Fechar esta p\u00e1gina"
-    },
     "settings_title": {
         "message": "Configura\u00e7\u00f5es"
     },

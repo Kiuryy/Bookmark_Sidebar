@@ -407,21 +407,6 @@
     "onboarding_goto_settings": {
         "message": "Flere innstillinger"
     },
-    "onboarding_close": {
-        "message": "Lukk denne siden"
-    },
-    "changelog_title": {
-        "message": "Endringshistorikk"
-    },
-    "changelog_headline": {
-        "message": "Ditt Bokmerke-sidefelt har blitt oppdatert."
-    },
-    "changelog_show_changelog": {
-        "message": "Hva er nytt?"
-    },
-    "changelog_close": {
-        "message": "Lukk denne siden"
-    },
     "settings_title": {
         "message": "Innstillinger"
     },

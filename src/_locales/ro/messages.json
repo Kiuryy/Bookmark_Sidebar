@@ -401,21 +401,6 @@
     "onboarding_goto_settings": {
         "message": "mai multe set\u0103ri"
     },
-    "onboarding_close": {
-        "message": "\u00cenchide aceast\u0103 pagin\u0103"
-    },
-    "changelog_title": {
-        "message": "Istoric schimb\u0103ri"
-    },
-    "changelog_headline": {
-        "message": "bara lateral\u0103 a fost updatat\u0103."
-    },
-    "changelog_show_changelog": {
-        "message": "Ce este nou?"
-    },
-    "changelog_close": {
-        "message": "\u00cenchide aceast\u0103 pagin\u0103"
-    },
     "settings_title": {
         "message": "Set\u0103ri"
     },

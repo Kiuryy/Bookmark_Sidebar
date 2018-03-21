@@ -317,21 +317,6 @@
     "onboarding_goto_settings": {
         "message": "Fler inst\u00e4llningar"
     },
-    "onboarding_close": {
-        "message": "St\u00e4ng sidan"
-    },
-    "changelog_title": {
-        "message": "\u00c4ndringslogg"
-    },
-    "changelog_headline": {
-        "message": "Din Bokm\u00e4rkes sidopanel har uppdaterats."
-    },
-    "changelog_show_changelog": {
-        "message": "Vad \u00e4r nytt?"
-    },
-    "changelog_close": {
-        "message": "St\u00e4ng denna sida"
-    },
     "settings_title": {
         "message": "Inst\u00e4llningar"
     },

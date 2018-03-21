@@ -401,21 +401,6 @@
     "onboarding_goto_settings": {
         "message": "\ucd94\uac00 \uc124\uc815"
     },
-    "onboarding_close": {
-        "message": "\uc774 \ud398\uc774\uc9c0 \ub2eb\uae30"
-    },
-    "changelog_title": {
-        "message": "\ubcc0\uacbd \uc0ac\ud56d"
-    },
-    "changelog_headline": {
-        "message": "Bookmark Sidebar\uac00 \uc5c5\ub370\uc774\ud2b8 \ub418\uc5c8\uc2b5\ub2c8\ub2e4."
-    },
-    "changelog_show_changelog": {
-        "message": "\uc5b4\ub5bb\uac8c \ubc14\ub00c\uc5c8\ub098\uc694?"
-    },
-    "changelog_close": {
-        "message": "\uc774 \ud398\uc774\uc9c0 \ub2eb\uae30"
-    },
     "settings_title": {
         "message": "\uc124\uc815"
     },

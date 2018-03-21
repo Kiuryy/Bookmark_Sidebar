@@ -189,6 +189,28 @@
         };
 
         /**
+         * Adds a link to the changelog page in the browser action contextmenu
+         *
+         * @returns {Promise}
+         */
+        let initContextmenu = async () => {
+            this.helper.language.getLangVars().then((info) => {
+
+                chrome.contextMenus.create({
+                    id: "bsChangelog",
+                    title: info.vars.changelog_title.message,
+                    contexts: ["browser_action"]
+                });
+
+                chrome.contextMenus.onClicked.addListener((obj) => {
+                    if (obj.menuItemId === "bsChangelog") {
+                        chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                    }
+                });
+            });
+        };
+
+        /**
          *
          */
         this.run = () => {
@@ -212,6 +234,7 @@
                 this.helper.bookmarkApi.init()
             ]).then(() => {
                 return Promise.all([
+                    initContextmenu(),
                     initEvents(),
                     this.helper.newtab.init(),
                     this.helper.image.init(),

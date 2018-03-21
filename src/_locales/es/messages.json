@@ -401,21 +401,6 @@
     "onboarding_goto_settings": {
         "message": "M\u00e1s propiedades"
     },
-    "onboarding_close": {
-        "message": "Cerrar esta pagina"
-    },
-    "changelog_title": {
-        "message": "Registro de cambios"
-    },
-    "changelog_headline": {
-        "message": "Se ha actualizado la barra lateral de marcadores."
-    },
-    "changelog_show_changelog": {
-        "message": "\u00bfQu\u00e9 hay de nuevo?"
-    },
-    "changelog_close": {
-        "message": "Cerrar esta p\u00e1gina"
-    },
     "settings_title": {
         "message": "Ajustes"
     },

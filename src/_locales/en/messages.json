@@ -3,7 +3,7 @@
         "message": "Bookmark Sidebar"
     },
     "extension_desc": {
-        "message": "Adds a toggleable sidebar with all your bookmarks on the edge of your browser window."
+        "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
     },
     "header_bookmarks": {
         "message": "Bookmarks"
@@ -236,6 +236,9 @@
     "status_translation_unavailable_desc": {
         "message": "The translation service is not available at the moment. Please try again later."
     },
+    "status_changelog_unavailable_desc": {
+        "message": "Could not retrieve the changelog. Please try again later."
+    },
     "status_background_disconnected_reload_desc": {
         "message": "Due to an update of the extension this page needs to be reloaded."
     },
@@ -410,20 +413,14 @@
     "onboarding_goto_appearance": {
         "message": "Configure appearance"
     },
-    "onboarding_close": {
-        "message": "Close this page"
-    },
     "changelog_title": {
         "message": "Changelog"
     },
-    "changelog_headline": {
-        "message": "Your Bookmark Sidebar has been updated."
+    "changelog_current_version": {
+        "message": "Currently installed version"
     },
-    "changelog_show_changelog": {
-        "message": "What's new?"
-    },
-    "changelog_close": {
-        "message": "Close this page"
+    "changelog_show_release_history": {
+        "message": "Show detailed release history"
     },
     "settings_title": {
         "message": "Settings"

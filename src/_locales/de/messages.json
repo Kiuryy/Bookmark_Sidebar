@@ -236,6 +236,9 @@
     "status_translation_unavailable_desc": {
         "message": "Der \u00dcbersetzungsdienst ist aktuell nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
+    "status_changelog_unavailable_desc": {
+        "message": "Die \u00c4nderungshistorie konnte nicht abgerufen werden. Bitte versuche es sp\u00e4ter erneut."
+    },
     "status_background_disconnected_reload_desc": {
         "message": "Aufgrund eines Updates der Erweiterung muss die Seite neugeladen werden"
     },
@@ -410,20 +413,14 @@
     "onboarding_goto_appearance": {
         "message": "Aussehen konfigurieren"
     },
-    "onboarding_close": {
-        "message": "Diese Seite schlie\u00dfen"
-    },
     "changelog_title": {
-        "message": "\u00c4nderungen"
+        "message": "\u00c4nderungshistorie"
     },
-    "changelog_headline": {
-        "message": "Deine Lesezeichen-Sidebar wurde aktualisiert."
+    "changelog_current_version": {
+        "message": "Aktuell installierte Version"
     },
-    "changelog_show_changelog": {
-        "message": "Was ist neu?"
-    },
-    "changelog_close": {
-        "message": "Diese Seite schlie\u00dfen"
+    "changelog_show_release_history": {
+        "message": "Detailierte Versions-Historie anzeigen"
     },
     "settings_title": {
         "message": "Einstellungen"

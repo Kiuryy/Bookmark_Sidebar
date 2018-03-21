@@ -296,9 +296,6 @@
     "onboarding_goto_settings": {
         "message": "Pengaturan Lainnya"
     },
-    "onboarding_close": {
-        "message": "Tutup halaman ini"
-    },
     "settings_title": {
         "message": "Pengaturan"
     },

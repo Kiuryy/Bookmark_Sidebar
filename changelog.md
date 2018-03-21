@@ -1,5 +1,11 @@
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions and more details about the individual releases
 
+## 1.13
+ - Configurable toggle area (replacing pixel tolerance settings)
+ - Reinitialize sidebar when website removes it from DOM
+ - Replaced FAQ with feedback suggestions
+ - Changed separators implementation
+
 ## 1.12
  - Added support for right-to-left language
  - Changed export mechanism
@@ -85,5 +91,5 @@ See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) f
  - Edit/Remove bookmarks and directories
  - Infos about bookmarks and directories
  - Check the bookmarks for changed or broken urls
- - Optional visual (icon on semitransparent background)
+ - Optional indicator (icon on semitransparent background)
  - Fully configurable

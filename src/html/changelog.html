@@ -4,39 +4,38 @@
     <meta charset="utf-8" />
     <title data-i18n="changelog_title"></title>
     <style>
-        body.initLoading > * {
+        body.building > * {
             display: none !important;
         }
     </style>
 </head>
 
-<body class="initLoading">
-<section class="infobox">
+<body class="building">
+<header>
     <div>
-        <div class="front">
-            <h1 data-i18n="changelog_headline"></h1>
-            <span class="icon"></span>
-
-            <a href="#" class="showChangelog cta" data-i18n="changelog_show_changelog"></a>
-            <a href="#" class="close" data-i18n="changelog_close"></a>
-        </div>
-
-        <div class="back">
-            <a href="#" class="close"></a>
-            <h1 data-i18n="changelog_show_changelog"></h1>
-            <ul class="changelog">
-                <li>You can now disable the sidebar from specific websites or only allow it on particular pages</li>
-                <li>...</li>
-            </ul>
-        </div>
+        <h1 data-i18n="changelog_title"></h1>
     </div>
-</section>
+</header>
+
+<main>
+    <div class="version">
+        <p data-i18n="changelog_current_version"></p>
+        <span></span>
+    </div>
+    <article id="changelog"></article>
+    <article id="releaseHistory"></article>
+</main>
+
 
 <script src="/js/lib/jsu.js"></script>
 <script src='/js/helper/i18n.js'></script>
 <script src='/js/helper/font.js'></script>
 <script src='/js/helper/stylesheet.js'></script>
+<script src='/js/helper/template.js'></script>
 <script src='/js/helper/model.js'></script>
+<!-- [START REMOVE] -->
+<script src='/js/helper/checkbox.js'></script>
+<!-- [END REMOVE] -->
 <script src='/js/changelog.js'></script>
 </body>
 </html>

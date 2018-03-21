@@ -293,21 +293,6 @@
     "onboarding_goto_settings": {
         "message": "Dal\u0161\u00ed nastaven\u00ed"
     },
-    "onboarding_close": {
-        "message": "Zav\u0159\u00edt str\u00e1nku"
-    },
-    "changelog_title": {
-        "message": "Z\u00e1znam zm\u011bn"
-    },
-    "changelog_headline": {
-        "message": "Va\u0161e bo\u010dn\u00ed li\u0161ta byla aktualizov\u00e1na"
-    },
-    "changelog_show_changelog": {
-        "message": "Co je nov\u00e9ho?"
-    },
-    "changelog_close": {
-        "message": "Zav\u0159\u00edt tuto str\u00e1nku"
-    },
     "settings_title": {
         "message": "Nastaven\u00ed"
     },

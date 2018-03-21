@@ -282,6 +282,9 @@ body.hideOpenType::before {
   body[data-position='right'] section.slide:not([data-name='position']):not([data-name='handson']) {
     left: 40px; } }
 
+html[dir='rtl'] body {
+  background: linear-gradient(45deg, #2b35c8 0%, #7b5fa4 100%); }
+
 html[dir='rtl'] section.slide[data-name='position'] > div {
   flex-direction: row-reverse; }
 

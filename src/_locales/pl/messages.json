@@ -410,21 +410,6 @@
     "onboarding_goto_appearance": {
         "message": "Konfiguracja wygl\u0105du"
     },
-    "onboarding_close": {
-        "message": "Zamknij t\u0105 stron\u0119"
-    },
-    "changelog_title": {
-        "message": "Lista zmian"
-    },
-    "changelog_headline": {
-        "message": "Twoja boczna lista zak\u0142adek zosta\u0142a zaktualizowana."
-    },
-    "changelog_show_changelog": {
-        "message": "Co nowego?"
-    },
-    "changelog_close": {
-        "message": "Zamknij t\u0105 stron\u0119"
-    },
     "settings_title": {
         "message": "Ustawienia"
     },

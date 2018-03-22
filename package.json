@@ -19,7 +19,7 @@
     "cp-file": "^5.0.0",
     "create-file": "^1.0.1",
     "del": "^3.0.0",
-    "eslint": "^4.19.0",
+    "eslint": "^4.19.1",
     "glob-concat": "^1.0.1",
     "html-minifier": "^3.5.12",
     "jsonminify": "^0.4.1",

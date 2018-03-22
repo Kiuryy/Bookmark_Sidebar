@@ -10,14 +10,13 @@
          * @returns {Promise}
          */
         let cleanPre = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 func.remove([path.tmp + "*", path.dist + "*"]).then(() => {
                     return func.createFile(path.tmp + "info.txt", new Date().toISOString());
                 }).then(() => {
-                    log("Cleaned tmp and dist directories");
                     resolve();
                 });
-            });
+            }, "Cleaned tmp and dist directories");
         };
 
         /**
@@ -26,12 +25,11 @@
          * @returns {Promise}
          */
         let cleanPost = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 func.remove([path.tmp]).then(() => {
-                    log("Cleaned tmp directory");
                     resolve();
                 });
-            });
+            }, "Cleaned tmp directory");
         };
 
         /**
@@ -40,12 +38,11 @@
          * @returns {Promise}
          */
         let img = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 func.copy([path.src + "img/**/*"], [path.src + "**/*.xcf", path.src + "img/icon/dev/**"], path.dist, false).then(() => {
-                    log("Moved image files to dist directory");
                     resolve();
                 });
-            });
+            }, "Moved image files to dist directory");
         };
 
         /**
@@ -54,14 +51,13 @@
          * @returns {Promise}
          */
         let css = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 func.minify([ // parse scss files
                     path.src + "scss/*.scss"
                 ], path.dist + "css/").then(() => {
-                    log("Moved css files to dist directory");
                     resolve();
                 });
-            });
+            }, "Moved css files to dist directory");
         };
 
         /**
@@ -70,7 +66,7 @@
          * @returns {Promise}
          */
         let js = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 Promise.all([
                     func.concat([ // concat extension javascripts
                         path.src + "js/helper/**/*.js",
@@ -137,10 +133,9 @@
                         ], path.dist + "js/lib/"),
                     ]);
                 }).then(() => {
-                    log("Moved js files to dist directory");
                     resolve();
                 });
-            });
+            }, "Moved js files to dist directory");
         };
 
         /**
@@ -170,12 +165,15 @@
                 };
 
                 files.forEach((obj) => {
-                    func.getRemoteContent("https://raw.githubusercontent.com/Kiuryy/" + obj.urlPath).then((content) => {
-                        func.createFile(path.src + "js/lib/" + obj.file, content).then(() => {
-                            log("Fetched " + obj.file + " from Github");
-                            fetched();
-                        });
-                    }, fetched);
+                    measureTime((rslv) => {
+                        func.getRemoteContent("https://raw.githubusercontent.com/Kiuryy/" + obj.urlPath).then((content) => {
+                            func.createFile(path.src + "js/lib/" + obj.file, content).then(() => {
+                                rslv();
+                            });
+                        }, rslv);
+                    }, "Fetched " + obj.file + " from Github").then(() => {
+                        fetched();
+                    });
                 });
             });
         };
@@ -186,7 +184,7 @@
          * @returns {Promise}
          */
         let html = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 func.replace({
                     [path.src + "html/settings.html"]: path.tmp + "html/settings.html",
                     [path.src + "html/changelog.html"]: path.tmp + "html/changelog.html",
@@ -200,10 +198,9 @@
                 }).then(() => {
                     return func.minify([path.tmp + "html/**/*.html"], path.dist + "html/");
                 }).then(() => {
-                    log("Moved html files to dist directory");
                     resolve();
                 });
-            });
+            }, "Moved html files to dist directory");
         };
 
         /**
@@ -212,7 +209,7 @@
          * @returns {Promise}
          */
         let json = () => {
-            return new Promise((resolve) => {
+            return measureTime((resolve) => {
                 func.replace({ // parse manifest.json
                     [path.src + "manifest.json"]: path.tmp + "manifest.json"
                 }, [
@@ -224,36 +221,41 @@
                 ]).then(() => { // minify in dist directory
                     return func.minify([path.tmp + "manifest.json", path.src + "_locales/**/*.json"], path.dist, false);
                 }).then(() => {
-                    log("Moved json files to dist directory");
+                    resolve();
+                });
+            }, "Moved json files to dist directory");
+        };
+
+        let measureTime = (func, msg) => {
+            return new Promise((resolve) => {
+                let start = +new Date();
+                new Promise(func).then(() => {
+                    console.log(" - " + msg + " (" + (+new Date() - start) + "ms)");
                     resolve();
                 });
             });
-        };
-
-        /**
-         *
-         * @param {string} msg
-         */
-        let log = (msg) => {
-            console.log(" - " + msg);
         };
 
         /**
          *
          */
         this.release = () => {
-            return new Promise((resolve) => {
-                Promise.all([
-                    cleanPre(),
-                    remoteJs()
-                ]).then(() => {
-                    return Promise.all([js(), css(), img(), json(), html()]);
-                }).then(() => {
-                    return cleanPost();
-                }).then(() => {
-                    resolve();
-                });
+            let result = Promise.resolve();
+
+            [
+                cleanPre,
+                remoteJs,
+                js,
+                css,
+                img,
+                json,
+                html,
+                cleanPost
+            ].forEach(task => {
+                result = result.then(() => task());
             });
+
+            return result;
         };
     };
 })();

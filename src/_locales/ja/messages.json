@@ -236,6 +236,9 @@
     "status_translation_unavailable_desc": {
         "message": "\u7ffb\u8a33\u30b5\u30fc\u30d3\u30b9\u306f\u73fe\u6642\u70b9\u3067\u306f\u3054\u5229\u7528\u3044\u305f\u3060\u3051\u307e\u305b\u3093\u3002 \u5f8c\u3067\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002"
     },
+    "status_changelog_unavailable_desc": {
+        "message": "\u5909\u66f4\u5c65\u6b74\u3092\u53d6\u5f97\u3067\u304d\u307e\u305b\u3093\u3067\u3057\u305f\u3002 \u5f8c\u3067\u3082\u3046\u4e00\u5ea6\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002"
+    },
     "status_background_disconnected_reload_desc": {
         "message": "\u62e1\u5f35\u6a5f\u80fd\u306e\u66f4\u65b0 - \u8aac\u660e\u306e\u518d\u8aad\u307f\u8fbc\u307f"
     },
@@ -409,6 +412,15 @@
     },
     "onboarding_goto_appearance": {
         "message": "\u5916\u89b3\u306e\u8a2d\u5b9a"
+    },
+    "changelog_title": {
+        "message": "\u66f4\u65b0\u5c65\u6b74"
+    },
+    "changelog_current_version": {
+        "message": "\u73fe\u5728\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3055\u308c\u3066\u3044\u308b\u30d0\u30fc\u30b8\u30e7\u30f3"
+    },
+    "changelog_show_release_history": {
+        "message": "\u8a73\u7d30\u306a\u30ea\u30ea\u30fc\u30b9\u5c65\u6b74\u3092\u8868\u793a\u3059\u308b"
     },
     "settings_title": {
         "message": "\u8a2d\u5b9a"

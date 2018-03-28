@@ -236,6 +236,9 @@
     "status_translation_unavailable_desc": {
         "message": "\ud604\uc7ac \ubc88\uc5ed \uae30\ub2a5 \uc774\uc6a9\uc774 \ubd88\uac00\ud569\ub2c8\ub2e4. \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694."
     },
+    "status_changelog_unavailable_desc": {
+        "message": "\uccb4\uc778\uc9c0\ub85c\uadf8\ub97c \ubd88\ub7ec\uc62c \uc218 \uc5c6\uc2b5\ub2c8\ub2e4. \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694"
+    },
     "status_background_disconnected_reload_desc": {
         "message": "\uc5c5\ub370\uc774\ud2b8\ub85c \uc774 \ud398\uc774\uc9c0\ub97c \uc0c8\ub85c\uace0\uce68 \ud574\uc57c \ud569\ub2c8\ub2e4."
     },
@@ -304,6 +307,12 @@
     },
     "notification_sidebar_not_working_unknown": {
         "message": "\uc0ac\uc774\ub4dc\ubc14\ub97c \uacc4\uc18d \uc5f4 \uc218 \uc5c6\ub294 \uacbd\uc6b0\uc5d0\ub294 \uac1c\ubc1c\uc790\uc5d0\uac8c \ubcf4\uace0\ud574 \uc8fc\uc138\uc694."
+    },
+    "notification_sidebar_blacklisted": {
+        "message": "\uc774 \uc8fc\uc18c\ub294 \ub2f9\uc2e0\uc758 \ube14\ub799\ub9ac\uc2a4\ud2b8\uc5d0 \uc800\uc7a5\ub418\uc5b4\uc788\uc5b4 \uc0ac\uc774\ub4dc\ubc14\ub97c \uc5f4 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4."
+    },
+    "notification_sidebar_not_whitelisted": {
+        "message": "\uc774 \uc8fc\uc18c\ub294 \ub2f9\uc2e0\uc758 \ud654\uc774\ud2b8\ub9ac\uc2a4\ud2b8\uc5d0 \uc800\uc7a5\ub418\uc5b4\uc788\uc9c0 \uc54a\uc544 \uc0ac\uc774\ub4dc\ubc14\ub97c \uc5f4 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4."
     },
     "contribute_headline": {
         "message": "\ub2f9\uc2e0\uc758 \ub3c4\uc6c0\uc774 \ud544\uc694\ud569\ub2c8\ub2e4"
@@ -401,6 +410,9 @@
     "onboarding_goto_settings": {
         "message": "\ucd94\uac00 \uc124\uc815"
     },
+    "onboarding_goto_appearance": {
+        "message": "\uc678\ud615 \ubcc0\uacbd"
+    },
     "settings_title": {
         "message": "\uc124\uc815"
     },
@@ -415,6 +427,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "\ub3c4\uc6c0\ub9d0"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "\ud544\ud130"
     },
     "settings_menu_appearance": {
         "message": "\ubaa8\uc591"
@@ -673,6 +688,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "\uc624\ub978\ucabd"
+    },
+    "settings_filter_intro": {
+        "message": "\uc0ac\uc774\ub4dc\ubc14\uac00 \ub098\uc62c \uc218 \uc788\ub294 \ud398\uc774\uc9c0(\ud654\uc774\ud2b8\ub9ac\uc2a4\ud2b8)\uc640 \ub098\uc62c \uc218 \uc5c6\ub294 \ud398\uc774\uc9c0(\ube14\ub799\ub9ac\uc2a4\ud2b8)\ub97c \uc124\uc815\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
+    },
+    "settings_filter_explanation_1": {
+        "message": "\ud55c \uc904\uc5d0 \ud558\ub098\uc758 url \ud328\ud134\uc744 \uc785\ub825\ud558\uc2ed\uc2dc\uc624"
     },
     "settings_import_export_desc": {
         "message": "\ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc758 \uc124\uc815\uc744 \ucef4\ud4e8\ud130\uc5d0 \uc800\uc7a5\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc774\uc804\uc5d0 \ucd94\ucd9c\ub41c \ud30c\uc77c\uc744 \uac00\uc838\uc62c \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4."

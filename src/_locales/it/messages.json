@@ -428,6 +428,9 @@
     "settings_toggle_area_height": {
         "message": "Altezza"
     },
+    "settings_toggle_area_height_desc": {
+        "message": "Puoi ridurre l'altezza dell'area, in modo che la sidebar si apra solo quando sposti il cursore in quella zona della finestra del browser."
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Imposta la scorciatoia da tastiera"
     },

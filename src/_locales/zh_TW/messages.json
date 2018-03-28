@@ -236,6 +236,9 @@
     "status_translation_unavailable_desc": {
         "message": "\u7ffb\u8b6f\u670d\u52d9\u73fe\u5728\u7121\u6cd5\u4f7f\u7528\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
     },
+    "status_changelog_unavailable_desc": {
+        "message": "\u7121\u6cd5\u6062\u5fa9\u66f4\u65b0\u65e5\u8a8c\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
+    },
     "status_background_disconnected_reload_desc": {
         "message": "\u7531\u65bc\u64f4\u5145\u529f\u80fd\u66f4\u65b0\uff0c\u672c\u9801\u9762\u9700\u8981\u91cd\u65b0\u8f09\u5165\u3002"
     },
@@ -409,6 +412,15 @@
     },
     "onboarding_goto_appearance": {
         "message": "\u6253\u958b\u5916\u89c0\u8a2d\u7f6e"
+    },
+    "changelog_title": {
+        "message": "\u66f4\u65b0\u65e5\u8a8c"
+    },
+    "changelog_current_version": {
+        "message": "\u76ee\u524d\u5b89\u88dd\u7248\u672c"
+    },
+    "changelog_show_release_history": {
+        "message": "\u986f\u793a\u8a73\u7d30\u7684\u767c\u4f48\u6b77\u53f2"
     },
     "settings_title": {
         "message": "\u8a2d\u5b9a"

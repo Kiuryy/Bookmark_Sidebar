@@ -410,6 +410,15 @@
     "onboarding_goto_appearance": {
         "message": "Konfiguracja wygl\u0105du"
     },
+    "changelog_title": {
+        "message": "Lista zmian"
+    },
+    "changelog_current_version": {
+        "message": "Obecnie zainstalowana wersja"
+    },
+    "changelog_show_release_history": {
+        "message": "Poka\u017c szczeg\u00f3\u0142ow\u0105 histori\u0119 wydania"
+    },
     "settings_title": {
         "message": "Ustawienia"
     },
@@ -695,6 +704,15 @@
     "settings_filter_explanation_2": {
         "message": "U\u017cyj * by por\u00f3wna\u0107 znaki (e.g. example.com\/* pasuje do wszystkich stron example.com)"
     },
+    "settings_filter_visibility": {
+        "message": "Za\u0142aduj panel boczny"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Na ka\u017cdej stronie"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Na ka\u017cdej stronie z wyj\u0105tkiem stron szczeg\u00f3lnych"
+    },
     "settings_import_export_desc": {
         "message": "Mo\u017cesz eksportowa\u0107 swoje ustawienia tego rozszerzenia i zapisa\u0107 je lokalnie na swoim komputerze. Mo\u017cesz zaimportowa\u0107 wcze\u015bniej wyeksportowany plik na jakimkolwiek komputerze, na kt\u00f3rym jest zainstalowane to rozszerzenie."
     },
@@ -708,7 +726,7 @@
         "message": "Konfiguracja zosta\u0142a zaimportowana pomy\u015blnie"
     },
     "settings_import_failed": {
-        "message": "Nie uda\u0142o zaimportowa\u0107 si\u0119 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
+        "message": "Nie uda\u0142o si\u0119 zaimportowa\u0107 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
     },
     "settings_presets": {
         "message": "Wyb\u00f3r wst\u0119pny"

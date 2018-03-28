@@ -237,7 +237,7 @@
         "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
     },
     "status_changelog_unavailable_desc": {
-        "message": "N\u00e3o foi poss\u00edvel recuperar o log de altera\u00e7\u00f5es. Por favor, tente novamente mais tarde."
+        "message": "N\u00e3o foi poss\u00edvel recuperar os registros de altera\u00e7\u00f5es. Por favor, tente novamente mais tarde."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
@@ -597,10 +597,10 @@
         "message": "Nada"
     },
     "settings_open_children_warn_limit": {
-        "message": "Abrir todos as subpastas (avisar limite)"
+        "message": "Abrir todas as subpastas (avisar limite)"
     },
     "settings_open_children_warn_limit_desc": {
-        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todos as subpastas da pasta ao mesmo tempo."
+        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todas as subpastas da pasta ao mesmo tempo."
     },
     "settings_dir_open_duration": {
         "message": "Dura\u00e7\u00e3o de abertura da pasta"

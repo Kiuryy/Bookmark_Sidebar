@@ -121,11 +121,9 @@
                 if (e.currentTarget.checked) {
                     this.opts.elm.releaseHistoryWrapper.addClass(this.opts.classes.visible);
                     this.opts.elm.changelogWrapper.removeClass(this.opts.classes.visible);
-                    this.helper.model.call("trackPageView", {page: "/changelog/detailed"});
                 } else {
                     this.opts.elm.releaseHistoryWrapper.removeClass(this.opts.classes.visible);
                     this.opts.elm.changelogWrapper.addClass(this.opts.classes.visible);
-                    this.helper.model.call("trackPageView", {page: "/changelog"});
                 }
             });
         };

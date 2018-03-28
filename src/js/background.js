@@ -9,8 +9,8 @@
         this.urls = {
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
-            checkUrls: "https://4v1.de/u",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
+            checkUrls: "https://4v1.de/u",
             thumbnail: "https://4v1.de/t"
         };
 
@@ -189,28 +189,6 @@
         };
 
         /**
-         * Adds a link to the changelog page in the browser action contextmenu
-         *
-         * @returns {Promise}
-         */
-        let initContextmenu = async () => {
-            this.helper.language.getLangVars().then((info) => {
-
-                chrome.contextMenus.create({
-                    id: "bsChangelog",
-                    title: info.vars.changelog_title.message,
-                    contexts: ["browser_action"]
-                });
-
-                chrome.contextMenus.onClicked.addListener((obj) => {
-                    if (obj.menuItemId === "bsChangelog") {
-                        chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
-                    }
-                });
-            });
-        };
-
-        /**
          *
          */
         this.run = () => {
@@ -230,19 +208,18 @@
                 this.helper.language.init(),
                 this.helper.icon.init(),
                 this.helper.analytics.init(),
-                this.helper.browserAction.init(),
                 this.helper.bookmarkApi.init()
             ]).then(() => {
                 return Promise.all([
-                    initContextmenu(),
                     initEvents(),
+                    this.helper.browserAction.init(),
                     this.helper.newtab.init(),
                     this.helper.image.init(),
                     this.helper.port.init(),
                     this.helper.upgrade.init()
                 ]);
             }).then(() => {
-                if (this.isDev) {
+                if (this.isDev && console && console.log) {
                     console.log("Finished loading background script", +new Date() - start);
                 }
             });

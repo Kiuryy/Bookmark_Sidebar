@@ -14,6 +14,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 initEvents();
+                initContextmenus();
                 resolve();
             });
         };
@@ -146,25 +147,66 @@
         };
 
         /**
-         * Initialises the eventhandler
+         * Adds a link to the changelog page in the browser action contextmenu,
+         * Adds an entry to the page contextmenu which toggles the sidebar (like the extension icon)
+         *
+         * @returns {Promise}
          */
-        let initEvents = () => {
-            chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall open the sidebar
-                chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        let initContextmenus = async () => {
+            b.helper.language.getLangVars().then((info) => {
 
-                    chrome.tabs.sendMessage(tabs[0].id, {
-                        action: "toggleSidebar",
-                        reinitialized: b.reinitialized
-                    });
-
-                    timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
-                        showNotification(tabs[0]);
-                    }, 750);
+                chrome.contextMenus.create({
+                    id: "bsChangelog",
+                    title: info.vars.changelog_title.message,
+                    contexts: ["browser_action"]
                 });
+
+                chrome.contextMenus.create({
+                    id: "bsToggle",
+                    title: b.manifest.name,
+                    contexts: ["page"],
+                    documentUrlPatterns: ["https://*/*", "http://*/*"]
+                });
+
+                chrome.contextMenus.onClicked.addListener((obj) => {
+                    if (obj.menuItemId === "bsChangelog") {
+                        chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                    } else if (obj.menuItemId === "bsToggle") {
+                        toggleSidebar();
+                    }
+                });
+            });
+        };
+
+        /**
+         * Initialises the eventhandler for the extension icon and the notification button
+         *
+         * @returns {Promise}
+         */
+        let initEvents = async () => {
+            chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall toggle the sidebar
+                toggleSidebar();
             });
 
             chrome.notifications.onButtonClicked.addListener(openNotWorkingInfoPage);
             chrome.notifications.onClicked.addListener(openNotWorkingInfoPage);
+        };
+
+        /**
+         * Sends a message to the currently active tab and tell it to toggle the sidebar
+         */
+        let toggleSidebar = () => {
+            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    action: "toggleSidebar",
+                    reinitialized: b.reinitialized
+                });
+
+                timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
+                    showNotification(tabs[0]);
+                }, 750);
+            });
         };
 
         /**

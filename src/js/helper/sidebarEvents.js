@@ -252,47 +252,9 @@
                 }
             });
 
-            chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
-                if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
-
-                    if (message.action === "reload") { // reload the current instance of the extension
-                        let performReload = true;
-
-                        if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
-                            Object.values(ext.elements.bookmarkBox).some((box) => {
-                                if (box.hasClass(ext.opts.classes.sidebar.active)) {
-
-                                    if (box.find("a." + ext.opts.classes.sidebar.restored).length() > 0 || box.find("span." + ext.opts.classes.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
-                                        performReload = false;
-                                    }
-
-                                    return true;
-                                }
-                            });
-                        }
-
-                        if (performReload) {
-                            let delay = 0;
-                            if (message.scrollTop) {
-                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0);
-                                delay = 100;
-                            }
-
-                            ext.needsReload = true;
-                            $.delay(delay).then(ext.reload);
-                        }
-                    } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
-                        ext.helper.model.call("clearNotWorkingTimeout");
-
-                        if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                            ext.helper.toggle.closeSidebar();
-                        } else {
-                            ext.helper.toggle.setSidebarHoveredOnce(true);
-                            ext.helper.toggle.openSidebar();
-                        }
-                    }
-                }
-            });
+            // listen for events from the background script
+            chrome.extension.onMessage.removeListener(handleBackgroundMessage);
+            chrome.extension.onMessage.addListener(handleBackgroundMessage);
 
             ["menu", "sort"].forEach((type) => {
                 ext.elements.header.on("click contextmenu", "a." + ext.opts.classes.sidebar[type], (e) => { // Menu and sort contextmenu
@@ -317,6 +279,53 @@
                     saveTrackingPreferences();
                 }
             });
+        };
+
+        /**
+         * Handles the received message from the background script
+         *
+         * @param {object} message
+         */
+        let handleBackgroundMessage = (message) => {
+            if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
+
+                if (message.action === "reload") { // reload the current instance of the extension
+                    let performReload = true;
+
+                    if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
+                        Object.values(ext.elements.bookmarkBox).some((box) => {
+                            if (box.hasClass(ext.opts.classes.sidebar.active)) {
+
+                                if (box.find("a." + ext.opts.classes.sidebar.restored).length() > 0 || box.find("span." + ext.opts.classes.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
+                                    performReload = false;
+                                }
+
+                                return true;
+                            }
+                        });
+                    }
+
+                    if (performReload) {
+                        let delay = 0;
+                        if (message.scrollTop) {
+                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0);
+                            delay = 100;
+                        }
+
+                        ext.needsReload = true;
+                        $.delay(delay).then(ext.reload);
+                    }
+                } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
+                    ext.helper.model.call("clearNotWorkingTimeout");
+
+                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                        ext.helper.toggle.closeSidebar();
+                    } else {
+                        ext.helper.toggle.setSidebarHoveredOnce(true);
+                        ext.helper.toggle.openSidebar();
+                    }
+                }
+            }
         };
 
         /**

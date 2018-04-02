@@ -407,6 +407,9 @@
     "onboarding_goto_settings": {
         "message": "Flere innstillinger"
     },
+    "onboarding_goto_appearance": {
+        "message": "Configure appearance"
+    },
     "settings_title": {
         "message": "Innstillinger"
     },

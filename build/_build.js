@@ -240,22 +240,25 @@
          *
          */
         this.release = () => {
-            let result = Promise.resolve();
-
-            [
-                cleanPre,
-                remoteJs,
-                js,
-                css,
-                img,
-                json,
-                html,
-                cleanPost
-            ].forEach(task => {
-                result = result.then(() => task());
+            return new Promise((resolve) => {
+                cleanPre().then(() => {
+                    return remoteJs();
+                }).then(() => {
+                    return js();
+                }).then(() => {
+                    return css();
+                }).then(() => {
+                    return img();
+                }).then(() => {
+                    return json();
+                }).then(() => {
+                    return html();
+                }).then(() => {
+                    return cleanPost();
+                }).then(() => {
+                    resolve();
+                });
             });
-
-            return result;
         };
     };
 })();

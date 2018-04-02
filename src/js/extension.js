@@ -388,6 +388,7 @@
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
                     if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
                         this.log("Detected: Sidebar missing from DOM");
+                        destroyOldInstance();
                         init(true);
                     } else {
                         checkExistence();
@@ -403,17 +404,20 @@
          */
         let destroyOldInstance = () => {
             let ret = false;
-            let sidebarIframe = $("iframe#" + opts.ids.page.iframe);
+            let elements = [];
+
+            ["iframe#" + opts.ids.page.iframe, "iframe#" + opts.ids.page.overlay, "div#" + opts.ids.page.indicator].forEach((elm) => {
+                elements.push($(elm));
+            });
+
+            let elmObj = $(elements);
 
             $(document).off("*.bs");
             $(window).off("*.bs");
 
-            if (sidebarIframe.length() > 0) {
-                sidebarIframe.remove();
-                $("iframe#" + opts.ids.page.overlay).remove();
-                $("div#" + opts.ids.page.indicator).remove();
+            if (elmObj.length() > 0) {
+                elmObj.remove();
                 ret = true;
-
                 this.log("Destroyed old instance");
             }
 

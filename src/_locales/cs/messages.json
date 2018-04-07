@@ -293,6 +293,15 @@
     "onboarding_goto_settings": {
         "message": "Dal\u0161\u00ed nastaven\u00ed"
     },
+    "changelog_title": {
+        "message": "Z\u00e1znam zm\u011bn"
+    },
+    "changelog_current_version": {
+        "message": "Sou\u010dasn\u00e1 verze"
+    },
+    "changelog_show_release_history": {
+        "message": "Uka\u017e z\u00e1znam zm\u011bn"
+    },
     "settings_title": {
         "message": "Nastaven\u00ed"
     },
@@ -385,6 +394,18 @@
     },
     "settings_open_action_icon": {
         "message": "Kliknut\u00ed na ikonu"
+    },
+    "settings_toggle_area": {
+        "message": "Nastaven\u00ed oblasti"
+    },
+    "settings_toggle_area_width": {
+        "message": "\u0160\u00ed\u0159ka"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "\u0160\u00ed\u0159ka (v okn\u011b)"
+    },
+    "settings_toggle_area_height": {
+        "message": "V\u00fd\u0161ka"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastav kl\u00e1vesovou zkratku"

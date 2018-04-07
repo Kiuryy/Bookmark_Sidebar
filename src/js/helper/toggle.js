@@ -251,22 +251,24 @@
                 keypressed = null;
             });
 
-            ext.elements.sidebar.on("mouseleave", () => {
-                $.delay(100).then(() => {
-                    this.removeSidebarHoverClass();
-                });
+            ext.elements.sidebar.on("mouseleave", (e) => {
+                if (e.toElement || e.relatedTarget) { // prevent false positive triggering to close the sidebar (seems to be a bug in Chrome)
+                    $.delay(100).then(() => {
+                        this.removeSidebarHoverClass();
+                    });
 
-                if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0 &&
-                    ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
-                ) {
-                    let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
+                    if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0 &&
+                        ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
+                    ) {
+                        let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
-                    if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
-                        timeout.close = setTimeout(() => {
-                            if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
-                                this.closeSidebar();
-                            }
-                        }, +closeTimeoutRaw * 1000);
+                        if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
+                            timeout.close = setTimeout(() => {
+                                if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
+                                    this.closeSidebar();
+                                }
+                            }, +closeTimeoutRaw * 1000);
+                        }
                     }
                 }
             }).on("mouseenter", () => {

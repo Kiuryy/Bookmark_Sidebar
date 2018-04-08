@@ -154,26 +154,27 @@
          */
         let initContextmenus = async () => {
             b.helper.language.getLangVars().then((info) => {
+                chrome.contextMenus.removeAll(() => {
+                    chrome.contextMenus.create({
+                        id: "bsChangelog",
+                        title: info.vars.changelog_title.message,
+                        contexts: ["browser_action"]
+                    });
 
-                chrome.contextMenus.create({
-                    id: "bsChangelog",
-                    title: info.vars.changelog_title.message,
-                    contexts: ["browser_action"]
-                });
+                    chrome.contextMenus.create({
+                        id: "bsToggle",
+                        title: b.manifest.name,
+                        contexts: ["page"],
+                        documentUrlPatterns: ["https://*/*", "http://*/*"]
+                    });
 
-                chrome.contextMenus.create({
-                    id: "bsToggle",
-                    title: b.manifest.name,
-                    contexts: ["page"],
-                    documentUrlPatterns: ["https://*/*", "http://*/*"]
-                });
-
-                chrome.contextMenus.onClicked.addListener((obj) => {
-                    if (obj.menuItemId === "bsChangelog") {
-                        chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
-                    } else if (obj.menuItemId === "bsToggle") {
-                        toggleSidebar();
-                    }
+                    chrome.contextMenus.onClicked.addListener((obj) => {
+                        if (obj.menuItemId === "bsChangelog") {
+                            chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                        } else if (obj.menuItemId === "bsToggle") {
+                            toggleSidebar();
+                        }
+                    });
                 });
             });
         };
@@ -184,10 +185,8 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
-            chrome.browserAction.onClicked.addListener(() => { // click on extension icon shall toggle the sidebar
-                toggleSidebar();
-            });
-
+            chrome.browserAction.onClicked.removeListener(toggleSidebar);
+            chrome.browserAction.onClicked.addListener(toggleSidebar); // click on extension icon shall toggle the sidebar
             chrome.notifications.onButtonClicked.addListener(openNotWorkingInfoPage);
             chrome.notifications.onClicked.addListener(openNotWorkingInfoPage);
         };
@@ -197,7 +196,6 @@
          */
         let toggleSidebar = () => {
             chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-
                 chrome.tabs.sendMessage(tabs[0].id, {
                     action: "toggleSidebar",
                     reinitialized: b.reinitialized

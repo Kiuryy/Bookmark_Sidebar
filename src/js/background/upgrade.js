@@ -53,7 +53,7 @@
             let versionPartsNew = newVersion.split(".");
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
-                handleVersionUpgrade(newVersion).then(() => {
+                handleVersionUpgrade().then(() => {
                     b.reinitialize();
                 });
             } else {
@@ -62,12 +62,11 @@
         };
 
         /**
-         * Upgrade the stored data for the new version, show the changelog page if user hasn't seen it for the new version before
+         * Upgrades the stored settings and data to be compatible to the new version
          *
-         * @param {int} newVersion
          * @returns {Promise}
          */
-        let handleVersionUpgrade = (newVersion) => {
+        let handleVersionUpgrade = () => {
             return new Promise((resolve) => {
                 let savedCount = 0;
 
@@ -79,13 +78,6 @@
                 };
 
                 chrome.storage.sync.get(null, (obj) => { // get all stored information
-                    if (typeof obj.model !== "undefined" && (typeof obj.model.updateNotification === "undefined" || obj.model.updateNotification !== newVersion)) { // show changelog only one time for this update
-                        b.helper.model.setData("updateNotification", newVersion).then(() => {
-                            // --> don't show changelog for v1.13, because there aren't new visual features
-                            // chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
-                        });
-                    }
-
                     if (typeof obj.behaviour === "undefined") {
                         obj.behaviour = {};
                     }

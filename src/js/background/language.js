@@ -58,7 +58,7 @@
             zh_TW: "Chinese (Traditional)",
         };
 
-        let rtlLangs = ["ar", "fa", "iw"];
+        let rtlLangs = ["ar", "fa", "he"];
         let aliasLangs = {pt: "pt_PT"};
         let language = null;
         let langVars = {};

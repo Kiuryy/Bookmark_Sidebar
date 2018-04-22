@@ -21,6 +21,16 @@
                     Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
                 }
             },
+            ar: {
+                fontWeights: {
+                    Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
+                }
+            },
+            he: {
+                fontWeights: {
+                    Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
+                }
+            },
             ja: {
                 name: "Noto Sans Japanese",
                 href: "https://fonts.googleapis.com/earlyaccess/notosansjapanese.css",

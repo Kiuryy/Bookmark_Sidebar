@@ -1,0 +1,58 @@
+
+div#fallbackInfo {
+  @include mask('icon-info', $textColorLight, 24px);
+  position: relative;
+  width: 100%;
+  padding: 0 40px;
+  margin: 40px 0 20px 0;
+  display: none;
+
+  &::before {
+    left: 10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &.active {
+    display: block;
+  }
+
+  > h2 {
+    font-weight: $__fontWeightNormal;
+    font-size: 140%;
+  }
+
+  > p {
+    font-weight: $__fontWeightNormal;
+    color: $textColorLight;
+    font-size: 120%;
+    margin: 7px 0 25px 0;
+  }
+
+  > a {
+    font-weight: $__fontWeightMedium;
+    cursor: pointer;
+    color: $__colorScheme;
+    font-size: 110%;
+  }
+
+  > div {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    > div.checkbox {
+      display: inline-block;
+
+      + span {
+        display: inline-block;
+        vertical-align: top;
+        margin: -1px 0 0 15px;
+      }
+    }
+  }
+}
+
+@import "../../rtl/include/newtab/fallback";
+@import "../../highContrast/include/newtab/fallback";
+@import "../../dark/include/newtab/fallback";

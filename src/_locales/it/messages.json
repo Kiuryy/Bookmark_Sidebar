@@ -221,6 +221,18 @@
     "newtab_top_pages_hidden": {
         "message": "Non mostrare le pagine"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sulle pagine delle estensioni."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nella pagina di default \"Nuova Scheda\"."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome."
+    },
     "status_service_unavailable_headline": {
         "message": "Servizio non disponibile"
     },
@@ -238,30 +250,6 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Ricarica adesso"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "La barra laterale non pu\u00f2 essere aperta"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Ulteriori informazioni"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "La barra laterale non funziona sul Chrome Webstore e sulla pagina \"Nuova Scheda\"."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata sulle pagine delle estensioni."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata nella pagina di default \"Nuova Scheda\"."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Se il problema persiste, ti prego di farmelo sapere."
     },
     "onboarding_title": {
         "message": "Configurazione"

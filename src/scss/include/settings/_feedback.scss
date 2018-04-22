@@ -108,6 +108,21 @@ div.tab[data-name='feedback'] {
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     }
 
+    > a {
+      @include mask('settings/icon-feedback', $textColor, 14px);
+      position: absolute;
+      bottom: 32px;
+      left: 17px;
+      font-size: 120%;
+      padding-left: 22px;
+      cursor: pointer;
+      display: none;
+
+      &::before {
+        -webkit-mask-position: left center;
+      }
+    }
+
     > div.suggestion {
       position: relative;
       width: 100%;
@@ -182,6 +197,25 @@ div.tab[data-name='feedback'] {
         p + p {
           margin-top: 10px;
         }
+      }
+    }
+  }
+
+  &.onlySuggestions {
+
+    div.feedbackWrapper {
+      display: none;
+    }
+
+    div.suggestedAnswers {
+      max-height: none !important;
+
+      &::before {
+        display: none;
+      }
+
+      > a {
+        display: block;
       }
     }
   }

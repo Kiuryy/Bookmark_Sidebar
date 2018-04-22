@@ -28,13 +28,21 @@
                 cancel: "cancel",
                 active: "active",
                 visible: "visible",
+                hidden: "hidden",
                 darkMode: "dark",
-                highContrast: "highContrast"
+                highContrast: "highContrast",
+                checkbox: {
+                    box: "checkbox",
+                    active: "active",
+                    clicked: "clicked",
+                    focus: "focus"
+                }
             },
             attr: {
                 type: "data-type",
                 perRow: "data-perRow",
-                pos: "data-pos"
+                pos: "data-pos",
+                style: "data-style"
             },
             elm: {
                 body: $("body"),
@@ -46,6 +54,7 @@
                     field: $("div#search > input[type='text']"),
                     submit: $("div#search > button[type='submit']")
                 },
+                fallbackInfo: $("div#fallbackInfo"),
                 topPages: $("div#topPages")
             },
             events: {
@@ -56,28 +65,12 @@
             manifest: chrome.runtime.getManifest()
         };
 
+        this.enabledSetAsNewtab = false;
+
         /**
          * Constructor
          */
         this.run = () => {
-            chrome.permissions.contains({
-                permissions: ["tabs", "topSites"]
-            }, (result) => {
-                if (result) {
-                    loadPage();
-                } else { // no permission to continue -> show default page instead
-                    chrome.tabs.update({url: "chrome-search://local-ntp/local-ntp.html"});
-                }
-            });
-        };
-
-        /*
-         * ################################
-         * PRIVATE
-         * ################################
-         */
-
-        let loadPage = () => {
             loadSidebar();
             initHelpers();
 
@@ -103,7 +96,9 @@
                 this.helper.topPages.init();
                 this.helper.search.init();
                 this.helper.shortcuts.init();
+                this.helper.fallback.init();
                 this.helper.edit.init();
+
                 initEvents();
 
                 return $.delay(500);
@@ -113,6 +108,12 @@
                 $(window).trigger("resize");
             });
         };
+
+        /*
+         * ################################
+         * PRIVATE
+         * ################################
+         */
 
         /**
          * Initialises the helper objects
@@ -124,11 +125,13 @@
                 i18n: new window.I18nHelper(this),
                 font: new window.FontHelper(this),
                 stylesheet: new window.StylesheetHelper(this),
+                checkbox: new window.CheckboxHelper(this),
                 utility: new window.UtilityHelper(this),
                 search: new window.SearchHelper(this),
                 entry: new window.EntryHelper(this),
                 shortcuts: new window.ShortcutsHelper(this),
                 topPages: new window.TopPagesHelper(this),
+                fallback: new window.FallbackHelper(this),
                 edit: new window.EditHelper(this)
             };
         };
@@ -138,7 +141,7 @@
          */
         let initEvents = async () => {
             chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
-                if (message && message.action && message.action === "reinitialize") { // sidebar has changed (e.g. due to saving configuration
+                if (message && message.action && message.action === "reinitialize" && this.enabledSetAsNewtab === false) { // sidebar has changed (e.g. due to saving configuration
                     location.reload(true);
                 }
             });

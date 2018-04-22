@@ -224,6 +224,18 @@
     "newtab_top_pages_hidden": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Chrome Webstoressa"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Laajennukset sivulla"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 oletus uusi v\u00e4lilehti sivulla."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 chromen j\u00e4rjestelm\u00e4sivuilla."
+    },
     "status_service_unavailable_headline": {
         "message": "Palvelu ei saatavilla"
     },
@@ -241,30 +253,6 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Lataa uudelleen nyt"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Sivupalkkia ei voitu avata"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Enemm\u00e4n tietoa"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Sivupalkki ei toimi Chrome Webstoressa ja Uusi V\u00e4lilehti -sivuilla"
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Chrome Webstoressa"
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Laajennukset sivulla"
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 oletus uusi v\u00e4lilehti sivulla."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 chromen j\u00e4rjestelm\u00e4sivuilla."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Jos t\u00e4m\u00e4 tapahtuu usein, ole hyv\u00e4 ilmoita minulle."
     },
     "onboarding_title": {
         "message": "Asennus"
@@ -316,69 +304,6 @@
     },
     "onboarding_goto_settings": {
         "message": "Lis\u00e4\u00e4 asetuksia"
-    },
-    "settings_title": {
-        "message": "Asetukset"
-    },
-    "settings_menu_sidebar": {
-        "message": "Sivupalkki"
-    },
-    "settings_menu_sidebar_general": {
-        "message": "Yleiset"
-    },
-    "settings_menu_sidebar_tooltip": {
-        "message": "Ty\u00f6kaluvinkit"
-    },
-    "settings_menu_appearance": {
-        "message": "Ulkoasu"
-    },
-    "settings_menu_appearance_general": {
-        "message": "Yleiset"
-    },
-    "settings_menu_appearance_sidebar": {
-        "message": "Sivupalkki"
-    },
-    "settings_menu_appearance_icon": {
-        "message": "Kuvake"
-    },
-    "settings_menu_newtab": {
-        "message": "Uusi v\u00e4lilehti"
-    },
-    "settings_menu_language": {
-        "message": "Kieli"
-    },
-    "settings_menu_language_general": {
-        "message": "Yleiset"
-    },
-    "settings_menu_language_translate": {
-        "message": "K\u00e4\u00e4nn\u00e4"
-    },
-    "settings_menu_feedback": {
-        "message": "Palaute"
-    },
-    "settings_menu_support": {
-        "message": "Tuki"
-    },
-    "settings_menu_export": {
-        "message": "Tuo\/Vie"
-    },
-    "settings_save": {
-        "message": "Tallenna muutokset"
-    },
-    "settings_saved_message": {
-        "message": "Muutokset tallennettiin"
-    },
-    "settings_restore": {
-        "message": "Palauta oletusasetukset"
-    },
-    "settings_restore_confirm": {
-        "message": "Haluatko varmasti palauttaa oletusasetukset?"
-    },
-    "settings_restored_message": {
-        "message": "Asetukset palautettiin onnistuneesti"
-    },
-    "settings_advanced": {
-        "message": "Lis\u00e4asetukset"
     },
     "settings_animations": {
         "message": "Salli animaatiot"

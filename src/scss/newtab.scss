@@ -2,12 +2,14 @@
 @import "include/mixins";
 //
 @import "include/loading";
+@import "include/checkbox";
 
 $textColor: $__textColor;
 @import "include/generals";
 @import "include/newtab/topPages";
 @import "include/newtab/shortcuts";
 @import "include/newtab/search";
+@import "include/newtab/fallback";
 @import "include/newtab/edit";
 
 body {
@@ -70,7 +72,7 @@ section#content {
     margin-left: $__sidebarWidth;
 
     ~ iframe#blockbyte-bs-sidebar:not(.blockbyte-bs-hover) {
-        width: $__sidebarWidth !important;
+      width: $__sidebarWidth !important;
     }
   }
 

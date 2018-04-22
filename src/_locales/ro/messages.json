@@ -224,6 +224,18 @@
     "newtab_top_pages_hidden": {
         "message": "Nu ar\u0103ta paginile"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina Chrome Webstore."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina de extensii."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 \u00een noul tab implicit."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem chrome."
+    },
     "status_service_unavailable_headline": {
         "message": "Serviciu indisponibil"
     },
@@ -280,30 +292,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "\u00cenchide bara lateral\u0103, selec\u021bia deschis\u0103 sau meniul contextual"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Bara lateral\u0103 nu a putut fi deschis\u0103"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Mai multe informa\u021bii"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "\u00cen pagina web Webstore Chrome \u0219i \u00een tab-ul nou bara lateral\u0103 nu func\u021bioneaz\u0103."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina de extensii."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 \u00een noul tab implicit."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Dac\u0103 acest lucru se \u00eent\u00e2mpl\u0103 \u00een mod regulat, v\u0103 rog s\u0103 m\u0103 anun\u021ba\u021bi."
     },
     "contribute_headline": {
         "message": "Am nevoie de ajutorul dvs"

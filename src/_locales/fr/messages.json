@@ -224,6 +224,24 @@
     "newtab_top_pages_hidden": {
         "message": "Ne rien afficher"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le store de google chrome."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page nouvel onglet."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de chrome."
+    },
+    "newtab_fallback_headline_blacklisted": {
+        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL est sur votre liste noire."
+    },
+    "newtab_fallback_headline_not_whitelisted": {
+        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL n'est pas sur votre liste blanche."
+    },
     "status_service_unavailable_headline": {
         "message": "Service indisponible"
     },
@@ -283,36 +301,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Fermeture de la barre lat\u00e9rale, de l'\u00e9l\u00e9ment ou du menu contextuel"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Impossible d'afficher la barre lat\u00e9rale"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Plus d'info"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Impossible d'afficher la barre lat\u00e9rale sur le store de google chrome et sur la page nouvel onglet."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le store de google chrome."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page nouvel onglet."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Si cela se produit r\u00e9guli\u00e8rement, faites-le-moi savoir."
-    },
-    "notification_sidebar_blacklisted": {
-        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL est sur votre liste noire."
-    },
-    "notification_sidebar_not_whitelisted": {
-        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL n'est pas sur votre liste blanche."
     },
     "contribute_headline": {
         "message": "Aidez-moi"
@@ -387,7 +375,7 @@
         "message": "Sombre"
     },
     "onboarding_handson_desc": {
-        "message": "Vous pouvez maintenant essayez par vous m\u00eame."
+        "message": "Vous pouvez maintenant essayer par vous m\u00eame."
     },
     "onboarding_handson_mouse_desc_1": {
         "message": "D\u00e9placez le curseur vers le bord {1} de votre fen\u00eatre."
@@ -405,7 +393,7 @@
         "message": "droite"
     },
     "onboarding_finish_desc": {
-        "message": "A vous de jouer!"
+        "message": "A vous de jouer !"
     },
     "onboarding_goto_settings": {
         "message": "Param\u00e8tres suppl\u00e9mentaires"

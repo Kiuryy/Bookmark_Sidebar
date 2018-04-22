@@ -224,6 +224,33 @@
     "newtab_top_pages_hidden": {
         "message": "Keine Seiten anzeigen"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Die Sidebar wurde von etwas blockiert"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "Die Sidebar kann im Chrome Webstore nicht verwendet werden"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Die Sidebar kann nicht auf Erweiterungsseiten verwendet werden"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Die Sidebar kann nicht auf der Standard-New-Tab-Seite verwendet werden"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Die Sidebar kann nicht auf Chrome-Systemseiten verwendet werden"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Eine deiner Url-Regeln verhindert, dass die Sidebar ge\u00f6ffnet werden kann"
+    },
+    "newtab_fallback_desc": {
+        "message": "Wir haben stattdessen einen neuen Tab mit der Sidebar ge\u00f6ffnet."
+    },
+    "newtab_fallback_link": {
+        "message": "Erfahre mehr"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Diese Seite immer anzeigen, wenn ein neuer Tab ge\u00f6ffnet wird"
+    },
     "status_service_unavailable_headline": {
         "message": "Dienst nicht erreichbar"
     },
@@ -283,36 +310,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Schlie\u00dft die Sidebar, das ge\u00f6ffnete Overlay oder Rechtsklickmen\u00fc"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Sidebar konnte nicht ge\u00f6ffnet werden"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Mehr Informationen"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Im Chrome Webstore und der Standard-New-Tab-Seite funktioniert die Sidebar nicht."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "Die Sidebar kann im Chrome Webstore nicht verwendet werden."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "Die Sidebar kann nicht auf Erweiterungsseiten verwendet werden."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "Die Sidebar kann nicht auf der Standard-New-Tab-Seite verwendet werden."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "Die Sidebar kann nicht auf Chrome-Systemseiten verwendet werden."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Wenn dies h\u00e4ufiger geschieht, lass es mich bitte wissen."
-    },
-    "notification_sidebar_blacklisted": {
-        "message": "Die aktuelle Url ist auf deiner Blacklist und deshalb wurde die Sidebar nicht geladen."
-    },
-    "notification_sidebar_not_whitelisted": {
-        "message": "Die aktuelle Url ist nicht auf deiner Whitelist und deshalb wurde die Sidebar nicht geladen."
     },
     "contribute_headline": {
         "message": "Ich brauche deine Unterst\u00fctzung"

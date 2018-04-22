@@ -1,0 +1,18 @@
+html[dir='rtl'] {
+
+  div#fallbackInfo {
+
+    &::before {
+      right: 10px;
+      left: unset;
+    }
+
+    > div {
+
+      > div.checkbox + span {
+        margin-right: 15px;
+        margin-left: 0;
+      }
+    }
+  }
+}

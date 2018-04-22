@@ -1,4 +1,4 @@
-div.modal[data-type='infos'] > ul > li > ul, div.modal[data-type='add'] > ul, div.modal[data-type='add'] > menu[data-name='select'].hidden, div.modal > menu.buttons > a::before {
+div.modal[data-type='infos'] > ul > li > ul, div.modal[data-type='add'] > ul, div.modal[data-type='add'] > menu.hidden[data-name='select'], div.modal > menu.buttons > a::before {
   opacity: 0;
   pointer-events: none; }
 
@@ -235,7 +235,7 @@ body {
   body.noAnimations *, body.noAnimations *::before, body.noAnimations *::after {
     transition: none !important; }
 
-div.modal[data-type='updateUrls'].urlCheckList::after, div.modal[data-type='keyboardShortcuts']::after, div.modal[data-type='shareInfoDesc']::after {
+div.modal.urlCheckList[data-type='updateUrls']::after, div.modal[data-type='keyboardShortcuts']::after, div.modal[data-type='shareInfoDesc']::after {
   content: "";
   position: absolute;
   bottom: 0;

@@ -224,6 +224,18 @@
     "newtab_top_pages_hidden": {
         "message": "Visa inte sidor"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas i Chrome Webstore"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 till\u00e4gg-sidor"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 den f\u00f6rvalda Ny flik-sidan"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 Chrome systemsidor"
+    },
     "status_service_unavailable_headline": {
         "message": "Tj\u00e4nst otillg\u00e4nglig"
     },
@@ -241,30 +253,6 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Ladda om nu"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Sidopanelen kunde inte \u00f6ppnas"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Mer information"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Sidopanelen fungerar inte i Chrome Webstore och p\u00e5 sidan Ny flik"
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "Sidopanelen kan inte anv\u00e4ndas i Chrome Webstore"
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 till\u00e4gg-sidor"
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 den f\u00f6rvalda Ny flik-sidan"
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 Chrome systemsidor"
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Meddela mig g\u00e4rna om detta sker \u00e5terkommande"
     },
     "onboarding_title": {
         "message": "Installation"

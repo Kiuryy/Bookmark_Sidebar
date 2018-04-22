@@ -203,27 +203,6 @@
     "overlay_check_urls_not_found": {
         "message": "Adresa url neexistuje"
     },
-    "newtab_title": {
-        "message": "Nov\u00e1 karta"
-    },
-    "newtab_search_placeholder": {
-        "message": "Vyhledat {1} nebo typ URL"
-    },
-    "newtab_top_pages_default": {
-        "message": "Nejnav\u0161t\u011bvovan\u011bj\u0161\u00ed str\u00e1nky"
-    },
-    "newtab_top_pages_recently_used": {
-        "message": "Posledn\u011b pou\u017eit\u00e9 z\u00e1lo\u017eky"
-    },
-    "newtab_top_pages_most_used": {
-        "message": "Nejpou\u017e\u00edvan\u011bj\u0161\u00ed z\u00e1lo\u017eky"
-    },
-    "newtab_top_pages_pinned_entries": {
-        "message": "P\u0159ipnut\u00e9 z\u00e1lo\u017eky"
-    },
-    "newtab_top_pages_hidden": {
-        "message": "Nezobrazovat str\u00e1nky"
-    },
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
     },

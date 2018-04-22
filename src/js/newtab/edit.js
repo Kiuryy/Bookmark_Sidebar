@@ -15,7 +15,7 @@
             n.opts.elm.body.attr(n.opts.attr.pos, n.helper.model.getData("b/sidebarPosition"));
             $("<a />").addClass(n.opts.classes.edit).appendTo(n.opts.elm.body);
 
-            if (location.href.search(/#edit$/) > -1) {
+            if (location.href.search(/#edit$/i) > -1) {
                 enterEditMode();
             }
         };

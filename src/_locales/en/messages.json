@@ -224,6 +224,33 @@
     "newtab_top_pages_hidden": {
         "message": "Don't show pages"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Something has blocked the sidebar"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "The sidebar cannot be used on the Chrome Webstore"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "The sidebar cannot be used on extension pages"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "The sidebar cannot be used on the default new tab page"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "The sidebar cannot be used on chrome system pages"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "One of your URL rules disallowed the sidebar to open"
+    },
+    "newtab_fallback_desc": {
+        "message": "We have opened a new tab with the sidebar for you instead."
+    },
+    "newtab_fallback_link": {
+        "message": "Learn more"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Always show this page when opening a new tab"
+    },
     "status_service_unavailable_headline": {
         "message": "Service unavailable"
     },
@@ -283,36 +310,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Closes the sidebar, the opened overlay or contextmenu"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Sidebar could not be opened"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "More information"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "On the Chrome Webstore and the New Tab page the sidebar is not working."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "The sidebar cannot be used on the Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "The sidebar cannot be used on extension pages."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "The sidebar cannot be used on the default new tab page."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "The sidebar cannot be used on chrome system pages."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "If this is happening regularly, please let me know."
-    },
-    "notification_sidebar_blacklisted": {
-        "message": "The current url is on your blacklist and therefore the sidebar is not being loaded."
-    },
-    "notification_sidebar_not_whitelisted": {
-        "message": "The current url is not on your whitelist and therefore the sidebar is not being loaded."
     },
     "contribute_headline": {
         "message": "I need your help"

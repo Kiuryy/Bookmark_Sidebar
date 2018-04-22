@@ -68,46 +68,42 @@
         let js = () => {
             return measureTime((resolve) => {
                 Promise.all([
-                    func.concat([ // concat extension javascripts
-                        path.src + "js/helper/**/*.js",
-                        path.src + "js/extension.js",
-                        path.src + "js/init.js"
-                    ],
-                    path.tmp + "extension-merged.js"
+                    func.concat( // concat extension javascripts
+                        [
+                            path.src + "js/helper/**/*.js",
+                            path.src + "js/extension.js",
+                            path.src + "js/init.js"
+                        ],
+                        path.tmp + "extension-merged.js"
                     ),
-                    func.concat([ // concat background javascripts
-                        path.src + "js/background/**/*.js",
-                        path.src + "js/background.js"
-                    ],
-                    path.tmp + "background-merged.js"
+                    func.concat( // concat background javascripts
+                        [
+                            path.src + "js/background/**/*.js",
+                            path.src + "js/background.js"
+                        ],
+                        path.tmp + "background-merged.js"
                     ),
-                    func.concat([ // concat settings javascripts
-                        path.src + "js/lib/colorpicker.js",
-                        path.src + "js/helper/checkbox.js",
-                        path.src + "js/settings/*.js",
-                        path.src + "js/settings.js"
-                    ],
-                    path.tmp + "settings-merged.js"
+                    func.concat( // concat settings javascripts
+                        [
+                            path.src + "js/lib/colorpicker.js",
+                            path.src + "js/settings/*.js",
+                            path.src + "js/settings.js"
+                        ],
+                        path.tmp + "settings-merged.js"
                     ),
-                    func.concat([ // concat changelog javascripts
-                        path.src + "js/helper/checkbox.js",
-                        path.src + "js/changelog.js"
-                    ],
-                    path.tmp + "changelog-merged.js"
-                    ),
-                    func.concat([ // concat newtab javascripts
-                        path.src + "js/helper/entry.js",
-                        path.src + "js/newtab/*.js",
-                        path.src + "js/newtab.js"
-                    ],
-                    path.tmp + "newtab-merged.js"
+                    func.concat( // concat newtab javascripts
+                        [
+                            path.src + "js/helper/entry.js",
+                            path.src + "js/newtab/*.js",
+                            path.src + "js/newtab.js"
+                        ],
+                        path.tmp + "newtab-merged.js"
                     )
                 ]).then(() => { // merge anonymous brackets
                     return func.replace({
                         [path.tmp + "extension-merged.js"]: path.tmp + "extension.js",
                         [path.tmp + "background-merged.js"]: path.tmp + "background.js",
                         [path.tmp + "settings-merged.js"]: path.tmp + "settings.js",
-                        [path.tmp + "changelog-merged.js"]: path.tmp + "changelog.js",
                         [path.tmp + "newtab-merged.js"]: path.tmp + "newtab.js"
                     }, [
                         [/\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, ""]
@@ -119,7 +115,7 @@
                             path.tmp + "settings.js",
                             path.tmp + "background.js",
                             path.tmp + "newtab.js",
-                            path.tmp + "changelog.js",
+                            path.src + "changelog.js",
                             path.src + "js/onboarding.js"
                         ], path.dist + "js/"),
                         func.minify([
@@ -127,6 +123,7 @@
                             path.src + "js/helper/i18n.js",
                             path.src + "js/helper/model.js",
                             path.src + "js/helper/utility.js",
+                            path.src + "js/helper/checkbox.js",
                             path.src + "js/helper/template.js",
                             path.src + "js/helper/stylesheet.js",
                             path.src + "js/helper/font.js"

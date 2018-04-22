@@ -221,29 +221,17 @@
     "newtab_top_pages_hidden": {
         "message": "Jangan perlihatkan halaman"
     },
-    "notification_sidebar_not_working_headline": {
-        "message": "Bar samping tidak dapat dibuka"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Informasi Lebih Lanjut"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Pada Chrome Webstore dan halaman Tab Baru bar samping tidak dapat bekerja."
-    },
-    "notification_sidebar_not_working_webstore": {
+    "newtab_fallback_headline_webstore": {
         "message": "Sidebar tidak dapat di gunakan di Chrome Webstore"
     },
-    "notification_sidebar_not_working_extension_page": {
+    "newtab_fallback_headline_extension_page": {
         "message": "Sidebar tidak dapat di gunakan di halaman ekstensi."
     },
-    "notification_sidebar_not_working_new_tab": {
+    "newtab_fallback_headline_new_tab": {
         "message": "Sidebar tidak dapat di gunakan di halaman default Tab Baru."
     },
-    "notification_sidebar_not_working_system": {
+    "newtab_fallback_headline_system": {
         "message": "Sidebar tidak dapat di gunakan di halaman sistem chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Jika ini sering terjadi, tolong beri tahu saya."
     },
     "onboarding_title": {
         "message": "Setup"

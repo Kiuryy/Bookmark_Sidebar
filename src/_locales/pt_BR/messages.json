@@ -224,6 +224,24 @@
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome."
+    },
+    "newtab_fallback_headline_blacklisted": {
+        "message": "O atual URL est\u00e1 em sua lista negra e portanto a barra lateral n\u00e3o est\u00e1 sendo carregada."
+    },
+    "newtab_fallback_headline_not_whitelisted": {
+        "message": "O atual URL n\u00e3o est\u00e1 em sua lista branca e portanto a barra lateral n\u00e3o est\u00e1 sendo carregada."
+    },
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"
     },
@@ -283,36 +301,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Fecha a barra lateral, a sobreposi\u00e7\u00e3o aberta ou o menu de contexto"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "A barra lateral n\u00e3o p\u00f4de ser aberta"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Mais informa\u00e7\u00f5es"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "A barra lateral n\u00e3o funciona no Chrome Webstore e na P\u00e1gina Nova Guia."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Se isto estiver acontecendo frequentemente, por favor, me informe."
-    },
-    "notification_sidebar_blacklisted": {
-        "message": "O atual URL est\u00e1 em sua lista negra e portanto a barra lateral n\u00e3o est\u00e1 sendo carregada."
-    },
-    "notification_sidebar_not_whitelisted": {
-        "message": "O atual URL n\u00e3o est\u00e1 em sua lista branca e portanto a barra lateral n\u00e3o est\u00e1 sendo carregada."
     },
     "contribute_headline": {
         "message": "Eu preciso da sua ajuda"

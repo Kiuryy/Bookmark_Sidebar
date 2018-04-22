@@ -224,6 +224,24 @@
     "newtab_top_pages_hidden": {
         "message": "Nie pokazuj stron"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach rozszerze\u0144."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na domy\u015blnej stronie nowej karty."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome."
+    },
+    "newtab_fallback_headline_blacklisted": {
+        "message": "Ten adres znajduje si\u0119 na Twojej czarnej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
+    },
+    "newtab_fallback_headline_not_whitelisted": {
+        "message": "Ten adres nie znajduje si\u0119 na Twojej bia\u0142ej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
+    },
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"
     },
@@ -280,36 +298,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Zamyka boczn\u0105 list\u0119 zak\u0142adek, menu kontekstowe lub inny otwarty element"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Boczna lista nie mo\u017ce zosta\u0107 otwarta"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Wi\u0119cej informacji"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Boczna lista nie dzia\u0142a na stronie Chrome Webstore oraz stronie nowej karty."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach rozszerze\u0144."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na domy\u015blnej stronie nowej karty."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Je\u015bli ta nieprawid\u0142owo\u015b\u0107 pojawia si\u0119 regularnie, prosz\u0119 o jej zg\u0142oszenie."
-    },
-    "notification_sidebar_blacklisted": {
-        "message": "Ten adres znajduje si\u0119 na Twojej czarnej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
-    },
-    "notification_sidebar_not_whitelisted": {
-        "message": "Ten adres nie znajduje si\u0119 na Twojej bia\u0142ej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
     },
     "contribute_headline": {
         "message": "Potrzebuj\u0119 Twojej pomocy"

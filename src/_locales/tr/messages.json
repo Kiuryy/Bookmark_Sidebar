@@ -203,27 +203,6 @@
     "overlay_check_urls_not_found": {
         "message": "URL bulunamad\u0131."
     },
-    "newtab_title": {
-        "message": "Yeni sekme"
-    },
-    "newtab_search_placeholder": {
-        "message": "{1) ara veya URL gir"
-    },
-    "newtab_top_pages_default": {
-        "message": "En iyi sayfalar"
-    },
-    "newtab_top_pages_recently_used": {
-        "message": "Yak\u0131n zamanda kullan\u0131lan yer imleri"
-    },
-    "newtab_top_pages_most_used": {
-        "message": "En \u00e7ok kullan\u0131lan yer imleri"
-    },
-    "newtab_top_pages_pinned_entries": {
-        "message": "Sabitlenen yer imleri"
-    },
-    "newtab_top_pages_hidden": {
-        "message": "Sayfalar\u0131 g\u00f6sterme"
-    },
     "status_service_unavailable_headline": {
         "message": "Hizmet kullan\u0131lam\u0131yor"
     },

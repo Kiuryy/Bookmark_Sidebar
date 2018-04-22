@@ -64,6 +64,7 @@
                     }
                 },
                 feedback: {
+                    onlySuggestions: "onlySuggestions",
                     suggestion: "suggestion",
                     answer: "answer",
                     noHeight: "noHeight",
@@ -157,6 +158,7 @@
                     form: $("section.form"),
                     send: $("section.form button[type='submit']"),
                     feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),
+                    showForm: $("div.tab[data-name='feedback'] div.suggestedAnswers > a"),
                     suggestions: $("div.tab[data-name='feedback'] div.suggestedAnswers")
                 },
                 translation: {
@@ -250,12 +252,12 @@
                 return this.helper.model.call("websiteStatus");
             }).then((opts) => { // if website is available, feedback form and translation overview can be used
                 this.serviceAvailable = opts.status === "available";
-                this.helper.feedback.init();
-                this.helper.translation.init();
 
                 ["translation", "feedback"].forEach((name) => {
-                    loader[name].remove();
-                    this.opts.elm[name].wrapper.removeClass(this.opts.classes.loading);
+                    this.helper[name].init().then(() => {
+                        loader[name].remove();
+                        this.opts.elm[name].wrapper.removeClass(this.opts.classes.loading);
+                    });
                 });
             });
         };

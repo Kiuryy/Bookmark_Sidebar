@@ -14,25 +14,41 @@
          *
          * @returns {Promise}
          */
-        this.init = async () => {
-            if (s.serviceAvailable) {
-                initEvents();
-                initSuggestions().then(() => {
+        this.init = () => {
+            return new Promise((resolve) => {
+                if (s.serviceAvailable) {
                     let path = s.helper.menu.getPath();
+                    let showOnlySuggestions = path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2];
 
-                    if (path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2]) {
-                        showCommonSuggestions(path[2]);
+                    if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show form, but suggestions first
+                        s.opts.elm.feedback.wrapper.addClass(s.opts.classes.feedback.onlySuggestions);
                     }
-                });
-            } else {
-                s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
 
-                $("<p />")
-                    .addClass(s.opts.classes.error)
-                    .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
-                    .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
-                    .insertAfter(s.opts.elm.feedback.form);
-            }
+                    initEvents();
+
+                    Promise.all([
+                        initSuggestions()
+                    ]).then(() => {
+                        if (showOnlySuggestions) { // show suggestions why the fallback new tab page was shown
+                            showCommonSuggestions(path[2]);
+                        }
+
+                        return $.delay(700);
+                    }).then(() => {
+                        resolve();
+                    });
+                } else {
+                    s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
+
+                    $("<p />")
+                        .addClass(s.opts.classes.error)
+                        .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
+                        .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
+                        .insertAfter(s.opts.elm.feedback.form);
+
+                    resolve();
+                }
+            });
         };
 
         /**
@@ -72,20 +88,20 @@
          */
         let showCommonSuggestions = (type) => {
             let suggestions = [];
+            let showAnswer = false;
 
             if (type === "general") {
                 suggestions = ["not_working", "webstore", "system_pages"];
             } else if (type === "filter") {
                 suggestions = ["blacklisted_whitelisted"];
+                showAnswer = true;
             }
 
             suggestions.forEach((key, i) => {
-                $.delay(i * 700).then(() => {
-                    if (data && data.suggestions && data.suggestions[key]) {
-                        suggestionInfo.displayed.push(key);
-                        showSuggestion(key, data.suggestions[key]);
-                    }
-                });
+                if (data && data.suggestions && data.suggestions[key]) {
+                    suggestionInfo.displayed.push(key);
+                    showSuggestion(key, data.suggestions[key], showAnswer);
+                }
             });
         };
 
@@ -121,8 +137,9 @@
          *
          * @param {string} key
          * @param {object} obj
+         * @param {bool} showAnswer
          */
-        let showSuggestion = (key, obj) => {
+        let showSuggestion = (key, obj, showAnswer = false) => {
             if (data && data.controls) {
                 s.helper.model.call("trackEvent", {
                     category: "settings",
@@ -166,6 +183,10 @@
                         .removeClass(s.opts.classes.hidden);
 
                     s.opts.elm.feedback.suggestions.addClass(s.opts.classes.visible);
+
+                    if (showAnswer) {
+                        showSuggestionAnswer(suggestion);
+                    }
                 });
             }
         };
@@ -226,6 +247,10 @@
             }).then(() => {
                 if (s.opts.elm.feedback.suggestions.children("div." + s.opts.classes.feedback.suggestion).length() === 0) {
                     s.opts.elm.feedback.suggestions.removeClass(s.opts.classes.visible);
+
+                    $.delay(300).then(() => {
+                        s.opts.elm.feedback.wrapper.removeClass(s.opts.classes.feedback.onlySuggestions);
+                    });
                 }
             });
         };
@@ -244,6 +269,11 @@
                 updateSuggestionWrapperHeight();
             }).on("keyup", (e) => {
                 scanForKeywords(e.currentTarget.value);
+            });
+
+            s.opts.elm.feedback.showForm.on("click", (e) => { // show feedback form -> is only visible if the feedback form is hidden
+                e.preventDefault();
+                s.opts.elm.feedback.wrapper.removeClass(s.opts.classes.feedback.onlySuggestions);
             });
 
             s.opts.elm.feedback.suggestions.on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab

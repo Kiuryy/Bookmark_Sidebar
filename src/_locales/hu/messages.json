@@ -224,6 +224,24 @@
     "newtab_top_pages_hidden": {
         "message": "Ne mutassa a lapokat"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a Chrome \u00e1ruh\u00e1zban"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a b\u0151v\u00edtm\u00e9nyek saj\u00e1t oldalain"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 az alap\u00e9rtelmezett \u00daj lapon"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a chrome saj\u00e1t oldalain"
+    },
+    "newtab_fallback_headline_blacklisted": {
+        "message": "A jelenlegi webc\u00edm az \u00d6n tilt\u00f3list\u00e1j\u00e1n van \u00e9s ez\u00e9rt az oldals\u00e1v nincs bet\u00f6ltve."
+    },
+    "newtab_fallback_headline_not_whitelisted": {
+        "message": "A jelenlegi webc\u00edm nincs az \u00d6n enged\u00e9lyez\u0151 list\u00e1j\u00e1n \u00e9s ez\u00e9rt az oldals\u00e1v nincs bet\u00f6ltve."
+    },
     "status_service_unavailable_headline": {
         "message": "A szolg\u00e1ltat\u00e1s nem el\u00e9rhet\u0151"
     },
@@ -283,36 +301,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Oldals\u00e1v, r\u00e9teg vagy helyi men\u00fc bez\u00e1r\u00e1sa"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Az oldals\u00e1v nem megnyithat\u00f3"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Tov\u00e1bbi inform\u00e1ci\u00f3"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "A Chrome alkalmaz\u00e1s boltban \u00e9s az \u00daj lapon az oldals\u00e1v nem m\u0171k\u00f6dik"
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a Chrome \u00e1ruh\u00e1zban"
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a b\u0151v\u00edtm\u00e9nyek saj\u00e1t oldalain"
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 az alap\u00e9rtelmezett \u00daj lapon"
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a chrome saj\u00e1t oldalain"
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Ha ez gyakran t\u00f6rt\u00e9nik, k\u00e9rem t\u00e1j\u00e9koztasson"
-    },
-    "notification_sidebar_blacklisted": {
-        "message": "A jelenlegi webc\u00edm az \u00d6n tilt\u00f3list\u00e1j\u00e1n van \u00e9s ez\u00e9rt az oldals\u00e1v nincs bet\u00f6ltve."
-    },
-    "notification_sidebar_not_whitelisted": {
-        "message": "A jelenlegi webc\u00edm nincs az \u00d6n enged\u00e9lyez\u0151 list\u00e1j\u00e1n \u00e9s ez\u00e9rt az oldals\u00e1v nincs bet\u00f6ltve."
     },
     "contribute_headline": {
         "message": "Seg\u00edts\u00e9gre van sz\u00fcks\u00e9gem"

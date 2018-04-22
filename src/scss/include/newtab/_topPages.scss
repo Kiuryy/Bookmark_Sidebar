@@ -4,6 +4,10 @@ $imageWidth: $entryWidth - 2px;
 div#topPages {
   margin: 50px auto 0;
 
+  &.hidden {
+    display: none;
+  }
+
   > ul {
     display: flex;
     flex-flow: row wrap;

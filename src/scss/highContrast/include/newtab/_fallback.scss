@@ -1,0 +1,7 @@
+
+body.highContrast:not(.dark) div#fallbackInfo {
+
+  > a {
+    color: $__textColor;
+  }
+}

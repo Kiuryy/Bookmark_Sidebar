@@ -1,0 +1,10 @@
+
+body.dark {
+
+  div#fallbackInfo {
+
+    > a {
+      color: $__textColor;
+    }
+  }
+}

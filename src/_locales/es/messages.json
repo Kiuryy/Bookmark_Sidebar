@@ -224,6 +224,24 @@
     "newtab_top_pages_hidden": {
         "message": "No mostrar p\u00e1ginas"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "La barra lateral no se puede usar en la Chrome Webstore."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de las extensiones."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "La barra lateral no se puede usar en la p\u00e1gina de nueva pesta\u00f1a."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome."
+    },
+    "newtab_fallback_headline_blacklisted": {
+        "message": "El URL actual est\u00e1 en tu lista negra, debido a eso la barra lateral no esta siendo cargada."
+    },
+    "newtab_fallback_headline_not_whitelisted": {
+        "message": "El URL actual no est\u00e1 en tu lista blanca, debido a eso la barra lateral no esta siendo cargada."
+    },
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"
     },
@@ -235,6 +253,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "El servicio de traducci\u00f3n no est\u00e1 disponible en este momento. Por favor, int\u00e9ntelo de nuevo m\u00e1s tarde."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "No se pudo obtener la lista de cambios. Por favor intente luego."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Debido a una actualizaci\u00f3n de la extensi\u00f3n, esta p\u00e1gina debe ser recargada."
@@ -280,30 +301,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Cierra la barra lateral, la superposici\u00f3n abierta o el men\u00fa contextual"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "La barra lateral no se pudo abrir"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "M\u00e1s informaci\u00f3n"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "En la Chrome Webstore y en la p\u00e1gina de nueva pesta\u00f1a, la barra lateral no funciona."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "La barra lateral no se puede usar en la Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "La barra lateral no se puede usar en las p\u00e1ginas de las extensiones."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "La barra lateral no se puede usar en la p\u00e1gina de nueva pesta\u00f1a."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Si esto sucede regularmente, h\u00e1zmelo saber."
     },
     "contribute_headline": {
         "message": "Necesito tu ayuda"
@@ -401,6 +398,18 @@
     "onboarding_goto_settings": {
         "message": "M\u00e1s propiedades"
     },
+    "onboarding_goto_appearance": {
+        "message": "Configurar apariencia"
+    },
+    "changelog_title": {
+        "message": "Registro de cambios"
+    },
+    "changelog_current_version": {
+        "message": "Versi\u00f3n actual instalada"
+    },
+    "changelog_show_release_history": {
+        "message": "Mostrar historial detallado de lanzamiento."
+    },
     "settings_title": {
         "message": "Ajustes"
     },
@@ -415,6 +424,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Sugerencias"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtro"
     },
     "settings_menu_appearance": {
         "message": "Apariencia"
@@ -673,6 +685,36 @@
     },
     "settings_sidebar_position_right": {
         "message": "Derecha"
+    },
+    "settings_filter_intro": {
+        "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Solo a\u00f1adir un URL por l\u00ednea."
+    },
+    "settings_filter_explanation_2": {
+        "message": "Usar asterisco: * para incluir directorio de la p\u00e1gina y no solo la p\u00e1gina seleccionada (Ej: \"pagina-de-ejemplo.com\/*\" Incluye todas las sub-p\u00e1ginas de pagina-de-ejemplo.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Si no incluyes ningun asterisco en una regla, solamente el URL exacto va a coincidir. (Ej: pagina-de-ejemplo.com no incluye con el URL pagina-de-ejemplo.com\/ejemplo.html"
+    },
+    "settings_filter_explanation_4": {
+        "message": "No es necesario a\u00f1adir el protocolo: (Ej: http:\/\/) en las reglas"
+    },
+    "settings_filter_visibility": {
+        "message": "Cargar barra lateral"
+    },
+    "settings_filter_visibility_always": {
+        "message": "En toda p\u00e1gina"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "En toda p\u00e1gina excepto p\u00e1ginas espec\u00edficas"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "S\u00f3lo en p\u00e1ginas espec\u00edficas"
+    },
+    "settings_filter_rules": {
+        "message": "Patrones URL"
     },
     "settings_import_export_desc": {
         "message": "Puede exportar la configuraci\u00f3n de su extensi\u00f3n y guardarla de manera local en su computadora. Puede importar el archivo exportado previamente en cualquier computadora, donde est\u00e1 instalada la extensi\u00f3n."

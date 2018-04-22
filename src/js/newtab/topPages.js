@@ -207,18 +207,20 @@
                             });
                             break;
                         }
-                        // case "topPages":
+                        case "topPages":
                         default: {
-                            chrome.topSites.get((list) => {
-                                let lastError = chrome.runtime.lastError;
+                            if (chrome.topSites && chrome.topSites.get) { // topSites may not be available -> requires topSites permission
+                                chrome.topSites.get((list) => {
+                                    let lastError = chrome.runtime.lastError;
 
-                                if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
-                                    let filteredList = list.slice(0, amount.total);
-                                    resolve(filteredList);
-                                } else {
-                                    resolve([]);
-                                }
-                            });
+                                    if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
+                                        let filteredList = list.slice(0, amount.total);
+                                        resolve(filteredList);
+                                    } else {
+                                        resolve([]);
+                                    }
+                                });
+                            }
                             break;
                         }
                     }

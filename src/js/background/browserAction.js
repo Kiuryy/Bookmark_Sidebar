@@ -5,7 +5,6 @@
 
         let timeout = null;
         let reason = null;
-        let type = "unknown";
 
         /**
          *
@@ -52,98 +51,57 @@
         };
 
         /**
-         * Shows a notification why the sidebar could not be opened
+         * Checks the given url and returns the type if the page, if it's an url where the sidebar is not being loaded, otherwise NULL
          *
-         * @param {object} tab
+         * @param url
+         * @returns {*}
          */
-        let showNotification = (tab) => {
-            let canvas = document.createElement("canvas");
-            let size = 128;
-
-            canvas.width = size;
-            canvas.height = size;
-            let ctx = canvas.getContext("2d");
-
-            b.helper.icon.getInfo().then((result) => {
-                return Promise.all([
-                    b.helper.language.getLangVars(),
-                    b.helper.icon.getSvgImage(result.name, "#555555")
-                ]);
-            }).then(([info, svg]) => {
-                let img = new Image();
-                img.onload = () => {
-                    ctx.drawImage(img, size / 4, size / 4, size / 2, size / 2);
-
-                    let texts = getNotificationText(tab.url);
-
-                    chrome.notifications.create("browserAction", {
-                        type: "basic",
-                        title: info.vars[texts.title].message,//"Sidebar could not be opened",
-                        message: info.vars[texts.desc].message,//"On the Chrome Webstore and the New Tab page the sidebar is not working.",
-                        isClickable: true,
-                        buttons: [{
-                            title: info.vars[texts.link].message
-                        }],
-                        iconUrl: canvas.toDataURL()
-                    });
-                };
-                img.src = svg;
-            });
-        };
-
-        /**
-         * Returns the language variable names for the notification why the sidebar is not working for the given url
-         *
-         * @param {string} url
-         * @returns {object}
-         */
-        let getNotificationText = (url) => {
-            type = "unknown";
-
-            let ret = {
-                title: "notification_sidebar_not_working_headline",
-                link: "notification_sidebar_not_working_link",
-                desc: "notification_sidebar_not_working_general"
+        let getNotWorkingPageInfo = (url) => {
+            let ret = null;
+            let found = false;
+            let types = {
+                new_tab: ["chrome://newtab/"],
+                system: ["chrome://", "about:blank"],
+                extension_page: ["chrome\-extension://"],
+                webstore: ["https?://chrome\.google\.com/webstore/"]
             };
 
-            if (reason) { // the sidebar is not working because it's blacklisted for the current url (or not whitelisted)
-
-                if (reason === "blacklisted") {
-                    ret.desc = "notification_sidebar_blacklisted";
-                    type = "filter";
-                } else if (reason === "notWhitelisted") {
-                    ret.desc = "notification_sidebar_not_whitelisted";
-                    type = "filter";
-                }
-
-                reason = null;
-            } else if (url) { // check whether the user tries to open the sidebar on urls where the sidebar is not working
-                ret.desc = "notification_sidebar_not_working_unknown";
-
-                let found = false;
-                let types = {
-                    new_tab: ["chrome://newtab/"],
-                    system: ["chrome://", "about:blank"],
-                    extension_page: ["chrome\-extension://"],
-                    webstore: ["https?://chrome\.google\.com/webstore/"]
-                };
-
-                Object.keys(types).some((key) => {
-                    types[key].some((str) => {
-                        if (url.search(new RegExp(str, "gi")) === 0) {
-                            type = key;
-                            ret.desc = "notification_sidebar_not_working_" + key;
-                            found = true;
-                            return true;
-                        }
-                    });
-                    if (found) {
+            Object.keys(types).some((key) => {
+                types[key].some((str) => {
+                    if (url.search(new RegExp(str, "gi")) === 0) {
+                        ret = key;
+                        found = true;
                         return true;
                     }
                 });
-            }
+                if (found) {
+                    return true;
+                }
+            });
 
             return ret;
+        };
+
+        /**
+         * Opens the new tab page with a parameter to tell the page, why the sidebar could not be loaded on the actual tab
+         *
+         * @param {object} tab
+         */
+        let showFallbackPage = (tab) => {
+            let type = "fallback";
+
+            if (reason) { // the content script set a reason why the sidebar is not opening (e.g. blacklisted/not whitelisted url)
+                type = reason;
+                reason = null;
+            } else if (tab && tab.url) { // check whether the user tries to open the sidebar on urls where the sidebar is not working
+                let pageType = getNotWorkingPageInfo(tab.url);
+
+                if (pageType) {
+                    type = pageType;
+                }
+            }
+
+            chrome.tabs.create({url: chrome.extension.getURL("html/newtab.html") + "?type=" + type});
         };
 
         /**
@@ -187,8 +145,6 @@
         let initEvents = async () => {
             chrome.browserAction.onClicked.removeListener(toggleSidebar);
             chrome.browserAction.onClicked.addListener(toggleSidebar); // click on extension icon shall toggle the sidebar
-            chrome.notifications.onButtonClicked.addListener(openNotWorkingInfoPage);
-            chrome.notifications.onClicked.addListener(openNotWorkingInfoPage);
         };
 
         /**
@@ -201,26 +157,18 @@
                     reinitialized: b.reinitialized
                 });
 
+                let delay = 500;
+                if (tabs[0] && tabs[0].url) { // don't delay if the page is a known url where the sidebar is not being loaded
+                    let pageType = getNotWorkingPageInfo(tabs[0].url);
+                    if (pageType) {
+                        delay = 0;
+                    }
+                }
+
                 timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
-                    showNotification(tabs[0]);
-                }, 750);
+                    showFallbackPage(tabs[0]);
+                }, delay);
             });
-        };
-
-        /**
-         * Opens an info page depending on the reason why the sidebar could not be opened
-         */
-        let openNotWorkingInfoPage = () => {
-            let url = "html/settings.html#feedback_error_general";
-
-            if (type === "new_tab") {
-                url = "html/settings.html#newtab";
-            } else if (type === "filter") {
-                url = "html/settings.html#feedback_error_filter";
-            }
-
-            chrome.tabs.create({url: chrome.extension.getURL(url)});
-            chrome.notifications.clear("browserAction");
         };
     };
 

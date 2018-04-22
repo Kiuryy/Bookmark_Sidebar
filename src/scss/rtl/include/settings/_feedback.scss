@@ -11,6 +11,17 @@ html[dir='rtl'] {
         box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
       }
 
+      > a {
+        right: 17px;
+        left: unset;
+        padding-right: 22px;
+        padding-left: 0;
+
+        &::before {
+          transform: scaleX(-1);
+        }
+      }
+
       > div.suggestion {
         direction: ltr;
 

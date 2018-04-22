@@ -224,6 +224,18 @@
     "newtab_top_pages_hidden": {
         "message": "Verberg pagina's"
     },
+    "newtab_fallback_headline_webstore": {
+        "message": "De zijbalk kan niet worden gebruikt op de Chrome Webstore."
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van Chrome."
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "De zijbalk kan niet worden gebruikt op de standaard nieuwe tab pagina."
+    },
+    "newtab_fallback_headline_system": {
+        "message": "De zijbalk kan niet worden gebruikt op de interne- en systeem-pagina's van Chrome."
+    },
     "status_service_unavailable_headline": {
         "message": "Service niet beschikbaar"
     },
@@ -280,30 +292,6 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Sluit de sidebar, de geopende overlay of het geopende context menu"
-    },
-    "notification_sidebar_not_working_headline": {
-        "message": "Zijbalk kon niet worden geopend"
-    },
-    "notification_sidebar_not_working_link": {
-        "message": "Meer informatie"
-    },
-    "notification_sidebar_not_working_general": {
-        "message": "Op de Chrome Webstore en de Nieuwe Tab pagina werkt de zijbalk niet."
-    },
-    "notification_sidebar_not_working_webstore": {
-        "message": "De zijbalk kan niet worden gebruikt op de Chrome Webstore."
-    },
-    "notification_sidebar_not_working_extension_page": {
-        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van Chrome."
-    },
-    "notification_sidebar_not_working_new_tab": {
-        "message": "De zijbalk kan niet worden gebruikt op de standaard nieuwe tab pagina."
-    },
-    "notification_sidebar_not_working_system": {
-        "message": "De zijbalk kan niet worden gebruikt op de interne- en systeem-pagina's van Chrome."
-    },
-    "notification_sidebar_not_working_unknown": {
-        "message": "Als dit vaak voorkomt, laat dit dan alsjeblieft weten door Feedback te geven."
     },
     "contribute_headline": {
         "message": "Ik heb je hulp nodig"

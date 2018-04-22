@@ -54,6 +54,7 @@ div#search {
     padding: #{$newTabSearchHeight + 1px} 20px 0;
     pointer-events: none;
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    z-index: 2;
 
     > li {
       @include mask(null, $textColorLight, 14px);

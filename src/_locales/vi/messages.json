@@ -203,27 +203,6 @@
     "overlay_check_urls_not_found": {
         "message": "Kh\u00f4ng t\u00ecm th\u1ea5y \u0111\u1ecba ch\u1ec9"
     },
-    "newtab_title": {
-        "message": "T\u00ean trang"
-    },
-    "newtab_search_placeholder": {
-        "message": "T\u00ecm {1} ho\u1eb7c nh\u1eadp \u0111\u01b0\u1eddng d\u1eabn"
-    },
-    "newtab_top_pages_default": {
-        "message": "Nh\u1eefng trang h\u00e0ng \u0111\u1ea7u"
-    },
-    "newtab_top_pages_recently_used": {
-        "message": "C\u00e1c \u0111\u00e1nh d\u1ea5u g\u1ea7n \u0111\u00e2y"
-    },
-    "newtab_top_pages_most_used": {
-        "message": "C\u00e1c \u0111\u00e1nh d\u1ea5u d\u00f9ng nhi\u1ec1u nh\u1ea5t"
-    },
-    "newtab_top_pages_pinned_entries": {
-        "message": "C\u00e1c \u0111\u00e1nh d\u1ea5u ghim"
-    },
-    "newtab_top_pages_hidden": {
-        "message": "C\u00e1c trang \u1ea9n"
-    },
     "status_service_unavailable_headline": {
         "message": "D\u1ecbch v\u1ee5 Kh\u00f4ng s\u1eb5n c\u00f3"
     },

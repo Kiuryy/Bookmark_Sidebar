@@ -95,15 +95,15 @@ body[data-type^='appearance'] {
           }
 
           span.icon-bookmark::before {
-            @include maskImage("icon/menu/icon-bookmark");
+            @include maskImage("icon/action/icon-bookmark");
           }
 
           span.icon-bookmark-filled::before {
-            @include maskImage("icon/menu/icon-bookmark-filled");
+            @include maskImage("icon/action/icon-bookmark-filled");
           }
 
           span.icon-star::before {
-            @include maskImage("icon/menu/icon-star");
+            @include maskImage("icon/action/icon-star");
           }
 
           span.icon-dir-1::before {
@@ -116,7 +116,7 @@ body[data-type^='appearance'] {
           }
 
           span.icon-star-filled::before {
-            @include maskImage("icon/menu/icon-star-filled");
+            @include maskImage("icon/action/icon-star-filled");
           }
         }
       }

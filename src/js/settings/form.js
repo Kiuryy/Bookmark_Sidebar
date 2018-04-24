@@ -267,7 +267,7 @@
         };
 
         /**
-         * Adds a range slidear with the given information
+         * Adds a range slider with the given information
          *
          * @param opts
          * @returns {Promise}
@@ -296,15 +296,15 @@
 
                     let background = s.opts.elm.range[opts.name].css("background-image");
 
-                    if (background.search("linear-gradient") === 0) {
+                    if (background && background.search("linear-gradient") === 0) {
                         let backgroundTemplate = $(elm).data("backgroundTemplate");
 
                         if (typeof backgroundTemplate === "undefined") {
-                            backgroundTemplate = background.replace(/\-1px/g, "{percent}");
+                            backgroundTemplate = background.replace(/-1px/g, "{percent}");
                             $(elm).data("backgroundTemplate", backgroundTemplate);
                         }
 
-                        s.opts.elm.range[opts.name].css("background-image", backgroundTemplate.replace(/\{percent\}/g, val + "%"));
+                        s.opts.elm.range[opts.name].css("background-image", backgroundTemplate.replace(/{percent}/g, val + "%"));
                     }
 
                     valTooltip.text(elm.value + unit);

@@ -207,7 +207,7 @@
         "message": "Nova guia"
     },
     "newtab_search_placeholder": {
-        "message": "Pesquisar no {1} ou digite a URL"
+        "message": "Pesquisar no {1} ou digitar URL"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
@@ -224,23 +224,32 @@
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Algo bloqueou a barra lateral"
+    },
     "newtab_fallback_headline_webstore": {
-        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore."
+        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o."
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o."
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o"
     },
     "newtab_fallback_headline_system": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome."
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome"
     },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "O atual URL est\u00e1 em sua lista negra e portanto a barra lateral n\u00e3o est\u00e1 sendo carregada."
+    "newtab_fallback_headline_url_filter": {
+        "message": "Uma de suas regras de URL n\u00e3o permitiu que a barra lateral fosse aberta"
     },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "O atual URL n\u00e3o est\u00e1 em sua lista branca e portanto a barra lateral n\u00e3o est\u00e1 sendo carregada."
+    "newtab_fallback_desc": {
+        "message": "Abrimos uma nova guia com a barra lateral para voc\u00ea."
+    },
+    "newtab_fallback_link": {
+        "message": "Saiba mais"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Sempre mostrar esta p\u00e1gina ao abrir uma nova guia"
     },
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"

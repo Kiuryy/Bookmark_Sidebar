@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "\u4e0d\u663e\u793a\u9875\u9762"
     },
+    "newtab_fallback_headline_general": {
+        "message": "\u4fa7\u8fb9\u680f\u88ab\u5c4f\u853d"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "\u5728Chrome\u5e94\u7528\u5546\u5e97\u4fa7\u680f\u4e0d\u53ef\u7528"
     },
@@ -236,11 +239,17 @@
     "newtab_fallback_headline_system": {
         "message": "\u5728\u9ed8\u8ba4\u7684\u65b0\u6807\u7b7e\u9875\u4fa7\u680f\u4e0d\u53ef\u7528"
     },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "\u5f53\u524d\u7f51\u5740\u5728\u4f60\u7684\u9ed1\u540d\u5355\u4e2d\uff0c\u56e0\u6b64\u4fa7\u680f\u672a\u52a0\u8f7d"
+    "newtab_fallback_headline_url_filter": {
+        "message": "\u4f60\u7684\u7f51\u5740\u89c4\u5219\u7981\u6b62\u4e86\u4fa7\u8fb9\u680f\u6253\u5f00\u9875\u9762"
     },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "\u5f53\u524d\u7f51\u5740\u4e0d\u5728\u4f60\u7684\u767d\u540d\u5355\u4e2d\uff0c\u56e0\u6b64\u4fa7\u680f\u672a\u52a0\u8f7d"
+    "newtab_fallback_desc": {
+        "message": "\u6211\u4eec\u5df2\u4f7f\u7528\u4fa7\u8fb9\u680f\u4e3a\u4f60\u6253\u5f00\u4e86\u4e00\u4e2a\u65b0\u7684\u6807\u7b7e\u9875\u4f5c\u4e3a\u66ff\u4ee3"
+    },
+    "newtab_fallback_link": {
+        "message": "\u4e86\u89e3\u66f4\u591a"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "\u5f53\u6253\u5f00\u4e00\u4e2a\u65b0\u6807\u7b7e\u9875\u65f6\u603b\u662f\u663e\u793a\u8fd9\u4e2a\u9875\u9762"
     },
     "status_service_unavailable_headline": {
         "message": "\u670d\u52a1\u4e0d\u53ef\u7528"

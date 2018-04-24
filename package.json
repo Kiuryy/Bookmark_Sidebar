@@ -1,7 +1,7 @@
 {
   "name": "bookmark_sidebar",
-  "version": "1.14.0",
-  "versionName": "1.14.0",
+  "version": "1.13.4",
+  "versionName": "1.13.4",
   "license": "GPL-3.0",
   "author": "Philipp König",
   "homepage": "https://extensions.blockbyte.de/",
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "init": "npm install --save-dev node-sass && npm install --save-dev eslint && npm install --only=dev && node build/run.js",
-    "release": "ncu -a --packageFile package.json && npm update &&  eslint --fix src/js/**/*.js && eslint --fix build/**/*.js && node build/run.js",
+    "release": "ncu -a --packageFile package.json && npm update && eslint --fix src/js/**/*.js && eslint --fix build/**/*.js && node build/run.js",
     "scss": "node-sass --source-map true -o src/css src/scss"
   },
   "devDependencies": {

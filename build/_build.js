@@ -115,7 +115,7 @@
                             path.tmp + "settings.js",
                             path.tmp + "background.js",
                             path.tmp + "newtab.js",
-                            path.src + "changelog.js",
+                            path.src + "js/changelog.js",
                             path.src + "js/onboarding.js"
                         ], path.dist + "js/"),
                         func.minify([

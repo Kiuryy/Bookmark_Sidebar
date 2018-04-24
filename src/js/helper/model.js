@@ -272,7 +272,7 @@
                     }
                 }
 
-                let isSettingsPage = location.href.search(/chrome\-extension\:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
+                let isSettingsPage = location.href.search(/chrome-extension:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
                 if (keyInfo === "b/toggleArea" && matchMedia("(min-resolution: 1.25dppx)").matches && isSettingsPage === false) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
                     value = Object.assign({}, value);
                     Object.keys(value).forEach((k) => {

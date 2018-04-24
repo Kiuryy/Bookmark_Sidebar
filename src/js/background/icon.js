@@ -12,7 +12,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                this.getInfo().then((obj) => {
+                getInfo().then((obj) => {
                     if (obj.name === "logo") {
                         chrome.browserAction.setIcon({
                             path: b.manifest.browser_action.default_icon
@@ -39,7 +39,7 @@
          *
          * @returns {Promise}
          */
-        this.getInfo = () => {
+        let getInfo = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
@@ -69,13 +69,13 @@
          *
          * @returns {Promise}
          */
-        this.getSvgImage = (name, color) => {
+        let getSvgImage = (name, color) => {
             return new Promise((resolve) => {
                 new Promise((rslv) => {
                     if (cachedSvg[name]) {
                         rslv(cachedSvg[name]);
                     } else {
-                        $.xhr(chrome.extension.getURL("img/icon/menu/icon-" + name + ".svg")).then((obj) => {
+                        $.xhr(chrome.extension.getURL("img/icon/action/icon-" + name + ".svg")).then((obj) => {
                             let svg = obj.responseText;
                             cachedSvg[name] = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
                             rslv(cachedSvg[name]);
@@ -109,7 +109,7 @@
                     canvas.height = size;
                     let ctx = canvas.getContext("2d");
 
-                    this.getSvgImage(opts.name, opts.color).then((svg) => {
+                    getSvgImage(opts.name, opts.color).then((svg) => {
                         let img = new Image();
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);

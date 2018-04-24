@@ -224,23 +224,32 @@
     "newtab_top_pages_hidden": {
         "message": "Ne rien afficher"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Quelque chose a bloqu\u00e9 la barre lat\u00e9rale"
+    },
     "newtab_fallback_headline_webstore": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le store de google chrome."
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le store de google chrome"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions."
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page nouvel onglet."
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page nouvel onglet"
     },
     "newtab_fallback_headline_system": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de chrome."
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de chrome"
     },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL est sur votre liste noire."
+    "newtab_fallback_headline_url_filter": {
+        "message": "L'une de vos r\u00e8gles URL emp\u00eache la barre lat\u00e9rale de s'ouvrir"
     },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "La barre lat\u00e9rale ne s'affiche pas car cette URL n'est pas sur votre liste blanche."
+    "newtab_fallback_desc": {
+        "message": "Nous avons ouvert un nouvel onglet avec la barre lat\u00e9rale pour vous"
+    },
+    "newtab_fallback_link": {
+        "message": "En savoir plus"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Toujours afficher cette page lors de l'ouverture d'un nouvel onglet"
     },
     "status_service_unavailable_headline": {
         "message": "Service indisponible"

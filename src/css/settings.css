@@ -951,18 +951,18 @@ body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
           -webkit-mask: no-repeat center/24px;
           background-color: #7b5fa4; }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-bookmark::before {
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-bookmark.svg); }
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/action/icon-bookmark.svg); }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-bookmark-filled::before {
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-bookmark-filled.svg); }
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/action/icon-bookmark-filled.svg); }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-star::before {
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-star.svg); }
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/action/icon-star.svg); }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-dir-1::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-dir-1.svg); }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-dir-2::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-dir-2.svg);
         -webkit-mask-size: 18px; }
       body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box ul.radioWrapper span.icon-star-filled::before {
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/menu/icon-star-filled.svg); }
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon/action/icon-star-filled.svg); }
 
 body[data-type^='appearance'] > section#wrapper > main div.contentBox {
   margin: 0 20px 20px 20px;

@@ -374,8 +374,6 @@
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
                 box.css("padding-top", filterBoxHeight);
             });
-
-            ext.elements.pinnedBox.css("top", ext.helper.model.getData("u/lockPinned") ? -filterBoxHeight : 0);
         };
 
         /**

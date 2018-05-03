@@ -66,21 +66,13 @@
         };
 
         /**
-         * Returns the information about all pinned entries
+         * Returns the information about all entries of the given type (pinned, bookmarks, directories)
          *
+         * @param {string} type
          * @returns {Array}
          */
-        this.getAllPinnedData = () => {
-            return Object.values(entries.pinned);
-        };
-
-        /**
-         * Returns the information about all bookmarks
-         *
-         * @returns {Array}
-         */
-        this.getAllBookmarkData = () => {
-            return Object.values(entries.bookmarks);
+        this.getAllDataByType = (type) => {
+            return Object.values(entries[type] || {});
         };
 
         /**
@@ -89,7 +81,7 @@
          * @param {int} id
          * @returns {object|null}
          */
-        this.getData = (id) => {
+        this.getDataById = (id) => {
             let ret = null;
 
             if (typeof entries.bookmarks[id] === "object") {

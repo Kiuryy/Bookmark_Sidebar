@@ -157,7 +157,7 @@
                     reinitialized: b.reinitialized
                 });
 
-                let delay = 500;
+                let delay = 700;
                 if (tabs[0] && tabs[0].url) { // don't delay if the page is a known url where the sidebar is not being loaded
                     let pageType = getNotWorkingPageInfo(tabs[0].url);
                     if (pageType) {

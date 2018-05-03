@@ -35,7 +35,7 @@
                 switch (type) {
                     case "list": {
                         handleListMenu(contextmenu, elm);
-                        let data = ext.helper.entry.getData(elmId);
+                        let data = ext.helper.entry.getDataById(elmId);
                         trackingLabel = data && data.isDir ? "directory" : "bookmark";
                         break;
                     }
@@ -183,7 +183,7 @@
          */
         let handleSeparatorMenu = (contextmenu, elm) => {
             let elmId = elm.attr(ext.opts.attr.id);
-            let data = ext.helper.entry.getData(elmId);
+            let data = ext.helper.entry.getDataById(elmId);
 
             if (data && data.parents && data.parents.length > 0) {
                 let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
@@ -204,13 +204,16 @@
          */
         let handleListMenu = (contextmenu, elm) => {
             let elmId = elm.attr(ext.opts.attr.id);
-            let data = ext.helper.entry.getData(elmId);
+            let data = ext.helper.entry.getDataById(elmId);
 
             if (data) {
                 let i18nAppend = data.isDir ? "_dir" : "_bookmark";
                 let list = contextmenu.children("ul." + ext.opts.classes.contextmenu.list);
                 let iconWrapper = contextmenu.children("ul." + ext.opts.classes.contextmenu.icons);
-                let isSearchList = ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active);
+
+                if (ext.helper.search.isResultsVisible()) {
+                    list.append("<li><a " + ext.opts.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
+                }
 
                 if (data.isDir) {
                     let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
@@ -223,10 +226,6 @@
                         list.append("<li><a " + ext.opts.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
                     }
                 } else {
-                    if (isSearchList) {
-                        list.append("<li><a " + ext.opts.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
-                    }
-
                     list.append("<li><a " + ext.opts.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
                     list.append("<li><a " + ext.opts.attr.name + "='newWindow'>" + ext.helper.i18n.get("contextmenu_new_window") + "</a></li>");
 
@@ -254,7 +253,7 @@
 
                 if (ext.helper.entry.isVisible(elmId)) {
                     iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
-                } else if (!isSearchList && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
+                } else if (ext.helper.search.isResultsVisible() === false && elm.parents("li." + ext.opts.classes.sidebar.hidden).length() <= 1) {
                     iconWrapper.append("<li class='" + ext.opts.classes.contextmenu.right + "'><a " + ext.opts.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
                 }
             }
@@ -451,7 +450,7 @@
          * @param {object} opts
          */
         clickFuncs.showInDir = (opts) => {
-            let data = ext.helper.entry.getData(opts.id);
+            let data = ext.helper.entry.getDataById(opts.id);
             if (data && data.parents) {
                 let openParent = (i) => {
                     if (data.parents[i]) {
@@ -557,7 +556,7 @@
                     id: contextmenu.attr(ext.opts.attr.id)
                 };
 
-                opts.data = opts.id ? ext.helper.entry.getData(opts.id) : null;
+                opts.data = opts.id ? ext.helper.entry.getDataById(opts.id) : null;
 
                 if (opts.name === "sort" || opts.name === "toggleHidden") {
                     opts.name = "checkbox";

@@ -11,7 +11,7 @@
          */
         this.removeEntry = (id) => {
             return new Promise((resolve) => {
-                let data = ext.helper.entry.getData(id);
+                let data = ext.helper.entry.getDataById(id);
 
                 if (data && data.url) { // delete without confirm dialog, but offer a undo option
                     Object.values(ext.elements.bookmarkBox).some((box) => {
@@ -193,7 +193,7 @@
 
                 let newIndex = 0;
                 if (opts.prevId) {
-                    let prevInfo = ext.helper.entry.getData(opts.prevId);
+                    let prevInfo = ext.helper.entry.getDataById(opts.prevId);
                     newIndex = prevInfo.pinnedIndex + 1;
                 }
 

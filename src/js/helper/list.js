@@ -184,7 +184,7 @@
                 }
 
                 let preResolve = () => {
-                    if ((ext.helper.model.getData("b/rememberState") !== "nothing" && cache) && !initial) {
+                    if ((ext.helper.model.getData("b/rememberState") !== "nothing" && cache) && !initial && !ext.helper.search.isResultsVisible()) {
                         this.cacheList().then(resolve);
                     } else {
                         resolve();
@@ -195,7 +195,9 @@
                     expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
                     if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
-                        ext.elements.bookmarkBox.all.find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
+                        let visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
+
+                        ext.elements.bookmarkBox[visibleBox].find("a." + ext.opts.classes.sidebar.dirOpened).forEach((dir) => {
                             if ($(dir).next("ul").find("a[" + ext.opts.attr.id + "='" + dirId + "']").length() === 0) {
                                 this.toggleBookmarkDir($(dir), instant, false);
                             }
@@ -335,7 +337,7 @@
                 $("<a />").attr(ext.opts.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elements.filterBox);
                 let checkList = $("<ul />").appendTo(ext.elements.filterBox);
 
-                if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) { // show bookmarks as tree or one dimensional list
+                if (ext.helper.search.isResultsVisible() === false) { // show bookmarks as tree or one dimensional list
                     $("<li />")
                         .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
                             [ext.opts.attr.name]: "viewAsTree",
@@ -384,7 +386,7 @@
             let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
 
             if (list.parents("li").length() === 0) {
-                if (!ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) { // don't show in search results
+                if (ext.helper.search.isResultsVisible() === false) { // don't show in search results
                     updatePinnedEntries(config);
                 }
             } else {
@@ -447,7 +449,7 @@
             ext.elements.pinnedBox.removeClass([ext.opts.classes.sidebar.hidden, ext.opts.classes.sidebar.fixed]);
 
             ext.elements.pinnedBox.children("ul").remove();
-            let pinnedEntries = ext.helper.entry.getAllPinnedData();
+            let pinnedEntries = ext.helper.entry.getAllDataByType("pinned");
 
             if (pinnedEntries.length === 0) {
                 ext.elements.pinnedBox.addClass(ext.opts.classes.sidebar.hidden);
@@ -498,7 +500,7 @@
             if (ext.helper.entry.isSeparator(bookmark.id)) { // separator
                 entryContent.addClass(ext.opts.classes.sidebar.separator);
                 labelElm.text("");
-            } else if (bookmark.children && opts.asTree) { // dir
+            } else if (bookmark.children) { // dir
                 entryContent.addClass(ext.opts.classes.sidebar.bookmarkDir);
 
                 if (opts.config.showDirectoryIcons) {
@@ -618,8 +620,8 @@
                     case "mostUsed": {
                         let mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
                         doSort("DESC", (a, b) => {
-                            let aData = ext.helper.entry.getData(a.id);
-                            let bData = ext.helper.entry.getData(b.id);
+                            let aData = ext.helper.entry.getDataById(a.id);
+                            let bData = ext.helper.entry.getDataById(b.id);
                             let aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
                             let bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
                             if (aViews === bViews) {
@@ -632,8 +634,8 @@
                     }
                     case "recentlyUsed": {
                         doSort("DESC", (a, b) => {
-                            let aData = ext.helper.entry.getData(a.id);
-                            let bData = ext.helper.entry.getData(b.id);
+                            let aData = ext.helper.entry.getDataById(a.id);
+                            let bData = ext.helper.entry.getDataById(b.id);
                             let aLastView = aData ? aData.views.lastView : 0;
                             let bLastView = bData ? bData.views.lastView : 0;
                             if (aLastView === bLastView) {
@@ -675,7 +677,7 @@
 
                     if (open === false) {
                         closeAllChildDirs(elm, openStates);
-                    } else {
+                    } else if (ext.helper.search.isResultsVisible() === false) {
                         ext.helper.model.setData({
                             "u/openStates": openStates
                         });
@@ -690,9 +692,11 @@
                     } else {
                         elm.addClass(ext.opts.classes.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
-                            let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox.all);
+                            let visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
+
+                            let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox[visibleBox]);
                             if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
-                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, elm[0].offsetTop, 300);
+                                ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox[visibleBox], elm[0].offsetTop, 300);
                             }
                         }
                     }
@@ -718,9 +722,11 @@
                 });
             });
 
-            ext.helper.model.setData({
-                "u/openStates": openStates
-            });
+            if (ext.helper.search.isResultsVisible() === false) {
+                ext.helper.model.setData({
+                    "u/openStates": openStates
+                });
+            }
         };
 
         /**
@@ -791,7 +797,7 @@
                             this.restoreOpenStates(list);
                         }
                     } else { // one dimensional without directories
-                        this.addBookmarkDir(ext.helper.entry.getAllBookmarkData(), list, false);
+                        this.addBookmarkDir(ext.helper.entry.getAllDataByType("bookmarks"), list, false);
                         restoreScrollPos();
                     }
 

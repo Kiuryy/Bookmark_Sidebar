@@ -277,15 +277,13 @@
             });
 
             $(document).on("visibilitychange.bs", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
-                $.delay(100).then(() => { // Bugfix -> sometimes Chrome triggers visibilitychange many times when moving the cursor and changes document.hidden to true and back to false
-                    if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
-                        ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
+                if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
+                    ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
 
-                        if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
-                            this.closeSidebar();
-                        }
+                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                        this.closeSidebar();
                     }
-                });
+                }
             }).on("mouseout.bs", () => {
                 clearSidebarTimeout("open");
             }).on("mousemove.bs", (e) => { // check mouse position

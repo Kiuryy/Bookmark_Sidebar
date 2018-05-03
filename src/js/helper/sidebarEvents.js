@@ -20,7 +20,7 @@
         };
 
         this.handleEntryClick = (elm, opts) => {
-            let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+            let data = ext.helper.entry.getDataById(elm.attr(ext.opts.attr.id));
             if (!data) {
                 return false;
             }

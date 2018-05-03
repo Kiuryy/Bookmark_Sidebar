@@ -38,7 +38,7 @@
                     }
                 } else { // no tooltip for the given element yet -> generate and show it after the configured delay
                     if (+config.tooltipDelay !== -1) { // show only if delay > -1
-                        let data = ext.helper.entry.getData(id);
+                        let data = ext.helper.entry.getDataById(id);
 
                         if (data) {
                             let tooltip = $("<div />")

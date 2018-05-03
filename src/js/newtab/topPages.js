@@ -236,7 +236,7 @@
          * @returns {Array}
          */
         let getPinnedEntries = () => {
-            let pinnedEntries = n.helper.entry.getAllPinnedData();
+            let pinnedEntries = n.helper.entry.getAllDataByType("pinned");
             let config = n.helper.model.getData(["u/showHidden"]);
             let amount = getAmount();
 
@@ -262,14 +262,14 @@
          */
         let getSortedBookmarks = (type) => {
             let amount = getAmount();
-            let allBookmarks = n.helper.entry.getAllBookmarkData();
+            let allBookmarks = n.helper.entry.getAllDataByType("bookmarks");
             let config = n.helper.model.getData(["u/showHidden", "u/mostViewedPerMonth"]);
             let collator = n.helper.i18n.getLocaleSortCollator();
 
             if (type === "recentlyUsed") {
                 allBookmarks.sort((a, b) => {
-                    let aData = n.helper.entry.getData(a.id);
-                    let bData = n.helper.entry.getData(b.id);
+                    let aData = n.helper.entry.getDataById(a.id);
+                    let bData = n.helper.entry.getDataById(b.id);
                     let aLastView = aData ? aData.views.lastView : 0;
                     let bLastView = bData ? bData.views.lastView : 0;
                     if (aLastView === bLastView) {
@@ -280,8 +280,8 @@
                 });
             } else if (type === "mostUsed") {
                 allBookmarks.sort((a, b) => {
-                    let aData = n.helper.entry.getData(a.id);
-                    let bData = n.helper.entry.getData(b.id);
+                    let aData = n.helper.entry.getDataById(a.id);
+                    let bData = n.helper.entry.getDataById(b.id);
                     let aViews = aData ? aData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
                     let bViews = bData ? bData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
                     if (aViews === bViews) {

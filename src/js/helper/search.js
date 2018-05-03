@@ -13,6 +13,15 @@
         };
 
         /**
+         * Returns whether the search results are currently displayed or not
+         *
+         * @returns {bool}
+         */
+        this.isResultsVisible = () => {
+            return ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active);
+        };
+
+        /**
          * Clears the search field and shows the normal bookmark list again
          *
          * @returns {Promise}
@@ -70,16 +79,16 @@
 
                     ext.helper.entry.initOnce().then(() => {
                         ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.search, 0);
-                        return ext.helper.model.call("searchBookmarks", {searchVal: val});
-                    }).then((response) => {
+                        return getSearchResults(val);
+                    }).then((result) => {
                         ext.elements.bookmarkBox.search.children("p").remove();
 
                         let hasResults = false;
                         let list = ext.elements.bookmarkBox.search.children("ul");
                         list.text("");
 
-                        if (response.bookmarks && response.bookmarks.length > 0) { // results for your search value
-                            hasResults = ext.helper.list.addBookmarkDir(response.bookmarks, list, false);
+                        if (result.length > 0) { // results for your search value
+                            hasResults = ext.helper.list.addBookmarkDir(result, list, false);
                         }
 
                         if (hasResults === false) { // no results
@@ -102,6 +111,24 @@
             });
         };
 
+        let getSearchResults = (val) => {
+            return new Promise((resolve) => {
+                ext.helper.model.call("searchBookmarks", {searchVal: val}).then((response) => {
+                    let result = response.bookmarks || [];
+                    let directories = ext.helper.entry.getAllDataByType("directories");
+
+                    directories.forEach((directory, idx) => {
+                        if (directory.title.toLowerCase().search(val.toLowerCase()) > -1) {
+                            directory.index = -1000 + idx;
+                            result.push(directory);
+                        }
+                    });
+
+                    resolve(result);
+                });
+            });
+        };
+
         /**
          * Resets the search results and shows the normal bookmark list again
          *
@@ -112,7 +139,7 @@
             return new Promise((resolve) => {
                 searchField.removeData("lastVal");
 
-                if (ext.elements.bookmarkBox.search.hasClass(ext.opts.classes.sidebar.active)) {
+                if (this.isResultsVisible()) {
                     ext.startLoading();
                     ext.elements.bookmarkBox.all.addClass(ext.opts.classes.sidebar.active);
                     ext.elements.bookmarkBox.search.removeClass(ext.opts.classes.sidebar.active);

@@ -98,7 +98,7 @@
                 edgeScroll.posY = null;
 
                 if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged)) { // something has been dragged
-                    if (!isDraggedElementOutside(e.pageX)) { // only proceed if mouse position is in the sidebar
+                    if (!isDraggedElementOutside(e.pageX) && ext.helper.search.isResultsVisible() === false) { // only proceed if mouse position is in the sidebar and the active view are not the search results
                         let entryPlaceholder = ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.isDragged).eq(0);
 
                         if (entryPlaceholder && entryPlaceholder.length() > 0) {
@@ -199,7 +199,7 @@
             ext.helper.tooltip.close();
 
             let elm = $(node).parent("a").removeClass(ext.opts.classes.sidebar.dirOpened);
-            let data = ext.helper.entry.getData(elm.attr(ext.opts.attr.id));
+            let data = ext.helper.entry.getDataById(elm.attr(ext.opts.attr.id));
 
             if (data === null) {
                 return false;

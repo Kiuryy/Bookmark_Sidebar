@@ -1171,9 +1171,9 @@ section#sidebar {
     background-color: #aaa; }
   section#sidebar.openedOnce > div.scrollBox a > span.drag:hover::before {
     background-color: #888; }
-  section#sidebar[data-sort='custom'] > div.scrollBox a:hover {
+  section#sidebar[data-sort='custom'] > div#bookmarkBox a:hover {
     padding-right: 46px; }
-  section#sidebar[data-sort='custom'] > div.scrollBox a > span.drag {
+  section#sidebar[data-sort='custom'] > div#bookmarkBox a > span.drag {
     display: block !important; }
   section#sidebar.loading > svg.loading {
     position: absolute;

@@ -225,22 +225,16 @@
         "message": "No mostrar p\u00e1ginas"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "La barra lateral no se puede usar en la Chrome Webstore."
+        "message": "La barra lateral no se puede usar en la Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "La barra lateral no se puede usar en las p\u00e1ginas de las extensiones."
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de las extensiones"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "La barra lateral no se puede usar en la p\u00e1gina de nueva pesta\u00f1a."
+        "message": "La barra lateral no se puede usar en la p\u00e1gina de nueva pesta\u00f1a"
     },
     "newtab_fallback_headline_system": {
-        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome."
-    },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "El URL actual est\u00e1 en tu lista negra, debido a eso la barra lateral no esta siendo cargada."
-    },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "El URL actual no est\u00e1 en tu lista blanca, debido a eso la barra lateral no esta siendo cargada."
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome"
     },
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"

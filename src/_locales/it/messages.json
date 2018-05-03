@@ -222,16 +222,16 @@
         "message": "Non mostrare le pagine"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore."
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata sulle pagine delle estensioni."
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sulle pagine delle estensioni"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata nella pagina di default \"Nuova Scheda\"."
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nella pagina di default \"Nuova Scheda\""
     },
     "newtab_fallback_headline_system": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome."
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome"
     },
     "status_service_unavailable_headline": {
         "message": "Servizio non disponibile"

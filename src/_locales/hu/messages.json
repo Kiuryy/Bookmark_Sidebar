@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "Ne mutassa a lapokat"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Valami blokkolta az oldals\u00e1vot"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a Chrome \u00e1ruh\u00e1zban"
     },
@@ -236,11 +239,11 @@
     "newtab_fallback_headline_system": {
         "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a chrome saj\u00e1t oldalain"
     },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "A jelenlegi webc\u00edm az \u00d6n tilt\u00f3list\u00e1j\u00e1n van \u00e9s ez\u00e9rt az oldals\u00e1v nincs bet\u00f6ltve."
+    "newtab_fallback_link": {
+        "message": "Tudj meg t\u00f6bbet"
     },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "A jelenlegi webc\u00edm nincs az \u00d6n enged\u00e9lyez\u0151 list\u00e1j\u00e1n \u00e9s ez\u00e9rt az oldals\u00e1v nincs bet\u00f6ltve."
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Mindig mutassa ezt az oldalt egy \u00faj f\u00fcl megnyit\u00e1sakor"
     },
     "status_service_unavailable_headline": {
         "message": "A szolg\u00e1ltat\u00e1s nem el\u00e9rhet\u0151"
@@ -867,7 +870,7 @@
         "message": "Vissza az \u00e1ttekint\u00e9shez"
     },
     "settings_translation_info": {
-        "message": "Szerkezsthet megl\u00e9v\u0151 ford\u00edt\u00e1sokat vagy hi\u00e1nyz\u00f3kat is p\u00f3tolhat. Ha elk\u00fcldi a v\u00e1ltoztat\u00e1sait, megn\u00e9zem \u00e9s j\u00f3v\u00e1hagyom"
+        "message": "Szerkeszthet megl\u00e9v\u0151 ford\u00edt\u00e1sokat vagy hi\u00e1nyz\u00f3kat is p\u00f3tolhat. Ha elk\u00fcldi a v\u00e1ltoztat\u00e1sait, megn\u00e9zem \u00e9s j\u00f3v\u00e1hagyom."
     },
     "settings_translation_notice1": {
         "message": "Amint az \u00f6sszes alapvet\u0151 kateg\u00f3ria leford\u00edt\u00e1sra ker\u00fclt, egyb\u0151l el\u00e9rhet\u0151v\u00e9 is v\u00e1lik"

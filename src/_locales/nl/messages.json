@@ -224,17 +224,32 @@
     "newtab_top_pages_hidden": {
         "message": "Verberg pagina's"
     },
+    "newtab_fallback_headline_general": {
+        "message": "De zijbalk is geblokkeerd."
+    },
     "newtab_fallback_headline_webstore": {
-        "message": "De zijbalk kan niet worden gebruikt op de Chrome Webstore."
+        "message": "De zijbalk kan niet worden gebruikt op de Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van Chrome."
+        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van Chrome"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "De zijbalk kan niet worden gebruikt op de standaard nieuwe tab pagina."
+        "message": "De zijbalk kan niet worden gebruikt op de standaard nieuwe tab pagina"
     },
     "newtab_fallback_headline_system": {
-        "message": "De zijbalk kan niet worden gebruikt op de interne- en systeem-pagina's van Chrome."
+        "message": "De zijbalk kan niet worden gebruikt op de interne- en systeem-pagina's van Chrome"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Een URL-regel voorkomt dat de zijbalk kan worden geopend."
+    },
+    "newtab_fallback_desc": {
+        "message": "We hebben een nieuwe zijbalk geopend voor je."
+    },
+    "newtab_fallback_link": {
+        "message": "Lees verder."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Deze pagina altijd tonen als je een nieuwe tab opent."
     },
     "status_service_unavailable_headline": {
         "message": "Service niet beschikbaar"
@@ -247,6 +262,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "De vertaal service is op dit moment niet beschikbaar. Probeer het later nog eens."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Kan geen versie historie ophalen. Probeer het later nogmaals."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Door een update van de extensie moet de pagina worden herladen."
@@ -389,6 +407,18 @@
     "onboarding_goto_settings": {
         "message": "Meer instellingen"
     },
+    "onboarding_goto_appearance": {
+        "message": "Bewerk vertoning."
+    },
+    "changelog_title": {
+        "message": "Logboek"
+    },
+    "changelog_current_version": {
+        "message": "Huidige versie"
+    },
+    "changelog_show_release_history": {
+        "message": "Toon uitbreide versie historie"
+    },
     "settings_title": {
         "message": "Instellingen"
     },
@@ -403,6 +433,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltip"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Uiterlijk"
@@ -661,6 +694,36 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
+    },
+    "settings_filter_intro": {
+        "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Je kan maximaal \u00e9\u00e9n link parameter per regel toevoegen"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Gebruik een wildcard <em>*<\/em> om een bereik toe te voegen. Voorbeeld: example.com\/* voor alle pagina's onder example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Als je geen wildcard <em>*<\/em> gebruikt in een regel dan wordt alleen de exacte link gebruikt."
+    },
+    "settings_filter_explanation_4": {
+        "message": "Je hoeft geen protocol te gebruiken in een regel."
+    },
+    "settings_filter_visibility": {
+        "message": "Laden zijbalk"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Op elke pagina"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Op elke pagina behalve specifieke pagina's"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Alleen op bepaalde pagina's"
+    },
+    "settings_filter_rules": {
+        "message": "Link parameters"
     },
     "settings_import_export_desc": {
         "message": "Je kan de instellingen van deze extensie lokaal opslaan. je kunt het opgeslagen bestand dan op elke computer importeren zolang de extensie maar is geinstalleerd."

@@ -225,22 +225,16 @@
         "message": "Ikke vis sider"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Sidefeltet kan ikke brukes i Chrome nettmarked."
+        "message": "Sidefeltet kan ikke brukes i Chrome nettmarked"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "Sidefeltet kan ikke brukes p\u00e5 utvidelse-siden."
+        "message": "Sidefeltet kan ikke brukes p\u00e5 utvidelse-siden"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Sidefeltet kan ikke brukes i standard ny fane."
+        "message": "Sidefeltet kan ikke brukes i standard ny fane"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sidefeltet kan ikke brukes p\u00e5 Chrome systemsider."
-    },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "N\u00e5v\u00e6rende url er p\u00e5 din svarteliste og sidefeltet lastes derfor ikke."
-    },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "N\u00e5v\u00e6rende url er ikke p\u00e5 din hviteliste og sidefeltet lastes derfor ikke."
+        "message": "Sidefeltet kan ikke brukes p\u00e5 Chrome systemsider"
     },
     "status_service_unavailable_headline": {
         "message": "Tjeneste utilgjengelig"

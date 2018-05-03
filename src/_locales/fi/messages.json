@@ -231,10 +231,10 @@
         "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Laajennukset sivulla"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 oletus uusi v\u00e4lilehti sivulla."
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 oletus uusi v\u00e4lilehti sivulla"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 chromen j\u00e4rjestelm\u00e4sivuilla."
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 chromen j\u00e4rjestelm\u00e4sivuilla"
     },
     "status_service_unavailable_headline": {
         "message": "Palvelu ei saatavilla"

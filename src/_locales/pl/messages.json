@@ -225,22 +225,16 @@
         "message": "Nie pokazuj stron"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore."
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach rozszerze\u0144."
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach rozszerze\u0144"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na domy\u015blnej stronie nowej karty."
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na domy\u015blnej stronie nowej karty"
     },
     "newtab_fallback_headline_system": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome."
-    },
-    "newtab_fallback_headline_blacklisted": {
-        "message": "Ten adres znajduje si\u0119 na Twojej czarnej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
-    },
-    "newtab_fallback_headline_not_whitelisted": {
-        "message": "Ten adres nie znajduje si\u0119 na Twojej bia\u0142ej li\u015bcie, wi\u0119c boczny panel nie zostanie za\u0142adowany."
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome"
     },
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"

@@ -225,13 +225,13 @@
         "message": "Sidebar tidak dapat di gunakan di Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "Sidebar tidak dapat di gunakan di halaman ekstensi."
+        "message": "Sidebar tidak dapat di gunakan di halaman ekstensi"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Sidebar tidak dapat di gunakan di halaman default Tab Baru."
+        "message": "Sidebar tidak dapat di gunakan di halaman default Tab Baru"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sidebar tidak dapat di gunakan di halaman sistem chrome."
+        "message": "Sidebar tidak dapat di gunakan di halaman sistem chrome"
     },
     "onboarding_title": {
         "message": "Setup"

@@ -225,16 +225,16 @@
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore."
+        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o."
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o."
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o"
     },
     "newtab_fallback_headline_system": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome."
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome"
     },
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"

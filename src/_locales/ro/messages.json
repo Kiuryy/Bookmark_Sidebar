@@ -225,16 +225,16 @@
         "message": "Nu ar\u0103ta paginile"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina Chrome Webstore."
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina Chrome Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina de extensii."
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina de extensii"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 \u00een noul tab implicit."
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 \u00een noul tab implicit"
     },
     "newtab_fallback_headline_system": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem chrome."
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem chrome"
     },
     "status_service_unavailable_headline": {
         "message": "Serviciu indisponibil"

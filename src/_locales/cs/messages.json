@@ -203,6 +203,54 @@
     "overlay_check_urls_not_found": {
         "message": "Adresa url neexistuje"
     },
+    "newtab_title": {
+        "message": "Nov\u00e1 karta"
+    },
+    "newtab_search_placeholder": {
+        "message": "Vyhledat {1} nebo typ URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "Nejnav\u0161t\u011bvovan\u011bj\u0161\u00ed str\u00e1nky"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Posledn\u011b pou\u017eit\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Nejpou\u017e\u00edvan\u011bj\u0161\u00ed z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "P\u0159ipnut\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Nezobrazovat str\u00e1nky"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Postrann\u00ed panel je blokov\u00e1n"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt v Obchodu Chrome"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na str\u00e1nk\u00e1ch s roz\u0161\u00ed\u0159en\u00edmi"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na z\u00e1lo\u017ece \u00favodn\u00ed str\u00e1nky"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na syst\u00e9mov\u00fdch str\u00e1nk\u00e1ch Chrome"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "N\u011bkter\u00e1 z Va\u0161ich str\u00e1nek zak\u00e1zala otev\u0159en\u00ed postrann\u00edho panelu"
+    },
+    "newtab_fallback_desc": {
+        "message": "M\u00edsto toho jsme otev\u0159eli novou kartu s postrann\u00edm panelem"
+    },
+    "newtab_fallback_link": {
+        "message": "Dozv\u00edte se v\u00edce"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "V\u017edy zobraz tuto str\u00e1nku p\u0159i otev\u0159en\u00ed nov\u00e9ho okna"
+    },
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
     },
@@ -215,11 +263,98 @@
     "status_translation_unavailable_desc": {
         "message": "P\u0159ekladatelsk\u00e1 slu\u017eba moment\u00e1ln\u011b nen\u00ed k dispozici. Pros\u00edm zkuste to znovu pozd\u011bji."
     },
+    "status_changelog_unavailable_desc": {
+        "message": "Nelze na\u010d\u00edst seznam zm\u011bn. Pros\u00edm zkuste to znovu pozd\u011bji."
+    },
     "status_background_disconnected_reload_desc": {
         "message": "V d\u016fsledku aktualizace roz\u0161\u00ed\u0159en\u00ed je t\u0159eba tuto str\u00e1nku znovu na\u010d\u00edst."
     },
     "status_background_disconnected_reload_action": {
         "message": "Znovu na\u010d\u00edst"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "P\u0159\u00edkaz"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Um\u00edst\u00ed dal\u0161\u00ed polo\u017eku do postrann\u00edho panelu nebo aktu\u00e1ln\u011b otev\u0159en\u00e9ho kontextov\u00e9ho menu"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Provede kliknut\u00ed na moment\u00e1ln\u011b vybran\u00fd z\u00e1znam"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Otev\u0159e kontextov\u00e9 menu pro aktu\u00e1ln\u011b vybran\u00fd z\u00e1znam"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Zkop\u00edruje URL aktu\u00e1ln\u011b vybran\u00e9ho z\u00e1znamu"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Sma\u017ee aktu\u00e1ln\u011b vybran\u00fd z\u00e1znam"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Zav\u0159e postrann\u00ed panel nebo kontextov\u00e9 menu"
+    },
+    "contribute_headline": {
+        "message": "Pot\u0159ebuji tvou pomoc"
+    },
+    "contribute_intro": {
+        "message": "Pro zlep\u0161en\u00ed roz\u0161\u00ed\u0159en\u00ed pot\u0159ebujeme l\u00e9pe zn\u00e1t, jak u\u017eivatel\u00e9 pou\u017e\u00edvaj\u00ed postrann\u00ed panel a jeho konfiguraci."
+    },
+    "contribute_outro": {
+        "message": "M\u00e1te-li dotazy nebo obavy t\u00fdkaj\u00edc\u00ed se sd\u00edlen\u00ed informac\u00ed, za\u0161lete mi pros\u00edm zpr\u00e1vu."
+    },
+    "contribute_dismiss": {
+        "message": "Zam\u00edtnout"
+    },
+    "contribute_share_config_label": {
+        "message": "Sd\u00edlen\u00ed konfigurace"
+    },
+    "contribute_share_config_desc": {
+        "message": "Anonymn\u00ed sd\u00edlen\u00ed va\u0161\u00ed konfigurace mi pom\u00e1h\u00e1 zji\u0161\u0165ovat obl\u00edben\u00e1 nastaven\u00ed a tak ur\u010dit, co se v budouc\u00edch verz\u00edch zlep\u0161\u00ed nebo zm\u011bn\u00ed."
+    },
+    "contribute_share_activity_label": {
+        "message": "Sd\u00edlen\u00ed aktivity"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Svou \u010dinnost m\u016f\u017eete sd\u00edlet v postrann\u00edm panelu anonymn\u011b, co\u017e mi pom\u00e1h\u00e1 zjistit, jak u\u017eivatel\u00e9 obecn\u011b pou\u017e\u00edvaj\u00ed postrann\u00ed panel. Informace o va\u0161ich z\u00e1lo\u017ek\u00e1ch nebo nav\u0161t\u00edven\u00fdch webov\u00fdch str\u00e1nk\u00e1ch [b]nejsou[\/b] zji\u0161\u0165ov\u00e1ny."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Tato informace je velmi u\u017eite\u010dn\u00e1 pro identifikaci probl\u00e9m\u016f s vyu\u017eitelnost\u00ed m\u00e1lo pou\u017e\u00edvan\u00fdch funkc\u00ed."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Sd\u00edlen\u00e1 data, nap\u0159\u00edklad:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Kolik z\u00e1lo\u017eek u\u017eivatel\u00e9 pr\u016fm\u011brn\u011b pou\u017e\u00edvaj\u00ed?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Kterou platformu u\u017eivatel\u00e9 pou\u017e\u00edvaj\u00ed (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Pou\u017e\u00edvaj\u00ed u\u017eivatel\u00e9 vyhled\u00e1v\u00e1n\u00ed?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "M\u011bn\u00ed u\u017eivatel\u00e9 \u0159azen\u00ed z\u00e1lo\u017eek?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Jak \u010dasto u\u017eivatel\u00e9 upravuj\u00ed nebo p\u0159eskupuj\u00ed polo\u017eky?"
     },
     "onboarding_title": {
         "message": "Nastavit"
@@ -272,6 +407,9 @@
     "onboarding_goto_settings": {
         "message": "Dal\u0161\u00ed nastaven\u00ed"
     },
+    "onboarding_goto_appearance": {
+        "message": "Konfigurace vzhledu"
+    },
     "changelog_title": {
         "message": "Z\u00e1znam zm\u011bn"
     },
@@ -295,6 +433,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Popisek"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtr"
     },
     "settings_menu_appearance": {
         "message": "Vzhled"
@@ -350,6 +491,12 @@
     "settings_restored_message": {
         "message": "Z\u00e1kladn\u00ed nastaven\u00ed obnoveno"
     },
+    "settings_advanced": {
+        "message": "Roz\u0161\u00ed\u0159en\u00e1 nastaven\u00ed"
+    },
+    "settings_not_synced": {
+        "message": "Nelze synchronizovat mezi Va\u0161imi za\u0159\u00edzen\u00edmi"
+    },
     "settings_animations": {
         "message": "Povolit animace"
     },
@@ -377,6 +524,9 @@
     "settings_toggle_area": {
         "message": "Nastaven\u00ed oblasti"
     },
+    "settings_toggle_area_desc": {
+        "message": "Podle v\u00fdchoz\u00edho nastaven\u00ed lze pou\u017e\u00edt cel\u00fd okraj okna pro otev\u0159en\u00ed postrann\u00edho panelu. M\u016f\u017eete nakonfigurovat, ve kter\u00e9m m\u00edst\u011b ho otev\u0159ete."
+    },
     "settings_toggle_area_width": {
         "message": "\u0160\u00ed\u0159ka"
     },
@@ -385,6 +535,9 @@
     },
     "settings_toggle_area_height": {
         "message": "V\u00fd\u0161ka"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "M\u016f\u017eete sn\u00ed\u017eit v\u00fd\u0161ku oblasti, tak\u017ee postrann\u00ed panel se otev\u0159e pouze tehdy, kdy\u017e p\u0159esunete kurzor na ur\u010den\u00e9 m\u00edsto na okraji okna prohl\u00ed\u017ee\u010de."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastav kl\u00e1vesovou zkratku"
@@ -503,11 +656,14 @@
     "settings_reopen_sidebar": {
         "message": "Znovu otev\u0159\u00edt bo\u010dn\u00ed li\u0161tu z\u00e1lo\u017eek"
     },
+    "settings_reopen_sidebar_desc": {
+        "message": "Postrann\u00ed panel se znovu otev\u0159e po otev\u0159en\u00ed z\u00e1lo\u017eky z postrann\u00edho panelu."
+    },
     "settings_tooltip_delay": {
-        "message": "Odlo\u017een\u00ed n\u00e1stroje"
+        "message": "Zpo\u017ed\u011bn\u00ed n\u00e1pov\u011bdy"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Zpo\u017ed\u011bn\u00e9 p\u0159edt\u00edm, ne\u017e se objev\u00ed n\u00e1pisy pro z\u00e1lo\u017eky, se zobraz\u00ed p\u0159i podr\u017een\u00ed kurzoru my\u0161\u00ed."
+        "message": "Zpo\u017ed\u011bn\u00ed p\u0159edt\u00edm, ne\u017e se objev\u00ed n\u00e1pisy pro z\u00e1lo\u017eky, se zobraz\u00ed p\u0159i podr\u017een\u00ed kurzoru my\u0161\u00ed."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Nikdy nezobrazovat n\u00e1pov\u011bdy"
@@ -539,6 +695,36 @@
     "settings_sidebar_position_right": {
         "message": "Vpravo"
     },
+    "settings_filter_intro": {
+        "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "P\u0159idejte pouze jeden vzor url na ka\u017ed\u00fd \u0159\u00e1dek."
+    },
+    "settings_filter_explanation_2": {
+        "message": "Pomoc\u00ed * ozna\u010dte libovoln\u00fd znak (nap\u0159. example.com\/* odpov\u00edd\u00e1 v\u0161em str\u00e1nk\u00e1m na dom\u00e9n\u011b example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Pokud nevlo\u017e\u00edte \u017e\u00e1dnou * do pravidla, bude se shodovat pouze p\u0159esn\u00e1 adresa URL (nap\u0159. \"example.com\" neodpov\u00edd\u00e1 adrese url \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "V pravidlech nemus\u00edte p\u0159id\u00e1vat protokol (nap\u0159. http: \/\/)"
+    },
+    "settings_filter_visibility": {
+        "message": "Na\u010dti postrann\u00ed panel"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Na ka\u017ed\u00e9 str\u00e1nce"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Na ka\u017ed\u00e9 str\u00e1nce vyjma vybran\u00fdch str\u00e1nek"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Pouze na vybran\u00fdch str\u00e1nk\u00e1ch"
+    },
+    "settings_filter_rules": {
+        "message": "Vzory URL"
+    },
     "settings_import_export_desc": {
         "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed m\u016f\u017eete exportovat a ulo\u017eit je m\u00edstn\u011b do po\u010d\u00edta\u010de. P\u0159edt\u00edm exportovan\u00fd soubor m\u016f\u017eete importovat do libovoln\u00e9ho po\u010d\u00edta\u010de, ve kter\u00e9m je nainstalov\u00e1na roz\u0161\u00ed\u0159en\u00ed."
     },
@@ -554,17 +740,23 @@
     "settings_import_failed": {
         "message": "Import konfigurace se nepoda\u0159ilo. Zvolte pros\u00edm platn\u00fd soubor."
     },
+    "settings_presets": {
+        "message": "P\u0159edvolba"
+    },
     "settings_color_scheme": {
         "message": "Barevn\u00e9 sch\u00e9ma"
     },
     "settings_dark_mode": {
-        "message": "povrch"
+        "message": "Plocha"
     },
     "settings_color_scheme_desc": {
         "message": "Barva hlavi\u010dky bo\u010dn\u00ed li\u0161ty, zatr\u017e\u00edtek, atd."
     },
     "settings_text_color": {
         "message": "Barva textu"
+    },
+    "settings_hover_color": {
+        "message": "Barva p\u0159i najet\u00ed my\u0161\u00ed"
     },
     "settings_font_family": {
         "message": "P\u00edsmo"
@@ -596,6 +788,9 @@
     "settings_sidebar_width": {
         "message": "\u0160\u00ed\u0159ka"
     },
+    "settings_header_height": {
+        "message": "V\u00fd\u0161ka hlavi\u010dky"
+    },
     "settings_sidebar_mask_color": {
         "message": "Barva masky"
     },
@@ -623,11 +818,20 @@
     "settings_bookmarks_dir_indentation": {
         "message": "Zar\u00e1\u017eka adres\u00e1\u0159e"
     },
+    "settings_tooltip_font_size": {
+        "message": "Velikost p\u00edsma popisku"
+    },
     "settings_overlay_mask_color": {
         "message": "Barva masky"
     },
     "settings_icon_shape": {
         "message": "Tvar"
+    },
+    "settings_custom_css": {
+        "message": "Nastaven\u00ed vlastn\u00edho stylu"
+    },
+    "settings_custom_css_desc": {
+        "message": "M\u016f\u017eete definovat sv\u016fj vlastn\u00ed styl tak, aby p\u0159epsal v\u00fdchoz\u00ed styl. Pou\u017eijte tuto mo\u017enost pouze tehdy, pokud jste obezn\u00e1meni s CSS a v\u00edte, co d\u011bl\u00e1te."
     },
     "settings_newtab_desc": {
         "message": "Bohu\u017eel Google odstranil mo\u017enost na\u010d\u00edst roz\u0161\u00ed\u0159en\u00ed na v\u00fdchoz\u00ed str\u00e1nce nov\u00e9 karty. Z tohoto d\u016fvodu jsem p\u0159idal n\u011bkolik mo\u017enost\u00ed, kter\u00e9 v\u00e1m umo\u017e\u0148uj\u00ed p\u0159\u00edstup k va\u0161im z\u00e1lo\u017ek\u00e1m p\u0159i otev\u0159en\u00ed nov\u00e9 karty jin\u00fdm zp\u016fsobem."

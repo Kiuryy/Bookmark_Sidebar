@@ -243,6 +243,13 @@
          * Updates the html for the sidebar header
          */
         this.updateSidebarHeader = () => {
+            let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+            let searchVal = "";
+
+            if (searchField.length() > 0 && searchField[0] && searchField[0].value) { // restore the search value before reinitializing the header content
+                searchVal = searchField[0].value;
+            }
+
             ext.elements.header.text("");
             let bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
 
@@ -274,7 +281,7 @@
 
             $("<div />")
                 .addClass(ext.opts.classes.sidebar.searchBox)
-                .append("<input type='text' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder").replace(/'/g, "&#x27;") + "' />")
+                .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder").replace(/'/g, "&#x27;") + "' />")
                 .append("<a class='" + ext.opts.classes.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elements.header);
         };

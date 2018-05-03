@@ -109,7 +109,7 @@
                 }).then(() => {
                     return this.helper.list.updateBookmarkBox();
                 }).then(() => {
-                    this.helper.search.init();
+                    this.helper.search.update();
                 });
             }
         };

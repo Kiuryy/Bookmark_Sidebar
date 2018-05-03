@@ -123,7 +123,6 @@
                     this.markLastUsed();
                 }
 
-                console.log("/sidebar/" + getPageType());
                 ext.helper.model.call("trackPageView", {page: "/sidebar/" + getPageType()});
                 ext.elements.iframe.addClass(ext.opts.classes.page.visible);
                 ext.initImages();

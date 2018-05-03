@@ -31,7 +31,7 @@
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
                 ext.elements.header.removeClass(ext.opts.classes.sidebar.searchVisible);
-                handleSearchValChanged("").then(resolve);
+                this.update("").then(resolve);
             });
         };
 
@@ -41,7 +41,7 @@
          * @param val
          * @returns {Promise}
          */
-        let handleSearchValChanged = (val = null) => {
+        this.update = (val = null) => {
             return new Promise((resolve) => {
                 let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
                 if (val === null) {
@@ -53,7 +53,7 @@
                 if (val && val.length > 0) { // search field is not empty
                     handleSearch(searchField, val).then(resolve);
                 } else { // empty search field -> reset list
-                    handleSearchReset(searchField).then(resolve);
+                    reset(searchField).then(resolve);
                 }
             });
         };
@@ -135,7 +135,7 @@
          * @param {jsu} searchField
          * @returns {Promise}
          */
-        let handleSearchReset = (searchField) => {
+        let reset = (searchField) => {
             return new Promise((resolve) => {
                 searchField.removeData("lastVal");
 
@@ -175,7 +175,7 @@
                 }
 
                 searchTimeout = setTimeout(() => {
-                    handleSearchValChanged();
+                    this.update();
                 }, 500);
             });
 

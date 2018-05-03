@@ -72,7 +72,7 @@
 
             let pageType = getPageType();
 
-            if (((pageType === "newtab_website" || pageType === "newtab_replacement") && data.autoOpen) || data.performReopening) {
+            if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen) || data.performReopening) {
                 this.openSidebar();
                 ext.helper.model.setData({"u/performReopening": false});
             }
@@ -123,6 +123,7 @@
                     this.markLastUsed();
                 }
 
+                console.log("/sidebar/" + getPageType());
                 ext.helper.model.call("trackPageView", {page: "/sidebar/" + getPageType()});
                 ext.elements.iframe.addClass(ext.opts.classes.page.visible);
                 ext.initImages();
@@ -346,7 +347,7 @@
             let maskColor = styles.sidebarMaskColor || null;
 
             return !(
-                ((pageType === "newtab_website" || pageType === "newtab_replacement") && newtabAutoOpen)
+                ((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && newtabAutoOpen)
                 || pageType === "onboarding"
                 || maskColor === "transparent"
             );
@@ -363,13 +364,14 @@
             let found = false;
 
             Object.entries({
-                newtab_default: ["https?://www\.google\..+/_/chrome/newtab"],
+                newtab_default: ["https?://www\\.google\\..+/_/chrome/newtab"],
+                newtab_fallback: [chrome.extension.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
                 newtab_replacement: [chrome.extension.getURL("html/newtab.html")],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],
-                onboarding: ["chrome\-extension://.*/intro.html"],
+                onboarding: ["chrome\\-extension://.*/intro.html"],
                 chrome: ["chrome://"],
-                extension: ["chrome\-extension://"],
+                extension: ["chrome\\-extension://"],
                 local: ["file://"]
             }).some(([key, patterns]) => {
                 patterns.some((str) => {

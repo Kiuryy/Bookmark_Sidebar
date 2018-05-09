@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "Nu ar\u0103ta paginile"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Ceva a blocat bara lateral\u0103"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina Chrome Webstore"
     },
@@ -236,6 +239,18 @@
     "newtab_fallback_headline_system": {
         "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem chrome"
     },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Una dintre regulile dumneavoastr\u0103 de adrese URL nu a permis bara lateral\u0103 s\u0103 se deschid\u0103"
+    },
+    "newtab_fallback_desc": {
+        "message": "Am deschis o nou\u0103 fil\u0103 cu bara lateral\u0103 pentru dumneavoastr\u0103 \u00een schimb."
+    },
+    "newtab_fallback_link": {
+        "message": "Afl\u0103 mai multe"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Afi\u0219a\u021bi \u00eentotdeauna aceast\u0103 pagin\u0103 c\u00e2nd deschide\u021bi o fil\u0103 nou\u0103"
+    },
     "status_service_unavailable_headline": {
         "message": "Serviciu indisponibil"
     },
@@ -247,6 +262,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Serviciul de traducere nu este disponibil momentan. V\u0103 rug\u0103m s\u0103 \u00eencerca\u021bi din nou mai t\u00e2rziu."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Nu s-a putut prelua istoria schimb\u0103rilor. V\u0103 rug\u0103m s\u0103 \u00eencerca\u021bi din nou mai t\u00e2rziu."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Datorit\u0103 actualiz\u0103rii extensiei, aceast\u0103 pagin\u0103 trebuie re\u00eenc\u0103rcat\u0103."
@@ -387,7 +405,19 @@
         "message": "Distra\u021bi-v\u0103 cu bara lateral\u0103."
     },
     "onboarding_goto_settings": {
-        "message": "mai multe set\u0103ri"
+        "message": "Mai multe set\u0103ri"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Configura\u021bi aspectul"
+    },
+    "changelog_title": {
+        "message": "Istoric schimb\u0103ri"
+    },
+    "changelog_current_version": {
+        "message": "Versiunea instalat\u0103 curent"
+    },
+    "changelog_show_release_history": {
+        "message": "Afi\u0219eaz\u0103 istoricul versiunilor detaliat"
     },
     "settings_title": {
         "message": "Set\u0103ri"
@@ -404,6 +434,9 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Sfaturi pentru ajutor"
     },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtru"
+    },
     "settings_menu_appearance": {
         "message": "Aspect"
     },
@@ -411,7 +444,7 @@
         "message": "General"
     },
     "settings_menu_appearance_sidebar": {
-        "message": "bar\u0103 lateral\u0103"
+        "message": "Bar\u0103 lateral\u0103"
     },
     "settings_menu_appearance_indicator": {
         "message": "Indicator"
@@ -661,6 +694,36 @@
     },
     "settings_sidebar_position_right": {
         "message": "Dreapta"
+    },
+    "settings_filter_intro": {
+        "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Ad\u0103uga\u021bi numai un singur model URL pe linie"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Utiliza\u021bi <em>*<\/em> pentru a potrivi oricare dintre caractere (de ex. example.com\/* se potrive\u0219te cu toate paginile de la example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Dac\u0103 nu include\u021bi nicun caracter <em>*<\/em> \u00eentr-o regul\u0103, se va potrivi numai adresa URL exact\u0103 (de exemplu, \"example.com\" nu se va potrivi pentru adresa URL \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Nu este necesar s\u0103 ad\u0103uga\u021bi protocolul (de exemplu, http: \/\/) \u00een reguli"
+    },
+    "settings_filter_visibility": {
+        "message": "\u00cenc\u0103rca\u021bi bara lateral\u0103"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Pe fiecare pagin\u0103"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Pe fiecare pagin\u0103, cu excep\u021bia anumitor pagini"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Numai pe anumite pagini"
+    },
+    "settings_filter_rules": {
+        "message": "Modele URL"
     },
     "settings_import_export_desc": {
         "message": "Pute\u021bi exporta set\u0103rile extensiei \u0219i le pute\u021bi salva local pe computer. Pute\u021bi importa fi\u0219ierul exportat anterior pe orice computer, unde este instalat\u0103 extensia."

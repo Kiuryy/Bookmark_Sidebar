@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "Nie pokazuj stron"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Co\u015b zablokowa\u0142o boczn\u0105 list\u0119"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore"
     },
@@ -236,6 +239,18 @@
     "newtab_fallback_headline_system": {
         "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome"
     },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Jedna z regu\u0142 URL zablokowa\u0142a wy\u015bwietlenie bocznej listy"
+    },
+    "newtab_fallback_desc": {
+        "message": "W zamian otworzono now\u0105 zak\u0142adk\u0119 wraz z boczn\u0105 list\u0105"
+    },
+    "newtab_fallback_link": {
+        "message": "Dowiedz si\u0119 wi\u0119cej"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Zawsze otw\u00f3rz t\u0119 stron\u0119 kiedy otwierana jest nowa zak\u0142adka"
+    },
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"
     },
@@ -247,6 +262,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Us\u0142uga t\u0142umacze\u0144 jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Nie mo\u017cna otworzy\u0107 dziennika zmian. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej"
     },
     "status_background_disconnected_reload_desc": {
         "message": "Z powodu aktualizacji rozszerzenia, ta strona powinna zosta\u0107 od\u015bwie\u017cona."
@@ -684,7 +702,13 @@
         "message": "Dodaj tylko jeden adres w linii."
     },
     "settings_filter_explanation_2": {
-        "message": "U\u017cyj * by por\u00f3wna\u0107 znaki (e.g. example.com\/* pasuje do wszystkich stron example.com)"
+        "message": "U\u017cyj <em>*<\/em> by por\u00f3wna\u0107 znaki (e.g. example.com\/* pasuje do wszystkich stron example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Je\u015bli nie dodasz \u017cadnej <em>*<\/em> do regu\u0142y, to tylko dok\u0142adna regu\u0142a b\u0119dzie dopasowana (np. \"example.com\" nie b\u0119dzie pasowa\u0107 do \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Nie ma potrzeby dodawa\u0107 protok\u00f3\u0142 (np. http:\/\/) do regu\u0142"
     },
     "settings_filter_visibility": {
         "message": "Za\u0142aduj panel boczny"
@@ -694,6 +718,12 @@
     },
     "settings_filter_visibility_blacklist": {
         "message": "Na ka\u017cdej stronie z wyj\u0105tkiem stron szczeg\u00f3lnych"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Tylko na konkretnych stronach"
+    },
+    "settings_filter_rules": {
+        "message": "Wzory URL"
     },
     "settings_import_export_desc": {
         "message": "Mo\u017cesz eksportowa\u0107 swoje ustawienia tego rozszerzenia i zapisa\u0107 je lokalnie na swoim komputerze. Mo\u017cesz zaimportowa\u0107 wcze\u015bniej wyeksportowany plik na jakimkolwiek komputerze, na kt\u00f3rym jest zainstalowane to rozszerzenie."

@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "No mostrar p\u00e1ginas"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Algo ha bloqueado la barra lateral"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "La barra lateral no se puede usar en la Chrome Webstore"
     },
@@ -235,6 +238,18 @@
     },
     "newtab_fallback_headline_system": {
         "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Una de las reglas de su URL no permite que la barra lateral se abra"
+    },
+    "newtab_fallback_desc": {
+        "message": "Hemos abierto una nueva pesta\u00f1a con la barra lateral para usted"
+    },
+    "newtab_fallback_link": {
+        "message": "M\u00e1s informaci\u00f3n"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Mostrar siempre esta p\u00e1gina al abrir una pesta\u00f1a nueva"
     },
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"

@@ -834,7 +834,7 @@
         "message": "Je kan je eigen stylesheet defini\u00ebren welke de standaard stylesheet overschrijft. Gebruik deze optie alles als je bekend bent met CSS en je weet wat je aan het doen bent."
     },
     "settings_newtab_desc": {
-        "message": "Helaas heeft Google de functie om extensies te laden op een new tabblad verwijderd, vanwege dit probleem heb ik wat andere opties toegevoegd om bij je bladwijzers te komen."
+        "message": "Helaas heeft Google de functie om extensies te laden op een nieuw tabblad verwijderd, vanwege dit probleem heb ik wat andere opties toegevoegd om bij je bladwijzers te komen."
     },
     "settings_newtab_override": {
         "message": "Nieuwe tab overschrijven"

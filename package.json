@@ -16,16 +16,16 @@
   },
   "devDependencies": {
     "concat": "^1.0.3",
-    "cp-file": "^5.0.0",
+    "cp-file": "^6.0.0",
     "create-file": "^1.0.1",
     "del": "^3.0.0",
     "eslint": "^4.19.1",
     "glob-concat": "^1.0.1",
-    "html-minifier": "^3.5.15",
+    "html-minifier": "^3.5.16",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.9.0",
     "read-file": "^0.2.0",
-    "request": "^2.85.0",
+    "request": "^2.87.0",
     "uglify-es": "^3.3.10"
   }
 }

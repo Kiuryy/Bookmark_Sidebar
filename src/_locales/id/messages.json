@@ -92,6 +92,9 @@
     "contextmenu_bookmark_manager": {
         "message": "Bookmark Manager"
     },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Jalan pintas keyboard"
+    },
     "sort_label_custom": {
         "message": "Ditetapkan-pengguna"
     },
@@ -221,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "Jangan perlihatkan halaman"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Ada sesuatu menghalangkan sidebar"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Sidebar tidak dapat di gunakan di Chrome Webstore"
     },
@@ -232,6 +238,78 @@
     },
     "newtab_fallback_headline_system": {
         "message": "Sidebar tidak dapat di gunakan di halaman sistem chrome"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Salah satu peraturan URL anda telah menolak sidebar untuk dibuka"
+    },
+    "newtab_fallback_desc": {
+        "message": "Kita telah membuka tab baru untuk sidebar anda sebagai gantinya."
+    },
+    "newtab_fallback_link": {
+        "message": "Belajar lebih lanjut"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Selalu menunjukan halaman ini jika ingin membuka tab baru"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Layanan tidak tersedia"
+    },
+    "status_check_urls_unavailable_desc": {
+        "message": "Layanan yang mengecek URL sedand tidak tersedia sekarang. Tolong untuk mencoba lagi nanti."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Feedback sedang tidak tersedia sekarang. Jika anda ingin mengirim feedback, tolong untuk mengirim saya sebuah email."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Service penejermahan sedang tidak bisa sekarang. Tolong untuk mencob lagi nanti."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Tidak bisa menerima changelog. Tolong coba lagi nanti."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Karena ada update extennsion ini halaman ini harus di reload lagi."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Reload sekarang."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Menunggu dekat entry selanjutnya di sidebar atau contextmenu yang sedang di buka"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Melakukan pemencetan entry yang lagi ditunggu dekat"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Membuka contextmenu untuk entry yang ditunggu dekat"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Mengcopi URL yang ada di entry yang ditunggu dekatin"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Mengilangkan entry yang ditunggu dekatin"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Menutup sidebar, overyang sudah dibuka"
     },
     "onboarding_title": {
         "message": "Setup"
@@ -284,6 +362,9 @@
     "onboarding_goto_settings": {
         "message": "Pengaturan Lainnya"
     },
+    "onboarding_goto_appearance": {
+        "message": "Konfugirasikan penampilan"
+    },
     "settings_title": {
         "message": "Pengaturan"
     },
@@ -298,6 +379,9 @@
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Tooltip"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
     },
     "settings_menu_appearance": {
         "message": "Penampilan"
@@ -353,7 +437,22 @@
     "settings_restored_message": {
         "message": "Konfigurasi pulih dengan sukses"
     },
+    "settings_advanced": {
+        "message": "Pengaturan lebih maju"
+    },
     "settings_not_synced": {
         "message": "Tidak akan disinkronkan di perangkat Anda"
+    },
+    "settings_headline_donation": {
+        "message": "Mendonasi"
+    },
+    "settings_support_donation_desc": {
+        "message": "Donasi ini 100% tidak harus dilakukan, tetapi jika anda suka extension ini dan ingin mendonasikan dengan uang berjumlah sedikit, anda dapat melakukan ini dengan memencet link berikut ini. Saya sangat mengapreasikan setiap bantuan yang saya dapati, baik itu Donasi, membantu dengan menejermahkan atau memberi balasan balik, maupun untuk meningkatkan extension ini."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Membagi informasi"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Pillihan mu telah berhasil di save"
     }
 }

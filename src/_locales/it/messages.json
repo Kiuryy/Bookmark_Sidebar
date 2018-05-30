@@ -122,6 +122,9 @@
     "overlay_bookmark_url": {
         "message": "Indirizzo"
     },
+    "overlay_bookmark_additional_info": {
+        "message": "informazioni addizionali"
+    },
     "overlay_cancel": {
         "message": "Annulla"
     },
@@ -221,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "Non mostrare le pagine"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Qualcosa ha bloccato la barra laterale"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore"
     },
@@ -233,6 +239,18 @@
     "newtab_fallback_headline_system": {
         "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome"
     },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Una delle tue regole sugli URL non ha permesso alla barra laterale di aprirsi"
+    },
+    "newtab_fallback_desc": {
+        "message": "Abbiamo invece aperto una nuova scheda con la barra laterale."
+    },
+    "newtab_fallback_link": {
+        "message": "Per saperne di pi\u00f9"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Mostra sempre questa pagina quando apri una nuova scheda"
+    },
     "status_service_unavailable_headline": {
         "message": "Servizio non disponibile"
     },
@@ -244,6 +262,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Il servizio di traduzione non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Impossibile recuperare il log delle modifiche. Per favore riprova pi\u00f9 tardi."
     },
     "status_background_disconnected_reload_desc": {
         "message": "A causa di un aggiornamento dell'estensione la pagina deve essere ricaricata."
@@ -301,6 +322,9 @@
     },
     "onboarding_goto_settings": {
         "message": "Ulteriori impostazioni"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Configura l'aspetto"
     },
     "settings_title": {
         "message": "Impostazioni"

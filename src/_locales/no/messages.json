@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "Ikke vis sider"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Noe har blokkert side bjelken"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Sidefeltet kan ikke brukes i Chrome nettmarked"
     },
@@ -236,6 +239,18 @@
     "newtab_fallback_headline_system": {
         "message": "Sidefeltet kan ikke brukes p\u00e5 Chrome systemsider"
     },
+    "newtab_fallback_headline_url_filter": {
+        "message": "En av nettadressereglene tillot deg ikke \u00e5 \u00e5pne sidefeltet"
+    },
+    "newtab_fallback_desc": {
+        "message": "I stedet har vi \u00e5pnet en ny sidefeltfan for deg"
+    },
+    "newtab_fallback_link": {
+        "message": "L\u00e6re mer"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Vis alltid denne siden n\u00e5r du \u00e5pner en ny kategori"
+    },
     "status_service_unavailable_headline": {
         "message": "Tjeneste utilgjengelig"
     },
@@ -247,6 +262,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Oversettelsestjenesten er ikke tilgjengelig for \u00f8yeblikket. Vennligst fors\u00f8k igjen senere."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Kunne ikke hente changelog. Pr\u00f8v igjen senere."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Grunnet en oppdatering av tillegget m\u00e5 denne siden lastes inn p\u00e5 nytt."
@@ -391,6 +409,15 @@
     },
     "onboarding_goto_appearance": {
         "message": "Configure appearance"
+    },
+    "changelog_title": {
+        "message": "Endringshistorikk"
+    },
+    "changelog_current_version": {
+        "message": "For \u00f8yeblikket installert versjon"
+    },
+    "changelog_show_release_history": {
+        "message": "Vis detaljert utgivelseshistorikk"
     },
     "settings_title": {
         "message": "Innstillinger"

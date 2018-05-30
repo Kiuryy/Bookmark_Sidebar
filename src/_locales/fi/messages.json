@@ -6,7 +6,7 @@
         "message": "Lis\u00e4\u00e4 napin painalluksella vaihdettavan sivupalkin n\u00e4yt\u00f6n reunaan, joka sis\u00e4lt\u00e4\u00e4 kaikki kirjanmerkkisi."
     },
     "header_bookmarks": {
-        "message": "Kirjanmerkit"
+        "message": "Kirjanmerkki\u00e4"
     },
     "header_bookmarks_single": {
         "message": "Kirjanmerkki"
@@ -224,6 +224,9 @@
     "newtab_top_pages_hidden": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
     },
+    "newtab_fallback_headline_general": {
+        "message": "Jokin esti sivupalkin avautumisen."
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Chrome Webstoressa"
     },
@@ -235,6 +238,18 @@
     },
     "newtab_fallback_headline_system": {
         "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 chromen j\u00e4rjestelm\u00e4sivuilla"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Jokin URL s\u00e4\u00e4nn\u00f6ist\u00e4si esti sivupalkin avaamisen"
+    },
+    "newtab_fallback_desc": {
+        "message": "Avasimme sivupalkin uudessa v\u00e4lilehdess\u00e4"
+    },
+    "newtab_fallback_link": {
+        "message": "Opi lis\u00e4\u00e4"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "N\u00e4yt\u00e4 aina t\u00e4m\u00e4 sivu, kun uusi v\u00e4lilehti avataan"
     },
     "status_service_unavailable_headline": {
         "message": "Palvelu ei saatavilla"
@@ -248,11 +263,59 @@
     "status_translation_unavailable_desc": {
         "message": "K\u00e4\u00e4nn\u00f6spalvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
     },
+    "status_changelog_unavailable_desc": {
+        "message": "Muutoslokin lataaminen ei onnistu. Yrit\u00e4 my\u00f6hemmin uudelleen."
+    },
     "status_background_disconnected_reload_desc": {
         "message": "Laajennuksen p\u00e4ivittymisen vuoksi t\u00e4m\u00e4 sivu on ladattava uudelleen."
     },
     "status_background_disconnected_reload_action": {
         "message": "Lataa uudelleen nyt"
+    },
+    "contribute_headline": {
+        "message": "Tarvitsen apuasi"
+    },
+    "contribute_intro": {
+        "message": "Laajenuksen parantamiseksi haluaisin tiet\u00e4\u00e4 enemm\u00e4n k\u00e4ytt\u00e4jien asetuksista ja miten sivupalkkia k\u00e4ytet\u00e4\u00e4n"
+    },
+    "contribute_outro": {
+        "message": "Jos olet huolissasi tai sinulla on kysytt\u00e4v\u00e4\u00e4 henkil\u00f6kotaisten tietojen jakamisesta l\u00e4het\u00e4 palautetta minulle."
+    },
+    "contribute_dismiss": {
+        "message": "Hylk\u00e4\u00e4"
+    },
+    "contribute_share_config_label": {
+        "message": "Jaa asetukset"
+    },
+    "contribute_share_config_desc": {
+        "message": "Jaat asetuksesi anonyymisti, joka auttaa minua selvitt\u00e4m\u00e4\u00e4n suosituimmat asetukset ja ymm\u00e4rt\u00e4m\u00e4\u00e4n miten parantaa tai muuttaa tulevia julkaisuja."
+    },
+    "contribute_share_activity_label": {
+        "message": "Jaa aktiviteetti"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Voit jakaa aktiviteettisi sivupaneelissa anonyymisti, joka auttaa ymm\u00e4rt\u00e4m\u00e4\u00e4n miten ihmiset yleisesti k\u00e4ytt\u00e4v\u00e4t ohjelmaa. Kirjanmerkkisi tai selaus tottumukset [b]eiv\u00e4t[\/b] kuulu tutkittaviin tietoihin."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "T\u00e4m\u00e4 on t\u00e4rke\u00e4\u00e4 tietoa ongelmien l\u00f6yt\u00e4miseksi ohjelman k\u00e4yt\u00f6ss\u00e4 tai harvemmin k\u00e4ytetyist\u00e4 ominaisuuksista."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Jaettu data on esimerkiksi:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Kuinka monta kirjanmerkki\u00e4 k\u00e4ytt\u00e4jill\u00e4 on keskim\u00e4\u00e4r\u00e4isesti?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Mill\u00e4 alustoilla k\u00e4ytt\u00e4j\u00e4t ovat (Windows, Mac, Linux,...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "K\u00e4ytet\u00e4\u00e4nk\u00f6 hakua?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "K\u00e4ytet\u00e4\u00e4nk\u00f6 kirjanmerkkien lajittelua?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Kuinka usein k\u00e4ytt\u00e4j\u00e4t j\u00e4rjestelev\u00e4t ja muokkaavat kohteita?"
     },
     "onboarding_title": {
         "message": "Asennus"
@@ -304,6 +367,96 @@
     },
     "onboarding_goto_settings": {
         "message": "Lis\u00e4\u00e4 asetuksia"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Ulkon\u00e4k\u00f6 asetukset"
+    },
+    "changelog_title": {
+        "message": "Muutos loki"
+    },
+    "changelog_current_version": {
+        "message": "Asennetu versio"
+    },
+    "changelog_show_release_history": {
+        "message": "N\u00e4yt\u00e4 yksityiskohtainen julkaisu historia"
+    },
+    "settings_title": {
+        "message": "Asetukset"
+    },
+    "settings_menu_sidebar": {
+        "message": "Sivupalkki"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Yleiset"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Vaihda"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Ty\u00f6kaluvinkit"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Suodata"
+    },
+    "settings_menu_appearance": {
+        "message": "Ulkoasu"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Yleiset"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Sivupalkki"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Ilmaisin"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Kuvake"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "P\u00e4\u00e4llyskuva"
+    },
+    "settings_menu_newtab": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "settings_menu_language": {
+        "message": "Kieli"
+    },
+    "settings_menu_language_general": {
+        "message": "Yleiset"
+    },
+    "settings_menu_language_translate": {
+        "message": "K\u00e4\u00e4nn\u00e4"
+    },
+    "settings_menu_feedback": {
+        "message": "Palaute"
+    },
+    "settings_menu_support": {
+        "message": "Tuki"
+    },
+    "settings_menu_export": {
+        "message": "Tuo\/Vie"
+    },
+    "settings_save": {
+        "message": "Tallenna muutokset"
+    },
+    "settings_saved_message": {
+        "message": "Muutokset tallennettiin"
+    },
+    "settings_restore": {
+        "message": "Palauta oletusasetukset"
+    },
+    "settings_restore_confirm": {
+        "message": "Haluatko varmasti palauttaa oletusasetukset?"
+    },
+    "settings_restored_message": {
+        "message": "Asetukset palautettiin onnistuneesti"
+    },
+    "settings_advanced": {
+        "message": "Lis\u00e4asetukset"
+    },
+    "settings_not_synced": {
+        "message": "Ei synkronoida laitteittesi v\u00e4lill\u00e4."
     },
     "settings_animations": {
         "message": "Salli animaatiot"
@@ -391,6 +544,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "Ei mit\u00e4\u00e4n"
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Avaa kaikki kansion kirjanmerkit (Varoitus)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Kirjainmerkkien m\u00e4\u00e4r\u00e4, jolloin tulee varoitus, kun yritet\u00e4\u00e4n avata kaikki kansion lapset yht\u00e4 aikaa."
     },
     "settings_dir_open_duration": {
         "message": "Kansion avaamisen kesto"
@@ -488,6 +647,24 @@
     "settings_sidebar_position_right": {
         "message": "Oikea"
     },
+    "settings_filter_explanation_1": {
+        "message": "Lis\u00e4\u00e4 vain yksi URL sy\u00f6te yhdelle riville"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Protokollaa (e.g. http:\/\/) ei tarvitse lis\u00e4t\u00e4 s\u00e4\u00e4nt\u00f6ihin."
+    },
+    "settings_filter_visibility": {
+        "message": "Lataa sivupalkki"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Joka sivulla"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Joka sivulla lukuunottamatta erikseen m\u00e4\u00e4riteltyj\u00e4 sivuja."
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Vain m\u00e4\u00e4ritellyill\u00e4 sivuilla"
+    },
     "settings_import_export_desc": {
         "message": "Voit tallentaa laajennuksen asetukset tietokoneellesi. Voit palauttaa tallentamasi asetukset mille tietokoneelle tahansa jossa laajennus on asennettuna."
     },
@@ -502,5 +679,191 @@
     },
     "settings_import_failed": {
         "message": "Asetusten tuonti ep\u00e4onnistui. Ole hyv\u00e4 ja valitse kelvollinen tiedosto."
+    },
+    "settings_presets": {
+        "message": "Esivalinnat"
+    },
+    "settings_color_scheme": {
+        "message": "V\u00e4ri teema"
+    },
+    "settings_dark_mode": {
+        "message": "Pinta"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Sivupalkin, otsikon, valintalaatikoiden, jne, v\u00e4ri."
+    },
+    "settings_text_color": {
+        "message": "Tekstin v\u00e4ri"
+    },
+    "settings_hover_color": {
+        "message": "Hiiren kohdistamisen v\u00e4ri"
+    },
+    "settings_font_family": {
+        "message": "Kirjasintyyppi"
+    },
+    "settings_font_family_default": {
+        "message": "Oletus"
+    },
+    "settings_font_family_desc": {
+        "message": "Sivupalkin ja j\u00e4rjestelm\u00e4n kirjasintyyppi"
+    },
+    "settings_scrollbar_width": {
+        "message": "Vierityspalkin leveys"
+    },
+    "settings_icon_color": {
+        "message": "V\u00e4ri"
+    },
+    "settings_indicator_width": {
+        "message": "Leveys"
+    },
+    "settings_indicator_color": {
+        "message": "V\u00e4ri"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Kuvakkeen koko"
+    },
+    "settings_indicator_icon_color": {
+        "message": "kuvakkeen v\u00e4ri"
+    },
+    "settings_sidebar_width": {
+        "message": "Leveys"
+    },
+    "settings_header_height": {
+        "message": "Otsikotaulun korkeus"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "P\u00e4\u00e4llysv\u00e4ri"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Kansion kuvake"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Kansion kuvakkeen v\u00e4ri"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Kirjanmerkkien fontti koko"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Kirjanmerkkien kuvakeiden koko"
+    },
+    "settings_directories_icon_size": {
+        "message": "Kansioiden kuvakkeiden koko"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Kirjanmerkkien rivi korkeus"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Ty\u00f6kaluvinkkien fonttikoko"
+    },
+    "settings_overlay_mask_color": {
+        "message": "P\u00e4\u00e4llys v\u00e4ri"
+    },
+    "settings_icon_shape": {
+        "message": "Muoto"
+    },
+    "settings_newtab_desc": {
+        "message": "Google on ik\u00e4v\u00e4 kyll\u00e4 poistanut mahdollisuuden ladata lis\u00e4osia, \"uusi v\u00e4lilehti\" oletussivulle. T\u00e4m\u00e4n takia lis\u00e4sin mahdollisuuden avata kirjanmerkit uudessa v\u00e4lilehdess\u00e4 toisella tavalla."
+    },
+    "settings_newtab_override": {
+        "message": "Syrj\u00e4yt\u00e4 uusi v\u00e4lilehti"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Pit\u00e4isik\u00f6 lis\u00e4osan syrj\u00e4ytt\u00e4\u00e4 nykyinen uusi v\u00e4lilehti muokatulla versiolla vai ladata nettisivu, joka aukeaaisi aina uuden v\u00e4lilehden paikalle?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Avaa sivupaneeli automaattisesti."
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Aseta n\u00e4kyyk\u00f6 sivupaneeli automaattisesti, kun avaat uuden v\u00e4lilehden."
+    },
+    "settings_newtab_website": {
+        "message": "Lataa sivu"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Muokatun uuden v\u00e4lilehden tilalle voit asettaa nettisivun joka ladataan sen sijaan."
+    },
+    "settings_language": {
+        "message": "Kieli"
+    },
+    "settings_language_default": {
+        "message": "Selaimen oletukset"
+    },
+    "settings_language_desc": {
+        "message": "K\u00e4ytt\u00f6liittym\u00e4n kieli"
+    },
+    "settings_translation_link": {
+        "message": "K\u00e4\u00e4nn\u00f6sten yleiskatsaus"
+    },
+    "settings_translation_desc": {
+        "message": "Voit auttaa k\u00e4\u00e4nt\u00e4m\u00e4\u00e4n laajennuksen kielellesi tai parantaa jo olemassa olevaa k\u00e4\u00e4nn\u00f6st\u00e4."
+    },
+    "settings_translation_add_language": {
+        "message": "Lis\u00e4\u00e4 kieli"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Takaisin yleiskatsaukseen"
+    },
+    "settings_translation_info": {
+        "message": "Voit muokata olemassa olevia k\u00e4\u00e4nn\u00f6ksi\u00e4 tai lis\u00e4t\u00e4 puuttuvia. Jos l\u00e4het\u00e4t muutoksesi, niin arvioin ja hyv\u00e4ksyn sen."
+    },
+    "settings_translation_notice1": {
+        "message": "Heti kun kaikki vaadittaviksi merkityt osiot on tehty, niin k\u00e4\u00e4nn\u00f6s julkaistaan."
+    },
+    "settings_translation_notice2": {
+        "message": "Keskener\u00e4isi\u00e4 osioita ei julkaista puolittaisten k\u00e4\u00e4nn\u00f6sten est\u00e4miseksi."
+    },
+    "settings_translation_help": {
+        "message": "Jokaisessa osiossa n\u00e4et englannin kielisen tekstin, joka pit\u00e4isi k\u00e4\u00e4nt\u00e4\u00e4 omalle kielellesi. Ymm\u00e4rt\u00e4\u00e4ksesi miss\u00e4 ja mihin tarkoitukseen teksti\u00e4 k\u00e4ytet\u00e4\u00e4n, jokainen kohde on nimetty (e.g. {1}), jota ei k\u00e4\u00e4nnet\u00e4. \u00c4l\u00e4 unohda l\u00e4hett\u00e4\u00e4 k\u00e4\u00e4nn\u00f6st\u00e4 painamalla oikean yl\u00e4kulman nappia!"
+    },
+    "settings_translation_submit": {
+        "message": "L\u00e4het\u00e4"
+    },
+    "settings_translation_submit_message": {
+        "message": "K\u00e4\u00e4nn\u00f6ksesi on l\u00e4hetetty onnistuneesti"
+    },
+    "settings_translation_status_released": {
+        "message": "K\u00e4\u00e4nn\u00f6s tarjolla"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "K\u00e4\u00e4nn\u00f6s on tarjolla, mutta kaikki osiot eiv\u00e4t ole valmiita"
+    },
+    "settings_translation_status_draft": {
+        "message": "K\u00e4\u00e4nt\u00e4minen kesken tai vaatii arviointia ja ei ole k\u00e4ytett\u00e4viss\u00e4"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Joitain k\u00e4\u00e4nn\u00f6ksi\u00e4 puuttuu"
+    },
+    "settings_translation_required_category": {
+        "message": "Vaaditaan"
+    },
+    "settings_feedback_desc": {
+        "message": "Parannus ehdotuksia, kysymyksi\u00e4, l\u00f6ysitk\u00f6 puuttuvan asetuksen tai bugin? Auttaaksesi lis\u00e4osan k\u00e4ytt\u00f6kokemuksen parantamisessa olisin eritt\u00e4in kiitollinen kaikesta mahdollisesta palautteestasi."
+    },
+    "settings_feedback_notice": {
+        "message": "L\u00e4het\u00e4 palautteesi enlanniksi, ettei ymm\u00e4rt\u00e4minen ja vastaaminen viestiisi olisi vaikeaa."
+    },
+    "settings_feedback_email": {
+        "message": "S\u00e4hk\u00f6posti osoitteesi"
+    },
+    "settings_feedback_send": {
+        "message": "L\u00e4het\u00e4 palautetta"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Kiitos palautteestasi"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Viesti\u00e4si ei voitu l\u00e4hett\u00e4\u00e4. Yrit\u00e4 uudelleen."
+    },
+    "settings_headline_donation": {
+        "message": "Lahjoita"
+    },
+    "settings_support_donation_desc": {
+        "message": "Lahjoittaminen on t\u00e4ysin vapaaehtoista, mutta jos pid\u00e4t lis\u00e4osasta ja haluat antaa pienen lahjoituksen, voit tehd\u00e4 niin valitsemalla seuraavan linkin. Arvostan kaikkea mahdollista apua, olkoon se sitten lahjoitus, k\u00e4nn\u00f6ksiss\u00e4 auttaminen tai palautteen antaminen ohjelman parantamiseksi."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Jaa informaatiota"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Sinun mieltymyksesi on tallenettu"
     }
 }

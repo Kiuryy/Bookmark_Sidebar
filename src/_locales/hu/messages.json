@@ -239,6 +239,12 @@
     "newtab_fallback_headline_system": {
         "message": "Az oldals\u00e1v nem haszn\u00e1lhat\u00f3 a chrome saj\u00e1t oldalain"
     },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Az egyik URL szab\u00e1ly megg\u00e1tolta az oldals\u00e1v megnyit\u00e1s\u00e1t"
+    },
+    "newtab_fallback_desc": {
+        "message": "Helyette megnyitottunk egy \u00fcres f\u00fclet az oldals\u00e1vval."
+    },
     "newtab_fallback_link": {
         "message": "Tudj meg t\u00f6bbet"
     },

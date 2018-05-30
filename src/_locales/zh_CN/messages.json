@@ -117,7 +117,7 @@
         "message": "\u6309\u6708"
     },
     "overlay_bookmark_title": {
-        "message": "\u540d\u79f0"
+        "message": "\u6807\u9898"
     },
     "overlay_bookmark_url": {
         "message": "\u94fe\u63a5"
@@ -372,19 +372,19 @@
         "message": "\u4f60\u60f3\u5728\u54ea\u4e2a\u4f4d\u7f6e\u653e\u7f6e\u4fa7\u8fb9\u680f?"
     },
     "onboarding_sidebar_open_action_desc": {
-        "message": "\u4f60\u60f3\u600e\u6837\u6253\u5f00\u4fa7\u8fb9\u680f\uff1f"
+        "message": "\u4f60\u60f3\u5982\u4f55\u6253\u5f00\u4fa7\u8fb9\u680f\uff1f"
     },
     "onboarding_sidebar_surface_desc": {
-        "message": "\u4f60\u559c\u6b22\u54ea\u79cd\u98ce\u683c\uff1f"
+        "message": "\u4f60\u504f\u597d\u54ea\u79cd\u98ce\u683c\uff1f"
     },
     "onboarding_sidebar_surface_light": {
-        "message": "\u6d45\u8272"
+        "message": "\u6de1\u96c5"
     },
     "onboarding_sidebar_surface_dark": {
-        "message": "\u6df1\u8272"
+        "message": "\u6697\u8272"
     },
     "onboarding_handson_desc": {
-        "message": "\u73b0\u5728\u60a8\u53ef\u4ee5\u81ea\u5df1\u8fdb\u884c\u5c1d\u8bd5"
+        "message": "\u73b0\u5728\u60a8\u53ef\u4ee5\u81ea\u884c\u5c1d\u8bd5"
     },
     "onboarding_handson_mouse_desc_1": {
         "message": "\u79fb\u52a8\u9f20\u6807\u5230\u6d4f\u89c8\u5668\u754c\u9762\u8fb9\u7f18"

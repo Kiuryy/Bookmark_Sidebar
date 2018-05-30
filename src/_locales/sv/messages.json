@@ -320,6 +320,9 @@
     "settings_menu_sidebar_tooltip": {
         "message": "Inforuta"
     },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtrera"
+    },
     "settings_menu_appearance": {
         "message": "Utseende"
     },

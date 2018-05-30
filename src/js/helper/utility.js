@@ -122,6 +122,10 @@
          * @returns {boolean}
          */
         this.isUrlOnBlacklist = (url) => {
+            if (!url || url.trim().length === 0) {
+                return true;
+            }
+
             let ret = false;
 
             [

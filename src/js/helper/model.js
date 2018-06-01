@@ -251,20 +251,6 @@
                             }
                         }
 
-                        if (keyInfo === "n/autoOpen") { // @deprecated backward compatibility (01-2018)
-                            value = this.getData("n/initialOpen");
-                            if (value !== null) {
-                                scope = "__FOUND";
-                            }
-                        }
-
-                        if (keyInfo === "b/reopenSidebar") { // @deprecated backward compatibility (01-2018)
-                            value = this.getData("b/autoOpen");
-                            if (value !== null) {
-                                scope = "__FOUND";
-                            }
-                        }
-
                         if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];
                         }

@@ -269,11 +269,9 @@
 
             s.opts.elm.buttons.keyboardShortcut.on("click", (e) => {
                 e.preventDefault();
-                let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./); // @deprecated url of shortcut page has changed with Chrome 64 -> switch for older versions can be removed when min required version >= 64
-                let version = versionRaw ? parseInt(versionRaw[2], 10) : null;
 
                 chrome.tabs.create({
-                    url: version >= 64 ? "chrome://extensions/shortcuts" : "chrome://extensions/configureCommands",
+                    url: "chrome://extensions/shortcuts",
                     active: true
                 });
             });

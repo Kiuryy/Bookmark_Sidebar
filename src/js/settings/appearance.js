@@ -97,7 +97,6 @@
                         utility.customCss = config.utility.customCss;
 
                         chrome.storage.local.set({utility: utility}, () => {
-                            s.helper.model.call("reloadIcon");
                             resolve();
                         });
                     });

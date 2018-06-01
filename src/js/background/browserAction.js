@@ -13,8 +13,45 @@
         this.init = () => {
             return new Promise((resolve) => {
                 initEvents();
-                initContextmenus();
+                this.initContextmenus();
                 resolve();
+            });
+        };
+
+        /**
+         * Adds a link to the changelog page in the browser action contextmenu,
+         * Adds an entry to the page contextmenu which toggles the sidebar (like the extension icon)
+         *
+         * @returns {Promise}
+         */
+        this.initContextmenus = async () => {
+            return new Promise((resolve) => {
+                b.helper.language.getLangVars().then((info) => {
+                    chrome.contextMenus.removeAll(() => {
+                        chrome.contextMenus.create({
+                            id: "bsChangelog",
+                            title: info.vars.changelog_title.message,
+                            contexts: ["browser_action"]
+                        });
+
+                        chrome.contextMenus.create({
+                            id: "bsToggle",
+                            title: b.manifest.name,
+                            contexts: ["page"],
+                            documentUrlPatterns: ["https://*/*", "http://*/*"]
+                        });
+
+                        chrome.contextMenus.onClicked.addListener((obj) => {
+                            if (obj.menuItemId === "bsChangelog") {
+                                chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                            } else if (obj.menuItemId === "bsToggle") {
+                                toggleSidebar();
+                            }
+                        });
+
+                        resolve();
+                    });
+                });
             });
         };
 
@@ -102,39 +139,6 @@
             }
 
             chrome.tabs.create({url: chrome.extension.getURL("html/newtab.html") + "?type=" + type});
-        };
-
-        /**
-         * Adds a link to the changelog page in the browser action contextmenu,
-         * Adds an entry to the page contextmenu which toggles the sidebar (like the extension icon)
-         *
-         * @returns {Promise}
-         */
-        let initContextmenus = async () => {
-            b.helper.language.getLangVars().then((info) => {
-                chrome.contextMenus.removeAll(() => {
-                    chrome.contextMenus.create({
-                        id: "bsChangelog",
-                        title: info.vars.changelog_title.message,
-                        contexts: ["browser_action"]
-                    });
-
-                    chrome.contextMenus.create({
-                        id: "bsToggle",
-                        title: b.manifest.name,
-                        contexts: ["page"],
-                        documentUrlPatterns: ["https://*/*", "http://*/*"]
-                    });
-
-                    chrome.contextMenus.onClicked.addListener((obj) => {
-                        if (obj.menuItemId === "bsChangelog") {
-                            chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
-                        } else if (obj.menuItemId === "bsToggle") {
-                            toggleSidebar();
-                        }
-                    });
-                });
-            });
         };
 
         /**

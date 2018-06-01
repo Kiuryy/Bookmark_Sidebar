@@ -300,6 +300,7 @@
                     trackEvent: b.helper.analytics.trackEvent,
                     updateIcon: b.helper.icon.set,
                     reloadIcon: b.helper.icon.init,
+                    reloadContextmenus: b.helper.browserAction.initContextmenus,
                     clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
                     setNotWorkingReason: b.helper.browserAction.setReason,
                     addViewAmount: b.helper.viewAmount.addByUrl,

@@ -390,8 +390,11 @@
                         this.helper.appearance.save(),
                         this.helper.newtab.save()
                     ]).then(() => {
-                        this.helper.model.call("reinitialize");
                         this.showSuccessMessage("saved_message");
+                        return this.helper.model.call("reinitialize");
+                    }).then(() => {
+                        this.helper.model.call("reloadIcon");
+                        this.helper.model.call("reloadContextmenus");
                     });
                 }
             });

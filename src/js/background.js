@@ -206,10 +206,11 @@
             Promise.all([
                 this.helper.model.init(),
                 this.helper.language.init(),
-                this.helper.icon.init(),
                 this.helper.analytics.init(),
                 this.helper.bookmarkApi.init()
             ]).then(() => {
+                return this.helper.icon.init();
+            }).then(() => {
                 return Promise.all([
                     initEvents(),
                     this.helper.browserAction.init(),

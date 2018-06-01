@@ -16,7 +16,6 @@
                     getInfo(),
                     b.helper.language.getLangVars()
                 ]).then(([info, lang]) => {
-                    console.log(lang);
                     chrome.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
 
                     if (info.name === "logo") {

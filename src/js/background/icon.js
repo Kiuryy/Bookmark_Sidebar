@@ -12,15 +12,21 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                getInfo().then((obj) => {
-                    if (obj.name === "logo") {
+                Promise.all([
+                    getInfo(),
+                    b.helper.language.getLangVars()
+                ]).then(([info, lang]) => {
+                    console.log(lang);
+                    chrome.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
+
+                    if (info.name === "logo") {
                         chrome.browserAction.setIcon({
                             path: b.manifest.browser_action.default_icon
                         });
                     } else {
                         this.set({
-                            name: obj.name,
-                            color: obj.color
+                            name: info.name,
+                            color: info.color
                         });
                     }
 

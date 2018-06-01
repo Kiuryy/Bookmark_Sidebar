@@ -30,6 +30,7 @@
 
             window.ga("create", "UA-" + (trackingCode[b.isDev ? "dev" : "live"]), "auto");
             window.ga("set", "checkProtocolTask", null);
+            window.ga("set", "anonymizeIp", true);
             window.ga("set", "transport", "beacon");
         };
 

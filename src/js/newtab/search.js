@@ -36,11 +36,17 @@
                     }
                 }
             },
+            duckduckgo: {
+                name: "DuckDuckGo",
+                url: "https://duckduckgo.com/",
+                queryUrl: "https://duckduckgo.com/?q={1}",
+                sorting: 40
+            },
             yandex: {
                 name: "Yandex",
                 url: "https://yandex.com/",
                 queryUrl: "https://yandex.com/search/?text={1}",
-                sorting: 40,
+                sorting: 50,
                 lang: {
                     ru: {
                         name: "Яндекс",
@@ -65,7 +71,7 @@
                 name: "Baidu",
                 url: "https://www.baidu.com/",
                 queryUrl: "https://www.baidu.com/s?wd={1}",
-                sorting: 50,
+                sorting: 60,
                 lang: {
                     "zh-CN": {
                         name: "百度",

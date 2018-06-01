@@ -26,25 +26,45 @@
          */
         this.initContextmenus = async () => {
             return new Promise((resolve) => {
-                b.helper.language.getLangVars().then((info) => {
+
+                let configPromise = new Promise((rslv) => {
+                    chrome.storage.sync.get(["behaviour"], (obj) => {
+                        rslv(obj);
+                    });
+                });
+
+                Promise.all([
+                    configPromise,
+                    b.helper.language.getLangVars()
+                ]).then(([config, lang]) => {
+                    let pageContextmenu = true;
+
+                    if (config && config.behaviour && typeof config.behaviour.contextmenu !== "undefined") {
+                        pageContextmenu = config.behaviour.contextmenu;
+                    }
+
                     chrome.contextMenus.removeAll(() => {
+                        let uid = Math.random().toString(36).substr(2, 12);
+
                         chrome.contextMenus.create({
-                            id: "bsChangelog",
-                            title: info.vars.changelog_title.message,
+                            id: "bsChangelog_" + uid,
+                            title: lang.vars.changelog_title.message,
                             contexts: ["browser_action"]
                         });
 
-                        chrome.contextMenus.create({
-                            id: "bsToggle",
-                            title: b.manifest.name,
-                            contexts: ["page"],
-                            documentUrlPatterns: ["https://*/*", "http://*/*"]
-                        });
+                        if (pageContextmenu) { // only show page contextmenu when not disabled in the settings
+                            chrome.contextMenus.create({
+                                id: "bsToggle_" + uid,
+                                title: b.manifest.name,
+                                contexts: ["page"],
+                                documentUrlPatterns: ["https://*/*", "http://*/*"]
+                            });
+                        }
 
                         chrome.contextMenus.onClicked.addListener((obj) => {
-                            if (obj.menuItemId === "bsChangelog") {
+                            if (obj.menuItemId === "bsChangelog_" + uid) {
                                 chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
-                            } else if (obj.menuItemId === "bsToggle") {
+                            } else if (obj.menuItemId === "bsToggle_" + uid) {
                                 toggleSidebar();
                             }
                         });

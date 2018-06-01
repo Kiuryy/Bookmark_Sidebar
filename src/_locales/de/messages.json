@@ -497,12 +497,6 @@
     "settings_not_synced": {
         "message": "Wird nicht zwischen deinen Ger\u00e4ten synchronisiert."
     },
-    "settings_animations": {
-        "message": "Animation aktivieren"
-    },
-    "settings_animations_desc": {
-        "message": "Erm\u00f6glicht die Deaktivierung aller Animationen der Sidebar. Dies kann hilfreich sein, wenn die Animationen ruckeln oder zu viel Leistung ben\u00f6tigen."
-    },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"
     },
@@ -694,6 +688,18 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
+    },
+    "settings_animations": {
+        "message": "Animation aktivieren"
+    },
+    "settings_animations_desc": {
+        "message": "Erm\u00f6glicht die Deaktivierung aller Animationen der Sidebar. Dies kann hilfreich sein, wenn die Animationen ruckeln oder zu viel Leistung ben\u00f6tigen."
+    },
+    "settings_contextmenu": {
+        "message": "Eintrag im Rechtsklickmen\u00fc"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Zeigt im Rechtsklickmen\u00fc von Chrome einen Eintrag zum Ein- und Ausblenden der Sidebar an"
     },
     "settings_filter_intro": {
         "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."

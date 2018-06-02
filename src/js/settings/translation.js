@@ -407,6 +407,13 @@
                 }
 
                 $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
+
+                // @deprecated sticky positioning seems to have changed with Chrome 68 -> this workaround can be removed as soon as v68 is the min required version
+                let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+                let version = versionRaw ? parseInt(versionRaw[2], 10) : null;
+                if (version < 68) {
+                    header.css("top", "-35px");
+                }
             }
 
             s.opts.elm.translation.langvars.removeClass(s.opts.classes.visible);

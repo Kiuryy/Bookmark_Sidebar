@@ -1,9 +1,0 @@
-{
-	"version": 3,
-	"file": "translation.css",
-	"sources": [
-		"../../../scss/include/settings/translation.scss"
-	],
-	"names": [],
-	"mappings": ""
-}

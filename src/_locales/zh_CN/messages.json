@@ -279,19 +279,19 @@
         "message": "Shift"
     },
     "keyboard_shortcuts_key_enter": {
-        "message": "\u8f93\u5165"
+        "message": "Enter"
     },
     "keyboard_shortcuts_key_ctrl": {
-        "message": "\u63a7\u5236"
+        "message": "Ctrl"
     },
     "keyboard_shortcuts_key_cmd": {
-        "message": "\u547d\u4ee4"
+        "message": "Command"
     },
     "keyboard_shortcuts_key_del": {
-        "message": "\u5220\u9664"
+        "message": "Delete"
     },
     "keyboard_shortcuts_key_esc": {
-        "message": "\u9000\u51fa"
+        "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
         "message": "\u5c06\u4e0b\u4e00\u4e2a\u6761\u76ee\u60ac\u505c\u5728\u4fa7\u8fb9\u680f\u6216\u5f53\u524d\u6253\u5f00\u7684\u4e0a\u4e0b\u6587\u83dc\u5355\u4e2d"

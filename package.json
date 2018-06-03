@@ -10,7 +10,7 @@
     "url": "https://github.com/Kiuryy/Bookmark_Sidebar"
   },
   "scripts": {
-    "init": "npm install --save-dev node-sass && npm install --save-dev eslint && npm install --only=dev && node build/run.js",
+    "init": "npm install --only=dev && node build/run.js",
     "release": "ncu -a --packageFile package.json && npm update && eslint --fix src/js/**/*.js && eslint --fix build/**/*.js && node build/run.js",
     "scss": "node-sass --source-map true -o src/css src/scss"
   },
@@ -24,6 +24,7 @@
     "html-minifier": "^3.5.16",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.9.0",
+    "npm-check-updates": "2.14.2",
     "read-file": "^0.2.0",
     "request": "^2.87.0",
     "uglify-es": "^3.3.10"

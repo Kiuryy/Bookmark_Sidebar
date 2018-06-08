@@ -653,6 +653,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Sidebar automatisch wieder \u00f6ffnen, nachdem ein Lesezeichen aus der Sidebar heraus ge\u00f6ffnet wurde."
     },
+    "settings_prevent_windowed": {
+        "message": "Sidebar im Fenstermodus deaktivieren"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Verhindert das \u00d6ffnen der Sidebar durch per Links- bzw. Rechtsklick oder Mouseover des Browserrfensterrandes wenn der Browser im Fenstermodus ge\u00f6ffnet wurde."
+    },
     "settings_tooltip_delay": {
         "message": "Tooltip Verz\u00f6gerung"
     },

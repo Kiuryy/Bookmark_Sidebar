@@ -150,13 +150,17 @@
         };
 
         /**
-         * Checks whether the browser is maximized or windowed
+         * Returns whether the browser is windowed or not
+         * returns always true if Chrome mobile is used (e.g. when viewing a website in mobile view with devtools)
          *
          * @returns {boolean}
          */
         this.isWindowed = () => {
             let limit = 12;
-            return window.screenX > limit || window.screenY > limit || Math.abs(window.screen.availWidth - window.innerWidth) > limit;
+            return window.screenX > limit ||
+                window.screenY > limit ||
+                Math.abs(window.screen.availWidth - window.innerWidth) > limit ||
+                (window.navigator && window.navigator && window.navigator.userAgent && window.navigator.userAgent && window.navigator.userAgent.search(/[/\s-_]mobile[/\s-_]/i) > -1);
         };
     };
 

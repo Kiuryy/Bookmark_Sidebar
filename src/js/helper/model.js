@@ -67,6 +67,7 @@
                 linkAction: "current",
                 dirAccordion: false,
                 reopenSidebar: false,
+                preventWindowed: false,
                 rememberState: "openStatesAndPos",
                 tooltipDelay: 1,
                 tooltipContent: "all",

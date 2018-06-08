@@ -7,6 +7,7 @@
         let dndOpen = null;
         let toggleArea = {};
         let preventPageScroll = null;
+        let preventWindowed = null;
         let openDelay = 0;
         let indicatorWidth = null;
         let inPixelToleranceTime = null;
@@ -27,7 +28,7 @@
                 ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
             }
 
-            let data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
+            let data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
 
             Object.entries(data.toggleArea).forEach(([key, val]) => {
                 toggleArea[key] = +val;
@@ -36,6 +37,7 @@
             openDelay = +data.openDelay * 1000;
             sidebarPos = data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
+            preventWindowed = data.preventWindowed;
             dndOpen = data.dndOpen;
 
             ext.elements.indicator.css({
@@ -398,7 +400,9 @@
         let isMousePosInPixelTolerance = (clientX, clientY) => {
             let ret = false;
 
-            if (keypressed !== null && +new Date() - keypressed < 500) {
+            if (preventWindowed && ext.helper.utility.isWindowed()) {
+                // prevent opening the sidebar in window mode with the according setting set to true
+            } else if (keypressed !== null && +new Date() - keypressed < 500) {
                 // a key is pressed -> prevent opening the sidebar
             } else if (typeof clientX !== "undefined" && clientX !== null) {
                 if ((clientX > 0 || clientY > 0) || mouseNotTopLeft) { // protection from unwanted triggers with x = 0 and y = 0 on pageload

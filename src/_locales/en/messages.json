@@ -653,6 +653,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Automatically open the sidebar again, after opening a bookmark from within the sidebar."
     },
+    "settings_prevent_windowed": {
+        "message": "Disable sidebar in window mode"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Disables the possibility to open the sidebar by clicking or hovering the edge of the browser content when the browser is in window mode."
+    },
     "settings_tooltip_delay": {
         "message": "Tooltip delay"
     },
@@ -699,7 +705,7 @@
         "message": "Contextmenu entry"
     },
     "settings_contextmenu_desc": {
-        "message": "Display an entry for the extension in the contextmenu of Chrome to toggle the sidebar"
+        "message": "Display an entry in the contextmenu of Chrome to toggle the sidebar"
     },
     "settings_filter_intro": {
         "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to (blacklist)."

@@ -41,6 +41,8 @@
             },
             manifest: chrome.runtime.getManifest()
         };
+        this.cl = this.opts.classes;
+        this.attr = this.opts.attr;
 
         /**
          * Constructor
@@ -48,7 +50,7 @@
         this.run = () => {
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
-            this.opts.elm.body.addClass(this.opts.classes.initLoading);
+            this.opts.elm.body.addClass(this.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -65,7 +67,7 @@
 
                 return this.helper.model.call("trackPageView", {page: "/changelog"});
             }).then(() => {
-                this.opts.elm.body.removeClass(this.opts.classes.building);
+                this.opts.elm.body.removeClass(this.cl.building);
 
                 return Promise.all([
                     initData(),
@@ -77,11 +79,11 @@
                     initChangelog();
                     initReleaseHistory();
                 } else {
-                    $("<p />").addClass(this.opts.classes.error).text(this.helper.i18n.get("status_changelog_unavailable_desc")).appendTo(this.opts.elm.contentWrapper);
+                    $("<p />").addClass(this.cl.error).text(this.helper.i18n.get("status_changelog_unavailable_desc")).appendTo(this.opts.elm.contentWrapper);
                 }
 
                 loader.remove();
-                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                this.opts.elm.body.removeClass(this.cl.initLoading);
             });
         };
 
@@ -119,11 +121,11 @@
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
                 if (e.currentTarget.checked) {
-                    this.opts.elm.releaseHistoryWrapper.addClass(this.opts.classes.visible);
-                    this.opts.elm.changelogWrapper.removeClass(this.opts.classes.visible);
+                    this.opts.elm.releaseHistoryWrapper.addClass(this.cl.visible);
+                    this.opts.elm.changelogWrapper.removeClass(this.cl.visible);
                 } else {
-                    this.opts.elm.releaseHistoryWrapper.removeClass(this.opts.classes.visible);
-                    this.opts.elm.changelogWrapper.addClass(this.opts.classes.visible);
+                    this.opts.elm.releaseHistoryWrapper.removeClass(this.cl.visible);
+                    this.opts.elm.changelogWrapper.addClass(this.cl.visible);
                 }
             });
         };
@@ -171,7 +173,7 @@
                     }
                 });
 
-                this.opts.elm.changelogWrapper.addClass(this.opts.classes.visible);
+                this.opts.elm.changelogWrapper.addClass(this.cl.visible);
             }
         };
 

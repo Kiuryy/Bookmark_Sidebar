@@ -46,7 +46,7 @@
         let isSidebarFocussed = () => {
             let ret = false;
 
-            if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible) && document && document.activeElement) {
+            if (ext.elements.iframe.hasClass(ext.cl.page.visible) && document && document.activeElement) {
                 ret = document.activeElement === ext.elements.iframe[0];
             }
 
@@ -60,8 +60,8 @@
             $([document, ext.elements.iframe[0].contentDocument]).on("keydown.bs", (e) => {
                 if (isSidebarFocussed()) { // sidebar is focussed
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
-                    let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper).length() > 0;
-                    let isDragged = ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged);
+                    let isContextmenuOpen = ext.elements.sidebar.find("div." + ext.cl.contextmenu.wrapper).length() > 0;
+                    let isDragged = ext.elements.iframeBody.hasClass(ext.cl.drag.isDragged);
 
                     if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                         ext.helper.scroll.focus();
@@ -95,7 +95,7 @@
                         e.preventDefault();
                         copyHoveredEntryUrl();
                     } else { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
-                        let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                        let searchField = ext.elements.header.find("div." + ext.cl.sidebar.searchBox + " > input[type='text']");
 
                         if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
                             searchField[0].focus();
@@ -104,15 +104,15 @@
                 }
             }).on("keyup.bs", () => {
                 if (isSidebarFocussed()) {
-                    let searchField = ext.elements.header.find("div." + ext.opts.classes.sidebar.searchBox + " > input[type='text']");
+                    let searchField = ext.elements.header.find("div." + ext.cl.sidebar.searchBox + " > input[type='text']");
 
                     if (searchField && searchField.length() > 0) {
                         let searchVal = searchField[0].value;
 
-                        if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.opts.classes.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
+                        if (searchVal.length > 0 && !ext.elements.header.hasClass(ext.cl.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
                             ext.helper.contextmenu.close();
                             ext.helper.tooltip.close();
-                            ext.elements.header.addClass(ext.opts.classes.sidebar.searchVisible);
+                            ext.elements.header.addClass(ext.cl.sidebar.searchVisible);
                         }
                     }
                 }
@@ -123,7 +123,7 @@
          * Clicks on the currently hovered overlay entry
          */
         let handleOverlayClick = (overlay) => {
-            let hoveredEntry = overlay.find("menu[" + ext.opts.attr.name + "='select'] > a." + ext.opts.classes.sidebar.hover);
+            let hoveredEntry = overlay.find("menu[" + ext.attr.name + "='select'] > a." + ext.cl.sidebar.hover);
 
             if (hoveredEntry.length() > 0) {
                 hoveredEntry.trigger("click");
@@ -136,8 +136,8 @@
          * Clicks on the currently hovered contextmenu entry
          */
         let handleContextmenuClick = () => {
-            let contextmenu = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper);
-            let hoveredEntry = contextmenu.find("a." + ext.opts.classes.sidebar.hover);
+            let contextmenu = ext.elements.sidebar.find("div." + ext.cl.contextmenu.wrapper);
+            let hoveredEntry = contextmenu.find("a." + ext.cl.sidebar.hover);
 
             if (hoveredEntry.length() > 0) {
                 hoveredEntry.trigger("click");
@@ -154,13 +154,13 @@
          */
         let handleClick = (shift, ctrl) => {
             Object.values(ext.elements.bookmarkBox).some((box) => {
-                if (box.hasClass(ext.opts.classes.sidebar.active)) {
-                    let hoveredEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover + ", ul > li > a." + ext.opts.classes.sidebar.mark);
+                if (box.hasClass(ext.cl.sidebar.active)) {
+                    let hoveredEntry = box.find("ul > li > a." + ext.cl.sidebar.hover + ", ul > li > a." + ext.cl.sidebar.mark);
 
                     if (hoveredEntry.length() > 0) {
                         if (shift) { // open contextmenu
                             let type = "list";
-                            if (hoveredEntry.hasClass(ext.opts.classes.sidebar.separator)) {
+                            if (hoveredEntry.hasClass(ext.cl.sidebar.separator)) {
                                 type = "separator";
                             }
                             ext.helper.contextmenu.create(type, hoveredEntry);
@@ -180,7 +180,7 @@
          * Hovers the next entry in the currently visible overlay
          */
         let hoverNextOverlayEntry = (overlay) => {
-            let hoveredEntry = overlay.find("menu[" + ext.opts.attr.name + "='select'] > a." + ext.opts.classes.sidebar.hover);
+            let hoveredEntry = overlay.find("menu[" + ext.attr.name + "='select'] > a." + ext.cl.sidebar.hover);
             let doc = overlay[0].contentDocument;
 
             if (hoveredEntry.length() > 0) {
@@ -189,11 +189,11 @@
                 if (hoveredEntry.next("a").length() > 0) {
                     newActiveElm = hoveredEntry.next("a");
                 } else {
-                    newActiveElm = overlay.find("menu[" + ext.opts.attr.name + "='select'] > a").eq(0);
+                    newActiveElm = overlay.find("menu[" + ext.attr.name + "='select'] > a").eq(0);
                 }
 
-                overlay.find("menu[" + ext.opts.attr.name + "='select'] > a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                newActiveElm.addClass(ext.opts.classes.sidebar.hover);
+                overlay.find("menu[" + ext.attr.name + "='select'] > a." + ext.cl.sidebar.hover).removeClass(ext.cl.sidebar.hover);
+                newActiveElm.addClass(ext.cl.sidebar.hover);
             } else if (doc.activeElement.tagName === "INPUT") {
                 let parentEntry = $(doc.activeElement).parent("li");
                 let newActiveElm = null;
@@ -207,8 +207,8 @@
                 newActiveElm[0].focus();
             } else if (overlay.find("input").length() > 0) {
                 overlay.find("input")[0].focus();
-            } else if (overlay.find("menu[" + ext.opts.attr.name + "='select']").length() > 0) {
-                overlay.find("menu[" + ext.opts.attr.name + "='select'] > a").eq(0).addClass(ext.opts.classes.sidebar.hover);
+            } else if (overlay.find("menu[" + ext.attr.name + "='select']").length() > 0) {
+                overlay.find("menu[" + ext.attr.name + "='select'] > a").eq(0).addClass(ext.cl.sidebar.hover);
             }
         };
 
@@ -216,12 +216,12 @@
          * Hovers the next entry in the currently visible contextmenu
          */
         let hoverNextContextmenuEntry = () => {
-            let contextmenu = ext.elements.sidebar.find("div." + ext.opts.classes.contextmenu.wrapper);
+            let contextmenu = ext.elements.sidebar.find("div." + ext.cl.contextmenu.wrapper);
             let hoveredElm = null;
             let entry = null;
 
-            if (contextmenu.find("a." + ext.opts.classes.sidebar.hover).length() > 0) {
-                entry = contextmenu.find("a." + ext.opts.classes.sidebar.hover).eq(0);
+            if (contextmenu.find("a." + ext.cl.sidebar.hover).length() > 0) {
+                entry = contextmenu.find("a." + ext.cl.sidebar.hover).eq(0);
             }
 
             if (entry === null) { // hover the first entry
@@ -234,8 +234,8 @@
                 hoveredElm = contextmenu.find("a").eq(0);
             }
 
-            contextmenu.find("a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-            hoveredElm.addClass(ext.opts.classes.sidebar.hover);
+            contextmenu.find("a." + ext.cl.sidebar.hover).removeClass(ext.cl.sidebar.hover);
+            hoveredElm.addClass(ext.cl.sidebar.hover);
         };
 
         /**
@@ -248,7 +248,7 @@
             let link = elm.children("a");
             let ret = null;
 
-            if (link.hasClass(ext.opts.classes.sidebar.dirOpened) && link.next("ul").length() > 0) { // one layer deeper
+            if (link.hasClass(ext.cl.sidebar.dirOpened) && link.next("ul").length() > 0) { // one layer deeper
                 ret = link.next("ul").find("> li:first-child > a");
             } else if (elm.next("li").length() > 0) { // next element
                 ret = elm.next("li").children("a");
@@ -287,7 +287,7 @@
             if (elm.prev("li").length() > 0) { // prev element
                 let prev = elm.prev("li").children("a");
 
-                while (prev.hasClass(ext.opts.classes.sidebar.dirOpened) && prev.next("ul").length() > 0) {
+                while (prev.hasClass(ext.cl.sidebar.dirOpened) && prev.next("ul").length() > 0) {
                     prev = prev.next("ul").find("> li:last-child > a");
                 }
 
@@ -308,16 +308,16 @@
          */
         let hoverNextPrevEntry = (type) => {
             Object.values(ext.elements.bookmarkBox).some((box) => {
-                if (box.hasClass(ext.opts.classes.sidebar.active)) {
+                if (box.hasClass(ext.cl.sidebar.active)) {
                     let scrollTop = ext.helper.scroll.getScrollPos(box);
                     let firstVisibleEntry = null;
 
-                    if (box.find("ul > li > a." + ext.opts.classes.sidebar.mark).length() > 0) {
-                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.mark).eq(0).parent("li");
-                    } else if (box.find("ul > li > a." + ext.opts.classes.sidebar.hover).length() > 0) {
-                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.hover).eq(0).parent("li");
-                    } else if (box.find("ul > li > a." + ext.opts.classes.sidebar.lastHover).length() > 0) {
-                        firstVisibleEntry = box.find("ul > li > a." + ext.opts.classes.sidebar.lastHover).eq(0).parent("li");
+                    if (box.find("ul > li > a." + ext.cl.sidebar.mark).length() > 0) {
+                        firstVisibleEntry = box.find("ul > li > a." + ext.cl.sidebar.mark).eq(0).parent("li");
+                    } else if (box.find("ul > li > a." + ext.cl.sidebar.hover).length() > 0) {
+                        firstVisibleEntry = box.find("ul > li > a." + ext.cl.sidebar.hover).eq(0).parent("li");
+                    } else if (box.find("ul > li > a." + ext.cl.sidebar.lastHover).length() > 0) {
+                        firstVisibleEntry = box.find("ul > li > a." + ext.cl.sidebar.lastHover).eq(0).parent("li");
                     } else {
                         box.find("ul > li").forEach((entry) => {
                             if (entry.offsetTop >= scrollTop) {
@@ -331,7 +331,7 @@
                         let link = firstVisibleEntry.children("a");
                         let hoveredElm = null;
 
-                        if (link.hasClass(ext.opts.classes.sidebar.hover) || link.hasClass(ext.opts.classes.sidebar.mark)) {
+                        if (link.hasClass(ext.cl.sidebar.hover) || link.hasClass(ext.cl.sidebar.mark)) {
                             if (type === "prev") {
                                 hoveredElm = getPrevEntry(firstVisibleEntry);
                             } else if (type === "next") {
@@ -342,9 +342,9 @@
                         }
 
                         if (hoveredElm) {
-                            box.find("ul > li > a." + ext.opts.classes.sidebar.hover).removeClass(ext.opts.classes.sidebar.hover);
-                            box.find("ul > li > a." + ext.opts.classes.sidebar.mark).removeClass(ext.opts.classes.sidebar.mark);
-                            hoveredElm.addClass([ext.opts.classes.sidebar.hover, ext.opts.classes.sidebar.lastHover]);
+                            box.find("ul > li > a." + ext.cl.sidebar.hover).removeClass(ext.cl.sidebar.hover);
+                            box.find("ul > li > a." + ext.cl.sidebar.mark).removeClass(ext.cl.sidebar.mark);
+                            hoveredElm.addClass([ext.cl.sidebar.hover, ext.cl.sidebar.lastHover]);
 
                             let offset = hoveredElm[0].offsetTop - scrollTop;
                             let pos = window.innerHeight - offset;
@@ -370,11 +370,11 @@
                 isRemoving = true;
 
                 Object.values(ext.elements.bookmarkBox).some((box) => {
-                    if (box.hasClass(ext.opts.classes.sidebar.active)) {
-                        let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
+                    if (box.hasClass(ext.cl.sidebar.active)) {
+                        let elm = box.find("> ul a." + ext.cl.sidebar.hover).eq(0);
 
-                        if (elm.length() > 0 && elm.children("span." + ext.opts.classes.sidebar.removeMask).length() === 0) {
-                            ext.helper.bookmark.removeEntry(elm.attr(ext.opts.attr.id)).then(() => {
+                        if (elm.length() > 0 && elm.children("span." + ext.cl.sidebar.removeMask).length() === 0) {
+                            ext.helper.bookmark.removeEntry(elm.attr(ext.attr.id)).then(() => {
                                 isRemoving = false;
                             });
                         }
@@ -389,19 +389,19 @@
          */
         let copyHoveredEntryUrl = () => {
             Object.values(ext.elements.bookmarkBox).some((box) => {
-                if (box.hasClass(ext.opts.classes.sidebar.active)) {
-                    let elm = box.find("> ul a." + ext.opts.classes.sidebar.hover).eq(0);
+                if (box.hasClass(ext.cl.sidebar.active)) {
+                    let elm = box.find("> ul a." + ext.cl.sidebar.hover).eq(0);
                     if (elm.length() > 0) {
-                        let data = ext.helper.entry.getDataById(elm.attr(ext.opts.attr.id));
+                        let data = ext.helper.entry.getDataById(elm.attr(ext.attr.id));
                         if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
-                            $(elm).children("span." + ext.opts.classes.sidebar.copied).remove();
-                            let copiedNotice = $("<span />").addClass(ext.opts.classes.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
+                            $(elm).children("span." + ext.cl.sidebar.copied).remove();
+                            let copiedNotice = $("<span />").addClass(ext.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
                             $.delay(100).then(() => {
-                                $(elm).addClass(ext.opts.classes.sidebar.copied);
+                                $(elm).addClass(ext.cl.sidebar.copied);
                                 return $.delay(1500);
                             }).then(() => {
-                                $(elm).removeClass(ext.opts.classes.sidebar.copied);
+                                $(elm).removeClass(ext.cl.sidebar.copied);
                                 return $.delay(500);
                             }).then(() => {
                                 copiedNotice.remove();

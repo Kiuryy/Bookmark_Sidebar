@@ -152,16 +152,16 @@
                     css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), config.appearance.styles[key]);
                 });
 
-                s.opts.elm.preview[key].find("[" + s.opts.attr.style + "]").forEach((elm) => {
-                    let style = $(elm).attr(s.opts.attr.style);
+                s.opts.elm.preview[key].find("[" + s.attr.style + "]").forEach((elm) => {
+                    let style = $(elm).attr(s.attr.style);
                     Object.keys(config.appearance.styles).forEach((key) => {
                         style = style.replace(new RegExp("\"?%" + key + "\"?", "g"), config.appearance.styles[key]);
                     });
                     elm.style.cssText = style;
                 });
 
-                s.opts.elm.preview[key].find("[" + s.opts.attr.hideOnFalse + "]").forEach((elm) => {
-                    let attr = $(elm).attr(s.opts.attr.hideOnFalse);
+                s.opts.elm.preview[key].find("[" + s.attr.hideOnFalse + "]").forEach((elm) => {
+                    let attr = $(elm).attr(s.attr.hideOnFalse);
 
                     if (typeof config.appearance[attr] === "undefined" || config.appearance[attr] === false) {
                         $(elm).css("display", "none");
@@ -173,9 +173,9 @@
                 s.opts.elm.preview[key].find("head").append("<style>" + css + "</style>");
 
                 if (config.appearance.darkMode) {
-                    s.opts.elm.preview[key].find("body").addClass(s.opts.classes.page.darkMode);
+                    s.opts.elm.preview[key].find("body").addClass(s.cl.page.darkMode);
                 } else {
-                    s.opts.elm.preview[key].find("body").removeClass(s.opts.classes.page.darkMode);
+                    s.opts.elm.preview[key].find("body").removeClass(s.cl.page.darkMode);
                 }
 
                 updatePreviewTooltip(s.opts.elm.preview[key]);
@@ -208,9 +208,9 @@
                 });
 
                 if (height === 100) {
-                    indicator.addClass(s.opts.classes.appearance.preview.fullHeight);
+                    indicator.addClass(s.cl.appearance.preview.fullHeight);
                 } else {
-                    indicator.removeClass(s.opts.classes.appearance.preview.fullHeight);
+                    indicator.removeClass(s.cl.appearance.preview.fullHeight);
                 }
             }
         };
@@ -225,8 +225,8 @@
 
             if (sidebar.length() > 0) {
                 let sidebarHeader = sidebar.find("> header");
-                sidebarHeader.find("> h1").removeClass(s.opts.classes.hidden);
-                sidebarHeader.find("> h1 > span").removeClass(s.opts.classes.hidden);
+                sidebarHeader.find("> h1").removeClass(s.cl.hidden);
+                sidebarHeader.find("> h1 > span").removeClass(s.cl.hidden);
 
                 ["label", "amount"].forEach((type) => {
                     let lastOffset = null;
@@ -236,9 +236,9 @@
                             lastOffset = icon.offsetTop;
                         } else if (lastOffset !== icon.offsetTop || sidebarHeader.find("> h1")[0].offsetTop === 0) { // header elements  are not in one line anymore -> header to small -> remove some markup
                             if (type === "label") {
-                                sidebarHeader.find("> h1 > span").addClass(s.opts.classes.hidden);
+                                sidebarHeader.find("> h1 > span").addClass(s.cl.hidden);
                             } else if (type === "amount") {
-                                sidebarHeader.find("> h1").addClass(s.opts.classes.hidden);
+                                sidebarHeader.find("> h1").addClass(s.cl.hidden);
                             }
                             return false;
                         }
@@ -260,7 +260,7 @@
             if (tooltip.length() > 0 && entry.length() > 0) {
                 if (+new Date() - lastTooltipChange < 2000) {
                     let rect = entry[0].getBoundingClientRect();
-                    tooltip.addClass(s.opts.classes.visible);
+                    tooltip.addClass(s.cl.visible);
 
                     let left = rect.x - tooltip[0].offsetWidth;
                     if (s.helper.i18n.isRtl()) {
@@ -272,7 +272,7 @@
                         left: left + "px"
                     });
                 } else {
-                    tooltip.removeClass(s.opts.classes.visible);
+                    tooltip.removeClass(s.cl.visible);
                 }
             }
         };
@@ -284,7 +284,7 @@
          * @param {string} key
          */
         let updatePageLayout = (key) => {
-            s.opts.elm.content.removeClass(s.opts.classes.small);
+            s.opts.elm.content.removeClass(s.cl.small);
 
             if (s.opts.elm.preview[key]) {
                 let padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
@@ -294,7 +294,7 @@
                     let headerRightPadding = 0;
 
                     if (key === "overlay") {
-                        s.opts.elm.content.addClass(s.opts.classes.small);
+                        s.opts.elm.content.addClass(s.cl.small);
                     } else if (key === "indicator") {
                         headerRightPadding = config.appearance.styles.indicatorWidth;
                     } else if (key === "sidebar" || key === "general") {
@@ -308,13 +308,13 @@
                     s.opts.elm.content.css(padding, "");
                 }
 
-                let boxes = s.helper.menu.getPage().find("div." + s.opts.classes.box);
+                let boxes = s.helper.menu.getPage().find("div." + s.cl.box);
 
                 if (boxes.length() > 1) { // set class for wrapper if there is only one box per row
                     let hasColumns = false;
                     let top = null;
 
-                    s.helper.menu.getPage().find("div." + s.opts.classes.box).forEach((elm) => {
+                    s.helper.menu.getPage().find("div." + s.cl.box).forEach((elm) => {
                         if (top === elm.offsetTop) {
                             hasColumns = true;
                             return false;
@@ -324,7 +324,7 @@
                     });
 
                     if (!hasColumns) {
-                        s.opts.elm.content.addClass(s.opts.classes.small);
+                        s.opts.elm.content.addClass(s.cl.small);
                     }
                 }
             }
@@ -429,7 +429,7 @@
                     previews[key].css = "";
 
                     s.opts.elm.preview[key] = $("<iframe />")
-                        .attr(s.opts.attr.appearance, key)
+                        .attr(s.attr.appearance, key)
                         .appendTo(s.opts.elm.body);
 
                     $.xhr(chrome.extension.getURL("html/template/" + previews[key].template + ".html")).then((xhr) => {
@@ -476,7 +476,7 @@
             });
 
             s.opts.elm.appearance.presetWrapper.children("a").on("click", (e) => {
-                let type = $(e.currentTarget).attr(s.opts.attr.type);
+                let type = $(e.currentTarget).attr(s.attr.type);
                 let defaults = s.helper.model.getData("a/styles", true);
 
                 Object.entries(presets).forEach(([key, values]) => {
@@ -523,13 +523,13 @@
                         }
                     }
 
-                    let box = $(e.currentTarget).parents("div." + s.opts.classes.box).eq(0);
+                    let box = $(e.currentTarget).parents("div." + s.cl.box).eq(0);
                     if (val !== initialVal) {
-                        if (box.children("a." + s.opts.classes.revert).length() === 0) {
-                            $("<a href='#' />").addClass(s.opts.classes.revert).data("elm", box).appendTo(box);
+                        if (box.children("a." + s.cl.revert).length() === 0) {
+                            $("<a href='#' />").addClass(s.cl.revert).data("elm", box).appendTo(box);
                         }
                     } else {
-                        box.children("a." + s.opts.classes.revert).remove();
+                        box.children("a." + s.cl.revert).remove();
                     }
 
                     let path = s.helper.menu.getPath();
@@ -537,9 +537,9 @@
                 }
             });
 
-            s.opts.elm.appearance.content.on("click", "a." + s.opts.classes.revert, (e) => { // revert the changes of the specific field
+            s.opts.elm.appearance.content.on("click", "a." + s.cl.revert, (e) => { // revert the changes of the specific field
                 e.preventDefault();
-                let box = $(e.currentTarget).parent("div." + s.opts.classes.box);
+                let box = $(e.currentTarget).parent("div." + s.cl.box);
 
                 box.find("input, select").forEach((elm) => {
                     let elmObj = $(elm);

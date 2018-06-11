@@ -497,12 +497,6 @@
     "settings_not_synced": {
         "message": "Ne sera pas synchronis\u00e9 sur vos appareils"
     },
-    "settings_animations": {
-        "message": "Activer les animations"
-    },
-    "settings_animations_desc": {
-        "message": "Permet de d\u00e9sactiver l'ensemble des animations de la barre lat\u00e9rale. Cela peut \u00eatre utile si les animations ne sont pas fluides sur votre machine."
-    },
     "settings_open_action": {
         "message": "Affichage de la barre"
     },
@@ -659,6 +653,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "R\u00e9afficher automatiquement la barre lat\u00e9rale suite \u00e0 l'ouverture d'un favori depuis celle-ci."
     },
+    "settings_prevent_windowed": {
+        "message": "D\u00e9sactiver la barre lat\u00e9rale en mode fen\u00eatr\u00e9"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "D\u00e9sactive la possibilit\u00e9 d'ouvrir la barre lat\u00e9rale en cliquant ou survolant le bord du navigateur lorsqu'il est affich\u00e9 en mode fen\u00eatr\u00e9."
+    },
     "settings_tooltip_delay": {
         "message": "D\u00e9lai des infobulles"
     },
@@ -694,6 +694,18 @@
     },
     "settings_sidebar_position_right": {
         "message": "Droite"
+    },
+    "settings_animations": {
+        "message": "Activer les animations"
+    },
+    "settings_animations_desc": {
+        "message": "Permet de d\u00e9sactiver l'ensemble des animations de la barre lat\u00e9rale. Cela peut \u00eatre utile si les animations ne sont pas fluides sur votre machine."
+    },
+    "settings_contextmenu": {
+        "message": "Entr\u00e9e du menu contextuel"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Affiche une entr\u00e9e dans le menu contextuel de Chrome pour afficher ou cacher la barre lat\u00e9rale."
     },
     "settings_filter_intro": {
         "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."

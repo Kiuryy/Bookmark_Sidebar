@@ -705,7 +705,7 @@
         "message": "Contextmenu entry"
     },
     "settings_contextmenu_desc": {
-        "message": "Display an entry in the contextmenu of Chrome to toggle the sidebar"
+        "message": "Display an entry in the contextmenu of Chrome to toggle the sidebar."
     },
     "settings_filter_intro": {
         "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to (blacklist)."

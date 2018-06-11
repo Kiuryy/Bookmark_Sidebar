@@ -26,9 +26,9 @@
             } else { // extension context
                 ext.helper.font.addStylesheet(context);
 
-                if (ext.opts.classes && ext.opts.classes.page) {
-                    if (ext.helper.model.getData("b/animations") === false && ext.opts.classes.page.noAnimations) {
-                        context.find("body").addClass(ext.opts.classes.page.noAnimations);
+                if (ext.cl && ext.cl.page) {
+                    if (ext.helper.model.getData("b/animations") === false && ext.cl.page.noAnimations) {
+                        context.find("body").addClass(ext.cl.page.noAnimations);
                     }
                 }
             }
@@ -50,9 +50,9 @@
                             css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styles[key]);
                         });
 
-                        if (ext.opts.classes && ext.opts.classes.page && ext.opts.classes.page.style && ext.opts.attr && ext.opts.attr.name) {
-                            head.find("style." + ext.opts.classes.page.style + "[" + ext.opts.attr.name + "='" + file + "']").remove();
-                            head.append("<style class='" + ext.opts.classes.page.style + "' " + ext.opts.attr.name + "='" + file + "'>" + css + "</style>");
+                        if (ext.cl && ext.cl.page && ext.cl.page.style && ext.attr && ext.attr.name) {
+                            head.find("style." + ext.cl.page.style + "[" + ext.attr.name + "='" + file + "']").remove();
+                            head.append("<style class='" + ext.cl.page.style + "' " + ext.attr.name + "='" + file + "'>" + css + "</style>");
                         } else {
                             head.append("<style>" + css + "</style>");
                         }

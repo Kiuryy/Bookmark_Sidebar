@@ -66,7 +66,7 @@
                 ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
                     let val = -1;
 
-                    if (s.opts.elm.range[field].hasClass(s.opts.classes.range.inactive) === false) { // if inactive set -1 as value else use the selected value
+                    if (s.opts.elm.range[field].hasClass(s.cl.range.inactive) === false) { // if inactive set -1 as value else use the selected value
                         val = s.opts.elm.range[field][0].value;
                     }
 
@@ -117,11 +117,11 @@
                 let val = e.currentTarget.value;
 
                 if (val === "always") { // always show sidebar -> don't show url rules
-                    s.opts.elm.sidebar.filterExplanation.addClass(s.opts.classes.hidden);
-                    s.opts.elm.sidebar.filterPatters.addClass(s.opts.classes.hidden);
+                    s.opts.elm.sidebar.filterExplanation.addClass(s.cl.hidden);
+                    s.opts.elm.sidebar.filterPatters.addClass(s.cl.hidden);
                 } else if (val === "blacklist" || val === "whitelist") { // show url rules
-                    s.opts.elm.sidebar.filterExplanation.removeClass(s.opts.classes.hidden);
-                    s.opts.elm.sidebar.filterPatters.removeClass(s.opts.classes.hidden);
+                    s.opts.elm.sidebar.filterExplanation.removeClass(s.cl.hidden);
+                    s.opts.elm.sidebar.filterPatters.removeClass(s.cl.hidden);
 
                     if (s.opts.elm.textarea.visibilityFilter[0].value.length === 0) { // fill with the already set rules, if the field is empty
                         let rules = s.helper.model.getData("b/" + val);
@@ -149,8 +149,8 @@
          * @returns {Promise}
          */
         let initToggleAreaEvents = async () => {
-            let modal = s.opts.elm.body.children("div." + s.opts.classes.toggleArea.modal);
-            let preview = modal.children("div." + s.opts.classes.toggleArea.preview);
+            let modal = s.opts.elm.body.children("div." + s.cl.toggleArea.modal);
+            let preview = modal.children("div." + s.cl.toggleArea.preview);
 
             $([s.opts.elm.range.toggleArea_width, s.opts.elm.range.toggleArea_height, s.opts.elm.range.toggleArea_top]).on("change input", (e) => {
                 let minWidth = 14;
@@ -182,9 +182,9 @@
                     });
 
                     if (val.height === 100) {
-                        preview.addClass(s.opts.classes.toggleArea.fullHeight);
+                        preview.addClass(s.cl.toggleArea.fullHeight);
                     } else {
-                        preview.removeClass(s.opts.classes.toggleArea.fullHeight);
+                        preview.removeClass(s.cl.toggleArea.fullHeight);
                     }
                 }
             });
@@ -193,8 +193,8 @@
                 e.preventDefault();
 
                 $.delay(100).then(() => {
-                    modal.attr(s.opts.attr.type, s.opts.elm.select.sidebarPosition[0].value);
-                    s.opts.elm.body.addClass(s.opts.classes.showModal);
+                    modal.attr(s.attr.type, s.opts.elm.select.sidebarPosition[0].value);
+                    s.opts.elm.body.addClass(s.cl.showModal);
                 });
             });
 
@@ -215,25 +215,25 @@
             s.opts.elm.body.on("click", (e) => { // close modal when click something outside the overlay
                 let _target = $(e.target);
                 if (
-                    !preview.hasClass(s.opts.classes.toggleArea.dragging) &&
-                    !_target.hasClass(s.opts.classes.toggleArea.modal) &&
-                    _target.parents("div." + s.opts.classes.toggleArea.modal).length() === 0
+                    !preview.hasClass(s.cl.toggleArea.dragging) &&
+                    !_target.hasClass(s.cl.toggleArea.modal) &&
+                    _target.parents("div." + s.cl.toggleArea.modal).length() === 0
                 ) {
-                    s.opts.elm.body.removeClass(s.opts.classes.showModal);
+                    s.opts.elm.body.removeClass(s.cl.showModal);
                 }
             });
 
             preview.on("mousedown", (e) => { // drag start
-                preview.addClass([s.opts.classes.toggleArea.dragged, s.opts.classes.toggleArea.dragging]);
+                preview.addClass([s.cl.toggleArea.dragged, s.cl.toggleArea.dragging]);
                 preview.data("pos", {start: preview[0].offsetTop, y: e.pageY});
             });
 
             s.opts.elm.body.on("mouseup", () => { // drag end
                 $.delay(0).then(() => {
-                    preview.removeClass(s.opts.classes.toggleArea.dragging);
+                    preview.removeClass(s.cl.toggleArea.dragging);
                 });
             }).on("mousemove", (e) => { // drag move
-                if (preview.hasClass(s.opts.classes.toggleArea.dragging) && e.which === 1) {
+                if (preview.hasClass(s.cl.toggleArea.dragging) && e.which === 1) {
                     let pos = preview.data("pos");
                     s.opts.elm.range.toggleArea_top[0].value = ((pos.start + e.pageY - pos.y) / modal[0].offsetHeight) * 100;
                     s.opts.elm.range.toggleArea_top.trigger("change");
@@ -248,22 +248,22 @@
          */
         let initEvents = async () => {
             s.opts.elm.select.openAction.on("change", (e) => {
-                let indicatorMenuPoint = s.opts.elm.aside.find("li[" + s.opts.attr.name + "='indicator']");
+                let indicatorMenuPoint = s.opts.elm.aside.find("li[" + s.attr.name + "='indicator']");
 
                 // hide menupoint for changing the appearance of the indicator if it is not visible at all
                 if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
-                    indicatorMenuPoint.removeClass(s.opts.classes.hidden);
+                    indicatorMenuPoint.removeClass(s.cl.hidden);
                 } else {
-                    indicatorMenuPoint.addClass(s.opts.classes.hidden);
+                    indicatorMenuPoint.addClass(s.cl.hidden);
                 }
 
                 // hide "configure area" when user wants to open the sidebar by clicking the extension icon only
                 let toggleAreaWrapper = s.opts.elm.buttons.toggleAreaOpen.parent("div");
 
                 if (e.currentTarget.value === "icon") {
-                    toggleAreaWrapper.addClass(s.opts.classes.hidden);
+                    toggleAreaWrapper.addClass(s.cl.hidden);
                 } else {
-                    toggleAreaWrapper.removeClass(s.opts.classes.hidden);
+                    toggleAreaWrapper.removeClass(s.cl.hidden);
                 }
             });
 

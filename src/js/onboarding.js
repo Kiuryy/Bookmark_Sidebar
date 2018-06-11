@@ -40,6 +40,8 @@
             },
             manifest: chrome.runtime.getManifest()
         };
+        this.cl = this.opts.classes;
+        this.attr = this.opts.attr;
 
         /**
          * Constructor
@@ -61,7 +63,7 @@
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                 this.opts.elm.sidebar.right = $(this.opts.elm.sidebar.left[0].outerHTML).appendTo(this.opts.elm.body);
-                this.opts.elm.sidebar.right.attr(this.opts.attr.position, "right");
+                this.opts.elm.sidebar.right.attr(this.attr.position, "right");
 
                 initGeneralEvents();
                 initIntroEvents();
@@ -74,7 +76,7 @@
                 this.helper.model.call("trackPageView", {page: "/onboarding", always: true});
 
                 $.delay(500).then(() => { // finish loading
-                    this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                    this.opts.elm.body.removeClass(this.cl.initLoading);
                     gotoSlide("intro");
                     return $.delay(300);
                 }).then(() => {
@@ -117,10 +119,10 @@
          * Initialises the eventhandlers for the intro slide
          */
         let initIntroEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='intro'] a").on("click", (e) => {
+            $("section." + this.cl.slide + "[" + this.attr.name + "='intro'] a").on("click", (e) => {
                 e.preventDefault();
 
-                if ($(e.currentTarget).hasClass(this.opts.classes.skip)) {
+                if ($(e.currentTarget).hasClass(this.cl.skip)) {
                     initHandsOn(true);
                 } else {
                     gotoNextSlide();
@@ -132,16 +134,16 @@
          * Initialises the eventhandlers for the position slide
          */
         let initPositionEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='position'] a").on("mouseenter click", (e) => {
+            $("section." + this.cl.slide + "[" + this.attr.name + "='position'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
-                let value = $(e.currentTarget).attr(this.opts.attr.value);
-                this.opts.elm.body.attr(this.opts.attr.position, value);
+                let value = $(e.currentTarget).attr(this.attr.value);
+                this.opts.elm.body.attr(this.attr.position, value);
 
                 Object.values(this.opts.elm.sidebar).forEach((sidebar) => {
-                    sidebar.removeClass(this.opts.classes.visible);
+                    sidebar.removeClass(this.cl.visible);
                 });
 
-                this.opts.elm.sidebar[value].addClass(this.opts.classes.visible);
+                this.opts.elm.sidebar[value].addClass(this.cl.visible);
 
                 if (e.type === "click") {
                     this.helper.model.setData({"b/sidebarPosition": value}).then(() => {
@@ -152,9 +154,9 @@
             }).on("mouseleave", (e) => {
                 let slide = $(e.currentTarget).parent();
                 $.delay().then(() => {
-                    if (slide.hasClass(this.opts.classes.visible)) {
+                    if (slide.hasClass(this.cl.visible)) {
                         Object.values(this.opts.elm.sidebar).forEach((sidebar) => {
-                            sidebar.removeClass(this.opts.classes.visible);
+                            sidebar.removeClass(this.cl.visible);
                         });
                     }
                 });
@@ -166,10 +168,10 @@
          * Initialises the eventhandlers for the surface slide
          */
         let initSurfaceEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='surface'] a").on("mouseenter click", (e) => {
+            $("section." + this.cl.slide + "[" + this.attr.name + "='surface'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
-                let value = $(e.currentTarget).attr(this.opts.attr.value);
-                this.opts.elm.body.attr(this.opts.attr.surface, value);
+                let value = $(e.currentTarget).attr(this.attr.value);
+                this.opts.elm.body.attr(this.attr.surface, value);
 
                 if (e.type === "click") {
                     let styles = this.helper.model.getData("a/styles");
@@ -180,7 +182,7 @@
                     styles.hoverColor = this.helper.model.getDefaultColor("hoverColor", value);
 
                     Object.values(this.opts.elm.sidebar).forEach((sidebar) => {
-                        sidebar.removeClass(this.opts.classes.visible);
+                        sidebar.removeClass(this.cl.visible);
                     });
 
                     this.helper.model.setData({
@@ -194,8 +196,8 @@
             }).on("mouseleave", (e) => {
                 let slide = $(e.currentTarget).parent();
                 $.delay().then(() => {
-                    if (slide.hasClass(this.opts.classes.visible)) {
-                        this.opts.elm.body.removeAttr(this.opts.attr.surface);
+                    if (slide.hasClass(this.cl.visible)) {
+                        this.opts.elm.body.removeAttr(this.attr.surface);
                     }
                 });
             });
@@ -205,25 +207,25 @@
          * Initialises the eventhandlers for the openAction slide
          */
         let initOpenActionEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='openAction'] a").on("mouseenter click", (e) => {
+            $("section." + this.cl.slide + "[" + this.attr.name + "='openAction'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
-                let value = $(e.currentTarget).attr(this.opts.attr.value);
+                let value = $(e.currentTarget).attr(this.attr.value);
 
                 if (value) {
                     if (e.type === "click") {
-                        this.opts.elm.body.addClass(this.opts.classes.hideOpenTypeIcon);
+                        this.opts.elm.body.addClass(this.cl.hideOpenTypeIcon);
                         this.helper.model.setData({"b/openAction": value}).then(() => {
                             configChanged = true;
                             initHandsOn();
                         });
                     } else {
-                        this.opts.elm.body.removeClass(this.opts.classes.hideOpenTypeIcon);
-                        this.opts.elm.body.attr(this.opts.attr.openType, value === "icon" ? "icon" : "mouse");
+                        this.opts.elm.body.removeClass(this.cl.hideOpenTypeIcon);
+                        this.opts.elm.body.attr(this.attr.openType, value === "icon" ? "icon" : "mouse");
                     }
                 }
             }).on("mouseleave", (e) => {
-                if ($(e.currentTarget).parent("section").hasClass(this.opts.classes.visible)) {
-                    this.opts.elm.body.addClass(this.opts.classes.hideOpenTypeIcon);
+                if ($(e.currentTarget).parent("section").hasClass(this.cl.visible)) {
+                    this.opts.elm.body.addClass(this.cl.hideOpenTypeIcon);
                 }
             });
         };
@@ -233,8 +235,8 @@
          */
         let initHandsOnEvents = () => {
             $(document).on(this.opts.events.sidebarOpened, () => {
-                if (!$("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished']").hasClass(this.opts.classes.visible)) {
-                    this.opts.elm.body.addClass(this.opts.classes.hideOpenTypeIcon);
+                if (!$("section." + this.cl.slide + "[" + this.attr.name + "='finished']").hasClass(this.cl.visible)) {
+                    this.opts.elm.body.addClass(this.cl.hideOpenTypeIcon);
                     gotoSlide("finished");
                 }
             });
@@ -244,11 +246,11 @@
          * Initialises the eventhandlers for the last slide
          */
         let initFinishedEvents = () => {
-            $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='finished'] a").on("click", (e) => {
+            $("section." + this.cl.slide + "[" + this.attr.name + "='finished'] a").on("click", (e) => {
                 e.preventDefault();
-                if ($(e.currentTarget).hasClass(this.opts.classes.settings)) {
+                if ($(e.currentTarget).hasClass(this.cl.settings)) {
                     location.href = chrome.extension.getURL("html/settings.html");
-                } else if ($(e.currentTarget).hasClass(this.opts.classes.appearance)) {
+                } else if ($(e.currentTarget).hasClass(this.cl.appearance)) {
                     location.href = chrome.extension.getURL("html/settings.html") + "#appearance_sidebar";
                 }
             });
@@ -258,7 +260,7 @@
          * Shows the next slide
          */
         let gotoNextSlide = () => {
-            let name = $("section." + this.opts.classes.slide + "." + this.opts.classes.visible).next("section." + this.opts.classes.slide).attr(this.opts.attr.name);
+            let name = $("section." + this.cl.slide + "." + this.cl.visible).next("section." + this.cl.slide).attr(this.attr.name);
             gotoSlide(name);
         };
 
@@ -268,8 +270,8 @@
          * @param {string} name
          */
         let gotoSlide = (name) => {
-            let slide = $("section." + this.opts.classes.slide + "." + this.opts.classes.visible);
-            slide.removeClass(this.opts.classes.visible);
+            let slide = $("section." + this.cl.slide + "." + this.cl.visible);
+            slide.removeClass(this.cl.visible);
 
             $.delay(300).then(() => {
                 this.helper.model.call("trackEvent", {
@@ -279,7 +281,7 @@
                     always: true
                 });
 
-                $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='" + name + "']").addClass(this.opts.classes.visible);
+                $("section." + this.cl.slide + "[" + this.attr.name + "='" + name + "']").addClass(this.cl.visible);
             });
         };
 
@@ -291,13 +293,13 @@
             loadSidebar();
 
             Object.values(this.opts.elm.sidebar).forEach((sidebar) => { // hide placeholder sidebar
-                sidebar.removeClass(this.opts.classes.visible);
+                sidebar.removeClass(this.cl.visible);
             });
 
-            let slide = $("section." + this.opts.classes.slide + "[" + this.opts.attr.name + "='handson']");
+            let slide = $("section." + this.cl.slide + "[" + this.attr.name + "='handson']");
 
             let config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
-            this.opts.elm.body.attr(this.opts.attr.position, config.sidebarPosition);
+            this.opts.elm.body.attr(this.attr.position, config.sidebarPosition);
 
             // change description how to open the sidebar based on sidebar position and configurated openAction
             if (config.openAction === "icon") {
@@ -313,8 +315,8 @@
             }
 
             $.delay(300).then(() => { // show icon as help
-                this.opts.elm.body.removeClass(this.opts.classes.hideOpenTypeIcon);
-                this.opts.elm.body.attr(this.opts.attr.openType, config.openAction === "icon" ? "icon" : "mouse");
+                this.opts.elm.body.removeClass(this.cl.hideOpenTypeIcon);
+                this.opts.elm.body.attr(this.attr.openType, config.openAction === "icon" ? "icon" : "mouse");
             });
         };
 

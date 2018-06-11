@@ -12,7 +12,7 @@
          */
         this.init = async () => {
             initEvents();
-            s.opts.elm.newtab.content.find("div." + s.opts.classes.newtab.hideable).addClass(s.opts.classes.hidden);
+            s.opts.elm.newtab.content.find("div." + s.cl.newtab.hideable).addClass(s.cl.hidden);
 
             ["override", "autoOpen"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
@@ -71,7 +71,7 @@
         let initEvents = () => {
             s.opts.elm.checkbox.override.children("input[type='checkbox']").on("change", () => {
                 let override = s.helper.checkbox.isChecked(s.opts.elm.checkbox.override);
-                let hideableBoxes = s.opts.elm.newtab.content.find("div." + s.opts.classes.newtab.hideable);
+                let hideableBoxes = s.opts.elm.newtab.content.find("div." + s.cl.newtab.hideable);
 
                 if (override) {
                     if (overrideCheckboxInited === true) {
@@ -84,16 +84,16 @@
                             }
 
                             if (override) {
-                                hideableBoxes.removeClass(s.opts.classes.hidden);
+                                hideableBoxes.removeClass(s.cl.hidden);
                             } else {
-                                hideableBoxes.addClass(s.opts.classes.hidden);
+                                hideableBoxes.addClass(s.cl.hidden);
                             }
                         });
                     } else {
-                        hideableBoxes.removeClass(s.opts.classes.hidden);
+                        hideableBoxes.removeClass(s.cl.hidden);
                     }
                 } else {
-                    hideableBoxes.addClass(s.opts.classes.hidden);
+                    hideableBoxes.addClass(s.cl.hidden);
                 }
             });
         };

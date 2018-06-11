@@ -21,7 +21,7 @@
                     let showOnlySuggestions = path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2];
 
                     if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show form, but suggestions first
-                        s.opts.elm.feedback.wrapper.addClass(s.opts.classes.feedback.onlySuggestions);
+                        s.opts.elm.feedback.wrapper.addClass(s.cl.feedback.onlySuggestions);
                     }
 
                     initEvents();
@@ -38,10 +38,10 @@
                         resolve();
                     });
                 } else {
-                    s.opts.elm.feedback.form.addClass(s.opts.classes.hidden);
+                    s.opts.elm.feedback.form.addClass(s.cl.hidden);
 
                     $("<p />")
-                        .addClass(s.opts.classes.error)
+                        .addClass(s.cl.error)
                         .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
                         .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
                         .insertAfter(s.opts.elm.feedback.form);
@@ -149,40 +149,40 @@
                 });
 
                 let suggestion = $("<div />")
-                    .addClass([s.opts.classes.feedback.suggestion, s.opts.classes.hidden, s.opts.classes.feedback.absolute])
-                    .attr(s.opts.attr.type, key)
+                    .addClass([s.cl.feedback.suggestion, s.cl.hidden, s.cl.feedback.absolute])
+                    .attr(s.attr.type, key)
                     .append("<strong>" + obj.question.message + "</strong>")
-                    .append("<div class='" + s.opts.classes.feedback.answer + "'>" + obj.answer.message + "</div>")
+                    .append("<div class='" + s.cl.feedback.answer + "'>" + obj.answer.message + "</div>")
                     .appendTo(s.opts.elm.feedback.suggestions);
 
                 $("<p />")
-                    .append("<a " + s.opts.attr.value + "='1'>" + data.controls.yes.message + "</a>")
-                    .append("<a " + s.opts.attr.value + "='0'>" + data.controls.no.message + "</a>")
+                    .append("<a " + s.attr.value + "='1'>" + data.controls.yes.message + "</a>")
+                    .append("<a " + s.attr.value + "='0'>" + data.controls.no.message + "</a>")
                     .appendTo(suggestion);
 
                 suggestion.data("links", obj.answer.links || []);
 
-                let answer = suggestion.children("div." + s.opts.classes.feedback.answer);
+                let answer = suggestion.children("div." + s.cl.feedback.answer);
 
                 $.delay().then(() => {
                     answer.css("height", answer[0].offsetHeight + "px");
-                    answer.addClass([s.opts.classes.feedback.noHeight, s.opts.classes.hidden]);
+                    answer.addClass([s.cl.feedback.noHeight, s.cl.hidden]);
 
                     return $.delay(300);
                 }).then(() => {
                     suggestion.css("height", suggestion[0].offsetHeight + "px");
-                    suggestion.addClass(s.opts.classes.feedback.noHeight);
+                    suggestion.addClass(s.cl.feedback.noHeight);
 
                     return $.delay(300);
                 }).then(() => {
-                    suggestion.removeClass([s.opts.classes.feedback.absolute, s.opts.classes.feedback.noHeight]);
+                    suggestion.removeClass([s.cl.feedback.absolute, s.cl.feedback.noHeight]);
                     return $.delay(300);
                 }).then(() => {
                     suggestion
                         .css("height", "")
-                        .removeClass(s.opts.classes.hidden);
+                        .removeClass(s.cl.hidden);
 
-                    s.opts.elm.feedback.suggestions.addClass(s.opts.classes.visible);
+                    s.opts.elm.feedback.suggestions.addClass(s.cl.visible);
 
                     if (showAnswer) {
                         showSuggestionAnswer(suggestion);
@@ -196,7 +196,7 @@
          * @param {jsu} suggestion
          */
         let showSuggestionAnswer = (suggestion) => {
-            let type = suggestion.attr(s.opts.attr.type);
+            let type = suggestion.attr(s.attr.type);
             suggestionInfo.opened.push(type);
 
             s.helper.model.call("trackEvent", {
@@ -216,14 +216,14 @@
             });
 
             $("<a />")
-                .attr(s.opts.attr.value, "0")
+                .attr(s.attr.value, "0")
                 .text(data.controls.close.message)
                 .appendTo(controlWrapper);
 
-            suggestion.children("div." + s.opts.classes.feedback.answer).removeClass(s.opts.classes.feedback.noHeight);
+            suggestion.children("div." + s.cl.feedback.answer).removeClass(s.cl.feedback.noHeight);
 
             $.delay(300).then(() => {
-                suggestion.children("div." + s.opts.classes.feedback.answer).removeClass(s.opts.classes.hidden);
+                suggestion.children("div." + s.cl.feedback.answer).removeClass(s.cl.hidden);
             });
         };
 
@@ -232,24 +232,24 @@
          * @param {jsu} suggestion
          */
         let hideSuggestion = (suggestion) => {
-            suggestionInfo.closed.push(suggestion.attr(s.opts.attr.type));
+            suggestionInfo.closed.push(suggestion.attr(s.attr.type));
 
             suggestion
                 .css("height", suggestion[0].offsetHeight + "px")
-                .addClass(s.opts.classes.hidden);
+                .addClass(s.cl.hidden);
 
             $.delay(200).then(() => {
-                suggestion.addClass(s.opts.classes.feedback.noHeight);
+                suggestion.addClass(s.cl.feedback.noHeight);
                 return $.delay(300);
             }).then(() => {
                 suggestion.remove();
                 return $.delay();
             }).then(() => {
-                if (s.opts.elm.feedback.suggestions.children("div." + s.opts.classes.feedback.suggestion).length() === 0) {
-                    s.opts.elm.feedback.suggestions.removeClass(s.opts.classes.visible);
+                if (s.opts.elm.feedback.suggestions.children("div." + s.cl.feedback.suggestion).length() === 0) {
+                    s.opts.elm.feedback.suggestions.removeClass(s.cl.visible);
 
                     $.delay(300).then(() => {
-                        s.opts.elm.feedback.wrapper.removeClass(s.opts.classes.feedback.onlySuggestions);
+                        s.opts.elm.feedback.wrapper.removeClass(s.cl.feedback.onlySuggestions);
                     });
                 }
             });
@@ -273,7 +273,7 @@
 
             s.opts.elm.feedback.showForm.on("click", (e) => { // show feedback form -> is only visible if the feedback form is hidden
                 e.preventDefault();
-                s.opts.elm.feedback.wrapper.removeClass(s.opts.classes.feedback.onlySuggestions);
+                s.opts.elm.feedback.wrapper.removeClass(s.cl.feedback.onlySuggestions);
             });
 
             s.opts.elm.feedback.suggestions.on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
@@ -284,10 +284,10 @@
                 });
             });
 
-            s.opts.elm.feedback.suggestions.on("click", "a[" + s.opts.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
+            s.opts.elm.feedback.suggestions.on("click", "a[" + s.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
                 e.preventDefault();
-                let val = +$(e.currentTarget).attr(s.opts.attr.value);
-                let suggestion = $(e.currentTarget).parents("div." + s.opts.classes.feedback.suggestion).eq(0);
+                let val = +$(e.currentTarget).attr(s.attr.value);
+                let suggestion = $(e.currentTarget).parents("div." + s.cl.feedback.suggestion).eq(0);
 
                 if (val === 1) { // show answer of the suggestion
                     showSuggestionAnswer(suggestion);
@@ -314,7 +314,7 @@
             if (isEmailValid && isMessageValid) {
                 let loadStartTime = +new Date();
                 let loader = s.helper.template.loading().appendTo(s.opts.elm.body);
-                s.opts.elm.body.addClass(s.opts.classes.loading);
+                s.opts.elm.body.addClass(s.cl.loading);
                 let infos = null;
 
                 $.xhr(s.opts.ajax.feedback.form, {
@@ -332,7 +332,7 @@
                     infos = JSON.parse(xhr.responseText);
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))); // load at least 1s
                 }).then(() => {
-                    s.opts.elm.body.removeClass(s.opts.classes.loading);
+                    s.opts.elm.body.removeClass(s.cl.loading);
                     loader.remove();
 
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
@@ -353,13 +353,13 @@
                     }
                 });
             } else if (!isEmailValid) {
-                s.opts.elm.field.feedbackEmail.addClass(s.opts.classes.error);
+                s.opts.elm.field.feedbackEmail.addClass(s.cl.error);
             } else if (!isMessageValid) {
-                s.opts.elm.textarea.feedbackMsg.addClass(s.opts.classes.error);
+                s.opts.elm.textarea.feedbackMsg.addClass(s.cl.error);
             }
 
             $.delay(700).then(() => {
-                $("." + s.opts.classes.error).removeClass(s.opts.classes.error);
+                $("." + s.cl.error).removeClass(s.cl.error);
             });
         };
     };

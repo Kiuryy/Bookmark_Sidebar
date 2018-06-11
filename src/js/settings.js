@@ -199,6 +199,8 @@
             donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
             manifest: chrome.runtime.getManifest()
         };
+        this.attr = this.opts.attr;
+        this.cl = this.opts.classes;
 
         this.serviceAvailable = true;
         let restoreTypes = ["behaviour", "appearance", "newtab"];
@@ -211,7 +213,7 @@
             let loader = {
                 body: this.helper.template.loading().appendTo(this.opts.elm.body)
             };
-            this.opts.elm.body.addClass(this.opts.classes.initLoading);
+            this.opts.elm.body.addClass(this.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -224,14 +226,14 @@
 
                 return this.helper.form.init();
             }).then(() => {
-                this.opts.elm.body.removeClass(this.opts.classes.building);
+                this.opts.elm.body.removeClass(this.cl.building);
 
                 this.helper.i18n.parseHtml(document);
                 this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                 ["translation", "feedback"].forEach((name) => {
                     loader[name] = this.helper.template.loading().appendTo(this.opts.elm[name].wrapper);
-                    this.opts.elm[name].wrapper.addClass(this.opts.classes.loading);
+                    this.opts.elm[name].wrapper.addClass(this.cl.loading);
                 });
 
                 return Promise.all([
@@ -246,7 +248,7 @@
                 initEvents();
 
                 loader.body.remove();
-                this.opts.elm.body.removeClass(this.opts.classes.initLoading);
+                this.opts.elm.body.removeClass(this.cl.initLoading);
                 this.helper.model.call("trackPageView", {page: "/settings"});
 
                 return this.helper.model.call("websiteStatus");
@@ -256,7 +258,7 @@
                 ["translation", "feedback"].forEach((name) => {
                     this.helper[name].init().then(() => {
                         loader[name].remove();
-                        this.opts.elm[name].wrapper.removeClass(this.opts.classes.loading);
+                        this.opts.elm[name].wrapper.removeClass(this.cl.loading);
                     });
                 });
             });
@@ -268,11 +270,11 @@
          * @param {string} i18nStr
          */
         this.showSuccessMessage = (i18nStr) => {
-            this.opts.elm.body.attr(this.opts.attr.success, this.helper.i18n.get("settings_" + i18nStr));
-            this.opts.elm.body.addClass(this.opts.classes.success);
+            this.opts.elm.body.attr(this.attr.success, this.helper.i18n.get("settings_" + i18nStr));
+            this.opts.elm.body.addClass(this.cl.success);
 
             $.delay(1500).then(() => {
-                this.opts.elm.body.removeClass(this.opts.classes.success);
+                this.opts.elm.body.removeClass(this.cl.success);
             });
         };
 
@@ -312,18 +314,18 @@
          */
         let initEvents = async () => {
             $(document).on("click", () => {
-                $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);
+                $("div." + this.cl.dialog).removeClass(this.cl.visible);
             });
 
-            this.opts.elm.header.on("click", "div." + this.opts.classes.dialog, (e) => {
+            this.opts.elm.header.on("click", "div." + this.cl.dialog, (e) => {
                 e.stopPropagation();
             });
 
-            this.opts.elm.header.on("click", "div." + this.opts.classes.dialog + " > a", (e) => {
+            this.opts.elm.header.on("click", "div." + this.cl.dialog + " > a", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
-                let type = $(e.currentTarget).parent("div").attr(this.opts.attr.type);
+                let type = $(e.currentTarget).parent("div").attr(this.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
                     let promises = [];
@@ -345,7 +347,7 @@
                         chrome.storage.sync.remove([type], () => {
                             this.showSuccessMessage("restored_message");
                             this.helper.model.call("reloadIcon");
-                            $("div." + this.opts.classes.dialog).removeClass(this.opts.classes.visible);
+                            $("div." + this.cl.dialog).removeClass(this.cl.visible);
                             resolve();
                         });
                     }));
@@ -363,8 +365,8 @@
             this.opts.elm.advanced.toggle.on("click", (e) => {
                 let container = $(e.currentTarget).next("div");
 
-                if (container.hasClass(this.opts.classes.visible)) {
-                    container.removeClass(this.opts.classes.visible);
+                if (container.hasClass(this.cl.visible)) {
+                    container.removeClass(this.cl.visible);
 
                     $.delay(300).then(() => {
                         container.css("display", "none");
@@ -373,7 +375,7 @@
                     container.css("display", "flex");
 
                     $.delay(0).then(() => {
-                        container.addClass(this.opts.classes.visible);
+                        container.addClass(this.cl.visible);
                     });
                 }
             });
@@ -409,12 +411,12 @@
                 }
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    $("div." + this.opts.classes.dialog).remove();
+                    $("div." + this.cl.dialog).remove();
                     let paddingDir = this.helper.i18n.isRtl() ? "left" : "right";
 
                     let dialog = $("<div />")
-                        .attr(this.opts.attr.type, type)
-                        .addClass(this.opts.classes.dialog)
+                        .attr(this.attr.type, type)
+                        .addClass(this.cl.dialog)
                         .append("<p>" + this.helper.i18n.get("settings_restore_confirm") + "</p>")
                         .append("<span>" + this.helper.i18n.get("settings_menu_" + path[0]) + "</span>")
                         .append("<br />")
@@ -423,7 +425,7 @@
                         .appendTo(this.opts.elm.header);
 
                     $.delay().then(() => {
-                        dialog.addClass(this.opts.classes.visible);
+                        dialog.addClass(this.cl.visible);
                     });
                 }
             });

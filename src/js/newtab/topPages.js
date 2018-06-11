@@ -84,7 +84,7 @@
                 h: n.opts.elm.content[0].offsetHeight || window.innerHeight
             };
 
-            let editInfoBar = $("menu." + n.opts.classes.infoBar);
+            let editInfoBar = $("menu." + n.cl.infoBar);
             if (editInfoBar.length() > 0) {
                 dim.h -= editInfoBar[0].offsetHeight;
             }
@@ -113,7 +113,7 @@
          * Updates the entries which are displayed as top pages
          */
         let updateEntries = () => {
-            n.opts.elm.topPages.children("ul").removeClass(n.opts.classes.visible);
+            n.opts.elm.topPages.children("ul").removeClass(n.cl.visible);
 
             if (type === "hidden") {
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
@@ -131,7 +131,7 @@
                     n.opts.elm.topPages.children("ul")
                         .html("")
                         .data("total", amount.total)
-                        .attr(n.opts.attr.perRow, amount.total / amount.rows);
+                        .attr(n.attr.perRow, amount.total / amount.rows);
 
                     list.forEach((page) => {
                         let entry = $("<li />").appendTo(n.opts.elm.topPages.children("ul"));
@@ -149,7 +149,7 @@
                         if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
                             n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
                                 if (response.img) { //
-                                    thumb.attr("src", response.img).addClass(n.opts.classes.visible);
+                                    thumb.attr("src", response.img).addClass(n.cl.visible);
                                 }
                             });
                         }
@@ -157,7 +157,7 @@
 
                     return $.delay(100);
                 }).then(() => {
-                    n.opts.elm.topPages.children("ul").addClass(n.opts.classes.visible);
+                    n.opts.elm.topPages.children("ul").addClass(n.cl.visible);
                     updateRunning = false;
                 });
             }

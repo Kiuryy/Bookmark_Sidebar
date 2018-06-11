@@ -25,7 +25,7 @@
             ext.elements.indicator = $("<div />").attr("id", ext.opts.ids.page.indicator).appendTo("body");
 
             if (ext.helper.model.getData("b/animations") === false) {
-                ext.elements.indicator.addClass(ext.opts.classes.page.noAnimations);
+                ext.elements.indicator.addClass(ext.cl.page.noAnimations);
             }
 
             let data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
@@ -47,25 +47,25 @@
             });
 
             if (toggleArea.height === 100) {
-                ext.elements.indicator.addClass(ext.opts.classes.page.fullHeight);
+                ext.elements.indicator.addClass(ext.cl.page.fullHeight);
             }
 
-            ext.elements.iframe.attr(ext.opts.attr.position, sidebarPos);
-            ext.elements.sidebar.attr(ext.opts.attr.position, sidebarPos);
+            ext.elements.iframe.attr(ext.attr.position, sidebarPos);
+            ext.elements.sidebar.attr(ext.attr.position, sidebarPos);
 
             if (data.styles && data.styles.indicatorWidth) {
                 indicatorWidth = parseInt(data.styles.indicatorWidth);
             }
 
             if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
-                ext.elements.indicator.html("<div />").attr(ext.opts.attr.position, sidebarPos);
+                ext.elements.indicator.html("<div />").attr(ext.attr.position, sidebarPos);
 
                 if (data.showIndicatorIcon) { // show indicator icon
                     $("<span />").appendTo(ext.elements.indicator.children("div"));
                 }
 
                 $.delay(50).then(() => { // delay to prevent indicator beeing visible initial
-                    ext.elements.indicator.addClass(ext.opts.classes.page.visible);
+                    ext.elements.indicator.addClass(ext.cl.page.visible);
                 });
             }
 
@@ -80,7 +80,7 @@
             }
 
             if (sidebarHasMask() === false) {
-                ext.elements.iframe.addClass(ext.opts.classes.page.hideMask);
+                ext.elements.iframe.addClass(ext.cl.page.hideMask);
             }
         };
 
@@ -88,7 +88,7 @@
          * Closes the sidebar
          */
         this.closeSidebar = () => {
-            if (ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.permanent)) {
+            if (ext.elements.sidebar.hasClass(ext.cl.sidebar.permanent)) {
                 // don't close sidebar when configured to be automatically opened on the newtab page
             } else {
                 clearSidebarTimeout("close");
@@ -97,8 +97,8 @@
                 ext.helper.tooltip.close();
                 ext.helper.dragndrop.cancel();
 
-                ext.elements.iframe.removeClass(ext.opts.classes.page.visible);
-                $("body").removeClass(ext.opts.classes.page.noscroll);
+                ext.elements.iframe.removeClass(ext.cl.page.visible);
+                $("body").removeClass(ext.cl.page.noscroll);
                 $(document).trigger("mousemove.bs"); // hide indicator
             }
         };
@@ -108,7 +108,7 @@
          */
         this.openSidebar = () => {
             if (ext.helper.utility.isBackgroundConnected() === false) {
-                ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+                ext.elements.iframe.addClass(ext.cl.page.visible);
                 ext.addReloadMask();
             } else {
                 ext.helper.model.call("shareInfoMask").then((opts) => { // check whether to show the share userdata mask or not
@@ -119,18 +119,18 @@
                     }
                 });
 
-                if (!ext.elements.sidebar.hasClass(ext.opts.classes.sidebar.openedOnce)) { // first time open -> track initial events
+                if (!ext.elements.sidebar.hasClass(ext.cl.sidebar.openedOnce)) { // first time open -> track initial events
                     ext.trackInitialEvents();
-                    ext.elements.sidebar.addClass(ext.opts.classes.sidebar.openedOnce);
+                    ext.elements.sidebar.addClass(ext.cl.sidebar.openedOnce);
                     this.markLastUsed();
                 }
 
                 ext.helper.model.call("trackPageView", {page: "/sidebar/" + getPageType()});
-                ext.elements.iframe.addClass(ext.opts.classes.page.visible);
+                ext.elements.iframe.addClass(ext.cl.page.visible);
                 ext.initImages();
 
                 if (preventPageScroll) {
-                    $("body").addClass(ext.opts.classes.page.noscroll);
+                    $("body").addClass(ext.cl.page.noscroll);
                 }
 
                 $.delay(ext.helper.model.getData("b/animations") ? 300 : 0).then(() => { // initialise entries if not already done -> necessary for clicking entries, tooltips, etc.
@@ -151,10 +151,10 @@
             let data = ext.helper.model.getData(["u/lastOpened", "b/rememberState"]);
 
             if (data.rememberState === "all" && data.lastOpened) { // mark last opened bookmark if there is one and user set so in the options
-                let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.opts.attr.id + "='" + data.lastOpened + "']");
+                let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.attr.id + "='" + data.lastOpened + "']");
 
                 if (entry && entry.length() > 0) {
-                    entry.addClass(ext.opts.classes.sidebar.mark);
+                    entry.addClass(ext.cl.sidebar.mark);
                     ext.helper.model.setData({"u/lastOpened": null});
                 }
             }
@@ -180,7 +180,7 @@
          * will expand the width of the iframe to 100%, when the mask is hidden (e.g. on the newtab page)
          */
         this.addSidebarHoverClass = () => {
-            ext.elements.iframe.addClass(ext.opts.classes.page.hover);
+            ext.elements.iframe.addClass(ext.cl.page.hover);
             hoveredOnce = true;
         };
 
@@ -189,16 +189,16 @@
          * will collapse the width of the iframe back to the width of the sidebar, when the mask is hidden (e.g. on the newtab page)
          */
         this.removeSidebarHoverClass = () => {
-            let contextmenus = ext.elements.iframeBody.find("div." + ext.opts.classes.contextmenu.wrapper);
-            let tooltips = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper);
+            let contextmenus = ext.elements.iframeBody.find("div." + ext.cl.contextmenu.wrapper);
+            let tooltips = ext.elements.iframeBody.find("div." + ext.cl.tooltip.wrapper);
 
             if (
                 contextmenus.length() === 0 &&
                 tooltips.length() === 0 &&
-                !ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) &&
-                !ext.elements.lockPinned.hasClass(ext.opts.classes.sidebar.active)
+                !ext.elements.iframeBody.hasClass(ext.cl.drag.isDragged) &&
+                !ext.elements.lockPinned.hasClass(ext.cl.sidebar.active)
             ) {
-                ext.elements.iframe.removeClass(ext.opts.classes.page.hover);
+                ext.elements.iframe.removeClass(ext.cl.page.hover);
             }
         };
 
@@ -231,7 +231,7 @@
                             clientX = ext.elements.iframe.realWidth() - clientX;
                         }
                     }
-                    if (clientX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    if (clientX > ext.elements.sidebar.realWidth() && ext.elements.iframe.hasClass(ext.cl.page.visible)) {
                         this.closeSidebar();
                     }
                 }
@@ -242,7 +242,7 @@
             });
 
             $(document).on("mousedown.bs click.bs", (e) => { // click somewhere in the underlying page -> close
-                if (e.isTrusted && ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                if (e.isTrusted && ext.elements.iframe.hasClass(ext.cl.page.visible)) {
                     this.closeSidebar();
                 }
             });
@@ -260,13 +260,13 @@
                     });
 
                     if ($("iframe#" + ext.opts.ids.page.overlay).length() === 0 &&
-                        ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false
+                        ext.elements.iframeBody.hasClass(ext.cl.drag.isDragged) === false
                     ) {
                         let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
                         if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
                             timeout.close = setTimeout(() => {
-                                if (ext.elements.iframeBody.hasClass(ext.opts.classes.drag.isDragged) === false) {
+                                if (ext.elements.iframeBody.hasClass(ext.cl.drag.isDragged) === false) {
                                     this.closeSidebar();
                                 }
                             }, +closeTimeoutRaw * 1000);
@@ -280,9 +280,9 @@
 
             $(document).on("visibilitychange.bs", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
                 if (document.hidden && $("iframe#" + ext.opts.ids.page.overlay).length() === 0) {
-                    ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
+                    ext.elements.indicator.removeClass(ext.cl.page.hover);
 
-                    if (ext.elements.iframe.hasClass(ext.opts.classes.page.visible)) {
+                    if (ext.elements.iframe.hasClass(ext.cl.page.visible)) {
                         this.closeSidebar();
                     }
                 }
@@ -294,12 +294,12 @@
 
                     if (!(timeout.indicator)) {
                         timeout.indicator = setTimeout(() => { // wait the duration of the open delay before showing the indicator
-                            ext.elements.indicator.addClass(ext.opts.classes.page.hover);
+                            ext.elements.indicator.addClass(ext.cl.page.hover);
                         }, Math.max(openDelay - inPixelToleranceDelay, 0));
                     }
                 } else {
                     clearSidebarTimeout("indicator");
-                    ext.elements.indicator.removeClass(ext.opts.classes.page.hover);
+                    ext.elements.indicator.removeClass(ext.cl.page.hover);
                 }
             }, {passive: true});
 
@@ -417,7 +417,7 @@
                         h: clientY / window.innerHeight * 100
                     };
 
-                    if (ext.elements.indicator.hasClass(ext.opts.classes.page.hover) && indicatorWidth > area.w) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
+                    if (ext.elements.indicator.hasClass(ext.cl.page.hover) && indicatorWidth > area.w) { // indicator is visible -> allow click across the indicator width if it is wider then the pixel tolerance
                         area.w = indicatorWidth;
                     }
 
@@ -453,11 +453,11 @@
          */
         let handleLeftsideBackExtension = async () => {
             if ($(ext.opts.leftsideBackSelector).length() > 0) { // Extension already loaded
-                ext.elements.indicator.addClass(ext.opts.classes.page.hasLeftsideBack);
+                ext.elements.indicator.addClass(ext.cl.page.hasLeftsideBack);
             } else {
                 $(document).on(ext.opts.events.lsbLoaded + ".bs", (e) => { // Extension is now loaded
                     if (e.detail.showIndicator) {
-                        ext.elements.indicator.addClass(ext.opts.classes.page.hasLeftsideBack);
+                        ext.elements.indicator.addClass(ext.cl.page.hasLeftsideBack);
                     }
                 });
             }

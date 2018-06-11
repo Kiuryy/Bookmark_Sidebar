@@ -50,13 +50,13 @@
                 s.opts.elm.formElement.forEach((elm) => {
                     let opts = {
                         elm: elm,
-                        type: $(elm).attr(s.opts.attr.type),
-                        name: $(elm).attr(s.opts.attr.name),
-                        i18n: $(elm).attr(s.opts.attr.i18n) || ""
+                        type: $(elm).attr(s.attr.type),
+                        name: $(elm).attr(s.attr.name),
+                        i18n: $(elm).attr(s.attr.i18n) || ""
                     };
 
-                    opts.label = $("<label />").attr(s.opts.attr.i18n, opts.i18n).insertAfter(elm);
-                    $("<p />").addClass(s.opts.classes.desc).attr(s.opts.attr.i18n, opts.i18n + "_desc").insertAfter(opts.label);
+                    opts.label = $("<label />").attr(s.attr.i18n, opts.i18n).insertAfter(elm);
+                    $("<p />").addClass(s.cl.desc).attr(s.attr.i18n, opts.i18n + "_desc").insertAfter(opts.label);
 
                     if (initField[opts.type]) {
                         initField[opts.type](opts).then(elementLoaded);
@@ -77,13 +77,13 @@
          */
         initField.color = (opts) => {
             return new Promise((resolve) => {
-                s.opts.elm.color[opts.name] = $("<input type='text' />").addClass(s.opts.classes.color.field).insertAfter(opts.label);
+                s.opts.elm.color[opts.name] = $("<input type='text' />").addClass(s.cl.color.field).insertAfter(opts.label);
 
                 let picker = new window.Colorpicker(s.opts.elm.color[opts.name][0], {
-                    alpha: !!$(opts.elm).attr(s.opts.attr.color.alpha)
+                    alpha: !!$(opts.elm).attr(s.attr.color.alpha)
                 });
 
-                let suggestionsRaw = $(opts.elm).attr(s.opts.attr.color.suggestions);
+                let suggestionsRaw = $(opts.elm).attr(s.attr.color.suggestions);
                 if (suggestionsRaw) {
                     let suggestions = JSON.parse(suggestionsRaw);
                     let suggestionElm = [];
@@ -92,8 +92,8 @@
                     suggestions.forEach((suggestion) => {
                         suggestionElm.push(
                             $("<span />")
-                                .addClass(s.opts.classes.color.suggestion)
-                                .attr(s.opts.attr.value, suggestion)
+                                .addClass(s.cl.color.suggestion)
+                                .attr(s.attr.value, suggestion)
                                 .css("background-color", suggestion)
                                 .insertAfter(preview)
                         );
@@ -101,20 +101,20 @@
 
                     $(suggestionElm).on("click", (e) => {
                         e.stopPropagation();
-                        let color = $(e.currentTarget).attr(s.opts.attr.value);
+                        let color = $(e.currentTarget).attr(s.attr.value);
                         picker.setColor(color);
                         picker.show();
                     });
                 }
 
                 let updateMask = (color) => {
-                    let mask = s.opts.elm.body.children("div." + s.opts.classes.color.mask + "[" + s.opts.attr.name + "='" + opts.name + "']");
+                    let mask = s.opts.elm.body.children("div." + s.cl.color.mask + "[" + s.attr.name + "='" + opts.name + "']");
 
                     if (color && picker.visible && opts.name.search(/MaskColor$/) !== -1) { // add a mask over the page for every color field ending with "MaskColor"
                         if (mask.length() === 0) {
                             mask = $("<div />")
-                                .addClass(s.opts.classes.color.mask)
-                                .attr(s.opts.attr.name, opts.name)
+                                .addClass(s.cl.color.mask)
+                                .attr(s.attr.name, opts.name)
                                 .appendTo(s.opts.elm.body);
                         }
 
@@ -205,7 +205,7 @@
          */
         initField.textarea = (opts) => {
             return new Promise((resolve) => {
-                s.opts.elm.textarea[opts.name] = $("<textarea />").attr(s.opts.attr.name, opts.name).insertAfter(opts.label);
+                s.opts.elm.textarea[opts.name] = $("<textarea />").attr(s.attr.name, opts.name).insertAfter(opts.label);
                 resolve();
             });
         };
@@ -220,7 +220,7 @@
             return new Promise((resolve) => {
                 s.opts.elm.field[opts.name] = $("<input type='" + opts.type + "' />").insertAfter(opts.label);
                 ["placeholder"].forEach((attr) => {
-                    let elmAttr = $(opts.elm).attr(s.opts.attr.field[attr]);
+                    let elmAttr = $(opts.elm).attr(s.attr.field[attr]);
                     if (elmAttr) {
                         s.opts.elm.field[opts.name].attr(attr, elmAttr);
                     }
@@ -232,16 +232,16 @@
 
         initField.radio = (opts) => {
             return new Promise((resolve) => {
-                s.opts.elm.radio[opts.name] = $("<select />").addClass(s.opts.classes.hidden).insertAfter(opts.label);
-                let wrapper = $("<ul />").addClass(s.opts.classes.radio.wrapper).insertAfter(s.opts.elm.radio[opts.name]);
+                s.opts.elm.radio[opts.name] = $("<select />").addClass(s.cl.hidden).insertAfter(opts.label);
+                let wrapper = $("<ul />").addClass(s.cl.radio.wrapper).insertAfter(s.opts.elm.radio[opts.name]);
 
                 $(opts.elm).children("span").forEach((span) => {
-                    let value = $(span).attr(s.opts.attr.value);
-                    let entry = $("<li />").attr(s.opts.attr.value, value).appendTo(wrapper);
+                    let value = $(span).attr(s.attr.value);
+                    let entry = $("<li />").attr(s.attr.value, value).appendTo(wrapper);
 
                     $(s.helper.checkbox.get(s.opts.elm.body, {
-                        [s.opts.attr.name]: opts.name,
-                        [s.opts.attr.value]: value
+                        [s.attr.name]: opts.name,
+                        [s.attr.value]: value
                     }, "radio")).appendTo(entry);
 
                     $(span).appendTo(entry);
@@ -250,7 +250,7 @@
 
                 s.opts.elm.radio[opts.name].on("change", (e) => {
                     if (typeof e.detail === "undefined" || e.detail !== "userAction") {
-                        let checkbox = wrapper.find("input[type='checkbox'][" + s.opts.attr.value + "='" + e.currentTarget.value + "']");
+                        let checkbox = wrapper.find("input[type='checkbox'][" + s.attr.value + "='" + e.currentTarget.value + "']");
                         if (checkbox.length() > 0) {
                             checkbox.parent("div").trigger("click");
                         }
@@ -258,7 +258,7 @@
                 });
 
                 wrapper.find("input[type='checkbox']").on("change", (e) => {
-                    s.opts.elm.radio[opts.name][0].value = $(e.currentTarget).attr(s.opts.attr.value);
+                    s.opts.elm.radio[opts.name][0].value = $(e.currentTarget).attr(s.attr.value);
                     s.opts.elm.radio[opts.name].trigger("change", {detail: "userAction"});
                 });
 
@@ -277,15 +277,15 @@
                 s.opts.elm.range[opts.name] = $("<input type='range' />").insertAfter(opts.label);
 
                 ["min", "max", "step"].forEach((attr) => {
-                    let elmAttr = $(opts.elm).attr(s.opts.attr.range[attr]);
+                    let elmAttr = $(opts.elm).attr(s.attr.range[attr]);
                     if (elmAttr) {
                         s.opts.elm.range[opts.name].attr(attr, elmAttr);
                     }
                 });
 
-                s.opts.elm.range[opts.name].attr("value", $(opts.elm).attr(s.opts.attr.value) || "");
+                s.opts.elm.range[opts.name].attr("value", $(opts.elm).attr(s.attr.value) || "");
 
-                let unit = $(opts.elm).attr(s.opts.attr.range.unit) || "";
+                let unit = $(opts.elm).attr(s.attr.range.unit) || "";
                 let valTooltip = $("<span />").insertAfter(s.opts.elm.range[opts.name]);
 
                 s.opts.elm.range[opts.name].on("input change", (e) => {
@@ -311,16 +311,16 @@
                 });
                 s.opts.elm.range[opts.name].trigger("input");
 
-                if ($(opts.elm).attr(s.opts.attr.range.infinity) === "1") { // add checkbox to disable range input
+                if ($(opts.elm).attr(s.attr.range.infinity) === "1") { // add checkbox to disable range input
                     let checkbox = s.helper.checkbox.get(s.opts.elm.body).insertAfter(valTooltip);
-                    $("<label />").attr(s.opts.attr.i18n, opts.i18n + "_infinity").insertAfter(checkbox);
+                    $("<label />").attr(s.attr.i18n, opts.i18n + "_infinity").insertAfter(checkbox);
                     $("<br />").insertBefore(checkbox);
 
                     checkbox.children("input[type='checkbox']").on("change", (e) => {
                         if (e.currentTarget.checked) {
-                            s.opts.elm.range[opts.name].addClass(s.opts.classes.range.inactive);
+                            s.opts.elm.range[opts.name].addClass(s.cl.range.inactive);
                         } else {
-                            s.opts.elm.range[opts.name].removeClass(s.opts.classes.range.inactive);
+                            s.opts.elm.range[opts.name].removeClass(s.cl.range.inactive);
                         }
                     });
 
@@ -340,14 +340,14 @@
             return new Promise((resolve) => {
                 s.opts.elm.select[opts.name] = $("<select />").insertAfter(opts.label);
                 $(opts.elm).children("span").forEach((span) => {
-                    let i18n = $(span).attr(s.opts.attr.i18n);
+                    let i18n = $(span).attr(s.attr.i18n);
 
                     let option = $("<option />").attr({
-                        value: $(span).attr(s.opts.attr.value),
+                        value: $(span).attr(s.attr.value),
                     }).html($(span).html()).appendTo(s.opts.elm.select[opts.name]);
 
                     if (i18n) {
-                        option.attr(s.opts.attr.i18n, i18n);
+                        option.attr(s.attr.i18n, i18n);
                     }
                 });
                 resolve();
@@ -362,9 +362,9 @@
          */
         initField.checkbox = (opts) => {
             return new Promise((resolve) => {
-                let style = $(opts.elm).attr(s.opts.attr.style) || "default";
+                let style = $(opts.elm).attr(s.attr.style) || "default";
                 s.opts.elm.checkbox[opts.name] = s.helper.checkbox.get(s.opts.elm.body, {
-                    [s.opts.attr.name]: opts.name
+                    [s.attr.name]: opts.name
                 }, "checkbox", style).insertAfter(opts.label);
 
                 resolve();

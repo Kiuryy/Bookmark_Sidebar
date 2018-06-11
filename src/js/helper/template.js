@@ -14,30 +14,6 @@
                 "<circle fill=\"none\" stroke-width=\"3\" stroke-linecap=\"round\" cx=\"18\" cy=\"18\" r=\"16\"></circle>" +
                 "</svg>");
         };
-
-
-        /**
-         * Returns the html for the footer
-         *
-         * @returns {jsu}
-         */
-        this.footer = () => {
-            let footer = $("" +
-                "<footer>" +
-                " <a id=\"copyright\" href=\"https://extensions.blockbyte.de/\" target=\"_blank\">" +
-                "  &copy; <span class=\"created\">2016</span>&ensp;<strong>Blockbyte</strong>" +
-                " </a>" +
-                "</footer>");
-
-            let createdDate = +footer.find("span.created").text();
-            let currentYear = new Date().getFullYear();
-
-            if (currentYear > createdDate) {
-                footer.find("span.created").text(createdDate + " - " + currentYear);
-            }
-
-            return footer;
-        };
     };
 
 })(jsu);

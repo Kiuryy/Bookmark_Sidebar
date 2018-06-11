@@ -19,6 +19,8 @@
         this.isDev = false;
         this.elements = {};
         this.opts = opts;
+        this.cl = opts.classes;
+        this.attr = opts.attr;
         this.needsReload = false;
         this.state = null;
 
@@ -26,7 +28,7 @@
          * Constructor
          */
         this.run = () => {
-            $("html").attr(opts.attr.uid, uid);
+            $("html").attr(this.attr.uid, uid);
 
             this.isDev = opts.manifest.version_name === "Dev" || !("update_url" in opts.manifest);
             let removedOldInstance = destroyOldInstance();
@@ -127,7 +129,7 @@
                     label: sort.name + "_" + sort.dir
                 });
 
-                let searchVal = this.elements.header.find("div." + opts.classes.sidebar.searchBox + " > input[type='text']")[0].value;
+                let searchVal = this.elements.header.find("div." + this.cl.sidebar.searchBox + " > input[type='text']")[0].value;
                 if (searchVal.length > 0) {
                     this.helper.model.call("trackEvent", {
                         category: "search",
@@ -176,13 +178,13 @@
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         this.loaded = () => {
-            if (!this.elements.iframeBody.hasClass(opts.classes.sidebar.extLoaded)) {
+            if (!this.elements.iframeBody.hasClass(this.cl.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
-                this.elements.iframeBody.addClass(opts.classes.sidebar.extLoaded);
+                this.elements.iframeBody.addClass(this.cl.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
 
-                if (this.elements.iframe.hasClass(opts.classes.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
+                if (this.elements.iframe.hasClass(this.cl.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
                     this.helper.toggle.markLastUsed();
                 }
 
@@ -210,7 +212,7 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elements.sidebar.addClass(opts.classes.sidebar.loading);
+            this.elements.sidebar.addClass(this.cl.sidebar.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
@@ -227,7 +229,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elements.sidebar.removeClass(opts.classes.sidebar.loading);
+                this.elements.sidebar.removeClass(this.cl.sidebar.loading);
                 if (loadingInfo.loader) {
                     loadingInfo.loader.remove();
                 }
@@ -240,11 +242,11 @@
          */
         this.initImages = () => {
             $.delay().then(() => {
-                if (this.elements.iframe.hasClass(opts.classes.page.visible)) {
-                    this.elements.sidebar.find("img[" + opts.attr.src + "]").forEach((_self) => {
+                if (this.elements.iframe.hasClass(this.cl.page.visible)) {
+                    this.elements.sidebar.find("img[" + this.attr.src + "]").forEach((_self) => {
                         let img = $(_self);
-                        let src = img.attr(opts.attr.src);
-                        img.removeAttr(opts.attr.src);
+                        let src = img.attr(this.attr.src);
+                        img.removeAttr(this.attr.src);
                         img.attr("src", src);
                     });
                 }
@@ -285,7 +287,7 @@
                 }).appendTo(label);
 
                 this.helper.checkbox.get(this.elements.iframeBody, {
-                    [opts.attr.name]: type
+                    [this.attr.name]: type
                 }, "checkbox", "switch").appendTo(contentBox);
             });
 
@@ -383,7 +385,7 @@
             }
 
             existenceTimeout = setTimeout(() => {
-                let htmlUid = $("html").attr(opts.attr.uid);
+                let htmlUid = $("html").attr(this.attr.uid);
 
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
                     if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
@@ -434,7 +436,7 @@
             this.elements.iframe = $("<iframe id=\"" + opts.ids.page.iframe + "\" />").appendTo("body");
 
             if (config.animations === false) {
-                this.elements.iframe.addClass(opts.classes.page.noAnimations);
+                this.elements.iframe.addClass(this.cl.page.noAnimations);
             }
 
             this.elements.iframeBody = this.elements.iframe.find("body");
@@ -445,17 +447,17 @@
                 this.elements.bookmarkBox[val] = this.helper.scroll.add(opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elements.sidebar));
             });
 
-            this.elements.filterBox = $("<div />").addClass(opts.classes.sidebar.filterBox).appendTo(this.elements.sidebar);
-            this.elements.pinnedBox = $("<div />").addClass(opts.classes.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
-            this.elements.lockPinned = $("<a />").addClass(opts.classes.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
+            this.elements.filterBox = $("<div />").addClass(this.cl.sidebar.filterBox).appendTo(this.elements.sidebar);
+            this.elements.pinnedBox = $("<div />").addClass(this.cl.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
+            this.elements.lockPinned = $("<a />").addClass(this.cl.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
 
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
             if (config.darkMode === true) {
-                this.elements.iframeBody.addClass(opts.classes.page.darkMode);
+                this.elements.iframeBody.addClass(this.cl.page.darkMode);
             } else if (config.highContrast === true) {
-                this.elements.iframeBody.addClass(opts.classes.page.highContrast);
+                this.elements.iframeBody.addClass(this.cl.page.highContrast);
             }
 
             this.helper.utility.triggerEvent("elementsCreated", {

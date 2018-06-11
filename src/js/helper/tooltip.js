@@ -24,50 +24,40 @@
          * @param {jsu} elm
          */
         this.create = (elm) => {
-            let id = elm.attr(ext.opts.attr.id);
+            let id = elm.attr(ext.attr.id);
 
             if (id && ext.helper.entry.isSeparator(id) === false) {
                 ext.helper.toggle.addSidebarHoverClass();
 
                 closeAllExcept(id);
-                let existingTooltip = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper + "[" + ext.opts.attr.id + "='" + id + "']");
+                let existingTooltip = ext.elements.iframeBody.find("div." + ext.cl.tooltip.wrapper + "[" + ext.attr.id + "='" + id + "']");
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
                     if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
-                        existingTooltip.addClass(ext.opts.classes.tooltip.visible);
+                        existingTooltip.addClass(ext.cl.tooltip.visible);
                     }
-                } else { // no tooltip for the given element yet -> generate and show it after the configured delay
-                    if (+config.tooltipDelay !== -1) { // show only if delay > -1
-                        let data = ext.helper.entry.getDataById(id);
+                } else if (+config.tooltipDelay !== -1) { // no tooltip for the given element yet -> generate and show it after the configured delay (if delay > -1)
+                    let data = ext.helper.entry.getDataById(id);
 
-                        if (data) {
-                            let tooltip = $("<div />")
-                                .addClass(ext.opts.classes.tooltip.wrapper)
-                                .attr(ext.opts.attr.id, id)
-                                .appendTo(ext.elements.iframeBody);
+                    if (data) {
+                        let tooltip = $("<div />")
+                            .addClass(ext.cl.tooltip.wrapper)
+                            .attr(ext.attr.id, id)
+                            .appendTo(ext.elements.iframeBody);
 
-                            if (config.tooltipContent === "all" || config.tooltipContent === "title") {
-                                $("<h3 />").text(data.title).appendTo(tooltip);
-                            }
+                        addContent(tooltip, data);
 
-                            if (data.isDir) {
-                                $("<span />").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
-                            } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
-                                $("<span />").text(data.url).appendTo(tooltip);
-                            }
-
-                            if (timeout[id]) {
-                                clearTimeout(timeout[id]);
-                                timeout[id] = null;
-                            }
-
-                            timeout[id] = setTimeout(() => {
-                                tooltip.addClass(ext.opts.classes.tooltip.visible);
-                                tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
-
-                                setHorizontalPosition(tooltip, elm);
-                            }, +config.tooltipDelay * 1000);
+                        if (timeout[id]) {
+                            clearTimeout(timeout[id]);
+                            timeout[id] = null;
                         }
+
+                        timeout[id] = setTimeout(() => {
+                            tooltip.addClass(ext.cl.tooltip.visible);
+                            tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
+
+                            setHorizontalPosition(tooltip, elm);
+                        }, +config.tooltipDelay * 1000);
                     }
                 }
             } else {
@@ -80,6 +70,24 @@
          */
         this.close = () => {
             closeAllExcept();
+        };
+
+        /**
+         * Adds the title and url to the given tooltip
+         *
+         * @param {jsu} tooltip
+         * @param {object} data
+         */
+        let addContent = (tooltip, data) => {
+            if (config.tooltipContent === "all" || config.tooltipContent === "title") {
+                $("<h3 />").text(data.title).appendTo(tooltip);
+            }
+
+            if (data.isDir) {
+                $("<span />").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
+            } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
+                $("<span />").text(data.url).appendTo(tooltip);
+            }
         };
 
         /**
@@ -115,17 +123,17 @@
             });
             timeout = {};
 
-            let tooltips = ext.elements.iframeBody.find("div." + ext.opts.classes.tooltip.wrapper + (except ? ":not([" + ext.opts.attr.id + "='" + except + "'])" : ""));
+            let tooltips = ext.elements.iframeBody.find("div." + ext.cl.tooltip.wrapper + (except ? ":not([" + ext.attr.id + "='" + except + "'])" : ""));
             let hasVisibleTooltips = false;
 
             tooltips.forEach((tooltip) => {
-                if ($(tooltip).hasClass(ext.opts.classes.tooltip.visible)) {
+                if ($(tooltip).hasClass(ext.cl.tooltip.visible)) {
                     hasVisibleTooltips = true;
                     return false;
                 }
             });
 
-            tooltips.removeClass(ext.opts.classes.tooltip.visible);
+            tooltips.removeClass(ext.cl.tooltip.visible);
             $.delay(hasVisibleTooltips ? 300 : 0).then(() => {
                 tooltips.remove();
                 ext.helper.toggle.removeSidebarHoverClass();

@@ -27,27 +27,27 @@
             iframeBody.parent("html").attr("dir", ext.helper.i18n.isRtl() ? "rtl" : "ltr");
 
             elements.modal = $("<div />")
-                .attr(ext.opts.attr.type, type)
-                .addClass(ext.opts.classes.overlay.modal)
+                .attr(ext.attr.type, type)
+                .addClass(ext.cl.overlay.modal)
                 .appendTo(iframeBody);
 
             if (config.animations === false) {
-                elements.overlay.addClass(ext.opts.classes.page.noAnimations);
+                elements.overlay.addClass(ext.cl.page.noAnimations);
             }
 
             if (config.darkMode) {
-                iframeBody.addClass(ext.opts.classes.page.darkMode);
+                iframeBody.addClass(ext.cl.page.darkMode);
             } else if (config.highContrast) {
-                iframeBody.addClass(ext.opts.classes.page.highContrast);
+                iframeBody.addClass(ext.cl.page.highContrast);
             }
 
             let header = $("<header />").appendTo(elements.modal);
             $("<h1 />").text(title).appendTo(header);
-            $("<a />").addClass(ext.opts.classes.overlay.close).appendTo(header);
+            $("<a />").addClass(ext.cl.overlay.close).appendTo(header);
 
-            elements.buttonWrapper = $("<menu />").addClass(ext.opts.classes.overlay.buttonWrapper).appendTo(elements.modal);
+            elements.buttonWrapper = $("<menu />").addClass(ext.cl.overlay.buttonWrapper).appendTo(elements.modal);
             $("<a />")
-                .addClass(ext.opts.classes.overlay.close)
+                .addClass(ext.cl.overlay.close)
                 .appendTo(elements.buttonWrapper);
 
             setCloseButtonLabel(type === "infos" ? "close" : "cancel");
@@ -100,8 +100,8 @@
             initEvents();
 
             $.delay(100).then(() => {
-                elements.modal.addClass(ext.opts.classes.overlay.visible);
-                elements.overlay.addClass(ext.opts.classes.page.visible);
+                elements.modal.addClass(ext.cl.overlay.visible);
+                elements.overlay.addClass(ext.cl.page.visible);
             });
         };
 
@@ -111,7 +111,7 @@
         this.performAction = () => {
             let data = elements.overlay.data("info");
 
-            switch (elements.modal.attr(ext.opts.attr.type)) {
+            switch (elements.modal.attr(ext.attr.type)) {
                 case "delete": {
                     deleteBookmark(data);
                     break;
@@ -147,13 +147,13 @@
          */
         this.closeOverlay = (cancel = false, labelAdd = "") => {
             ext.helper.model.call("checkUrls", {abort: true}); // abort running check url ajax calls
-            ext.elements.bookmarkBox.all.find("li." + ext.opts.classes.drag.isDragged).remove();
-            elements.overlay.removeClass(ext.opts.classes.page.visible);
+            ext.elements.bookmarkBox.all.find("li." + ext.cl.drag.isDragged).remove();
+            elements.overlay.removeClass(ext.cl.page.visible);
 
             ext.helper.model.call("trackEvent", {
                 category: "overlay",
                 action: cancel ? "cancel" : "action",
-                label: elements.modal.attr(ext.opts.attr.type) + labelAdd
+                label: elements.modal.attr(ext.attr.type) + labelAdd
             });
 
             ext.helper.scroll.focus();
@@ -169,7 +169,7 @@
          * @param {string} type
          */
         let setCloseButtonLabel = (type = "close") => {
-            elements.buttonWrapper.children("a." + ext.opts.classes.overlay.close).text(ext.helper.i18n.get("overlay_" + type));
+            elements.buttonWrapper.children("a." + ext.cl.overlay.close).text(ext.helper.i18n.get("overlay_" + type));
         };
 
         /**
@@ -179,7 +179,7 @@
          */
         let appendAdditionalInfo = (data) => {
             if (data.additionalInfo && data.additionalInfo.desc) {
-                let container = $("<div />").addClass(ext.opts.classes.overlay.info).appendTo(elements.modal);
+                let container = $("<div />").addClass(ext.cl.overlay.info).appendTo(elements.modal);
 
                 $("<h3 />").text(ext.helper.i18n.get("overlay_bookmark_additional_info")).appendTo(container);
                 $("<p />").text(data.additionalInfo.desc).appendTo(container);
@@ -195,14 +195,14 @@
         let appendPreviewLink = (data, addUrl) => {
             let preview = $("<" + (data.isDir ? "span" : "a") + " />")
                 .attr("title", data.title)
-                .addClass(ext.opts.classes.overlay.preview)
+                .addClass(ext.cl.overlay.preview)
                 .text(data.title)
                 .appendTo(elements.modal);
 
             if (data.isDir) {
-                preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' />");
+                preview.prepend("<span class='" + ext.cl.sidebar.dirIcon + "' />");
             } else if (ext.opts.demoMode) {
-                preview.prepend("<span class='" + ext.opts.classes.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                preview.prepend("<span class='" + ext.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
             } else {
                 ext.helper.model.call("favicon", {url: data.url}).then((response) => { // retrieve favicon of url
                     if (response.img) { // favicon found -> add to entry
@@ -213,7 +213,7 @@
 
             if (addUrl && addUrl === true && data.isDir !== true) {
                 $("<a />")
-                    .addClass(ext.opts.classes.overlay.previewUrl)
+                    .addClass(ext.cl.overlay.previewUrl)
                     .attr("title", data.url)
                     .text(data.url)
                     .insertAfter(preview);
@@ -226,7 +226,7 @@
          * @param {object} data
          */
         let handleKeyboardShortcutsDescHtml = (data) => {
-            let scrollBox = $("<div />").addClass(ext.opts.classes.scrollBox.wrapper).appendTo(elements.modal);
+            let scrollBox = $("<div />").addClass(ext.cl.scrollBox.wrapper).appendTo(elements.modal);
             let list = $("<ul />").appendTo(scrollBox);
 
             let icons = {
@@ -269,8 +269,8 @@
          * @param {object} data
          */
         let handleShareInfoDescHtml = (data) => {
-            elements.modal.attr(ext.opts.attr.value, data.type);
-            let scrollBox = $("<div />").addClass(ext.opts.classes.scrollBox.wrapper).appendTo(elements.modal);
+            elements.modal.attr(ext.attr.value, data.type);
+            let scrollBox = $("<div />").addClass(ext.cl.scrollBox.wrapper).appendTo(elements.modal);
 
             if (data.type === "activity") {
                 $("<p />").html(ext.helper.i18n.get("contribute_share_activity_desc1")).appendTo(scrollBox);
@@ -299,7 +299,7 @@
             $("<p />").text(ext.helper.i18n.get("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
             appendAdditionalInfo(data);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.cl.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -324,7 +324,7 @@
             }
 
             let infoEntry = $("<li />")
-                .addClass(ext.opts.classes.overlay.info)
+                .addClass(ext.cl.overlay.info)
                 .append("<label>" + ext.helper.i18n.get("overlay_bookmark_additional_info") + "</label>")
                 .appendTo(list);
 
@@ -334,12 +334,12 @@
             infoEntry.append("<span>" + ext.helper.i18n.get("settings_not_synced") + "</span>");
 
             infoField.on("focus", () => {
-                infoEntry.addClass(ext.opts.classes.sidebar.active);
+                infoEntry.addClass(ext.cl.sidebar.active);
             }).on("blur", () => {
-                infoEntry.removeClass(ext.opts.classes.sidebar.active);
+                infoEntry.removeClass(ext.cl.sidebar.active);
             });
 
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -353,7 +353,7 @@
 
             $("<p />").text(text).appendTo(elements.modal);
             appendPreviewLink(data);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.cl.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -365,7 +365,7 @@
             $("<p />").text(ext.helper.i18n.get("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
             appendAdditionalInfo(data);
-            $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
+            $("<a />").addClass(ext.cl.overlay.action).text(ext.helper.i18n.get("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -374,24 +374,24 @@
          * @param {object} data
          */
         let handleAddHtml = (data) => {
-            let submit = $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
-            let menu = $("<menu />").attr(ext.opts.attr.name, "select").appendTo(elements.modal);
-            let bookmarkLink = $("<a />").attr(ext.opts.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
-            $("<a />").attr(ext.opts.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
-            $("<a />").attr(ext.opts.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
+            let submit = $("<a />").addClass(ext.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+            let menu = $("<menu />").attr(ext.attr.name, "select").appendTo(elements.modal);
+            let bookmarkLink = $("<a />").attr(ext.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
+            $("<a />").attr(ext.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
+            $("<a />").attr(ext.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
 
             menu.on("mouseleave", (e) => {
-                $(e.currentTarget).children("a").removeClass(ext.opts.classes.sidebar.hover);
+                $(e.currentTarget).children("a").removeClass(ext.cl.sidebar.hover);
             });
 
             menu.children("a").on("mouseenter", (e) => {
-                menu.children("a").removeClass(ext.opts.classes.sidebar.hover);
-                $(e.currentTarget).addClass(ext.opts.classes.sidebar.hover);
+                menu.children("a").removeClass(ext.cl.sidebar.hover);
+                $(e.currentTarget).addClass(ext.cl.sidebar.hover);
             }).on("mouseleave", (e) => {
-                $(e.currentTarget).removeClass(ext.opts.classes.sidebar.hover);
+                $(e.currentTarget).removeClass(ext.cl.sidebar.hover);
             }).on("click", (e) => {
                 e.preventDefault();
-                let type = $(e.currentTarget).attr(ext.opts.attr.type);
+                let type = $(e.currentTarget).attr(ext.attr.type);
 
                 if (type === "separator") {
                     addSeparator(data);
@@ -418,13 +418,13 @@
                         list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                     }
 
-                    menu.addClass(ext.opts.classes.sidebar.hidden);
-                    menu.children("a").removeClass(ext.opts.classes.sidebar.hover);
+                    menu.addClass(ext.cl.sidebar.hidden);
+                    menu.children("a").removeClass(ext.cl.sidebar.hover);
 
                     $.delay(data && data.values ? 0 : 100).then(() => {
-                        list.addClass(ext.opts.classes.overlay.visible);
+                        list.addClass(ext.cl.overlay.visible);
                         list.find("input")[0].focus();
-                        submit.addClass(ext.opts.classes.overlay.visible);
+                        submit.addClass(ext.cl.overlay.visible);
                     });
                 }
             });
@@ -450,7 +450,7 @@
 
             if (data.isDir) {
                 let childrenEntry = $("<li />")
-                    .addClass(ext.opts.classes.overlay.hasTooltip)
+                    .addClass(ext.cl.overlay.hasTooltip)
                     .append("<span>" + data.childrenAmount.total + "</span>")
                     .append(" " + ext.helper.i18n.get("overlay_dir_children"), false)
                     .appendTo(list);
@@ -462,7 +462,7 @@
             }
 
             let viewsEntry = $("<li />")
-                .addClass(ext.opts.classes.overlay.hasTooltip)
+                .addClass(ext.cl.overlay.hasTooltip)
                 .append("<span>" + data.views.total + "</span>")
                 .append(" " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.total === 1 ? "_single" : "")), false)
                 .appendTo(list);
@@ -488,19 +488,19 @@
                 elements.progressLabel.remove();
 
                 if (hasResults) {
-                    elements.modal.addClass(ext.opts.classes.overlay.urlCheckList);
+                    elements.modal.addClass(ext.cl.overlay.urlCheckList);
                 }
 
                 return $.delay(hasResults ? 1000 : 0);
             }).then(() => {
                 elements.loader.remove();
-                elements.modal.removeClass(ext.opts.classes.overlay.urlCheckLoading);
+                elements.modal.removeClass(ext.cl.overlay.urlCheckLoading);
                 setCloseButtonLabel("close");
 
                 if (updateList.length === 0) {
-                    $("<p />").addClass(ext.opts.classes.overlay.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
+                    $("<p />").addClass(ext.cl.overlay.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
                 } else {
-                    $("<a />").addClass(ext.opts.classes.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
+                    $("<a />").addClass(ext.cl.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
                     let scrollBox = ext.helper.scroll.add(ext.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
                     let overlayBody = elements.overlay.find("body");
 
@@ -527,7 +527,7 @@
 
                         ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.opts.classes.checkbox.box));
+                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + ext.cl.checkbox.box));
                             }
                         });
                     });
@@ -561,11 +561,11 @@
                     processBookmarks(data.children);
                     let bookmarkAmount = bookmarks.length;
 
-                    elements.progressBar = $("<div />").addClass(ext.opts.classes.overlay.progressBar).html("<div />").appendTo(elements.modal);
-                    elements.progressLabel = $("<span />").addClass(ext.opts.classes.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
+                    elements.progressBar = $("<div />").addClass(ext.cl.overlay.progressBar).html("<div />").appendTo(elements.modal);
+                    elements.progressLabel = $("<span />").addClass(ext.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
 
                     $.delay(500).then(() => {
-                        elements.modal.addClass(ext.opts.classes.overlay.urlCheckLoading);
+                        elements.modal.addClass(ext.cl.overlay.urlCheckLoading);
                     });
 
                     let finished = 0;
@@ -613,7 +613,7 @@
                     elements.loader.remove();
                     elements.desc.remove();
 
-                    $("<div />").addClass(ext.opts.classes.overlay.inputError)
+                    $("<div />").addClass(ext.cl.overlay.inputError)
                         .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
                         .append("<p>" + ext.helper.i18n.get("status_check_urls_unavailable_desc") + "</p>")
                         .appendTo(elements.modal);
@@ -663,7 +663,7 @@
          */
         let deleteBookmark = (data) => {
             this.closeOverlay();
-            ext.elements.bookmarkBox.all.find("a[" + ext.opts.attr.id + "='" + data.id + "']").parent("li").remove();
+            ext.elements.bookmarkBox.all.find("a[" + ext.attr.id + "='" + data.id + "']").parent("li").remove();
             ext.helper.bookmark.performDeletion(data);
         };
 
@@ -675,8 +675,8 @@
          * @returns {Object}
          */
         let getFormValues = (isDir) => {
-            let titleInput = elements.modal.find("input[name='title']").removeClass(ext.opts.classes.overlay.inputError);
-            let urlInput = elements.modal.find("input[name='url']").removeClass(ext.opts.classes.overlay.inputError);
+            let titleInput = elements.modal.find("input[name='title']").removeClass(ext.cl.overlay.inputError);
+            let urlInput = elements.modal.find("input[name='url']").removeClass(ext.cl.overlay.inputError);
             let infoField = elements.modal.find("textarea[name='info']");
 
             let ret = {
@@ -689,12 +689,12 @@
             };
 
             if (ret.values.title.length === 0) {
-                titleInput.addClass(ext.opts.classes.overlay.inputError);
+                titleInput.addClass(ext.cl.overlay.inputError);
                 ret.errors = true;
             }
 
             if (!isDir && ret.values.url.length === 0) {
-                urlInput.addClass(ext.opts.classes.overlay.inputError);
+                urlInput.addClass(ext.cl.overlay.inputError);
                 ret.errors = true;
             }
 
@@ -721,7 +721,7 @@
                     additionalInfo: formValues.values.additionalInfo
                 }).then(([result]) => {
                     if (result.error) {
-                        elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
+                        elements.modal.find("input[name='url']").addClass(ext.cl.overlay.inputError);
                     } else {
                         ext.helper.model.call("trackEvent", {
                             category: "extension",
@@ -784,7 +784,7 @@
 
                 ext.helper.model.call("createBookmark", obj).then((result) => {
                     if (result.error) {
-                        elements.modal.find("input[name='url']").addClass(ext.opts.classes.overlay.inputError);
+                        elements.modal.find("input[name='url']").addClass(ext.cl.overlay.inputError);
                     } else {
                         ext.helper.model.call("trackEvent", {
                             category: "extension",
@@ -804,7 +804,7 @@
          */
         let updateBookmarkUrls = () => {
             let entries = elements.modal.find("div#" + ext.opts.ids.overlay.urlList + " ul > li");
-            elements.modal.find("a." + ext.opts.classes.overlay.action).remove();
+            elements.modal.find("a." + ext.cl.overlay.action).remove();
 
             new Promise((resolve) => {
                 let proceedList = (i = 0) => {
@@ -856,21 +856,21 @@
                 }
             });
 
-            elements.modal.find("a." + ext.opts.classes.overlay.close).on("click", (e) => { // close overlay by close button
+            elements.modal.find("a." + ext.cl.overlay.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
                 this.closeOverlay(true);
             });
 
-            elements.modal.on("click", "a." + ext.opts.classes.overlay.action, (e) => { // perform the action
+            elements.modal.on("click", "a." + ext.cl.overlay.action, (e) => { // perform the action
                 e.preventDefault();
                 this.performAction();
             });
 
             elements.modal.on("focus", "input", (e) => { // remove error class from input fields
-                $(e.currentTarget).removeClass(ext.opts.classes.overlay.inputError);
+                $(e.currentTarget).removeClass(ext.cl.overlay.inputError);
             });
 
-            elements.modal.find("a." + ext.opts.classes.overlay.preview + ", a." + ext.opts.classes.overlay.previewUrl).on("click", (e) => { // open bookmark
+            elements.modal.find("a." + ext.cl.overlay.preview + ", a." + ext.cl.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
                 ext.helper.model.call("trackEvent", {
                     category: "url",

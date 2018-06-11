@@ -15,7 +15,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 list = $("<ul />").appendTo(s.opts.elm.aside.children("nav"));
-                let menuParsing = s.opts.elm.content.children("div." + s.opts.classes.tabs.content).length();
+                let menuParsing = s.opts.elm.content.children("div." + s.cl.tabs.content).length();
 
                 let menupointLoaded = () => {
                     menuParsing--;
@@ -27,18 +27,18 @@
                     }
                 };
 
-                s.opts.elm.content.children("div." + s.opts.classes.tabs.content).forEach((elm) => {
-                    let name = $(elm).attr(s.opts.attr.name);
-                    let entry = $("<li />").attr(s.opts.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
-                    let subTabs = $(elm).children("div[" + s.opts.attr.name + "]");
+                s.opts.elm.content.children("div." + s.cl.tabs.content).forEach((elm) => {
+                    let name = $(elm).attr(s.attr.name);
+                    let entry = $("<li />").attr(s.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
+                    let subTabs = $(elm).children("div[" + s.attr.name + "]");
 
                     if (subTabs.length() > 0) {
                         let subList = $("<ul />").appendTo(entry);
 
                         subTabs.forEach((subElm) => {
-                            let subName = $(subElm).attr(s.opts.attr.name);
+                            let subName = $(subElm).attr(s.attr.name);
                             $("<li />")
-                                .attr(s.opts.attr.name, subName)
+                                .attr(s.attr.name, subName)
                                 .html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name + "_" + subName) + "</a>")
                                 .appendTo(subList);
                         });
@@ -97,10 +97,10 @@
             list.find("a").on("click", (e) => {
                 e.preventDefault();
                 let elm = $(e.currentTarget).parent("li");
-                let name = elm.attr(s.opts.attr.name);
+                let name = elm.attr(s.attr.name);
 
                 if (elm.parents("li").length() > 0) {
-                    let parentName = elm.parent("ul").parent("li").attr(s.opts.attr.name);
+                    let parentName = elm.parent("ul").parent("li").attr(s.attr.name);
                     showPage(parentName, name);
                 } else {
                     showPage(name);
@@ -120,25 +120,25 @@
         let updateHeaderMenu = () => {
             let path = this.getPath();
             let pages = [
-                s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']")
+                s.opts.elm.content.children("div." + s.cl.tabs.content + "[" + s.attr.name + "='" + path[0] + "']")
             ];
 
-            s.opts.elm.header.attr(s.opts.attr.type, path[0]);
+            s.opts.elm.header.attr(s.attr.type, path[0]);
 
             if (path[1]) {
-                pages.unshift(pages[0].children("div[" + s.opts.attr.name + "='" + path[1] + "']"));
+                pages.unshift(pages[0].children("div[" + s.attr.name + "='" + path[1] + "']"));
             }
 
             ["save", "restore"].forEach((type) => {
                 pages.some((page) => {
-                    let info = page.attr(s.opts.attr.buttons[type]);
-                    s.opts.elm.buttons[type].addClass(s.opts.classes.hidden);
+                    let info = page.attr(s.attr.buttons[type]);
+                    s.opts.elm.buttons[type].addClass(s.cl.hidden);
 
                     if (info) { // attribute is available
                         if (info !== "false") {
                             s.opts.elm.buttons[type]
                                 .html(info === "true" ? "" : s.helper.i18n.get(info))
-                                .removeClass(s.opts.classes.hidden);
+                                .removeClass(s.cl.hidden);
                         }
 
                         return true;
@@ -148,11 +148,11 @@
         };
 
         let hidePages = () => {
-            list.find("li").removeClass(s.opts.classes.tabs.active);
+            list.find("li").removeClass(s.cl.tabs.active);
 
-            let allPages = s.opts.elm.content.children("div." + s.opts.classes.tabs.content);
-            allPages.removeClass(s.opts.classes.tabs.active);
-            allPages.children("div[" + s.opts.attr.name + "]").removeClass(s.opts.classes.tabs.active);
+            let allPages = s.opts.elm.content.children("div." + s.cl.tabs.content);
+            allPages.removeClass(s.cl.tabs.active);
+            allPages.children("div[" + s.attr.name + "]").removeClass(s.cl.tabs.active);
 
             list.find("ul").css("height", "");
         };
@@ -163,15 +163,15 @@
                     running = true;
                     let pathLen = path.length;
                     let breadcrumb = [];
-                    let menu = list.children("li[" + s.opts.attr.name + "='" + path[0] + "']");
-                    let page = s.opts.elm.content.children("div." + s.opts.classes.tabs.content + "[" + s.opts.attr.name + "='" + path[0] + "']");
+                    let menu = list.children("li[" + s.attr.name + "='" + path[0] + "']");
+                    let page = s.opts.elm.content.children("div." + s.cl.tabs.content + "[" + s.attr.name + "='" + path[0] + "']");
 
-                    if (pathLen === 1 && page.find("> div[" + s.opts.attr.name + "]").length() > 0) {
+                    if (pathLen === 1 && page.find("> div[" + s.attr.name + "]").length() > 0) {
 
-                        if (menu.hasClass(s.opts.classes.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
-                            path.push(page.find("> div[" + s.opts.attr.name + "='translate']").eq(0).attr(s.opts.attr.name));
+                        if (menu.hasClass(s.cl.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
+                            path.push(page.find("> div[" + s.attr.name + "='translate']").eq(0).attr(s.attr.name));
                         } else {
-                            path.push(page.find("> div[" + s.opts.attr.name + "]").eq(0).attr(s.opts.attr.name));
+                            path.push(page.find("> div[" + s.attr.name + "]").eq(0).attr(s.attr.name));
                         }
 
                         pathLen++;
@@ -184,12 +184,12 @@
                         let menuParent = menu.parent("ul");
 
                         if (menuParent && menuParent.length() > 0) {
-                            menu.addClass(s.opts.classes.tabs.active);
-                            page.addClass(s.opts.classes.tabs.active);
+                            menu.addClass(s.cl.tabs.active);
+                            page.addClass(s.cl.tabs.active);
                             breadcrumb.push(menu.children("a").html());
 
                             let listHeight = 0;
-                            menuParent.children("li:not(." + s.opts.classes.hidden + ")").forEach((menuEntry) => {
+                            menuParent.children("li:not(." + s.cl.hidden + ")").forEach((menuEntry) => {
                                 listHeight += $(menuEntry).data("height") || 0;
                             });
 
@@ -198,14 +198,14 @@
                             }
 
                             if (i < pathLen) {
-                                menu = menu.find("> ul > li[" + s.opts.attr.name + "='" + path[i] + "']");
-                                page = page.find("> div[" + s.opts.attr.name + "='" + path[i] + "']");
+                                menu = menu.find("> ul > li[" + s.attr.name + "='" + path[i] + "']");
+                                page = page.find("> div[" + s.attr.name + "='" + path[i] + "']");
                             }
                         }
                     }
 
                     s.opts.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
-                    s.opts.elm.body.attr(s.opts.attr.type, hash);
+                    s.opts.elm.body.attr(s.attr.type, hash);
 
                     location.hash = hash;
                     currentPage = page;

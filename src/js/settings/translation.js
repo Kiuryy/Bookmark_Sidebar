@@ -41,11 +41,11 @@
                 if (lang) {
                     let loadStartTime = +new Date();
                     let loader = s.helper.template.loading().appendTo(s.opts.elm.body);
-                    s.opts.elm.body.addClass(s.opts.classes.loading);
+                    s.opts.elm.body.addClass(s.cl.loading);
 
                     let vars = {};
 
-                    s.opts.elm.translation.wrapper.find("div." + s.opts.classes.translation.category + "[" + s.opts.attr.translation.language + "='" + lang + "']").forEach((wrapper) => {
+                    s.opts.elm.translation.wrapper.find("div." + s.cl.translation.category + "[" + s.attr.translation.language + "='" + lang + "']").forEach((wrapper) => {
                         $(wrapper).find("textarea").forEach((textarea) => {
                             let value = textarea.value;
                             if (value && value.trim().length > 0) {
@@ -73,7 +73,7 @@
                         s.showSuccessMessage("translation_submit_message");
                         return $.delay(1500);
                     }).then(() => { // reload page
-                        s.opts.elm.body.removeClass(s.opts.classes.loading);
+                        s.opts.elm.body.removeClass(s.cl.loading);
                         initEditForm(lang);
                     });
                 } else {
@@ -101,7 +101,7 @@
          */
         let initOverview = () => {
             return new Promise((resolve) => {
-                s.opts.elm.translation.overview.children("div." + s.opts.classes.boxWrapper).html("");
+                s.opts.elm.translation.overview.children("div." + s.cl.boxWrapper).html("");
 
                 $.xhr(s.opts.ajax.translation.info).then((xhr) => {
                     let infos = JSON.parse(xhr.responseText);
@@ -139,24 +139,24 @@
 
                                     let elm = $("<div />")
                                         .data("lang", lang.name)
-                                        .addClass(s.opts.classes.box)
-                                        .attr(s.opts.attr.translation.releaseStatus, status)
-                                        .append("<a href='#' class='" + s.opts.classes.translation.edit + "'></a>")
+                                        .addClass(s.cl.box)
+                                        .attr(s.attr.translation.releaseStatus, status)
+                                        .append("<a href='#' class='" + s.cl.translation.edit + "'></a>")
                                         .append("<strong>" + languages[lang.name].label + "</strong>")
-                                        .append("<div class=" + s.opts.classes.translation.progress + " " + s.opts.attr.value + "='" + percentageRounded + "%'><div style='width:" + percentageRounded + "%'></div></div>")
+                                        .append("<div class=" + s.cl.translation.progress + " " + s.attr.value + "='" + percentageRounded + "%'><div style='width:" + percentageRounded + "%'></div></div>")
                                         .append("<span title='" + s.helper.i18n.get("settings_translation_status_" + status) + "'></span>")
-                                        .appendTo(s.opts.elm.translation.overview.children("div." + s.opts.classes.boxWrapper));
+                                        .appendTo(s.opts.elm.translation.overview.children("div." + s.cl.boxWrapper));
 
                                     if (language === lang.name) {
                                         if (hasImcompleteCategories(lang.categories, infos.categories)) { // translation is incomplete -> show icon in menu
-                                            s.opts.elm.aside.find("li[" + s.opts.attr.name + "='language']").addClass(s.opts.classes.incomplete);
+                                            s.opts.elm.aside.find("li[" + s.attr.name + "='language']").addClass(s.cl.incomplete);
 
                                             $("<span />")
                                                 .attr("title", s.helper.i18n.get("settings_translation_incomplete_info"))
-                                                .appendTo(s.opts.elm.aside.find("li[" + s.opts.attr.name + "='language'] > a"));
+                                                .appendTo(s.opts.elm.aside.find("li[" + s.attr.name + "='language'] > a"));
                                         }
 
-                                        elm.addClass(s.opts.classes.translation.mark);
+                                        elm.addClass(s.cl.translation.mark);
                                     }
                                 }
                             }
@@ -165,7 +165,7 @@
                         addSelectForMissingLangs(missingLanguages);
                     }
 
-                    s.opts.elm.translation.overview.addClass(s.opts.classes.visible);
+                    s.opts.elm.translation.overview.addClass(s.cl.visible);
                     resolve();
                 });
             });
@@ -177,7 +177,7 @@
         let initEvents = () => {
             s.opts.elm.translation["goto"].on("click", (e) => {
                 e.preventDefault();
-                s.opts.elm.aside.find("li[" + s.opts.attr.name + "='translate'] > a").trigger("click");
+                s.opts.elm.aside.find("li[" + s.attr.name + "='translate'] > a").trigger("click");
             });
 
             $(document).on(s.opts.events.pageChanged, (e) => {
@@ -197,11 +197,11 @@
          * Initialises the events for the translation overview
          */
         let initOverviewEvents = () => {
-            s.opts.elm.translation.overview.find("select." + s.opts.classes.translation.select).on("change", (e) => {
+            s.opts.elm.translation.overview.find("select." + s.cl.translation.select).on("change", (e) => {
                 initEditForm(e.currentTarget.value);
             });
 
-            s.opts.elm.translation.overview.find("div." + s.opts.classes.box).on("click", (e) => {
+            s.opts.elm.translation.overview.find("div." + s.cl.box).on("click", (e) => {
                 e.preventDefault();
                 let lang = $(e.currentTarget).data("lang");
                 if (lang) {
@@ -211,16 +211,16 @@
         };
 
         let gotoOverview = () => {
-            s.opts.elm.translation.wrapper.find("." + s.opts.classes.visible).removeClass(s.opts.classes.visible);
-            s.opts.elm.translation.overview.addClass(s.opts.classes.visible);
-            s.opts.elm.buttons.save.addClass(s.opts.classes.hidden);
+            s.opts.elm.translation.wrapper.find("." + s.cl.visible).removeClass(s.cl.visible);
+            s.opts.elm.translation.overview.addClass(s.cl.visible);
+            s.opts.elm.buttons.save.addClass(s.cl.hidden);
         };
 
         let showUnavailableText = () => {
-            s.opts.elm.translation.unavailable.addClass(s.opts.classes.visible);
+            s.opts.elm.translation.unavailable.addClass(s.cl.visible);
 
-            if (s.opts.elm.translation.wrapper.hasClass(s.opts.classes.tabs.active)) {
-                s.opts.elm.buttons.save.addClass(s.opts.classes.hidden);
+            if (s.opts.elm.translation.wrapper.hasClass(s.cl.tabs.active)) {
+                s.opts.elm.buttons.save.addClass(s.cl.hidden);
             }
         };
 
@@ -251,10 +251,10 @@
          */
         let addSelectForMissingLangs = (langs) => {
             let box = $("<div />")
-                .addClass(s.opts.classes.box)
-                .appendTo(s.opts.elm.translation.overview.children("div." + s.opts.classes.boxWrapper));
+                .addClass(s.cl.box)
+                .appendTo(s.opts.elm.translation.overview.children("div." + s.cl.boxWrapper));
 
-            let select = $("<select class='" + s.opts.classes.translation.select + "' />").appendTo(box);
+            let select = $("<select class='" + s.cl.translation.select + "' />").appendTo(box);
             $("<option value='' />").text(s.helper.i18n.get("settings_translation_add_language")).appendTo(select);
 
             let optionList = [];
@@ -326,21 +326,21 @@
          * Initialises the events for the translation form
          */
         let initFormEvents = () => {
-            s.opts.elm.translation.wrapper.on("click", "a." + s.opts.classes.translation.back, (e) => {
+            s.opts.elm.translation.wrapper.on("click", "a." + s.cl.translation.back, (e) => {
                 e.preventDefault();
-                let lang = $(e.currentTarget).parents("div." + s.opts.classes.translation.category).eq(0).attr(s.opts.attr.translation.language);
+                let lang = $(e.currentTarget).parents("div." + s.cl.translation.category).eq(0).attr(s.attr.translation.language);
 
                 initEditForm(lang);
             });
 
-            s.opts.elm.translation.wrapper.on("click", "a." + s.opts.classes.translation["goto"], (e) => {
+            s.opts.elm.translation.wrapper.on("click", "a." + s.cl.translation["goto"], (e) => {
                 e.preventDefault();
-                let dir = $(e.currentTarget).attr(s.opts.attr.value);
+                let dir = $(e.currentTarget).attr(s.attr.value);
                 let list = $(e.currentTarget).parent("header").next("ul");
                 gotoNextPrevEmptyField(dir, list);
             });
 
-            s.opts.elm.translation.langvars.on("click", "div." + s.opts.classes.box, (e) => {
+            s.opts.elm.translation.langvars.on("click", "div." + s.cl.box, (e) => {
                 e.preventDefault();
                 let wrapper = $(e.currentTarget);
                 let lang = wrapper.data("lang");
@@ -359,16 +359,16 @@
          * @param {object} info
          */
         let showLangVarsList = (lang, name, info) => {
-            let elm = s.opts.elm.translation.wrapper.find("div." + s.opts.classes.translation.category + "[" + s.opts.attr.name + "='" + name + "'][" + s.opts.attr.translation.language + "='" + lang + "']");
+            let elm = s.opts.elm.translation.wrapper.find("div." + s.cl.translation.category + "[" + s.attr.name + "='" + name + "'][" + s.attr.translation.language + "='" + lang + "']");
 
             if (elm.length() === 0) {
                 let key = lang + "_" + name;
 
                 elm = $("<div />")
-                    .attr(s.opts.attr.name, name)
-                    .attr(s.opts.attr.translation.language, lang)
-                    .addClass(s.opts.classes.translation.category)
-                    .addClass(s.opts.classes.contentBox)
+                    .attr(s.attr.name, name)
+                    .attr(s.attr.translation.language, lang)
+                    .addClass(s.cl.translation.category)
+                    .addClass(s.cl.contentBox)
                     .appendTo(s.opts.elm.translation.wrapper);
 
                 let header = $("<header />").appendTo(elm);
@@ -393,20 +393,20 @@
                     }).text(val).appendTo(entry.children("div").eq(1));
 
                     if (val.length === 0) { // mark empty fields
-                        entry.addClass(s.opts.classes.translation.empty);
+                        entry.addClass(s.cl.translation.empty);
                     }
                 });
 
                 initTextareaEvents(elm);
 
-                $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass(s.opts.classes.translation.back).appendTo(header);
+                $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass(s.cl.translation.back).appendTo(header);
 
                 if (varsAmount[key].total !== varsAmount[key].filled) { // there are empty fields -> show navigation buttons
-                    $("<a />").addClass(s.opts.classes.translation["goto"]).attr(s.opts.attr.value, "down").appendTo(header);
-                    $("<a />").addClass(s.opts.classes.translation["goto"]).attr(s.opts.attr.value, "up").appendTo(header);
+                    $("<a />").addClass(s.cl.translation["goto"]).attr(s.attr.value, "down").appendTo(header);
+                    $("<a />").addClass(s.cl.translation["goto"]).attr(s.attr.value, "up").appendTo(header);
                 }
 
-                $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
+                $("<span />").addClass(s.cl.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
 
                 // @deprecated sticky positioning seems to have changed with Chrome 68 -> this workaround can be removed as soon as v68 is the min required version
                 let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
@@ -416,8 +416,8 @@
                 }
             }
 
-            s.opts.elm.translation.langvars.removeClass(s.opts.classes.visible);
-            elm.addClass(s.opts.classes.visible);
+            s.opts.elm.translation.langvars.removeClass(s.cl.visible);
+            elm.addClass(s.cl.visible);
 
             s.helper.menu.addBreadcrumb({
                 label: name,
@@ -428,7 +428,7 @@
             $.delay(0).then(() => {
                 let list = elm.children("ul");
 
-                if (elm.find("a." + s.opts.classes.translation["goto"]).length() > 0) { // jump to the first empty field
+                if (elm.find("a." + s.cl.translation["goto"]).length() > 0) { // jump to the first empty field
                     gotoNextPrevEmptyField("down", list);
                 }
 
@@ -445,14 +445,14 @@
         let gotoNextPrevEmptyField = (dir, list) => {
             let entries = null;
 
-            if (list.find("li." + s.opts.classes.translation.hover).length() > 0) {
+            if (list.find("li." + s.cl.translation.hover).length() > 0) {
                 if (dir === "up") {
-                    entries = list.find("li." + s.opts.classes.translation.hover).eq(0).prevAll("li." + s.opts.classes.translation.empty);
+                    entries = list.find("li." + s.cl.translation.hover).eq(0).prevAll("li." + s.cl.translation.empty);
                 } else {
-                    entries = list.find("li." + s.opts.classes.translation.hover).eq(0).nextAll("li." + s.opts.classes.translation.empty);
+                    entries = list.find("li." + s.cl.translation.hover).eq(0).nextAll("li." + s.cl.translation.empty);
                 }
             } else if (dir === "down") {
-                entries = list.find("li." + s.opts.classes.translation.empty);
+                entries = list.find("li." + s.cl.translation.empty);
             }
 
             if (entries && entries.length() > 0) {
@@ -480,12 +480,12 @@
                     activeEntry = list.children("li").eq(0);
                 }
 
-                activeEntry.addClass(s.opts.classes.translation.mark);
+                activeEntry.addClass(s.cl.translation.mark);
                 let label = activeEntry.find("label").text();
 
 
                 $("<span />")
-                    .addClass(s.opts.classes.desc)
+                    .addClass(s.cl.desc)
                     .html(s.helper.i18n.get("settings_translation_help", ["<strong>" + label + "</strong>"]))
                     .appendTo(activeEntry);
 
@@ -502,13 +502,13 @@
             elm.find("textarea").on("change input", (e) => {
                 let elmObj = $(e.currentTarget);
                 let val = e.currentTarget.value;
-                let category = elm.attr(s.opts.attr.name);
-                let lang = elm.attr(s.opts.attr.translation.language);
+                let category = elm.attr(s.attr.name);
+                let lang = elm.attr(s.attr.translation.language);
 
                 if (val) {
-                    elmObj.parents("li").eq(0).removeClass(s.opts.classes.translation.empty);
+                    elmObj.parents("li").eq(0).removeClass(s.cl.translation.empty);
                 } else {
-                    elmObj.parents("li").eq(0).addClass(s.opts.classes.translation.empty);
+                    elmObj.parents("li").eq(0).addClass(s.cl.translation.empty);
                 }
 
                 elmObj.css("height", "");
@@ -522,14 +522,14 @@
                 });
                 varsAmount[lang + "_" + category].filled = filled;
 
-                elm.find("span." + s.opts.classes.translation.amountInfo + " > span").text(filled); // change counter
+                elm.find("span." + s.cl.translation.amountInfo + " > span").text(filled); // change counter
             }).on("focus", (e) => { // mark row and textarea if it has the focus
-                elm.find("li").removeClass(s.opts.classes.translation.hover);
-                $(e.currentTarget).parents("li").eq(0).addClass(s.opts.classes.translation.hover);
+                elm.find("li").removeClass(s.cl.translation.hover);
+                $(e.currentTarget).parents("li").eq(0).addClass(s.cl.translation.hover);
             }).on("blur", (e) => {
                 let parentElm = $(e.currentTarget).parents("li").eq(0);
                 $.delay(200).then(() => {
-                    parentElm.removeClass(s.opts.classes.translation.hover);
+                    parentElm.removeClass(s.cl.translation.hover);
                 });
             });
 
@@ -551,12 +551,12 @@
             });
 
             s.opts.elm.translation.langvars.data("lang", lang);
-            s.opts.elm.translation.langvars.find("div." + s.opts.classes.boxWrapper).html("");
-            s.opts.elm.translation.wrapper.find("div." + s.opts.classes.translation.category).removeClass(s.opts.classes.visible);
+            s.opts.elm.translation.langvars.find("div." + s.cl.boxWrapper).html("");
+            s.opts.elm.translation.wrapper.find("div." + s.cl.translation.category).removeClass(s.cl.visible);
 
-            s.opts.elm.buttons.save.removeClass(s.opts.classes.hidden);
-            s.opts.elm.translation.overview.removeClass(s.opts.classes.visible);
-            s.opts.elm.translation.langvars.addClass([s.opts.classes.visible, s.opts.classes.loading]);
+            s.opts.elm.buttons.save.removeClass(s.cl.hidden);
+            s.opts.elm.translation.overview.removeClass(s.cl.visible);
+            s.opts.elm.translation.langvars.addClass([s.cl.visible, s.cl.loading]);
             let loader = s.helper.template.loading().appendTo(s.opts.elm.translation.langvars);
 
             getLanguageInfos(lang).then((obj) => {
@@ -565,14 +565,14 @@
 
                     Object.keys(infos).forEach((category) => { // list all langvar categories
                         let elm = $("<div />")
-                            .addClass(s.opts.classes.box)
+                            .addClass(s.cl.box)
                             .data("lang", lang)
                             .data("info", {
                                 category: infos[category],
                                 defaults: obj["default"] ? obj["default"][category] : null
                             })
                             .append("<strong>" + category + "</strong>")
-                            .appendTo(s.opts.elm.translation.langvars.children("div." + s.opts.classes.boxWrapper));
+                            .appendTo(s.opts.elm.translation.langvars.children("div." + s.cl.boxWrapper));
 
                         let key = lang + "_" + category;
 
@@ -590,20 +590,20 @@
                         }
 
                         if (infos[category].required) {
-                            $("<span />").addClass(s.opts.classes.translation.requiredInfo).text("(" + s.helper.i18n.get("settings_translation_required_category") + ")").appendTo(elm);
+                            $("<span />").addClass(s.cl.translation.requiredInfo).text("(" + s.helper.i18n.get("settings_translation_required_category") + ")").appendTo(elm);
                         }
 
-                        $("<span />").addClass(s.opts.classes.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(elm);
+                        $("<span />").addClass(s.cl.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(elm);
 
                         if (varsAmount[key].total > varsAmount[key].filled) { // incomplete notice for already released translations
-                            elm.addClass(s.opts.classes.incomplete);
+                            elm.addClass(s.cl.incomplete);
                         }
                     });
                 } else {
                     gotoOverview();
                 }
 
-                s.opts.elm.translation.langvars.removeClass(s.opts.classes.loading);
+                s.opts.elm.translation.langvars.removeClass(s.cl.loading);
                 loader.remove();
             });
         };

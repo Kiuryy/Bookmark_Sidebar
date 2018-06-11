@@ -64,7 +64,8 @@
             },
             manifest: chrome.runtime.getManifest()
         };
-
+        this.cl = this.opts.classes;
+        this.attr = this.opts.attr;
         this.enabledSetAsNewtab = false;
 
         /**
@@ -75,14 +76,14 @@
             initHelpers();
 
             let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
-            this.opts.elm.body.addClass(this.opts.classes.initLoading);
+            this.opts.elm.body.addClass(this.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 let config = this.helper.model.getData(["a/darkMode", "a/highContrast"]);
                 if (config.darkMode === true) {
-                    this.opts.elm.body.addClass(this.opts.classes.darkMode);
+                    this.opts.elm.body.addClass(this.cl.darkMode);
                 } else if (config.highContrast === true) {
-                    this.opts.elm.body.addClass(this.opts.classes.highContrast);
+                    this.opts.elm.body.addClass(this.cl.highContrast);
                 }
                 return this.helper.i18n.init();
             }).then(() => {
@@ -104,7 +105,7 @@
                 return $.delay(500);
             }).then(() => {
                 loader.remove();
-                this.opts.elm.body.removeClass([this.opts.classes.building, this.opts.classes.initLoading]);
+                this.opts.elm.body.removeClass([this.cl.building, this.cl.initLoading]);
                 $(window).trigger("resize");
             });
         };
@@ -152,16 +153,16 @@
                         let sidebarWidth = this.opts.elm.sidebar.sidebar.realWidth();
 
                         if (window.innerWidth - sidebarWidth >= 500) {
-                            this.opts.elm.sidebar.sidebar.addClass(this.opts.classes.sidebarPermanent);
-                            sidebarWidth > 0 && this.opts.elm.content.addClass(this.opts.classes.smallContent);
+                            this.opts.elm.sidebar.sidebar.addClass(this.cl.sidebarPermanent);
+                            sidebarWidth > 0 && this.opts.elm.content.addClass(this.cl.smallContent);
                             $(document).trigger(this.opts.events.openSidebar);
 
                             $.delay(500).then(() => {
                                 $(document).trigger("click");
                             });
                         } else {
-                            this.opts.elm.sidebar.sidebar.removeClass(this.opts.classes.sidebarPermanent);
-                            this.opts.elm.content.removeClass(this.opts.classes.smallContent);
+                            this.opts.elm.sidebar.sidebar.removeClass(this.cl.sidebarPermanent);
+                            this.opts.elm.content.removeClass(this.cl.smallContent);
                         }
 
                         this.helper.topPages.handleWindowResize();
@@ -177,7 +178,7 @@
          */
         let loadSidebar = () => {
             return new Promise((resolve) => {
-                $("[" + this.opts.attr.type + "='script_sidebar']").remove();
+                $("[" + this.attr.type + "='script_sidebar']").remove();
 
                 let sidebarEvents = [this.opts.events.loaded, this.opts.events.elementsCreated].join(" ");
                 $(document).off(sidebarEvents).on(sidebarEvents, (e) => {
@@ -190,7 +191,7 @@
                         href: chrome.extension.getURL(css),
                         type: "text/css",
                         rel: "stylesheet",
-                        [this.opts.attr.type]: "script_sidebar"
+                        [this.attr.type]: "script_sidebar"
                     }).appendTo("head");
                 });
 
@@ -202,7 +203,7 @@
                         document.head.appendChild(script);
                         script.onload = () => loadJs(i + 1); // load one after another
                         script.src = "/" + js;
-                        $(script).attr(this.opts.attr.type, "script_sidebar");
+                        $(script).attr(this.attr.type, "script_sidebar");
                     } else {
                         resolve();
                     }

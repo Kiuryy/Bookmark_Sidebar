@@ -30,6 +30,9 @@
                 error: "error",
                 close: "close",
                 hover: "hover",
+                loading: "loading",
+                building: "building",
+                initLoading: "initLoading",
             },
             page: {
                 visible: "blockbyte-bs-visible",
@@ -63,7 +66,6 @@
                 fixed: "fixed",
                 lockPinned: "lockPinned",
                 lastHover: "lastHover",
-                loading: "loading",
                 copied: "copied",
                 filterBox: "filter",
                 search: "search",
@@ -115,6 +117,19 @@
                 checkUrlProgressLabel: "progressLabel",
                 urlCheckLoading: "urlCheckLoading",
                 urlCheckList: "urlCheckList"
+            },
+            newtab: {
+                smallContent: "small",
+                chromeApps: "chromeApps",
+                suggestions: "suggestions",
+                edit: "edit",
+                add: "add",
+                link: "link",
+                permanentSidebar: "permanentSidebar",
+                remove: "remove",
+                infoBar: "infoBar",
+                save: "save",
+                cancel: "cancel"
             }
         },
         attr: {
@@ -127,7 +142,10 @@
             sort: "data-sort",
             direction: "data-direction",
             style: "data-style",
-            id: "data-id"
+            id: "data-id",
+            newtab: {
+                perRow: "data-perRow",
+            }
         },
         events: {
             loaded: "blockbyte-bs-loaded",

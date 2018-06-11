@@ -101,7 +101,7 @@
             if (searchEngineList[name]) {
                 searchEngine = name;
                 let text = n.helper.i18n.get("newtab_search_placeholder", [searchEngineList[name].name]);
-                n.opts.elm.search.field.attr("placeholder", text);
+                n.elm.search.field.attr("placeholder", text);
             }
         };
 
@@ -154,28 +154,28 @@
          * @param {string} dir "next" or "prev"
          */
         let selectSuggestion = (dir) => {
-            let activeSuggestion = $("ul." + n.cl.suggestions + " > li." + n.cl.active);
+            let activeSuggestion = $("ul." + $.cl.newtab.suggestions + " > li." + $.cl.general.active);
             let idx = dir === "next" ? 0 : -1;
 
             if (activeSuggestion.length() > 0) {
                 idx = activeSuggestion.prevAll("li").length() + (dir === "next" ? 1 : -1);
-                activeSuggestion.removeClass(n.cl.active);
+                activeSuggestion.removeClass($.cl.general.active);
             }
 
             let fromSuggestion = false;
 
             if (idx >= 0) {
-                let suggestion = $("ul." + n.cl.suggestions + " > li").eq(idx);
+                let suggestion = $("ul." + $.cl.newtab.suggestions + " > li").eq(idx);
 
                 if (suggestion.length() > 0) { // show the suggestion value in the search field
                     fromSuggestion = true;
-                    suggestion.addClass(n.cl.active);
-                    n.opts.elm.search.field[0].value = suggestion.text().trim();
+                    suggestion.addClass($.cl.general.active);
+                    n.elm.search.field[0].value = suggestion.text().trim();
                 }
             }
 
             if (fromSuggestion === false) { // no suggestion matches -> show the typed input
-                n.opts.elm.search.field[0].value = n.opts.elm.search.field.data("typedVal") || "";
+                n.elm.search.field[0].value = n.elm.search.field.data("typedVal") || "";
             }
         };
 
@@ -249,10 +249,10 @@
         };
 
         let initEvents = () => {
-            n.opts.elm.search.submit.on("click", (e) => {
+            n.elm.search.submit.on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                let val = n.opts.elm.search.field[0].value;
+                let val = n.elm.search.field[0].value;
                 if (val && val.trim().length > 0) {
                     handleSearch(val);
                 } else if (searchEngineList[searchEngine]) {
@@ -260,7 +260,7 @@
                 }
             });
 
-            n.opts.elm.search.field.on("keyup click", (e) => {
+            n.elm.search.field.on("keyup click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -274,50 +274,50 @@
                 } else if (keyCode === 38) {
                     selectSuggestion("prev");
                 } else {
-                    n.opts.elm.search.field.data("typedVal", val);
+                    n.elm.search.field.data("typedVal", val);
 
                     getSearchSuggestions(val).then((suggestions) => {
-                        $("ul." + n.cl.suggestions).remove();
+                        $("ul." + $.cl.newtab.suggestions).remove();
 
                         if (suggestions.length > 0) {
-                            let list = $("<ul />").addClass(n.cl.suggestions).insertAfter(n.opts.elm.search.field);
+                            let list = $("<ul />").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
 
                             suggestions.some((suggestion, i) => {
-                                $("<li />").attr(n.attr.type, suggestion.type).text(suggestion.label).appendTo(list);
+                                $("<li />").attr($.attr.type, suggestion.type).text(suggestion.label).appendTo(list);
                                 if (i > 4) {
                                     return true;
                                 }
                             });
 
                             list.css({
-                                top: n.opts.elm.search.field[0].offsetTop + "px",
-                                left: n.opts.elm.search.field[0].offsetLeft + "px"
+                                top: n.elm.search.field[0].offsetTop + "px",
+                                left: n.elm.search.field[0].offsetLeft + "px"
                             });
                         }
                     });
                 }
             });
 
-            $(document).on("mousemove", "ul." + n.cl.suggestions + " > li", (e) => {
-                $("ul." + n.cl.suggestions + " > li").removeClass(n.cl.active);
-                $(e.currentTarget).addClass(n.cl.active);
-            }).on("click", "ul." + n.cl.suggestions + " > li", (e) => {
+            $(document).on("mousemove", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
+                $("ul." + $.cl.newtab.suggestions + " > li").removeClass($.cl.general.active);
+                $(e.currentTarget).addClass($.cl.general.active);
+            }).on("click", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 let suggestion = $(e.currentTarget).text().trim();
-                n.opts.elm.search.field[0].value = suggestion;
+                n.elm.search.field[0].value = suggestion;
                 handleSearch(suggestion);
             });
 
             $(document).on("click", () => {
-                $("ul." + n.cl.suggestions).remove();
+                $("ul." + $.cl.newtab.suggestions).remove();
                 if (n.helper.edit.isEditMode() === false) {
-                    n.opts.elm.search.field[0].focus();
+                    n.elm.search.field[0].focus();
                 }
             });
 
             $(window).on("resize", () => {
-                $("ul." + n.cl.suggestions).remove();
+                $("ul." + $.cl.newtab.suggestions).remove();
             });
         };
     };

@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ext = function () {
+    let Extension = function () {
 
         let loadingInfo = {};
         let existenceTimeout = null;
@@ -209,7 +209,7 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elm.sidebar.addClass($.cl.sidebar.loading);
+            this.elm.sidebar.addClass($.cl.general.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
@@ -226,7 +226,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elm.sidebar.removeClass($.cl.sidebar.loading);
+                this.elm.sidebar.removeClass($.cl.general.loading);
                 if (loadingInfo.loader) {
                     loadingInfo.loader.remove();
                 }
@@ -466,5 +466,5 @@
         };
     };
 
-    new window.ext().run();
+    new Extension().run();
 })(jsu);

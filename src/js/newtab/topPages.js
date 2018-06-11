@@ -20,7 +20,7 @@
          */
         this.init = async () => {
             initEvents();
-            n.opts.elm.topPages.html("<ul />");
+            n.elm.topPages.html("<ul />");
             this.setType(n.helper.model.getData("n/topPagesType"));
 
             setInterval(() => { // refresh the entries every 2 minutes
@@ -52,7 +52,7 @@
          */
         this.handleWindowResize = () => {
             let amount = getAmount();
-            let currentTotal = n.opts.elm.topPages.children("ul").data("total");
+            let currentTotal = n.elm.topPages.children("ul").data("total");
 
             if (amount.total !== currentTotal) {
                 updateEntries();
@@ -80,11 +80,11 @@
             };
 
             let dim = {
-                w: n.opts.elm.content[0].offsetWidth || window.innerWidth,
-                h: n.opts.elm.content[0].offsetHeight || window.innerHeight
+                w: n.elm.content[0].offsetWidth || window.innerWidth,
+                h: n.elm.content[0].offsetHeight || window.innerHeight
             };
 
-            let editInfoBar = $("menu." + n.cl.infoBar);
+            let editInfoBar = $("menu." + $.cl.newtab.infoBar);
             if (editInfoBar.length() > 0) {
                 dim.h -= editInfoBar[0].offsetHeight;
             }
@@ -113,11 +113,11 @@
          * Updates the entries which are displayed as top pages
          */
         let updateEntries = () => {
-            n.opts.elm.topPages.children("ul").removeClass(n.cl.visible);
+            n.elm.topPages.children("ul").removeClass($.cl.general.visible);
 
             if (type === "hidden") {
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
-                    n.opts.elm.topPages.children("ul").data("total", 0).html("");
+                    n.elm.topPages.children("ul").data("total", 0).html("");
                 }
             } else if (updateRunning === false) {
                 updateRunning = true;
@@ -128,13 +128,13 @@
                 ]).then(([list]) => {
                     let amount = getAmount();
 
-                    n.opts.elm.topPages.children("ul")
+                    n.elm.topPages.children("ul")
                         .html("")
                         .data("total", amount.total)
-                        .attr(n.attr.perRow, amount.total / amount.rows);
+                        .attr($.attr.newtab.perRow, amount.total / amount.rows);
 
                     list.forEach((page) => {
-                        let entry = $("<li />").appendTo(n.opts.elm.topPages.children("ul"));
+                        let entry = $("<li />").appendTo(n.elm.topPages.children("ul"));
                         let entryLink = $("<a />").attr({href: page.url, title: page.title}).appendTo(entry);
                         let entryLabel = $("<span />").text(page.title).appendTo(entryLink);
 
@@ -149,7 +149,7 @@
                         if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
                             n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
                                 if (response.img) { //
-                                    thumb.attr("src", response.img).addClass(n.cl.visible);
+                                    thumb.attr("src", response.img).addClass($.cl.general.visible);
                                 }
                             });
                         }
@@ -157,7 +157,7 @@
 
                     return $.delay(100);
                 }).then(() => {
-                    n.opts.elm.topPages.children("ul").addClass(n.cl.visible);
+                    n.elm.topPages.children("ul").addClass($.cl.general.visible);
                     updateRunning = false;
                 });
             }

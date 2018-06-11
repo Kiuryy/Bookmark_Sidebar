@@ -17,13 +17,13 @@
          */
         this.refreshEntries = () => {
             let entries = n.helper.model.getData("n/shortcuts");
-            n.opts.elm.topNav.children("ul").remove();
-            let list = $("<ul />").appendTo(n.opts.elm.topNav);
+            n.elm.topNav.children("ul").remove();
+            let list = $("<ul />").appendTo(n.elm.topNav);
 
             if (entries && entries.length > 0) {
                 entries.forEach((entry) => {
                     let elm = $("<li />").appendTo(list);
-                    let link = $("<a />").addClass(n.cl.link).text(entry.label).appendTo(elm);
+                    let link = $("<a />").addClass($.cl.newtab.link).text(entry.label).appendTo(elm);
 
                     if (entry.url.startsWith("chrome://") || entry.url.startsWith("chrome-extension://")) {
                         link.data("href", entry.url);
@@ -38,7 +38,7 @@
          * Initialises the eventhandler
          */
         let initEvents = () => {
-            n.opts.elm.topNav.on("mousedown", "a." + n.cl.link, (e) => { // handle chrome urls -> regular clicking will be blocked
+            n.elm.topNav.on("mousedown", "a." + $.cl.newtab.link, (e) => { // handle chrome urls -> regular clicking will be blocked
                 let dataHref = $(e.currentTarget).data("href");
                 if (dataHref) {
                     e.preventDefault();

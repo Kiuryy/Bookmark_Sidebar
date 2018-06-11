@@ -12,8 +12,8 @@
         this.init = async () => {
             initEvents();
 
-            n.opts.elm.body.attr(n.attr.pos, n.helper.model.getData("b/sidebarPosition"));
-            $("<a />").addClass(n.cl.edit).appendTo(n.opts.elm.body);
+            n.elm.body.attr($.attr.pos, n.helper.model.getData("b/sidebarPosition"));
+            $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.body);
 
             if (location.href.search(/#edit$/i) > -1) {
                 enterEditMode();
@@ -30,19 +30,19 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            n.opts.elm.body.on("click", "a." + n.cl.edit, (e) => { // enter edit mode
+            n.elm.body.on("click", "a." + $.cl.newtab.edit, (e) => { // enter edit mode
                 e.preventDefault();
 
                 if (!editMode) {
                     enterEditMode();
                 }
-            }).on("click", "menu." + n.cl.infoBar + " > a", (e) => { // save changes or leave edit mode
+            }).on("click", "menu." + $.cl.newtab.infoBar + " > a", (e) => { // save changes or leave edit mode
                 e.preventDefault();
                 let elm = $(e.currentTarget);
 
-                if (elm.hasClass(n.cl.cancel)) {
+                if (elm.hasClass($.cl.newtab.cancel)) {
                     leaveEditMode();
-                } else if (elm.hasClass(n.cl.save)) {
+                } else if (elm.hasClass($.cl.newtab.save)) {
                     saveChanges().then(() => {
                         leaveEditMode();
                     });
@@ -58,7 +58,7 @@
         let saveChanges = () => {
             return new Promise((resolve) => {
                 let shortcuts = [];
-                n.opts.elm.topNav.find("a." + n.cl.link).forEach((elm) => {
+                n.elm.topNav.find("a." + $.cl.newtab.link).forEach((elm) => {
                     let label = $(elm).text().trim();
                     let url = ($(elm).data("href") || $(elm).attr("href")).trim();
 
@@ -71,17 +71,17 @@
                 });
 
                 let loadStartTime = +new Date();
-                let loader = n.helper.template.loading().appendTo(n.opts.elm.body);
-                n.opts.elm.body.addClass(n.cl.loading);
+                let loader = n.helper.template.loading().appendTo(n.elm.body);
+                n.elm.body.addClass($.cl.general.loading);
 
                 n.helper.model.setData({
-                    "n/searchEngine": n.opts.elm.search.wrapper.children("select")[0].value,
-                    "n/topPagesType": n.opts.elm.topPages.children("select")[0].value,
+                    "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
+                    "n/topPagesType": n.elm.topPages.children("select")[0].value,
                     "n/shortcuts": shortcuts
                 }).then(() => { // load at least 1s
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
                 }).then(() => {
-                    n.opts.elm.body.removeClass(n.cl.loading);
+                    n.elm.body.removeClass($.cl.general.loading);
                     loader.remove();
                     resolve();
                 });
@@ -94,18 +94,18 @@
         let leaveEditMode = () => {
             editMode = false;
             history.pushState({}, null, location.href.replace(/#edit/g, ""));
-            n.opts.elm.body.removeClass(n.cl.edit);
+            n.elm.body.removeClass($.cl.newtab.edit);
 
-            n.opts.elm.search.wrapper.children("select").remove();
-            n.opts.elm.topPages.children("select").remove();
-            n.opts.elm.topNav.find("a:not(." + n.cl.link + ")").remove();
+            n.elm.search.wrapper.children("select").remove();
+            n.elm.topPages.children("select").remove();
+            n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
             n.helper.shortcuts.refreshEntries();
 
             $.delay(500).then(() => {
-                $("menu." + n.cl.infoBar).remove();
+                $("menu." + $.cl.newtab.infoBar).remove();
             });
         };
 
@@ -117,13 +117,13 @@
             history.pushState({}, null, location.href.replace(/#edit/g, "") + "#edit");
 
             $("<menu />")
-                .addClass(n.cl.infoBar)
-                .append("<a class='" + n.cl.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
-                .append("<a class='" + n.cl.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
-                .appendTo(n.opts.elm.body);
+                .addClass($.cl.newtab.infoBar)
+                .append("<a class='" + $.cl.newtab.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
+                .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
+                .appendTo(n.elm.body);
 
             $.delay().then(() => {
-                n.opts.elm.body.addClass(n.cl.edit);
+                n.elm.body.addClass($.cl.newtab.edit);
                 initSearchEngineConfig();
                 initTopPagesConfig();
                 initShortcutsConfig();
@@ -138,31 +138,31 @@
          * Initialises the buttons to edit/remove the shortcuts in the top/right corner
          */
         let initShortcutsConfig = () => {
-            let buttons = ["<a class='" + n.cl.edit + "' />", "<a class='" + n.cl.remove + "' />", "<a " + n.attr.pos + "='left' />", "<a " + n.attr.pos + "='right' />"];
+            let buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.pos + "='left' />", "<a " + $.attr.pos + "='right' />"];
 
-            n.opts.elm.topNav.find("> ul > li").forEach((elm) => {
+            n.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
             });
 
-            $("<a class='" + n.cl.add + "' />").prependTo(n.opts.elm.topNav);
+            $("<a class='" + $.cl.newtab.add + "' />").prependTo(n.elm.topNav);
 
-            n.opts.elm.topNav.off("click.edit").on("click.edit", "a." + n.cl.edit, (e) => { // edit
+            n.elm.topNav.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
                 e.stopPropagation();
                 let entry = $(e.currentTarget).parent("li");
                 showShortcutEditTooltip(entry);
-            }).on("click.edit", "a." + n.cl.add, () => {  // add
+            }).on("click.edit", "a." + $.cl.newtab.add, () => {  // add
                 let entry = $("<li />")
-                    .append("<a class='" + n.cl.link + "'>&nbsp;</a>")
+                    .append("<a class='" + $.cl.newtab.link + "'>&nbsp;</a>")
                     .append(buttons)
-                    .prependTo(n.opts.elm.topNav.children("ul"));
+                    .prependTo(n.elm.topNav.children("ul"));
 
                 $.delay().then(() => {
                     showShortcutEditTooltip(entry);
                 });
-            }).on("click.edit", "a." + n.cl.remove, (e) => {  // remove
+            }).on("click.edit", "a." + $.cl.newtab.remove, (e) => {  // remove
                 $(e.currentTarget).parent("li").remove();
-            }).on("click.edit", "a[" + n.attr.pos + "]", (e) => { // move
-                let pos = $(e.currentTarget).attr(n.attr.pos);
+            }).on("click.edit", "a[" + $.attr.pos + "]", (e) => { // move
+                let pos = $(e.currentTarget).attr($.attr.pos);
                 let entry = $(e.currentTarget).parent("li");
 
                 switch (pos) {
@@ -186,7 +186,7 @@
             });
 
             $(document).off("click.edit").on("click.edit", () => {
-                n.opts.elm.topNav.find("> ul > li > div").remove();
+                n.elm.topNav.find("> ul > li > div").remove();
             });
         };
 
@@ -196,22 +196,22 @@
          * @param {jsu} elm
          */
         let showShortcutEditTooltip = (elm) => {
-            n.opts.elm.topNav.find("> ul > li > div").remove();
+            n.elm.topNav.find("> ul > li > div").remove();
 
-            let link = elm.children("a." + n.cl.link).eq(0);
+            let link = elm.children("a." + $.cl.newtab.link).eq(0);
 
             let tooltip = $("<div />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
-                .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + n.attr.type + "='label' />")
+                .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
-                .append("<input type='text' value='" + (link.data("href") || link.attr("href")).trim().replace(/'/g, "&#x27;") + "' " + n.attr.type + "='url' />")
+                .append("<input type='text' value='" + (link.data("href") || link.attr("href")).trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
                 .append("<button type='submit'>" + n.helper.i18n.get("overlay_close") + "</button>")
                 .appendTo(elm);
 
             tooltip.find("input[type='text']").on("change input", (e) => {
                 let val = e.currentTarget.value.trim();
 
-                switch ($(e.currentTarget).attr(n.attr.type)) {
+                switch ($(e.currentTarget).attr($.attr.type)) {
                     case "url": {
                         link.removeAttr("href").removeData("href");
 
@@ -243,7 +243,7 @@
          * Initialises the dropdown for the top pages
          */
         let initTopPagesConfig = () => {
-            let select = $("<select />").prependTo(n.opts.elm.topPages);
+            let select = $("<select />").prependTo(n.elm.topPages);
             let types = n.helper.topPages.getAllTypes();
             let currentType = n.helper.model.getData("n/topPagesType");
 
@@ -261,7 +261,7 @@
          * Initialises the dropdown for the search engine
          */
         let initSearchEngineConfig = () => {
-            let select = $("<select />").appendTo(n.opts.elm.search.wrapper);
+            let select = $("<select />").appendTo(n.elm.search.wrapper);
             let searchEngines = n.helper.search.getSearchEngineList();
             let currentSearchEngine = n.helper.model.getData("n/searchEngine");
 

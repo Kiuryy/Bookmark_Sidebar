@@ -12,8 +12,8 @@
             let typeParam = url.searchParams.get("type");
 
             if (typeParam !== null) {
-                n.opts.elm.topPages.addClass(n.cl.hidden);
-                n.opts.elm.fallbackInfo.addClass(n.cl.active);
+                n.elm.topPages.addClass($.cl.general.hidden);
+                n.elm.fallbackInfo.addClass($.cl.general.active);
 
                 initDescription(typeParam);
                 initEvents(typeParam);
@@ -37,7 +37,7 @@
          * @param {string} type
          */
         let initEvents = (type) => {
-            n.opts.elm.fallbackInfo.children("a").on("click", (e) => {
+            n.elm.fallbackInfo.children("a").on("click", (e) => {
                 e.preventDefault();
                 let suggestionType = "general";
 
@@ -56,8 +56,8 @@
          * Initialises the switch for setting the new tab page as default
          */
         let initSetAsDefaultSwitch = () => {
-            let wrapper = $("<div />").appendTo(n.opts.elm.fallbackInfo);
-            let checkbox = n.helper.checkbox.get(n.opts.elm.body, {}, "checkbox", "switch").appendTo(wrapper);
+            let wrapper = $("<div />").appendTo(n.elm.fallbackInfo);
+            let checkbox = n.helper.checkbox.get(n.elm.body, {}, "checkbox", "switch").appendTo(wrapper);
             $("<span />").html(n.helper.i18n.get("newtab_fallback_set_as_new_tab")).insertAfter(checkbox);
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
@@ -118,9 +118,9 @@
                     break;
             }
 
-            $("<h2 />").text(n.helper.i18n.get(texts.headline)).appendTo(n.opts.elm.fallbackInfo);
-            $("<p />").text(n.helper.i18n.get(texts.desc)).appendTo(n.opts.elm.fallbackInfo);
-            $("<a />").text(n.helper.i18n.get(texts.link)).appendTo(n.opts.elm.fallbackInfo);
+            $("<h2 />").text(n.helper.i18n.get(texts.headline)).appendTo(n.elm.fallbackInfo);
+            $("<p />").text(n.helper.i18n.get(texts.desc)).appendTo(n.elm.fallbackInfo);
+            $("<a />").text(n.helper.i18n.get(texts.link)).appendTo(n.elm.fallbackInfo);
         };
 
     };

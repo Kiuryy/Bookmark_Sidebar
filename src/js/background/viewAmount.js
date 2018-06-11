@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ViewAmountHelper = function (b) {
+    $.ViewAmountHelper = function (b) {
 
         /**
          * Returns the view amounts of all bookmarks

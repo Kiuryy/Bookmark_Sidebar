@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.SidebarHelper = function (s) {
+    $.SidebarHelper = function (s) {
 
         /**
          * Initialises the behaviour settings

@@ -152,18 +152,18 @@
          */
         let initHelpers = () => {
             this.helper = {
-                model: new window.ModelHelper(this),
-                bookmarkApi: new window.BookmarkApi(this),
-                language: new window.LanguageHelper(this),
-                upgrade: new window.UpgradeHelper(this),
-                viewAmount: new window.ViewAmountHelper(this),
-                newtab: new window.NewtabHelper(this),
-                image: new window.ImageHelper(this),
-                port: new window.PortHelper(this),
-                icon: new window.IconHelper(this),
-                browserAction: new window.BrowserActionHelper(this),
-                cache: new window.CacheHelper(this),
-                analytics: new window.AnalyticsHelper(this)
+                model: new $.ModelHelper(this),
+                bookmarkApi: new $.BookmarkApi(this),
+                language: new $.LanguageHelper(this),
+                upgrade: new $.UpgradeHelper(this),
+                viewAmount: new $.ViewAmountHelper(this),
+                newtab: new $.NewtabHelper(this),
+                image: new $.ImageHelper(this),
+                port: new $.PortHelper(this),
+                icon: new $.IconHelper(this),
+                browserAction: new $.BrowserActionHelper(this),
+                cache: new $.CacheHelper(this),
+                analytics: new $.AnalyticsHelper(this)
             };
         };
 

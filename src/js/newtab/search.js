@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.SearchHelper = function (n) {
+    $.SearchHelper = function (n) {
 
         let suggestionCache = {};
         let searchEngine = null;

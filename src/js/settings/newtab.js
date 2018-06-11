@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.NewtabHelper = function (s) {
+    $.NewtabHelper = function (s) {
 
         let overrideCheckboxInited = false;
 

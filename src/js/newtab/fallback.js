@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.FallbackHelper = function (n) {
+    $.FallbackHelper = function (n) {
 
         /**
          *

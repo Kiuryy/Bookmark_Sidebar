@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.AnalyticsHelper = function (b) {
+    $.AnalyticsHelper = function (b) {
         let trackingQueue = [];
         let trackingQueueProceeding = false;
         let trackUserDataRunning = false;

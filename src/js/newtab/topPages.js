@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.TopPagesHelper = function (n) {
+    $.TopPagesHelper = function (n) {
 
         let entryHelperInited = false;
         let type = null;

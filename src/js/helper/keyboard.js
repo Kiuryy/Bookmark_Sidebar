@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.KeyboardHelper = function (ext) {
+    $.KeyboardHelper = function (ext) {
 
         let isRemoving = false;
 

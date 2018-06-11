@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.SidebarEventsHelper = function (ext) {
+    $.SidebarEventsHelper = function (ext) {
 
         let markTimeout = null;
         let lockPinnedEntriesTimeout = null;

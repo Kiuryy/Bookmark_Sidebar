@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ModelHelper = function (b) {
+    $.ModelHelper = function (b) {
         let data = {};
         let shareInfo = {
             config: null,

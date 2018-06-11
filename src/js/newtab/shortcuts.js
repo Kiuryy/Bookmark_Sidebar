@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ShortcutsHelper = function (n) {
+    $.ShortcutsHelper = function (n) {
 
         /**
          *

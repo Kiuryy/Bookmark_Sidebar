@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.ModelHelper = function (ext) {
+    $.ModelHelper = function (ext) {
 
         let defaultColors = {
             textColor: {

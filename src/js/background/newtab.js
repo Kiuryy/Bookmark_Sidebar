@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.NewtabHelper = function (b) {
+    $.NewtabHelper = function (b) {
 
         let config = {};
 

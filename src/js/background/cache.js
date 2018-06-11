@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.CacheHelper = function (b) {
+    $.CacheHelper = function (b) {
 
         /**
          * Caches the given value under the given name in the local storage

@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.OverlayHelper = function (ext) {
+    $.OverlayHelper = function (ext) {
 
         let elements = {};
 

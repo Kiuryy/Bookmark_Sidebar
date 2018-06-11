@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.DragDropHelper = function (ext) {
+    $.DragDropHelper = function (ext) {
 
         let sidebarPos = null;
         let oldAboveElm = null;

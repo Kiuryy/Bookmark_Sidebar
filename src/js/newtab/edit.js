@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.EditHelper = function (n) {
+    $.EditHelper = function (n) {
 
         let editMode = false;
 

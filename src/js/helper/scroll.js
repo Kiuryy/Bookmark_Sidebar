@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.ScrollHelper = function (ext) {
+    $.ScrollHelper = function (ext) {
 
         let scrollPosSaved = +new Date();
         let scrollBarTimeout = {};

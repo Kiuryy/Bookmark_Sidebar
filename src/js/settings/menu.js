@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.MenuHelper = function (s) {
+    $.MenuHelper = function (s) {
         let running = false;
         let initial = true;
         let list = null;

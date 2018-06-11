@@ -1,2 +1,2 @@
 /*! (c) Philipp König under GPL-3.0 */
-(i=>{"use strict";window.TemplateHelper=function(e){this.loading=(()=>i('<svg class="loading" width="36px" height="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke-width="3" stroke-linecap="round" cx="18" cy="18" r="16"></circle></svg>'))}})(jsu);
+(e=>{"use strict";e.TemplateHelper=function(i){this.loading=(()=>e('<svg class="loading" width="36px" height="36px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke-width="3" stroke-linecap="round" cx="18" cy="18" r="16"></circle></svg>'))}})(jsu);

@@ -78,19 +78,19 @@
          */
         let initHelpers = () => {
             this.helper = {
-                model: new window.ModelHelper(this),
-                template: new window.TemplateHelper(this),
-                i18n: new window.I18nHelper(this),
-                font: new window.FontHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                checkbox: new window.CheckboxHelper(this),
-                utility: new window.UtilityHelper(this),
-                search: new window.SearchHelper(this),
-                entry: new window.EntryHelper(this),
-                shortcuts: new window.ShortcutsHelper(this),
-                topPages: new window.TopPagesHelper(this),
-                fallback: new window.FallbackHelper(this),
-                edit: new window.EditHelper(this)
+                model: new $.ModelHelper(this),
+                template: new $.TemplateHelper(this),
+                i18n: new $.I18nHelper(this),
+                font: new $.FontHelper(this),
+                stylesheet: new $.StylesheetHelper(this),
+                checkbox: new $.CheckboxHelper(this),
+                utility: new $.UtilityHelper(this),
+                search: new $.SearchHelper(this),
+                entry: new $.EntryHelper(this),
+                shortcuts: new $.ShortcutsHelper(this),
+                topPages: new $.TopPagesHelper(this),
+                fallback: new $.FallbackHelper(this),
+                edit: new $.EditHelper(this)
             };
         };
 

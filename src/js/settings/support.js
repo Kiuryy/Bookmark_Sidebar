@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.SupportHelper = function (s) {
+    $.SupportHelper = function (s) {
 
         /**
          * Initialises the contribution tab

@@ -303,25 +303,25 @@
          */
         let initHelpers = () => {
             this.helper = {
-                model: new window.ModelHelper(this),
-                toggle: new window.ToggleHelper(this),
-                entry: new window.EntryHelper(this),
-                list: new window.ListHelper(this),
-                scroll: new window.ScrollHelper(this),
-                template: new window.TemplateHelper(this),
-                i18n: new window.I18nHelper(this),
-                font: new window.FontHelper(this),
-                sidebarEvents: new window.SidebarEventsHelper(this),
-                search: new window.SearchHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                dragndrop: new window.DragDropHelper(this),
-                checkbox: new window.CheckboxHelper(this),
-                keyboard: new window.KeyboardHelper(this),
-                bookmark: new window.BookmarkHelper(this),
-                overlay: new window.OverlayHelper(this),
-                utility: new window.UtilityHelper(this),
-                contextmenu: new window.ContextmenuHelper(this),
-                tooltip: new window.TooltipHelper(this)
+                model: new $.ModelHelper(this),
+                toggle: new $.ToggleHelper(this),
+                entry: new $.EntryHelper(this),
+                list: new $.ListHelper(this),
+                scroll: new $.ScrollHelper(this),
+                template: new $.TemplateHelper(this),
+                i18n: new $.I18nHelper(this),
+                font: new $.FontHelper(this),
+                sidebarEvents: new $.SidebarEventsHelper(this),
+                search: new $.SearchHelper(this),
+                stylesheet: new $.StylesheetHelper(this),
+                dragndrop: new $.DragDropHelper(this),
+                checkbox: new $.CheckboxHelper(this),
+                keyboard: new $.KeyboardHelper(this),
+                bookmark: new $.BookmarkHelper(this),
+                overlay: new $.OverlayHelper(this),
+                utility: new $.UtilityHelper(this),
+                contextmenu: new $.ContextmenuHelper(this),
+                tooltip: new $.TooltipHelper(this)
             };
         };
 

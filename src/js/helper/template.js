@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.TemplateHelper = function (ext) {
+    $.TemplateHelper = function (ext) {
 
         /**
          * Returns the html for the loading indicator

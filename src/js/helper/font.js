@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.FontHelper = function (ext) {
+    $.FontHelper = function (ext) {
 
         let defaultFonts = {
             custom: {

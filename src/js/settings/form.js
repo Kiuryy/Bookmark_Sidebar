@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.FormHelper = function (s) {
+    $.FormHelper = function (s) {
 
         let initField = {};
 

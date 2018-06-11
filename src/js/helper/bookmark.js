@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.BookmarkHelper = function (ext) {
+    $.BookmarkHelper = function (ext) {
 
         /**
          * Deletes the given bookmark and creates creates markup to allow restoring or shows an overlay when trying to delete a directory

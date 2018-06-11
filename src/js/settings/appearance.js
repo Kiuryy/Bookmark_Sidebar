@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.AppearanceHelper = function (s) {
+    $.AppearanceHelper = function (s) {
 
         let previews = {
             sidebar: {template: "sidebar", styles: ["sidebar"]},

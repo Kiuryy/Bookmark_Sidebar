@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.BrowserActionHelper = function (b) {
+    $.BrowserActionHelper = function (b) {
 
         let timeout = null;
         let reason = null;

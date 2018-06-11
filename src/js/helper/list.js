@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.ListHelper = function (ext) {
+    $.ListHelper = function (ext) {
 
         let restoreOpenStateRunning = 0;
         let sort = null;

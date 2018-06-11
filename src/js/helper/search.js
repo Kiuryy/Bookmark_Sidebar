@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.SearchHelper = function (ext) {
+    $.SearchHelper = function (ext) {
 
         let searchTimeout = null;
 

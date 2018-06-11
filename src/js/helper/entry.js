@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.EntryHelper = function (ext) {
+    $.EntryHelper = function (ext) {
 
         let inited = false;
 

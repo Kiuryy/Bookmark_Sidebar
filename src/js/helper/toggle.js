@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.ToggleHelper = function (ext) {
+    $.ToggleHelper = function (ext) {
 
         let sidebarPos = null;
         let dndOpen = null;

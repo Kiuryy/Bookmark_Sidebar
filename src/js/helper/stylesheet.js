@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.StylesheetHelper = function (ext) {
+    $.StylesheetHelper = function (ext) {
 
         let styles = {};
         let customCss = "";

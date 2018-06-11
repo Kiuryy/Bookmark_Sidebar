@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.ContextmenuHelper = function (ext) {
+    $.ContextmenuHelper = function (ext) {
 
         let clickFuncs = {};
 

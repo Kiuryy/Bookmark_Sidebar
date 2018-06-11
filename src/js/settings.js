@@ -158,21 +158,21 @@
          */
         let initHelpers = () => {
             this.helper = {
-                model: new window.ModelHelper(this),
-                checkbox: new window.CheckboxHelper(this),
-                template: new window.TemplateHelper(this),
-                i18n: new window.I18nHelper(this),
-                font: new window.FontHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                translation: new window.TranslationHelper(this),
-                menu: new window.MenuHelper(this),
-                form: new window.FormHelper(this),
-                sidebar: new window.SidebarHelper(this),
-                newtab: new window.NewtabHelper(this),
-                appearance: new window.AppearanceHelper(this),
-                feedback: new window.FeedbackHelper(this),
-                importExport: new window.ImportExportHelper(this),
-                support: new window.SupportHelper(this)
+                model: new $.ModelHelper(this),
+                checkbox: new $.CheckboxHelper(this),
+                template: new $.TemplateHelper(this),
+                i18n: new $.I18nHelper(this),
+                font: new $.FontHelper(this),
+                stylesheet: new $.StylesheetHelper(this),
+                translation: new $.TranslationHelper(this),
+                menu: new $.MenuHelper(this),
+                form: new $.FormHelper(this),
+                sidebar: new $.SidebarHelper(this),
+                newtab: new $.NewtabHelper(this),
+                appearance: new $.AppearanceHelper(this),
+                feedback: new $.FeedbackHelper(this),
+                importExport: new $.ImportExportHelper(this),
+                support: new $.SupportHelper(this)
             };
         };
 

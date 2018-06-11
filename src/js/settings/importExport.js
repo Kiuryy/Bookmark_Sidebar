@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ImportExportHelper = function (s) {
+    $.ImportExportHelper = function (s) {
 
         /**
          *

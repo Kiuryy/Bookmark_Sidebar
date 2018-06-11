@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.LanguageHelper = function (b) {
+    $.LanguageHelper = function (b) {
 
         let allLanguages = {
             ar: "Arabic",

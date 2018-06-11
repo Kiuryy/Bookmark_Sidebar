@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.UtilityHelper = function (ext) {
+    $.UtilityHelper = function (ext) {
 
         /**
          * Opens the url of the given bookmark

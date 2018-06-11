@@ -76,11 +76,11 @@
          */
         let initHelpers = () => {
             this.helper = {
-                i18n: new window.I18nHelper(this),
-                font: new window.FontHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                template: new window.TemplateHelper(this),
-                model: new window.ModelHelper(this)
+                i18n: new $.I18nHelper(this),
+                font: new $.FontHelper(this),
+                stylesheet: new $.StylesheetHelper(this),
+                template: new $.TemplateHelper(this),
+                model: new $.ModelHelper(this)
             };
         };
 

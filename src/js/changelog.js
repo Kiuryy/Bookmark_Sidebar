@@ -74,12 +74,12 @@
          */
         let initHelpers = () => {
             this.helper = {
-                i18n: new window.I18nHelper(this),
-                font: new window.FontHelper(this),
-                template: new window.TemplateHelper(this),
-                stylesheet: new window.StylesheetHelper(this),
-                checkbox: new window.CheckboxHelper(this),
-                model: new window.ModelHelper(this)
+                i18n: new $.I18nHelper(this),
+                font: new $.FontHelper(this),
+                template: new $.TemplateHelper(this),
+                stylesheet: new $.StylesheetHelper(this),
+                checkbox: new $.CheckboxHelper(this),
+                model: new $.ModelHelper(this)
             };
         };
 

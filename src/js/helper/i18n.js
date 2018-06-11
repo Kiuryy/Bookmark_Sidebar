@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.I18nHelper = function (ext) {
+    $.I18nHelper = function (ext) {
 
         let language = null;
         let langVars = {};

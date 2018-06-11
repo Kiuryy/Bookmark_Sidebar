@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.CheckboxHelper = function (ext) {
+    $.CheckboxHelper = function (ext) {
 
         let clickedTimeout = {};
 

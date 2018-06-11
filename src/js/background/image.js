@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ImageHelper = function (b) {
+    $.ImageHelper = function (b) {
 
         let cache = {};
         let isSaving = false;

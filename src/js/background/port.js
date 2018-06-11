@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.PortHelper = function (b) {
+    $.PortHelper = function (b) {
 
         /**
          * Checks whether the website is available

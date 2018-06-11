@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.FeedbackHelper = function (s) {
+    $.FeedbackHelper = function (s) {
 
         let data = null;
         let suggestionInfo = {

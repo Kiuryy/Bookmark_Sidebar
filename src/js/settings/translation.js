@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.TranslationHelper = function (s) {
+    $.TranslationHelper = function (s) {
 
         let languages = {};
         let langvarsCache = {};

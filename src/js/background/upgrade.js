@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.UpgradeHelper = function (b) {
+    $.UpgradeHelper = function (b) {
 
         this.loaded = false;
 

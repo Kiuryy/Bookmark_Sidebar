@@ -6,7 +6,7 @@
      * @param {object} ext
      * @constructor
      */
-    window.TooltipHelper = function (ext) {
+    $.TooltipHelper = function (ext) {
 
         let timeout = {};
         let config = {};

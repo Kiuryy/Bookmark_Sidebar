@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.BookmarkApi = function (b) {
+    $.BookmarkApi = function (b) {
         this.func = {};
 
         /**

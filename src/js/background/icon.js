@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.IconHelper = function (b) {
+    $.IconHelper = function (b) {
 
         let cachedSvg = {};
         let currentIcon = null;

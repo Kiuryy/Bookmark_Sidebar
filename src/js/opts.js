@@ -139,6 +139,65 @@
                 appearance: "appearance",
                 hideOpenTypeIcon: "hideOpenType",
                 large: "large"
+            },
+            settings: {
+                tabs: {
+                    content: "tab"
+                },
+                color: {
+                    field: "color",
+                    mask: "colorMask",
+                },
+                radio: {
+                    wrapper: "radioWrapper"
+                },
+                range: {
+                    inactive: "inactive"
+                },
+                newtab: {
+                    hideable: "hideable"
+                },
+                translation: {
+                    select: "languageSelect",
+                    category: "category",
+                    edit: "edit",
+                    progress: "progress",
+                    mark: "mark",
+                    requiredInfo: "requiredInfo",
+                    amountInfo: "amountInfo",
+                    empty: "empty",
+                    back: "back",
+                    goto: "goto"
+                },
+                toggleArea: {
+                    preview: "preview",
+                    fullHeight: "fullHeight",
+                    dragged: "dragged",
+                    dragging: "dragging",
+                    modal: "toggleAreaModal",
+                },
+                appearance: {
+                    preview: {
+                        fullHeight: "blockbyte-bs-fullHeight"
+                    }
+                },
+                feedback: {
+                    onlySuggestions: "onlySuggestions",
+                    answer: "answer",
+                    noHeight: "noHeight",
+                    absolute: "absolute"
+                },
+                revert: "revert",
+                highlight: "highlight",
+                showModal: "showModal",
+                small: "small",
+                desc: "desc",
+                box: "box",
+                dialog: "dialog",
+                boxWrapper: "boxWrapper",
+                contentBox: "contentBox",
+                incomplete: "incomplete",
+                suggestion: "suggestion"
             }
         },
         attr: {
@@ -152,12 +211,39 @@
             direction: "data-direction",
             style: "data-style",
             id: "data-id",
+            i18n: "data-i18n",
+            i18nReplaces: "data-i18nReplaces",
             newtab: {
                 perRow: "data-perRow",
             },
             onboarding: {
                 openType: "data-openType",
                 surface: "data-surface"
+            },
+            settings: {
+                appearance: "data-appearance",
+                success: "data-successtext",
+                hideOnFalse: "data-hideOnFalse",
+                save: "data-save",
+                restore: "data-restore",
+                range: {
+                    min: "data-min",
+                    max: "data-max",
+                    step: "data-step",
+                    unit: "data-unit",
+                    infinity: "data-infinity"
+                },
+                color: {
+                    alpha: "data-alpha",
+                    suggestions: "data-suggestions"
+                },
+                field: {
+                    placeholder: "data-placeholder"
+                },
+                translation: {
+                    releaseStatus: "data-status",
+                    language: "data-lang"
+                }
             }
         },
         events: {
@@ -167,12 +253,23 @@
             sidebarOpened: "blockbyte-bs-sidebar-opened",
             checkboxChanged: "blockbyte-bs-checkbox-changed",
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
-            lsbLoaded: "blockbyte-lsb-loaded"
+            lsbLoaded: "blockbyte-lsb-loaded",
+            pageChanged: "blockbyte-bs-pageChanged"
         },
         ajax: {
-            versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs"
+            versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs",
+            feedback: {
+                form: "https://extensions.blockbyte.de/ajax/feedback",
+                suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"
+            },
+            translation: {
+                info: "https://extensions.blockbyte.de/ajax/translation/bs/info",
+                langvars: "https://extensions.blockbyte.de/ajax/translation/bs/langvars",
+                submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
+            }
         },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
+        donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
         manifest: chrome.runtime.getManifest(),
         demoMode: false
     };

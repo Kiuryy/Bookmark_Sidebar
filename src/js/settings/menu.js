@@ -14,8 +14,8 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                list = $("<ul />").appendTo(s.opts.elm.aside.children("nav"));
-                let menuParsing = s.opts.elm.content.children("div." + s.cl.tabs.content).length();
+                list = $("<ul />").appendTo(s.elm.aside.children("nav"));
+                let menuParsing = s.elm.content.children("div." + $.cl.settings.tabs.content).length();
 
                 let menupointLoaded = () => {
                     menuParsing--;
@@ -27,18 +27,18 @@
                     }
                 };
 
-                s.opts.elm.content.children("div." + s.cl.tabs.content).forEach((elm) => {
-                    let name = $(elm).attr(s.attr.name);
-                    let entry = $("<li />").attr(s.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
-                    let subTabs = $(elm).children("div[" + s.attr.name + "]");
+                s.elm.content.children("div." + $.cl.settings.tabs.content).forEach((elm) => {
+                    let name = $(elm).attr($.attr.name);
+                    let entry = $("<li />").attr($.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
+                    let subTabs = $(elm).children("div[" + $.attr.name + "]");
 
                     if (subTabs.length() > 0) {
                         let subList = $("<ul />").appendTo(entry);
 
                         subTabs.forEach((subElm) => {
-                            let subName = $(subElm).attr(s.attr.name);
+                            let subName = $(subElm).attr($.attr.name);
                             $("<li />")
-                                .attr(s.attr.name, subName)
+                                .attr($.attr.name, subName)
                                 .html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name + "_" + subName) + "</a>")
                                 .appendTo(subList);
                         });
@@ -63,11 +63,11 @@
         this.getPath = () => currentPath;
 
         this.addBreadcrumb = (obj) => {
-            s.opts.elm.content[0].scrollTop = 0;
+            s.elm.content[0].scrollTop = 0;
 
             if (obj.depth && currentPath.length >= obj.depth) { // change the breadcrumb entry at a specific position
                 currentPath[obj.depth - 1] = obj.alias;
-                s.opts.elm.headline.children("span").forEach((elm, i) => {
+                s.elm.headline.children("span").forEach((elm, i) => {
                     if (i >= obj.depth - 1) {
                         $(elm).remove();
                     }
@@ -76,7 +76,7 @@
                 currentPath.push(obj.alias);
             }
 
-            s.opts.elm.headline.append("<span>" + obj.label + "</span>");
+            s.elm.headline.append("<span>" + obj.label + "</span>");
         };
 
         let handleNavigationChange = () => {
@@ -97,17 +97,17 @@
             list.find("a").on("click", (e) => {
                 e.preventDefault();
                 let elm = $(e.currentTarget).parent("li");
-                let name = elm.attr(s.attr.name);
+                let name = elm.attr($.attr.name);
 
                 if (elm.parents("li").length() > 0) {
-                    let parentName = elm.parent("ul").parent("li").attr(s.attr.name);
+                    let parentName = elm.parent("ul").parent("li").attr($.attr.name);
                     showPage(parentName, name);
                 } else {
                     showPage(name);
                 }
             });
 
-            s.opts.elm.headline.on("click", "span", (e) => {
+            s.elm.headline.on("click", "span", (e) => {
                 let idx = $(e.currentTarget).prevAll().length();
                 showPage(...currentPath.slice(0, idx + 1));
             });
@@ -120,25 +120,25 @@
         let updateHeaderMenu = () => {
             let path = this.getPath();
             let pages = [
-                s.opts.elm.content.children("div." + s.cl.tabs.content + "[" + s.attr.name + "='" + path[0] + "']")
+                s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']")
             ];
 
-            s.opts.elm.header.attr(s.attr.type, path[0]);
+            s.elm.header.attr($.attr.type, path[0]);
 
             if (path[1]) {
-                pages.unshift(pages[0].children("div[" + s.attr.name + "='" + path[1] + "']"));
+                pages.unshift(pages[0].children("div[" + $.attr.name + "='" + path[1] + "']"));
             }
 
             ["save", "restore"].forEach((type) => {
                 pages.some((page) => {
-                    let info = page.attr(s.attr.buttons[type]);
-                    s.opts.elm.buttons[type].addClass(s.cl.hidden);
+                    let info = page.attr($.attr.settings[type]);
+                    s.elm.buttons[type].addClass($.cl.general.hidden);
 
                     if (info) { // attribute is available
                         if (info !== "false") {
-                            s.opts.elm.buttons[type]
+                            s.elm.buttons[type]
                                 .html(info === "true" ? "" : s.helper.i18n.get(info))
-                                .removeClass(s.cl.hidden);
+                                .removeClass($.cl.general.hidden);
                         }
 
                         return true;
@@ -148,11 +148,11 @@
         };
 
         let hidePages = () => {
-            list.find("li").removeClass(s.cl.tabs.active);
+            list.find("li").removeClass($.cl.general.active);
 
-            let allPages = s.opts.elm.content.children("div." + s.cl.tabs.content);
-            allPages.removeClass(s.cl.tabs.active);
-            allPages.children("div[" + s.attr.name + "]").removeClass(s.cl.tabs.active);
+            let allPages = s.elm.content.children("div." + $.cl.settings.tabs.content);
+            allPages.removeClass($.cl.general.active);
+            allPages.children("div[" + $.attr.name + "]").removeClass($.cl.general.active);
 
             list.find("ul").css("height", "");
         };
@@ -163,15 +163,15 @@
                     running = true;
                     let pathLen = path.length;
                     let breadcrumb = [];
-                    let menu = list.children("li[" + s.attr.name + "='" + path[0] + "']");
-                    let page = s.opts.elm.content.children("div." + s.cl.tabs.content + "[" + s.attr.name + "='" + path[0] + "']");
+                    let menu = list.children("li[" + $.attr.name + "='" + path[0] + "']");
+                    let page = s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']");
 
-                    if (pathLen === 1 && page.find("> div[" + s.attr.name + "]").length() > 0) {
+                    if (pathLen === 1 && page.find("> div[" + $.attr.name + "]").length() > 0) {
 
-                        if (menu.hasClass(s.cl.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
-                            path.push(page.find("> div[" + s.attr.name + "='translate']").eq(0).attr(s.attr.name));
+                        if (menu.hasClass($.cl.settings.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete
+                            path.push(page.find("> div[" + $.attr.name + "='translate']").eq(0).attr($.attr.name));
                         } else {
-                            path.push(page.find("> div[" + s.attr.name + "]").eq(0).attr(s.attr.name));
+                            path.push(page.find("> div[" + $.attr.name + "]").eq(0).attr($.attr.name));
                         }
 
                         pathLen++;
@@ -184,12 +184,12 @@
                         let menuParent = menu.parent("ul");
 
                         if (menuParent && menuParent.length() > 0) {
-                            menu.addClass(s.cl.tabs.active);
-                            page.addClass(s.cl.tabs.active);
+                            menu.addClass($.cl.general.active);
+                            page.addClass($.cl.general.active);
                             breadcrumb.push(menu.children("a").html());
 
                             let listHeight = 0;
-                            menuParent.children("li:not(." + s.cl.hidden + ")").forEach((menuEntry) => {
+                            menuParent.children("li:not(." + $.cl.general.hidden + ")").forEach((menuEntry) => {
                                 listHeight += $(menuEntry).data("height") || 0;
                             });
 
@@ -198,27 +198,27 @@
                             }
 
                             if (i < pathLen) {
-                                menu = menu.find("> ul > li[" + s.attr.name + "='" + path[i] + "']");
-                                page = page.find("> div[" + s.attr.name + "='" + path[i] + "']");
+                                menu = menu.find("> ul > li[" + $.attr.name + "='" + path[i] + "']");
+                                page = page.find("> div[" + $.attr.name + "='" + path[i] + "']");
                             }
                         }
                     }
 
-                    s.opts.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
-                    s.opts.elm.body.attr(s.attr.type, hash);
+                    s.elm.headline.html("<span>" + breadcrumb.join("</span><span>") + "</span>");
+                    s.elm.body.attr($.attr.type, hash);
 
                     location.hash = hash;
                     currentPage = page;
                     currentPath = path;
 
-                    s.opts.elm.content[0].scrollTop = 0;
+                    s.elm.content[0].scrollTop = 0;
                     updateHeaderMenu();
 
                     let padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
-                    s.opts.elm.header.css(padding, "");
-                    s.opts.elm.content.css(padding, "");
+                    s.elm.header.css(padding, "");
+                    s.elm.content.css(padding, "");
 
-                    document.dispatchEvent(new CustomEvent(s.opts.events.pageChanged, {
+                    document.dispatchEvent(new CustomEvent($.opts.events.pageChanged, {
                         detail: {
                             path: path
                         },

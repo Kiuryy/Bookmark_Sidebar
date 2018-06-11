@@ -21,7 +21,7 @@
                     let showOnlySuggestions = path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2];
 
                     if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show form, but suggestions first
-                        s.opts.elm.feedback.wrapper.addClass(s.cl.feedback.onlySuggestions);
+                        s.elm.feedback.wrapper.addClass($.cl.settings.feedback.onlySuggestions);
                     }
 
                     initEvents();
@@ -38,13 +38,13 @@
                         resolve();
                     });
                 } else {
-                    s.opts.elm.feedback.form.addClass(s.cl.hidden);
+                    s.elm.feedback.form.addClass($.cl.general.hidden);
 
                     $("<p />")
-                        .addClass(s.cl.error)
+                        .addClass($.cl.general.error)
                         .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
                         .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
-                        .insertAfter(s.opts.elm.feedback.form);
+                        .insertAfter(s.elm.feedback.form);
 
                     resolve();
                 }
@@ -56,8 +56,8 @@
          * the height needs to be a defined value, because otherwise new suggestions wouldn't push old suggestions to the top1
          */
         let updateSuggestionWrapperHeight = () => {
-            let height = s.opts.elm.feedback.feedback[0].offsetHeight;
-            s.opts.elm.feedback.suggestions.css("max-height", height + "px");
+            let height = s.elm.feedback.feedback[0].offsetHeight;
+            s.elm.feedback.suggestions.css("max-height", height + "px");
         };
 
         /**
@@ -66,7 +66,7 @@
          */
         let initSuggestions = () => {
             return new Promise((resolve) => {
-                $.xhr(s.opts.ajax.feedback.suggestions).then((xhr) => {
+                $.xhr($.opts.ajax.feedback.suggestions).then((xhr) => {
                     if (xhr && xhr.responseText) {
                         let response = JSON.parse(xhr.responseText);
 
@@ -149,40 +149,40 @@
                 });
 
                 let suggestion = $("<div />")
-                    .addClass([s.cl.feedback.suggestion, s.cl.hidden, s.cl.feedback.absolute])
-                    .attr(s.attr.type, key)
+                    .addClass([$.cl.settings.suggestion, $.cl.general.hidden, $.cl.settings.feedback.absolute])
+                    .attr($.attr.type, key)
                     .append("<strong>" + obj.question.message + "</strong>")
-                    .append("<div class='" + s.cl.feedback.answer + "'>" + obj.answer.message + "</div>")
-                    .appendTo(s.opts.elm.feedback.suggestions);
+                    .append("<div class='" + $.cl.settings.feedback.answer + "'>" + obj.answer.message + "</div>")
+                    .appendTo(s.elm.feedback.suggestions);
 
                 $("<p />")
-                    .append("<a " + s.attr.value + "='1'>" + data.controls.yes.message + "</a>")
-                    .append("<a " + s.attr.value + "='0'>" + data.controls.no.message + "</a>")
+                    .append("<a " + $.attr.value + "='1'>" + data.controls.yes.message + "</a>")
+                    .append("<a " + $.attr.value + "='0'>" + data.controls.no.message + "</a>")
                     .appendTo(suggestion);
 
                 suggestion.data("links", obj.answer.links || []);
 
-                let answer = suggestion.children("div." + s.cl.feedback.answer);
+                let answer = suggestion.children("div." + $.cl.settings.feedback.answer);
 
                 $.delay().then(() => {
                     answer.css("height", answer[0].offsetHeight + "px");
-                    answer.addClass([s.cl.feedback.noHeight, s.cl.hidden]);
+                    answer.addClass([$.cl.settings.feedback.noHeight, $.cl.general.hidden]);
 
                     return $.delay(300);
                 }).then(() => {
                     suggestion.css("height", suggestion[0].offsetHeight + "px");
-                    suggestion.addClass(s.cl.feedback.noHeight);
+                    suggestion.addClass($.cl.settings.feedback.noHeight);
 
                     return $.delay(300);
                 }).then(() => {
-                    suggestion.removeClass([s.cl.feedback.absolute, s.cl.feedback.noHeight]);
+                    suggestion.removeClass([$.cl.settings.feedback.absolute, $.cl.settings.feedback.noHeight]);
                     return $.delay(300);
                 }).then(() => {
                     suggestion
                         .css("height", "")
-                        .removeClass(s.cl.hidden);
+                        .removeClass($.cl.general.hidden);
 
-                    s.opts.elm.feedback.suggestions.addClass(s.cl.visible);
+                    s.elm.feedback.suggestions.addClass($.cl.general.visible);
 
                     if (showAnswer) {
                         showSuggestionAnswer(suggestion);
@@ -196,7 +196,7 @@
          * @param {jsu} suggestion
          */
         let showSuggestionAnswer = (suggestion) => {
-            let type = suggestion.attr(s.attr.type);
+            let type = suggestion.attr($.attr.type);
             suggestionInfo.opened.push(type);
 
             s.helper.model.call("trackEvent", {
@@ -216,14 +216,14 @@
             });
 
             $("<a />")
-                .attr(s.attr.value, "0")
+                .attr($.attr.value, "0")
                 .text(data.controls.close.message)
                 .appendTo(controlWrapper);
 
-            suggestion.children("div." + s.cl.feedback.answer).removeClass(s.cl.feedback.noHeight);
+            suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.settings.feedback.noHeight);
 
             $.delay(300).then(() => {
-                suggestion.children("div." + s.cl.feedback.answer).removeClass(s.cl.hidden);
+                suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.general.hidden);
             });
         };
 
@@ -232,24 +232,24 @@
          * @param {jsu} suggestion
          */
         let hideSuggestion = (suggestion) => {
-            suggestionInfo.closed.push(suggestion.attr(s.attr.type));
+            suggestionInfo.closed.push(suggestion.attr($.attr.type));
 
             suggestion
                 .css("height", suggestion[0].offsetHeight + "px")
-                .addClass(s.cl.hidden);
+                .addClass($.cl.general.hidden);
 
             $.delay(200).then(() => {
-                suggestion.addClass(s.cl.feedback.noHeight);
+                suggestion.addClass($.cl.settings.feedback.noHeight);
                 return $.delay(300);
             }).then(() => {
                 suggestion.remove();
                 return $.delay();
             }).then(() => {
-                if (s.opts.elm.feedback.suggestions.children("div." + s.cl.feedback.suggestion).length() === 0) {
-                    s.opts.elm.feedback.suggestions.removeClass(s.cl.visible);
+                if (s.elm.feedback.suggestions.children("div." + $.cl.settings.suggestion).length() === 0) {
+                    s.elm.feedback.suggestions.removeClass($.cl.general.visible);
 
                     $.delay(300).then(() => {
-                        s.opts.elm.feedback.wrapper.removeClass(s.cl.feedback.onlySuggestions);
+                        s.elm.feedback.wrapper.removeClass($.cl.settings.feedback.onlySuggestions);
                     });
                 }
             });
@@ -265,18 +265,18 @@
                 updateSuggestionWrapperHeight();
             });
 
-            s.opts.elm.textarea.feedbackMsg.on("mouseup", () => {
+            s.elm.textarea.feedbackMsg.on("mouseup", () => {
                 updateSuggestionWrapperHeight();
             }).on("keyup", (e) => {
                 scanForKeywords(e.currentTarget.value);
             });
 
-            s.opts.elm.feedback.showForm.on("click", (e) => { // show feedback form -> is only visible if the feedback form is hidden
+            s.elm.feedback.showForm.on("click", (e) => { // show feedback form -> is only visible if the feedback form is hidden
                 e.preventDefault();
-                s.opts.elm.feedback.wrapper.removeClass(s.cl.feedback.onlySuggestions);
+                s.elm.feedback.wrapper.removeClass($.cl.settings.feedback.onlySuggestions);
             });
 
-            s.opts.elm.feedback.suggestions.on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
+            s.elm.feedback.suggestions.on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
                 e.preventDefault();
                 chrome.tabs.create({
                     url: $(e.currentTarget).attr("href"),
@@ -284,10 +284,10 @@
                 });
             });
 
-            s.opts.elm.feedback.suggestions.on("click", "a[" + s.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
+            s.elm.feedback.suggestions.on("click", "a[" + $.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
                 e.preventDefault();
-                let val = +$(e.currentTarget).attr(s.attr.value);
-                let suggestion = $(e.currentTarget).parents("div." + s.cl.feedback.suggestion).eq(0);
+                let val = +$(e.currentTarget).attr($.attr.value);
+                let suggestion = $(e.currentTarget).parents("div." + $.cl.settings.suggestion).eq(0);
 
                 if (val === 1) { // show answer of the suggestion
                     showSuggestionAnswer(suggestion);
@@ -296,7 +296,7 @@
                 }
             });
 
-            s.opts.elm.feedback.send.on("click", (e) => { // submit feedback form
+            s.elm.feedback.send.on("click", (e) => { // submit feedback form
                 e.preventDefault();
                 sendFeedback();
             });
@@ -306,23 +306,23 @@
          * Checks the content of the feedback fields and sends the content via ajax if they are filled properly
          */
         let sendFeedback = () => {
-            let messageText = s.opts.elm.textarea.feedbackMsg[0].value;
-            let emailText = s.opts.elm.field.feedbackEmail[0].value;
+            let messageText = s.elm.textarea.feedbackMsg[0].value;
+            let emailText = s.elm.field.feedbackEmail[0].value;
             let isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
             let isMessageValid = messageText.length > 0;
 
             if (isEmailValid && isMessageValid) {
                 let loadStartTime = +new Date();
-                let loader = s.helper.template.loading().appendTo(s.opts.elm.body);
-                s.opts.elm.body.addClass(s.cl.loading);
+                let loader = s.helper.template.loading().appendTo(s.elm.body);
+                s.elm.body.addClass($.cl.general.loading);
                 let infos = null;
 
-                $.xhr(s.opts.ajax.feedback.form, {
+                $.xhr($.opts.ajax.feedback.form, {
                     method: "POST",
                     data: {
                         email: emailText,
                         msg: messageText,
-                        version: s.opts.manifest.version_name,
+                        version: $.opts.manifest.version_name,
                         ua: navigator.userAgent,
                         lang: s.helper.i18n.getLanguage(),
                         config: s.helper.importExport.getExportConfig(),
@@ -332,7 +332,7 @@
                     infos = JSON.parse(xhr.responseText);
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))); // load at least 1s
                 }).then(() => {
-                    s.opts.elm.body.removeClass(s.cl.loading);
+                    s.elm.body.removeClass($.cl.general.loading);
                     loader.remove();
 
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
@@ -343,8 +343,8 @@
                             always: true
                         });
 
-                        s.opts.elm.textarea.feedbackMsg[0].value = "";
-                        s.opts.elm.field.feedbackEmail[0].value = "";
+                        s.elm.textarea.feedbackMsg[0].value = "";
+                        s.elm.field.feedbackEmail[0].value = "";
                         s.showSuccessMessage("feedback_sent_message");
                     } else { // not submitted -> raise error
                         $.delay().then(() => {
@@ -353,13 +353,13 @@
                     }
                 });
             } else if (!isEmailValid) {
-                s.opts.elm.field.feedbackEmail.addClass(s.cl.error);
+                s.elm.field.feedbackEmail.addClass($.cl.general.error);
             } else if (!isMessageValid) {
-                s.opts.elm.textarea.feedbackMsg.addClass(s.cl.error);
+                s.elm.textarea.feedbackMsg.addClass($.cl.general.error);
             }
 
             $.delay(700).then(() => {
-                $("." + s.cl.error).removeClass(s.cl.error);
+                $("." + $.cl.general.error).removeClass($.cl.general.error);
             });
         };
     };

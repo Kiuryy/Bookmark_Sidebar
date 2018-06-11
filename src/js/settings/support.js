@@ -21,19 +21,19 @@
             chrome.storage.sync.get(["shareInfo"], (obj) => {
                 if (obj.shareInfo) {
                     if (obj.shareInfo.config) {
-                        s.opts.elm.checkbox.shareConfig.trigger("click");
+                        s.elm.checkbox.shareConfig.trigger("click");
                     }
 
                     if (obj.shareInfo.activity) {
-                        s.opts.elm.checkbox.shareActivity.trigger("click");
+                        s.elm.checkbox.shareActivity.trigger("click");
                     }
                 }
 
-                s.opts.elm.support.shareInfoWrapper.find("input[type='checkbox']").on("change", () => {
+                s.elm.support.shareInfoWrapper.find("input[type='checkbox']").on("change", () => {
                     chrome.storage.sync.set({
                         shareInfo: {
-                            config: s.helper.checkbox.isChecked(s.opts.elm.checkbox.shareConfig),
-                            activity: s.helper.checkbox.isChecked(s.opts.elm.checkbox.shareActivity)
+                            config: s.helper.checkbox.isChecked(s.elm.checkbox.shareConfig),
+                            activity: s.helper.checkbox.isChecked(s.elm.checkbox.shareActivity)
                         }
                     }, () => {
                         s.showSuccessMessage("saved_share_userdata");
@@ -41,9 +41,9 @@
                 });
             });
 
-            s.opts.elm.support.donate.on("click", (e) => {
+            s.elm.support.donate.on("click", (e) => {
                 e.preventDefault();
-                window.open(s.opts.donateLink, "_blank");
+                window.open($.opts.donateLink, "_blank");
             });
         };
     };

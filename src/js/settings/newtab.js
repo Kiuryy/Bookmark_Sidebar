@@ -12,7 +12,7 @@
          */
         this.init = async () => {
             initEvents();
-            s.opts.elm.newtab.content.find("div." + s.cl.newtab.hideable).addClass(s.cl.hidden);
+            s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.general.hidden);
 
             ["override", "autoOpen"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
@@ -21,12 +21,12 @@
                             permissions: ["tabs", "topSites"]
                         }, (result) => {
                             if (result) {
-                                s.opts.elm.checkbox[field].trigger("click");
+                                s.elm.checkbox[field].trigger("click");
                             }
                             overrideCheckboxInited = true;
                         });
                     } else {
-                        s.opts.elm.checkbox[field].trigger("click");
+                        s.elm.checkbox[field].trigger("click");
                     }
                 } else if (field === "override") {
                     overrideCheckboxInited = true;
@@ -34,7 +34,7 @@
             });
 
             ["website"].forEach((field) => {
-                s.opts.elm.field[field][0].value = s.helper.model.getData("n/" + field);
+                s.elm.field[field][0].value = s.helper.model.getData("n/" + field);
             });
         };
 
@@ -49,11 +49,11 @@
                     let config = obj.newtab || {};
 
                     ["override", "autoOpen"].forEach((field) => {
-                        config[field] = s.helper.checkbox.isChecked(s.opts.elm.checkbox[field]);
+                        config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
                     });
 
                     ["website"].forEach((field) => {
-                        config[field] = s.opts.elm.field[field][0].value.trim();
+                        config[field] = s.elm.field[field][0].value.trim();
                     });
 
                     if (config.website && config.website.length && config.website.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
@@ -69,9 +69,9 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            s.opts.elm.checkbox.override.children("input[type='checkbox']").on("change", () => {
-                let override = s.helper.checkbox.isChecked(s.opts.elm.checkbox.override);
-                let hideableBoxes = s.opts.elm.newtab.content.find("div." + s.cl.newtab.hideable);
+            s.elm.checkbox.override.children("input[type='checkbox']").on("change", () => {
+                let override = s.helper.checkbox.isChecked(s.elm.checkbox.override);
+                let hideableBoxes = s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable);
 
                 if (override) {
                     if (overrideCheckboxInited === true) {
@@ -79,21 +79,21 @@
                             permissions: ["tabs", "topSites"]
                         }, (granted) => {
                             if (!granted) { // not granted -> no overriding
-                                s.opts.elm.checkbox.override.trigger("click");
+                                s.elm.checkbox.override.trigger("click");
                                 override = false;
                             }
 
                             if (override) {
-                                hideableBoxes.removeClass(s.cl.hidden);
+                                hideableBoxes.removeClass($.cl.general.hidden);
                             } else {
-                                hideableBoxes.addClass(s.cl.hidden);
+                                hideableBoxes.addClass($.cl.general.hidden);
                             }
                         });
                     } else {
-                        hideableBoxes.removeClass(s.cl.hidden);
+                        hideableBoxes.removeClass($.cl.general.hidden);
                     }
                 } else {
-                    hideableBoxes.addClass(s.cl.hidden);
+                    hideableBoxes.addClass($.cl.general.hidden);
                 }
             });
         };

@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.settings = function () {
+    let Settings = function () {
 
         /*
          * ################################
@@ -9,198 +9,67 @@
          * ################################
          */
 
-        this.opts = {
-            classes: {
-                page: {
-                    darkMode: "dark"
-                },
-                tabs: {
-                    content: "tab",
-                    active: "active"
-                },
-                color: {
-                    field: "color",
-                    mask: "colorMask",
-                    suggestion: "suggestion"
-                },
-                radio: {
-                    wrapper: "radioWrapper"
-                },
-                range: {
-                    inactive: "inactive"
-                },
-                newtab: {
-                    hideable: "hideable"
-                },
-                translation: {
-                    select: "languageSelect",
-                    category: "category",
-                    edit: "edit",
-                    progress: "progress",
-                    mark: "mark",
-                    requiredInfo: "requiredInfo",
-                    amountInfo: "amountInfo",
-                    empty: "empty",
-                    back: "back",
-                    hover: "hover",
-                    goto: "goto"
-                },
-                checkbox: {
-                    box: "checkbox",
-                    active: "active",
-                    clicked: "clicked",
-                    focus: "focus"
-                },
-                toggleArea: {
-                    preview: "preview",
-                    fullHeight: "fullHeight",
-                    dragged: "dragged",
-                    dragging: "dragging",
-                    modal: "toggleAreaModal",
-                },
-                appearance: {
-                    preview: {
-                        fullHeight: "blockbyte-bs-fullHeight"
-                    }
-                },
-                feedback: {
-                    onlySuggestions: "onlySuggestions",
-                    suggestion: "suggestion",
-                    answer: "answer",
-                    noHeight: "noHeight",
-                    absolute: "absolute"
-                },
-                hidden: "hidden",
-                success: "success",
-                error: "error",
-                building: "building",
-                initLoading: "initLoading",
-                loading: "loading",
-                revert: "revert",
-                visible: "visible",
-                highlight: "highlight",
-                showModal: "showModal",
-                small: "small",
-                desc: "desc",
-                box: "box",
-                dialog: "dialog",
-                boxWrapper: "boxWrapper",
-                contentBox: "contentBox",
-                action: "action",
-                incomplete: "incomplete"
+        this.elm = {
+            body: $("body"),
+            title: $("head > title"),
+            aside: $("body > section#wrapper > aside"),
+            content: $("body > section#wrapper > main"),
+            header: $("body > header"),
+            headline: $("body > header > h1"),
+            advanced: {
+                toggle: $("div.advanced > h3"),
+                container: $("div.advanced > div")
             },
-            attr: {
-                type: "data-type",
-                appearance: "data-appearance",
-                name: "data-name",
-                i18n: "data-i18n",
-                value: "data-value",
-                success: "data-successtext",
-                style: "data-style",
-                hideOnFalse: "data-hideOnFalse",
-                buttons: {
-                    save: "data-save",
-                    restore: "data-restore"
-                },
-                range: {
-                    min: "data-min",
-                    max: "data-max",
-                    step: "data-step",
-                    unit: "data-unit",
-                    infinity: "data-infinity"
-                },
-                color: {
-                    alpha: "data-alpha",
-                    suggestions: "data-suggestions"
-                },
-                field: {
-                    placeholder: "data-placeholder"
-                },
-                translation: {
-                    releaseStatus: "data-status",
-                    language: "data-lang"
-                }
+            buttons: {
+                save: $("body > header > menu > li > button.save"),
+                restore: $("body > header > menu > li > button.restore"),
+                keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
+                toggleAreaOpen: $("div.tab[data-name='sidebar'] div.toggleAreaDesc > a.button"),
+                toggleAreaSave: $("div.toggleAreaModal a.save"),
+                toggleAreaCancel: $("div.toggleAreaModal a.cancel"),
+                "import": $("body a.import > input[type='file']"),
+                "export": $("body a.export"),
             },
-            elm: {
-                body: $("body"),
-                title: $("head > title"),
-                aside: $("body > section#wrapper > aside"),
-                content: $("body > section#wrapper > main"),
-                header: $("body > header"),
-                headline: $("body > header > h1"),
-                advanced: {
-                    toggle: $("div.advanced > h3"),
-                    container: $("div.advanced > div")
-                },
-                buttons: {
-                    save: $("body > header > menu > li > button.save"),
-                    restore: $("body > header > menu > li > button.restore"),
-                    keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
-                    toggleAreaOpen: $("div.tab[data-name='sidebar'] div.toggleAreaDesc > a.button"),
-                    toggleAreaSave: $("div.toggleAreaModal a.save"),
-                    toggleAreaCancel: $("div.toggleAreaModal a.cancel"),
-                    "import": $("body a.import > input[type='file']"),
-                    "export": $("body a.export"),
-                },
-                sidebar: {
-                    filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
-                    filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation")
-                },
-                appearance: {
-                    content: $("div.tab[data-name='appearance']"),
-                    presetWrapper: $("div.tab[data-name='appearance'] div.presets")
-                },
-                newtab: {
-                    content: $("div.tab[data-name='newtab']"),
-                },
-                feedback: {
-                    wrapper: $("div.tab[data-name='feedback']"),
-                    form: $("section.form"),
-                    send: $("section.form button[type='submit']"),
-                    feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),
-                    showForm: $("div.tab[data-name='feedback'] div.suggestedAnswers > a"),
-                    suggestions: $("div.tab[data-name='feedback'] div.suggestedAnswers")
-                },
-                translation: {
-                    wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
-                    goto: $("div.tab[data-name='language'] > div[data-name='general'] a.button"),
-                    overview: $("div.tab[data-name='language'] > div[data-name='translate'] > div.overview"),
-                    langvars: $("div.tab[data-name='language'] > div[data-name='translate'] > div.langvars"),
-                    unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")
-                },
-                formElement: $("div.formElement"),
-                support: {
-                    shareInfoWrapper: $("div.tab[data-name='support'] div.shareInformation"),
-                    donate: $("div.tab[data-name='support'] a.donate")
-                },
-                preview: {},
-                checkbox: {},
-                range: {},
-                select: {},
-                color: {},
-                textarea: {},
-                field: {},
-                radio: {}
+            sidebar: {
+                filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
+                filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation")
             },
-            events: {
-                pageChanged: "blockbyte-bs-pageChanged"
+            appearance: {
+                content: $("div.tab[data-name='appearance']"),
+                presetWrapper: $("div.tab[data-name='appearance'] div.presets")
             },
-            ajax: {
-                feedback: {
-                    form: "https://extensions.blockbyte.de/ajax/feedback",
-                    suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"
-                },
-                translation: {
-                    info: "https://extensions.blockbyte.de/ajax/translation/bs/info",
-                    langvars: "https://extensions.blockbyte.de/ajax/translation/bs/langvars",
-                    submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
-                }
+            newtab: {
+                content: $("div.tab[data-name='newtab']"),
             },
-            donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
-            manifest: chrome.runtime.getManifest()
+            feedback: {
+                wrapper: $("div.tab[data-name='feedback']"),
+                form: $("section.form"),
+                send: $("section.form button[type='submit']"),
+                feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),
+                showForm: $("div.tab[data-name='feedback'] div.suggestedAnswers > a"),
+                suggestions: $("div.tab[data-name='feedback'] div.suggestedAnswers")
+            },
+            translation: {
+                wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
+                goto: $("div.tab[data-name='language'] > div[data-name='general'] a.button"),
+                overview: $("div.tab[data-name='language'] > div[data-name='translate'] > div.overview"),
+                langvars: $("div.tab[data-name='language'] > div[data-name='translate'] > div.langvars"),
+                unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")
+            },
+            formElement: $("div.formElement"),
+            support: {
+                shareInfoWrapper: $("div.tab[data-name='support'] div.shareInformation"),
+                donate: $("div.tab[data-name='support'] a.donate")
+            },
+            preview: {},
+            checkbox: {},
+            range: {},
+            select: {},
+            color: {},
+            textarea: {},
+            field: {},
+            radio: {}
         };
-        this.attr = this.opts.attr;
-        this.cl = this.opts.classes;
 
         this.serviceAvailable = true;
         let restoreTypes = ["behaviour", "appearance", "newtab"];
@@ -211,14 +80,14 @@
         this.run = () => {
             initHelpers();
             let loader = {
-                body: this.helper.template.loading().appendTo(this.opts.elm.body)
+                body: this.helper.template.loading().appendTo(this.elm.body)
             };
-            this.opts.elm.body.addClass(this.cl.initLoading);
+            this.elm.body.addClass($.cl.general.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
-                this.opts.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
                 this.helper.font.init("default");
                 this.helper.stylesheet.init();
@@ -226,14 +95,14 @@
 
                 return this.helper.form.init();
             }).then(() => {
-                this.opts.elm.body.removeClass(this.cl.building);
+                this.elm.body.removeClass($.cl.general.building);
 
                 this.helper.i18n.parseHtml(document);
-                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                 ["translation", "feedback"].forEach((name) => {
-                    loader[name] = this.helper.template.loading().appendTo(this.opts.elm[name].wrapper);
-                    this.opts.elm[name].wrapper.addClass(this.cl.loading);
+                    loader[name] = this.helper.template.loading().appendTo(this.elm[name].wrapper);
+                    this.elm[name].wrapper.addClass($.cl.general.loading);
                 });
 
                 return Promise.all([
@@ -248,7 +117,7 @@
                 initEvents();
 
                 loader.body.remove();
-                this.opts.elm.body.removeClass(this.cl.initLoading);
+                this.elm.body.removeClass($.cl.general.initLoading);
                 this.helper.model.call("trackPageView", {page: "/settings"});
 
                 return this.helper.model.call("websiteStatus");
@@ -258,7 +127,7 @@
                 ["translation", "feedback"].forEach((name) => {
                     this.helper[name].init().then(() => {
                         loader[name].remove();
-                        this.opts.elm[name].wrapper.removeClass(this.cl.loading);
+                        this.elm[name].wrapper.removeClass($.cl.general.loading);
                     });
                 });
             });
@@ -270,11 +139,11 @@
          * @param {string} i18nStr
          */
         this.showSuccessMessage = (i18nStr) => {
-            this.opts.elm.body.attr(this.attr.success, this.helper.i18n.get("settings_" + i18nStr));
-            this.opts.elm.body.addClass(this.cl.success);
+            this.elm.body.attr($.attr.settings.success, this.helper.i18n.get("settings_" + i18nStr));
+            this.elm.body.addClass($.cl.general.success);
 
             $.delay(1500).then(() => {
-                this.opts.elm.body.removeClass(this.cl.success);
+                this.elm.body.removeClass($.cl.general.success);
             });
         };
 
@@ -314,18 +183,18 @@
          */
         let initEvents = async () => {
             $(document).on("click", () => {
-                $("div." + this.cl.dialog).removeClass(this.cl.visible);
+                $("div." + $.cl.settings.dialog).removeClass($.cl.general.visible);
             });
 
-            this.opts.elm.header.on("click", "div." + this.cl.dialog, (e) => {
+            this.elm.header.on("click", "div." + $.cl.settings.dialog, (e) => {
                 e.stopPropagation();
             });
 
-            this.opts.elm.header.on("click", "div." + this.cl.dialog + " > a", (e) => {
+            this.elm.header.on("click", "div." + $.cl.settings.dialog + " > a", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
-                let type = $(e.currentTarget).parent("div").attr(this.attr.type);
+                let type = $(e.currentTarget).parent("div").attr($.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
                     let promises = [];
@@ -347,7 +216,7 @@
                         chrome.storage.sync.remove([type], () => {
                             this.showSuccessMessage("restored_message");
                             this.helper.model.call("reloadIcon");
-                            $("div." + this.cl.dialog).removeClass(this.cl.visible);
+                            $("div." + $.cl.settings.dialog).removeClass($.cl.general.visible);
                             resolve();
                         });
                     }));
@@ -361,12 +230,12 @@
                 }
             });
 
-            this.opts.elm.advanced.container.css("display", "none");
-            this.opts.elm.advanced.toggle.on("click", (e) => {
+            this.elm.advanced.container.css("display", "none");
+            this.elm.advanced.toggle.on("click", (e) => {
                 let container = $(e.currentTarget).next("div");
 
-                if (container.hasClass(this.cl.visible)) {
-                    container.removeClass(this.cl.visible);
+                if (container.hasClass($.cl.general.visible)) {
+                    container.removeClass($.cl.general.visible);
 
                     $.delay(300).then(() => {
                         container.css("display", "none");
@@ -375,12 +244,12 @@
                     container.css("display", "flex");
 
                     $.delay(0).then(() => {
-                        container.addClass(this.cl.visible);
+                        container.addClass($.cl.general.visible);
                     });
                 }
             });
 
-            this.opts.elm.buttons.save.on("click", (e) => { // save button
+            this.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
 
@@ -401,7 +270,7 @@
                 }
             });
 
-            this.opts.elm.buttons.restore.on("click", (e) => {
+            this.elm.buttons.restore.on("click", (e) => {
                 e.preventDefault();
                 let path = this.helper.menu.getPath();
                 let type = path[0];
@@ -411,26 +280,26 @@
                 }
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    $("div." + this.cl.dialog).remove();
+                    $("div." + $.cl.settings.dialog).remove();
                     let paddingDir = this.helper.i18n.isRtl() ? "left" : "right";
 
                     let dialog = $("<div />")
-                        .attr(this.attr.type, type)
-                        .addClass(this.cl.dialog)
+                        .attr($.attr.type, type)
+                        .addClass($.cl.settings.dialog)
                         .append("<p>" + this.helper.i18n.get("settings_restore_confirm") + "</p>")
                         .append("<span>" + this.helper.i18n.get("settings_menu_" + path[0]) + "</span>")
                         .append("<br />")
                         .append("<a>" + this.helper.i18n.get("settings_restore") + "</a>")
-                        .css(paddingDir, this.opts.elm.header.css("padding-" + paddingDir))
-                        .appendTo(this.opts.elm.header);
+                        .css(paddingDir, this.elm.header.css("padding-" + paddingDir))
+                        .appendTo(this.elm.header);
 
                     $.delay().then(() => {
-                        dialog.addClass(this.cl.visible);
+                        dialog.addClass($.cl.general.visible);
                     });
                 }
             });
         };
     };
 
-    new window.settings().run();
+    new Settings().run();
 })(jsu);

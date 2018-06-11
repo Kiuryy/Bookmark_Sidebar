@@ -41,7 +41,7 @@
          * @returns {Promise}
          */
         let initImport = async () => {
-            s.opts.elm.buttons["import"].on("change", (e) => { // import config
+            s.elm.buttons["import"].on("change", (e) => { // import config
                 e.preventDefault();
                 let _self = e.currentTarget;
 
@@ -89,7 +89,7 @@
          * @returns {Promise}
          */
         let initExport = async () => {
-            s.opts.elm.buttons["export"].on("click", (e) => {
+            s.elm.buttons["export"].on("click", (e) => {
                 e.preventDefault();
 
                 chrome.permissions.request({ // request additional permissions in order to trigger a download with the configuration

@@ -169,6 +169,9 @@
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
             lsbLoaded: "blockbyte-lsb-loaded"
         },
+        ajax: {
+            versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs"
+        },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
         manifest: chrome.runtime.getManifest(),
         demoMode: false

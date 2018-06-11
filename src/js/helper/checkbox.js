@@ -2,7 +2,7 @@
     "use strict";
 
     /**
-     * @requires helper: utility
+     * @requires helper: (optional) utility
      * @param {object} ext
      * @constructor
      */
@@ -62,7 +62,7 @@
             let checkbox = container.children("input[type='checkbox']");
 
             checkbox.trigger("change");
-            if ($.opts.events && $.opts.events.checkboxChanged) {
+            if (ext.helper.utility) {
                 ext.helper.utility.triggerEvent("checkboxChanged", {
                     container: container,
                     checkbox: checkbox,

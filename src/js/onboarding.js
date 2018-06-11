@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.onboarding = function () {
+    let Onboarding = function () {
 
         let configChanged = false;
 
@@ -323,6 +323,5 @@
         };
     };
 
-    new window.onboarding().run();
-
+    new Onboarding().run();
 })(jsu);

@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.changelog = function () {
+    let Changelog = function () {
 
         let info = {};
 
@@ -11,63 +11,39 @@
          * ################################
          */
 
-        this.opts = {
-            elm: {
-                body: $("body"),
-                title: $("head > title"),
-                contentWrapper: $("body > main"),
-                changelogWrapper: $("article#changelog"),
-                releaseHistoryWrapper: $("article#releaseHistory"),
-                versionInfo: $("main > div.version > span")
-            },
-            classes: {
-                building: "building",
-                initLoading: "initLoading",
-                visible: "visible",
-                error: "error",
-                checkbox: {
-                    box: "checkbox",
-                    active: "active",
-                    clicked: "clicked",
-                    focus: "focus"
-                }
-            },
-            attr: {
-                type: "data-type",
-                style: "data-style"
-            },
-            ajax: {
-                versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs"
-            },
-            manifest: chrome.runtime.getManifest()
+        this.elm = {
+            body: $("body"),
+            title: $("head > title"),
+            contentWrapper: $("body > main"),
+            changelogWrapper: $("article#changelog"),
+            releaseHistoryWrapper: $("article#releaseHistory"),
+            versionInfo: $("main > div.version > span")
         };
-        this.cl = this.opts.classes;
-        this.attr = this.opts.attr;
 
         /**
          * Constructor
          */
         this.run = () => {
             initHelpers();
-            let loader = this.helper.template.loading().appendTo(this.opts.elm.body);
-            this.opts.elm.body.addClass(this.cl.initLoading);
+            let loader = this.helper.template.loading().appendTo(this.elm.body);
+            this.elm.body.addClass($.cl.general.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
             }).then(() => {
-                this.opts.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
                 this.helper.font.init("default");
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["changelog"], $(document));
 
                 this.helper.i18n.parseHtml(document);
-                this.opts.elm.title.text(this.opts.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
-                this.opts.elm.versionInfo.text(this.opts.manifest.version_name);
+                this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+                this.elm.versionInfo.text($.opts.manifest.version_name);
 
                 return this.helper.model.call("trackPageView", {page: "/changelog"});
             }).then(() => {
-                this.opts.elm.body.removeClass(this.cl.building);
+                this.elm.body.removeClass($.cl.general.building);
 
                 return Promise.all([
                     initData(),
@@ -79,11 +55,11 @@
                     initChangelog();
                     initReleaseHistory();
                 } else {
-                    $("<p />").addClass(this.cl.error).text(this.helper.i18n.get("status_changelog_unavailable_desc")).appendTo(this.opts.elm.contentWrapper);
+                    $("<p />").addClass($.cl.general.error).text(this.helper.i18n.get("status_changelog_unavailable_desc")).appendTo(this.elm.contentWrapper);
                 }
 
                 loader.remove();
-                this.opts.elm.body.removeClass(this.cl.initLoading);
+                this.elm.body.removeClass($.cl.general.initLoading);
             });
         };
 
@@ -111,7 +87,7 @@
          * Initialises the switch for showing the changelog or the release history
          */
         let initViewSwitch = () => {
-            let checkbox = this.helper.checkbox.get(this.opts.elm.body, {}, "checkbox", "switch").prependTo(this.opts.elm.contentWrapper);
+            let checkbox = this.helper.checkbox.get(this.elm.body, {}, "checkbox", "switch").prependTo(this.elm.contentWrapper);
             let trigger = $("<a />").html(this.helper.i18n.get("changelog_show_release_history")).insertAfter(checkbox);
 
             trigger.on("click", (e) => {
@@ -121,11 +97,11 @@
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
                 if (e.currentTarget.checked) {
-                    this.opts.elm.releaseHistoryWrapper.addClass(this.cl.visible);
-                    this.opts.elm.changelogWrapper.removeClass(this.cl.visible);
+                    this.elm.releaseHistoryWrapper.addClass($.cl.general.visible);
+                    this.elm.changelogWrapper.removeClass($.cl.general.visible);
                 } else {
-                    this.opts.elm.releaseHistoryWrapper.removeClass(this.cl.visible);
-                    this.opts.elm.changelogWrapper.addClass(this.cl.visible);
+                    this.elm.releaseHistoryWrapper.removeClass($.cl.general.visible);
+                    this.elm.changelogWrapper.addClass($.cl.general.visible);
                 }
             });
         };
@@ -137,14 +113,14 @@
          * @returns {boolean}
          */
         let isNewerVersion = (version) => {
-            if (this.opts.manifest.version_name === "Dev" || !("update_url" in this.opts.manifest)) { // return false for dev version every time
+            if ($.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest)) { // return false for dev version every time
                 return false;
             }
 
             let diff = null;
             let regExStrip0 = /(\.0+)+$/;
 
-            let segmentsA = this.opts.manifest.version.replace(regExStrip0, "").split(".");
+            let segmentsA = $.opts.manifest.version.replace(regExStrip0, "").split(".");
             let segmentsB = version.replace(regExStrip0, "").split(".");
             let len = Math.max(segmentsA.length, segmentsB.length);
 
@@ -164,7 +140,7 @@
             if (info && info.changelog) {
                 Object.entries(info.changelog).forEach(([version, changes]) => {
                     if (isNewerVersion(version) === false) {
-                        let elm = $("<div />").append("<h2>" + version + "</h2>").appendTo(this.opts.elm.changelogWrapper);
+                        let elm = $("<div />").append("<h2>" + version + "</h2>").appendTo(this.elm.changelogWrapper);
                         let list = $("<ul />").appendTo(elm);
 
                         changes.forEach((change) => {
@@ -173,7 +149,7 @@
                     }
                 });
 
-                this.opts.elm.changelogWrapper.addClass(this.cl.visible);
+                this.elm.changelogWrapper.addClass($.cl.general.visible);
             }
         };
 
@@ -184,7 +160,7 @@
             if (info && info.releaseHistory) {
                 info.releaseHistory.forEach((entry) => {
                     if (isNewerVersion(entry.version) === false) {
-                        let elm = $("<div />").append("<h2>" + entry.version + "</h2>").appendTo(this.opts.elm.releaseHistoryWrapper);
+                        let elm = $("<div />").append("<h2>" + entry.version + "</h2>").appendTo(this.elm.releaseHistoryWrapper);
                         let list = $("<ul />").appendTo(elm);
 
                         entry.changes.forEach((change) => {
@@ -202,7 +178,7 @@
          */
         let initData = () => {
             return new Promise((resolve) => {
-                $.xhr(this.opts.ajax.versionHistory, {
+                $.xhr($.opts.ajax.versionHistory, {
                     method: "POST",
                     responseType: "json"
                 }).then((xhr) => {
@@ -217,7 +193,5 @@
         };
     };
 
-
-    new window.changelog().run();
-
+    new Changelog().run();
 })(jsu);

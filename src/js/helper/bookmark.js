@@ -19,7 +19,7 @@
                 let data = ext.helper.entry.getDataById(id);
 
                 if (data && data.url) { // delete without confirm dialog, but offer a undo option
-                    Object.values(ext.elements.bookmarkBox).some((box) => {
+                    Object.values(ext.elm.bookmarkBox).some((box) => {
                         if (box.hasClass($.cl.general.active)) {
                             let entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
                             entry.data("restore", data);

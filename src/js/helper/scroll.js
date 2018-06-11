@@ -47,10 +47,10 @@
          * Sets the focus to the currently visible scrollbox to allow keyboard navigation (only if the search field is not focused)
          */
         this.focus = () => {
-            if (ext.elements.iframe.hasClass($.cl.page.visible) &&
-                ext.elements.iframe[0].contentDocument !== null &&
+            if (ext.elm.iframe.hasClass($.cl.page.visible) &&
+                ext.elm.iframe[0].contentDocument !== null &&
                 ext.helper.toggle.sidebarHoveredOnce() &&
-                ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elm.iframe[0].contentDocument.activeElement) {
                 scrollBoxes.forEach((scrollBox) => {
                     if (scrollBox.hasClass($.cl.general.active)) {
                         scrollBox[0].focus();
@@ -173,7 +173,7 @@
             }
 
             if (scrollBarHide > 0) {
-                if (ext.elements.iframe.hasClass($.cl.page.visible)) { // hide scrollbar after the given delay
+                if (ext.elm.iframe.hasClass($.cl.page.visible)) { // hide scrollbar after the given delay
                     scrollBox.removeClass($.cl.scrollBox.hideScrollbar);
 
                     clearTimeout(scrollBarTimeout[scrollBox.attr("id")]);

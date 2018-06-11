@@ -17,7 +17,7 @@
         this.firstRun = true;
         this.refreshRun = true;
         this.isDev = false;
-        this.elements = {};
+        this.elm = {};
         this.needsReload = false;
         this.state = null;
 
@@ -63,8 +63,8 @@
 
                             return initSidebar();
                         }).then(() => {
-                            if (this.elements.iframe && this.elements.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
-                                this.elements.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+                            if (this.elm.iframe && this.elm.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
+                                this.elm.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
                                 this.helper.toggle.init();
                                 this.helper.list.init();
@@ -126,7 +126,7 @@
                     label: sort.name + "_" + sort.dir
                 });
 
-                let searchVal = this.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].value;
+                let searchVal = this.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].value;
                 if (searchVal.length > 0) {
                     this.helper.model.call("trackEvent", {
                         category: "search",
@@ -175,13 +175,13 @@
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         this.loaded = () => {
-            if (!this.elements.iframeBody.hasClass($.cl.sidebar.extLoaded)) {
+            if (!this.elm.iframeBody.hasClass($.cl.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
-                this.elements.iframeBody.addClass($.cl.sidebar.extLoaded);
+                this.elm.iframeBody.addClass($.cl.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
 
-                if (this.elements.iframe.hasClass($.cl.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
+                if (this.elm.iframe.hasClass($.cl.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
                     this.helper.toggle.markLastUsed();
                 }
 
@@ -196,8 +196,8 @@
                         showIndicator: data.showIndicator
                     },
                     elm: {
-                        iframe: this.elements.iframe,
-                        sidebar: this.elements.sidebar
+                        iframe: this.elm.iframe,
+                        sidebar: this.elm.sidebar
                     }
                 });
             }
@@ -209,13 +209,13 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elements.sidebar.addClass($.cl.sidebar.loading);
+            this.elm.sidebar.addClass($.cl.sidebar.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
             }
             if (typeof loadingInfo.loader === "undefined" || loadingInfo.loader.length() === 0) {
-                loadingInfo.loader = this.helper.template.loading().appendTo(this.elements.sidebar);
+                loadingInfo.loader = this.helper.template.loading().appendTo(this.elm.sidebar);
             }
         };
 
@@ -226,7 +226,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elements.sidebar.removeClass($.cl.sidebar.loading);
+                this.elm.sidebar.removeClass($.cl.sidebar.loading);
                 if (loadingInfo.loader) {
                     loadingInfo.loader.remove();
                 }
@@ -239,8 +239,8 @@
          */
         this.initImages = () => {
             $.delay().then(() => {
-                if (this.elements.iframe.hasClass($.cl.page.visible)) {
-                    this.elements.sidebar.find("img[" + $.attr.src + "]").forEach((_self) => {
+                if (this.elm.iframe.hasClass($.cl.page.visible)) {
+                    this.elm.sidebar.find("img[" + $.attr.src + "]").forEach((_self) => {
                         let img = $(_self);
                         let src = img.attr($.attr.src);
                         img.removeAttr($.attr.src);
@@ -254,8 +254,8 @@
          * Adds a mask over the sidebar to notice that the page needs to be reloaded to make the sidebar work again
          */
         this.addReloadMask = () => {
-            this.elements.sidebar.text("");
-            let reloadMask = $("<div />").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elements.sidebar);
+            this.elm.sidebar.text("");
+            let reloadMask = $("<div />").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elm.sidebar);
             let contentBox = $("<div />").prependTo(reloadMask);
 
             $("<p />").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
@@ -266,8 +266,8 @@
          * Adds a mask over the sidebar to encourage the user the share their userdata
          */
         this.addShareInfoMask = () => {
-            this.elements.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();
-            let shareInfoMask = $("<div />").attr("id", $.opts.ids.sidebar.shareInfo).prependTo(this.elements.sidebar);
+            this.elm.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();
+            let shareInfoMask = $("<div />").attr("id", $.opts.ids.sidebar.shareInfo).prependTo(this.elm.sidebar);
             let contentBox = $("<div />").prependTo(shareInfoMask);
 
             $("<h2 />").html(this.helper.i18n.get("contribute_headline")).appendTo(contentBox);
@@ -283,7 +283,7 @@
                     type: type
                 }).appendTo(label);
 
-                this.helper.checkbox.get(this.elements.iframeBody, {
+                this.helper.checkbox.get(this.elm.iframeBody, {
                     [$.attr.name]: type
                 }, "checkbox", "switch").appendTo(contentBox);
             });
@@ -430,37 +430,37 @@
          */
         let initSidebar = async () => {
             let config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
-            this.elements.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").appendTo("body");
+            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").appendTo("body");
 
             if (config.animations === false) {
-                this.elements.iframe.addClass($.cl.page.noAnimations);
+                this.elm.iframe.addClass($.cl.page.noAnimations);
             }
 
-            this.elements.iframeBody = this.elements.iframe.find("body");
-            this.elements.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\" />").appendTo(this.elements.iframeBody);
-            this.elements.bookmarkBox = {};
+            this.elm.iframeBody = this.elm.iframe.find("body");
+            this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\" />").appendTo(this.elm.iframeBody);
+            this.elm.bookmarkBox = {};
 
             ["all", "search"].forEach((val) => {
-                this.elements.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elements.sidebar));
+                this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elm.sidebar));
             });
 
-            this.elements.filterBox = $("<div />").addClass($.cl.sidebar.filterBox).appendTo(this.elements.sidebar);
-            this.elements.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
-            this.elements.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
+            this.elm.filterBox = $("<div />").addClass($.cl.sidebar.filterBox).appendTo(this.elm.sidebar);
+            this.elm.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
+            this.elm.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elm.sidebar);
 
-            this.elements.header = $("<header />").prependTo(this.elements.sidebar);
-            this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
+            this.elm.header = $("<header />").prependTo(this.elm.sidebar);
+            this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframe);
 
             if (config.darkMode === true) {
-                this.elements.iframeBody.addClass($.cl.page.darkMode);
+                this.elm.iframeBody.addClass($.cl.page.darkMode);
             } else if (config.highContrast === true) {
-                this.elements.iframeBody.addClass($.cl.page.highContrast);
+                this.elm.iframeBody.addClass($.cl.page.highContrast);
             }
 
             this.helper.utility.triggerEvent("elementsCreated", {
                 elm: {
-                    iframe: this.elements.iframe,
-                    sidebar: this.elements.sidebar
+                    iframe: this.elm.iframe,
+                    sidebar: this.elm.sidebar
                 }
             });
         };

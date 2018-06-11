@@ -29,7 +29,7 @@
                     .html("<ul class='" + $.cl.contextmenu.list + "'></ul><ul class='" + $.cl.contextmenu.icons + "'></ul>")
                     .attr($.attr.type, type)
                     .data("elm", elm)
-                    .appendTo(ext.elements.sidebar);
+                    .appendTo(ext.elm.sidebar);
 
                 let trackingLabel = type;
                 let elmId = elm.attr($.attr.id);
@@ -72,7 +72,7 @@
          * Closes all open contextmenus
          */
         this.close = () => {
-            let contextmenus = ext.elements.iframeBody.find("div." + $.cl.contextmenu.wrapper);
+            let contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
 
             contextmenus.forEach((contextmenu) => {
                 $(contextmenu).removeClass($.cl.general.visible);
@@ -103,7 +103,7 @@
                 existingElm += "[" + $.attr.value + "='" + value + "']";
             }
 
-            return ext.elements.sidebar.find(existingElm).length() > 0;
+            return ext.elm.sidebar.find(existingElm).length() > 0;
         };
 
         /**
@@ -120,7 +120,7 @@
             Object.keys(sortList).forEach((value) => {
                 let langName = value.replace(/([A-Z])/g, "_$1").toLowerCase();
                 $("<li />")
-                    .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
+                    .append(ext.helper.checkbox.get(ext.elm.iframeBody, {
                         [$.attr.name]: "sort",
                         [$.attr.value]: value
                     }, "radio"))
@@ -143,7 +143,7 @@
             let iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
 
             $("<li />")
-                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[$.attr.name]: "toggleHidden"}))
+                .append(ext.helper.checkbox.get(ext.elm.iframeBody, {[$.attr.name]: "toggleHidden"}))
                 .append("<a " + $.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
 
@@ -155,7 +155,7 @@
                 .append("<a " + $.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
                 .appendTo(list);
 
-            let bookmarkList = ext.elements.bookmarkBox.all.children("ul");
+            let bookmarkList = ext.elm.bookmarkBox.all.children("ul");
             let hideRoot = bookmarkList.hasClass($.cl.sidebar.hideRoot);
             let hasOpenedDirectories = false;
 
@@ -454,7 +454,7 @@
             if (data && data.parents) {
                 let openParent = (i) => {
                     if (data.parents[i]) {
-                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + data.parents[i] + "']");
+                        let entry = ext.elm.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + data.parents[i] + "']");
                         if (!entry.hasClass($.cl.sidebar.dirOpened)) {
                             ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
                                 openParent(i + 1);
@@ -467,8 +467,8 @@
                             ext.helper.list.cacheList(),
                             ext.helper.search.clearSearch()
                         ]).then(() => {
-                            let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
-                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, entry[0].offsetTop - 50);
+                            let entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
+                            ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, entry[0].offsetTop - 50);
                             entry.addClass($.cl.sidebar.mark);
                         });
                     }
@@ -489,7 +489,7 @@
          * Closes all opened directories
          */
         clickFuncs.closeAll = () => {
-            let list = ext.elements.bookmarkBox.all.children("ul");
+            let list = ext.elm.bookmarkBox.all.children("ul");
             let hideRoot = list.hasClass($.cl.sidebar.hideRoot);
             let promises = [];
 

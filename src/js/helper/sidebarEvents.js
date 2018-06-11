@@ -77,7 +77,7 @@
          * @returns {Promise}
          */
         let initFilterEvents = async () => {
-            ext.elements.filterBox.on("click", "a[" + $.attr.direction + "]", (e) => { // change sort direction
+            ext.elm.filterBox.on("click", "a[" + $.attr.direction + "]", (e) => { // change sort direction
                 e.preventDefault();
                 let currentDirection = $(e.target).attr($.attr.direction);
                 let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
@@ -94,10 +94,10 @@
          * @returns {Promise}
          */
         let initBookmarkEntriesEvents = async () => {
-            Object.values(ext.elements.bookmarkBox).forEach((box, i) => {
+            Object.values(ext.elm.bookmarkBox).forEach((box, i) => {
                 let selector = [box];
                 if (i === 0) {
-                    selector.push(ext.elements.pinnedBox);
+                    selector.push(ext.elm.pinnedBox);
                 }
 
                 $(selector).on("click mousedown", "> ul a", (e) => { // click on a bookmark (link or dir)
@@ -173,36 +173,36 @@
             let startTimeout = () => { // remove lock icon after 500ms of hovering
                 clTimeout();
                 lockPinnedEntriesTimeout = setTimeout(() => {
-                    ext.elements.lockPinned.removeClass($.cl.general.active);
+                    ext.elm.lockPinned.removeClass($.cl.general.active);
                     ext.helper.toggle.removeSidebarHoverClass();
                 }, 500);
             };
 
-            ext.elements.pinnedBox.on("mouseenter", () => {
+            ext.elm.pinnedBox.on("mouseenter", () => {
                 clTimeout();
-                ext.elements.lockPinned.addClass($.cl.general.active);
+                ext.elm.lockPinned.addClass($.cl.general.active);
             }).on("mouseleave", () => {
                 startTimeout();
             });
 
-            ext.elements.lockPinned.on("mouseenter", () => {
+            ext.elm.lockPinned.on("mouseenter", () => {
                 clTimeout();
             }).on("mouseleave", () => {
                 startTimeout();
             }).on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                ext.elements.lockPinned.toggleClass($.cl.sidebar.fixed);
-                ext.elements.pinnedBox.toggleClass($.cl.sidebar.fixed);
+                ext.elm.lockPinned.toggleClass($.cl.sidebar.fixed);
+                ext.elm.pinnedBox.toggleClass($.cl.sidebar.fixed);
 
-                let isLocked = ext.elements.pinnedBox.hasClass($.cl.sidebar.fixed);
+                let isLocked = ext.elm.pinnedBox.hasClass($.cl.sidebar.fixed);
 
                 ext.helper.model.setData({
                     "u/lockPinned": isLocked
                 }).then(() => {
                     if (isLocked === false) { // scroll to top if the pinned entries got unlocked
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0, 200);
-                        ext.elements.lockPinned.removeClass($.cl.general.active);
+                        ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, 0, 200);
+                        ext.elm.lockPinned.removeClass($.cl.general.active);
                     }
 
                     ext.helper.toggle.removeSidebarHoverClass();
@@ -218,18 +218,18 @@
          */
         let initGeneralEvents = async () => {
             $(window).on("beforeunload.bs", () => { // save scroll position before unloading page
-                if (ext.elements.sidebar.hasClass($.cl.sidebar.openedOnce)) { // sidebar was opened or is still open
+                if (ext.elm.sidebar.hasClass($.cl.sidebar.openedOnce)) { // sidebar was opened or is still open
                     ext.helper.scroll.updateAll();
                 }
             });
 
-            ext.elements.iframe.find("body").on("click", () => {
+            ext.elm.iframe.find("body").on("click", () => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
             });
 
 
-            $(ext.elements.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {
+            $(ext.elm.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {
                 let name = e.detail.checkbox.attr($.attr.name);
 
                 if (name === "viewAsTree" || name === "mostViewedPerMonth") {  // set sort specific config and reload list
@@ -241,7 +241,7 @@
                     });
                 } else if (name === "config" || name === "activity") { // check whether all tracking checkboxes are checked
                     let allChecked = true;
-                    ext.elements.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
+                    ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
                         let wrapper = $(elm).parent();
                         if (ext.helper.checkbox.isChecked(wrapper) === false) {
                             allChecked = false;
@@ -262,19 +262,19 @@
             chrome.extension.onMessage.addListener(handleBackgroundMessage);
 
             ["menu", "sort"].forEach((type) => {
-                ext.elements.header.on("click contextmenu", "a." + $.cl.sidebar[type], (e) => { // Menu and sort contextmenu
+                ext.elm.header.on("click contextmenu", "a." + $.cl.sidebar[type], (e) => { // Menu and sort contextmenu
                     e.preventDefault();
                     e.stopPropagation();
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
                 });
             });
 
-            ext.elements.iframeBody.on("click", "#" + $.opts.ids.sidebar.reloadInfo + " a", (e) => { // reload info
+            ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.reloadInfo + " a", (e) => { // reload info
                 e.preventDefault();
                 location.reload(true);
             });
 
-            ext.elements.iframeBody.on("click", "#" + $.opts.ids.sidebar.shareInfo + " a", (e) => { // click on a link in the share info mask
+            ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.shareInfo + " a", (e) => { // click on a link in the share info mask
                 e.preventDefault();
                 let title = $(e.currentTarget).data("title");
 
@@ -298,7 +298,7 @@
                     let performReload = true;
 
                     if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
-                        Object.values(ext.elements.bookmarkBox).some((box) => {
+                        Object.values(ext.elm.bookmarkBox).some((box) => {
                             if (box.hasClass($.cl.general.active)) {
 
                                 if (box.find("a." + $.cl.sidebar.restored).length() > 0 || box.find("span." + $.cl.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
@@ -313,7 +313,7 @@
                     if (performReload) {
                         let delay = 0;
                         if (message.scrollTop) {
-                            ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, 0);
+                            ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, 0);
                             delay = 100;
                         }
 
@@ -323,7 +323,7 @@
                 } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
                     ext.helper.model.call("clearNotWorkingTimeout");
 
-                    if (ext.elements.iframe.hasClass($.cl.page.visible)) {
+                    if (ext.elm.iframe.hasClass($.cl.page.visible)) {
                         ext.helper.toggle.closeSidebar();
                     } else {
                         ext.helper.toggle.setSidebarHoveredOnce(true);
@@ -342,14 +342,14 @@
                 activity: false
             };
 
-            ext.elements.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
+            ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
                 let wrapper = $(elm).parent();
                 let name = wrapper.attr($.attr.name);
                 shareInfo[name] = ext.helper.checkbox.isChecked(wrapper);
             });
 
             ext.helper.model.call("updateShareInfo", shareInfo);
-            ext.elements.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo).addClass($.cl.general.hidden);
+            ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo).addClass($.cl.general.hidden);
         };
     };
 

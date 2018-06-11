@@ -23,7 +23,7 @@
          * @returns {bool}
          */
         this.isResultsVisible = () => {
-            return ext.elements.bookmarkBox.search.hasClass($.cl.general.active);
+            return ext.elm.bookmarkBox.search.hasClass($.cl.general.active);
         };
 
         /**
@@ -35,7 +35,7 @@
             return new Promise((resolve) => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
-                ext.elements.header.removeClass($.cl.sidebar.searchVisible);
+                ext.elm.header.removeClass($.cl.sidebar.searchVisible);
                 this.update("").then(resolve);
             });
         };
@@ -48,7 +48,7 @@
          */
         this.update = (val = null) => {
             return new Promise((resolve) => {
-                let searchField = ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                let searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
                 if (val === null) {
                     val = searchField[0].value;
                 } else {
@@ -73,8 +73,8 @@
         let handleSearch = (searchField, val) => {
             return new Promise((resolve) => {
                 let isFirstRun = ext.firstRun;
-                ext.elements.bookmarkBox.all.removeClass($.cl.general.active).removeClass($.cl.scrollBox.scrolled);
-                ext.elements.bookmarkBox.search.addClass($.cl.general.active);
+                ext.elm.bookmarkBox.all.removeClass($.cl.general.active).removeClass($.cl.scrollBox.scrolled);
+                ext.elm.bookmarkBox.search.addClass($.cl.general.active);
                 ext.helper.scroll.focus();
                 ext.helper.list.updateSortFilter();
 
@@ -83,13 +83,13 @@
                     searchField.data("lastVal", val);
 
                     ext.helper.entry.initOnce().then(() => {
-                        ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.search, 0);
+                        ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.search, 0);
                         return getSearchResults(val);
                     }).then((result) => {
-                        ext.elements.bookmarkBox.search.children("p").remove();
+                        ext.elm.bookmarkBox.search.children("p").remove();
 
                         let hasResults = false;
-                        let list = ext.elements.bookmarkBox.search.children("ul");
+                        let list = ext.elm.bookmarkBox.search.children("ul");
                         list.text("");
 
                         if (result.length > 0) { // results for your search value
@@ -97,7 +97,7 @@
                         }
 
                         if (hasResults === false) { // no results
-                            $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elements.bookmarkBox.search);
+                            $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elm.bookmarkBox.search);
                         }
 
                         if (!isFirstRun) {
@@ -146,9 +146,9 @@
 
                 if (this.isResultsVisible()) {
                     ext.startLoading();
-                    ext.elements.bookmarkBox.all.addClass($.cl.general.active);
-                    ext.elements.bookmarkBox.search.removeClass($.cl.general.active);
-                    ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox.all);
+                    ext.elm.bookmarkBox.all.addClass($.cl.general.active);
+                    ext.elm.bookmarkBox.search.removeClass($.cl.general.active);
+                    ext.helper.scroll.restoreScrollPos(ext.elm.bookmarkBox.all);
                     ext.helper.scroll.focus();
                     ext.endLoading();
                 }
@@ -163,16 +163,16 @@
          * Initializes the events for the search field
          */
         let initEvents = () => {
-            ext.elements.header.on("click", "a." + $.cl.sidebar.search, (e) => {
+            ext.elm.header.on("click", "a." + $.cl.sidebar.search, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
-                ext.elements.header.addClass($.cl.sidebar.searchVisible);
-                ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].focus();
+                ext.elm.header.addClass($.cl.sidebar.searchVisible);
+                ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].focus();
             });
 
-            ext.elements.header.on("keyup", "div." + $.cl.sidebar.searchBox + " > input[type='text']", (e) => {
+            ext.elm.header.on("keyup", "div." + $.cl.sidebar.searchBox + " > input[type='text']", (e) => {
                 e.preventDefault();
                 if (searchTimeout) {
                     clearTimeout(searchTimeout);
@@ -184,7 +184,7 @@
                 }, 500);
             });
 
-            ext.elements.header.on("click", "a." + $.cl.sidebar.searchClose, (e) => {
+            ext.elm.header.on("click", "a." + $.cl.sidebar.searchClose, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 this.clearSearch();

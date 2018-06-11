@@ -105,12 +105,12 @@
          * @returns {boolean}
          */
         this.copyToClipboard = (text) => {
-            let textarea = $("<textarea />").text(text).appendTo(ext.elements.iframeBody);
+            let textarea = $("<textarea />").text(text).appendTo(ext.elm.iframeBody);
             textarea[0].select();
 
             let success = false;
             try {
-                success = ext.elements.iframe[0].contentDocument.execCommand("copy");
+                success = ext.elm.iframe[0].contentDocument.execCommand("copy");
             } catch (err) {
                 //
             }

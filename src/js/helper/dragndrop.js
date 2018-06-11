@@ -35,8 +35,8 @@
          * Cancels the dragging and resets the position of the dragged element
          */
         this.cancel = () => {
-            let draggedElm = ext.elements.iframeBody.children("a." + $.cl.drag.helper);
-            let dragInitialElm = ext.elements.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
+            let draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
+            let dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
 
             if (entryElm) {
@@ -47,7 +47,7 @@
 
             dragInitialElm.remove();
             draggedElm.remove();
-            ext.elements.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
+            ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
 
             $.delay(500).then(() => {
                 ext.helper.toggle.removeSidebarHoverClass();
@@ -75,9 +75,9 @@
             }
 
             if (typeof elm === "object") {
-                return elm.realWidth() * 0.6 + offset > ext.elements.sidebar.realWidth();
+                return elm.realWidth() * 0.6 + offset > ext.elm.sidebar.realWidth();
             } else {
-                return offset > ext.elements.sidebar.realWidth();
+                return offset > ext.elm.sidebar.realWidth();
             }
         };
 
@@ -87,10 +87,10 @@
          * @returns {Promise}
          */
         let initExternalDragDropEvents = async () => {
-            ext.elements.iframeBody.on("dragenter", () => {
+            ext.elm.iframeBody.on("dragenter", () => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
-                ext.elements.iframeBody.addClass($.cl.drag.isDragged);
+                ext.elm.iframeBody.addClass($.cl.drag.isDragged);
                 ext.helper.toggle.addSidebarHoverClass();
                 trackEvent("selection", {type: "start"});
 
@@ -102,9 +102,9 @@
                 e.stopPropagation();
                 edgeScroll.posY = null;
 
-                if (ext.elements.iframeBody.hasClass($.cl.drag.isDragged)) { // something has been dragged
+                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // something has been dragged
                     if (!isDraggedElementOutside(e.pageX) && ext.helper.search.isResultsVisible() === false) { // only proceed if mouse position is in the sidebar and the active view are not the search results
-                        let entryPlaceholder = ext.elements.bookmarkBox.all.find("li." + $.cl.drag.isDragged).eq(0);
+                        let entryPlaceholder = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).eq(0);
 
                         if (entryPlaceholder && entryPlaceholder.length() > 0) {
                             let url = e.dataTransfer.getData("URL");
@@ -137,7 +137,7 @@
                         trackEvent("selection", {type: "end", cancel: true});
                     }
 
-                    ext.elements.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
+                    ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
                     ext.helper.toggle.removeSidebarHoverClass();
                 }
             });
@@ -213,10 +213,10 @@
             let elmParent = elm.parent("li");
             let parentTrigger = elmParent.parent("ul").prev("a");
 
-            ext.elements.iframeBody.addClass($.cl.drag.isDragged);
+            ext.elm.iframeBody.addClass($.cl.drag.isDragged);
             elmParent.clone().addClass($.cl.drag.dragInitial).insertAfter(elmParent);
 
-            let helper = elm.clone().appendTo(ext.elements.iframeBody);
+            let helper = elm.clone().appendTo(ext.elm.iframeBody);
             let boundClientRect = elm[0].getBoundingClientRect();
 
 
@@ -264,9 +264,9 @@
             }
 
             if (edgeScroll.posY !== null) {
-                let bookmarkBoxTopOffset = ext.elements.bookmarkBox.all[0].offsetTop;
-                let bookmarkBoxHeight = ext.elements.bookmarkBox.all[0].offsetHeight;
-                let scrollPos = ext.helper.scroll.getScrollPos(ext.elements.bookmarkBox.all);
+                let bookmarkBoxTopOffset = ext.elm.bookmarkBox.all[0].offsetTop;
+                let bookmarkBoxHeight = ext.elm.bookmarkBox.all[0].offsetHeight;
+                let scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox.all);
                 let newScrollPos = null;
 
                 if (edgeScroll.posY - bookmarkBoxTopOffset < 60) {
@@ -276,7 +276,7 @@
                 }
 
                 if (newScrollPos) {
-                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, newScrollPos);
+                    ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, newScrollPos);
                 }
             }
 
@@ -289,8 +289,8 @@
         let dragend = () => {
             clearDirOpenTimeout();
 
-            let draggedElm = ext.elements.iframeBody.children("a." + $.cl.drag.helper);
-            let dragInitialElm = ext.elements.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
+            let draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
+            let dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
             let entryElm = draggedElm.data("elm");
             let elm = entryElm.children("a");
             let type = getDragType(elm);
@@ -323,7 +323,7 @@
                 }
 
                 trackEvent(elm, {type: "end"});
-                ext.elements.iframeBody.removeClass($.cl.drag.isDragged);
+                ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
 
                 $.delay().then(() => {
                     let boundClientRect = entryElm[0].getBoundingClientRect();
@@ -379,10 +379,10 @@
                     return false;
                 }
                 oldTopVal = topVal;
-                ext.elements.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
+                ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
                 bookmarkElm = $("<li />").html("<a>&nbsp;</a>").addClass($.cl.drag.isDragged);
             } else { // dragging bookmark or directory
-                draggedElm = ext.elements.iframeBody.children("a." + $.cl.drag.helper);
+                draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
                 let startPos = draggedElm.data("startPos");
                 topVal = y - startPos.top;
                 leftVal = x - startPos.left;
@@ -397,10 +397,10 @@
 
             if (isDraggedElementOutside(draggedElm || leftVal)) { // dragged outside the sidebar -> mouseup will cancel
                 clearDirOpenTimeout();
-                ext.elements.iframeBody.addClass($.cl.drag.cancel);
+                ext.elm.iframeBody.addClass($.cl.drag.cancel);
                 return false;
             } else {
-                ext.elements.iframeBody.removeClass($.cl.drag.cancel);
+                ext.elm.iframeBody.removeClass($.cl.drag.cancel);
             }
 
             let newAboveElm = {elm: null};
@@ -408,12 +408,12 @@
             let elmLists = null;
 
             if (type === "pinned") {
-                elmLists = [ext.elements.pinnedBox.find("> ul > li")];
+                elmLists = [ext.elm.pinnedBox.find("> ul > li")];
             } else {
                 edgeScroll.posY = y;
                 elmLists = [
-                    ext.elements.bookmarkBox.all.find("a." + $.cl.sidebar.dirOpened + " + ul > li"),
-                    ext.elements.bookmarkBox.all.find("> ul > li > a." + $.cl.sidebar.dirOpened).parent("li")
+                    ext.elm.bookmarkBox.all.find("a." + $.cl.sidebar.dirOpened + " + ul > li"),
+                    ext.elm.bookmarkBox.all.find("> ul > li > a." + $.cl.sidebar.dirOpened).parent("li")
                 ];
             }
 
@@ -482,7 +482,7 @@
                     }
                 }
             } else if (type === "pinned") { // pinned entry -> no element above -> index = 0
-                let elm = bookmarkElm.prependTo(ext.elements.pinnedBox.children("ul"));
+                let elm = bookmarkElm.prependTo(ext.elm.pinnedBox.children("ul"));
                 if (draggedElm) {
                     draggedElm.data("elm", elm);
                 }
@@ -496,15 +496,15 @@
          */
         let initEvents = async () => {
 
-            ext.elements.bookmarkBox.all.on("mousedown", "span." + $.cl.drag.trigger, (e) => { // drag start
+            ext.elm.bookmarkBox.all.on("mousedown", "span." + $.cl.drag.trigger, (e) => { // drag start
                 ext.helper.toggle.addSidebarHoverClass();
                 dragstart(e.currentTarget, e.pageX, e.pageY);
                 dragmove(e.type, e.pageX, e.pageY);
             });
 
-            ext.elements.iframeBody.on("mouseup", (e) => { // drag end
+            ext.elm.iframeBody.on("mouseup", (e) => { // drag end
                 edgeScroll.posY = null;
-                if (ext.elements.iframeBody.hasClass($.cl.drag.isDragged)) { // bookmark has been dragged
+                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // bookmark has been dragged
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -518,25 +518,25 @@
                 }
             });
 
-            ext.elements.iframeBody.on("wheel", (e) => { // scroll the bookmark list
-                if (ext.elements.iframeBody.hasClass($.cl.drag.isDragged)) {
+            ext.elm.iframeBody.on("wheel", (e) => { // scroll the bookmark list
+                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) {
                     e.preventDefault();
                     e.stopPropagation();
 
-                    let scrollPos = ext.elements.bookmarkBox.all[0].scrollTop;
-                    ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, scrollPos - e.wheelDelta, 300);
+                    let scrollPos = ext.elm.bookmarkBox.all[0].scrollTop;
+                    ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, scrollPos - e.wheelDelta, 300);
                 }
             });
 
-            ext.elements.iframeBody.on("mousemove dragover", (e) => { // drag move
-                if (ext.elements.iframeBody.hasClass($.cl.drag.isDragged) && e.which === 1) {
+            ext.elm.iframeBody.on("mousemove dragover", (e) => { // drag move
+                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged) && e.which === 1) {
                     e.preventDefault();
                     e.stopPropagation();
                     dragmove(e.type, e.pageX, e.pageY);
                 }
             });
 
-            ext.elements.iframeBody.on("contextmenu", "a." + $.cl.drag.helper, (e) => { // disable right click or the drag handle
+            ext.elm.iframeBody.on("contextmenu", "a." + $.cl.drag.helper, (e) => { // disable right click or the drag handle
                 e.preventDefault();
                 e.stopPropagation();
             });

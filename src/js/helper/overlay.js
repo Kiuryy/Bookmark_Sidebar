@@ -152,7 +152,7 @@
          */
         this.closeOverlay = (cancel = false, labelAdd = "") => {
             ext.helper.model.call("checkUrls", {abort: true}); // abort running check url ajax calls
-            ext.elements.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
+            ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
             elements.overlay.removeClass($.cl.page.visible);
 
             ext.helper.model.call("trackEvent", {
@@ -668,7 +668,7 @@
          */
         let deleteBookmark = (data) => {
             this.closeOverlay();
-            ext.elements.bookmarkBox.all.find("a[" + $.attr.id + "='" + data.id + "']").parent("li").remove();
+            ext.elm.bookmarkBox.all.find("a[" + $.attr.id + "='" + data.id + "']").parent("li").remove();
             ext.helper.bookmark.performDeletion(data);
         };
 

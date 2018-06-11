@@ -35,7 +35,7 @@
                 ext.helper.toggle.addSidebarHoverClass();
 
                 closeAllExcept(id);
-                let existingTooltip = ext.elements.iframeBody.find("div." + $.cl.tooltip.wrapper + "[" + $.attr.id + "='" + id + "']");
+                let existingTooltip = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + "[" + $.attr.id + "='" + id + "']");
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
                     if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
@@ -48,7 +48,7 @@
                         let tooltip = $("<div />")
                             .addClass($.cl.tooltip.wrapper)
                             .attr($.attr.id, id)
-                            .appendTo(ext.elements.iframeBody);
+                            .appendTo(ext.elm.iframeBody);
 
                         addContent(tooltip, data);
 
@@ -104,7 +104,7 @@
         let setHorizontalPosition = (tooltip, elm) => {
             let isRtl = ext.helper.i18n.isRtl();
             let ref = {
-                l: ext.elements.sidebar.realWidth() - config.scrollBarWidth,
+                l: ext.elm.sidebar.realWidth() - config.scrollBarWidth,
                 r: elm.realWidth() + 10
             };
 
@@ -128,7 +128,7 @@
             });
             timeout = {};
 
-            let tooltips = ext.elements.iframeBody.find("div." + $.cl.tooltip.wrapper + (except ? ":not([" + $.attr.id + "='" + except + "'])" : ""));
+            let tooltips = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + (except ? ":not([" + $.attr.id + "='" + except + "'])" : ""));
             let hasVisibleTooltips = false;
 
             tooltips.forEach((tooltip) => {

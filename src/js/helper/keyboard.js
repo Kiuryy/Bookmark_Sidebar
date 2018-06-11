@@ -51,8 +51,8 @@
         let isSidebarFocussed = () => {
             let ret = false;
 
-            if (ext.elements.iframe.hasClass($.cl.page.visible) && document && document.activeElement) {
-                ret = document.activeElement === ext.elements.iframe[0];
+            if (ext.elm.iframe.hasClass($.cl.page.visible) && document && document.activeElement) {
+                ret = document.activeElement === ext.elm.iframe[0];
             }
 
             return ret;
@@ -62,11 +62,11 @@
          * Initializes the eventhandlers for the sidebar
          */
         let initSidebarEvents = () => {
-            $([document, ext.elements.iframe[0].contentDocument]).on("keydown.bs", (e) => {
+            $([document, ext.elm.iframe[0].contentDocument]).on("keydown.bs", (e) => {
                 if (isSidebarFocussed()) { // sidebar is focussed
                     let scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
-                    let isContextmenuOpen = ext.elements.sidebar.find("div." + $.cl.contextmenu.wrapper).length() > 0;
-                    let isDragged = ext.elements.iframeBody.hasClass($.cl.drag.isDragged);
+                    let isContextmenuOpen = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper).length() > 0;
+                    let isDragged = ext.elm.iframeBody.hasClass($.cl.drag.isDragged);
 
                     if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                         ext.helper.scroll.focus();
@@ -100,24 +100,24 @@
                         e.preventDefault();
                         copyHoveredEntryUrl();
                     } else { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
-                        let searchField = ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                        let searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
 
-                        if (searchField[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                        if (searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) {
                             searchField[0].focus();
                         }
                     }
                 }
             }).on("keyup.bs", () => {
                 if (isSidebarFocussed()) {
-                    let searchField = ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                    let searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
 
                     if (searchField && searchField.length() > 0) {
                         let searchVal = searchField[0].value;
 
-                        if (searchVal.length > 0 && !ext.elements.header.hasClass($.cl.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
+                        if (searchVal.length > 0 && !ext.elm.header.hasClass($.cl.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
                             ext.helper.contextmenu.close();
                             ext.helper.tooltip.close();
-                            ext.elements.header.addClass($.cl.sidebar.searchVisible);
+                            ext.elm.header.addClass($.cl.sidebar.searchVisible);
                         }
                     }
                 }
@@ -141,7 +141,7 @@
          * Clicks on the currently hovered contextmenu entry
          */
         let handleContextmenuClick = () => {
-            let contextmenu = ext.elements.sidebar.find("div." + $.cl.contextmenu.wrapper);
+            let contextmenu = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper);
             let hoveredEntry = contextmenu.find("a." + $.cl.general.hover);
 
             if (hoveredEntry.length() > 0) {
@@ -158,7 +158,7 @@
          * @param {boolean} ctrl
          */
         let handleClick = (shift, ctrl) => {
-            Object.values(ext.elements.bookmarkBox).some((box) => {
+            Object.values(ext.elm.bookmarkBox).some((box) => {
                 if (box.hasClass($.cl.general.active)) {
                     let hoveredEntry = box.find("ul > li > a." + $.cl.general.hover + ", ul > li > a." + $.cl.sidebar.mark);
 
@@ -221,7 +221,7 @@
          * Hovers the next entry in the currently visible contextmenu
          */
         let hoverNextContextmenuEntry = () => {
-            let contextmenu = ext.elements.sidebar.find("div." + $.cl.contextmenu.wrapper);
+            let contextmenu = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper);
             let hoveredElm = null;
             let entry = null;
 
@@ -312,7 +312,7 @@
          * Hovers the next or previous element in the currently visible bookmark list
          */
         let hoverNextPrevEntry = (type) => {
-            Object.values(ext.elements.bookmarkBox).some((box) => {
+            Object.values(ext.elm.bookmarkBox).some((box) => {
                 if (box.hasClass($.cl.general.active)) {
                     let scrollTop = ext.helper.scroll.getScrollPos(box);
                     let firstVisibleEntry = null;
@@ -374,7 +374,7 @@
             if (!isRemoving) {
                 isRemoving = true;
 
-                Object.values(ext.elements.bookmarkBox).some((box) => {
+                Object.values(ext.elm.bookmarkBox).some((box) => {
                     if (box.hasClass($.cl.general.active)) {
                         let elm = box.find("> ul a." + $.cl.general.hover).eq(0);
 
@@ -393,7 +393,7 @@
          * Copies the url of the currently hovered entry into the clipboard
          */
         let copyHoveredEntryUrl = () => {
-            Object.values(ext.elements.bookmarkBox).some((box) => {
+            Object.values(ext.elm.bookmarkBox).some((box) => {
                 if (box.hasClass($.cl.general.active)) {
                     let elm = box.find("> ul a." + $.cl.general.hover).eq(0);
                     if (elm.length() > 0) {

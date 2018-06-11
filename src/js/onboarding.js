@@ -26,6 +26,7 @@
         this.run = () => {
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.elm.body);
+            this.elm.body.addClass($.cl.general.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -39,6 +40,10 @@
                 this.helper.i18n.parseHtml(document);
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
+                return this.helper.model.call("trackPageView", {page: "/onboarding", always: true});
+            }).then(() => {
+                this.elm.body.removeClass($.cl.general.building);
+
                 this.elm.sidebar.right = $(this.elm.sidebar.left[0].outerHTML).appendTo(this.elm.body);
                 this.elm.sidebar.right.attr($.attr.position, "right");
 
@@ -49,8 +54,6 @@
                 initOpenActionEvents();
                 initHandsOnEvents();
                 initFinishedEvents();
-
-                this.helper.model.call("trackPageView", {page: "/onboarding", always: true});
 
                 $.delay(500).then(() => { // finish loading
                     this.elm.body.removeClass($.cl.general.initLoading);

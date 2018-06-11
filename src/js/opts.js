@@ -130,6 +130,15 @@
                 infoBar: "infoBar",
                 save: "save",
                 cancel: "cancel"
+            },
+            onboarding: {
+                slide: "slide",
+                skip: "skip",
+                close: "close",
+                settings: "settings",
+                appearance: "appearance",
+                hideOpenTypeIcon: "hideOpenType",
+                large: "large"
             }
         },
         attr: {
@@ -145,6 +154,10 @@
             id: "data-id",
             newtab: {
                 perRow: "data-perRow",
+            },
+            onboarding: {
+                openType: "data-openType",
+                surface: "data-surface"
             }
         },
         events: {

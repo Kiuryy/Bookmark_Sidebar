@@ -208,7 +208,7 @@ div#sidebar {
   transition: transform 0.5s, background-color 0.3s;
   z-index: 3;
 
-  &[data-position='right'] {
+  &[data-pos='right'] {
     transform: translate3d(350px, 0, 0);
     left: auto;
     right: 0;
@@ -278,7 +278,7 @@ body {
     margin: auto;
   }
 
-  &[data-openType='mouse'][data-position='right']::before {
+  &[data-openType='mouse'][data-pos='right']::before {
     left: auto;
     right: 0;
     transform: rotateY(180deg);
@@ -292,7 +292,7 @@ body {
 @media (max-width: 1500px) {
   body {
 
-    &[data-position='left'] {
+    &[data-pos='left'] {
 
       section.slide:not([data-name='position']):not([data-name='handson']) {
         right: 40px;
@@ -300,7 +300,7 @@ body {
       }
     }
 
-    &[data-position='right'] {
+    &[data-pos='right'] {
 
       section.slide:not([data-name='position']):not([data-name='handson']) {
         left: 40px;

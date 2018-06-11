@@ -34,6 +34,7 @@
       ],
       "js": [
         "js/lib/jsu.js",
+        "js/opts.js",
         "js/helper/model.js",
         "js/helper/toggle.js",
         "js/helper/entry.js",
@@ -53,8 +54,7 @@
         "js/helper/bookmark.js",
         "js/helper/tooltip.js",
         "js/helper/utility.js",
-        "js/extension.js",
-        "js/init.js"
+        "js/extension.js"
       ],
       "matches": [
         "<all_urls>"

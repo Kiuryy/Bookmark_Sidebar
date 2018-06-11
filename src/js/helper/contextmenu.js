@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, i18n, entry, overlay, toggle, list, checkbox, tooltip, search, utility, bookmark, scroll
+     * @param {object} ext
+     * @constructor
+     */
     window.ContextmenuHelper = function (ext) {
 
         let clickFuncs = {};
@@ -17,19 +22,19 @@
 
             if (alreadyExists(type, elm) === false) { // contextmenu is not already opened
                 this.close(); // close other contextmenus
-                elm.addClass(ext.cl.sidebar.active);
+                elm.addClass($.cl.general.active);
 
                 let contextmenu = $("<div />")
-                    .addClass(ext.cl.contextmenu.wrapper)
-                    .html("<ul class='" + ext.cl.contextmenu.list + "'></ul><ul class='" + ext.cl.contextmenu.icons + "'></ul>")
-                    .attr(ext.attr.type, type)
+                    .addClass($.cl.contextmenu.wrapper)
+                    .html("<ul class='" + $.cl.contextmenu.list + "'></ul><ul class='" + $.cl.contextmenu.icons + "'></ul>")
+                    .attr($.attr.type, type)
                     .data("elm", elm)
                     .appendTo(ext.elements.sidebar);
 
                 let trackingLabel = type;
-                let elmId = elm.attr(ext.attr.id);
+                let elmId = elm.attr($.attr.id);
                 if (elmId) {
-                    contextmenu.attr(ext.attr.id, elmId);
+                    contextmenu.attr($.attr.id, elmId);
                 }
 
                 switch (type) {
@@ -58,7 +63,7 @@
                 setPosition(contextmenu, elm, type);
 
                 $.delay().then(() => {
-                    contextmenu.addClass(ext.cl.contextmenu.visible);
+                    contextmenu.addClass($.cl.general.visible);
                 });
             }
         };
@@ -67,11 +72,11 @@
          * Closes all open contextmenus
          */
         this.close = () => {
-            let contextmenus = ext.elements.iframeBody.find("div." + ext.cl.contextmenu.wrapper);
+            let contextmenus = ext.elements.iframeBody.find("div." + $.cl.contextmenu.wrapper);
 
             contextmenus.forEach((contextmenu) => {
-                $(contextmenu).removeClass(ext.cl.contextmenu.visible);
-                $(contextmenu).data("elm").removeClass(ext.cl.sidebar.active);
+                $(contextmenu).removeClass($.cl.general.visible);
+                $(contextmenu).data("elm").removeClass($.cl.general.active);
             });
 
             $.delay(500).then(() => {
@@ -88,14 +93,14 @@
          * @return {boolean}
          */
         let alreadyExists = (type, elm) => {
-            let elmId = elm.attr(ext.attr.id);
-            let value = elm.attr(ext.attr.value);
+            let elmId = elm.attr($.attr.id);
+            let value = elm.attr($.attr.value);
 
-            let existingElm = "div." + ext.cl.contextmenu.wrapper + "[" + ext.attr.type + "='" + type + "']";
+            let existingElm = "div." + $.cl.contextmenu.wrapper + "[" + $.attr.type + "='" + type + "']";
             if (elmId) {
-                existingElm += "[" + ext.attr.id + "='" + elmId + "']";
+                existingElm += "[" + $.attr.id + "='" + elmId + "']";
             } else if (value) {
-                existingElm += "[" + ext.attr.value + "='" + value + "']";
+                existingElm += "[" + $.attr.value + "='" + value + "']";
             }
 
             return ext.elements.sidebar.find(existingElm).length() > 0;
@@ -109,21 +114,21 @@
         let handleSortMenu = (contextmenu) => {
             let sortList = ext.helper.list.getSortList();
             let currentSort = ext.helper.list.getSort();
-            let list = contextmenu.children("ul." + ext.cl.contextmenu.list);
-            contextmenu.children("ul." + ext.cl.contextmenu.icons).remove();
+            let list = contextmenu.children("ul." + $.cl.contextmenu.list);
+            contextmenu.children("ul." + $.cl.contextmenu.icons).remove();
 
             Object.keys(sortList).forEach((value) => {
                 let langName = value.replace(/([A-Z])/g, "_$1").toLowerCase();
                 $("<li />")
                     .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                        [ext.attr.name]: "sort",
-                        [ext.attr.value]: value
+                        [$.attr.name]: "sort",
+                        [$.attr.value]: value
                     }, "radio"))
-                    .append("<a " + ext.attr.name + "='sort'>" + ext.helper.i18n.get("sort_label_" + langName) + "</a>")
+                    .append("<a " + $.attr.name + "='sort'>" + ext.helper.i18n.get("sort_label_" + langName) + "</a>")
                     .appendTo(list);
 
                 if (value === currentSort.name) {
-                    contextmenu.find("input[" + ext.attr.name + "='sort'][" + ext.attr.value + "='" + value + "']").parent("div." + ext.cl.checkbox.box).trigger("click");
+                    contextmenu.find("input[" + $.attr.name + "='sort'][" + $.attr.value + "='" + value + "']").parent("div." + $.cl.checkbox.box).trigger("click");
                 }
             });
         };
@@ -134,27 +139,27 @@
          * @param {jsu} contextmenu
          */
         let handleHeaderMenu = (contextmenu) => {
-            let list = contextmenu.children("ul." + ext.cl.contextmenu.list);
-            let iconWrapper = contextmenu.children("ul." + ext.cl.contextmenu.icons);
+            let list = contextmenu.children("ul." + $.cl.contextmenu.list);
+            let iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
 
             $("<li />")
-                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[ext.attr.name]: "toggleHidden"}))
-                .append("<a " + ext.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
+                .append(ext.helper.checkbox.get(ext.elements.iframeBody, {[$.attr.name]: "toggleHidden"}))
+                .append("<a " + $.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
 
             if (ext.helper.model.getData("u/showHidden")) {
-                contextmenu.find("input[" + ext.attr.name + "='toggleHidden']").parent("div." + ext.cl.checkbox.box).trigger("click");
+                contextmenu.find("input[" + $.attr.name + "='toggleHidden']").parent("div." + $.cl.checkbox.box).trigger("click");
             }
 
             $("<li />")
-                .append("<a " + ext.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
+                .append("<a " + $.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
                 .appendTo(list);
 
             let bookmarkList = ext.elements.bookmarkBox.all.children("ul");
-            let hideRoot = bookmarkList.hasClass(ext.cl.sidebar.hideRoot);
+            let hideRoot = bookmarkList.hasClass($.cl.sidebar.hideRoot);
             let hasOpenedDirectories = false;
 
-            bookmarkList.find("a." + ext.cl.sidebar.dirOpened).forEach((dir) => {
+            bookmarkList.find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
                 if (hideRoot === false || $(dir).parents("li").length() > 1) {
                     hasOpenedDirectories = true;
                     return false;
@@ -163,14 +168,14 @@
 
             if (hasOpenedDirectories) { // show option to close all opened directories when at least one is opened
                 $("<li />")
-                    .append("<a " + ext.attr.name + "='closeAll'>" + ext.helper.i18n.get("contextmenu_close_all_directories") + "</a>")
+                    .append("<a " + $.attr.name + "='closeAll'>" + ext.helper.i18n.get("contextmenu_close_all_directories") + "</a>")
                     .appendTo(list);
             }
 
             iconWrapper
-                .append("<li><a " + ext.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title") + "'></a></li>")
-                .append("<li><a " + ext.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>")
-                .append("<li class='" + ext.cl.contextmenu.right + "'><a " + ext.attr.name + "='keyboardShortcuts' title='" + ext.helper.i18n.get("contextmenu_keyboard_shortcuts") + "'></a></li>");
+                .append("<li><a " + $.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title") + "'></a></li>")
+                .append("<li><a " + $.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>")
+                .append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='keyboardShortcuts' title='" + ext.helper.i18n.get("contextmenu_keyboard_shortcuts") + "'></a></li>");
         };
 
         /**
@@ -180,18 +185,18 @@
          * @param {jsu} elm
          */
         let handleSeparatorMenu = (contextmenu, elm) => {
-            let elmId = elm.attr(ext.attr.id);
+            let elmId = elm.attr($.attr.id);
             let data = ext.helper.entry.getDataById(elmId);
 
             if (data && data.parents && data.parents.length > 0) {
-                let list = contextmenu.children("ul." + ext.cl.contextmenu.list);
+                let list = contextmenu.children("ul." + $.cl.contextmenu.list);
 
                 if (data.parents.length > 0) { // root level can not be edited or deleted
-                    list.append("<li><a " + ext.attr.name + "='delete'>" + ext.helper.i18n.get("contextmenu_delete_separator") + "</a></li>");
+                    list.append("<li><a " + $.attr.name + "='delete'>" + ext.helper.i18n.get("contextmenu_delete_separator") + "</a></li>");
                 }
             }
 
-            contextmenu.children("ul." + ext.cl.contextmenu.icons).remove();
+            contextmenu.children("ul." + $.cl.contextmenu.icons).remove();
         };
 
         /**
@@ -201,58 +206,58 @@
          * @param {jsu} elm
          */
         let handleListMenu = (contextmenu, elm) => {
-            let elmId = elm.attr(ext.attr.id);
+            let elmId = elm.attr($.attr.id);
             let data = ext.helper.entry.getDataById(elmId);
 
             if (data) {
                 let i18nAppend = data.isDir ? "_dir" : "_bookmark";
-                let list = contextmenu.children("ul." + ext.cl.contextmenu.list);
-                let iconWrapper = contextmenu.children("ul." + ext.cl.contextmenu.icons);
+                let list = contextmenu.children("ul." + $.cl.contextmenu.list);
+                let iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
 
                 if (ext.helper.search.isResultsVisible()) {
-                    list.append("<li><a " + ext.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
+                    list.append("<li><a " + $.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
                 }
 
                 if (data.isDir) {
                     let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
 
                     if (bookmarks.length > 0) {
-                        list.append("<li><a " + ext.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + " <span>(" + bookmarks.length + ")</span></a></li>");
+                        list.append("<li><a " + $.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + " <span>(" + bookmarks.length + ")</span></a></li>");
                     }
 
                     if (data.children.length > 0) {
-                        list.append("<li><a " + ext.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
+                        list.append("<li><a " + $.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
                     }
                 } else {
-                    list.append("<li><a " + ext.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
-                    list.append("<li><a " + ext.attr.name + "='newWindow'>" + ext.helper.i18n.get("contextmenu_new_window") + "</a></li>");
+                    list.append("<li><a " + $.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
+                    list.append("<li><a " + $.attr.name + "='newWindow'>" + ext.helper.i18n.get("contextmenu_new_window") + "</a></li>");
 
                     if (chrome.extension.inIncognitoContext === false) {
-                        list.append("<li><a " + ext.attr.name + "='newIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
+                        list.append("<li><a " + $.attr.name + "='newIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
                     }
                 }
 
-                iconWrapper.append("<li><a " + ext.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos") + "'></a></li>");
+                iconWrapper.append("<li><a " + $.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos") + "'></a></li>");
 
                 if (data.parents.length > 0) { // root level can not be edited or deleted
                     iconWrapper
-                        .append("<li><a " + ext.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend) + "'></a></li>")
-                        .append("<li><a " + ext.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend) + "'></a></li>");
+                        .append("<li><a " + $.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend) + "'></a></li>")
+                        .append("<li><a " + $.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend) + "'></a></li>");
                 }
 
 
                 if (data.isDir) {
-                    iconWrapper.append("<li><a " + ext.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
                 } else if (data.pinned) {
-                    iconWrapper.append("<li><a " + ext.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin") + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin") + "'></a></li>");
                 } else {
-                    iconWrapper.append("<li><a " + ext.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin") + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin") + "'></a></li>");
                 }
 
                 if (ext.helper.entry.isVisible(elmId)) {
-                    iconWrapper.append("<li class='" + ext.cl.contextmenu.right + "'><a " + ext.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
-                } else if (ext.helper.search.isResultsVisible() === false && elm.parents("li." + ext.cl.sidebar.hidden).length() <= 1) {
-                    iconWrapper.append("<li class='" + ext.cl.contextmenu.right + "'><a " + ext.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
+                    iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
+                } else if (ext.helper.search.isResultsVisible() === false && elm.parents("li." + $.cl.general.hidden).length() <= 1) {
+                    iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
                 }
             }
         };
@@ -270,7 +275,7 @@
             let top = elmBoundClientRect.top + elmBoundClientRect.height;
 
             if (top + dim.h >= window.innerHeight) { // no space to show contextmenu on bottom -> show on top instead
-                contextmenu.css("top", top - dim.h).addClass(ext.cl.contextmenu.top);
+                contextmenu.css("top", top - dim.h).addClass($.cl.contextmenu.top);
             } else {
                 contextmenu.css("top", top + "px");
             }
@@ -303,7 +308,7 @@
          */
         clickFuncs.checkbox = (opts) => {
             opts.eventObj.stopPropagation();
-            $(opts.elm).prev("div." + ext.cl.checkbox.box).trigger("click");
+            $(opts.elm).prev("div." + $.cl.checkbox.box).trigger("click");
         };
 
         /**
@@ -449,8 +454,8 @@
             if (data && data.parents) {
                 let openParent = (i) => {
                     if (data.parents[i]) {
-                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a." + ext.cl.sidebar.bookmarkDir + "[" + ext.attr.id + "='" + data.parents[i] + "']");
-                        if (!entry.hasClass(ext.cl.sidebar.dirOpened)) {
+                        let entry = ext.elements.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + data.parents[i] + "']");
+                        if (!entry.hasClass($.cl.sidebar.dirOpened)) {
                             ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
                                 openParent(i + 1);
                             });
@@ -462,9 +467,9 @@
                             ext.helper.list.cacheList(),
                             ext.helper.search.clearSearch()
                         ]).then(() => {
-                            let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + ext.attr.id + "='" + opts.id + "']");
+                            let entry = ext.elements.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
                             ext.helper.scroll.setScrollPos(ext.elements.bookmarkBox.all, entry[0].offsetTop - 50);
-                            entry.addClass(ext.cl.sidebar.mark);
+                            entry.addClass($.cl.sidebar.mark);
                         });
                     }
                 };
@@ -485,10 +490,10 @@
          */
         clickFuncs.closeAll = () => {
             let list = ext.elements.bookmarkBox.all.children("ul");
-            let hideRoot = list.hasClass(ext.cl.sidebar.hideRoot);
+            let hideRoot = list.hasClass($.cl.sidebar.hideRoot);
             let promises = [];
 
-            list.find("a." + ext.cl.sidebar.dirOpened).forEach((dir) => {
+            list.find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
                 if (hideRoot === false || $(dir).parents("li").length() > 1) {
                     promises.push(ext.helper.list.toggleBookmarkDir($(dir), false, false));
                 }
@@ -505,15 +510,15 @@
          * @param {jsu} contextmenu
          */
         let initEvents = (contextmenu) => {
-            contextmenu.find("input[" + ext.attr.name + "='sort']").on("change", (e) => { // toggle fixation of the entries
+            contextmenu.find("input[" + $.attr.name + "='sort']").on("change", (e) => { // toggle fixation of the entries
                 if (e.currentTarget.checked) {
-                    let sort = $(e.currentTarget).attr(ext.attr.value);
+                    let sort = $(e.currentTarget).attr($.attr.value);
                     ext.helper.list.updateSort(sort);
                     this.close();
                 }
             });
 
-            contextmenu.find("input[" + ext.attr.name + "='toggleHidden']").on("change", (e) => { // toggle visibility of hidden entries
+            contextmenu.find("input[" + $.attr.name + "='toggleHidden']").on("change", (e) => { // toggle visibility of hidden entries
                 ext.startLoading();
 
                 Promise.all([
@@ -529,22 +534,22 @@
             });
 
             contextmenu.on("mouseleave", (e) => {
-                $(e.currentTarget).find("a").removeClass(ext.cl.sidebar.hover);
+                $(e.currentTarget).find("a").removeClass($.cl.general.hover);
             });
 
             contextmenu.find("a").on("mouseenter", (e) => {
-                contextmenu.find("a").removeClass(ext.cl.sidebar.hover);
-                $(e.currentTarget).addClass(ext.cl.sidebar.hover);
+                contextmenu.find("a").removeClass($.cl.general.hover);
+                $(e.currentTarget).addClass($.cl.general.hover);
             }).on("mouseleave", (e) => {
-                $(e.currentTarget).removeClass(ext.cl.sidebar.hover);
+                $(e.currentTarget).removeClass($.cl.general.hover);
             }).on("click", (e) => {
                 e.preventDefault();
 
                 let opts = {
                     elm: e.currentTarget,
                     eventObj: e,
-                    name: $(e.currentTarget).attr(ext.attr.name),
-                    id: contextmenu.attr(ext.attr.id)
+                    name: $(e.currentTarget).attr($.attr.name),
+                    id: contextmenu.attr($.attr.id)
                 };
 
                 opts.data = opts.id ? ext.helper.entry.getDataById(opts.id) : null;

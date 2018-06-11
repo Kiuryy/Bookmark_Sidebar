@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    window.ext = function (opts) {
+    window.ext = function () {
 
         let loadingInfo = {};
         let existenceTimeout = null;
@@ -18,9 +18,6 @@
         this.refreshRun = true;
         this.isDev = false;
         this.elements = {};
-        this.opts = opts;
-        this.cl = opts.classes;
-        this.attr = opts.attr;
         this.needsReload = false;
         this.state = null;
 
@@ -28,9 +25,9 @@
          * Constructor
          */
         this.run = () => {
-            $("html").attr(this.attr.uid, uid);
+            $("html").attr($.attr.uid, uid);
 
-            this.isDev = opts.manifest.version_name === "Dev" || !("update_url" in opts.manifest);
+            this.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
             let removedOldInstance = destroyOldInstance();
             initHelpers();
 
@@ -129,7 +126,7 @@
                     label: sort.name + "_" + sort.dir
                 });
 
-                let searchVal = this.elements.header.find("div." + this.cl.sidebar.searchBox + " > input[type='text']")[0].value;
+                let searchVal = this.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].value;
                 if (searchVal.length > 0) {
                     this.helper.model.call("trackEvent", {
                         category: "search",
@@ -141,7 +138,7 @@
             };
 
             if (this.firstRun) { // extension is not loaded yet -> wait for the loaded event (happens when sidebar is automatically opened on new tab page)
-                $(document).on(opts.events.loaded + ".bs", () => {
+                $(document).on($.opts.events.loaded + ".bs", () => {
                     trackEvents();
                 });
             } else { // extension is loaded -> track events
@@ -167,7 +164,7 @@
                     "%c[] %cBookmark Sidebar %c-> %c" + msg,
                     // styles
                     styles,
-                    styles + ";color:#09d;font-weight: bold",
+                    styles + ";color:#fa8072;font-weight: bold",
                     styles + ";color: #000;font-weight: bold",
                     styles
                 ]);
@@ -178,13 +175,13 @@
          * Sets a class to the iframe body and fires an event to indicate, that the extension is loaded completely
          */
         this.loaded = () => {
-            if (!this.elements.iframeBody.hasClass(this.cl.sidebar.extLoaded)) {
+            if (!this.elements.iframeBody.hasClass($.cl.sidebar.extLoaded)) {
                 let data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
-                this.elements.iframeBody.addClass(this.cl.sidebar.extLoaded);
+                this.elements.iframeBody.addClass($.cl.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
 
-                if (this.elements.iframe.hasClass(this.cl.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
+                if (this.elements.iframe.hasClass($.cl.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
                     this.helper.toggle.markLastUsed();
                 }
 
@@ -212,7 +209,7 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elements.sidebar.addClass(this.cl.sidebar.loading);
+            this.elements.sidebar.addClass($.cl.sidebar.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
@@ -229,7 +226,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elements.sidebar.removeClass(this.cl.sidebar.loading);
+                this.elements.sidebar.removeClass($.cl.sidebar.loading);
                 if (loadingInfo.loader) {
                     loadingInfo.loader.remove();
                 }
@@ -242,11 +239,11 @@
          */
         this.initImages = () => {
             $.delay().then(() => {
-                if (this.elements.iframe.hasClass(this.cl.page.visible)) {
-                    this.elements.sidebar.find("img[" + this.attr.src + "]").forEach((_self) => {
+                if (this.elements.iframe.hasClass($.cl.page.visible)) {
+                    this.elements.sidebar.find("img[" + $.attr.src + "]").forEach((_self) => {
                         let img = $(_self);
-                        let src = img.attr(this.attr.src);
-                        img.removeAttr(this.attr.src);
+                        let src = img.attr($.attr.src);
+                        img.removeAttr($.attr.src);
                         img.attr("src", src);
                     });
                 }
@@ -258,7 +255,7 @@
          */
         this.addReloadMask = () => {
             this.elements.sidebar.text("");
-            let reloadMask = $("<div />").attr("id", opts.ids.sidebar.reloadInfo).prependTo(this.elements.sidebar);
+            let reloadMask = $("<div />").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elements.sidebar);
             let contentBox = $("<div />").prependTo(reloadMask);
 
             $("<p />").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
@@ -269,8 +266,8 @@
          * Adds a mask over the sidebar to encourage the user the share their userdata
          */
         this.addShareInfoMask = () => {
-            this.elements.sidebar.find("#" + opts.ids.sidebar.shareInfo).remove();
-            let shareInfoMask = $("<div />").attr("id", opts.ids.sidebar.shareInfo).prependTo(this.elements.sidebar);
+            this.elements.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();
+            let shareInfoMask = $("<div />").attr("id", $.opts.ids.sidebar.shareInfo).prependTo(this.elements.sidebar);
             let contentBox = $("<div />").prependTo(shareInfoMask);
 
             $("<h2 />").html(this.helper.i18n.get("contribute_headline")).appendTo(contentBox);
@@ -287,7 +284,7 @@
                 }).appendTo(label);
 
                 this.helper.checkbox.get(this.elements.iframeBody, {
-                    [this.attr.name]: type
+                    [$.attr.name]: type
                 }, "checkbox", "switch").appendTo(contentBox);
             });
 
@@ -385,10 +382,10 @@
             }
 
             existenceTimeout = setTimeout(() => {
-                let htmlUid = $("html").attr(this.attr.uid);
+                let htmlUid = $("html").attr($.attr.uid);
 
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
-                    if ($("iframe#" + opts.ids.page.iframe).length() === 0) {
+                    if ($("iframe#" + $.opts.ids.page.iframe).length() === 0) {
                         this.log("Detected: Sidebar missing from DOM");
                         destroyOldInstance();
                         init(true);
@@ -408,7 +405,7 @@
             let ret = false;
             let elements = [];
 
-            ["iframe#" + opts.ids.page.iframe, "iframe#" + opts.ids.page.overlay, "div#" + opts.ids.page.indicator].forEach((elm) => {
+            ["iframe#" + $.opts.ids.page.iframe, "iframe#" + $.opts.ids.page.overlay, "div#" + $.opts.ids.page.indicator].forEach((elm) => {
                 elements.push($(elm));
             });
 
@@ -433,31 +430,31 @@
          */
         let initSidebar = async () => {
             let config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
-            this.elements.iframe = $("<iframe id=\"" + opts.ids.page.iframe + "\" />").appendTo("body");
+            this.elements.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").appendTo("body");
 
             if (config.animations === false) {
-                this.elements.iframe.addClass(this.cl.page.noAnimations);
+                this.elements.iframe.addClass($.cl.page.noAnimations);
             }
 
             this.elements.iframeBody = this.elements.iframe.find("body");
-            this.elements.sidebar = $("<section id=\"" + opts.ids.sidebar.sidebar + "\" />").appendTo(this.elements.iframeBody);
+            this.elements.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\" />").appendTo(this.elements.iframeBody);
             this.elements.bookmarkBox = {};
 
             ["all", "search"].forEach((val) => {
-                this.elements.bookmarkBox[val] = this.helper.scroll.add(opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elements.sidebar));
+                this.elements.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elements.sidebar));
             });
 
-            this.elements.filterBox = $("<div />").addClass(this.cl.sidebar.filterBox).appendTo(this.elements.sidebar);
-            this.elements.pinnedBox = $("<div />").addClass(this.cl.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
-            this.elements.lockPinned = $("<a />").addClass(this.cl.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
+            this.elements.filterBox = $("<div />").addClass($.cl.sidebar.filterBox).appendTo(this.elements.sidebar);
+            this.elements.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elements.bookmarkBox.all);
+            this.elements.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elements.sidebar);
 
             this.elements.header = $("<header />").prependTo(this.elements.sidebar);
             this.helper.stylesheet.addStylesheets(["sidebar"], this.elements.iframe);
 
             if (config.darkMode === true) {
-                this.elements.iframeBody.addClass(this.cl.page.darkMode);
+                this.elements.iframeBody.addClass($.cl.page.darkMode);
             } else if (config.highContrast === true) {
-                this.elements.iframeBody.addClass(this.cl.page.highContrast);
+                this.elements.iframeBody.addClass($.cl.page.highContrast);
             }
 
             this.helper.utility.triggerEvent("elementsCreated", {
@@ -469,4 +466,5 @@
         };
     };
 
+    new window.ext().run();
 })(jsu);

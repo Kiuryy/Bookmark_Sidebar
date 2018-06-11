@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, contextmenu, tooltip, toggle
+     * @param {object} ext
+     * @constructor
+     */
     window.ScrollHelper = function (ext) {
 
         let scrollPosSaved = +new Date();
@@ -25,7 +30,7 @@
          * @param {jsu} elm
          */
         this.add = (id, elm) => {
-            let scrollBox = $("<div id='" + id + "' class='" + ext.cl.scrollBox.wrapper + "' tabindex='0' />").insertBefore(elm);
+            let scrollBox = $("<div id='" + id + "' class='" + $.cl.scrollBox.wrapper + "' tabindex='0' />").insertBefore(elm);
             elm = elm.appendTo(scrollBox);
 
             scrollBox.data({
@@ -42,12 +47,12 @@
          * Sets the focus to the currently visible scrollbox to allow keyboard navigation (only if the search field is not focused)
          */
         this.focus = () => {
-            if (ext.elements.iframe.hasClass(ext.cl.page.visible) &&
+            if (ext.elements.iframe.hasClass($.cl.page.visible) &&
                 ext.elements.iframe[0].contentDocument !== null &&
                 ext.helper.toggle.sidebarHoveredOnce() &&
-                ext.elements.header.find("div." + ext.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
+                ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elements.iframe[0].contentDocument.activeElement) {
                 scrollBoxes.forEach((scrollBox) => {
-                    if (scrollBox.hasClass(ext.cl.sidebar.active)) {
+                    if (scrollBox.hasClass($.cl.general.active)) {
                         scrollBox[0].focus();
                     }
                 });
@@ -60,7 +65,7 @@
          */
         this.updateAll = () => {
             scrollBoxes.forEach((scrollBox) => {
-                if (scrollBox.hasClass(ext.cl.sidebar.active)) {
+                if (scrollBox.hasClass($.cl.general.active)) {
                     this.update(scrollBox);
                 }
             });
@@ -146,40 +151,40 @@
             let scrollPos = scrollBox[0].scrollTop;
 
             if (scrollPos > 10) {
-                scrollBox.addClass(ext.cl.scrollBox.scrolled);
+                scrollBox.addClass($.cl.scrollBox.scrolled);
             } else {
-                scrollBox.removeClass(ext.cl.scrollBox.scrolled);
+                scrollBox.removeClass($.cl.scrollBox.scrolled);
             }
 
             let lastScrollPos = scrollBox.data("lastPos") || 0; // determine scroll position by comparing current pos with the one before
 
             if (scrollPos > lastScrollPos) {
-                scrollBox.attr(ext.attr.direction, "down");
+                scrollBox.attr($.attr.direction, "down");
             } else if (scrollPos < lastScrollPos) {
-                scrollBox.attr(ext.attr.direction, "up");
+                scrollBox.attr($.attr.direction, "up");
             } else {
-                scrollBox.removeAttr(ext.attr.direction);
+                scrollBox.removeAttr($.attr.direction);
             }
 
             scrollBox.data("lastPos", scrollPos);
 
             if ((contentHeight - scrollPos < boxHeight * 2) || (contentHeight === scrollPos && boxHeight === 0)) {
-                scrollBox.trigger(ext.opts.events.scrollBoxLastPart);
+                scrollBox.trigger($.opts.events.scrollBoxLastPart);
             }
 
             if (scrollBarHide > 0) {
-                if (ext.elements.iframe.hasClass(ext.cl.page.visible)) { // hide scrollbar after the given delay
-                    scrollBox.removeClass(ext.cl.scrollBox.hideScrollbar);
+                if (ext.elements.iframe.hasClass($.cl.page.visible)) { // hide scrollbar after the given delay
+                    scrollBox.removeClass($.cl.scrollBox.hideScrollbar);
 
                     clearTimeout(scrollBarTimeout[scrollBox.attr("id")]);
                     scrollBarTimeout[scrollBox.attr("id")] = setTimeout(() => {
-                        scrollBox.addClass(ext.cl.scrollBox.hideScrollbar);
+                        scrollBox.addClass($.cl.scrollBox.hideScrollbar);
                     }, scrollBarHide);
                 } else {
-                    scrollBox.addClass(ext.cl.scrollBox.hideScrollbar);
+                    scrollBox.addClass($.cl.scrollBox.hideScrollbar);
                 }
             }
-            ext.helper.scroll.focus();
+            this.focus();
         };
 
         /**

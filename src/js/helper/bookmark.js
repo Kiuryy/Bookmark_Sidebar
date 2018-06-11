@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, i18n, entry, overlay
+     * @param {object} ext
+     * @constructor
+     */
     window.BookmarkHelper = function (ext) {
 
         /**
@@ -15,18 +20,18 @@
 
                 if (data && data.url) { // delete without confirm dialog, but offer a undo option
                     Object.values(ext.elements.bookmarkBox).some((box) => {
-                        if (box.hasClass(ext.cl.sidebar.active)) {
-                            let entry = box.find("a[" + ext.attr.id + "='" + data.id + "']");
+                        if (box.hasClass($.cl.general.active)) {
+                            let entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
                             entry.data("restore", data);
 
                             let mask = $("<span />")
-                                .addClass(ext.cl.sidebar.removeMask)
+                                .addClass($.cl.sidebar.removeMask)
                                 .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
                                 .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
                                 .appendTo(entry);
 
                             $.delay(100).then(() => {
-                                entry.addClass(ext.cl.sidebar.removed);
+                                entry.addClass($.cl.sidebar.removed);
 
                                 if (mask.children("span")[0].offsetTop > 0) { // undo button doesn't fit in one line -> remove the label
                                     mask.children("em").remove();
@@ -79,16 +84,16 @@
             return new Promise((resolve) => {
                 if (elm && elm.length() > 0) {
                     let data = elm.data("restore");
-                    elm.removeClass(ext.cl.sidebar.removed).addClass(ext.cl.sidebar.restored);
+                    elm.removeClass($.cl.sidebar.removed).addClass($.cl.sidebar.restored);
 
                     $.delay(500).then(() => {
-                        elm.children("span." + ext.cl.sidebar.removeMask).remove();
+                        elm.children("span." + $.cl.sidebar.removeMask).remove();
                         return ext.helper.model.call("createBookmark", data);
                     }).then((result) => {
                         let promises = [];
 
                         if (result && result.created) {
-                            elm.attr(ext.attr.id, result.created);
+                            elm.attr($.attr.id, result.created);
 
                             ext.helper.model.call("trackEvent", {
                                 category: "extension",

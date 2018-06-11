@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: (optional) font
+     * @param {object} ext
+     * @constructor
+     */
     window.ModelHelper = function (ext) {
 
         let defaultColors = {

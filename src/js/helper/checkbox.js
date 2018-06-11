@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: utility
+     * @param {object} ext
+     * @constructor
+     */
     window.CheckboxHelper = function (ext) {
 
         let clickedTimeout = {};
@@ -18,19 +23,19 @@
             let container = $("<div />")
                 .html("<input type='checkbox' />")
                 .data("uid", Math.random().toString(36).substr(2, 12))
-                .attr(ext.attr.type, type)
-                .attr(ext.attr.style, style)
-                .addClass(ext.cl.checkbox.box);
+                .attr($.attr.type, type)
+                .attr($.attr.style, style)
+                .addClass($.cl.checkbox.box);
 
             if (attrList) {
                 container.children("input[type='checkbox']").attr(attrList);
-                if (attrList[ext.attr.name]) {
-                    container.attr(ext.attr.name, attrList[ext.attr.name]);
+                if (attrList[$.attr.name]) {
+                    container.attr($.attr.name, attrList[$.attr.name]);
                 }
             }
 
             if (this.isChecked(container)) {
-                container.addClass(ext.cl.checkbox.active);
+                container.addClass($.cl.general.active);
             }
 
             initEvents(container, body);
@@ -57,11 +62,11 @@
             let checkbox = container.children("input[type='checkbox']");
 
             checkbox.trigger("change");
-            if (ext.opts.events && ext.opts.events.checkboxChanged) {
+            if ($.opts.events && $.opts.events.checkboxChanged) {
                 ext.helper.utility.triggerEvent("checkboxChanged", {
                     container: container,
                     checkbox: checkbox,
-                    checked: container.hasClass(ext.cl.checkbox.active)
+                    checked: container.hasClass($.cl.general.active)
                 }, body.document()[0]);
             }
         };
@@ -74,24 +79,24 @@
          * @param {jsu} body
          */
         let toggleChecked = (container, body) => {
-            container.addClass(ext.cl.checkbox.clicked);
-            container.removeClass(ext.cl.checkbox.focus);
-            container.toggleClass(ext.cl.checkbox.active);
+            container.addClass($.cl.checkbox.clicked);
+            container.removeClass($.cl.checkbox.focus);
+            container.toggleClass($.cl.general.active);
 
-            let isChecked = container.hasClass(ext.cl.checkbox.active);
+            let isChecked = container.hasClass($.cl.general.active);
             let checkbox = container.children("input[type='checkbox']");
 
-            if (container.attr(ext.attr.type) === "radio" && container.attr(ext.attr.name)) { // radio button -> allow only one to be checked with the same name
+            if (container.attr($.attr.type) === "radio" && container.attr($.attr.name)) { // radio button -> allow only one to be checked with the same name
                 if (body) {
-                    let name = container.attr(ext.attr.name);
-                    container.addClass(ext.cl.checkbox.active);
+                    let name = container.attr($.attr.name);
+                    container.addClass($.cl.general.active);
 
                     if (isChecked) { // radio button was not checked before already -> trigger change event
                         checkbox.attr("checked", true);
                         triggerChangeEvent(container, body);
                     }
 
-                    body.find("div." + ext.cl.checkbox.box + "[" + ext.attr.type + "='radio'][" + ext.attr.name + "='" + name + "']").forEach((elm) => {
+                    body.find("div." + $.cl.checkbox.box + "[" + $.attr.type + "='radio'][" + $.attr.name + "='" + name + "']").forEach((elm) => {
                         let elmObj = $(elm);
                         if (elm !== container[0] && this.isChecked(elmObj)) { // uncheck all other radio buttons with this name
                             toggleChecked(elmObj);
@@ -111,7 +116,7 @@
             }
 
             clickedTimeout[uid] = setTimeout(() => {
-                container.removeClass(ext.cl.checkbox.clicked);
+                container.removeClass($.cl.checkbox.clicked);
             }, 300);
         };
 
@@ -122,7 +127,7 @@
             container.on("mousedown", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                $(e.currentTarget).addClass(ext.cl.checkbox.focus);
+                $(e.currentTarget).addClass($.cl.checkbox.focus);
             }).on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -130,7 +135,7 @@
             });
 
             body.on("click", () => {
-                container.removeClass(ext.cl.checkbox.focus);
+                container.removeClass($.cl.checkbox.focus);
             });
         };
     };

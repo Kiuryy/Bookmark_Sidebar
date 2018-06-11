@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: none
+     * @param {object} ext
+     * @constructor
+     */
     window.TemplateHelper = function (ext) {
 
         /**

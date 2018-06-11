@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model
+     * @param {object} ext
+     * @constructor
+     */
     window.UtilityHelper = function (ext) {
 
         /**
@@ -86,7 +91,7 @@
          * @param {Element} scope
          */
         this.triggerEvent = (name, data = {}, scope = null) => {
-            (scope || document).dispatchEvent(new CustomEvent(ext.opts.events[name], {
+            (scope || document).dispatchEvent(new CustomEvent($.opts.events[name], {
                 detail: data,
                 bubbles: true,
                 cancelable: false

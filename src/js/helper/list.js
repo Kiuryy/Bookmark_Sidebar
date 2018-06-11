@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, entry, scroll, i18n, search, checkbox
+     * @param {object} ext
+     * @constructor
+     */
     window.ListHelper = function (ext) {
 
         let restoreOpenStateRunning = 0;
@@ -11,15 +16,15 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            ext.elements.bookmarkBox.all.addClass(ext.cl.sidebar.active);
+            ext.elements.bookmarkBox.all.addClass($.cl.general.active);
 
             Object.values(ext.elements.bookmarkBox).forEach((box) => {
-                box.on(ext.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
+                box.on($.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
                     let list = box.children("ul");
                     let remainingEntries = list.data("remainingEntries");
                     if (remainingEntries && remainingEntries.length > 0) {
                         this.addBookmarkDir(remainingEntries, list, false, false);
-                        if (ext.refreshRun || ext.elements.iframe.hasClass(ext.cl.page.visible) === false) {
+                        if (ext.refreshRun || ext.elements.iframe.hasClass($.cl.page.visible) === false) {
                             ext.helper.scroll.restoreScrollPos(box);
                         }
                     }
@@ -116,7 +121,7 @@
             return new Promise((resolve) => {
                 ext.startLoading();
                 sort = ext.helper.model.getData("u/sort");
-                ext.elements.sidebar.attr(ext.attr.sort, sort.name);
+                ext.elements.sidebar.attr($.attr.sort, sort.name);
 
                 let list = ext.elements.bookmarkBox.all.children("ul");
                 let promiseObj = null;
@@ -142,13 +147,13 @@
                             ext.elements.pinnedBox.html(result[1].val);
 
                             if (ext.helper.model.getData("u/lockPinned")) {
-                                ext.elements.lockPinned.addClass(ext.cl.sidebar.fixed);
-                                ext.elements.pinnedBox.addClass(ext.cl.sidebar.fixed);
+                                ext.elements.lockPinned.addClass($.cl.sidebar.fixed);
+                                ext.elements.pinnedBox.addClass($.cl.sidebar.fixed);
                             }
 
                             loadMissingFavicons(ext.elements.pinnedBox);
                         } else {
-                            ext.elements.pinnedBox.addClass(ext.cl.sidebar.hidden);
+                            ext.elements.pinnedBox.addClass($.cl.general.hidden);
                         }
 
                         return updateFromCache(list, result[0].val);
@@ -173,11 +178,11 @@
          */
         this.toggleBookmarkDir = (elm, instant, cache = true) => {
             return new Promise((resolve) => {
-                elm.addClass(ext.cl.sidebar.dirAnimated);
-                let dirId = elm.attr(ext.attr.id);
+                elm.addClass($.cl.sidebar.dirAnimated);
+                let dirId = elm.attr($.attr.id);
                 let childrenList = elm.next("ul");
                 let childrenLoaded = childrenList.length() > 0;
-                let initial = ext.refreshRun === true || ext.elements.iframe.hasClass(ext.cl.page.visible) === false;
+                let initial = ext.refreshRun === true || ext.elements.iframe.hasClass($.cl.page.visible) === false;
 
                 if (typeof instant === "undefined") {
                     instant = initial || ext.helper.model.getData("b/animations") === false;
@@ -191,14 +196,14 @@
                     }
                 };
 
-                if (elm.hasClass(ext.cl.sidebar.dirOpened) && childrenLoaded) { // close children
+                if (elm.hasClass($.cl.sidebar.dirOpened) && childrenLoaded) { // close children
                     expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
                     if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
                         let visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
 
-                        ext.elements.bookmarkBox[visibleBox].find("a." + ext.cl.sidebar.dirOpened).forEach((dir) => {
-                            if ($(dir).next("ul").find("a[" + ext.attr.id + "='" + dirId + "']").length() === 0) {
+                        ext.elements.bookmarkBox[visibleBox].find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
+                            if ($(dir).next("ul").find("a[" + $.attr.id + "='" + dirId + "']").length() === 0) {
                                 this.toggleBookmarkDir($(dir), instant, false);
                             }
                         });
@@ -243,7 +248,7 @@
          * Updates the html for the sidebar header
          */
         this.updateSidebarHeader = () => {
-            let searchField = ext.elements.header.find("div." + ext.cl.sidebar.searchBox + " > input[type='text']");
+            let searchField = ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
             let searchVal = "";
 
             if (searchField.length() > 0 && searchField[0] && searchField[0].value) { // restore the search value before reinitializing the header content
@@ -259,9 +264,9 @@
                 .appendTo(ext.elements.header);
 
             let headerIcons = [];
-            headerIcons.push($("<a />").addClass(ext.cl.sidebar.search).appendTo(ext.elements.header));
-            headerIcons.push($("<a />").addClass(ext.cl.sidebar.sort).appendTo(ext.elements.header));
-            headerIcons.push($("<a />").addClass(ext.cl.sidebar.menu).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass($.cl.sidebar.search).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass($.cl.sidebar.sort).appendTo(ext.elements.header));
+            headerIcons.push($("<a />").addClass($.cl.sidebar.menu).appendTo(ext.elements.header));
 
             ["label", "amount"].forEach((type) => {
                 let lastOffset = null;
@@ -270,9 +275,9 @@
                         lastOffset = icon[0].offsetTop;
                     } else if (lastOffset !== icon[0].offsetTop || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
                         if (type === "label") {
-                            headline.children("span").addClass(ext.cl.sidebar.hidden);
+                            headline.children("span").addClass($.cl.general.hidden);
                         } else if (type === "amount") {
-                            headline.addClass(ext.cl.sidebar.hidden);
+                            headline.addClass($.cl.general.hidden);
                         }
                         return true;
                     }
@@ -280,9 +285,9 @@
             });
 
             $("<div />")
-                .addClass(ext.cl.sidebar.searchBox)
+                .addClass($.cl.sidebar.searchBox)
                 .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder").replace(/'/g, "&#x27;") + "' />")
-                .append("<a class='" + ext.cl.sidebar.searchClose + "'></a>")
+                .append("<a class='" + $.cl.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elements.header);
         };
 
@@ -307,7 +312,7 @@
             if (data.rememberState === "all" || data.rememberState === "openStatesAndPos" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
                 Object.keys(data.openStates).forEach((node) => {
                     if (data.openStates[node] === true) {
-                        let entry = list.find("> li > a." + ext.cl.sidebar.bookmarkDir + "[" + ext.attr.id + "='" + (node) + "']");
+                        let entry = list.find("> li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + (node) + "']");
 
                         if (entry.length() > 0) {
                             if (data.rememberState !== "openStatesRoot" || entry.parents("ul").length() === 1) { // if rememberState = openStatesRoot -> only open top level directories
@@ -332,22 +337,22 @@
          * Updates the html for the sort filterbox
          */
         this.updateSortFilter = () => {
-            ext.elements.filterBox.removeClass(ext.cl.sidebar.hidden).text("");
+            ext.elements.filterBox.removeClass($.cl.general.hidden).text("");
             let filterBoxHeight = 0;
 
             if (sort.name === "custom") {
-                ext.elements.filterBox.addClass(ext.cl.sidebar.hidden);
+                ext.elements.filterBox.addClass($.cl.general.hidden);
             } else {
                 let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
 
                 let langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
-                $("<a />").attr(ext.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elements.filterBox);
+                $("<a />").attr($.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elements.filterBox);
                 let checkList = $("<ul />").appendTo(ext.elements.filterBox);
 
                 if (ext.helper.search.isResultsVisible() === false) { // show bookmarks as tree or one dimensional list
                     $("<li />")
                         .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                            [ext.attr.name]: "viewAsTree",
+                            [$.attr.name]: "viewAsTree",
                             checked: config.viewAsTree ? "checked" : ""
                         }))
                         .append("<a>" + ext.helper.i18n.get("sort_view_as_tree") + "</a>")
@@ -357,7 +362,7 @@
                 if (sort.name === "mostUsed") { // sort most used based on total clicks or clicks per month
                     $("<li />")
                         .append(ext.helper.checkbox.get(ext.elements.iframeBody, {
-                            [ext.attr.name]: "mostViewedPerMonth",
+                            [$.attr.name]: "mostViewedPerMonth",
                             checked: config.mostViewedPerMonth ? "checked" : ""
                         }))
                         .append("<a>" + ext.helper.i18n.get("sort_most_used_per_month") + "</a>")
@@ -414,7 +419,7 @@
 
             bookmarks.some((bookmark, idx) => {
                 if ((config.showHidden || ext.helper.entry.isVisible(bookmark.id)) && (bookmark.children || bookmark.url)) { // is dir or link -> fix for search results (chrome returns dirs without children and without url)
-                    if (ext.opts.demoMode) {
+                    if ($.opts.demoMode) {
                         if (bookmark.children) {
                             bookmark.title = "Directory " + (idx + 1);
                         } else {
@@ -457,21 +462,21 @@
          * @param {object} config
          */
         let updatePinnedEntries = (config) => {
-            ext.elements.lockPinned.removeClass(ext.cl.sidebar.fixed);
-            ext.elements.pinnedBox.removeClass([ext.cl.sidebar.hidden, ext.cl.sidebar.fixed]);
+            ext.elements.lockPinned.removeClass($.cl.sidebar.fixed);
+            ext.elements.pinnedBox.removeClass([$.cl.general.hidden, $.cl.sidebar.fixed]);
 
             ext.elements.pinnedBox.children("ul").remove();
             let pinnedEntries = ext.helper.entry.getAllDataByType("pinned");
 
             if (pinnedEntries.length === 0) {
-                ext.elements.pinnedBox.addClass(ext.cl.sidebar.hidden);
+                ext.elements.pinnedBox.addClass($.cl.general.hidden);
             } else {
                 sortEntries(pinnedEntries);
                 let list = $("<ul />").appendTo(ext.elements.pinnedBox);
 
                 if (ext.helper.model.getData("u/lockPinned")) {
-                    ext.elements.lockPinned.addClass(ext.cl.sidebar.fixed);
-                    ext.elements.pinnedBox.addClass(ext.cl.sidebar.fixed);
+                    ext.elements.lockPinned.addClass($.cl.sidebar.fixed);
+                    ext.elements.pinnedBox.addClass($.cl.sidebar.fixed);
                 }
 
                 pinnedEntries.forEach((entry, i) => {
@@ -498,32 +503,32 @@
             let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "";
             let entryContent = $("<a />").appendTo(entry);
 
-            let labelElm = $("<span />").addClass(ext.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
-            let dragElm = $("<span />").addClass(ext.cl.drag.trigger).appendTo(entryContent);
+            let labelElm = $("<span />").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
+            let dragElm = $("<span />").addClass($.cl.drag.trigger).appendTo(entryContent);
 
             if (bookmark.id) {
-                entryContent.attr(ext.attr.id, bookmark.id);
+                entryContent.attr($.attr.id, bookmark.id);
             }
 
             if (ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
-                entry.addClass(ext.cl.sidebar.hidden);
+                entry.addClass($.cl.general.hidden);
             }
 
             if (ext.helper.entry.isSeparator(bookmark.id)) { // separator
-                entryContent.addClass(ext.cl.sidebar.separator);
+                entryContent.addClass($.cl.sidebar.separator);
                 labelElm.text("");
             } else if (bookmark.children) { // dir
-                entryContent.addClass(ext.cl.sidebar.bookmarkDir);
+                entryContent.addClass($.cl.sidebar.bookmarkDir);
 
                 if (opts.config.showDirectoryIcons) {
-                    entryContent.prepend("<span class='" + ext.cl.sidebar.dirIcon + "' />");
+                    entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' />");
                 }
             } else if (bookmark.url) { // link
-                entryContent.addClass(ext.cl.sidebar.bookmarkLink);
+                entryContent.addClass($.cl.sidebar.bookmarkLink);
 
                 if (opts.config.showBookmarkIcons) {
-                    if (ext.opts.demoMode) {
-                        entryContent.prepend("<span class='" + ext.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                    if ($.opts.demoMode) {
+                        entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
                     } else {
                         addFavicon(entryContent, bookmark.url);
                     }
@@ -543,9 +548,9 @@
         let loadMissingFavicons = (wrapper, cache = false) => {
             return new Promise((resolve) => {
                 let promises = [];
-                wrapper.find("a." + ext.cl.sidebar.bookmarkLink + " > img[" + ext.attr.value + "]").forEach((img) => {
+                wrapper.find("a." + $.cl.sidebar.bookmarkLink + " > img[" + $.attr.value + "]").forEach((img) => {
                     let entry = $(img).parent("a");
-                    let url = $(img).attr(ext.attr.value);
+                    let url = $(img).attr($.attr.value);
                     promises.push(addFavicon(entry, url));
                 });
 
@@ -575,15 +580,15 @@
         let addFavicon = (elm, url) => {
             elm.children("img").remove();
             let favicon = $("<img />").prependTo(elm);
-            favicon.attr(ext.attr.value, url);
+            favicon.attr($.attr.value, url);
 
             return new Promise((resolve) => {
                 ext.helper.model.call("favicon", {url: url}).then((response) => { // retrieve favicon of url
                     if (response.img) { // favicon found -> add to entry
-                        let sidebarOpen = ext.elements.iframe.hasClass(ext.cl.page.visible);
-                        favicon.attr(sidebarOpen ? "src" : ext.attr.src, response.img);
+                        let sidebarOpen = ext.elements.iframe.hasClass($.cl.page.visible);
+                        favicon.attr(sidebarOpen ? "src" : $.attr.src, response.img);
                     }
-                    favicon.removeAttr(ext.attr.value);
+                    favicon.removeAttr($.attr.value);
                     resolve();
                 });
             });
@@ -685,7 +690,7 @@
                     this.restoreOpenStates(list);
                 } else {
                     let openStates = ext.helper.model.getData("u/openStates");
-                    openStates[elm.attr(ext.attr.id)] = open;
+                    openStates[elm.attr($.attr.id)] = open;
 
                     if (open === false) {
                         closeAllChildDirs(elm, openStates);
@@ -700,9 +705,9 @@
 
                 $.delay(instant ? 0 : (+dirOpenDurationRaw * 1000)).then(() => { // unset changes in css, so opening of children in child list works properly
                     if (open === false) {
-                        elm.removeClass(ext.cl.sidebar.dirOpened);
+                        elm.removeClass($.cl.sidebar.dirOpened);
                     } else {
-                        elm.addClass(ext.cl.sidebar.dirOpened);
+                        elm.addClass($.cl.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
                             let visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
 
@@ -713,7 +718,7 @@
                         }
                     }
                     list.css("height", "");
-                    elm.removeClass(ext.cl.sidebar.dirAnimated);
+                    elm.removeClass($.cl.sidebar.dirAnimated);
 
                     resolve();
                 });
@@ -727,10 +732,10 @@
          * @param {object} openStates
          */
         let closeAllChildDirs = (elm, openStates) => {
-            elm.next("ul").find("a." + ext.cl.sidebar.bookmarkDir).forEach((node) => {
-                openStates[$(node).attr(ext.attr.id)] = false;
+            elm.next("ul").find("a." + $.cl.sidebar.bookmarkDir).forEach((node) => {
+                openStates[$(node).attr($.attr.id)] = false;
                 $.delay(500).then(() => {
-                    $(node).removeClass(ext.cl.sidebar.dirOpened);
+                    $(node).removeClass($.cl.sidebar.dirOpened);
                 });
             });
 
@@ -752,21 +757,21 @@
             return new Promise((resolve) => {
                 ext.log("Load html from cache");
                 list.html(cachedHtml);
-                list.find("a." + ext.cl.sidebar.mark).removeClass(ext.cl.sidebar.mark);
-                list.find("a." + ext.cl.sidebar.hover).removeClass(ext.cl.sidebar.hover);
-                list.find("a." + ext.cl.drag.dragHover).removeClass(ext.cl.drag.dragHover);
-                list.find("a." + ext.cl.sidebar.lastHover).removeClass(ext.cl.sidebar.lastHover);
-                list.find("li." + ext.cl.drag.dragInitial).removeClass(ext.cl.drag.dragInitial);
-                list.find("li." + ext.cl.drag.isDragged).remove();
+                list.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
+                list.find("a." + $.cl.general.hover).removeClass($.cl.general.hover);
+                list.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
+                list.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
+                list.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);
+                list.find("li." + $.cl.drag.isDragged).remove();
 
                 loadMissingFavicons(list, true);
-                ext.elements.bookmarkBox.all.addClass(ext.cl.sidebar.cached);
+                ext.elements.bookmarkBox.all.addClass($.cl.sidebar.cached);
 
                 this.updateSidebarHeader();
                 this.updateSortFilter();
 
                 if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                    list.addClass(ext.cl.sidebar.hideRoot);
+                    list.addClass($.cl.sidebar.hideRoot);
                 }
 
                 restoreScrollPos();
@@ -785,11 +790,11 @@
                 ext.log("Load html from object");
                 let entries = [];
                 let viewAsTree = ext.helper.model.getData("u/viewAsTree");
-                ext.elements.bookmarkBox.all.removeClass(ext.cl.sidebar.cached);
+                ext.elements.bookmarkBox.all.removeClass($.cl.sidebar.cached);
 
                 ext.helper.model.call("bookmarks", {id: 0}).then((response) => {
                     ext.refreshRun = true;
-                    list.removeClass(ext.cl.sidebar.hideRoot).text("");
+                    list.removeClass($.cl.sidebar.hideRoot).text("");
 
                     if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
                         entries = response.bookmarks[0].children;
@@ -803,8 +808,8 @@
                         this.addBookmarkDir(entries, list, true);
 
                         if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                            list.addClass(ext.cl.sidebar.hideRoot);
-                            this.toggleBookmarkDir(list.find("> li > a." + ext.cl.sidebar.bookmarkDir).eq(0));
+                            list.addClass($.cl.sidebar.hideRoot);
+                            this.toggleBookmarkDir(list.find("> li > a." + $.cl.sidebar.bookmarkDir).eq(0));
                         } else {
                             this.restoreOpenStates(list);
                         }
@@ -829,7 +834,7 @@
                 ext.firstRun = false;
                 ext.refreshRun = false;
 
-                if ((ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") && !ext.elements.bookmarkBox.all.hasClass(ext.cl.sidebar.cached)) {
+                if ((ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") && !ext.elements.bookmarkBox.all.hasClass($.cl.sidebar.cached)) {
                     this.cacheList();
                 }
 

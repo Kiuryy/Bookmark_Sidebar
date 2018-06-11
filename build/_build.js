@@ -71,8 +71,7 @@
                     func.concat( // concat extension javascripts
                         [
                             path.src + "js/helper/**/*.js",
-                            path.src + "js/extension.js",
-                            path.src + "js/init.js"
+                            path.src + "js/extension.js"
                         ],
                         path.tmp + "extension-merged.js"
                     ),
@@ -85,6 +84,7 @@
                     ),
                     func.concat( // concat settings javascripts
                         [
+                            path.src + "js/opts.js",
                             path.src + "js/lib/colorpicker.js",
                             path.src + "js/settings/*.js",
                             path.src + "js/settings.js"
@@ -115,6 +115,7 @@
                             path.tmp + "settings.js",
                             path.tmp + "background.js",
                             path.tmp + "newtab.js",
+                            path.src + "js/opts.js",
                             path.src + "js/changelog.js",
                             path.src + "js/onboarding.js"
                         ], path.dist + "js/"),
@@ -210,7 +211,7 @@
                 func.replace({ // parse manifest.json
                     [path.src + "manifest.json"]: path.tmp + "manifest.json"
                 }, [
-                    [/("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig, "$1\"js/lib/jsu.js\",\"js/extension.js\"$3"],
+                    [/("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig, "$1\"js/lib/jsu.js\",\"js/opts.js\",\"js/extension.js\"$3"],
                     [/("background":[\s\S]*?"scripts":\s?\[)([\s\S]*?)(\])/mig, "$1\"js/lib/jsu.js\",\"js/background.js\"$3"],
                     [/("version":[\s]*")[^"]*("[\s]*,)/ig, "$1" + process.env.npm_package_version + "$2"],
                     [/("version_name":[\s]*")[^"]*("[\s]*,)/ig, "$1" + process.env.npm_package_versionName + "$2"],

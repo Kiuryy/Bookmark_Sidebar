@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    let opts = {
+    $.opts = {
         ids: {
             page: {
                 iframe: "blockbyte-bs-sidebar",
@@ -22,6 +22,15 @@
             }
         },
         classes: {
+            general: {
+                active: "active",
+                visible: "visible",
+                hidden: "hidden",
+                success: "success",
+                error: "error",
+                close: "close",
+                hover: "hover",
+            },
             page: {
                 visible: "blockbyte-bs-visible",
                 hideMask: "blockbyte-bs-hideMask",
@@ -38,7 +47,6 @@
                 extLoaded: "loaded",
                 openedOnce: "openedOnce",
                 permanent: "permanent",
-                active: "active",
                 cached: "cached",
                 mark: "mark",
                 hideRoot: "hideRoot",
@@ -52,8 +60,6 @@
                 entryPinned: "pinned",
                 menu: "menu",
                 sort: "sort",
-                hidden: "hidden",
-                hover: "hover",
                 fixed: "fixed",
                 lockPinned: "lockPinned",
                 lastHover: "lastHover",
@@ -69,13 +75,11 @@
                 restored: "restored"
             },
             tooltip: {
-                wrapper: "tooltip",
-                visible: "visible"
+                wrapper: "tooltip"
             },
             contextmenu: {
                 wrapper: "contextmenu",
                 top: "top",
-                visible: "visible",
                 list: "list",
                 icons: "icons",
                 right: "right",
@@ -92,29 +96,20 @@
             },
             scrollBox: {
                 wrapper: "scrollBox",
-                scrollbar: "scrollbar",
-                inactive: "inactive",
                 hideScrollbar: "hideScrollbar",
-                hidden: "hidden",
                 scrolled: "scrolled"
             },
             checkbox: {
                 box: "checkbox",
-                active: "active",
                 clicked: "clicked",
                 focus: "focus"
             },
             overlay: {
                 modal: "modal",
-                visible: "visible",
                 preview: "preview",
                 previewUrl: "previewUrl",
                 info: "info",
                 action: "action",
-                close: "close",
-                hasTooltip: "tooltip",
-                inputError: "error",
-                success: "success",
                 progressBar: "progressBar",
                 buttonWrapper: "buttons",
                 checkUrlProgressLabel: "progressLabel",
@@ -148,5 +143,6 @@
         demoMode: false
     };
 
-    new window.ext(opts).run();
+    $.cl = $.opts.classes;
+    $.attr = $.opts.attr;
 })(jsu);

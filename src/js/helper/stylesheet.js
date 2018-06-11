@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, font
+     * @param {object} ext
+     * @constructor
+     */
     window.StylesheetHelper = function (ext) {
 
         let styles = {};
@@ -26,9 +31,9 @@
             } else { // extension context
                 ext.helper.font.addStylesheet(context);
 
-                if (ext.cl && ext.cl.page) {
-                    if (ext.helper.model.getData("b/animations") === false && ext.cl.page.noAnimations) {
-                        context.find("body").addClass(ext.cl.page.noAnimations);
+                if ($.cl && $.cl.page) {
+                    if (ext.helper.model.getData("b/animations") === false && $.cl.page.noAnimations) {
+                        context.find("body").addClass($.cl.page.noAnimations);
                     }
                 }
             }
@@ -50,9 +55,9 @@
                             css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styles[key]);
                         });
 
-                        if (ext.cl && ext.cl.page && ext.cl.page.style && ext.attr && ext.attr.name) {
-                            head.find("style." + ext.cl.page.style + "[" + ext.attr.name + "='" + file + "']").remove();
-                            head.append("<style class='" + ext.cl.page.style + "' " + ext.attr.name + "='" + file + "'>" + css + "</style>");
+                        if ($.cl && $.cl.page && $.cl.page.style && $.attr && $.attr.name) {
+                            head.find("style." + $.cl.page.style + "[" + $.attr.name + "='" + file + "']").remove();
+                            head.append("<style class='" + $.cl.page.style + "' " + $.attr.name + "='" + file + "'>" + css + "</style>");
                         } else {
                             head.append("<style>" + css + "</style>");
                         }

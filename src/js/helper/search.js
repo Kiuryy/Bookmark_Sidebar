@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, contextmenu, tooltip, scroll, list, entry
+     * @param {object} ext
+     * @constructor
+     */
     window.SearchHelper = function (ext) {
 
         let searchTimeout = null;
@@ -18,7 +23,7 @@
          * @returns {bool}
          */
         this.isResultsVisible = () => {
-            return ext.elements.bookmarkBox.search.hasClass(ext.cl.sidebar.active);
+            return ext.elements.bookmarkBox.search.hasClass($.cl.general.active);
         };
 
         /**
@@ -30,7 +35,7 @@
             return new Promise((resolve) => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
-                ext.elements.header.removeClass(ext.cl.sidebar.searchVisible);
+                ext.elements.header.removeClass($.cl.sidebar.searchVisible);
                 this.update("").then(resolve);
             });
         };
@@ -43,7 +48,7 @@
          */
         this.update = (val = null) => {
             return new Promise((resolve) => {
-                let searchField = ext.elements.header.find("div." + ext.cl.sidebar.searchBox + " > input[type='text']");
+                let searchField = ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
                 if (val === null) {
                     val = searchField[0].value;
                 } else {
@@ -68,8 +73,8 @@
         let handleSearch = (searchField, val) => {
             return new Promise((resolve) => {
                 let isFirstRun = ext.firstRun;
-                ext.elements.bookmarkBox.all.removeClass(ext.cl.sidebar.active).removeClass(ext.cl.scrollBox.scrolled);
-                ext.elements.bookmarkBox.search.addClass(ext.cl.sidebar.active);
+                ext.elements.bookmarkBox.all.removeClass($.cl.general.active).removeClass($.cl.scrollBox.scrolled);
+                ext.elements.bookmarkBox.search.addClass($.cl.general.active);
                 ext.helper.scroll.focus();
                 ext.helper.list.updateSortFilter();
 
@@ -141,8 +146,8 @@
 
                 if (this.isResultsVisible()) {
                     ext.startLoading();
-                    ext.elements.bookmarkBox.all.addClass(ext.cl.sidebar.active);
-                    ext.elements.bookmarkBox.search.removeClass(ext.cl.sidebar.active);
+                    ext.elements.bookmarkBox.all.addClass($.cl.general.active);
+                    ext.elements.bookmarkBox.search.removeClass($.cl.general.active);
                     ext.helper.scroll.restoreScrollPos(ext.elements.bookmarkBox.all);
                     ext.helper.scroll.focus();
                     ext.endLoading();
@@ -158,16 +163,16 @@
          * Initializes the events for the search field
          */
         let initEvents = () => {
-            ext.elements.header.on("click", "a." + ext.cl.sidebar.search, (e) => {
+            ext.elements.header.on("click", "a." + $.cl.sidebar.search, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
-                ext.elements.header.addClass(ext.cl.sidebar.searchVisible);
-                ext.elements.header.find("div." + ext.cl.sidebar.searchBox + " > input[type='text']")[0].focus();
+                ext.elements.header.addClass($.cl.sidebar.searchVisible);
+                ext.elements.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].focus();
             });
 
-            ext.elements.header.on("keyup", "div." + ext.cl.sidebar.searchBox + " > input[type='text']", (e) => {
+            ext.elements.header.on("keyup", "div." + $.cl.sidebar.searchBox + " > input[type='text']", (e) => {
                 e.preventDefault();
                 if (searchTimeout) {
                     clearTimeout(searchTimeout);
@@ -179,7 +184,7 @@
                 }, 500);
             });
 
-            ext.elements.header.on("click", "a." + ext.cl.sidebar.searchClose, (e) => {
+            ext.elements.header.on("click", "a." + $.cl.sidebar.searchClose, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 this.clearSearch();

@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model
+     * @param {object} ext
+     * @constructor
+     */
     window.EntryHelper = function (ext) {
 
         let inited = false;

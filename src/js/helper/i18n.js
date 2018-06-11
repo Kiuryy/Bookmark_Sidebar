@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model
+     * @param {object} ext
+     * @constructor
+     */
     window.I18nHelper = function (ext) {
 
         let language = null;
@@ -61,7 +66,7 @@
          * @returns {string}
          */
         this.getDefaultLanguage = () => {
-            return ext.opts.manifest.default_locale;
+            return $.opts.manifest.default_locale;
         };
 
         /**

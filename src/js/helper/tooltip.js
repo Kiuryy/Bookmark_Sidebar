@@ -1,6 +1,11 @@
 ($ => {
     "use strict";
 
+    /**
+     * @requires helper: model, i18n, entry, toggle
+     * @param {object} ext
+     * @constructor
+     */
     window.TooltipHelper = function (ext) {
 
         let timeout = {};
@@ -24,25 +29,25 @@
          * @param {jsu} elm
          */
         this.create = (elm) => {
-            let id = elm.attr(ext.attr.id);
+            let id = elm.attr($.attr.id);
 
             if (id && ext.helper.entry.isSeparator(id) === false) {
                 ext.helper.toggle.addSidebarHoverClass();
 
                 closeAllExcept(id);
-                let existingTooltip = ext.elements.iframeBody.find("div." + ext.cl.tooltip.wrapper + "[" + ext.attr.id + "='" + id + "']");
+                let existingTooltip = ext.elements.iframeBody.find("div." + $.cl.tooltip.wrapper + "[" + $.attr.id + "='" + id + "']");
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
                     if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
-                        existingTooltip.addClass(ext.cl.tooltip.visible);
+                        existingTooltip.addClass($.cl.general.visible);
                     }
                 } else if (+config.tooltipDelay !== -1) { // no tooltip for the given element yet -> generate and show it after the configured delay (if delay > -1)
                     let data = ext.helper.entry.getDataById(id);
 
                     if (data) {
                         let tooltip = $("<div />")
-                            .addClass(ext.cl.tooltip.wrapper)
-                            .attr(ext.attr.id, id)
+                            .addClass($.cl.tooltip.wrapper)
+                            .attr($.attr.id, id)
                             .appendTo(ext.elements.iframeBody);
 
                         addContent(tooltip, data);
@@ -53,7 +58,7 @@
                         }
 
                         timeout[id] = setTimeout(() => {
-                            tooltip.addClass(ext.cl.tooltip.visible);
+                            tooltip.addClass($.cl.general.visible);
                             tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
 
                             setHorizontalPosition(tooltip, elm);
@@ -123,17 +128,17 @@
             });
             timeout = {};
 
-            let tooltips = ext.elements.iframeBody.find("div." + ext.cl.tooltip.wrapper + (except ? ":not([" + ext.attr.id + "='" + except + "'])" : ""));
+            let tooltips = ext.elements.iframeBody.find("div." + $.cl.tooltip.wrapper + (except ? ":not([" + $.attr.id + "='" + except + "'])" : ""));
             let hasVisibleTooltips = false;
 
             tooltips.forEach((tooltip) => {
-                if ($(tooltip).hasClass(ext.cl.tooltip.visible)) {
+                if ($(tooltip).hasClass($.cl.general.visible)) {
                     hasVisibleTooltips = true;
                     return false;
                 }
             });
 
-            tooltips.removeClass(ext.cl.tooltip.visible);
+            tooltips.removeClass($.cl.general.visible);
             $.delay(hasVisibleTooltips ? 300 : 0).then(() => {
                 tooltips.remove();
                 ext.helper.toggle.removeSidebarHoverClass();

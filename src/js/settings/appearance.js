@@ -225,8 +225,8 @@
 
             if (sidebar.length() > 0) {
                 let sidebarHeader = sidebar.find("> header");
-                sidebarHeader.find("> h1").removeClass($.cl.general.hidden);
-                sidebarHeader.find("> h1 > span").removeClass($.cl.general.hidden);
+                sidebarHeader.find("> h1").removeClass($.cl.hidden);
+                sidebarHeader.find("> h1 > span").removeClass($.cl.hidden);
 
                 ["label", "amount"].forEach((type) => {
                     let lastOffset = null;
@@ -236,9 +236,9 @@
                             lastOffset = icon.offsetTop;
                         } else if (lastOffset !== icon.offsetTop || sidebarHeader.find("> h1")[0].offsetTop === 0) { // header elements  are not in one line anymore -> header to small -> remove some markup
                             if (type === "label") {
-                                sidebarHeader.find("> h1 > span").addClass($.cl.general.hidden);
+                                sidebarHeader.find("> h1 > span").addClass($.cl.hidden);
                             } else if (type === "amount") {
-                                sidebarHeader.find("> h1").addClass($.cl.general.hidden);
+                                sidebarHeader.find("> h1").addClass($.cl.hidden);
                             }
                             return false;
                         }
@@ -260,7 +260,7 @@
             if (tooltip.length() > 0 && entry.length() > 0) {
                 if (+new Date() - lastTooltipChange < 2000) {
                     let rect = entry[0].getBoundingClientRect();
-                    tooltip.addClass($.cl.general.visible);
+                    tooltip.addClass($.cl.visible);
 
                     let left = rect.x - tooltip[0].offsetWidth;
                     if (s.helper.i18n.isRtl()) {
@@ -272,7 +272,7 @@
                         left: left + "px"
                     });
                 } else {
-                    tooltip.removeClass($.cl.general.visible);
+                    tooltip.removeClass($.cl.visible);
                 }
             }
         };

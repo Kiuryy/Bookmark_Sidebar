@@ -26,7 +26,7 @@
         this.run = () => {
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.elm.body);
-            this.elm.body.addClass($.cl.general.initLoading);
+            this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -42,7 +42,7 @@
 
                 return this.helper.model.call("trackPageView", {page: "/onboarding", always: true});
             }).then(() => {
-                this.elm.body.removeClass($.cl.general.building);
+                this.elm.body.removeClass($.cl.building);
 
                 this.elm.sidebar.right = $(this.elm.sidebar.left[0].outerHTML).appendTo(this.elm.body);
                 this.elm.sidebar.right.attr($.attr.position, "right");
@@ -56,7 +56,7 @@
                 initFinishedEvents();
 
                 $.delay(500).then(() => { // finish loading
-                    this.elm.body.removeClass($.cl.general.initLoading);
+                    this.elm.body.removeClass($.cl.initLoading);
                     gotoSlide("intro");
                     return $.delay(300);
                 }).then(() => {
@@ -120,10 +120,10 @@
                 this.elm.body.attr($.attr.position, value);
 
                 Object.values(this.elm.sidebar).forEach((sidebar) => {
-                    sidebar.removeClass($.cl.general.visible);
+                    sidebar.removeClass($.cl.visible);
                 });
 
-                this.elm.sidebar[value].addClass($.cl.general.visible);
+                this.elm.sidebar[value].addClass($.cl.visible);
 
                 if (e.type === "click") {
                     this.helper.model.setData({"b/sidebarPosition": value}).then(() => {
@@ -134,9 +134,9 @@
             }).on("mouseleave", (e) => {
                 let slide = $(e.currentTarget).parent();
                 $.delay().then(() => {
-                    if (slide.hasClass($.cl.general.visible)) {
+                    if (slide.hasClass($.cl.visible)) {
                         Object.values(this.elm.sidebar).forEach((sidebar) => {
-                            sidebar.removeClass($.cl.general.visible);
+                            sidebar.removeClass($.cl.visible);
                         });
                     }
                 });
@@ -162,7 +162,7 @@
                     styles.hoverColor = this.helper.model.getDefaultColor("hoverColor", value);
 
                     Object.values(this.elm.sidebar).forEach((sidebar) => {
-                        sidebar.removeClass($.cl.general.visible);
+                        sidebar.removeClass($.cl.visible);
                     });
 
                     this.helper.model.setData({
@@ -176,7 +176,7 @@
             }).on("mouseleave", (e) => {
                 let slide = $(e.currentTarget).parent();
                 $.delay().then(() => {
-                    if (slide.hasClass($.cl.general.visible)) {
+                    if (slide.hasClass($.cl.visible)) {
                         this.elm.body.removeAttr($.attr.onboarding.surface);
                     }
                 });
@@ -204,7 +204,7 @@
                     }
                 }
             }).on("mouseleave", (e) => {
-                if ($(e.currentTarget).parent("section").hasClass($.cl.general.visible)) {
+                if ($(e.currentTarget).parent("section").hasClass($.cl.visible)) {
                     this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
                 }
             });
@@ -215,7 +215,7 @@
          */
         let initHandsOnEvents = () => {
             $(document).on($.opts.events.sidebarOpened, () => {
-                if (!$("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished']").hasClass($.cl.general.visible)) {
+                if (!$("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished']").hasClass($.cl.visible)) {
                     this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
                     gotoSlide("finished");
                 }
@@ -240,7 +240,7 @@
          * Shows the next slide
          */
         let gotoNextSlide = () => {
-            let name = $("section." + $.cl.onboarding.slide + "." + $.cl.general.visible).next("section." + $.cl.onboarding.slide).attr($.attr.name);
+            let name = $("section." + $.cl.onboarding.slide + "." + $.cl.visible).next("section." + $.cl.onboarding.slide).attr($.attr.name);
             gotoSlide(name);
         };
 
@@ -250,8 +250,8 @@
          * @param {string} name
          */
         let gotoSlide = (name) => {
-            let slide = $("section." + $.cl.onboarding.slide + "." + $.cl.general.visible);
-            slide.removeClass($.cl.general.visible);
+            let slide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
+            slide.removeClass($.cl.visible);
 
             $.delay(300).then(() => {
                 this.helper.model.call("trackEvent", {
@@ -261,7 +261,7 @@
                     always: true
                 });
 
-                $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.general.visible);
+                $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
             });
         };
 
@@ -273,7 +273,7 @@
             loadSidebar();
 
             Object.values(this.elm.sidebar).forEach((sidebar) => { // hide placeholder sidebar
-                sidebar.removeClass($.cl.general.visible);
+                sidebar.removeClass($.cl.visible);
             });
 
             let slide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']");

@@ -38,10 +38,10 @@
                         resolve();
                     });
                 } else {
-                    s.elm.feedback.form.addClass($.cl.general.hidden);
+                    s.elm.feedback.form.addClass($.cl.hidden);
 
                     $("<p />")
-                        .addClass($.cl.general.error)
+                        .addClass($.cl.error)
                         .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
                         .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
                         .insertAfter(s.elm.feedback.form);
@@ -97,7 +97,7 @@
                 showAnswer = true;
             }
 
-            suggestions.forEach((key, i) => {
+            suggestions.forEach((key) => {
                 if (data && data.suggestions && data.suggestions[key]) {
                     suggestionInfo.displayed.push(key);
                     showSuggestion(key, data.suggestions[key], showAnswer);
@@ -149,7 +149,7 @@
                 });
 
                 let suggestion = $("<div />")
-                    .addClass([$.cl.settings.suggestion, $.cl.general.hidden, $.cl.settings.feedback.absolute])
+                    .addClass([$.cl.settings.suggestion, $.cl.hidden, $.cl.settings.feedback.absolute])
                     .attr($.attr.type, key)
                     .append("<strong>" + obj.question.message + "</strong>")
                     .append("<div class='" + $.cl.settings.feedback.answer + "'>" + obj.answer.message + "</div>")
@@ -166,7 +166,7 @@
 
                 $.delay().then(() => {
                     answer.css("height", answer[0].offsetHeight + "px");
-                    answer.addClass([$.cl.settings.feedback.noHeight, $.cl.general.hidden]);
+                    answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
 
                     return $.delay(300);
                 }).then(() => {
@@ -180,9 +180,9 @@
                 }).then(() => {
                     suggestion
                         .css("height", "")
-                        .removeClass($.cl.general.hidden);
+                        .removeClass($.cl.hidden);
 
-                    s.elm.feedback.suggestions.addClass($.cl.general.visible);
+                    s.elm.feedback.suggestions.addClass($.cl.visible);
 
                     if (showAnswer) {
                         showSuggestionAnswer(suggestion);
@@ -223,7 +223,7 @@
             suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.settings.feedback.noHeight);
 
             $.delay(300).then(() => {
-                suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.general.hidden);
+                suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.hidden);
             });
         };
 
@@ -236,7 +236,7 @@
 
             suggestion
                 .css("height", suggestion[0].offsetHeight + "px")
-                .addClass($.cl.general.hidden);
+                .addClass($.cl.hidden);
 
             $.delay(200).then(() => {
                 suggestion.addClass($.cl.settings.feedback.noHeight);
@@ -246,7 +246,7 @@
                 return $.delay();
             }).then(() => {
                 if (s.elm.feedback.suggestions.children("div." + $.cl.settings.suggestion).length() === 0) {
-                    s.elm.feedback.suggestions.removeClass($.cl.general.visible);
+                    s.elm.feedback.suggestions.removeClass($.cl.visible);
 
                     $.delay(300).then(() => {
                         s.elm.feedback.wrapper.removeClass($.cl.settings.feedback.onlySuggestions);
@@ -314,7 +314,7 @@
             if (isEmailValid && isMessageValid) {
                 let loadStartTime = +new Date();
                 let loader = s.helper.template.loading().appendTo(s.elm.body);
-                s.elm.body.addClass($.cl.general.loading);
+                s.elm.body.addClass($.cl.loading);
                 let infos = null;
 
                 $.xhr($.opts.ajax.feedback.form, {
@@ -332,7 +332,7 @@
                     infos = JSON.parse(xhr.responseText);
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))); // load at least 1s
                 }).then(() => {
-                    s.elm.body.removeClass($.cl.general.loading);
+                    s.elm.body.removeClass($.cl.loading);
                     loader.remove();
 
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
@@ -353,13 +353,13 @@
                     }
                 });
             } else if (!isEmailValid) {
-                s.elm.field.feedbackEmail.addClass($.cl.general.error);
+                s.elm.field.feedbackEmail.addClass($.cl.error);
             } else if (!isMessageValid) {
-                s.elm.textarea.feedbackMsg.addClass($.cl.general.error);
+                s.elm.textarea.feedbackMsg.addClass($.cl.error);
             }
 
             $.delay(700).then(() => {
-                $("." + $.cl.general.error).removeClass($.cl.general.error);
+                $("." + $.cl.error).removeClass($.cl.error);
             });
         };
     };

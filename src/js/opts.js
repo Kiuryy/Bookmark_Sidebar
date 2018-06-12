@@ -22,18 +22,16 @@
             }
         },
         classes: {
-            general: {
-                active: "active",
-                visible: "visible",
-                hidden: "hidden",
-                success: "success",
-                error: "error",
-                close: "close",
-                hover: "hover",
-                loading: "loading",
-                building: "building",
-                initLoading: "initLoading",
-            },
+            active: "active",
+            visible: "visible",
+            hidden: "hidden",
+            success: "success",
+            error: "error",
+            close: "close",
+            hover: "hover",
+            loading: "loading",
+            building: "building",
+            initLoading: "initLoading",
             page: {
                 visible: "blockbyte-bs-visible",
                 hideMask: "blockbyte-bs-hideMask",

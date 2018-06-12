@@ -41,7 +41,7 @@
                 if (lang) {
                     let loadStartTime = +new Date();
                     let loader = s.helper.template.loading().appendTo(s.elm.body);
-                    s.elm.body.addClass($.cl.general.loading);
+                    s.elm.body.addClass($.cl.loading);
 
                     let vars = {};
 
@@ -73,7 +73,7 @@
                         s.showSuccessMessage("translation_submit_message");
                         return $.delay(1500);
                     }).then(() => { // reload page
-                        s.elm.body.removeClass($.cl.general.loading);
+                        s.elm.body.removeClass($.cl.loading);
                         initEditForm(lang);
                     });
                 } else {
@@ -165,7 +165,7 @@
                         addSelectForMissingLangs(missingLanguages);
                     }
 
-                    s.elm.translation.overview.addClass($.cl.general.visible);
+                    s.elm.translation.overview.addClass($.cl.visible);
                     resolve();
                 });
             });
@@ -211,16 +211,16 @@
         };
 
         let gotoOverview = () => {
-            s.elm.translation.wrapper.find("." + $.cl.general.visible).removeClass($.cl.general.visible);
-            s.elm.translation.overview.addClass($.cl.general.visible);
-            s.elm.buttons.save.addClass($.cl.general.hidden);
+            s.elm.translation.wrapper.find("." + $.cl.visible).removeClass($.cl.visible);
+            s.elm.translation.overview.addClass($.cl.visible);
+            s.elm.buttons.save.addClass($.cl.hidden);
         };
 
         let showUnavailableText = () => {
-            s.elm.translation.unavailable.addClass($.cl.general.visible);
+            s.elm.translation.unavailable.addClass($.cl.visible);
 
-            if (s.elm.translation.wrapper.hasClass($.cl.general.active)) {
-                s.elm.buttons.save.addClass($.cl.general.hidden);
+            if (s.elm.translation.wrapper.hasClass($.cl.active)) {
+                s.elm.buttons.save.addClass($.cl.hidden);
             }
         };
 
@@ -416,8 +416,8 @@
                 }
             }
 
-            s.elm.translation.langvars.removeClass($.cl.general.visible);
-            elm.addClass($.cl.general.visible);
+            s.elm.translation.langvars.removeClass($.cl.visible);
+            elm.addClass($.cl.visible);
 
             s.helper.menu.addBreadcrumb({
                 label: name,
@@ -445,11 +445,11 @@
         let gotoNextPrevEmptyField = (dir, list) => {
             let entries = null;
 
-            if (list.find("li." + $.cl.general.hover).length() > 0) {
+            if (list.find("li." + $.cl.hover).length() > 0) {
                 if (dir === "up") {
-                    entries = list.find("li." + $.cl.general.hover).eq(0).prevAll("li." + $.cl.settings.translation.empty);
+                    entries = list.find("li." + $.cl.hover).eq(0).prevAll("li." + $.cl.settings.translation.empty);
                 } else {
-                    entries = list.find("li." + $.cl.general.hover).eq(0).nextAll("li." + $.cl.settings.translation.empty);
+                    entries = list.find("li." + $.cl.hover).eq(0).nextAll("li." + $.cl.settings.translation.empty);
                 }
             } else if (dir === "down") {
                 entries = list.find("li." + $.cl.settings.translation.empty);
@@ -524,12 +524,12 @@
 
                 elm.find("span." + $.cl.settings.translation.amountInfo + " > span").text(filled); // change counter
             }).on("focus", (e) => { // mark row and textarea if it has the focus
-                elm.find("li").removeClass($.cl.general.hover);
-                $(e.currentTarget).parents("li").eq(0).addClass($.cl.general.hover);
+                elm.find("li").removeClass($.cl.hover);
+                $(e.currentTarget).parents("li").eq(0).addClass($.cl.hover);
             }).on("blur", (e) => {
                 let parentElm = $(e.currentTarget).parents("li").eq(0);
                 $.delay(200).then(() => {
-                    parentElm.removeClass($.cl.general.hover);
+                    parentElm.removeClass($.cl.hover);
                 });
             });
 
@@ -552,11 +552,11 @@
 
             s.elm.translation.langvars.data("lang", lang);
             s.elm.translation.langvars.find("div." + $.cl.settings.boxWrapper).html("");
-            s.elm.translation.wrapper.find("div." + $.cl.settings.translation.category).removeClass($.cl.general.visible);
+            s.elm.translation.wrapper.find("div." + $.cl.settings.translation.category).removeClass($.cl.visible);
 
-            s.elm.buttons.save.removeClass($.cl.general.hidden);
-            s.elm.translation.overview.removeClass($.cl.general.visible);
-            s.elm.translation.langvars.addClass([$.cl.general.visible, $.cl.general.loading]);
+            s.elm.buttons.save.removeClass($.cl.hidden);
+            s.elm.translation.overview.removeClass($.cl.visible);
+            s.elm.translation.langvars.addClass([$.cl.visible, $.cl.loading]);
             let loader = s.helper.template.loading().appendTo(s.elm.translation.langvars);
 
             getLanguageInfos(lang).then((obj) => {
@@ -603,7 +603,7 @@
                     gotoOverview();
                 }
 
-                s.elm.translation.langvars.removeClass($.cl.general.loading);
+                s.elm.translation.langvars.removeClass($.cl.loading);
                 loader.remove();
             });
         };

@@ -39,7 +39,7 @@
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
                     if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
-                        existingTooltip.addClass($.cl.general.visible);
+                        existingTooltip.addClass($.cl.visible);
                     }
                 } else if (+config.tooltipDelay !== -1) { // no tooltip for the given element yet -> generate and show it after the configured delay (if delay > -1)
                     let data = ext.helper.entry.getDataById(id);
@@ -58,7 +58,7 @@
                         }
 
                         timeout[id] = setTimeout(() => {
-                            tooltip.addClass($.cl.general.visible);
+                            tooltip.addClass($.cl.visible);
                             tooltip.css("top", (elm[0].getBoundingClientRect().top + elm.realHeight() / 2 - tooltip.realHeight() / 2) + "px");
 
                             setHorizontalPosition(tooltip, elm);
@@ -132,13 +132,13 @@
             let hasVisibleTooltips = false;
 
             tooltips.forEach((tooltip) => {
-                if ($(tooltip).hasClass($.cl.general.visible)) {
+                if ($(tooltip).hasClass($.cl.visible)) {
                     hasVisibleTooltips = true;
                     return false;
                 }
             });
 
-            tooltips.removeClass($.cl.general.visible);
+            tooltips.removeClass($.cl.visible);
             $.delay(hasVisibleTooltips ? 300 : 0).then(() => {
                 tooltips.remove();
                 ext.helper.toggle.removeSidebarHoverClass();

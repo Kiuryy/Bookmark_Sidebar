@@ -20,7 +20,7 @@
 
                 if (data && data.url) { // delete without confirm dialog, but offer a undo option
                     Object.values(ext.elm.bookmarkBox).some((box) => {
-                        if (box.hasClass($.cl.general.active)) {
+                        if (box.hasClass($.cl.active)) {
                             let entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
                             entry.data("restore", data);
 

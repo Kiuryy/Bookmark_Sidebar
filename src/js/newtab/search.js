@@ -154,12 +154,12 @@
          * @param {string} dir "next" or "prev"
          */
         let selectSuggestion = (dir) => {
-            let activeSuggestion = $("ul." + $.cl.newtab.suggestions + " > li." + $.cl.general.active);
+            let activeSuggestion = $("ul." + $.cl.newtab.suggestions + " > li." + $.cl.active);
             let idx = dir === "next" ? 0 : -1;
 
             if (activeSuggestion.length() > 0) {
                 idx = activeSuggestion.prevAll("li").length() + (dir === "next" ? 1 : -1);
-                activeSuggestion.removeClass($.cl.general.active);
+                activeSuggestion.removeClass($.cl.active);
             }
 
             let fromSuggestion = false;
@@ -169,7 +169,7 @@
 
                 if (suggestion.length() > 0) { // show the suggestion value in the search field
                     fromSuggestion = true;
-                    suggestion.addClass($.cl.general.active);
+                    suggestion.addClass($.cl.active);
                     n.elm.search.field[0].value = suggestion.text().trim();
                 }
             }
@@ -299,8 +299,8 @@
             });
 
             $(document).on("mousemove", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
-                $("ul." + $.cl.newtab.suggestions + " > li").removeClass($.cl.general.active);
-                $(e.currentTarget).addClass($.cl.general.active);
+                $("ul." + $.cl.newtab.suggestions + " > li").removeClass($.cl.active);
+                $(e.currentTarget).addClass($.cl.active);
             }).on("click", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
                 e.preventDefault();
                 e.stopPropagation();

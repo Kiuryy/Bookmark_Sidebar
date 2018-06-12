@@ -35,7 +35,7 @@
             }
 
             if (this.isChecked(container)) {
-                container.addClass($.cl.general.active);
+                container.addClass($.cl.active);
             }
 
             initEvents(container, body);
@@ -66,7 +66,7 @@
                 ext.helper.utility.triggerEvent("checkboxChanged", {
                     container: container,
                     checkbox: checkbox,
-                    checked: container.hasClass($.cl.general.active)
+                    checked: container.hasClass($.cl.active)
                 }, body.document()[0]);
             }
         };
@@ -81,15 +81,15 @@
         let toggleChecked = (container, body) => {
             container.addClass($.cl.checkbox.clicked);
             container.removeClass($.cl.checkbox.focus);
-            container.toggleClass($.cl.general.active);
+            container.toggleClass($.cl.active);
 
-            let isChecked = container.hasClass($.cl.general.active);
+            let isChecked = container.hasClass($.cl.active);
             let checkbox = container.children("input[type='checkbox']");
 
             if (container.attr($.attr.type) === "radio" && container.attr($.attr.name)) { // radio button -> allow only one to be checked with the same name
                 if (body) {
                     let name = container.attr($.attr.name);
-                    container.addClass($.cl.general.active);
+                    container.addClass($.cl.active);
 
                     if (isChecked) { // radio button was not checked before already -> trigger change event
                         checkbox.attr("checked", true);

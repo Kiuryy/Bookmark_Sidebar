@@ -12,8 +12,8 @@
             let typeParam = url.searchParams.get("type");
 
             if (typeParam !== null) {
-                n.elm.topPages.addClass($.cl.general.hidden);
-                n.elm.fallbackInfo.addClass($.cl.general.active);
+                n.elm.topPages.addClass($.cl.hidden);
+                n.elm.fallbackInfo.addClass($.cl.active);
 
                 initDescription(typeParam);
                 initEvents(typeParam);

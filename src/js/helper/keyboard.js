@@ -128,7 +128,7 @@
          * Clicks on the currently hovered overlay entry
          */
         let handleOverlayClick = (overlay) => {
-            let hoveredEntry = overlay.find("menu[" + $.attr.name + "='select'] > a." + $.cl.general.hover);
+            let hoveredEntry = overlay.find("menu[" + $.attr.name + "='select'] > a." + $.cl.hover);
 
             if (hoveredEntry.length() > 0) {
                 hoveredEntry.trigger("click");
@@ -142,7 +142,7 @@
          */
         let handleContextmenuClick = () => {
             let contextmenu = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper);
-            let hoveredEntry = contextmenu.find("a." + $.cl.general.hover);
+            let hoveredEntry = contextmenu.find("a." + $.cl.hover);
 
             if (hoveredEntry.length() > 0) {
                 hoveredEntry.trigger("click");
@@ -159,8 +159,8 @@
          */
         let handleClick = (shift, ctrl) => {
             Object.values(ext.elm.bookmarkBox).some((box) => {
-                if (box.hasClass($.cl.general.active)) {
-                    let hoveredEntry = box.find("ul > li > a." + $.cl.general.hover + ", ul > li > a." + $.cl.sidebar.mark);
+                if (box.hasClass($.cl.active)) {
+                    let hoveredEntry = box.find("ul > li > a." + $.cl.hover + ", ul > li > a." + $.cl.sidebar.mark);
 
                     if (hoveredEntry.length() > 0) {
                         if (shift) { // open contextmenu
@@ -185,7 +185,7 @@
          * Hovers the next entry in the currently visible overlay
          */
         let hoverNextOverlayEntry = (overlay) => {
-            let hoveredEntry = overlay.find("menu[" + $.attr.name + "='select'] > a." + $.cl.general.hover);
+            let hoveredEntry = overlay.find("menu[" + $.attr.name + "='select'] > a." + $.cl.hover);
             let doc = overlay[0].contentDocument;
 
             if (hoveredEntry.length() > 0) {
@@ -197,8 +197,8 @@
                     newActiveElm = overlay.find("menu[" + $.attr.name + "='select'] > a").eq(0);
                 }
 
-                overlay.find("menu[" + $.attr.name + "='select'] > a." + $.cl.general.hover).removeClass($.cl.general.hover);
-                newActiveElm.addClass($.cl.general.hover);
+                overlay.find("menu[" + $.attr.name + "='select'] > a." + $.cl.hover).removeClass($.cl.hover);
+                newActiveElm.addClass($.cl.hover);
             } else if (doc.activeElement.tagName === "INPUT") {
                 let parentEntry = $(doc.activeElement).parent("li");
                 let newActiveElm = null;
@@ -213,7 +213,7 @@
             } else if (overlay.find("input").length() > 0) {
                 overlay.find("input")[0].focus();
             } else if (overlay.find("menu[" + $.attr.name + "='select']").length() > 0) {
-                overlay.find("menu[" + $.attr.name + "='select'] > a").eq(0).addClass($.cl.general.hover);
+                overlay.find("menu[" + $.attr.name + "='select'] > a").eq(0).addClass($.cl.hover);
             }
         };
 
@@ -225,8 +225,8 @@
             let hoveredElm = null;
             let entry = null;
 
-            if (contextmenu.find("a." + $.cl.general.hover).length() > 0) {
-                entry = contextmenu.find("a." + $.cl.general.hover).eq(0);
+            if (contextmenu.find("a." + $.cl.hover).length() > 0) {
+                entry = contextmenu.find("a." + $.cl.hover).eq(0);
             }
 
             if (entry === null) { // hover the first entry
@@ -239,8 +239,8 @@
                 hoveredElm = contextmenu.find("a").eq(0);
             }
 
-            contextmenu.find("a." + $.cl.general.hover).removeClass($.cl.general.hover);
-            hoveredElm.addClass($.cl.general.hover);
+            contextmenu.find("a." + $.cl.hover).removeClass($.cl.hover);
+            hoveredElm.addClass($.cl.hover);
         };
 
         /**
@@ -313,14 +313,14 @@
          */
         let hoverNextPrevEntry = (type) => {
             Object.values(ext.elm.bookmarkBox).some((box) => {
-                if (box.hasClass($.cl.general.active)) {
+                if (box.hasClass($.cl.active)) {
                     let scrollTop = ext.helper.scroll.getScrollPos(box);
                     let firstVisibleEntry = null;
 
                     if (box.find("ul > li > a." + $.cl.sidebar.mark).length() > 0) {
                         firstVisibleEntry = box.find("ul > li > a." + $.cl.sidebar.mark).eq(0).parent("li");
-                    } else if (box.find("ul > li > a." + $.cl.general.hover).length() > 0) {
-                        firstVisibleEntry = box.find("ul > li > a." + $.cl.general.hover).eq(0).parent("li");
+                    } else if (box.find("ul > li > a." + $.cl.hover).length() > 0) {
+                        firstVisibleEntry = box.find("ul > li > a." + $.cl.hover).eq(0).parent("li");
                     } else if (box.find("ul > li > a." + $.cl.sidebar.lastHover).length() > 0) {
                         firstVisibleEntry = box.find("ul > li > a." + $.cl.sidebar.lastHover).eq(0).parent("li");
                     } else {
@@ -336,7 +336,7 @@
                         let link = firstVisibleEntry.children("a");
                         let hoveredElm = null;
 
-                        if (link.hasClass($.cl.general.hover) || link.hasClass($.cl.sidebar.mark)) {
+                        if (link.hasClass($.cl.hover) || link.hasClass($.cl.sidebar.mark)) {
                             if (type === "prev") {
                                 hoveredElm = getPrevEntry(firstVisibleEntry);
                             } else if (type === "next") {
@@ -347,9 +347,9 @@
                         }
 
                         if (hoveredElm) {
-                            box.find("ul > li > a." + $.cl.general.hover).removeClass($.cl.general.hover);
+                            box.find("ul > li > a." + $.cl.hover).removeClass($.cl.hover);
                             box.find("ul > li > a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
-                            hoveredElm.addClass([$.cl.general.hover, $.cl.sidebar.lastHover]);
+                            hoveredElm.addClass([$.cl.hover, $.cl.sidebar.lastHover]);
 
                             let offset = hoveredElm[0].offsetTop - scrollTop;
                             let pos = window.innerHeight - offset;
@@ -375,8 +375,8 @@
                 isRemoving = true;
 
                 Object.values(ext.elm.bookmarkBox).some((box) => {
-                    if (box.hasClass($.cl.general.active)) {
-                        let elm = box.find("> ul a." + $.cl.general.hover).eq(0);
+                    if (box.hasClass($.cl.active)) {
+                        let elm = box.find("> ul a." + $.cl.hover).eq(0);
 
                         if (elm.length() > 0 && elm.children("span." + $.cl.sidebar.removeMask).length() === 0) {
                             ext.helper.bookmark.removeEntry(elm.attr($.attr.id)).then(() => {
@@ -394,8 +394,8 @@
          */
         let copyHoveredEntryUrl = () => {
             Object.values(ext.elm.bookmarkBox).some((box) => {
-                if (box.hasClass($.cl.general.active)) {
-                    let elm = box.find("> ul a." + $.cl.general.hover).eq(0);
+                if (box.hasClass($.cl.active)) {
+                    let elm = box.find("> ul a." + $.cl.hover).eq(0);
                     if (elm.length() > 0) {
                         let data = ext.helper.entry.getDataById(elm.attr($.attr.id));
                         if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {

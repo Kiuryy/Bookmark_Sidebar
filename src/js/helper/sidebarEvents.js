@@ -115,11 +115,11 @@
                     if ($("iframe#" + $.opts.ids.page.overlay).length() === 0) { // prevent hovering if overlay is open
                         let _self = $(e.currentTarget);
                         let id = _self.attr($.attr.id);
-                        box.find("a." + $.cl.general.hover).removeClass($.cl.general.hover);
+                        box.find("a." + $.cl.hover).removeClass($.cl.hover);
                         box.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
 
                         if (!_self.hasClass($.cl.sidebar.mark)) {
-                            _self.addClass([$.cl.general.hover, $.cl.sidebar.lastHover]);
+                            _self.addClass([$.cl.hover, $.cl.sidebar.lastHover]);
                         }
 
                         if (markTimeout) {
@@ -142,7 +142,7 @@
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
                 }).on("mouseleave", (e) => {
                     ext.helper.tooltip.close();
-                    $(e.currentTarget).find("a." + $.cl.general.hover).removeClass($.cl.general.hover);
+                    $(e.currentTarget).find("a." + $.cl.hover).removeClass($.cl.hover);
                 }).on("click", "span." + $.cl.sidebar.removeMask + " > span", (e) => { // undo deletion of an entry
                     e.preventDefault();
                     let elm = $(e.target).parents("a").eq(0);
@@ -173,14 +173,14 @@
             let startTimeout = () => { // remove lock icon after 500ms of hovering
                 clTimeout();
                 lockPinnedEntriesTimeout = setTimeout(() => {
-                    ext.elm.lockPinned.removeClass($.cl.general.active);
+                    ext.elm.lockPinned.removeClass($.cl.active);
                     ext.helper.toggle.removeSidebarHoverClass();
                 }, 500);
             };
 
             ext.elm.pinnedBox.on("mouseenter", () => {
                 clTimeout();
-                ext.elm.lockPinned.addClass($.cl.general.active);
+                ext.elm.lockPinned.addClass($.cl.active);
             }).on("mouseleave", () => {
                 startTimeout();
             });
@@ -202,7 +202,7 @@
                 }).then(() => {
                     if (isLocked === false) { // scroll to top if the pinned entries got unlocked
                         ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, 0, 200);
-                        ext.elm.lockPinned.removeClass($.cl.general.active);
+                        ext.elm.lockPinned.removeClass($.cl.active);
                     }
 
                     ext.helper.toggle.removeSidebarHoverClass();
@@ -299,7 +299,7 @@
 
                     if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
                         Object.values(ext.elm.bookmarkBox).some((box) => {
-                            if (box.hasClass($.cl.general.active)) {
+                            if (box.hasClass($.cl.active)) {
 
                                 if (box.find("a." + $.cl.sidebar.restored).length() > 0 || box.find("span." + $.cl.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
                                     performReload = false;
@@ -349,7 +349,7 @@
             });
 
             ext.helper.model.call("updateShareInfo", shareInfo);
-            ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo).addClass($.cl.general.hidden);
+            ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo).addClass($.cl.hidden);
         };
     };
 

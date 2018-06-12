@@ -48,11 +48,11 @@
 
             let header = $("<header />").appendTo(elements.modal);
             $("<h1 />").text(title).appendTo(header);
-            $("<a />").addClass($.cl.general.close).appendTo(header);
+            $("<a />").addClass($.cl.close).appendTo(header);
 
             elements.buttonWrapper = $("<menu />").addClass($.cl.overlay.buttonWrapper).appendTo(elements.modal);
             $("<a />")
-                .addClass($.cl.general.close)
+                .addClass($.cl.close)
                 .appendTo(elements.buttonWrapper);
 
             setCloseButtonLabel(type === "infos" ? "close" : "cancel");
@@ -105,7 +105,7 @@
             initEvents();
 
             $.delay(100).then(() => {
-                elements.modal.addClass($.cl.general.visible);
+                elements.modal.addClass($.cl.visible);
                 elements.overlay.addClass($.cl.page.visible);
             });
         };
@@ -174,7 +174,7 @@
          * @param {string} type
          */
         let setCloseButtonLabel = (type = "close") => {
-            elements.buttonWrapper.children("a." + $.cl.general.close).text(ext.helper.i18n.get("overlay_" + type));
+            elements.buttonWrapper.children("a." + $.cl.close).text(ext.helper.i18n.get("overlay_" + type));
         };
 
         /**
@@ -227,10 +227,8 @@
 
         /**
          * Extends the overlay html for the list of available keyboard shortcuts
-         *
-         * @param {object} data
          */
-        let handleKeyboardShortcutsDescHtml = (data) => {
+        let handleKeyboardShortcutsDescHtml = () => {
             let scrollBox = $("<div />").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
             let list = $("<ul />").appendTo(scrollBox);
 
@@ -339,9 +337,9 @@
             infoEntry.append("<span>" + ext.helper.i18n.get("settings_not_synced") + "</span>");
 
             infoField.on("focus", () => {
-                infoEntry.addClass($.cl.general.active);
+                infoEntry.addClass($.cl.active);
             }).on("blur", () => {
-                infoEntry.removeClass($.cl.general.active);
+                infoEntry.removeClass($.cl.active);
             });
 
             $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
@@ -386,14 +384,14 @@
             $("<a />").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
 
             menu.on("mouseleave", (e) => {
-                $(e.currentTarget).children("a").removeClass($.cl.general.hover);
+                $(e.currentTarget).children("a").removeClass($.cl.hover);
             });
 
             menu.children("a").on("mouseenter", (e) => {
-                menu.children("a").removeClass($.cl.general.hover);
-                $(e.currentTarget).addClass($.cl.general.hover);
+                menu.children("a").removeClass($.cl.hover);
+                $(e.currentTarget).addClass($.cl.hover);
             }).on("mouseleave", (e) => {
-                $(e.currentTarget).removeClass($.cl.general.hover);
+                $(e.currentTarget).removeClass($.cl.hover);
             }).on("click", (e) => {
                 e.preventDefault();
                 let type = $(e.currentTarget).attr($.attr.type);
@@ -423,13 +421,13 @@
                         list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                     }
 
-                    menu.addClass($.cl.general.hidden);
-                    menu.children("a").removeClass($.cl.general.hover);
+                    menu.addClass($.cl.hidden);
+                    menu.children("a").removeClass($.cl.hover);
 
                     $.delay(data && data.values ? 0 : 100).then(() => {
-                        list.addClass($.cl.general.visible);
+                        list.addClass($.cl.visible);
                         list.find("input")[0].focus();
-                        submit.addClass($.cl.general.visible);
+                        submit.addClass($.cl.visible);
                     });
                 }
             });
@@ -503,7 +501,7 @@
                 setCloseButtonLabel("close");
 
                 if (updateList.length === 0) {
-                    $("<p />").addClass($.cl.general.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
+                    $("<p />").addClass($.cl.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
                 } else {
                     $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
                     let scrollBox = ext.helper.scroll.add($.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
@@ -618,7 +616,7 @@
                     elements.loader.remove();
                     elements.desc.remove();
 
-                    $("<div />").addClass($.cl.general.error)
+                    $("<div />").addClass($.cl.error)
                         .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
                         .append("<p>" + ext.helper.i18n.get("status_check_urls_unavailable_desc") + "</p>")
                         .appendTo(elements.modal);
@@ -680,8 +678,8 @@
          * @returns {Object}
          */
         let getFormValues = (isDir) => {
-            let titleInput = elements.modal.find("input[name='title']").removeClass($.cl.general.error);
-            let urlInput = elements.modal.find("input[name='url']").removeClass($.cl.general.error);
+            let titleInput = elements.modal.find("input[name='title']").removeClass($.cl.error);
+            let urlInput = elements.modal.find("input[name='url']").removeClass($.cl.error);
             let infoField = elements.modal.find("textarea[name='info']");
 
             let ret = {
@@ -694,12 +692,12 @@
             };
 
             if (ret.values.title.length === 0) {
-                titleInput.addClass($.cl.general.error);
+                titleInput.addClass($.cl.error);
                 ret.errors = true;
             }
 
             if (!isDir && ret.values.url.length === 0) {
-                urlInput.addClass($.cl.general.error);
+                urlInput.addClass($.cl.error);
                 ret.errors = true;
             }
 
@@ -726,7 +724,7 @@
                     additionalInfo: formValues.values.additionalInfo
                 }).then(([result]) => {
                     if (result.error) {
-                        elements.modal.find("input[name='url']").addClass($.cl.general.error);
+                        elements.modal.find("input[name='url']").addClass($.cl.error);
                     } else {
                         ext.helper.model.call("trackEvent", {
                             category: "extension",
@@ -789,7 +787,7 @@
 
                 ext.helper.model.call("createBookmark", obj).then((result) => {
                     if (result.error) {
-                        elements.modal.find("input[name='url']").addClass($.cl.general.error);
+                        elements.modal.find("input[name='url']").addClass($.cl.error);
                     } else {
                         ext.helper.model.call("trackEvent", {
                             category: "extension",
@@ -861,7 +859,7 @@
                 }
             });
 
-            elements.modal.find("a." + $.cl.general.close).on("click", (e) => { // close overlay by close button
+            elements.modal.find("a." + $.cl.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
                 this.closeOverlay(true);
             });
@@ -872,7 +870,7 @@
             });
 
             elements.modal.on("focus", "input", (e) => { // remove error class from input fields
-                $(e.currentTarget).removeClass($.cl.general.error);
+                $(e.currentTarget).removeClass($.cl.error);
             });
 
             elements.modal.find("a." + $.cl.overlay.preview + ", a." + $.cl.overlay.previewUrl).on("click", (e) => { // open bookmark

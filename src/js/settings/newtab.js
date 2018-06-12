@@ -12,7 +12,7 @@
          */
         this.init = async () => {
             initEvents();
-            s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.general.hidden);
+            s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.hidden);
 
             ["override", "autoOpen"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
@@ -84,16 +84,16 @@
                             }
 
                             if (override) {
-                                hideableBoxes.removeClass($.cl.general.hidden);
+                                hideableBoxes.removeClass($.cl.hidden);
                             } else {
-                                hideableBoxes.addClass($.cl.general.hidden);
+                                hideableBoxes.addClass($.cl.hidden);
                             }
                         });
                     } else {
-                        hideableBoxes.removeClass($.cl.general.hidden);
+                        hideableBoxes.removeClass($.cl.hidden);
                     }
                 } else {
-                    hideableBoxes.addClass($.cl.general.hidden);
+                    hideableBoxes.addClass($.cl.hidden);
                 }
             });
         };

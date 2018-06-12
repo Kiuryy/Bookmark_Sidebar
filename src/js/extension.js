@@ -209,7 +209,7 @@
          * Adds a loading mask over the sidebar
          */
         this.startLoading = () => {
-            this.elm.sidebar.addClass($.cl.general.loading);
+            this.elm.sidebar.addClass($.cl.loading);
 
             if (loadingInfo.timeout) {
                 clearTimeout(loadingInfo.timeout);
@@ -226,7 +226,7 @@
          */
         this.endLoading = (timeout = 500) => {
             loadingInfo.timeout = setTimeout(() => {
-                this.elm.sidebar.removeClass($.cl.general.loading);
+                this.elm.sidebar.removeClass($.cl.loading);
                 if (loadingInfo.loader) {
                     loadingInfo.loader.remove();
                 }

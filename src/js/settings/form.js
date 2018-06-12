@@ -232,7 +232,7 @@
 
         initField.radio = (opts) => {
             return new Promise((resolve) => {
-                s.elm.radio[opts.name] = $("<select />").addClass($.cl.general.hidden).insertAfter(opts.label);
+                s.elm.radio[opts.name] = $("<select />").addClass($.cl.hidden).insertAfter(opts.label);
                 let wrapper = $("<ul />").addClass($.cl.settings.radio.wrapper).insertAfter(s.elm.radio[opts.name]);
 
                 $(opts.elm).children("span").forEach((span) => {

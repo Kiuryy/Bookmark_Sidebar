@@ -3,7 +3,6 @@
 
     $.MenuHelper = function (s) {
         let running = false;
-        let initial = true;
         let list = null;
         let currentPath = null;
         let currentPage = null;
@@ -21,7 +20,6 @@
                     menuParsing--;
                     if (menuParsing === 0) {
                         handleNavigationChange().then(() => {
-                            initial = false;
                             resolve();
                         });
                     }
@@ -132,13 +130,13 @@
             ["save", "restore"].forEach((type) => {
                 pages.some((page) => {
                     let info = page.attr($.attr.settings[type]);
-                    s.elm.buttons[type].addClass($.cl.general.hidden);
+                    s.elm.buttons[type].addClass($.cl.hidden);
 
                     if (info) { // attribute is available
                         if (info !== "false") {
                             s.elm.buttons[type]
                                 .html(info === "true" ? "" : s.helper.i18n.get(info))
-                                .removeClass($.cl.general.hidden);
+                                .removeClass($.cl.hidden);
                         }
 
                         return true;
@@ -148,11 +146,11 @@
         };
 
         let hidePages = () => {
-            list.find("li").removeClass($.cl.general.active);
+            list.find("li").removeClass($.cl.active);
 
             let allPages = s.elm.content.children("div." + $.cl.settings.tabs.content);
-            allPages.removeClass($.cl.general.active);
-            allPages.children("div[" + $.attr.name + "]").removeClass($.cl.general.active);
+            allPages.removeClass($.cl.active);
+            allPages.children("div[" + $.attr.name + "]").removeClass($.cl.active);
 
             list.find("ul").css("height", "");
         };
@@ -184,12 +182,12 @@
                         let menuParent = menu.parent("ul");
 
                         if (menuParent && menuParent.length() > 0) {
-                            menu.addClass($.cl.general.active);
-                            page.addClass($.cl.general.active);
+                            menu.addClass($.cl.active);
+                            page.addClass($.cl.active);
                             breadcrumb.push(menu.children("a").html());
 
                             let listHeight = 0;
-                            menuParent.children("li:not(." + $.cl.general.hidden + ")").forEach((menuEntry) => {
+                            menuParent.children("li:not(." + $.cl.hidden + ")").forEach((menuEntry) => {
                                 listHeight += $(menuEntry).data("height") || 0;
                             });
 

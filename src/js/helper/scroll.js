@@ -52,7 +52,7 @@
                 ext.helper.toggle.sidebarHoveredOnce() &&
                 ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elm.iframe[0].contentDocument.activeElement) {
                 scrollBoxes.forEach((scrollBox) => {
-                    if (scrollBox.hasClass($.cl.general.active)) {
+                    if (scrollBox.hasClass($.cl.active)) {
                         scrollBox[0].focus();
                     }
                 });
@@ -65,7 +65,7 @@
          */
         this.updateAll = () => {
             scrollBoxes.forEach((scrollBox) => {
-                if (scrollBox.hasClass($.cl.general.active)) {
+                if (scrollBox.hasClass($.cl.active)) {
                     this.update(scrollBox);
                 }
             });

@@ -33,7 +33,7 @@
             initHelpers();
 
             let loader = this.helper.template.loading().appendTo(this.elm.body);
-            this.elm.body.addClass($.cl.general.initLoading);
+            this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 let config = this.helper.model.getData(["a/darkMode", "a/highContrast"]);
@@ -62,7 +62,7 @@
                 return $.delay(500);
             }).then(() => {
                 loader.remove();
-                this.elm.body.removeClass([$.cl.general.building, $.cl.general.initLoading]);
+                this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
                 $(window).trigger("resize");
             });
         };

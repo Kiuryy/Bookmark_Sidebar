@@ -113,7 +113,7 @@
          * Updates the entries which are displayed as top pages
          */
         let updateEntries = () => {
-            n.elm.topPages.children("ul").removeClass($.cl.general.visible);
+            n.elm.topPages.children("ul").removeClass($.cl.visible);
 
             if (type === "hidden") {
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
@@ -149,7 +149,7 @@
                         if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
                             n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
                                 if (response.img) { //
-                                    thumb.attr("src", response.img).addClass($.cl.general.visible);
+                                    thumb.attr("src", response.img).addClass($.cl.visible);
                                 }
                             });
                         }
@@ -157,7 +157,7 @@
 
                     return $.delay(100);
                 }).then(() => {
-                    n.elm.topPages.children("ul").addClass($.cl.general.visible);
+                    n.elm.topPages.children("ul").addClass($.cl.visible);
                     updateRunning = false;
                 });
             }

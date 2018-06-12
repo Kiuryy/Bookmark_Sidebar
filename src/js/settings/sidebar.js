@@ -117,11 +117,11 @@
                 let val = e.currentTarget.value;
 
                 if (val === "always") { // always show sidebar -> don't show url rules
-                    s.elm.sidebar.filterExplanation.addClass($.cl.general.hidden);
-                    s.elm.sidebar.filterPatters.addClass($.cl.general.hidden);
+                    s.elm.sidebar.filterExplanation.addClass($.cl.hidden);
+                    s.elm.sidebar.filterPatters.addClass($.cl.hidden);
                 } else if (val === "blacklist" || val === "whitelist") { // show url rules
-                    s.elm.sidebar.filterExplanation.removeClass($.cl.general.hidden);
-                    s.elm.sidebar.filterPatters.removeClass($.cl.general.hidden);
+                    s.elm.sidebar.filterExplanation.removeClass($.cl.hidden);
+                    s.elm.sidebar.filterPatters.removeClass($.cl.hidden);
 
                     if (s.elm.textarea.visibilityFilter[0].value.length === 0) { // fill with the already set rules, if the field is empty
                         let rules = s.helper.model.getData("b/" + val);
@@ -252,18 +252,18 @@
 
                 // hide menupoint for changing the appearance of the indicator if it is not visible at all
                 if (e.currentTarget.value === "contextmenu" || e.currentTarget.value === "mousedown") {
-                    indicatorMenuPoint.removeClass($.cl.general.hidden);
+                    indicatorMenuPoint.removeClass($.cl.hidden);
                 } else {
-                    indicatorMenuPoint.addClass($.cl.general.hidden);
+                    indicatorMenuPoint.addClass($.cl.hidden);
                 }
 
                 // hide "configure area" when user wants to open the sidebar by clicking the extension icon only
                 let toggleAreaWrapper = s.elm.buttons.toggleAreaOpen.parent("div");
 
                 if (e.currentTarget.value === "icon") {
-                    toggleAreaWrapper.addClass($.cl.general.hidden);
+                    toggleAreaWrapper.addClass($.cl.hidden);
                 } else {
-                    toggleAreaWrapper.removeClass($.cl.general.hidden);
+                    toggleAreaWrapper.removeClass($.cl.hidden);
                 }
             });
 

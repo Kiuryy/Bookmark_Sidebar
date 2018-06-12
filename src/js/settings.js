@@ -82,7 +82,7 @@
             let loader = {
                 body: this.helper.template.loading().appendTo(this.elm.body)
             };
-            this.elm.body.addClass($.cl.general.initLoading);
+            this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -95,14 +95,14 @@
 
                 return this.helper.form.init();
             }).then(() => {
-                this.elm.body.removeClass($.cl.general.building);
+                this.elm.body.removeClass($.cl.building);
 
                 this.helper.i18n.parseHtml(document);
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
                 ["translation", "feedback"].forEach((name) => {
                     loader[name] = this.helper.template.loading().appendTo(this.elm[name].wrapper);
-                    this.elm[name].wrapper.addClass($.cl.general.loading);
+                    this.elm[name].wrapper.addClass($.cl.loading);
                 });
 
                 return Promise.all([
@@ -117,7 +117,7 @@
                 initEvents();
 
                 loader.body.remove();
-                this.elm.body.removeClass($.cl.general.initLoading);
+                this.elm.body.removeClass($.cl.initLoading);
                 this.helper.model.call("trackPageView", {page: "/settings"});
 
                 return this.helper.model.call("websiteStatus");
@@ -127,7 +127,7 @@
                 ["translation", "feedback"].forEach((name) => {
                     this.helper[name].init().then(() => {
                         loader[name].remove();
-                        this.elm[name].wrapper.removeClass($.cl.general.loading);
+                        this.elm[name].wrapper.removeClass($.cl.loading);
                     });
                 });
             });
@@ -140,10 +140,10 @@
          */
         this.showSuccessMessage = (i18nStr) => {
             this.elm.body.attr($.attr.settings.success, this.helper.i18n.get("settings_" + i18nStr));
-            this.elm.body.addClass($.cl.general.success);
+            this.elm.body.addClass($.cl.success);
 
             $.delay(1500).then(() => {
-                this.elm.body.removeClass($.cl.general.success);
+                this.elm.body.removeClass($.cl.success);
             });
         };
 
@@ -183,7 +183,7 @@
          */
         let initEvents = async () => {
             $(document).on("click", () => {
-                $("div." + $.cl.settings.dialog).removeClass($.cl.general.visible);
+                $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
             });
 
             this.elm.header.on("click", "div." + $.cl.settings.dialog, (e) => {
@@ -216,7 +216,7 @@
                         chrome.storage.sync.remove([type], () => {
                             this.showSuccessMessage("restored_message");
                             this.helper.model.call("reloadIcon");
-                            $("div." + $.cl.settings.dialog).removeClass($.cl.general.visible);
+                            $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
                             resolve();
                         });
                     }));
@@ -234,8 +234,8 @@
             this.elm.advanced.toggle.on("click", (e) => {
                 let container = $(e.currentTarget).next("div");
 
-                if (container.hasClass($.cl.general.visible)) {
-                    container.removeClass($.cl.general.visible);
+                if (container.hasClass($.cl.visible)) {
+                    container.removeClass($.cl.visible);
 
                     $.delay(300).then(() => {
                         container.css("display", "none");
@@ -244,7 +244,7 @@
                     container.css("display", "flex");
 
                     $.delay(0).then(() => {
-                        container.addClass($.cl.general.visible);
+                        container.addClass($.cl.visible);
                     });
                 }
             });
@@ -294,7 +294,7 @@
                         .appendTo(this.elm.header);
 
                     $.delay().then(() => {
-                        dialog.addClass($.cl.general.visible);
+                        dialog.addClass($.cl.visible);
                     });
                 }
             });

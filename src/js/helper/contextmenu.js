@@ -22,7 +22,7 @@
 
             if (alreadyExists(type, elm) === false) { // contextmenu is not already opened
                 this.close(); // close other contextmenus
-                elm.addClass($.cl.general.active);
+                elm.addClass($.cl.active);
 
                 let contextmenu = $("<div />")
                     .addClass($.cl.contextmenu.wrapper)
@@ -63,7 +63,7 @@
                 setPosition(contextmenu, elm, type);
 
                 $.delay().then(() => {
-                    contextmenu.addClass($.cl.general.visible);
+                    contextmenu.addClass($.cl.visible);
                 });
             }
         };
@@ -75,8 +75,8 @@
             let contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
 
             contextmenus.forEach((contextmenu) => {
-                $(contextmenu).removeClass($.cl.general.visible);
-                $(contextmenu).data("elm").removeClass($.cl.general.active);
+                $(contextmenu).removeClass($.cl.visible);
+                $(contextmenu).data("elm").removeClass($.cl.active);
             });
 
             $.delay(500).then(() => {
@@ -256,7 +256,7 @@
 
                 if (ext.helper.entry.isVisible(elmId)) {
                     iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
-                } else if (ext.helper.search.isResultsVisible() === false && elm.parents("li." + $.cl.general.hidden).length() <= 1) {
+                } else if (ext.helper.search.isResultsVisible() === false && elm.parents("li." + $.cl.hidden).length() <= 1) {
                     iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
                 }
             }
@@ -534,14 +534,14 @@
             });
 
             contextmenu.on("mouseleave", (e) => {
-                $(e.currentTarget).find("a").removeClass($.cl.general.hover);
+                $(e.currentTarget).find("a").removeClass($.cl.hover);
             });
 
             contextmenu.find("a").on("mouseenter", (e) => {
-                contextmenu.find("a").removeClass($.cl.general.hover);
-                $(e.currentTarget).addClass($.cl.general.hover);
+                contextmenu.find("a").removeClass($.cl.hover);
+                $(e.currentTarget).addClass($.cl.hover);
             }).on("mouseleave", (e) => {
-                $(e.currentTarget).removeClass($.cl.general.hover);
+                $(e.currentTarget).removeClass($.cl.hover);
             }).on("click", (e) => {
                 e.preventDefault();
 

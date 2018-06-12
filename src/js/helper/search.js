@@ -23,7 +23,7 @@
          * @returns {bool}
          */
         this.isResultsVisible = () => {
-            return ext.elm.bookmarkBox.search.hasClass($.cl.general.active);
+            return ext.elm.bookmarkBox.search.hasClass($.cl.active);
         };
 
         /**
@@ -73,8 +73,8 @@
         let handleSearch = (searchField, val) => {
             return new Promise((resolve) => {
                 let isFirstRun = ext.firstRun;
-                ext.elm.bookmarkBox.all.removeClass($.cl.general.active).removeClass($.cl.scrollBox.scrolled);
-                ext.elm.bookmarkBox.search.addClass($.cl.general.active);
+                ext.elm.bookmarkBox.all.removeClass($.cl.active).removeClass($.cl.scrollBox.scrolled);
+                ext.elm.bookmarkBox.search.addClass($.cl.active);
                 ext.helper.scroll.focus();
                 ext.helper.list.updateSortFilter();
 
@@ -146,8 +146,8 @@
 
                 if (this.isResultsVisible()) {
                     ext.startLoading();
-                    ext.elm.bookmarkBox.all.addClass($.cl.general.active);
-                    ext.elm.bookmarkBox.search.removeClass($.cl.general.active);
+                    ext.elm.bookmarkBox.all.addClass($.cl.active);
+                    ext.elm.bookmarkBox.search.removeClass($.cl.active);
                     ext.helper.scroll.restoreScrollPos(ext.elm.bookmarkBox.all);
                     ext.helper.scroll.focus();
                     ext.endLoading();

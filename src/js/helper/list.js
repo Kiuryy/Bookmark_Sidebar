@@ -16,7 +16,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            ext.elm.bookmarkBox.all.addClass($.cl.general.active);
+            ext.elm.bookmarkBox.all.addClass($.cl.active);
 
             Object.values(ext.elm.bookmarkBox).forEach((box) => {
                 box.on($.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
@@ -153,7 +153,7 @@
 
                             loadMissingFavicons(ext.elm.pinnedBox);
                         } else {
-                            ext.elm.pinnedBox.addClass($.cl.general.hidden);
+                            ext.elm.pinnedBox.addClass($.cl.hidden);
                         }
 
                         return updateFromCache(list, result[0].val);
@@ -275,9 +275,9 @@
                         lastOffset = icon[0].offsetTop;
                     } else if (lastOffset !== icon[0].offsetTop || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
                         if (type === "label") {
-                            headline.children("span").addClass($.cl.general.hidden);
+                            headline.children("span").addClass($.cl.hidden);
                         } else if (type === "amount") {
-                            headline.addClass($.cl.general.hidden);
+                            headline.addClass($.cl.hidden);
                         }
                         return true;
                     }
@@ -337,11 +337,11 @@
          * Updates the html for the sort filterbox
          */
         this.updateSortFilter = () => {
-            ext.elm.filterBox.removeClass($.cl.general.hidden).text("");
+            ext.elm.filterBox.removeClass($.cl.hidden).text("");
             let filterBoxHeight = 0;
 
             if (sort.name === "custom") {
-                ext.elm.filterBox.addClass($.cl.general.hidden);
+                ext.elm.filterBox.addClass($.cl.hidden);
             } else {
                 let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
 
@@ -463,13 +463,13 @@
          */
         let updatePinnedEntries = (config) => {
             ext.elm.lockPinned.removeClass($.cl.sidebar.fixed);
-            ext.elm.pinnedBox.removeClass([$.cl.general.hidden, $.cl.sidebar.fixed]);
+            ext.elm.pinnedBox.removeClass([$.cl.hidden, $.cl.sidebar.fixed]);
 
             ext.elm.pinnedBox.children("ul").remove();
             let pinnedEntries = ext.helper.entry.getAllDataByType("pinned");
 
             if (pinnedEntries.length === 0) {
-                ext.elm.pinnedBox.addClass($.cl.general.hidden);
+                ext.elm.pinnedBox.addClass($.cl.hidden);
             } else {
                 sortEntries(pinnedEntries);
                 let list = $("<ul />").appendTo(ext.elm.pinnedBox);
@@ -479,7 +479,7 @@
                     ext.elm.pinnedBox.addClass($.cl.sidebar.fixed);
                 }
 
-                pinnedEntries.forEach((entry, i) => {
+                pinnedEntries.forEach((entry) => {
                     if (config.showHidden || ext.helper.entry.isVisible(entry.id)) {
                         addEntryToList(entry, list, {
                             config: config,
@@ -511,7 +511,7 @@
             }
 
             if (ext.helper.entry.isVisible(bookmark.id) === false) { // hide element
-                entry.addClass($.cl.general.hidden);
+                entry.addClass($.cl.hidden);
             }
 
             if (ext.helper.entry.isSeparator(bookmark.id)) { // separator
@@ -758,7 +758,7 @@
                 ext.log("Load html from cache");
                 list.html(cachedHtml);
                 list.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
-                list.find("a." + $.cl.general.hover).removeClass($.cl.general.hover);
+                list.find("a." + $.cl.hover).removeClass($.cl.hover);
                 list.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
                 list.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
                 list.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);

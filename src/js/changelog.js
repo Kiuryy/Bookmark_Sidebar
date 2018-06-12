@@ -26,7 +26,7 @@
         this.run = () => {
             initHelpers();
             let loader = this.helper.template.loading().appendTo(this.elm.body);
-            this.elm.body.addClass($.cl.general.initLoading);
+            this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
                 return this.helper.i18n.init();
@@ -43,7 +43,7 @@
 
                 return this.helper.model.call("trackPageView", {page: "/changelog"});
             }).then(() => {
-                this.elm.body.removeClass($.cl.general.building);
+                this.elm.body.removeClass($.cl.building);
 
                 return Promise.all([
                     initData(),
@@ -55,11 +55,11 @@
                     initChangelog();
                     initReleaseHistory();
                 } else {
-                    $("<p />").addClass($.cl.general.error).text(this.helper.i18n.get("status_changelog_unavailable_desc")).appendTo(this.elm.contentWrapper);
+                    $("<p />").addClass($.cl.error).text(this.helper.i18n.get("status_changelog_unavailable_desc")).appendTo(this.elm.contentWrapper);
                 }
 
                 loader.remove();
-                this.elm.body.removeClass($.cl.general.initLoading);
+                this.elm.body.removeClass($.cl.initLoading);
             });
         };
 
@@ -97,11 +97,11 @@
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
                 if (e.currentTarget.checked) {
-                    this.elm.releaseHistoryWrapper.addClass($.cl.general.visible);
-                    this.elm.changelogWrapper.removeClass($.cl.general.visible);
+                    this.elm.releaseHistoryWrapper.addClass($.cl.visible);
+                    this.elm.changelogWrapper.removeClass($.cl.visible);
                 } else {
-                    this.elm.releaseHistoryWrapper.removeClass($.cl.general.visible);
-                    this.elm.changelogWrapper.addClass($.cl.general.visible);
+                    this.elm.releaseHistoryWrapper.removeClass($.cl.visible);
+                    this.elm.changelogWrapper.addClass($.cl.visible);
                 }
             });
         };
@@ -149,7 +149,7 @@
                     }
                 });
 
-                this.elm.changelogWrapper.addClass($.cl.general.visible);
+                this.elm.changelogWrapper.addClass($.cl.visible);
             }
         };
 

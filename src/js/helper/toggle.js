@@ -201,7 +201,7 @@
                 contextmenus.length() === 0 &&
                 tooltips.length() === 0 &&
                 !ext.elm.iframeBody.hasClass($.cl.drag.isDragged) &&
-                !ext.elm.lockPinned.hasClass($.cl.general.active)
+                !ext.elm.lockPinned.hasClass($.cl.active)
             ) {
                 ext.elm.iframe.removeClass($.cl.page.hover);
             }

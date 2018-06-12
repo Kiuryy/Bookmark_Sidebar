@@ -72,7 +72,7 @@
 
                 let loadStartTime = +new Date();
                 let loader = n.helper.template.loading().appendTo(n.elm.body);
-                n.elm.body.addClass($.cl.general.loading);
+                n.elm.body.addClass($.cl.loading);
 
                 n.helper.model.setData({
                     "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
@@ -81,7 +81,7 @@
                 }).then(() => { // load at least 1s
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
                 }).then(() => {
-                    n.elm.body.removeClass($.cl.general.loading);
+                    n.elm.body.removeClass($.cl.loading);
                     loader.remove();
                     resolve();
                 });

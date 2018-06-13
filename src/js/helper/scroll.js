@@ -82,7 +82,7 @@
                 let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
 
                 if (data.rememberState === "all" || data.rememberState === "openStatesAndPos") {
-                    this.setScrollPos(scrollBox, data.scrollPos[scrollBox.attr("id")] || 0);
+                    this.setScrollPos(scrollBox, data.scrollPos);
                     $.delay(100).then(resolve);
                 } else {
                     resolve();
@@ -98,6 +98,14 @@
          * @param {int} duration if set the scroll position will be set animated to the given value
          */
         this.setScrollPos = (scrollBox, scrollPos, duration = 0) => {
+            if (typeof scrollPos !== "number") { // @deprecated scrollPos is no longer an object, but an integer (06/2018)
+                try {
+                    scrollPos = scrollPos.bookmarkBox || 0;
+                } catch (e) {
+                    scrollPos = 0;
+                }
+            }
+
             if (duration === 0) {
                 scrollBox[0].scrollTop = scrollPos;
                 this.update(scrollBox);
@@ -144,11 +152,14 @@
         this.update = (scrollBox) => {
             ext.helper.contextmenu.close();
             ext.helper.tooltip.close();
-            saveScrollPos(scrollBox);
 
             let boxHeight = getScrollBoxHeight(scrollBox);
             let contentHeight = getContentHeight(scrollBox);
             let scrollPos = scrollBox[0].scrollTop;
+
+            if (scrollBox.attr("id") === $.opts.ids.sidebar.bookmarkBox.all) {
+                saveScrollPos(scrollPos);
+            }
 
             if (scrollPos > 10) {
                 scrollBox.addClass($.cl.scrollBox.scrolled);
@@ -202,20 +213,22 @@
         };
 
         /**
-         * Saves the scroll position of the given scrollbox
+         * Saves the given scroll position in the local storage
          *
-         * @param {jsu} scrollBox
+         * @param {int} scrollPos
          */
-        let saveScrollPos = (scrollBox) => {
-            if (ext.refreshRun === false && +new Date() - scrollPosSaved > 500) { // save scroll position in storage -> limit calls to one every half second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
-                scrollPosSaved = +new Date();
+        let saveScrollPos = (scrollPos) => {
+            if (ext.refreshRun === false) {
+                clearTimeout(scrollBarTimeout._scrollPos);
 
-                let scrollPos = ext.helper.model.getData("u/scrollPos");
-                scrollPos[scrollBox.attr("id")] = scrollBox[0].scrollTop;
-
-                ext.helper.model.setData({
-                    "u/scrollPos": scrollPos
-                });
+                if (+new Date() - scrollPosSaved > 500) { // limit calls to one every half of a second (avoid MAX_WRITE_OPERATIONS_PER_MINUTE overflow)
+                    scrollPosSaved = +new Date();
+                    ext.helper.model.setData({"u/scrollPos": scrollPos});
+                } else { // try again after half of a second
+                    scrollBarTimeout._scrollPos = setTimeout(() => {
+                        saveScrollPos(scrollPos);
+                    }, 500);
+                }
             }
         };
 

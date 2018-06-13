@@ -36,7 +36,7 @@
                 openStates: {},
                 hiddenEntries: {},
                 additionalInfo: {},
-                scrollPos: {},
+                scrollPos: 0,
                 separators: {},
                 customCss: "",
                 pinnedEntries: {},

@@ -746,7 +746,8 @@ div.modal[data-type='checkBookmarks'] > menu.categories {
   width: 180px;
   height: calc(100% - %overlayHeaderHeight - 57px);
   padding-top: 20px;
-  border-right: 1px solid rgba(0, 0, 0, 0.15); }
+  border-color: rgba(0, 0, 0, 0.15);
+  border-right: 1px solid; }
   div.modal[data-type='checkBookmarks'] > menu.categories > li {
     position: relative;
     height: 40px; }
@@ -760,7 +761,9 @@ div.modal[data-type='checkBookmarks'] > menu.categories {
       -webkit-mask: no-repeat center/20px;
       background-color: "%textColor"; }
     div.modal[data-type='checkBookmarks'] > menu.categories > li::before {
-      -webkit-mask-position-x: 10px; }
+      left: 10px;
+      width: 20px;
+      -webkit-mask-position-x: 0; }
     div.modal[data-type='checkBookmarks'] > menu.categories > li[data-name='changed']::before {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update-2.svg); }
     div.modal[data-type='checkBookmarks'] > menu.categories > li[data-name='broken']::before {
@@ -798,10 +801,6 @@ div.modal[data-type='checkBookmarks'] > menu.categories {
         margin-left: 5px;
         vertical-align: top;
         opacity: 0.8; }
-        div.modal[data-type='checkBookmarks'] > menu.categories > li > a > span::before {
-          content: "("; }
-        div.modal[data-type='checkBookmarks'] > menu.categories > li > a > span::after {
-          content: ")"; }
 
 div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
   position: relative;
@@ -939,23 +938,45 @@ html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div.progressBar > div {
   left: unset;
   right: 0; }
 
-html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > div.checkbox {
-  margin-left: 16px;
-  margin-right: 0; }
-
-html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > img {
-  margin-left: 18px;
-  margin-right: 0; }
-
-html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > a, html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > span {
-  margin-left: 0;
-  margin-right: 70px;
-  padding-left: 0;
-  padding-right: 22px; }
-
-html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > a::before {
+html[dir='rtl'] div.modal[data-type='checkBookmarks'] > menu.categories {
   left: unset;
-  right: 0; }
+  right: 0;
+  border-left: 1px solid;
+  border-right: none; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > menu.categories > li::before {
+    left: unset;
+    right: 10px;
+    -webkit-mask-position-x: right; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > menu.categories > li.active::after {
+    left: -9px;
+    right: unset; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > menu.categories > li > a {
+    padding-right: 40px;
+    padding-left: 0; }
+    html[dir='rtl'] div.modal[data-type='checkBookmarks'] > menu.categories > li > a > span {
+      margin-right: 5px;
+      margin-left: 0; }
+
+html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
+  margin-right: 180px;
+  margin-left: 0; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > p > span {
+    padding-right: 40px;
+    padding-left: 0; }
+    html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > p > span::before {
+      -webkit-mask-position-x: right; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > div.checkbox {
+    margin-left: 14px;
+    margin-right: 0; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > img {
+    margin-left: 14px;
+    margin-right: 0; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul {
+    margin-left: 30px;
+    margin-right: 65px; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction {
+    left: 10px;
+    right: unset; }
 
 html[dir='rtl'] div.modal[data-type='openChildren'] > header::before {
   transform: scaleX(-1); }
@@ -1049,7 +1070,7 @@ body.dark div.modal {
     body.dark div.modal[data-type='infos'] > ul > li > ul::before {
       border-bottom-color: #222; }
   body.dark div.modal[data-type='checkBookmarks'] > menu.categories {
-    border-right-color: rgba(255, 255, 255, 0.15); }
+    border-color: rgba(255, 255, 255, 0.15); }
     body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active {
       background: #4d4d4d; }
       body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active::after {

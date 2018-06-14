@@ -283,7 +283,7 @@
 
             Object.entries(elements.results).forEach(([key, elm]) => {
                 let count = elm.find("> ul > li").length();
-                elements.menu.find("li[" + $.attr.name + "='" + key + "'] > a > span").text(count);
+                elements.menu.find("li[" + $.attr.name + "='" + key + "'] > a > span").text("(" + count + ")");
 
                 if (count === 0) {
                     elm.children("ul").remove();

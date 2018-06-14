@@ -1345,7 +1345,7 @@ html[dir='rtl'] section#sidebar > div.scrollBox > ul.hideRoot > li > ul, html[di
   padding-left: 0;
   padding-right: 0; }
 
-html[dir='rtl'] section#sidebar[data-sort='custom'] > div.scrollBox a:hover {
+html[dir='rtl'] section#sidebar[data-sort='custom'] > div#bookmarkBox a:hover {
   padding-right: "%bookmarksHorizontalPadding";
   padding-left: 46px; }
 

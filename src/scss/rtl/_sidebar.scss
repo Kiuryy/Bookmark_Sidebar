@@ -101,7 +101,7 @@ html[dir='rtl'] {
 
     &[data-sort='custom'] {
 
-      > div.scrollBox {
+      > div#bookmarkBox {
 
         a:hover {
           padding-right: $__bookmarksHorizontalPadding;

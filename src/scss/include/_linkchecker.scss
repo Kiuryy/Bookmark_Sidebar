@@ -80,7 +80,8 @@ div.modal[data-type='checkBookmarks'] {
     width: 180px;
     height: calc(100% - #{$__overlayHeaderHeight} - 57px);
     padding-top: 20px;
-    border-right: 1px solid $separatorColor;
+    border-color: $separatorColor;
+    border-right: 1px solid;
 
     > li {
       @include mask(null, $__textColor, 20px);
@@ -88,7 +89,9 @@ div.modal[data-type='checkBookmarks'] {
       height: 40px;
 
       &::before {
-        -webkit-mask-position-x: 10px;
+        left: 10px;
+        width: 20px;
+        -webkit-mask-position-x: 0;
       }
 
       &[data-name='changed']::before {
@@ -139,14 +142,6 @@ div.modal[data-type='checkBookmarks'] {
           margin-left: 5px;
           vertical-align: top;
           opacity: 0.8;
-
-          &::before {
-            content: "(";
-          }
-
-          &::after {
-            content: ")";
-          }
         }
       }
     }

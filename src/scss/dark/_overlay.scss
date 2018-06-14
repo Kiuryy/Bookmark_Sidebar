@@ -91,7 +91,7 @@ body.dark div.modal {
   &[data-type='checkBookmarks'] {
 
     > menu.categories {
-      border-right-color: $darkSeparatorColor;
+      border-color: $darkSeparatorColor;
 
       > li.active {
         background: $darkContentBackground2;

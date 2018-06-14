@@ -80,8 +80,9 @@ div.modal[data-type='checkBookmarks'] {
     width: 180px;
     height: calc(100% - #{$__overlayHeaderHeight} - 57px);
     padding-top: 20px;
+    border-right-width: 1px;
+    border-right-style: solid;
     border-color: $separatorColor;
-    border-right: 1px solid;
 
     > li {
       @include mask(null, $__textColor, 20px);

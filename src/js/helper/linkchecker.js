@@ -214,10 +214,9 @@
                     elements.results[name].find("> ul > li").forEach((elm) => {
                         if ($(elm).find("input[type='checkbox']")[0].checked) {
                             entries.push($(elm).data("entry"));
+                            $(elm).remove();
                         }
                     });
-
-                    elements.results[name].find("> ul > li").remove();
 
                     updateMultipleBookmarks(entries).then(() => {
                         updateResultPage();

@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Mapp\u00e1k"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "K\u00f6nyvjelz\u0151k c\u00edm\u00e9nek ellen\u0151rz\u00e9se"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Minden k\u00f6nyvjelz\u0151 c\u00edme j\u00f3"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "A szolg\u00e1ltat\u00e1s nem el\u00e9rhet\u0151"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "A webc\u00edm ellen\u0151rz\u0151 szolg\u00e1ltat\u00e1s nem el\u00e9rhet\u0151"
     },
     "status_feedback_unavailable_desc": {
@@ -497,12 +497,6 @@
     "settings_not_synced": {
         "message": "Az eszk\u00f6zei k\u00f6z\u00f6tt nem lesz szinkroniz\u00e1lva."
     },
-    "settings_animations": {
-        "message": "Anim\u00e1ci\u00f3k enged\u00e9lyez\u00e9se"
-    },
-    "settings_animations_desc": {
-        "message": "Tilthatja az oldals\u00e1v anim\u00e1ci\u00f3j\u00e1t. Akkor lehet hasznos, ha akad\u00e1sokat tapasztal."
-    },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
     },
@@ -659,6 +653,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Automatikusan megnyitja ism\u00e9t az oldals\u00e1vot, miut\u00e1n abb\u00f3l megnyitott egy k\u00f6nyvjelz\u0151t."
     },
+    "settings_prevent_windowed": {
+        "message": "Oldals\u00e1v letilt\u00e1sa ablakos \u00fczemm\u00f3dban"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Ablakos \u00fczemm\u00f3dban letiltja az oldals\u00e1v megjelen\u00e9s\u00e9t, ha az eg\u00e9rrel a b\u00f6ng\u00e9sz\u0151 sz\u00e9l\u00e9re kattintunk vagy a sz\u00e9le fel\u00e9 \u00e1llunk."
+    },
     "settings_tooltip_delay": {
         "message": "Tippek k\u00e9sleltet\u00e9se"
     },
@@ -694,6 +694,18 @@
     },
     "settings_sidebar_position_right": {
         "message": "Jobb"
+    },
+    "settings_animations": {
+        "message": "Anim\u00e1ci\u00f3k enged\u00e9lyez\u00e9se"
+    },
+    "settings_animations_desc": {
+        "message": "Tilthatja az oldals\u00e1v anim\u00e1ci\u00f3j\u00e1t. Akkor lehet hasznos, ha akad\u00e1sokat tapasztal."
+    },
+    "settings_contextmenu": {
+        "message": "Megjelen\u00edt\u00e9s a helyi men\u00fcben"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Kapcsol\u00f3 megjelen\u00edt\u00e9se a Chrome helyi men\u00fcj\u00e9ben, amivel az oldals\u00e1vot lehet el\u0151h\u00edvni\/elt\u0171ntetni"
     },
     "settings_filter_intro": {
         "message": "Ha nem szeretn\u00e9, hogy az oldals\u00e1v minden lapon bet\u00f6lt\u0151dj\u00f6n, akkor be\u00e1ll\u00edthat enged\u00e9lyez\u0151 list\u00e1t vagy tilt\u00f3list\u00e1t is."

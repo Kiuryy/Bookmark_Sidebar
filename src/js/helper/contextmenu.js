@@ -226,7 +226,7 @@
                     }
 
                     if (data.children.length > 0) {
-                        list.append("<li><a " + $.attr.name + "='updateUrls'>" + ext.helper.i18n.get("contextmenu_update_urls") + "</a></li>");
+                        list.append("<li><a " + $.attr.name + "='checkBookmarks'>" + ext.helper.i18n.get("contextmenu_check_bookmarks") + "</a></li>");
                     }
                 } else {
                     list.append("<li><a " + $.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");

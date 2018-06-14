@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "Eintrag hinzuf\u00fcgen"
     },
-    "contextmenu_update_urls": {
-        "message": "Urls aktualisieren"
+    "contextmenu_check_bookmarks": {
+        "message": "Lesezeichen \u00fcberpr\u00fcfen"
     },
     "contextmenu_toggle_hidden": {
         "message": "Versteckte Eintr\u00e4ge"
@@ -194,14 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Verzeichnisse"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Ge\u00e4ndert"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Nicht erreichbar"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Dupletten"
+    },
+    "overlay_check_bookmarks_loading": {
         "message": "Lesezeichen-Urls werden \u00fcberpr\u00fcft"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Ausgew\u00e4hlte aktualisieren"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Ausgew\u00e4hlte entfernen"
+    },
+    "overlay_check_bookmarks_no_results": {
         "message": "Alle Lesezeichen-Urls sind aktuell"
     },
-    "overlay_check_urls_not_found": {
-        "message": "Url nicht gefunden"
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Es existieren keine ge\u00e4nderten Lesezeichen-Urls"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Es existieren keine nicht erreichbaren Lesezeichen-Urls"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Es existieren keine doppelten Lesezeichen-Urls"
     },
     "newtab_title": {
         "message": "Neuer Tab"
@@ -254,7 +275,7 @@
     "status_service_unavailable_headline": {
         "message": "Dienst nicht erreichbar"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Der Dienst der die Urls \u00fcberpr\u00fcft ist zur Zeit nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
     "status_feedback_unavailable_desc": {

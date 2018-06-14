@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Dizinler"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Yer imlerinin URL'leri kontrol ediliyor."
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "T\u00fcm URL'ler \u00e7al\u0131\u015fmakta."
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Hizmet kullan\u0131lam\u0131yor"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "URL'leri kontrol eden servis \u015fu an kullan\u0131lam\u0131yor. L\u00fctfen daha sonra tekrar deneyin."
     },
     "status_feedback_unavailable_desc": {

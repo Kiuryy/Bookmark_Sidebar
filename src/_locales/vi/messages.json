@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Th\u01b0 m\u1ee5c"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "\u0110ang ki\u1ec3m tra \u0111\u1ecba ch\u1ec9 c\u1ee7a d\u1ea5u trang"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "\u0110\u1ecba ch\u1ec9 c\u1ee7a to\u00e0n b\u1ed9 d\u1ea5u trang \u0111\u1ec1u \u1ed5n"
     },
     "overlay_check_urls_not_found": {
@@ -206,7 +206,7 @@
     "status_service_unavailable_headline": {
         "message": "D\u1ecbch v\u1ee5 Kh\u00f4ng s\u1eb5n c\u00f3"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "D\u1ecbch v\u1ee5 ki\u1ec3m tra url hi\u1ec7n kh\u00f4ng c\u00f3 s\u1eb5n. Vui l\u00f2ng th\u1eed l\u1ea1i sau."
     },
     "status_feedback_unavailable_desc": {

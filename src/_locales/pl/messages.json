@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Folder\u00f3w"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Sprawdzanie URL zak\u0142adek"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Wszystkie URL zak\u0142adek s\u0105 w porz\u0105dku"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Us\u0142uga sprawdzaj\u0105ca URL jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
     },
     "status_feedback_unavailable_desc": {

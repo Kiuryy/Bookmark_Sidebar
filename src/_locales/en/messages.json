@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "Add entry"
     },
-    "contextmenu_update_urls": {
-        "message": "Update urls"
+    "contextmenu_check_bookmarks": {
+        "message": "Check bookmarks"
     },
     "contextmenu_toggle_hidden": {
         "message": "Show hidden entries"
@@ -194,14 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Directories"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Changed"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Broken"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicates"
+    },
+    "overlay_check_bookmarks_loading": {
         "message": "Checking the bookmark urls"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Update selected"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Remove selected"
+    },
+    "overlay_check_bookmarks_no_results": {
         "message": "All bookmark urls are fine"
     },
-    "overlay_check_urls_not_found": {
-        "message": "Url not found"
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "There are no changed bookmark urls"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "There are no broken bookmark urls"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "There are no duplicate bookmark urls"
     },
     "newtab_title": {
         "message": "New Tab"
@@ -254,7 +275,7 @@
     "status_service_unavailable_headline": {
         "message": "Service unavailable"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "The service which checks the urls is not available at the moment. Please try again later."
     },
     "status_feedback_unavailable_desc": {

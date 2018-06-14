@@ -55,7 +55,7 @@
                 .addClass($.cl.close)
                 .appendTo(elements.buttonWrapper);
 
-            setCloseButtonLabel(type === "infos" ? "close" : "cancel");
+            this.setCloseButtonLabel(type === "infos" ? "close" : "cancel");
 
             switch (type) {
                 case "delete": {
@@ -82,8 +82,8 @@
                     handleOpenChildrenHtml(data);
                     break;
                 }
-                case "updateUrls": {
-                    handleUpdateUrlsHtml(data);
+                case "checkBookmarks": {
+                    ext.helper.linkchecker.run(elements.modal, data.children);
                     break;
                 }
                 case "keyboardShortcuts": {
@@ -137,10 +137,6 @@
                     addEntry(data);
                     break;
                 }
-                case "updateUrls": {
-                    updateBookmarkUrls();
-                    break;
-                }
             }
         };
 
@@ -151,7 +147,8 @@
          * @param {string} labelAdd what to add the tracking event label
          */
         this.closeOverlay = (cancel = false, labelAdd = "") => {
-            ext.helper.model.call("checkUrls", {abort: true}); // abort running check url ajax calls
+            ext.helper.utility.triggerEvent("overlayClosed");
+
             ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
             elements.overlay.removeClass($.cl.page.visible);
 
@@ -173,8 +170,17 @@
          *
          * @param {string} type
          */
-        let setCloseButtonLabel = (type = "close") => {
+        this.setCloseButtonLabel = (type = "close") => {
             elements.buttonWrapper.children("a." + $.cl.close).text(ext.helper.i18n.get("overlay_" + type));
+        };
+
+        /**
+         * Returns true if the overlay iframe is in the DOM
+         *
+         * @returns {boolean}
+         */
+        this.isOpened = () => {
+            return $("iframe#" + $.opts.ids.page.overlay).length() > 0;
         };
 
         /**
@@ -263,7 +269,7 @@
                     .appendTo(list);
             });
 
-            setCloseButtonLabel("close");
+            this.setCloseButtonLabel("close");
         };
 
         /**
@@ -290,7 +296,7 @@
                 $("<p />").html(ext.helper.i18n.get("contribute_share_config_desc")).appendTo(scrollBox);
             }
 
-            setCloseButtonLabel("close");
+            this.setCloseButtonLabel("close");
         };
 
         /**
@@ -478,155 +484,6 @@
         };
 
         /**
-         * Generates a list with all urls which have changed or could not be found
-         *
-         * @param {Array} updateList
-         */
-        let handleUpdateUrlsFinished = (updateList) => {
-            let hasResults = updateList.length > 0;
-
-            $.delay(1000).then(() => {
-                elements.desc.remove();
-                elements.progressBar.remove();
-                elements.progressLabel.remove();
-
-                if (hasResults) {
-                    elements.modal.addClass($.cl.overlay.urlCheckList);
-                }
-
-                return $.delay(hasResults ? 1000 : 0);
-            }).then(() => {
-                elements.loader.remove();
-                elements.modal.removeClass($.cl.overlay.urlCheckLoading);
-                setCloseButtonLabel("close");
-
-                if (updateList.length === 0) {
-                    $("<p />").addClass($.cl.success).text(ext.helper.i18n.get("overlay_check_urls_no_results")).appendTo(elements.modal);
-                } else {
-                    $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_update")).appendTo(elements.buttonWrapper);
-                    let scrollBox = ext.helper.scroll.add($.opts.ids.overlay.urlList, $("<ul />").appendTo(elements.modal));
-                    let overlayBody = elements.overlay.find("body");
-
-                    updateList.forEach((entry) => {
-                        let listEntry = $("<li />")
-                            .data("entry", entry)
-                            .append(ext.helper.checkbox.get(overlayBody, {checked: "checked"}));
-
-                        $("<strong />").text(entry.title).appendTo(listEntry);
-
-                        $("<a />").attr({
-                            href: entry.url, title: entry.url, target: "_blank"
-                        }).html("<span>" + entry.url + "</span>").appendTo(listEntry);
-
-                        if (entry.urlStatusCode === 404) {
-                            $("<span />").text(ext.helper.i18n.get("overlay_check_urls_not_found")).appendTo(listEntry);
-                        } else if (entry.newUrl !== entry.url) {
-                            $("<a />").attr({
-                                href: entry.newUrl, title: entry.newUrl, target: "_blank"
-                            }).html("<span>" + entry.newUrl + "</span>").appendTo(listEntry);
-                        }
-
-                        listEntry = listEntry.appendTo(scrollBox.children("ul"));
-
-                        ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
-                            if (response.img) { // favicon found -> add to entry
-                                $("<img src='" + response.img + "' />").insertAfter(listEntry.children("div." + $.cl.checkbox.box));
-                            }
-                        });
-                    });
-                }
-            });
-        };
-
-
-        /**
-         * Extends the overlay html for the url update process
-         *
-         * @param {object} data
-         */
-        let handleUpdateUrlsHtml = (data) => {
-            elements.loader = ext.helper.template.loading().appendTo(elements.modal);
-            elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_urls_loading")).appendTo(elements.modal);
-
-            ext.helper.model.call("websiteStatus").then((opts) => {
-                if (opts.status === "available") {
-                    let bookmarks = [];
-
-                    let processBookmarks = (entries) => { // check all subordinate bookmarks of the given directory
-                        entries.forEach((entry) => {
-                            if (entry.url && ext.helper.utility.isUrlOnBlacklist(entry.url) === false) {
-                                bookmarks.push(entry);
-                            } else if (entry.children) {
-                                processBookmarks(entry.children);
-                            }
-                        });
-                    };
-                    processBookmarks(data.children);
-                    let bookmarkAmount = bookmarks.length;
-
-                    elements.progressBar = $("<div />").addClass($.cl.overlay.progressBar).html("<div />").appendTo(elements.modal);
-                    elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarkAmount + "</span>").appendTo(elements.modal);
-
-                    $.delay(500).then(() => {
-                        elements.modal.addClass($.cl.overlay.urlCheckLoading);
-                    });
-
-                    let finished = 0;
-                    let updateList = [];
-                    let bookmarkInfos = {};
-
-                    let checkUrls = (urls) => {
-                        ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
-                            if (!response.error) { // not cancelled -> proceed
-                                let x = -1;
-                                Object.entries(response).forEach(([id, data]) => {
-                                    $.delay(++x * 50).then(() => { // smoothing the progress bar
-                                        finished++;
-                                        elements.progressBar.children("div").css("width", (finished / bookmarkAmount * 100) + "%");
-                                        elements.progressLabel.children("span").eq(0).text(finished);
-
-                                        if (+data.code === 404 || (bookmarkInfos[id].url !== data.url && +data.code !== 302)) { // show all urls which have changed permanently and broken links
-                                            bookmarkInfos[id].newUrl = data.url;
-                                            bookmarkInfos[id].urlStatusCode = +data.code;
-                                            updateList.push(bookmarkInfos[id]);
-                                        }
-
-                                        if (finished === bookmarkAmount) {
-                                            handleUpdateUrlsFinished(updateList);
-                                        }
-                                    });
-                                });
-                            }
-                        });
-                    };
-
-                    let i = 0;
-                    let chunk = {};
-                    bookmarks.forEach((bookmark) => {
-                        i++;
-                        chunk[bookmark.id] = bookmark.url;
-                        bookmarkInfos[bookmark.id] = bookmark;
-
-                        if (Object.keys(chunk).length >= 10 || i === bookmarkAmount) { // check multiple urls at once
-                            checkUrls(chunk);
-                            chunk = {};
-                        }
-                    });
-                } else { // website not available -> show message
-                    elements.loader.remove();
-                    elements.desc.remove();
-
-                    $("<div />").addClass($.cl.error)
-                        .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
-                        .append("<p>" + ext.helper.i18n.get("status_check_urls_unavailable_desc") + "</p>")
-                        .appendTo(elements.modal);
-
-                    setCloseButtonLabel("close");
-                }
-            });
-        };
-
-        /**
          * Opens all the given bookmarks in new tab
          *
          * @param {object} data
@@ -798,55 +655,6 @@
                     }
                 });
             }
-        };
-
-        /**
-         * Updates all bookmarks which are checked,
-         * deletes entries with non existing urls,
-         * updates entries with changed urls
-         */
-        let updateBookmarkUrls = () => {
-            let entries = elements.modal.find("div#" + $.opts.ids.overlay.urlList + " ul > li");
-            elements.modal.find("a." + $.cl.overlay.action).remove();
-
-            new Promise((resolve) => {
-                let proceedList = (i = 0) => {
-                    if (entries[i]) { // go through the list one by one and update or delete the bookmark
-                        if ($(entries[i]).find("input[type='checkbox']")[0].checked) {
-                            let entry = $(entries[i]).data("entry");
-
-                            new Promise((rslv) => {
-                                if (entry.urlStatusCode === 404) {
-                                    ext.helper.model.call("deleteBookmark", {
-                                        id: entry.id,
-                                        preventReload: true
-                                    }).then(rslv);
-                                } else if (entry.url !== entry.newUrl) {
-                                    ext.helper.model.call("updateBookmark", {
-                                        id: entry.id,
-                                        title: entry.title,
-                                        url: entry.newUrl,
-                                        preventReload: true
-                                    }).then(rslv);
-                                } else {
-                                    rslv();
-                                }
-                            }).then(() => {
-                                proceedList(i + 1);
-                            });
-                        } else {
-                            proceedList(i + 1);
-                        }
-                    } else { // all elements iterated -> close overlay and reload sidebar
-                        resolve();
-                    }
-                };
-
-                proceedList();
-            }).then(() => {
-                ext.helper.model.call("reload", {type: "Update"});
-                this.closeOverlay();
-            });
         };
 
         /**

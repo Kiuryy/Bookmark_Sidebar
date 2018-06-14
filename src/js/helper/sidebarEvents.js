@@ -112,7 +112,7 @@
                         this.handleEntryClick($(e.currentTarget), e);
                     }
                 }).on("mouseover", "> ul a", (e) => { // add class to currently hovered element
-                    if ($("iframe#" + $.opts.ids.page.overlay).length() === 0) { // prevent hovering if overlay is open
+                    if (ext.helper.overlay.isOpened() === false) { // prevent hovering if overlay is open
                         let _self = $(e.currentTarget);
                         let id = _self.attr($.attr.id);
                         box.find("a." + $.cl.hover).removeClass($.cl.hover);
@@ -217,12 +217,6 @@
          * @returns {Promise}
          */
         let initGeneralEvents = async () => {
-            $(window).on("beforeunload.bs", () => { // save scroll position before unloading page
-                if (ext.elm.sidebar.hasClass($.cl.sidebar.openedOnce)) { // sidebar was opened or is still open
-                    ext.helper.scroll.updateAll();
-                }
-            });
-
             ext.elm.iframe.find("body").on("click", () => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();

@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Kansiota"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Tarkistetaan kirjanmerkkien linkkej\u00e4"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Kaikki linkit ovat kunnossa"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Palvelu ei saatavilla"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Linkkej\u00e4 tarkastava palvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
     },
     "status_feedback_unavailable_desc": {

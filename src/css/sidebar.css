@@ -202,7 +202,7 @@ div.contextmenu {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-incognito.svg); }
       div.contextmenu > ul.list > li > a[data-name='delete']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg); }
-      div.contextmenu > ul.list > li > a[data-name='updateUrls']::before {
+      div.contextmenu > ul.list > li > a[data-name='checkBookmarks']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg); }
       div.contextmenu > ul.list > li > a[data-name='showInDir']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-showInDir.svg); }
@@ -466,7 +466,7 @@ body, input, textarea, select, button {
   color: "%textColor";
   font-weight: "%fontWeightNormal"; }
 
-ul {
+ul, menu {
   list-style: none; }
 
 strong {

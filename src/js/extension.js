@@ -321,7 +321,8 @@
                 overlay: new $.OverlayHelper(this),
                 utility: new $.UtilityHelper(this),
                 contextmenu: new $.ContextmenuHelper(this),
-                tooltip: new $.TooltipHelper(this)
+                tooltip: new $.TooltipHelper(this),
+                linkchecker: new $.Linkchecker(this)
             };
         };
 

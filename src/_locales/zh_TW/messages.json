@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "\u76ee\u9304"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "\u6aa2\u67e5\u66f8\u7c64\u7db2\u5740"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "\u6240\u6709\u66f8\u7c64\u7db2\u5740\u7686\u53ef\u7528"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "\u670d\u52d9\u7121\u6cd5\u4f7f\u7528"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "\u6aa2\u67e5\u7db2\u5740\u670d\u52d9\u73fe\u5728\u7121\u6cd5\u4f7f\u7528\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
     },
     "status_feedback_unavailable_desc": {
@@ -652,6 +652,12 @@
     },
     "settings_reopen_sidebar_desc": {
         "message": "\u5f9e\u5074\u908a\u6b04\u4e2d\u6253\u958b\u66f8\u7c64\u4e4b\u5f8c\uff0c\u81ea\u52d5\u958b\u555f\u5074\u908a\u6b04"
+    },
+    "settings_prevent_windowed": {
+        "message": "\u5728\u8996\u7a97\u6a21\u5f0f\u4e2d\u95dc\u9589\u5074\u908a\u6b04"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "\u7576\u700f\u89bd\u5668\u8655\u65bc\u8996\u7a97\u6a21\u5f0f\u6642\uff0c\u7981\u6b62\u5728\u700f\u89bd\u5668\u908a\u7de3\u901a\u904e\u9ede\u64ca\u6216\u61f8\u6d6e\u6ed1\u9f20\u4f86\u6253\u958b\u5074\u908a\u6b04\u7684\u529f\u80fd\u3002"
     },
     "settings_tooltip_delay": {
         "message": "\u5ef6\u9072\u63d0\u793a"

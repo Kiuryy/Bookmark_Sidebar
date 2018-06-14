@@ -52,6 +52,7 @@
         "js/helper/overlay.js",
         "js/helper/contextmenu.js",
         "js/helper/bookmark.js",
+        "js/helper/linkchecker.js",
         "js/helper/tooltip.js",
         "js/helper/utility.js",
         "js/extension.js"

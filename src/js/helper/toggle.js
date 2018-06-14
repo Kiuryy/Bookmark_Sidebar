@@ -2,7 +2,7 @@
     "use strict";
 
     /**
-     * @requires helper: model, contextmenu, tooltip, dragndrop, utility, entry, scroll
+     * @requires helper: model, contextmenu, tooltip, dragndrop, utility, entry, scroll, overlay
      * @param {object} ext
      * @constructor
      */
@@ -264,7 +264,7 @@
                         this.removeSidebarHoverClass();
                     });
 
-                    if ($("iframe#" + $.opts.ids.page.overlay).length() === 0 &&
+                    if (ext.helper.overlay.isOpened() === false &&
                         ext.elm.iframeBody.hasClass($.cl.drag.isDragged) === false
                     ) {
                         let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
@@ -284,7 +284,7 @@
             });
 
             $(document).on("visibilitychange.bs", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
-                if (document.hidden && $("iframe#" + $.opts.ids.page.overlay).length() === 0) {
+                if (document.hidden && ext.helper.overlay.isOpened() === false) {
                     ext.elm.indicator.removeClass($.cl.page.hover);
 
                     if (ext.elm.iframe.hasClass($.cl.page.visible)) {

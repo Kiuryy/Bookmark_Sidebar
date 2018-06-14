@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Directorios"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Comprobar las URL de los marcadores"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Todas las URLs de los marcadores est\u00e1n bien"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "El servicio que comprueba las URL no est\u00e1 disponible en este momento. Por favor, int\u00e9ntelo de nuevo m\u00e1s tarde."
     },
     "status_feedback_unavailable_desc": {

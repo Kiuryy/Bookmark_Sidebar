@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "\u0645\u0648\u0636\u0648\u0639\u0627\u062a"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "\u0686\u06a9 \u06a9\u0631\u062f\u0646 \u0644\u06cc\u0646\u06a9 \u0647\u0627"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "\u062a\u0645\u0627\u0645 \u0644\u06cc\u0646\u06a9 \u0647\u0627 \u0633\u0627\u0644\u0645 \u0647\u0633\u062a\u0646\u062f"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "\u0633\u0631\u0648\u06cc\u0633 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0646\u0645\u06cc \u0628\u0627\u0634\u062f"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "\u0633\u0631\u0648\u06cc\u0633\u06cc \u06a9\u0647 \u0622\u062f\u0631\u0633 \u0631\u0627 \u0686\u06a9 \u0645\u06cc \u06a9\u0646\u062f \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0646\u0645\u06cc \u0628\u0627\u0634\u062f. \u0644\u0637\u0641\u0627 \u0628\u0639\u062f\u0627 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f"
     },
     "status_feedback_unavailable_desc": {

@@ -123,9 +123,10 @@
          * Deletes the given entry
          *
          * @param {object} data
+         * @param {boolean} preventReload
          * @returns {Promise}
          */
-        this.performDeletion = (data) => {
+        this.performDeletion = (data, preventReload = false) => {
             return new Promise((resolve) => {
                 ext.helper.model.call("trackEvent", {
                     category: "extension",
@@ -133,7 +134,10 @@
                     label: data.url ? "bookmark" : "directory"
                 });
 
-                ext.helper.model.call("deleteBookmark", {id: data.id}).then(() => {
+                ext.helper.model.call("deleteBookmark", {
+                    id: data.id,
+                    preventReload: preventReload
+                }).then(() => {
                     resolve();
                 });
             });

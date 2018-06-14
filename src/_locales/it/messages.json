@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Cartelle"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Controllando gli indirizzi dei preferiti"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Tutti gli indirizzi dei preferiti sono OK"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Servizio non disponibile"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Il servizio che controlla gli indirizzi non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
     },
     "status_feedback_unavailable_desc": {

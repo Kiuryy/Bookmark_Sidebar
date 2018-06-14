@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Mappar"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Kollar bokm\u00e4rkens url'er"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Alla bokm\u00e4rken \u00e4r okej"
     },
     "overlay_check_urls_not_found": {
@@ -239,7 +239,7 @@
     "status_service_unavailable_headline": {
         "message": "Tj\u00e4nst otillg\u00e4nglig"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Tj\u00e4nsten som kollar urel'er \u00e4r f\u00f6r tillf\u00e4llet inte tillg\u00e4ngligt. V\u00e4nligen f\u00f6rs\u00f6k senare"
     },
     "status_feedback_unavailable_desc": {

@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Directoare"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Se verific\u0103 URL_urile marcajelor"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Toate URL-urile marcajelor sunt ok"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Serviciu indisponibil"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Serviciul care verific\u0103 URL-urile nu este valabil momentan. V\u0103 rug\u0103m \u00eencerca\u021bi mai t\u00e2rziu."
     },
     "status_feedback_unavailable_desc": {

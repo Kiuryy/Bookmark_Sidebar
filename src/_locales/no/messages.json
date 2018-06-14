@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Mapper"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Kontrollerer bokmerke url"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Alle bokmerker er ok"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Tjeneste utilgjengelig"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Tjenesten som sjekker URL-adressene er ikke tilgjengelig for \u00f8yeblikket. Vennligst fors\u00f8k igjen senere."
     },
     "status_feedback_unavailable_desc": {

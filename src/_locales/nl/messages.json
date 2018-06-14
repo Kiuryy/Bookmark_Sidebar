@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Mappen"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "De URL's van de bladwijzers controleren"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Alle URL's van de bladwijzers zijn correct"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Service niet beschikbaar"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "De service die de URL's controleert is op dit moment niet beschikbaar. Probeer het later nog eens."
     },
     "status_feedback_unavailable_desc": {

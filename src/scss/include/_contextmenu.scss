@@ -196,7 +196,7 @@ div.contextmenu {
           @include maskImage('icon-delete');
         }
 
-        &[data-name='updateUrls']::before {
+        &[data-name='checkBookmarks']::before {
           @include maskImage('icon-update');
         }
 

@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Direktori"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "Mengecek url bookmark"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Semua url bookmark baik-baik saja"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Layanan tidak tersedia"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Layanan yang mengecek URL sedand tidak tersedia sekarang. Tolong untuk mencoba lagi nanti."
     },
     "status_feedback_unavailable_desc": {

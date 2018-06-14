@@ -186,7 +186,7 @@ body, input, textarea, select, button {
   color: "%textColor";
   font-weight: "%fontWeightNormal"; }
 
-ul {
+ul, menu {
   list-style: none; }
 
 strong {

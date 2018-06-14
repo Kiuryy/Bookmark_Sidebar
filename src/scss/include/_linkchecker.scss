@@ -1,0 +1,307 @@
+
+div.modal[data-type='checkBookmarks'] {
+
+  > header::before {
+    @include maskImage('icon-update');
+  }
+
+  > p {
+    position: relative;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 140%;
+    line-height: 170%;
+
+    &.success {
+      @include mask('icon-check', $colorSuccess, 48px);
+      padding: 90px 0 80px;
+
+      &::before {
+        -webkit-mask-position-y: bottom;
+      }
+    }
+  }
+
+  > div.error {
+    @include mask('icon-info', $colorNotice, 48px);
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    line-height: 150%;
+    padding: 70px 30px 0;
+
+    &::before {
+      -webkit-mask-position-y: top;
+    }
+
+    > h3 {
+      font-size: 160%;
+      font-weight: $__fontWeightNormal;
+      margin-bottom: 25px;
+    }
+  }
+
+  > div.progressBar {
+    position: relative;
+    background: rgba(0, 0, 0, 0.1);
+    height: 3px;
+    margin: 40px 30px 0;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: $__colorScheme;
+      transition: width 0.1s linear;
+    }
+  }
+
+  > span.progressLabel {
+    display: block;
+    text-align: center;
+    font-size: 120%;
+    margin-top: 20px;
+    opacity: 0.6;
+
+    > span {
+      margin: 0 3px;
+    }
+  }
+
+  > svg.loading {
+    margin: 80px auto 0;
+  }
+
+  > menu.categories {
+    position: absolute;
+    top: $__overlayHeaderHeight;
+    left: 0;
+    width: 180px;
+    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+    padding-top: 20px;
+    border-right: 1px solid $separatorColor;
+
+    > li {
+      @include mask(null, $__textColor, 20px);
+      position: relative;
+      height: 40px;
+
+      &::before {
+        -webkit-mask-position-x: 10px;
+      }
+
+      &[data-name='changed']::before {
+        @include maskImage('icon-update-2');
+      }
+
+      &[data-name='broken']::before {
+        @include maskImage('icon-broken');
+      }
+
+      &[data-name='duplicate']::before {
+        @include maskImage('icon-duplicate');
+      }
+
+      &.active {
+        background: $contentBackground2;
+
+        &::after {
+          content: "";
+          position: absolute;
+          border: 1px solid $separatorColor;
+          background: $contentBackground;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: -9px;
+          width: 16px;
+          height: 16px;
+          transform: rotateZ(45deg);
+        }
+      }
+
+      > a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-left: 40px;
+        line-height: 40px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        > span {
+          font-size: 80%;
+          margin-left: 5px;
+          vertical-align: top;
+          opacity: 0.8;
+
+          &::before {
+            content: "(";
+          }
+
+          &::after {
+            content: ")";
+          }
+        }
+      }
+    }
+  }
+
+  > div[id^='results_'] {
+    position: relative;
+    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+    margin-left: 180px;
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+
+    > p {
+      position: relative;
+      min-height: 100%;
+      background: $contentBackground;
+      text-align: center;
+      padding: 50px 0 0 0;
+
+      > span {
+        @include mask('icon-check', $__textColor, 32px);
+        position: relative;
+        display: inline-block;
+        font-size: 140%;
+        padding-left: 40px;
+
+        &::before {
+          -webkit-mask-position-x: 0;
+          opacity: 0.4;
+        }
+      }
+    }
+
+    > ul {
+      position: relative;
+      min-height: 100%;
+      background: $contentBackground;
+
+      > li {
+        position: relative;
+        padding: 17px 11px;
+        border-bottom: 1px solid $separatorColor;
+        transition: height 0.3s, padding 0.3s, opacity 0.25s;
+
+        &:last-child {
+          border: none;
+        }
+
+        &.hidden {
+          height: 0 !important;
+          padding: 0 11px;
+          opacity: 0;
+        }
+
+        > div.checkbox {
+          display: inline-block;
+          vertical-align: top;
+          margin: 0 14px 0 0;
+        }
+
+        > img {
+          vertical-align: top;
+          display: inline-block;
+          width: 16px;
+          margin: 1px 14px 0 0;
+        }
+
+        > strong {
+          display: inline-block;
+          width: calc(100% - 94px);
+          vertical-align: top;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        > ul {
+          margin: 0 30px 0 65px;
+
+          > li {
+            position: relative;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            > a {
+              line-height: 20px;
+              font-size: 80%;
+            }
+
+            &:first-child > a {
+              text-decoration: line-through;
+            }
+          }
+        }
+
+        > a.urlCheckAction {
+          @include mask('icon-delete', $__textColor, 18px);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: 10px;
+          display: block;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+          border-radius: 50%;
+          transition: background-color 0.3s;
+          z-index: 2;
+
+          &:hover {
+            background-color: $contentBackground2;
+          }
+        }
+      }
+    }
+
+    &#results_changed {
+
+      > ul > li > a.urlCheckAction::before {
+        @include maskImage('icon-check');
+        -webkit-mask-size: 22px;
+      }
+    }
+  }
+
+  &.urlCheckLoading {
+    transition: width 0.5s, height 0.5s;
+  }
+
+  &.urlCheckResults {
+    @extend %modalFooterBackground;
+    width: 900px;
+    height: 700px;
+    max-height: 100%;
+
+    > svg.loading {
+      transition: margin-top 0.5s;
+      margin-top: 210px;
+    }
+  }
+
+  > menu.buttons {
+
+    > a.urlCheckAction {
+      display: none;
+
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+}

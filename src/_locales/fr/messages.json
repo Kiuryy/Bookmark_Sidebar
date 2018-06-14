@@ -194,10 +194,10 @@
     "overlay_dir_children_dirs": {
         "message": "Dossiers"
     },
-    "overlay_check_urls_loading": {
+    "overlay_check_bookmarks_loading": {
         "message": "V\u00e9rification de l'URL des favoris"
     },
-    "overlay_check_urls_no_results": {
+    "overlay_check_bookmarks_no_results": {
         "message": "Toutes les URL des favoris sont correctes"
     },
     "overlay_check_urls_not_found": {
@@ -254,7 +254,7 @@
     "status_service_unavailable_headline": {
         "message": "Service indisponible"
     },
-    "status_check_urls_unavailable_desc": {
+    "status_check_bookmarks_unavailable_desc": {
         "message": "Le service de v\u00e9rification des URL n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
     },
     "status_feedback_unavailable_desc": {

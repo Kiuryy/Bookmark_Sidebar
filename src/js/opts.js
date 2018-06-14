@@ -18,7 +18,8 @@
                 }
             },
             overlay: {
-                urlList: "urlList"
+                urlCheckResult: "results",
+                urlList: "urlList" // @deprecated
             }
         },
         classes: {
@@ -114,7 +115,10 @@
                 buttonWrapper: "buttons",
                 checkUrlProgressLabel: "progressLabel",
                 urlCheckLoading: "urlCheckLoading",
-                urlCheckList: "urlCheckList"
+                urlCheckCategories: "categories",
+                urlCheckList: "urlCheckList", // @deprecated
+                urlCheckAction: "urlCheckAction",
+                urlCheckResults: "urlCheckResults"
             },
             newtab: {
                 smallContent: "small",
@@ -249,6 +253,7 @@
             elementsCreated: "blockbyte-bs-created",
             openSidebar: "blockbyte-bs-sidebar-open",
             sidebarOpened: "blockbyte-bs-sidebar-opened",
+            overlayClosed: "blockbyte-bs-overlay-closed",
             checkboxChanged: "blockbyte-bs-checkbox-changed",
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
             lsbLoaded: "blockbyte-lsb-loaded",

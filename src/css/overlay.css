@@ -994,9 +994,6 @@ body.highContrast:not(.dark) div.modal > header > a.close:hover {
 body.highContrast:not(.dark) div.modal[data-type='checkBookmarks'] > div.progressBar > div {
   background: "%textColor"; }
 
-body.highContrast:not(.dark) div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > a:hover {
-  color: "%textColor"; }
-
 body.highContrast:not(.dark) div.modal[data-type='add'] > menu[data-name='select'] > a.hover::before {
   background-color: "%textColor"; }
 
@@ -1051,15 +1048,24 @@ body.dark div.modal {
     color: #eee; }
     body.dark div.modal[data-type='infos'] > ul > li > ul::before {
       border-bottom-color: #222; }
-  body.dark div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > a:hover {
-    color: "%textColor"; }
-    body.dark div.modal[data-type='checkBookmarks'] > div#urlList > ul > li > a:hover > span {
-      opacity: 0.9; }
+  body.dark div.modal[data-type='checkBookmarks'] > menu.categories {
+    border-right-color: rgba(255, 255, 255, 0.15); }
+    body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active {
+      background: #4d4d4d; }
+      body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active::after {
+        border-color: rgba(255, 255, 255, 0.15);
+        background: #3d3d3d; }
+  body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > p, body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul {
+    background: #3d3d3d; }
+  body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li {
+    border-bottom-color: rgba(255, 255, 255, 0.15); }
+    body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction:hover {
+      background-color: #4d4d4d; }
   body.dark div.modal[data-type='checkBookmarks'] > div.progressBar {
     background: rgba(255, 255, 255, 0.1); }
     body.dark div.modal[data-type='checkBookmarks'] > div.progressBar > div {
       background: "%textColor"; }
-  body.dark div.modal[data-type='checkBookmarks'].urlCheckList::after {
+  body.dark div.modal[data-type='checkBookmarks'].urlCheckResults::after {
     background: #4d4d4d; }
   body.dark div.modal[data-type='shareInfoDesc']::after, body.dark div.modal[data-type='keyboardShortcuts']::after {
     background: #4d4d4d; }

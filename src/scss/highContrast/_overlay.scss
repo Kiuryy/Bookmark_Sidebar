@@ -16,22 +16,6 @@ body.highContrast:not(.dark) div.modal {
         background: $__textColor;
       }
     }
-
-    > div#urlList {
-
-      > ul {
-
-        > li {
-
-          > a {
-
-            &:hover {
-              color: $__textColor;
-            }
-          }
-        }
-      }
-    }
   }
 
   &[data-type='add'] {

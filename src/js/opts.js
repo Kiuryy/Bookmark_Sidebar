@@ -18,8 +18,7 @@
                 }
             },
             overlay: {
-                urlCheckResult: "results",
-                urlList: "urlList" // @deprecated
+                urlCheckResult: "results"
             }
         },
         classes: {
@@ -116,7 +115,6 @@
                 checkUrlProgressLabel: "progressLabel",
                 urlCheckLoading: "urlCheckLoading",
                 urlCheckCategories: "categories",
-                urlCheckList: "urlCheckList", // @deprecated
                 urlCheckAction: "urlCheckAction",
                 urlCheckResults: "urlCheckResults"
             },

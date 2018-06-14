@@ -90,16 +90,30 @@ body.dark div.modal {
 
   &[data-type='checkBookmarks'] {
 
-    > div#urlList > ul > li {
+    > menu.categories {
+      border-right-color: $darkSeparatorColor;
 
-      > a {
+      > li.active {
+        background: $darkContentBackground2;
 
-        &:hover {
-          color: $__textColor;
+        &::after {
+          border-color: $darkSeparatorColor;
+          background: $darkContentBackground;
+        }
+      }
+    }
 
-          > span {
-            opacity: 0.9;
-          }
+    > div[id^='results_'] {
+
+      > p, > ul {
+        background: $darkContentBackground;
+      }
+
+      > ul > li {
+        border-bottom-color: $darkSeparatorColor;
+
+        > a.urlCheckAction:hover {
+          background-color: $darkContentBackground2;
         }
       }
     }
@@ -112,7 +126,7 @@ body.dark div.modal {
       }
     }
 
-    &.urlCheckList {
+    &.urlCheckResults {
 
       &::after {
         background: $darkContentBackground2;

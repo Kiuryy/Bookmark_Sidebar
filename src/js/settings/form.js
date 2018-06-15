@@ -309,7 +309,10 @@
 
                     valTooltip.text(elm.value + unit);
                 });
-                s.elm.range[opts.name].trigger("input");
+
+                $.delay().then(() => {
+                    s.elm.range[opts.name].trigger("input");
+                });
 
                 if ($(opts.elm).attr($.attr.settings.range.infinity) === "1") { // add checkbox to disable range input
                     let checkbox = s.helper.checkbox.get(s.elm.body).insertAfter(valTooltip);

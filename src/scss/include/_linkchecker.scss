@@ -213,8 +213,9 @@ div.modal[data-type='checkBookmarks'] {
           margin: 1px 14px 0 0;
         }
 
-        > strong {
+        > strong, > a.info {
           display: inline-block;
+          font-weight: $__fontWeightBold;
           width: calc(100% - 94px);
           vertical-align: top;
           white-space: nowrap;
@@ -222,7 +223,27 @@ div.modal[data-type='checkBookmarks'] {
           text-overflow: ellipsis;
         }
 
-        > ul {
+        a.urlCheckAction {
+          @include mask('icon-delete', $__textColor, 18px);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: 10px;
+          display: block;
+          width: 32px;
+          height: 32px;
+          cursor: pointer;
+          border-radius: 50%;
+          transition: background-color 0.3s;
+          z-index: 2;
+
+          &:hover {
+            background-color: $contentBackground2;
+          }
+        }
+
+        > ul[data-type='urls'] {
           margin: 0 30px 0 65px;
 
           > li {
@@ -243,23 +264,55 @@ div.modal[data-type='checkBookmarks'] {
           }
         }
 
-        > a.urlCheckAction {
-          @include mask('icon-delete', $__textColor, 18px);
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-          right: 10px;
-          display: block;
-          width: 32px;
-          height: 32px;
-          cursor: pointer;
-          border-radius: 50%;
-          transition: background-color 0.3s;
-          z-index: 2;
+        > ul[data-type='duplicates'] {
+          margin: 0 0 0 22px;
 
-          &:hover {
-            background-color: $contentBackground2;
+          > li {
+            position: relative;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 15px 0 0 0;
+            padding-left: 32px;
+            transition: height 0.3s, margin 0.3s, opacity 0.25s;
+
+            &.hidden {
+              height: 0 !important;
+              margin: 0;
+              opacity: 0;
+            }
+
+            > strong {
+              font-weight: $__fontWeightMedium;
+            }
+
+            > a.urlCheckAction {
+              right: unset;
+              left: 0;
+              margin: 0;
+              width: 26px;
+              height: 26px;
+
+              &::before {
+                -webkit-mask-size: 16px;
+              }
+            }
+
+            > ul {
+              font-size: 80%;
+              margin-top: 3px;
+
+              > li {
+                display: inline-block;
+
+                &:not(:last-child)::after {
+                  content: ">";
+                  margin: 0 4px;
+                  opacity: 0.7;
+                }
+              }
+            }
           }
         }
       }

@@ -96,12 +96,27 @@ html[dir='rtl'] {
               margin-right: 0;
             }
 
-            > ul {
+            > ul[data-type='urls'] {
               margin-left: 30px;
               margin-right: 65px;
             }
 
-            > a.urlCheckAction {
+            > ul[data-type='duplicates'] {
+              margin-right: 22px;
+              margin-left: 0;
+
+              > li {
+                padding-right: 32px;
+                padding-left: 0;
+
+                > a.urlCheckAction {
+                  right: 0;
+                  left: unset;
+                }
+              }
+            }
+
+            a.urlCheckAction {
               left: 10px;
               right: unset;
             }

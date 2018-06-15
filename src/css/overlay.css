@@ -858,27 +858,15 @@ div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
         display: inline-block;
         width: 16px;
         margin: 1px 14px 0 0; }
-      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > strong {
+      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > strong, div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.info {
         display: inline-block;
+        font-weight: "%fontWeightBold";
         width: calc(100% - 94px);
         vertical-align: top;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis; }
-      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul {
-        margin: 0 30px 0 65px; }
-        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul > li {
-          position: relative;
-          display: block;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis; }
-          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul > li > a {
-            line-height: 20px;
-            font-size: 80%; }
-          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul > li:first-child > a {
-            text-decoration: line-through; }
-      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction {
+      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -891,7 +879,7 @@ div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
         border-radius: 50%;
         transition: background-color 0.3s;
         z-index: 2; }
-        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction::before {
+        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction::before {
           content: "";
           position: absolute;
           top: 0;
@@ -901,8 +889,55 @@ div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
           -webkit-mask: no-repeat center/18px;
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg);
           background-color: "%textColor"; }
-        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction:hover {
+        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction:hover {
           background-color: #f5f5f5; }
+      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='urls'] {
+        margin: 0 30px 0 65px; }
+        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='urls'] > li {
+          position: relative;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='urls'] > li > a {
+            line-height: 20px;
+            font-size: 80%; }
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='urls'] > li:first-child > a {
+            text-decoration: line-through; }
+      div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] {
+        margin: 0 0 0 22px; }
+        div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li {
+          position: relative;
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin: 15px 0 0 0;
+          padding-left: 32px;
+          transition: height 0.3s, margin 0.3s, opacity 0.25s; }
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li.hidden {
+            height: 0 !important;
+            margin: 0;
+            opacity: 0; }
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > strong {
+            font-weight: "%fontWeightMedium"; }
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > a.urlCheckAction {
+            right: unset;
+            left: 0;
+            margin: 0;
+            width: 26px;
+            height: 26px; }
+            div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > a.urlCheckAction::before {
+              -webkit-mask-size: 16px; }
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul {
+            font-size: 80%;
+            margin-top: 3px; }
+            div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul > li {
+              display: inline-block; }
+              div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul > li:not(:last-child)::after {
+                content: ">";
+                margin: 0 4px;
+                opacity: 0.7; }
   div.modal[data-type='checkBookmarks'] > div[id^='results_']#results_changed > ul > li > a.urlCheckAction::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-check.svg);
     -webkit-mask-size: 22px; }
@@ -973,10 +1008,19 @@ html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
   html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > img {
     margin-left: 14px;
     margin-right: 0; }
-  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul {
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='urls'] {
     margin-left: 30px;
     margin-right: 65px; }
-  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction {
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] {
+    margin-right: 22px;
+    margin-left: 0; }
+    html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li {
+      padding-right: 32px;
+      padding-left: 0; }
+      html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > a.urlCheckAction {
+        right: 0;
+        left: unset; }
+  html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction {
     left: 10px;
     right: unset; }
 
@@ -1082,7 +1126,7 @@ body.dark div.modal {
     background: #3d3d3d; }
   body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li {
     border-bottom-color: rgba(255, 255, 255, 0.15); }
-    body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > a.urlCheckAction:hover {
+    body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction:hover {
       background-color: #4d4d4d; }
   body.dark div.modal[data-type='checkBookmarks'] > div.progressBar {
     background: rgba(255, 255, 255, 0.1); }

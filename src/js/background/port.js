@@ -59,21 +59,56 @@
                 if (opts.abort && opts.abort === true) {
                     $.cancelXhr(b.urls.checkUrls);
                 } else {
-                    $.xhr(b.urls.checkUrls, {
-                        method: "POST",
-                        data: {
-                            urlList: opts.urls,
-                            ua: navigator.userAgent,
-                            lang: chrome.i18n.getUILanguage()
-                        }
-                    }).then((xhr) => {
+                    Promise.all([
+                        $.xhr(b.urls.checkUrls, {
+                            method: "POST",
+                            data: {
+                                urlList: opts.urls,
+                                ua: navigator.userAgent,
+                                lang: chrome.i18n.getUILanguage()
+                            }
+                        }),
+                        getDuplicateInfo(opts.urls)
+                    ]).then(([xhr, duplicates]) => {
                         let response = JSON.parse(xhr.responseText);
-                        resolve(response);
+                        resolve({
+                            xhr: response,
+                            duplicates: duplicates
+                        });
                     }, () => {
                         resolve({error: true});
                     });
                 }
             });
+        };
+
+        /**
+         * Checks whether the given urls are used by multiple bookmarks and returns information about all duplicate bookmarks for the given url list
+         *
+         * @param {object} urls
+         * @returns {Promise}
+         */
+        let getDuplicateInfo = async (urls) => {
+            let ret = {};
+            let urlList = Object.values(urls);
+
+            for (const url of urlList) {
+                let filteredUrl = url.split("?")[0];
+                filteredUrl = filteredUrl.split("#")[0];
+                filteredUrl = filteredUrl.replace(/^https?:\/\//, "");
+                filteredUrl = filteredUrl.replace(/^www\./, "");
+
+                let result = await b.helper.bookmarkApi.func.search(filteredUrl);
+
+                if (result.length > 1) {
+                    ret[filteredUrl] = {
+                        url: url,
+                        duplicates: result
+                    };
+                }
+            }
+
+            return ret;
         };
 
         /**
@@ -159,7 +194,7 @@
                     }
 
                     b.helper.bookmarkApi.func.removeTree(opts.id).then(() => {
-                        resolve({deleted: opts.id});
+                        rslv({deleted: opts.id});
                     }, (error) => {
                         rslv({error: error});
                     });

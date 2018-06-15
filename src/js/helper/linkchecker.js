@@ -111,7 +111,7 @@
                                     break;
                                 }
                                 case "duplicate": {
-                                    // toDo
+                                    displayDuplicateUrls(entry, resultEntry);
                                     break;
                                 }
                             }
@@ -129,6 +129,43 @@
         };
 
         /**
+         * Displays the entry in the result list for duplicate urls
+         *
+         * @param {object} entry
+         * @param {jsu} resultEntry
+         */
+        let displayDuplicateUrls = (entry, resultEntry) => {
+            let title = $("<a />").addClass($.cl.overlay.info).attr({href: entry.url, title: entry.label, target: "_blank"}).html(entry.label).appendTo(resultEntry);
+            let list = $("<ul />").attr($.attr.type, "duplicates").appendTo(resultEntry);
+
+            entry.duplicates.forEach((duplicate) => {
+                duplicate.duplicate = true;
+                let elm = $("<li />").data("entry", duplicate).appendTo(list);
+                $("<strong />").html(duplicate.title).appendTo(elm);
+
+                let breadcrumb = $("<ul />").appendTo(elm);
+                let parentId = duplicate.parentId;
+
+                while (parentId) {
+                    let parentInfo = ext.helper.entry.getDataById(parentId);
+                    if (parentInfo) {
+                        $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                    }
+
+                    parentId = parentInfo && parentInfo.parentId ? parentInfo.parentId : null;
+                }
+
+                $("<a />").addClass($.cl.overlay.urlCheckAction).appendTo(elm);
+            });
+
+            ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
+                if (response.img) { // favicon found -> add to entry
+                    $("<img src='" + response.img + "' />").insertBefore(title);
+                }
+            });
+        };
+
+        /**
          * Displays the entry in the result list for the broken and changed urls
          *
          * @param {object} entry
@@ -138,7 +175,7 @@
             ext.helper.checkbox.get(elements.body, {checked: "checked"}).appendTo(resultEntry);
 
             $("<strong />").text(entry.title).appendTo(resultEntry);
-            let list = $("<ul />").appendTo(resultEntry);
+            let list = $("<ul />").attr($.attr.type, "urls").appendTo(resultEntry);
 
             ["url", "newUrl"].forEach((attr) => {
                 if (entry[attr]) {
@@ -256,7 +293,7 @@
             return new Promise((resolve) => {
                 updated = true;
 
-                if (entry.statusCode === 404) {
+                if (entry.statusCode === 404 || entry.duplicate) {
                     ext.helper.bookmark.performDeletion(entry, true).then(resolve);
                 } else if (entry.url !== entry.newUrl) {
                     let additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
@@ -282,9 +319,23 @@
 
             Object.entries(elements.results).forEach(([key, elm]) => {
                 let count = elm.find("> ul > li").length();
+
+                if (key === "duplicate") {
+                    elm.find("> ul > li").forEach((listEntry) => {
+                        let duplicateCount = $(listEntry).find("> ul > li").length();
+
+                        if (duplicateCount === 0) {
+                            $(listEntry).remove();
+                            count--;
+                        } else if (duplicateCount === 1) {
+                            count--;
+                        }
+                    });
+                }
+
                 elements.menu.find("li[" + $.attr.name + "='" + key + "'] > a > span").text("(" + count + ")");
 
-                if (count === 0) {
+                if (count === 0) { // tab is empty -> show info text
                     elm.children("ul").remove();
                     $("<p />").html("<span>" + ext.helper.i18n.get("overlay_check_bookmarks_no_results_" + key) + "</span>").appendTo(elm);
 
@@ -296,7 +347,7 @@
                 }
             });
 
-            if (allResolved) {
+            if (allResolved) { // all tabs are empty -> show success text
                 showAllResolvedMessage();
             }
         };
@@ -345,28 +396,42 @@
 
                 let finished = 0;
                 let info = {};
+                let duplicateLabels = [];
 
                 let check = (urls) => {
                     ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
                         if (!response.error) { // not cancelled -> proceed
                             let x = -1;
-                            Object.entries(response).forEach(([id, data]) => {
+
+                            Object.entries(response.duplicates).forEach(([label, entries]) => { // duplicate url
+                                if (duplicateLabels.indexOf(label) === -1) { // prevent multiple entries of the same url
+                                    results.duplicate.push({
+                                        label: label,
+                                        url: entries.url,
+                                        duplicates: entries.duplicates
+                                    });
+                                    duplicateLabels.push(label);
+                                    results.count++;
+                                }
+                            });
+
+                            Object.entries(response.xhr).forEach(([id, data]) => {
+                                info[id].statusCode = +data.code;
+                                info[id].checkTimeout = data.timeout;
+
+                                if (info[id].statusCode === 404 || data.timeout) { // broken url
+                                    results.broken.push(info[id]);
+                                    results.count++;
+                                } else if (info[id].url !== data.url && info[id].statusCode !== 302) { // changed url
+                                    info[id].newUrl = data.url;
+                                    results.changed.push(info[id]);
+                                    results.count++;
+                                }
+
                                 $.delay(++x * 50).then(() => { // smoothing the progress bar
                                     finished++;
                                     elements.progressBar.children("div").css("width", (finished / bookmarks.length * 100) + "%");
                                     elements.progressLabel.children("span").eq(0).text(finished);
-
-                                    info[id].statusCode = +data.code;
-                                    info[id].checkTimeout = data.timeout;
-
-                                    if (info[id].statusCode === 404 || data.timeout) { // broken url
-                                        results.broken.push(info[id]);
-                                        results.count++;
-                                    } else if (info[id].url !== data.url && info[id].statusCode !== 302) { // changed url
-                                        info[id].newUrl = data.url;
-                                        results.changed.push(info[id]);
-                                        results.count++;
-                                    }
 
                                     if (finished === bookmarks.length) { // all urls proceeded
                                         resolve(results);

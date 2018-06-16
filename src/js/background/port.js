@@ -92,19 +92,33 @@
             let ret = {};
             let urlList = Object.values(urls);
 
-            for (const url of urlList) {
-                let filteredUrl = url.split("?")[0];
-                filteredUrl = filteredUrl.split("#")[0];
-                filteredUrl = filteredUrl.replace(/^https?:\/\//, "");
-                filteredUrl = filteredUrl.replace(/^www\./, "");
+            let getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123 -> google.com
+                url = url.split("?")[0];
+                url = url.split("#")[0];
+                url = url.replace(/^https?:\/\//, "");
+                url = url.replace(/^www\./, "");
+                return url;
+            };
 
-                let result = await b.helper.bookmarkApi.func.search(filteredUrl);
+            for (const url of urlList) {
+                let filteredUrl = getFilteredUrl(url);
+                let result = await b.helper.bookmarkApi.func.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
 
                 if (result.length > 1) {
-                    ret[filteredUrl] = {
-                        url: url,
-                        duplicates: result
-                    };
+                    let realResults = [];
+
+                    result.forEach((bookmark) => { // filter the result array and only add real duplicates to the final result list
+                        if (getFilteredUrl(bookmark.url) === filteredUrl) {
+                            realResults.push(bookmark);
+                        }
+                    });
+
+                    if (realResults.length > 1) { // there are real duplicates -> add to object
+                        ret[filteredUrl] = {
+                            url: url,
+                            duplicates: realResults
+                        };
+                    }
                 }
             }
 

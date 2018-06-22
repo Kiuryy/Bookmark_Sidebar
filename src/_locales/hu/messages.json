@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "Tal\u00e1lat hozz\u00e1ad\u00e1sa"
     },
-    "contextmenu_update_urls": {
-        "message": "Linkek friss\u00edt\u00e9se"
+    "contextmenu_check_bookmarks": {
+        "message": "K\u00f6nyvjelz\u0151k ellen\u0151rz\u00e9se"
     },
     "contextmenu_toggle_hidden": {
         "message": "Mutassa a rejtett tal\u00e1latokat"
@@ -194,14 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Mapp\u00e1k"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Megv\u00e1ltozott"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Megsz\u0171nt"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Dupla"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "K\u00f6nyvjelz\u0151k c\u00edm\u00e9nek ellen\u0151rz\u00e9se"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Friss\u00edt\u00e9s kiv\u00e1lasztva"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Elt\u00e1vol\u00edt\u00e1s kiv\u00e1lasztva"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Minden k\u00f6nyvjelz\u0151 c\u00edme j\u00f3"
     },
-    "overlay_check_urls_not_found": {
-        "message": "A c\u00edm nem lett megtal\u00e1lva"
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Nincs megv\u00e1ltozott k\u00f6nyvjelz\u0151"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Nincs megsz\u0171nt k\u00f6nyvjelz\u0151"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Nincs dupla k\u00f6nyvjelz\u0151"
     },
     "newtab_title": {
         "message": "\u00daj f\u00fcl"

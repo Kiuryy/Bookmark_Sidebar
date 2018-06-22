@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "Ajouter l'\u00e9l\u00e9ment"
     },
-    "contextmenu_update_urls": {
-        "message": "Mettre \u00e0 jour des Urls"
+    "contextmenu_check_bookmarks": {
+        "message": "V\u00e9rifier les favoris"
     },
     "contextmenu_toggle_hidden": {
         "message": "Afficher les contenus masqu\u00e9s"
@@ -194,14 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Dossiers"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Modifi\u00e9"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Invalide"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Double"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "V\u00e9rification de l'URL des favoris"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Mettre \u00e0 jour s\u00e9l\u00e9ctionn\u00e9s"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Supprimer s\u00e9l\u00e9ctionn\u00e9s"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Toutes les URL des favoris sont correctes"
     },
-    "overlay_check_urls_not_found": {
-        "message": "URL non trouv\u00e9e"
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Il n'y a pas d'URL de favoris modifi\u00e9"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Il n'y a pas d'URL de favoris invalide"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Il n'y a pas d'URL de favoris en double"
     },
     "newtab_title": {
         "message": "Nouvel onglet"

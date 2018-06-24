@@ -1,5 +1,12 @@
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions and more details about the individual releases
 
+## 1.14
+ - Extended bookmark url checker
+ - Improved scroll position saving mechanism
+ - Added option to disable contextmenu entry
+ - Added option to disable the sidebar in window mode
+ - Changed Javascript options structure
+ 
 ## 1.13
  - Configurable toggle area (replacing pixel tolerance settings)
  - Reinitialize sidebar when website removes it from DOM

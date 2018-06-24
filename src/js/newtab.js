@@ -36,12 +36,15 @@
             this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
-                let config = this.helper.model.getData(["a/darkMode", "a/highContrast"]);
+                let config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
                 if (config.darkMode === true) {
                     this.elm.body.addClass($.cl.page.darkMode);
                 } else if (config.highContrast === true) {
                     this.elm.body.addClass($.cl.page.highContrast);
                 }
+
+                this.elm.body.attr($.attr.position, config.sidebarPosition);
+
                 return this.helper.i18n.init();
             }).then(() => {
                 this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");

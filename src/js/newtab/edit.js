@@ -12,7 +12,6 @@
         this.init = async () => {
             initEvents();
 
-            n.elm.body.attr($.attr.pos, n.helper.model.getData("b/sidebarPosition"));
             $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.body);
 
             if (location.href.search(/#edit$/i) > -1) {
@@ -138,7 +137,7 @@
          * Initialises the buttons to edit/remove the shortcuts in the top/right corner
          */
         let initShortcutsConfig = () => {
-            let buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.pos + "='left' />", "<a " + $.attr.pos + "='right' />"];
+            let buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.position + "='left' />", "<a " + $.attr.position + "='right' />"];
 
             n.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
@@ -161,8 +160,8 @@
                 });
             }).on("click.edit", "a." + $.cl.newtab.remove, (e) => {  // remove
                 $(e.currentTarget).parent("li").remove();
-            }).on("click.edit", "a[" + $.attr.pos + "]", (e) => { // move
-                let pos = $(e.currentTarget).attr($.attr.pos);
+            }).on("click.edit", "a[" + $.attr.position + "]", (e) => { // move
+                let pos = $(e.currentTarget).attr($.attr.position);
                 let entry = $(e.currentTarget).parent("li");
 
                 switch (pos) {

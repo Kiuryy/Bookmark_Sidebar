@@ -14,45 +14,49 @@
          * @param {object} infos
          * @param {string} type
          * @param {boolean} active
+         * @returns {Promise}
          */
         this.openUrl = (infos, type = "default", active = true) => {
-            if (infos.url === "about:blank") {
-                return;
-            }
+            return new Promise((resolve) => {
+                if (infos.url === "about:blank") {
+                    return;
+                }
 
-            ext.helper.model.setData({
-                "u/lastOpened": infos.id,
-                "u/performReopening": active ? (infos.reopenSidebar || false) : false
+                ext.helper.model.setData({
+                    "u/lastOpened": infos.id,
+                    "u/performReopening": active ? (infos.reopenSidebar || false) : false
+                });
+
+                if (type === "incognito") {
+                    ext.helper.model.call("openLink", {
+                        href: infos.url,
+                        incognito: true
+                    }).then(resolve);
+                } else if (type === "newWindow") {
+                    ext.helper.model.call("openLink", {
+                        href: infos.url,
+                        newWindow: true
+                    }).then(resolve);
+                } else {
+                    ext.helper.model.call("openLink", {
+                        parentId: infos.parentId,
+                        id: infos.id,
+                        href: infos.url,
+                        newTab: type === "newTab",
+                        position: ext.helper.model.getData("b/newTabPosition"),
+                        active: active
+                    }).then(resolve);
+                }
             });
-
-            if (type === "incognito") {
-                ext.helper.model.call("openLink", {
-                    href: infos.url,
-                    incognito: true
-                });
-            } else if (type === "newWindow") {
-                ext.helper.model.call("openLink", {
-                    href: infos.url,
-                    newWindow: true
-                });
-            } else {
-                ext.helper.model.call("openLink", {
-                    parentId: infos.parentId,
-                    id: infos.id,
-                    href: infos.url,
-                    newTab: type === "newTab",
-                    position: ext.helper.model.getData("b/newTabPosition"),
-                    active: active
-                });
-            }
         };
 
         /**
          * Opens all given bookmarks in new tabs
          *
          * @param {Array} bookmarks
+         * @returns {Promise}
          */
-        this.openAllBookmarks = (bookmarks) => {
+        this.openAllBookmarks = async (bookmarks) => {
             ext.helper.model.call("trackEvent", {
                 category: "url",
                 action: "open",
@@ -60,13 +64,15 @@
                 value: bookmarks.length
             });
 
-            if (ext.helper.model.getData("b/newTabPosition") === "afterCurrent") { // reverse bookmarks to open them in the correct order
+            let newTabPosition = ext.helper.model.getData("b/newTabPosition");
+
+            if (newTabPosition === "afterCurrent" || newTabPosition === "beforeFirst") { // reverse bookmarks to open them in the correct order
                 bookmarks.reverse();
             }
 
-            bookmarks.forEach((bookmark) => {
-                this.openUrl(bookmark, "newTab", false);
-            });
+            for (const bookmark of bookmarks) {
+                await this.openUrl(bookmark, "newTab", false);
+            }
         };
 
         /**

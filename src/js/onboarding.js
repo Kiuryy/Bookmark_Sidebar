@@ -34,7 +34,7 @@
                 this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
                 this.helper.font.init();
-                this.helper.stylesheet.init();
+                this.helper.stylesheet.init({defaultVal: true});
                 this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
 
                 this.helper.i18n.parseHtml(document);

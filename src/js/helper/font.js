@@ -59,23 +59,28 @@
             }
         };
 
-        let fontInfo = {};
+        let fontInfo = {
+            "default": {},
+            "config": {}
+        };
 
         /**
          *
          */
-        this.init = (type = "config") => {
+        this.init = () => {
             let styles = ext.helper.model.getData("a/styles");
 
-            if (type !== "default" && styles.fontFamily && styles.fontFamily !== "default") {
-                fontInfo = {
-                    name: styles.fontFamily
+            fontInfo["default"] = this.getDefaultFontInfo();
+            fontInfo["default"].fontWeights = this.getFontWeights(fontInfo["default"].name);
+
+            if (styles.fontFamily && styles.fontFamily !== "default") {
+                fontInfo.config = {
+                    name: styles.fontFamily,
+                    fontWeights: this.getFontWeights(styles.fontFamily)
                 };
             } else {
-                fontInfo = this.getDefaultFontInfo();
+                fontInfo.config = fontInfo["default"];
             }
-
-            fontInfo.fontWeights = this.getFontWeights(fontInfo.name);
         };
 
         /**
@@ -83,14 +88,15 @@
          *
          * @returns {boolean}
          */
-        this.isLoaded = () => !!(fontInfo.name);
+        this.isLoaded = () => !!(fontInfo["default"].name);
 
         /**
          * Returns information about the configurated font
          *
-         *  @returns {object}
+         * @param {string} type
+         * @returns {object}
          */
-        this.getFontInfo = () => fontInfo;
+        this.getFontInfo = (type = "config") => fontInfo[type];
 
         /**
          * Returns the font-weights of the given font
@@ -123,13 +129,14 @@
          * Adds the stylesheet for the font to the given document if there is one
          *
          * @param {jsu} context
+         * @param {string} type
          */
-        this.addStylesheet = (context) => {
-            if (fontInfo.href) {
+        this.addStylesheet = (context, type = "config") => {
+            if (fontInfo[type] && fontInfo[type].href) {
                 $("<link />").attr({
                     rel: "stylesheet",
                     type: "text/css",
-                    href: fontInfo.href
+                    href: fontInfo[type].href
                 }).appendTo(context.find("head"));
             }
         };

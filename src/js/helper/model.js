@@ -279,7 +279,7 @@
                     value = Object.assign({}, defaults.a.styles, value);
 
                     if (ext.helper.font && ext.helper.font.isLoaded()) { // FontHelper is available and loaded -> extend object with detailed font information
-                        let fontInfo = ext.helper.font.getFontInfo();
+                        let fontInfo = ext.helper.font.getFontInfo(defaultVal ? "default" : "config");
                         value.fontFamily = fontInfo.name;
                         Object.assign(value, fontInfo.fontWeights);
                     }

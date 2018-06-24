@@ -33,8 +33,8 @@
             }).then(() => {
                 this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
-                this.helper.font.init("default");
-                this.helper.stylesheet.init();
+                this.helper.font.init();
+                this.helper.stylesheet.init({defaultVal: true});
                 this.helper.stylesheet.addStylesheets(["changelog"], $(document));
 
                 this.helper.i18n.parseHtml(document);

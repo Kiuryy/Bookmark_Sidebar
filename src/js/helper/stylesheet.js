@@ -13,9 +13,17 @@
 
         /**
          * Retrieves the replacements for the stylesheets from the storage
+         *
+         * @param {object} opts
          */
-        this.init = () => {
-            styles = ext.helper.model.getData("a/styles");
+        this.init = (opts) => {
+            let defaultVal = false;
+
+            if (opts && opts.defaultVal && opts.defaultVal === true) { // use the default styles instead of the configured (will be used by the settings page, the changelog and the onboarding)
+                defaultVal = true;
+            }
+
+            styles = ext.helper.model.getData("a/styles", defaultVal);
             customCss = ext.helper.model.getData("u/customCss");
         };
 

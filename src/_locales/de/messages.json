@@ -950,6 +950,15 @@
     "settings_feedback_email": {
         "message": "Deine E-Mail Adresse"
     },
+    "settings_feedback_screenshot": {
+        "message": "Screenshots anh\u00e4ngen"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Die Datei {1} ist zu gro\u00df (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Es k\u00f6nnen maximal {1} Screenshots hochgeladen werden"
+    },
     "settings_feedback_send": {
         "message": "Feedback abschicken"
     },

@@ -950,6 +950,15 @@
     "settings_feedback_email": {
         "message": "Your email address"
     },
+    "settings_feedback_screenshot": {
+        "message": "Attach screenshots"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "The file size of {1} is too big (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "You can only upload a maximum of {1} screenshots"
+    },
     "settings_feedback_send": {
         "message": "Send feedback"
     },

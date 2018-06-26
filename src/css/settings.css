@@ -1109,9 +1109,76 @@ div.tab[data-name='feedback'] section.form {
         margin: 10px 0 0 0;
         font-weight: "%fontWeightBold";
         color: #2b35c8; }
+  div.tab[data-name='feedback'] section.form input[type='email'] {
+    vertical-align: top; }
   div.tab[data-name='feedback'] section.form textarea {
     resize: vertical;
     height: 200px; }
+  div.tab[data-name='feedback'] section.form div.upload {
+    margin: 7px 0 0 0;
+    float: right; }
+    div.tab[data-name='feedback'] section.form div.upload > span {
+      position: relative;
+      padding: 0 3px 0 28px; }
+      div.tab[data-name='feedback'] section.form div.upload > span::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/20px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-screenshot.svg);
+        background-color: #fff; }
+      div.tab[data-name='feedback'] section.form div.upload > span::before {
+        -webkit-mask-position-x: 0; }
+    div.tab[data-name='feedback'] section.form div.upload > input[type='file'] {
+      position: absolute;
+      top: 0;
+      left: -900%;
+      width: 1000%;
+      height: 100%;
+      cursor: pointer; }
+
+div.tab[data-name='feedback'] ul.uploadedFiles > li {
+  position: relative;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  div.tab[data-name='feedback'] ul.uploadedFiles > li > img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80px; }
+  div.tab[data-name='feedback'] ul.uploadedFiles > li > span {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    width: calc(100% - 80px - 10px - 24px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s; }
+    div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/16px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
+      background-color: #666; }
+    div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
 
 div.tab[data-name='feedback'] div.suggestedAnswers {
   background: none !important;
@@ -1246,6 +1313,25 @@ div.tab[data-name='feedback'].onlySuggestions div.suggestedAnswers {
     display: none; }
   div.tab[data-name='feedback'].onlySuggestions div.suggestedAnswers > a {
     display: block; }
+
+html[dir='rtl'] div.tab[data-name='feedback'] div.upload {
+  float: left; }
+  html[dir='rtl'] div.tab[data-name='feedback'] div.upload > span {
+    padding-right: 28px;
+    padding-left: 3px; }
+    html[dir='rtl'] div.tab[data-name='feedback'] div.upload > span::before {
+      transform: scaleX(-1); }
+  html[dir='rtl'] div.tab[data-name='feedback'] div.upload > input[type='file'] {
+    left: unset;
+    right: -900%; }
+
+html[dir='rtl'] div.tab[data-name='feedback'] ul.uploadedFiles > li > span {
+  margin-right: 10px;
+  margin-left: 0; }
+
+html[dir='rtl'] div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close {
+  left: 0;
+  right: unset; }
 
 html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > span.icon {
   left: 12px;
@@ -2206,7 +2292,7 @@ hr {
   background: rgba(0, 0, 0, 0.1);
   margin: 15px 0; }
 
-main button[type='submit'], a.button {
+main button[type='submit'], a.button, div.upload {
   position: relative;
   overflow: hidden;
   display: inline-block;

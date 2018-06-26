@@ -47,6 +47,8 @@
                 send: $("section.form button[type='submit']"),
                 feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),
                 showForm: $("div.tab[data-name='feedback'] div.suggestedAnswers > a"),
+                uploadField: $("div.upload > input[type='file']"),
+                uploadedFiles: $("ul.uploadedFiles"),
                 suggestions: $("div.tab[data-name='feedback'] div.suggestedAnswers")
             },
             translation: {

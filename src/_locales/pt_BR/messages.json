@@ -21,7 +21,7 @@
         "message": "Nenhum favorito correspondente \u00e0 sua pesquisa"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "URL copiada"
+        "message": "URL copiado"
     },
     "sidebar_deleted": {
         "message": "Removida"
@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "Adicionar entrada"
     },
-    "contextmenu_update_urls": {
-        "message": "Atualizar URLs"
+    "contextmenu_check_bookmarks": {
+        "message": "Verificar favoritos"
     },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
@@ -69,13 +69,13 @@
         "message": "Fechar todas as pastas"
     },
     "contextmenu_reload_sidebar": {
-        "message": "Recarregar barra lateral"
+        "message": "Recarregar a barra lateral"
     },
     "contextmenu_open_children": {
         "message": "Abrir favoritos"
     },
     "contextmenu_hide_from_sidebar": {
-        "message": "Esconder da barra lateral"
+        "message": "Ocultar da barra lateral"
     },
     "contextmenu_show_in_sidebar": {
         "message": "Mostrar na barra lateral"
@@ -84,10 +84,10 @@
         "message": "Mostrar na pasta"
     },
     "contextmenu_pin": {
-        "message": "Colocar no topo"
+        "message": "Fixar no topo"
     },
     "contextmenu_unpin": {
-        "message": "Remover do topo"
+        "message": "Desafixar do topo"
     },
     "contextmenu_bookmark_manager": {
         "message": "Gerenciador de favoritos"
@@ -144,22 +144,22 @@
         "message": "Abrir todos"
     },
     "overlay_confirm_open_children": {
-        "message": "Voc\u00ea realmente deseja abrir todos os {1} favoritos subordinados?"
+        "message": "Voc\u00ea realmente quer abrir todos os {1} favoritos subordinados?"
     },
     "overlay_hide_from_sidebar": {
-        "message": "Esconder da barra lateral"
+        "message": "Ocultar da barra lateral"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Voc\u00ea realmente deseja esconder este favorito da barra lateral?"
+        "message": "Voc\u00ea realmente quer ocultar este favorito da barra lateral?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Voc\u00ea realmente deseja esconder esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o escondidos tamb\u00e9m."
+        "message": "Voc\u00ea realmente quer ocultar esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o ocultados tamb\u00e9m."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Voc\u00ea realmente deseja apagar este favorito?"
+        "message": "Voc\u00ea realmente quer apagar este favorito?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Voc\u00ea realmente deseja apagar esta pasta? Todos os favoritos subordinados ser\u00e3o removidos tamb\u00e9m."
+        "message": "Voc\u00ea realmente quer apagar esta pasta? Todos os favoritos subordinados ser\u00e3o apagados tamb\u00e9m."
     },
     "overlay_label_bookmark": {
         "message": "Favorito"
@@ -194,14 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Pastas"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Alterado"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Corrompido"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicatas"
+    },
     "overlay_check_bookmarks_loading": {
-        "message": "Checando as URLs do favorito"
+        "message": "Verificando os URLs dos favoritos"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Atualiza\u00e7\u00e3o selecionada"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Remover selecionado"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Todas as URLs do favorito est\u00e3o corretas"
+        "message": "Todos os URLs dos favoritos est\u00e3o funcionando"
     },
-    "overlay_check_urls_not_found": {
-        "message": "URL n\u00e3o encontrada"
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "N\u00e3o h\u00e1 URLs de favoritos modificados"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "N\u00e3o h\u00e1 URLs de favoritos com problema"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "N\u00e3o h\u00e1 URLs de favoritos com duplicata"
     },
     "newtab_title": {
         "message": "Nova guia"
@@ -303,7 +324,7 @@
         "message": "Abre o menu de contexto para a atual entrada suspensa"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Copia a URL da atual entrada suspensa"
+        "message": "Copia o URL da atual entrada suspensa"
     },
     "keyboard_shortcuts_del_desc": {
         "message": "Remove a atual entrada suspensa"
@@ -315,10 +336,10 @@
         "message": "Eu preciso da sua ajuda"
     },
     "contribute_intro": {
-        "message": "Para melhorar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
+        "message": "Para aperfei\u00e7oar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
     },
     "contribute_outro": {
-        "message": "Se voc\u00ea tiver d\u00favidas ou estiver preocupado por compartilhar informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
+        "message": "Se voc\u00ea tiver questionamentos ou preocupa\u00e7\u00f5es sobre o compartilhamento de informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
     },
     "contribute_dismiss": {
         "message": "Remover"
@@ -333,7 +354,7 @@
         "message": "Compartilhar atividade"
     },
     "contribute_share_activity_desc1": {
-        "message": "Voc\u00ea pode compartilhar sua atividade dentro da barra lateral anonimamente, o que me ajuda a saber como os usu\u00e1rios est\u00e3o usando a barra lateral de forma geral. As informa\u00e7\u00f5es sobre seus favoritos ou seus sites visitados [b]n\u00e3o ser\u00e3o[\/ b] medidas."
+        "message": "Voc\u00ea pode compartilhar sua atividade dentro da barra lateral anonimamente, o que me ajuda a saber como os usu\u00e1rios est\u00e3o usando a barra lateral de forma geral. Informa\u00e7\u00f5es sobre seus favoritos ou seus sites visitados [b]n\u00e3o ser\u00e3o[\/ b] coletadas."
     },
     "contribute_share_activity_desc2": {
         "message": "Esta informa\u00e7\u00e3o \u00e9 muito \u00fatil para identificar problemas na usabilidade ou caracter\u00edsticas que, por exemplo, n\u00e3o s\u00e3o usadas frequentemente."
@@ -348,7 +369,7 @@
         "message": "Em qual plataforma os usu\u00e1rios est\u00e3o (Windows, Mac, Linux,...)?"
     },
     "contribute_share_activity_example_3": {
-        "message": "Os usu\u00e1rios t\u00eam usado a pesquisa?"
+        "message": "Os usu\u00e1rios est\u00e3o usando a pesquisa?"
     },
     "contribute_share_activity_example_4": {
         "message": "Os usu\u00e1rios mudam a classifica\u00e7\u00e3o dos favoritos?"
@@ -468,7 +489,7 @@
         "message": "Tradu\u00e7\u00e3o"
     },
     "settings_menu_feedback": {
-        "message": "Enviar feedback"
+        "message": "Coment\u00e1rios"
     },
     "settings_menu_support": {
         "message": "Suporte"
@@ -486,7 +507,7 @@
         "message": "Restaurar padr\u00e3o"
     },
     "settings_restore_confirm": {
-        "message": "Voc\u00ea deseja mesmo restaurar a configura\u00e7\u00e3o padr\u00e3o?"
+        "message": "Voc\u00ea quer mesmo restaurar a configura\u00e7\u00e3o padr\u00e3o?"
     },
     "settings_restored_message": {
         "message": "Configura\u00e7\u00e3o restaurada com sucesso"
@@ -652,6 +673,12 @@
     },
     "settings_reopen_sidebar_desc": {
         "message": "Abrir automaticamente a barra lateral novamente, ap\u00f3s abrir um favorito a partir da barra lateral."
+    },
+    "settings_prevent_windowed": {
+        "message": "Desativar a barra lateral no modo janela"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Desativa a possibilidade de abrir a barra lateral ao clicar ou posicionar o cursor do mouse sobre a borda do conte\u00fado do navegador quando o navegador estiver no modo janela."
     },
     "settings_tooltip_delay": {
         "message": "Atraso da dica de contexto"
@@ -882,7 +909,7 @@
         "message": "Voltar ao in\u00edcio"
     },
     "settings_translation_info": {
-        "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar suas mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
+        "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
     },
     "settings_translation_notice1": {
         "message": "Assim que todas as categorias marcadas como requeridas forem traduzidas, a tradu\u00e7\u00e3o ser\u00e1 lan\u00e7ada."
@@ -891,7 +918,7 @@
         "message": "Categorias incompletas n\u00e3o ser\u00e3o liberadas para prevenir textos parcialmente traduzidos."
     },
     "settings_translation_help": {
-        "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, a qual precisa ser traduzida para o seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que \u00e9, cada entrada tem um nome (por exemplo, {1}), o qual n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o, pressionando o bot\u00e3o no canto superior direito!"
+        "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, a qual precisa ser traduzida para o seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que se destina, cada entrada tem um nome (por exemplo, {1}), o qual n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o, pressionando o bot\u00e3o no canto superior direito!"
     },
     "settings_translation_submit": {
         "message": "Enviar"
@@ -936,7 +963,7 @@
         "message": "Doar"
     },
     "settings_support_donation_desc": {
-        "message": "A doa\u00e7\u00e3o \u00e9 completamente opcional, mas se voc\u00ea gosta da extens\u00e3o e quer doar uma pequena quantia, voc\u00ea pode ent\u00e3o clicando no seguinte link. Agrade\u00e7o por toda ajuda que recebo, seja doa\u00e7\u00e3o, ajuda com tradu\u00e7\u00f5es ou envio de coment\u00e1rios, para melhorar a extens\u00e3o."
+        "message": "A doa\u00e7\u00e3o \u00e9 completamente opcional, mas se voc\u00ea gosta da extens\u00e3o e quer doar uma pequena quantia, pode fazer isso clicando no seguinte link. Agrade\u00e7o por toda ajuda que recebo, seja doa\u00e7\u00e3o, ajuda com tradu\u00e7\u00f5es ou envio de coment\u00e1rios, para melhorar a extens\u00e3o."
     },
     "settings_headline_share_userdata": {
         "message": "Compartilhar informa\u00e7\u00f5es"

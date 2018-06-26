@@ -3,6 +3,40 @@ html[dir='rtl'] {
 
   div.tab[data-name='feedback'] {
 
+    div.upload {
+      float: left;
+
+      > span {
+        padding-right: 28px;
+        padding-left: 3px;
+
+        &::before {
+          transform: scaleX(-1);
+        }
+      }
+
+      > input[type='file'] {
+        left: unset;
+        right: -900%;
+      }
+    }
+
+    ul.uploadedFiles {
+
+      > li {
+
+        > span {
+          margin-right: 10px;
+          margin-left: 0;
+        }
+
+        > a.close {
+          left: 0;
+          right: unset;
+        }
+      }
+    }
+
     div.suggestedAnswers {
 
       > span.icon {

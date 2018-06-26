@@ -296,6 +296,17 @@
                 }
             });
 
+            s.elm.feedback.uploadField.on("change", (e) => { // upload screenshots
+                if (e.currentTarget.files) {
+                    handleFileUpload(e.currentTarget.files);
+                }
+            });
+
+            s.elm.feedback.uploadedFiles.on("click", "a." + $.cl.close, (e) => { // remove uploaded screenshot from the list
+                e.preventDefault();
+                $(e.currentTarget).parent("li").remove();
+            });
+
             s.elm.feedback.send.on("click", (e) => { // submit feedback form
                 e.preventDefault();
                 sendFeedback();
@@ -303,34 +314,87 @@
         };
 
         /**
+         * Adds the files from the screenshot upload to the list below the message textarea
+         *
+         * @param {Array} files
+         */
+        let handleFileUpload = (files) => {
+            if (files.length + s.elm.feedback.uploadedFiles.children("li").length() > 3) { // too many files -> cancel and show error message
+                window.alert(s.helper.i18n.get("settings_feedback_screenshot_error_amount", [3]));
+                return;
+            }
+
+            for (const file of files) {
+                if (!file.type.match("image")) {
+                    continue;
+                }
+
+                let reader = new FileReader();
+                let filesize = ((file.size / 1024)).toFixed(4); // KB
+
+                if (filesize > 1024) { // filesize is too big -> show error message
+                    window.alert(s.helper.i18n.get("settings_feedback_screenshot_error_filesize", [file.name]));
+                } else {
+                    reader.onload = (e) => {
+                        try {
+                            $("<li />")
+                                .append("<img src='" + e.target.result + "' />")
+                                .append("<span>" + file.name + "</span>")
+                                .append("<a class='" + $.cl.close + "' />")
+                                .appendTo(s.elm.feedback.uploadedFiles);
+                        } catch (e) {
+                            //
+                        }
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            s.elm.feedback.uploadField[0].value = "";
+        };
+
+
+        /**
          * Checks the content of the feedback fields and sends the content via ajax if they are filled properly
          */
         let sendFeedback = () => {
             let messageText = s.elm.textarea.feedbackMsg[0].value;
             let emailText = s.elm.field.feedbackEmail[0].value;
+
             let isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
             let isMessageValid = messageText.length > 0;
 
-            if (isEmailValid && isMessageValid) {
+            if (isEmailValid && isMessageValid) { // email is valid and the message is not empty
                 let loadStartTime = +new Date();
                 let loader = s.helper.template.loading().appendTo(s.elm.body);
                 s.elm.body.addClass($.cl.loading);
                 let infos = null;
 
+                let screenshots = [];
+                s.elm.feedback.uploadedFiles.find("> li > img").forEach((screenshot) => {
+                    screenshots.push($(screenshot).attr("src"));
+                });
+
                 $.xhr($.opts.ajax.feedback.form, {
                     method: "POST",
+                    timeout: 30000,
                     data: {
                         email: emailText,
                         msg: messageText,
                         version: $.opts.manifest.version_name,
                         ua: navigator.userAgent,
                         lang: s.helper.i18n.getLanguage(),
+                        screenshots: JSON.stringify(screenshots),
                         config: s.helper.importExport.getExportConfig(),
                         suggestions: suggestionInfo
                     }
-                }).then((xhr) => {
+                }).then((xhr) => { // got a response
                     infos = JSON.parse(xhr.responseText);
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))); // load at least 1s
+                }, () => { // timeout or xhr failed
+                    infos = {success: false};
+                    return $.delay();
                 }).then(() => {
                     s.elm.body.removeClass($.cl.loading);
                     loader.remove();
@@ -345,6 +409,8 @@
 
                         s.elm.textarea.feedbackMsg[0].value = "";
                         s.elm.field.feedbackEmail[0].value = "";
+                        s.elm.feedback.uploadedFiles.html("");
+
                         s.showSuccessMessage("feedback_sent_message");
                     } else { // not submitted -> raise error
                         $.delay().then(() => {

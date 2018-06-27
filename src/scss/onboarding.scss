@@ -101,7 +101,7 @@ section.slide {
       color: $textColor;
       width: 400px;
       font-size: 90%;
-      line-height: 140%;
+      line-height: 160%;
       margin: 15px auto 0;
       padding: 7px 10px;
       transform: translate3d(0, -7px, 0);
@@ -190,6 +190,38 @@ section.slide {
 
     a.appearance::before {
       @include maskImage('settings/icon-appearance');
+    }
+
+    p.info {
+      @include mask('icon-info', $textColorInverted, 36px);
+      position: relative;
+      padding: 20px 30px 20px 65px;
+      margin: 0 0 40px 0;
+      background: rgba(255, 255, 255, 0.1);
+      text-align: left;
+
+      > span {
+        display: block;
+        font-size: 120%;
+        line-height: 160%;
+        color: $textColorInverted;
+      }
+
+      &::before {
+        -webkit-mask-position-x: 15px;
+        -webkit-mask-position-y: 22px;
+      }
+
+      > a {
+        position: relative;
+        display: inline-block;
+        background: $textColorInverted;
+        color: $mainColor;
+        cursor: pointer;
+        padding: 4px 10px;
+        margin-top: 10px;
+        border-radius: 3px;
+      }
     }
   }
 }

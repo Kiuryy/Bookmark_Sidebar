@@ -40,6 +40,11 @@
                 s.elm.range[field][0].value = val;
                 s.elm.range[field].trigger("change");
             });
+
+            let path = s.helper.menu.getPath();
+            if (path.length >= 2 && path[0] === "sidebar" && path[1] === "toggle" && path[2] === "area") { // initially open the modal for configuring the toggle area (will be called from the finish slide of the onboarding page)
+                s.elm.buttons.toggleAreaOpen.trigger("click");
+            }
         };
 
         /**

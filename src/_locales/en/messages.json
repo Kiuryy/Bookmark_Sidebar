@@ -425,6 +425,9 @@
     "onboarding_finish_desc": {
         "message": "Have fun with your sidebar."
     },
+    "onboarding_finish_notice": {
+        "message": "If you are frequently clicking things on the {1} side of the browser window, you may want to change where the sidebar can be opened vertically to avoid opening it accidentally."
+    },
     "onboarding_goto_settings": {
         "message": "More settings"
     },

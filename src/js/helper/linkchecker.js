@@ -135,7 +135,7 @@
          * @param {jsu} resultEntry
          */
         let displayDuplicateUrls = (entry, resultEntry) => {
-            let title = $("<a />").addClass($.cl.overlay.info).attr({href: entry.url, title: entry.label, target: "_blank"}).html(entry.label).appendTo(resultEntry);
+            let title = $("<a />").addClass($.cl.info).attr({href: entry.url, title: entry.label, target: "_blank"}).html(entry.label).appendTo(resultEntry);
             let list = $("<ul />").attr($.attr.type, "duplicates").appendTo(resultEntry);
 
             entry.duplicates.forEach((duplicate) => {

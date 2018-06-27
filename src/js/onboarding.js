@@ -103,7 +103,7 @@
                 e.preventDefault();
 
                 if ($(e.currentTarget).hasClass($.cl.onboarding.skip)) {
-                    initHandsOn(true);
+                    initHandsOn();
                 } else {
                     gotoNextSlide();
                 }
@@ -217,7 +217,7 @@
             $(document).on($.opts.events.sidebarOpened, () => {
                 if (!$("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished']").hasClass($.cl.visible)) {
                     this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
-                    gotoSlide("finished");
+                    initFinishedSlide();
                 }
             });
         };
@@ -232,6 +232,8 @@
                     location.href = chrome.extension.getURL("html/settings.html");
                 } else if ($(e.currentTarget).hasClass($.cl.onboarding.appearance)) {
                     location.href = chrome.extension.getURL("html/settings.html") + "#appearance_sidebar";
+                } else if ($(e.currentTarget).hasClass($.cl.onboarding.toggleArea)) {
+                    location.href = chrome.extension.getURL("html/settings.html") + "#sidebar_toggle_area";
                 }
             });
         };
@@ -263,6 +265,22 @@
 
                 $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
             });
+        };
+
+        /**
+         * Initialises the finish slide with links to the settings and a notice when choosing to open the sidebar by clicking inside the browser content
+         */
+        let initFinishedSlide = () => {
+            gotoSlide("finished");
+            let config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
+            let info = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] p." + $.cl.info);
+
+            if (config.openAction === "icon") {
+                info.remove();
+            } else {
+                let position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
+                info.children("span").text(this.helper.i18n.get("onboarding_finish_notice", [position]));
+            }
         };
 
         /**

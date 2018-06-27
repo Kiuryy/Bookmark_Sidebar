@@ -125,7 +125,7 @@ section.slide {
     color: #666;
     width: 400px;
     font-size: 90%;
-    line-height: 140%;
+    line-height: 160%;
     margin: 15px auto 0;
     padding: 7px 10px;
     transform: translate3d(0, -7px, 0);
@@ -197,6 +197,39 @@ section.slide {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg); }
   section.slide[data-name='finished'] a.appearance::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg); }
+  section.slide[data-name='finished'] p.info {
+    position: relative;
+    padding: 20px 30px 20px 65px;
+    margin: 0 0 40px 0;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: left; }
+    section.slide[data-name='finished'] p.info::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/36px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+      background-color: #fff; }
+    section.slide[data-name='finished'] p.info > span {
+      display: block;
+      font-size: 120%;
+      line-height: 160%;
+      color: #fff; }
+    section.slide[data-name='finished'] p.info::before {
+      -webkit-mask-position-x: 15px;
+      -webkit-mask-position-y: 22px; }
+    section.slide[data-name='finished'] p.info > a {
+      position: relative;
+      display: inline-block;
+      background: #fff;
+      color: #7b5fa4;
+      cursor: pointer;
+      padding: 4px 10px;
+      margin-top: 10px;
+      border-radius: 3px; }
 
 div#sidebar {
   position: absolute;
@@ -287,6 +320,13 @@ html[dir='rtl'] body {
 
 html[dir='rtl'] section.slide[data-name='position'] > div {
   flex-direction: row-reverse; }
+
+html[dir='rtl'] section.slide[data-name='finished'] p.info {
+  padding-left: 30px;
+  padding-right: 65px;
+  text-align: right; }
+  html[dir='rtl'] section.slide[data-name='finished'] p.info::before {
+    transform: scaleX(-1); }
 
 html[dir='rtl'] div#sidebar {
   padding-right: 80px;

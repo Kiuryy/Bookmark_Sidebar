@@ -12,6 +12,19 @@ html[dir='rtl'] {
         flex-direction: row-reverse;
       }
     }
+
+    &[data-name='finished'] {
+
+      p.info {
+        padding-left: 30px;
+        padding-right: 65px;
+        text-align: right;
+
+        &::before {
+          transform: scaleX(-1);
+        }
+      }
+    }
   }
 
   // Sidebar placeholder

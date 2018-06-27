@@ -27,6 +27,7 @@
             hidden: "hidden",
             success: "success",
             error: "error",
+            info: "info",
             close: "close",
             hover: "hover",
             loading: "loading",
@@ -108,7 +109,6 @@
                 modal: "modal",
                 preview: "preview",
                 previewUrl: "previewUrl",
-                info: "info",
                 action: "action",
                 progressBar: "progressBar",
                 buttonWrapper: "buttons",
@@ -136,6 +136,7 @@
                 skip: "skip",
                 close: "close",
                 settings: "settings",
+                toggleArea: "toggleArea",
                 appearance: "appearance",
                 hideOpenTypeIcon: "hideOpenType",
                 large: "large"

@@ -107,8 +107,9 @@
                     this.elm[name].wrapper.addClass($.cl.loading);
                 });
 
+                return this.helper.menu.init();
+            }).then(() => {
                 return Promise.all([
-                    this.helper.menu.init(),
                     this.helper.sidebar.init(),
                     this.helper.appearance.init(),
                     this.helper.newtab.init(),

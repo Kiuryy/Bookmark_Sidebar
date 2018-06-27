@@ -190,7 +190,7 @@
          */
         let appendAdditionalInfo = (data) => {
             if (data.additionalInfo && data.additionalInfo.desc) {
-                let container = $("<div />").addClass($.cl.overlay.info).appendTo(elements.modal);
+                let container = $("<div />").addClass($.cl.info).appendTo(elements.modal);
 
                 $("<h3 />").text(ext.helper.i18n.get("overlay_bookmark_additional_info")).appendTo(container);
                 $("<p />").text(data.additionalInfo.desc).appendTo(container);
@@ -333,7 +333,7 @@
             }
 
             let infoEntry = $("<li />")
-                .addClass($.cl.overlay.info)
+                .addClass($.cl.info)
                 .append("<label>" + ext.helper.i18n.get("overlay_bookmark_additional_info") + "</label>")
                 .appendTo(list);
 

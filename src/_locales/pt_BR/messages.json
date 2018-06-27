@@ -950,6 +950,15 @@
     "settings_feedback_email": {
         "message": "Seu endere\u00e7o de email"
     },
+    "settings_feedback_screenshot": {
+        "message": "Anexar capturas de tela"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "O tamanho do arquivo de {1} \u00e9 muito grande (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Voc\u00ea s\u00f3 pode fazer upload de no m\u00e1ximo {1} capturas de tela"
+    },
     "settings_feedback_send": {
         "message": "Enviar coment\u00e1rio"
     },

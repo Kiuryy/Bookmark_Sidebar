@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "\ud56d\ubaa9 \ucd94\uac00"
     },
-    "contextmenu_update_urls": {
-        "message": "\uc8fc\uc18c \uac31\uc2e0"
+    "contextmenu_check_bookmarks": {
+        "message": "\ubd81\ub9c8\ud06c \ud655\uc778"
     },
     "contextmenu_toggle_hidden": {
         "message": "\uc228\uaca8\uc9c4 \ud56d\ubaa9 \ubcf4\uae30"
@@ -194,14 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "\uac1c\uc758 \ud3f4\ub354"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "\ubc14\ub01c"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "\uae68\uc9d0"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "\uc911\ubcf5"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "\uc8fc\uc18c \uac31\uc2e0 \uc911"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "\uc120\ud0dd \uac31\uc2e0"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "\uc120\ud0dd \uc0ad\uc81c"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "\ubaa8\ub4e0 \uc8fc\uc18c\uac00 \uc774\uc804 \uc8fc\uc18c\uc640 \uc77c\uce58\ud569\ub2c8\ub2e4."
     },
-    "overlay_check_urls_not_found": {
-        "message": "\uc8fc\uc18c\ub97c \ucc3e\uc744 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4."
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "\ubc14\ub010 url\uc774 \uc5c6\uc2b5\ub2c8\ub2e4"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "\uae68\uc9c4 url\uc774 \uc5c6\uc2b5\ub2c8\ub2e4"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "\uc911\ubcf5\ub41c url\uc774 \uc5c6\uc2b5\ub2c8\ub2e4"
     },
     "newtab_title": {
         "message": "\uc0c8 \ud0ed"
@@ -928,6 +949,9 @@
     },
     "settings_feedback_email": {
         "message": "\uc774\uba54\uc77c \uc8fc\uc18c"
+    },
+    "settings_feedback_screenshot": {
+        "message": "\uc2a4\ud06c\ub9b0\uc0f7 \ucca8\ubd80"
     },
     "settings_feedback_send": {
         "message": "\ud53c\ub4dc\ubc31 \ubcf4\ub0b4\uae30"

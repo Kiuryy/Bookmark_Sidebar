@@ -56,38 +56,38 @@ html[dir='rtl'] {
         }
       }
     }
+  }
 
-    > div.dialog {
-      transform: translate3d(12px, -10px, 0);
+  body > div.dialog {
+    transform: translate3d(12px, -10px, 0);
 
-      &.visible {
-        transform: translate3d(12px, 0, 0);
-      }
+    &.visible {
+      transform: translate3d(12px, 0, 0);
+    }
+
+    &::before {
+      left: 20px;
+      right: unset;
+    }
+
+    > a {
+      padding-right: 15px;
+      padding-left: 5px;
 
       &::before {
-        left: 20px;
-        right: unset;
+        right: 0;
+        left: unset;
+        transform: rotateZ(-45deg);
       }
+    }
 
-      > a {
-        padding-right: 15px;
-        padding-left: 5px;
+    > span {
+      padding-right: 30px;
+      padding-left: 10px;
 
-        &::before {
-          right: 0;
-          left: unset;
-          transform: rotateZ(-45deg);
-        }
-      }
-
-      > span {
-        padding-right: 30px;
-        padding-left: 10px;
-
-        &::before {
-          right: 8px;
-          left: unset;
-        }
+      &::before {
+        right: 8px;
+        left: unset;
       }
     }
   }

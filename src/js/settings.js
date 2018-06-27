@@ -188,11 +188,11 @@
                 $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
             });
 
-            this.elm.header.on("click", "div." + $.cl.settings.dialog, (e) => {
+            this.elm.body.on("click", "div." + $.cl.settings.dialog, (e) => {
                 e.stopPropagation();
             });
 
-            this.elm.header.on("click", "div." + $.cl.settings.dialog + " > a", (e) => {
+            this.elm.body.on("click", "div." + $.cl.settings.dialog + " > a", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -293,7 +293,7 @@
                         .append("<br />")
                         .append("<a>" + this.helper.i18n.get("settings_restore") + "</a>")
                         .css(paddingDir, this.elm.header.css("padding-" + paddingDir))
-                        .appendTo(this.elm.header);
+                        .appendTo(this.elm.body);
 
                     $.delay().then(() => {
                         dialog.addClass($.cl.visible);

@@ -252,13 +252,13 @@
         "message": "Die Sidebar kann im Chrome Webstore nicht verwendet werden"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "Die Sidebar kann nicht auf Erweiterungsseiten verwendet werden"
+        "message": "Die Sidebar kann auf Erweiterungsseiten nicht verwendet werden"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Die Sidebar kann nicht auf der Standard-New-Tab-Seite verwendet werden"
+        "message": "Die Sidebar kann auf der Standard-New-Tab-Seite nicht verwendet werden"
     },
     "newtab_fallback_headline_system": {
-        "message": "Die Sidebar kann nicht auf Chrome-Systemseiten verwendet werden"
+        "message": "Die Sidebar kann auf Chrome-Systemseiten nicht verwendet werden"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Eine deiner Url-Regeln verhindert, dass die Sidebar ge\u00f6ffnet werden kann"

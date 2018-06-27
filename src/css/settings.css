@@ -1,8 +1,8 @@
-body > header > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, body::before, body::after {
+body > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > header > div.dialog.visible, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > div.dialog.visible, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -328,71 +328,73 @@ body > header {
             background-color: #fff; }
         body > header > menu > li > button.hidden {
           display: none; }
-  body > header > div.dialog {
+
+body > div.dialog {
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  padding: 12px 10px;
+  text-align: center;
+  background: #fff;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translate3d(-12px, -10px, 0);
+  z-index: 5; }
+  body > div.dialog.visible {
+    transform: translate3d(-12px, 0, 0); }
+  body > div.dialog::before {
+    content: "";
     position: absolute;
-    top: 50px;
-    width: 300px;
-    padding: 12px 10px;
-    text-align: center;
-    background: #fff;
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
-    transition: opacity 0.3s, transform 0.3s;
-    transform: translate3d(-12px, -10px, 0); }
-    body > header > div.dialog.visible {
-      transform: translate3d(-12px, 0, 0); }
-    body > header > div.dialog::before {
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    top: -20px;
+    right: 20px; }
+  body > div.dialog > p {
+    line-height: 140%; }
+  body > div.dialog > a {
+    position: relative;
+    display: inline-block;
+    color: #2b35c8;
+    padding: 3px 5px 3px 15px;
+    margin-bottom: 5px;
+    font-weight: "%fontWeightMedium";
+    cursor: pointer; }
+    body > div.dialog > a::before {
       content: "";
       position: absolute;
-      border: 10px solid transparent;
-      border-bottom-color: #fff;
-      top: -20px;
-      right: 20px; }
-    body > header > div.dialog > p {
-      line-height: 140%; }
-    body > header > div.dialog > a {
-      position: relative;
-      display: inline-block;
-      color: #2b35c8;
-      padding: 3px 5px 3px 15px;
-      margin-bottom: 5px;
-      font-weight: "%fontWeightMedium";
-      cursor: pointer; }
-      body > header > div.dialog > a::before {
-        content: "";
-        position: absolute;
-        top: 7px;
-        left: 0;
-        width: 8px;
-        height: 8px;
-        border-top: 2px solid #2b35c8;
-        border-left: 2px solid #2b35c8;
-        transform: rotateZ(135deg); }
-    body > header > div.dialog > span {
-      position: relative;
-      display: inline-block;
-      padding: 6px 10px 5px 30px;
-      margin: 10px 0 15px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 20px; }
-      body > header > div.dialog > span::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-mask: no-repeat center/16px;
-        background-color: #666; }
-      body > header > div.dialog > span::before {
-        width: 16px;
-        left: 8px; }
-    body > header > div.dialog[data-type='behaviour'] > span::before {
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg); }
-    body > header > div.dialog[data-type='appearance'] > span::before {
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg); }
-    body > header > div.dialog[data-type='newtab'] > span::before {
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-newtab.svg);
-      -webkit-mask-size: 14px; }
+      top: 8px;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-top: 2px solid #2b35c8;
+      border-left: 2px solid #2b35c8;
+      transform: rotateZ(135deg); }
+  body > div.dialog > span {
+    position: relative;
+    display: inline-block;
+    padding: 6px 10px 5px 30px;
+    margin: 10px 0 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px; }
+    body > div.dialog > span::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/16px;
+      background-color: #666; }
+    body > div.dialog > span::before {
+      width: 16px;
+      left: 8px; }
+  body > div.dialog[data-type='behaviour'] > span::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-settings.svg); }
+  body > div.dialog[data-type='appearance'] > span::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-appearance.svg); }
+  body > div.dialog[data-type='newtab'] > span::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-newtab.svg);
+    -webkit-mask-size: 14px; }
 
 html[dir='rtl'] body > header {
   background: linear-gradient(45deg, #2b35c8 0%, #7b5fa4 100%); }
@@ -424,26 +426,27 @@ html[dir='rtl'] body > header {
     html[dir='rtl'] body > header > menu > li > button.restore {
       margin-right: 10px;
       margin-left: 0; }
-  html[dir='rtl'] body > header > div.dialog {
-    transform: translate3d(12px, -10px, 0); }
-    html[dir='rtl'] body > header > div.dialog.visible {
-      transform: translate3d(12px, 0, 0); }
-    html[dir='rtl'] body > header > div.dialog::before {
-      left: 20px;
-      right: unset; }
-    html[dir='rtl'] body > header > div.dialog > a {
-      padding-right: 15px;
-      padding-left: 5px; }
-      html[dir='rtl'] body > header > div.dialog > a::before {
-        right: 0;
-        left: unset;
-        transform: rotateZ(-45deg); }
-    html[dir='rtl'] body > header > div.dialog > span {
-      padding-right: 30px;
-      padding-left: 10px; }
-      html[dir='rtl'] body > header > div.dialog > span::before {
-        right: 8px;
-        left: unset; }
+
+html[dir='rtl'] body > div.dialog {
+  transform: translate3d(12px, -10px, 0); }
+  html[dir='rtl'] body > div.dialog.visible {
+    transform: translate3d(12px, 0, 0); }
+  html[dir='rtl'] body > div.dialog::before {
+    left: 20px;
+    right: unset; }
+  html[dir='rtl'] body > div.dialog > a {
+    padding-right: 15px;
+    padding-left: 5px; }
+    html[dir='rtl'] body > div.dialog > a::before {
+      right: 0;
+      left: unset;
+      transform: rotateZ(-45deg); }
+  html[dir='rtl'] body > div.dialog > span {
+    padding-right: 30px;
+    padding-left: 10px; }
+    html[dir='rtl'] body > div.dialog > span::before {
+      right: 8px;
+      left: unset; }
 
 body > section#wrapper > main > div.loading.tab > svg.loading, body > section#wrapper > main > div.tab > div.loading[data-name] > svg.loading {
   position: absolute;

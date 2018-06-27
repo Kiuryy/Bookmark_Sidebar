@@ -512,13 +512,20 @@
                         val = e.currentTarget.checked;
 
                         if ($(elm).parent()[0] === s.elm.checkbox.darkMode[0]) { // darkmode checkbox -> change some other colors, too
-                            let textColor = s.helper.model.getDefaultColor("textColor", val ? "dark" : "light");
+                            let scheme = {
+                                "new": val ? "dark" : "light",
+                                "old": val ? "light" : "dark"
+                            };
+
+                            let textColor = s.helper.model.getDefaultColor("textColor", scheme["new"]);
                             changeColorValue(s.elm.color.textColor, textColor);
                             changeColorValue(s.elm.color.bookmarksDirColor, textColor);
 
                             ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
-                                let color = s.helper.model.getDefaultColor(colorName, val ? "dark" : "light");
-                                changeColorValue(s.elm.color[colorName], color);
+                                if (colorName === "hoverColor" || s.elm.color[colorName][0].value === s.helper.model.getDefaultColor(colorName, scheme.old)) { // only change, if it was the default color before
+                                    let color = s.helper.model.getDefaultColor(colorName, scheme["new"]);
+                                    changeColorValue(s.elm.color[colorName], color);
+                                }
                             });
                         }
                     }

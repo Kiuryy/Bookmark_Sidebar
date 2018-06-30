@@ -418,7 +418,7 @@
             }
 
             elmLists.some((list) => {
-                list.forEach((node) => { // determine the element which is above the current drag position
+                list && list.forEach((node) => { // determine the element which is above the current drag position
                     let elmObj = $(node);
 
                     if (elmObj[0] !== bookmarkElm[0] && !elmObj.hasClass($.cl.drag.dragInitial)) {
@@ -450,11 +450,6 @@
                 } else if (aboveIsDir && hoverPosPercentage < 50) { // directory is hovered
                     if (newAboveLink.hasClass($.cl.sidebar.dirOpened)) { // opened directory
                         let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
-                        if (draggedElm) {
-                            draggedElm.data("elm", elm);
-                        }
-                    } else if (draggedElm && draggedElm.data("isDir")) {
-                        let elm = bookmarkElm.insertAfter(newAboveElm.elm);
                         if (draggedElm) {
                             draggedElm.data("elm", elm);
                         }

@@ -1175,6 +1175,8 @@ section#sidebar {
     padding-right: 46px; }
   section#sidebar[data-sort='custom'] > div#bookmarkBox a > span.drag {
     display: block !important; }
+  section#sidebar[data-sort='custom'] > div#bookmarkBox > ul > li > a > span.drag {
+    display: none !important; }
   section#sidebar.loading > svg.loading {
     position: absolute;
     top: calc(50% - 18px);

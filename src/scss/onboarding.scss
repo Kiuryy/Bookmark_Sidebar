@@ -242,7 +242,7 @@ div#sidebar {
 
   &[data-pos='right'] {
     transform: translate3d(350px, 0, 0);
-    left: auto;
+    left: unset;
     right: 0;
   }
 

@@ -533,6 +533,10 @@ section#sidebar {
           display: block !important;
         }
       }
+
+      > ul > li > a > span.drag {
+        display: none !important;
+      }
     }
   }
 

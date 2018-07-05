@@ -425,6 +425,9 @@
     "onboarding_finish_desc": {
         "message": "Divirta-se com sua barra lateral."
     },
+    "onboarding_finish_notice": {
+        "message": "Se voc\u00ea clica frequentemente em outras coisas no lado {1} da janela do navegador, talvez queira alterar a posi\u00e7\u00e3o vertical deste lado na qual a barra lateral pode ser aberta, a fim de evitar abri-la acidentalmente."
+    },
     "onboarding_goto_settings": {
         "message": "Mais configura\u00e7\u00f5es"
     },

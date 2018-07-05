@@ -3,7 +3,7 @@
         "message": "Bladwijzer Zijbalk"
     },
     "extension_desc": {
-        "message": "Voegd een zijbalk toe aan je browser voor snelle en makkelijke toegang tot al je bladwijzers."
+        "message": "Voegt een zijbalk toe aan je browser voor snelle en makkelijke toegang tot al je bladwijzers."
     },
     "header_bookmarks": {
         "message": "Bladwijzers"
@@ -59,8 +59,8 @@
     "contextmenu_add": {
         "message": "Nieuw item toevoegen"
     },
-    "contextmenu_update_urls": {
-        "message": "Update URL's"
+    "contextmenu_check_bookmarks": {
+        "message": "Bladwijzers nakijken"
     },
     "contextmenu_toggle_hidden": {
         "message": "Toon verborgen items"
@@ -194,14 +194,14 @@
     "overlay_dir_children_dirs": {
         "message": "Mappen"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Veranderd"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "De URL's van de bladwijzers controleren"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Alle URL's van de bladwijzers zijn correct"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "URL niet gevonden"
     },
     "newtab_title": {
         "message": "Nieuwe Tab"
@@ -393,7 +393,7 @@
         "message": "Klik {1} keer met de muis om de zijbalk te openen."
     },
     "onboarding_handson_icon_desc": {
-        "message": "Klik op icoon van de extensie om de zijbalk te openen."
+        "message": "Klik op het icoon van de extensie om de zijbalk te openen."
     },
     "onboarding_left": {
         "message": "linker"
@@ -403,6 +403,9 @@
     },
     "onboarding_finish_desc": {
         "message": "Veel plezier met je ingestelde zijbalk."
+    },
+    "onboarding_finish_notice": {
+        "message": "Als je vaak aan de {1}-zijde van de browser klikt, wil je misschien veranderen waar de zijbalk geopend wordt om te voorkomen dat je deze per ongeluk opent."
     },
     "onboarding_goto_settings": {
         "message": "Meer instellingen"
@@ -496,12 +499,6 @@
     },
     "settings_not_synced": {
         "message": "Wordt niet gesynchroniseerd met je andere apparaten."
-    },
-    "settings_animations": {
-        "message": "Animaties gebruiken"
-    },
-    "settings_animations_desc": {
-        "message": "Hiermee kun je de animaties van de zijbalk uitschakelen, wat handig kan zijn als de animaties niet vloeiend bewegen op je systeem."
     },
     "settings_open_action": {
         "message": "Open de zijbalk"
@@ -659,6 +656,9 @@
     "settings_reopen_sidebar_desc": {
         "message": "Heropen de zijbalk automatisch opnieuw, na het openen van een bladwijzer via de zijbalk."
     },
+    "settings_prevent_windowed": {
+        "message": "Schakel de zijbalk uit wanneer het venster niet schermvullend is"
+    },
     "settings_tooltip_delay": {
         "message": "Tooltip vertraging"
     },
@@ -694,6 +694,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
+    },
+    "settings_animations": {
+        "message": "Animaties gebruiken"
+    },
+    "settings_animations_desc": {
+        "message": "Hiermee kun je de animaties van de zijbalk uitschakelen, wat handig kan zijn als de animaties niet vloeiend bewegen op je systeem."
     },
     "settings_filter_intro": {
         "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
@@ -916,6 +922,15 @@
     },
     "settings_feedback_email": {
         "message": "Jou email address"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Screenshot toevoegen"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Het bestand {1} is te groot (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Je kunt maximaal {1} screenshot toevoegen"
     },
     "settings_feedback_send": {
         "message": "Verstuur ondersteuning"

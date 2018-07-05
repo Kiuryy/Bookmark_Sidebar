@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Aggiungi nuova voce"
     },
-    "contextmenu_update_urls": {
-        "message": "Aggiorna indirizzi"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Mostra voci nascoste"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Tutti gli indirizzi dei preferiti sono OK"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Indirizzo non trovato"
     },
     "newtab_title": {
         "message": "Nuova Scheda"
@@ -404,12 +398,6 @@
     "settings_not_synced": {
         "message": "Non verr\u00e0 sincronizzato fra i tuoi dispositivi."
     },
-    "settings_animations": {
-        "message": "Abilita animazioni"
-    },
-    "settings_animations_desc": {
-        "message": "Permette di disattivare tutte le animazioni della barra. Pu\u00f2 essere utile se le animazioni non sono riprodotte in maniera fluida sul tuo sistema."
-    },
     "settings_open_action": {
         "message": "Apri la barra laterale"
     },
@@ -598,6 +586,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Destro"
+    },
+    "settings_animations": {
+        "message": "Abilita animazioni"
+    },
+    "settings_animations_desc": {
+        "message": "Permette di disattivare tutte le animazioni della barra. Pu\u00f2 essere utile se le animazioni non sono riprodotte in maniera fluida sul tuo sistema."
     },
     "settings_filter_explanation_4": {
         "message": "Non c'\u00e8 bisogno di aggiungere il protocollo nelle regole (per esempio http:\/\/)"

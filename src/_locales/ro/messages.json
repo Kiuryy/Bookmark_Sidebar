@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Adaug\u0103 intrare"
     },
-    "contextmenu_update_urls": {
-        "message": "pdateaz\u0103 URL-urile"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Arat\u0103 intr\u0103rile ascunse"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Toate URL-urile marcajelor sunt ok"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "URL-ul nu a fost g\u0103sit"
     },
     "newtab_title": {
         "message": "Tab nou"
@@ -497,12 +491,6 @@
     "settings_not_synced": {
         "message": "Nu vor fi sincronizate cu celelalte dispozitive."
     },
-    "settings_animations": {
-        "message": "Activa\u021bi anima\u021biile"
-    },
-    "settings_animations_desc": {
-        "message": "V\u0103 permite s\u0103 dezactiva\u021bi \u00eentreaga anima\u021bie a b\u0103rii laterale. Aceasta poate fi folositoare daca anima\u021biile nu merg fluent pe sistemul dvs."
-    },
     "settings_open_action": {
         "message": "Deschide bara lateral\u0103"
     },
@@ -694,6 +682,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Dreapta"
+    },
+    "settings_animations": {
+        "message": "Activa\u021bi anima\u021biile"
+    },
+    "settings_animations_desc": {
+        "message": "V\u0103 permite s\u0103 dezactiva\u021bi \u00eentreaga anima\u021bie a b\u0103rii laterale. Aceasta poate fi folositoare daca anima\u021biile nu merg fluent pe sistemul dvs."
     },
     "settings_filter_intro": {
         "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."

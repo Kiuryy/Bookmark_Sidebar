@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Agregar entrada"
     },
-    "contextmenu_update_urls": {
-        "message": "Actualizar urls"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Todas las URLs de los marcadores est\u00e1n bien"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "URL no encontrada"
     },
     "newtab_title": {
         "message": "Nueva pesta\u00f1a"
@@ -497,12 +491,6 @@
     "settings_not_synced": {
         "message": "No se sincronizar\u00e1 en sus dispositivos."
     },
-    "settings_animations": {
-        "message": "Activar animaciones"
-    },
-    "settings_animations_desc": {
-        "message": "Permite desactivar todas las animaciones de la barra lateral. Esto puede ser \u00fatil si las animaciones no funcionan correctamente en su sistema."
-    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },
@@ -694,6 +682,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Derecha"
+    },
+    "settings_animations": {
+        "message": "Activar animaciones"
+    },
+    "settings_animations_desc": {
+        "message": "Permite desactivar todas las animaciones de la barra lateral. Esto puede ser \u00fatil si las animaciones no funcionan correctamente en su sistema."
     },
     "settings_filter_intro": {
         "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"

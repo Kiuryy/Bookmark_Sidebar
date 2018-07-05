@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Lis\u00e4\u00e4"
     },
-    "contextmenu_update_urls": {
-        "message": "P\u00e4ivit\u00e4 linkit"
-    },
     "contextmenu_toggle_hidden": {
         "message": "N\u00e4yt\u00e4 piilotetut"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Kaikki linkit ovat kunnossa"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Linkki\u00e4 ei l\u00f6ytynyt"
     },
     "newtab_title": {
         "message": "Uusi v\u00e4lilehti"
@@ -458,12 +452,6 @@
     "settings_not_synced": {
         "message": "Ei synkronoida laitteittesi v\u00e4lill\u00e4."
     },
-    "settings_animations": {
-        "message": "Salli animaatiot"
-    },
-    "settings_animations_desc": {
-        "message": "Voit poistaa kaikki sivupalkin animaatiot k\u00e4yt\u00f6st\u00e4. T\u00e4m\u00e4 voi olla hy\u00f6dyllist\u00e4 jos animaatiot eiv\u00e4t ole sujuvia j\u00e4rjestelm\u00e4ss\u00e4si."
-    },
     "settings_open_action": {
         "message": "Avaa sivupalkki"
     },
@@ -646,6 +634,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Oikea"
+    },
+    "settings_animations": {
+        "message": "Salli animaatiot"
+    },
+    "settings_animations_desc": {
+        "message": "Voit poistaa kaikki sivupalkin animaatiot k\u00e4yt\u00f6st\u00e4. T\u00e4m\u00e4 voi olla hy\u00f6dyllist\u00e4 jos animaatiot eiv\u00e4t ole sujuvia j\u00e4rjestelm\u00e4ss\u00e4si."
     },
     "settings_filter_explanation_1": {
         "message": "Lis\u00e4\u00e4 vain yksi URL sy\u00f6te yhdelle riville"

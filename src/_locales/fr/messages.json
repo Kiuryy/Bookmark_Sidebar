@@ -425,6 +425,9 @@
     "onboarding_finish_desc": {
         "message": "A vous de jouer !"
     },
+    "onboarding_finish_notice": {
+        "message": "Si vous cliquez fr\u00e9quemment sur le {1} c\u00f4t\u00e9 de la fen\u00eatre du navigateur, vous pourriez changer o\u00f9 la barre lat\u00e9rale peut \u00eatre ouverte verticalement \u00e0 fin de ne pas l'ouvrir accidentellement."
+    },
     "onboarding_goto_settings": {
         "message": "Param\u00e8tres suppl\u00e9mentaires"
     },
@@ -949,6 +952,15 @@
     },
     "settings_feedback_email": {
         "message": "Votre courriel"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Joignez des captures d'\u00e9cran"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "La taille de fichier de {1} est trop grande (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Vous pouvez seulement t\u00e9l\u00e9charger un maximum de {1} des captures d'\u00e9cran"
     },
     "settings_feedback_send": {
         "message": "Envoyer mon retour d'exp\u00e9rience"

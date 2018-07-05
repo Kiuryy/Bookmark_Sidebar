@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Tambahkan entri"
     },
-    "contextmenu_update_urls": {
-        "message": "Perbarui url"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Perlihatkan entri tersembunyi"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Semua url bookmark baik-baik saja"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Url tidak ditemukan"
     },
     "newtab_title": {
         "message": "Tab Baru"

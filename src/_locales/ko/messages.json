@@ -3,7 +3,7 @@
         "message": "\ubd81\ub9c8\ud06c \uc0ac\uc774\ub4dc\ubc14"
     },
     "extension_desc": {
-        "message": "\ud654\uba74 \uc67c\ucabd\uc5d0 \ubd81\ub9c8\ud06c \ubaa9\ub85d\uc744 \ud45c\uc2dc\ud558\uac70\ub098 \uc228\uae38 \uc218 \uc788\ub294 \uc0ac\uc774\ub4dc\ubc14\ub97c \ucd94\uac00\ud558\uc138\uc694."
+        "message": "\ube0c\ub77c\uc6b0\uc800 \ud654\uba74 \uac00\uc7a5\uc790\ub9ac\uc5d0 \ubd81\ub9c8\ud06c \ubaa9\ub85d\uc744 \ud45c\uc2dc\ud558\uac70\ub098 \uc228\uae38 \uc218 \uc788\ub294 \uc0ac\uc774\ub4dc\ubc14\ub97c \ucd94\uac00\ud558\uc138\uc694."
     },
     "header_bookmarks": {
         "message": "\ubd81\ub9c8\ud06c"
@@ -27,7 +27,7 @@
         "message": "\uc0ad\uc81c\ub428"
     },
     "sidebar_undo_deletion": {
-        "message": "\ub418\ub3cc\ub9bc"
+        "message": "\uc0ad\uc81c \ucde8\uc18c"
     },
     "contextmenu_edit_bookmark": {
         "message": "\ubd81\ub9c8\ud06c \ud3b8\uc9d1"
@@ -51,7 +51,7 @@
         "message": "\uc0c8 \ud0ed\uc73c\ub85c \uc5f4\uae30"
     },
     "contextmenu_new_window": {
-        "message": "\uc0c8\ucc3d \uc5f4\uae30"
+        "message": "\uc0c8 \ucc3d\uc73c\ub85c \uc5f4\uae30"
     },
     "contextmenu_new_tab_incognito": {
         "message": "\uc2dc\ud06c\ub9bf \ucc3d\uc5d0\uc11c \ub9c1\ud06c \uc5f4\uae30"
@@ -424,6 +424,9 @@
     },
     "onboarding_finish_desc": {
         "message": "\uc0ac\uc774\ub4dc\ubc14\ub85c \ubd81\ub9c8\ud06c\ub97c \ud3b8\ud558\uac8c \uc774\uc6a9\ud558\uc138\uc694!"
+    },
+    "onboarding_finish_notice": {
+        "message": "\ube0c\ub77c\uc6b0\uc838\ucc3d\uc758 {1} \ucabd\uc744 \uc790\uc8fc \uc120\ud0dd\ud55c\ub2e4\uba74, \uc6b0\uc5f0\ud788 \uc5f4\ub9ac\ub294 \uac83\uc744 \ud53c\ud558\uae30 \uc704\ud574 \uc218\uc9c1\uc73c\ub85c \uc0ac\uc774\ub4dc\ubc14\uac00 \uc5f4\ub9ac\ub3c4\ub85d \ubc14\uafb8\ub294 \uac83\uc744 \uc6d0\ud560 \uc218 \ub3c4 \uc788\uc2b5\ub2c8\ub2e4."
     },
     "onboarding_goto_settings": {
         "message": "\ucd94\uac00 \uc124\uc815"
@@ -952,6 +955,12 @@
     },
     "settings_feedback_screenshot": {
         "message": "\uc2a4\ud06c\ub9b0\uc0f7 \ucca8\ubd80"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "{1}\uc758 \ud30c\uc77c \ud06c\uae30\uac00 \ub108\ubb34 \ud07d\ub2c8\ub2e4. (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "\ucd5c\ub300 {1}\uac1c\uc758 \uc2a4\ud06c\ub9b0\uc0f7\ub9cc \uc5c5\ub85c\ub4dc \ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
     },
     "settings_feedback_send": {
         "message": "\ud53c\ub4dc\ubc31 \ubcf4\ub0b4\uae30"

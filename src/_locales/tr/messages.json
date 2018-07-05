@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Girdi ekle"
     },
-    "contextmenu_update_urls": {
-        "message": "URL'yi g\u00fcncelle"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Gizli girdileri g\u00f6ster"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "T\u00fcm URL'ler \u00e7al\u0131\u015fmakta."
-    },
-    "overlay_check_urls_not_found": {
-        "message": "URL bulunamad\u0131."
     },
     "newtab_title": {
         "message": "Yeni sekme"
@@ -458,12 +452,6 @@
     "settings_not_synced": {
         "message": "Cihazlar\u0131n\u0131z aras\u0131nda senkronize edilmeyecek."
     },
-    "settings_animations": {
-        "message": "Animasyonlar\u0131 etkinle\u015ftir"
-    },
-    "settings_animations_desc": {
-        "message": "Kenar \u00e7ubu\u011funun t\u00fcm animasyonlar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rakman\u0131za izin verir. Animasyonlar sisteminizde d\u00fczg\u00fcn \u00e7al\u0131\u015fm\u0131yorsa, bu yararl\u0131 olabilir."
-    },
     "settings_open_action": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7"
     },
@@ -646,6 +634,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Sa\u011f"
+    },
+    "settings_animations": {
+        "message": "Animasyonlar\u0131 etkinle\u015ftir"
+    },
+    "settings_animations_desc": {
+        "message": "Kenar \u00e7ubu\u011funun t\u00fcm animasyonlar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rakman\u0131za izin verir. Animasyonlar sisteminizde d\u00fczg\u00fcn \u00e7al\u0131\u015fm\u0131yorsa, bu yararl\u0131 olabilir."
     },
     "settings_filter_intro": {
         "message": "Kenar \u00e7ubu\u011funun her sayfa y\u00fcklenmesinde a\u00e7\u0131lmas\u0131n\u0131 istemiyorsan beyaz liste veya kara listeden d\u00fczenleyebilirsin"

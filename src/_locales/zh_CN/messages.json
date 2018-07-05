@@ -425,6 +425,9 @@
     "onboarding_finish_desc": {
         "message": "\u5c3d\u60c5\u4f7f\u7528\u60a8\u7684\u4fa7\u8fb9\u680f"
     },
+    "onboarding_finish_notice": {
+        "message": "\u5982\u679c\u60a8\u7ecf\u5e38\u5728\u6d4f\u89c8\u5668\u7a97\u53e3\u7684{1}\u4fa7\u70b9\u51fb\u67d0\u4e9b\u5185\u5bb9\uff0c\u5219\u53ef\u80fd\u9700\u8981\u66f4\u6539\u4fa7\u8fb9\u680f\u5782\u76f4\u6253\u5f00\u7684\u4f4d\u7f6e\uff0c\u4ee5\u907f\u514d\u610f\u5916\u6253\u5f00\u3002"
+    },
     "onboarding_goto_settings": {
         "message": "\u66f4\u591a\u8bbe\u7f6e"
     },
@@ -949,6 +952,15 @@
     },
     "settings_feedback_email": {
         "message": "\u60a8\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740"
+    },
+    "settings_feedback_screenshot": {
+        "message": "\u9644\u52a0\u622a\u56fe"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "\u6587\u4ef6\u5c3a\u5bf8\u592a\u5927\uff08> 1 MB\uff09"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "\u4e0a\u4f20\u5c4f\u5e55\u622a\u56fe\u6570\u91cf\u8d85\u8fc7\u9650\u5236"
     },
     "settings_feedback_send": {
         "message": "\u53d1\u9001\u53cd\u9988"

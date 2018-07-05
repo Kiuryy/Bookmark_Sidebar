@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Legg til oppf\u00f8ring"
     },
-    "contextmenu_update_urls": {
-        "message": "Oppdater URL"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Vis skjulte oppf\u00f8ringer"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Alle bokmerker er ok"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Url ikke funnet"
     },
     "newtab_title": {
         "message": "Ny fane"
@@ -497,12 +491,6 @@
     "settings_not_synced": {
         "message": "Vil ikke bli synkronisert p\u00e5 tvers av dine enheter."
     },
-    "settings_animations": {
-        "message": "Aktiver animasjoner"
-    },
-    "settings_animations_desc": {
-        "message": "Lar deg deaktivere animasjonen av sidefeltet. Dette kan v\u00e6re nyttig hvis animasjonene blir hakkete p\u00e5 ditt system."
-    },
     "settings_open_action": {
         "message": "\u00c5pne sidefeltet"
     },
@@ -694,6 +682,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "H\u00f8yre"
+    },
+    "settings_animations": {
+        "message": "Aktiver animasjoner"
+    },
+    "settings_animations_desc": {
+        "message": "Lar deg deaktivere animasjonen av sidefeltet. Dette kan v\u00e6re nyttig hvis animasjonene blir hakkete p\u00e5 ditt system."
     },
     "settings_filter_intro": {
         "message": "Om du \u00f8nsker at sidefeltet skal lastes p\u00e5 alle sider kan du konfigurere hvor tillegget skal lastes (hviteliste) eller hvor det ikke skal lastes (svarteliste)."

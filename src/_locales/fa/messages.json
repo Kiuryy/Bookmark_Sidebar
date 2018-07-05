@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "\u0627\u0636\u0627\u0641\u0647 \u0646\u0645\u0648\u062f\u0646 \u0648\u0631\u0648\u062f\u06cc"
     },
-    "contextmenu_update_urls": {
-        "message": "\u0628\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc \u0622\u062f\u0631\u0633"
-    },
     "contextmenu_toggle_hidden": {
         "message": "\u0646\u0645\u0627\u06cc\u0634 \u0648\u0631\u0648\u062f\u06cc \u0647\u0627\u06cc \u0645\u062e\u0641\u06cc"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "\u062a\u0645\u0627\u0645 \u0644\u06cc\u0646\u06a9 \u0647\u0627 \u0633\u0627\u0644\u0645 \u0647\u0633\u062a\u0646\u062f"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "\u0627\u062f\u0631\u0633 \u067e\u06cc\u062f\u0627 \u0646\u0634\u062f"
     },
     "newtab_title": {
         "message": "\u0632\u0628\u0627\u0646\u0647 \u062c\u062f\u06cc\u062f"

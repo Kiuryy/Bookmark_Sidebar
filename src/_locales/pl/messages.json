@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "Dodaj element"
     },
-    "contextmenu_update_urls": {
-        "message": "Uaktualnij URL"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Poka\u017c ukryte pozycje"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Wszystkie URL zak\u0142adek s\u0105 w porz\u0105dku"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Nie znaleziono URL"
     },
     "newtab_title": {
         "message": "Nowa karta"
@@ -497,12 +491,6 @@
     "settings_not_synced": {
         "message": "Nie b\u0119dzie synchronizacji na innych urz\u0105dzeniach"
     },
-    "settings_animations": {
-        "message": "W\u0142\u0105cz animacje"
-    },
-    "settings_animations_desc": {
-        "message": "Pozwala wy\u0142\u0105czy\u0107 wszystkie animacje bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli animacje nie s\u0105 p\u0142ynne."
-    },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
     },
@@ -694,6 +682,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Prawa"
+    },
+    "settings_animations": {
+        "message": "W\u0142\u0105cz animacje"
+    },
+    "settings_animations_desc": {
+        "message": "Pozwala wy\u0142\u0105czy\u0107 wszystkie animacje bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli animacje nie s\u0105 p\u0142ynne."
     },
     "settings_filter_intro": {
         "message": "Je\u015bli nie chcesz, by boczny panel pojawia\u0142 si\u0119 na ka\u017cdej stronie, mo\u017cesz skonfigurowa\u0107, gdzie rozszerzenie ma si\u0119 pojawi\u0107 [bia\u0142a lista] lub gdzie nie ma si\u0119 pojawi\u0107 [czarna lista]."

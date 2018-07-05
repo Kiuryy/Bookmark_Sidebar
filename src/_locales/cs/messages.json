@@ -59,9 +59,6 @@
     "contextmenu_add": {
         "message": "P\u0159idat polo\u017eku"
     },
-    "contextmenu_update_urls": {
-        "message": "Aktualizace adres URL"
-    },
     "contextmenu_toggle_hidden": {
         "message": "Zobrazit skryt\u00e9 polo\u017eky"
     },
@@ -199,9 +196,6 @@
     },
     "overlay_check_bookmarks_no_results": {
         "message": "V\u0161echny url adresy z\u00e1lo\u017eek jsou v po\u0159\u00e1dku"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Adresa url neexistuje"
     },
     "newtab_title": {
         "message": "Nov\u00e1 karta"
@@ -497,12 +491,6 @@
     "settings_not_synced": {
         "message": "Nelze synchronizovat mezi Va\u0161imi za\u0159\u00edzen\u00edmi"
     },
-    "settings_animations": {
-        "message": "Povolit animace"
-    },
-    "settings_animations_desc": {
-        "message": "Umo\u017e\u0148uje zak\u00e1zat v\u0161echny animace postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud animace nefunguj\u00ed hladce ve va\u0161em syst\u00e9mu."
-    },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },
@@ -694,6 +682,12 @@
     },
     "settings_sidebar_position_right": {
         "message": "Vpravo"
+    },
+    "settings_animations": {
+        "message": "Povolit animace"
+    },
+    "settings_animations_desc": {
+        "message": "Umo\u017e\u0148uje zak\u00e1zat v\u0161echny animace postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud animace nefunguj\u00ed hladce ve va\u0161em syst\u00e9mu."
     },
     "settings_filter_intro": {
         "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."

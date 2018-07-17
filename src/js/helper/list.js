@@ -151,6 +151,7 @@
                                 ext.elm.pinnedBox.addClass($.cl.sidebar.fixed);
                             }
 
+                            cleanCachedHtml(ext.elm.pinnedBox);
                             loadMissingFavicons(ext.elm.pinnedBox);
                         } else {
                             ext.elm.pinnedBox.addClass($.cl.hidden);
@@ -491,6 +492,20 @@
         };
 
         /**
+         * Removes specific classes from the children of the given element
+         *
+         * @param {jsu} elm
+         */
+        let cleanCachedHtml = (elm) => {
+            elm.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
+            elm.find("a." + $.cl.hover).removeClass($.cl.hover);
+            elm.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
+            elm.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
+            elm.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);
+            elm.find("li." + $.cl.drag.isDragged).remove();
+        };
+
+        /**
          * Adds the given bookmark to the list
          *
          * @param {object} bookmark
@@ -757,12 +772,7 @@
             return new Promise((resolve) => {
                 ext.log("Load html from cache");
                 list.html(cachedHtml);
-                list.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
-                list.find("a." + $.cl.hover).removeClass($.cl.hover);
-                list.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
-                list.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
-                list.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);
-                list.find("li." + $.cl.drag.isDragged).remove();
+                cleanCachedHtml(list);
 
                 loadMissingFavicons(list, true);
                 ext.elm.bookmarkBox.all.addClass($.cl.sidebar.cached);

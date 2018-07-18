@@ -449,7 +449,7 @@
                         let elm = bookmarkElm.insertAfter(parentElm);
                         draggedElm.data("elm", elm);
                     }
-                } else if (aboveIsDir && hoverPosPercentage < 50) { // directory is hovered
+                } else if (aboveIsDir && hoverPosPercentage < 60) { // directory is hovered
                     if (newAboveLink.hasClass($.cl.sidebar.dirOpened)) { // opened directory
                         let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
                         if (draggedElm) {
@@ -464,7 +464,7 @@
 
                             dirOpenTimeout.instance = setTimeout(() => { // open closed directory after short delay -> possibility for user to cancel timeout
                                 ext.helper.list.toggleBookmarkDir(newAboveLink);
-                            }, 1000);
+                            }, 700);
                         }
                     } else if (newAboveLink.next("ul").length() === 0) { // empty directory
                         newAboveLink.addClass($.cl.sidebar.dirOpened);

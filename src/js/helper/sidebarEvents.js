@@ -154,6 +154,14 @@
                             isRestoring = false;
                         });
                     }
+                }).on("mouseover", "> a[" + $.attr.name + "='add']", (e) => {
+                    e.preventDefault();
+                    box.find("a." + $.cl.hover).removeClass($.cl.hover);
+                    ext.helper.tooltip.close();
+                }).on("click", "> a[" + $.attr.name + "='add']", (e) => { // add element to the root if the real root is hidden
+                    e.preventDefault();
+                    let id = ext.elm.bookmarkBox.all.children("ul > li > a").eq(0).attr($.attr.id);
+                    ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), ext.helper.entry.getDataById(id));
                 });
             });
         };

@@ -122,6 +122,7 @@
                 ext.startLoading();
                 sort = ext.helper.model.getData("u/sort");
                 ext.elm.sidebar.attr($.attr.sort, sort.name);
+                ext.elm.bookmarkBox.all.children("a[" + $.attr.name + "='add']").remove();
 
                 let list = ext.elm.bookmarkBox.all.children("ul");
                 let promiseObj = null;
@@ -782,6 +783,7 @@
 
                 if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                     list.addClass($.cl.sidebar.hideRoot);
+                    $("<a />").attr($.attr.name, "add").insertAfter(list);
                 }
 
                 restoreScrollPos();
@@ -819,6 +821,7 @@
 
                         if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                             list.addClass($.cl.sidebar.hideRoot);
+                            $("<a />").attr($.attr.name, "add").insertAfter(list);
                             this.toggleBookmarkDir(list.find("> li > a." + $.cl.sidebar.bookmarkDir).eq(0));
                         } else {
                             this.restoreOpenStates(list);

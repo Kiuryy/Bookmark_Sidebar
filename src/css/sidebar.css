@@ -914,6 +914,7 @@ section#sidebar {
     section#sidebar > div.scrollBox.active {
       display: block; }
     section#sidebar > div.scrollBox > p {
+      background: #fff;
       font-size: 120%;
       padding: 30px 20px;
       font-style: italic;
@@ -1143,6 +1144,28 @@ section#sidebar {
         background: rgba(0, 0, 0, 0.15); }
       section#sidebar > div.scrollBox > div.pinned > ul {
         margin: 0; }
+    section#sidebar > div.scrollBox > a[data-name='add'] {
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border-radius: 50%;
+      margin: 0 calc(%bookmarksHorizontalPadding - 6px) 9px;
+      padding: 0 !important;
+      transition: background-color 0.3s; }
+      section#sidebar > div.scrollBox > a[data-name='add']::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/20px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg);
+        background-color: "%bookmarksDirColor"; }
+      section#sidebar > div.scrollBox > a[data-name='add']:hover {
+        background-color: "%hoverColor"; }
   section#sidebar.openedOnce > header > a.search::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
   section#sidebar.openedOnce > header > a.sort::before {
@@ -1391,12 +1414,16 @@ body.dark section#sidebar {
       background-color: rgba(255, 255, 255, 0.25) !important; }
       body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
         background-color: #eee; }
+  body.dark section#sidebar > div.scrollBox > ul a.snap {
+    background: #3d3d3d; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag::before {
     background-color: #bbb; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover {
     background-color: rgba(255, 255, 255, 0.1); }
     body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
       background-color: #eee; }
+  body.dark section#sidebar > div.scrollBox > p {
+    background: #3d3d3d; }
   body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
   body.dark section#sidebar ~ a.dragHelper > span.removeMask {
@@ -1409,6 +1436,8 @@ body.dark section#sidebar {
       background-color: rgba(255, 255, 255, 0.25) !important; }
       body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
         background-color: #eee; }
+  body.dark section#sidebar ~ a.dragHelper.snap {
+    background: #3d3d3d; }
 
 body.dark div#shareInfo, body.dark div#reloadInfo {
   background: #3d3d3d; }

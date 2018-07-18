@@ -1,4 +1,3 @@
-
 @mixin darkBookmarkEntry {
 
   &.separator > span.label::after {
@@ -23,5 +22,9 @@
         background-color: $darkReorderIconColorActive;
       }
     }
+  }
+
+  &.snap {
+    background: $darkContentBackground;
   }
 }

@@ -362,6 +362,7 @@ section#sidebar {
     }
 
     > p {
+      background: $contentBackground;
       font-size: 120%;
       padding: 30px 20px;
       font-style: italic;
@@ -483,6 +484,23 @@ section#sidebar {
 
       > ul {
         margin: 0;
+      }
+    }
+
+    > a[data-name='add'] {
+      @include mask('icon-add', $__bookmarksDirColor, 20px);
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border-radius: 50%;
+      margin: 0 calc(#{$__bookmarksHorizontalPadding} - 6px) 9px;
+      padding: 0 !important;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $__hoverColor;
       }
     }
   }

@@ -596,16 +596,39 @@
         };
 
         /**
+         * Returns the index which the newly created element should be positioned at,
+         * if the element is being created in the root of the tree, it should be appended, else prepended
+         *
+         * @param parentId
+         * @returns {*}
+         */
+        let getIndexOfNewEntry = (parentId) => {
+            let bookmarkList = ext.elm.bookmarkBox.all.children("ul");
+
+            if (bookmarkList.hasClass($.cl.sidebar.hideRoot)) { // add entry to the root -> set index to the bottom
+                let rootId = bookmarkList.find("> li > a").eq(0).attr($.attr.id);
+
+                if (parentId && parentId === rootId) {
+                    return bookmarkList.find("> li > ul > li").length();
+                }
+            }
+
+            return 0;
+        };
+
+        /**
          * Adds a separator to the given directory
          *
          * @param {object} data
          */
         let addSeparator = (data) => {
+            let parentId = data.id || null;
+
             ext.helper.model.call("createBookmark", {
                 title: "----------",
                 url: "about:blank",
                 parentId: data.id || null,
-                index: 0
+                index: getIndexOfNewEntry(parentId)
             }).then(() => {
                 ext.helper.model.call("trackEvent", {
                     category: "extension",
@@ -640,6 +663,8 @@
                     if (data.values.parentId) {
                         obj.parentId = data.values.parentId;
                     }
+                } else {
+                    obj.index = getIndexOfNewEntry(obj.parentId);
                 }
 
                 ext.helper.model.call("createBookmark", obj).then((result) => {

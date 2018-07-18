@@ -443,8 +443,10 @@
                 clearDirOpenTimeout(newAboveLink);
 
                 if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
-                    let elm = bookmarkElm.insertAfter(newAboveElm.elm.parents("li").eq(0));
-                    if (draggedElm) {
+                    let parentElm = newAboveElm.elm.parents("li").eq(0);
+
+                    if (draggedElm && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
+                        let elm = bookmarkElm.insertAfter(parentElm);
                         draggedElm.data("elm", elm);
                     }
                 } else if (aboveIsDir && hoverPosPercentage < 50) { // directory is hovered

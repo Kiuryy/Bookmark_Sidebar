@@ -59,6 +59,9 @@
     "contextmenu_add": {
         "message": "Girdi ekle"
     },
+    "contextmenu_check_bookmarks": {
+        "message": "Yer imlerini kontrol et"
+    },
     "contextmenu_toggle_hidden": {
         "message": "Gizli girdileri g\u00f6ster"
     },
@@ -191,11 +194,29 @@
     "overlay_dir_children_dirs": {
         "message": "Dizinler"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "De\u011fi\u015ftirildi"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "\u00c7al\u0131\u015fm\u0131yor"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Daha \u00f6nce eklenmi\u015f"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Yer imlerinin URL'leri kontrol ediliyor."
     },
     "overlay_check_bookmarks_no_results": {
         "message": "T\u00fcm URL'ler \u00e7al\u0131\u015fmakta."
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "De\u011fi\u015ftirilmi\u015f URL bulunmamakta."
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "\u00c7al\u0131\u015fmayan URL bulunmamakta."
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Fazladan gereksiz URL bulunmamakta."
     },
     "newtab_title": {
         "message": "Yeni sekme"
@@ -358,6 +379,9 @@
     },
     "onboarding_finish_desc": {
         "message": "Kenar \u00e7ubu\u011fuyla iyi e\u011flenceler"
+    },
+    "onboarding_finish_notice": {
+        "message": "E\u011fer taray\u0131c\u0131 pencerisinin bu taraf\u0131na s\u0131kl\u0131kla t\u0131kl\u0131yorsan\u0131z, kenar \u00e7ubu\u011funun otomatik olarak a\u00e7\u0131lmas\u0131ndan ka\u00e7\u0131nmak i\u00e7in bu ayar\u0131 de\u011fi\u015ftirmek isteyebilirsiniz."
     },
     "onboarding_goto_settings": {
         "message": "Daha Fazla Ayarlama Yap"

@@ -59,6 +59,9 @@
     "contextmenu_add": {
         "message": "Agregar entrada"
     },
+    "contextmenu_check_bookmarks": {
+        "message": "Verificar mardadores"
+    },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
     },
@@ -191,11 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Directorios"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Cambiado"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Roto"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicados"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Comprobar las URL de los marcadores"
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Selecci\u00f3n actualizada"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Eliminar seleccionado"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "Todas las URLs de los marcadores est\u00e1n bien"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "No hay cambio alguno en las URLs de los marcadores"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "No hay URLs rotos en los marcadores"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "No hay duplicado alguno en las URLs de los marcadores"
     },
     "newtab_title": {
         "message": "Nueva pesta\u00f1a"
@@ -397,6 +424,9 @@
     },
     "onboarding_finish_desc": {
         "message": "Divi\u00e9rtete con tu barra lateral."
+    },
+    "onboarding_finish_notice": {
+        "message": "Si estas cliqueando cosas en el {1} lado de la ventana del navegador, puedes cambiar el lugar donde aparece la barra lateral verticalmente para evitar abrirla accidentalmente."
     },
     "onboarding_goto_settings": {
         "message": "M\u00e1s propiedades"
@@ -647,6 +677,9 @@
     "settings_reopen_sidebar_desc": {
         "message": "Abre autom\u00e1ticamente la barra lateral nuevamente despu\u00e9s de abrir un marcador desde la barra lateral."
     },
+    "settings_prevent_windowed": {
+        "message": "Desactiva la barra lateral en el modo ventana"
+    },
     "settings_tooltip_delay": {
         "message": "Tiempo de espera para mostrar el tooltip"
     },
@@ -852,7 +885,7 @@
         "message": "Lenguaje"
     },
     "settings_language_default": {
-        "message": "navegador predeterminado"
+        "message": "Navegador predeterminado"
     },
     "settings_language_desc": {
         "message": "El idioma de la interfaz de usuario"
@@ -910,6 +943,15 @@
     },
     "settings_feedback_email": {
         "message": "Direcci\u00f3n e-mail"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Adjuntar capturas de pantalla"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "El tama\u00f1o de {1} es demasiado grande (> 1MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Solo puedes subir un m\u00e1ximo de {1} capturas de pantalla"
     },
     "settings_feedback_send": {
         "message": "Enviar su comentario"

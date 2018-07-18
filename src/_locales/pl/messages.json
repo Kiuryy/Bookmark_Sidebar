@@ -59,6 +59,9 @@
     "contextmenu_add": {
         "message": "Dodaj element"
     },
+    "contextmenu_check_bookmarks": {
+        "message": "Sprawd\u017a zak\u0142adki"
+    },
     "contextmenu_toggle_hidden": {
         "message": "Poka\u017c ukryte pozycje"
     },
@@ -191,11 +194,35 @@
     "overlay_dir_children_dirs": {
         "message": "Folder\u00f3w"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Zmienione"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Uszkodzone"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Podwojone"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Sprawdzanie URL zak\u0142adek"
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Zaktualizuj wybrane"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Usu\u0144 wybrane"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "Wszystkie URL zak\u0142adek s\u0105 w porz\u0105dku"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Brak zmienionych link\u00f3w"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Brak uszkodzonych link\u00f3w"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Brak podwojonych link\u00f3w"
     },
     "newtab_title": {
         "message": "Nowa karta"
@@ -910,6 +937,15 @@
     },
     "settings_feedback_email": {
         "message": "Tw\u00f3j adres email"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Do\u0142\u0105cz zrzut ekranu"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Rozmiar pliku jest za du\u017cy (>1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Mo\u017cesz maksymalnie za\u0142\u0105czy\u0107 {1} zrzut\u00f3w"
     },
     "settings_feedback_send": {
         "message": "Wy\u015blij opini\u0119"

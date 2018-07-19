@@ -11,7 +11,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 ["get", "getSubTree", "removeTree"].forEach((key) => {
-                    this.func[key] = (id) => callback(key, ["" + id]);
+                    this.func[key] = (id) => callback(key, typeof id === "object" ? [id] : ["" + id]); // don't cast to str if parameter is already an object
                 });
 
                 ["update", "move"].forEach((key) => {

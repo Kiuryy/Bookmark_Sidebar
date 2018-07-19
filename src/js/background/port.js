@@ -255,15 +255,45 @@
         };
 
         /**
-         * Returns all bookmarks matching the given search val
+         * Returns all bookmarks where the title, url or the addtional information are matching the given search value
          *
          * @param {object} opts
          * @returns {Promise}
          */
         let getBookmarksBySearchVal = (opts) => {
             return new Promise((resolve) => {
-                b.helper.bookmarkApi.func.search(opts.searchVal).then((bookmarks) => {
-                    resolve({bookmarks: bookmarks});
+                let idList = [];
+
+                new Promise((rslv) => {
+                    chrome.storage.local.get(["utility"], (d) => { // search in the additional information of the bookmarks first
+                        if (d && d.utility && d.utility.additionalInfo) {
+                            let searchValLC = opts.searchVal.toLocaleLowerCase();
+
+                            Object.entries(d.utility.additionalInfo).forEach(async ([id, info]) => {
+                                if (info && info.desc && info.desc.toLocaleLowerCase().search(searchValLC) > -1) { // additional information is matching the search value
+                                    idList.push(id);
+                                }
+                            });
+
+                            if (idList.length) {
+                                b.helper.bookmarkApi.func.get(idList).then(rslv);
+                            } else {
+                                rslv();
+                            }
+                        } else {
+                            rslv();
+                        }
+                    });
+                }).then((results = []) => {
+                    b.helper.bookmarkApi.func.search(opts.searchVal).then((bookmarks) => { // extend the result list by bookmarks with matching url or title
+                        bookmarks.forEach((bookmark) => {
+                            if (idList.indexOf(bookmark.id) === -1) {
+                                results.push(bookmark);
+                            }
+                        });
+
+                        resolve({bookmarks: results});
+                    });
                 });
             });
         };

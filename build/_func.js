@@ -141,12 +141,14 @@
         this.createFile = (src, content) => {
             return new Promise((resolve) => {
                 this.remove([src]).then(() => { // remove existing file
-                    module.createFile(src, content, (err) => { // create file with given content
-                        if (err) {
-                            throw err;
-                        }
-                        resolve();
-                    });
+                    setTimeout(() => {
+                        module.createFile(src, content, (err) => { // create file with given content
+                            if (err) {
+                                throw err;
+                            }
+                            resolve();
+                        });
+                    }, 50);
                 });
             });
         };

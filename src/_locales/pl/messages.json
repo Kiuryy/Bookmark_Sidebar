@@ -683,11 +683,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Nigdy nie pokazuj etykiet"
     },
+    "settings_tooltip_desc": {
+        "message": "Wybierz jakie informacje ma zawiera\u0107 etykieta."
+    },
     "settings_tooltip_content": {
         "message": "Zawarto\u015b\u0107 etykiety"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Wybierz jakie informacje ma zawiera\u0107 etykieta."
     },
     "settings_tooltip_content_all": {
         "message": "Tytu\u0142 i URL"
@@ -697,6 +697,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Tylko URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Dodatkowe informacje"
     },
     "settings_sidebar_position": {
         "message": "Strona"

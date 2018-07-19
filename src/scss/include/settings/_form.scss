@@ -208,26 +208,6 @@ input[type='range'] {
         border-bottom-color: rgba(0, 0, 0, 0.1) !important;
       }
     }
-
-    + br + div.checkbox {
-      display: inline-block;
-      vertical-align: top;
-      margin: 0 7px 0 0;
-      width: 16px;
-      height: 16px;
-
-      &::before {
-        -webkit-mask-size: 18px;
-      }
-
-      + label {
-        display: inline-block;
-        vertical-align: top;
-        margin: 10px 0 0 7px;
-        font-size: 90%;
-        font-weight: $__fontWeightMedium;
-      }
-    }
   }
 
   &.inactive {
@@ -237,6 +217,29 @@ input[type='range'] {
     + span {
       opacity: 0.2;
       pointer-events: none;
+    }
+  }
+}
+
+div.sub {
+  margin: 0 0 20px 0;
+
+  div.checkbox {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 7px 0 0;
+    width: 16px;
+    height: 16px;
+
+    &::before {
+      -webkit-mask-size: 18px;
+    }
+
+    + label {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 90%;
+      font-weight: $__fontWeightMedium;
     }
   }
 }

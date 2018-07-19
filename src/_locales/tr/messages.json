@@ -632,11 +632,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Ara\u00e7 ipu\u00e7lar\u0131n\u0131 asla g\u00f6sterme"
     },
+    "settings_tooltip_desc": {
+        "message": "Ara\u00e7 ipucunun hangi bilgileri i\u00e7ermesi gerekti\u011fini se\u00e7in."
+    },
     "settings_tooltip_content": {
         "message": "Ara\u00e7 ipucu i\u00e7eri\u011fi"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Ara\u00e7 ipucunun hangi bilgileri i\u00e7ermesi gerekti\u011fini se\u00e7in."
     },
     "settings_tooltip_content_all": {
         "message": "Ba\u015fl\u0131k ve URL"
@@ -646,6 +646,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Sadece URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "ilave bilgi"
     },
     "settings_sidebar_position": {
         "message": "Pozisyon"

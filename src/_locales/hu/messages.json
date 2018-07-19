@@ -689,11 +689,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Sose mutassa"
     },
+    "settings_tooltip_desc": {
+        "message": "V\u00e1lassza ki, hogy mi jelenjen meg a tippekben."
+    },
     "settings_tooltip_content": {
         "message": "Tartalom"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "V\u00e1lassza ki, hogy mi jelenjen meg a tippekben."
     },
     "settings_tooltip_content_all": {
         "message": "N\u00e9v \u00e9s c\u00edm"
@@ -703,6 +703,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Csak az URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Tov\u00e1bbi inform\u00e1ci\u00f3"
     },
     "settings_sidebar_position": {
         "message": "Oldals\u00e1v megjelen\u00e9s\u00e9nek helye"

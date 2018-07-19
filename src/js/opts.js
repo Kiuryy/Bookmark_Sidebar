@@ -192,6 +192,7 @@
                 highlight: "highlight",
                 showModal: "showModal",
                 small: "small",
+                sub: "sub",
                 desc: "desc",
                 box: "box",
                 dialog: "dialog",

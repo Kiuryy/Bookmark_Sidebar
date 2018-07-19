@@ -171,6 +171,13 @@
                             <span data-value="title" data-i18n="settings_tooltip_content_title"></span>
                             <span data-value="url" data-i18n="settings_tooltip_content_url"></span>
                         </div>
+
+                        <div class="sub additionalInfo">
+                            <div class="formElement" data-type="checkbox" data-name="tooltipAdditionalInfo"></div>
+                            <label data-i18n="settings_tooltip_content_additional_info"></label>
+                        </div>
+
+                        <p class="desc" data-i18n="settings_tooltip_desc"></p>
                     </div>
 
                     <div class="box">
@@ -450,7 +457,9 @@
 
                     <section class="form">
                         <div class="formElement" data-type="email" data-name="feedbackEmail" data-placeholder="your@email-address.com"></div>
-                        <div class="upload"><span data-i18n="settings_feedback_screenshot">Screenshots anhängen</span><input type="file" accept="image/*" multiple /></div>
+                        <div class="upload">
+                            <span data-i18n="settings_feedback_screenshot">Screenshots anhängen</span><input type="file" accept="image/*" multiple />
+                        </div>
                         <div class="formElement" data-type="textarea" data-name="feedbackMsg"></div>
                         <ul class="uploadedFiles"></ul>
                         <button type="submit" data-i18n="settings_feedback_send"></button>

@@ -53,16 +53,15 @@ html[dir='rtl'] {
           left: unset;
         }
       }
+    }
+  }
 
-      + br + div.checkbox {
-        margin-left: 7px;
-        margin-right: unset;
+  div.sub div.checkbox {
+    margin-left: 7px;
+    margin-right: unset;
 
-        + label {
-          margin-right: 7px;
-          margin-left: unset;
-        }
-      }
+    + label {
+      margin-left: unset;
     }
   }
 }

@@ -517,15 +517,6 @@ body > section#wrapper {
           display: none; }
         body > section#wrapper > main div.boxWrapper > div.box > label {
           margin: 0 0 20px 0; }
-        body > section#wrapper > main div.boxWrapper > div.box > div.sub label {
-          display: inline-block;
-          vertical-align: top;
-          font-weight: "%fontWeightNormal";
-          min-width: 100px;
-          margin: 10px 10px 0 0; }
-          @media (max-width: 1300px) {
-            body > section#wrapper > main div.boxWrapper > div.box > div.sub label {
-              display: block; } }
         body > section#wrapper > main div.boxWrapper > div.box p.info {
           margin: 20px 0 10px;
           line-height: 150%; }
@@ -542,9 +533,6 @@ html[dir='rtl'] body > section#wrapper > main {
     html[dir='rtl'] body > section#wrapper > main {
       padding-right: 20px;
       padding-left: 20px; } }
-  html[dir='rtl'] body > section#wrapper > main div.boxWrapper > div.box > div.sub label {
-    margin-right: 0;
-    margin-left: 10px; }
 
 body > section#wrapper div.advanced {
   position: relative;
@@ -1546,26 +1534,28 @@ input[type='range'] {
           left: 4px;
           border: 4px solid transparent !important;
           border-bottom-color: rgba(0, 0, 0, 0.1) !important; } }
-    input[type='range'] + span + br + div.checkbox {
-      display: inline-block;
-      vertical-align: top;
-      margin: 0 7px 0 0;
-      width: 16px;
-      height: 16px; }
-      input[type='range'] + span + br + div.checkbox::before {
-        -webkit-mask-size: 18px; }
-      input[type='range'] + span + br + div.checkbox + label {
-        display: inline-block;
-        vertical-align: top;
-        margin: 10px 0 0 7px;
-        font-size: 90%;
-        font-weight: "%fontWeightMedium"; }
   input[type='range'].inactive {
     opacity: 0.2;
     pointer-events: none; }
     input[type='range'].inactive + span {
       opacity: 0.2;
       pointer-events: none; }
+
+div.sub {
+  margin: 0 0 20px 0; }
+  div.sub div.checkbox {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 7px 0 0;
+    width: 16px;
+    height: 16px; }
+    div.sub div.checkbox::before {
+      -webkit-mask-size: 18px; }
+    div.sub div.checkbox + label {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 90%;
+      font-weight: "%fontWeightMedium"; }
 
 html[dir='rtl'] div.checkbox {
   margin: 10px 0 10px 1px; }
@@ -1603,12 +1593,12 @@ html[dir='rtl'] input[type='range'] {
         html[dir='rtl'] input[type='range'] + span::before {
           right: 4px;
           left: unset; } }
-    html[dir='rtl'] input[type='range'] + span + br + div.checkbox {
-      margin-left: 7px;
-      margin-right: unset; }
-      html[dir='rtl'] input[type='range'] + span + br + div.checkbox + label {
-        margin-right: 7px;
-        margin-left: unset; }
+
+html[dir='rtl'] div.sub div.checkbox {
+  margin-left: 7px;
+  margin-right: unset; }
+  html[dir='rtl'] div.sub div.checkbox + label {
+    margin-left: unset; }
 
 div.tab[data-name='language'] > div[data-name='translate'] > div {
   display: none; }
@@ -2078,6 +2068,9 @@ html[dir='rtl'] body > section#wrapper > aside > nav ul > li > ul {
     html[dir='rtl'] body > section#wrapper > aside > nav ul > li > ul > li > a::before {
       right: 10px;
       left: unset; }
+
+div.tab[data-name='sidebar'] > div[data-name='tooltip'] div.sub.additionalInfo {
+  margin-top: 10px; }
 
 div.color-picker {
   position: absolute;

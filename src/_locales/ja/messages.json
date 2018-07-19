@@ -692,11 +692,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "\u30c4\u30fc\u30eb\u30c1\u30c3\u30d7\u3092\u8868\u793a\u3057\u306a\u3044"
     },
+    "settings_tooltip_desc": {
+        "message": "\u30c4\u30fc\u30eb\u30c1\u30c3\u30d7\u306b\u542b\u3081\u308b\u60c5\u5831\u3092\u9078\u629e"
+    },
     "settings_tooltip_content": {
         "message": "\u30c4\u30fc\u30eb\u30c1\u30c3\u30d7\u30b3\u30f3\u30c6\u30f3\u30c4"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "\u30c4\u30fc\u30eb\u30c1\u30c3\u30d7\u306b\u542b\u3081\u308b\u60c5\u5831\u3092\u9078\u629e"
     },
     "settings_tooltip_content_all": {
         "message": "\u30bf\u30a4\u30c8\u30eb\u3068URL"
@@ -706,6 +706,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "URL\u306e\u307f"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "\u8ffd\u52a0\u60c5\u5831"
     },
     "settings_sidebar_position": {
         "message": "\u4f4d\u7f6e"

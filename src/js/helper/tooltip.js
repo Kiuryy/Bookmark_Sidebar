@@ -16,7 +16,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipDelay", "b/sidebarPosition"]);
+            config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipAdditionalInfo", "b/tooltipDelay", "b/sidebarPosition"]);
 
             let styles = ext.helper.model.getData("a/styles");
             config.scrollBarWidth = +styles.scrollBarWidth.replace("px", "");
@@ -92,6 +92,11 @@
                 $("<span />").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
             } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
                 $("<span />").text(data.url).appendTo(tooltip);
+            }
+
+            if (config.tooltipAdditionalInfo && data.additionalInfo && data.additionalInfo.desc) {
+                let additionalInfo = data.additionalInfo.desc.replace(/\n/g, "<br />");
+                $("<p />").html(additionalInfo).appendTo(tooltip);
             }
         };
 

@@ -692,11 +692,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Ne jamais afficher les infobulles"
     },
+    "settings_tooltip_desc": {
+        "message": "S\u00e9lectionner quelles informations l'infobulle doit contenir."
+    },
     "settings_tooltip_content": {
         "message": "Contenu des infobulles"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "S\u00e9lectionner quelles informations l'infobulle doit contenir."
     },
     "settings_tooltip_content_all": {
         "message": "Titre et URL"
@@ -706,6 +706,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "URL uniquement"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Info compl\u00e9mentaire"
     },
     "settings_sidebar_position": {
         "message": "Position"

@@ -668,11 +668,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Toon nooit tooltips"
     },
+    "settings_tooltip_desc": {
+        "message": "Selecteer welke informatie de tooltips moeten bevatten."
+    },
     "settings_tooltip_content": {
         "message": "Tooltip inhoud"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Selecteer welke informatie de tooltips moeten bevatten."
     },
     "settings_tooltip_content_all": {
         "message": "Titel en URL"
@@ -682,6 +682,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Alleen URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Meer informatie"
     },
     "settings_sidebar_position": {
         "message": "Positie"

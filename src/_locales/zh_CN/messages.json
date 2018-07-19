@@ -692,11 +692,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "\u4e0d\u518d\u663e\u793a\u63d0\u793a"
     },
+    "settings_tooltip_desc": {
+        "message": "\u9009\u62e9\u63d0\u793a\u5e94\u5305\u542b\u54ea\u4e9b\u4fe1\u606f\u3002"
+    },
     "settings_tooltip_content": {
         "message": "\u63d0\u793a\u5185\u5bb9"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "\u9009\u62e9\u63d0\u793a\u5e94\u5305\u542b\u54ea\u4e9b\u4fe1\u606f\u3002"
     },
     "settings_tooltip_content_all": {
         "message": "\u6807\u9898\u548c\u7f51\u5740"
@@ -706,6 +706,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "\u53ea\u6709\u7f51\u5740"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "\u5176\u4ed6\u4fe1\u606f"
     },
     "settings_sidebar_position": {
         "message": "\u4f4d\u7f6e"

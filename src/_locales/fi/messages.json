@@ -608,11 +608,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 ty\u00f6kaluvinkkej\u00e4"
     },
+    "settings_tooltip_desc": {
+        "message": "Valitse mit\u00e4 tietoa ty\u00f6kaluvinkki sis\u00e4lt\u00e4\u00e4."
+    },
     "settings_tooltip_content": {
         "message": "Ty\u00f6kaluvinkin sis\u00e4lt\u00f6"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Valitse mit\u00e4 tietoa ty\u00f6kaluvinkki sis\u00e4lt\u00e4\u00e4."
     },
     "settings_tooltip_content_all": {
         "message": "Otsikko ja linkki"
@@ -622,6 +622,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Vain linkki"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Lis\u00e4tietoja"
     },
     "settings_sidebar_position": {
         "message": "Sijainti"

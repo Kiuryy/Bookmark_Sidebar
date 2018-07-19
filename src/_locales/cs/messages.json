@@ -656,11 +656,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Nikdy nezobrazovat n\u00e1pov\u011bdy"
     },
+    "settings_tooltip_desc": {
+        "message": "Vyberte, jak\u00e9 informace m\u00e1 obsahovat popiska n\u00e1stroje."
+    },
     "settings_tooltip_content": {
         "message": "Obsah n\u00e1pov\u011bdy"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Vyberte, jak\u00e9 informace m\u00e1 obsahovat popiska n\u00e1stroje."
     },
     "settings_tooltip_content_all": {
         "message": "N\u00e1zev a url"
@@ -670,6 +670,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Pouze url"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Dopl\u0148uj\u00edc\u00ed info"
     },
     "settings_sidebar_position": {
         "message": "Pozice"

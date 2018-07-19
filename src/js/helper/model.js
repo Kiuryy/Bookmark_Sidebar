@@ -76,6 +76,7 @@
                 rememberState: "openStatesAndPos",
                 tooltipDelay: 1,
                 tooltipContent: "all",
+                tooltipAdditionalInfo: true,
                 dndOpen: true,
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.5,

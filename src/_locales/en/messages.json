@@ -692,11 +692,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Never show tooltips"
     },
+    "settings_tooltip_desc": {
+        "message": "Select what information the tooltip should contain."
+    },
     "settings_tooltip_content": {
         "message": "Tooltip content"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Select what information the tooltip should contain."
     },
     "settings_tooltip_content_all": {
         "message": "Title and url"
@@ -706,6 +706,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Only url"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Additional info"
     },
     "settings_sidebar_position": {
         "message": "Position"

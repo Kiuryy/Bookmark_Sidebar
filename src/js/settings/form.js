@@ -315,9 +315,9 @@
                 });
 
                 if ($(opts.elm).attr($.attr.settings.range.infinity) === "1") { // add checkbox to disable range input
-                    let checkbox = s.helper.checkbox.get(s.elm.body).insertAfter(valTooltip);
-                    $("<label />").attr($.attr.i18n, opts.i18n + "_infinity").insertAfter(checkbox);
-                    $("<br />").insertBefore(checkbox);
+                    let checkboxWrapper = $("<div />").addClass($.cl.settings.sub).insertAfter(valTooltip);
+                    let checkbox = s.helper.checkbox.get(s.elm.body).appendTo(checkboxWrapper);
+                    $("<label />").attr($.attr.i18n, opts.i18n + "_infinity").appendTo(checkboxWrapper);
 
                     checkbox.children("input[type='checkbox']").on("change", (e) => {
                         if (e.currentTarget.checked) {

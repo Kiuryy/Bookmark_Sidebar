@@ -656,11 +656,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Nu ar\u0103ta niciodat\u0103 baloanele informative"
     },
+    "settings_tooltip_desc": {
+        "message": "Selecteaz\u0103 ce informa\u021bii ar trebui s\u0103 con\u021bin\u0103 baloanele informative."
+    },
     "settings_tooltip_content": {
         "message": "Con\u021binutul baloanelor informative"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Selecteaz\u0103 ce informa\u021bii ar trebui s\u0103 con\u021bin\u0103 baloanele informative."
     },
     "settings_tooltip_content_all": {
         "message": "Titlu \u0219i URL"
@@ -670,6 +670,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Doar URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Informa\u021bii adi\u021bionale"
     },
     "settings_sidebar_position": {
         "message": "Pozi\u021bie"

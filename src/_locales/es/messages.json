@@ -680,6 +680,9 @@
     "settings_prevent_windowed": {
         "message": "Desactiva la barra lateral en el modo ventana"
     },
+    "settings_prevent_windowed_desc": {
+        "message": "Desactiva la posibilidad de abrir la barra lateral al hacer clic o al pasar el borde del contenido del navegador cuando el navegador est\u00e1 en modo ventana."
+    },
     "settings_tooltip_delay": {
         "message": "Tiempo de espera para mostrar el tooltip"
     },
@@ -689,11 +692,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Nunca mostrar el tooltip"
     },
+    "settings_tooltip_desc": {
+        "message": "Seleccione qu\u00e9 informaci\u00f3n debe contener el tooltip"
+    },
     "settings_tooltip_content": {
         "message": "Contenido del tooltip"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Seleccione qu\u00e9 informaci\u00f3n debe contener el tooltip"
     },
     "settings_tooltip_content_all": {
         "message": "T\u00edtulo y URL"
@@ -703,6 +706,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Solo URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Informaci\u00f3n adicional"
     },
     "settings_sidebar_position": {
         "message": "Posici\u00f3n"
@@ -721,6 +727,12 @@
     },
     "settings_animations_desc": {
         "message": "Permite desactivar todas las animaciones de la barra lateral. Esto puede ser \u00fatil si las animaciones no funcionan correctamente en su sistema."
+    },
+    "settings_contextmenu": {
+        "message": "Entrada al men\u00fa contextual"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Mostrar una entrada en el men\u00fa contextual de Chrome para alternar la barra lateral."
     },
     "settings_filter_intro": {
         "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"

@@ -656,11 +656,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Vis aldri verkt\u00f8ytips"
     },
+    "settings_tooltip_desc": {
+        "message": "Velg hvilken informasjon verkt\u00f8ytipsene skal inneholde"
+    },
     "settings_tooltip_content": {
         "message": "Verkt\u00f8ytips innhold"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Velg hvilken informasjon verkt\u00f8ytipsene skal inneholde"
     },
     "settings_tooltip_content_all": {
         "message": "Tittel og url"
@@ -670,6 +670,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Kun url"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Tilleggsinformasjon"
     },
     "settings_sidebar_position": {
         "message": "Posisjon"

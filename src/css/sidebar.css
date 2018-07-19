@@ -303,6 +303,10 @@ div.tooltip {
   div.tooltip > span {
     opacity: 0.7;
     word-wrap: break-word; }
+  div.tooltip > h3 + p, div.tooltip > span + p {
+    margin-top: 5px;
+    padding-top: 3px;
+    border-top: 1px solid rgba(255, 255, 255, 0.7); }
 
 section#sidebar[data-pos='right'] ~ div.tooltip {
   transform: translate3d(5px, 0, 0); }

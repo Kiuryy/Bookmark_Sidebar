@@ -38,6 +38,12 @@ div.tooltip {
     opacity: 0.7;
     word-wrap: break-word;
   }
+
+  > h3 + p, > span + p {
+    margin-top: 5px;
+    padding-top: 3px;
+    border-top: 1px solid rgba($tooltipTextColor, 0.7);
+  }
 }
 
 section#sidebar[data-pos='right'] ~ div.tooltip {

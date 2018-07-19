@@ -560,11 +560,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Non mostrare mai la descrizione"
     },
+    "settings_tooltip_desc": {
+        "message": "Scegli le informazioni da visualizzare nella descrizione"
+    },
     "settings_tooltip_content": {
         "message": "Contenuto descrizione"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Scegli le informazioni da visualizzare nella descrizione"
     },
     "settings_tooltip_content_all": {
         "message": "Titolo e indirizzo"
@@ -574,6 +574,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Solo l'indirizzo"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "informazioni addizionali"
     },
     "settings_sidebar_position": {
         "message": "Posizione"

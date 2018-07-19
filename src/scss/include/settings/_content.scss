@@ -101,21 +101,6 @@ body > section#wrapper {
           margin: 0 0 20px 0;
         }
 
-        > div.sub {
-
-          label {
-            display: inline-block;
-            vertical-align: top;
-            font-weight: $__fontWeightNormal;
-            min-width: 100px;
-            margin: 10px 10px 0 0;
-
-            @media (max-width: 1300px) {
-              display: block;
-            }
-          }
-        }
-
         p.info {
           margin: 20px 0 10px;
           line-height: 150%;

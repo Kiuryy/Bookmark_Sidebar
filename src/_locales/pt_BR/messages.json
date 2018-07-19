@@ -692,11 +692,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Nunca mostrar dicas de contexto"
     },
+    "settings_tooltip_desc": {
+        "message": "Selecionar qual informa\u00e7\u00e3o a dica de contexto deve conter."
+    },
     "settings_tooltip_content": {
         "message": "Conte\u00fado da dica de contexto"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Selecionar qual informa\u00e7\u00e3o a dica de contexto deve conter."
     },
     "settings_tooltip_content_all": {
         "message": "T\u00edtulo e URL"
@@ -706,6 +706,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Apenas URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Informa\u00e7\u00e3o adicional"
     },
     "settings_sidebar_position": {
         "message": "Posi\u00e7\u00e3o"

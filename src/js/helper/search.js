@@ -175,7 +175,8 @@
                 if (this.isResultsVisible()) {
                     ext.startLoading();
                     ext.elm.bookmarkBox.all.addClass($.cl.active);
-                    ext.elm.bookmarkBox.search.removeClass($.cl.active);
+                    ext.elm.bookmarkBox.search.removeClass([$.cl.active, $.cl.scrollBox.scrolled]);
+                    ext.elm.bookmarkBox.search.removeAttr($.attr.direction);
                     ext.helper.scroll.restoreScrollPos(ext.elm.bookmarkBox.all);
                     ext.helper.scroll.focus();
                     ext.endLoading();

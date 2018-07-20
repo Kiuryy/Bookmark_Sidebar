@@ -444,7 +444,7 @@
                     hasEntries = true;
 
                     if (asTree === false && bookmarkCounter >= 100) { // only render 100 entries of the one dimensional list -> if user scrolles to the end of the list the next 100 entries will be loaded
-                        let remainingEntries = bookmarks.slice(100);
+                        let remainingEntries = bookmarks.slice(idx + 1);
 
                         if (remainingEntries.length > 0) {
                             list.data("remainingEntries", remainingEntries);

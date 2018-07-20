@@ -116,16 +116,44 @@
             });
         };
 
+        /**
+         * Returns all elements matching the given search value,
+         * includes bookmarks, directories and elements with matching additional information
+         *
+         * @param {string} val
+         * @returns {Promise}
+         */
         let getSearchResults = (val) => {
             return new Promise((resolve) => {
+                let valLC = val.toLowerCase();
+                let idList = [];
+
                 ext.helper.model.call("searchBookmarks", {searchVal: val}).then((response) => {
                     let result = response.bookmarks || [];
+                    result.forEach((entry) => {
+                        idList.push(entry.id);
+                    });
+
                     let directories = ext.helper.entry.getAllDataByType("directories");
 
                     directories.forEach((directory, idx) => {
-                        if (directory.title.toLowerCase().search(val.toLowerCase()) > -1) {
+                        if (directory.title.toLowerCase().indexOf(valLC) > -1) {
                             directory.index = -1000 + idx;
                             result.push(directory);
+                            idList.push(directory.id);
+                        }
+                    });
+
+                    let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+                    Object.entries(additionalInfoList).forEach(([id, info]) => {
+                        if (info && info.desc && info.desc.toLocaleLowerCase().indexOf(valLC) > -1 && idList.indexOf(id) === -1) { // additional information is matching the search value
+                            let data = ext.helper.entry.getDataById(id);
+
+                            if (data.isDir) {
+                                data.index = -1000 + data.index;
+                            }
+
+                            result.push(data);
                         }
                     });
 

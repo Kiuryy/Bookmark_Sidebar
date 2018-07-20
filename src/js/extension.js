@@ -336,7 +336,7 @@
             let ret = true;
             let visibility = this.helper.model.getData("b/visibility");
 
-            if (visibility === "always" || location.href.search(chrome.extension.getURL("html/newtab.html")) === 0) {
+            if (visibility === "always" || location.href.indexOf(chrome.extension.getURL("html/newtab.html")) === 0) {
                 ret = true;
             } else if (visibility === "blacklist" || visibility === "whitelist") {
                 let rules = this.helper.model.getData("b/" + visibility);

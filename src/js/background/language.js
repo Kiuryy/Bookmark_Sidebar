@@ -85,7 +85,7 @@
                         lang = aliasLangs[lang];
                     }
 
-                    if (lang.search("_") > -1) { // search for a language file with short language code, too (e.g. de_DE -> de)
+                    if (lang.indexOf("_") > -1) { // search for a language file with short language code, too (e.g. de_DE -> de)
                         fallbackLang = lang.replace(/_.*$/, "");
                     }
 

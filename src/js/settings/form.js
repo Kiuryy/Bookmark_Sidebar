@@ -296,7 +296,7 @@
 
                     let background = s.elm.range[opts.name].css("background-image");
 
-                    if (background && background.search("linear-gradient") === 0) {
+                    if (background && background.indexOf("linear-gradient") === 0) {
                         let backgroundTemplate = $(elm).data("backgroundTemplate");
 
                         if (typeof backgroundTemplate === "undefined") {

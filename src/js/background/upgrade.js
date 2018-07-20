@@ -91,7 +91,7 @@
                     }
 
                     // START UPGRADE // v1.13 -> released [03-2018]
-                    if (typeof obj.language === "string" && obj.language.search("-") > -1) {
+                    if (typeof obj.language === "string" && obj.language.indexOf("-") > -1) {
                         chrome.storage.local.set({language: obj.language.replace("-", "_")});
                     }
 

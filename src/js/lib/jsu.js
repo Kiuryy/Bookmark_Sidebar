@@ -228,7 +228,7 @@
             constructor(param, asSelector = true) {
                 let s = param;
 
-                if (typeof param === "string" && (asSelector === false || param.search("<") > -1)) {
+                if (typeof param === "string" && (asSelector === false || param.indexOf("<") > -1)) {
                     let div = d.createElement("div");
                     div.innerHTML = param;
                     s = div.childNodes;
@@ -990,7 +990,7 @@
                         this[private_elementMove](s, type, asSelector);
                     });
                 } else {
-                    if (typeof s === "string" && s.search("<") > -1) {
+                    if (typeof s === "string" && s.indexOf("<") > -1) {
                         asSelector = false;
                     }
 

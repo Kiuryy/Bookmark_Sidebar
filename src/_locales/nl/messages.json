@@ -197,11 +197,32 @@
     "overlay_check_bookmarks_menu_changed": {
         "message": "Veranderd"
     },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Ongeldig"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Dubbelen"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "De URL's van de bladwijzers controleren"
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Geselecteerde Updaten"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Geselecteerde verwijderen"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "Alle URL's van de bladwijzers zijn correct"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Er zijn geen veranderende bladwijzer URL's"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Er zijn geen ongeldige bladwijzer URL's"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Er zijn geen dubbele bladwijzer URL's"
     },
     "newtab_title": {
         "message": "Nieuwe Tab"

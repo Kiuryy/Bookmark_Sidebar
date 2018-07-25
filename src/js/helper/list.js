@@ -382,12 +382,7 @@
                 box.css("padding-top", filterBoxHeight);
             });
 
-            // @deprecated sticky positioning seems to have changed with Chrome 68 -> this workaround can be removed as soon as v68 is the min required version
-            let versionRaw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
-            let version = versionRaw ? parseInt(versionRaw[2], 10) : null;
-            if (version < 68) {
-                ext.elm.pinnedBox.css("top", ext.helper.model.getData("u/lockPinned") ? -filterBoxHeight : 0);
-            }
+            ext.elm.pinnedBox.css("top", ext.helper.model.getData("u/lockPinned") ? -filterBoxHeight : 0);
         };
 
         /**

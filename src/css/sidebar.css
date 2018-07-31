@@ -1167,7 +1167,7 @@ section#sidebar {
         height: 100%;
         -webkit-mask: no-repeat center/20px;
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg);
-        background-color: "%bookmarksDirColor"; }
+        background-color: "%textColor"; }
       section#sidebar > div.scrollBox > a[data-name='add']:hover {
         background-color: "%hoverColor"; }
   section#sidebar.openedOnce > header > a.search::before {

@@ -54,7 +54,7 @@
         "message": "Otvori u novom prozoru"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Otvori u trenutnom prozoru"
+        "message": "Otvori u anonimnom prozoru"
     },
     "contextmenu_add": {
         "message": "Dodaj unos"

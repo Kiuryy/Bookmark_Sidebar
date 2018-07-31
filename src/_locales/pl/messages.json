@@ -726,10 +726,10 @@
         "message": "Dodaj tylko jeden adres w linii."
     },
     "settings_filter_explanation_2": {
-        "message": "U\u017cyj <em>*<\/em> by por\u00f3wna\u0107 znaki (e.g. example.com\/* pasuje do wszystkich stron example.com)"
+        "message": "U\u017cyj * by por\u00f3wna\u0107 znaki (e.g. example.com\/* pasuje do wszystkich stron example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "Je\u015bli nie dodasz \u017cadnej <em>*<\/em> do regu\u0142y, to tylko dok\u0142adna regu\u0142a b\u0119dzie dopasowana (np. \"example.com\" nie b\u0119dzie pasowa\u0107 do \"example.com\/about.html\")"
+        "message": "Je\u015bli nie dodasz \u017cadnej * do regu\u0142y, to tylko dok\u0142adna regu\u0142a b\u0119dzie dopasowana (np. \"example.com\" nie b\u0119dzie pasowa\u0107 do \"example.com\/about.html\")"
     },
     "settings_filter_explanation_4": {
         "message": "Nie ma potrzeby dodawa\u0107 protok\u00f3\u0142 (np. http:\/\/) do regu\u0142"

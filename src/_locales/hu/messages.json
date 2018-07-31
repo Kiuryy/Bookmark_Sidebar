@@ -738,10 +738,10 @@
         "message": "Csak egy webc\u00edmet adjon hozz\u00e1 soronk\u00e9nt"
     },
     "settings_filter_explanation_2": {
-        "message": "Haszn\u00e1lja a <em>*<\/em>-ot a webc\u00edm maszkol\u00e1s\u00e1ra.( Pl. a pelda.hu\/* a pelda.hu alatti \u00f6sszes lapot jelenti)"
+        "message": "Haszn\u00e1lja a *-ot a webc\u00edm maszkol\u00e1s\u00e1ra.( Pl. a example.com\/* a example.com alatti \u00f6sszes lapot jelenti)"
     },
     "settings_filter_explanation_3": {
-        "message": "Ha nem haszn\u00e1lja a <em>*<\/em>-ot a webc\u00edm maszkol\u00e1s\u00e1ra, akkor csak a megadott webc\u00edmmel pontosan egyez\u0151 lap ker\u00fcl sz\u0171r\u00e9sre (Pl. a pelda.hu nem fogja kisz\u0171rni a pelda.hu\/akarmi lapot)"
+        "message": "Ha nem haszn\u00e1lja a *-ot a webc\u00edm maszkol\u00e1s\u00e1ra, akkor csak a megadott webc\u00edmmel pontosan egyez\u0151 lap ker\u00fcl sz\u0171r\u00e9sre (Pl. a \"example.com\" nem fogja kisz\u0171rni a \"example.com\/about.html\" lapot)"
     },
     "settings_filter_explanation_4": {
         "message": "A szab\u00e1lyban a protokolt nem kell hozz\u00e1tenni a c\u00edmhez (pl. http:\/\/)."

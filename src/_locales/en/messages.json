@@ -741,10 +741,10 @@
         "message": "Only add one url pattern per line"
     },
     "settings_filter_explanation_2": {
-        "message": "Use <em>*<\/em> to match any character (e.g. example.com\/* matches all pages under example.com)"
+        "message": "Use * to match any character (e.g. example.com\/* matches all pages under example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "If you don't include any <em>*<\/em> in a rule, only the exact url will match (e.g. \"example.com\" won't match for the url \"example.com\/about.html\")"
+        "message": "If you don't include any * in a rule, only the exact url will match (e.g. \"example.com\" won't match for the url \"example.com\/about.html\")"
     },
     "settings_filter_explanation_4": {
         "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"

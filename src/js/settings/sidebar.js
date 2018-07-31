@@ -118,6 +118,11 @@
         let initFilter = () => {
             s.elm.textarea.visibilityFilter.attr("placeholder", "example.com/*\n*.example.com/*");
 
+            s.elm.sidebar.filterExplanation.find("> ul > li").forEach((elm) => { // highlight [*] in the explanations
+                let text = $(elm).text();
+                $(elm).html(text.replace(/(?<!\/)\*/g, "<em>*</em>"));
+            });
+
             s.elm.select.visibility.on("change", (e) => {
                 let val = e.currentTarget.value;
 

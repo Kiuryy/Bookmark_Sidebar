@@ -699,10 +699,10 @@
         "message": "Ad\u0103uga\u021bi numai un singur model URL pe linie"
     },
     "settings_filter_explanation_2": {
-        "message": "Utiliza\u021bi <em>*<\/em> pentru a potrivi oricare dintre caractere (de ex. example.com\/* se potrive\u0219te cu toate paginile de la example.com)"
+        "message": "Utiliza\u021bi * pentru a potrivi oricare dintre caractere (de ex. example.com\/* se potrive\u0219te cu toate paginile de la example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "Dac\u0103 nu include\u021bi nicun caracter <em>*<\/em> \u00eentr-o regul\u0103, se va potrivi numai adresa URL exact\u0103 (de exemplu, \"example.com\" nu se va potrivi pentru adresa URL \"example.com\/about.html\")"
+        "message": "Dac\u0103 nu include\u021bi nicun caracter * \u00eentr-o regul\u0103, se va potrivi numai adresa URL exact\u0103 (de exemplu, \"example.com\" nu se va potrivi pentru adresa URL \"example.com\/about.html\")"
     },
     "settings_filter_explanation_4": {
         "message": "Nu este necesar s\u0103 ad\u0103uga\u021bi protocolul (de exemplu, http: \/\/) \u00een reguli"

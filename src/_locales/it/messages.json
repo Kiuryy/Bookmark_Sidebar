@@ -54,10 +54,13 @@
         "message": "Apri in una nuova finestra"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Apri in una finestra di navigazione in incognito"
+        "message": "Apri in una finestra in incognito"
     },
     "contextmenu_add": {
         "message": "Aggiungi nuova voce"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Cerca tra i segnalibri"
     },
     "contextmenu_toggle_hidden": {
         "message": "Mostra voci nascoste"
@@ -69,7 +72,7 @@
         "message": "Ricarica barra laterale"
     },
     "contextmenu_open_children": {
-        "message": "Apri preferiti"
+        "message": "Apri tutti i preferiti nella cartella"
     },
     "contextmenu_hide_from_sidebar": {
         "message": "Nascondi dalla barra laterale"
@@ -177,7 +180,7 @@
         "message": "Registrati a partire da"
     },
     "overlay_bookmark_views_per_month": {
-        "message": "per mese"
+        "message": "Per mese"
     },
     "overlay_bookmark_created_date": {
         "message": "Creato il"
@@ -191,17 +194,41 @@
     "overlay_dir_children_dirs": {
         "message": "Cartelle"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Cambiati"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Sbagliati"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicati"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Controllando gli indirizzi dei preferiti"
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Aggiorna selezionati"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Rimuovi selezionati"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "Tutti gli indirizzi dei preferiti sono OK"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Non ci sono indirizzi modificati"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Non ci sono indirizzi sbagliati"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Non ci sono indirizzi duplicati"
     },
     "newtab_title": {
         "message": "Nuova Scheda"
     },
     "newtab_search_placeholder": {
-        "message": "Cerca su {1} o inserisci URL"
+        "message": "Cerca su {1} o inserisci indirizzo"
     },
     "newtab_top_pages_default": {
         "message": "Pagine migliori"
@@ -234,7 +261,7 @@
         "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "Una delle tue regole sugli URL non ha permesso alla barra laterale di aprirsi"
+        "message": "Una delle tue regole sugli indirizzi non ha permesso alla barra laterale di aprirsi"
     },
     "newtab_fallback_desc": {
         "message": "Abbiamo invece aperto una nuova scheda con la barra laterale."
@@ -266,6 +293,90 @@
     "status_background_disconnected_reload_action": {
         "message": "Ricarica adesso"
     },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Maiusc"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Invio"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "CMD"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Canc"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Passa alla voce successiva nella barra laterale o, quando aperto, nel men\u00f9 contestuale."
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Equivale a un click sulla voce evidenziata."
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Apre il men\u00f9 contestuale della voce evidenziata."
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copia l'indirizzo della voce evidenziata."
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Rimuove l'indirizzo evidenziato."
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Chiude la barra laterale, la finestra aperta o il men\u00f9 contestuale."
+    },
+    "contribute_headline": {
+        "message": "Ho bisogno del tuo aiuto"
+    },
+    "contribute_intro": {
+        "message": "Per migliorare la estensione vorrei sapere meglio come gli utenti usano la barra laterale e che configurazione usano."
+    },
+    "contribute_outro": {
+        "message": "Se hai domande o preoccupazioni riguardo la condivisione dei dati, ti prego di inviarmi al riguardo."
+    },
+    "contribute_dismiss": {
+        "message": "Ignora"
+    },
+    "contribute_share_config_label": {
+        "message": "Condividi configurazione."
+    },
+    "contribute_share_config_desc": {
+        "message": "La condivisione sar\u00e0 anonima, ci\u00f2 mi aiuter\u00e0 a identificare quali sono le impostazioni pi\u00f9 popolari e a capire cosa cambiare o migliorare in aggiornamenti futuri."
+    },
+    "contribute_share_activity_label": {
+        "message": "Condividi attivit\u00e0."
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Puoi condividere il modo in cui usi la barra laterale in maniera anonima, ci\u00f2 mi aiuter\u00e0 a capire come viene usata dagli utenti. Informazioni sui tuoi preferiti o sulla cronologia dei siti visitati [b]non[\/b] saranno raccolte."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Queste informazioni mi sono molto utili al fine di identificare problemi nell'usabilit\u00e0 o a capire quali caratteristiche vengono usate poco dagli utenti."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Esempi di dati che vengono condivisi:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "In media, quanti segnalibri ha un utente?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Qual'\u00e8 la piattaforma usata dagli utenti (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Gli utenti usano la ricerca?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Gli utenti cambiano l'ordinamento dei segnalibri?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Quanto spesso gli utenti riordinano o modificano le voci?"
+    },
     "onboarding_title": {
         "message": "Configurazione"
     },
@@ -282,10 +393,10 @@
         "message": "Dove desideri visualizzare la barra laterale?"
     },
     "onboarding_sidebar_open_action_desc": {
-        "message": "Che metodo di attivazione vuoi utilizzare?"
+        "message": "Come desideri venga aperta la barra laterale?"
     },
     "onboarding_sidebar_surface_desc": {
-        "message": "Quale stile preferisci?"
+        "message": "Che stile preferisci?"
     },
     "onboarding_sidebar_surface_light": {
         "message": "Chiaro"
@@ -300,7 +411,7 @@
         "message": "Muovi il cursore sul lato {1} della finestra."
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "Ora clicca col tasto {1} del mouse per aprire la barra laterale."
+        "message": "Ora {1} clicca col tasto del mouse per aprire la barra laterale."
     },
     "onboarding_handson_icon_desc": {
         "message": "Clicca sull'icona dell'estensione per aprire la barra laterale."
@@ -314,11 +425,23 @@
     "onboarding_finish_desc": {
         "message": "Buon divertimento con la tua barra laterale."
     },
+    "onboarding_finish_notice": {
+        "message": "Se clicchi di frequenta sul {1} lato della finestra, potresti voler cambiare dove viene aperta la barra laterale, cos\u00ec da evitare di aprirla accidentalmente."
+    },
     "onboarding_goto_settings": {
         "message": "Ulteriori impostazioni"
     },
     "onboarding_goto_appearance": {
         "message": "Configura l'aspetto"
+    },
+    "changelog_title": {
+        "message": "Changelog"
+    },
+    "changelog_current_version": {
+        "message": "Versione attualmente in uso"
+    },
+    "changelog_show_release_history": {
+        "message": "Mostra storia dettagliata degli aggiornamenti"
     },
     "settings_title": {
         "message": "Impostazioni"
@@ -402,13 +525,13 @@
         "message": "Apri la barra laterale"
     },
     "settings_open_action_desc": {
-        "message": "Apri la barra laterale con un click del mouse o passando col cursore sul bordo della finestra del browser. Oppure puoi scegliere di aprire la barra laterale esclusivamente con un click sull'icona dell'estensione nella barra dei menu di Chrome."
+        "message": "Apri la barra laterale con un click (pulsante destro o sinistro) del mouse o passando col cursore sul bordo della finestra del browser. Oppure puoi scegliere di aprire la barra laterale esclusivamente con un click sull'icona dell'estensione nella barra dei menu di Chrome."
     },
     "settings_open_action_leftclick": {
-        "message": "Click sul tasto sinistro del mouse"
+        "message": "Premi il pulsante sinistro del mouse"
     },
     "settings_open_action_rightclick": {
-        "message": "Click sul tasto destro del mouse"
+        "message": "Premi il pulsante destro del mouse"
     },
     "settings_open_action_mouseover": {
         "message": "Al passaggio del mouse"
@@ -418,6 +541,9 @@
     },
     "settings_toggle_area": {
         "message": "Configura area"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Come impostazione predefinita, l'intero bordo della finestra pu\u00f2 essere usato per aprire la barra laterale al passaggio del mouse. Puoi cambiare quest'impostazione e decidere l'area esatta in cui passare il mouse."
     },
     "settings_toggle_area_width": {
         "message": "Larghezza"
@@ -429,7 +555,7 @@
         "message": "Altezza"
     },
     "settings_toggle_area_height_desc": {
-        "message": "Puoi ridurre l'altezza dell'area, in modo che la sidebar si apra solo quando sposti il cursore in quella zona della finestra del browser."
+        "message": "Puoi ridurre l'altezza dell'area, in modo che la barra laterale si apra solo quando sposti il cursore in quella zona del bordo della finestra."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Imposta la scorciatoia da tastiera"
@@ -453,7 +579,7 @@
         "message": "Aggiunge un ritardo personalizzabile prima dell'apertura della barra laterale al passaggio del cursore o al click del mouse."
     },
     "settings_prevent_pagescroll": {
-        "message": "Previene lo scorrimento della pagina"
+        "message": "Previeni lo scorrimento della pagina"
     },
     "settings_prevent_pagescroll_desc": {
         "message": "Previene lo scorrimento del sito web visualizzato mentre la barra laterale \u00e8 aperta."
@@ -551,6 +677,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Apre automaticamente la barra laterale dopo aver aperto un preferito dalla barra stessa."
     },
+    "settings_prevent_windowed": {
+        "message": "Disattiva la barra laterale in modalit\u00e0 finestra"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Disattiva la possibilit\u00e0 di aprire la barra laterale, sia cliccando che al passaggio del mouse, quando il browser \u00e8 in modalit\u00e0 finestra."
+    },
     "settings_tooltip_delay": {
         "message": "Ritardo descrizione"
     },
@@ -596,8 +728,26 @@
     "settings_animations_desc": {
         "message": "Permette di disattivare tutte le animazioni della barra. Pu\u00f2 essere utile se le animazioni non sono riprodotte in maniera fluida sul tuo sistema."
     },
+    "settings_contextmenu": {
+        "message": "Voce nel men\u00f9 contestuale"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Mostra una voce nel men\u00f9 contestuale di Chrome per aprire la barra laterale."
+    },
+    "settings_filter_intro": {
+        "message": "Se non vuoi che la barra laterale venga aperta in ogni pagina, puoi decidere in quali \u00e8 permesso (whitelist) e in quali \u00e8 proibito (blacklist)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Aggiungi solo un pattern indirizzo per riga"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Usa * raggruppare ogni carattere (ad esempio: example.com\/* raggruppa ogni carattere sotto example.com)."
+    },
+    "settings_filter_explanation_3": {
+        "message": "Se non includi nessun * in una regola, solo l'indirizzo esatto verr\u00e0 considerato (ad esempio: \"example.com\" non verr\u00e0 raggruppato assieme a \"example.com\/about.html\")."
+    },
     "settings_filter_explanation_4": {
-        "message": "Non c'\u00e8 bisogno di aggiungere il protocollo nelle regole (per esempio http:\/\/)"
+        "message": "Non c'\u00e8 bisogno di aggiungere il protocollo nelle regole (ad esempio http:\/\/)."
     },
     "settings_filter_visibility": {
         "message": "Carica barra laterale"
@@ -611,8 +761,11 @@
     "settings_filter_visibility_whitelist": {
         "message": "Solo su pagine specificate"
     },
+    "settings_filter_rules": {
+        "message": "Pattern degli indirizzi"
+    },
     "settings_import_export_desc": {
-        "message": "Puoi esportare e salvare in locale le impostazioni dell'estensione sul tuo computer. Puoi importare i file esportati in precedenza in qualsiasi computer dove sia installata l'estensione."
+        "message": "Puoi esportare le impostazioni dell'estensione e salvare in locale sul tuo computer. Puoi importare i file esportati in precedenza in qualsiasi computer dove sia installata l'estensione."
     },
     "settings_export": {
         "message": "Esporta Impostazioni"
@@ -713,6 +866,12 @@
     "settings_icon_shape": {
         "message": "Forma"
     },
+    "settings_custom_css": {
+        "message": "Stylesheet personalizzato"
+    },
+    "settings_custom_css_desc": {
+        "message": "Puoi impostare il tuo stylesheet in modo da sostituire quello di default. Usa questa opzione solo se hai esperienza con il CSS e sai cosa stai facendo."
+    },
     "settings_newtab_desc": {
         "message": "Sfortunatamente Google ha rimosso la possibilit\u00e0 di caricare le estensioni nella pagina di default \"Nuova scheda\". Per questo motivo ho aggiunto, in maniera alternativa, delle opzioni che ti permettono di accedere ai tuoi preferiti quando apri una nuova scheda."
     },
@@ -738,7 +897,7 @@
         "message": "Lingua"
     },
     "settings_language_default": {
-        "message": "Default del browser"
+        "message": "Di default del browser"
     },
     "settings_language_desc": {
         "message": "Lingua dell'interfaccia utente"
@@ -747,7 +906,7 @@
         "message": "Vai al riepilogo traduzioni"
     },
     "settings_translation_desc": {
-        "message": "Puoi aiutare a tradurre l'estensione nella tua lingua o migliorare le traduzioni esistenti."
+        "message": "Puoi aiutare a tradurre l'estensione nella tua lingua o a migliorare le traduzioni esistenti."
     },
     "settings_translation_add_language": {
         "message": "Aggiungi lingua"
@@ -756,7 +915,7 @@
         "message": "Torna al riepilogo"
     },
     "settings_translation_info": {
-        "message": "Puoi modificare le traduzioni esistenti o aggiungere quelle mancanti. Se salvi le modifiche apportate, verranno controllate ed approvate."
+        "message": "Puoi modificare le traduzioni esistenti o aggiungere quelle mancanti. Se salvi le modifiche apportate, verranno controllate e approvate."
     },
     "settings_translation_notice1": {
         "message": "Appena tutte le categorie necessarie indicate saranno tradotte, la traduzione sar\u00e0 rilasciata."
@@ -789,13 +948,22 @@
         "message": "Necessario"
     },
     "settings_feedback_desc": {
-        "message": "Hai qualche suggerimento su delle migliorie, domande, desideri segnalare impostazioni mancanti o hai trovato un bug? Sono a disposizione per qualsiasi feedback atto a migliorare l'esperienza generale dell'estensione e ti ringrazio per l'aiuto."
+        "message": "Hai qualche suggerimento su come o cosa migliorare? Hai domande o desideri segnalare impostazioni mancanti, oppure hai trovato un bug? Sono a disposizione per qualsiasi feedback atto a migliorare l'esperienza generale dell'estensione e ti ringrazio per l'aiuto."
     },
     "settings_feedback_notice": {
         "message": "Ti prego di scrivere il tuo messaggio in Inglese, altrimenti mi sarebbe molto difficile da comprendere e non sarei in grado di risponderti."
     },
     "settings_feedback_email": {
         "message": "Il tuo indirizzo email"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Aggiungi screenshots"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Le dimensioni di {1} sono troppo grandi (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Puoi aggiungere un massimo di {1} screenshots"
     },
     "settings_feedback_send": {
         "message": "Invia il feedback"

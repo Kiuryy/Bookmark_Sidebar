@@ -741,10 +741,10 @@
         "message": "Ne saisir qu'un masque d'URL par ligne"
     },
     "settings_filter_explanation_2": {
-        "message": "Utiliser <em>*<\/em> pour remplacer un ou plusieurs caract\u00e8res (ex; exemple.com\/* retournera toutes les pages qui d\u00e9butent par exemple.com\/).<em>"
+        "message": "Utiliser * pour remplacer un ou plusieurs caract\u00e8res (ex; exemple.com\/* retournera toutes les pages qui d\u00e9butent par exemple.com\/)."
     },
     "settings_filter_explanation_3": {
-        "message": "Si vous n'utilisez pas le caract\u00e8re de substitution (<em>*<\/em>) la recherche retournera une pas que si elle est \u00e9gale au masque (ex; exemple.com ne retournera que l'URL exemple.com)."
+        "message": "Si vous n'utilisez pas le caract\u00e8re de substitution * la recherche retournera une pas que si elle est \u00e9gale au masque (ex; exemple.com ne retournera que l'URL exemple.com)."
     },
     "settings_filter_explanation_4": {
         "message": "Vous n'avez pas besoin d'inclure le protocole (http:\/\/, https:\/\/) dans le masque."

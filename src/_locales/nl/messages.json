@@ -675,16 +675,19 @@
         "message": "heropen zijbalk"
     },
     "settings_reopen_sidebar_desc": {
-        "message": "Heropen de zijbalk automatisch opnieuw, na het openen van een bladwijzer via de zijbalk."
+        "message": "Open de zijbalk automatisch opnieuw, na het openen van een bladwijzer via de zijbalk."
     },
     "settings_prevent_windowed": {
         "message": "Schakel de zijbalk uit wanneer het venster niet schermvullend is"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Schakelt de mogelijkheid uit om de zijbalk te openen door te klikken of boven de zijkant van de browser te zweven, als de browser in venster modus is."
     },
     "settings_tooltip_delay": {
         "message": "Tooltip vertraging"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Verander hoelang het duurt voordat de info bubbels omhoog komen wanneer er met de muis over een bladwijzer wordt gezweven."
+        "message": "Vertraging voordat de tooltips van een bladwijzer zullen verschijnen als je er met de muis boven zweeft.."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Toon nooit tooltips"
@@ -711,7 +714,7 @@
         "message": "Positie"
     },
     "settings_sidebar_position_desc": {
-        "message": "Laat je toe of de zijbalk moet openen aan de linker- of rechterkant van het scherm."
+        "message": "Hiermee kan je instellen of de zijbalk moet openen aan de linker- of rechterkant van het scherm."
     },
     "settings_sidebar_position_left": {
         "message": "Links"
@@ -723,7 +726,10 @@
         "message": "Animaties gebruiken"
     },
     "settings_animations_desc": {
-        "message": "Hiermee kun je de animaties van de zijbalk uitschakelen, wat handig kan zijn als de animaties niet vloeiend bewegen op je systeem."
+        "message": "Hiermee kun je de animaties van de zijbalk uitschakelen. Dit kan handig zijn als de animaties niet vloeiend worden weergegeven op je systeem."
+    },
+    "settings_contextmenu": {
+        "message": "Context menu"
     },
     "settings_filter_intro": {
         "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
@@ -732,10 +738,10 @@
         "message": "Je kan maximaal \u00e9\u00e9n link parameter per regel toevoegen"
     },
     "settings_filter_explanation_2": {
-        "message": "Gebruik een wildcard <em>*<\/em> om een bereik toe te voegen. Voorbeeld: example.com\/* voor alle pagina's onder example.com)"
+        "message": "Gebruik een wildcard * om een bereik toe te voegen. Voorbeeld: example.com\/* voor alle pagina's onder example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "Als je geen wildcard <em>*<\/em> gebruikt in een regel dan wordt alleen de exacte link gebruikt."
+        "message": "Als je geen wildcard * gebruikt in een regel dan wordt alleen de exacte link gebruikt."
     },
     "settings_filter_explanation_4": {
         "message": "Je hoeft geen protocol te gebruiken in een regel."
@@ -942,10 +948,10 @@
         "message": "Heb je suggesties voor verbeteringen, vragen of een probleem gevonden? Help ons dan door feedback achter te laten."
     },
     "settings_feedback_notice": {
-        "message": "A.u.b stuur uw ondersteuning in het Engels, anders is het lastig om het bericht te begrijpen en beandwoorden."
+        "message": "Stuur A.U.B. uw feedback in het Engels, anders is het lastig om het bericht te begrijpen en te beantwoorden."
     },
     "settings_feedback_email": {
-        "message": "Jou email address"
+        "message": "Jouw email adres"
     },
     "settings_feedback_screenshot": {
         "message": "Screenshot toevoegen"
@@ -957,10 +963,10 @@
         "message": "Je kunt maximaal {1} screenshot toevoegen"
     },
     "settings_feedback_send": {
-        "message": "Verstuur ondersteuning"
+        "message": "Verstuur feedback"
     },
     "settings_feedback_sent_message": {
-        "message": "Bedankt voor de hulp"
+        "message": "Bedankt voor de feedback"
     },
     "settings_feedback_send_failed": {
         "message": "Je bericht kon niet verzonden worden. Probeer het opnieuw."

@@ -741,10 +741,10 @@
         "message": "Nur eine Url-Regel pro Zeile"
     },
     "settings_filter_explanation_2": {
-        "message": "Verwende <em>*<\/em> f\u00fcr beliebige Zeichen (z.B. example.com\/* trifft f\u00fcr alle Seiten unterhalb von example.com zu)"
+        "message": "Verwende * f\u00fcr beliebige Zeichen (z.B. example.com\/* trifft f\u00fcr alle Seiten unterhalb von example.com zu)"
     },
     "settings_filter_explanation_3": {
-        "message": "Wenn kein <em>*<\/em> in einer Regel verwendet wird, trifft nur die exakte Url zu (z.B. \"example.com\" trifft nicht f\u00fcr die Url \"example.com\/about.html\" zu)"
+        "message": "Wenn kein * in einer Regel verwendet wird, trifft nur die exakte Url zu (z.B. \"example.com\" trifft nicht f\u00fcr die Url \"example.com\/about.html\" zu)"
     },
     "settings_filter_explanation_4": {
         "message": "Das Protokoll (z.b. http:\/\/) muss in den Regeln nicht vorangestellt werden"

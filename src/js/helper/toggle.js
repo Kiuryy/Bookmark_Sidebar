@@ -213,7 +213,11 @@
          * @returns {int}
          */
         let getToggleAreaWidth = () => {
-            return toggleArea[ext.helper.utility.isWindowed() ? "widthWindowed" : "width"];
+            if (ext.helper.utility.isWindowed()) {
+                return preventWindowed ? 0 : toggleArea.widthWindowed;
+            } else {
+                return toggleArea.width;
+            }
         };
 
         /**

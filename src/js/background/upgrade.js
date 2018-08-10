@@ -117,7 +117,7 @@
                                     if (separators && separators.length > 0) {
                                         separators.forEach((separator, i) => {
                                             b.preventReload = true;
-                                            b.helper.bookmarkApi.func.create({
+                                            b.helper.bookmarks.api.create({
                                                 title: "----------",
                                                 url: "about:blank",
                                                 parentId: parentId,

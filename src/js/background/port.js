@@ -46,7 +46,6 @@
             });
         };
 
-
         /**
          * Determines the real url for the given url via ajax call,
          * if abort parameter is specified, all pending ajax calls will be aborted
@@ -102,7 +101,7 @@
 
             for (const url of urlList) {
                 let filteredUrl = getFilteredUrl(url);
-                let result = await b.helper.bookmarkApi.func.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
+                let result = await b.helper.bookmarks.api.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
 
                 if (result.length > 1) {
                     let realResults = [];
@@ -123,149 +122,6 @@
             }
 
             return ret;
-        };
-
-        /**
-         * Updates the given bookmark or directory with the given values (title, url)
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let updateBookmark = (opts) => {
-            return new Promise((resolve) => {
-                new Promise((rslv) => {
-                    let values = {
-                        title: opts.title
-                    };
-
-                    if (opts.url) {
-                        values.url = opts.url;
-                    }
-
-                    if (opts.preventReload) {
-                        b.preventReload = true;
-                    }
-
-                    b.helper.bookmarkApi.func.update(opts.id, values).then(() => {
-                        rslv({updated: opts.id});
-                    }, (error) => {
-                        rslv({error: error});
-                    });
-                }).then((obj) => {
-                    if (opts.preventReload) {
-                        b.preventReload = false;
-                    }
-                    resolve(obj);
-                });
-            });
-        };
-
-        /**
-         * Creates a bookmark or directory with the given values (title, url)
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let createBookmark = (opts) => {
-            return new Promise((resolve) => {
-                new Promise((rslv) => {
-                    let values = {
-                        parentId: opts.parentId,
-                        index: opts.index || 0,
-                        title: opts.title,
-                        url: opts.url ? opts.url : null
-                    };
-
-                    if (opts.preventReload) {
-                        b.preventReload = true;
-                    }
-
-                    b.helper.bookmarkApi.func.create(values).then((obj) => {
-                        rslv({created: obj.id});
-                    }, (error) => {
-                        rslv({error: error});
-                    });
-                }).then((obj) => {
-                    if (opts.preventReload) {
-                        b.preventReload = false;
-                    }
-                    resolve(obj);
-                });
-            });
-        };
-
-        /**
-         * Removes the given bookmark or directory recursively
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let deleteBookmark = (opts) => {
-            return new Promise((resolve) => {
-                new Promise((rslv) => {
-                    if (opts.preventReload) {
-                        b.preventReload = true;
-                    }
-
-                    b.helper.bookmarkApi.func.removeTree(opts.id).then(() => {
-                        rslv({deleted: opts.id});
-                    }, (error) => {
-                        rslv({error: error});
-                    });
-                }).then((obj) => {
-                    if (opts.preventReload) {
-                        b.preventReload = false;
-                    }
-                    resolve(obj);
-                });
-            });
-        };
-
-        /**
-         * Updates the position of the given bookmark
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let moveBookmark = (opts) => {
-            return new Promise((resolve) => {
-                let dest = {
-                    parentId: "" + opts.parentId,
-                    index: opts.index
-                };
-
-                b.helper.bookmarkApi.func.move(opts.id, dest).then(() => {
-                    resolve({moved: opts.id});
-                });
-            });
-        };
-
-        /**
-         * Returns all bookmarks under the given id
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let getBookmarks = (opts) => {
-            return new Promise((resolve) => {
-                b.helper.bookmarkApi.func.getSubTree(opts.id).then((bookmarks) => {
-                    resolve({bookmarks: bookmarks});
-                });
-            });
-        };
-
-        /**
-         * Returns all bookmarks where the title or url are matching the given search value
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        let getBookmarksBySearchVal = (opts) => {
-            return new Promise((resolve) => {
-                b.helper.bookmarkApi.func.search(opts.searchVal).then((results) => {
-                    resolve({bookmarks: results});
-                });
-            });
         };
 
         /**
@@ -326,12 +182,12 @@
                 let c = 0;
                 let mapping = {
                     checkUrls: checkUrls,
-                    bookmarks: getBookmarks,
-                    searchBookmarks: getBookmarksBySearchVal,
-                    moveBookmark: moveBookmark,
-                    updateBookmark: updateBookmark,
-                    createBookmark: createBookmark,
-                    deleteBookmark: deleteBookmark,
+                    bookmarks: b.helper.bookmarks.getById,
+                    searchBookmarks: b.helper.bookmarks.getBySearchVal,
+                    moveBookmark: b.helper.bookmarks.move,
+                    updateBookmark: b.helper.bookmarks.update,
+                    createBookmark: b.helper.bookmarks.create,
+                    deleteBookmark: b.helper.bookmarks.remove,
                     reload: b.reload,
                     reinitialize: b.reinitialize,
                     updateShareInfo: b.helper.model.setShareInfo,

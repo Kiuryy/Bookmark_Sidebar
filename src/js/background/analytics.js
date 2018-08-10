@@ -136,7 +136,7 @@
                 });
             }
 
-            b.helper.bookmarkApi.func.getSubTree(0).then((response) => { // track bookmark amount
+            b.helper.bookmarks.api.getSubTree(0).then((response) => { // track bookmark amount
                 let bookmarkAmount = 0;
                 let processBookmarks = (bookmarks) => {
                     for (let i = 0; i < bookmarks.length; i++) {

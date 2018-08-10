@@ -31,7 +31,7 @@
                 let openedByExtension = b.helper.model.getData("openedByExtension");
 
                 if (openedByExtension === null) { // page was not opened by extension -> view was not counted yet
-                    b.helper.bookmarkApi.func.search({url: opts.url}).then((bookmarks) => {
+                    b.helper.bookmarks.api.search({url: opts.url}).then((bookmarks) => {
                         bookmarks.some((bookmark) => {
                             if (bookmark.url === opts.url) {
                                 this.addByEntry(bookmark);

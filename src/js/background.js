@@ -153,7 +153,7 @@
         let initHelpers = () => {
             this.helper = {
                 model: new $.ModelHelper(this),
-                bookmarkApi: new $.BookmarkApi(this),
+                bookmarks: new $.Bookmarks(this),
                 language: new $.LanguageHelper(this),
                 upgrade: new $.UpgradeHelper(this),
                 viewAmount: new $.ViewAmountHelper(this),
@@ -207,7 +207,7 @@
                 this.helper.model.init(),
                 this.helper.language.init(),
                 this.helper.analytics.init(),
-                this.helper.bookmarkApi.init()
+                this.helper.bookmarks.init()
             ]).then(() => {
                 return this.helper.icon.init();
             }).then(() => {

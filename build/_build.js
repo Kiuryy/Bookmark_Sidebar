@@ -108,8 +108,12 @@
                         [path.tmp + "settings-merged.js"]: path.tmp + "settings.js",
                         [path.tmp + "newtab-merged.js"]: path.tmp + "newtab.js"
                     }, [
-                        [/\}\)\(jsu\);[\s\S]*?\(\$\s*\=\>\s*\{[\s\S]*?\"use strict\";/mig, ""]
+                        [/}\)\(jsu\);[\s\S]*?\(\$\s*=>\s*{[\s\S]*?"use strict";/mig, ""]
                     ]);
+                }).then(() => { // delay execution, so the files are created properly before being used to minify
+                    return new Promise((rslv) => {
+                        setTimeout(rslv, 1000);
+                    });
                 }).then(() => {
                     return func.minify([
                         path.tmp + "extension.js",

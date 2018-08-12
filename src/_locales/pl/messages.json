@@ -425,6 +425,9 @@
     "onboarding_finish_desc": {
         "message": "Baw si\u0119 dobrze u\u017cywaj\u0105c tego rozszerzenia."
     },
+    "onboarding_finish_notice": {
+        "message": "Je\u015bli cz\u0119sto klikasz elementy po stronie {1} okna przegl\u0105darki, mo\u017cesz chcie\u0107 zmieni\u0107 widok pionowego otwierania paska bocznego, aby unikn\u0105\u0107 jego przypadkowego otwarcia."
+    },
     "onboarding_goto_settings": {
         "message": "Wi\u0119cej ustawie\u0144"
     },
@@ -674,6 +677,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Automatycznie otw\u00f3rz boczn\u0105 list\u0119 po ka\u017cdym otwarciu zak\u0142adki za jej pomoc\u0105."
     },
+    "settings_prevent_windowed": {
+        "message": "Wy\u0142\u0105cz pasek boczny w trybie okna"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Wy\u0142\u0105cza mo\u017cliwo\u015b\u0107 otwarcia paska bocznego, klikaj\u0105c lub unosz\u0105c kraw\u0119d\u017a zawarto\u015bci przegl\u0105darki, gdy przegl\u0105darka jest w trybie okna."
+    },
     "settings_tooltip_delay": {
         "message": "Op\u00f3\u017anienie etykiety"
     },
@@ -718,6 +727,12 @@
     },
     "settings_animations_desc": {
         "message": "Pozwala wy\u0142\u0105czy\u0107 wszystkie animacje bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli animacje nie s\u0105 p\u0142ynne."
+    },
+    "settings_contextmenu": {
+        "message": "Wpis w menu kontekstowym"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Wy\u015bwietl wpis w menu kontekstowym Chrome, aby prze\u0142\u0105czy\u0107 pasek boczny."
     },
     "settings_filter_intro": {
         "message": "Je\u015bli nie chcesz, by boczny panel pojawia\u0142 si\u0119 na ka\u017cdej stronie, mo\u017cesz skonfigurowa\u0107, gdzie rozszerzenie ma si\u0119 pojawi\u0107 [bia\u0142a lista] lub gdzie nie ma si\u0119 pojawi\u0107 [czarna lista]."

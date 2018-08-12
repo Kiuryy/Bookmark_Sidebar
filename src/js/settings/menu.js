@@ -224,7 +224,7 @@
                         cancelable: false
                     }));
 
-                    s.helper.model.call("trackEvent", {
+                    s.helper.model.call("trackEvent", { // @deprecated
                         category: "settings",
                         action: "page",
                         label: hash

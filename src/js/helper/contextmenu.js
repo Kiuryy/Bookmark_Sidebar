@@ -58,7 +58,7 @@
                     }
                 }
 
-                ext.helper.model.call("trackEvent", {category: "contextmenu", action: "open", label: trackingLabel});
+                ext.helper.model.call("trackEvent", {category: "contextmenu", action: "open", label: trackingLabel}); // @deprecated
                 initEvents(contextmenu);
                 setPosition(contextmenu, elm, type);
 
@@ -328,7 +328,7 @@
          * @param {object} opts
          */
         clickFuncs.newIncognito = (opts) => {
-            ext.helper.model.call("trackEvent", {
+            ext.helper.model.call("trackEvent", { // @deprecated
                 category: "url",
                 action: "open",
                 label: "new_window_incognito"
@@ -344,7 +344,7 @@
          * @param {object} opts
          */
         clickFuncs.newWindow = (opts) => {
-            ext.helper.model.call("trackEvent", {
+            ext.helper.model.call("trackEvent", { // @deprecated
                 category: "url",
                 action: "open",
                 label: "new_window"
@@ -361,7 +361,7 @@
          * @param {object} opts
          */
         clickFuncs.newTab = (opts) => {
-            ext.helper.model.call("trackEvent", {
+            ext.helper.model.call("trackEvent", { // @deprecated
                 category: "url",
                 action: "open",
                 label: "new_tab_contextmenu"

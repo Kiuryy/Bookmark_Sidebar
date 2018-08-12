@@ -201,8 +201,9 @@
                     setCache: b.helper.cache.set,
                     removeCache: b.helper.cache.remove,
                     websiteStatus: checkWebsiteStatus,
-                    trackPageView: b.helper.analytics.trackPageView,
-                    trackEvent: b.helper.analytics.trackEvent,
+                    trackPageView: b.helper.analytics.trackPageView, // @deprecated
+                    trackEvent: b.helper.analytics.trackEvent, // @deprecated
+                    track: b.helper.analytics.track,
                     updateIcon: b.helper.icon.set,
                     reloadIcon: b.helper.icon.init,
                     reloadContextmenus: b.helper.browserAction.initContextmenus,

@@ -22,7 +22,7 @@
                     initSetAsDefaultSwitch();
                 }
 
-                n.helper.model.call("trackEvent", {
+                n.helper.model.call("trackEvent", { // @deprecated
                     category: "newtab",
                     action: "fallback",
                     label: typeParam,

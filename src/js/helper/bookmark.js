@@ -95,7 +95,7 @@
                         if (result && result.created) {
                             elm.attr($.attr.id, result.created);
 
-                            ext.helper.model.call("trackEvent", {
+                            ext.helper.model.call("trackEvent", { // @deprecated
                                 category: "extension",
                                 action: "restore",
                                 label: data.url ? "bookmark" : "directory"
@@ -128,7 +128,7 @@
          */
         this.performDeletion = (data, preventReload = false) => {
             return new Promise((resolve) => {
-                ext.helper.model.call("trackEvent", {
+                ext.helper.model.call("trackEvent", { // @deprecated
                     category: "extension",
                     action: "remove",
                     label: data.url ? "bookmark" : "directory"
@@ -159,7 +159,7 @@
 
                 entries[data.id] = {index: idx + 1}; // add new entry at the last position
 
-                ext.helper.model.call("trackEvent", {
+                ext.helper.model.call("trackEvent", { // @deprecated
                     category: "extension",
                     action: "pinnedEntry",
                     label: "pin"
@@ -180,7 +180,7 @@
                 let entries = ext.helper.model.getData("u/pinnedEntries");
                 delete entries[data.id];
 
-                ext.helper.model.call("trackEvent", {
+                ext.helper.model.call("trackEvent", { // @deprecated
                     category: "extension",
                     action: "pinnedEntry",
                     label: "unpin"

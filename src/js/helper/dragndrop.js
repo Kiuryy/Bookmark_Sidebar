@@ -42,7 +42,7 @@
             if (entryElm) {
                 let elm = entryElm.children("a");
                 entryElm.insertAfter(dragInitialElm).removeClass($.cl.drag.isDragged);
-                trackEvent(elm, {type: "end", cancel: true});
+                trackEvent(elm, {type: "end", cancel: true}); // @deprecated
             }
 
             dragInitialElm.remove();
@@ -92,7 +92,7 @@
                 ext.helper.tooltip.close();
                 ext.elm.iframeBody.addClass($.cl.drag.isDragged);
                 ext.helper.toggle.addSidebarHoverClass();
-                trackEvent("selection", {type: "start"});
+                trackEvent("selection", {type: "start"}); // @deprecated
 
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
@@ -122,7 +122,7 @@
                                 }
                             }
 
-                            trackEvent("selection", {type: "end"});
+                            trackEvent("selection", {type: "end"}); // @deprecated
 
                             ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
                                 values: {
@@ -134,7 +134,7 @@
                             });
                         }
                     } else {
-                        trackEvent("selection", {type: "end", cancel: true});
+                        trackEvent("selection", {type: "end", cancel: true}); // @deprecated
                     }
 
                     ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
@@ -171,6 +171,7 @@
         /**
          * Tracks that an element is beeing dragged (no longer dragged)
          *
+         * @deprecated
          * @param {jsu|string} elm
          * @param {object} opts
          */
@@ -243,7 +244,7 @@
             }).addClass($.cl.drag.helper);
 
             elmParent.addClass($.cl.drag.isDragged);
-            trackEvent(elm, {type: "start"});
+            trackEvent(elm, {type: "start"}); // @deprecated
 
             if (!edgeScroll.running) {
                 window.requestAnimationFrame(edgeScrolling);
@@ -322,7 +323,7 @@
                     });
                 }
 
-                trackEvent(elm, {type: "end"});
+                trackEvent(elm, {type: "end"}); // @deprecated
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
 
                 $.delay().then(() => {

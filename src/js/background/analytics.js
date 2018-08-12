@@ -2,18 +2,23 @@
     "use strict";
 
     $.AnalyticsHelper = function (b) {
-        let trackingQueue = [];
-        let trackingQueueProceeding = false;
-        let trackUserDataRunning = false;
+        let trackingQueue = []; // @deprecated
+        let trackingQueueProceeding = false; // @deprecated
+        let trackUserDataRunning = false; // @deprecated
 
-        let url = "https://www.google-analytics.com/analytics.js";
-        let trackingCode = {
+        let url = "https://www.google-analytics.com/analytics.js"; // @deprecated
+        let trackingCode = { // @deprecated
             dev: "100595538-3",
             live: "100595538-2"
         };
 
+        let restrictedTypes = {
+            config: ["configuration"],
+            activity: ["installationDate", "bookmarks", "action"]
+        };
+
         /**
-         *
+         * @deprecated
          * @returns {Promise}
          */
         this.init = async () => {
@@ -34,11 +39,23 @@
             window.ga("set", "transport", "beacon");
         };
 
+        /**
+         * Tracks the given data for the given type by sending a request to the webserver
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.track = (opts) => {
+            return new Promise((resolve) => {
+                sendRequest(opts.name, opts.value, opts.always).then(resolve);
+            });
+        };
 
         /**
          * Tracks an event in Google Analytics with the given values,
          * only do if user allows userdata sharing or if the parameter is specified
          *
+         * @deprecated
          * @param {object} opts
          * @returns {Promise}
          */
@@ -59,6 +76,7 @@
          * Tracks an event in Google Analytics with the given values,
          * only do if user allows userdata sharing or if the parameter is specified
          *
+         * @deprecated
          * @param {object} opts
          * @returns {Promise}
          */
@@ -96,14 +114,21 @@
                         shareState = "nothing";
                     }
 
-                    this.trackEvent({ // sign of life
+                    sendMultipleRequests([
+                        ["version", b.manifest.version_name],
+                        ["system", navigator.userAgent],
+                        ["language", b.helper.language.getLanguage()],
+                        ["shareInfo", b.manifest.version_name]
+                    ]);
+
+                    this.trackEvent({ // @deprecated sign of life
                         category: "extension",
                         action: "user",
                         label: "share_" + shareState,
                         always: true
                     });
 
-                    this.trackEvent({ // extension version
+                    this.trackEvent({ // @deprecated extension version
                         category: "extension",
                         action: "version",
                         label: b.manifest.version_name,
@@ -114,7 +139,7 @@
                         trackGeneralInfo();
                     }
 
-                    if (shareInfo.config === true && Math.random() >= 0.5) { // user allowed to share configuration -> only track with a 50% chance to reduce ga calls
+                    if (shareInfo.config === true) { // user allowed to share configuration
                         trackConfiguration();
                     }
 
@@ -129,7 +154,9 @@
         let trackGeneralInfo = () => {
             let installationDate = b.helper.model.getData("installationDate");
             if (installationDate) { // track installation date
-                this.trackEvent({
+                sendRequest("installationDate", new Date(installationDate).toISOString().slice(0, 10));
+
+                this.trackEvent({ // @deprecated
                     category: "extension",
                     action: "installationDate",
                     label: new Date(installationDate).toISOString().slice(0, 10)
@@ -153,7 +180,9 @@
                     processBookmarks(response[0].children);
                 }
 
-                this.trackEvent({
+                sendRequest("bookmarks", bookmarkAmount);
+
+                this.trackEvent({ // @deprecated
                     category: "extension",
                     action: "bookmarks",
                     label: "amount",
@@ -167,6 +196,7 @@
          */
         let trackConfiguration = () => {
             let categories = ["behaviour", "appearance", "newtab", "language"];
+            let configArr = [];
 
             let proceedConfig = (baseName, obj) => {
                 Object.keys(obj).forEach((attr) => {
@@ -200,7 +230,13 @@
                             value = parseFloat(obj[attr].replace(/px$/i, ""));
                         }
 
-                        this.trackEvent({
+                        configArr.push({
+                            name: baseName + "_" + attr,
+                            value: obj[attr],
+                            numValue: value
+                        });
+
+                        this.trackEvent({ // @deprecated
                             category: "configuration",
                             action: baseName + "_" + attr,
                             label: obj[attr],
@@ -210,39 +246,105 @@
                 });
             };
 
-            chrome.storage.sync.get(categories, (obj) => {
-                categories.forEach((category) => {
-                    if (category === "language") { // proceed with the actual language of the extension
-                        obj[category] = {};
-                        let lang = b.helper.language.getLanguage();
+            new Promise((resolve) => {
+                chrome.storage.sync.get(categories, (obj) => {
+                    categories.forEach((category) => {
+                        if (category === "language") { // @deprecated proceed with the actual language of the extension
+                            obj[category] = {};
+                            let lang = b.helper.language.getLanguage();
 
-                        if (lang) {
-                            obj[category].ui = lang;
+                            if (lang) {
+                                obj[category].ui = lang;
+                            }
+                        } else if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
+                            if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
+                                obj[category] = {
+                                    override: false
+                                };
+                            }
                         }
-                    } else if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
-                        if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
-                            obj[category] = {
-                                override: false
-                            };
-                        }
-                    }
 
-                    if (typeof obj[category] === "object") {
-                        proceedConfig(category, obj[category]);
-                    }
-                });
-            });
-
-            chrome.storage.local.get(["utility"], (obj) => {
-                if (obj.utility) {
-                    let config = {};
-                    ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
-                        if (typeof obj.utility[field] !== "undefined") {
-                            config[field] = obj.utility[field];
+                        if (typeof obj[category] === "object") {
+                            proceedConfig(category, obj[category]);
                         }
                     });
 
-                    proceedConfig("utility", config);
+                    resolve();
+                });
+            }).then(() => {
+                return new Promise((resolve) => {
+                    chrome.storage.local.get(["utility"], (obj) => {
+                        if (obj.utility) {
+                            let config = {};
+                            ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
+                                if (typeof obj.utility[field] !== "undefined") {
+                                    config[field] = obj.utility[field];
+                                }
+                            });
+
+                            proceedConfig("utility", config);
+                        }
+
+                        resolve();
+                    });
+                });
+            }).then(() => {
+                sendRequest("configuration", configArr);
+            });
+        };
+
+        /**
+         * Tracks the given data in sequence with a delay of 2s between each request
+         *
+         * @param {array} requestList
+         * @returns {Promise}
+         */
+        let sendMultipleRequests = async (requestList) => {
+            for (const request of requestList) {
+                await sendRequest(...request);
+                await $.delay(2000);
+            }
+        };
+
+        /**
+         * Tracks the given data for the given type by sending a request to the webserver
+         *
+         * @param {string} type
+         * @param {*} value
+         * @param {boolean} ignoreUserPreference
+         * @returns {Promise}
+         */
+        let sendRequest = (type, value, ignoreUserPreference = false) => {
+            return new Promise((resolve) => {
+                let allowed = true;
+
+                if (ignoreUserPreference === false) {
+                    let shareInfo = b.helper.model.getShareInfo();
+
+                    Object.entries(restrictedTypes).some(([key, types]) => { // check whether the category can be restricted by the user and whether it is
+                        if (types.indexOf(type) > -1) {
+                            allowed = shareInfo[key] === true;
+                            return true;
+                        }
+                    });
+                }
+
+                if (allowed === false || b.isDev) { // the current type may not be tracked due to user restriction -> abort
+                    resolve({success: true});
+                } else {
+                    $.xhr(b.urls.track, {
+                        method: "POST",
+                        responseType: "json",
+                        data: {type: type, value: value}
+                    }).then((xhr) => {
+                        if (xhr.response && xhr.response.success) {
+                            resolve({success: xhr.response.success});
+                        } else {
+                            resolve({success: false});
+                        }
+                    }, () => {
+                        resolve({success: false});
+                    });
                 }
             });
         };
@@ -251,6 +353,7 @@
          * Adds the given object to the tracking queue and processes the queue if it is not already processing,
          * only works if user allows userdata sharing or if the parameter is specified
          *
+         * @deprecated
          * @param {object} obj
          * @param {boolean} ignoreShareInfo
          */
@@ -277,6 +380,8 @@
         /**
          * Processes the tracking queue,
          * sends every 1200ms the oldest entry of the queue to Google Analytics
+         *
+         * @deprecated
          */
         let processTrackingQueue = () => {
             trackingQueueProceeding = true;

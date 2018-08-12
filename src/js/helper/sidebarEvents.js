@@ -45,13 +45,13 @@
                     ext.helper.list.toggleBookmarkDir(elm);
                 }
             } else if (!data.isDir) { // Click on link
-                if (middleClick) {
+                if (middleClick) { // @deprecated
                     ext.helper.model.call("trackEvent", {
                         category: "url",
                         action: "open",
                         label: "new_tab_middle_click"
                     });
-                } else {
+                } else { // @deprecated
                     ext.helper.model.call("trackEvent", {
                         category: "url",
                         action: "open",

@@ -57,7 +57,7 @@
          * @returns {Promise}
          */
         this.openAllBookmarks = async (bookmarks) => {
-            ext.helper.model.call("trackEvent", {
+            ext.helper.model.call("trackEvent", { // @deprecated
                 category: "url",
                 action: "open",
                 label: "new_tab_all_children",

@@ -116,6 +116,8 @@
         /**
          * Tracks some events of the initial state of the extension,
          * is called after opening the sidebar and is only executed the first time the sidebar is opened
+         *
+         * @deprecated
          */
         this.trackInitialEvents = () => {
             let trackEvents = () => {

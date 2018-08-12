@@ -27,7 +27,7 @@
          * Shows an alert popup with an error message that the import failed
          */
         let alertImportError = () => {
-            s.helper.model.call("trackEvent", {
+            s.helper.model.call("trackEvent", { // @deprecated
                 category: "settings",
                 action: "import",
                 label: "failed"
@@ -57,7 +57,7 @@
                                     appearance: config.appearance,
                                     newtab: config.newtab
                                 }, () => {
-                                    s.helper.model.call("trackEvent", {
+                                    s.helper.model.call("trackEvent", { // @deprecated
                                         category: "settings",
                                         action: "import",
                                         label: "import"
@@ -104,7 +104,7 @@
                             saveAs: true
                         });
 
-                        s.helper.model.call("trackEvent", {
+                        s.helper.model.call("trackEvent", { // @deprecated
                             category: "settings",
                             action: "export",
                             label: "export"

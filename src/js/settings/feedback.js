@@ -141,7 +141,13 @@
          */
         let showSuggestion = (key, obj, showAnswer = false) => {
             if (data && data.controls) {
-                s.helper.model.call("trackEvent", {
+                s.helper.model.call("track", {
+                    name: "action",
+                    value: {name: "suggestion_display", value: key},
+                    always: true
+                });
+
+                s.helper.model.call("trackEvent", { // @deprecated
                     category: "settings",
                     action: "suggestion_display",
                     label: key,
@@ -198,6 +204,12 @@
         let showSuggestionAnswer = (suggestion) => {
             let type = suggestion.attr($.attr.type);
             suggestionInfo.opened.push(type);
+
+            s.helper.model.call("track", {
+                name: "action",
+                value: {name: "suggestion_clicked", value: type},
+                always: true
+            });
 
             s.helper.model.call("trackEvent", {
                 category: "settings",
@@ -400,10 +412,16 @@
                     loader.remove();
 
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
-                        s.helper.model.call("trackEvent", {
+                        s.helper.model.call("trackEvent", { // @deprecated
                             category: "settings",
                             action: "feedback",
                             label: "submitted",
+                            always: true
+                        });
+
+                        s.helper.model.call("track", {
+                            name: "action",
+                            value: {type: "feedback", value: 1},
                             always: true
                         });
 

@@ -9,6 +9,7 @@
         this.urls = {
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
+            track: "https://extensions.blockbyte.de/ajax/evaluate/bs",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
             checkUrls: "https://4v1.de/u",
             thumbnail: "https://4v1.de/t"
@@ -206,7 +207,7 @@
             Promise.all([
                 this.helper.model.init(),
                 this.helper.language.init(),
-                this.helper.analytics.init(),
+                this.helper.analytics.init(), // @deprecated init no lower needed
                 this.helper.bookmarks.init()
             ]).then(() => {
                 return this.helper.icon.init();

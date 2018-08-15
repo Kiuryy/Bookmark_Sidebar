@@ -97,6 +97,17 @@
             let lastTrackDate = b.helper.model.getData("lastTrackDate");
             let today = +new Date().setHours(0, 0, 0, 0);
 
+            try { // try not to use the user specific page, but a date with defined timezone
+                today = new Date().toLocaleString("en", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "2-digit",
+                    timeZone: "Europe/Berlin"
+                });
+            } catch (e) {
+                //
+            }
+
             if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
@@ -118,7 +129,7 @@
                         ["version", b.manifest.version_name],
                         ["system", navigator.userAgent],
                         ["language", b.helper.language.getLanguage()],
-                        ["shareInfo", b.manifest.version_name]
+                        ["shareInfo", shareState]
                     ]);
 
                     this.trackEvent({ // @deprecated sign of life

@@ -421,7 +421,7 @@
 
                         s.helper.model.call("track", {
                             name: "action",
-                            value: {type: "feedback", value: 1},
+                            value: {name: "feedback", value: 1},
                             always: true
                         });
 

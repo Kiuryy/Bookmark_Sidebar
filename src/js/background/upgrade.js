@@ -23,7 +23,13 @@
         this.onInstalled = () => {
             let installationDate = b.helper.model.getData("installationDate");
 
-            if (installationDate === null || (+new Date() - installationDate < 60 * 1000)) { // no installation date yet, or installation date from the last minute -> show onbnoarding page
+            if (installationDate === null || (+new Date() - installationDate < 60 * 1000)) { // no installation date yet, or installation date from the last minute -> show onboarding page
+                b.helper.analytics.track({
+                    name: "action",
+                    value: {name: "install", value: 1},
+                    always: true
+                });
+
                 chrome.tabs.create({url: chrome.extension.getURL("html/intro.html")});
             }
 

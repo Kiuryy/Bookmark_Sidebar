@@ -252,13 +252,16 @@
          * @param {string} name
          */
         let gotoSlide = (name) => {
-            let slide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
-            slide.removeClass($.cl.visible);
+            let prevSlide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
+            prevSlide.removeClass($.cl.visible);
 
             $.delay(300).then(() => {
+                let newSlide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
+                let num = newSlide.prevAll("section." + $.cl.onboarding.slide).length() + 1;
+
                 this.helper.model.call("track", {
                     name: "action",
-                    value: {name: "onboarding", value: name},
+                    value: {name: "onboarding", value: num + "_" + name},
                     always: true
                 });
 
@@ -268,8 +271,6 @@
                     label: name,
                     always: true
                 });
-
-                $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
             });
         };
 

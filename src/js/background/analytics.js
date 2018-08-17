@@ -243,8 +243,7 @@
 
                         configArr.push({
                             name: baseName + "_" + attr,
-                            value: obj[attr],
-                            numValue: value
+                            value: obj[attr]
                         });
 
                         this.trackEvent({ // @deprecated
@@ -313,7 +312,7 @@
         let sendMultipleRequests = async (requestList) => {
             for (const request of requestList) {
                 await sendRequest(...request);
-                await $.delay(2000);
+                await $.delay(500);
             }
         };
 
@@ -323,9 +322,10 @@
          * @param {string} type
          * @param {*} value
          * @param {boolean} ignoreUserPreference
+         * @param {int} retry
          * @returns {Promise}
          */
-        let sendRequest = (type, value, ignoreUserPreference = false) => {
+        let sendRequest = (type, value, ignoreUserPreference = false, retry = 0) => {
             return new Promise((resolve) => {
                 let allowed = true;
 
@@ -354,7 +354,13 @@
                             resolve({success: false});
                         }
                     }, () => {
-                        resolve({success: false});
+                        if (retry < 1000) {
+                            $.delay(10000 + (retry * 100)).then(() => { // could not send request -> try again later
+                                return sendRequest(type, value, ignoreUserPreference = false, retry + 1);
+                            }).then(resolve);
+                        } else {
+                            resolve({success: false});
+                        }
                     });
                 }
             });

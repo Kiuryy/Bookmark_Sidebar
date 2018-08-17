@@ -686,8 +686,11 @@
          * Initializes the events for the currently displayed overlay
          */
         let initEvents = () => {
-            elements.overlay.find("body").on("click", (e) => { // close overlay when click outside the modal
-                if (e.target.tagName === "BODY") {
+            let clickstart = null;
+            elements.overlay.find("body").on("mousedown", (e) => {
+                clickstart = e.target;
+            }).on("click", (e) => { // close overlay when click outside the modal
+                if (e.target.tagName === "BODY" && clickstart.tagName === "BODY") {
                     this.closeOverlay(true);
                 }
             });

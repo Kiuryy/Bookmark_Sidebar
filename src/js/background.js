@@ -207,7 +207,7 @@
             Promise.all([
                 this.helper.model.init(),
                 this.helper.language.init(),
-                this.helper.analytics.init(), // @deprecated init no longer needed
+                this.helper.analytics.init(),
                 this.helper.bookmarks.init()
             ]).then(() => {
                 return this.helper.icon.init();

@@ -6,6 +6,8 @@
         let trackingQueueProceeding = false; // @deprecated
         let trackUserDataRunning = false; // @deprecated
 
+        let stack = [];
+
         let url = "https://www.google-analytics.com/analytics.js"; // @deprecated
         let trackingCode = { // @deprecated
             dev: "100595538-3",
@@ -18,7 +20,6 @@
         };
 
         /**
-         * @deprecated
          * @returns {Promise}
          */
         this.init = async () => {
@@ -37,6 +38,12 @@
             window.ga("set", "checkProtocolTask", null);
             window.ga("set", "anonymizeIp", true);
             window.ga("set", "transport", "beacon");
+
+            setInterval(() => {
+                if (stack.length > 0) {
+                    sendStackToServer();
+                }
+            }, 20000);
         };
 
         /**
@@ -47,7 +54,8 @@
          */
         this.track = (opts) => {
             return new Promise((resolve) => {
-                sendRequest(opts.name, opts.value, opts.always).then(resolve);
+                addToStack(opts.name, opts.value, opts.always);
+                resolve();
             });
         };
 
@@ -125,12 +133,10 @@
                         shareState = "nothing";
                     }
 
-                    sendMultipleRequests([
-                        ["version", b.manifest.version_name],
-                        ["system", navigator.userAgent],
-                        ["language", b.helper.language.getLanguage()],
-                        ["shareInfo", shareState]
-                    ]);
+                    addToStack("version", b.manifest.version_name);
+                    addToStack("system", navigator.userAgent);
+                    addToStack("language", b.helper.language.getLanguage());
+                    addToStack("shareInfo", shareState);
 
                     this.trackEvent({ // @deprecated sign of life
                         category: "extension",
@@ -165,13 +171,7 @@
         let trackGeneralInfo = () => {
             let installationDate = b.helper.model.getData("installationDate");
             if (installationDate) { // track installation date
-                sendRequest("installationDate", new Date(installationDate).toISOString().slice(0, 10));
-
-                this.trackEvent({ // @deprecated
-                    category: "extension",
-                    action: "installationDate",
-                    label: new Date(installationDate).toISOString().slice(0, 10)
-                });
+                addToStack("installationDate", new Date(installationDate).toISOString().slice(0, 10));
             }
 
             b.helper.bookmarks.api.getSubTree(0).then((response) => { // track bookmark amount
@@ -191,14 +191,7 @@
                     processBookmarks(response[0].children);
                 }
 
-                sendRequest("bookmarks", bookmarkAmount);
-
-                this.trackEvent({ // @deprecated
-                    category: "extension",
-                    action: "bookmarks",
-                    label: "amount",
-                    value: bookmarkAmount
-                });
+                addToStack("bookmarks", bookmarkAmount);
             });
         };
 
@@ -244,13 +237,6 @@
                         configArr.push({
                             name: baseName + "_" + attr,
                             value: obj[attr]
-                        });
-
-                        this.trackEvent({ // @deprecated
-                            category: "configuration",
-                            action: baseName + "_" + attr,
-                            label: obj[attr],
-                            value: value
                         });
                     }
                 });
@@ -299,70 +285,76 @@
                     });
                 });
             }).then(() => {
-                sendRequest("configuration", configArr);
+                addToStack("configuration", configArr);
             });
         };
 
         /**
-         * Tracks the given data in sequence with a delay of 2s between each request
-         *
-         * @param {array} requestList
-         * @returns {Promise}
-         */
-        let sendMultipleRequests = async (requestList) => {
-            for (const request of requestList) {
-                await sendRequest(...request);
-                await $.delay(500);
-            }
-        };
-
-        /**
-         * Tracks the given data for the given type by sending a request to the webserver
+         * Adds an entry to the stack
          *
          * @param {string} type
          * @param {*} value
          * @param {boolean} ignoreUserPreference
-         * @param {int} retry
+         */
+        let addToStack = (type, value, ignoreUserPreference = false) => {
+            let allowed = true;
+
+            if (ignoreUserPreference === false) {
+                let shareInfo = b.helper.model.getShareInfo();
+
+                Object.entries(restrictedTypes).some(([key, types]) => { // check whether the category can be restricted by the user and whether it is
+                    if (types.indexOf(type) > -1) {
+                        allowed = shareInfo[key] === true;
+                        return true;
+                    }
+                });
+            }
+
+            if (allowed === true && b.isDev === false) { // the current type may be tracked
+                stack.push({type: type, value: value});
+            }
+        };
+
+        /**
+         * Sends the stack to the server and flushes its stored values
+         *
+         * @param {object} retry
          * @returns {Promise}
          */
-        let sendRequest = (type, value, ignoreUserPreference = false, retry = 0) => {
+        let sendStackToServer = (retry = {}) => {
+            let data = [];
+
+            if (retry && retry.stack && retry.count) { // recall of the method -> fill with previous stack
+                data = retry.stack;
+            } else { // new date to transfer
+                data = [...stack];
+                stack = [];
+                retry = {stack: data, count: 0};
+            }
+
             return new Promise((resolve) => {
-                let allowed = true;
-
-                if (ignoreUserPreference === false) {
-                    let shareInfo = b.helper.model.getShareInfo();
-
-                    Object.entries(restrictedTypes).some(([key, types]) => { // check whether the category can be restricted by the user and whether it is
-                        if (types.indexOf(type) > -1) {
-                            allowed = shareInfo[key] === true;
-                            return true;
-                        }
-                    });
-                }
-
-                if (allowed === false || b.isDev) { // the current type may not be tracked due to user restriction -> abort
-                    resolve({success: true});
-                } else {
-                    $.xhr(b.urls.track, {
-                        method: "POST",
-                        responseType: "json",
-                        data: {type: type, value: value}
-                    }).then((xhr) => {
-                        if (xhr.response && xhr.response.success) {
-                            resolve({success: xhr.response.success});
-                        } else {
-                            resolve({success: false});
-                        }
-                    }, () => {
-                        if (retry < 1000) {
-                            $.delay(10000 + (retry * 100)).then(() => { // could not send request -> try again later
-                                return sendRequest(type, value, ignoreUserPreference = false, retry + 1);
-                            }).then(resolve);
-                        } else {
-                            resolve({success: false});
-                        }
-                    });
-                }
+                console.log(stack.length, data, retry.count);
+                $.xhr(b.urls.track, {
+                    method: "POST",
+                    responseType: "json",
+                    timeout: 10000,
+                    data: {stack: data}
+                }).then((xhr) => {
+                    if (xhr.response && xhr.response.success) {
+                        resolve({success: xhr.response.success});
+                    } else {
+                        resolve({success: false});
+                    }
+                }, () => {
+                    if (retry.count < 500) {
+                        $.delay(15000 + (retry.count * 500)).then(() => { // could not send request -> try again later
+                            retry.count++;
+                            return sendStackToServer(retry);
+                        }).then(resolve);
+                    } else {
+                        resolve({success: false});
+                    }
+                });
             });
         };
 

@@ -26,11 +26,13 @@
                     let bookmarks = getFlatBookmarkList(entries);
 
                     elements.progressBar = $("<div />").addClass($.cl.overlay.progressBar).html("<div />").appendTo(elements.modal);
-                    elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarks.length + "</span>").appendTo(elements.modal);
+                    elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
 
                     $.delay(200).then(() => {
                         elements.modal.addClass($.cl.overlay.urlCheckLoading);
                     });
+
+                    initGeneralEvents();
 
                     checkBookmarks(bookmarks).then((results) => {
                         displayResultPage(results);
@@ -119,7 +121,7 @@
                     });
 
                     updateResultPage();
-                    initEvents();
+                    initResultPageEvents();
 
                     if (initialOpenedMenuEntry) { // open the first menu entry with results initially
                         initialOpenedMenuEntry.trigger("click");
@@ -135,7 +137,11 @@
          * @param {jsu} resultEntry
          */
         let displayDuplicateUrls = (entry, resultEntry) => {
-            let title = $("<a />").addClass($.cl.info).attr({href: entry.url, title: entry.label, target: "_blank"}).html(entry.label).appendTo(resultEntry);
+            let title = $("<a />").addClass($.cl.info).attr({
+                href: entry.url,
+                title: entry.label,
+                target: "_blank"
+            }).html(entry.label).appendTo(resultEntry);
             let list = $("<ul />").attr($.attr.type, "duplicates").appendTo(resultEntry);
 
             entry.duplicates.forEach((duplicate) => {
@@ -180,7 +186,11 @@
             ["url", "newUrl"].forEach((attr) => {
                 if (entry[attr]) {
                     let elm = $("<li />").appendTo(list);
-                    $("<a />").attr({href: entry[attr], title: entry[attr], target: "_blank"}).html(entry[attr]).appendTo(elm);
+                    $("<a />").attr({
+                        href: entry[attr],
+                        title: entry[attr],
+                        target: "_blank"
+                    }).html(entry[attr]).appendTo(elm);
                 }
             });
 
@@ -194,9 +204,23 @@
         };
 
         /**
-         * Initialises the eventhandlers
+         * Initialises the general eventhandlers
          */
-        let initEvents = () => {
+        let initGeneralEvents = () => {
+            $(document).on($.opts.events.overlayClosed, () => { // abort running check url ajax calls and reload sidebar if the overlay is getting closed
+                ext.helper.model.call("checkUrls", {abort: true});
+
+                if (updated) {
+                    updated = false;
+                    ext.helper.model.call("reload", {type: "Update"});
+                }
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers for the result age
+         */
+        let initResultPageEvents = () => {
             elements.menu.find("a").on("click", (e) => { // click on menu element -> change view
                 e.preventDefault();
 
@@ -258,15 +282,6 @@
                     updateMultipleBookmarks(entries).then(() => {
                         updateResultPage();
                     });
-                }
-            });
-
-            $(document).off($.opts.events.overlayClosed).on($.opts.events.overlayClosed, () => { // abort running check url ajax calls and reload sidebar if the overlay is getting closed
-                ext.helper.model.call("checkUrls", {abort: true});
-
-                if (updated) {
-                    updated = false;
-                    ext.helper.model.call("reload", {type: "Update"});
                 }
             });
         };
@@ -398,62 +413,73 @@
                 let info = {};
                 let duplicateLabels = [];
 
-                let check = (urls) => {
-                    ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
-                        if (!response.error) { // not cancelled -> proceed
-                            let x = -1;
+                let checkChunk = (urls) => {
+                    return new Promise((rslv) => {
+                        ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
+                            if (response.error) {
+                                rslv({success: false});
+                            } else {
+                                let x = -1;
 
-                            Object.entries(response.duplicates).forEach(([label, entries]) => { // duplicate url
-                                if (duplicateLabels.indexOf(label) === -1) { // prevent multiple entries of the same url
-                                    results.duplicate.push({
-                                        label: label,
-                                        url: entries.url,
-                                        duplicates: entries.duplicates
-                                    });
-                                    duplicateLabels.push(label);
-                                    results.count++;
-                                }
-                            });
-
-                            Object.entries(response.xhr).forEach(([id, data]) => {
-                                info[id].statusCode = +data.code;
-                                info[id].checkTimeout = data.timeout;
-
-                                if (info[id].statusCode === 404 || data.timeout) { // broken url
-                                    results.broken.push(info[id]);
-                                    results.count++;
-                                } else if (info[id].url !== data.url && info[id].statusCode !== 302) { // changed url
-                                    info[id].newUrl = data.url;
-                                    results.changed.push(info[id]);
-                                    results.count++;
-                                }
-
-                                $.delay(++x * 50).then(() => { // smoothing the progress bar
-                                    finished++;
-                                    elements.progressBar.children("div").css("width", (finished / bookmarks.length * 100) + "%");
-                                    elements.progressLabel.children("span").eq(0).text(finished);
-
-                                    if (finished === bookmarks.length) { // all urls proceeded
-                                        resolve(results);
+                                Object.entries(response.duplicates).forEach(([label, entries]) => { // duplicate url
+                                    if (duplicateLabels.indexOf(label) === -1) { // prevent multiple entries of the same url
+                                        results.duplicate.push({
+                                            label: label,
+                                            url: entries.url,
+                                            duplicates: entries.duplicates
+                                        });
+                                        duplicateLabels.push(label);
+                                        results.count++;
                                     }
                                 });
-                            });
-                        }
+
+                                Object.entries(response.xhr).forEach(([id, data]) => {
+                                    info[id].statusCode = +data.code;
+                                    info[id].checkTimeout = data.timeout;
+
+                                    if (info[id].statusCode === 404 || data.timeout) { // broken url
+                                        results.broken.push(info[id]);
+                                        results.count++;
+                                    } else if (info[id].url !== data.url && info[id].statusCode !== 302) { // changed url
+                                        info[id].newUrl = data.url;
+                                        results.changed.push(info[id]);
+                                        results.count++;
+                                    }
+
+                                    $.delay(++x * 50).then(() => { // smoothing the progress bar
+                                        finished++;
+                                        elements.progressBar.children("div").css("width", (finished / bookmarks.length * 100) + "%");
+                                        elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
+                                    });
+                                });
+
+                                rslv({success: true});
+                            }
+                        });
                     });
                 };
 
-                let i = 0;
-                let chunk = {};
-                bookmarks.forEach((bookmark) => {
-                    i++;
-                    chunk[bookmark.id] = bookmark.url;
-                    info[bookmark.id] = bookmark;
+                (async () => {
+                    let i = 0;
+                    let chunk = {};
+                    for (const bookmark of bookmarks) {
+                        i++;
+                        chunk[bookmark.id] = bookmark.url;
+                        info[bookmark.id] = bookmark;
 
-                    if (Object.keys(chunk).length >= 10 || i === bookmarks.length) { // check multiple urls at once
-                        check(chunk);
-                        chunk = {};
+                        if (Object.keys(chunk).length >= 15 || i === bookmarks.length) { // check multiple urls at once
+                            let obj = await checkChunk(chunk);
+                            finished += 15;
+                            chunk = {};
+
+                            if (obj.success === false) {
+                                break;
+                            }
+                        }
                     }
-                });
+
+                    resolve(results);
+                })();
             });
         };
 

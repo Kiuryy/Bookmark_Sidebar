@@ -39,10 +39,26 @@ div.tooltip {
     word-wrap: break-word;
   }
 
-  > h3 + p, > span + p {
+  > p {
     margin-top: 5px;
     padding-top: 3px;
     border-top: 1px solid rgba($tooltipTextColor, 0.7);
+  }
+
+  > ul.breadcrumb {
+    margin-top: 4px;
+    padding: 2px 0;
+    border-top: 1px solid rgba($tooltipTextColor, 0.7);
+
+    > li {
+      display: inline-block;
+
+      &:not(:last-child)::after {
+        content: ">";
+        margin: 0 4px;
+        opacity: 0.7;
+      }
+    }
   }
 }
 

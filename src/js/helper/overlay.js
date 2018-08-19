@@ -450,6 +450,16 @@
          */
         let handleInfosHtml = (data) => {
             appendPreviewLink(data, true);
+
+            let parentInfos = ext.helper.entry.getParentsById(data.id);
+
+            if (parentInfos.length > 0) {
+                let breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(elements.modal);
+                parentInfos.forEach((parentInfo) => {
+                    $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                });
+            }
+
             appendAdditionalInfo(data);
 
             let list = $("<ul />").appendTo(elements.modal);

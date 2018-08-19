@@ -164,6 +164,7 @@ div.modal {
     margin: 30px 30px 0 30px;
     padding: 20px 0 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    clear: both;
 
     > h3 {
       font-size: 100%;
@@ -298,7 +299,69 @@ div.modal {
 
   &[data-type='infos'] {
 
-    > ul {
+    > ul.breadcrumb {
+      font-size: 80%;
+      margin: 0 30px 20px 30px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      float: right;
+
+      &::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 60px;
+        height: 24px;
+        background: linear-gradient(to right, $contentBackground 0%, transparent 100%);
+        z-index: 3;
+      }
+
+      > li {
+        position: relative;
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px 0 8px;
+        background: rgba(0, 0, 0, 0.05);
+
+        + li {
+          padding-left: 25px;
+        }
+
+        &:last-child {
+          margin-right: 12px;
+        }
+
+        &::before, &::after {
+          content: "";
+          position: absolute;
+          z-index: 2;
+        }
+
+        &::before {
+          top: -6px;
+          right: -36px;
+          border: 18px solid transparent;
+          border-left-color: $contentBackground;
+        }
+
+        &::after {
+          top: 0;
+          right: -24px;
+          border: 12px solid transparent;
+          border-left-color: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+
+    > ul:not(.breadcrumb) {
       display: flex;
       flex-flow: row;
       font-size: 120%;
@@ -306,6 +369,7 @@ div.modal {
       padding: 40px 0 0 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       justify-content: space-between;
+      clear: both;
 
       > li {
         position: relative;

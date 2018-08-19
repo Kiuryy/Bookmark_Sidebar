@@ -8,16 +8,6 @@ body.highContrast:not(.dark) div.modal {
     }
   }
 
-  &[data-type='checkBookmarks'] {
-
-    > div.progressBar {
-
-      > div {
-        background: $__textColor;
-      }
-    }
-  }
-
   &[data-type='add'] {
 
     > menu[data-name='select'] {

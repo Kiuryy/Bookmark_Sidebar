@@ -1,0 +1,49 @@
+
+body.dark div.modal {
+
+  &[data-type='checkBookmarks'] {
+
+    > menu.categories {
+      border-color: $darkSeparatorColor;
+
+      > li.active {
+        background: $darkContentBackground2;
+
+        &::after {
+          border-color: $darkSeparatorColor;
+          background: $darkContentBackground;
+        }
+      }
+    }
+
+    > div[id^='results_'] {
+
+      > p, > ul {
+        background: $darkContentBackground;
+      }
+
+      > ul > li {
+        border-bottom-color: $darkSeparatorColor;
+
+        a.urlCheckAction:hover {
+          background-color: $darkContentBackground2;
+        }
+      }
+    }
+
+    > div.progressBar {
+      background: rgba(255, 255, 255, 0.1);
+
+      > div {
+        background: $__textColor;
+      }
+    }
+
+    &.urlCheckResults {
+
+      &::after {
+        background: $darkContentBackground2;
+      }
+    }
+  }
+}

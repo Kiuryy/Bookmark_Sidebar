@@ -2,7 +2,7 @@
     "use strict";
 
     /**
-     * @requires helper: model, i18n, entry, toggle
+     * @requires helper: model, i18n, entry, toggle, search
      * @param {object} ext
      * @constructor
      */
@@ -92,6 +92,17 @@
                 $("<span />").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
             } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
                 $("<span />").text(data.url).appendTo(tooltip);
+            }
+
+            if (ext.helper.search.isResultsVisible()) {
+                let parentInfos = ext.helper.entry.getParentsById(data.id);
+
+                if (parentInfos.length > 0) {
+                    let breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(tooltip);
+                    parentInfos.forEach((parentInfo) => {
+                        $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                    });
+                }
             }
 
             if (config.tooltipAdditionalInfo && data.additionalInfo && data.additionalInfo.desc) {

@@ -103,6 +103,33 @@
         };
 
         /**
+         * Returns the parents of the given element
+         *
+         * @param {int} id
+         * @returns {array}
+         */
+        this.getParentsById = (id) => {
+            let ret = [];
+
+            try {
+                let parentId = this.getDataById(id).parentId;
+
+                while (parentId) {
+                    let parentInfo = this.getDataById(parentId);
+                    if (parentInfo) {
+                        ret.push(parentInfo);
+                    }
+
+                    parentId = parentInfo && parentInfo.parentId ? parentInfo.parentId : null;
+                }
+            } catch (e) {
+                //
+            }
+
+            return ret;
+        };
+
+        /**
          * Adds additional infos to the information object of the given entry
          *
          * @param {int} id

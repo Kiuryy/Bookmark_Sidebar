@@ -74,62 +74,35 @@ body.dark div.modal {
       @include maskImage('icon-info');
     }
 
-    > ul {
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    > ul > li > ul {
-      background: $darkTooltipBackground;
-      color: $darkTooltipTextColor;
+    > ul.breadcrumb {
 
       &::before {
-        border-bottom-color: $darkTooltipBackground;
+        background: linear-gradient(to right, $darkContentBackground 0%, transparent 100%);
       }
-    }
-  }
 
-  &[data-type='checkBookmarks'] {
+      > li {
+        background: rgba(255, 255, 255, 0.08);
 
-    > menu.categories {
-      border-color: $darkSeparatorColor;
-
-      > li.active {
-        background: $darkContentBackground2;
+        &::before {
+          border-left-color: $darkContentBackground;
+        }
 
         &::after {
-          border-color: $darkSeparatorColor;
-          background: $darkContentBackground;
+          border-left-color: rgba(255, 255, 255, 0.08);
         }
       }
     }
 
-    > div[id^='results_'] {
+    > ul:not(.breadcrumb) {
+      border-color: rgba(255, 255, 255, 0.1);
 
-      > p, > ul {
-        background: $darkContentBackground;
-      }
+      > li > ul {
+        background: $darkTooltipBackground;
+        color: $darkTooltipTextColor;
 
-      > ul > li {
-        border-bottom-color: $darkSeparatorColor;
-
-        a.urlCheckAction:hover {
-          background-color: $darkContentBackground2;
+        &::before {
+          border-bottom-color: $darkTooltipBackground;
         }
-      }
-    }
-
-    > div.progressBar {
-      background: rgba(255, 255, 255, 0.1);
-
-      > div {
-        background: $__textColor;
-      }
-    }
-
-    &.urlCheckResults {
-
-      &::after {
-        background: $darkContentBackground2;
       }
     }
   }

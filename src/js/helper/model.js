@@ -74,7 +74,7 @@
                 reopenSidebar: false,
                 preventWindowed: false,
                 rememberState: "openStatesAndPos",
-                tooltipDelay: 1,
+                tooltipDelay: 0.5,
                 tooltipContent: "all",
                 tooltipAdditionalInfo: true,
                 dndOpen: true,

@@ -303,10 +303,20 @@ div.tooltip {
   div.tooltip > span {
     opacity: 0.7;
     word-wrap: break-word; }
-  div.tooltip > h3 + p, div.tooltip > span + p {
+  div.tooltip > p {
     margin-top: 5px;
     padding-top: 3px;
     border-top: 1px solid rgba(255, 255, 255, 0.7); }
+  div.tooltip > ul.breadcrumb {
+    margin-top: 4px;
+    padding: 2px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.7); }
+    div.tooltip > ul.breadcrumb > li {
+      display: inline-block; }
+      div.tooltip > ul.breadcrumb > li:not(:last-child)::after {
+        content: ">";
+        margin: 0 4px;
+        opacity: 0.7; }
 
 section#sidebar[data-pos='right'] ~ div.tooltip {
   transform: translate3d(5px, 0, 0); }

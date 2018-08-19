@@ -71,6 +71,7 @@
                 searchBox: "searchBox",
                 searchClose: "searchClose",
                 searchVisible: "searchVisible",
+                breadcrumb: "breadcrumb",
                 removeMask: "removeMask",
                 removed: "removed",
                 restored: "restored"

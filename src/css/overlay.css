@@ -1,4 +1,4 @@
-div.modal[data-type='infos'] > ul > li > ul, div.modal[data-type='add'] > ul, div.modal[data-type='add'] > menu.hidden[data-name='select'], div.modal > menu.buttons > a::before {
+div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul, div.modal[data-type='add'] > ul, div.modal[data-type='add'] > menu.hidden[data-name='select'], div.modal > menu.buttons > a::before {
   opacity: 0;
   pointer-events: none; }
 
@@ -384,7 +384,8 @@ div.modal {
   div.modal > div.info {
     margin: 30px 30px 0 30px;
     padding: 20px 0 0 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1); }
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    clear: both; }
     div.modal > div.info > h3 {
       font-size: 100%;
       font-weight: "%fontWeightMedium"; }
@@ -461,22 +462,67 @@ div.modal {
             content: "-";
             position: absolute;
             left: 0; }
-  div.modal[data-type='infos'] > ul {
+  div.modal[data-type='infos'] > ul.breadcrumb {
+    font-size: 80%;
+    margin: 0 30px 20px 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    float: right; }
+    div.modal[data-type='infos'] > ul.breadcrumb::after {
+      content: "";
+      clear: both;
+      display: block; }
+    div.modal[data-type='infos'] > ul.breadcrumb::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 60px;
+      height: 24px;
+      background: linear-gradient(to right, #fff 0%, transparent 100%);
+      z-index: 3; }
+    div.modal[data-type='infos'] > ul.breadcrumb > li {
+      position: relative;
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      padding: 0 5px 0 8px;
+      background: rgba(0, 0, 0, 0.05); }
+      div.modal[data-type='infos'] > ul.breadcrumb > li + li {
+        padding-left: 25px; }
+      div.modal[data-type='infos'] > ul.breadcrumb > li:last-child {
+        margin-right: 12px; }
+      div.modal[data-type='infos'] > ul.breadcrumb > li::before, div.modal[data-type='infos'] > ul.breadcrumb > li::after {
+        content: "";
+        position: absolute;
+        z-index: 2; }
+      div.modal[data-type='infos'] > ul.breadcrumb > li::before {
+        top: -6px;
+        right: -36px;
+        border: 18px solid transparent;
+        border-left-color: #fff; }
+      div.modal[data-type='infos'] > ul.breadcrumb > li::after {
+        top: 0;
+        right: -24px;
+        border: 12px solid transparent;
+        border-left-color: rgba(0, 0, 0, 0.05); }
+  div.modal[data-type='infos'] > ul:not(.breadcrumb) {
     display: flex;
     flex-flow: row;
     font-size: 120%;
     margin: 40px 30px 0 30px;
     padding: 40px 0 0 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    justify-content: space-between; }
-    div.modal[data-type='infos'] > ul > li {
+    justify-content: space-between;
+    clear: both; }
+    div.modal[data-type='infos'] > ul:not(.breadcrumb) > li {
       position: relative; }
-      div.modal[data-type='infos'] > ul > li.tooltip {
+      div.modal[data-type='infos'] > ul:not(.breadcrumb) > li.tooltip {
         position: relative;
         cursor: help;
         background-size: 16px;
         padding-right: 18px; }
-        div.modal[data-type='infos'] > ul > li.tooltip::before {
+        div.modal[data-type='infos'] > ul:not(.breadcrumb) > li.tooltip::before {
           content: "";
           position: absolute;
           top: 0;
@@ -486,10 +532,10 @@ div.modal {
           -webkit-mask: no-repeat center/16px;
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
           background-color: "%textColor"; }
-        div.modal[data-type='infos'] > ul > li.tooltip::before {
+        div.modal[data-type='infos'] > ul:not(.breadcrumb) > li.tooltip::before {
           opacity: 0.5;
           -webkit-mask-position: right center; }
-      div.modal[data-type='infos'] > ul > li > ul {
+      div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul {
         position: absolute;
         top: 27px;
         right: -10px;
@@ -500,17 +546,17 @@ div.modal {
         border-radius: 2px;
         transform: translate3d(0, -5px, 0);
         transition: opacity 0.3s, transform 0.3s; }
-        div.modal[data-type='infos'] > ul > li > ul::before {
+        div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul::before {
           content: "";
           position: absolute;
           top: -14px;
           right: 10px;
           border: 7px solid transparent;
           border-bottom-color: #444; }
-        div.modal[data-type='infos'] > ul > li > ul > li {
+        div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul > li {
           white-space: nowrap;
           margin: 5px 0; }
-      div.modal[data-type='infos'] > ul > li:hover > ul {
+      div.modal[data-type='infos'] > ul:not(.breadcrumb) > li:hover > ul {
         opacity: 1;
         transform: translate3d(0, 0, 0); }
   div.modal[data-type='edit'] > ul, div.modal[data-type='add'] > ul {
@@ -929,12 +975,12 @@ div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
             height: 26px; }
             div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > a.urlCheckAction::before {
               -webkit-mask-size: 16px; }
-          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul {
+          div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul.breadcrumb {
             font-size: 80%;
             margin-top: 3px; }
-            div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul > li {
+            div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul.breadcrumb > li {
               display: inline-block; }
-              div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul > li:not(:last-child)::after {
+              div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li > ul[data-type='duplicates'] > li > ul.breadcrumb > li:not(:last-child)::after {
                 content: ">";
                 margin: 0 4px;
                 opacity: 0.7; }
@@ -957,18 +1003,6 @@ div.modal[data-type='checkBookmarks'] > menu.buttons > a.urlCheckAction {
   display: none; }
   div.modal[data-type='checkBookmarks'] > menu.buttons > a.urlCheckAction.visible {
     display: inline-block; }
-
-html[dir='rtl'] div.modal > header {
-  padding: 0 52px 0 75px; }
-  html[dir='rtl'] div.modal > header::before {
-    left: unset;
-    right: 5px; }
-  html[dir='rtl'] div.modal > header > a.close {
-    right: unset;
-    left: 15px; }
-
-html[dir='rtl'] div.modal > a.preview > img, html[dir='rtl'] div.modal > a.preview > span.icon, html[dir='rtl'] div.modal > span.preview > img, html[dir='rtl'] div.modal > span.preview > span.icon {
-  margin: 0 0 0 20px; }
 
 html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div.progressBar > div {
   left: unset;
@@ -1024,6 +1058,45 @@ html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
     left: 10px;
     right: unset; }
 
+body.highContrast:not(.dark) div.modal[data-type='checkBookmarks'] > div.progressBar > div {
+  background: "%textColor"; }
+
+body.dark div.modal[data-type='checkBookmarks'] > menu.categories {
+  border-color: rgba(255, 255, 255, 0.15); }
+  body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active {
+    background: #4d4d4d; }
+    body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active::after {
+      border-color: rgba(255, 255, 255, 0.15);
+      background: #3d3d3d; }
+
+body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > p, body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul {
+  background: #3d3d3d; }
+
+body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li {
+  border-bottom-color: rgba(255, 255, 255, 0.15); }
+  body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction:hover {
+    background-color: #4d4d4d; }
+
+body.dark div.modal[data-type='checkBookmarks'] > div.progressBar {
+  background: rgba(255, 255, 255, 0.1); }
+  body.dark div.modal[data-type='checkBookmarks'] > div.progressBar > div {
+    background: "%textColor"; }
+
+body.dark div.modal[data-type='checkBookmarks'].urlCheckResults::after {
+  background: #4d4d4d; }
+
+html[dir='rtl'] div.modal > header {
+  padding: 0 52px 0 75px; }
+  html[dir='rtl'] div.modal > header::before {
+    left: unset;
+    right: 5px; }
+  html[dir='rtl'] div.modal > header > a.close {
+    right: unset;
+    left: 15px; }
+
+html[dir='rtl'] div.modal > a.preview > img, html[dir='rtl'] div.modal > a.preview > span.icon, html[dir='rtl'] div.modal > span.preview > img, html[dir='rtl'] div.modal > span.preview > span.icon {
+  margin: 0 0 0 20px; }
+
 html[dir='rtl'] div.modal[data-type='openChildren'] > header::before {
   transform: scaleX(-1); }
 
@@ -1034,16 +1107,41 @@ html[dir='rtl'] div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li {
     left: unset;
     right: 0; }
 
-html[dir='rtl'] div.modal[data-type='infos'] > ul > li.tooltip {
+html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb {
+  float: left; }
+  html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb::before {
+    left: unset;
+    right: 0;
+    transform: scaleX(-1); }
+  html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb > li {
+    padding-right: 8px;
+    padding-left: 5px; }
+    html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb > li + li {
+      padding-left: 5px;
+      padding-right: 25px; }
+    html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb > li:last-child {
+      margin-right: 0;
+      margin-left: 12px; }
+    html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb > li::before {
+      right: unset;
+      left: -36px;
+      transform: scaleX(-1); }
+    html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb > li::after {
+      top: 0;
+      right: unset;
+      left: -24px;
+      transform: scaleX(-1); }
+
+html[dir='rtl'] div.modal[data-type='infos'] > ul:not(.breadcrumb) > li.tooltip {
   padding-right: 0;
   padding-left: 18px; }
-  html[dir='rtl'] div.modal[data-type='infos'] > ul > li.tooltip::before {
+  html[dir='rtl'] div.modal[data-type='infos'] > ul:not(.breadcrumb) > li.tooltip::before {
     -webkit-mask-position-x: left; }
 
-html[dir='rtl'] div.modal[data-type='infos'] > ul > li > ul {
+html[dir='rtl'] div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul {
   right: unset;
   left: -10px; }
-  html[dir='rtl'] div.modal[data-type='infos'] > ul > li > ul::before {
+  html[dir='rtl'] div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul::before {
     left: 10px;
     right: unset; }
 
@@ -1057,9 +1155,6 @@ html[dir='rtl'] div.modal > menu.buttons {
 
 body.highContrast:not(.dark) div.modal > header > a.close:hover {
   background-color: rgba(0, 0, 0, 0.07); }
-
-body.highContrast:not(.dark) div.modal[data-type='checkBookmarks'] > div.progressBar > div {
-  background: "%textColor"; }
 
 body.highContrast:not(.dark) div.modal[data-type='add'] > menu[data-name='select'] > a.hover::before {
   background-color: "%textColor"; }
@@ -1108,32 +1203,21 @@ body.dark div.modal {
       display: inline-block; }
   body.dark div.modal[data-type='infos'] > header::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg); }
-  body.dark div.modal[data-type='infos'] > ul {
+  body.dark div.modal[data-type='infos'] > ul.breadcrumb::before {
+    background: linear-gradient(to right, #3d3d3d 0%, transparent 100%); }
+  body.dark div.modal[data-type='infos'] > ul.breadcrumb > li {
+    background: rgba(255, 255, 255, 0.08); }
+    body.dark div.modal[data-type='infos'] > ul.breadcrumb > li::before {
+      border-left-color: #3d3d3d; }
+    body.dark div.modal[data-type='infos'] > ul.breadcrumb > li::after {
+      border-left-color: rgba(255, 255, 255, 0.08); }
+  body.dark div.modal[data-type='infos'] > ul:not(.breadcrumb) {
     border-color: rgba(255, 255, 255, 0.1); }
-  body.dark div.modal[data-type='infos'] > ul > li > ul {
-    background: #222;
-    color: #eee; }
-    body.dark div.modal[data-type='infos'] > ul > li > ul::before {
-      border-bottom-color: #222; }
-  body.dark div.modal[data-type='checkBookmarks'] > menu.categories {
-    border-color: rgba(255, 255, 255, 0.15); }
-    body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active {
-      background: #4d4d4d; }
-      body.dark div.modal[data-type='checkBookmarks'] > menu.categories > li.active::after {
-        border-color: rgba(255, 255, 255, 0.15);
-        background: #3d3d3d; }
-  body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > p, body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul {
-    background: #3d3d3d; }
-  body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li {
-    border-bottom-color: rgba(255, 255, 255, 0.15); }
-    body.dark div.modal[data-type='checkBookmarks'] > div[id^='results_'] > ul > li a.urlCheckAction:hover {
-      background-color: #4d4d4d; }
-  body.dark div.modal[data-type='checkBookmarks'] > div.progressBar {
-    background: rgba(255, 255, 255, 0.1); }
-    body.dark div.modal[data-type='checkBookmarks'] > div.progressBar > div {
-      background: "%textColor"; }
-  body.dark div.modal[data-type='checkBookmarks'].urlCheckResults::after {
-    background: #4d4d4d; }
+    body.dark div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul {
+      background: #222;
+      color: #eee; }
+      body.dark div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul::before {
+        border-bottom-color: #222; }
   body.dark div.modal[data-type='shareInfoDesc']::after, body.dark div.modal[data-type='keyboardShortcuts']::after {
     background: #4d4d4d; }
   body.dark div.modal[data-type='shareInfoDesc'] > div.scrollBox > *, body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > * {

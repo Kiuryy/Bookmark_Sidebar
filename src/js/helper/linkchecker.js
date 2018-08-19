@@ -149,16 +149,13 @@
                 let elm = $("<li />").data("entry", duplicate).appendTo(list);
                 $("<strong />").html(duplicate.title).appendTo(elm);
 
-                let breadcrumb = $("<ul />").appendTo(elm);
-                let parentId = duplicate.parentId;
+                let parentInfos = ext.helper.entry.getParentsById(duplicate.id);
 
-                while (parentId) {
-                    let parentInfo = ext.helper.entry.getDataById(parentId);
-                    if (parentInfo) {
+                if (parentInfos.length > 0) {
+                    let breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(elm);
+                    parentInfos.forEach((parentInfo) => {
                         $("<li />").text(parentInfo.title).prependTo(breadcrumb);
-                    }
-
-                    parentId = parentInfo && parentInfo.parentId ? parentInfo.parentId : null;
+                    });
                 }
 
                 $("<a />").addClass($.cl.overlay.urlCheckAction).appendTo(elm);
@@ -453,7 +450,9 @@
                                     });
                                 });
 
-                                rslv({success: true});
+                                $.delay(Object.keys(response.xhr).length * 50).then(() => {
+                                    rslv({success: true});
+                                });
                             }
                         });
                     });
@@ -469,7 +468,6 @@
 
                         if (Object.keys(chunk).length >= 15 || i === bookmarks.length) { // check multiple urls at once
                             let obj = await checkChunk(chunk);
-                            finished += 15;
                             chunk = {};
 
                             if (obj.success === false) {
@@ -478,7 +476,9 @@
                         }
                     }
 
-                    resolve(results);
+                    $.delay(500).then(() => {
+                        resolve(results);
+                    });
                 })();
             });
         };

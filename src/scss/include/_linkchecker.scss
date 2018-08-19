@@ -299,7 +299,7 @@ div.modal[data-type='checkBookmarks'] {
               }
             }
 
-            > ul {
+            > ul.breadcrumb {
               font-size: 80%;
               margin-top: 3px;
 
@@ -354,3 +354,7 @@ div.modal[data-type='checkBookmarks'] {
     }
   }
 }
+
+@import "../rtl/include/linkchecker";
+@import "../highContrast/include/linkchecker";
+@import "../dark/include/linkchecker";

@@ -20,7 +20,12 @@
             ext.helper.toggle.addSidebarHoverClass();
             ext.helper.tooltip.close();
 
-            if (alreadyExists(type, elm) === false) { // contextmenu is not already opened
+            if (alreadyExists(type, elm)) { // contextmenu is already opened
+
+                if (type === "menu" || type === "sort") { // close menu/sort menu when reclicking the icon
+                    this.close();
+                }
+            } else {
                 this.close(); // close other contextmenus
                 elm.addClass($.cl.active);
 

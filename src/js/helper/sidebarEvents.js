@@ -111,6 +111,24 @@
                     ) { // only left click
                         this.handleEntryClick($(e.currentTarget), e);
                     }
+                }).on("dblclick", "> ul a", (e) => { // double click on a directory will open the directory + all sub directories
+                    let _self = $(e.currentTarget);
+
+                    let openChildren = (elm) => {
+                        elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir).forEach((childDir) => {
+                            if (!$(childDir).hasClass($.cl.sidebar.dirOpened)) {
+                                $.delay().then(() => {
+                                    ext.helper.list.toggleBookmarkDir($(childDir), false, false).then(() => {
+                                        openChildren($(childDir));
+                                    });
+                                });
+                            }
+                        });
+                    };
+
+                    if (_self.hasClass($.cl.sidebar.bookmarkDir) && !_self.hasClass($.cl.sidebar.dirOpened)) {
+                        openChildren(_self);
+                    }
                 }).on("mouseover", "> ul a", (e) => { // add class to currently hovered element
                     if (ext.helper.overlay.isOpened() === false) { // prevent hovering if overlay is open
                         let _self = $(e.currentTarget);

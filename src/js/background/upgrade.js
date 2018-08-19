@@ -96,106 +96,21 @@
                         obj.newtab = {};
                     }
 
-                    // START UPGRADE // v1.13 -> released [03-2018]
-                    if (typeof obj.language === "string" && obj.language.indexOf("-") > -1) {
-                        chrome.storage.local.set({language: obj.language.replace("-", "_")});
-                    }
-
-                    if (typeof obj.behaviour.toggleArea === "undefined" && typeof obj.behaviour.pxTolerance !== "undefined") { // pxTolerance is replaced by a toggleArea object
-                        obj.behaviour.toggleArea = {
-                            width: obj.behaviour.pxTolerance.maximized || 1,
-                            widthWindowed: obj.behaviour.pxTolerance.windowed || 20,
-                            height: 100,
-                            top: 0
-                        };
-
-                        try {
-                            delete obj.behaviour.pxTolerance;
-                        } catch (e) {
-                            //
-                        }
-                    }
-
-                    chrome.storage.local.get(["utility"], (d) => { // replace old separator data with new format (special bookmarks)
-                        if (d && d.utility && d.utility.separators) {
-                            try {
-                                Object.entries(d.utility.separators).forEach(([parentId, separators]) => {
-                                    if (separators && separators.length > 0) {
-                                        separators.forEach((separator, i) => {
-                                            b.preventReload = true;
-                                            b.helper.bookmarks.api.create({
-                                                title: "----------",
-                                                url: "about:blank",
-                                                parentId: parentId,
-                                                index: (separator.index || 0) + i
-                                            });
-                                        });
-                                    }
-                                });
-                            } catch (e) {
-                                //
-                            } finally {
-                                delete d.utility.separators;
-                                chrome.storage.local.set({utility: d.utility});
-                                setTimeout(() => {
-                                    b.preventReload = false;
-                                }, 2000);
-                            }
-                        }
-                    });
-                    // END UPGRADE // v1.13
-
-                    // START UPGRADE // v1.12 -> released 01-2018
-                    if (typeof obj.behaviour.reopenSidebar === "undefined" && typeof obj.behaviour.autoOpen !== "undefined") {
-                        obj.behaviour.reopenSidebar = obj.behaviour.autoOpen;
-                        try {
-                            delete obj.behaviour.autoOpen;
-                            delete obj.utility.autoOpen;
-                        } catch (e) {
-                            //
-                        }
-                    }
-
-                    if (typeof obj.newtab.autoOpen === "undefined" && typeof obj.newtab.initialOpen !== "undefined") {
-                        obj.newtab.autoOpen = obj.newtab.initialOpen;
-                        try {
-                            delete obj.newtab.initialOpen;
-                        } catch (e) {
-                            //
-                        }
-                    }
-
-                    chrome.storage.sync.remove(["shareUserdata"]);
-                    // END UPGRADE // v1.12
-
-                    // START UPGRADE // v1.11 -> released 01-2018
                     try {
                         delete obj.behaviour.initialOpenOnNewTab;
+                        delete obj.behaviour.rememberSearch;
+                        delete obj.behaviour.autoOpen;
+                        delete obj.behaviour.pxTolerance;
+                        delete obj.behaviour.scrollSensitivity;
+                        delete obj.behaviour.hideEmptyDirs;
                         delete obj.behaviour.replaceNewTab;
                         delete obj.behaviour.language;
                         delete obj.appearance.language;
                         delete obj.appearance.sidebarPosition;
+                        delete obj.newtab.autoOpen;
                     } catch (e) {
                         //
                     }
-
-                    if (typeof obj.appearance.styles === "undefined") {
-                        obj.appearance.styles = {};
-                    }
-
-                    if (typeof obj.shareInfo === "undefined" && typeof obj.shareUserdata !== "undefined" && (obj.shareUserdata === true || obj.shareUserdata === false)) {
-                        chrome.storage.sync.set({
-                            shareInfo: {
-                                config: obj.shareUserdata,
-                                activity: obj.shareUserdata
-                            }
-                        });
-                    }
-
-                    if (typeof obj.appearance.styles.hoverColor === "undefined") {
-                        obj.appearance.styles.hoverColor = obj.appearance.darkMode ? "#555555" : "#f5f5f5";
-                    }
-                    // END UPGRADE // v1.11
 
                     chrome.storage.sync.set({behaviour: obj.behaviour}, savedValues);
                     chrome.storage.sync.set({newtab: obj.newtab}, savedValues);

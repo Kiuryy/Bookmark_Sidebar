@@ -75,6 +75,7 @@
 
         this.serviceAvailable = true;
         let restoreTypes = ["behaviour", "appearance", "newtab"];
+        let unsavedChanges = false;
 
         /**
          * Constructor
@@ -141,6 +142,9 @@
          * @param {string} i18nStr
          */
         this.showSuccessMessage = (i18nStr) => {
+            unsavedChanges = false;
+            this.elm.buttons.save.removeClass($.cl.info);
+
             this.elm.body.attr($.attr.settings.success, this.helper.i18n.get("settings_" + i18nStr));
             this.elm.body.addClass($.cl.success);
 
@@ -184,6 +188,26 @@
          * @returns {Promise}
          */
         let initEvents = async () => {
+            $(window).on("beforeunload", (e) => { // Show confirm dialog when trying to exit the settings without saving the changes
+                if (unsavedChanges) {
+                    let confirmationMessage = "Do you really want to leave without saving your changes?";
+                    e.returnValue = confirmationMessage;
+                    return confirmationMessage;
+                }
+            });
+
+            $("input, textarea, select").on("keyup change input", () => { // highlight save button the first time something got changed
+                if (unsavedChanges === false) {
+                    this.elm.buttons.save.addClass([$.cl.settings.highlight, $.cl.info]);
+
+                    $.delay(2000).then(() => {
+                        this.elm.buttons.save.removeClass($.cl.settings.highlight);
+                    });
+                }
+
+                unsavedChanges = true;
+            });
+
             $(document).on("click", () => {
                 $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
             });

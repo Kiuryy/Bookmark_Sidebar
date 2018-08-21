@@ -1,4 +1,4 @@
-body > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, body::before, body::after {
+body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
@@ -304,13 +304,35 @@ body > header {
         outline: 0;
         cursor: pointer; }
         body > header > menu > li > button.save {
+          position: relative;
           background: #fff;
           color: #7b5fa4;
           padding: 4px 8px;
           font-weight: "%fontWeightMedium";
           font-size: 100%;
           border-radius: 5px;
-          box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5); }
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+          transition: box-shadow 1s, padding 0.5s;
+          z-index: 2; }
+          body > header > menu > li > button.save::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-mask: no-repeat center/21px;
+            -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+            background-color: #f5c525; }
+          body > header > menu > li > button.save::before {
+            -webkit-mask-position-x: 6px;
+            transition: opacity 0.5s; }
+          body > header > menu > li > button.save.highlight {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 0 0 100px #f5c525; }
+          body > header > menu > li > button.save.info {
+            padding-left: 32px; }
+            body > header > menu > li > button.save.info::before {
+              opacity: 1; }
         body > header > menu > li > button.restore {
           background: transparent;
           margin: 2px 0 0 10px;
@@ -426,6 +448,11 @@ html[dir='rtl'] body > header {
     html[dir='rtl'] body > header > menu > li > button.restore {
       margin-right: 10px;
       margin-left: 0; }
+    html[dir='rtl'] body > header > menu > li > button.save::before {
+      transform: scaleX(-1); }
+    html[dir='rtl'] body > header > menu > li > button.save.info {
+      padding-left: 8px;
+      padding-right: 32px; }
 
 html[dir='rtl'] body > div.dialog {
   transform: translate3d(12px, -10px, 0); }

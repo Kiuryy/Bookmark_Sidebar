@@ -53,6 +53,18 @@ html[dir='rtl'] {
             margin-right: 10px;
             margin-left: 0;
           }
+
+          &.save {
+
+            &::before {
+              transform: scaleX(-1);
+            }
+
+            &.info {
+              padding-left: 8px;
+              padding-right: 32px;
+            }
+          }
         }
       }
     }

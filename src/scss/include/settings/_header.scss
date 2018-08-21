@@ -103,13 +103,35 @@ body > header {
         cursor: pointer;
 
         &.save {
+          @include mask('icon-info', $colorNotice, 21px);
+          position: relative;
           background: $contentBackground;
           color: $mainColor;
           padding: 4px 8px;
           font-weight: $__fontWeightMedium;
           font-size: 100%;
           border-radius: 5px;
-          box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+          transition: box-shadow 1s, padding 0.5s;
+          z-index: 2;
+
+          &::before {
+            -webkit-mask-position-x: 6px;
+            @extend %hidden;
+            transition: opacity 0.5s;
+          }
+
+          &.highlight {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 0 0 100px $colorNotice;
+          }
+
+          &.info {
+            padding-left: 32px;
+
+            &::before {
+              opacity: 1;
+            }
+          }
         }
 
         &.restore {

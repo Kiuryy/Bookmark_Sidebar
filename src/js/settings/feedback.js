@@ -147,13 +147,6 @@
                     always: true
                 });
 
-                s.helper.model.call("trackEvent", { // @deprecated
-                    category: "settings",
-                    action: "suggestion_display",
-                    label: key,
-                    always: true
-                });
-
                 let suggestion = $("<div />")
                     .addClass([$.cl.settings.suggestion, $.cl.hidden, $.cl.settings.feedback.absolute])
                     .attr($.attr.type, key)
@@ -208,13 +201,6 @@
             s.helper.model.call("track", {
                 name: "action",
                 value: {name: "suggestion_clicked", value: type},
-                always: true
-            });
-
-            s.helper.model.call("trackEvent", {
-                category: "settings",
-                action: "suggestion_true",
-                label: type,
                 always: true
             });
 
@@ -412,13 +398,6 @@
                     loader.remove();
 
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
-                        s.helper.model.call("trackEvent", { // @deprecated
-                            category: "settings",
-                            action: "feedback",
-                            label: "submitted",
-                            always: true
-                        });
-
                         s.helper.model.call("track", {
                             name: "action",
                             value: {name: "feedback", value: 1},

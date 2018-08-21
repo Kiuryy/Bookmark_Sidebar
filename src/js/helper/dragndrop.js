@@ -42,7 +42,6 @@
             if (entryElm) {
                 let elm = entryElm.children("a");
                 entryElm.insertAfter(dragInitialElm).removeClass($.cl.drag.isDragged);
-                trackEvent(elm, {type: "end", cancel: true}); // @deprecated
             }
 
             dragInitialElm.remove();
@@ -92,7 +91,6 @@
                 ext.helper.tooltip.close();
                 ext.elm.iframeBody.addClass($.cl.drag.isDragged);
                 ext.helper.toggle.addSidebarHoverClass();
-                trackEvent("selection", {type: "start"}); // @deprecated
 
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
@@ -122,8 +120,6 @@
                                 }
                             }
 
-                            trackEvent("selection", {type: "end"}); // @deprecated
-
                             ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
                                 values: {
                                     index: entryPlaceholder.prevAll("li").length(),
@@ -133,8 +129,6 @@
                                 }
                             });
                         }
-                    } else {
-                        trackEvent("selection", {type: "end", cancel: true}); // @deprecated
                     }
 
                     ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
@@ -166,31 +160,6 @@
             }
 
             return type;
-        };
-
-        /**
-         * Tracks that an element is beeing dragged (no longer dragged)
-         *
-         * @deprecated
-         * @param {jsu|string} elm
-         * @param {object} opts
-         */
-        let trackEvent = (elm, opts = {}) => {
-            let label = null;
-
-            if (opts.type === "end") {
-                label = opts.cancel ? "cancel" : "dragend";
-            } else if (opts.type === "start") {
-                label = "dragstart";
-            }
-
-            if (label) {
-                ext.helper.model.call("trackEvent", {
-                    category: "dragndrop",
-                    action: getDragType(elm),
-                    label: label
-                });
-            }
         };
 
         /**
@@ -244,7 +213,6 @@
             }).addClass($.cl.drag.helper);
 
             elmParent.addClass($.cl.drag.isDragged);
-            trackEvent(elm, {type: "start"}); // @deprecated
 
             if (!edgeScroll.running) {
                 window.requestAnimationFrame(edgeScrolling);
@@ -323,7 +291,6 @@
                     });
                 }
 
-                trackEvent(elm, {type: "end"}); // @deprecated
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
 
                 $.delay().then(() => {

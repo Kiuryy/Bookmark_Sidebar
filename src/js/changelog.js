@@ -41,7 +41,7 @@
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
                 this.elm.versionInfo.text($.opts.manifest.version_name);
 
-                return this.helper.model.call("trackPageView", {page: "/changelog"}); // @deprecated
+                return $.delay();
             }).then(() => {
                 this.elm.body.removeClass($.cl.building);
 

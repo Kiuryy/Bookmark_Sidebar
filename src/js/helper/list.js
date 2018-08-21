@@ -93,11 +93,6 @@
                     ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
                     ext.helper.model.setData({"u/sort": sort})
                 ]).then(() => {
-                    ext.helper.model.call("trackEvent", { // @deprecated
-                        category: "sorting",
-                        action: "change",
-                        label: sort.name + "_" + sort.dir
-                    });
                     ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                 });
             }

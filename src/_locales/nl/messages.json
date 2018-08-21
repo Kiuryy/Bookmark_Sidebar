@@ -731,6 +731,9 @@
     "settings_contextmenu": {
         "message": "Context menu"
     },
+    "settings_contextmenu_desc": {
+        "message": "Geef een item weer in het contextmenu van Chrome om de zijbalk te schakelen."
+    },
     "settings_filter_intro": {
         "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
     },

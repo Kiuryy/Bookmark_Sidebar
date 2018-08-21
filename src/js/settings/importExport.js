@@ -27,11 +27,6 @@
          * Shows an alert popup with an error message that the import failed
          */
         let alertImportError = () => {
-            s.helper.model.call("trackEvent", { // @deprecated
-                category: "settings",
-                action: "import",
-                label: "failed"
-            });
             window.alert(s.helper.i18n.get("settings_import_failed"));
         };
 
@@ -57,11 +52,6 @@
                                     appearance: config.appearance,
                                     newtab: config.newtab
                                 }, () => {
-                                    s.helper.model.call("trackEvent", { // @deprecated
-                                        category: "settings",
-                                        action: "import",
-                                        label: "import"
-                                    });
                                     s.helper.model.call("reinitialize");
                                     s.showSuccessMessage("import_saved");
                                     $.delay(1500).then(() => {
@@ -102,12 +92,6 @@
                             url: URL.createObjectURL(blob),
                             filename: getExportFilename(),
                             saveAs: true
-                        });
-
-                        s.helper.model.call("trackEvent", { // @deprecated
-                            category: "settings",
-                            action: "export",
-                            label: "export"
                         });
                     }
                 });

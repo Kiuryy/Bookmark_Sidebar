@@ -40,7 +40,7 @@
                 this.helper.i18n.parseHtml(document);
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                return this.helper.model.call("trackPageView", {page: "/onboarding", always: true}); // @deprecated
+                return $.delay();
             }).then(() => {
                 this.elm.body.removeClass($.cl.building);
 
@@ -262,13 +262,6 @@
                 this.helper.model.call("track", {
                     name: "action",
                     value: {name: "onboarding", value: num + "_" + name},
-                    always: true
-                });
-
-                this.helper.model.call("trackEvent", { // @deprecated
-                    category: "onboarding",
-                    action: "view",
-                    label: name,
                     always: true
                 });
             });

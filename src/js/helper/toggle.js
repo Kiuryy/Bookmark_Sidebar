@@ -125,7 +125,6 @@
                 });
 
                 if (!ext.elm.sidebar.hasClass($.cl.sidebar.openedOnce)) { // first time open -> mark last used bookmark and set html class
-                    ext.trackInitialEvents(); // @deprecated
                     ext.elm.sidebar.addClass($.cl.sidebar.openedOnce);
                     this.markLastUsed();
                 }
@@ -135,7 +134,6 @@
                         name: "action",
                         value: {name: "sidebar", value: getPageType()}
                     });
-                    ext.helper.model.call("trackPageView", {page: "/sidebar/" + getPageType()}); // @deprecated
                 }
 
                 ext.elm.iframe.addClass($.cl.page.visible);

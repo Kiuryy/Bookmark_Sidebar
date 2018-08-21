@@ -21,13 +21,6 @@
                 if ((typeParam === "new_tab" || typeParam === "fallback") && n.helper.model.getData("n/override") === false) {
                     initSetAsDefaultSwitch();
                 }
-
-                n.helper.model.call("trackEvent", { // @deprecated
-                    category: "newtab",
-                    action: "fallback",
-                    label: typeParam,
-                    always: true
-                });
             }
         };
 

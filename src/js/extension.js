@@ -114,41 +114,6 @@
         };
 
         /**
-         * Tracks some events of the initial state of the extension,
-         * is called after opening the sidebar and is only executed the first time the sidebar is opened
-         *
-         * @deprecated
-         */
-        this.trackInitialEvents = () => {
-            let trackEvents = () => {
-                let sort = this.helper.list.getSort();
-                this.helper.model.call("trackEvent", {
-                    category: "sorting",
-                    action: "initial",
-                    label: sort.name + "_" + sort.dir
-                });
-
-                let searchVal = this.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].value;
-                if (searchVal.length > 0) {
-                    this.helper.model.call("trackEvent", {
-                        category: "search",
-                        action: "search",
-                        label: "initial",
-                        value: searchVal.length
-                    });
-                }
-            };
-
-            if (this.firstRun) { // extension is not loaded yet -> wait for the loaded event (happens when sidebar is automatically opened on new tab page)
-                $(document).on($.opts.events.loaded + ".bs", () => {
-                    trackEvents();
-                });
-            } else { // extension is loaded -> track events
-                trackEvents();
-            }
-        };
-
-        /**
          * Prints the given message in the console (only if this.dev = true)
          *
          * @param {*} msg

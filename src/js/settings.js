@@ -121,7 +121,6 @@
 
                 loader.body.remove();
                 this.elm.body.removeClass($.cl.initLoading);
-                this.helper.model.call("trackPageView", {page: "/settings"}); // @deprecated
 
                 return this.helper.model.call("websiteStatus");
             }).then((opts) => { // if website is available, feedback form and translation overview can be used

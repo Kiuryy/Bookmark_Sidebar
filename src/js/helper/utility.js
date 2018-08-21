@@ -57,13 +57,6 @@
          * @returns {Promise}
          */
         this.openAllBookmarks = async (bookmarks) => {
-            ext.helper.model.call("trackEvent", { // @deprecated
-                category: "url",
-                action: "open",
-                label: "new_tab_all_children",
-                value: bookmarks.length
-            });
-
             let newTabPosition = ext.helper.model.getData("b/newTabPosition");
 
             if (newTabPosition === "afterCurrent" || newTabPosition === "beforeFirst") { // reverse bookmarks to open them in the correct order

@@ -45,20 +45,6 @@
                     ext.helper.list.toggleBookmarkDir(elm);
                 }
             } else if (!data.isDir) { // Click on link
-                if (middleClick) { // @deprecated
-                    ext.helper.model.call("trackEvent", {
-                        category: "url",
-                        action: "open",
-                        label: "new_tab_middle_click"
-                    });
-                } else { // @deprecated
-                    ext.helper.model.call("trackEvent", {
-                        category: "url",
-                        action: "open",
-                        label: (opts.which === 2 || config.linkAction === "newtab" ? "new" : "current") + "_tab_default"
-                    });
-                }
-
                 data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
 
                 if (middleClick) { // new tab -> middle click

@@ -46,15 +46,6 @@
             chrome.storage.local.remove(["languageInfos"]);
             let newVersion = b.manifest.version;
 
-            if (details.previousVersion !== newVersion) { // @deprecated
-                b.helper.analytics.trackEvent({
-                    category: "extension",
-                    action: "update",
-                    label: details.previousVersion + " -> " + newVersion,
-                    always: true
-                });
-            }
-
             let versionPartsOld = details.previousVersion.split(".");
             let versionPartsNew = newVersion.split(".");
 

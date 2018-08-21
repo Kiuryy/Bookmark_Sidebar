@@ -224,12 +224,6 @@
                         cancelable: false
                     }));
 
-                    s.helper.model.call("trackEvent", { // @deprecated
-                        category: "settings",
-                        action: "page",
-                        label: hash
-                    });
-
                     $.delay().then(() => {
                         running = false;
                         resolve();

@@ -247,17 +247,6 @@
 
                 if (dataSearchScope !== null) {
                     if (defaultVal === true || typeof dataSearchScope[key] === "undefined") {
-
-                        if (keyInfo === "b/toggleArea") { // @deprecated backward compatibility (03-2018)
-                            let pxTolerance = this.getData("n/pxTolerance");
-                            if (pxTolerance !== null) {
-                                value = defaults[scope][key];
-                                value.width = pxTolerance.maximized;
-                                value.widthWindowed = pxTolerance.windowed;
-                                scope = "__FOUND";
-                            }
-                        }
-
                         if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];
                         }

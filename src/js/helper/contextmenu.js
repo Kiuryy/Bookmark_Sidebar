@@ -63,7 +63,6 @@
                     }
                 }
 
-                ext.helper.model.call("trackEvent", {category: "contextmenu", action: "open", label: trackingLabel}); // @deprecated
                 initEvents(contextmenu);
                 setPosition(contextmenu, elm, type);
 
@@ -333,11 +332,6 @@
          * @param {object} opts
          */
         clickFuncs.newIncognito = (opts) => {
-            ext.helper.model.call("trackEvent", { // @deprecated
-                category: "url",
-                action: "open",
-                label: "new_window_incognito"
-            });
             if (opts.data) {
                 ext.helper.utility.openUrl(opts.data, "incognito");
             }
@@ -349,11 +343,6 @@
          * @param {object} opts
          */
         clickFuncs.newWindow = (opts) => {
-            ext.helper.model.call("trackEvent", { // @deprecated
-                category: "url",
-                action: "open",
-                label: "new_window"
-            });
             if (opts.data) {
                 ext.helper.utility.openUrl(opts.data, "newWindow");
                 ext.helper.toggle.closeSidebar();
@@ -366,11 +355,6 @@
          * @param {object} opts
          */
         clickFuncs.newTab = (opts) => {
-            ext.helper.model.call("trackEvent", { // @deprecated
-                category: "url",
-                action: "open",
-                label: "new_tab_contextmenu"
-            });
             if (opts.data) {
                 let inForeground = ext.helper.model.getData("b/newTab") === "foreground";
                 opts.data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");

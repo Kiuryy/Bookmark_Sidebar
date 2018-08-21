@@ -100,15 +100,6 @@
                             $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elm.bookmarkBox.search);
                         }
 
-                        if (!isFirstRun) { // @deprecated
-                            ext.helper.model.call("trackEvent", {
-                                category: "search",
-                                action: "search",
-                                label: "search",
-                                value: val.length
-                            });
-                        }
-
                         ext.endLoading(500);
                         resolve();
                     });

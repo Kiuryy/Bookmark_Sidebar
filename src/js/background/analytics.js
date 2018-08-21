@@ -2,17 +2,8 @@
     "use strict";
 
     $.AnalyticsHelper = function (b) {
-        let trackingQueue = []; // @deprecated
-        let trackingQueueProceeding = false; // @deprecated
-        let trackUserDataRunning = false; // @deprecated
-
+        let trackUserDataRunning = false;
         let stack = [];
-
-        let url = "https://www.google-analytics.com/analytics.js"; // @deprecated
-        let trackingCode = { // @deprecated
-            dev: "100595538-3",
-            live: "100595538-2"
-        };
 
         let restrictedTypes = {
             config: ["configuration"],
@@ -23,22 +14,6 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            window.GoogleAnalyticsObject = "ga";
-            window.ga = window.ga || function () {
-                (window.ga.q = window.ga.q || []).push(arguments);
-            };
-            window.ga.l = +new Date();
-            let script = document.createElement("script");
-            script.async = 1;
-            script.src = url;
-            let m = document.getElementsByTagName("script")[0];
-            m.parentNode.insertBefore(script, m);
-
-            window.ga("create", "UA-" + (trackingCode[b.isDev ? "dev" : "live"]), "auto");
-            window.ga("set", "checkProtocolTask", null);
-            window.ga("set", "anonymizeIp", true);
-            window.ga("set", "transport", "beacon");
-
             setInterval(() => {
                 if (stack.length > 0) {
                     sendStackToServer();
@@ -55,45 +30,6 @@
         this.track = (opts) => {
             return new Promise((resolve) => {
                 addToStack(opts.name, opts.value, opts.always);
-                resolve();
-            });
-        };
-
-        /**
-         * Tracks an event in Google Analytics with the given values,
-         * only do if user allows userdata sharing or if the parameter is specified
-         *
-         * @deprecated
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        this.trackEvent = (opts) => {
-            return new Promise((resolve) => {
-                addObjectToTrackingQueue({
-                    hitType: "event",
-                    eventCategory: opts.category,
-                    eventAction: opts.action,
-                    eventLabel: opts.label,
-                    eventValue: opts.value || 1
-                }, opts.always || false);
-                resolve();
-            });
-        };
-
-        /**
-         * Tracks an event in Google Analytics with the given values,
-         * only do if user allows userdata sharing or if the parameter is specified
-         *
-         * @deprecated
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        this.trackPageView = (opts) => {
-            return new Promise((resolve) => {
-                addObjectToTrackingQueue({
-                    hitType: "pageview",
-                    page: opts.page
-                }, opts.always || false);
                 resolve();
             });
         };
@@ -137,20 +73,6 @@
                     addToStack("system", navigator.userAgent);
                     addToStack("language", b.helper.language.getLanguage());
                     addToStack("shareInfo", shareState);
-
-                    this.trackEvent({ // @deprecated sign of life
-                        category: "extension",
-                        action: "user",
-                        label: "share_" + shareState,
-                        always: true
-                    });
-
-                    this.trackEvent({ // @deprecated extension version
-                        category: "extension",
-                        action: "version",
-                        label: b.manifest.version_name,
-                        always: true
-                    });
 
                     if (shareInfo.activity === true) { // user allowed to share activity
                         trackGeneralInfo();
@@ -226,14 +148,6 @@
                             obj[attr] = obj[attr] && obj[attr].length > 0 ? "true" : "false";
                         }
 
-                        let value = 1;
-
-                        if (!isNaN(parseFloat(obj[attr])) && isFinite(obj[attr])) {
-                            value = parseFloat(obj[attr]);
-                        } else if (obj[attr].search(/^\d+px$/i) === 0) {
-                            value = parseFloat(obj[attr].replace(/px$/i, ""));
-                        }
-
                         configArr.push({
                             name: baseName + "_" + attr,
                             value: obj[attr]
@@ -245,14 +159,7 @@
             new Promise((resolve) => {
                 chrome.storage.sync.get(categories, (obj) => {
                     categories.forEach((category) => {
-                        if (category === "language") { // @deprecated proceed with the actual language of the extension
-                            obj[category] = {};
-                            let lang = b.helper.language.getLanguage();
-
-                            if (lang) {
-                                obj[category].ui = lang;
-                            }
-                        } else if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
+                        if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
                             if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
                                 obj[category] = {
                                     override: false
@@ -355,53 +262,6 @@
                         resolve({success: false});
                     }
                 });
-            });
-        };
-
-        /**
-         * Adds the given object to the tracking queue and processes the queue if it is not already processing,
-         * only works if user allows userdata sharing or if the parameter is specified
-         *
-         * @deprecated
-         * @param {object} obj
-         * @param {boolean} ignoreShareInfo
-         */
-        let addObjectToTrackingQueue = (obj, ignoreShareInfo) => {
-            let shareInfo = b.helper.model.getShareInfo();
-            let allowed = true;
-
-            if (ignoreShareInfo !== true) {
-                if (obj.eventCategory && obj.eventCategory === "configuration") {
-                    allowed = shareInfo.config;
-                } else {
-                    allowed = shareInfo.activity;
-                }
-            }
-
-            if (allowed) {
-                trackingQueue.push(obj);
-                if (trackingQueueProceeding === false) {
-                    processTrackingQueue();
-                }
-            }
-        };
-
-        /**
-         * Processes the tracking queue,
-         * sends every 1200ms the oldest entry of the queue to Google Analytics
-         *
-         * @deprecated
-         */
-        let processTrackingQueue = () => {
-            trackingQueueProceeding = true;
-            $.delay(1200).then(() => {
-                if (trackingQueue.length > 0 && window.ga && window.ga.loaded) {
-                    let entry = trackingQueue.shift();
-                    window.ga("send", entry);
-                    processTrackingQueue();
-                } else {
-                    trackingQueueProceeding = false;
-                }
             });
         };
     };

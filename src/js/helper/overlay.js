@@ -101,7 +101,6 @@
             }
 
             ext.helper.keyboard.initOverlayEvents(elements.overlay);
-            ext.helper.model.call("trackPageView", {page: "/overlay/" + type}); // @deprecated
             initEvents();
 
             $.delay(100).then(() => {
@@ -151,13 +150,6 @@
 
             ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
             elements.overlay.removeClass($.cl.page.visible);
-
-            ext.helper.model.call("trackEvent", { // @deprecated
-                category: "overlay",
-                action: cancel ? "cancel" : "action",
-                label: elements.modal.attr($.attr.type) + labelAdd
-            });
-
             ext.helper.scroll.focus();
 
             $.delay(400).then(() => {
@@ -593,11 +585,6 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass($.cl.error);
                     } else {
-                        ext.helper.model.call("trackEvent", { // @deprecated
-                            category: "extension",
-                            action: "edit",
-                            label: formValues.values.url ? "bookmark" : "directory"
-                        });
                         ext.helper.model.call("reload", {type: "Edit"});
                         this.closeOverlay();
                     }
@@ -640,11 +627,6 @@
                 parentId: data.id || null,
                 index: getIndexOfNewEntry(parentId)
             }).then(() => {
-                ext.helper.model.call("trackEvent", { // @deprecated
-                    category: "extension",
-                    action: "add",
-                    label: "separator"
-                });
                 this.closeOverlay(false, "_separator");
             });
         };
@@ -681,11 +663,6 @@
                     if (result.error) {
                         elements.modal.find("input[name='url']").addClass($.cl.error);
                     } else {
-                        ext.helper.model.call("trackEvent", { // @deprecated
-                            category: "extension",
-                            action: "add",
-                            label: obj.url ? "bookmark" : "directory"
-                        });
                         this.closeOverlay(false, "_" + (obj.url ? "bookmark" : "directory"));
                     }
                 });
@@ -721,11 +698,6 @@
 
             elements.modal.find("a." + $.cl.overlay.preview + ", a." + $.cl.overlay.previewUrl).on("click", (e) => { // open bookmark
                 e.preventDefault();
-                ext.helper.model.call("trackEvent", { // @deprecated
-                    category: "url",
-                    action: "open",
-                    label: "new_tab_overlay"
-                });
                 ext.helper.utility.openUrl(elements.overlay.data("info"), "newTab");
             });
         };

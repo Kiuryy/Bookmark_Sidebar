@@ -76,6 +76,7 @@
 
                     $.delay(100).then(() => {
                         updateAllPreviewStyles();
+                        $(window).trigger("resize");
                         resolve();
                     });
                 });
@@ -468,7 +469,7 @@
          * Initialises the eventhandlers
          */
         let initEvents = () => {
-            $(window).on("resize", function () {
+            $(window).on("resize", () => {
                 let path = s.helper.menu.getPath();
                 if (path && path[1]) {
                     updatePageLayout(path[1]);

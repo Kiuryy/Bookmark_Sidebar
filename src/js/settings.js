@@ -200,7 +200,7 @@
                 if (unsavedChanges === false) {
                     this.elm.buttons.save.addClass([$.cl.settings.highlight, $.cl.info]);
 
-                    $.delay(2000).then(() => {
+                    $.delay(1000).then(() => {
                         this.elm.buttons.save.removeClass($.cl.settings.highlight);
                     });
                 }

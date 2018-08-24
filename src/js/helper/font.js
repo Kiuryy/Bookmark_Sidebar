@@ -43,14 +43,14 @@
                     Thin: 100, ExtraLight: 100, Light: 100, Normal: 200, Medium: 300, SemiBold: 400, Bold: 500, ExtraBold: 500, Black: 500
                 }
             },
-            "zh-CN": {
+            "zh_CN": {
                 name: "Noto Sans SC",
                 href: "https://fonts.googleapis.com/earlyaccess/notosanssc.css",
                 fontWeights: {
                     Thin: 100, ExtraLight: 100, Light: 100, Normal: 300, Medium: 400, SemiBold: 400, Bold: 400, ExtraBold: 500, Black: 500
                 }
             },
-            "zh-TW": {
+            "zh_TW": {
                 name: "Noto Sans TC",
                 href: "https://fonts.googleapis.com/earlyaccess/notosanstc.css",
                 fontWeights: {
@@ -73,7 +73,7 @@
             fontInfo["default"] = this.getDefaultFontInfo();
             fontInfo["default"].fontWeights = this.getFontWeights(fontInfo["default"].name);
 
-            if (styles.fontFamily && styles.fontFamily !== "default") {
+            if (styles.fontFamily && styles.fontFamily !== "default" && styles.fontFamily !== fontInfo["default"].name) {
                 fontInfo.config = {
                     name: styles.fontFamily,
                     fontWeights: this.getFontWeights(styles.fontFamily)

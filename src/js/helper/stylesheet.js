@@ -10,6 +10,7 @@
 
         let styles = {};
         let customCss = "";
+        let defaultVal = false;
 
         /**
          * Retrieves the replacements for the stylesheets from the storage
@@ -17,8 +18,6 @@
          * @param {object} opts
          */
         this.init = (opts) => {
-            let defaultVal = false;
-
             if (opts && opts.defaultVal && opts.defaultVal === true) { // use the default styles instead of the configured (will be used by the settings page, the changelog and the onboarding)
                 defaultVal = true;
             }
@@ -37,7 +36,7 @@
             if (context === null) { // page context
                 context = $(document);
             } else { // extension context
-                ext.helper.font.addStylesheet(context);
+                ext.helper.font.addStylesheet(context, defaultVal ? "default" : "config");
 
                 if ($.cl && $.cl.page) {
                     if (ext.helper.model.getData("b/animations") === false && $.cl.page.noAnimations) {

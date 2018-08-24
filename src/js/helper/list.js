@@ -242,6 +242,33 @@
         };
 
         /**
+         * Hides the headline label or the entire headline when the sidebar is to small to display them inline with the icons
+         */
+        this.handleSidebarWidthChange = () => {
+            let headerIcons = ext.elm.header.children("a");
+            let headline = ext.elm.header.children("h1");
+
+            headline.removeClass($.cl.hidden);
+            headline.children("span").removeClass($.cl.hidden);
+
+            ["label", "amount"].forEach((type) => {
+                let lastOffset = null;
+                headerIcons.forEach((icon) => {
+                    if (lastOffset === null) {
+                        lastOffset = icon.offsetTop;
+                    } else if (lastOffset !== icon.offsetTop || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
+                        if (type === "label") {
+                            headline.children("span").addClass($.cl.hidden);
+                        } else if (type === "amount") {
+                            headline.addClass($.cl.hidden);
+                        }
+                        return false;
+                    }
+                });
+            });
+        };
+
+        /**
          * Updates the html for the sidebar header
          */
         this.updateSidebarHeader = () => {
@@ -255,31 +282,16 @@
             ext.elm.header.text("");
             let bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
 
-            let headline = $("<h1 />")
+            $("<h1 />")
                 .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
                 .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
                 .appendTo(ext.elm.header);
 
-            let headerIcons = [];
-            headerIcons.push($("<a />").addClass($.cl.sidebar.search).appendTo(ext.elm.header));
-            headerIcons.push($("<a />").addClass($.cl.sidebar.sort).appendTo(ext.elm.header));
-            headerIcons.push($("<a />").addClass($.cl.sidebar.menu).appendTo(ext.elm.header));
+            $("<a />").addClass($.cl.sidebar.search).appendTo(ext.elm.header);
+            $("<a />").addClass($.cl.sidebar.sort).appendTo(ext.elm.header);
+            $("<a />").addClass($.cl.sidebar.menu).appendTo(ext.elm.header);
 
-            ["label", "amount"].forEach((type) => {
-                let lastOffset = null;
-                headerIcons.some((icon) => {
-                    if (lastOffset === null) {
-                        lastOffset = icon[0].offsetTop;
-                    } else if (lastOffset !== icon[0].offsetTop || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
-                        if (type === "label") {
-                            headline.children("span").addClass($.cl.hidden);
-                        } else if (type === "amount") {
-                            headline.addClass($.cl.hidden);
-                        }
-                        return true;
-                    }
-                });
-            });
+            this.handleSidebarWidthChange();
 
             $("<div />")
                 .addClass($.cl.sidebar.searchBox)

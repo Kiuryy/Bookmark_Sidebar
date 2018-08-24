@@ -191,6 +191,7 @@
          */
         this.addSidebarHoverClass = () => {
             ext.elm.iframe.addClass($.cl.page.hover);
+            ext.elm.iframe.css("width", "");
             hoveredOnce = true;
         };
 
@@ -206,9 +207,16 @@
                 contextmenus.length() === 0 &&
                 tooltips.length() === 0 &&
                 !ext.elm.iframeBody.hasClass($.cl.drag.isDragged) &&
+                !ext.elm.widthDrag.hasClass($.cl.drag.isDragged) &&
+                !ext.elm.widthDrag.hasClass($.cl.hover) &&
                 !ext.elm.lockPinned.hasClass($.cl.active)
             ) {
                 ext.elm.iframe.removeClass($.cl.page.hover);
+
+                let dataWidth = ext.elm.iframe.data("width");
+                if (dataWidth) { // user dragged the sidebar width -> don't take the iframe width of the css file, but from the data attribute
+                    ext.elm.iframe.css("width", dataWidth + "px");
+                }
             }
         };
 
@@ -245,7 +253,12 @@
                             clientX = ext.elm.iframe.realWidth() - clientX;
                         }
                     }
-                    if (clientX > ext.elm.sidebar.realWidth() && ext.elm.iframe.hasClass($.cl.page.visible)) {
+
+                    if (
+                        clientX > ext.elm.sidebar.realWidth() &&
+                        ext.elm.iframe.hasClass($.cl.page.visible) &&
+                        ext.elm.widthDrag.hasClass($.cl.drag.isDragged) === false
+                    ) {
                         this.closeSidebar();
                     }
                 }
@@ -274,13 +287,14 @@
                     });
 
                     if (ext.helper.overlay.isOpened() === false &&
-                        ext.elm.iframeBody.hasClass($.cl.drag.isDragged) === false
+                        ext.elm.iframeBody.hasClass($.cl.drag.isDragged) === false &&
+                        ext.elm.widthDrag.hasClass($.cl.drag.isDragged) === false
                     ) {
                         let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
                         if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
                             timeout.close = setTimeout(() => {
-                                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged) === false) {
+                                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged) === false && ext.elm.widthDrag.hasClass($.cl.drag.isDragged) === false) {
                                     this.closeSidebar();
                                 }
                             }, +closeTimeoutRaw * 1000);

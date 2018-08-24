@@ -2,7 +2,7 @@ div.contextmenu, div.tooltip, a.dragHelper > span.drag, section#sidebar > header
   opacity: 0;
   pointer-events: none; }
 
-div.contextmenu.visible, div.tooltip.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag {
+div.contextmenu.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag {
   opacity: 1;
   pointer-events: auto; }
 
@@ -288,6 +288,7 @@ div.tooltip {
   transform: translate3d(-5px, 0, 0);
   transition: opacity 0.3s, transform 0.3s; }
   div.tooltip.visible {
+    opacity: 1;
     transform: translate3d(0, 0, 0) !important; }
   div.tooltip > h3[data-num]::after {
     content: " " attr(data-num); }
@@ -815,6 +816,16 @@ section#sidebar {
     section#sidebar > header.searchVisible > div.searchBox {
       transform: translate3d(0, 0, 0);
       transition: transform 0.5s 0.1s, opacity 0.5s 0.1s; }
+  section#sidebar > span.drag {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+    transition: background 0.5s; }
+    section#sidebar > span.drag:hover, section#sidebar > span.drag.isDragged {
+      background: rgba(255, 255, 255, 0.5); }
   section#sidebar > a.lockPinned {
     position: absolute;
     top: "%sidebarHeaderHeight";
@@ -855,8 +866,11 @@ section#sidebar {
       transform: translate3d(0, 0, 0) !important; }
     section#sidebar > a.lockPinned.fixed > span::before {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-unlock.svg); }
+  section#sidebar[data-pos='right'] > span.drag {
+    right: unset;
+    left: -10px; }
   section#sidebar[data-pos='right'] > a.lockPinned {
-    right: auto;
+    right: unset;
     left: -22px;
     transform: translate3d(7px, 0, 0); }
   section#sidebar > div.filter {
@@ -1406,6 +1420,8 @@ body.dark section#sidebar {
     border-color: rgba(255, 255, 255, 0.1); }
   body.dark section#sidebar > div.filter {
     background: #4d4d4d; }
+  body.dark section#sidebar > span.drag:hover, body.dark section#sidebar > span.drag.isDragged {
+    background: rgba(0, 0, 0, 0.2); }
   body.dark section#sidebar > a.lockPinned {
     background: #3d3d3d;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2); }

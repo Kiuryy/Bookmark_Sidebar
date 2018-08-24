@@ -806,7 +806,7 @@ section#content {
     width: calc(100vw - %sidebarWidth);
     margin-left: "%sidebarWidth"; }
     section#content.small ~ iframe#blockbyte-bs-sidebar:not(.blockbyte-bs-hover) {
-      width: "%sidebarWidth" !important; }
+      width: "%sidebarWidth"; }
   section#content > section.mid {
     position: relative;
     width: 100%;

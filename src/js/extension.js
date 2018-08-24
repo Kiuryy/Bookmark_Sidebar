@@ -412,6 +412,7 @@
                 this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elm.sidebar));
             });
 
+            this.elm.widthDrag = $("<span />").addClass($.cl.drag.trigger).appendTo(this.elm.sidebar);
             this.elm.filterBox = $("<div />").addClass($.cl.sidebar.filterBox).appendTo(this.elm.sidebar);
             this.elm.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
             this.elm.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elm.sidebar);

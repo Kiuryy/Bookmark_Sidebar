@@ -11,6 +11,9 @@
         let markTimeout = null;
         let lockPinnedEntriesTimeout = null;
         let isRestoring = false;
+        let sidebarPos = null;
+
+        let sidebarWidthRange = {min: 150, max: 600};
 
         /**
          * Initializes the helper
@@ -18,9 +21,12 @@
          * @returns {Promise}
          */
         this.init = async () => {
+            sidebarPos = ext.helper.model.getData("b/sidebarPosition");
+
             initBookmarkEntriesEvents();
             initFilterEvents();
             initPinnedEntriesEvents();
+            initSidebarWidthEvents();
             initGeneralEvents();
         };
 
@@ -288,6 +294,65 @@
                     ext.helper.overlay.create("shareInfoDesc", title, {type: $(e.currentTarget).data("type")});
                 } else {
                     saveTrackingPreferences();
+                }
+            });
+        };
+
+        /**
+         * Initialises the eventhandlers for dragging the sidebar width
+         *
+         * @returns {Promise}
+         */
+        let initSidebarWidthEvents = async () => {
+            ext.elm.widthDrag.on("mousemove", () => {
+                ext.elm.widthDrag.addClass($.cl.hover);
+            }).on("mouseleave", () => {
+                ext.elm.widthDrag.removeClass($.cl.hover);
+            }).on("mousedown", (e) => { // change width of sidebar
+                ext.helper.contextmenu.close();
+                ext.helper.tooltip.close();
+                ext.helper.toggle.addSidebarHoverClass();
+
+                ext.elm.widthDrag.data("dragInfo", {start: e.clientX, width: ext.elm.sidebar.realWidth()});
+                ext.elm.widthDrag.addClass($.cl.drag.isDragged);
+            });
+
+            ext.elm.iframeBody.on("mousemove", (e) => {
+                if (ext.elm.widthDrag.hasClass($.cl.drag.isDragged) && e.which === 1) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    let dragInfo = ext.elm.widthDrag.data("dragInfo");
+                    let diff = e.clientX - dragInfo.start;
+
+                    if (sidebarPos === "right") {
+                        diff *= -1;
+                    }
+
+                    ext.helper.toggle.addSidebarHoverClass();
+
+                    let sidebarWidth = dragInfo.width + diff;
+                    sidebarWidth = Math.min(sidebarWidth, sidebarWidthRange.max);
+                    sidebarWidth = Math.max(sidebarWidth, sidebarWidthRange.min);
+
+                    ext.elm.sidebar.css("width", sidebarWidth + "px");
+                    ext.helper.list.handleSidebarWidthChange();
+                }
+            }).on("mouseup", () => { // save current sidebar width
+                if (ext.elm.widthDrag.data("dragInfo")) {
+                    ext.elm.widthDrag.removeData("dragInfo");
+                    let styles = ext.helper.model.getData("a/styles");
+
+                    $.delay().then(() => {
+                        styles.sidebarWidth = ext.elm.sidebar.realWidth() + "px";
+                        ext.helper.model.setData({"a/styles": styles});
+
+                        if (ext.elm.iframe.hasClass($.cl.page.hideMask)) { // save width of iframe in data attribute
+                            ext.elm.iframe.data("width", ext.elm.sidebar.realWidth() + 50);
+                        }
+
+                        ext.helper.toggle.removeSidebarHoverClass();
+                        ext.elm.widthDrag.removeClass($.cl.drag.isDragged);
+                    });
                 }
             });
         };

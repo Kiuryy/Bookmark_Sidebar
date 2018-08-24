@@ -216,6 +216,20 @@ section#sidebar {
     }
   }
 
+  > span.drag {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    cursor: ew-resize;
+    transition: background 0.5s;
+
+    &:hover, &.isDragged {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+
   > a.lockPinned {
     position: absolute;
     top: $__sidebarHeaderHeight;
@@ -266,8 +280,13 @@ section#sidebar {
 
   &[data-pos='right'] {
 
+    > span.drag {
+      right: unset;
+      left: -10px;
+    }
+
     > a.lockPinned {
-      right: auto;
+      right: unset;
       left: -22px;
       transform: translate3d(7px, 0, 0);
     }

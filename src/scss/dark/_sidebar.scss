@@ -11,6 +11,13 @@ body.dark {
       background: $darkContentBackground2;
     }
 
+    > span.drag {
+
+      &:hover, &.isDragged {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+
     > a.lockPinned {
       background: $darkContentBackground;
       box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);

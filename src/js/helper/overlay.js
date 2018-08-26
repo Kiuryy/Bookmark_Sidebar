@@ -24,6 +24,7 @@
             elements.overlay = $("<iframe />")
                 .attr("id", $.opts.ids.page.overlay)
                 .data("info", data || {})
+                .addClass("notranslate") // 'notranslate' prevents Google translator from translating the content of the overlay
                 .appendTo("body");
 
             ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);

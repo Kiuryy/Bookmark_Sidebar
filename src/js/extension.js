@@ -398,7 +398,7 @@
          */
         let initSidebar = async () => {
             let config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
-            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").appendTo("body");
+            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").addClass("notranslate").appendTo("body");  // 'notranslate' prevents Google translator from translating the content of the sidebar
 
             if (config.animations === false) {
                 this.elm.iframe.addClass($.cl.page.noAnimations);

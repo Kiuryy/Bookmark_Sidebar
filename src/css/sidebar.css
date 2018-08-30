@@ -1250,11 +1250,11 @@ div#shareInfo, div#reloadInfo {
     margin: auto;
     color: "%textColor"; }
     div#shareInfo > div > h2, div#reloadInfo > div > h2 {
-      font-size: 250%;
+      font-size: 180%;
       font-weight: "%fontWeightNormal";
-      margin-bottom: 50px; }
+      margin-bottom: 40px; }
     div#shareInfo > div > p, div#reloadInfo > div > p {
-      font-size: 120%;
+      font-size: 110%;
       line-height: 150%;
       margin: 20px 0; }
       div#shareInfo > div > p > strong, div#reloadInfo > div > p > strong {

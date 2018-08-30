@@ -131,6 +131,7 @@
         };
 
         let data = {};
+        let userType = null;
         let port = null;
         let callbacks = {};
 
@@ -178,7 +179,7 @@
          */
         let refresh = () => {
             return new Promise((resolve) => {
-                let keys = ["utility", "behaviour", "appearance", "newtab"];
+                let keys = ["utility", "behaviour", "appearance", "newtab", "licenseKey", "model"];
                 let newData = {};
 
                 let len = keys.length;
@@ -189,11 +190,34 @@
 
                         if (++loaded === len) { // all data loaded from storage -> resolve promise
                             data = newData;
+
+                            if (userType === null) {
+                                userType = "default";
+
+                                if (typeof data.licenseKey === "string" && data.licenseKey.length === 29) { // license key is available
+                                    userType = "premium";
+                                } else if (data.model && data.model.installationDate && data.model.installationDate < 1538352000000) { // installed before 01.10.2018
+                                    userType = "legacy";
+                                }
+                            }
+
+                            delete data.licenseKey;
+                            delete data.model;
+
                             resolve();
                         }
                     });
                 });
             });
+        };
+
+        /**
+         * Returns the user type (default, legagy or premium)
+         *
+         * @returns {string}
+         */
+        this.getUserType = () => {
+            return userType;
         };
 
         /**

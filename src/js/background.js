@@ -10,6 +10,7 @@
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
             track: "https://extensions.blockbyte.de/ajax/evaluate/bs",
+            premiumCheck: "https://extensions.blockbyte.de/ajax/premium/check/bs",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
             checkUrls: "https://4v1.de/u",
             thumbnail: "https://4v1.de/t"
@@ -97,6 +98,53 @@
 
                         resolve();
                     });
+                });
+            });
+        };
+
+        /**
+         * Activates premium by checking the given license key and storing the license key in the sync storage
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.activatePremium = (opts) => {
+            return new Promise((resolve) => {
+                checkLicenseKey(opts.licenseKey).then((response) => {
+                    if (response.valid === true) {
+                        this.helper.model.setLicenseKey(opts.licenseKey).then(() => {
+                            this.reload({type: "premiumActivated"});
+                        }).then(resolve);
+                    } else {
+                        resolve();
+                    }
+                });
+            });
+        };
+
+        /**
+         * Checks, whether the given license key is valid or not
+         *
+         * @param {string} licenseKey
+         * @returns {Promise}
+         */
+        let checkLicenseKey = (licenseKey) => {
+            return new Promise((resolve) => {
+
+                $.xhr(this.urls.premiumCheck, {
+                    method: "POST",
+                    responseType: "json",
+                    data: {
+                        licenseKey: licenseKey
+                    }
+                }).then((xhr) => {
+                    if (xhr.response && typeof xhr.response.valid !== "undefined") {
+                        resolve({valid: xhr.response.valid});
+                    } else {
+                        resolve({valid: null});
+                    }
+                }, () => {
+                    resolve({valid: null});
                 });
             });
         };
@@ -223,6 +271,15 @@
             }).then(() => {
                 if (this.isDev && console && console.log) {
                     console.log("Finished loading background script", +new Date() - start);
+                }
+
+                let licenseKey = this.helper.model.getLicenseKey();
+                if (licenseKey) { // check if the license key is valid and if not, remove it from the sync storage
+                    checkLicenseKey(licenseKey).then((response) => {
+                        if (response.valid === false) {
+                            this.helper.model.setLicenseKey(null);
+                        }
+                    });
                 }
             });
         };

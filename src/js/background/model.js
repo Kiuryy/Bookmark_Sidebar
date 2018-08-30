@@ -3,6 +3,7 @@
 
     $.ModelHelper = function (b) {
         let data = {};
+        let licenseKey = null;
         let shareInfo = {
             config: null,
             activity: null
@@ -14,10 +15,14 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["model", "shareInfo"], (obj) => {
+                chrome.storage.sync.get(["model", "shareInfo", "licenseKey"], (obj) => {
                     data = obj.model || {};
                     if (typeof obj.shareInfo === "object") {
                         shareInfo = obj.shareInfo;
+                    }
+
+                    if (typeof obj.licenseKey === "string" && obj.licenseKey.length === 29) {
+                        licenseKey = obj.licenseKey;
                     }
 
                     if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
@@ -37,6 +42,13 @@
         this.getShareInfo = () => shareInfo;
 
         /**
+         * Returns the stored license key
+         *
+         * @returns {object}
+         */
+        this.getLicenseKey = () => licenseKey;
+
+        /**
          * Sets the information about what the users wants to be tracked
          *
          * @param {object} opts
@@ -53,6 +65,25 @@
                     shareInfo: shareInfo
                 }, () => {
                     chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                    resolve();
+                });
+            });
+        };
+
+        /**
+         * Stores the given license key in the sync storage
+         *
+         * @param {string} key
+         * @returns {Promise}
+         */
+        this.setLicenseKey = (key) => {
+            return new Promise((resolve) => {
+
+                chrome.storage.sync.set({
+                    licenseKey: key
+                }, () => {
+                    chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                    licenseKey = key;
                     resolve();
                 });
             });

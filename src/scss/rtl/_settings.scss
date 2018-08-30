@@ -27,8 +27,12 @@ html[dir='rtl'] {
     }
   }
 
-  a.import, a.export {
-    margin-left: 15px;
-    margin-right: unset;
+  p.premium {
+    padding-left: 0;
+    padding-right: 50px;
+
+    &::before {
+      transform: scaleX(-1);
+    }
   }
 }

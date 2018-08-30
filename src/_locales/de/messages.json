@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "Wir haben stattdessen einen neuen Tab mit der Sidebar ge\u00f6ffnet."
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "Erfahre mehr"
     },
     "newtab_fallback_set_as_new_tab": {

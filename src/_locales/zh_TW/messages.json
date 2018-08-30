@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "\u4f5c\u70ba\u66ff\u4ee3\uff0c\u6211\u5011\u5728\u65b0\u5206\u9801\u958b\u555f\u4e86\u5074\u908a\u6b04"
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "\u77ad\u89e3\u66f4\u591a"
     },
     "newtab_fallback_set_as_new_tab": {

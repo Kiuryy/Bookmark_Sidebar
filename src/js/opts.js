@@ -26,6 +26,7 @@
             visible: "visible",
             hidden: "hidden",
             success: "success",
+            premium: "premium",
             error: "error",
             info: "info",
             close: "close",
@@ -153,9 +154,6 @@
                 radio: {
                     wrapper: "radioWrapper"
                 },
-                range: {
-                    inactive: "inactive"
-                },
                 newtab: {
                     hideable: "hideable"
                 },
@@ -189,6 +187,7 @@
                     noHeight: "noHeight",
                     absolute: "absolute"
                 },
+                inactive: "inactive",
                 revert: "revert",
                 highlight: "highlight",
                 showModal: "showModal",
@@ -257,6 +256,7 @@
             overlayClosed: "blockbyte-bs-overlay-closed",
             checkboxChanged: "blockbyte-bs-checkbox-changed",
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
+            premiumPurchased: "blockbyte-bs-premiumPurchased",
             lsbLoaded: "blockbyte-lsb-loaded",
             pageChanged: "blockbyte-bs-pageChanged"
         },

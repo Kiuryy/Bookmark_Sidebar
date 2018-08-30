@@ -39,6 +39,10 @@ body > section#wrapper div.advanced {
       height: 200px;
       min-height: 200px;
 
+      &.inactive {
+        display: none;
+      }
+
       ~ span {
         display: block;
         margin-top: 10px;

@@ -26,8 +26,11 @@
             initBookmarkEntriesEvents();
             initFilterEvents();
             initPinnedEntriesEvents();
-            initSidebarWidthEvents();
             initGeneralEvents();
+
+            if (ext.helper.model.getUserType() === "premium") {
+                initSidebarWidthEvents();
+            }
         };
 
         this.handleEntryClick = (elm, opts) => {
@@ -240,6 +243,13 @@
                 ext.helper.tooltip.close();
             });
 
+
+            $(document).on($.opts.events.premiumPurchased, (e) => { // user purchased premium -> activate by checking the license key
+                if (e.detail && e.detail.licenseKey) {
+                    $(document).off($.opts.events.premiumPurchased);
+                    ext.helper.model.call("activatePremium", {licenseKey: e.detail.licenseKey});
+                }
+            });
 
             $(ext.elm.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {
                 let name = e.detail.checkbox.attr($.attr.name);

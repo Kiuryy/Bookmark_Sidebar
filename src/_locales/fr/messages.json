@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "Nous avons ouvert un nouvel onglet avec la barre lat\u00e9rale pour vous"
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "En savoir plus"
     },
     "newtab_fallback_set_as_new_tab": {

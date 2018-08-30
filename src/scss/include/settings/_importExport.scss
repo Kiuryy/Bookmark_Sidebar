@@ -1,0 +1,26 @@
+div.tab[data-name='export'] {
+
+  a.import, a.export {
+    margin: 30px 15px 0 0;
+
+    &.inactive {
+      pointer-events: none;
+      background: $contentBackground2;
+      color: $textColorLight;
+    }
+  }
+
+  a.import > input[type='file'] {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: -400%;
+    width: 500%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    z-index: 2;
+  }
+}
+
+@import "../../rtl/include/settings/importExport";

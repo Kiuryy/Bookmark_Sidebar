@@ -321,9 +321,9 @@
 
                     checkbox.children("input[type='checkbox']").on("change", (e) => {
                         if (e.currentTarget.checked) {
-                            s.elm.range[opts.name].addClass($.cl.settings.range.inactive);
+                            s.elm.range[opts.name].addClass($.cl.settings.inactive);
                         } else {
-                            s.elm.range[opts.name].removeClass($.cl.settings.range.inactive);
+                            s.elm.range[opts.name].removeClass($.cl.settings.inactive);
                         }
                     });
 

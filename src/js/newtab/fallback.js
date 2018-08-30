@@ -95,7 +95,7 @@
             let texts = {
                 headline: "newtab_fallback_headline_general",
                 desc: "newtab_fallback_desc",
-                link: "newtab_fallback_link"
+                link: "more_link"
             };
 
             switch (type) {

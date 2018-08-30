@@ -184,6 +184,29 @@ div.modal {
     }
   }
 
+  p.premium {
+    @include mask('icon-premium', $__textColor, 48px);
+    position: relative;
+    padding: 95px 0 0 0;
+
+    &::before {
+      -webkit-mask-position-y: 20px;
+      pointer-events: none;
+    }
+
+    > span {
+      display: block;
+      margin-bottom: 25px;
+    }
+
+    > a {
+      font-weight: $__fontWeightMedium;
+      cursor: pointer;
+      color: $__colorScheme;
+      font-size: 80%;
+    }
+  }
+
   &[data-type='keyboardShortcuts'] {
     @extend %modalFooterBackground;
     width: 600px;

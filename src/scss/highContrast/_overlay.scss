@@ -8,6 +8,13 @@ body.highContrast:not(.dark) div.modal {
     }
   }
 
+  p.premium {
+
+    > a {
+      color: $__textColor;
+    }
+  }
+
   &[data-type='add'] {
 
     > menu[data-name='select'] {

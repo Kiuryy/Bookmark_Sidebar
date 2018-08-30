@@ -601,6 +601,8 @@ body > section#wrapper div.advanced {
       font-size: 90%;
       height: 200px;
       min-height: 200px; }
+      body > section#wrapper div.advanced > div textarea[data-name='customCss'].inactive {
+        display: none; }
       body > section#wrapper div.advanced > div textarea[data-name='customCss'] ~ span {
         display: block;
         margin-top: 10px;
@@ -1104,7 +1106,6 @@ div.tab[data-name='feedback'] section.form {
     div.tab[data-name='feedback'] section.form.hidden + p.error {
       position: relative;
       text-align: center;
-      margin-top: 30px;
       background: #f2f2f2;
       line-height: 150%;
       padding: 90px 30px 30px;
@@ -1909,6 +1910,28 @@ html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div
   direction: ltr;
   text-align: left; }
 
+div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export {
+  margin: 30px 15px 0 0; }
+  div.tab[data-name='export'] a.import.inactive, div.tab[data-name='export'] a.export.inactive {
+    pointer-events: none;
+    background: #f5f5f5;
+    color: #aaa; }
+
+div.tab[data-name='export'] a.import > input[type='file'] {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: -400%;
+  width: 500%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  z-index: 2; }
+
+html[dir='rtl'] div.tab[data-name='export'] a.import, html[dir='rtl'] div.tab[data-name='export'] a.export {
+  margin-left: 15px;
+  margin-right: unset; }
+
 body > section#wrapper::before {
   content: "";
   position: absolute;
@@ -2330,19 +2353,32 @@ main button[type='submit'], a.button, div.upload {
   border-radius: 3px;
   margin: 10px 0; }
 
-a.import, a.export {
-  margin: 30px 15px 0 0; }
-
-a.import > input[type='file'] {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: -400%;
-  width: 500%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  z-index: 2; }
+p.premium {
+  position: relative;
+  margin: 20px 0;
+  padding: 0 0 0 50px;
+  font-size: 120%; }
+  p.premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/32px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
+    background-color: #666; }
+  p.premium::before {
+    -webkit-mask-position-x: 0;
+    pointer-events: none; }
+  p.premium > span {
+    display: block;
+    margin-bottom: 3px; }
+  p.premium > a {
+    font-weight: "%fontWeightMedium";
+    cursor: pointer;
+    color: #7b5fa4;
+    font-size: 80%; }
 
 html[dir='rtl'] div.noticeBox::before {
   left: unset;
@@ -2359,8 +2395,10 @@ html[dir='rtl'] ul.bulletList > li {
     left: unset;
     right: 0; }
 
-html[dir='rtl'] a.import, html[dir='rtl'] a.export {
-  margin-left: 15px;
-  margin-right: unset; }
+html[dir='rtl'] p.premium {
+  padding-left: 0;
+  padding-right: 50px; }
+  html[dir='rtl'] p.premium::before {
+    transform: scaleX(-1); }
 
 /*# sourceMappingURL=settings.css.map */

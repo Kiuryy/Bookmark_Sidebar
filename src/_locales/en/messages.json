@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "We have opened a new tab with the sidebar for you instead."
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "Learn more"
     },
     "newtab_fallback_set_as_new_tab": {

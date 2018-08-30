@@ -8,8 +8,12 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            initExport();
-            initImport();
+            if (s.helper.model.getUserType() !== "default") {
+                initExport();
+                initImport();
+            } else {
+                initNoPremium();
+            }
         };
 
         /**
@@ -30,13 +34,25 @@
             window.alert(s.helper.i18n.get("settings_import_failed"));
         };
 
+
+        /**
+         *
+         */
+        let initNoPremium = () => {
+            s.addNoPremiumText(s.elm.importExport.content.children("div"));
+
+            ["import", "export"].forEach((field) => {
+                s.elm.buttons[field].addClass($.cl.settings.inactive);
+            });
+        };
+
         /**
          * Initialises the import function
          *
          * @returns {Promise}
          */
         let initImport = async () => {
-            s.elm.buttons["import"].on("change", (e) => { // import config
+            s.elm.buttons["import"].children("input[type='file']").on("change", (e) => { // import config
                 e.preventDefault();
                 let _self = e.currentTarget;
 

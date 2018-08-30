@@ -71,7 +71,7 @@
                 ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
                     let val = -1;
 
-                    if (s.elm.range[field].hasClass($.cl.settings.range.inactive) === false) { // if inactive set -1 as value else use the selected value
+                    if (s.elm.range[field].hasClass($.cl.settings.inactive) === false) { // if inactive set -1 as value else use the selected value
                         val = s.elm.range[field][0].value;
                     }
 

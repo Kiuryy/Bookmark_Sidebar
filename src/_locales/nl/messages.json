@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "We hebben een nieuwe zijbalk geopend voor je."
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "Lees verder."
     },
     "newtab_fallback_set_as_new_tab": {

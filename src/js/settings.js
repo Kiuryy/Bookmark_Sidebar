@@ -27,8 +27,8 @@
                 toggleAreaOpen: $("div.tab[data-name='sidebar'] div.toggleAreaDesc > a.button"),
                 toggleAreaSave: $("div.toggleAreaModal a.save"),
                 toggleAreaCancel: $("div.toggleAreaModal a.cancel"),
-                "import": $("body a.import > input[type='file']"),
-                "export": $("body a.export"),
+                "import": $("body a.import"),
+                "export": $("body a.export")
             },
             sidebar: {
                 filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
@@ -39,7 +39,10 @@
                 presetWrapper: $("div.tab[data-name='appearance'] div.presets")
             },
             newtab: {
-                content: $("div.tab[data-name='newtab']"),
+                content: $("div.tab[data-name='newtab']")
+            },
+            importExport: {
+                content: $("div.tab[data-name='export']")
             },
             feedback: {
                 wrapper: $("div.tab[data-name='feedback']"),
@@ -133,6 +136,25 @@
                         this.elm[name].wrapper.removeClass($.cl.loading);
                     });
                 });
+            });
+        };
+
+        /**
+         * Adds a box with a info that the feature is only available with premium to the given element
+         *
+         * @param {jsu} elm
+         */
+        this.addNoPremiumText = (elm) => {
+            let desc = $("<p />")
+                .addClass($.cl.premium)
+                .html("<span>" + "This feature is only available with Premium" + "</span>")
+                .appendTo(elm);
+
+            let link = $("<a />").text(this.helper.i18n.get("more_link")).appendTo(desc);
+
+            link.on("click", (e) => { // show info page
+                e.preventDefault();
+                location.href = "#premium";
             });
         };
 

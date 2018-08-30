@@ -397,6 +397,30 @@ div.modal {
     div.modal > div.info + ul {
       margin-top: 25px;
       padding-top: 30px; }
+  div.modal p.premium {
+    position: relative;
+    padding: 95px 0 0 0; }
+    div.modal p.premium::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/48px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
+      background-color: "%textColor"; }
+    div.modal p.premium::before {
+      -webkit-mask-position-y: 20px;
+      pointer-events: none; }
+    div.modal p.premium > span {
+      display: block;
+      margin-bottom: 25px; }
+    div.modal p.premium > a {
+      font-weight: "%fontWeightMedium";
+      cursor: pointer;
+      color: "%colorScheme";
+      font-size: 80%; }
   div.modal[data-type='keyboardShortcuts'] {
     width: 600px;
     height: 600px;
@@ -1156,6 +1180,9 @@ html[dir='rtl'] div.modal > menu.buttons {
 body.highContrast:not(.dark) div.modal > header > a.close:hover {
   background-color: rgba(0, 0, 0, 0.07); }
 
+body.highContrast:not(.dark) div.modal p.premium > a {
+  color: "%textColor"; }
+
 body.highContrast:not(.dark) div.modal[data-type='add'] > menu[data-name='select'] > a.hover::before {
   background-color: "%textColor"; }
 
@@ -1178,6 +1205,8 @@ body.dark div.modal {
     background: rgba(255, 255, 255, 0.05); }
   body.dark div.modal > div.info {
     border-color: rgba(255, 255, 255, 0.1); }
+  body.dark div.modal p.premium > a {
+    color: "%textColor"; }
   body.dark div.modal[data-type='edit'] > ul > li.info, body.dark div.modal[data-type='add'] > ul > li.info {
     border-color: rgba(255, 255, 255, 0.1); }
   body.dark div.modal[data-type='edit'] > ul > li > input, body.dark div.modal[data-type='edit'] > ul > li > textarea, body.dark div.modal[data-type='add'] > ul > li > input, body.dark div.modal[data-type='add'] > ul > li > textarea {

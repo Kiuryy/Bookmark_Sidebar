@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "\ub300\uc2e0 \uc0ac\uc774\ub4dc \ubc14\ub97c \uc0ac\uc6a9\ud558\uc5ec \uc0c8 \ud0ed\uc744 \uc5f4\uc5c8\uc2b5\ub2c8\ub2e4."
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "\ub354 \uc54c\uc544\ubcf4\uae30"
     },
     "newtab_fallback_set_as_new_tab": {

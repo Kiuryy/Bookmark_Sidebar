@@ -43,10 +43,15 @@
                         s.elm.checkbox[field].children("input").data("initial", checked);
                     });
 
-                    let customCss = s.helper.model.getData("u/customCss");
-                    s.elm.textarea.customCss[0].value = customCss;
-                    s.elm.textarea.customCss.data("initial", customCss);
-                    s.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
+                    if (s.helper.model.getUserType() !== "default") {
+                        let customCss = s.helper.model.getData("u/customCss");
+                        s.elm.textarea.customCss[0].value = customCss;
+                        s.elm.textarea.customCss.data("initial", customCss);
+                        s.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
+                    } else {
+                        s.elm.textarea.customCss.addClass($.cl.settings.inactive);
+                        s.addNoPremiumText(s.elm.textarea.customCss.parent());
+                    }
 
                     let styles = s.helper.model.getData("a/styles");
 
@@ -339,7 +344,7 @@
         let getCurrentConfig = () => {
             let ret = {
                 utility: {
-                    customCss: s.elm.textarea.customCss[0].value
+                    customCss: s.helper.model.getUserType() === "default" ? "" : s.elm.textarea.customCss[0].value
                 },
                 appearance: {
                     darkMode: s.helper.checkbox.isChecked(s.elm.checkbox.darkMode),

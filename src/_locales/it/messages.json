@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "Abbiamo invece aperto una nuova scheda con la barra laterale."
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "Per saperne di pi\u00f9"
     },
     "newtab_fallback_set_as_new_tab": {

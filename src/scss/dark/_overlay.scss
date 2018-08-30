@@ -10,6 +10,13 @@ body.dark div.modal {
     border-color: rgba(255, 255, 255, 0.1);
   }
 
+  p.premium {
+
+    > a {
+      color: $__textColor;
+    }
+  }
+
   &[data-type='edit'], &[data-type='add'] {
 
     > ul > li {

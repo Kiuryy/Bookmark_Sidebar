@@ -2,7 +2,7 @@
     "use strict";
 
     /**
-     * @requires helper: i18n, overlay, utility, template
+     * @requires helper: i18n, overlay, model, utility, template
      * @param {object} ext
      * @constructor
      */
@@ -13,10 +13,47 @@
 
         /**
          * Initialises the bookmark url checker
+         *
+         * @param {object }entries
          */
         this.run = (modal, entries) => {
             elements.modal = modal;
             elements.body = modal.parents("body");
+
+            if (ext.helper.model.getUserType() !== "default") {
+                initOverlay(entries);
+            } else {
+                initNoPremiumText();
+            }
+        };
+
+        /**
+         *
+         */
+        let initNoPremiumText = () => {
+            let desc = $("<p />")
+                .addClass($.cl.premium)
+                .html("<span>" + "This feature is only available with Premium" + "</span>")
+                .appendTo(elements.modal);
+
+            let link = $("<a />").text(ext.helper.i18n.get("more_link")).appendTo(desc);
+
+            link.on("click", (e) => {
+                e.preventDefault();
+                ext.helper.model.call("openLink", {
+                    href: chrome.extension.getURL("html/settings.html#premium"),
+                    newTab: true
+                });
+            });
+
+            ext.helper.overlay.setCloseButtonLabel("close");
+        };
+
+        /**
+         *
+         * @param {object }entries
+         */
+        let initOverlay = (entries) => {
             elements.buttonWrapper = elements.modal.find("menu." + $.cl.overlay.buttonWrapper);
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
             elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_bookmarks_loading")).appendTo(elements.modal);

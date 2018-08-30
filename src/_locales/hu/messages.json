@@ -266,7 +266,7 @@
     "newtab_fallback_desc": {
         "message": "Helyette megnyitottunk egy \u00fcres f\u00fclet az oldals\u00e1vval."
     },
-    "newtab_fallback_link": {
+    "more_link": {
         "message": "Tudj meg t\u00f6bbet"
     },
     "newtab_fallback_set_as_new_tab": {

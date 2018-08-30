@@ -156,6 +156,7 @@
                 this.initialized = +new Date();
                 this.state = "loaded";
                 this.log("Finished loading in " + (this.initialized - this.updateBookmarkBoxStart) + "ms");
+                this.log("User type: " + this.helper.model.getUserType());
 
                 this.helper.utility.triggerEvent("loaded", {
                     config: {
@@ -412,7 +413,12 @@
                 this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elm.sidebar));
             });
 
-            this.elm.widthDrag = $("<span />").addClass($.cl.drag.trigger).appendTo(this.elm.sidebar);
+            this.elm.widthDrag = $("<span />").addClass($.cl.drag.trigger);
+
+            if (this.helper.model.getUserType() === "premium") {
+                this.elm.widthDrag = this.elm.widthDrag.appendTo(this.elm.sidebar);
+            }
+
             this.elm.filterBox = $("<div />").addClass($.cl.sidebar.filterBox).appendTo(this.elm.sidebar);
             this.elm.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
             this.elm.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elm.sidebar);

@@ -21,6 +21,7 @@ $__scrollBarWidth: 14px;
 @import "include/settings/support";
 @import "include/settings/form";
 @import "include/settings/translation";
+@import "include/settings/importExport";
 @import "include/settings/menu";
 @import "include/settings/tooltip";
 @import "include/settings/colorpicker";
@@ -180,21 +181,31 @@ main button[type='submit'], a.button, div.upload {
   margin: 10px 0;
 }
 
-// Import/Export
-a.import, a.export {
-  margin: 30px 15px 0 0;
-}
+// Premium Text
+p.premium {
+  @include mask('icon-premium', $__textColor, 32px);
+  position: relative;
+  margin: 20px 0;
+  padding: 0 0 0 50px;
+  font-size: 120%;
 
-a.import > input[type='file'] {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: -400%;
-  width: 500%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  z-index: 2;
+
+  &::before {
+    -webkit-mask-position-x: 0;
+    pointer-events: none;
+  }
+
+  > span {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  > a {
+    font-weight: $__fontWeightMedium;
+    cursor: pointer;
+    color: $mainColor;
+    font-size: 80%;
+  }
 }
 
 @import "rtl/settings";

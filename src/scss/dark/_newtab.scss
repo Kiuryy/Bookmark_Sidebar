@@ -1,6 +1,10 @@
 body.dark {
   background: $darkContentBackground;
 
+  &::before {
+    background: $darkContentBackground;
+  }
+
   &.loading::before {
     background: rgba(0, 0, 0, 0.8);
   }

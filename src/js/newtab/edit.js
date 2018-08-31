@@ -10,9 +10,9 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            initEvents();
-
             $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.body);
+
+            initGeneralEvents();
 
             if (location.href.search(/#edit$/i) > -1) {
                 enterEditMode();
@@ -26,16 +26,23 @@
         this.isEditMode = () => editMode;
 
         /**
-         * Initialises the eventhandlers
+         * Initialises the general eventhandlers
          */
-        let initEvents = () => {
+        let initGeneralEvents = () => {
             n.elm.body.on("click", "a." + $.cl.newtab.edit, (e) => { // enter edit mode
                 e.preventDefault();
 
                 if (!editMode) {
                     enterEditMode();
                 }
-            }).on("click", "menu." + $.cl.newtab.infoBar + " > a", (e) => { // save changes or leave edit mode
+            });
+        };
+
+        /**
+         * Initialises the menu eventhandlers
+         */
+        let initMenuEvents = () => {
+            $("menu." + $.cl.newtab.infoBar + " > a").on("click", (e) => { // save changes or leave edit mode
                 e.preventDefault();
                 let elm = $(e.currentTarget);
 
@@ -45,7 +52,30 @@
                     saveChanges().then(() => {
                         leaveEditMode();
                     });
+                } else if (elm.hasClass($.cl.newtab.remove)) {
+                    let type = elm.attr($.attr.type);
+                    console.log(type);
                 }
+            });
+
+            $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " input").on("change", (e) => { // upload background image
+                if (e.currentTarget.files) {
+                    let reader = new FileReader();
+
+                    reader.onload = (e) => {
+                        try {
+                            n.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + e.target.result + ")");
+                        } catch (e) {
+                            //
+                        }
+                    };
+
+                    reader.readAsDataURL(e.currentTarget.files[0]);
+                }
+            });
+
+            $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " a." + $.cl.newtab.remove).on("click", (e) => { // remove background image
+                n.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
             });
         };
 
@@ -73,10 +103,13 @@
                 let loader = n.helper.template.loading().appendTo(n.elm.body);
                 n.elm.body.addClass($.cl.loading);
 
+                let background = n.elm.body.css("background-image").replace(/(^url\(|\)$)/g, "");
+
                 n.helper.model.setData({
                     "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
                     "n/topPagesType": n.elm.topPages.children("select")[0].value,
-                    "n/shortcuts": shortcuts
+                    "n/shortcuts": shortcuts,
+                    "u/newtabBackground": background && background !== "none" ? background : null
                 }).then(() => { // load at least 1s
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
                 }).then(() => {
@@ -103,6 +136,8 @@
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
             n.helper.shortcuts.refreshEntries();
 
+            n.setBackground();
+
             $.delay(500).then(() => {
                 $("menu." + $.cl.newtab.infoBar).remove();
             });
@@ -115,11 +150,21 @@
             editMode = true;
             history.pushState({}, null, location.href.replace(/#edit/g, "") + "#edit");
 
-            $("<menu />")
+            let menu = $("<menu />")
                 .addClass($.cl.newtab.infoBar)
                 .append("<a class='" + $.cl.newtab.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
                 .appendTo(n.elm.body);
+
+            if (n.helper.model.getUserType === "premium") {
+                $("<div />")
+                    .addClass($.cl.newtab.upload)
+                    .append("<a class='" + $.cl.newtab.remove + "' />")
+                    .append("<div><span>" + "Upload background image" + "</span><input type=\"file\" accept=\"image/*\" /></div>")
+                    .appendTo(menu);
+            }
+
+            initMenuEvents();
 
             $.delay().then(() => {
                 n.elm.body.addClass($.cl.newtab.edit);

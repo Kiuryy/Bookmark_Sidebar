@@ -13,12 +13,15 @@ $textColor: $__textColor;
 @import "include/newtab/edit";
 
 body {
-  background: $bodyBackground;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: $bodyBackground;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   overflow: hidden;
 
   &::before {
@@ -28,7 +31,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: inherit;
+    background: $bodyBackground;
     transition: opacity 0.3s;
     z-index: 98;
     @extend %hidden;
@@ -64,7 +67,6 @@ section#content {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: $bodyBackground;
   transition: height 0.5s;
 
   &.small {

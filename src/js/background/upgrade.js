@@ -98,7 +98,7 @@
                         delete obj.behaviour.language;
                         delete obj.appearance.language;
                         delete obj.appearance.sidebarPosition;
-                        delete obj.newtab.autoOpen;
+                        delete obj.newtab.initialOpen;
                     } catch (e) {
                         //
                     }

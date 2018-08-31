@@ -28,7 +28,6 @@ menu.infoBar {
   transform: translate3d(0, 60px, 0);
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
   align-items: center;
 
   > a {
@@ -41,13 +40,69 @@ menu.infoBar {
       font-weight: $__fontWeightMedium;
       font-size: 100%;
       border-radius: 5px;
-      box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     }
 
     &.cancel {
       color: $textColorInverted;
       margin: 0 20px;
       padding: 5px 3px;
+    }
+  }
+
+  > div.upload {
+    @extend %hidden;
+    position: absolute;
+    top: -60px;
+    right: 20px;
+    transform: translate3d(0, 30px, 0);
+    transition: transform 0.5s, opacity 0.5s;
+
+    > a.remove {
+      @include mask('icon-delete', $__textColor, 18px);
+      position: relative;
+      display: none;
+      background: $contentBackground;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    > div {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      background: $contentBackground;
+      padding: 0 8px;
+      margin: 0 0 0 10px;
+      height: 32px;
+      line-height: 32px;
+      font-weight: $__fontWeightMedium;
+      font-size: 100%;
+      border-radius: 5px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+
+      > span {
+        @include mask('settings/icon-screenshot', $__textColor, 20px);
+        position: relative;
+        padding: 0 3px 0 28px;
+
+        &::before {
+          -webkit-mask-position-x: 0;
+        }
+      }
+
+      > input[type='file'] {
+        position: absolute;
+        top: 0;
+        left: -900%;
+        width: 1000%;
+        height: 100%;
+        cursor: pointer;
+        outline: none;
+      }
     }
   }
 }
@@ -72,6 +127,32 @@ body[data-pos='right'] {
         order: 2;
       }
     }
+
+    > div.upload {
+      right: unset;
+      left: 20px;
+
+      > a.remove {
+        float: right;
+      }
+
+      > div {
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+}
+
+body.customBackground {
+
+  menu.infoBar {
+
+    > div.upload {
+
+      > a.remove {
+        display: inline-block;
+      }
+    }
   }
 }
 
@@ -83,10 +164,15 @@ body.edit {
 
   menu.infoBar {
     transform: translate3d(0, 0, 0);
+
+    > div.upload {
+      @extend %visible;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   section#content {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 60px);
 
     > nav {
 

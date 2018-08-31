@@ -45,13 +45,13 @@
 
                 this.elm.body.attr($.attr.position, config.sidebarPosition);
 
-                return this.helper.i18n.init();
-            }).then(() => {
-                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
-
                 this.helper.font.init();
                 this.helper.stylesheet.init();
                 this.helper.stylesheet.addStylesheets(["newtab"], $(document));
+
+                return this.helper.i18n.init();
+            }).then(() => {
+                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
                 this.helper.i18n.parseHtml(document);
 
                 this.helper.topPages.init();
@@ -61,6 +61,7 @@
                 this.helper.edit.init();
 
                 initEvents();
+                this.setBackground();
 
                 return $.delay(500);
             }).then(() => {
@@ -68,6 +69,22 @@
                 this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
                 $(window).trigger("resize");
             });
+        };
+
+        /**
+         * Sets the stored image as body background, if there is one available
+         *
+         * @returns {Promise}
+         */
+        this.setBackground = async () => {
+            if (this.helper.model.getUserType === "premium") {
+                let background = this.helper.model.getData("u/newtabBackground");
+                if (background) {
+                    this.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + background + ")");
+                } else {
+                    this.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
+                }
+            }
         };
 
         /*

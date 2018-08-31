@@ -269,17 +269,20 @@
                     this.helper.upgrade.init()
                 ]);
             }).then(() => {
-                if (this.isDev && console && console.log) {
-                    console.log("Finished loading background script", +new Date() - start);
-                }
-
+                return this.helper.analytics.trackUserData();
+            }).then(() => {
                 let licenseKey = this.helper.model.getLicenseKey();
-                if (licenseKey) { // check if the license key is valid and if not, remove it from the sync storage
+                let rnd = Math.floor(Math.random() * 20) + 1;
+                if (licenseKey && rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)
                     checkLicenseKey(licenseKey).then((response) => {
                         if (response.valid === false) {
                             this.helper.model.setLicenseKey(null);
                         }
                     });
+                }
+
+                if (this.isDev && console && console.log) {
+                    console.info("Finished loading background script", +new Date() - start);
                 }
             });
         };

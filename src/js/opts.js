@@ -121,6 +121,7 @@
                 urlCheckResults: "urlCheckResults"
             },
             newtab: {
+                customBackground: "customBackground",
                 smallContent: "small",
                 chromeApps: "chromeApps",
                 suggestions: "suggestions",
@@ -130,6 +131,7 @@
                 permanentSidebar: "permanentSidebar",
                 remove: "remove",
                 infoBar: "infoBar",
+                upload: "upload",
                 save: "save",
                 cancel: "cancel"
             },

@@ -35,9 +35,11 @@
         };
 
         /**
-         * Send a sign of life, some general information and all configuration once per day to Google Analytics
+         * Send a sign of life, some general information and all configuration once per day
+         *
+         * @returns {Promise}
          */
-        this.trackUserData = () => {
+        this.trackUserData = async () => {
             let lastTrackDate = b.helper.model.getData("lastTrackDate");
             let today = +new Date().setHours(0, 0, 0, 0);
 

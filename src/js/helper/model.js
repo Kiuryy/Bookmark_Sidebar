@@ -39,6 +39,7 @@
                 scrollPos: 0,
                 separators: {},
                 customCss: "",
+                newtabBackground: "",
                 pinnedEntries: {},
                 lockPinned: true,
                 translationHelp: true,

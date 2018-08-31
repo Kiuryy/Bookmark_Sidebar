@@ -7,6 +7,10 @@ body.dark {
       background: $darkContentBackground2;
     }
 
+    > button[type="submit"]:hover {
+      background: lighten($darkContentBackground2, 5%);
+    }
+
     > ul.suggestions {
       filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
 

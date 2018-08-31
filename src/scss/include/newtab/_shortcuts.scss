@@ -21,10 +21,11 @@ section#content {
           padding: 7px 10px;
           border-radius: 20px;
           white-space: nowrap;
+          background: $bodyBackground;
           transition: background 0.3s;
 
           &:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: darken($bodyBackground, 5%);
           }
         }
       }

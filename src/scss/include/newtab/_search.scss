@@ -33,7 +33,7 @@ div#search {
     @include mask('icon-search', $textColorLight, 26px);
     position: absolute;
     top: 4px;
-    right: 16px;
+    right: 15px;
     width: calc(#{$newTabSearchHeight} - 8px);
     height: calc(#{$newTabSearchHeight} - 8px);
     outline: none;
@@ -44,7 +44,7 @@ div#search {
     transition: background 0.3s;
 
     &:hover {
-      background: $__hoverColor;
+      background: $bodyBackground;
     }
   }
 

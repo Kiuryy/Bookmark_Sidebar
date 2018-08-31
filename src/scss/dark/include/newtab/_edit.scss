@@ -7,28 +7,49 @@ body.dark {
     > a.save {
       color: $darkContentBackground2;
     }
+
+    > div.upload {
+
+      > a.remove {
+        background: $darkContentBackground2;
+      }
+
+      > div {
+        background: $darkContentBackground2;
+      }
+    }
   }
 
-  > a.edit:hover {
-    background: $darkContentBackground2;
+  > a.edit {
+    background-color: $darkContentBackground;
+
+    &:hover {
+      background: $darkContentBackground2;
+    }
   }
 
   &.edit {
 
     section#content > nav {
 
-      a.add:hover {
-        background: $darkContentBackground2;
+      a.add {
+        background: $darkContentBackground;
+
+        &:hover {
+          background: $darkContentBackground2;
+        }
       }
 
       > ul > li {
         background: $darkContentBackground2;
         border-color: rgba(255, 255, 255, 0.075);
+        box-shadow: inset 0 -20px 0 -4px $darkContentBackground;
 
         > a.edit, > a.remove {
+          background: $darkContentBackground2;
 
           &:hover {
-            background: lighten($darkContentBackground2, 10%);
+            background: lighten($darkContentBackground2, 5%);
           }
         }
 
@@ -66,7 +87,7 @@ body.dark {
     div#topPages {
 
       > select {
-        background: lighten($darkContentBackground2, 10%);
+        background: lighten($darkContentBackground2, 5%);
       }
     }
   }

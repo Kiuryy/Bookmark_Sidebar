@@ -1,5 +1,5 @@
 body.dark {
-  background: $darkContentBackground;
+  background-color: $darkContentBackground;
 
   &::before {
     background: $darkContentBackground;
@@ -7,9 +7,5 @@ body.dark {
 
   &.loading::before {
     background: rgba(0, 0, 0, 0.8);
-  }
-
-  section#content {
-    background: $darkContentBackground;
   }
 }

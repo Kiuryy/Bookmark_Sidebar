@@ -27,21 +27,21 @@ div#topPages {
       > a {
         display: block;
         margin: 0 auto;
-        background: rgba(0, 0, 0, 0.05);
+        background: $contentBackground;
         width: $entryWidth;
-        border-radius: 2px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(0, 0, 0, 0.1);
-        transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+        border-radius: 3px;
+        transition: border-color 0.3s, box-shadow 0.3s;
 
         &:hover {
-          background: rgba(0, 0, 0, 0.1);
-          border-color: rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.1);
+          border-color: rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
         }
 
         > span {
           display: block;
-          padding: 3px 5px 3px 3px;
+          padding: 5px 7px;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;

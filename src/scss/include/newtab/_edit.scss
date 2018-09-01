@@ -9,7 +9,6 @@ body > a.edit {
   display: block;
   border-radius: 50%;
   cursor: pointer;
-  background: $bodyBackground;
   transition: background 0.3s;
 
   &:hover {
@@ -105,6 +104,33 @@ menu.infoBar {
         outline: none;
       }
     }
+
+    > span.premium {
+      @include mask('icon-premium', $textColorInverted, 14px);
+      position: relative;
+      display: inline-block;
+      font-size: 90%;
+      height: 26px;
+      line-height: 26px;
+      padding: 0 4px 0 22px;
+      margin: 2px 0 0 10px;
+      vertical-align: top;
+      color: $textColorInverted;
+      background: $__textColor;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        right: -16px;
+        border: 8px solid transparent;
+        border-left-color: $__textColor;
+      }
+
+      &::before {
+        -webkit-mask-position-x: 4px;
+      }
+    }
   }
 }
 
@@ -140,6 +166,23 @@ body[data-pos='right'] {
       > div {
         margin: 0 10px 0 0;
       }
+
+      > span.premium {
+        margin-left: 0;
+        margin-right: 10px;
+        float: right;
+
+        &::after {
+          right: unset;
+          left: -16px;
+          border-left-color: transparent;
+          border-right-color: $__textColor;
+        }
+
+        &::before {
+          -webkit-mask-position-x: 4px;
+        }
+      }
     }
   }
 }
@@ -153,6 +196,14 @@ body.customBackground {
       > a.remove {
         display: inline-block;
       }
+    }
+  }
+
+  > a.edit {
+    background: rgba($bodyBackground, 0.8);
+
+    &::before {
+      background-color: darken($textColorLight, 15%);
     }
   }
 }
@@ -357,6 +408,16 @@ body.edit {
       outline: none;
       cursor: pointer;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &.customBackground {
+
+    div#topPages {
+
+      > select {
+        background: rgba($contentBackground, 0.8);
+      }
     }
   }
 }

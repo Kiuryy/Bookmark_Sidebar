@@ -13,6 +13,40 @@ html[dir='rtl'] {
         order: 2;
       }
     }
+
+    > div.upload {
+
+      > a.remove {
+        float: left;
+      }
+
+      > div {
+
+        > span {
+          padding-right: 28px;
+          padding-left: 3px;
+
+          &::before {
+            transform: scaleX(-1);
+          }
+        }
+
+        > input[type='file'] {
+          left: unset;
+          right: -900%;
+        }
+      }
+
+      > span.premium {
+        float: left;
+        padding-right: 22px;
+        padding-left: 4px;
+
+        &::before {
+          transform: scaleX(-1);
+        }
+      }
+    }
   }
 
   body[data-pos='right'] {
@@ -28,6 +62,17 @@ html[dir='rtl'] {
 
         &.cancel {
           order: 1;
+        }
+      }
+
+      > div.upload {
+
+        > a.remove {
+          float: right;
+        }
+
+        > span.premium {
+          float: right;
         }
       }
     }

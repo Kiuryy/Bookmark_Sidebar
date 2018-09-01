@@ -62,7 +62,6 @@ div#search {
       background: $contentBackground;
       pointer-events: auto;
       font-size: 110%;
-      pointer-events: auto;
       padding: 3px 10px 3px 28px;
       transition: background 0.1s;
 
@@ -88,6 +87,17 @@ div#search {
         @include maskImage('icon-search');
       }
     }
+  }
+}
+
+body.customBackground div#search {
+
+  > input[type='text'] {
+    background: rgba($contentBackground, 0.8);
+  }
+
+  > button[type="submit"]::before {
+    background-color: darken($textColorLight, 15%);
   }
 }
 

@@ -4,11 +4,14 @@ body.dark {
   section#content {
 
     > nav > ul > li > a {
-      background: $darkContentBackground;
 
       &:hover {
         background: $darkContentBackground2;
       }
     }
+  }
+
+  &.customBackground section#content > nav > ul > li > a {
+    background: rgba($darkContentBackground,0.7);
   }
 }

@@ -58,25 +58,34 @@
                 }
             });
 
-            $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " input").on("change", (e) => { // upload background image
-                if (e.currentTarget.files) {
-                    let reader = new FileReader();
+            if (n.helper.model.getUserType === "premium") {
+                $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " input").on("change", (e) => { // upload background image
+                    if (e.currentTarget.files) {
+                        let reader = new FileReader();
 
-                    reader.onload = (e) => {
-                        try {
-                            n.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + e.target.result + ")");
-                        } catch (e) {
-                            //
-                        }
-                    };
+                        reader.onload = (e) => {
+                            try {
+                                n.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + e.target.result + ")");
+                            } catch (e) {
+                                //
+                            }
+                        };
 
-                    reader.readAsDataURL(e.currentTarget.files[0]);
-                }
-            });
+                        reader.readAsDataURL(e.currentTarget.files[0]);
+                    }
+                });
 
-            $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " a." + $.cl.newtab.remove).on("click", (e) => { // remove background image
-                n.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
-            });
+                $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " a." + $.cl.newtab.remove).on("click", () => { // remove background image
+                    n.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
+                });
+            } else {
+                $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload).on("click", () => {
+                    n.helper.model.call("openLink", {
+                        href: chrome.extension.getURL("html/settings.html#premium"),
+                        newTab: true
+                    });
+                });
+            }
         };
 
         /**
@@ -156,12 +165,15 @@
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
                 .appendTo(n.elm.body);
 
+            let uploadWrapper = $("<div />").addClass($.cl.newtab.upload).appendTo(menu);
+
             if (n.helper.model.getUserType === "premium") {
-                $("<div />")
-                    .addClass($.cl.newtab.upload)
-                    .append("<a class='" + $.cl.newtab.remove + "' />")
-                    .append("<div><span>" + "Upload background image" + "</span><input type=\"file\" accept=\"image/*\" /></div>")
-                    .appendTo(menu);
+                $("<a />").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
+                $("<div />").html("<span>" + "Upload background image" + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
+            } else {
+                uploadWrapper.attr("title", "This feature is only available with Premium");
+                $("<span />").text("Premium").addClass($.cl.premium).appendTo(uploadWrapper);
+                $("<div />").html("<span>" + "Upload background image" + "</span>").appendTo(uploadWrapper);
             }
 
             initMenuEvents();

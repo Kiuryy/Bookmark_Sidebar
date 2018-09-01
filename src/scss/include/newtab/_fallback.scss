@@ -3,11 +3,12 @@ div#fallbackInfo {
   @include mask('icon-info', $textColorLight, 24px);
   position: relative;
   width: 100%;
-  padding: 0 40px;
-  margin: 40px 0 20px 0;
+  padding: 15px 40px;
+  margin: 25px 0 20px 0;
   display: none;
 
   &::before {
+    top: 15px;
     left: 10px;
     width: 24px;
     height: 24px;
@@ -51,6 +52,10 @@ div#fallbackInfo {
       }
     }
   }
+}
+
+body.customBackground div#fallbackInfo {
+  background: rgba($contentBackground, 0.8);
 }
 
 @import "../../rtl/include/newtab/fallback";

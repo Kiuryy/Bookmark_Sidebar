@@ -246,6 +246,9 @@ div#topPages {
     div#topPages > ul[data-perRow='2'] {
       max-width: 318px; }
 
+body.customBackground div#topPages > ul > li > a {
+  background: rgba(255, 255, 255, 0.8); }
+
 html[dir='rtl'] div#topPages > ul > li > a > span > img {
   margin: 0 0 0 5px; }
 
@@ -255,6 +258,9 @@ body.dark div#topPages > ul > li > a {
   body.dark div#topPages > ul > li > a:hover {
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6); }
+
+body.dark.customBackground div#topPages > ul > li > a {
+  background: rgba(61, 61, 61, 0.7); }
 
 section#content > nav {
   position: absolute;
@@ -272,19 +278,22 @@ section#content > nav {
       padding: 7px 10px;
       border-radius: 20px;
       white-space: nowrap;
-      background: #f2f2f2;
       transition: background 0.3s; }
       section#content > nav > ul > li > a.link:hover {
         background: #e5e5e5; }
+
+body.customBackground section#content > nav > ul > li > a.link {
+  background: rgba(242, 242, 242, 0.8); }
 
 html[dir='rtl'] section#content > nav {
   left: 20px;
   right: unset; }
 
-body.dark section#content > nav > ul > li > a {
-  background: #3d3d3d; }
-  body.dark section#content > nav > ul > li > a:hover {
-    background: #4d4d4d; }
+body.dark section#content > nav > ul > li > a:hover {
+  background: #4d4d4d; }
+
+body.dark.customBackground section#content > nav > ul > li > a {
+  background: rgba(61, 61, 61, 0.7); }
 
 div#search {
   position: relative;
@@ -345,7 +354,6 @@ div#search {
       background: #fff;
       pointer-events: auto;
       font-size: 110%;
-      pointer-events: auto;
       padding: 3px 10px 3px 28px;
       transition: background 0.1s; }
       div#search > ul.suggestions > li::before {
@@ -371,6 +379,12 @@ div#search {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg); }
       div#search > ul.suggestions > li[data-type='word']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
+
+body.customBackground div#search > input[type='text'] {
+  background: rgba(255, 255, 255, 0.8); }
+
+body.customBackground div#search > button[type="submit"]::before {
+  background-color: #848484; }
 
 html[dir='rtl'] div#search > input[type='text'] {
   padding: 0 30px 0 55px;
@@ -398,11 +412,17 @@ body.dark div#search > ul.suggestions {
   body.dark div#search > ul.suggestions > li {
     background: #4d4d4d; }
 
+body.dark.customBackground div#search > input[type='text'] {
+  background: rgba(61, 61, 61, 0.7); }
+
+body.dark.customBackground div#search > button[type="submit"]::before {
+  background: #aaa; }
+
 div#fallbackInfo {
   position: relative;
   width: 100%;
-  padding: 0 40px;
-  margin: 40px 0 20px 0;
+  padding: 15px 40px;
+  margin: 25px 0 20px 0;
   display: none; }
   div#fallbackInfo::before {
     content: "";
@@ -415,6 +435,7 @@ div#fallbackInfo {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
     background-color: #aaa; }
   div#fallbackInfo::before {
+    top: 15px;
     left: 10px;
     width: 24px;
     height: 24px; }
@@ -444,6 +465,9 @@ div#fallbackInfo {
         vertical-align: top;
         margin: -1px 0 0 15px; }
 
+body.customBackground div#fallbackInfo {
+  background: rgba(255, 255, 255, 0.8); }
+
 html[dir='rtl'] div#fallbackInfo::before {
   right: 10px;
   left: unset; }
@@ -458,6 +482,9 @@ body.highContrast:not(.dark) div#fallbackInfo > a {
 body.dark div#fallbackInfo > a {
   color: "%textColor"; }
 
+body.dark.customBackground div#fallbackInfo {
+  background: rgba(61, 61, 61, 0.7); }
+
 body > a.edit {
   position: absolute;
   bottom: 20px;
@@ -467,7 +494,6 @@ body > a.edit {
   display: block;
   border-radius: 50%;
   cursor: pointer;
-  background: #f2f2f2;
   transition: background 0.3s; }
   body > a.edit::before {
     content: "";
@@ -570,6 +596,36 @@ menu.infoBar {
         height: 100%;
         cursor: pointer;
         outline: none; }
+    menu.infoBar > div.upload > span.premium {
+      position: relative;
+      display: inline-block;
+      font-size: 90%;
+      height: 26px;
+      line-height: 26px;
+      padding: 0 4px 0 22px;
+      margin: 2px 0 0 10px;
+      vertical-align: top;
+      color: #fff;
+      background: "%textColor"; }
+      menu.infoBar > div.upload > span.premium::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/14px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
+        background-color: #fff; }
+      menu.infoBar > div.upload > span.premium::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        right: -16px;
+        border: 8px solid transparent;
+        border-left-color: "%textColor"; }
+      menu.infoBar > div.upload > span.premium::before {
+        -webkit-mask-position-x: 4px; }
 
 body[data-pos='right'] > a.edit {
   right: auto;
@@ -588,9 +644,25 @@ body[data-pos='right'] menu.infoBar {
       float: right; }
     body[data-pos='right'] menu.infoBar > div.upload > div {
       margin: 0 10px 0 0; }
+    body[data-pos='right'] menu.infoBar > div.upload > span.premium {
+      margin-left: 0;
+      margin-right: 10px;
+      float: right; }
+      body[data-pos='right'] menu.infoBar > div.upload > span.premium::after {
+        right: unset;
+        left: -16px;
+        border-left-color: transparent;
+        border-right-color: "%textColor"; }
+      body[data-pos='right'] menu.infoBar > div.upload > span.premium::before {
+        -webkit-mask-position-x: 4px; }
 
 body.customBackground menu.infoBar > div.upload > a.remove {
   display: inline-block; }
+
+body.customBackground > a.edit {
+  background: rgba(242, 242, 242, 0.8); }
+  body.customBackground > a.edit::before {
+    background-color: #848484; }
 
 body.edit > a.edit {
   display: none; }
@@ -761,12 +833,31 @@ body.edit div#topPages > select {
   cursor: pointer;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); }
 
+body.edit.customBackground div#topPages > select {
+  background: rgba(255, 255, 255, 0.8); }
+
 html[dir='rtl'] menu.infoBar {
   justify-content: flex-start; }
   html[dir='rtl'] menu.infoBar > a.save {
     order: 1; }
   html[dir='rtl'] menu.infoBar > a.cancel {
     order: 2; }
+  html[dir='rtl'] menu.infoBar > div.upload > a.remove {
+    float: left; }
+  html[dir='rtl'] menu.infoBar > div.upload > div > span {
+    padding-right: 28px;
+    padding-left: 3px; }
+    html[dir='rtl'] menu.infoBar > div.upload > div > span::before {
+      transform: scaleX(-1); }
+  html[dir='rtl'] menu.infoBar > div.upload > div > input[type='file'] {
+    left: unset;
+    right: -900%; }
+  html[dir='rtl'] menu.infoBar > div.upload > span.premium {
+    float: left;
+    padding-right: 22px;
+    padding-left: 4px; }
+    html[dir='rtl'] menu.infoBar > div.upload > span.premium::before {
+      transform: scaleX(-1); }
 
 html[dir='rtl'] body[data-pos='right'] menu.infoBar {
   justify-content: flex-end; }
@@ -774,6 +865,10 @@ html[dir='rtl'] body[data-pos='right'] menu.infoBar {
     order: 2; }
   html[dir='rtl'] body[data-pos='right'] menu.infoBar > a.cancel {
     order: 1; }
+  html[dir='rtl'] body[data-pos='right'] menu.infoBar > div.upload > a.remove {
+    float: right; }
+  html[dir='rtl'] body[data-pos='right'] menu.infoBar > div.upload > span.premium {
+    float: right; }
 
 html[dir='rtl'] body.edit section#content > nav > a.add {
   right: -35px;
@@ -818,11 +913,13 @@ body.dark menu.infoBar {
     background: #4d4d4d; }
   body.dark menu.infoBar > div.upload > div {
     background: #4d4d4d; }
-
-body.dark > a.edit {
-  background-color: #3d3d3d; }
-  body.dark > a.edit:hover {
+  body.dark menu.infoBar > div.upload > span.premium {
     background: #4d4d4d; }
+    body.dark menu.infoBar > div.upload > span.premium::after {
+      border-left-color: #4d4d4d; }
+
+body.dark > a.edit:hover {
+  background: #4d4d4d; }
 
 body.dark.edit section#content > nav a.add {
   background: #3d3d3d; }
@@ -855,6 +952,18 @@ body.dark.edit div#search > select {
 
 body.dark.edit div#topPages > select {
   background: #5a5a5a; }
+
+body.dark.customBackground > a.edit {
+  background-color: rgba(61, 61, 61, 0.7); }
+  body.dark.customBackground > a.edit::before {
+    background-color: #aaa; }
+
+body.dark.customBackground div#topPages > select {
+  background: rgba(61, 61, 61, 0.7); }
+
+body.dark[data-pos='right'] menu.infoBar > div.upload > span.premium::after {
+  border-left-color: transparent;
+  border-right-color: #4d4d4d; }
 
 body {
   position: absolute;

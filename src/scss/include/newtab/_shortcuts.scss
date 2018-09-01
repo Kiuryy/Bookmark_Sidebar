@@ -21,7 +21,6 @@ section#content {
           padding: 7px 10px;
           border-radius: 20px;
           white-space: nowrap;
-          background: $bodyBackground;
           transition: background 0.3s;
 
           &:hover {
@@ -30,6 +29,13 @@ section#content {
         }
       }
     }
+  }
+}
+
+body.customBackground section#content > nav {
+
+  > ul > li > a.link {
+    background: rgba($bodyBackground, 0.8);
   }
 }
 

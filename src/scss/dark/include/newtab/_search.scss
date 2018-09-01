@@ -19,4 +19,15 @@ body.dark {
       }
     }
   }
+
+  &.customBackground div#search {
+
+    > input[type='text'] {
+      background: rgba($darkContentBackground, 0.7);
+    }
+
+    > button[type="submit"]::before {
+      background: $textColorLight;
+    }
+  }
 }

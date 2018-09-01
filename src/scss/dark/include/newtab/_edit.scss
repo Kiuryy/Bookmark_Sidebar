@@ -17,11 +17,18 @@ body.dark {
       > div {
         background: $darkContentBackground2;
       }
+
+      > span.premium {
+        background: $darkContentBackground2;
+
+        &::after {
+          border-left-color: $darkContentBackground2;
+        }
+      }
     }
   }
 
   > a.edit {
-    background-color: $darkContentBackground;
 
     &:hover {
       background: $darkContentBackground2;
@@ -88,6 +95,41 @@ body.dark {
 
       > select {
         background: lighten($darkContentBackground2, 5%);
+      }
+    }
+  }
+
+  &.customBackground {
+
+    > a.edit {
+      background-color: rgba($darkContentBackground, 0.7);
+
+      &::before {
+        background-color: $textColorLight;
+      }
+    }
+
+    div#topPages {
+
+      > select {
+        background: rgba($darkContentBackground, 0.7);
+      }
+    }
+  }
+
+  &[data-pos='right'] {
+
+    menu.infoBar {
+
+      > div.upload {
+
+        > span.premium {
+
+          &::after {
+            border-left-color: transparent;
+            border-right-color: $darkContentBackground2;
+          }
+        }
       }
     }
   }

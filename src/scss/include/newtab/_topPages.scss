@@ -79,5 +79,12 @@ div#topPages {
   }
 }
 
+body.customBackground div#topPages {
+
+  > ul > li > a {
+    background: rgba($contentBackground, 0.8);
+  }
+}
+
 @import "../../rtl/include/newtab/topPages";
 @import "../../dark/include/newtab/topPages";

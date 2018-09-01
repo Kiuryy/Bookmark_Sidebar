@@ -7,4 +7,8 @@ body.dark {
       color: $__textColor;
     }
   }
+
+  &.customBackground div#fallbackInfo {
+    background: rgba($darkContentBackground, 0.7);
+  }
 }

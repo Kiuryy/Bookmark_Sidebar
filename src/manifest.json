@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "65", // released 06.03.2018 -> toDo: increace to v66 in October '18
+  "minimum_chrome_version": "65",
   "homepage_url": "https://extensions.blockbyte.de/",
   "background": {
     "scripts": [

@@ -15,7 +15,8 @@
             uglifyjs: require("uglify-es"),
             sass: require("node-sass"),
             copy: require("cp-file"),
-            request: require("request")
+            request: require("request"),
+            exec: require("child_process").exec
         };
 
         /*
@@ -130,6 +131,28 @@
          * PUBLIC
          * ################################
          */
+
+        /**
+         * Executes the given command
+         *
+         * @param {string} command
+         * @returns {Promise}
+         */
+        this.cmd = (command) => {
+            return new Promise((resolve) => {
+                if (typeof command === "object") {
+                    command = command.join("&&");
+                }
+
+                module.exec(command, (error, stdout, stderr) => {
+                    resolve({
+                        stdout: stdout,
+                        stderr: stderr
+                    });
+                });
+            });
+        };
+
 
         /**
          * Creates a file with the given content

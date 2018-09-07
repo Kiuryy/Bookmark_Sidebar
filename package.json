@@ -11,7 +11,7 @@
   },
   "scripts": {
     "init": "npm install --only=dev && npm run release",
-    "release": "ncu -a --packageFile package.json && npm update && eslint --fix src/js/**/*.js && eslint --fix build/**/*.js && node build/run.js",
+    "release": "ncu -a --packageFile package.json && npm update && node build/run.js",
     "scss": "node-sass --source-map true -o src/css src/scss"
   },
   "devDependencies": {

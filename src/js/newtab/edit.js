@@ -58,7 +58,7 @@
                 }
             });
 
-            if (n.helper.model.getUserType === "premium") {
+            if (n.helper.model.getUserType() === "premium") {
                 $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " input").on("change", (e) => { // upload background image
                     if (e.currentTarget.files) {
                         let reader = new FileReader();
@@ -167,7 +167,7 @@
 
             let uploadWrapper = $("<div />").addClass($.cl.newtab.upload).appendTo(menu);
 
-            if (n.helper.model.getUserType === "premium") {
+            if (n.helper.model.getUserType() === "premium") {
                 $("<a />").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
                 $("<div />").html("<span>" + "Upload background image" + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
             } else {

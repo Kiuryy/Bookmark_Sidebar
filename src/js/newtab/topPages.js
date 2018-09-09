@@ -65,7 +65,7 @@
         let initEvents = () => {
             $(window).on("resize.topPages", () => {
                 this.handleWindowResize();
-            });
+            }, {passive: true});
         };
 
         /**

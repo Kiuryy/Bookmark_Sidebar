@@ -318,7 +318,7 @@
 
             $(window).on("resize", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
-            });
+            }, {passive: true});
         };
     };
 

@@ -23,7 +23,16 @@
          */
         this.getExportConfig = () => {
             let config = Object.assign({}, s.helper.model.getAllData());
-            delete config.utility;
+
+            if (s.helper.model.getUserType() !== "default") {
+                config.utility = {
+                    customCss: config.utility.customCss || "",
+                    newtabBackground: config.utility.newtabBackground || ""
+                };
+            } else {
+                delete config.utility;
+            }
+
             return config;
         };
 
@@ -62,21 +71,7 @@
                     reader.onload = (e) => {
                         try {
                             let config = JSON.parse(e.target.result);
-                            if (config.behaviour && config.appearance && config.newtab) {
-                                chrome.storage.sync.set({
-                                    behaviour: config.behaviour,
-                                    appearance: config.appearance,
-                                    newtab: config.newtab
-                                }, () => {
-                                    s.helper.model.call("reinitialize");
-                                    s.showSuccessMessage("import_saved");
-                                    $.delay(1500).then(() => {
-                                        location.reload(true);
-                                    });
-                                });
-                            } else {
-                                alertImportError();
-                            }
+                            saveConfig(config);
                         } catch (e) {
                             alertImportError();
                         }
@@ -87,6 +82,42 @@
                     alertImportError();
                 }
             });
+        };
+
+        /**
+         * Saves the given configuration and triggers a refresh of the extension
+         *
+         * @param {object} config
+         */
+        let saveConfig = (config) => {
+            if (config.behaviour && config.appearance && config.newtab) {
+                chrome.storage.sync.set({
+                    behaviour: config.behaviour,
+                    appearance: config.appearance,
+                    newtab: config.newtab
+                }, () => {
+                    let currentConfig = Object.assign({}, s.helper.model.getAllData());
+                    currentConfig.utility = currentConfig.utility || {};
+
+                    ["customCss", "newtabBackground"].forEach((field) => {
+                        let val = "";
+                        if (s.helper.model.getUserType() !== "default" && config.utility && config.utility[field]) { // only import custom css and new tab background when the user has premium
+                            val = config.utility[field];
+                        }
+                        currentConfig.utility[field] = val;
+                    });
+
+                    chrome.storage.local.set({utility: currentConfig.utility}, () => {
+                        s.helper.model.call("reinitialize");
+                        s.showSuccessMessage("import_saved");
+                        $.delay(1500).then(() => {
+                            location.reload(true);
+                        });
+                    });
+                });
+            } else {
+                alertImportError();
+            }
         };
 
         /**

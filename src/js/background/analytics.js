@@ -75,6 +75,7 @@
                     addToStack("system", navigator.userAgent);
                     addToStack("language", b.helper.language.getLanguage());
                     addToStack("shareInfo", shareState);
+                    addToStack("userType", b.helper.model.getUserType());
 
                     if (shareInfo.activity === true) { // user allowed to share activity
                         trackGeneralInfo();

@@ -197,6 +197,7 @@
                     favicon: b.helper.image.getFavicon,
                     thumbnail: b.helper.image.getThumbnail,
                     openLink: openLink,
+                    userType: b.helper.model.getUserType,
                     activatePremium: b.activatePremium,
                     getCache: b.helper.cache.get,
                     setCache: b.helper.cache.set,

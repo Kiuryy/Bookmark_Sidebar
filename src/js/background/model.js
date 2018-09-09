@@ -49,6 +49,25 @@
         this.getLicenseKey = () => licenseKey;
 
         /**
+         * Determines the user type (default, legacy or premium)
+         *
+         * @returns {Promise}
+         */
+        this.getUserType = () => {
+            return new Promise((resolve) => {
+                let userType = "default";
+
+                if (typeof licenseKey === "string" && licenseKey.length === 29) { // license key is available
+                    userType = "premium";
+                } else if (data && data.installationDate && data.installationDate < 1538352000000) { // installed before 01.10.2018
+                    userType = "legacy";
+                }
+
+                resolve({userType: userType});
+            });
+        };
+
+        /**
          * Sets the information about what the users wants to be tracked
          *
          * @param {object} opts

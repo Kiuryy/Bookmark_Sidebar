@@ -1674,15 +1674,14 @@ div.checkbox {
   margin: 10px 0 10px 1px; }
 
 select, input[type='email'], input[type='text'], textarea {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: none;
   outline: 0;
   height: 28px;
   padding: 0 5px;
   margin: 7px 0 10px;
-  background: rgba(0, 0, 0, 0.02);
-  transition: border-color 0.5s, box-shadow 0.5s; }
+  background: rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.5s; }
   select.error, input[type='email'].error, input[type='text'].error, textarea.error {
-    border-color: #f99;
     box-shadow: 0 0 10px #f99; }
 
 input[type='text'] {

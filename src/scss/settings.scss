@@ -19,6 +19,7 @@ $__scrollBarWidth: 14px;
 @import "include/settings/appearance";
 @import "include/settings/feedback";
 @import "include/settings/support";
+@import "include/settings/premium";
 @import "include/settings/form";
 @import "include/settings/translation";
 @import "include/settings/importExport";
@@ -165,7 +166,7 @@ hr {
 }
 
 // Button
-main button[type='submit'], a.button, div.upload {
+main button[type='submit'], a.button, div.upload, a[data-type="premium"] {
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -188,7 +189,6 @@ p.premium {
   margin: 20px 0;
   padding: 0 0 0 50px;
   font-size: 120%;
-
 
   &::before {
     -webkit-mask-position-x: 0;

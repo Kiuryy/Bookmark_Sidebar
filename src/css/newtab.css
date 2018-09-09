@@ -966,9 +966,6 @@ body.dark[data-pos='right'] menu.infoBar > div.upload > span.premium::after {
   border-right-color: #4d4d4d; }
 
 body {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: #f2f2f2;

@@ -178,7 +178,7 @@
          */
         let initData = () => {
             return new Promise((resolve) => {
-                $.xhr($.opts.ajax.versionHistory, {
+                $.xhr($.opts.website.versionHistory, {
                     method: "POST",
                     responseType: "json"
                 }).then((xhr) => {

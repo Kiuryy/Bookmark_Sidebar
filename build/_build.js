@@ -67,7 +67,6 @@
          */
         let js = () => {
             return measureTime((resolve) => {
-
                 func.concat( // concat extension javascripts
                     [
                         path.src + "js/helper/**/*.js",

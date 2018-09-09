@@ -60,7 +60,7 @@
                         });
                     });
 
-                    $.xhr($.opts.ajax.translation.submit, {
+                    $.xhr($.opts.website.translation.submit, {
                         method: "POST",
                         data: {
                             lang: lang,
@@ -103,7 +103,7 @@
             return new Promise((resolve) => {
                 s.elm.translation.overview.children("div." + $.cl.settings.boxWrapper).html("");
 
-                $.xhr($.opts.ajax.translation.info).then((xhr) => {
+                $.xhr($.opts.website.translation.info).then((xhr) => {
                     let infos = JSON.parse(xhr.responseText);
 
                     if (infos && infos.languages) {
@@ -294,7 +294,7 @@
                 if (langvarsCache[lang]) {
                     finished(langvarsCache[lang]);
                 } else {
-                    $.xhr($.opts.ajax.translation.langvars, {
+                    $.xhr($.opts.website.translation.langvars, {
                         method: "POST",
                         data: {
                             lang: lang

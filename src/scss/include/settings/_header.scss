@@ -81,6 +81,11 @@ body > header {
     -webkit-mask-size: 20px;
   }
 
+  &[data-type='premium'] > h1::before {
+    @include maskImage('icon-premium');
+    -webkit-mask-size: 22px;
+  }
+
   &[data-type='export'] > h1::before {
     @include maskImage('settings/icon-importExport');
     -webkit-mask-size: 26px;

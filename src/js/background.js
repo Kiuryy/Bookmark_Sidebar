@@ -114,9 +114,11 @@
                     if (response.valid === true) {
                         this.helper.model.setLicenseKey(opts.licenseKey).then(() => {
                             this.reload({type: "premiumActivated"});
-                        }).then(resolve);
+                        }).then(() => {
+                            resolve({success: true});
+                        });
                     } else {
-                        resolve();
+                        resolve({success: false});
                     }
                 });
             });

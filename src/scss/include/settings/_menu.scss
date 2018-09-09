@@ -47,6 +47,17 @@ body > section#wrapper {
             @include mask('settings/icon-feedback', $textColor, 16px);
           }
 
+          &[data-name='premium'] {
+
+            > a {
+              @include mask('icon-premium', $textColor, 18px);
+            }
+
+            &.inactive {
+              background: rgba($colorNotice, 0.3);
+            }
+          }
+
           &[data-name='support'] > a {
             @include mask('settings/icon-support', $textColor, 18px);
           }

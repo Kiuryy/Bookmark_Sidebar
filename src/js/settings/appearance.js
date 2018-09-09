@@ -476,10 +476,10 @@
         let initEvents = () => {
             $(window).on("resize", () => {
                 let path = s.helper.menu.getPath();
-                if (path && path[1]) {
+                if (path && path[0] === "appearance" && path[1]) {
                     updatePageLayout(path[1]);
                 }
-            });
+            }, {passive: true});
 
             s.elm.appearance.presetWrapper.children("a").on("click", (e) => {
                 let type = $(e.currentTarget).attr($.attr.type);

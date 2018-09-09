@@ -262,8 +262,9 @@
             lsbLoaded: "blockbyte-lsb-loaded",
             pageChanged: "blockbyte-bs-pageChanged"
         },
-        ajax: {
+        website: {
             versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs",
+            premium: "https://extensions.blockbyte.de/premium/checkout/bs",
             feedback: {
                 form: "https://extensions.blockbyte.de/ajax/feedback",
                 suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"

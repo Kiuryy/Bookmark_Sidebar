@@ -208,7 +208,7 @@
         /**
          * Replaces the given definitions in the content of the given files
          *
-         * @param {Array} files
+         * @param {object} files
          * @param {Array} replaces
          * @returns {Promise}
          */

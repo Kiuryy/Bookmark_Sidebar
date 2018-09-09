@@ -44,6 +44,9 @@
             importExport: {
                 content: $("div.tab[data-name='export']")
             },
+            premium: {
+                wrapper: $("div.tab[data-name='premium']"),
+            },
             feedback: {
                 wrapper: $("div.tab[data-name='feedback']"),
                 form: $("section.form"),
@@ -118,6 +121,7 @@
                     this.helper.appearance.init(),
                     this.helper.newtab.init(),
                     this.helper.support.init(),
+                    this.helper.premium.init(),
                     this.helper.importExport.init(),
                 ]);
             }).then(() => { // initialise events and remove loading mask
@@ -199,6 +203,7 @@
                 newtab: new $.NewtabHelper(this),
                 appearance: new $.AppearanceHelper(this),
                 feedback: new $.FeedbackHelper(this),
+                premium: new $.PremiumHelper(this),
                 importExport: new $.ImportExportHelper(this),
                 support: new $.SupportHelper(this)
             };
@@ -218,7 +223,20 @@
                 }
             });
 
-            $("input, textarea, select").on("keyup change input", () => { // highlight save button the first time something got changed
+            chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
+                if (message && message.action && message.action === "reload" && message.type === "premiumActivated") { // premium has been activated -> reload settings
+                    $.delay(2000).then(() => {
+                        unsavedChanges = false;
+                        location.reload(true);
+                    });
+                }
+            });
+
+            $("input, textarea, select").on("keyup change input", (e) => { // highlight save button the first time something got changed
+                if ($(e.currentTarget).parent("[" + $.attr.type + "='licenseKey']").length() > 0) {
+                    return;
+                }
+
                 if (unsavedChanges === false) {
                     this.elm.buttons.save.addClass([$.cl.settings.highlight, $.cl.info]);
 
@@ -303,6 +321,8 @@
 
                 if (path[1] === "translate") {
                     this.helper.translation.submit();
+                } else if (path[0] === "premium") {
+                    chrome.tabs.create({url: $.opts.website.premium + "?lang=" + this.helper.i18n.getLanguage()});
                 } else {
                     Promise.all([
                         this.helper.sidebar.save(),

@@ -66,7 +66,7 @@
          */
         let initSuggestions = () => {
             return new Promise((resolve) => {
-                $.xhr($.opts.ajax.feedback.suggestions).then((xhr) => {
+                $.xhr($.opts.website.feedback.suggestions).then((xhr) => {
                     if (xhr && xhr.responseText) {
                         let response = JSON.parse(xhr.responseText);
 
@@ -261,7 +261,7 @@
         let initEvents = async () => {
             $(window).on("resize", () => {
                 updateSuggestionWrapperHeight();
-            });
+            }, {passive: true});
 
             s.elm.textarea.feedbackMsg.on("mouseup", () => {
                 updateSuggestionWrapperHeight();
@@ -374,7 +374,12 @@
                     screenshots.push($(screenshot).attr("src"));
                 });
 
-                $.xhr($.opts.ajax.feedback.form, {
+                let config = s.helper.importExport.getExportConfig();
+                if (config.utility && config.utility.newtabBackground) { // don't send newtab background
+                    delete config.utility.newtabBackground;
+                }
+
+                $.xhr($.opts.website.feedback.form, {
                     method: "POST",
                     timeout: 30000,
                     data: {
@@ -384,7 +389,7 @@
                         ua: navigator.userAgent,
                         lang: s.helper.i18n.getLanguage(),
                         screenshots: JSON.stringify(screenshots),
-                        config: s.helper.importExport.getExportConfig(),
+                        config: config,
                         suggestions: suggestionInfo
                     }
                 }).then((xhr) => { // got a response

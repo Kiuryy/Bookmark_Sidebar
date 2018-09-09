@@ -497,6 +497,9 @@
     "settings_menu_support": {
         "message": "Support"
     },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
     "settings_menu_export": {
         "message": "Import\/Export"
     },
@@ -970,6 +973,9 @@
     },
     "settings_feedback_sent_message": {
         "message": "Thank you for the feedback"
+    },
+    "settings_premium_activated":{
+        "message": "Premium has been activated successfully"
     },
     "settings_feedback_send_failed": {
         "message": "Your message could not be sent. Please try again."

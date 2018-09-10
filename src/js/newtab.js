@@ -61,11 +61,11 @@
                 this.helper.edit.init();
 
                 initEvents();
-                this.setBackground();
 
                 return $.delay(500);
             }).then(() => {
                 loader.remove();
+                this.setBackground();
                 this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
                 $(window).trigger("resize");
             });

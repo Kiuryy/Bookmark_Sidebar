@@ -23,7 +23,8 @@ div.tab[data-name='premium'] {
       padding: 16px 20px 16px 100px;
 
       &::before {
-        -webkit-mask-position: 20px 18px;
+        width: 95px;
+        height: 95px;
         pointer-events: none;
       }
 
@@ -224,6 +225,8 @@ div.tab[data-name='premium'] {
       background-color: #dbd6d3;
 
       > div {
+        text-align: left;
+
         @media (min-width: 1151px) {
           top: 45%;
           left: 5%;
@@ -345,3 +348,5 @@ div.tab[data-name='premium'] {
     outline-color: transparent;
   }
 }
+
+@import "../../rtl/include/settings/premium";

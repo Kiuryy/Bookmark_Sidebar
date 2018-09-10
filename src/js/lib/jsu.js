@@ -100,7 +100,7 @@
                     });
 
                     let formData = null;
-                    if (opts.data) { // submit request parameters
+                    if (opts.data) { // submit data
                         formData = new FormData();
                         Object.entries(opts.data).forEach(([key, value]) => {
                             if (typeof value === "object") {
@@ -108,6 +108,17 @@
                             }
 
                             formData.append(key, value);
+                        });
+                    }
+
+                    if (opts.files) { // submit files
+                        if (formData === null) {
+                            formData = new FormData();
+                        }
+                        opts.files.forEach((file) => {
+                            file.files.forEach((fileObj) => {
+                                formData.append(file.name + "[]", fileObj);
+                            });
                         });
                     }
 

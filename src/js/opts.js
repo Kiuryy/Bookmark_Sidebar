@@ -12,6 +12,7 @@
                 sidebar: "sidebar",
                 shareInfo: "shareInfo",
                 reloadInfo: "reloadInfo",
+                premiumInfo: "premiumInfo",
                 bookmarkBox: {
                     all: "bookmarkBox",
                     search: "bookmarkBoxSearch",

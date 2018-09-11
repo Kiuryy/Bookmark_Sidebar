@@ -29,24 +29,6 @@
         };
 
         /**
-         * Returns whether the ShareInfo-Mask should be shown or not
-         *
-         * @returns {Promise}
-         */
-        let shareInfoMask = () => {
-            return new Promise((resolve) => {
-                let showMask = false;
-                let installationDate = b.helper.model.getData("installationDate");
-                let shareInfo = b.helper.model.getShareInfo();
-
-                if (b.isDev === false && shareInfo.config === null && shareInfo.activity === null && (+new Date() - installationDate) / 86400000 > 5) { // show mask after 5 days using the extension
-                    showMask = true;
-                }
-                resolve({showMask: showMask});
-            });
-        };
-
-        /**
          * Determines the real url for the given url via ajax call,
          * if abort parameter is specified, all pending ajax calls will be aborted
          *
@@ -191,7 +173,7 @@
                     reload: b.reload,
                     reinitialize: b.reinitialize,
                     updateShareInfo: b.helper.model.setShareInfo,
-                    shareInfoMask: shareInfoMask,
+                    infoToDisplay: b.helper.model.getInfoToDisplay,
                     languageInfos: b.helper.language.getAvailableLanguages,
                     langvars: b.helper.language.getLangVars,
                     favicon: b.helper.image.getFavicon,
@@ -217,9 +199,9 @@
                     if (port.name && port.name === "background") {
                         port.onMessage.addListener((message, info) => {
                             if (mapping[message.type]) { // function for message type exists
-                                if (c === 50) { // check whether the userdata should be shared for today from time to time
+                                if (c === 70) { // check whether the userdata should be shared for today from time to time
                                     b.helper.analytics.trackUserData();
-                                    c %= 50;
+                                    c %= 70;
                                 }
                                 message.tabInfo = info.sender.tab;
 

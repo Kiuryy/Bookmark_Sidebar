@@ -116,9 +116,13 @@
                 ext.elm.iframe.addClass($.cl.page.visible);
                 ext.addReloadMask();
             } else {
-                ext.helper.model.call("shareInfoMask").then((opts) => { // check whether to show the share userdata mask or not
-                    if (opts && opts.showMask) {
-                        ext.addShareInfoMask();
+                ext.helper.model.call("infoToDisplay").then((opts) => { // check whether to show any info to the user
+                    if (opts && opts.info) {
+                        if (opts.info === "shareInfo") { // show mask to set the tracking preferences
+                            ext.addShareInfoMask();
+                        } else if (opts.info === "premium") {
+                            ext.addPremiumInfoBox();
+                        }
                     } else {
                         ext.elm.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();
                     }

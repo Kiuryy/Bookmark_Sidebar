@@ -30,12 +30,10 @@
                 }
 
                 s.elm.support.shareInfoWrapper.find("input[type='checkbox']").on("change", () => {
-                    chrome.storage.sync.set({
-                        shareInfo: {
-                            config: s.helper.checkbox.isChecked(s.elm.checkbox.shareConfig),
-                            activity: s.helper.checkbox.isChecked(s.elm.checkbox.shareActivity)
-                        }
-                    }, () => {
+                    s.helper.model.call("updateShareInfo", {
+                        config: s.helper.checkbox.isChecked(s.elm.checkbox.shareConfig),
+                        activity: s.helper.checkbox.isChecked(s.elm.checkbox.shareActivity)
+                    }).then(() => {
                         s.showSuccessMessage("saved_share_userdata");
                     });
                 });

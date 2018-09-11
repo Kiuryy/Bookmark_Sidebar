@@ -70,6 +70,18 @@ body.dark {
     }
   }
 
+  div#premiumInfo {
+    background: $darkContentBackground2;
+
+    > a {
+      color: $__textColor;
+
+      &::before {
+        background: $__textColor;
+      }
+    }
+  }
+
   div#shareInfo, div#reloadInfo {
     background: $darkContentBackground;
   }

@@ -300,10 +300,22 @@
                 e.preventDefault();
                 let title = $(e.currentTarget).data("title");
 
-                if (title) {
+                if (title) { // show info about what will be tracked
                     ext.helper.overlay.create("shareInfoDesc", title, {type: $(e.currentTarget).data("type")});
-                } else {
+                } else { // save preferences
                     saveTrackingPreferences();
+                }
+            });
+
+            ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.premiumInfo + " a", (e) => { // click on a link in the premium info box
+                e.preventDefault();
+                ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.premiumInfo).removeClass($.cl.visible);
+
+                if ($(e.currentTarget).hasClass($.cl.info)) {
+                    ext.helper.model.call("openLink", {
+                        href: chrome.extension.getURL("html/settings.html#premium"),
+                        newTab: true
+                    });
                 }
             });
         };

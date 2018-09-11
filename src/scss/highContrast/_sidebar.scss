@@ -20,4 +20,15 @@ body.highContrast:not(.dark) {
       }
     }
   }
+
+  div#premiumInfo {
+
+    > a {
+      color: $__textColor;
+
+      &::before {
+        background: $__textColor;
+      }
+    }
+  }
 }

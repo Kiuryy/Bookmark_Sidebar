@@ -131,8 +131,8 @@
                     "%c[] %cBookmark Sidebar %c-> %c" + msg,
                     // styles
                     styles,
-                    styles + ";color:#fa8072;font-weight: bold",
-                    styles + ";color: #000;font-weight: bold",
+                    styles + ";color:#f87;font-weight:bold",
+                    styles + ";color:#000;font-weight:bold",
                     styles
                 ]);
             }
@@ -228,6 +228,21 @@
 
             $("<p />").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
             $("<a />").text(this.helper.i18n.get("status_background_disconnected_reload_action")).appendTo(contentBox);
+        };
+
+        /**
+         * Shows a box with a link to the premium info page
+         */
+        this.addPremiumInfoBox = () => {
+            this.elm.sidebar.find("#" + $.opts.ids.sidebar.premiumInfo).remove();
+            let infoBox = $("<div />").attr("id", $.opts.ids.sidebar.premiumInfo).prependTo(this.elm.sidebar);
+            $("<p />").text("Have you checked out Premium yet?").appendTo(infoBox);
+            $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
+            $("<a />").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
+
+            $.delay(500).then(() => {
+                infoBox.addClass($.cl.visible);
+            });
         };
 
         /**

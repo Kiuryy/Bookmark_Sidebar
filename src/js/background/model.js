@@ -29,7 +29,11 @@
                         data.installationDate = +new Date();
                     }
 
-                    saveData().then(resolve);
+                    if (typeof data.premiumInfo === "undefined") { // no premium teaser displayed yet -> initialise with null
+                        data.premiumInfo = null;
+                    }
+
+                    saveModelData().then(resolve);
                 });
             });
         };
@@ -47,6 +51,37 @@
          * @returns {object}
          */
         this.getLicenseKey = () => licenseKey;
+
+        /**
+         * Checks if there is any information the extension should display to the user and returns the name of this info
+         *
+         * @returns {Promise}
+         */
+        this.getInfoToDisplay = () => {
+            return new Promise((resolve) => {
+                if (data && data.installationDate) {
+                    let daysSinceInstall = (+new Date() - data.installationDate) / 86400000;
+
+                    if (shareInfo.config === null && shareInfo.activity === null && daysSinceInstall > 7) { // user has installed the extension for at least 7 days and has not set his tracking preferences
+                        resolve({info: "shareInfo"});
+                    } else {
+                        this.getUserType().then((obj) => {
+                            let daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
+
+                            if (obj.userType !== "premium" && daysSincePremiumInfo > 200 && daysSinceInstall > 14) { // premium teaser hasn't been displayed for over 200 days and user has installed the extension for at least 14 days
+                                this.setData("premiumInfo", +new Date()).then(() => {
+                                    resolve({info: "premium"});
+                                });
+                            } else {
+                                resolve({info: null});
+                            }
+                        });
+                    }
+                } else {
+                    resolve({info: null});
+                }
+            });
+        };
 
         /**
          * Determines the user type (default, legacy or premium)
@@ -118,7 +153,7 @@
         this.setData = (key, val) => {
             return new Promise((resolve) => {
                 data[key] = val;
-                saveData().then(resolve);
+                saveModelData().then(resolve);
             });
         };
 
@@ -137,7 +172,7 @@
          *
          * @returns {Promise}
          */
-        let saveData = () => {
+        let saveModelData = () => {
             return new Promise((resolve) => {
                 if (Object.getOwnPropertyNames(data).length > 0) {
                     chrome.storage.sync.set({

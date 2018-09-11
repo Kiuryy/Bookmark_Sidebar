@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "\uc0ad\uc81c \ucde8\uc18c"
     },
+    "more_link": {
+        "message": "\ub354 \uc54c\uc544\ubcf4\uae30"
+    },
     "contextmenu_edit_bookmark": {
         "message": "\ubd81\ub9c8\ud06c \ud3b8\uc9d1"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "\ub300\uc2e0 \uc0ac\uc774\ub4dc \ubc14\ub97c \uc0ac\uc6a9\ud558\uc5ec \uc0c8 \ud0ed\uc744 \uc5f4\uc5c8\uc2b5\ub2c8\ub2e4."
-    },
-    "more_link": {
-        "message": "\ub354 \uc54c\uc544\ubcf4\uae30"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "\uc0c8 \ud0ed\uc744 \uc5f4 \ub54c \ud56d\uc0c1\uc774 \ud398\uc774\uc9c0 \ud45c\uc2dc"

@@ -1132,7 +1132,8 @@ div.tab[data-name='feedback'] section.form {
         font-weight: "%fontWeightBold";
         color: #2b35c8; }
   div.tab[data-name='feedback'] section.form input[type='email'] {
-    vertical-align: top; }
+    vertical-align: top;
+    width: 180px; }
   div.tab[data-name='feedback'] section.form textarea {
     resize: vertical;
     height: 200px; }

@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Cofnij"
     },
+    "more_link": {
+        "message": "Dowiedz si\u0119 wi\u0119cej"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Edytuj zak\u0142adk\u0119"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "W zamian otworzono now\u0105 zak\u0142adk\u0119 wraz z boczn\u0105 list\u0105"
-    },
-    "more_link": {
-        "message": "Dowiedz si\u0119 wi\u0119cej"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Zawsze otw\u00f3rz t\u0119 stron\u0119 kiedy otwierana jest nowa zak\u0142adka"

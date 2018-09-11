@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Kumoa"
     },
+    "more_link": {
+        "message": "Opi lis\u00e4\u00e4"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Muokkaa Kirjanmerkki\u00e4"
     },
@@ -58,6 +61,9 @@
     },
     "contextmenu_add": {
         "message": "Lis\u00e4\u00e4"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Tarkista kirjanmerkit"
     },
     "contextmenu_toggle_hidden": {
         "message": "N\u00e4yt\u00e4 piilotetut"
@@ -191,11 +197,35 @@
     "overlay_dir_children_dirs": {
         "message": "Kansiota"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Muutettu"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "RIkkin\u00e4iset"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplikaatit"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Tarkistetaan kirjanmerkkien linkkej\u00e4"
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "P\u00e4ivitys valittu"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Poista valitut"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "Kaikki linkit ovat kunnossa"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Ei ole muutettuja kirjanmerkkien URL:ja"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Ei ole rikkin\u00e4isi\u00e4 kirjanmerkkien URL:ja"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Ei ole duplikaatteja kirjanmerkkien URL:ja."
     },
     "newtab_title": {
         "message": "Uusi v\u00e4lilehti"
@@ -238,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Avasimme sivupalkin uudessa v\u00e4lilehdess\u00e4"
-    },
-    "more_link": {
-        "message": "Opi lis\u00e4\u00e4"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "N\u00e4yt\u00e4 aina t\u00e4m\u00e4 sivu, kun uusi v\u00e4lilehti avataan"
@@ -358,6 +385,9 @@
     },
     "onboarding_finish_desc": {
         "message": "Pid\u00e4 hauskaa sivupalkin kanssa"
+    },
+    "onboarding_finish_notice": {
+        "message": "Jos s\u00e4\u00e4nn\u00f6llisesti klikkailet kohteita selain ikkunana {1} sivulla. saatat haluta vaihtaa palkin paikkaa v\u00e4ltt\u00e4\u00e4ksesi sen avaamisen vahingossa."
     },
     "onboarding_goto_settings": {
         "message": "Lis\u00e4\u00e4 asetuksia"
@@ -749,6 +779,12 @@
     "settings_bookmarks_line_height": {
         "message": "Kirjanmerkkien rivi korkeus"
     },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Kirjanmerkkien horisontaalinen asetteleu"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Hakemiston sisennys"
+    },
     "settings_tooltip_font_size": {
         "message": "Ty\u00f6kaluvinkkien fonttikoko"
     },
@@ -757,6 +793,12 @@
     },
     "settings_icon_shape": {
         "message": "Muoto"
+    },
+    "settings_custom_css": {
+        "message": "Muokatut tyylitiedostot"
+    },
+    "settings_custom_css_desc": {
+        "message": "Voit m\u00e4\u00e4ritt\u00e4\u00e4 oman tyylitietosi ohittaaksesi oletustyylin. K\u00e4yt\u00e4 t\u00e4t\u00e4 vaihtoehtoa vain, jos olet perehtynyt CSS: \u00e4\u00e4n ja tied\u00e4 mit\u00e4 olet tekem\u00e4ss\u00e4."
     },
     "settings_newtab_desc": {
         "message": "Google on ik\u00e4v\u00e4 kyll\u00e4 poistanut mahdollisuuden ladata lis\u00e4osia, \"uusi v\u00e4lilehti\" oletussivulle. T\u00e4m\u00e4n takia lis\u00e4sin mahdollisuuden avata kirjanmerkit uudessa v\u00e4lilehdess\u00e4 toisella tavalla."
@@ -841,6 +883,15 @@
     },
     "settings_feedback_email": {
         "message": "S\u00e4hk\u00f6posti osoitteesi"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Liit\u00e4 ruutukaappaus"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Tiedostonkoko {1} on liian iso (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Voit l\u00e4hett\u00e4\u00e4 maksimissaan {1} ruutukaappausta"
     },
     "settings_feedback_send": {
         "message": "L\u00e4het\u00e4 palautetta"

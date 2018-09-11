@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Deshacer"
     },
+    "more_link": {
+        "message": "M\u00e1s informaci\u00f3n"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Editar Marcador"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Hemos abierto una nueva pesta\u00f1a con la barra lateral para usted"
-    },
-    "more_link": {
-        "message": "M\u00e1s informaci\u00f3n"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Mostrar siempre esta p\u00e1gina al abrir una pesta\u00f1a nueva"

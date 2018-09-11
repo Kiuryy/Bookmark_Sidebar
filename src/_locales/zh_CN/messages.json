@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "\u64a4\u9500"
     },
+    "more_link": {
+        "message": "\u4e86\u89e3\u66f4\u591a"
+    },
     "contextmenu_edit_bookmark": {
         "message": "\u7f16\u8f91\u4e66\u7b7e"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "\u6211\u4eec\u5df2\u4f7f\u7528\u4fa7\u8fb9\u680f\u4e3a\u4f60\u6253\u5f00\u4e86\u4e00\u4e2a\u65b0\u7684\u6807\u7b7e\u9875\u4f5c\u4e3a\u66ff\u4ee3"
-    },
-    "more_link": {
-        "message": "\u4e86\u89e3\u66f4\u591a"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "\u5f53\u6253\u5f00\u4e00\u4e2a\u65b0\u6807\u7b7e\u9875\u65f6\u603b\u662f\u663e\u793a\u8fd9\u4e2a\u9875\u9762"

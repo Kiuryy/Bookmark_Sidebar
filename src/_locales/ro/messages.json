@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Anuleaz\u0103"
     },
+    "more_link": {
+        "message": "Afl\u0103 mai multe"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Modific\u0103 semn de carte"
     },
@@ -238,9 +241,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Am deschis o nou\u0103 fil\u0103 cu bara lateral\u0103 pentru dumneavoastr\u0103 \u00een schimb."
-    },
-    "more_link": {
-        "message": "Afl\u0103 mai multe"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Afi\u0219a\u021bi \u00eentotdeauna aceast\u0103 pagin\u0103 c\u00e2nd deschide\u021bi o fil\u0103 nou\u0103"

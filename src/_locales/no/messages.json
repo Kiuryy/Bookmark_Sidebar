@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Angre"
     },
+    "more_link": {
+        "message": "L\u00e6re mer"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Rediger bokmerke"
     },
@@ -238,9 +241,6 @@
     },
     "newtab_fallback_desc": {
         "message": "I stedet har vi \u00e5pnet en ny sidefeltfan for deg"
-    },
-    "more_link": {
-        "message": "L\u00e6re mer"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Vis alltid denne siden n\u00e5r du \u00e5pner en ny kategori"

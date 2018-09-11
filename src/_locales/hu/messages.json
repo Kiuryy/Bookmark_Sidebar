@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "T\u00f6rl\u00e9s"
     },
+    "more_link": {
+        "message": "Tudj meg t\u00f6bbet"
+    },
     "contextmenu_edit_bookmark": {
         "message": "K\u00f6nyvjelz\u0151 szerkeszt\u00e9se"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Helyette megnyitottunk egy \u00fcres f\u00fclet az oldals\u00e1vval."
-    },
-    "more_link": {
-        "message": "Tudj meg t\u00f6bbet"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Mindig mutassa ezt az oldalt egy \u00faj f\u00fcl megnyit\u00e1sakor"
@@ -955,6 +955,9 @@
     },
     "settings_feedback_email": {
         "message": "Az \u00d6n email c\u00edme"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Csatolja a k\u00e9perny\u0151k\u00e9peket"
     },
     "settings_feedback_screenshot_error_filesize": {
         "message": "A f\u00e1jl {1} m\u00e9rete t\u00fal nagy (>1MB)"

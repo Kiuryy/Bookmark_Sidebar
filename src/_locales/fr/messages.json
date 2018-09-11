@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Annuler"
     },
+    "more_link": {
+        "message": "En savoir plus"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Modifier le favori"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Nous avons ouvert un nouvel onglet avec la barre lat\u00e9rale pour vous"
-    },
-    "more_link": {
-        "message": "En savoir plus"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Toujours afficher cette page lors de l'ouverture d'un nouvel onglet"

@@ -47,6 +47,7 @@
                         let customCss = s.helper.model.getData("u/customCss");
                         s.elm.textarea.customCss[0].value = customCss;
                         s.elm.textarea.customCss.data("initial", customCss);
+                        s.elm.textarea.customCss.attr("placeholder","section#sidebar {\n   ...\n}");
                         s.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
                     } else {
                         s.elm.textarea.customCss.addClass($.cl.settings.inactive);

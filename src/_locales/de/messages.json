@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "R\u00fcckg\u00e4ngig"
     },
+    "more_link": {
+        "message": "Erfahre mehr"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Lesezeichen bearbeiten"
     },
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Wir haben stattdessen einen neuen Tab mit der Sidebar ge\u00f6ffnet."
-    },
-    "more_link": {
-        "message": "Erfahre mehr"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Diese Seite immer anzeigen, wenn ein neuer Tab ge\u00f6ffnet wird"

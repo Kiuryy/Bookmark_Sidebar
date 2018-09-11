@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Geri alma"
     },
+    "more_link": {
+        "message": "Daha fazla bilgi al"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Yer imini d\u00fczenle"
     },
@@ -206,6 +209,12 @@
     "overlay_check_bookmarks_loading": {
         "message": "Yer imlerinin URL'leri kontrol ediliyor."
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Se\u00e7ili olan yer imlerini g\u00fcncelle"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Se\u00e7ili olan yer imlerini sil"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "T\u00fcm URL'ler \u00e7al\u0131\u015fmakta."
     },
@@ -222,7 +231,7 @@
         "message": "Yeni sekme"
     },
     "newtab_search_placeholder": {
-        "message": "{1) ara veya URL gir"
+        "message": "{1} ara veya URL gir"
     },
     "newtab_top_pages_default": {
         "message": "En iyi sayfalar"
@@ -260,9 +269,6 @@
     "newtab_fallback_desc": {
         "message": "Bunun yerine sizin i\u00e7in kenar \u00e7ubu\u011fu ile yeni sekme a\u00e7t\u0131k"
     },
-    "more_link": {
-        "message": "Daha fazla bilgi al"
-    },
     "newtab_fallback_set_as_new_tab": {
         "message": "Yeni sekme a\u00e7arken her zaman bu sayfay\u0131 g\u00f6ster"
     },
@@ -286,6 +292,45 @@
     },
     "status_background_disconnected_reload_action": {
         "message": "Yeniden y\u00fckle."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Kontrol"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Yan sekme s\u0131radaki girdinin \u00fczerine gelir"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "\u00dczerine gelinen girdiye t\u0131klar"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "\u00dczerine gelinen se\u00e7enek i\u00e7in sa\u011f t\u0131k men\u00fcs\u00fcn\u00fc a\u00e7ar"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "\u00dczerine gelinen girdinin url'sini kopyalar"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "\u00dczerine gelinen girdiyi kald\u0131r\u0131r"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "\u00dczerine gelinen girdiyi kapat\u0131r"
     },
     "contribute_headline": {
         "message": "Yard\u0131ma ihtiyac\u0131m var"
@@ -497,11 +542,20 @@
     "settings_toggle_area": {
         "message": "B\u00f6lgeyi d\u00fczenle"
     },
+    "settings_toggle_area_desc": {
+        "message": "Varsay\u0131lan olarak, taray\u0131c\u0131 ekran\u0131n\u0131n t\u00fcm kenar\u0131n\u0131n \u00fczerine kenar \u00e7ubu\u011funu a\u00e7mak i\u00e7in gelinebilir. Bunu de\u011fi\u015ftirebilir veya kenar \u00e7ubu\u011funun nas\u0131l a\u00e7\u0131labilece\u011fini ayarlayabilirsiniz."
+    },
     "settings_toggle_area_width": {
         "message": "Geni\u015flik"
     },
+    "settings_toggle_area_width_windowed": {
+        "message": "Geni\u015flik (Pencereli)"
+    },
     "settings_toggle_area_height": {
         "message": "Y\u00fckseklik"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Bu alan\u0131n y\u00fcksekli\u011fini azaltabilirsiniz, b\u00f6ylece kenar \u00e7ubu\u011fu taray\u0131c\u0131 ekran\u0131n\u0131n kenar\u0131nda sadece belirlenen alan\u0131n \u00fczerine fare imleci ile geldi\u011finiz zaman a\u00e7\u0131l\u0131r."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Klavye k\u0131sayollar\u0131n\u0131 ayarla"
@@ -623,6 +677,9 @@
     "settings_reopen_sidebar_desc": {
         "message": "Kenar \u00e7ubu\u011funu otomatik olarak a\u00e7 (Kenar \u00e7ubu\u011fundan mevcut sekmede bir yer imi a\u00e7t\u0131ktan sonra)"
     },
+    "settings_prevent_windowed_desc": {
+        "message": "Pencere modu aktifken taray\u0131c\u0131 penceresinin kenar\u0131n\u0131n \u00fczerine gelindi\u011finde veya t\u0131kland\u0131\u011f\u0131nda kenar \u00e7ubu\u011funun a\u00e7\u0131lmas\u0131n\u0131 engeller."
+    },
     "settings_tooltip_delay": {
         "message": "Ara\u00e7 ipucu gecikmesi"
     },
@@ -668,8 +725,41 @@
     "settings_animations_desc": {
         "message": "Kenar \u00e7ubu\u011funun t\u00fcm animasyonlar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rakman\u0131za izin verir. Animasyonlar sisteminizde d\u00fczg\u00fcn \u00e7al\u0131\u015fm\u0131yorsa, bu yararl\u0131 olabilir."
     },
+    "settings_contextmenu": {
+        "message": "Sa\u011f t\u0131k men\u00fcs\u00fc se\u00e7ene\u011fi"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Kenar \u00e7ubu\u011funu a\u00e7\u0131p kapatmak i\u00e7in sa\u011f t\u0131k men\u00fcs\u00fcnde bir se\u00e7enek ekle"
+    },
     "settings_filter_intro": {
         "message": "Kenar \u00e7ubu\u011funun her sayfa y\u00fcklenmesinde a\u00e7\u0131lmas\u0131n\u0131 istemiyorsan beyaz liste veya kara listeden d\u00fczenleyebilirsin"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Sat\u0131r ba\u015f\u0131na bir URL deseni ekle"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Her karakter ile e\u015fle\u015fme i\u00e7in * kullan. (\u00d6rn: example.com\/* ile example.com alt\u0131ndaki t\u00fcm sayfalar\u0131 e\u015fle\u015ftir)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "E\u011fer kural ifadesinde hi\u00e7 bir * karakteri koymazsan\u0131z, sadece yaz\u0131l\u0131 olan URL ile birebir e\u015fle\u015fme sa\u011flan\u0131r. (\u00d6rn: \"example.com\" alt\u0131ndaki \"example.com\/about.html\" e\u015fle\u015ftirilmez)"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Kurallara hi\u00e7 bir protokol eklemenize gerek yok (\u00d6rn: http:\/\/)"
+    },
+    "settings_filter_visibility": {
+        "message": "Kenar \u00e7ubu\u011funu y\u00fckle"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Her sayfada"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Belirlenenler d\u0131\u015f\u0131ndaki her sayfada"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Belirlenen sayfalarda"
+    },
+    "settings_filter_rules": {
+        "message": "URL desenleri"
     },
     "settings_import_export_desc": {
         "message": "Uzant\u0131 ayarlar\u0131n\u0131z\u0131 d\u0131\u015fa aktarabilir ve bunlar\u0131 yerel olarak bilgisayar\u0131n\u0131za kaydedebilirsiniz. \u00d6nceden aktar\u0131lan dosyay\u0131, uzant\u0131n\u0131n y\u00fckl\u00fc oldu\u011fu herhangi bir bilgisayardan i\u00e7e aktarabilirsiniz."
@@ -685,6 +775,99 @@
     },
     "settings_import_failed": {
         "message": "Yap\u0131land\u0131rma al\u0131namad\u0131. L\u00fctfen ge\u00e7erli bir dosya se\u00e7in."
+    },
+    "settings_presets": {
+        "message": "Haz\u0131r se\u00e7im"
+    },
+    "settings_color_scheme": {
+        "message": "Renk se\u00e7imi"
+    },
+    "settings_dark_mode": {
+        "message": "Aray\u00fcz"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Kenar \u00e7ubu\u011fu ba\u015fl\u0131k ve kutucuklar\u0131n rengi"
+    },
+    "settings_text_color": {
+        "message": "Metin rengi"
+    },
+    "settings_hover_color": {
+        "message": "Fare ile \u00fczerindeyken"
+    },
+    "settings_font_family": {
+        "message": "Metin g\u00f6r\u00fcn\u00fcm\u00fc"
+    },
+    "settings_font_family_default": {
+        "message": "Varsay\u0131lan"
+    },
+    "settings_font_family_desc": {
+        "message": "Varsay\u0131lan"
+    },
+    "settings_scrollbar_width": {
+        "message": "Kayd\u0131rma tekerle\u011fi geni\u015fli\u011fi"
+    },
+    "settings_icon_color": {
+        "message": "Renk"
+    },
+    "settings_indicator_width": {
+        "message": "Geni\u015flik"
+    },
+    "settings_indicator_color": {
+        "message": "Renk"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Simge b\u00fcy\u00fckl\u00fc\u011f\u00fc"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Simge rengi"
+    },
+    "settings_sidebar_width": {
+        "message": "Geni\u015flik"
+    },
+    "settings_header_height": {
+        "message": "Ba\u015fl\u0131k y\u00fcksekli\u011fi"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Maske rengi"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "S\u00f6zl\u00fck simgesi"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "S\u00f6zl\u00fck simgesi rengi"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Yer imleri metin b\u00fcy\u00fckl\u00fc\u011f\u00fc"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Yer imleri simge b\u00fcy\u00fckl\u00fc\u011f\u00fc"
+    },
+    "settings_directories_icon_size": {
+        "message": "Klas\u00f6rler simge boyutu"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Bookmark \u00e7izgi geni\u015fli\u011fi"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Yer imleri yatay bo\u015flu\u011fu"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Klas\u00f6r girintisi"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Tooltip font boyutu"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Maske rengi"
+    },
+    "settings_icon_shape": {
+        "message": "\u015eekli"
+    },
+    "settings_custom_css": {
+        "message": "\u00d6zel stil"
+    },
+    "settings_custom_css_desc": {
+        "message": "Kendi CSS kodunuzu kullanarak varsay\u0131lan stili de\u011fi\u015ftirebilirsiniz. Bu se\u00e7ene\u011fi sadece ne yapt\u0131\u011f\u0131n\u0131z\u0131 biliyorsan\u0131z ve CSS bilginiz varsa kullan\u0131n."
     },
     "settings_newtab_desc": {
         "message": "Maalesef Google, varsay\u0131lan yeni sekme sayfas\u0131nda uzant\u0131lar\u0131 y\u00fckleme olas\u0131l\u0131\u011f\u0131n\u0131 kald\u0131rd\u0131. Bu nedenle, ba\u015fka bir \u015fekilde yeni bir sekme a\u00e7arken yer imlerine eri\u015fmenize izin veren baz\u0131 se\u00e7enekler ekledim."
@@ -706,6 +889,87 @@
     },
     "settings_newtab_website_desc": {
         "message": "Yeni sekme de\u011fi\u015ftirmeyi a\u00e7man\u0131n yerine, y\u00fcklenen bir web sitesi ayarlayabilirsiniz."
+    },
+    "settings_language": {
+        "message": "Dil"
+    },
+    "settings_language_default": {
+        "message": "Taray\u0131c\u0131 varsay\u0131lanlar\u0131"
+    },
+    "settings_language_desc": {
+        "message": "Kullan\u0131c\u0131 aray\u00fcz dili"
+    },
+    "settings_translation_link": {
+        "message": "\u00c7eviriye genel bak\u0131\u015f"
+    },
+    "settings_translation_desc": {
+        "message": "Eklentiyi kendi dilinize terc\u00fcme etmeye yard\u0131m edebilir ya da mevcut olan \u00e7eviriyi geli\u015ftirebilirsiniz."
+    },
+    "settings_translation_add_language": {
+        "message": "Dil ekle"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Genel bak\u0131\u015fa geri d\u00f6n"
+    },
+    "settings_translation_info": {
+        "message": "Varolan \u00e7evirileri d\u00fczenleyebilir ve eksik olanlar\u0131 ekleyebilirsiniz. E\u011fer de\u011fi\u015fiklik iste\u011fi g\u00f6nderirseniz, incelendikten sonra onaylanacakt\u0131r."
+    },
+    "settings_translation_notice1": {
+        "message": "B\u00fct\u00fcn zorunlu olarak i\u015faretli alanlar\u0131n \u00e7evirisi tamamland\u0131\u011f\u0131nda, \u00e7eviri yay\u0131nlanacakt\u0131r."
+    },
+    "settings_translation_notice2": {
+        "message": "Tamam\u0131 \u00e7evrilmemi\u015f kategoriler yar\u0131m yamalak g\u00f6r\u00fcnmesin diye yay\u0131nlanmayacakt\u0131r."
+    },
+    "settings_translation_help": {
+        "message": "Her bir giri\u015f i\u00e7in, kendi dilinizde terc\u00fcme edilmesi gereken \u0130ngilizce \u00e7eviriyi g\u00f6rebilirsiniz. Metnin nerede kullan\u0131ld\u0131\u011f\u0131n\u0131 ve ne i\u00e7in kullan\u0131ld\u0131\u011f\u0131n\u0131 tan\u0131mlaman\u0131za yard\u0131mc\u0131 olmas\u0131 i\u00e7in, her giri\u015fin \u00e7evrilmemesi gereken bir ad\u0131 (\u00f6r. {1}) vard\u0131r. L\u00fctfen sa\u011f \u00fcst k\u00f6\u015fedeki d\u00fc\u011fmeye basarak \u00e7evirinizi g\u00f6ndermeyi unutmay\u0131n!"
+    },
+    "settings_translation_submit": {
+        "message": "G\u00f6nder"
+    },
+    "settings_translation_submit_message": {
+        "message": "\u00c7eviriniz ba\u015far\u0131yla g\u00f6nderildi"
+    },
+    "settings_translation_status_released": {
+        "message": "\u00c7eviri mevcut"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "\u00c7eviri mevcut, ancak baz\u0131 kategoriler hen\u00fcz tamamen \u00e7evrilmemi\u015f"
+    },
+    "settings_translation_status_draft": {
+        "message": "\u00c7eviri hen\u00fcz kullan\u0131c\u0131lar i\u00e7in mevcut de\u011fil \u00e7\u00fcnk\u00fc eksik veya g\u00f6zden ge\u00e7irilmesi gerektiriyor"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Baz\u0131 \u00e7eviriler eksik"
+    },
+    "settings_translation_required_category": {
+        "message": "Gerekli"
+    },
+    "settings_feedback_desc": {
+        "message": "\u0130yile\u015ftirmeler, sorular, eksik yap\u0131land\u0131rma se\u00e7enekleri ile ilgili herhangi bir \u00f6neriniz var m\u0131, yoksa bir hata m\u0131 buldunuz? Bu uzant\u0131daki deneyimleri geli\u015ftirmeye yard\u0131mc\u0131 olmak i\u00e7in, verdi\u011finiz her t\u00fcrl\u00fc geri bildirime veya sahip oldu\u011funuza \u00e7ok minnettar olaca\u011f\u0131m."
+    },
+    "settings_feedback_notice": {
+        "message": "L\u00fctfen geri bildiriminizi \u0130ngilizce olarak yaz\u0131n\u0131z, aksi halde mesaj\u0131n\u0131z\u0131 anlamak ve cevaplamak zor olacakt\u0131r."
+    },
+    "settings_feedback_email": {
+        "message": "E-Mail adresiniz"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Ekran g\u00f6r\u00fcnt\u00fcleri ekle"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "{1} dosyas\u0131n\u0131n boyutu \u00e7ok b\u00fcy\u00fck (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "En fazla {1} ekran g\u00f6r\u00fcnt\u00fcs\u00fc y\u00fckleyebilirsiniz."
+    },
+    "settings_feedback_send": {
+        "message": "Geri bildirim Yolla"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Geri bildirim i\u00e7in te\u015fekk\u00fcrler"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Mesaj\u0131n\u0131z g\u00f6nderilemedi. L\u00fctfen tekrar deneyin."
     },
     "settings_headline_donation": {
         "message": "Ba\u011f\u0131\u015f yap"

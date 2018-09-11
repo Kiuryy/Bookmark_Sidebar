@@ -3,7 +3,7 @@
         "message": "\u66f8\u7c64\u5074\u908a\u6b04"
     },
     "extension_desc": {
-        "message": "\u5728\u87a2\u5e55\u5de6\u5074\u589e\u52a0\u4e00\u500b\u53ef\u5207\u63db\u7684\u5074\u908a\u6b04\uff0c\u7528\u65bc\u7ba1\u7406\u4f60\u7684\u6240\u6709\u66f8\u7c64\u3002"
+        "message": "\u5728\u700f\u89bd\u5668\u8996\u7a97\u908a\u7de3\u589e\u52a0\u4e00\u500b\u53ef\u5207\u63db\u7684\u5074\u908a\u6b04\uff0c\u7528\u65bc\u7ba1\u7406\u4f60\u7684\u6240\u6709\u66f8\u7c64\u3002"
     },
     "header_bookmarks": {
         "message": "\u66f8\u7c64"
@@ -28,6 +28,9 @@
     },
     "sidebar_undo_deletion": {
         "message": "\u9084\u539f"
+    },
+    "more_link": {
+        "message": "\u77ad\u89e3\u66f4\u591a"
     },
     "contextmenu_edit_bookmark": {
         "message": "\u7de8\u8f2f\u66f8\u7c64"
@@ -265,9 +268,6 @@
     },
     "newtab_fallback_desc": {
         "message": "\u4f5c\u70ba\u66ff\u4ee3\uff0c\u6211\u5011\u5728\u65b0\u5206\u9801\u958b\u555f\u4e86\u5074\u908a\u6b04"
-    },
-    "more_link": {
-        "message": "\u77ad\u89e3\u66f4\u591a"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "\u6bcf\u7576\u958b\u555f\u5074\u908a\u6b04\u6642\u7e3d\u662f\u986f\u793a\u6b64\u9801\u9762"

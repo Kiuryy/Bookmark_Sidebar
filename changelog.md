@@ -1,5 +1,13 @@
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions and more details about the individual releases
 
+## 1.15
+ - Premium content
+ - Draggable sidebar width [Premium]
+ - Custom background upload for newtab page [Premium]
+ - Added warning in the settings for unsaved changes
+ - Added breadcrumb to info overlay and search result tooltips
+ - Custom tracking implementation (replacing Google Analytics)
+ 
 ## 1.14
  - Extended bookmark url checker
  - Improved scroll position saving mechanism

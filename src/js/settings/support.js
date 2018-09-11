@@ -38,11 +38,6 @@
                     });
                 });
             });
-
-            s.elm.support.donate.on("click", (e) => {
-                e.preventDefault();
-                window.open($.opts.donateLink, "_blank");
-            });
         };
     };
 

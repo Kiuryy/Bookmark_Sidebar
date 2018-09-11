@@ -277,7 +277,6 @@
             }
         },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
-        donateLink: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2VW2UADL99YEL",
         manifest: chrome.runtime.getManifest(),
         demoMode: false
     };

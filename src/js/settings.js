@@ -66,8 +66,7 @@
             },
             formElement: $("div.formElement"),
             support: {
-                shareInfoWrapper: $("div.tab[data-name='support'] div.shareInformation"),
-                donate: $("div.tab[data-name='support'] a.donate")
+                shareInfoWrapper: $("div.tab[data-name='support'] div.shareInformation")
             },
             preview: {},
             checkbox: {},

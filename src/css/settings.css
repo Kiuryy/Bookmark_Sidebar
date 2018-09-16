@@ -1521,6 +1521,10 @@ div.tab[data-name='premium'] > section {
           z-index: 4; } }
   div.tab[data-name='premium'] > section[data-type='earlyAccess'] {
     background-color: #cfe0e8; }
+    @media (max-width: 1600px) {
+      div.tab[data-name='premium'] > section[data-type='earlyAccess'] > img {
+        top: 0;
+        bottom: unset; } }
     @media (min-width: 1151px) {
       div.tab[data-name='premium'] > section[data-type='earlyAccess'] > div {
         top: 12%;

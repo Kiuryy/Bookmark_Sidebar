@@ -143,6 +143,13 @@ div.tab[data-name='premium'] {
     &[data-type='earlyAccess'] {
       background-color: #cfe0e8;
 
+      > img {
+        @media (max-width: 1600px) {
+          top: 0;
+          bottom: unset;
+        }
+      }
+
       > div {
         @media (min-width: 1151px) {
           top: 12%;

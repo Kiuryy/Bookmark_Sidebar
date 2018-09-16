@@ -113,7 +113,7 @@
                 checkLicenseKey(opts.licenseKey).then((response) => {
                     if (response.valid === true) {
                         this.helper.model.setLicenseKey(opts.licenseKey).then(() => {
-                            this.reload({type: "premiumActivated"});
+                            this.reinitialize();
                         }).then(() => {
                             resolve({success: true});
                         });

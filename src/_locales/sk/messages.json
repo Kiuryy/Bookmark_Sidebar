@@ -1,0 +1,983 @@
+{
+    "extension_name": {
+        "message": "Bo\u010dn\u00fd panel z\u00e1lo\u017eiek"
+    },
+    "extension_desc": {
+        "message": "Prid\u00e1 prep\u00ednate\u013en\u00fd panel s va\u0161imi z\u00e1lo\u017ekami na okraj obrazovky prehliada\u010da."
+    },
+    "header_bookmarks": {
+        "message": "Z\u00e1lo\u017eky"
+    },
+    "header_bookmarks_single": {
+        "message": "Z\u00e1lo\u017eka"
+    },
+    "sidebar_dir_children": {
+        "message": "Prvky"
+    },
+    "sidebar_search_placeholder": {
+        "message": "H\u013eada\u0165 z\u00e1lo\u017eku"
+    },
+    "sidebar_search_no_results": {
+        "message": "\u017diadne z\u00e1lo\u017eky, vyhovuj\u00face krit\u00e9ri\u00e1m, neboli n\u00e1jden\u00e9"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "Adresa URL skop\u00edrovan\u00e1"
+    },
+    "sidebar_deleted": {
+        "message": "Odstr\u00e1nen\u00e9"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Vr\u00e1ti\u0165 sp\u00e4\u0165"
+    },
+    "more_link": {
+        "message": "Dozvedie\u0165 sa viac"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Upravi\u0165 z\u00e1lo\u017eku"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Upravi\u0165 prie\u010dinok"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Odstr\u00e1ni\u0165 z\u00e1lo\u017eku"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Odstr\u00e1ni\u0165 prie\u010dinok"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Odstr\u00e1ni\u0165 odde\u013eova\u010d"
+    },
+    "contextmenu_infos": {
+        "message": "Inform\u00e1cie"
+    },
+    "contextmenu_new_tab": {
+        "message": "Otvori\u0165 na novej karte"
+    },
+    "contextmenu_new_window": {
+        "message": "Otvori\u0165 v novom okne"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Otvori\u0165 v inkognito okne"
+    },
+    "contextmenu_add": {
+        "message": "Prida\u0165 polo\u017eku"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Skontrolova\u0165 z\u00e1lo\u017eky"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Zobrazi\u0165 skryt\u00e9 polo\u017eky"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Zatvori\u0165 v\u0161etky prie\u010dinky"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Znovu na\u010d\u00edta\u0165 panel"
+    },
+    "contextmenu_open_children": {
+        "message": "Otvori\u0165 z\u00e1lo\u017eky"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Skry\u0165 z panela"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Zobrazi\u0165 v paneli"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Zobrazi\u0165 v prie\u010dinku"
+    },
+    "contextmenu_pin": {
+        "message": "Pripn\u00fa\u0165 na vrch"
+    },
+    "contextmenu_unpin": {
+        "message": "Odopn\u00fa\u0165 z vrchu"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Spr\u00e1vca z\u00e1lo\u017eiek"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Kl\u00e1vesov\u00e9 skratky"
+    },
+    "sort_label_custom": {
+        "message": "Predvolen\u00e9 u\u017e\u00edvate\u013eom"
+    },
+    "sort_label_alphabetical": {
+        "message": "Abecedn\u00fd"
+    },
+    "sort_label_most_used": {
+        "message": "Naj\u010dastej\u0161ie pou\u017e\u00edvan\u00e9"
+    },
+    "sort_label_recently_used": {
+        "message": "Naposledy pou\u017eit\u00e9"
+    },
+    "sort_label_recently_added": {
+        "message": "Naposledy pridan\u00e9"
+    },
+    "sort_view_as_tree": {
+        "message": "Uk\u00e1za\u0165 adres\u00e1re"
+    },
+    "sort_most_used_per_month": {
+        "message": "Za mesiac"
+    },
+    "overlay_bookmark_title": {
+        "message": "Titul"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Dodato\u010dn\u00e9 inform\u00e1cie"
+    },
+    "overlay_cancel": {
+        "message": "Zru\u0161i\u0165"
+    },
+    "overlay_close": {
+        "message": "Zavrie\u0165"
+    },
+    "overlay_save": {
+        "message": "Ulo\u017ei\u0165"
+    },
+    "overlay_delete": {
+        "message": "Vymaza\u0165"
+    },
+    "overlay_update": {
+        "message": "Aktualizova\u0165"
+    },
+    "overlay_open_children": {
+        "message": "Otvori\u0165 v\u0161etko"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Naozaj chcete otvori\u0165 v\u0161etky {1} podraden\u00e9 z\u00e1lo\u017eky?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Skry\u0165 z bo\u010dn\u00e9ho panela"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Naozaj chcete t\u00fato z\u00e1lo\u017eku skry\u0165 z bo\u010dn\u00e9ho panela?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Naozaj chcete skry\u0165 tento zoznam z bo\u010dn\u00e9ho panela? V\u0161etky podraden\u00e9 z\u00e1lo\u017eky bud\u00fa taktie\u017e skryt\u00e9."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Naozaj chcete odstr\u00e1ni\u0165 t\u00fato z\u00e1lo\u017eku?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Naozaj chcete odstr\u00e1ni\u0165 tento zoznam? V\u0161etky podraden\u00e9 z\u00e1lo\u017eky bud\u00fa taktie\u017e odstr\u00e1nen\u00e9."
+    },
+    "overlay_label_bookmark": {
+        "message": "Z\u00e1lo\u017eka"
+    },
+    "overlay_label_dir": {
+        "message": "Zoznam"
+    },
+    "overlay_label_separator": {
+        "message": "Odde\u013eova\u010d"
+    },
+    "overlay_bookmark_views": {
+        "message": "Zobrazenia"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Zobrazenie"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Zaznamenan\u00fd od"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "za mesiac"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Vytvoren\u00fd"
+    },
+    "overlay_dir_children": {
+        "message": "Prvky"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Z\u00e1lo\u017eky"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Prie\u010dinky"
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Zmenen\u00e9"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Poru\u0161en\u00e9"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplik\u00e1ty"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Overovanie URL adries z\u00e1lo\u017eiek"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Aktualizova\u0165 vybran\u00e9"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Odstr\u00e1ni\u0165 vybran\u00e9"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "V\u0161etky URL adresy z\u00e1lo\u017eiek s\u00fa v poriadku"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "\u017diadne z URL adries sa nezmenili"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "\u017diadne z URL adries nie s\u00fa poru\u0161en\u00e9"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Z\u00e1lo\u017eky neobsahuj\u00fa duplik\u00e1ty"
+    },
+    "newtab_title": {
+        "message": "Nov\u00e1 karta"
+    },
+    "newtab_search_placeholder": {
+        "message": "H\u013eada\u0165 {1} alebo zada\u0165 URL"
+    },
+    "newtab_top_pages_default": {
+        "message": "Najnav\u0161tevovanej\u0161ie str\u00e1nky"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Naposledy pou\u017eit\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Naj\u010dastej\u0161ie pou\u017e\u00edvan\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Pripnut\u00e9 z\u00e1lo\u017eky"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Nezobrazova\u0165 str\u00e1nky"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Nie\u010do zablokovalo bo\u010dn\u00fd panel"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na webovom obchode Chrome"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na str\u00e1nkach roz\u0161\u00edren\u00ed"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na predvolenej novej karte"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na syst\u00e9mov\u00fdch str\u00e1nkach Chrome"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Jedno z va\u0161ich pravidiel pre URL adresy zak\u00e1zalo otvorenie bo\u010dn\u00e9ho panela"
+    },
+    "newtab_fallback_desc": {
+        "message": "Otvorili sme V\u00e1m nov\u00fa kartu s bo\u010dn\u00fdm panelom."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "V\u017edy zobraz t\u00fato str\u00e1nku pri otvoren\u00ed novej karty"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Slu\u017eba je nedostupn\u00e1"
+    },
+    "status_check_bookmarks_unavailable_desc": {
+        "message": "Slu\u017eba, ktor\u00e1 kontroluje URL aresy nie je moment\u00e1lne k dispoz\u00edcii. Pros\u00edm, sk\u00faste to nesk\u00f4r."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Slu\u017eba sp\u00e4tnej v\u00e4zby je moment\u00e1lne nedostupn\u00e1. Ak chcete odosla\u0165 sp\u00e4tn\u00fa v\u00e4zbu, pros\u00edm, po\u0161lite n\u00e1m e-mail."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Slu\u017eba prekladu je moment\u00e1lne nedostupn\u00e1. Pros\u00edm, sk\u00faste to nesk\u00f4r."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "Nepodarilo sa z\u00edska\u0165 z\u00e1znam zmien. Pros\u00edm, sk\u00faste to nesk\u00f4r."
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Kv\u00f4li aktualiz\u00e1cii roz\u0161\u00edrenie mus\u00ed by\u0165 t\u00e1to str\u00e1nka obnoven\u00e1."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Obnovi\u0165 teraz"
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tabul\u00e1tor"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Cmd"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Escape"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Zvol\u00ed \u010fal\u0161iu polo\u017eku v paneli alebo aktu\u00e1lnej kontextovej ponuke"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Potvrd\u00ed aktu\u00e1lne zvolen\u00fa polo\u017eku"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Otvor\u00ed kontextov\u00e9 menu pre aktu\u00e1lne zvolen\u00fa polo\u017eku"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Skop\u00edruje URL adresu aktu\u00e1lne zvolenej polo\u017eky"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Odstr\u00e1ni aktu\u00e1lne zvolen\u00fa polo\u017eku"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Zatvor\u00ed bo\u010dn\u00fd panel, otvoren\u00fa vrstvu alebo kontextov\u00e9 menu"
+    },
+    "contribute_headline": {
+        "message": "Potrebujem tvoju pomoc"
+    },
+    "contribute_intro": {
+        "message": "Aby som mohol roz\u0161\u00edrenie vylep\u0161ova\u0165, r\u00e1d by som vedel viac o u\u017e\u00edvate\u013eoch panela a nastaveniach, ktor\u00e9 pou\u017e\u00edvaj\u00fa."
+    },
+    "contribute_outro": {
+        "message": "Ak m\u00e1te ot\u00e1zky alebo obavy zo zdie\u013eania inform\u00e1ci\u00ed, pros\u00edm po\u0161lite mi sp\u00e4tn\u00fa v\u00e4zbu."
+    },
+    "contribute_dismiss": {
+        "message": "Zamietnu\u0165"
+    },
+    "contribute_share_config_label": {
+        "message": "Zdie\u013ea\u0165 konfigur\u00e1ciu"
+    },
+    "contribute_share_config_desc": {
+        "message": "Svoju konfigur\u00e1cie zdie\u013eate anonymne. Pom\u00e1ha mi to ur\u010di\u0165 popul\u00e1rne nastavenia a zisti\u0165, \u010do je potrebn\u00e9 zlep\u0161i\u0165 v bud\u00facich vydaniach."
+    },
+    "contribute_share_activity_label": {
+        "message": "Aktivita zdie\u013eania"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Svoju aktivitu m\u00f4\u017eete zdie\u013ea\u0165 anonymne. To mi pom\u00e1ha zisti\u0165 ako u\u017e\u00edvatelia roz\u0161\u00edrenie pou\u017e\u00edvaj\u00fa. Inform\u00e1cie o va\u0161ich z\u00e1lo\u017ek\u00e1ch alebo nav\u0161t\u00edven\u00fdch str\u00e1nkach [b]nebud\u00fa[\/b] sledovan\u00e9."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "T\u00e1to inform\u00e1cia je ve\u013emi d\u00f4le\u017eit\u00e1 k ur\u010deniu probl\u00e9mov s pou\u017e\u00edvan\u00edm alebo funkci\u00ed, ktor\u00e9 sa nepou\u017e\u00edvaj\u00fa \u010dasto."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "D\u00e1ta, ktor\u00e9 s\u00fa zdie\u013ean\u00e9 s\u00fa napr\u00edklad:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Ko\u013eko z\u00e1lo\u017eiek u\u017e\u00edvatelia priemerne maj\u00fa?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Ak\u00fd opera\u010dn\u00fd styst\u00e9m (Windows, Mac, Linux, ...) u\u017e\u00edvatelia pou\u017e\u00edvaj\u00fa?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Pou\u017e\u00edvaj\u00fa vyh\u0161ad\u00e1vanie?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Menia u\u017e\u00edvatelia zoradenie z\u00e1lo\u017eiek?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Ako \u010dasto u\u017e\u00edvatelia upravuj\u00fa alebo zora\u010fuj\u00fa z\u00e1lo\u017eky?"
+    },
+    "onboarding_title": {
+        "message": "Nastavenie"
+    },
+    "onboarding_headline": {
+        "message": "\u010eakujeme, \u017ee ste si nain\u0161talovali toto roz\u0161\u00edrenie."
+    },
+    "onboarding_setup": {
+        "message": "Nastavi\u0165 teraz"
+    },
+    "onboarding_skip": {
+        "message": "Presko\u010di\u0165 nastavenie"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Kde chcete ma\u0165 v\u00e1\u0161 bo\u010dn\u00fd panel?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Ako si \u017eel\u00e1te otvori\u0165 v\u00e1\u0161 bo\u010dn\u00fd panel?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Ak\u00fd \u0161t\u00fdl preferujete?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Svetl\u00fd"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Tmav\u00fd"
+    },
+    "onboarding_handson_desc": {
+        "message": "Teraz si to m\u00f4\u017eete vysk\u00fa\u0161a\u0165 sami."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Presu\u0148te kurzor k {1} strane okna prehliada\u010da."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Potom kliknite {1} my\u0161ou pre otvorenie bo\u010dn\u00e9ho panela."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Kliknite na ikonu roz\u0161\u00edrenia pre otvorenie bo\u010dn\u00e9ho panela."
+    },
+    "onboarding_left": {
+        "message": "\u013eav\u00fd\/\u00e1"
+    },
+    "onboarding_right": {
+        "message": "prav\u00fd\/\u00e1"
+    },
+    "onboarding_finish_desc": {
+        "message": "Pr\u00edjemn\u00fa z\u00e1bavu."
+    },
+    "onboarding_finish_notice": {
+        "message": "Ak \u010dasto klik\u00e1te na veci na {1} strane okna v\u00e1\u0161ho prehliada\u010da, mohli by ste chcie\u0165 zmeni\u0165, kde sa bo\u010dn\u00fd panel otv\u00e1ra vertik\u00e1lne aby ste predi\u0161li n\u00e1hodn\u00e9mu otvoreniu."
+    },
+    "onboarding_goto_settings": {
+        "message": "Viac nastaven\u00ed"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Nastavi\u0165 vzh\u013ead"
+    },
+    "changelog_title": {
+        "message": "Z\u00e1znam zmien"
+    },
+    "changelog_current_version": {
+        "message": "Aktu\u00e1lne nain\u0161talovan\u00e1 verzia"
+    },
+    "changelog_show_release_history": {
+        "message": "Zobraz podrobn\u00fa hist\u00f3riu vydan\u00ed"
+    },
+    "settings_title": {
+        "message": "Nastavenie"
+    },
+    "settings_menu_sidebar": {
+        "message": "Bo\u010dn\u00fd panel"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "V\u0161eobecn\u00e9"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Prep\u00ednanie"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "N\u00e1poveda"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
+    },
+    "settings_menu_appearance": {
+        "message": "Vzh\u013ead"
+    },
+    "settings_menu_appearance_general": {
+        "message": "V\u0161eobecn\u00e9"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Bo\u010dn\u00fd panel"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indik\u00e1tor"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikony"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Vrstva"
+    },
+    "settings_menu_newtab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_menu_language": {
+        "message": "Jazyk"
+    },
+    "settings_menu_language_general": {
+        "message": "V\u0161eobecn\u00e9"
+    },
+    "settings_menu_language_translate": {
+        "message": "Prelo\u017ei\u0165"
+    },
+    "settings_menu_feedback": {
+        "message": "Sp\u00e4tn\u00e1 vazba"
+    },
+    "settings_menu_support": {
+        "message": "Podpora"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Export"
+    },
+    "settings_save": {
+        "message": "Ulo\u017ei\u0165 zmeny"
+    },
+    "settings_saved_message": {
+        "message": "Zmeny boli \u00faspe\u0161ne ulo\u017een\u00e9"
+    },
+    "settings_restore": {
+        "message": "Obnovi\u0165 v\u00fdchodzie"
+    },
+    "settings_restore_confirm": {
+        "message": "Naozaj chcete obnovi\u0165 v\u00fdchodzie nastavenia?"
+    },
+    "settings_restored_message": {
+        "message": "Nastavenia boli \u00faspe\u0161ne obnoven\u00e9"
+    },
+    "settings_advanced": {
+        "message": "Pokro\u010dil\u00e9 nastavenia"
+    },
+    "settings_not_synced": {
+        "message": "Nebude synchronizovan\u00fd naprie\u010d zariadeniami."
+    },
+    "settings_open_action": {
+        "message": "Otvorenie bo\u010dnej li\u0161ty"
+    },
+    "settings_open_action_desc": {
+        "message": "Li\u0161tu otvor\u00edte \u013eav\u00fdm alebo prav\u00fdm klikom my\u0161i na strane okna. Pr\u00edpadne m\u00f4\u017aete nastavenia zmeni\u0165 na otvorenie pomocou kliknutia na ikonu v menu Chrome."
+    },
+    "settings_open_action_leftclick": {
+        "message": "\u013dav\u00fd klik"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Prav\u00fd klik"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Pr\u00edbli\u017eenie sa my\u0161i"
+    },
+    "settings_open_action_icon": {
+        "message": "Kliknutie na ikonu"
+    },
+    "settings_toggle_area": {
+        "message": "Nastavi\u0165 oblas\u0165"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Vo v\u00fdchodzom nastaven\u00ed, cel\u00fd okraj okna prehliada\u010da m\u00f4\u017ee by\u0165 pou\u017eit\u00fd k otvoreniu panela. M\u00f4\u017eete presne nastavi\u0165, kde sa bude panel otv\u00e1ra\u0165."
+    },
+    "settings_toggle_area_width": {
+        "message": "\u0160\u00edrka"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "\u0160\u00edrka (okna)"
+    },
+    "settings_toggle_area_height": {
+        "message": "V\u00fd\u0161ka"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "M\u00f4\u017eete zmen\u0161i\u0165 v\u00fd\u0161ku oblasti tak, aby sa panel otvoril iba ak pohnete kurzorom do danej oblasti okraja okna."
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Nastavi\u0165 kl\u00e1vesov\u00fa skratku"
+    },
+    "settings_link_action": {
+        "message": "Otvori\u0165 z\u00e1lo\u017eky"
+    },
+    "settings_link_action_desc": {
+        "message": "\u013dav\u00fd klik otvor\u00ed z\u00e1lo\u017eku v aktu\u00e1lnej alebo novej karte."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Aktu\u00e1lna karta"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_open_delay": {
+        "message": "Oneskorenie otvorenia"
+    },
+    "settings_open_delay_desc": {
+        "message": "Zabr\u00e1ni okam\u017eit\u00e9mu otvoreniu panelu."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Zabr\u00e1ni\u0165 posunu str\u00e1nky"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Zabra\u0148uje pos\u00favaniu aktu\u00e1lneho webu pri otvoren\u00ed postrann\u00e9ho panelu."
+    },
+    "settings_dir_accordion": {
+        "message": "Zobraz len aktu\u00e1lny adres\u00e1r"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Uzavrie v\u0161etky adres\u00e1re s v\u00fdnimkou aktu\u00e1lneho adres\u00e1ra."
+    },
+    "settings_remember_state": {
+        "message": "Zapam\u00e4tova\u0165"
+    },
+    "settings_remember_state_desc": {
+        "message": "Vyberte, \u010do si zapam\u00e4tova\u0165 medzi zmenami str\u00e1nok. Ak sa rozhodnete zapam\u00e4tova\u0165 posledn\u00fa otvoren\u00fa z\u00e1lo\u017eku, bude pri otvoren\u00ed postrann\u00e9ho panela ozna\u010den\u00e1."
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Poz\u00edcia pos\u00favania a otvoren\u00fdch adres\u00e1rov"
+    },
+    "settings_remember_state_all": {
+        "message": "Posunutie poz\u00edcie, otvorenie adres\u00e1rov a posledn\u00e1 otvoren\u00e1 z\u00e1lo\u017eka"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Otvoren\u00e9 adres\u00e1re"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Otvoren\u00e9 adres\u00e1re najvy\u0161\u0161ej \u00farovne"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Ni\u010d"
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Otvori\u0165 v\u0161etky deti (limit upozornenia)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Mno\u017estvo z\u00e1lo\u017eiek, pri ktor\u00fdch sa zobraz\u00ed upozornenie, ak sa sna\u017e\u00edte otvori\u0165 v\u0161etky deti adres\u00e1ra naraz."
+    },
+    "settings_dir_open_duration": {
+        "message": "Doba otvorenia adres\u00e1ra"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Doba anim\u00e1cie otvorenia a zatv\u00e1rania adres\u00e1rov."
+    },
+    "settings_new_tab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_new_tab_desc": {
+        "message": "Otvori\u0165 z\u00e1lo\u017eky v novej karte v popred\u00ed alebo na pozad\u00ed"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Otvori\u0165 v popred\u00ed"
+    },
+    "settings_new_tab_background": {
+        "message": "Otvori\u0165 na pozad\u00ed"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Otvor\u00ed nov\u00fa kartu po poslednej alebo aktu\u00e1lnej karte."
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Po poslednej karte"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Po aktu\u00e1lnej karte"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Pred prvou kartou"
+    },
+    "settings_close_timeout": {
+        "message": "\u010casov\u00fd limit zatvorenia"
+    },
+    "settings_close_timeout_desc": {
+        "message": "\u010casov\u00fd limit v sekund\u00e1ch, po ktor\u00e9ho uplynut\u00ed bude panel zatvoren\u00fd. Limit za\u010dne be\u017ea\u0165 po opusten\u00ed panelu kurzorom."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Nezatv\u00e1ra\u0165 automaticky"
+    },
+    "settings_scrollbar_hide": {
+        "message": "Skry\u0165 scrollbar"
+    },
+    "settings_scrollbar_hide_desc": {
+        "message": "\u010casov\u00fd limit v sekund\u00e1ch, po ktor\u00e9ho uplynut\u00ed bude scrollbar skryt\u00fd. Pos\u00favanie obnov\u00ed scrollbar."
+    },
+    "settings_scrollbar_hide_infinity": {
+        "message": "Nikdy neskr\u00fdva\u0165"
+    },
+    "settings_drag_n_drop_open": {
+        "message": "Otvori\u0165 pomocou drag&drop"
+    },
+    "settings_drag_n_drop_open_desc": {
+        "message": "Povo\u013euje \u0165ahanie vybrat\u00e9ho textu a odkazov do panelu. Je to u\u017eito\u010dn\u00e9 ak chcete ulo\u017ei\u0165 aktu\u00e1lne zobrazen\u00fa str\u00e1nku alebo odkazy na str\u00e1nke."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Znovu otvori\u0165 panel"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Po otvoren\u00ed z\u00e1lo\u017eky automaticky otvor\u00ed panel znova."
+    },
+    "settings_prevent_windowed": {
+        "message": "Zablokova\u0165 panel v m\u00f3de okna"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Zablokuje mo\u017enos\u0165 otvori\u0165 panel kliknut\u00edm alebo zameran\u00edm sa na okraj prehliada\u010da v m\u00f3de okna."
+    },
+    "settings_tooltip_delay": {
+        "message": "Oneskorenie n\u00e1povedy"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Oneskorenie predt\u00fdm, ne\u017e sa zobraz\u00ed n\u00e1poveda k z\u00e1lo\u017eke."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Nikdy nezobrazuj n\u00e1povedu"
+    },
+    "settings_tooltip_desc": {
+        "message": "Vybra\u0165, ak\u00e9 inform\u00e1cie by mala n\u00e1poveda obsahova\u0165."
+    },
+    "settings_tooltip_content": {
+        "message": "Obsah n\u00e1povedy"
+    },
+    "settings_tooltip_content_all": {
+        "message": "N\u00e1zov a URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Iba n\u00e1zov"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Iba URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Dodato\u010dn\u00e9 inform\u00e1cie"
+    },
+    "settings_sidebar_position": {
+        "message": "Poz\u00edcia"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Dovo\u013euje nastavi\u0165 \u010di sa bude panel otv\u00edra\u0165 vpravo alebo v\u013eavo."
+    },
+    "settings_sidebar_position_left": {
+        "message": "V\u013eavo"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Vpravo"
+    },
+    "settings_animations": {
+        "message": "Povoli\u0165 anim\u00e1cie"
+    },
+    "settings_animations_desc": {
+        "message": "Umo\u017e\u0148uje zak\u00e1za\u0165 v\u0161etky anim\u00e1cie postrann\u00e9ho panelu. To m\u00f4\u017ee by\u0165 u\u017eito\u010dn\u00e9, ak anim\u00e1cie nefunguj\u00fa hladko vo va\u0161om syst\u00e9me."
+    },
+    "settings_contextmenu": {
+        "message": "Polo\u017eka kontextovej ponuky"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Zobrazi\u0165 polo\u017eku v kontextovom menu Chrome pre otvorenie panela."
+    },
+    "settings_filter_intro": {
+        "message": "Ak nechcete panel na\u010d\u00edta\u0165 na ka\u017edej str\u00e1nke, m\u00f4\u017eete nastavi\u0165, kde m\u00e1 by\u0165 panel na\u010d\u00edtan\u00fd (whitelist) a kde nie (blacklist)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Pridajte iba jeden URL vzor na riadok"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Pou\u017eite * pre zhodu s ak\u00fdmko\u013evek znakom. (Napr. example.com\/* vyhovuje v\u0161etk\u00fdm podstr\u00e1nkam na example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Ak nezahrniete \u017eiaden * v pravidle, bude pou\u017eit\u00e1 iba presn\u00e1 URL (napr: pravidlo \"example.com\" nezodpoved\u00e1 str\u00e1nke \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Nemus\u00edte zad\u00e1va\u0165 protokol (napr: https:\/\/) v pravidl\u00e1ch."
+    },
+    "settings_filter_visibility": {
+        "message": "Na\u010d\u00edta\u0165 panel"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Na ka\u017edej str\u00e1nke"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Na ka\u017edej str\u00e1nke okrem \u0161pecifick\u00fdch"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Iba na \u0161pecifick\u00fdch str\u00e1nkach"
+    },
+    "settings_filter_rules": {
+        "message": "URL vzor"
+    },
+    "settings_import_export_desc": {
+        "message": "M\u00f4\u017eete exportova\u0165 svoje nastavenia a ulo\u017ei\u0165 si ich lok\u00e1lne vo va\u0161om po\u010d\u00edta\u010di. M\u00f4\u017eete importova\u0165 tieto nastavenia na akomko\u013evek po\u010d\u00edta\u010di, kde je roz\u0161\u00edrenie nain\u0161talovan\u00e9."
+    },
+    "settings_export": {
+        "message": "Exportova\u0165 nastavenia"
+    },
+    "settings_import": {
+        "message": "Importova\u0165 nastavenia"
+    },
+    "settings_import_saved": {
+        "message": "Nastavenia boli \u00faspe\u0161ne importovan\u00e9"
+    },
+    "settings_import_failed": {
+        "message": "Nepodarilo sa importova\u0165 nastavenia. Pros\u00edm, pou\u017eite spr\u00e1vny s\u00fabor."
+    },
+    "settings_presets": {
+        "message": "Predv\u00fdber"
+    },
+    "settings_color_scheme": {
+        "message": "Farbn\u00e9 sch\u00e9ma"
+    },
+    "settings_dark_mode": {
+        "message": "Povrch"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Farba hlavi\u010dky panela, za\u0161krt\u00e1vac\u00edch pol\u00ed\u010dok at\u010f."
+    },
+    "settings_text_color": {
+        "message": "Farba textu"
+    },
+    "settings_hover_color": {
+        "message": "Farba po v\u00fdbere my\u0161ou"
+    },
+    "settings_font_family": {
+        "message": "P\u00edsmo"
+    },
+    "settings_font_family_default": {
+        "message": "V\u00fdchodz\u00ed"
+    },
+    "settings_font_family_desc": {
+        "message": "P\u00edsmo panela a vrstiev"
+    },
+    "settings_scrollbar_width": {
+        "message": "\u0160\u00edrka posuvn\u00e9ho jazdca"
+    },
+    "settings_icon_color": {
+        "message": "Farba"
+    },
+    "settings_indicator_width": {
+        "message": "\u0160\u00edrka"
+    },
+    "settings_indicator_color": {
+        "message": "Farba"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Ve\u013ekos\u0165 ikony"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Farba ikony"
+    },
+    "settings_sidebar_width": {
+        "message": "\u0160\u00edrka"
+    },
+    "settings_header_height": {
+        "message": "V\u00fd\u0161ka hlavi\u010dky"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Farba masky"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Ikona prie\u010dinka"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Farba ikony prie\u010dinku"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Ve\u013ekos\u0165 p\u00edsma z\u00e1lo\u017eiek"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Ve\u013ekos\u0165 ikony z\u00e1lo\u017eiek"
+    },
+    "settings_directories_icon_size": {
+        "message": "Ve\u013ekos\u0165 ikony prie\u010dinka"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "V\u00fd\u0161ka riadku z\u00e1lo\u017eky"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Horizont\u00e1lne odsadenie z\u00e1lo\u017eky"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Odsadenie prie\u010dinka"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Ve\u013ekos\u0165 p\u00edsma n\u00e1povedy"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Farba masky"
+    },
+    "settings_icon_shape": {
+        "message": "Tvar"
+    },
+    "settings_custom_css": {
+        "message": "Vlastn\u00e9 CSS pravidl\u00e1"
+    },
+    "settings_custom_css_desc": {
+        "message": "M\u00f4\u017eete si definova\u0165 vlastn\u00e9 CSS pravidl\u00e1, ktor\u00e9 nahradia v\u00fdchodzie \u0161t\u00fdly. Pros\u00edme, pou\u017eite t\u00fato mo\u017enos\u0165 iba ak viete nar\u00e1ba\u0165 s technol\u00f3giou CSS a viete \u010do rob\u00edte."
+    },
+    "settings_newtab_desc": {
+        "message": "Bohu\u017eia\u013e, Google odstr\u00e1nil mo\u017enos\u0165 na\u010d\u00edta\u0165 roz\u0161\u00edrenia na str\u00e1nke novej karty. Preto som pridal mo\u017enosti dovo\u013euj\u00face spr\u00edstupni\u0165 va\u0161e z\u00e1lo\u017eky na novej karte inou cestou."
+    },
+    "settings_newtab_override": {
+        "message": "Nahradi\u0165 str\u00e1nku novej karty"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Malo by roz\u0161\u00edrenie nahradi\u0165 aktu\u00e1lnu str\u00e1nku novej karty?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Automaticky otvori\u0165 panel"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Nastavi\u0165 \u010di by mal by\u0165 panel automaticky otvoren\u00fd pri otvoren\u00ed novej karty."
+    },
+    "settings_newtab_website": {
+        "message": "Na\u010d\u00edta\u0165 webov\u00fa str\u00e1nku."
+    },
+    "settings_newtab_website_desc": {
+        "message": "Namiesto otvorenia n\u00e1hrady novej karty, m\u00f4\u017eete nastavi\u0165 str\u00e1nku, ktor\u00e1 sa m\u00e1 otvori\u0165."
+    },
+    "settings_language": {
+        "message": "Jazyk"
+    },
+    "settings_language_default": {
+        "message": "V\u00fdchodzie nastavenie prehliada\u010da"
+    },
+    "settings_language_desc": {
+        "message": "Jazyk u\u017e\u00edvate\u013esk\u00e9ho rozhrania"
+    },
+    "settings_translation_link": {
+        "message": "Prejdi na preh\u013ead prekladov"
+    },
+    "settings_translation_desc": {
+        "message": "M\u00f4\u017ee\u0161 pom\u00f4c\u0165 s prekladom roz\u0161\u00edrenia do svojho jazyka."
+    },
+    "settings_translation_add_language": {
+        "message": "Prida\u0165 jazyk"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Nasp\u00e4\u0165 na preh\u013ead"
+    },
+    "settings_translation_info": {
+        "message": "M\u00f4\u017ee\u0161 upravova\u0165 existuj\u00face preklady alebo prida\u0165 ch\u00fdbaj\u00face."
+    },
+    "settings_translation_notice1": {
+        "message": "Akon\u00e1hle bud\u00fa v\u0161etky povinn\u00e9 kateg\u00f3rie prelo\u017een\u00e9, preklad bude zverejnen\u00fd."
+    },
+    "settings_translation_notice2": {
+        "message": "Ne\u00fapln\u00e9 kateg\u00f3rie nebud\u00fa zverejnen\u00e9 aby sa predi\u0161lo \u010diasto\u010dne prelo\u017een\u00e9mu textu."
+    },
+    "settings_translation_help": {
+        "message": "Pre ka\u017ed\u00fa polo\u017eku mo\u017eno vidie\u0165 anglick\u00fd preklad, ktor\u00fd je nutn\u00e9 prelo\u017ei\u0165 do tvojho jazyka. Pre jednoduch\u0161ie ur\u010denie kde bude text pou\u017eit\u00fd, m\u00e1 ka\u017ed\u00e1 polo\u017eka svoje meno (napr. {1}), ktor\u00e9 by nemalo by\u0165 prelo\u017een\u00e9. Pros\u00edme, nezabudnite odosla\u0165 svoj preklad stla\u010den\u00edm tla\u010d\u00edtka v pravom hornom rohu!"
+    },
+    "settings_translation_submit": {
+        "message": "Odosla\u0165"
+    },
+    "settings_translation_submit_message": {
+        "message": "V\u00e1\u0161 preklad bol \u00faspe\u0161ne odoslan\u00fd."
+    },
+    "settings_translation_status_released": {
+        "message": "Preklad je dostupn\u00fd"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "Preklad je dostupn\u00fd, ale niektor\u00e9 kateg\u00f3rie s\u00fa ne\u00fapln\u00e9"
+    },
+    "settings_translation_status_draft": {
+        "message": "Preklad je ne\u00fapln\u00fd alebo potrebuje kontrolu a nie je dostupn\u00fd u\u017e\u00edvate\u013eom"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Niektor\u00e9 preklady ch\u00fdbaj\u00fa"
+    },
+    "settings_translation_required_category": {
+        "message": "Povinn\u00e9"
+    },
+    "settings_feedback_desc": {
+        "message": "M\u00e1te nejak\u00e9 n\u00e1vrhy na zlep\u0161enie alebo ot\u00e1zky? V\u0161imli ste si ch\u00fdbaj\u00face mo\u017enosti nastavenia alebo na\u0161li chybu? Budem v\u010fa\u010dn\u00fd za ka\u017ed\u00fa sp\u00e4tn\u00fa v\u00e4zbu, ktor\u00fa m\u00e1te."
+    },
+    "settings_feedback_notice": {
+        "message": "Pros\u00edm, po\u0161lite mi svoj dotaz v angli\u010dtnie, inak bude pre m\u0148a ve\u013emi n\u00e1ro\u010dn\u00e9 porozumie\u0165 va\u0161ej spr\u00e1ve."
+    },
+    "settings_feedback_email": {
+        "message": "Va\u0161a e-mailov\u00e1 adresa"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Prilo\u017ei\u0165 screenshot"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Ve\u013ekos\u0165 s\u00faboru {1} je pr\u00edli\u0161 ve\u013ek\u00e1 (> 1MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "M\u00f4\u017eete prilo\u017ei\u0165 maxim\u00e1lne {1} screenshotov."
+    },
+    "settings_feedback_send": {
+        "message": "Odosla\u0165 spr\u00e1vu"
+    },
+    "settings_feedback_sent_message": {
+        "message": "\u010eakujem v\u00e1m za sp\u00e4tn\u00fa v\u00e4zbu."
+    },
+    "settings_feedback_send_failed": {
+        "message": "Va\u0161a spr\u00e1va nemohla by\u0165 odoslan\u00e1. Sk\u00faste to znova."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Zdie\u013ea\u0165 inform\u00e1cie"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Va\u0161e preferencie boli \u00faspe\u0161ne ulo\u017een\u00e9"
+    }
+}

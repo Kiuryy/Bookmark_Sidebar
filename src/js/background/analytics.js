@@ -146,7 +146,8 @@
 
                         if (
                             (baseName === "newtab" && attr === "website") || // don't track the exact website, just true or false
-                            (baseName === "utility" && attr === "customCss")  // only track whether the user uses a custom css or not
+                            (baseName === "utility" && attr === "customCss") ||  // only track whether the user uses a custom css or not
+                            (baseName === "utility" && attr === "newtabBackground")  // only track whether the user set a wallpaper as new tab background or not
                         ) {
                             obj[attr] = obj[attr] && obj[attr].length > 0 ? "true" : "false";
                         }
@@ -182,7 +183,7 @@
                     chrome.storage.local.get(["utility"], (obj) => {
                         if (obj.utility) {
                             let config = {};
-                            ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
+                            ["lockPinned", "pinnedEntries", "customCss", "newtabBackground"].forEach((field) => {
                                 if (typeof obj.utility[field] !== "undefined") {
                                     config[field] = obj.utility[field];
                                 }

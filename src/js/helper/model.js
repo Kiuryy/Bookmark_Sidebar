@@ -196,7 +196,6 @@
 
                             if (userType === null) {
                                 this.call("userType").then((obj) => {
-                                    console.log(obj.userType);
                                     if (obj && obj.userType) {
                                         userType = obj.userType;
                                     }

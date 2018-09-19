@@ -243,7 +243,6 @@
             }
 
             return new Promise((resolve) => {
-                console.log(stack.length, data, retry.count);
                 $.xhr(b.urls.track, {
                     method: "POST",
                     responseType: "json",

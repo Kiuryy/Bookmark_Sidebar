@@ -223,7 +223,7 @@
             });
 
             chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
-                if (message && message.action && message.action === "reinitialize") { // premium has been activated -> reload settings
+                if (message && message.action && message.action === "reinitialize" && message.type === "premiumActivated") { // premium has been activated -> reload settings
                     $.delay(2000).then(() => {
                         unsavedChanges = false;
                         location.reload(true);

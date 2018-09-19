@@ -52,9 +52,6 @@
                     saveChanges().then(() => {
                         leaveEditMode();
                     });
-                } else if (elm.hasClass($.cl.newtab.remove)) {
-                    let type = elm.attr($.attr.type);
-                    console.log(type);
                 }
             });
 

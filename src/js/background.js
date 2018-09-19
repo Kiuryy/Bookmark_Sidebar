@@ -10,7 +10,7 @@
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
             track: "https://extensions.blockbyte.de/ajax/evaluate/bs",
-            premiumCheck: "https://extensions.blockbyte.de/ajax/premium/check/bs",
+            premiumCheck: "https://extensions.blockbyte.de/ajax/premium/bs/check",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
             checkUrls: "https://4v1.de/u",
             thumbnail: "https://4v1.de/t"
@@ -54,8 +54,11 @@
 
         /**
          * Injects the content scripts to all tabs and because of this runs the extension there again
+         *
+         * @param {object} opts
+         * @returns {Promise}
          */
-        this.reinitialize = () => {
+        this.reinitialize = (opts) => {
             return new Promise((resolve) => {
                 this.reinitialized = +new Date();
 
@@ -70,6 +73,12 @@
                     this.helper.cache.remove({name: "htmlList"}),
                     this.helper.cache.remove({name: "htmlPinnedEntries"})
                 ]).then(() => {
+                    let type = null;
+
+                    if (opts && opts.type) {
+                        type = opts.type;
+                    }
+
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
                             if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
@@ -85,20 +94,34 @@
                                                 let error = chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
                                                 if (error && error.message && failed === false) { // send a notification instead to let the page deal with it
                                                     failed = true;
-                                                    notifyReinitialization(tab.id);
+                                                    notifyReinitialization(tab.id, type);
                                                 }
                                             });
                                         });
                                     });
                                 });
                             } else { // send a notification instead of loading the scripts to let the page deal with the reinitialization
-                                notifyReinitialization(tab.id);
+                                notifyReinitialization(tab.id, type);
                             }
                         });
 
                         resolve();
                     });
                 });
+            });
+        };
+
+        /**
+         * Sends a message to the given tab to notify it that a reinitialization needs to be performed,
+         * will be called if script injection failed (like on the newtab replacement page)
+         *
+         * @param {int} tabId
+         * @param {string} type
+         */
+        let notifyReinitialization = (tabId, type) => {
+            chrome.tabs.sendMessage(tabId, {
+                action: "reinitialize",
+                type: type
             });
         };
 
@@ -113,7 +136,7 @@
                 checkLicenseKey(opts.licenseKey).then((response) => {
                     if (response.valid === true) {
                         this.helper.model.setLicenseKey(opts.licenseKey).then(() => {
-                            this.reinitialize();
+                            this.reinitialize({type: "premiumActivated"});
                         }).then(() => {
                             resolve({success: true});
                         });
@@ -148,18 +171,6 @@
                 }, () => {
                     resolve({valid: null});
                 });
-            });
-        };
-
-        /**
-         * Sends a message to the given tab to notify it that a reinitialization needs to be performed,
-         * will be called if script injection failed (like on the newtab replacement page)
-         *
-         * @param {int} tabId
-         */
-        let notifyReinitialization = (tabId) => {
-            chrome.tabs.sendMessage(tabId, {
-                action: "reinitialize"
             });
         };
 

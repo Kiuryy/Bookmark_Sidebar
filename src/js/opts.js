@@ -265,7 +265,7 @@
         },
         website: {
             versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs",
-            premium: "https://extensions.blockbyte.de/premium/checkout/bs",
+            premium: "https://extensions.blockbyte.de/premium/bs/checkout",
             feedback: {
                 form: "https://extensions.blockbyte.de/ajax/feedback",
                 suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"

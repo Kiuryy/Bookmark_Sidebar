@@ -29,6 +29,9 @@
     "sidebar_undo_deletion": {
         "message": "Undo"
     },
+    "more_link": {
+        "message": "Learn more"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Edit Bookmark"
     },
@@ -120,7 +123,7 @@
         "message": "Title"
     },
     "overlay_bookmark_url": {
-        "message": "URL"
+        "message": "Url"
     },
     "overlay_bookmark_additional_info": {
         "message": "Additional info"
@@ -245,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "Don't show pages"
     },
+    "newtab_upload_background": {
+        "message": "Upload background image"
+    },
     "newtab_fallback_headline_general": {
         "message": "Something has blocked the sidebar"
     },
@@ -261,13 +267,10 @@
         "message": "The sidebar cannot be used on chrome system pages"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "One of your URL rules disallowed the sidebar to open"
+        "message": "One of your url rules disallowed the sidebar to open"
     },
     "newtab_fallback_desc": {
         "message": "We have opened a new tab with the sidebar for you instead."
-    },
-    "more_link": {
-        "message": "Learn more"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Always show this page when opening a new tab"
@@ -974,22 +977,136 @@
     "settings_feedback_sent_message": {
         "message": "Thank you for the feedback"
     },
-    "settings_premium_activated":{
-        "message": "Premium has been activated successfully"
-    },
     "settings_feedback_send_failed": {
         "message": "Your message could not be sent. Please try again."
-    },
-    "settings_headline_donation": {
-        "message": "Donate"
-    },
-    "settings_support_donation_desc": {
-        "message": "Donating is completely optional, but if you like the extension and want to donate a small amount, you can so by clicking the following link. I appreciate every help I get, be it donation, helping with translations or giving feedback, to improve the extension."
     },
     "settings_headline_share_userdata": {
         "message": "Share information"
     },
     "settings_saved_share_userdata": {
         "message": "Your preference has been saved successfully"
+    },
+    "settings_premium_activated": {
+        "message": "Premium has been activated successfully"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Could not activate Premium. Please enter a valid license key"
+    },
+    "premium_popup_text": {
+        "message": "Have you checked out Premium yet?"
+    },
+    "premium_restricted_text": {
+        "message": "This feature is only available with Premium"
+    },
+    "premium_desc_1": {
+        "message": "With Premium you will get access to additional features and help me maintaining the extension."
+    },
+    "premium_desc_2": {
+        "message": "You can check out the features included in Premium below. All key features of the extensions are free to use and won't require Premium at all. You can pay what the extension and my work is worth to you, to get access to these features."
+    },
+    "premium_get_now": {
+        "message": "Get Premium now"
+    },
+    "premium_show_license_input": {
+        "message": "I already have Premium"
+    },
+    "premium_already_activated": {
+        "message": "You are already using Premium"
+    },
+    "premium_activate": {
+        "message": "Activate Premium"
+    },
+    "premium_license_key": {
+        "message": "License Key"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Be the first one trying out new experimental features"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "With Premium you get access to unreleased features, which are currently under development or undergoing testing."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Change the width of your sidebar at any time"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Import and export your settings"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Customize your New Tab page"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "If you are using the New Tab page of this extension, you can set your own background image to make it look even nicer."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Customize everything with your own Stylesheet"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "If you are familiar with CSS, you can change the complete appearance of the sidebar by adding your own style definitions. This allows you to customize absolutely everything."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Check your bookmarks for broken links or duplicates"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "You can right-click any directory in your sidebar and perform a check. The result page will show all updated urls, bookmarks which are no longer working and bookmarks with the same url."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pay what you want"
+    },
+    "premium_pay_contact": {
+        "message": "If you are encountering any issues with your payment or have any questions, please contact me at {1}"
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_eula": {
+        "message": "End-User License Agreement"
+    },
+    "premium_pay_eula_desc": {
+        "message": "I read and accept the [a]End-User License Agreement[\/a]"
+    },
+    "premium_pay_buy": {
+        "message": "Buy Premium"
+    },
+    "premium_verifying": {
+        "message": "Verifiying transaction"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Purchase ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Thank you for your purchase"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} has been activated automatically for this device. You don't have to do any further steps."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "If you want to activate {1} on another device or after reinstalling the extension, you can enter the following key in the settings of the extension:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_name": {
+        "message": "Name"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Zip code"
+    },
+    "premium_pay_paypal": {
+        "message": "PayPal"
+    },
+    "premium_pay_alipay": {
+        "message": "Alipay"
+    },
+    "premium_pay_creditcard": {
+        "message": "Credit or debit card"
+    },
+    "premium_pay_info_card_brand": {
+        "message": "Brand"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Card number"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Card expires"
     }
 }

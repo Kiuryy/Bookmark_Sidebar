@@ -26,18 +26,18 @@
             let introSlide = s.elm.premium.wrapper.children("section[" + $.attr.type + "='intro']");
 
             if (s.helper.model.getUserType() === "premium") {
-                $("<span />").attr($.attr.type, "activated").text("You are already using Premium").appendTo(introSlide);
+                $("<span />").attr($.attr.type, "activated").text(s.helper.i18n.get("premium_already_activated")).appendTo(introSlide);
             } else {
                 s.elm.aside.find("li[" + $.attr.name + "='premium']").addClass($.cl.settings.inactive); // mark the premium menu point when the user has no premium
 
-                elm.linkPremium = $("<a />").attr($.attr.type, "premium").text("Get Premium now").appendTo(introSlide);
-                elm.showLicenseField = $("<a />").attr($.attr.type, "activate").text("I already have Premium").appendTo(introSlide);
+                elm.linkPremium = $("<a />").attr($.attr.type, "premium").text(s.helper.i18n.get("premium_get_now")).appendTo(introSlide);
+                elm.showLicenseField = $("<a />").attr($.attr.type, "activate").text(s.helper.i18n.get("premium_show_license_input")).appendTo(introSlide);
                 elm.licenseField = $("<div />")
                     .attr($.attr.type, "licenseKey")
                     .css("display", "none")
-                    .append("<strong>License key</strong>")
+                    .append("<strong>" + s.helper.i18n.get("premium_license_key") + "</strong>")
                     .append("<input type='text' />")
-                    .append("<button type='submit'>Activate Premium</button>")
+                    .append("<button type='submit'>" + s.helper.i18n.get("premium_activate") + "</button>")
                     .appendTo(introSlide);
             }
         };
@@ -84,7 +84,7 @@
                         s.showSuccessMessage("premium_activated");
                     } else { // invalid license key
                         $.delay(100).then(() => {
-                            alert("Couldn't activate Premium. Please enter a valid license key");
+                            alert(s.helper.i18n.get("settings_premium_invalid_key"));
                         });
                     }
                 });

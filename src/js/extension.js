@@ -236,7 +236,7 @@
         this.addPremiumInfoBox = () => {
             this.elm.sidebar.find("#" + $.opts.ids.sidebar.premiumInfo).remove();
             let infoBox = $("<div />").attr("id", $.opts.ids.sidebar.premiumInfo).prependTo(this.elm.sidebar);
-            $("<p />").text("Have you checked out Premium yet?").appendTo(infoBox);
+            $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
             $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
             $("<a />").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
 

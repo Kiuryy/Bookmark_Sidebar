@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "Keine Seiten anzeigen"
     },
+    "newtab_upload_background": {
+        "message": "Hintergrundbild hochladen"
+    },
     "newtab_fallback_headline_general": {
         "message": "Die Sidebar wurde von etwas blockiert"
     },
@@ -496,6 +499,9 @@
     },
     "settings_menu_support": {
         "message": "Unterst\u00fctzen"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Import\/Export"
@@ -974,16 +980,133 @@
     "settings_feedback_send_failed": {
         "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
     },
-    "settings_headline_donation": {
-        "message": "Spenden"
-    },
-    "settings_support_donation_desc": {
-        "message": "Spenden sind komplett optional. Wenn dir die Erweiterung gef\u00e4llt und du einen kleinen Betrag spenden m\u00f6chtest, kannst du das \u00fcber den folgenden Link machen. Ich freue mich \u00fcber jede Unterst\u00fctzung, neben Spenden vor allem der Unterst\u00fctzung bei der \u00dcbersetzung und dem Feedback der Nutzer, die mir helfen die Erweiterung zu verbessern."
-    },
     "settings_headline_share_userdata": {
         "message": "Informationen teilen"
     },
     "settings_saved_share_userdata": {
         "message": "Deine Einstellung wurde erfolgreich gespeichert"
+    },
+    "settings_premium_activated": {
+        "message": "Premium wurde erfolgreich aktiviert"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premium konnte nicht aktiviert werden. Bitte gib einen g\u00fcltigen Aktivierungscode ein"
+    },
+    "premium_popup_text": {
+        "message": "Hast du dir schon die Premium-Funktionen angeschaut?"
+    },
+    "premium_restricted_text": {
+        "message": "Diese Funktion ist nur mit Premium verf\u00fcgbar"
+    },
+    "premium_desc_1": {
+        "message": "Premium gibt dir Zugriff auf zus\u00e4tzliche Funktionen. Au\u00dferdem unterst\u00fctzt du mich dabei, die Erweiterung weiterzuentwickeln."
+    },
+    "premium_desc_2": {
+        "message": "Du kannst weiter unten die Funktionen die in Premium enthalten sind anschauen. Die Kernfunktionen der Erweiterung sind kostenlos nutzbar und ben\u00f6tigen \u00fcberhaupt kein Premium. Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf diese Funktionen zu erhalten."
+    },
+    "premium_get_now": {
+        "message": "Jetzt Premium holen"
+    },
+    "premium_show_license_input": {
+        "message": "Ich habe bereits Premium"
+    },
+    "premium_already_activated": {
+        "message": "Du verwendest bereits Premium"
+    },
+    "premium_activate": {
+        "message": "Premium aktivieren"
+    },
+    "premium_license_key": {
+        "message": "Aktivierungscode"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Sei der Erste, der neue experimentelle Funktionen ausprobieren kann"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Mit Premium bekommst du Zugriff auf bisher unver\u00f6ffentliche Funktionen, die aktuell in der Entwicklung sind, oder sich gerade in der Testphase befinden."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Passe die Breite deiner Sidebar jederzeit an"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importiere und exportiere deine Einstellungen"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Passe deine New-Tab-Seite an"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Wenn du die New-Tab-Seite der Erweiterung verwendest, kannst du dein eigenes Hintergrundbild festlegen um die Seite noch h\u00fcbscher zu gestalten."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Passe alles an ... Mit deinem eigenen Stylesheet"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Wenn du dich mit CSS auskennst, kannst du das komplette Aussehen der Sidebar ver\u00e4ndern, in dem du eigene Style-Definitionen hinzuf\u00fcgst. Damit l\u00e4sst sich absolut alles anpassen."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "\u00dcberpr\u00fcfe deine Lesezeichen auf kaputte oder doppelte Links"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Du kannst jeden Ordner in deiner Sidebar rechtsklicken und eine \u00dcberpr\u00fcfung starten. Die Ergebnis-Seite listet alle aktualisierten Urls, Lesezeichen die nicht mehr funktionieren und Eintr\u00e4ge mit doppelten Urls auf."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Bezahl so viel du willst"
+    },
+    "premium_pay_contact": {
+        "message": "Wenn du irgendwelche Schwierigkeiten mit der Bezahlung, oder Fragen hast, kannst du mich gerne unter {1} kontaktieren"
+    },
+    "premium_pay_price_total": {
+        "message": "Insgesamt"
+    },
+    "premium_pay_eula": {
+        "message": "Endbenutzer-Lizenzvereinbarung"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Ich habe die [a]Endbenutzer-Lizenzvereinbarung[\/a] gelesen und akzeptiere die diese."
+    },
+    "premium_pay_buy": {
+        "message": "Premium kaufen"
+    },
+    "premium_verifying": {
+        "message": "Transaktion wird \u00fcberpr\u00fcft"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Transaktionsnummer"
+    },
+    "premium_pay_success_headline": {
+        "message": "Vielen Dank f\u00fcr deinen Kauf"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} wurde auf diesem Ger\u00e4t automatisch aktiviert. Du musst nichts weiter tun."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Wenn du {1} auf einem anderen Ger\u00e4t aktivieren willst, oder nach einer Neuinstallation, kannst du den folgenden Aktivierungscode in den Einstellungen der Erweiterung eingeben:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_name": {
+        "message": "Name"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Postleitzahl"
+    },
+    "premium_pay_paypal": {
+        "message": "PayPal"
+    },
+    "premium_pay_alipay": {
+        "message": "Alipay"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kreditkarte"
+    },
+    "premium_pay_info_card_brand": {
+        "message": "Marke"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Kartennummer"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Ablaufdatum"
     }
 }

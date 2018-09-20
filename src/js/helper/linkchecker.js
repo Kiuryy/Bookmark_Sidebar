@@ -33,7 +33,7 @@
         let initNoPremiumText = () => {
             let desc = $("<p />")
                 .addClass($.cl.premium)
-                .html("<span>" + "This feature is only available with Premium" + "</span>")
+                .html("<span>" + ext.helper.i18n.get("premium_restricted_text") + "</span>")
                 .appendTo(elements.modal);
 
             let link = $("<a />").text(ext.helper.i18n.get("more_link")).appendTo(desc);

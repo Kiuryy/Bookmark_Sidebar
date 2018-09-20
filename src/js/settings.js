@@ -150,7 +150,7 @@
         this.addNoPremiumText = (elm) => {
             let desc = $("<p />")
                 .addClass($.cl.premium)
-                .html("<span>" + "This feature is only available with Premium" + "</span>")
+                .html("<span>" + this.helper.i18n.get("premium_restricted_text") + "</span>")
                 .appendTo(elm);
 
             let link = $("<a />").text(this.helper.i18n.get("more_link")).appendTo(desc);

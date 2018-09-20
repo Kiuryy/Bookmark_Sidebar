@@ -197,7 +197,7 @@
         };
 
         /**
-         * Returns suggestions for the given input of the google search api
+         * Returns suggestions for the given input using the google search api
          *
          * @param {string} val
          * @returns {Promise}

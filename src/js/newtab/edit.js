@@ -166,11 +166,11 @@
 
             if (n.helper.model.getUserType() === "premium") {
                 $("<a />").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
-                $("<div />").html("<span>" + "Upload background image" + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
+                $("<div />").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
             } else {
-                uploadWrapper.attr("title", "This feature is only available with Premium");
-                $("<span />").text("Premium").addClass($.cl.premium).appendTo(uploadWrapper);
-                $("<div />").html("<span>" + "Upload background image" + "</span>").appendTo(uploadWrapper);
+                uploadWrapper.attr("title", n.helper.i18n.get("premium_restricted_text"));
+                $("<span />").text(n.helper.i18n.get("settings_menu_premium")).addClass($.cl.premium).appendTo(uploadWrapper);
+                $("<div />").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span>").appendTo(uploadWrapper);
             }
 
             initMenuEvents();

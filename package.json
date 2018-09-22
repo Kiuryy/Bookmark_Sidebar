@@ -27,6 +27,7 @@
     "npm-check-updates": "^2.14.2",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
-    "uglify-es": "^3.3.10"
+    "uglify-es": "^3.3.10",
+    "zip-dir": "^1.0.2"
   }
 }

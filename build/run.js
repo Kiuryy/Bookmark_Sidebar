@@ -5,7 +5,7 @@
     global.path = {
         src: "src/",
         dist: "dist/",
-        tmp: "tmp/"
+        tmp: "__tmp/"
     };
 
     require("./_func");

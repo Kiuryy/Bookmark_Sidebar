@@ -1,3 +1,5 @@
 .idea/
-tmp/
+__tmp/
+dist/
 node_modules/
+*.zip

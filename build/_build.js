@@ -206,6 +206,17 @@
         };
 
         /**
+         *
+         *
+         * @returns {Promise}
+         */
+        let zip = () => {
+            return measureTime((resolve) => {
+                func.zipDirectory(path.dist, process.env.npm_package_name + "_" + process.env.npm_package_version + ".zip").then(resolve);
+            }, "Created zip file from dist directory");
+        };
+
+        /**
          * Parses the json files and copies them to the dist directory
          *
          * @returns {Promise}
@@ -328,6 +339,8 @@
                     return json();
                 }).then(() => {
                     return html();
+                }).then(() => {
+                    return zip();
                 }).then(() => {
                     return cleanPost();
                 }).then(() => {

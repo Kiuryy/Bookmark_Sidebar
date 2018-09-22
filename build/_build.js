@@ -206,7 +206,7 @@
         };
 
         /**
-         *
+         * Generate zip file from dist directory
          *
          * @returns {Promise}
          */

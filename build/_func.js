@@ -154,6 +154,13 @@
             });
         };
 
+        /**
+         * Creates a zip file containing all files of the given directory
+         *
+         * @param {string} dir
+         * @param {string} dest
+         * @returns {Promise}
+         */
         this.zipDirectory = (dir, dest) => {
             return new Promise((resolve, reject) => {
                 module.zip(dir, {saveTo: dest}, (err) => {

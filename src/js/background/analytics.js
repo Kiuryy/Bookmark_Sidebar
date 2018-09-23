@@ -57,7 +57,10 @@
             if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
-                b.helper.model.setData("lastTrackDate", today).then(() => {
+                Promise.all([
+                    b.helper.model.getUserType(),
+                    b.helper.model.setData("lastTrackDate", today)
+                ]).then(([response]) => {
                     const shareInfo = b.helper.model.getShareInfo();
                     let shareState = "not_set";
 
@@ -75,7 +78,7 @@
                     addToStack("system", navigator.userAgent);
                     addToStack("language", b.helper.language.getLanguage());
                     addToStack("shareInfo", shareState);
-                    addToStack("userType", b.helper.model.getUserType());
+                    addToStack("userType", response.userType);
 
                     if (shareInfo.activity === true) { // user allowed to share activity
                         trackGeneralInfo();

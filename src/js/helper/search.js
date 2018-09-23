@@ -48,7 +48,7 @@
          */
         this.update = (val = null) => {
             return new Promise((resolve) => {
-                let searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
                 if (val === null) {
                     val = searchField[0].value;
                 } else {
@@ -70,9 +70,9 @@
          * @param {string} val
          * @returns {Promise}
          */
-        let handleSearch = (searchField, val) => {
+        const handleSearch = (searchField, val) => {
             return new Promise((resolve) => {
-                let isFirstRun = ext.firstRun;
+                const isFirstRun = ext.firstRun;
                 ext.elm.bookmarkBox.all.removeClass($.cl.active).removeClass($.cl.scrollBox.scrolled);
                 ext.elm.bookmarkBox.search.addClass($.cl.active);
                 ext.helper.scroll.focus();
@@ -89,7 +89,7 @@
                         ext.elm.bookmarkBox.search.children("p").remove();
 
                         let hasResults = false;
-                        let list = ext.elm.bookmarkBox.search.children("ul");
+                        const list = ext.elm.bookmarkBox.search.children("ul");
                         list.text("");
 
                         if (result.length > 0) { // results for your search value
@@ -114,18 +114,18 @@
          * @param {string} val
          * @returns {Promise}
          */
-        let getSearchResults = (val) => {
+        const getSearchResults = (val) => {
             return new Promise((resolve) => {
-                let valLC = val.toLowerCase();
-                let idList = [];
+                const valLC = val.toLowerCase();
+                const idList = [];
 
                 ext.helper.model.call("searchBookmarks", {searchVal: val}).then((response) => {
-                    let result = response.bookmarks || [];
+                    const result = response.bookmarks || [];
                     result.forEach((entry) => {
                         idList.push(entry.id);
                     });
 
-                    let directories = ext.helper.entry.getAllDataByType("directories");
+                    const directories = ext.helper.entry.getAllDataByType("directories");
 
                     directories.forEach((directory, idx) => {
                         if (directory.title.toLowerCase().indexOf(valLC) > -1) {
@@ -135,10 +135,10 @@
                         }
                     });
 
-                    let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+                    const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
                     Object.entries(additionalInfoList).forEach(([id, info]) => {
                         if (info && info.desc && info.desc.toLocaleLowerCase().indexOf(valLC) > -1 && idList.indexOf(id) === -1) { // additional information is matching the search value
-                            let data = ext.helper.entry.getDataById(id);
+                            const data = ext.helper.entry.getDataById(id);
 
                             if (data.isDir) {
                                 data.index = -1000 + data.index;
@@ -159,7 +159,7 @@
          * @param {jsu} searchField
          * @returns {Promise}
          */
-        let reset = (searchField) => {
+        const reset = (searchField) => {
             return new Promise((resolve) => {
                 searchField.removeData("lastVal");
 
@@ -182,7 +182,7 @@
         /**
          * Initializes the events for the search field
          */
-        let initEvents = () => {
+        const initEvents = () => {
             ext.elm.header.on("click", "a." + $.cl.sidebar.search, (e) => {
                 e.preventDefault();
                 e.stopPropagation();

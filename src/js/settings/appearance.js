@@ -3,14 +3,14 @@
 
     $.AppearanceHelper = function (s) {
 
-        let previews = {
+        const previews = {
             sidebar: {template: "sidebar", styles: ["sidebar"]},
             general: {template: "sidebar", styles: ["sidebar"]},
             overlay: {template: "overlay", styles: ["overlay"]},
             indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
-        let presets = {
+        const presets = {
             sidebarHeaderHeight: {xs: 32, s: 36, l: 55},
             bookmarksFontSize: {xs: 11, s: 12, l: 16},
             bookmarksLineHeight: {xs: 20, s: 26, l: 45},
@@ -44,17 +44,17 @@
                     });
 
                     if (s.helper.model.getUserType() !== "default") {
-                        let customCss = s.helper.model.getData("u/customCss");
+                        const customCss = s.helper.model.getData("u/customCss");
                         s.elm.textarea.customCss[0].value = customCss;
                         s.elm.textarea.customCss.data("initial", customCss);
-                        s.elm.textarea.customCss.attr("placeholder","section#sidebar {\n   ...\n}");
+                        s.elm.textarea.customCss.attr("placeholder", "section#sidebar {\n   ...\n}");
                         s.elm.textarea.customCss.parent().append("<span>" + s.helper.i18n.get("settings_not_synced") + "</span>");
                     } else {
                         s.elm.textarea.customCss.addClass($.cl.settings.inactive);
                         s.addNoPremiumText(s.elm.textarea.customCss.parent());
                     }
 
-                    let styles = s.helper.model.getData("a/styles");
+                    const styles = s.helper.model.getData("a/styles");
 
                     Object.entries(styles).forEach(([key, value]) => {
                         if (s.elm.range[key]) {
@@ -95,12 +95,12 @@
          */
         this.save = () => {
             return new Promise((resolve) => {
-                let config = getCurrentConfig();
+                const config = getCurrentConfig();
 
                 chrome.storage.sync.set({appearance: config.appearance}, () => {
 
                     chrome.storage.local.get(["utility"], (obj) => {
-                        let utility = obj.utility || {};
+                        const utility = obj.utility || {};
                         utility.customCss = config.utility.customCss;
 
                         chrome.storage.local.set({utility: utility}, () => {
@@ -117,8 +117,8 @@
          * @param elm
          * @param value
          */
-        let changeColorValue = (elm, value) => {
-            let picker = elm.data("picker");
+        const changeColorValue = (elm, value) => {
+            const picker = elm.data("picker");
             if (picker) {
                 picker.setColor(value);
             }
@@ -127,7 +127,7 @@
         /**
          * Updates all previews
          */
-        let updateAllPreviewStyles = () => {
+        const updateAllPreviewStyles = () => {
             Object.keys(s.elm.preview).forEach((key) => {
                 updatePreviewStyle(key);
             });
@@ -138,14 +138,14 @@
          *
          * @param key
          */
-        let updatePreviewStyle = (key) => {
-            let config = getCurrentConfig();
+        const updatePreviewStyle = (key) => {
+            const config = getCurrentConfig();
 
             if (s.elm.preview[key]) {
                 s.elm.preview[key].find("head > style").remove();
 
                 if (config.appearance.styles.fontFamily === "default") {
-                    let fontInfo = s.helper.font.getDefaultFontInfo();
+                    const fontInfo = s.helper.font.getDefaultFontInfo();
                     config.appearance.styles.fontFamily = fontInfo.name;
                 }
 
@@ -168,7 +168,7 @@
                 });
 
                 s.elm.preview[key].find("[" + $.attr.settings.hideOnFalse + "]").forEach((elm) => {
-                    let attr = $(elm).attr($.attr.settings.hideOnFalse);
+                    const attr = $(elm).attr($.attr.settings.hideOnFalse);
 
                     if (typeof config.appearance[attr] === "undefined" || config.appearance[attr] === false) {
                         $(elm).css("display", "none");
@@ -202,12 +202,12 @@
          *
          * @param {jsu} preview
          */
-        let updatePreviewIndicator = (preview) => {
-            let indicator = preview.find("div#blockbyte-bs-indicator");
+        const updatePreviewIndicator = (preview) => {
+            const indicator = preview.find("div#blockbyte-bs-indicator");
 
             if (indicator.length() > 0) {
-                let height = +s.elm.range.toggleArea_height[0].value;
-                let top = +s.elm.range.toggleArea_top[0].value;
+                const height = +s.elm.range.toggleArea_height[0].value;
+                const top = +s.elm.range.toggleArea_top[0].value;
 
                 indicator.css({
                     height: height + "%",
@@ -227,11 +227,11 @@
          *
          * @param {jsu} preview
          */
-        let updatePreviewSidebarHeader = (preview) => {
-            let sidebar = preview.find("section#sidebar");
+        const updatePreviewSidebarHeader = (preview) => {
+            const sidebar = preview.find("section#sidebar");
 
             if (sidebar.length() > 0) {
-                let sidebarHeader = sidebar.find("> header");
+                const sidebarHeader = sidebar.find("> header");
                 sidebarHeader.find("> h1").removeClass($.cl.hidden);
                 sidebarHeader.find("> h1 > span").removeClass($.cl.hidden);
 
@@ -260,13 +260,13 @@
          *
          * @param {jsu} preview
          */
-        let updatePreviewTooltip = (preview) => {
-            let tooltip = preview.find("div.tooltip");
-            let entry = preview.find("li > a.hover");
+        const updatePreviewTooltip = (preview) => {
+            const tooltip = preview.find("div.tooltip");
+            const entry = preview.find("li > a.hover");
 
             if (tooltip.length() > 0 && entry.length() > 0) {
                 if (+new Date() - lastTooltipChange < 2000) {
-                    let rect = entry[0].getBoundingClientRect();
+                    const rect = entry[0].getBoundingClientRect();
                     tooltip.addClass($.cl.visible);
 
                     let left = rect.x - tooltip[0].offsetWidth;
@@ -290,12 +290,12 @@
          *
          * @param {string} key
          */
-        let updatePageLayout = (key) => {
+        const updatePageLayout = (key) => {
             s.elm.content.removeClass($.cl.settings.small);
 
             if (s.elm.preview[key]) {
-                let padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
-                let config = getCurrentConfig();
+                const padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
+                const config = getCurrentConfig();
 
                 if (s.elm.preview[key][0].offsetParent !== null) { // preview is visible -> if screen is too small it's hidden
                     let headerRightPadding = 0;
@@ -315,7 +315,7 @@
                     s.elm.content.css(padding, "");
                 }
 
-                let boxes = s.helper.menu.getPage().find("div." + $.cl.settings.box);
+                const boxes = s.helper.menu.getPage().find("div." + $.cl.settings.box);
 
                 if (boxes.length() > 1) { // set class for wrapper if there is only one box per row
                     let hasColumns = false;
@@ -342,8 +342,8 @@
          *
          * @returns object
          */
-        let getCurrentConfig = () => {
-            let ret = {
+        const getCurrentConfig = () => {
+            const ret = {
                 utility: {
                     customCss: s.helper.model.getUserType() === "default" ? "" : s.elm.textarea.customCss[0].value
                 },
@@ -358,17 +358,17 @@
                 }
             };
 
-            let styles = s.helper.model.getData("a/styles");
+            const styles = s.helper.model.getData("a/styles");
 
             Object.keys(styles).forEach((key) => {
                 if (s.elm.range[key]) {
                     ret.appearance.styles[key] = s.elm.range[key][0].value + "px";
                 } else if (s.elm.color[key]) {
-                    let colorValue = getColorValue(key, s.elm.color[key][0].value);
+                    const colorValue = getColorValue(key, s.elm.color[key][0].value);
                     ret.appearance.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
-                        let lum = colorValue.luminance ? colorValue.luminance : 0;
+                        const lum = colorValue.luminance ? colorValue.luminance : 0;
                         ret.appearance.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", lum > 170 ? "dark" : "light");
 
                         if (lum > 215) {
@@ -403,13 +403,13 @@
          * @param {string} val
          * @returns {object}
          */
-        let getColorValue = (field, val) => {
+        const getColorValue = (field, val) => {
             let luminance = null;
-            let elm = s.elm.color[field];
-            let picker = elm.data("picker");
+            const elm = s.elm.color[field];
+            const picker = elm.data("picker");
 
             if (picker) {
-                let colorObj = picker.getColorObj();
+                const colorObj = picker.getColorObj();
                 if (colorObj.a === 0) {
                     val = "transparent";
                 }
@@ -427,10 +427,10 @@
          *
          * @returns {Promise}
          */
-        let initPreviews = () => {
+        const initPreviews = () => {
             return new Promise((resolve) => {
                 let previewsLoaded = 0;
-                let previewAmount = Object.keys(previews).length;
+                const previewAmount = Object.keys(previews).length;
 
                 Object.keys(previews).forEach((key) => {
                     previews[key].css = "";
@@ -445,7 +445,7 @@
                             html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
                             html = html.replace(/__POSITION__/g, s.helper.i18n.isRtl() ? "left" : "right");
 
-                            let previewBody = s.elm.preview[key].find("body");
+                            const previewBody = s.elm.preview[key].find("body");
                             previewBody.html(html);
                             previewBody.parent("html").attr("dir", s.helper.i18n.isRtl() ? "rtl" : "ltr");
 
@@ -474,17 +474,17 @@
         /**
          * Initialises the eventhandlers
          */
-        let initEvents = () => {
+        const initEvents = () => {
             $(window).on("resize", () => {
-                let path = s.helper.menu.getPath();
+                const path = s.helper.menu.getPath();
                 if (path && path[0] === "appearance" && path[1]) {
                     updatePageLayout(path[1]);
                 }
             }, {passive: true});
 
             s.elm.appearance.presetWrapper.children("a").on("click", (e) => {
-                let type = $(e.currentTarget).attr($.attr.type);
-                let defaults = s.helper.model.getData("a/styles", true);
+                const type = $(e.currentTarget).attr($.attr.type);
+                const defaults = s.helper.model.getData("a/styles", true);
 
                 Object.entries(presets).forEach(([key, values]) => {
                     if (values[type]) {
@@ -509,9 +509,9 @@
             });
 
             s.elm.appearance.content.find("input, textarea, select").on("change input", (e) => {
-                let elm = $(e.currentTarget);
+                const elm = $(e.currentTarget);
+                const initialVal = elm.data("initial");
                 let val = e.currentTarget.value;
-                let initialVal = elm.data("initial");
 
                 if (typeof initialVal !== "undefined") {
 
@@ -519,25 +519,25 @@
                         val = e.currentTarget.checked;
 
                         if ($(elm).parent()[0] === s.elm.checkbox.darkMode[0]) { // darkmode checkbox -> change some other colors, too
-                            let scheme = {
+                            const scheme = {
                                 "new": val ? "dark" : "light",
                                 "old": val ? "light" : "dark"
                             };
 
-                            let textColor = s.helper.model.getDefaultColor("textColor", scheme["new"]);
+                            const textColor = s.helper.model.getDefaultColor("textColor", scheme["new"]);
                             changeColorValue(s.elm.color.textColor, textColor);
                             changeColorValue(s.elm.color.bookmarksDirColor, textColor);
 
                             ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
                                 if (colorName === "hoverColor" || s.elm.color[colorName][0].value === s.helper.model.getDefaultColor(colorName, scheme.old)) { // only change, if it was the default color before
-                                    let color = s.helper.model.getDefaultColor(colorName, scheme["new"]);
+                                    const color = s.helper.model.getDefaultColor(colorName, scheme["new"]);
                                     changeColorValue(s.elm.color[colorName], color);
                                 }
                             });
                         }
                     }
 
-                    let box = $(e.currentTarget).parents("div." + $.cl.settings.box).eq(0);
+                    const box = $(e.currentTarget).parents("div." + $.cl.settings.box).eq(0);
                     if (val !== initialVal) {
                         if (box.children("a." + $.cl.settings.revert).length() === 0) {
                             $("<a href='#' />").addClass($.cl.settings.revert).data("elm", box).appendTo(box);
@@ -546,18 +546,16 @@
                         box.children("a." + $.cl.settings.revert).remove();
                     }
 
-                    let path = s.helper.menu.getPath();
+                    const path = s.helper.menu.getPath();
                     updatePreviewStyle(path[1]);
                 }
             });
 
             s.elm.appearance.content.on("click", "a." + $.cl.settings.revert, (e) => { // revert the changes of the specific field
                 e.preventDefault();
-                let box = $(e.currentTarget).parent("div." + $.cl.settings.box);
-
-                box.find("input, select").forEach((elm) => {
-                    let elmObj = $(elm);
-                    let value = elmObj.data("initial");
+                $(e.currentTarget).parent("div." + $.cl.settings.box).find("input, select").forEach((elm) => {
+                    const elmObj = $(elm);
+                    const value = elmObj.data("initial");
 
                     if (elmObj.data("picker")) {
                         changeColorValue(elmObj, value);

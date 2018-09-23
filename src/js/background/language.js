@@ -3,7 +3,7 @@
 
     $.LanguageHelper = function (b) {
 
-        let allLanguages = {
+        const allLanguages = {
             ar: "Arabic",
             am: "Amharic",
             bg: "Bulgarian",
@@ -58,8 +58,8 @@
             zh_TW: "Chinese (Traditional)",
         };
 
-        let rtlLangs = ["ar", "fa", "he"];
-        let aliasLangs = {pt: "pt_PT"};
+        const rtlLangs = ["ar", "fa", "he"];
+        const aliasLangs = {pt: "pt_PT"};
         let language = null;
         let langVars = {};
         let isRtl = false;
@@ -72,7 +72,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["language"], (data) => {
-                    let defaultLang = b.manifest.default_locale;
+                    const defaultLang = b.manifest.default_locale;
                     let lang = data.language || "default";
                     let fallbackLang = null;
 
@@ -142,9 +142,9 @@
                     if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) { // cached
                         resolve({infos: obj.languageInfos.infos});
                     } else { // not cached -> determine available languages
-                        let total = Object.keys(allLanguages).length;
+                        const total = Object.keys(allLanguages).length;
                         let loaded = 0;
-                        let infos = {};
+                        const infos = {};
 
                         Object.keys(allLanguages).forEach((lang) => {
                             infos[lang] = {
@@ -153,7 +153,7 @@
                                 available: false
                             };
 
-                            let xhrDone = () => {
+                            const xhrDone = () => {
                                 if (++loaded === total) {
                                     chrome.storage.local.set({
                                         languageInfos: {infos: infos, updated: +new Date()}
@@ -179,14 +179,14 @@
          * @param {string} defaultLang
          * @returns {Promise}
          */
-        let getVars = (lang, defaultLang = null) => {
+        const getVars = (lang, defaultLang = null) => {
             return new Promise((resolve) => {
                 if (lang) {
-                    let sendXhr = (obj) => {
-                        let langVars = obj.langVars;
+                    const sendXhr = (obj) => {
+                        const langVars = obj.langVars;
 
                         $.xhr(chrome.extension.getURL("_locales/" + lang + "/messages.json")).then((xhr) => {
-                            let result = JSON.parse(xhr.responseText);
+                            const result = JSON.parse(xhr.responseText);
                             Object.assign(langVars, result); // override all default variables with the one from the language file
                             resolve({langVars: langVars});
                         });

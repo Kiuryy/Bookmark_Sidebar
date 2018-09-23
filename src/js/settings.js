@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    let Settings = function () {
+    const Settings = function () {
 
         /*
          * ################################
@@ -79,7 +79,7 @@
         };
 
         this.serviceAvailable = true;
-        let restoreTypes = ["behaviour", "appearance", "newtab"];
+        const restoreTypes = ["behaviour", "appearance", "newtab"];
         let unsavedChanges = false;
 
         /**
@@ -87,7 +87,7 @@
          */
         this.run = () => {
             initHelpers();
-            let loader = {
+            const loader = {
                 body: this.helper.template.loading().appendTo(this.elm.body)
             };
             this.elm.body.addClass($.cl.initLoading);
@@ -148,12 +148,12 @@
          * @param {jsu} elm
          */
         this.addNoPremiumText = (elm) => {
-            let desc = $("<p />")
+            const desc = $("<p />")
                 .addClass($.cl.premium)
                 .html("<span>" + this.helper.i18n.get("premium_restricted_text") + "</span>")
                 .appendTo(elm);
 
-            let link = $("<a />").text(this.helper.i18n.get("more_link")).appendTo(desc);
+            const link = $("<a />").text(this.helper.i18n.get("more_link")).appendTo(desc);
 
             link.on("click", (e) => { // show info page
                 e.preventDefault();
@@ -187,7 +187,7 @@
         /**
          * Initialises the helper objects
          */
-        let initHelpers = () => {
+        const initHelpers = () => {
             this.helper = {
                 model: new $.ModelHelper(this),
                 checkbox: new $.CheckboxHelper(this),
@@ -213,10 +213,10 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             $(window).on("beforeunload", (e) => { // Show confirm dialog when trying to exit the settings without saving the changes
                 if (unsavedChanges) {
-                    let confirmationMessage = "Do you really want to leave without saving your changes?";
+                    const confirmationMessage = "Do you really want to leave without saving your changes?";
                     e.returnValue = confirmationMessage;
                     return confirmationMessage;
                 }
@@ -259,15 +259,15 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                let type = $(e.currentTarget).parent("div").attr($.attr.type);
+                const type = $(e.currentTarget).parent("div").attr($.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    let promises = [];
+                    const promises = [];
 
                     if (type === "appearance") { // restore custom css aswell
                         promises.push(new Promise((resolve) => {
                             chrome.storage.local.get(["utility"], (obj) => {
-                                let utility = obj.utility || {};
+                                const utility = obj.utility || {};
                                 delete utility.customCss;
 
                                 chrome.storage.local.set({utility: utility}, () => {
@@ -297,7 +297,7 @@
 
             this.elm.advanced.container.css("display", "none");
             this.elm.advanced.toggle.on("click", (e) => {
-                let container = $(e.currentTarget).next("div");
+                const container = $(e.currentTarget).next("div");
 
                 if (container.hasClass($.cl.visible)) {
                     container.removeClass($.cl.visible);
@@ -316,7 +316,7 @@
 
             this.elm.buttons.save.on("click", (e) => { // save button
                 e.preventDefault();
-                let path = this.helper.menu.getPath();
+                const path = this.helper.menu.getPath();
 
                 if (path[1] === "translate") {
                     this.helper.translation.submit();
@@ -339,7 +339,7 @@
 
             this.elm.buttons.restore.on("click", (e) => {
                 e.preventDefault();
-                let path = this.helper.menu.getPath();
+                const path = this.helper.menu.getPath();
                 let type = path[0];
 
                 if (type === "sidebar") {
@@ -348,9 +348,9 @@
 
                 if (restoreTypes.indexOf(type) !== -1) {
                     $("div." + $.cl.settings.dialog).remove();
-                    let paddingDir = this.helper.i18n.isRtl() ? "left" : "right";
+                    const paddingDir = this.helper.i18n.isRtl() ? "left" : "right";
 
-                    let dialog = $("<div />")
+                    const dialog = $("<div />")
                         .attr($.attr.type, type)
                         .addClass($.cl.settings.dialog)
                         .append("<p>" + this.helper.i18n.get("settings_restore_confirm") + "</p>")

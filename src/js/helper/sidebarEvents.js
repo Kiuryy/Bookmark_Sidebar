@@ -13,7 +13,7 @@
         let isRestoring = false;
         let sidebarPos = null;
 
-        let sidebarWidthRange = {min: 150, max: 600};
+        const sidebarWidthRange = {min: 150, max: 600};
 
         /**
          * Initializes the helper
@@ -34,17 +34,17 @@
         };
 
         this.handleEntryClick = (elm, opts) => {
-            let data = ext.helper.entry.getDataById(elm.attr($.attr.id));
+            const data = ext.helper.entry.getDataById(elm.attr($.attr.id));
             if (!data) {
                 return false;
             }
 
-            let config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
-            let middleClick = opts.which === 2 || opts.ctrlKey || opts.metaKey;
+            const config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
+            const middleClick = opts.which === 2 || opts.ctrlKey || opts.metaKey;
 
             if (data.isDir && !elm.hasClass($.cl.sidebar.dirAnimated)) {  // Click on dir
                 if (middleClick) { // middle click -> open all children
-                    let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
+                    const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
                     if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                         ext.helper.overlay.create("openChildren", ext.helper.i18n.get("contextmenu_open_children"), data);
                     } else { // open bookmarks directly without confirmation
@@ -71,11 +71,11 @@
          *
          * @returns {Promise}
          */
-        let initFilterEvents = async () => {
+        const initFilterEvents = async () => {
             ext.elm.filterBox.on("click", "a[" + $.attr.direction + "]", (e) => { // change sort direction
                 e.preventDefault();
-                let currentDirection = $(e.target).attr($.attr.direction);
-                let newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
+                const currentDirection = $(e.target).attr($.attr.direction);
+                const newDirection = currentDirection === "ASC" ? "DESC" : "ASC";
                 ext.helper.list.updateDirection(newDirection);
             }).on("click", "div." + $.cl.checkbox.box + " + a", (e) => { // trigger checkbox (viewAsTree or mostViewedPerMonth)
                 e.preventDefault();
@@ -88,9 +88,9 @@
          *
          * @returns {Promise}
          */
-        let initBookmarkEntriesEvents = async () => {
+        const initBookmarkEntriesEvents = async () => {
             Object.values(ext.elm.bookmarkBox).forEach((box, i) => {
-                let selector = [box];
+                const selector = [box];
                 if (i === 0) {
                     selector.push(ext.elm.pinnedBox);
                 }
@@ -107,9 +107,9 @@
                         this.handleEntryClick($(e.currentTarget), e);
                     }
                 }).on("dblclick", "> ul a", (e) => { // double click on a directory will open the directory + all sub directories
-                    let _self = $(e.currentTarget);
+                    const _self = $(e.currentTarget);
 
-                    let openChildren = (elm) => {
+                    const openChildren = (elm) => {
                         elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir).forEach((childDir) => {
                             if (!$(childDir).hasClass($.cl.sidebar.dirOpened)) {
                                 $.delay().then(() => {
@@ -126,8 +126,8 @@
                     }
                 }).on("mouseover", "> ul a", (e) => { // add class to currently hovered element
                     if (ext.helper.overlay.isOpened() === false) { // prevent hovering if overlay is open
-                        let _self = $(e.currentTarget);
-                        let id = _self.attr($.attr.id);
+                        const _self = $(e.currentTarget);
+                        const id = _self.attr($.attr.id);
                         box.find("a." + $.cl.hover).removeClass($.cl.hover);
                         box.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
 
@@ -158,7 +158,7 @@
                     $(e.currentTarget).find("a." + $.cl.hover).removeClass($.cl.hover);
                 }).on("click", "span." + $.cl.sidebar.removeMask + " > span", (e) => { // undo deletion of an entry
                     e.preventDefault();
-                    let elm = $(e.target).parents("a").eq(0);
+                    const elm = $(e.target).parents("a").eq(0);
 
                     if (isRestoring === false) {
                         isRestoring = true;
@@ -173,7 +173,7 @@
                     ext.helper.tooltip.close();
                 }).on("click", "> a[" + $.attr.name + "='add']", (e) => { // add element to the root if the real root is hidden
                     e.preventDefault();
-                    let id = ext.elm.bookmarkBox.all.children("ul > li > a").eq(0).attr($.attr.id);
+                    const id = ext.elm.bookmarkBox.all.children("ul > li > a").eq(0).attr($.attr.id);
                     ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), ext.helper.entry.getDataById(id));
                 });
             });
@@ -184,14 +184,14 @@
          *
          * @returns {Promise}
          */
-        let initPinnedEntriesEvents = async () => {
-            let clTimeout = () => { // clear timeout for the lock icon
+        const initPinnedEntriesEvents = async () => {
+            const clTimeout = () => { // clear timeout for the lock icon
                 if (lockPinnedEntriesTimeout) {
                     clearTimeout(lockPinnedEntriesTimeout);
                 }
             };
 
-            let startTimeout = () => { // remove lock icon after 500ms of hovering
+            const startTimeout = () => { // remove lock icon after 500ms of hovering
                 clTimeout();
                 lockPinnedEntriesTimeout = setTimeout(() => {
                     ext.elm.lockPinned.removeClass($.cl.active);
@@ -216,7 +216,7 @@
                 ext.elm.lockPinned.toggleClass($.cl.sidebar.fixed);
                 ext.elm.pinnedBox.toggleClass($.cl.sidebar.fixed);
 
-                let isLocked = ext.elm.pinnedBox.hasClass($.cl.sidebar.fixed);
+                const isLocked = ext.elm.pinnedBox.hasClass($.cl.sidebar.fixed);
 
                 ext.helper.model.setData({
                     "u/lockPinned": isLocked
@@ -237,7 +237,7 @@
          *
          * @returns {Promise}
          */
-        let initGeneralEvents = async () => {
+        const initGeneralEvents = async () => {
             ext.elm.iframe.find("body").on("click", () => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
@@ -252,7 +252,7 @@
             });
 
             $(ext.elm.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {
-                let name = e.detail.checkbox.attr($.attr.name);
+                const name = e.detail.checkbox.attr($.attr.name);
 
                 if (name === "viewAsTree" || name === "mostViewedPerMonth") {  // set sort specific config and reload list
                     ext.helper.model.setData({
@@ -264,7 +264,7 @@
                 } else if (name === "config" || name === "activity") { // check whether all tracking checkboxes are checked
                     let allChecked = true;
                     ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
-                        let wrapper = $(elm).parent();
+                        const wrapper = $(elm).parent();
                         if (ext.helper.checkbox.isChecked(wrapper) === false) {
                             allChecked = false;
                             return false;
@@ -298,7 +298,7 @@
 
             ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.shareInfo + " a", (e) => { // click on a link in the share info mask
                 e.preventDefault();
-                let title = $(e.currentTarget).data("title");
+                const title = $(e.currentTarget).data("title");
 
                 if (title) { // show info about what will be tracked
                     ext.helper.overlay.create("shareInfoDesc", title, {type: $(e.currentTarget).data("type")});
@@ -325,7 +325,7 @@
          *
          * @returns {Promise}
          */
-        let initSidebarWidthEvents = async () => {
+        const initSidebarWidthEvents = async () => {
             ext.elm.widthDrag.on("mousemove", () => {
                 ext.elm.widthDrag.addClass($.cl.hover);
             }).on("mouseleave", () => {
@@ -366,7 +366,7 @@
             }).on("mouseup", () => { // save current sidebar width
                 if (ext.elm.widthDrag.data("dragInfo")) {
                     ext.elm.widthDrag.removeData("dragInfo");
-                    let styles = ext.helper.model.getData("a/styles");
+                    const styles = ext.helper.model.getData("a/styles");
 
                     $.delay().then(() => {
                         styles.sidebarWidth = ext.elm.sidebar.realWidth() + "px";
@@ -388,7 +388,7 @@
          *
          * @param {object} message
          */
-        let handleBackgroundMessage = (message) => {
+        const handleBackgroundMessage = (message) => {
             if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
                 if (message.action === "reload") { // reload the current instance of the extension
@@ -431,15 +431,15 @@
         /**
          * Saves the preference of the user which data should be shared (configuration or activity)
          */
-        let saveTrackingPreferences = () => {
-            let shareInfo = {
+        const saveTrackingPreferences = () => {
+            const shareInfo = {
                 config: false,
                 activity: false
             };
 
             ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
-                let wrapper = $(elm).parent();
-                let name = wrapper.attr($.attr.name);
+                const wrapper = $(elm).parent();
+                const name = wrapper.attr($.attr.name);
                 shareInfo[name] = ext.helper.checkbox.isChecked(wrapper);
             });
 

@@ -17,7 +17,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             chrome.storage.sync.get(["shareInfo"], (obj) => {
                 if (obj.shareInfo) {
                     if (obj.shareInfo.config) {

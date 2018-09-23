@@ -22,7 +22,7 @@
          * @returns {object}
          */
         this.getExportConfig = () => {
-            let config = Object.assign({}, s.helper.model.getAllData());
+            const config = Object.assign({}, s.helper.model.getAllData());
 
             if (s.helper.model.getUserType() !== "default") {
                 config.utility = {
@@ -39,15 +39,14 @@
         /**
          * Shows an alert popup with an error message that the import failed
          */
-        let alertImportError = () => {
+        const alertImportError = () => {
             window.alert(s.helper.i18n.get("settings_import_failed"));
         };
-
 
         /**
          *
          */
-        let initNoPremium = () => {
+        const initNoPremium = () => {
             s.addNoPremiumText(s.elm.importExport.content.children("div"));
 
             ["import", "export"].forEach((field) => {
@@ -60,17 +59,17 @@
          *
          * @returns {Promise}
          */
-        let initImport = async () => {
+        const initImport = async () => {
             s.elm.buttons["import"].children("input[type='file']").on("change", (e) => { // import config
                 e.preventDefault();
-                let _self = e.currentTarget;
+                const _self = e.currentTarget;
 
                 if (_self.files && _self.files[0] && (_self.files[0].name.search(/\.bookmark_sidebar$/) > -1 || _self.files[0].name.search(/\.config$/) > -1)) { // @deprecated '.config' is not used anymore to avoid conflicts (01-2018)
-                    let reader = new FileReader();
+                    const reader = new FileReader();
 
                     reader.onload = (e) => {
                         try {
-                            let config = JSON.parse(e.target.result);
+                            const config = JSON.parse(e.target.result);
                             saveConfig(config);
                         } catch (e) {
                             alertImportError();
@@ -89,14 +88,14 @@
          *
          * @param {object} config
          */
-        let saveConfig = (config) => {
+        const saveConfig = (config) => {
             if (config.behaviour && config.appearance && config.newtab) {
                 chrome.storage.sync.set({
                     behaviour: config.behaviour,
                     appearance: config.appearance,
                     newtab: config.newtab
                 }, () => {
-                    let currentConfig = Object.assign({}, s.helper.model.getAllData());
+                    const currentConfig = Object.assign({}, s.helper.model.getAllData());
                     currentConfig.utility = currentConfig.utility || {};
 
                     ["customCss", "newtabBackground"].forEach((field) => {
@@ -125,7 +124,7 @@
          *
          * @returns {Promise}
          */
-        let initExport = async () => {
+        const initExport = async () => {
             s.elm.buttons["export"].on("click", (e) => {
                 e.preventDefault();
 
@@ -133,7 +132,7 @@
                     permissions: ["downloads"]
                 }, (granted) => {
                     if (granted) { // not granted -> no download
-                        let blob = new Blob([JSON.stringify(this.getExportConfig())], {type: "application/json"});
+                        const blob = new Blob([JSON.stringify(this.getExportConfig())], {type: "application/json"});
 
                         chrome.downloads.download({
                             url: URL.createObjectURL(blob),
@@ -150,13 +149,13 @@
          *
          * @returns {string}
          */
-        let getExportFilename = () => {
-            let monthNames = [
+        const getExportFilename = () => {
+            const monthNames = [
                 "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
             ];
 
-            let now = new Date();
-            let dateStr = now.getDate() + "-" + monthNames[now.getMonth()] + "-" + now.getFullYear();
+            const now = new Date();
+            const dateStr = now.getDate() + "-" + monthNames[now.getMonth()] + "-" + now.getFullYear();
 
             return "config_" + dateStr + ".bookmark_sidebar";
         };

@@ -3,11 +3,11 @@
 
     $.SearchHelper = function (n) {
 
-        let suggestionCache = {};
+        const suggestionCache = {};
         let searchEngine = null;
         let searchEngineList = {};
 
-        let searchEngineInfo = {
+        const searchEngineInfo = {
             google: {
                 name: "Google",
                 url: "https://www.google.com/",
@@ -100,7 +100,7 @@
         this.updateSearchEngine = (name) => {
             if (searchEngineList[name]) {
                 searchEngine = name;
-                let text = n.helper.i18n.get("newtab_search_placeholder", [searchEngineList[name].name]);
+                const text = n.helper.i18n.get("newtab_search_placeholder", [searchEngineList[name].name]);
                 n.elm.search.field.attr("placeholder", text);
             }
         };
@@ -114,12 +114,12 @@
         /**
          * Initialises the list of search engines depending on the language of the user
          */
-        let initSearchEngineList = () => {
-            let lang = n.helper.i18n.getUILanguage();
-            let list = [];
+        const initSearchEngineList = () => {
+            const lang = n.helper.i18n.getUILanguage();
+            const list = [];
 
             Object.entries(searchEngineInfo).forEach(([alias, searchEngine]) => {
-                let entry = {
+                const entry = {
                     alias: alias,
                     name: searchEngine.name,
                     url: searchEngine.url,
@@ -153,8 +153,8 @@
          *
          * @param {string} dir "next" or "prev"
          */
-        let selectSuggestion = (dir) => {
-            let activeSuggestion = $("ul." + $.cl.newtab.suggestions + " > li." + $.cl.active);
+        const selectSuggestion = (dir) => {
+            const activeSuggestion = $("ul." + $.cl.newtab.suggestions + " > li." + $.cl.active);
             let idx = dir === "next" ? 0 : -1;
 
             if (activeSuggestion.length() > 0) {
@@ -165,7 +165,7 @@
             let fromSuggestion = false;
 
             if (idx >= 0) {
-                let suggestion = $("ul." + $.cl.newtab.suggestions + " > li").eq(idx);
+                const suggestion = $("ul." + $.cl.newtab.suggestions + " > li").eq(idx);
 
                 if (suggestion.length() > 0) { // show the suggestion value in the search field
                     fromSuggestion = true;
@@ -186,7 +186,7 @@
          *
          * @param {string} val
          */
-        let handleSearch = (val) => {
+        const handleSearch = (val) => {
             if (val && val.trim().length > 0) {
                 if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
                     chrome.tabs.update({url: val});
@@ -202,16 +202,16 @@
          * @param {string} val
          * @returns {Promise}
          */
-        let getSearchSuggestions = (val) => {
+        const getSearchSuggestions = (val) => {
             return new Promise((resolve) => {
                 if (!val) { // empty input -> no suggestions
                     resolve([]);
                 } else if (suggestionCache[val]) { // suggestions for the input already fetched -> return from cached object
                     resolve(suggestionCache[val]);
                 } else { // determine suggestions via xhr on the google search api
-                    let encodedVal = encodeURIComponent(val);
+                    const encodedVal = encodeURIComponent(val);
 
-                    let finishObj = (obj = []) => {
+                    const finishObj = (obj = []) => {
                         suggestionCache[val] = obj;
                         resolve(obj);
                     };
@@ -219,8 +219,8 @@
                     $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"}).then((xhr) => {
                         try {
                             if (xhr.response && xhr.response[0] === val) {
-                                let urls = [];
-                                let words = [];
+                                const urls = [];
+                                const words = [];
 
                                 xhr.response[1].forEach((suggestion, i) => {
                                     if (xhr.response[4]["google:suggesttype"][i] === "NAVIGATION") { // show url suggestions at first in the list
@@ -248,11 +248,11 @@
             });
         };
 
-        let initEvents = () => {
+        const initEvents = () => {
             n.elm.search.submit.on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                let val = n.elm.search.field[0].value;
+                const val = n.elm.search.field[0].value;
                 if (val && val.trim().length > 0) {
                     handleSearch(val);
                 } else if (searchEngineList[searchEngine]) {
@@ -264,8 +264,8 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                let val = e.currentTarget.value;
-                let keyCode = event.which || event.keyCode;
+                const val = e.currentTarget.value;
+                const keyCode = event.which || event.keyCode;
 
                 if (keyCode === 13) {
                     handleSearch(val);
@@ -280,7 +280,7 @@
                         $("ul." + $.cl.newtab.suggestions).remove();
 
                         if (suggestions.length > 0) {
-                            let list = $("<ul />").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
+                            const list = $("<ul />").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
 
                             suggestions.some((suggestion, i) => {
                                 $("<li />").attr($.attr.type, suggestion.type).text(suggestion.label).appendTo(list);
@@ -304,7 +304,7 @@
             }).on("click", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                let suggestion = $(e.currentTarget).text().trim();
+                const suggestion = $(e.currentTarget).text().trim();
                 n.elm.search.field[0].value = suggestion;
                 handleSearch(suggestion);
             });

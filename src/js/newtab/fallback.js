@@ -8,8 +8,8 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            let url = new URL(location.href);
-            let typeParam = url.searchParams.get("type");
+            const url = new URL(location.href);
+            const typeParam = url.searchParams.get("type");
 
             if (typeParam !== null) {
                 n.elm.topPages.addClass($.cl.hidden);
@@ -29,7 +29,7 @@
          *
          * @param {string} type
          */
-        let initEvents = (type) => {
+        const initEvents = (type) => {
             n.elm.fallbackInfo.children("a").on("click", (e) => {
                 e.preventDefault();
                 let suggestionType = "general";
@@ -48,9 +48,9 @@
         /**
          * Initialises the switch for setting the new tab page as default
          */
-        let initSetAsDefaultSwitch = () => {
-            let wrapper = $("<div />").appendTo(n.elm.fallbackInfo);
-            let checkbox = n.helper.checkbox.get(n.elm.body, {}, "checkbox", "switch").appendTo(wrapper);
+        const initSetAsDefaultSwitch = () => {
+            const wrapper = $("<div />").appendTo(n.elm.fallbackInfo);
+            const checkbox = n.helper.checkbox.get(n.elm.body, {}, "checkbox", "switch").appendTo(wrapper);
             $("<span />").html(n.helper.i18n.get("newtab_fallback_set_as_new_tab")).insertAfter(checkbox);
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
@@ -75,9 +75,9 @@
          *
          * @param {bool} val
          */
-        let setAsNewtab = (val) => {
+        const setAsNewtab = (val) => {
             chrome.storage.sync.get(["newtab"], (obj) => {
-                let config = obj.newtab || {};
+                const config = obj.newtab || {};
                 config.override = val;
                 chrome.storage.sync.set({newtab: config}, () => {
                     n.enabledSetAsNewtab = true;
@@ -91,8 +91,8 @@
          *
          * @param {string} type
          */
-        let initDescription = (type) => {
-            let texts = {
+        const initDescription = (type) => {
+            const texts = {
                 headline: "newtab_fallback_headline_general",
                 desc: "newtab_fallback_desc",
                 link: "more_link"

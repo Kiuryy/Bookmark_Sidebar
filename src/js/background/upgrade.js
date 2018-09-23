@@ -21,7 +21,7 @@
          * Show onboarding page and reinitialize the content scripts after the extension was installed
          */
         this.onInstalled = () => {
-            let installationDate = b.helper.model.getData("installationDate");
+            const installationDate = b.helper.model.getData("installationDate");
 
             if (installationDate === null || (+new Date() - installationDate < 60 * 1000)) { // no installation date yet, or installation date from the last minute -> show onboarding page
                 b.helper.analytics.track({
@@ -44,10 +44,10 @@
          */
         this.onUpdated = (details) => {
             chrome.storage.local.remove(["languageInfos"]);
-            let newVersion = b.manifest.version;
+            const newVersion = b.manifest.version;
 
-            let versionPartsOld = details.previousVersion.split(".");
-            let versionPartsNew = newVersion.split(".");
+            const versionPartsOld = details.previousVersion.split(".");
+            const versionPartsNew = newVersion.split(".");
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 handleVersionUpgrade().then(() => {
@@ -63,11 +63,11 @@
          *
          * @returns {Promise}
          */
-        let handleVersionUpgrade = () => {
+        const handleVersionUpgrade = () => {
             return new Promise((resolve) => {
                 let savedCount = 0;
 
-                let savedValues = () => {
+                const savedValues = () => {
                     savedCount++;
                     if (savedCount >= 3) { // newtab, behaviour and appearance
                         resolve();

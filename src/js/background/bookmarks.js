@@ -26,10 +26,10 @@
             });
         };
 
-        let funcCallback = (key, params) => {
+        const funcCallback = (key, params) => {
             return new Promise((resolve, reject) => {
                 chrome.bookmarks[key](...params, (result) => {
-                    let lastError = chrome.runtime.lastError;
+                    const lastError = chrome.runtime.lastError;
                     if (typeof lastError === "undefined") {
                         if (["update", "move", "create", "removeTree"].indexOf(key) !== -1) {
                             Promise.all([
@@ -85,7 +85,7 @@
         this.update = (opts) => {
             return new Promise((resolve) => {
                 new Promise((rslv) => {
-                    let values = {
+                    const values = {
                         title: opts.title
                     };
 
@@ -120,7 +120,7 @@
         this.create = (opts) => {
             return new Promise((resolve) => {
                 new Promise((rslv) => {
-                    let values = {
+                    const values = {
                         parentId: opts.parentId,
                         index: opts.index || 0,
                         title: opts.title,
@@ -180,7 +180,7 @@
          */
         this.move = (opts) => {
             return new Promise((resolve) => {
-                let dest = {
+                const dest = {
                     parentId: "" + opts.parentId,
                     index: opts.index
                 };

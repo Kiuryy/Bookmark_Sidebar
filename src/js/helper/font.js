@@ -8,7 +8,7 @@
      */
     $.FontHelper = function (ext) {
 
-        let defaultFonts = {
+        const defaultFonts = {
             custom: {
                 fontWeights: {
                     Thin: 100, ExtraLight: 200, Light: 300, Normal: 400, Medium: 500, SemiBold: 600, Bold: 700, ExtraBold: 800, Black: 900
@@ -59,7 +59,7 @@
             }
         };
 
-        let fontInfo = {
+        const fontInfo = {
             "default": {},
             "config": {}
         };
@@ -68,7 +68,7 @@
          *
          */
         this.init = () => {
-            let styles = ext.helper.model.getData("a/styles");
+            const styles = ext.helper.model.getData("a/styles");
 
             fontInfo["default"] = this.getDefaultFontInfo();
             fontInfo["default"].fontWeights = this.getFontWeights(fontInfo["default"].name);
@@ -105,8 +105,8 @@
          * @returns {object}
          */
         this.getFontWeights = (font) => {
-            let lang = ext.helper.i18n.getLanguage();
-            let ret = {};
+            const lang = ext.helper.i18n.getLanguage();
+            const ret = {};
 
             if (defaultFonts[lang] && typeof defaultFonts[lang].name === "undefined") {
                 defaultFonts[lang].name = defaultFonts.general.name;
@@ -147,7 +147,7 @@
          * @returns {object}
          */
         this.getDefaultFontInfo = () => {
-            let lang = ext.helper.i18n.getLanguage();
+            const lang = ext.helper.i18n.getLanguage();
 
             if (defaultFonts[lang] && defaultFonts[lang].name && defaultFonts[lang].href) {
                 return Object.assign({}, defaultFonts[lang]);

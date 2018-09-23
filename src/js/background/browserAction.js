@@ -27,7 +27,7 @@
         this.initContextmenus = async () => {
             return new Promise((resolve) => {
 
-                let configPromise = new Promise((rslv) => {
+                const configPromise = new Promise((rslv) => {
                     chrome.storage.sync.get(["behaviour"], (obj) => {
                         rslv(obj);
                     });
@@ -44,7 +44,7 @@
                     }
 
                     chrome.contextMenus.removeAll(() => {
-                        let uid = Math.random().toString(36).substr(2, 12);
+                        const uid = Math.random().toString(36).substr(2, 12);
 
                         chrome.contextMenus.create({
                             id: "bsChangelog_" + uid,
@@ -113,10 +113,10 @@
          * @param url
          * @returns {*}
          */
-        let getNotWorkingPageInfo = (url) => {
+        const getNotWorkingPageInfo = (url) => {
             let ret = null;
             let found = false;
-            let types = {
+            const types = {
                 new_tab: ["chrome://newtab/"],
                 system: ["chrome://", "about:blank"],
                 extension_page: ["chrome\-extension://"],
@@ -144,14 +144,14 @@
          *
          * @param {object} tab
          */
-        let showFallbackPage = (tab) => {
+        const showFallbackPage = (tab) => {
             let type = "fallback";
 
             if (reason) { // the content script set a reason why the sidebar is not opening (e.g. blacklisted/not whitelisted url)
                 type = reason;
                 reason = null;
             } else if (tab && tab.url) { // check whether the user tries to open the sidebar on urls where the sidebar is not working
-                let pageType = getNotWorkingPageInfo(tab.url);
+                const pageType = getNotWorkingPageInfo(tab.url);
 
                 if (pageType) {
                     type = pageType;
@@ -166,7 +166,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             chrome.browserAction.onClicked.removeListener(toggleSidebar);
             chrome.browserAction.onClicked.addListener(toggleSidebar); // click on extension icon shall toggle the sidebar
         };
@@ -174,7 +174,7 @@
         /**
          * Sends a message to the currently active tab and tell it to toggle the sidebar
          */
-        let toggleSidebar = () => {
+        const toggleSidebar = () => {
             chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                 chrome.tabs.sendMessage(tabs[0].id, {
                     action: "toggleSidebar",
@@ -183,7 +183,7 @@
 
                 let delay = 700;
                 if (tabs[0] && tabs[0].url) { // don't delay if the page is a known url where the sidebar is not being loaded
-                    let pageType = getNotWorkingPageInfo(tabs[0].url);
+                    const pageType = getNotWorkingPageInfo(tabs[0].url);
                     if (pageType) {
                         delay = 0;
                     }

@@ -4,8 +4,8 @@
     $.TranslationHelper = function (s) {
 
         let languages = {};
-        let langvarsCache = {};
-        let varsAmount = {};
+        const langvarsCache = {};
+        const varsAmount = {};
 
         /**
          *
@@ -36,24 +36,24 @@
          */
         this.submit = () => {
             return new Promise((resolve) => {
-                let lang = s.elm.translation.langvars.data("lang");
+                const lang = s.elm.translation.langvars.data("lang");
 
                 if (lang) {
-                    let loadStartTime = +new Date();
-                    let loader = s.helper.template.loading().appendTo(s.elm.body);
+                    const loadStartTime = +new Date();
+                    const loader = s.helper.template.loading().appendTo(s.elm.body);
                     s.elm.body.addClass($.cl.loading);
 
-                    let vars = {};
+                    const vars = {};
 
                     s.elm.translation.wrapper.find("div." + $.cl.settings.translation.category + "[" + $.attr.settings.translation.language + "='" + lang + "']").forEach((wrapper) => {
                         $(wrapper).find("textarea").forEach((textarea) => {
                             let value = textarea.value;
                             if (value && value.trim().length > 0) {
-                                let initial = $(textarea).data("initial");
+                                const initial = $(textarea).data("initial");
                                 value = value.trim();
 
                                 if (value !== initial) {
-                                    let name = $(textarea).data("name");
+                                    const name = $(textarea).data("name");
                                     vars[name] = value;
                                 }
                             }
@@ -87,7 +87,7 @@
          *
          * @returns {Promise}
          */
-        let initLanguages = () => {
+        const initLanguages = () => {
             return new Promise((resolve) => {
                 s.helper.model.call("languageInfos").then((opts) => {
                     languages = opts.infos;
@@ -99,15 +99,15 @@
         /**
          * Initialises the language overview
          */
-        let initOverview = () => {
+        const initOverview = () => {
             return new Promise((resolve) => {
                 s.elm.translation.overview.children("div." + $.cl.settings.boxWrapper).html("");
 
                 $.xhr($.opts.website.translation.info).then((xhr) => {
-                    let infos = JSON.parse(xhr.responseText);
+                    const infos = JSON.parse(xhr.responseText);
 
                     if (infos && infos.languages) {
-                        let language = s.helper.i18n.getLanguage();
+                        const language = s.helper.i18n.getLanguage();
 
                         infos.languages.sort((a, b) => {
                             if (b.varsAmount !== a.varsAmount) {
@@ -121,23 +121,23 @@
                             return 1;
                         });
 
-                        let missingLanguages = Object.assign({}, languages);
+                        const missingLanguages = Object.assign({}, languages);
 
                         infos.languages.forEach((lang) => {
                             if (languages[lang.name]) {
-                                let percentage = lang.varsAmount / infos.varsAmount * 100;
+                                const percentage = lang.varsAmount / infos.varsAmount * 100;
 
                                 if (percentage >= 15) { // only list languages with more then 15% variables filled
                                     delete missingLanguages[lang.name];
 
                                     let status = "draft";
-                                    let percentageRounded = Math.floor(percentage);
+                                    const percentageRounded = Math.floor(percentage);
 
                                     if (languages[lang.name].available) {
                                         status = infos.varsAmount > lang.varsAmount ? "incomplete" : "released";
                                     }
 
-                                    let elm = $("<div />")
+                                    const elm = $("<div />")
                                         .data("lang", lang.name)
                                         .addClass($.cl.settings.box)
                                         .attr($.attr.settings.translation.releaseStatus, status)
@@ -174,7 +174,7 @@
         /**
          * Initialises the general eventhandlers for the translation pages
          */
-        let initEvents = () => {
+        const initEvents = () => {
             s.elm.translation["goto"].on("click", (e) => {
                 e.preventDefault();
                 s.elm.aside.find("li[" + $.attr.name + "='translate'] > a").trigger("click");
@@ -196,27 +196,27 @@
         /**
          * Initialises the events for the translation overview
          */
-        let initOverviewEvents = () => {
+        const initOverviewEvents = () => {
             s.elm.translation.overview.find("select." + $.cl.settings.translation.select).on("change", (e) => {
                 initEditForm(e.currentTarget.value);
             });
 
             s.elm.translation.overview.find("div." + $.cl.settings.box).on("click", (e) => {
                 e.preventDefault();
-                let lang = $(e.currentTarget).data("lang");
+                const lang = $(e.currentTarget).data("lang");
                 if (lang) {
                     initEditForm(lang);
                 }
             });
         };
 
-        let gotoOverview = () => {
+        const gotoOverview = () => {
             s.elm.translation.wrapper.find("." + $.cl.visible).removeClass($.cl.visible);
             s.elm.translation.overview.addClass($.cl.visible);
             s.elm.buttons.save.addClass($.cl.hidden);
         };
 
-        let showUnavailableText = () => {
+        const showUnavailableText = () => {
             s.elm.translation.unavailable.addClass($.cl.visible);
 
             if (s.elm.translation.wrapper.hasClass($.cl.active)) {
@@ -231,7 +231,7 @@
          * @param {object} allCategories
          * @returns {boolean}
          */
-        let hasImcompleteCategories = (langCategories, allCategories) => {
+        const hasImcompleteCategories = (langCategories, allCategories) => {
             let ret = false;
 
             Object.keys(langCategories).some((name) => {
@@ -249,15 +249,15 @@
          *
          * @param {object} langs
          */
-        let addSelectForMissingLangs = (langs) => {
-            let box = $("<div />")
+        const addSelectForMissingLangs = (langs) => {
+            const box = $("<div />")
                 .addClass($.cl.settings.box)
                 .appendTo(s.elm.translation.overview.children("div." + $.cl.settings.boxWrapper));
 
-            let select = $("<select class='" + $.cl.settings.translation.select + "' />").appendTo(box);
+            const select = $("<select class='" + $.cl.settings.translation.select + "' />").appendTo(box);
             $("<option value='' />").text(s.helper.i18n.get("settings_translation_add_language")).appendTo(select);
 
-            let optionList = [];
+            const optionList = [];
 
             Object.keys(langs).forEach((lang) => {
                 optionList.push({
@@ -282,9 +282,9 @@
          * @param {string} lang
          * @returns {Promise}
          */
-        let getLanguageInfos = (lang) => {
+        const getLanguageInfos = (lang) => {
             return new Promise((resolve) => {
-                let finished = (ret) => {
+                const finished = (ret) => {
                     if (ret && typeof langvarsCache[lang] === "undefined") {
                         langvarsCache[lang] = ret;
                     }
@@ -300,11 +300,11 @@
                             lang: lang
                         }
                     }).then((xhr) => {
-                        let infos = JSON.parse(xhr.responseText);
+                        const infos = JSON.parse(xhr.responseText);
 
                         if (infos && Object.getOwnPropertyNames(infos).length > 0) {
-                            let ret = {[lang]: infos};
-                            let defaultLang = s.helper.i18n.getDefaultLanguage();
+                            const defaultLang = s.helper.i18n.getDefaultLanguage();
+                            const ret = {[lang]: infos};
 
                             if (lang !== defaultLang) {
                                 getLanguageInfos(defaultLang).then((infos) => {
@@ -325,27 +325,27 @@
         /**
          * Initialises the events for the translation form
          */
-        let initFormEvents = () => {
+        const initFormEvents = () => {
             s.elm.translation.wrapper.on("click", "a." + $.cl.settings.translation.back, (e) => {
                 e.preventDefault();
-                let lang = $(e.currentTarget).parents("div." + $.cl.settings.translation.category).eq(0).attr($.attr.settings.translation.language);
+                const lang = $(e.currentTarget).parents("div." + $.cl.settings.translation.category).eq(0).attr($.attr.settings.translation.language);
 
                 initEditForm(lang);
             });
 
             s.elm.translation.wrapper.on("click", "a." + $.cl.settings.translation["goto"], (e) => {
                 e.preventDefault();
-                let dir = $(e.currentTarget).attr($.attr.value);
-                let list = $(e.currentTarget).parent("header").next("ul");
+                const dir = $(e.currentTarget).attr($.attr.value);
+                const list = $(e.currentTarget).parent("header").next("ul");
                 gotoNextPrevEmptyField(dir, list);
             });
 
             s.elm.translation.langvars.on("click", "div." + $.cl.settings.box, (e) => {
                 e.preventDefault();
-                let wrapper = $(e.currentTarget);
-                let lang = wrapper.data("lang");
-                let name = wrapper.children("strong").text();
-                let info = wrapper.data("info");
+                const wrapper = $(e.currentTarget);
+                const lang = wrapper.data("lang");
+                const name = wrapper.children("strong").text();
+                const info = wrapper.data("info");
 
                 showLangVarsList(lang, name, info);
             });
@@ -358,11 +358,11 @@
          * @param {string} name
          * @param {object} info
          */
-        let showLangVarsList = (lang, name, info) => {
+        const showLangVarsList = (lang, name, info) => {
             let elm = s.elm.translation.wrapper.find("div." + $.cl.settings.translation.category + "[" + $.attr.name + "='" + name + "'][" + $.attr.settings.translation.language + "='" + lang + "']");
 
             if (elm.length() === 0) {
-                let key = lang + "_" + name;
+                const key = lang + "_" + name;
 
                 elm = $("<div />")
                     .attr($.attr.name, name)
@@ -371,11 +371,11 @@
                     .addClass($.cl.settings.contentBox)
                     .appendTo(s.elm.translation.wrapper);
 
-                let header = $("<header />").appendTo(elm);
-                let list = $("<ul />").appendTo(elm);
+                const header = $("<header />").appendTo(elm);
+                const list = $("<ul />").appendTo(elm);
 
                 info.category.vars.forEach((field, i) => {
-                    let entry = $("<li />")
+                    const entry = $("<li />")
                         .append("<div><label>" + field.label + "</label></div>")
                         .append("<div />")
                         .appendTo(list);
@@ -386,7 +386,7 @@
                             .appendTo(entry.children("div").eq(0));
                     }
 
-                    let val = field.value || "";
+                    const val = field.value || "";
                     $("<textarea />").data({
                         initial: val,
                         name: field.name
@@ -421,7 +421,7 @@
             });
 
             $.delay(0).then(() => {
-                let list = elm.children("ul");
+                const list = elm.children("ul");
 
                 if (elm.find("a." + $.cl.settings.translation["goto"]).length() > 0) { // jump to the first empty field
                     gotoNextPrevEmptyField("down", list);
@@ -437,7 +437,7 @@
          * @param {string} dir
          * @param {jsu} list
          */
-        let gotoNextPrevEmptyField = (dir, list) => {
+        const gotoNextPrevEmptyField = (dir, list) => {
             let entries = null;
 
             if (list.find("li." + $.cl.hover).length() > 0) {
@@ -451,7 +451,7 @@
             }
 
             if (entries && entries.length() > 0) {
-                let entry = entries.eq(0);
+                const entry = entries.eq(0);
                 s.elm.content[0].scrollTop = Math.max(0, entry[0].offsetTop - 40);
                 entry.find("textarea")[0].focus();
             }
@@ -463,8 +463,8 @@
          * @param {string} lang
          * @param {jsu} list
          */
-        let showTranslationHint = (lang, list) => {
-            let defaultLang = s.helper.i18n.getDefaultLanguage();
+        const showTranslationHint = (lang, list) => {
+            const defaultLang = s.helper.i18n.getDefaultLanguage();
 
             if (lang !== defaultLang && s.helper.model.getData("u/translationHelp")) { // only show one time
                 let activeEntry = null;
@@ -476,8 +476,7 @@
                 }
 
                 activeEntry.addClass($.cl.settings.translation.mark);
-                let label = activeEntry.find("label").text();
-
+                const label = activeEntry.find("label").text();
 
                 $("<span />")
                     .addClass($.cl.settings.desc)
@@ -493,12 +492,12 @@
          *
          * @param {jsu} elm
          */
-        let initTextareaEvents = (elm) => {
+        const initTextareaEvents = (elm) => {
             elm.find("textarea").on("change input", (e) => {
-                let elmObj = $(e.currentTarget);
-                let val = e.currentTarget.value;
-                let category = elm.attr($.attr.name);
-                let lang = elm.attr($.attr.settings.translation.language);
+                const elmObj = $(e.currentTarget);
+                const val = e.currentTarget.value;
+                const category = elm.attr($.attr.name);
+                const lang = elm.attr($.attr.settings.translation.language);
 
                 if (val) {
                     elmObj.parents("li").eq(0).removeClass($.cl.settings.translation.empty);
@@ -522,7 +521,7 @@
                 elm.find("li").removeClass($.cl.hover);
                 $(e.currentTarget).parents("li").eq(0).addClass($.cl.hover);
             }).on("blur", (e) => {
-                let parentElm = $(e.currentTarget).parents("li").eq(0);
+                const parentElm = $(e.currentTarget).parents("li").eq(0);
                 $.delay(200).then(() => {
                     parentElm.removeClass($.cl.hover);
                 });
@@ -538,7 +537,7 @@
          *
          * @param {string} lang
          */
-        let initEditForm = (lang) => {
+        const initEditForm = (lang) => {
             s.helper.menu.addBreadcrumb({
                 label: languages[lang].label,
                 alias: lang,
@@ -552,14 +551,14 @@
             s.elm.buttons.save.removeClass($.cl.hidden);
             s.elm.translation.overview.removeClass($.cl.visible);
             s.elm.translation.langvars.addClass([$.cl.visible, $.cl.loading]);
-            let loader = s.helper.template.loading().appendTo(s.elm.translation.langvars);
+            const loader = s.helper.template.loading().appendTo(s.elm.translation.langvars);
 
             getLanguageInfos(lang).then((obj) => {
                 if (obj) {
-                    let infos = obj[lang];
+                    const infos = obj[lang];
 
                     Object.keys(infos).forEach((category) => { // list all langvar categories
-                        let elm = $("<div />")
+                        const elm = $("<div />")
                             .addClass($.cl.settings.box)
                             .data("lang", lang)
                             .data("info", {
@@ -569,7 +568,7 @@
                             .append("<strong>" + category + "</strong>")
                             .appendTo(s.elm.translation.langvars.children("div." + $.cl.settings.boxWrapper));
 
-                        let key = lang + "_" + category;
+                        const key = lang + "_" + category;
 
                         if (typeof varsAmount[key] === "undefined") {
                             varsAmount[key] = {

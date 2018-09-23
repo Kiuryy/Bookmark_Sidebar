@@ -13,7 +13,7 @@
         let oldTopVal = 0;
         let dirOpenTimeout = null;
 
-        let edgeScroll = {
+        const edgeScroll = {
             running: false,
             posY: null,
             previousDelta: 0,
@@ -35,12 +35,12 @@
          * Cancels the dragging and resets the position of the dragged element
          */
         this.cancel = () => {
-            let draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
-            let dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
-            let entryElm = draggedElm.data("elm");
+            const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
+            const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
+            const entryElm = draggedElm.data("elm");
 
             if (entryElm) {
-                let elm = entryElm.children("a");
+                const elm = entryElm.children("a");
                 entryElm.insertAfter(dragInitialElm).removeClass($.cl.drag.isDragged);
             }
 
@@ -59,11 +59,11 @@
          * @param {jsu|int} elm
          * @returns {boolean}
          */
-        let isDraggedElementOutside = (elm) => {
+        const isDraggedElementOutside = (elm) => {
             let offset = 0;
 
             if (typeof elm === "object") {
-                let boundClientRect = elm[0].getBoundingClientRect();
+                const boundClientRect = elm[0].getBoundingClientRect();
                 offset = boundClientRect.left;
             } else {
                 offset = +elm;
@@ -85,7 +85,7 @@
          *
          * @returns {Promise}
          */
-        let initExternalDragDropEvents = async () => {
+        const initExternalDragDropEvents = async () => {
             ext.elm.iframeBody.on("dragenter", () => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
@@ -102,16 +102,16 @@
 
                 if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // something has been dragged
                     if (!isDraggedElementOutside(e.pageX) && ext.helper.search.isResultsVisible() === false) { // only proceed if mouse position is in the sidebar and the active view are not the search results
-                        let entryPlaceholder = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).eq(0);
+                        const entryPlaceholder = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).eq(0);
 
                         if (entryPlaceholder && entryPlaceholder.length() > 0) {
-                            let url = e.dataTransfer.getData("URL");
+                            const url = e.dataTransfer.getData("URL");
                             let title = e.dataTransfer.getData("text/plain");
 
                             if (location.href === url) {
                                 title = $(document).find("head > title").eq(0).text();
                             } else if (title === url) {
-                                let html = e.dataTransfer.getData("text/html");
+                                const html = e.dataTransfer.getData("text/html");
 
                                 if (html && html.length > 0) {
                                     title = $("<div />").html(html).text();
@@ -142,7 +142,7 @@
          *
          * @param {jsu|string} elm
          */
-        let getDragType = (elm) => {
+        const getDragType = (elm) => {
             let type = "bookmark";
 
             if (elm === "selection") { // element is text
@@ -169,25 +169,25 @@
          * @param {int} x
          * @param {int} y
          */
-        let dragstart = (node, x, y) => {
+        const dragstart = (node, x, y) => {
             ext.helper.contextmenu.close();
             ext.helper.tooltip.close();
 
-            let elm = $(node).parent("a").removeClass($.cl.sidebar.dirOpened);
-            let data = ext.helper.entry.getDataById(elm.attr($.attr.id));
+            const elm = $(node).parent("a").removeClass($.cl.sidebar.dirOpened);
+            const data = ext.helper.entry.getDataById(elm.attr($.attr.id));
 
             if (data === null) {
                 return false;
             }
 
-            let elmParent = elm.parent("li");
-            let parentTrigger = elmParent.parent("ul").prev("a");
+            const elmParent = elm.parent("li");
+            const parentTrigger = elmParent.parent("ul").prev("a");
 
             ext.elm.iframeBody.addClass($.cl.drag.isDragged);
             elmParent.clone().addClass($.cl.drag.dragInitial).insertAfter(elmParent);
 
-            let helper = elm.clone().appendTo(ext.elm.iframeBody);
-            let boundClientRect = elm[0].getBoundingClientRect();
+            const helper = elm.clone().appendTo(ext.elm.iframeBody);
+            const boundClientRect = elm[0].getBoundingClientRect();
 
 
             let index = 0;
@@ -224,18 +224,18 @@
          *
          * @param {int} currentDelta
          */
-        let edgeScrolling = (currentDelta) => {
+        const edgeScrolling = (currentDelta) => {
             window.requestAnimationFrame(edgeScrolling);
-            let delta = currentDelta - edgeScroll.previousDelta;
+            const delta = currentDelta - edgeScroll.previousDelta;
 
             if (edgeScroll.fpsLimit && delta < 1000 / edgeScroll.fpsLimit) {
                 return;
             }
 
             if (edgeScroll.posY !== null) {
-                let bookmarkBoxTopOffset = ext.elm.bookmarkBox.all[0].offsetTop;
-                let bookmarkBoxHeight = ext.elm.bookmarkBox.all[0].offsetHeight;
-                let scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox.all);
+                const bookmarkBoxTopOffset = ext.elm.bookmarkBox.all[0].offsetTop;
+                const bookmarkBoxHeight = ext.elm.bookmarkBox.all[0].offsetHeight;
+                const scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox.all);
                 let newScrollPos = null;
 
                 if (edgeScroll.posY - bookmarkBoxTopOffset < 60) {
@@ -255,21 +255,21 @@
         /**
          * Stop dragging an element (bookmark or directory)
          */
-        let dragend = () => {
+        const dragend = () => {
             clearDirOpenTimeout();
 
-            let draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
-            let dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
-            let entryElm = draggedElm.data("elm");
-            let elm = entryElm.children("a");
-            let type = getDragType(elm);
+            const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
+            const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
+            const entryElm = draggedElm.data("elm");
+            const elm = entryElm.children("a");
+            const type = getDragType(elm);
 
             if (isDraggedElementOutside(draggedElm)) {// cancel drop if mouse position is outside the sidebar
                 this.cancel();
             } else { // animate the helper back to the new position and save it
                 draggedElm.addClass($.cl.drag.snap);
 
-                let parentId = entryElm.parent("ul").prev("a").attr($.attr.id);
+                const parentId = entryElm.parent("ul").prev("a").attr($.attr.id);
                 let index = 0;
 
                 entryElm.prevAll("li").forEach((el) => {
@@ -294,7 +294,7 @@
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
 
                 $.delay().then(() => {
-                    let boundClientRect = entryElm[0].getBoundingClientRect();
+                    const boundClientRect = entryElm[0].getBoundingClientRect();
 
                     draggedElm.css({
                         top: boundClientRect.top + "px",
@@ -319,7 +319,7 @@
          *
          * @param {jsu} checkElm
          */
-        let clearDirOpenTimeout = (checkElm = null) => {
+        const clearDirOpenTimeout = (checkElm = null) => {
             if (dirOpenTimeout !== null && (checkElm === null || dirOpenTimeout.id !== checkElm.attr($.attr.id))) {
                 dirOpenTimeout.elm.removeClass($.cl.drag.dragHover);
                 clearTimeout(dirOpenTimeout.instance);
@@ -334,7 +334,7 @@
          * @param {int} x
          * @param {int} y
          */
-        let dragmove = (eventType, x, y) => {
+        const dragmove = (eventType, x, y) => {
             let draggedElm = null;
             let bookmarkElm = null;
             let topVal = 0;
@@ -351,7 +351,7 @@
                 bookmarkElm = $("<li />").html("<a>&nbsp;</a>").addClass($.cl.drag.isDragged);
             } else { // dragging bookmark or directory
                 draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
-                let startPos = draggedElm.data("startPos");
+                const startPos = draggedElm.data("startPos");
                 topVal = y - startPos.top;
                 leftVal = x - startPos.left;
 
@@ -372,7 +372,7 @@
             }
 
             let newAboveElm = {elm: null};
-            let type = getDragType(bookmarkElm.children("a"));
+            const type = getDragType(bookmarkElm.children("a"));
             let elmLists = null;
 
             if (type === "pinned") {
@@ -387,11 +387,11 @@
 
             elmLists.some((list) => {
                 list && list.forEach((node) => { // determine the element which is above the current drag position
-                    let elmObj = $(node);
+                    const elmObj = $(node);
 
                     if (elmObj[0] !== bookmarkElm[0] && !elmObj.hasClass($.cl.drag.dragInitial)) {
-                        let boundClientRect = elmObj[0].getBoundingClientRect();
-                        let diff = topVal - boundClientRect.top;
+                        const boundClientRect = elmObj[0].getBoundingClientRect();
+                        const diff = topVal - boundClientRect.top;
 
                         if (boundClientRect.top > topVal) {
                             return false;
@@ -404,22 +404,22 @@
 
             if (newAboveElm.elm && newAboveElm.elm !== oldAboveElm) {
                 oldAboveElm = newAboveElm.elm;
-                let newAboveLink = newAboveElm.elm.children("a").eq(0);
-                let aboveIsDir = newAboveLink.hasClass($.cl.sidebar.bookmarkDir);
-                let hoverPosPercentage = newAboveElm.diff / newAboveElm.height * 100;
+                const newAboveLink = newAboveElm.elm.children("a").eq(0);
+                const aboveIsDir = newAboveLink.hasClass($.cl.sidebar.bookmarkDir);
+                const hoverPosPercentage = newAboveElm.diff / newAboveElm.height * 100;
 
                 clearDirOpenTimeout(newAboveLink);
 
                 if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
-                    let parentElm = newAboveElm.elm.parents("li").eq(0);
+                    const parentElm = newAboveElm.elm.parents("li").eq(0);
 
                     if (draggedElm && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
-                        let elm = bookmarkElm.insertAfter(parentElm);
+                        const elm = bookmarkElm.insertAfter(parentElm);
                         draggedElm.data("elm", elm);
                     }
                 } else if (aboveIsDir && hoverPosPercentage < 60) { // directory is hovered
                     if (newAboveLink.hasClass($.cl.sidebar.dirOpened)) { // opened directory
-                        let elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
+                        const elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
                         if (draggedElm) {
                             draggedElm.data("elm", elm);
                         }
@@ -441,13 +441,13 @@
                 } else { // drag position is below a bookmark
                     clearDirOpenTimeout();
 
-                    let elm = bookmarkElm.insertAfter(newAboveElm.elm);
+                    const elm = bookmarkElm.insertAfter(newAboveElm.elm);
                     if (draggedElm) {
                         draggedElm.data("elm", elm);
                     }
                 }
             } else if (type === "pinned") { // pinned entry -> no element above -> index = 0
-                let elm = bookmarkElm.prependTo(ext.elm.pinnedBox.children("ul"));
+                const elm = bookmarkElm.prependTo(ext.elm.pinnedBox.children("ul"));
                 if (draggedElm) {
                     draggedElm.data("elm", elm);
                 }
@@ -459,7 +459,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
 
             ext.elm.bookmarkBox.all.on("mousedown", "span." + $.cl.drag.trigger, (e) => { // drag start
                 ext.helper.toggle.addSidebarHoverClass();
@@ -488,7 +488,7 @@
                     e.preventDefault();
                     e.stopPropagation();
 
-                    let scrollPos = ext.elm.bookmarkBox.all[0].scrollTop;
+                    const scrollPos = ext.elm.bookmarkBox.all[0].scrollTop;
                     ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, scrollPos - e.wheelDelta, 300);
                 }
             });

@@ -8,7 +8,7 @@
      */
     $.ModelHelper = function (ext) {
 
-        let defaultColors = {
+        const defaultColors = {
             textColor: {
                 light: "#646464",
                 dark: "#c8c8c8"
@@ -31,7 +31,7 @@
             }
         };
 
-        let defaults = {
+        const defaults = {
             u: { // utility -> saved locally
                 openStates: {},
                 hiddenEntries: {},
@@ -134,7 +134,7 @@
         let data = {};
         let userType = null;
         let port = null;
-        let callbacks = {};
+        const callbacks = {};
 
         /**
          * Initialises the model
@@ -157,7 +157,7 @@
          *
          * @returns {Promise}
          */
-        let initPort = () => {
+        const initPort = () => {
             return new Promise((resolve) => {
                 if (port) {
                     port.disconnect();
@@ -180,12 +180,12 @@
          *
          * @returns {Promise}
          */
-        let refresh = () => {
+        const refresh = () => {
             return new Promise((resolve) => {
-                let keys = ["utility", "behaviour", "appearance", "newtab"];
-                let newData = {};
+                const keys = ["utility", "behaviour", "appearance", "newtab"];
+                const newData = {};
 
-                let len = keys.length;
+                const len = keys.length;
                 let loaded = 0;
                 keys.forEach((key) => {
                     chrome.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
@@ -244,8 +244,8 @@
             let result = {};
 
             configKeys.forEach((keyInfo) => {
-                let scope = keyInfo.split("/")[0];
-                let key = keyInfo.split("/")[1];
+                const scope = keyInfo.split("/")[0];
+                const key = keyInfo.split("/")[1];
                 let value = null;
                 let dataSearchScope = null;
 
@@ -278,7 +278,7 @@
                     }
                 }
 
-                let isSettingsPage = location.href.search(/chrome-extension:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
+                const isSettingsPage = location.href.search(/chrome-extension:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
                 if (keyInfo === "b/toggleArea" && matchMedia("(min-resolution: 1.25dppx)").matches && isSettingsPage === false) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
                     value = Object.assign({}, value);
                     Object.keys(value).forEach((k) => {
@@ -292,7 +292,7 @@
                     value = Object.assign({}, defaults.a.styles, value);
 
                     if (ext.helper.font && ext.helper.font.isLoaded()) { // FontHelper is available and loaded -> extend object with detailed font information
-                        let fontInfo = ext.helper.font.getFontInfo(defaultVal ? "default" : "config");
+                        const fontInfo = ext.helper.font.getFontInfo(defaultVal ? "default" : "config");
                         value.fontFamily = fontInfo.name;
                         Object.assign(value, fontInfo.fontWeights);
                     }
@@ -302,7 +302,7 @@
             });
 
             if (typeof keys === "string") {
-                let key = keys.split("/")[1];
+                const key = keys.split("/")[1];
                 result = result[key];
             }
 
@@ -319,9 +319,9 @@
             return new Promise((resolve) => {
                 refresh().then(() => { // refresh to retrieve the newest data
                     Object.keys(values).forEach((keyInfo) => {
-                        let scope = keyInfo.split("/")[0];
-                        let key = keyInfo.split("/")[1];
-                        let value = values[keyInfo];
+                        const scope = keyInfo.split("/")[0];
+                        const key = keyInfo.split("/")[1];
+                        const value = values[keyInfo];
 
                         switch (scope) {
                             case "u": {
@@ -344,7 +344,7 @@
                     });
 
                     let savedAmount = 0;
-                    let saved = (amount = 1) => { // is getting called after data is saved in the storage
+                    const saved = (amount = 1) => { // is getting called after data is saved in the storage
                         savedAmount += amount;
                         if (savedAmount >= 4) { // behaviour, appearance and utility has been saved -> resolve promise
                             resolve();

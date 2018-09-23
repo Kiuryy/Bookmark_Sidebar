@@ -4,7 +4,7 @@
     $.FeedbackHelper = function (s) {
 
         let data = null;
-        let suggestionInfo = {
+        const suggestionInfo = {
             displayed: [],
             opened: [],
             closed: []
@@ -17,8 +17,8 @@
         this.init = () => {
             return new Promise((resolve) => {
                 if (s.serviceAvailable) {
-                    let path = s.helper.menu.getPath();
-                    let showOnlySuggestions = path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2];
+                    const path = s.helper.menu.getPath();
+                    const showOnlySuggestions = path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2];
 
                     if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show form, but suggestions first
                         s.elm.feedback.wrapper.addClass($.cl.settings.feedback.onlySuggestions);
@@ -55,8 +55,8 @@
          * Updates the height of the suggestion wrapper,
          * the height needs to be a defined value, because otherwise new suggestions wouldn't push old suggestions to the top1
          */
-        let updateSuggestionWrapperHeight = () => {
-            let height = s.elm.feedback.feedback[0].offsetHeight;
+        const updateSuggestionWrapperHeight = () => {
+            const height = s.elm.feedback.feedback[0].offsetHeight;
             s.elm.feedback.suggestions.css("max-height", height + "px");
         };
 
@@ -64,11 +64,11 @@
          *
          * @returns {Promise}
          */
-        let initSuggestions = () => {
+        const initSuggestions = () => {
             return new Promise((resolve) => {
                 $.xhr($.opts.website.feedback.suggestions).then((xhr) => {
                     if (xhr && xhr.responseText) {
-                        let response = JSON.parse(xhr.responseText);
+                        const response = JSON.parse(xhr.responseText);
 
                         if (response && response.suggestions && response.controls) {
                             data = response;
@@ -86,7 +86,7 @@
          *
          * @param {string} type
          */
-        let showCommonSuggestions = (type) => {
+        const showCommonSuggestions = (type) => {
             let suggestions = [];
             let showAnswer = false;
 
@@ -110,7 +110,7 @@
          *
          * @param {string} text
          */
-        let scanForKeywords = (text) => {
+        const scanForKeywords = (text) => {
             if (data && data.suggestions) {
 
                 Object.entries(data.suggestions).some(([key, suggestion]) => {
@@ -139,7 +139,7 @@
          * @param {object} obj
          * @param {bool} showAnswer
          */
-        let showSuggestion = (key, obj, showAnswer = false) => {
+        const showSuggestion = (key, obj, showAnswer = false) => {
             if (data && data.controls) {
                 s.helper.model.call("track", {
                     name: "action",
@@ -147,7 +147,7 @@
                     always: true
                 });
 
-                let suggestion = $("<div />")
+                const suggestion = $("<div />")
                     .addClass([$.cl.settings.suggestion, $.cl.hidden, $.cl.settings.feedback.absolute])
                     .attr($.attr.type, key)
                     .append("<strong>" + obj.question.message + "</strong>")
@@ -161,7 +161,7 @@
 
                 suggestion.data("links", obj.answer.links || []);
 
-                let answer = suggestion.children("div." + $.cl.settings.feedback.answer);
+                const answer = suggestion.children("div." + $.cl.settings.feedback.answer);
 
                 $.delay().then(() => {
                     answer.css("height", answer[0].offsetHeight + "px");
@@ -194,8 +194,8 @@
          *
          * @param {jsu} suggestion
          */
-        let showSuggestionAnswer = (suggestion) => {
-            let type = suggestion.attr($.attr.type);
+        const showSuggestionAnswer = (suggestion) => {
+            const type = suggestion.attr($.attr.type);
             suggestionInfo.opened.push(type);
 
             s.helper.model.call("track", {
@@ -204,7 +204,7 @@
                 always: true
             });
 
-            let controlWrapper = suggestion.children("p").html("");
+            const controlWrapper = suggestion.children("p").html("");
 
             suggestion.data("links").forEach((link) => {
                 $("<a />")
@@ -229,7 +229,7 @@
          *
          * @param {jsu} suggestion
          */
-        let hideSuggestion = (suggestion) => {
+        const hideSuggestion = (suggestion) => {
             suggestionInfo.closed.push(suggestion.attr($.attr.type));
 
             suggestion
@@ -258,7 +258,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             $(window).on("resize", () => {
                 updateSuggestionWrapperHeight();
             }, {passive: true});
@@ -284,8 +284,8 @@
 
             s.elm.feedback.suggestions.on("click", "a[" + $.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
                 e.preventDefault();
-                let val = +$(e.currentTarget).attr($.attr.value);
-                let suggestion = $(e.currentTarget).parents("div." + $.cl.settings.suggestion).eq(0);
+                const val = +$(e.currentTarget).attr($.attr.value);
+                const suggestion = $(e.currentTarget).parents("div." + $.cl.settings.suggestion).eq(0);
 
                 if (val === 1) { // show answer of the suggestion
                     showSuggestionAnswer(suggestion);
@@ -316,7 +316,7 @@
          *
          * @param {Array} files
          */
-        let handleFileUpload = (files) => {
+        const handleFileUpload = (files) => {
             if (files.length + s.elm.feedback.uploadedFiles.children("li").length() > 3) { // too many files -> cancel and show error message
                 window.alert(s.helper.i18n.get("settings_feedback_screenshot_error_amount", [3]));
                 return;
@@ -327,8 +327,8 @@
                     continue;
                 }
 
-                let reader = new FileReader();
-                let filesize = ((file.size / 1024)).toFixed(4); // KB
+                const reader = new FileReader();
+                const filesize = ((file.size / 1024)).toFixed(4); // KB
 
                 if (filesize > 1024) { // filesize is too big -> show error message
                     window.alert(s.helper.i18n.get("settings_feedback_screenshot_error_filesize", [file.name]));
@@ -356,25 +356,26 @@
         /**
          * Checks the content of the feedback fields and sends the content via ajax if they are filled properly
          */
-        let sendFeedback = () => {
-            let messageText = s.elm.textarea.feedbackMsg[0].value;
-            let emailText = s.elm.field.feedbackEmail[0].value;
+        const sendFeedback = () => {
+            const messageText = s.elm.textarea.feedbackMsg[0].value;
+            const emailText = s.elm.field.feedbackEmail[0].value;
 
-            let isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
-            let isMessageValid = messageText.length > 0;
+            const isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
+            const isMessageValid = messageText.length > 0;
 
             if (isEmailValid && isMessageValid) { // email is valid and the message is not empty
-                let loadStartTime = +new Date();
-                let loader = s.helper.template.loading().appendTo(s.elm.body);
+                const loadStartTime = +new Date();
+                const loader = s.helper.template.loading().appendTo(s.elm.body);
                 s.elm.body.addClass($.cl.loading);
-                let infos = null;
 
-                let screenshots = [];
+                let infos = null;
+                const screenshots = [];
+
                 s.elm.feedback.uploadedFiles.find("> li > img").forEach((screenshot) => {
                     screenshots.push($(screenshot).attr("src"));
                 });
 
-                let config = s.helper.importExport.getExportConfig();
+                const config = s.helper.importExport.getExportConfig();
                 if (config.utility && config.utility.newtabBackground) { // don't send newtab background
                     delete config.utility.newtabBackground;
                 }

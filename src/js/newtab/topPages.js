@@ -3,10 +3,10 @@
 
     $.TopPagesHelper = function (n) {
 
-        let entryHelperInited = false;
+        const entryHelperInited = false;
         let type = null;
         let updateRunning = false;
-        let types = {
+        const types = {
             topPages: "default",
             mostUsed: "most_used",
             recentlyUsed: "recently_used",
@@ -51,8 +51,8 @@
          * Updates the entries if the amount of visible elements has changes because of a different window size
          */
         this.handleWindowResize = () => {
-            let amount = getAmount();
-            let currentTotal = n.elm.topPages.children("ul").data("total");
+            const amount = getAmount();
+            const currentTotal = n.elm.topPages.children("ul").data("total");
 
             if (amount.total !== currentTotal) {
                 updateEntries();
@@ -62,7 +62,7 @@
         /**
          * Initialises the eventhandlers
          */
-        let initEvents = () => {
+        const initEvents = () => {
             $(window).on("resize.topPages", () => {
                 this.handleWindowResize();
             }, {passive: true});
@@ -73,18 +73,18 @@
          *
          * @returns {object}
          */
-        let getAmount = () => {
-            let ret = {
+        const getAmount = () => {
+            const ret = {
                 total: 8,
                 rows: 2
             };
 
-            let dim = {
+            const dim = {
                 w: n.elm.content[0].offsetWidth || window.innerWidth,
                 h: n.elm.content[0].offsetHeight || window.innerHeight
             };
 
-            let editInfoBar = $("menu." + $.cl.newtab.infoBar);
+            const editInfoBar = $("menu." + $.cl.newtab.infoBar);
             if (editInfoBar.length() > 0) {
                 dim.h -= editInfoBar[0].offsetHeight;
             }
@@ -112,7 +112,7 @@
         /**
          * Updates the entries which are displayed as top pages
          */
-        let updateEntries = () => {
+        const updateEntries = () => {
             n.elm.topPages.children("ul").removeClass($.cl.visible);
 
             if (type === "hidden") {
@@ -126,7 +126,7 @@
                     getEntryData(),
                     $.delay(200) // allows smooth fading between switching of types
                 ]).then(([list]) => {
-                    let amount = getAmount();
+                    const amount = getAmount();
 
                     n.elm.topPages.children("ul")
                         .html("")
@@ -134,9 +134,9 @@
                         .attr($.attr.newtab.perRow, amount.total / amount.rows);
 
                     list.forEach((page) => {
-                        let entry = $("<li />").appendTo(n.elm.topPages.children("ul"));
-                        let entryLink = $("<a />").attr({href: page.url, title: page.title}).appendTo(entry);
-                        let entryLabel = $("<span />").text(page.title).appendTo(entryLink);
+                        const entry = $("<li />").appendTo(n.elm.topPages.children("ul"));
+                        const entryLink = $("<a />").attr({href: page.url, title: page.title}).appendTo(entry);
+                        const entryLabel = $("<span />").text(page.title).appendTo(entryLink);
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
@@ -144,7 +144,7 @@
                             }
                         });
 
-                        let thumb = $("<img />").appendTo(entryLink);
+                        const thumb = $("<img />").appendTo(entryLink);
 
                         if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
                             n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
@@ -169,7 +169,7 @@
          *
          * @returns {Promise}
          */
-        let initEntryHelper = () => {
+        const initEntryHelper = () => {
             return new Promise((resolve) => {
                 if (entryHelperInited) {
                     resolve();
@@ -186,23 +186,23 @@
          *
          * @returns {Promise}
          */
-        let getEntryData = () => {
+        const getEntryData = () => {
             return new Promise((resolve) => {
-                let amount = getAmount();
+                const amount = getAmount();
 
                 if (amount.total > 0) {
                     switch (type) {
                         case "mostUsed":
                         case "recentlyUsed": {
                             initEntryHelper().then(() => {
-                                let list = getSortedBookmarks(type);
+                                const list = getSortedBookmarks(type);
                                 resolve(list);
                             });
                             break;
                         }
                         case "pinnedEntries": {
                             initEntryHelper().then(() => {
-                                let list = getPinnedEntries();
+                                const list = getPinnedEntries();
                                 resolve(list);
                             });
                             break;
@@ -211,10 +211,10 @@
                         default: {
                             if (chrome.topSites && chrome.topSites.get) { // topSites may not be available -> requires topSites permission
                                 chrome.topSites.get((list) => {
-                                    let lastError = chrome.runtime.lastError;
+                                    const lastError = chrome.runtime.lastError;
 
                                     if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
-                                        let filteredList = list.slice(0, amount.total);
+                                        const filteredList = list.slice(0, amount.total);
                                         resolve(filteredList);
                                     } else {
                                         resolve([]);
@@ -235,12 +235,12 @@
          *
          * @returns {Array}
          */
-        let getPinnedEntries = () => {
-            let pinnedEntries = n.helper.entry.getAllDataByType("pinned");
-            let config = n.helper.model.getData(["u/showHidden"]);
-            let amount = getAmount();
+        const getPinnedEntries = () => {
+            const pinnedEntries = n.helper.entry.getAllDataByType("pinned");
+            const config = n.helper.model.getData(["u/showHidden"]);
+            const amount = getAmount();
 
-            let list = [];
+            const list = [];
 
             pinnedEntries.some((bookmark) => {
                 if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
@@ -260,18 +260,18 @@
          * @param {string} type
          * @returns {Array}
          */
-        let getSortedBookmarks = (type) => {
-            let amount = getAmount();
-            let allBookmarks = n.helper.entry.getAllDataByType("bookmarks");
-            let config = n.helper.model.getData(["u/showHidden", "u/mostViewedPerMonth"]);
-            let collator = n.helper.i18n.getLocaleSortCollator();
+        const getSortedBookmarks = (type) => {
+            const amount = getAmount();
+            const allBookmarks = n.helper.entry.getAllDataByType("bookmarks");
+            const config = n.helper.model.getData(["u/showHidden", "u/mostViewedPerMonth"]);
+            const collator = n.helper.i18n.getLocaleSortCollator();
 
             if (type === "recentlyUsed") {
                 allBookmarks.sort((a, b) => {
-                    let aData = n.helper.entry.getDataById(a.id);
-                    let bData = n.helper.entry.getDataById(b.id);
-                    let aLastView = aData ? aData.views.lastView : 0;
-                    let bLastView = bData ? bData.views.lastView : 0;
+                    const aData = n.helper.entry.getDataById(a.id);
+                    const bData = n.helper.entry.getDataById(b.id);
+                    const aLastView = aData ? aData.views.lastView : 0;
+                    const bLastView = bData ? bData.views.lastView : 0;
                     if (aLastView === bLastView) {
                         return collator.compare(a.title, b.title);
                     } else {
@@ -280,10 +280,10 @@
                 });
             } else if (type === "mostUsed") {
                 allBookmarks.sort((a, b) => {
-                    let aData = n.helper.entry.getDataById(a.id);
-                    let bData = n.helper.entry.getDataById(b.id);
-                    let aViews = aData ? aData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                    let bViews = bData ? bData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                    const aData = n.helper.entry.getDataById(a.id);
+                    const bData = n.helper.entry.getDataById(b.id);
+                    const aViews = aData ? aData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                    const bViews = bData ? bData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
                     if (aViews === bViews) {
                         return collator.compare(a.title, b.title);
                     } else {
@@ -292,7 +292,7 @@
                 });
             }
 
-            let list = [];
+            const list = [];
 
             allBookmarks.some((bookmark) => {
                 if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false && bookmark.url.search(/^file:\/\//) !== 0) {

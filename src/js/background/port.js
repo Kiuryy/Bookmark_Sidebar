@@ -8,7 +8,7 @@
          *
          * @returns {Promise}
          */
-        let checkWebsiteStatus = () => {
+        const checkWebsiteStatus = () => {
             return new Promise((resolve) => {
                 $.xhr(b.urls.checkStatus, {
                     method: "POST",
@@ -35,7 +35,7 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        let checkUrls = (opts) => {
+        const checkUrls = (opts) => {
             return new Promise((resolve) => {
                 if (opts.abort && opts.abort === true) {
                     $.cancelXhr(b.urls.checkUrls);
@@ -51,7 +51,7 @@
                         }),
                         getDuplicateInfo(opts.urls)
                     ]).then(([xhr, duplicates]) => {
-                        let response = JSON.parse(xhr.responseText);
+                        const response = JSON.parse(xhr.responseText);
                         resolve({
                             xhr: response,
                             duplicates: duplicates
@@ -69,11 +69,11 @@
          * @param {object} urls
          * @returns {Promise}
          */
-        let getDuplicateInfo = async (urls) => {
-            let ret = {};
-            let urlList = Object.values(urls);
+        const getDuplicateInfo = async (urls) => {
+            const ret = {};
+            const urlList = Object.values(urls);
 
-            let getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123 -> google.com
+            const getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123 -> google.com
                 url = url.split("?")[0];
                 url = url.split("#")[0];
                 url = url.replace(/^https?:\/\//, "");
@@ -82,11 +82,11 @@
             };
 
             for (const url of urlList) {
-                let filteredUrl = getFilteredUrl(url);
-                let result = await b.helper.bookmarks.api.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
+                const filteredUrl = getFilteredUrl(url);
+                const result = await b.helper.bookmarks.api.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
 
                 if (result.length > 1) {
-                    let realResults = [];
+                    const realResults = [];
 
                     result.forEach((bookmark) => { // filter the result array and only add real duplicates to the final result list
                         if (getFilteredUrl(bookmark.url) === filteredUrl) {
@@ -112,12 +112,12 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        let openLink = (opts) => {
+        const openLink = (opts) => {
             return new Promise((resolve) => {
                 b.helper.viewAmount.addByEntry(opts);
 
                 if (opts.newTab && opts.newTab === true) { // new tab
-                    let createTab = (idx = null) => {
+                    const createTab = (idx = null) => {
                         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                             chrome.tabs.create({
                                 url: opts.href,
@@ -162,7 +162,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 let c = 0;
-                let mapping = {
+                const mapping = {
                     checkUrls: checkUrls,
                     bookmarks: b.helper.bookmarks.getById,
                     searchBookmarks: b.helper.bookmarks.getBySearchVal,

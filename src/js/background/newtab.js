@@ -35,7 +35,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             chrome.tabs.onCreated.addListener((tab) => {
                 if (tab.url && tab.url === "chrome://newtab/") {
                     if (typeof config.override !== "undefined" && config.override === true) {
@@ -62,7 +62,7 @@
          *
          * @param {string} func
          */
-        let overrideWithNewTabReplacement = (func) => {
+        const overrideWithNewTabReplacement = (func) => {
             chrome.tabs[func]({
                 url: chrome.extension.getURL("html/newtab.html"),
                 active: true
@@ -74,7 +74,7 @@
          *
          * @param {string} func
          */
-        let overrideWithUrl = (func) => {
+        const overrideWithUrl = (func) => {
             chrome.tabs[func]({
                 url: addParameterToUrl(config.website, "bs_nt", 1),
                 active: true
@@ -90,8 +90,8 @@
          * @param {string|int} value
          * @returns {string}
          */
-        let addParameterToUrl = (url, key, value) => {
-            let re = new RegExp("([?&])" + key + "=.*?(&|#|$)", "i");
+        const addParameterToUrl = (url, key, value) => {
+            const re = new RegExp("([?&])" + key + "=.*?(&|#|$)", "i");
             if (url.match(re)) {
                 return url.replace(re, "$1" + key + "=" + value + "$2");
             } else {
@@ -100,7 +100,7 @@
                     hash = url.replace(/.*#/, "#");
                     url = url.replace(/#.*/, "");
                 }
-                let separator = url.indexOf("?") !== -1 ? "&" : "?";
+                const separator = url.indexOf("?") !== -1 ? "&" : "?";
                 return url + separator + key + "=" + value + hash;
             }
         };

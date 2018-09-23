@@ -16,15 +16,15 @@
          */
         this.removeEntry = (id) => {
             return new Promise((resolve) => {
-                let data = ext.helper.entry.getDataById(id);
+                const data = ext.helper.entry.getDataById(id);
 
                 if (data && data.url) { // delete without confirm dialog, but offer a undo option
                     Object.values(ext.elm.bookmarkBox).some((box) => {
                         if (box.hasClass($.cl.active)) {
-                            let entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
+                            const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
                             entry.data("restore", data);
 
-                            let mask = $("<span />")
+                            const mask = $("<span />")
                                 .addClass($.cl.sidebar.removeMask)
                                 .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
                                 .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
@@ -57,7 +57,7 @@
          */
         this.editEntry = (data) => {
             return new Promise((resolve) => {
-                let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+                const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
                 additionalInfoList[data.id] = {
                     desc: data.additionalInfo
                 };
@@ -83,19 +83,19 @@
         this.restoreEntry = (elm) => {
             return new Promise((resolve) => {
                 if (elm && elm.length() > 0) {
-                    let data = elm.data("restore");
+                    const data = elm.data("restore");
                     elm.removeClass($.cl.sidebar.removed).addClass($.cl.sidebar.restored);
 
                     $.delay(500).then(() => {
                         elm.children("span." + $.cl.sidebar.removeMask).remove();
                         return ext.helper.model.call("createBookmark", data);
                     }).then((result) => {
-                        let promises = [];
+                        const promises = [];
 
                         if (result && result.created) {
                             elm.attr($.attr.id, result.created);
 
-                            let additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+                            const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
                             if (additionalInfoList[data.id]) { // restore the additional information
                                 additionalInfoList[result.created] = additionalInfoList[data.id];
                                 promises.push(ext.helper.model.setData({"u/additionalInfo": additionalInfoList}));
@@ -139,7 +139,7 @@
          */
         this.pinEntry = (data) => {
             return new Promise((resolve) => {
-                let entries = ext.helper.model.getData("u/pinnedEntries");
+                const entries = ext.helper.model.getData("u/pinnedEntries");
                 let idx = -1;
                 Object.values(entries).forEach((entry) => { // determine the current highest index
                     idx = Math.max(idx, entry.index);
@@ -159,7 +159,7 @@
          */
         this.unpinEntry = (data) => {
             return new Promise((resolve) => {
-                let entries = ext.helper.model.getData("u/pinnedEntries");
+                const entries = ext.helper.model.getData("u/pinnedEntries");
                 delete entries[data.id];
 
                 savePinnedEntries(entries).then(resolve);
@@ -174,11 +174,11 @@
          */
         this.reorderPinnedEntries = (opts) => {
             return new Promise((resolve) => {
-                let entries = ext.helper.model.getData("u/pinnedEntries");
+                const entries = ext.helper.model.getData("u/pinnedEntries");
 
                 let newIndex = 0;
                 if (opts.prevId) {
-                    let prevInfo = ext.helper.entry.getDataById(opts.prevId);
+                    const prevInfo = ext.helper.entry.getDataById(opts.prevId);
                     newIndex = prevInfo.pinnedIndex + 1;
                 }
 
@@ -203,7 +203,7 @@
          * @param {object} entries
          * @returns {Promise}
          */
-        let savePinnedEntries = (entries) => {
+        const savePinnedEntries = (entries) => {
             return new Promise((resolve) => {
                 Promise.all([
                     ext.helper.model.call("removeCache", {name: "htmlList"}),

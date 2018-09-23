@@ -28,7 +28,7 @@
          */
         this.addByUrl = (opts) => {
             return new Promise((resolve) => {
-                let openedByExtension = b.helper.model.getData("openedByExtension");
+                const openedByExtension = b.helper.model.getData("openedByExtension");
 
                 if (openedByExtension === null) { // page was not opened by extension -> view was not counted yet
                     b.helper.bookmarks.api.search({url: opts.url}).then((bookmarks) => {
@@ -74,7 +74,7 @@
          *
          * @returns {Promise}
          */
-        let getClickCounter = () => {
+        const getClickCounter = () => {
             return new Promise((resolve) => {
                 chrome.storage.local.get(["clickCounter"], (obj) => {
                     let ret = {};

@@ -4,7 +4,7 @@
     /* global path */
     global.func = new function () {
 
-        let module = {
+        const module = {
             find: require("glob-concat"),
             concat: require("concat"),
             read: require("read-file"),
@@ -32,7 +32,7 @@
          * @param {Array} files
          * @returns {Promise}
          */
-        let find = (files) => {
+        const find = (files) => {
             return new Promise((resolve) => {
                 module.find.sync(files);
                 module.find(files, (err, matches) => {
@@ -50,7 +50,7 @@
          * @param {string} src
          * @returns {Promise}
          */
-        let readFile = (src) => {
+        const readFile = (src) => {
             return new Promise((resolve) => {
                 module.read(src, {encoding: "utf8"}, (err, content) => {
                     if (err) {
@@ -70,12 +70,12 @@
          * @param {function} func
          * @returns {Promise}
          */
-        let proceedFiles = (files, flatten = true, func) => {
+        const proceedFiles = (files, flatten = true, func) => {
             return new Promise((resolve) => {
                 find(files).then((matches) => {
-                    let proceed = (i = 0) => { // will be called once the previous minify process is done -> important to keep the correct order
+                    const proceed = (i = 0) => { // will be called once the previous minify process is done -> important to keep the correct order
                         if (matches[i]) {
-                            let info = {
+                            const info = {
                                 file: matches[i],
                                 fileName: matches[i].replace(new RegExp("^(" + path.src + "|" + path.tmp + ")", "i"), "")
                             };
@@ -301,7 +301,7 @@
                                 break;
                             }
                             case "js": {
-                                let result = module.uglifyjs.minify(content, {
+                                const result = module.uglifyjs.minify(content, {
                                     output: {
                                         preamble: "/*! (c) " + process.env.npm_package_author_name + " under " + process.env.npm_package_license + " */"
                                     },
@@ -316,7 +316,7 @@
                                 break;
                             }
                             case "scss": {
-                                let result = module.sass.renderSync({
+                                const result = module.sass.renderSync({
                                     data: content,
                                     outputStyle: "compressed",
                                     includePaths: [path.src + "scss"]

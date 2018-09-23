@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    let Newtab = function () {
+    const Newtab = function () {
 
         /*
          * ################################
@@ -32,11 +32,11 @@
             loadSidebar();
             initHelpers();
 
-            let loader = this.helper.template.loading().appendTo(this.elm.body);
+            const loader = this.helper.template.loading().appendTo(this.elm.body);
             this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
-                let config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
+                const config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
                 if (config.darkMode === true) {
                     this.elm.body.addClass($.cl.page.darkMode);
                 } else if (config.highContrast === true) {
@@ -78,7 +78,7 @@
          */
         this.setBackground = async () => {
             if (this.helper.model.getUserType() === "premium") {
-                let background = this.helper.model.getData("u/newtabBackground");
+                const background = this.helper.model.getData("u/newtabBackground");
                 if (background) {
                     this.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + background + ")");
                 } else {
@@ -96,7 +96,7 @@
         /**
          * Initialises the helper objects
          */
-        let initHelpers = () => {
+        const initHelpers = () => {
             this.helper = {
                 model: new $.ModelHelper(this),
                 template: new $.TemplateHelper(this),
@@ -117,7 +117,7 @@
         /**
          * Initialises the eventhandler
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && message.action === "reinitialize" && this.enabledSetAsNewtab === false) { // sidebar has changed (e.g. due to saving configuration
                     location.reload(true);
@@ -127,7 +127,7 @@
             if (this.helper.model.getData("n/autoOpen")) { // sidebar should be opened automatically -> pin sidebar permanent if there is enough space to do so
                 $(window).on("resize", () => {
                     if (this.elm.sidebar && this.elm.sidebar.iframe && this.elm.sidebar.sidebar) {
-                        let sidebarWidth = this.elm.sidebar.sidebar.realWidth();
+                        const sidebarWidth = this.elm.sidebar.sidebar.realWidth();
 
                         if (window.innerWidth - sidebarWidth >= 500) {
                             this.elm.sidebar.sidebar.addClass($.cl.sidebar.permanent);
@@ -153,11 +153,11 @@
          *
          * @returns {Promise}
          */
-        let loadSidebar = () => {
+        const loadSidebar = () => {
             return new Promise((resolve) => {
                 $("[" + $.attr.type + "='script_sidebar']").remove();
 
-                let sidebarEvents = [$.opts.events.loaded, $.opts.events.elementsCreated].join(" ");
+                const sidebarEvents = [$.opts.events.loaded, $.opts.events.elementsCreated].join(" ");
                 $(document).off(sidebarEvents).on(sidebarEvents, (e) => {
                     this.elm.sidebar = e.detail.elm;
                     $(window).trigger("resize");
@@ -172,11 +172,11 @@
                     }).appendTo("head");
                 });
 
-                let loadJs = (i = 0) => {
-                    let js = $.opts.manifest.content_scripts[0].js[i];
+                const loadJs = (i = 0) => {
+                    const js = $.opts.manifest.content_scripts[0].js[i];
 
                     if (typeof js !== "undefined") {
-                        let script = document.createElement("script");
+                        const script = document.createElement("script");
                         document.head.appendChild(script);
                         script.onload = () => loadJs(i + 1); // load one after another
                         script.src = "/" + js;

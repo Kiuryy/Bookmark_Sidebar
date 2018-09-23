@@ -16,7 +16,7 @@
                 list = $("<ul />").appendTo(s.elm.aside.children("nav"));
                 let menuParsing = s.elm.content.children("div." + $.cl.settings.tabs.content).length();
 
-                let menupointLoaded = () => {
+                const menupointLoaded = () => {
                     menuParsing--;
                     if (menuParsing === 0) {
                         handleNavigationChange().then(() => {
@@ -26,15 +26,15 @@
                 };
 
                 s.elm.content.children("div." + $.cl.settings.tabs.content).forEach((elm) => {
-                    let name = $(elm).attr($.attr.name);
-                    let entry = $("<li />").attr($.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
-                    let subTabs = $(elm).children("div[" + $.attr.name + "]");
+                    const name = $(elm).attr($.attr.name);
+                    const entry = $("<li />").attr($.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
+                    const subTabs = $(elm).children("div[" + $.attr.name + "]");
 
                     if (subTabs.length() > 0) {
-                        let subList = $("<ul />").appendTo(entry);
+                        const subList = $("<ul />").appendTo(entry);
 
                         subTabs.forEach((subElm) => {
-                            let subName = $(subElm).attr($.attr.name);
+                            const subName = $(subElm).attr($.attr.name);
                             $("<li />")
                                 .attr($.attr.name, subName)
                                 .html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name + "_" + subName) + "</a>")
@@ -77,9 +77,9 @@
             s.elm.headline.append("<span>" + obj.label + "</span>");
         };
 
-        let handleNavigationChange = () => {
+        const handleNavigationChange = () => {
             return new Promise((resolve) => {
-                let hash = location.hash ? location.hash.substr(1) : null;
+                const hash = location.hash ? location.hash.substr(1) : null;
 
                 if (hash) {
                     showPage(...hash.split("_"));
@@ -91,14 +91,14 @@
             });
         };
 
-        let initEvents = () => {
+        const initEvents = () => {
             list.find("a").on("click", (e) => {
                 e.preventDefault();
-                let elm = $(e.currentTarget).parent("li");
-                let name = elm.attr($.attr.name);
+                const elm = $(e.currentTarget).parent("li");
+                const name = elm.attr($.attr.name);
 
                 if (elm.parents("li").length() > 0) {
-                    let parentName = elm.parent("ul").parent("li").attr($.attr.name);
+                    const parentName = elm.parent("ul").parent("li").attr($.attr.name);
                     showPage(parentName, name);
                 } else {
                     showPage(name);
@@ -106,7 +106,7 @@
             });
 
             s.elm.headline.on("click", "span", (e) => {
-                let idx = $(e.currentTarget).prevAll().length();
+                const idx = $(e.currentTarget).prevAll().length();
                 showPage(...currentPath.slice(0, idx + 1));
             });
 
@@ -115,9 +115,9 @@
             });
         };
 
-        let updateHeaderMenu = () => {
-            let path = this.getPath();
-            let pages = [
+        const updateHeaderMenu = () => {
+            const path = this.getPath();
+            const pages = [
                 s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']")
             ];
 
@@ -129,7 +129,7 @@
 
             ["save", "restore"].forEach((type) => {
                 pages.some((page) => {
-                    let info = page.attr($.attr.settings[type]);
+                    const info = page.attr($.attr.settings[type]);
                     s.elm.buttons[type].addClass($.cl.hidden);
 
                     if (info) { // attribute is available
@@ -145,22 +145,22 @@
             });
         };
 
-        let hidePages = () => {
+        const hidePages = () => {
             list.find("li").removeClass($.cl.active);
 
-            let allPages = s.elm.content.children("div." + $.cl.settings.tabs.content);
+            const allPages = s.elm.content.children("div." + $.cl.settings.tabs.content);
             allPages.removeClass($.cl.active);
             allPages.children("div[" + $.attr.name + "]").removeClass($.cl.active);
 
             list.find("ul").css("height", "");
         };
 
-        let showPage = (...path) => {
+        const showPage = (...path) => {
             return new Promise((resolve) => {
                 if (!running) { // prevent popstate and event both running this method
                     running = true;
                     let pathLen = path.length;
-                    let breadcrumb = [];
+                    const breadcrumb = [];
                     let menu = list.children("li[" + $.attr.name + "='" + path[0] + "']");
                     let page = s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']");
 
@@ -175,11 +175,11 @@
                         pathLen++;
                     }
 
-                    let hash = path.join("_");
+                    const hash = path.join("_");
                     hidePages();
 
                     for (let i = 1; i <= pathLen; i++) {
-                        let menuParent = menu.parent("ul");
+                        const menuParent = menu.parent("ul");
 
                         if (menuParent && menuParent.length() > 0) {
                             menu.addClass($.cl.active);
@@ -212,7 +212,7 @@
                     s.elm.content[0].scrollTop = 0;
                     updateHeaderMenu();
 
-                    let padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
+                    const padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
                     s.elm.header.css(padding, "");
                     s.elm.content.css(padding, "");
 

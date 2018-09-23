@@ -5,7 +5,7 @@
         let trackUserDataRunning = false;
         let stack = [];
 
-        let restrictedTypes = {
+        const restrictedTypes = {
             config: ["configuration"],
             activity: ["installationDate", "bookmarks", "action"]
         };
@@ -40,7 +40,7 @@
          * @returns {Promise}
          */
         this.trackUserData = async () => {
-            let lastTrackDate = b.helper.model.getData("lastTrackDate");
+            const lastTrackDate = b.helper.model.getData("lastTrackDate");
             let today = +new Date().setHours(0, 0, 0, 0);
 
             try { // try not to use the user specific page, but a date with defined timezone
@@ -58,7 +58,7 @@
                 trackUserDataRunning = true;
 
                 b.helper.model.setData("lastTrackDate", today).then(() => {
-                    let shareInfo = b.helper.model.getShareInfo();
+                    const shareInfo = b.helper.model.getShareInfo();
                     let shareState = "not_set";
 
                     if (shareInfo.config === true && shareInfo.activity === true) {
@@ -93,17 +93,17 @@
         /**
          * Tracks some general information, like the bookmark amount or installation date
          */
-        let trackGeneralInfo = () => {
-            let installationDate = b.helper.model.getData("installationDate");
+        const trackGeneralInfo = () => {
+            const installationDate = b.helper.model.getData("installationDate");
             if (installationDate) { // track installation date
                 addToStack("installationDate", new Date(installationDate).toISOString().slice(0, 10));
             }
 
             b.helper.bookmarks.api.getSubTree(0).then((response) => { // track bookmark amount
                 let bookmarkAmount = 0;
-                let processBookmarks = (bookmarks) => {
+                const processBookmarks = (bookmarks) => {
                     for (let i = 0; i < bookmarks.length; i++) {
-                        let bookmark = bookmarks[i];
+                        const bookmark = bookmarks[i];
                         if (bookmark.url) {
                             bookmarkAmount++;
                         } else if (bookmark.children) {
@@ -123,11 +123,11 @@
         /**
          * Tracks the configuration
          */
-        let trackConfiguration = () => {
-            let categories = ["behaviour", "appearance", "newtab", "language"];
-            let configArr = [];
+        const trackConfiguration = () => {
+            const categories = ["behaviour", "appearance", "newtab", "language"];
+            const configArr = [];
 
-            let proceedConfig = (baseName, obj) => {
+            const proceedConfig = (baseName, obj) => {
                 Object.keys(obj).forEach((attr) => {
                     if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
                         obj[attr] = obj[attr].length;
@@ -182,7 +182,7 @@
                 return new Promise((resolve) => {
                     chrome.storage.local.get(["utility"], (obj) => {
                         if (obj.utility) {
-                            let config = {};
+                            const config = {};
                             ["lockPinned", "pinnedEntries", "customCss", "newtabBackground"].forEach((field) => {
                                 if (typeof obj.utility[field] !== "undefined") {
                                     config[field] = obj.utility[field];
@@ -207,11 +207,11 @@
          * @param {*} value
          * @param {boolean} ignoreUserPreference
          */
-        let addToStack = (type, value, ignoreUserPreference = false) => {
+        const addToStack = (type, value, ignoreUserPreference = false) => {
             let allowed = true;
 
             if (ignoreUserPreference === false) {
-                let shareInfo = b.helper.model.getShareInfo();
+                const shareInfo = b.helper.model.getShareInfo();
 
                 Object.entries(restrictedTypes).some(([key, types]) => { // check whether the category can be restricted by the user and whether it is
                     if (types.indexOf(type) > -1) {
@@ -232,7 +232,7 @@
          * @param {object} retry
          * @returns {Promise}
          */
-        let sendStackToServer = (retry = {}) => {
+        const sendStackToServer = (retry = {}) => {
             let data = [];
 
             if (retry && retry.stack && retry.count) { // recall of the method -> fill with previous stack

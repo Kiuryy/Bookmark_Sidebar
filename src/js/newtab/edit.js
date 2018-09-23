@@ -28,7 +28,7 @@
         /**
          * Initialises the general eventhandlers
          */
-        let initGeneralEvents = () => {
+        const initGeneralEvents = () => {
             n.elm.body.on("click", "a." + $.cl.newtab.edit, (e) => { // enter edit mode
                 e.preventDefault();
 
@@ -41,10 +41,10 @@
         /**
          * Initialises the menu eventhandlers
          */
-        let initMenuEvents = () => {
+        const initMenuEvents = () => {
             $("menu." + $.cl.newtab.infoBar + " > a").on("click", (e) => { // save changes or leave edit mode
                 e.preventDefault();
-                let elm = $(e.currentTarget);
+                const elm = $(e.currentTarget);
 
                 if (elm.hasClass($.cl.newtab.cancel)) {
                     leaveEditMode();
@@ -58,7 +58,7 @@
             if (n.helper.model.getUserType() === "premium") {
                 $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload + " input").on("change", (e) => { // upload background image
                     if (e.currentTarget.files) {
-                        let reader = new FileReader();
+                        const reader = new FileReader();
 
                         reader.onload = (e) => {
                             try {
@@ -90,12 +90,12 @@
          *
          * @returns {Promise}
          */
-        let saveChanges = () => {
+        const saveChanges = () => {
             return new Promise((resolve) => {
-                let shortcuts = [];
+                const shortcuts = [];
                 n.elm.topNav.find("a." + $.cl.newtab.link).forEach((elm) => {
-                    let label = $(elm).text().trim();
-                    let url = ($(elm).data("href") || $(elm).attr("href")).trim();
+                    const label = $(elm).text().trim();
+                    const url = ($(elm).data("href") || $(elm).attr("href")).trim();
 
                     if (label && label.length > 0 && url && url.length > 0) {
                         shortcuts.push({
@@ -105,11 +105,11 @@
                     }
                 });
 
-                let loadStartTime = +new Date();
-                let loader = n.helper.template.loading().appendTo(n.elm.body);
+                const loadStartTime = +new Date();
+                const loader = n.helper.template.loading().appendTo(n.elm.body);
                 n.elm.body.addClass($.cl.loading);
 
-                let background = n.elm.body.css("background-image").replace(/(^url\(|\)$)/g, "");
+                const background = n.elm.body.css("background-image").replace(/(^url\(|\)$)/g, "");
 
                 n.helper.model.setData({
                     "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
@@ -129,7 +129,7 @@
         /**
          * Removes all html markup which was used to edit the page
          */
-        let leaveEditMode = () => {
+        const leaveEditMode = () => {
             editMode = false;
             history.pushState({}, null, location.href.replace(/#edit/g, ""));
             n.elm.body.removeClass($.cl.newtab.edit);
@@ -152,17 +152,17 @@
         /**
          * Initialises the edit mode -> adds fields and submit button
          */
-        let enterEditMode = () => {
+        const enterEditMode = () => {
             editMode = true;
             history.pushState({}, null, location.href.replace(/#edit/g, "") + "#edit");
 
-            let menu = $("<menu />")
+            const menu = $("<menu />")
                 .addClass($.cl.newtab.infoBar)
                 .append("<a class='" + $.cl.newtab.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
                 .appendTo(n.elm.body);
 
-            let uploadWrapper = $("<div />").addClass($.cl.newtab.upload).appendTo(menu);
+            const uploadWrapper = $("<div />").addClass($.cl.newtab.upload).appendTo(menu);
 
             if (n.helper.model.getUserType() === "premium") {
                 $("<a />").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
@@ -190,8 +190,8 @@
         /**
          * Initialises the buttons to edit/remove the shortcuts in the top/right corner
          */
-        let initShortcutsConfig = () => {
-            let buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.position + "='left' />", "<a " + $.attr.position + "='right' />"];
+        const initShortcutsConfig = () => {
+            const buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.position + "='left' />", "<a " + $.attr.position + "='right' />"];
 
             n.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
@@ -201,10 +201,10 @@
 
             n.elm.topNav.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
                 e.stopPropagation();
-                let entry = $(e.currentTarget).parent("li");
+                const entry = $(e.currentTarget).parent("li");
                 showShortcutEditTooltip(entry);
             }).on("click.edit", "a." + $.cl.newtab.add, () => {  // add
-                let entry = $("<li />")
+                const entry = $("<li />")
                     .append("<a class='" + $.cl.newtab.link + "'>&nbsp;</a>")
                     .append(buttons)
                     .prependTo(n.elm.topNav.children("ul"));
@@ -215,8 +215,8 @@
             }).on("click.edit", "a." + $.cl.newtab.remove, (e) => {  // remove
                 $(e.currentTarget).parent("li").remove();
             }).on("click.edit", "a[" + $.attr.position + "]", (e) => { // move
-                let pos = $(e.currentTarget).attr($.attr.position);
-                let entry = $(e.currentTarget).parent("li");
+                const pos = $(e.currentTarget).attr($.attr.position);
+                const entry = $(e.currentTarget).parent("li");
 
                 switch (pos) {
                     case "left": {
@@ -248,12 +248,12 @@
          *
          * @param {jsu} elm
          */
-        let showShortcutEditTooltip = (elm) => {
+        const showShortcutEditTooltip = (elm) => {
             n.elm.topNav.find("> ul > li > div").remove();
 
-            let link = elm.children("a." + $.cl.newtab.link).eq(0);
+            const link = elm.children("a." + $.cl.newtab.link).eq(0);
 
-            let tooltip = $("<div />")
+            const tooltip = $("<div />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
                 .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
@@ -295,13 +295,13 @@
         /**
          * Initialises the dropdown for the top pages
          */
-        let initTopPagesConfig = () => {
-            let select = $("<select />").prependTo(n.elm.topPages);
-            let types = n.helper.topPages.getAllTypes();
-            let currentType = n.helper.model.getData("n/topPagesType");
+        const initTopPagesConfig = () => {
+            const select = $("<select />").prependTo(n.elm.topPages);
+            const types = n.helper.topPages.getAllTypes();
+            const currentType = n.helper.model.getData("n/topPagesType");
 
             Object.keys(types).forEach((name) => {
-                let label = n.helper.i18n.get("newtab_top_pages_" + types[name]);
+                const label = n.helper.i18n.get("newtab_top_pages_" + types[name]);
                 $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + " />").text(label).appendTo(select);
             });
 
@@ -313,10 +313,10 @@
         /**
          * Initialises the dropdown for the search engine
          */
-        let initSearchEngineConfig = () => {
-            let select = $("<select />").appendTo(n.elm.search.wrapper);
-            let searchEngines = n.helper.search.getSearchEngineList();
-            let currentSearchEngine = n.helper.model.getData("n/searchEngine");
+        const initSearchEngineConfig = () => {
+            const select = $("<select />").appendTo(n.elm.search.wrapper);
+            const searchEngines = n.helper.search.getSearchEngineList();
+            const currentSearchEngine = n.helper.model.getData("n/searchEngine");
 
             Object.entries(searchEngines).forEach(([value, info]) => {
                 $("<option value='" + value + "' " + (currentSearchEngine === value ? "selected" : "") + " />").text(info.name).appendTo(select);

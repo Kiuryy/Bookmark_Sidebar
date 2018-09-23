@@ -46,7 +46,7 @@
         this.save = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["newtab"], (obj) => {
-                    let config = obj.newtab || {};
+                    const config = obj.newtab || {};
 
                     ["override", "autoOpen"].forEach((field) => {
                         config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
@@ -68,10 +68,10 @@
         /**
          * Initialises the eventhandlers
          */
-        let initEvents = () => {
+        const initEvents = () => {
             s.elm.checkbox.override.children("input[type='checkbox']").on("change", () => {
                 let override = s.helper.checkbox.isChecked(s.elm.checkbox.override);
-                let hideableBoxes = s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable);
+                const hideableBoxes = s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable);
 
                 if (override) {
                     if (overrideCheckboxInited === true) {

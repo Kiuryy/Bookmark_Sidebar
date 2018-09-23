@@ -9,8 +9,8 @@
     $.ScrollHelper = function (ext) {
 
         let scrollPosSaved = +new Date();
-        let scrollBarTimeout = {};
-        let scrollBoxes = [];
+        const scrollBarTimeout = {};
+        const scrollBoxes = [];
         let scrollBarHide = 0;
 
         /**
@@ -19,7 +19,7 @@
          * @returns {Promise}
          */
         this.init = () => {
-            let delayRaw = ext.helper.model.getData("b/scrollBarHide");
+            const delayRaw = ext.helper.model.getData("b/scrollBarHide");
             scrollBarHide = +delayRaw * 1000;
         };
 
@@ -30,7 +30,7 @@
          * @param {jsu} elm
          */
         this.add = (id, elm) => {
-            let scrollBox = $("<div id='" + id + "' class='" + $.cl.scrollBox.wrapper + "' tabindex='0' />").insertBefore(elm);
+            const scrollBox = $("<div id='" + id + "' class='" + $.cl.scrollBox.wrapper + "' tabindex='0' />").insertBefore(elm);
             elm = elm.appendTo(scrollBox);
 
             scrollBox.data({
@@ -79,7 +79,7 @@
          */
         this.restoreScrollPos = (scrollBox) => {
             return new Promise((resolve) => {
-                let data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
+                const data = ext.helper.model.getData(["b/rememberState", "u/scrollPos"]);
 
                 if (data.rememberState === "all" || data.rememberState === "openStatesAndPos") {
                     this.setScrollPos(scrollBox, data.scrollPos);
@@ -110,14 +110,14 @@
                 scrollBox[0].scrollTop = scrollPos;
                 this.update(scrollBox);
             } else {
-                let scrollY = scrollBox[0].scrollTop;
+                const scrollY = scrollBox[0].scrollTop;
                 let currentTime = 0;
 
-                let tick = () => {
+                const tick = () => {
                     currentTime += 1 / 60;
 
-                    let p = currentTime / (duration / 1000);
-                    let t = Math.sin(p * (Math.PI / 2));
+                    const p = currentTime / (duration / 1000);
+                    const t = Math.sin(p * (Math.PI / 2));
 
                     if (p < 1) {
                         window.requestAnimationFrame(tick);
@@ -153,9 +153,9 @@
             ext.helper.contextmenu.close();
             ext.helper.tooltip.close();
 
-            let boxHeight = getScrollBoxHeight(scrollBox);
-            let contentHeight = getContentHeight(scrollBox);
-            let scrollPos = scrollBox[0].scrollTop;
+            const boxHeight = getScrollBoxHeight(scrollBox);
+            const contentHeight = getContentHeight(scrollBox);
+            const scrollPos = scrollBox[0].scrollTop;
 
             if (scrollBox.attr("id") === $.opts.ids.sidebar.bookmarkBox.all) {
                 saveScrollPos(scrollPos);
@@ -167,7 +167,7 @@
                 scrollBox.removeClass($.cl.scrollBox.scrolled);
             }
 
-            let lastScrollPos = scrollBox.data("lastPos") || 0; // determine scroll position by comparing current pos with the one before
+            const lastScrollPos = scrollBox.data("lastPos") || 0; // determine scroll position by comparing current pos with the one before
 
             if (scrollPos > lastScrollPos) {
                 scrollBox.attr($.attr.direction, "down");
@@ -204,7 +204,7 @@
          * @param scrollBox
          * @returns {number}
          */
-        let getContentHeight = (scrollBox) => {
+        const getContentHeight = (scrollBox) => {
             let height = 0;
             scrollBox.children().forEach((elm) => {
                 height += $(elm).realHeight(true);
@@ -217,7 +217,7 @@
          *
          * @param {int} scrollPos
          */
-        let saveScrollPos = (scrollPos) => {
+        const saveScrollPos = (scrollPos) => {
             if (ext.refreshRun === false) {
                 clearTimeout(scrollBarTimeout._scrollPos);
 
@@ -238,7 +238,7 @@
          * @param {jsu} scrollBox
          * @returns {int}
          */
-        let getScrollBoxHeight = (scrollBox) => {
+        const getScrollBoxHeight = (scrollBox) => {
             return scrollBox.realHeight() - parseInt(scrollBox.css("padding-top"));
         };
 
@@ -247,7 +247,7 @@
          *
          * @param {jsu} scrollBox
          */
-        let initEvents = (scrollBox) => {
+        const initEvents = (scrollBox) => {
             scrollBox.on("scroll", () => {
                 this.update(scrollBox);
             });

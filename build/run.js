@@ -1,6 +1,7 @@
 (() => {
     "use strict";
 
+    /* eslint-disable no-console */
     /* global build */
     global.path = {
         src: "src/",
@@ -13,7 +14,7 @@
 
     console.log("Building release...\n");
 
-    let start = +new Date();
+    const start = +new Date();
     build.release().then(() => {
         console.log("\nRelease built successfully\t[" + (+new Date() - start) + " ms]");
     });

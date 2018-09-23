@@ -95,11 +95,11 @@
         this.parseHtml = (context) => {
             $(context).find("[" + $.attr.i18n + "]").forEach((elm) => {
                 let msg = null;
-                let val = $(elm).attr($.attr.i18n);
+                const val = $(elm).attr($.attr.i18n);
 
                 if (val) {
                     let replaces = [];
-                    let replacesRaw = $(elm).attr($.attr.i18nReplaces);
+                    const replacesRaw = $(elm).attr($.attr.i18nReplaces);
                     if (replacesRaw) {
                         replaces = replacesRaw.split(",");
                     }
@@ -124,7 +124,7 @@
          */
         this.get = (msg, replaces = []) => {
             let ret = "";
-            let langVar = langVars[msg];
+            const langVar = langVars[msg];
 
             if (langVar && langVar.message) {
                 ret = langVar.message;

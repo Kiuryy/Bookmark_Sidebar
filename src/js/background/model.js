@@ -60,13 +60,13 @@
         this.getInfoToDisplay = () => {
             return new Promise((resolve) => {
                 if (data && data.installationDate) {
-                    let daysSinceInstall = (+new Date() - data.installationDate) / 86400000;
+                    const daysSinceInstall = (+new Date() - data.installationDate) / 86400000;
 
                     if (shareInfo.config === null && shareInfo.activity === null && daysSinceInstall > 7) { // user has installed the extension for at least 7 days and has not set his tracking preferences
                         resolve({info: "shareInfo"});
                     } else {
                         this.getUserType().then((obj) => {
-                            let daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
+                            const daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
 
                             if (obj.userType !== "premium" && daysSincePremiumInfo > 200 && daysSinceInstall > 14) { // premium teaser hasn't been displayed for over 200 days and user has installed the extension for at least 14 days
                                 this.setData("premiumInfo", +new Date()).then(() => {
@@ -172,7 +172,7 @@
          *
          * @returns {Promise}
          */
-        let saveModelData = () => {
+        const saveModelData = () => {
             return new Promise((resolve) => {
                 if (Object.getOwnPropertyNames(data).length > 0) {
                     chrome.storage.sync.set({

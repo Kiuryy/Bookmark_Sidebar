@@ -3,7 +3,7 @@
 
     $.PremiumHelper = function (s) {
 
-        let elm = {};
+        const elm = {};
 
         /**
          * Initialises the premium tab
@@ -18,12 +18,12 @@
         /**
          * Initialises the links and info texts in the intro slide
          */
-        let initLayout = () => {
+        const initLayout = () => {
             if (s.elm.premium.wrapper.hasClass($.cl.active)) {
                 loadBackgroundImages();
             }
 
-            let introSlide = s.elm.premium.wrapper.children("section[" + $.attr.type + "='intro']");
+            const introSlide = s.elm.premium.wrapper.children("section[" + $.attr.type + "='intro']");
 
             if (s.helper.model.getUserType() === "premium") {
                 $("<span />").attr($.attr.type, "activated").text(s.helper.i18n.get("premium_already_activated")).appendTo(introSlide);
@@ -45,7 +45,7 @@
         /**
          * Initialises the eventhandler for the premium tab
          */
-        let initEvents = () => {
+        const initEvents = () => {
             $(document).on($.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "premium") {
                     loadBackgroundImages();
@@ -68,10 +68,10 @@
 
             elm.licenseField && elm.licenseField.children("button").on("click", (e) => {
                 e.preventDefault();
-                let loader = s.helper.template.loading().appendTo(s.elm.body);
+                const loader = s.helper.template.loading().appendTo(s.elm.body);
                 s.elm.body.addClass($.cl.loading);
 
-                let licenseKey = elm.licenseField.children("input[type='text']")[0].value;
+                const licenseKey = elm.licenseField.children("input[type='text']")[0].value;
 
                 Promise.all([
                     s.helper.model.call("activatePremium", {licenseKey: licenseKey}),
@@ -95,10 +95,10 @@
         /**
          * Loads the background images of the slides by replacing the data-src attribute with src attributes
          */
-        let loadBackgroundImages = () => {
+        const loadBackgroundImages = () => {
             s.elm.premium.wrapper.find("img[" + $.attr.src + "]").forEach((_self) => {
-                let img = $(_self);
-                let src = img.attr($.attr.src);
+                const img = $(_self);
+                const src = img.attr($.attr.src);
                 img.removeAttr($.attr.src);
                 img.attr("src", src);
 

@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    let background = function () {
+    const background = function () {
         this.importRunning = false;
         this.preventReload = false;
         this.manifest = chrome.runtime.getManifest();
@@ -34,7 +34,7 @@
                 ]).then(() => {
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
-                            let delay = tab.active ? 0 : (i * 100); // stagger the reload event for all tabs which are not currently visible
+                            const delay = tab.active ? 0 : (i * 100); // stagger the reload event for all tabs which are not currently visible
 
                             $.delay(delay).then(() => {
                                 chrome.tabs.sendMessage(tab.id, {
@@ -62,7 +62,7 @@
             return new Promise((resolve) => {
                 this.reinitialized = +new Date();
 
-                let types = {
+                const types = {
                     css: "insertCSS",
                     js: "executeScript"
                 };
@@ -82,16 +82,16 @@
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
                             if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
-                                let delay = tab.active ? 0 : (i * 100); // stagger script injection for all tabs which are not currently visible
+                                const delay = tab.active ? 0 : (i * 100); // stagger script injection for all tabs which are not currently visible
 
                                 $.delay(delay).then(() => {
                                     Object.entries(types).forEach(([type, func]) => {
-                                        let files = this.manifest.content_scripts[0][type];
+                                        const files = this.manifest.content_scripts[0][type];
                                         let failed = false;
 
                                         files.forEach((file) => {
                                             chrome.tabs[func](tab.id, {file: file}, () => {
-                                                let error = chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                                const error = chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
                                                 if (error && error.message && failed === false) { // send a notification instead to let the page deal with it
                                                     failed = true;
                                                     notifyReinitialization(tab.id, type);
@@ -118,7 +118,7 @@
          * @param {int} tabId
          * @param {string} type
          */
-        let notifyReinitialization = (tabId, type) => {
+        const notifyReinitialization = (tabId, type) => {
             chrome.tabs.sendMessage(tabId, {
                 action: "reinitialize",
                 type: type
@@ -157,7 +157,7 @@
          * @param {string} licenseKey
          * @returns {Promise}
          */
-        let checkLicenseKey = (licenseKey) => {
+        const checkLicenseKey = (licenseKey) => {
             return new Promise((resolve) => {
 
                 $.xhr(this.urls.premiumCheck, {
@@ -183,7 +183,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
                 this.importRunning = true;
             });
@@ -216,7 +216,7 @@
         /**
          * Initialises the helper objects
          */
-        let initHelpers = () => {
+        const initHelpers = () => {
             this.helper = {
                 model: new $.ModelHelper(this),
                 bookmarks: new $.Bookmarks(this),
@@ -240,7 +240,7 @@
          * @param {object} details
          * @param {int} i
          */
-        let callOnInstalledCallback = (details, i = 0) => {
+        const callOnInstalledCallback = (details, i = 0) => {
             if (this.helper && this.helper.upgrade && this.helper.upgrade.loaded) {
                 if (details.reason === "install") { // extension was installed
                     this.helper.upgrade.onInstalled(details);
@@ -258,7 +258,7 @@
          *
          */
         this.run = () => {
-            let start = +new Date();
+            const start = +new Date();
             this.isDev = this.manifest.version_name === "Dev" || !("update_url" in this.manifest);
 
             chrome.runtime.onInstalled.addListener((details) => {
@@ -288,8 +288,8 @@
             }).then(() => {
                 return this.helper.analytics.trackUserData();
             }).then(() => {
-                let licenseKey = this.helper.model.getLicenseKey();
-                let rnd = Math.floor(Math.random() * 20) + 1;
+                const licenseKey = this.helper.model.getLicenseKey();
+                const rnd = Math.floor(Math.random() * 20) + 1;
                 if (licenseKey && rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)
                     checkLicenseKey(licenseKey).then((response) => {
                         if (response.valid === false) {
@@ -298,7 +298,8 @@
                     });
                 }
 
-                if (this.isDev && console && console.log) {
+                /* eslint-disable no-console */
+                if (this.isDev && console && console.info) {
                     console.info("Finished loading background script", +new Date() - start);
                 }
             });

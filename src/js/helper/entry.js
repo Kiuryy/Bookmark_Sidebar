@@ -109,13 +109,13 @@
          * @returns {array}
          */
         this.getParentsById = (id) => {
-            let ret = [];
+            const ret = [];
 
             try {
                 let parentId = this.getDataById(id).parentId;
 
                 while (parentId) {
-                    let parentInfo = this.getDataById(parentId);
+                    const parentInfo = this.getDataById(parentId);
                     if (parentInfo) {
                         ret.push(parentInfo);
                     }
@@ -159,7 +159,7 @@
             let ret = false;
 
             if (typeof entries.bookmarks[id] === "object") {
-                let titleFiltered = entries.bookmarks[id].title.replace(/[^-_]/g, "");
+                const titleFiltered = entries.bookmarks[id].title.replace(/[^-_]/g, "");
                 ret = entries.bookmarks[id].url === "about:blank" && titleFiltered.length === entries.bookmarks[id].title.length;
             }
 
@@ -194,7 +194,7 @@
             return new Promise((resolve) => {
                 updateConfigObj();
 
-                let promises = [
+                const promises = [
                     ext.helper.model.call("viewAmounts")
                 ];
 
@@ -240,7 +240,7 @@
         /**
          * Updates the config object with the newest data from the model
          */
-        let updateConfigObj = () => {
+        const updateConfigObj = () => {
             config = ext.helper.model.getData(["u/hiddenEntries", "u/additionalInfo", "u/pinnedEntries", "u/showHidden"]);
         };
 
@@ -250,9 +250,9 @@
          * @param {Array} parents
          * @param {bool} parentIsHidden
          */
-        let processEntries = (entriesList, parents = [], parentIsHidden = false) => {
+        const processEntries = (entriesList, parents = [], parentIsHidden = false) => {
             entriesList.forEach((entry) => {
-                let thisParents = [...parents];
+                const thisParents = [...parents];
 
                 if (entry.parentId !== "0") {
                     thisParents.push(entry.parentId);
@@ -280,7 +280,7 @@
          *
          * @param entry
          */
-        let handleDirectoryEntry = (entry) => {
+        const handleDirectoryEntry = (entry) => {
             entry.childrenAmount = {
                 bookmarks: 0,
                 directories: 0,
@@ -306,7 +306,7 @@
          *
          * @param entry
          */
-        let handleBookmarkEntry = (entry) => {
+        const handleBookmarkEntry = (entry) => {
             let viewAmount = 0;
             let lastView = 0;
 
@@ -337,7 +337,7 @@
             if (config.pinnedEntries[entry.id]) { // pinned bookmark -> add entry to the respective object
                 entry.pinned = true;
 
-                let obj = Object.assign({}, entry);
+                const obj = Object.assign({}, entry);
                 obj.index = config.pinnedEntries[entry.id].index;
                 delete obj.parents;
                 delete obj.parentId;
@@ -352,7 +352,7 @@
          * @param {int} startDate
          * @returns {int}
          */
-        let getMonthDiff = (startDate) => {
+        const getMonthDiff = (startDate) => {
             return Math.max(1, Math.round((+new Date() - startDate) / (30.416666 * 24 * 60 * 60 * 1000)));
         };
 

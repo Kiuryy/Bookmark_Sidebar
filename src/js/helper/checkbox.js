@@ -8,7 +8,7 @@
      */
     $.CheckboxHelper = function (ext) {
 
-        let clickedTimeout = {};
+        const clickedTimeout = {};
 
         /**
          * Creates a new checkbox in the given document context and returns the created container
@@ -20,7 +20,7 @@
          * @returns {jsu}
          */
         this.get = (body, attrList, type = "checkbox", style = "default") => {
-            let container = $("<div />")
+            const container = $("<div />")
                 .html("<input type='checkbox' />")
                 .data("uid", Math.random().toString(36).substr(2, 12))
                 .attr($.attr.type, type)
@@ -58,8 +58,8 @@
          * @param {jsu} container
          * @param {jsu} body
          */
-        let triggerChangeEvent = (container, body) => {
-            let checkbox = container.children("input[type='checkbox']");
+        const triggerChangeEvent = (container, body) => {
+            const checkbox = container.children("input[type='checkbox']");
 
             checkbox.trigger("change");
             if (ext.helper.utility) {
@@ -78,17 +78,17 @@
          * @param {jsu} container
          * @param {jsu} body
          */
-        let toggleChecked = (container, body) => {
+        const toggleChecked = (container, body) => {
             container.addClass($.cl.checkbox.clicked);
             container.removeClass($.cl.checkbox.focus);
             container.toggleClass($.cl.active);
 
-            let isChecked = container.hasClass($.cl.active);
-            let checkbox = container.children("input[type='checkbox']");
+            const isChecked = container.hasClass($.cl.active);
+            const checkbox = container.children("input[type='checkbox']");
 
             if (container.attr($.attr.type) === "radio" && container.attr($.attr.name)) { // radio button -> allow only one to be checked with the same name
                 if (body) {
-                    let name = container.attr($.attr.name);
+                    const name = container.attr($.attr.name);
                     container.addClass($.cl.active);
 
                     if (isChecked) { // radio button was not checked before already -> trigger change event
@@ -97,7 +97,7 @@
                     }
 
                     body.find("div." + $.cl.checkbox.box + "[" + $.attr.type + "='radio'][" + $.attr.name + "='" + name + "']").forEach((elm) => {
-                        let elmObj = $(elm);
+                        const elmObj = $(elm);
                         if (elm !== container[0] && this.isChecked(elmObj)) { // uncheck all other radio buttons with this name
                             toggleChecked(elmObj);
                         }
@@ -110,7 +110,7 @@
                 triggerChangeEvent(container, body);
             }
 
-            let uid = container.data("uid");
+            const uid = container.data("uid");
             if (clickedTimeout[uid]) {
                 clearTimeout(clickedTimeout[uid]);
             }
@@ -123,7 +123,7 @@
         /**
          * Initializes the events for the checkbox
          */
-        let initEvents = (container, body) => {
+        const initEvents = (container, body) => {
             container.on("mousedown", (e) => {
                 e.preventDefault();
                 e.stopPropagation();

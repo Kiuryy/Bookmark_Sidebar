@@ -18,7 +18,7 @@
         this.init = async () => {
             config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipAdditionalInfo", "b/tooltipDelay", "b/sidebarPosition"]);
 
-            let styles = ext.helper.model.getData("a/styles");
+            const styles = ext.helper.model.getData("a/styles");
             config.scrollBarWidth = +styles.scrollBarWidth.replace("px", "");
         };
 
@@ -29,23 +29,23 @@
          * @param {jsu} elm
          */
         this.create = (elm) => {
-            let id = elm.attr($.attr.id);
+            const id = elm.attr($.attr.id);
 
             if (id && ext.helper.entry.isSeparator(id) === false) {
                 ext.helper.toggle.addSidebarHoverClass();
 
                 closeAllExcept(id);
-                let existingTooltip = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + "[" + $.attr.id + "='" + id + "']");
+                const existingTooltip = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + "[" + $.attr.id + "='" + id + "']");
 
                 if (existingTooltip.length() > 0) { // tooltip is already there -> show it
                     if (existingTooltip[0].getBoundingClientRect().top !== 0) { // tooltip is positioned correctly
                         existingTooltip.addClass($.cl.visible);
                     }
                 } else if (+config.tooltipDelay !== -1) { // no tooltip for the given element yet -> generate and show it after the configured delay (if delay > -1)
-                    let data = ext.helper.entry.getDataById(id);
+                    const data = ext.helper.entry.getDataById(id);
 
                     if (data) {
-                        let tooltip = $("<div />")
+                        const tooltip = $("<div />")
                             .addClass($.cl.tooltip.wrapper)
                             .attr($.attr.id, id)
                             .appendTo(ext.elm.iframeBody);
@@ -83,7 +83,7 @@
          * @param {jsu} tooltip
          * @param {object} data
          */
-        let addContent = (tooltip, data) => {
+        const addContent = (tooltip, data) => {
             if (config.tooltipContent === "all" || config.tooltipContent === "title") {
                 $("<h3 />").text(data.title).appendTo(tooltip);
             }
@@ -95,10 +95,10 @@
             }
 
             if (ext.helper.search.isResultsVisible()) {
-                let parentInfos = ext.helper.entry.getParentsById(data.id);
+                const parentInfos = ext.helper.entry.getParentsById(data.id);
 
                 if (parentInfos.length > 0) {
-                    let breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(tooltip);
+                    const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(tooltip);
                     parentInfos.forEach((parentInfo) => {
                         $("<li />").text(parentInfo.title).prependTo(breadcrumb);
                     });
@@ -106,7 +106,7 @@
             }
 
             if (config.tooltipAdditionalInfo && data.additionalInfo && data.additionalInfo.desc) {
-                let additionalInfo = data.additionalInfo.desc.replace(/\n/g, "<br />");
+                const additionalInfo = data.additionalInfo.desc.replace(/\n/g, "<br />");
                 $("<p />").html(additionalInfo).appendTo(tooltip);
             }
         };
@@ -117,9 +117,9 @@
          * @param {jsu} tooltip
          * @param {jsu} elm
          */
-        let setHorizontalPosition = (tooltip, elm) => {
-            let isRtl = ext.helper.i18n.isRtl();
-            let ref = {
+        const setHorizontalPosition = (tooltip, elm) => {
+            const isRtl = ext.helper.i18n.isRtl();
+            const ref = {
                 l: ext.elm.sidebar.realWidth() - config.scrollBarWidth,
                 r: elm.realWidth() + 10
             };
@@ -136,7 +136,7 @@
          *
          * @param {int} except
          */
-        let closeAllExcept = (except = null) => {
+        const closeAllExcept = (except = null) => {
             Object.values(timeout).forEach((id) => {
                 if (id) {
                     clearTimeout(timeout[id]);
@@ -144,7 +144,7 @@
             });
             timeout = {};
 
-            let tooltips = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + (except ? ":not([" + $.attr.id + "='" + except + "'])" : ""));
+            const tooltips = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper + (except ? ":not([" + $.attr.id + "='" + except + "'])" : ""));
             let hasVisibleTooltips = false;
 
             tooltips.forEach((tooltip) => {

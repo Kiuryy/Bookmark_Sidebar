@@ -20,8 +20,8 @@
 
             Object.values(ext.elm.bookmarkBox).forEach((box) => {
                 box.on($.opts.events.scrollBoxLastPart, () => { // check if there are entries remaining to be loaded (only relevant for one dimensional lists)
-                    let list = box.children("ul");
-                    let remainingEntries = list.data("remainingEntries");
+                    const list = box.children("ul");
+                    const remainingEntries = list.data("remainingEntries");
                     if (remainingEntries && remainingEntries.length > 0) {
                         this.addBookmarkDir(remainingEntries, list, false, false);
                         if (ext.refreshRun || ext.elm.iframe.hasClass($.cl.page.visible) === false) {
@@ -75,7 +75,7 @@
          * @param {string} direction 'ASC' or 'DESC'
          */
         this.updateSort = (name, direction) => {
-            let sortList = this.getSortList();
+            const sortList = this.getSortList();
             if (sortList[name]) {
                 if (typeof direction === "undefined") {
                     direction = sortList[name].dir;
@@ -119,7 +119,7 @@
                 ext.elm.sidebar.attr($.attr.sort, sort.name);
                 ext.elm.bookmarkBox.all.children("a[" + $.attr.name + "='add']").remove();
 
-                let list = ext.elm.bookmarkBox.all.children("ul");
+                const list = ext.elm.bookmarkBox.all.children("ul");
                 let promiseObj = null;
 
                 ext.updateBookmarkBoxStart = +new Date();
@@ -176,16 +176,16 @@
         this.toggleBookmarkDir = (elm, instant, cache = true) => {
             return new Promise((resolve) => {
                 elm.addClass($.cl.sidebar.dirAnimated);
-                let dirId = elm.attr($.attr.id);
+                const dirId = elm.attr($.attr.id);
                 let childrenList = elm.next("ul");
-                let childrenLoaded = childrenList.length() > 0;
-                let initial = ext.refreshRun === true || ext.elm.iframe.hasClass($.cl.page.visible) === false;
+                const childrenLoaded = childrenList.length() > 0;
+                const initial = ext.refreshRun === true || ext.elm.iframe.hasClass($.cl.page.visible) === false;
 
                 if (typeof instant === "undefined") {
                     instant = initial || ext.helper.model.getData("b/animations") === false;
                 }
 
-                let preResolve = () => {
+                const preResolve = () => {
                     if ((ext.helper.model.getData("b/rememberState") !== "nothing" && cache) && !initial && !ext.helper.search.isResultsVisible()) {
                         this.cacheList().then(resolve);
                     } else {
@@ -197,7 +197,7 @@
                     expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
                     if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
-                        let visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
+                        const visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
 
                         ext.elm.bookmarkBox[visibleBox].find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
                             if ($(dir).next("ul").find("a[" + $.attr.id + "='" + dirId + "']").length() === 0) {
@@ -245,8 +245,8 @@
          * Hides the headline label or the entire headline when the sidebar is to small to display them inline with the icons
          */
         this.handleSidebarWidthChange = () => {
-            let headerIcons = ext.elm.header.children("a");
-            let headline = ext.elm.header.children("h1");
+            const headerIcons = ext.elm.header.children("a");
+            const headline = ext.elm.header.children("h1");
 
             headline.removeClass($.cl.hidden);
             headline.children("span").removeClass($.cl.hidden);
@@ -272,7 +272,7 @@
          * Updates the html for the sidebar header
          */
         this.updateSidebarHeader = () => {
-            let searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+            const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
             let searchVal = "";
 
             if (searchField.length() > 0 && searchField[0] && searchField[0].value) { // restore the search value before reinitializing the header content
@@ -280,7 +280,7 @@
             }
 
             ext.elm.header.text("");
-            let bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
+            const bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
 
             $("<h1 />")
                 .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
@@ -308,9 +308,9 @@
          */
         this.restoreOpenStates = (list) => {
             let restore = false;
-            let data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
+            const data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
 
-            let checkAllRestored = () => {
+            const checkAllRestored = () => {
                 if (!restore && restoreOpenStateRunning === 0) { // all open statas restored -> restore scroll position
                     $.delay(100).then(() => {
                         restoreScrollPos();
@@ -321,7 +321,7 @@
             if (data.rememberState === "all" || data.rememberState === "openStatesAndPos" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
                 Object.keys(data.openStates).forEach((node) => {
                     if (data.openStates[node] === true) {
-                        let entry = list.find("> li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + (node) + "']");
+                        const entry = list.find("> li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + (node) + "']");
 
                         if (entry.length() > 0) {
                             if (data.rememberState !== "openStatesRoot" || entry.parents("ul").length() === 1) { // if rememberState = openStatesRoot -> only open top level directories
@@ -352,11 +352,11 @@
             if (sort.name === "custom") {
                 ext.elm.filterBox.addClass($.cl.hidden);
             } else {
-                let config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
+                const config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
 
-                let langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
+                const langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
                 $("<a />").attr($.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elm.filterBox);
-                let checkList = $("<ul />").appendTo(ext.elm.filterBox);
+                const checkList = $("<ul />").appendTo(ext.elm.filterBox);
 
                 if (ext.helper.search.isResultsVisible() === false) { // show bookmarks as tree or one dimensional list
                     $("<li />")
@@ -403,8 +403,8 @@
          */
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
-            let showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
-            let config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
+            const showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
+            const config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
 
             if (list.parents("li").length() === 0) {
                 if (ext.helper.search.isResultsVisible() === false) { // don't show in search results
@@ -446,7 +446,7 @@
                     hasEntries = true;
 
                     if (asTree === false && bookmarkCounter >= 100) { // only render 100 entries of the one dimensional list -> if user scrolles to the end of the list the next 100 entries will be loaded
-                        let remainingEntries = bookmarks.slice(idx + 1);
+                        const remainingEntries = bookmarks.slice(idx + 1);
 
                         if (remainingEntries.length > 0) {
                             list.data("remainingEntries", remainingEntries);
@@ -465,18 +465,18 @@
          *
          * @param {object} config
          */
-        let updatePinnedEntries = (config) => {
+        const updatePinnedEntries = (config) => {
             ext.elm.lockPinned.removeClass($.cl.sidebar.fixed);
             ext.elm.pinnedBox.removeClass([$.cl.hidden, $.cl.sidebar.fixed]);
 
             ext.elm.pinnedBox.children("ul").remove();
-            let pinnedEntries = ext.helper.entry.getAllDataByType("pinned");
+            const pinnedEntries = ext.helper.entry.getAllDataByType("pinned");
 
             if (pinnedEntries.length === 0) {
                 ext.elm.pinnedBox.addClass($.cl.hidden);
             } else {
                 sortEntries(pinnedEntries);
-                let list = $("<ul />").appendTo(ext.elm.pinnedBox);
+                const list = $("<ul />").appendTo(ext.elm.pinnedBox);
 
                 if (ext.helper.model.getData("u/lockPinned")) {
                     ext.elm.lockPinned.addClass($.cl.sidebar.fixed);
@@ -499,7 +499,7 @@
          *
          * @param {jsu} elm
          */
-        let cleanCachedHtml = (elm) => {
+        const cleanCachedHtml = (elm) => {
             elm.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
             elm.find("a." + $.cl.hover).removeClass($.cl.hover);
             elm.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
@@ -516,13 +516,13 @@
          * @param {object} opts
          * @returns {jsu}
          */
-        let addEntryToList = (bookmark, list, opts) => {
-            let entry = $("<li />").appendTo(list);
-            let label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "";
-            let entryContent = $("<a />").appendTo(entry);
+        const addEntryToList = (bookmark, list, opts) => {
+            const entry = $("<li />").appendTo(list);
+            const label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "";
+            const entryContent = $("<a />").appendTo(entry);
 
-            let labelElm = $("<span />").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
-            let dragElm = $("<span />").addClass($.cl.drag.trigger).appendTo(entryContent);
+            const labelElm = $("<span />").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
+            const dragElm = $("<span />").addClass($.cl.drag.trigger).appendTo(entryContent);
 
             if (bookmark.id) {
                 entryContent.attr($.attr.id, bookmark.id);
@@ -563,12 +563,12 @@
          * @param {boolean} cache whether to cache the html when at least one favicon was missing
          * @returns {Promise}
          */
-        let loadMissingFavicons = (wrapper, cache = false) => {
+        const loadMissingFavicons = (wrapper, cache = false) => {
             return new Promise((resolve) => {
-                let promises = [];
+                const promises = [];
                 wrapper.find("a." + $.cl.sidebar.bookmarkLink + " > img[" + $.attr.value + "]").forEach((img) => {
-                    let entry = $(img).parent("a");
-                    let url = $(img).attr($.attr.value);
+                    const entry = $(img).parent("a");
+                    const url = $(img).attr($.attr.value);
                     promises.push(addFavicon(entry, url));
                 });
 
@@ -595,15 +595,15 @@
          * @param {string} url
          * @returns {Promise}
          */
-        let addFavicon = (elm, url) => {
+        const addFavicon = (elm, url) => {
             elm.children("img").remove();
-            let favicon = $("<img />").prependTo(elm);
+            const favicon = $("<img />").prependTo(elm);
             favicon.attr($.attr.value, url);
 
             return new Promise((resolve) => {
                 ext.helper.model.call("favicon", {url: url}).then((response) => { // retrieve favicon of url
                     if (response.img) { // favicon found -> add to entry
-                        let sidebarOpen = ext.elm.iframe.hasClass($.cl.page.visible);
+                        const sidebarOpen = ext.elm.iframe.hasClass($.cl.page.visible);
                         favicon.attr(sidebarOpen ? "src" : $.attr.src, response.img);
                     }
                     favicon.removeAttr($.attr.value);
@@ -617,13 +617,13 @@
          *
          * @param {Array} bookmarks
          */
-        let sortEntries = (bookmarks) => {
+        const sortEntries = (bookmarks) => {
             if (bookmarks.length > 1) {
-                let collator = ext.helper.i18n.getLocaleSortCollator();
-                let doSort = (defaultDir, func) => {
+                const collator = ext.helper.i18n.getLocaleSortCollator();
+                const doSort = (defaultDir, func) => {
                     bookmarks.sort((a, b) => {
-                        let aChildren = !!(a.children);
-                        let bChildren = !!(b.children);
+                        const aChildren = !!(a.children);
+                        const bChildren = !!(b.children);
 
                         if (sort.name !== "custom" && aChildren !== bChildren) {
                             return aChildren ? -1 : 1;
@@ -653,12 +653,12 @@
                         break;
                     }
                     case "mostUsed": {
-                        let mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
+                        const mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
                         doSort("DESC", (a, b) => {
-                            let aData = ext.helper.entry.getDataById(a.id);
-                            let bData = ext.helper.entry.getDataById(b.id);
-                            let aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                            let bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                            const aData = ext.helper.entry.getDataById(a.id);
+                            const bData = ext.helper.entry.getDataById(b.id);
+                            const aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                            const bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
                             if (aViews === bViews) {
                                 return collator.compare(a.title, b.title);
                             } else {
@@ -669,10 +669,10 @@
                     }
                     case "recentlyUsed": {
                         doSort("DESC", (a, b) => {
-                            let aData = ext.helper.entry.getDataById(a.id);
-                            let bData = ext.helper.entry.getDataById(b.id);
-                            let aLastView = aData ? aData.views.lastView : 0;
-                            let bLastView = bData ? bData.views.lastView : 0;
+                            const aData = ext.helper.entry.getDataById(a.id);
+                            const bData = ext.helper.entry.getDataById(b.id);
+                            const aLastView = aData ? aData.views.lastView : 0;
+                            const bLastView = bData ? bData.views.lastView : 0;
                             if (aLastView === bLastView) {
                                 return collator.compare(a.title, b.title);
                             } else {
@@ -694,7 +694,7 @@
          * @param {boolean} instant
          * @returns {Promise}
          */
-        let expandCollapseDir = (elm, list, open, instant) => {
+        const expandCollapseDir = (elm, list, open, instant) => {
             return new Promise((resolve) => {
                 list.css("height", list[0].scrollHeight + "px");
 
@@ -707,7 +707,7 @@
                 if (ext.refreshRun === true) { // restore open states of child nodes
                     this.restoreOpenStates(list);
                 } else {
-                    let openStates = ext.helper.model.getData("u/openStates");
+                    const openStates = ext.helper.model.getData("u/openStates");
                     openStates[elm.attr($.attr.id)] = open;
 
                     if (open === false) {
@@ -719,7 +719,7 @@
                     }
                 }
 
-                let dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
+                const dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
 
                 $.delay(instant ? 0 : (+dirOpenDurationRaw * 1000)).then(() => { // unset changes in css, so opening of children in child list works properly
                     if (open === false) {
@@ -727,9 +727,9 @@
                     } else {
                         elm.addClass($.cl.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
-                            let visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
+                            const visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
 
-                            let scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox[visibleBox]);
+                            const scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox[visibleBox]);
                             if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
                                 ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox[visibleBox], elm[0].offsetTop, 300);
                             }
@@ -749,7 +749,7 @@
          * @param {jsu} elm
          * @param {object} openStates
          */
-        let closeAllChildDirs = (elm, openStates) => {
+        const closeAllChildDirs = (elm, openStates) => {
             elm.next("ul").find("a." + $.cl.sidebar.bookmarkDir).forEach((node) => {
                 openStates[$(node).attr($.attr.id)] = false;
                 $.delay(500).then(() => {
@@ -771,7 +771,7 @@
          * @param {string} cachedHtml
          * @returns {Promise}
          */
-        let updateFromCache = (list, cachedHtml) => {
+        const updateFromCache = (list, cachedHtml) => {
             return new Promise((resolve) => {
                 ext.log("Load html from cache");
                 list.html(cachedHtml);
@@ -799,11 +799,11 @@
          * @param {jsu} list
          * @returns {Promise}
          */
-        let updateFromObject = (list) => {
+        const updateFromObject = (list) => {
             return new Promise((resolve) => {
                 ext.log("Load html from object");
                 let entries = [];
-                let viewAsTree = ext.helper.model.getData("u/viewAsTree");
+                const viewAsTree = ext.helper.model.getData("u/viewAsTree");
                 ext.elm.bookmarkBox.all.removeClass($.cl.sidebar.cached);
 
                 ext.helper.model.call("bookmarks", {id: 0}).then((response) => {
@@ -842,7 +842,7 @@
         /**
          * Restores the scroll position and finishes loading
          */
-        let restoreScrollPos = () => {
+        const restoreScrollPos = () => {
             ext.helper.scroll.restoreScrollPos(ext.elm.bookmarkBox.all).then(() => {
                 ext.initImages();
                 ext.endLoading(200);

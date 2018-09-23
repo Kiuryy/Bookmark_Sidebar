@@ -8,7 +8,7 @@
      */
     $.Linkchecker = function (ext) {
 
-        let elements = {};
+        const elements = {};
         let updated = false;
 
         /**
@@ -30,13 +30,13 @@
         /**
          *
          */
-        let initNoPremiumText = () => {
-            let desc = $("<p />")
+        const initNoPremiumText = () => {
+            const desc = $("<p />")
                 .addClass($.cl.premium)
                 .html("<span>" + ext.helper.i18n.get("premium_restricted_text") + "</span>")
                 .appendTo(elements.modal);
 
-            let link = $("<a />").text(ext.helper.i18n.get("more_link")).appendTo(desc);
+            const link = $("<a />").text(ext.helper.i18n.get("more_link")).appendTo(desc);
 
             link.on("click", (e) => {
                 e.preventDefault();
@@ -53,14 +53,14 @@
          *
          * @param {object }entries
          */
-        let initOverlay = (entries) => {
+        const initOverlay = (entries) => {
             elements.buttonWrapper = elements.modal.find("menu." + $.cl.overlay.buttonWrapper);
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
             elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_bookmarks_loading")).appendTo(elements.modal);
 
             ext.helper.model.call("websiteStatus").then((opts) => {
                 if (opts.status === "available") {
-                    let bookmarks = getFlatBookmarkList(entries);
+                    const bookmarks = getFlatBookmarkList(entries);
 
                     elements.progressBar = $("<div />").addClass($.cl.overlay.progressBar).html("<div />").appendTo(elements.modal);
                     elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
@@ -94,8 +94,8 @@
          *
          * @param {object} results
          */
-        let displayResultPage = (results) => {
-            let hasResults = results.count > 0;
+        const displayResultPage = (results) => {
+            const hasResults = results.count > 0;
             delete results.count;
 
             elements.desc.remove();
@@ -121,7 +121,7 @@
                     let initialOpenedMenuEntry = null;
 
                     Object.entries(results).forEach(([key, result]) => { // create a menu entry and result list for each type (broken, changed, duplicate)
-                        let menuEntry = $("<li />")
+                        const menuEntry = $("<li />")
                             .html("<a>" + ext.helper.i18n.get("overlay_check_bookmarks_menu_" + key) + "<span></span></a>")
                             .attr($.attr.name, key)
                             .appendTo(elements.menu);
@@ -141,7 +141,7 @@
                         elements.results[key] = ext.helper.scroll.add($.opts.ids.overlay.urlCheckResult + "_" + key, $("<ul />").appendTo(elements.modal));
 
                         result.forEach((entry) => { // fill result list
-                            let resultEntry = $("<li />").data("entry", entry).appendTo(elements.results[key].children("ul"));
+                            const resultEntry = $("<li />").data("entry", entry).appendTo(elements.results[key].children("ul"));
 
                             switch (key) {
                                 case "broken":
@@ -173,23 +173,23 @@
          * @param {object} entry
          * @param {jsu} resultEntry
          */
-        let displayDuplicateUrls = (entry, resultEntry) => {
-            let title = $("<a />").addClass($.cl.info).attr({
+        const displayDuplicateUrls = (entry, resultEntry) => {
+            const title = $("<a />").addClass($.cl.info).attr({
                 href: entry.url,
                 title: entry.label,
                 target: "_blank"
             }).html(entry.label).appendTo(resultEntry);
-            let list = $("<ul />").attr($.attr.type, "duplicates").appendTo(resultEntry);
+            const list = $("<ul />").attr($.attr.type, "duplicates").appendTo(resultEntry);
 
             entry.duplicates.forEach((duplicate) => {
                 duplicate.duplicate = true;
-                let elm = $("<li />").data("entry", duplicate).appendTo(list);
+                const elm = $("<li />").data("entry", duplicate).appendTo(list);
                 $("<strong />").html(duplicate.title).appendTo(elm);
 
-                let parentInfos = ext.helper.entry.getParentsById(duplicate.id);
+                const parentInfos = ext.helper.entry.getParentsById(duplicate.id);
 
                 if (parentInfos.length > 0) {
-                    let breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(elm);
+                    const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(elm);
                     parentInfos.forEach((parentInfo) => {
                         $("<li />").text(parentInfo.title).prependTo(breadcrumb);
                     });
@@ -211,15 +211,15 @@
          * @param {object} entry
          * @param {jsu} resultEntry
          */
-        let displayChangedOrBrokenUrl = (entry, resultEntry) => {
+        const displayChangedOrBrokenUrl = (entry, resultEntry) => {
             ext.helper.checkbox.get(elements.body, {checked: "checked"}).appendTo(resultEntry);
 
             $("<strong />").text(entry.title).appendTo(resultEntry);
-            let list = $("<ul />").attr($.attr.type, "urls").appendTo(resultEntry);
+            const list = $("<ul />").attr($.attr.type, "urls").appendTo(resultEntry);
 
             ["url", "newUrl"].forEach((attr) => {
                 if (entry[attr]) {
-                    let elm = $("<li />").appendTo(list);
+                    const elm = $("<li />").appendTo(list);
                     $("<a />").attr({
                         href: entry[attr],
                         title: entry[attr],
@@ -240,7 +240,7 @@
         /**
          * Initialises the general eventhandlers
          */
-        let initGeneralEvents = () => {
+        const initGeneralEvents = () => {
             $(document).on($.opts.events.overlayClosed, () => { // abort running check url ajax calls and reload sidebar if the overlay is getting closed
                 ext.helper.model.call("checkUrls", {abort: true});
 
@@ -254,12 +254,12 @@
         /**
          * Initialises the eventhandlers for the result age
          */
-        let initResultPageEvents = () => {
+        const initResultPageEvents = () => {
             elements.menu.find("a").on("click", (e) => { // click on menu element -> change view
                 e.preventDefault();
 
-                let entry = $(e.currentTarget).parent("li");
-                let name = entry.attr($.attr.name);
+                const entry = $(e.currentTarget).parent("li");
+                const name = entry.attr($.attr.name);
 
                 if (elements.results && elements.results[name]) {
                     elements.menu.children("li").removeClass($.cl.active);
@@ -282,8 +282,8 @@
             Object.entries(elements.results).forEach(([key, elm]) => {
                 elm.find("a." + $.cl.overlay.urlCheckAction).on("click", (e) => { // click on specific action button next to an entry in the list -> update only this entry
                     e.preventDefault();
-                    let entry = $(e.currentTarget).parent("li");
-                    let data = $(e.currentTarget).parent("li").data("entry");
+                    const entry = $(e.currentTarget).parent("li");
+                    const data = $(e.currentTarget).parent("li").data("entry");
 
                     entry.css("height", entry[0].offsetHeight + "px");
 
@@ -301,10 +301,10 @@
 
             elements.buttonWrapper.find("a." + $.cl.overlay.urlCheckAction).on("click", (e) => { // click on action button in the footer -> update all urls from the currently displayed list
                 e.preventDefault();
-                let name = $(e.currentTarget).attr($.attr.name);
+                const name = $(e.currentTarget).attr($.attr.name);
 
                 if (elements.results && elements.results[name]) {
-                    let entries = [];
+                    const entries = [];
 
                     elements.results[name].find("> ul > li").forEach((elm) => {
                         if ($(elm).find("input[type='checkbox']")[0].checked) {
@@ -326,7 +326,7 @@
          * @param {Array} entries
          * @returns {Promise}
          */
-        let updateMultipleBookmarks = async (entries) => {
+        const updateMultipleBookmarks = async (entries) => {
             for (const entry of entries) {
                 await updateBookmark(entry);
             }
@@ -338,14 +338,14 @@
          * @param {object} entry
          * @returns {Promise}
          */
-        let updateBookmark = (entry) => {
+        const updateBookmark = (entry) => {
             return new Promise((resolve) => {
                 updated = true;
 
                 if (entry.statusCode === 404 || entry.duplicate) {
                     ext.helper.bookmark.performDeletion(entry, true).then(resolve);
                 } else if (entry.url !== entry.newUrl) {
-                    let additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
+                    const additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
 
                     ext.helper.bookmark.editEntry({
                         id: entry.id,
@@ -363,7 +363,7 @@
          * Updates the result page,
          * will be called everytime an entry in the result list has been updated or removed
          */
-        let updateResultPage = () => {
+        const updateResultPage = () => {
             let allResolved = true;
 
             Object.entries(elements.results).forEach(([key, elm]) => {
@@ -371,7 +371,7 @@
 
                 if (key === "duplicate") {
                     elm.find("> ul > li").forEach((listEntry) => {
-                        let duplicateCount = $(listEntry).find("> ul > li").length();
+                        const duplicateCount = $(listEntry).find("> ul > li").length();
 
                         if (duplicateCount === 0) {
                             $(listEntry).remove();
@@ -405,7 +405,7 @@
          * Shows a message when all url check results have been resolved (or the result was already empty),
          * removes the menu and result lists from the overlay and shows the message instead
          */
-        let showAllResolvedMessage = () => {
+        const showAllResolvedMessage = () => {
             elements.modal.addClass($.cl.overlay.urlCheckLoading);
 
             $.delay().then(() => {
@@ -434,9 +434,9 @@
          * @param {Array} bookmarks
          * @returns {Promise}
          */
-        let checkBookmarks = (bookmarks) => {
+        const checkBookmarks = (bookmarks) => {
             return new Promise((resolve) => {
-                let results = {
+                const results = {
                     count: 0,
                     changed: [],
                     broken: [],
@@ -444,10 +444,10 @@
                 };
 
                 let finished = 0;
-                let info = {};
-                let duplicateLabels = [];
+                const info = {};
+                const duplicateLabels = [];
 
-                let checkChunk = (urls) => {
+                const checkChunk = (urls) => {
                     return new Promise((rslv) => {
                         ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
                             if (response.error) {
@@ -504,7 +504,7 @@
                         info[bookmark.id] = bookmark;
 
                         if (Object.keys(chunk).length >= 15 || i === bookmarks.length) { // check multiple urls at once
-                            let obj = await checkChunk(chunk);
+                            const obj = await checkChunk(chunk);
                             chunk = {};
 
                             if (obj.success === false) {
@@ -526,9 +526,9 @@
          * @param {object} entries
          * @returns {Array}
          */
-        let getFlatBookmarkList = (entries) => {
-            let ret = [];
-            let process = (entries) => { // check all subordinate bookmarks of the given directory
+        const getFlatBookmarkList = (entries) => {
+            const ret = [];
+            const process = (entries) => { // check all subordinate bookmarks of the given directory
                 entries.forEach((entry) => {
                     if (entry.url && ext.helper.utility.isUrlOnBlacklist(entry.url) === false) {
                         ret.push(entry);

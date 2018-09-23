@@ -10,7 +10,7 @@
 
         let sidebarPos = null;
         let dndOpen = null;
-        let toggleArea = {};
+        const toggleArea = {};
         let preventPageScroll = null;
         let preventWindowed = null;
         let openDelay = 0;
@@ -18,7 +18,7 @@
         let sidebarWidth = null;
         let inPixelToleranceTime = null;
         let mouseNotTopLeft = false;
-        let timeout = {};
+        const timeout = {};
         let keypressed = null;
         let hoveredOnce = false;
 
@@ -34,7 +34,7 @@
                 ext.elm.indicator.addClass($.cl.page.noAnimations);
             }
 
-            let data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
+            const data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
 
             Object.entries(data.toggleArea).forEach(([key, val]) => {
                 toggleArea[key] = +val;
@@ -83,7 +83,7 @@
             handleLeftsideBackExtension();
             initEvents();
 
-            let pageType = getPageType();
+            const pageType = getPageType();
 
             if (((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && data.autoOpen) || data.performReopening) {
                 this.openSidebar();
@@ -168,10 +168,10 @@
          * Marks the last used bookmark in the list if the according configuration is set
          */
         this.markLastUsed = () => {
-            let data = ext.helper.model.getData(["u/lastOpened", "b/rememberState"]);
+            const data = ext.helper.model.getData(["u/lastOpened", "b/rememberState"]);
 
             if (data.rememberState === "all" && data.lastOpened) { // mark last opened bookmark if there is one and user set so in the options
-                let entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + data.lastOpened + "']");
+                const entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + data.lastOpened + "']");
 
                 if (entry && entry.length() > 0) {
                     entry.addClass($.cl.sidebar.mark);
@@ -210,8 +210,8 @@
          * will collapse the width of the iframe back to the width of the sidebar, when the mask is hidden (e.g. on the newtab page)
          */
         this.removeSidebarHoverClass = () => {
-            let contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
-            let tooltips = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper);
+            const contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
+            const tooltips = ext.elm.iframeBody.find("div." + $.cl.tooltip.wrapper);
 
             if (
                 contextmenus.length() === 0 &&
@@ -223,7 +223,7 @@
             ) {
                 ext.elm.iframe.removeClass($.cl.page.hover);
 
-                let dataWidth = ext.elm.iframe.data("width");
+                const dataWidth = ext.elm.iframe.data("width");
                 if (dataWidth) { // user dragged the sidebar width -> don't take the iframe width of the css file, but from the data attribute
                     ext.elm.iframe.css("width", dataWidth + "px");
                 }
@@ -235,7 +235,7 @@
          *
          * @returns {int}
          */
-        let getToggleAreaWidth = () => {
+        const getToggleAreaWidth = () => {
             if (ext.helper.utility.isWindowed()) {
                 return preventWindowed ? 0 : toggleArea.widthWindowed;
             } else {
@@ -248,7 +248,7 @@
          *
          * @returns {Promise}
          */
-        let initEvents = async () => {
+        const initEvents = async () => {
             $(window).on("resize.bs", () => {
                 ext.elm.indicator.css("width", getToggleAreaWidth() + "px");
             });
@@ -256,7 +256,7 @@
             ext.elm.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
                 if (e.clientX) {
                     let clientX = e.clientX;
-                    let curSidebarWidth = ext.elm.sidebar.realWidth();
+                    const curSidebarWidth = ext.elm.sidebar.realWidth();
 
                     if (sidebarPos === "right") {
                         if (sidebarHasMask()) {
@@ -302,7 +302,7 @@
                         ext.elm.iframeBody.hasClass($.cl.drag.isDragged) === false &&
                         ext.elm.widthDrag.hasClass($.cl.drag.isDragged) === false
                     ) {
-                        let closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
+                        const closeTimeoutRaw = ext.helper.model.getData("b/closeTimeout");
 
                         if (+closeTimeoutRaw !== -1) { // timeout only if value > -1
                             timeout.close = setTimeout(() => {
@@ -330,7 +330,7 @@
                 clearSidebarTimeout("open");
             }).on("mousemove.bs", (e) => { // check mouse position
                 if (e.isTrusted && isMousePosInPixelTolerance(e.clientX, e.clientY)) {
-                    let inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
+                    const inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);
 
                     if (!(timeout.indicator)) {
                         timeout.indicator = setTimeout(() => { // wait the duration of the open delay before showing the indicator
@@ -343,7 +343,7 @@
                 }
             }, {passive: true});
 
-            let openAction = ext.helper.model.getData("b/openAction");
+            const openAction = ext.helper.model.getData("b/openAction");
 
             if (openAction !== "icon") {
                 $(document).on(openAction + ".bs dragover.bs", (e) => {
@@ -381,11 +381,11 @@
          *
          * @returns {boolean}
          */
-        let sidebarHasMask = () => {
-            let pageType = getPageType();
-            let styles = ext.helper.model.getData("a/styles");
-            let newtabAutoOpen = ext.helper.model.getData("n/autoOpen");
-            let maskColor = styles.sidebarMaskColor || null;
+        const sidebarHasMask = () => {
+            const pageType = getPageType();
+            const styles = ext.helper.model.getData("a/styles");
+            const newtabAutoOpen = ext.helper.model.getData("n/autoOpen");
+            const maskColor = styles.sidebarMaskColor || null;
 
             return !(
                 ((pageType === "newtab_website" || pageType === "newtab_replacement" || pageType === "newtab_fallback") && newtabAutoOpen)
@@ -399,8 +399,8 @@
          *
          * @returns {string}
          */
-        let getPageType = () => {
-            let url = location.href;
+        const getPageType = () => {
+            const url = location.href;
             let ret = "other";
             let found = false;
 
@@ -437,7 +437,7 @@
          * @param {int} clientY
          * @returns {boolean}
          */
-        let isMousePosInPixelTolerance = (clientX, clientY) => {
+        const isMousePosInPixelTolerance = (clientX, clientY) => {
             let ret = false;
 
             if (preventWindowed && ext.helper.utility.isWindowed()) {
@@ -452,7 +452,7 @@
                         clientX = window.innerWidth - clientX - 1;
                     }
 
-                    let area = {
+                    const area = {
                         w: getToggleAreaWidth(),
                         h: clientY / window.innerHeight * 100
                     };
@@ -479,7 +479,7 @@
          *
          * @param {string} name
          */
-        let clearSidebarTimeout = (name) => {
+        const clearSidebarTimeout = (name) => {
             if (timeout[name]) {
                 clearTimeout(timeout[name]);
                 timeout[name] = null;
@@ -491,7 +491,7 @@
          *
          * @returns {Promise}
          */
-        let handleLeftsideBackExtension = async () => {
+        const handleLeftsideBackExtension = async () => {
             if ($($.opts.leftsideBackSelector).length() > 0) { // Extension already loaded
                 ext.elm.indicator.addClass($.cl.page.hasLeftsideBack);
             } else {

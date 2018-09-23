@@ -30,7 +30,7 @@
                 if (typeof opts.url === "undefined") {
                     resolve({img: null});
                 } else {
-                    let cachedValue = getCachedValue("thumb", opts.url);
+                    const cachedValue = getCachedValue("thumb", opts.url);
 
                     if (cachedValue) {
                         resolve({img: cachedValue});
@@ -44,7 +44,7 @@
                                 ua: navigator.userAgent
                             }
                         }).then((xhr) => {
-                            let dataUrl = xhr.responseText;
+                            const dataUrl = xhr.responseText;
 
                             if (dataUrl && dataUrl.length > 0) {
                                 updateImageCache("thumb", opts.url, dataUrl);
@@ -68,16 +68,16 @@
          */
         this.getFavicon = (opts) => {
             return new Promise((resolve) => {
-                let img = new Image();
+                const img = new Image();
                 img.onload = function () {
-                    let canvas = document.createElement("canvas");
+                    const canvas = document.createElement("canvas");
                     canvas.width = this.width;
                     canvas.height = this.height;
 
-                    let ctx = canvas.getContext("2d");
+                    const ctx = canvas.getContext("2d");
                     ctx.drawImage(this, 0, 0);
 
-                    let dataUrl = canvas.toDataURL("image/png");
+                    const dataUrl = canvas.toDataURL("image/png");
                     resolve({img: dataUrl});
                 };
                 img.src = "chrome://favicon/size/16@2x/" + opts.url;
@@ -91,7 +91,7 @@
          * @param {string} url
          * @returns {string|null}
          */
-        let getCachedValue = (type, url) => {
+        const getCachedValue = (type, url) => {
             if (cache[type + "_" + url]) {
                 return cache[type + "_" + url].d;
             } else {
@@ -107,12 +107,12 @@
          * @param {string} data
          * @returns {Promise}
          */
-        let updateImageCache = (type, url, data) => {
+        const updateImageCache = (type, url, data) => {
             cache[type + "_" + url] = {t: +new Date(), d: data};
 
             if (isSaving === false) {
                 isSaving = true;
-                let now = +new Date();
+                const now = +new Date();
 
                 Object.keys(cache).forEach((key) => {
                     if (now - cache[key].t > 1000 * 60 * 60 * 24 * 3) { // older than 3 days

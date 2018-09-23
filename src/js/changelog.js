@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    let Changelog = function () {
+    const Changelog = function () {
 
         let info = {};
 
@@ -25,7 +25,7 @@
          */
         this.run = () => {
             initHelpers();
-            let loader = this.helper.template.loading().appendTo(this.elm.body);
+            const loader = this.helper.template.loading().appendTo(this.elm.body);
             this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
@@ -72,7 +72,7 @@
         /**
          * Initialises the helper objects
          */
-        let initHelpers = () => {
+        const initHelpers = () => {
             this.helper = {
                 i18n: new $.I18nHelper(this),
                 font: new $.FontHelper(this),
@@ -86,9 +86,9 @@
         /**
          * Initialises the switch for showing the changelog or the release history
          */
-        let initViewSwitch = () => {
-            let checkbox = this.helper.checkbox.get(this.elm.body, {}, "checkbox", "switch").prependTo(this.elm.contentWrapper);
-            let trigger = $("<a />").html(this.helper.i18n.get("changelog_show_release_history")).insertAfter(checkbox);
+        const initViewSwitch = () => {
+            const checkbox = this.helper.checkbox.get(this.elm.body, {}, "checkbox", "switch").prependTo(this.elm.contentWrapper);
+            const trigger = $("<a />").html(this.helper.i18n.get("changelog_show_release_history")).insertAfter(checkbox);
 
             trigger.on("click", (e) => {
                 e.preventDefault();
@@ -112,17 +112,17 @@
          * @param {string} version
          * @returns {boolean}
          */
-        let isNewerVersion = (version) => {
+        const isNewerVersion = (version) => {
             if ($.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest)) { // return false for dev version every time
                 return false;
             }
 
             let diff = null;
-            let regExStrip0 = /(\.0+)+$/;
+            const regExStrip0 = /(\.0+)+$/;
 
-            let segmentsA = $.opts.manifest.version.replace(regExStrip0, "").split(".");
-            let segmentsB = version.replace(regExStrip0, "").split(".");
-            let len = Math.max(segmentsA.length, segmentsB.length);
+            const segmentsA = $.opts.manifest.version.replace(regExStrip0, "").split(".");
+            const segmentsB = version.replace(regExStrip0, "").split(".");
+            const len = Math.max(segmentsA.length, segmentsB.length);
 
             for (let i = 0; i < len; i++) {
                 diff = parseInt(segmentsA[i] || 0, 10) - parseInt(segmentsB[i] || 0, 10);
@@ -136,12 +136,12 @@
         /**
          * Initialises the changelog list
          */
-        let initChangelog = () => {
+        const initChangelog = () => {
             if (info && info.changelog) {
                 Object.entries(info.changelog).forEach(([version, changes]) => {
                     if (isNewerVersion(version) === false) {
-                        let elm = $("<div />").append("<h2>" + version + "</h2>").appendTo(this.elm.changelogWrapper);
-                        let list = $("<ul />").appendTo(elm);
+                        const elm = $("<div />").append("<h2>" + version + "</h2>").appendTo(this.elm.changelogWrapper);
+                        const list = $("<ul />").appendTo(elm);
 
                         changes.forEach((change) => {
                             $("<li />").html(change).appendTo(list);
@@ -156,12 +156,12 @@
         /**
          * Initialises the release history list
          */
-        let initReleaseHistory = () => {
+        const initReleaseHistory = () => {
             if (info && info.releaseHistory) {
                 info.releaseHistory.forEach((entry) => {
                     if (isNewerVersion(entry.version) === false) {
-                        let elm = $("<div />").append("<h2>" + entry.version + "</h2>").appendTo(this.elm.releaseHistoryWrapper);
-                        let list = $("<ul />").appendTo(elm);
+                        const elm = $("<div />").append("<h2>" + entry.version + "</h2>").appendTo(this.elm.releaseHistoryWrapper);
+                        const list = $("<ul />").appendTo(elm);
 
                         entry.changes.forEach((change) => {
                             $("<li />").html(change).appendTo(list);
@@ -176,7 +176,7 @@
          *
          * @returns {Promise}
          */
-        let initData = () => {
+        const initData = () => {
             return new Promise((resolve) => {
                 $.xhr($.opts.website.versionHistory, {
                     method: "POST",

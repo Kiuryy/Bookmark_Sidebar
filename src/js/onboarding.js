@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    let Onboarding = function () {
+    const Onboarding = function () {
 
         let configChanged = false;
 
@@ -25,7 +25,7 @@
          */
         this.run = () => {
             initHelpers();
-            let loader = this.helper.template.loading().appendTo(this.elm.body);
+            const loader = this.helper.template.loading().appendTo(this.elm.body);
             this.elm.body.addClass($.cl.initLoading);
 
             this.helper.model.init().then(() => {
@@ -74,7 +74,7 @@
         /**
          * Initialises the helper objects
          */
-        let initHelpers = () => {
+        const initHelpers = () => {
             this.helper = {
                 i18n: new $.I18nHelper(this),
                 font: new $.FontHelper(this),
@@ -87,7 +87,7 @@
         /**
          * Initialises the general eventhandlers
          */
-        let initGeneralEvents = () => {
+        const initGeneralEvents = () => {
             $(window).on("beforeunload", () => { // reinitialize the other tabs after changing any configuration
                 if (configChanged) {
                     this.helper.model.call("reinitialize");
@@ -98,7 +98,7 @@
         /**
          * Initialises the eventhandlers for the intro slide
          */
-        let initIntroEvents = () => {
+        const initIntroEvents = () => {
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='intro'] a").on("click", (e) => {
                 e.preventDefault();
 
@@ -113,10 +113,10 @@
         /**
          * Initialises the eventhandlers for the position slide
          */
-        let initPositionEvents = () => {
+        const initPositionEvents = () => {
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='position'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
-                let value = $(e.currentTarget).attr($.attr.value);
+                const value = $(e.currentTarget).attr($.attr.value);
                 this.elm.body.attr($.attr.position, value);
 
                 Object.values(this.elm.sidebar).forEach((sidebar) => {
@@ -132,7 +132,7 @@
                     });
                 }
             }).on("mouseleave", (e) => {
-                let slide = $(e.currentTarget).parent();
+                const slide = $(e.currentTarget).parent();
                 $.delay().then(() => {
                     if (slide.hasClass($.cl.visible)) {
                         Object.values(this.elm.sidebar).forEach((sidebar) => {
@@ -147,14 +147,14 @@
         /**
          * Initialises the eventhandlers for the surface slide
          */
-        let initSurfaceEvents = () => {
+        const initSurfaceEvents = () => {
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='surface'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
-                let value = $(e.currentTarget).attr($.attr.value);
+                const value = $(e.currentTarget).attr($.attr.value);
                 this.elm.body.attr($.attr.onboarding.surface, value);
 
                 if (e.type === "click") {
-                    let styles = this.helper.model.getData("a/styles");
+                    const styles = this.helper.model.getData("a/styles");
                     styles.colorScheme = this.helper.model.getDefaultColor("colorScheme", value);
                     styles.textColor = this.helper.model.getDefaultColor("textColor", value);
                     styles.bookmarksDirColor = this.helper.model.getDefaultColor("textColor", value);
@@ -174,7 +174,7 @@
                     });
                 }
             }).on("mouseleave", (e) => {
-                let slide = $(e.currentTarget).parent();
+                const slide = $(e.currentTarget).parent();
                 $.delay().then(() => {
                     if (slide.hasClass($.cl.visible)) {
                         this.elm.body.removeAttr($.attr.onboarding.surface);
@@ -186,10 +186,10 @@
         /**
          * Initialises the eventhandlers for the openAction slide
          */
-        let initOpenActionEvents = () => {
+        const initOpenActionEvents = () => {
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='openAction'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
-                let value = $(e.currentTarget).attr($.attr.value);
+                const value = $(e.currentTarget).attr($.attr.value);
 
                 if (value) {
                     if (e.type === "click") {
@@ -213,7 +213,7 @@
         /**
          * Initialises the eventhandlers for the hands-on slide
          */
-        let initHandsOnEvents = () => {
+        const initHandsOnEvents = () => {
             $(document).on($.opts.events.sidebarOpened, () => {
                 if (!$("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished']").hasClass($.cl.visible)) {
                     this.elm.body.addClass($.cl.onboarding.hideOpenTypeIcon);
@@ -225,7 +225,7 @@
         /**
          * Initialises the eventhandlers for the last slide
          */
-        let initFinishedEvents = () => {
+        const initFinishedEvents = () => {
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] a").on("click", (e) => {
                 e.preventDefault();
                 if ($(e.currentTarget).hasClass($.cl.onboarding.settings)) {
@@ -241,8 +241,8 @@
         /**
          * Shows the next slide
          */
-        let gotoNextSlide = () => {
-            let name = $("section." + $.cl.onboarding.slide + "." + $.cl.visible).next("section." + $.cl.onboarding.slide).attr($.attr.name);
+        const gotoNextSlide = () => {
+            const name = $("section." + $.cl.onboarding.slide + "." + $.cl.visible).next("section." + $.cl.onboarding.slide).attr($.attr.name);
             gotoSlide(name);
         };
 
@@ -251,13 +251,13 @@
          *
          * @param {string} name
          */
-        let gotoSlide = (name) => {
-            let prevSlide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
+        const gotoSlide = (name) => {
+            const prevSlide = $("section." + $.cl.onboarding.slide + "." + $.cl.visible);
             prevSlide.removeClass($.cl.visible);
 
             $.delay(300).then(() => {
-                let newSlide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
-                let num = newSlide.prevAll("section." + $.cl.onboarding.slide).length() + 1;
+                const newSlide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='" + name + "']").addClass($.cl.visible);
+                const num = newSlide.prevAll("section." + $.cl.onboarding.slide).length() + 1;
 
                 this.helper.model.call("track", {
                     name: "action",
@@ -270,15 +270,15 @@
         /**
          * Initialises the finish slide with links to the settings and a notice when choosing to open the sidebar by clicking inside the browser content
          */
-        let initFinishedSlide = () => {
+        const initFinishedSlide = () => {
             gotoSlide("finished");
-            let config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
-            let info = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] p." + $.cl.info);
+            const config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
+            const info = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] p." + $.cl.info);
 
             if (config.openAction === "icon") {
                 info.remove();
             } else {
-                let position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
+                const position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
                 info.children("span").text(this.helper.i18n.get("onboarding_finish_notice", [position]));
             }
         };
@@ -286,7 +286,7 @@
         /**
          * Initialises the Hands-On slide with the actual sidebar loaded
          */
-        let initHandsOn = () => {
+        const initHandsOn = () => {
             gotoSlide("handson");
             loadSidebar();
 
@@ -294,20 +294,20 @@
                 sidebar.removeClass($.cl.visible);
             });
 
-            let slide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']");
+            const slide = $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='handson']");
 
-            let config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
+            const config = this.helper.model.getData(["b/openAction", "b/sidebarPosition"]);
             this.elm.body.attr($.attr.position, config.sidebarPosition);
 
             // change description how to open the sidebar based on sidebar position and configurated openAction
             if (config.openAction === "icon") {
                 $("<p />").text(this.helper.i18n.get("onboarding_handson_icon_desc")).appendTo(slide);
             } else {
-                let position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
+                const position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
                 $("<p />").text(this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position])).appendTo(slide);
 
                 if (config.openAction !== "mousemove") {
-                    let mouseButton = this.helper.i18n.get("onboarding_" + (config.openAction === "contextmenu" ? "right" : "left"));
+                    const mouseButton = this.helper.i18n.get("onboarding_" + (config.openAction === "contextmenu" ? "right" : "left"));
                     $("<p />").text(this.helper.i18n.get("onboarding_handson_mouse_desc_2", [mouseButton])).appendTo(slide);
                 }
             }
@@ -321,16 +321,16 @@
         /**
          * Loads the sidebar with the specified configuration
          */
-        let loadSidebar = () => {
+        const loadSidebar = () => {
             $.opts.manifest.content_scripts[0].css.forEach((css) => {
                 $("head").append("<link href='" + chrome.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
             });
 
-            let loadJs = (i = 0) => {
-                let js = $.opts.manifest.content_scripts[0].js[i];
+            const loadJs = (i = 0) => {
+                const js = $.opts.manifest.content_scripts[0].js[i];
 
                 if (typeof js !== "undefined") {
-                    let script = document.createElement("script");
+                    const script = document.createElement("script");
                     document.head.appendChild(script);
                     script.onload = () => loadJs(i + 1);
                     script.src = "/" + js;

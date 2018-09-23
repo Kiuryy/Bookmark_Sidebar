@@ -3,7 +3,7 @@
 
     $.IconHelper = function (b) {
 
-        let cachedSvg = {};
+        const cachedSvg = {};
         let currentIcon = null;
 
         /**
@@ -44,7 +44,7 @@
          *
          * @returns {Promise}
          */
-        let getInfo = () => {
+        const getInfo = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
@@ -74,14 +74,14 @@
          *
          * @returns {Promise}
          */
-        let getSvgImage = (name, color) => {
+        const getSvgImage = (name, color) => {
             return new Promise((resolve) => {
                 new Promise((rslv) => {
                     if (cachedSvg[name]) {
                         rslv(cachedSvg[name]);
                     } else {
                         $.xhr(chrome.extension.getURL("img/icon/action/icon-" + name + ".svg")).then((obj) => {
-                            let svg = obj.responseText;
+                            const svg = obj.responseText;
                             cachedSvg[name] = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
                             rslv(cachedSvg[name]);
                         });
@@ -103,19 +103,19 @@
          */
         this.set = (opts) => {
             return new Promise((resolve) => {
-                let onlyCurrentTab = opts.onlyCurrentTab || false;
+                const onlyCurrentTab = opts.onlyCurrentTab || false;
 
                 if (currentIcon && !onlyCurrentTab && currentIcon === opts.name + "_" + opts.color) { // icon is the same -> do nothing
                     resolve();
                 } else { // icon is different
-                    let canvas = document.createElement("canvas");
-                    let size = 128;
+                    const canvas = document.createElement("canvas");
+                    const size = 128;
                     canvas.width = size;
                     canvas.height = size;
-                    let ctx = canvas.getContext("2d");
+                    const ctx = canvas.getContext("2d");
 
                     getSvgImage(opts.name, opts.color).then((svg) => {
-                        let img = new Image();
+                        const img = new Image();
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);
 

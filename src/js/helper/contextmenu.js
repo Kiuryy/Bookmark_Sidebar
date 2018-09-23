@@ -8,7 +8,7 @@
      */
     $.ContextmenuHelper = function (ext) {
 
-        let clickFuncs = {};
+        const clickFuncs = {};
 
         /**
          * Generates a contextmenu of the given type for the given element
@@ -29,7 +29,7 @@
                 this.close(); // close other contextmenus
                 elm.addClass($.cl.active);
 
-                let contextmenu = $("<div />")
+                const contextmenu = $("<div />")
                     .addClass($.cl.contextmenu.wrapper)
                     .html("<ul class='" + $.cl.contextmenu.list + "'></ul><ul class='" + $.cl.contextmenu.icons + "'></ul>")
                     .attr($.attr.type, type)
@@ -37,7 +37,7 @@
                     .appendTo(ext.elm.sidebar);
 
                 let trackingLabel = type;
-                let elmId = elm.attr($.attr.id);
+                const elmId = elm.attr($.attr.id);
                 if (elmId) {
                     contextmenu.attr($.attr.id, elmId);
                 }
@@ -45,7 +45,7 @@
                 switch (type) {
                     case "list": {
                         handleListMenu(contextmenu, elm);
-                        let data = ext.helper.entry.getDataById(elmId);
+                        const data = ext.helper.entry.getDataById(elmId);
                         trackingLabel = data && data.isDir ? "directory" : "bookmark";
                         break;
                     }
@@ -76,7 +76,7 @@
          * Closes all open contextmenus
          */
         this.close = () => {
-            let contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
+            const contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
 
             contextmenus.forEach((contextmenu) => {
                 $(contextmenu).removeClass($.cl.visible);
@@ -96,9 +96,9 @@
          * @param {jsu} elm
          * @return {boolean}
          */
-        let alreadyExists = (type, elm) => {
-            let elmId = elm.attr($.attr.id);
-            let value = elm.attr($.attr.value);
+        const alreadyExists = (type, elm) => {
+            const elmId = elm.attr($.attr.id);
+            const value = elm.attr($.attr.value);
 
             let existingElm = "div." + $.cl.contextmenu.wrapper + "[" + $.attr.type + "='" + type + "']";
             if (elmId) {
@@ -115,14 +115,14 @@
          *
          * @param {jsu} contextmenu
          */
-        let handleSortMenu = (contextmenu) => {
-            let sortList = ext.helper.list.getSortList();
-            let currentSort = ext.helper.list.getSort();
-            let list = contextmenu.children("ul." + $.cl.contextmenu.list);
+        const handleSortMenu = (contextmenu) => {
+            const sortList = ext.helper.list.getSortList();
+            const currentSort = ext.helper.list.getSort();
+            const list = contextmenu.children("ul." + $.cl.contextmenu.list);
             contextmenu.children("ul." + $.cl.contextmenu.icons).remove();
 
             Object.keys(sortList).forEach((value) => {
-                let langName = value.replace(/([A-Z])/g, "_$1").toLowerCase();
+                const langName = value.replace(/([A-Z])/g, "_$1").toLowerCase();
                 $("<li />")
                     .append(ext.helper.checkbox.get(ext.elm.iframeBody, {
                         [$.attr.name]: "sort",
@@ -142,9 +142,9 @@
          *
          * @param {jsu} contextmenu
          */
-        let handleHeaderMenu = (contextmenu) => {
-            let list = contextmenu.children("ul." + $.cl.contextmenu.list);
-            let iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
+        const handleHeaderMenu = (contextmenu) => {
+            const list = contextmenu.children("ul." + $.cl.contextmenu.list);
+            const iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
 
             $("<li />")
                 .append(ext.helper.checkbox.get(ext.elm.iframeBody, {[$.attr.name]: "toggleHidden"}))
@@ -159,8 +159,8 @@
                 .append("<a " + $.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
                 .appendTo(list);
 
-            let bookmarkList = ext.elm.bookmarkBox.all.children("ul");
-            let hideRoot = bookmarkList.hasClass($.cl.sidebar.hideRoot);
+            const bookmarkList = ext.elm.bookmarkBox.all.children("ul");
+            const hideRoot = bookmarkList.hasClass($.cl.sidebar.hideRoot);
             let hasOpenedDirectories = false;
 
             bookmarkList.find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
@@ -188,12 +188,12 @@
          * @param {jsu} contextmenu
          * @param {jsu} elm
          */
-        let handleSeparatorMenu = (contextmenu, elm) => {
-            let elmId = elm.attr($.attr.id);
-            let data = ext.helper.entry.getDataById(elmId);
+        const handleSeparatorMenu = (contextmenu, elm) => {
+            const elmId = elm.attr($.attr.id);
+            const data = ext.helper.entry.getDataById(elmId);
 
             if (data && data.parents && data.parents.length > 0) {
-                let list = contextmenu.children("ul." + $.cl.contextmenu.list);
+                const list = contextmenu.children("ul." + $.cl.contextmenu.list);
 
                 if (data.parents.length > 0) { // root level can not be edited or deleted
                     list.append("<li><a " + $.attr.name + "='delete'>" + ext.helper.i18n.get("contextmenu_delete_separator") + "</a></li>");
@@ -209,21 +209,21 @@
          * @param {jsu} contextmenu
          * @param {jsu} elm
          */
-        let handleListMenu = (contextmenu, elm) => {
-            let elmId = elm.attr($.attr.id);
-            let data = ext.helper.entry.getDataById(elmId);
+        const handleListMenu = (contextmenu, elm) => {
+            const elmId = elm.attr($.attr.id);
+            const data = ext.helper.entry.getDataById(elmId);
 
             if (data) {
-                let i18nAppend = data.isDir ? "_dir" : "_bookmark";
-                let list = contextmenu.children("ul." + $.cl.contextmenu.list);
-                let iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
+                const i18nAppend = data.isDir ? "_dir" : "_bookmark";
+                const list = contextmenu.children("ul." + $.cl.contextmenu.list);
+                const iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
 
                 if (ext.helper.search.isResultsVisible()) {
                     list.append("<li><a " + $.attr.name + "='showInDir'>" + ext.helper.i18n.get("contextmenu_show_in_dir") + "</a></li>");
                 }
 
                 if (data.isDir) {
-                    let bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
+                    const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
 
                     if (bookmarks.length > 0) {
                         list.append("<li><a " + $.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + " <span>(" + bookmarks.length + ")</span></a></li>");
@@ -273,10 +273,10 @@
          * @param {jsu} elm
          * @param {string} type
          */
-        let setPosition = (contextmenu, elm, type) => {
-            let dim = {w: contextmenu.realWidth(), h: contextmenu.realHeight()};
-            let elmBoundClientRect = elm[0].getBoundingClientRect();
-            let top = elmBoundClientRect.top + elmBoundClientRect.height;
+        const setPosition = (contextmenu, elm, type) => {
+            const dim = {w: contextmenu.realWidth(), h: contextmenu.realHeight()};
+            const elmBoundClientRect = elm[0].getBoundingClientRect();
+            const top = elmBoundClientRect.top + elmBoundClientRect.height;
 
             if (top + dim.h >= window.innerHeight) { // no space to show contextmenu on bottom -> show on top instead
                 contextmenu.css("top", top - dim.h).addClass($.cl.contextmenu.top);
@@ -356,7 +356,7 @@
          */
         clickFuncs.newTab = (opts) => {
             if (opts.data) {
-                let inForeground = ext.helper.model.getData("b/newTab") === "foreground";
+                const inForeground = ext.helper.model.getData("b/newTab") === "foreground";
                 opts.data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
                 ext.helper.utility.openUrl(opts.data, "newTab", inForeground);
 
@@ -382,7 +382,7 @@
          */
         clickFuncs.showHidden = (opts) => {
             ext.startLoading();
-            let hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
+            const hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
             delete hiddenEntries[opts.id];
 
             ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
@@ -402,7 +402,7 @@
          */
         clickFuncs.openChildren = (opts) => {
             if (opts.data) {
-                let bookmarks = opts.data.children.filter(val => val.url && val.url !== "about:blank");
+                const bookmarks = opts.data.children.filter(val => val.url && val.url !== "about:blank");
                 if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                     ext.helper.overlay.create(opts.name, ext.helper.i18n.get("contextmenu_open_children"), opts.data);
                 } else { // open bookmarks directly without confirmation
@@ -439,11 +439,11 @@
          * @param {object} opts
          */
         clickFuncs.showInDir = (opts) => {
-            let data = ext.helper.entry.getDataById(opts.id);
+            const data = ext.helper.entry.getDataById(opts.id);
             if (data && data.parents) {
-                let openParent = (i) => {
+                const openParent = (i) => {
                     if (data.parents[i]) {
-                        let entry = ext.elm.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + data.parents[i] + "']");
+                        const entry = ext.elm.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + data.parents[i] + "']");
                         if (!entry.hasClass($.cl.sidebar.dirOpened)) {
                             ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
                                 openParent(i + 1);
@@ -456,7 +456,7 @@
                             ext.helper.list.cacheList(),
                             ext.helper.search.clearSearch()
                         ]).then(() => {
-                            let entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
+                            const entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
                             ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, entry[0].offsetTop - 50);
                             entry.addClass($.cl.sidebar.mark);
                         });
@@ -478,9 +478,9 @@
          * Closes all opened directories
          */
         clickFuncs.closeAll = () => {
-            let list = ext.elm.bookmarkBox.all.children("ul");
-            let hideRoot = list.hasClass($.cl.sidebar.hideRoot);
-            let promises = [];
+            const list = ext.elm.bookmarkBox.all.children("ul");
+            const hideRoot = list.hasClass($.cl.sidebar.hideRoot);
+            const promises = [];
 
             list.find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
                 if (hideRoot === false || $(dir).parents("li").length() > 1) {
@@ -498,10 +498,10 @@
          *
          * @param {jsu} contextmenu
          */
-        let initEvents = (contextmenu) => {
+        const initEvents = (contextmenu) => {
             contextmenu.find("input[" + $.attr.name + "='sort']").on("change", (e) => { // toggle fixation of the entries
                 if (e.currentTarget.checked) {
-                    let sort = $(e.currentTarget).attr($.attr.value);
+                    const sort = $(e.currentTarget).attr($.attr.value);
                     ext.helper.list.updateSort(sort);
                     this.close();
                 }
@@ -534,7 +534,7 @@
             }).on("click", (e) => {
                 e.preventDefault();
 
-                let opts = {
+                const opts = {
                     elm: e.currentTarget,
                     eventObj: e,
                     name: $(e.currentTarget).attr($.attr.name),

@@ -57,7 +57,7 @@
          * @returns {Promise}
          */
         this.openAllBookmarks = async (bookmarks) => {
-            let newTabPosition = ext.helper.model.getData("b/newTabPosition");
+            const newTabPosition = ext.helper.model.getData("b/newTabPosition");
 
             if (newTabPosition === "afterCurrent" || newTabPosition === "beforeFirst") { // reverse bookmarks to open them in the correct order
                 bookmarks.reverse();
@@ -74,7 +74,7 @@
          * @returns {boolean}
          */
         this.isBackgroundConnected = () => {
-            let port = chrome.runtime.connect();
+            const port = chrome.runtime.connect();
             if (port) {
                 port.disconnect();
                 return true;
@@ -104,7 +104,7 @@
          * @returns {boolean}
          */
         this.copyToClipboard = (text) => {
-            let textarea = $("<textarea />").text(text).appendTo(ext.elm.iframeBody);
+            const textarea = $("<textarea />").text(text).appendTo(ext.elm.iframeBody);
             textarea[0].select();
 
             let success = false;
@@ -160,7 +160,7 @@
          * @returns {boolean}
          */
         this.isWindowed = () => {
-            let limit = 12;
+            const limit = 12;
             return window.screenX > limit ||
                 window.screenY > limit ||
                 Math.abs(window.screen.availWidth - window.innerWidth) > limit ||

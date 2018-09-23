@@ -1,12 +1,13 @@
 ($ => {
     "use strict";
 
-    let Extension = function () {
+    const Extension = function () {
+
+        const uid = Math.floor(Math.random() * 99999) + 10000;
 
         let loadingInfo = {};
         let existenceTimeout = null;
         let isLoading = false;
-        let uid = Math.floor(Math.random() * 99999) + 10000;
 
         /*
          * ################################
@@ -28,7 +29,7 @@
             $("html").attr($.attr.uid, uid);
 
             this.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
-            let removedOldInstance = destroyOldInstance();
+            const removedOldInstance = destroyOldInstance();
             initHelpers();
 
             $(document).on("visibilitychange.bs", () => { // listen for the document becoming visible/hidden
@@ -50,7 +51,7 @@
          *
          * @param {boolean} force if set to true the sidebar gets initialised regardless of the document visibility state
          */
-        let init = (force = false) => {
+        const init = (force = false) => {
             if (isLoading === false && (force || document.hidden !== true)) { // prevent multiple init attempts -> only proceed if the previous run finished and if the document is visible
                 isLoading = true;
 
@@ -120,12 +121,13 @@
          */
         this.log = (msg) => {
             if (this.isDev) {
-                let styles = [
+                const styles = [
                     "padding: 0 0 5px 0",
                     "font-size:90%",
                     "color:#666"
                 ].join(";");
 
+                // eslint-disable-next-line no-console
                 console.log(...[
                     // message
                     "%c[] %cBookmark Sidebar %c-> %c" + msg,
@@ -143,7 +145,7 @@
          */
         this.loaded = () => {
             if (!this.elm.iframeBody.hasClass($.cl.sidebar.extLoaded)) {
-                let data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
+                const data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
                 this.elm.iframeBody.addClass($.cl.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
@@ -209,8 +211,8 @@
             $.delay().then(() => {
                 if (this.elm.iframe.hasClass($.cl.page.visible)) {
                     this.elm.sidebar.find("img[" + $.attr.src + "]").forEach((_self) => {
-                        let img = $(_self);
-                        let src = img.attr($.attr.src);
+                        const img = $(_self);
+                        const src = img.attr($.attr.src);
                         img.removeAttr($.attr.src);
                         img.attr("src", src);
                     });
@@ -223,8 +225,8 @@
          */
         this.addReloadMask = () => {
             this.elm.sidebar.text("");
-            let reloadMask = $("<div />").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elm.sidebar);
-            let contentBox = $("<div />").prependTo(reloadMask);
+            const reloadMask = $("<div />").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elm.sidebar);
+            const contentBox = $("<div />").prependTo(reloadMask);
 
             $("<p />").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
             $("<a />").text(this.helper.i18n.get("status_background_disconnected_reload_action")).appendTo(contentBox);
@@ -235,7 +237,7 @@
          */
         this.addPremiumInfoBox = () => {
             this.elm.sidebar.find("#" + $.opts.ids.sidebar.premiumInfo).remove();
-            let infoBox = $("<div />").attr("id", $.opts.ids.sidebar.premiumInfo).prependTo(this.elm.sidebar);
+            const infoBox = $("<div />").attr("id", $.opts.ids.sidebar.premiumInfo).prependTo(this.elm.sidebar);
             $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
             $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
             $("<a />").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
@@ -250,14 +252,14 @@
          */
         this.addShareInfoMask = () => {
             this.elm.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();
-            let shareInfoMask = $("<div />").attr("id", $.opts.ids.sidebar.shareInfo).prependTo(this.elm.sidebar);
-            let contentBox = $("<div />").prependTo(shareInfoMask);
+            const shareInfoMask = $("<div />").attr("id", $.opts.ids.sidebar.shareInfo).prependTo(this.elm.sidebar);
+            const contentBox = $("<div />").prependTo(shareInfoMask);
 
             $("<h2 />").html(this.helper.i18n.get("contribute_headline")).appendTo(contentBox);
             $("<p />").html(this.helper.i18n.get("contribute_intro")).appendTo(contentBox);
 
             ["config", "activity"].forEach((type) => {
-                let label = $("<label />")
+                const label = $("<label />")
                     .text(this.helper.i18n.get("contribute_share_" + type + "_label"))
                     .appendTo(contentBox);
 
@@ -284,7 +286,7 @@
         /**
          * Initialises the helper objects
          */
-        let initHelpers = () => {
+        const initHelpers = () => {
             this.helper = {
                 model: new $.ModelHelper(this),
                 toggle: new $.ToggleHelper(this),
@@ -315,14 +317,14 @@
          *
          * @returns {boolean}
          */
-        let isAllowedToInitialize = () => {
+        const isAllowedToInitialize = () => {
             let ret = true;
-            let visibility = this.helper.model.getData("b/visibility");
+            const visibility = this.helper.model.getData("b/visibility");
 
             if (visibility === "always" || location.href.indexOf(chrome.extension.getURL("html/newtab.html")) === 0) {
                 ret = true;
             } else if (visibility === "blacklist" || visibility === "whitelist") {
-                let rules = this.helper.model.getData("b/" + visibility);
+                const rules = this.helper.model.getData("b/" + visibility);
                 let match = false;
 
                 rules.some((rule) => {
@@ -330,7 +332,7 @@
                     rule = rule.replace(/\./g, "\\.");
                     rule = rule.replace(/\*/g, ".*");
 
-                    let regex = new RegExp("^https?://" + rule + "$");
+                    const regex = new RegExp("^https?://" + rule + "$");
 
                     if (location.href.search(regex) === 0) {
                         match = true;
@@ -360,13 +362,13 @@
          * Checks whether the sidebar iframe is still available and reinitialized the extension if not,
          * calls itself every 2s as long the sidebar is not missing
          */
-        let checkExistence = () => {
+        const checkExistence = () => {
             if (existenceTimeout !== null) {
                 clearTimeout(existenceTimeout);
             }
 
             existenceTimeout = setTimeout(() => {
-                let htmlUid = $("html").attr($.attr.uid);
+                const htmlUid = $("html").attr($.attr.uid);
 
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
                     if ($("iframe#" + $.opts.ids.page.iframe).length() === 0) {
@@ -385,15 +387,15 @@
          *
          * @returns {boolean} old instance removed or not
          */
-        let destroyOldInstance = () => {
+        const destroyOldInstance = () => {
             let ret = false;
-            let elements = [];
+            const elements = [];
 
             ["iframe#" + $.opts.ids.page.iframe, "iframe#" + $.opts.ids.page.overlay, "div#" + $.opts.ids.page.indicator].forEach((elm) => {
                 elements.push($(elm));
             });
 
-            let elmObj = $(elements);
+            const elmObj = $(elements);
 
             $(document).off("*.bs");
             $(window).off("*.bs");
@@ -412,8 +414,8 @@
          *
          * @returns {Promise}
          */
-        let initSidebar = async () => {
-            let config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
+        const initSidebar = async () => {
+            const config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
             this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").addClass("notranslate").appendTo("body");  // 'notranslate' prevents Google translator from translating the content of the sidebar
 
             if (config.animations === false) {

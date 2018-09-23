@@ -3,7 +3,7 @@
 
     $.FormHelper = function (s) {
 
-        let initField = {};
+        const initField = {};
 
         /**
          *
@@ -19,12 +19,12 @@
         /**
          * Initialises the eventhandlers
          */
-        let initEvents = () => {
+        const initEvents = () => {
             s.elm.content.on("scroll", () => {
-                let path = s.helper.menu.getPath();
+                const path = s.helper.menu.getPath();
                 if (path[0] === "appearance") {
                     Object.values(s.elm.color).forEach((elm) => {
-                        let picker = elm.data("picker");
+                        const picker = elm.data("picker");
                         picker.reposition();
                     });
                 }
@@ -36,11 +36,11 @@
          *
          * @returns {Promise}
          */
-        let initFormElements = () => {
+        const initFormElements = () => {
             return new Promise((resolve) => {
                 let waitingCounter = s.elm.formElement.length();
 
-                let elementLoaded = () => {
+                const elementLoaded = () => {
                     waitingCounter--;
                     if (waitingCounter === 0) { // all form elements loaded -> resolve
                         resolve();
@@ -48,7 +48,7 @@
                 };
 
                 s.elm.formElement.forEach((elm) => {
-                    let opts = {
+                    const opts = {
                         elm: elm,
                         type: $(elm).attr($.attr.type),
                         name: $(elm).attr($.attr.name),
@@ -79,15 +79,15 @@
             return new Promise((resolve) => {
                 s.elm.color[opts.name] = $("<input type='text' />").addClass($.cl.settings.color.field).insertAfter(opts.label);
 
-                let picker = new window.Colorpicker(s.elm.color[opts.name][0], {
+                const picker = new window.Colorpicker(s.elm.color[opts.name][0], {
                     alpha: !!$(opts.elm).attr($.attr.settings.color.alpha)
                 });
 
-                let suggestionsRaw = $(opts.elm).attr($.attr.settings.color.suggestions);
+                const suggestionsRaw = $(opts.elm).attr($.attr.settings.color.suggestions);
                 if (suggestionsRaw) {
-                    let suggestions = JSON.parse(suggestionsRaw);
-                    let suggestionElm = [];
-                    let preview = picker.getElements().preview;
+                    const suggestions = JSON.parse(suggestionsRaw);
+                    const preview = picker.getElements().preview;
+                    const suggestionElm = [];
 
                     suggestions.forEach((suggestion) => {
                         suggestionElm.push(
@@ -101,13 +101,13 @@
 
                     $(suggestionElm).on("click", (e) => {
                         e.stopPropagation();
-                        let color = $(e.currentTarget).attr($.attr.value);
+                        const color = $(e.currentTarget).attr($.attr.value);
                         picker.setColor(color);
                         picker.show();
                     });
                 }
 
-                let updateMask = (color) => {
+                const updateMask = (color) => {
                     let mask = s.elm.body.children("div." + $.cl.settings.color.mask + "[" + $.attr.name + "='" + opts.name + "']");
 
                     if (color && picker.visible && opts.name.search(/MaskColor$/) !== -1) { // add a mask over the page for every color field ending with "MaskColor"
@@ -182,7 +182,7 @@
                 $("<option />").attr("value", "default").text(s.helper.i18n.get("settings_language_default")).appendTo(s.elm.select[opts.name]);
                 s.helper.model.call("languageInfos").then((obj) => {
                     if (obj && obj.infos) {
-                        let langList = Object.values(obj.infos);
+                        const langList = Object.values(obj.infos);
                         langList.sort((a, b) => {
                             return a.label > b.label ? 1 : -1;
                         });
@@ -220,7 +220,7 @@
             return new Promise((resolve) => {
                 s.elm.field[opts.name] = $("<input type='" + opts.type + "' />").insertAfter(opts.label);
                 ["placeholder"].forEach((attr) => {
-                    let elmAttr = $(opts.elm).attr($.attr.settings.field[attr]);
+                    const elmAttr = $(opts.elm).attr($.attr.settings.field[attr]);
                     if (elmAttr) {
                         s.elm.field[opts.name].attr(attr, elmAttr);
                     }
@@ -233,11 +233,11 @@
         initField.radio = (opts) => {
             return new Promise((resolve) => {
                 s.elm.radio[opts.name] = $("<select />").addClass($.cl.hidden).insertAfter(opts.label);
-                let wrapper = $("<ul />").addClass($.cl.settings.radio.wrapper).insertAfter(s.elm.radio[opts.name]);
+                const wrapper = $("<ul />").addClass($.cl.settings.radio.wrapper).insertAfter(s.elm.radio[opts.name]);
 
                 $(opts.elm).children("span").forEach((span) => {
-                    let value = $(span).attr($.attr.value);
-                    let entry = $("<li />").attr($.attr.value, value).appendTo(wrapper);
+                    const value = $(span).attr($.attr.value);
+                    const entry = $("<li />").attr($.attr.value, value).appendTo(wrapper);
 
                     $(s.helper.checkbox.get(s.elm.body, {
                         [$.attr.name]: opts.name,
@@ -250,7 +250,7 @@
 
                 s.elm.radio[opts.name].on("change", (e) => {
                     if (typeof e.detail === "undefined" || e.detail !== "userAction") {
-                        let checkbox = wrapper.find("input[type='checkbox'][" + $.attr.value + "='" + e.currentTarget.value + "']");
+                        const checkbox = wrapper.find("input[type='checkbox'][" + $.attr.value + "='" + e.currentTarget.value + "']");
                         if (checkbox.length() > 0) {
                             checkbox.parent("div").trigger("click");
                         }
@@ -277,7 +277,7 @@
                 s.elm.range[opts.name] = $("<input type='range' />").insertAfter(opts.label);
 
                 ["min", "max", "step"].forEach((attr) => {
-                    let elmAttr = $(opts.elm).attr($.attr.settings.range[attr]);
+                    const elmAttr = $(opts.elm).attr($.attr.settings.range[attr]);
                     if (elmAttr) {
                         s.elm.range[opts.name].attr(attr, elmAttr);
                     }
@@ -285,16 +285,16 @@
 
                 s.elm.range[opts.name].attr("value", $(opts.elm).attr($.attr.value) || "");
 
-                let unit = $(opts.elm).attr($.attr.settings.range.unit) || "";
-                let valTooltip = $("<span />").insertAfter(s.elm.range[opts.name]);
+                const unit = $(opts.elm).attr($.attr.settings.range.unit) || "";
+                const valTooltip = $("<span />").insertAfter(s.elm.range[opts.name]);
 
                 s.elm.range[opts.name].on("input change", (e) => {
-                    let elm = e.currentTarget;
-                    let max = elm.max || 100;
-                    let min = elm.min || 0;
-                    let val = Math.round(100 * (elm.value - min) / (max - min));
+                    const elm = e.currentTarget;
+                    const max = elm.max || 100;
+                    const min = elm.min || 0;
+                    const val = Math.round(100 * (elm.value - min) / (max - min));
 
-                    let background = s.elm.range[opts.name].css("background-image");
+                    const background = s.elm.range[opts.name].css("background-image");
 
                     if (background && background.indexOf("linear-gradient") === 0) {
                         let backgroundTemplate = $(elm).data("backgroundTemplate");
@@ -315,8 +315,8 @@
                 });
 
                 if ($(opts.elm).attr($.attr.settings.range.infinity) === "1") { // add checkbox to disable range input
-                    let checkboxWrapper = $("<div />").addClass($.cl.settings.sub).insertAfter(valTooltip);
-                    let checkbox = s.helper.checkbox.get(s.elm.body).appendTo(checkboxWrapper);
+                    const checkboxWrapper = $("<div />").addClass($.cl.settings.sub).insertAfter(valTooltip);
+                    const checkbox = s.helper.checkbox.get(s.elm.body).appendTo(checkboxWrapper);
                     $("<label />").attr($.attr.i18n, opts.i18n + "_infinity").appendTo(checkboxWrapper);
 
                     checkbox.children("input[type='checkbox']").on("change", (e) => {
@@ -343,9 +343,9 @@
             return new Promise((resolve) => {
                 s.elm.select[opts.name] = $("<select />").insertAfter(opts.label);
                 $(opts.elm).children("span").forEach((span) => {
-                    let i18n = $(span).attr($.attr.i18n);
+                    const i18n = $(span).attr($.attr.i18n);
 
-                    let option = $("<option />").attr({
+                    const option = $("<option />").attr({
                         value: $(span).attr($.attr.value),
                     }).html($(span).html()).appendTo(s.elm.select[opts.name]);
 
@@ -365,7 +365,7 @@
          */
         initField.checkbox = (opts) => {
             return new Promise((resolve) => {
-                let style = $(opts.elm).attr($.attr.style) || "default";
+                const style = $(opts.elm).attr($.attr.style) || "default";
                 s.elm.checkbox[opts.name] = s.helper.checkbox.get(s.elm.body, {
                     [$.attr.name]: opts.name
                 }, "checkbox", style).insertAfter(opts.label);

@@ -15,6 +15,7 @@
         let preventWindowed = null;
         let openDelay = 0;
         let indicatorWidth = null;
+        let sidebarWidth = null;
         let inPixelToleranceTime = null;
         let mouseNotTopLeft = false;
         let timeout = {};
@@ -58,8 +59,13 @@
             ext.elm.iframe.attr($.attr.position, sidebarPos);
             ext.elm.sidebar.attr($.attr.position, sidebarPos);
 
-            if (data.styles && data.styles.indicatorWidth) {
-                indicatorWidth = parseInt(data.styles.indicatorWidth);
+            if (data.styles) {
+                if (data.styles.indicatorWidth) {
+                    indicatorWidth = parseInt(data.styles.indicatorWidth);
+                }
+                if (data.styles.sidebarWidth) {
+                    sidebarWidth = parseInt(data.styles.sidebarWidth);
+                }
             }
 
             if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
@@ -250,16 +256,18 @@
             ext.elm.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
                 if (e.clientX) {
                     let clientX = e.clientX;
+                    let curSidebarWidth = ext.elm.sidebar.realWidth();
+
                     if (sidebarPos === "right") {
                         if (sidebarHasMask()) {
-                            clientX = window.innerWidth - clientX + ext.elm.sidebar.realWidth() - 1;
+                            clientX = window.innerWidth - clientX + (sidebarWidth || curSidebarWidth) - 1;
                         } else {
                             clientX = ext.elm.iframe.realWidth() - clientX;
                         }
                     }
 
                     if (
-                        clientX > ext.elm.sidebar.realWidth() &&
+                        clientX > curSidebarWidth &&
                         ext.elm.iframe.hasClass($.cl.page.visible) &&
                         ext.elm.widthDrag.hasClass($.cl.drag.isDragged) === false
                     ) {

@@ -334,8 +334,6 @@
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
                 ext.helper.toggle.addSidebarHoverClass();
-
-                ext.elm.widthDrag.data("dragInfo", {start: e.clientX, width: ext.elm.sidebar.realWidth()});
                 ext.elm.widthDrag.addClass($.cl.drag.isDragged);
             });
 
@@ -343,7 +341,13 @@
                 if (ext.elm.widthDrag.hasClass($.cl.drag.isDragged) && e.which === 1) {
                     e.preventDefault();
                     e.stopPropagation();
+
                     let dragInfo = ext.elm.widthDrag.data("dragInfo");
+                    if (!dragInfo) {
+                        dragInfo = {start: e.clientX, width: ext.elm.sidebar.realWidth()};
+                        ext.elm.widthDrag.data("dragInfo", dragInfo);
+                    }
+
                     let diff = e.clientX - dragInfo.start;
 
                     if (sidebarPos === "right") {
@@ -393,11 +397,9 @@
                     if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
                         Object.values(ext.elm.bookmarkBox).some((box) => {
                             if (box.hasClass($.cl.active)) {
-
                                 if (box.find("a." + $.cl.sidebar.restored).length() > 0 || box.find("span." + $.cl.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
                                     performReload = false;
                                 }
-
                                 return true;
                             }
                         });

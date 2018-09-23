@@ -139,7 +139,7 @@
                     checkLicenseKey(opts.licenseKey).then((response) => {
                         if (response.valid === true) { // valid license key -> reinitialize sidebar
                             this.helper.model.setLicenseKey(opts.licenseKey).then(() => {
-                                this.reinitialize({type: "premiumActivated"});
+                                return this.reinitialize({type: "premiumActivated"});
                             }).then(() => {
                                 resolve({success: true});
                             });

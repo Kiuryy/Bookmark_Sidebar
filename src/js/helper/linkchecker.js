@@ -385,7 +385,7 @@
                 elements.menu.find("li[" + $.attr.name + "='" + key + "'] > a > span").text("(" + count + ")");
 
                 if (count === 0) { // tab is empty -> show info text
-                    elm.children("ul").remove();
+                    elm.children("ul,p").remove();
                     $("<p />").html("<span>" + ext.helper.i18n.get("overlay_check_bookmarks_no_results_" + key) + "</span>").appendTo(elm);
 
                     if (elements.actions && elements.actions[key]) {

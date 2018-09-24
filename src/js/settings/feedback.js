@@ -389,6 +389,7 @@
                         version: $.opts.manifest.version_name,
                         ua: navigator.userAgent,
                         lang: s.helper.i18n.getLanguage(),
+                        userType: s.helper.model.getUserType(),
                         screenshots: JSON.stringify(screenshots),
                         config: config,
                         suggestions: suggestionInfo

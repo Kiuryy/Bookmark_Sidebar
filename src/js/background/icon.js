@@ -30,8 +30,8 @@
                     }
 
                     if (b.isDev) { // add badge for the dev version
-                        chrome.browserAction.setBadgeBackgroundColor({color: [245, 197, 37, 255]});
-                        chrome.browserAction.setBadgeText({text: "X"});
+                        chrome.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
+                        chrome.browserAction.setBadgeText({text: " "});
                     }
 
                     resolve();

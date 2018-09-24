@@ -115,7 +115,7 @@
                 const now = +new Date();
 
                 Object.keys(cache).forEach((key) => {
-                    if (now - cache[key].t > 1000 * 60 * 60 * 24 * 3) { // older than 3 days
+                    if (now - cache[key].t > 1000 * 60 * 60 * 24 * 5) { // older than 5 days
                         delete cache[key];
                     }
                 });

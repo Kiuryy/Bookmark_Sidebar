@@ -133,7 +133,7 @@
                     "%c[] %cBookmark Sidebar %c-> %c" + msg,
                     // styles
                     styles,
-                    styles + ";color:#f87;font-weight:bold",
+                    styles + ";color:#30bfa9;font-weight:bold",
                     styles + ";color:#000;font-weight:bold",
                     styles
                 ]);

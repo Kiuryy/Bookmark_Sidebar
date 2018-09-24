@@ -214,6 +214,19 @@ body.edit {
     display: none;
   }
 
+  select.edit {
+    display: block;
+    background: $contentBackground;
+    height: 25px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 0 7px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
   menu.infoBar {
     transform: translate3d(0, 0, 0);
 
@@ -227,6 +240,10 @@ body.edit {
     height: calc(100vh - 60px);
 
     > nav {
+
+      select.edit {
+        margin-top: 15px;
+      }
 
       a.add, a.remove, a.edit {
         transition: background 0.3s;
@@ -367,6 +384,45 @@ body.edit {
           }
         }
       }
+
+      &[data-pos='left'] {
+
+        > a.add {
+          right: -35px;
+          left: unset;
+        }
+
+        > ul > li {
+
+          > a[data-pos='left'] {
+            right: 0;
+            left: unset;
+
+            &::before {
+              transform: rotateZ(135deg);
+            }
+          }
+
+          > a[data-pos='right'] {
+            right: unset;
+            left: 0;
+
+            &::before {
+              transform: rotateZ(-45deg);
+            }
+          }
+
+          > div {
+            left: -10px;
+            right: unset;
+
+            &::before {
+              left: 20px;
+              right: unset;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -395,29 +451,14 @@ body.edit {
     }
   }
 
-  div#topPages {
-
-    > select {
-      display: block;
-      background: $contentBackground;
-      height: 25px;
-      margin: -25px auto 0;
-      border-radius: 10px;
-      padding: 0 7px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    }
+  div#topPages > select.edit {
+    margin-top: -25px;
   }
 
   &.customBackground {
 
-    div#topPages {
-
-      > select {
-        background: rgba($contentBackground, 0.8);
-      }
+    select.edit {
+      background: rgba($contentBackground, 0.8);
     }
   }
 }

@@ -266,28 +266,37 @@ section#content > nav {
   position: absolute;
   top: 10px;
   right: 20px; }
-  section#content > nav > ul > li {
-    position: relative;
-    display: inline-block;
-    text-align: center; }
-    section#content > nav > ul > li > a.link {
+  section#content > nav > ul {
+    display: flex; }
+    section#content > nav > ul > li {
       position: relative;
-      color: "%textColor";
-      display: block;
-      cursor: pointer;
-      padding: 7px 10px;
-      border-radius: 20px;
-      white-space: nowrap;
-      transition: background 0.3s; }
-      section#content > nav > ul > li > a.link:hover {
-        background: #e5e5e5; }
+      display: inline-block;
+      text-align: center; }
+      section#content > nav > ul > li > a.link {
+        position: relative;
+        color: "%textColor";
+        display: block;
+        cursor: pointer;
+        padding: 7px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+        transition: background 0.3s; }
+        section#content > nav > ul > li > a.link:hover {
+          background: #e5e5e5; }
+  section#content > nav[data-pos='left'] {
+    left: 20px;
+    right: unset; }
+    section#content > nav[data-pos='left'] > ul {
+      flex-direction: row-reverse; }
 
 body.customBackground section#content > nav > ul > li > a.link {
   background: rgba(242, 242, 242, 0.8); }
 
-html[dir='rtl'] section#content > nav {
-  left: 20px;
-  right: unset; }
+html[dir='rtl'] section#content > nav > ul {
+  flex-direction: row-reverse; }
+
+html[dir='rtl'] section#content > nav[data-pos='left'] > ul {
+  flex-direction: row; }
 
 body.dark section#content > nav > ul > li > a:hover {
   background: #4d4d4d; }
@@ -667,6 +676,18 @@ body.customBackground > a.edit {
 body.edit > a.edit {
   display: none; }
 
+body.edit select.edit {
+  display: block;
+  background: #fff;
+  height: 25px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 0 7px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); }
+
 body.edit menu.infoBar {
   transform: translate3d(0, 0, 0); }
   body.edit menu.infoBar > div.upload {
@@ -674,6 +695,8 @@ body.edit menu.infoBar {
 
 body.edit section#content {
   height: calc(100vh - 60px); }
+  body.edit section#content > nav select.edit {
+    margin-top: 15px; }
   body.edit section#content > nav a.add, body.edit section#content > nav a.remove, body.edit section#content > nav a.edit {
     transition: background 0.3s;
     border-radius: 50%;
@@ -801,6 +824,25 @@ body.edit section#content {
         cursor: pointer;
         float: right;
         margin-top: 3px; }
+  body.edit section#content > nav[data-pos='left'] > a.add {
+    right: -35px;
+    left: unset; }
+  body.edit section#content > nav[data-pos='left'] > ul > li > a[data-pos='left'] {
+    right: 0;
+    left: unset; }
+    body.edit section#content > nav[data-pos='left'] > ul > li > a[data-pos='left']::before {
+      transform: rotateZ(135deg); }
+  body.edit section#content > nav[data-pos='left'] > ul > li > a[data-pos='right'] {
+    right: unset;
+    left: 0; }
+    body.edit section#content > nav[data-pos='left'] > ul > li > a[data-pos='right']::before {
+      transform: rotateZ(-45deg); }
+  body.edit section#content > nav[data-pos='left'] > ul > li > div {
+    left: -10px;
+    right: unset; }
+    body.edit section#content > nav[data-pos='left'] > ul > li > div::before {
+      left: 20px;
+      right: unset; }
 
 body.edit div#search > input[type='text'] {
   padding-right: 125px; }
@@ -821,19 +863,10 @@ body.edit div#search > select {
   outline: none;
   cursor: pointer; }
 
-body.edit div#topPages > select {
-  display: block;
-  background: #fff;
-  height: 25px;
-  margin: -25px auto 0;
-  border-radius: 10px;
-  padding: 0 7px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); }
+body.edit div#topPages > select.edit {
+  margin-top: -25px; }
 
-body.edit.customBackground div#topPages > select {
+body.edit.customBackground select.edit {
   background: rgba(255, 255, 255, 0.8); }
 
 html[dir='rtl'] menu.infoBar {
@@ -870,29 +903,8 @@ html[dir='rtl'] body[data-pos='right'] menu.infoBar {
   html[dir='rtl'] body[data-pos='right'] menu.infoBar > div.upload > span.premium {
     float: right; }
 
-html[dir='rtl'] body.edit section#content > nav > a.add {
-  right: -35px;
-  left: unset; }
-
-html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='left'] {
-  right: 0;
-  left: unset; }
-  html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='left']::before {
-    transform: rotateZ(135deg); }
-
-html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='right'] {
-  right: unset;
-  left: 0; }
-  html[dir='rtl'] body.edit section#content > nav > ul > li > a[data-pos='right']::before {
-    transform: rotateZ(-45deg); }
-
 html[dir='rtl'] body.edit section#content > nav > ul > li > div {
-  text-align: right;
-  left: -10px;
-  right: unset; }
-  html[dir='rtl'] body.edit section#content > nav > ul > li > div::before {
-    left: 20px;
-    right: unset; }
+  text-align: right; }
 
 html[dir='rtl'] body.edit div#search > input[type='text'] {
   padding-right: 30px;
@@ -902,7 +914,7 @@ html[dir='rtl'] body.edit div#search > select {
   left: 23px;
   right: unset; }
 
-html[dir='rtl'] body.edit div#topPages > select {
+html[dir='rtl'] body.edit select.edit {
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1); }
 
 body.dark menu.infoBar {

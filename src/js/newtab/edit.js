@@ -114,6 +114,7 @@
                 n.helper.model.setData({
                     "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
                     "n/topPagesType": n.elm.topPages.children("select")[0].value,
+                    "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts,
                     "u/newtabBackground": background && background !== "none" ? background : null
                 }).then(() => { // load at least 1s
@@ -136,6 +137,7 @@
 
             n.elm.search.wrapper.children("select").remove();
             n.elm.topPages.children("select").remove();
+            n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
@@ -192,9 +194,18 @@
          */
         const initShortcutsConfig = () => {
             const buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.position + "='left' />", "<a " + $.attr.position + "='right' />"];
-
             n.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
+            });
+
+            const currentPos = n.helper.model.getData("n/shortcutsPosition");
+            const select = $("<select />").addClass($.cl.newtab.edit).appendTo(n.elm.topNav);
+            ["left", "right"].forEach((pos) => {
+                $("<option value='" + pos + "' " + (currentPos === pos ? "selected" : "") + " />").text(n.helper.i18n.get("settings_sidebar_position_" + pos)).appendTo(select);
+            });
+
+            select.on("input change", (e) => {
+                n.elm.topNav.attr($.attr.position, e.currentTarget.value);
             });
 
             $("<a class='" + $.cl.newtab.add + "' />").prependTo(n.elm.topNav);
@@ -296,7 +307,7 @@
          * Initialises the dropdown for the top pages
          */
         const initTopPagesConfig = () => {
-            const select = $("<select />").prependTo(n.elm.topPages);
+            const select = $("<select />").addClass($.cl.newtab.edit).prependTo(n.elm.topPages);
             const types = n.helper.topPages.getAllTypes();
             const currentType = n.helper.model.getData("n/topPagesType");
 
@@ -326,7 +337,6 @@
                 n.helper.search.updateSearchEngine(e.currentTarget.value);
             });
         };
-
     };
 
 })(jsu);

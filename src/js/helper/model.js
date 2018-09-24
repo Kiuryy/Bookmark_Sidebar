@@ -88,6 +88,7 @@
             n: { // new tab -> synced across devices
                 override: false,
                 autoOpen: true,
+                shortcutsPosition: "right",
                 searchEngine: "google",
                 topPagesType: "topPages",
                 shortcuts: [{label: "Google", url: "https://google.com"}],

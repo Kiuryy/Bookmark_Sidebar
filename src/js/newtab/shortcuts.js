@@ -17,6 +17,9 @@
          */
         this.refreshEntries = () => {
             const entries = n.helper.model.getData("n/shortcuts");
+            const position = n.helper.model.getData("n/shortcutsPosition");
+
+            n.elm.topNav.attr($.attr.position, position);
             n.elm.topNav.children("ul").remove();
             const list = $("<ul />").appendTo(n.elm.topNav);
 

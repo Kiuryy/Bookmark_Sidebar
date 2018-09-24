@@ -84,41 +84,8 @@ html[dir='rtl'] {
 
       > nav {
 
-        > a.add {
-          right: -35px;
-          left: unset;
-        }
-
-        > ul > li {
-
-          > a[data-pos='left'] {
-            right: 0;
-            left: unset;
-
-            &::before {
-              transform: rotateZ(135deg);
-            }
-          }
-
-          > a[data-pos='right'] {
-            right: unset;
-            left: 0;
-
-            &::before {
-              transform: rotateZ(-45deg);
-            }
-          }
-
-          > div {
-            text-align: right;
-            left: -10px;
-            right: unset;
-
-            &::before {
-              left: 20px;
-              right: unset;
-            }
-          }
+        > ul > li > div {
+          text-align: right;
         }
       }
     }
@@ -136,11 +103,8 @@ html[dir='rtl'] {
       }
     }
 
-    div#topPages {
-
-      > select {
-        box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
-      }
+    select.edit {
+      box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
     }
   }
 }

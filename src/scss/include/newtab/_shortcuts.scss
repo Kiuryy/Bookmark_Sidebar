@@ -7,6 +7,7 @@ section#content {
     right: 20px;
 
     > ul {
+      display: flex;
 
       > li {
         position: relative;
@@ -27,6 +28,15 @@ section#content {
             background: darken($bodyBackground, 5%);
           }
         }
+      }
+    }
+
+    &[data-pos='left'] {
+      left: 20px;
+      right: unset;
+
+      > ul {
+        flex-direction: row-reverse;
       }
     }
   }

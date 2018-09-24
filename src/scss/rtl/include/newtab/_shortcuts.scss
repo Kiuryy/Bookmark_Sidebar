@@ -3,8 +3,17 @@ html[dir='rtl'] {
   section#content {
 
     > nav {
-      left: 20px;
-      right: unset;
+
+      > ul {
+        flex-direction: row-reverse;
+      }
+
+      &[data-pos='left'] {
+
+        > ul {
+          flex-direction: row;
+        }
+      }
     }
   }
 }

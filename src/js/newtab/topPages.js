@@ -27,7 +27,7 @@
                 if (document.hidden) {
                     updateEntries();
                 }
-            }, 2 * 60 * 1000);
+            }, 3 * 60 * 1000);
         };
 
         /**

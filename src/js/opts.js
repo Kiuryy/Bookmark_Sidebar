@@ -124,7 +124,6 @@
             newtab: {
                 customBackground: "customBackground",
                 smallContent: "small",
-                chromeApps: "chromeApps",
                 suggestions: "suggestions",
                 edit: "edit",
                 add: "add",

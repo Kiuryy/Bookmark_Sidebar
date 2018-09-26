@@ -11,24 +11,24 @@
         return false;
     }
 
-    let runningXhr = [];
+    const runningXhr = [];
 
     // >>> Global Methods
-    let isDefined = "isDefined";
-    let forEach = "forEach";
+    const isDefined = "isDefined";
+    const forEach = "forEach";
     // <<< Global Methods
 
     /**
      * jsuHelper
      */
-    let jsuHelper = (() => {
+    const jsuHelper = (() => {
         return class {
             static [isDefined](v) {
                 return typeof v !== "undefined" && v !== null;
             }
 
             static [forEach](list, callback, reverse = false) {
-                let listLength = list.length;
+                const listLength = list.length;
 
                 if (reverse) {
                     for (let i = listLength - 1; i >= 0; i--) {
@@ -54,12 +54,12 @@
     /**
      * jsuTools
      */
-    let jsuTools = (() => {
+    const jsuTools = (() => {
 
         // >>> Methods
-        let delay = "delay";
-        let xhr = "xhr";
-        let cancelXhr = "cancelXhr";
+        const delay = "delay";
+        const xhr = "xhr";
+        const cancelXhr = "cancelXhr";
         // <<< Methods
 
         return {
@@ -83,8 +83,8 @@
              */
             [xhr]: (url, opts = {}) => {
                 return new Promise((resolve, reject) => {
-                    let xhr = new XMLHttpRequest();
-                    let idx = runningXhr.push({url: url, xhr: xhr}) - 1;
+                    const xhr = new XMLHttpRequest();
+                    const idx = runningXhr.push({url: url, xhr: xhr}) - 1;
 
                     xhr.open(opts.method || "GET", url, true);
                     ["load", "error", "timeout", "abort"].forEach((eventName) => {
@@ -151,81 +151,81 @@
     /**
      * jsuNode
      */
-    let jsuNode = ((h) => {
-        let d = document;
-        let eventHandlerMap = new WeakMap();
-        let dataMap = new WeakMap();
-        let nodes = Symbol();
+    const jsuNode = ((h) => {
+        const d = document;
+        const eventHandlerMap = new WeakMap();
+        const dataMap = new WeakMap();
+        const nodes = Symbol();
 
         // >>> Methods
-        let private_fillNodes = "_fillNodeList";
+        const private_fillNodes = "_fillNodeList";
 
-        let doc = "document";
+        const doc = "document";
 
-        let eq = "eq";
-        let get = "get";
+        const eq = "eq";
+        const get = "get";
 
-        let length = "length";
+        const length = "length";
 
-        let remove = "remove";
+        const remove = "remove";
 
-        let private_addEventListener = "_addEventListener";
-        let private_cloneEventListener = "_cloneEventListener";
-        let private_addData = "_addData";
-        let private_cloneData = "_cloneData";
-        let private_clone = "_cloneElement";
+        const private_addEventListener = "_addEventListener";
+        const private_cloneEventListener = "_cloneEventListener";
+        const private_addData = "_addData";
+        const private_cloneData = "_cloneData";
+        const private_clone = "_cloneElement";
 
-        let clone = "clone";
+        const clone = "clone";
 
-        let on = "on";
-        let off = "off";
-        let trigger = "trigger";
+        const on = "on";
+        const off = "off";
+        const trigger = "trigger";
 
-        let find = "find";
-        let children = "children";
+        const find = "find";
+        const children = "children";
 
-        let private_htmlText = "_htmlText";
-        let html = "html";
-        let text = "text";
+        const private_htmlText = "_htmlText";
+        const html = "html";
+        const text = "text";
 
-        let data = "data";
-        let removeData = "removeData";
+        const data = "data";
+        const removeData = "removeData";
 
-        let css = "css";
+        const css = "css";
 
-        let attr = "attr";
-        let removeAttr = "removeAttr";
+        const attr = "attr";
+        const removeAttr = "removeAttr";
 
-        let addClass = "addClass";
-        let removeClass = "removeClass";
-        let toggleClass = "toggleClass";
-        let hasClass = "hasClass";
+        const addClass = "addClass";
+        const removeClass = "removeClass";
+        const toggleClass = "toggleClass";
+        const hasClass = "hasClass";
 
-        let private_elementMove = "_moveElement";
-        let private_elementMoveTo = "_moveElementTo";
-        let append = "append";
-        let prepend = "prepend";
-        let appendTo = "appendTo";
-        let prependTo = "prependTo";
-        let after = "after";
-        let before = "before";
-        let insertAfter = "insertAfter";
-        let insertBefore = "insertBefore";
+        const private_elementMove = "_moveElement";
+        const private_elementMoveTo = "_moveElementTo";
+        const append = "append";
+        const prepend = "prepend";
+        const appendTo = "appendTo";
+        const prependTo = "prependTo";
+        const after = "after";
+        const before = "before";
+        const insertAfter = "insertAfter";
+        const insertBefore = "insertBefore";
 
-        let private_nextPrev = "_nextPrev";
-        let next = "next";
-        let prev = "prev";
-        let private_siblings = "_siblings";
-        let siblings = "siblings";
-        let nextAll = "nextAll";
-        let prevAll = "prevAll";
+        const private_nextPrev = "_nextPrev";
+        const next = "next";
+        const prev = "prev";
+        const private_siblings = "_siblings";
+        const siblings = "siblings";
+        const nextAll = "nextAll";
+        const prevAll = "prevAll";
 
-        let parent = "parent";
-        let parents = "parents";
+        const parent = "parent";
+        const parents = "parents";
 
-        let private_realDimension = "_realDimension";
-        let realWidth = "realWidth";
-        let realHeight = "realHeight";
+        const private_realDimension = "_realDimension";
+        const realWidth = "realWidth";
+        const realHeight = "realHeight";
         // <<< Methods
 
         return class {
@@ -240,7 +240,7 @@
                 let s = param;
 
                 if (typeof param === "string" && (asSelector === false || param.indexOf("<") > -1)) {
-                    let div = d.createElement("div");
+                    const div = d.createElement("div");
                     div.innerHTML = param;
                     s = div.childNodes;
                 }
@@ -272,7 +272,7 @@
                     }
 
                     s[forEach]((entry) => {
-                        let eachCallback = (node) => {
+                        const eachCallback = (node) => {
                             if (this[nodes].indexOf(node) === -1) {
                                 this[nodes].push(node);
                             }
@@ -319,9 +319,9 @@
              */
             [css](opts, val) {
                 let isSetter = false;
-                let hasOpts = h[isDefined](opts);
-                let hasVal = h[isDefined](val);
-                let ret = [];
+                const hasOpts = h[isDefined](opts);
+                const hasVal = h[isDefined](val);
+                const ret = [];
 
                 this[forEach]((node) => {
                     if (hasOpts && hasVal && typeof opts === "string") { // set
@@ -358,12 +358,12 @@
              */
             [attr](opts, val) {
                 let isSetter = false;
-                let hasOpts = h[isDefined](opts);
-                let hasVal = h[isDefined](val);
-                let ret = [];
+                const hasOpts = h[isDefined](opts);
+                const hasVal = h[isDefined](val);
+                const ret = [];
 
                 this[forEach]((node) => {
-                    let setAttr = (key, val) => {
+                    const setAttr = (key, val) => {
                         isSetter = true;
                         if (h[isDefined](node[key])) {
                             node[key] = val;
@@ -372,7 +372,7 @@
                         }
                     };
 
-                    let getAttr = (key) => {
+                    const getAttr = (key) => {
                         return h[isDefined](node[key]) ? node[key] : node.getAttribute(key);
                     };
 
@@ -449,7 +449,7 @@
              * @param newElm
              */
             static [private_cloneEventListener](elm, newElm) {
-                let eventHandlerList = eventHandlerMap.get(elm);
+                const eventHandlerList = eventHandlerMap.get(elm);
 
                 if (h[isDefined](eventHandlerList)) {
                     Object.keys(eventHandlerList)[forEach]((eventType) => {
@@ -496,7 +496,7 @@
              * @param newElm
              */
             static [private_cloneData](elm, newElm) {
-                let dataList = dataMap.get(elm);
+                const dataList = dataMap.get(elm);
 
                 if (h[isDefined](dataList)) {
                     Object.keys(dataList)[forEach]((k) => {
@@ -518,10 +518,10 @@
              * @returns {jsuNode}
              */
             static [private_clone](elmObj) {
-                let clonedList = [];
+                const clonedList = [];
 
                 elmObj[forEach]((elm) => {
-                    let clonedElm = elm.cloneNode(true);
+                    const clonedElm = elm.cloneNode(true);
                     jsuNode[private_cloneEventListener](elm, clonedElm);
                     jsuNode[private_cloneData](elm, clonedElm);
                     clonedList.push(clonedElm);
@@ -550,13 +550,13 @@
              */
             [data](key, val) {
                 let isSetter = false;
-                let hasKey = h[isDefined](key);
-                let hasVal = h[isDefined](val);
-                let ret = [];
+                const hasKey = h[isDefined](key);
+                const hasVal = h[isDefined](val);
+                const ret = [];
 
                 this[forEach]((node) => {
-                    let elmDataList = dataMap.get(node);
-                    let hasData = h[isDefined](elmDataList);
+                    const elmDataList = dataMap.get(node);
+                    const hasData = h[isDefined](elmDataList);
 
                     if (hasKey && hasVal) { // set
                         isSetter = true;
@@ -593,10 +593,10 @@
              * @returns {jsuNode}
              */
             [removeData](key) {
-                let removeAll = !h[isDefined](key);
+                const removeAll = !h[isDefined](key);
 
                 this[forEach]((node) => {
-                    let elmDataList = dataMap.get(node);
+                    const elmDataList = dataMap.get(node);
 
                     if (h[isDefined](elmDataList)) {
                         if (removeAll) { // remove all
@@ -622,7 +622,7 @@
              * @returns {jsuNode}
              */
             [on](eventStr, callbackOrElm, callbackOrOpts, optsOrWantsUntrusted, wantsUntrusted) {
-                let updateEventObject = (e, overrideObj) => {
+                const updateEventObject = (e, overrideObj) => {
                     Object.keys(overrideObj)[forEach]((key) => {
                         try {
                             Object.defineProperty(e, key, {
@@ -650,18 +650,18 @@
                     wantsUntrusted = null;
                 }
 
-                let eventDelegation = typeof callbackOrElm === "string";
+                const eventDelegation = typeof callbackOrElm === "string";
 
                 this[forEach]((node) => {
-                    let events = eventStr.split(/\s+/g);
+                    const events = eventStr.split(/\s+/g);
                     events[forEach]((event) => {
-                        let eventInfo = event.split(/\./);
+                        const eventInfo = event.split(/\./);
 
-                        let fn = (e) => {
+                        const fn = (e) => {
                             updateEventObject(e, {type: eventInfo[0]});
 
                             if (eventDelegation) { // event delegation
-                                let opts = {
+                                const opts = {
                                     preventDefault: () => {
                                         e.preventDefault();
                                     },
@@ -674,7 +674,7 @@
                                     let el = e.target;
                                     while (el && el !== node) {
                                         if (el === element) {
-                                            let clonedEventObj = new MouseEvent(eventInfo[0], e);
+                                            const clonedEventObj = new MouseEvent(eventInfo[0], e);
                                             updateEventObject(clonedEventObj, {
                                                 preventDefault: opts.preventDefault,
                                                 stopPropagation: opts.stopPropagation,
@@ -713,12 +713,12 @@
              */
             [off](eventStr) {
                 this[forEach]((node) => {
-                    let eventHandlerList = eventHandlerMap.get(node);
+                    const eventHandlerList = eventHandlerMap.get(node);
 
                     if (h[isDefined](eventHandlerList)) {
-                        let events = eventStr.split(/\s+/g);
+                        const events = eventStr.split(/\s+/g);
                         events[forEach]((event) => {
-                            let eventInfo = event.split(/\./);
+                            const eventInfo = event.split(/\./);
 
                             if (eventInfo[0] === "*") { // remove all eventlisteners
                                 Object.entries(eventHandlerList)[forEach](([eventName, entries]) => {
@@ -753,10 +753,10 @@
              * @returns {jsuNode}
              */
             [trigger](eventStr, opts) {
-                let events = eventStr.split(/\s+/g);
+                const events = eventStr.split(/\s+/g);
                 events[forEach]((event) => {
-                    let eventInfo = event.split(/\./);
-                    let eventObj = new CustomEvent(eventInfo[0], opts);
+                    const eventInfo = event.split(/\./);
+                    const eventObj = new CustomEvent(eventInfo[0], opts);
                     this[forEach]((node) => {
                         node.dispatchEvent(eventObj);
                     });
@@ -827,7 +827,7 @@
              * @returns {boolean|array}
              */
             [hasClass](cl) {
-                let ret = [];
+                const ret = [];
                 this[forEach]((node) => {
                     ret.push(node.classList.contains(cl));
                 });
@@ -842,7 +842,7 @@
              * @returns {int|Array}
              */
             [private_realDimension](dim, includeMargins = false) {
-                let ret = [];
+                const ret = [];
                 let type = "width";
                 let margins = ["left", "right"];
 
@@ -852,8 +852,8 @@
                 }
 
                 this[forEach]((node) => {
-                    let boundClientRect = node.getBoundingClientRect();
-                    let computedStyle = window.getComputedStyle(node);
+                    const boundClientRect = node.getBoundingClientRect();
+                    const computedStyle = window.getComputedStyle(node);
 
                     let dim = boundClientRect[type];
                     if (includeMargins) {
@@ -897,7 +897,7 @@
              * @returns {jsuNode}
              */
             [find](selector) {
-                let ret = [];
+                const ret = [];
                 this[forEach]((node) => {
                     if (node instanceof HTMLIFrameElement) {
                         ret.push(node.contentDocument.querySelectorAll(":scope " + selector));
@@ -918,7 +918,7 @@
              * @returns {jsuNode}
              */
             [children](selector) {
-                let ret = [];
+                const ret = [];
                 if (!selector) {
                     selector = "*";
                 }
@@ -938,7 +938,7 @@
              * @returns {string|jsuNode}
              */
             [private_htmlText](content, methodName) {
-                let hasContent = h[isDefined](content);
+                const hasContent = h[isDefined](content);
                 let ret = hasContent ? this : "";
 
                 this[forEach]((node) => {
@@ -1005,10 +1005,10 @@
                         asSelector = false;
                     }
 
-                    let elmObj = new jsuNode(s, asSelector);
+                    const elmObj = new jsuNode(s, asSelector);
 
                     this[forEach]((node) => {
-                        let clonedElmObj = jsuNode[private_clone](elmObj);
+                        const clonedElmObj = jsuNode[private_clone](elmObj);
                         clonedElmObj[forEach]((elm) => {
                             switch (type) {
                                 case "append": {
@@ -1045,11 +1045,11 @@
              * @returns {jsuNode}
              */
             [private_elementMoveTo](s, type) {
-                let ret = [];
-                let elmObj = new jsuNode(s);
+                const ret = [];
+                const elmObj = new jsuNode(s);
 
                 elmObj[forEach]((node) => {
-                    let clonedThis = jsuNode[private_clone](this);
+                    const clonedThis = jsuNode[private_clone](this);
                     clonedThis[forEach]((elm) => {
                         switch (type) {
                             case "append": {
@@ -1177,11 +1177,11 @@
              * @returns {jsuNode}
              */
             [private_nextPrev](s, type) {
-                let hasSelector = h[isDefined](s);
-                let ret = [];
+                const hasSelector = h[isDefined](s);
+                const ret = [];
 
                 this[forEach]((node) => {
-                    let siblingElm = type === "prev" ? node.previousElementSibling : node.nextElementSibling;
+                    const siblingElm = type === "prev" ? node.previousElementSibling : node.nextElementSibling;
 
                     if (h[isDefined](siblingElm) &&
                         (!hasSelector || (h[isDefined](siblingElm.matches) && siblingElm.matches(s)))) {
@@ -1222,12 +1222,12 @@
              * @returns {jsuNode|Array}
              */
             [private_siblings](s, type = "siblings") {
-                let hasSelector = h[isDefined](s);
-                let ret = [];
+                const hasSelector = h[isDefined](s);
+                const ret = [];
 
                 this[forEach]((node) => {
                     let el = null;
-                    let elmList = [];
+                    const elmList = [];
 
                     if (type === "siblings" && node.parentNode.firstElementChild) {
                         el = node.parentNode.firstElementChild;
@@ -1290,8 +1290,8 @@
              * @returns {jsuNode|Array}
              */
             [parent](s) {
-                let hasSelector = h[isDefined](s);
-                let ret = [];
+                const hasSelector = h[isDefined](s);
+                const ret = [];
 
                 this[forEach]((node) => {
                     let parentElm = node.parentNode;
@@ -1314,11 +1314,11 @@
              * @returns {jsuNode|Array}
              */
             [parents](s) {
-                let hasSelector = h[isDefined](s);
-                let ret = [];
+                const hasSelector = h[isDefined](s);
+                const ret = [];
 
                 this[forEach]((node) => {
-                    let parentsList = [];
+                    const parentsList = [];
                     let el = node.parentNode;
 
                     while (el && el.matches && el !== this) {
@@ -1342,7 +1342,7 @@
              * @returns {jsuNode}
              */
             [doc]() {
-                let ret = [];
+                const ret = [];
 
                 this[forEach]((node) => {
                     ret.push(new jsuNode(node.ownerDocument));
@@ -1400,7 +1400,7 @@
      * Bind jsu to window object
      */
     (() => {
-        let obj = s => new jsuNode(s);
+        const obj = s => new jsuNode(s);
 
         Object.entries(jsuTools).forEach(([name, func]) => { // append tools
             obj[name] = func;

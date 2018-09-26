@@ -422,33 +422,58 @@ div.modal {
       color: "%colorScheme";
       font-size: 80%; }
   div.modal[data-type='keyboardShortcuts'] {
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 650px;
     max-height: 100%; }
     div.modal[data-type='keyboardShortcuts'] > header::before {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-keyboard.svg); }
     div.modal[data-type='keyboardShortcuts'] > div.scrollBox {
       height: calc(100% - %overlayHeaderHeight - 57px); }
-      div.modal[data-type='keyboardShortcuts'] > div.scrollBox > ul {
-        padding: 30px 30px 5px 30px;
-        background: #fff; }
-        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > ul > li {
-          padding: 0 0 25px 0; }
-          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > ul > li > strong {
-            font-size: 80%;
-            font-weight: normal;
-            margin-left: -2px; }
-            div.modal[data-type='keyboardShortcuts'] > div.scrollBox > ul > li > strong > i {
-              display: inline-block;
-              border: 1px solid rgba(0, 0, 0, 0.1);
-              background: rgba(0, 0, 0, 0.05);
-              font-style: normal;
-              padding: 2px 4px;
-              border-radius: 2px;
-              margin: 0 2px; }
-          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > ul > li > span {
-            display: block;
-            margin-top: 5px; }
+      div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div {
+        background: #fff;
+        padding: 30px 30px 5px 30px; }
+        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > h3 {
+          font-weight: "%fontWeightMedium";
+          margin: 0 0 10px 0; }
+        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
+          position: relative;
+          font-weight: "%fontWeightMedium";
+          cursor: pointer;
+          color: "%colorScheme";
+          padding-left: 16px; }
+          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid "%colorScheme";
+            border-right: 2px solid "%colorScheme";
+            transform: rotateZ(45deg); }
+        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul {
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(0, 0, 0, 0.1); }
+          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li {
+            padding: 0 0 25px 0; }
+            div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong {
+              font-size: 80%;
+              font-weight: normal;
+              margin-left: -2px; }
+              div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
+                display: inline-block;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                background: rgba(0, 0, 0, 0.05);
+                font-style: normal;
+                padding: 2px 4px;
+                border-radius: 2px;
+                margin: 0 2px; }
+            div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > span {
+              display: block;
+              margin-top: 5px; }
   div.modal[data-type='delete'] > p, div.modal[data-type='hide'] > p, div.modal[data-type='openChildren'] > p {
     padding: 30px 30px 5px 30px;
     font-size: 140%;
@@ -1173,6 +1198,14 @@ html[dir='rtl'] div.modal[data-type='edit'] > ul > li > label, html[dir='rtl'] d
   margin-right: 0;
   margin-left: 12px; }
 
+html[dir='rtl'] div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
+  padding-left: 0;
+  padding-right: 16px; }
+  html[dir='rtl'] div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {
+    left: unset;
+    right: 0;
+    transform: scaleX(-1) rotateZ(45deg); }
+
 html[dir='rtl'] div.modal > menu.buttons {
   right: unset;
   left: 20px; }
@@ -1193,6 +1226,11 @@ body.highContrast:not(.dark) div.modal[data-type='add'] > menu.buttons > a.actio
   display: none; }
   body.highContrast:not(.dark) div.modal[data-type='add'] > menu.buttons > a.action.visible {
     display: inline-block; }
+
+body.highContrast:not(.dark) div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
+  color: "%textColor"; }
+  body.highContrast:not(.dark) div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {
+    border-color: "%textColor"; }
 
 body.highContrast:not(.dark) div.modal > menu.buttons > a {
   color: "%textColor"; }
@@ -1251,10 +1289,16 @@ body.dark div.modal {
     background: #4d4d4d; }
   body.dark div.modal[data-type='shareInfoDesc'] > div.scrollBox > *, body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > * {
     background: #3d3d3d; }
-  body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > ul > li > strong > i {
-    display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(255, 255, 255, 0.05); }
+  body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
+    color: "%textColor"; }
+    body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {
+      border-color: "%textColor"; }
+  body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul {
+    border-color: rgba(255, 255, 255, 0.1); }
+    body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.05); }
   body.dark div.modal > menu.buttons > a {
     color: "%textColor"; }
     body.dark div.modal > menu.buttons > a::before {

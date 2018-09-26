@@ -115,14 +115,22 @@ html[dir='rtl'] {
 
     &[data-type='edit'], &[data-type='add'] {
 
-      > ul {
+      > ul > li > label {
+        margin-right: 0;
+        margin-left: 12px;
+      }
+    }
 
-        > li {
+    &[data-type='keyboardShortcuts'] {
 
-          > label {
-            margin-right: 0;
-            margin-left: 12px;
-          }
+      > div.scrollBox > div > a {
+        padding-left: 0;
+        padding-right: 16px;
+
+        &::before {
+          left: unset;
+          right: 0;
+          transform: scaleX(-1) rotateZ(45deg);
         }
       }
     }

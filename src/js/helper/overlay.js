@@ -229,8 +229,22 @@
          */
         const handleKeyboardShortcutsDescHtml = () => {
             const scrollBox = $("<div />").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
-            const list = $("<ul />").appendTo(scrollBox);
 
+            const wrapper = $("<div />")
+                .append("<h3>" + ext.helper.i18n.get("settings_open_action") + "</h3>")
+                .appendTo(scrollBox);
+
+            const setupLink = $("<a />").text(ext.helper.i18n.get("settings_keyboard_shortcut_button")).appendTo(wrapper);
+            setupLink.on("click", (e) => {
+                e.preventDefault();
+                ext.helper.model.call("openLink", {
+                    href: "chrome://extensions/shortcuts",
+                    newTab: true,
+                    active: true
+                });
+            });
+
+            const list = $("<ul />").appendTo(wrapper);
             const icons = {
                 tab: "&#8633;",
                 shift: "&#8679;",

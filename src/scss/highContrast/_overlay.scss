@@ -43,6 +43,17 @@ body.highContrast:not(.dark) div.modal {
     }
   }
 
+  &[data-type='keyboardShortcuts'] {
+
+    > div.scrollBox > div > a {
+      color: $__textColor;
+
+      &::before {
+        border-color: $__textColor;
+      }
+    }
+  }
+
   > menu.buttons {
 
     > a {

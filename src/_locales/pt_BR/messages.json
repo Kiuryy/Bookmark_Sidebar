@@ -231,7 +231,7 @@
         "message": "Nova guia"
     },
     "newtab_search_placeholder": {
-        "message": "Pesquisar no {1} ou digitar URL"
+        "message": "Pesquise no {1} ou digite um URL"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
@@ -973,12 +973,6 @@
     },
     "settings_feedback_send_failed": {
         "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
-    },
-    "settings_headline_donation": {
-        "message": "Doar"
-    },
-    "settings_support_donation_desc": {
-        "message": "A doa\u00e7\u00e3o \u00e9 completamente opcional, mas se voc\u00ea gosta da extens\u00e3o e quer doar uma pequena quantia, pode fazer isso clicando no seguinte link. Agrade\u00e7o por toda ajuda que recebo, seja doa\u00e7\u00e3o, ajuda com tradu\u00e7\u00f5es ou envio de coment\u00e1rios, para melhorar a extens\u00e3o."
     },
     "settings_headline_share_userdata": {
         "message": "Compartilhar informa\u00e7\u00f5es"

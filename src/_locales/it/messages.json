@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "Non mostrare le pagine"
     },
+    "newtab_upload_background": {
+        "message": "Carica l'immagine da utilizzare come sfondo"
+    },
     "newtab_fallback_headline_general": {
         "message": "Qualcosa ha bloccato la barra laterale"
     },
@@ -496,6 +499,9 @@
     },
     "settings_menu_support": {
         "message": "Supporto"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importa\/Esporta"
@@ -974,16 +980,127 @@
     "settings_feedback_send_failed": {
         "message": "Il tuo messaggio non \u00e8 stato inviato. Riprova."
     },
-    "settings_headline_donation": {
-        "message": "Effettua una donazione"
-    },
-    "settings_support_donation_desc": {
-        "message": "La donazione \u00e8 assolutamente facoltativa, ma se ti piace l'estensione e vuoi donare un piccolo importo, puoi farlo cliccando sul pulsante qui sotto. Apprezzo qualsiasi forma di aiuto, che sia una donazione, un contributo alla traduzione o un commento di feedback, in modo da poter migliorare l'estensione."
-    },
     "settings_headline_share_userdata": {
         "message": "Condividi informazioni"
     },
     "settings_saved_share_userdata": {
         "message": "Le tua scelta \u00e8 stata salvata correttamente"
+    },
+    "settings_premium_activated": {
+        "message": "La versione Premium \u00e8 stata attivata con successo"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Non \u00e8 stato possibile attivare la versione Premium. Per favore inserisci una licenza valida"
+    },
+    "premium_popup_text": {
+        "message": "Hai gi\u00e0 dato un'occhiata alla versione Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Questa funzione \u00e8 disponibile solamente con la versione Premium"
+    },
+    "premium_desc_1": {
+        "message": "Con la versione Premium avrai accesso a funzioni aggiuntive e mi aiuterai a mantenere questa estensione nel tempo."
+    },
+    "premium_desc_2": {
+        "message": "Puoi dare un'occhiata alle funzioni incluse nella versione Premium qui sotto. Tutte le funzioni dell'estensione sono gratuite e non necessitano della versione Premium. Puoi pagare la cifra che rispecchia il valore che tu dai alla mia estensione e al mio lavoro, per poter accedere a queste funzionalit\u00e0."
+    },
+    "premium_get_now": {
+        "message": "Ottieni ora la versione Premium"
+    },
+    "premium_show_license_input": {
+        "message": "Gi\u00e0 ho la versione Premium"
+    },
+    "premium_already_activated": {
+        "message": "Stai gi\u00e0 usando la versione Premium"
+    },
+    "premium_activate": {
+        "message": "Attiva la versione Premium"
+    },
+    "premium_license_key": {
+        "message": "Numero di licenza"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Sii il primo a provare le nuove funzioni sperimentali"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Con la versione Premium avrai accesso ad opzioni non ancora rilasciate, che sono in fase di sviluppo o di test"
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Cambia la larghezza della tua barra laterale quando vuoi"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importa ed esporta le tue opzioni"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personalizza la pagina Nuova Scheda"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Se stai usando la pagina Nuova Scheda di questa estensione, puoi impostare una tua immagine di sfondo per farla diventare ancora pi\u00f9 bella."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personalizza ogni cosa con la Stylesheet personale"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Se conosci CSS, puoi cambiare completamente la grafica della barra laterale aggiungendo le tue definizioni di stile. Questo ti permette di personalizzare praticamente ogni aspetto dell'estensione."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Controlla i preferiti alla ricerca di link non funzionanti o duplicati"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Puoi cliccare con il tasto destro del mouse su ogni cartella della tua barra laterale e fare un controllo. La pagina dei risultati mostrer\u00e0 tutti gli URL aggiornati, i preferiti che non funzionano pi\u00f9 e quelli con lo stesso URL."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Paga quanto vuoi"
+    },
+    "premium_pay_creditcard": {
+        "message": "Carta di credito o debito"
+    },
+    "premium_pay_contact": {
+        "message": "Se stai avendo problemi con il pagamento o hai una domanda, per favore contattami a {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Totale"
+    },
+    "premium_pay_eula": {
+        "message": "Accordo della Licenza per l'Utente"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Ho letto e accetto l'[a]Accordo della Licenza per l'Utente[\/a]"
+    },
+    "premium_pay_buy": {
+        "message": "Compra la versione Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Controllo transazione"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Acquista l'ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Grazie per l'acquisto"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} \u00e8 stato attivato automaticamente per questo dispositivo. Non devi compiere ulteriori procedure."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Se vuoi attivare {1} su un altro dispositivo o dopo aver reinstallato l'estensione, puoi inserire la seguente chiave nelle opzioni dell'estensione:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_name": {
+        "message": "Nome"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "CAP"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Metodo di pagamento"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Numero della carta"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Data di scadenza della carta"
     }
 }

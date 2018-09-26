@@ -902,12 +902,6 @@
     "settings_feedback_send_failed": {
         "message": "Viesti\u00e4si ei voitu l\u00e4hett\u00e4\u00e4. Yrit\u00e4 uudelleen."
     },
-    "settings_headline_donation": {
-        "message": "Lahjoita"
-    },
-    "settings_support_donation_desc": {
-        "message": "Lahjoittaminen on t\u00e4ysin vapaaehtoista, mutta jos pid\u00e4t lis\u00e4osasta ja haluat antaa pienen lahjoituksen, voit tehd\u00e4 niin valitsemalla seuraavan linkin. Arvostan kaikkea mahdollista apua, olkoon se sitten lahjoitus, k\u00e4nn\u00f6ksiss\u00e4 auttaminen tai palautteen antaminen ohjelman parantamiseksi."
-    },
     "settings_headline_share_userdata": {
         "message": "Jaa informaatiota"
     },

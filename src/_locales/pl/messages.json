@@ -974,12 +974,6 @@
     "settings_feedback_send_failed": {
         "message": "Twoja wiadomo\u015b\u0107 nie mog\u0142a zosta\u0107 wys\u0142ana. Prosz\u0119, spr\u00f3buj ponownie"
     },
-    "settings_headline_donation": {
-        "message": "Darowizna"
-    },
-    "settings_support_donation_desc": {
-        "message": "Darowizny s\u0105 ca\u0142kowicie dobrowolne, ale je\u015bli lubisz to rozszerzenie i chcesz je wspom\u00f3c niewielk\u0105 darowizn\u0105, mo\u017cesz to zrobi\u0107 klikaj\u0105c na poni\u017cszy link. Doceniam ka\u017cd\u0105 pomoc, kt\u00f3r\u0105 dostaj\u0119 na rozw\u00f3j tego rozszerzenia, tak\u0105 jak darowizny, pomoc w t\u0142umaczeniu, czy opinie."
-    },
     "settings_headline_share_userdata": {
         "message": "Udost\u0119pnianie informacji"
     },

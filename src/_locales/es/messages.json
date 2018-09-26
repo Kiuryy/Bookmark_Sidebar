@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "No mostrar p\u00e1ginas"
     },
+    "newtab_upload_background": {
+        "message": "Subir imagen de fondo"
+    },
     "newtab_fallback_headline_general": {
         "message": "Algo ha bloqueado la barra lateral"
     },
@@ -496,6 +499,9 @@
     },
     "settings_menu_support": {
         "message": "Soporte"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importar\/Exportar"
@@ -974,16 +980,16 @@
     "settings_feedback_send_failed": {
         "message": "Su mensaje no pudo ser enviado. Por favor intente de nuevo."
     },
-    "settings_headline_donation": {
-        "message": "Donar"
-    },
-    "settings_support_donation_desc": {
-        "message": "Donar es completamente opcional, pero si te gusta la extensi\u00f3n y quieres donar una peque\u00f1a cantidad, puedes hacerlo haciendo clic en el siguiente enlace. Agradezco todas las ayudas que recibo, ya sea donaciones, ayuda con las traducciones o comentarios, para mejorar la extensi\u00f3n."
-    },
     "settings_headline_share_userdata": {
         "message": "Compartir informaci\u00f3n"
     },
     "settings_saved_share_userdata": {
         "message": "Tus preferencias se han guardado correctamente"
+    },
+    "settings_premium_activated": {
+        "message": "Premium activado correctamente"
+    },
+    "settings_premium_invalid_key": {
+        "message": "No se ha podido activar Premium. Introduce una clave de licencia valida, por favor."
     }
 }

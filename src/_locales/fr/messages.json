@@ -248,11 +248,14 @@
     "newtab_top_pages_hidden": {
         "message": "Ne rien afficher"
     },
+    "newtab_upload_background": {
+        "message": "T\u00e9l\u00e9charger une image d'arri\u00e8re-plan"
+    },
     "newtab_fallback_headline_general": {
         "message": "Quelque chose a bloqu\u00e9 la barre lat\u00e9rale"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le store de google chrome"
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le Store de Google Chrome"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions"
@@ -496,6 +499,9 @@
     },
     "settings_menu_support": {
         "message": "Support"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importer\/Exporter"
@@ -974,16 +980,109 @@
     "settings_feedback_send_failed": {
         "message": "Votre message n'a pas pu \u00eatre envoy\u00e9. Veuillez r\u00e9essayer s'il vous pla\u00eet."
     },
-    "settings_headline_donation": {
-        "message": "Aider le d\u00e9veloppeur"
-    },
-    "settings_support_donation_desc": {
-        "message": "Faire un don est facultatif. Si vous appr\u00e9ciez cette extension souhaitez faire un petit don vous pouvez cliquer sur le lien ci-dessous. Toute aide est bienvenue pour am\u00e9liorer cette extension, que ce soit un don, une participation aux traductions ou un retour d'exp\u00e9rience."
-    },
     "settings_headline_share_userdata": {
         "message": "Partager mes infos"
     },
     "settings_saved_share_userdata": {
         "message": "Votre choix a bien \u00e9t\u00e9 pris en compte"
+    },
+    "settings_premium_activated": {
+        "message": "Votre compte Premium a \u00e9t\u00e9 activ\u00e9 avec succ\u00e8s"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Impossible d'activer votre compte Premium. Merci de saisir une cl\u00e9 de licence valide."
+    },
+    "premium_popup_text": {
+        "message": "Avez-vous d\u00e9j\u00e0 essay\u00e9 notre compte Premium ?"
+    },
+    "premium_restricted_text": {
+        "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec un compte Premium"
+    },
+    "premium_desc_1": {
+        "message": "En souscrivant \u00e0 un compte Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s additionnelles et m'aiderez \u00e0 maintenir cette extension."
+    },
+    "premium_desc_2": {
+        "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payez le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension, et de mon travail."
+    },
+    "premium_get_now": {
+        "message": "Souscrire un compte Premium"
+    },
+    "premium_show_license_input": {
+        "message": "Je poss\u00e8de d\u00e9j\u00e0 un compte Premium"
+    },
+    "premium_already_activated": {
+        "message": "Vous utilisez d\u00e9j\u00e0 un compte Premium"
+    },
+    "premium_activate": {
+        "message": "Activez le compte Premium"
+    },
+    "premium_license_key": {
+        "message": "Cl\u00e9 de licence"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Soyez le premier \u00e0 essayer de nouvelles fonctionnalit\u00e9s exp\u00e9rimentales"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Avec un compte Premium, vous avez acc\u00e8s \u00e0 des fonctionnalit\u00e9s qui ne sont pas encore disponibles, activement en d\u00e9veloppement ou en phase de test."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Changer la largeur de votre barre lat\u00e9rale \u00e0 tout moment"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importer et exporter vos param\u00e8tres"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personnalisez votre page Nouvel Onglet"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Si vous utilisez la page Nouvel Onglet de cet extension, vous pouvez y ajouter votre propre image d'arri\u00e8re-plan et la rendre encore plus agr\u00e9able"
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personnalisez tout avec votre propre feuille de style"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Si vous \u00eates familier avec le CSS, vous pouvez compl\u00e8tement changer l'apparence de la barre lat\u00e9rale en ajoutant vos propres d\u00e9finitions de styles. Ceci vous permet d'absolument tout personnaliser."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "V\u00e9rifiez les liens cass\u00e9s ou les duplications dans vos favoris"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Vous pouvez lancer une v\u00e9rification en faisant un clic droit sur n'importe quel dossier de votre barre lat\u00e9rale. La page des r\u00e9sultats affichera toutes les URLs mises \u00e0 jour, les favoris ne fonctionnant plus et ceux pointant vers la m\u00eame URL."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Payez ce que vous voulez"
+    },
+    "premium_pay_creditcard": {
+        "message": "Carte de d\u00e9bit ou de cr\u00e9dit"
+    },
+    "premium_pay_contact": {
+        "message": "En cas de probl\u00e8me avec votre paiement, ou pour toute question suppl\u00e9mentaire, n'h\u00e9sitez pas \u00e0 me contacter: {1}"
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Identifiant d'achat"
+    },
+    "premium_pay_success_headline": {
+        "message": "Merci de votre achat"
+    },
+    "premium_pay_info_email": {
+        "message": "Adresse email"
+    },
+    "premium_pay_info_name": {
+        "message": "Nom"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Code postal"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "M\u00e9thode de paiement"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Num\u00e9ro de carte"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Date d'expiration"
     }
 }

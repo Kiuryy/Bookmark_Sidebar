@@ -1002,7 +1002,7 @@
         "message": "Premium gibt dir Zugriff auf zus\u00e4tzliche Funktionen. Au\u00dferdem unterst\u00fctzt du mich dabei, die Erweiterung weiterzuentwickeln."
     },
     "premium_desc_2": {
-        "message": "Du kannst weiter unten die Funktionen die in Premium enthalten sind anschauen. Die Kernfunktionen der Erweiterung sind kostenlos nutzbar und ben\u00f6tigen \u00fcberhaupt kein Premium. Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf diese Funktionen zu erhalten."
+        "message": "Du kannst weiter unten die Funktionen, die in Premium enthalten sind, anschauen. Die Kernfunktionen der Erweiterung sind kostenlos nutzbar und ben\u00f6tigen \u00fcberhaupt kein Premium. Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf diese Funktionen zu erhalten."
     },
     "premium_get_now": {
         "message": "Jetzt Premium holen"
@@ -1052,8 +1052,11 @@
     "premium_pay_what_you_want": {
         "message": "Bezahl so viel du willst"
     },
+    "premium_pay_creditcard": {
+        "message": "Kreditkarte"
+    },
     "premium_pay_contact": {
-        "message": "Wenn du irgendwelche Schwierigkeiten mit der Bezahlung, oder Fragen hast, kannst du mich gerne unter {1} kontaktieren"
+        "message": "Wenn du irgendwelche Schwierigkeiten mit der Bezahlung, oder Fragen hast, kannst du mich gerne unter {1} kontaktieren."
     },
     "premium_pay_price_total": {
         "message": "Insgesamt"
@@ -1062,12 +1065,12 @@
         "message": "Endbenutzer-Lizenzvereinbarung"
     },
     "premium_pay_eula_desc": {
-        "message": "Ich habe die [a]Endbenutzer-Lizenzvereinbarung[\/a] gelesen und akzeptiere die diese."
+        "message": "Ich habe die [a]Endbenutzer-Lizenzvereinbarung[\/a] gelesen und akzeptiere diese."
     },
     "premium_pay_buy": {
         "message": "Premium kaufen"
     },
-    "premium_verifying": {
+    "premium_pay_verifying": {
         "message": "Transaktion wird \u00fcberpr\u00fcft"
     },
     "premium_pay_purchase_id": {
@@ -1091,17 +1094,8 @@
     "premium_pay_info_zipcode": {
         "message": "Postleitzahl"
     },
-    "premium_pay_paypal": {
-        "message": "PayPal"
-    },
-    "premium_pay_alipay": {
-        "message": "Alipay"
-    },
-    "premium_pay_creditcard": {
-        "message": "Kreditkarte"
-    },
-    "premium_pay_info_card_brand": {
-        "message": "Marke"
+    "premium_pay_info_payment_method": {
+        "message": "Bezahlart"
     },
     "premium_pay_info_card_number": {
         "message": "Kartennummer"

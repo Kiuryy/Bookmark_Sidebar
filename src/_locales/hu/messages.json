@@ -974,12 +974,6 @@
     "settings_feedback_send_failed": {
         "message": "Az \u00fczenet\u00e9t nem tudjuk elk\u00fcldeni. K\u00e9rj\u00fck pr\u00f3b\u00e1lja meg k\u00e9s\u0151bb."
     },
-    "settings_headline_donation": {
-        "message": "Adom\u00e1nyoz\u00e1s"
-    },
-    "settings_support_donation_desc": {
-        "message": "Az adom\u00e1nyoz\u00e1s nem k\u00f6telez\u0151, de ha tetszik az alkalmaz\u00e1s \u00e9s szeretne egy kicsit t\u00e1mogatni, akkor a k\u00f6vetkez\u0151 linken megteheti. Minden t\u00e1mogat\u00e1st k\u00f6sz\u00f6n\u00f6k, legyen az anyagi, a ford\u00edt\u00e1sban val\u00f3 seg\u00edts\u00e9g vagy visszajelz\u00e9s k\u00fcld\u00e9se."
-    },
     "settings_headline_share_userdata": {
         "message": "Inform\u00e1ci\u00f3 megoszt\u00e1sa"
     },

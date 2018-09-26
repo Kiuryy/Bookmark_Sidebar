@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "Verberg pagina's"
     },
+    "newtab_upload_background": {
+        "message": "Een achtergrondafbeelding uploaden"
+    },
     "newtab_fallback_headline_general": {
         "message": "De zijbalk is geblokkeerd."
     },
@@ -496,6 +499,9 @@
     },
     "settings_menu_support": {
         "message": "Support"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importeren\/Exporteren"
@@ -974,16 +980,16 @@
     "settings_feedback_send_failed": {
         "message": "Je bericht kon niet verzonden worden. Probeer het opnieuw."
     },
-    "settings_headline_donation": {
-        "message": "Doneer"
-    },
-    "settings_support_donation_desc": {
-        "message": "Doneren is geheel vrijwillig, maar als je de extensie erg waardeert en een klein geldbedrag over hebt, dan kan dat via de volgende link. Ik waardeer elke hulp die ik krijg; via een donatie, hulp met het vertalen of door het geven van feedback om de extensie beter te maken."
-    },
     "settings_headline_share_userdata": {
         "message": "Deel informatie"
     },
     "settings_saved_share_userdata": {
-        "message": "Je instellingen zijn opgeslagen"
+        "message": "Je voorkeuren zijn opgeslagen"
+    },
+    "settings_premium_activated": {
+        "message": "Premium is succesvol geactiveerd"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premium kon niet worden geactiveerd. Controleer uw code en probeer opnieuw."
     }
 }

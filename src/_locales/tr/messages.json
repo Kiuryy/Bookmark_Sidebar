@@ -677,6 +677,9 @@
     "settings_reopen_sidebar_desc": {
         "message": "Kenar \u00e7ubu\u011funu otomatik olarak a\u00e7 (Kenar \u00e7ubu\u011fundan mevcut sekmede bir yer imi a\u00e7t\u0131ktan sonra)"
     },
+    "settings_prevent_windowed": {
+        "message": "Pencere modunda kenar \u00e7ubu\u011funu devre d\u0131\u015f\u0131 b\u0131rak\u0131r."
+    },
     "settings_prevent_windowed_desc": {
         "message": "Pencere modu aktifken taray\u0131c\u0131 penceresinin kenar\u0131n\u0131n \u00fczerine gelindi\u011finde veya t\u0131kland\u0131\u011f\u0131nda kenar \u00e7ubu\u011funun a\u00e7\u0131lmas\u0131n\u0131 engeller."
     },
@@ -970,12 +973,6 @@
     },
     "settings_feedback_send_failed": {
         "message": "Mesaj\u0131n\u0131z g\u00f6nderilemedi. L\u00fctfen tekrar deneyin."
-    },
-    "settings_headline_donation": {
-        "message": "Ba\u011f\u0131\u015f yap"
-    },
-    "settings_support_donation_desc": {
-        "message": "Ba\u011f\u0131\u015f yapmak tamamen g\u00f6n\u00fcll\u00fcl\u00fck esasl\u0131d\u0131r, fakat bu eklentiyi sevdiysen ve ufak bir ba\u011f\u0131\u015f yapmak istersen bu linki t\u0131klayarak yapabilrisin. Bu eklentiyi geli\u015ftirmek i\u00e7in ald\u0131\u011f\u0131m\u0131 t\u00fcm yard\u0131mlara, gerek ba\u011f\u0131\u015f, gerek \u00e7eviri, gerek geri bildirim olsun minnettar\u0131m."
     },
     "settings_headline_share_userdata": {
         "message": "Bilgi payla\u015f"

@@ -5,12 +5,34 @@
 
         let config = {};
 
+        /**
+         *
+         * @returns {Promise}
+         */
         this.init = () => {
             return new Promise((resolve) => {
                 this.updateConfig().then(() => {
                     initEvents();
                     resolve();
                 });
+            });
+        };
+
+        /**
+         * Reloads all extension new tab pages,
+         * only works, if the user granted the 'tabs' permission
+         */
+        this.reload = () => {
+            chrome.permissions.contains({
+                permissions: ["tabs"]
+            }, (result) => {
+                if (result) { // user granted the 'tabs' permission -> reload all extension new tab pages
+                    chrome.tabs.query({url: "chrome-extension://*/html/newtab.html"}, (tabs) => {
+                        tabs.forEach((tab) => {
+                            chrome.tabs.reload(tab.id);
+                        });
+                    });
+                }
             });
         };
 

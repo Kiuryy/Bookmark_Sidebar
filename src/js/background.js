@@ -288,6 +288,8 @@
             }).then(() => {
                 return this.helper.analytics.trackUserData();
             }).then(() => {
+                this.helper.newtab.reload();
+
                 const licenseKey = this.helper.model.getLicenseKey();
                 const rnd = Math.floor(Math.random() * 20) + 1;
                 if (licenseKey && rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)

@@ -2038,13 +2038,17 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.langvars div.bo
     display: none; }
 
 div.tab[data-name='language'] > div[data-name='translate'] > div.category {
-  padding: 0 !important; }
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto 20px;
+  line-height: 140%; }
   div.tab[data-name='language'] > div[data-name='translate'] > div.category > header {
     position: sticky;
     top: 0;
     background: #fff;
     box-shadow: 0 5px 7px -2px rgba(0, 0, 0, 0.1);
-    padding: 12px 20px; }
+    padding: 12px 20px;
+    z-index: 4; }
     div.tab[data-name='language'] > div[data-name='translate'] > div.category > header > span.amountInfo {
       float: right;
       margin-right: 15px; }
@@ -2090,35 +2094,38 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
           transform: rotateZ(135deg);
           top: 6px; }
   div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul {
-    margin-top: 15px; }
+    margin-top: 20px; }
     div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
       padding: 10px 0;
-      transition: background 0.5s;
-      border-top: 1px solid rgba(0, 0, 0, 0.1); }
+      background: #fff;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px; }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li:first-child {
         border: none; }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div {
+        position: relative;
         width: 40%;
-        padding: 0 20px; }
-        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > label {
-          padding: 0 0 5px 0; }
+        padding: 0 12px; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div:first-of-type::after {
+          content: "";
+          position: absolute;
+          top: 28px;
+          right: -4px;
+          width: 12px;
+          height: 12px;
+          border-top: 2px solid rgba(0, 0, 0, 0.1);
+          border-right: 2px solid rgba(0, 0, 0, 0.1);
+          transform: rotateZ(45deg); }
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span {
           display: block;
-          font-size: 80%;
-          font-style: italic;
+          min-height: 70px;
           user-select: text;
           padding: 5px;
-          border-top: 1px solid rgba(0, 0, 0, 0.2);
-          transition: background 0.5s; }
-          div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span > span {
-            display: block;
-            font-weight: "%fontWeightBold";
-            font-style: normal;
-            margin-bottom: 3px;
-            user-select: none; }
+          line-height: 150%;
+          background: rgba(0, 0, 0, 0.05); }
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > textarea {
           height: 70px;
           margin: 0;
@@ -2126,24 +2133,49 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
           resize: none;
           overflow: hidden;
           transition: box-shadow 0.5s, background 0.5s; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb {
+          display: flex;
+          font-size: 80%;
+          margin: 7px 0 0 0; }
+          div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > label {
+            margin: 0 5px 0 0; }
+          div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div {
+            display: flex; }
+            div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span {
+              position: relative;
+              display: block;
+              height: 20px;
+              line-height: 20px;
+              padding: 0 1px 0 4px;
+              background: rgba(0, 0, 0, 0.05); }
+              div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span + span {
+                padding-left: 18px; }
+              div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span:last-child {
+                margin-right: 12px; }
+              div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span::before, div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span::after {
+                content: "";
+                position: absolute;
+                z-index: 2; }
+              div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span::before {
+                top: -4px;
+                right: -28px;
+                border: 14px solid transparent;
+                border-left-color: #fff; }
+              div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > footer.breadcrumb > div > span::after {
+                top: 0;
+                right: -20px;
+                border: 10px solid transparent;
+                border-left-color: rgba(0, 0, 0, 0.05); }
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div + div {
           width: 60%; }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > span.desc {
         display: none; }
-      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li:hover, div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover {
-        background: #f5f5f5; }
-        div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li:hover > div > textarea, div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > textarea {
-          background: rgba(255, 255, 255, 0.5); }
-      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > textarea {
-        box-shadow: 0 0 10px rgba(43, 53, 200, 0.2); }
-      div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.hover > div > span {
-        background: rgba(245, 197, 37, 0.4); }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.mark > div > span {
         background: rgba(245, 197, 37, 0.5); }
       div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.mark > span.desc {
         position: relative;
         display: block;
-        margin: 10px 20px 10px;
+        margin: 10px 20px 15px;
         padding: 7px 10px;
         font-size: 90%;
         line-height: 150%;
@@ -2152,10 +2184,10 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
         div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li.mark > span.desc::before {
           content: "";
           position: absolute;
-          top: -20px;
+          bottom: -20px;
           left: 10px;
           border: 10px solid transparent;
-          border-bottom-color: #7b5fa4; }
+          border-top-color: #7b5fa4; }
 
 html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > div.progress > div {
   right: 0;
@@ -2198,9 +2230,13 @@ html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div
   margin-right: 3px;
   margin-left: 0; }
 
-html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div > span {
+html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div:first-of-type {
   direction: ltr;
   text-align: left; }
+  html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.category > ul > li > div:first-of-type::after {
+    right: unset;
+    left: -4px;
+    transform: scaleX(-1) rotateZ(45deg); }
 
 div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export {
   margin: 30px 15px 0 0; }

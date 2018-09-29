@@ -258,7 +258,6 @@
             $("<option value='' />").text(s.helper.i18n.get("settings_translation_add_language")).appendTo(select);
 
             const optionList = [];
-
             Object.keys(langs).forEach((lang) => {
                 optionList.push({
                     elm: $("<option value='" + lang + "' />").text(languages[lang].label),
@@ -363,12 +362,12 @@
 
             if (elm.length() === 0) {
                 const key = lang + "_" + name;
+                const defaultLang = s.helper.i18n.getDefaultLanguage();
 
                 elm = $("<div />")
                     .attr($.attr.name, name)
                     .attr($.attr.settings.translation.language, lang)
                     .addClass($.cl.settings.translation.category)
-                    .addClass($.cl.settings.contentBox)
                     .appendTo(s.elm.translation.wrapper);
 
                 const header = $("<header />").appendTo(elm);
@@ -376,15 +375,30 @@
 
                 info.category.vars.forEach((field, i) => {
                     const entry = $("<li />")
-                        .append("<div><label>" + field.label + "</label></div>")
+                        .append("<div />")
                         .append("<div />")
                         .appendTo(list);
 
-                    if (info.defaults && info.defaults.vars && info.defaults.vars[i]) { // show translation of the default language besides the title of the language variable
-                        $("<span />")
-                            .html("<span>" + languages[s.helper.i18n.getDefaultLanguage()].label + " translation:</span>" + info.defaults.vars[i].value || "")
-                            .appendTo(entry.children("div").eq(0));
+                    let originalText = "";
+                    if (lang === defaultLang) { // when editing the default language there are no defaults -> show the current translation instead
+                        originalText = field.value || "";
+                    } else if (info.defaults && info.defaults.vars && info.defaults.vars[i]) {
+                        originalText = info.defaults.vars[i].value || "";
                     }
+
+                    $("<span />")
+                        .html(originalText)
+                        .appendTo(entry.children("div").eq(0));
+
+                    const variableName = $("<footer />")
+                        .addClass($.cl.sidebar.breadcrumb)
+                        .data("name", field.label)
+                        .html("<label>Variable name:</label><div />")
+                        .appendTo(entry.children("div").eq(0));
+
+                    field.label.split(" - ").forEach((variablePart) => {
+                        $("<span />").text(variablePart).appendTo(variableName.children("div"));
+                    });
 
                     const val = field.value || "";
                     $("<textarea />").data({
@@ -452,7 +466,7 @@
 
             if (entries && entries.length() > 0) {
                 const entry = entries.eq(0);
-                s.elm.content[0].scrollTop = Math.max(0, entry[0].offsetTop - 40);
+                s.elm.content[0].scrollTop = Math.max(0, entry[0].offsetTop - 80);
                 entry.find("textarea")[0].focus();
             }
         };
@@ -476,12 +490,12 @@
                 }
 
                 activeEntry.addClass($.cl.settings.translation.mark);
-                const label = activeEntry.find("label").text();
+                const label = activeEntry.find("footer." + $.cl.sidebar.breadcrumb).data("name");
 
                 $("<span />")
                     .addClass($.cl.settings.desc)
                     .html(s.helper.i18n.get("settings_translation_help", ["<strong>" + label + "</strong>"]))
-                    .appendTo(activeEntry);
+                    .prependTo(activeEntry);
 
                 s.helper.model.setData({"u/translationHelp": false});
             }

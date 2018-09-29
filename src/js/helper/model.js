@@ -99,6 +99,7 @@
                 showIndicatorIcon: true,
                 darkMode: false,
                 highContrast: false,
+                directoryArrows: false,
                 showBookmarkIcons: true,
                 showDirectoryIcons: true,
                 styles: {

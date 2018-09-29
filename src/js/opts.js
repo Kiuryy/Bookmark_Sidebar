@@ -56,6 +56,7 @@
                 hideRoot: "hideRoot",
                 dirAnimated: "animated",
                 dirOpened: "opened",
+                dirArrow: "has-arrow",
                 bookmarkDir: "dir",
                 dirIcon: "icon",
                 separator: "separator",

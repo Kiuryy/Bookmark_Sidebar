@@ -1,5 +1,28 @@
 @mixin bookmarkEntryRtl {
 
+  &.dir {
+
+    &.has-arrow {
+      padding-left: $__bookmarksHorizontalPadding;
+      padding-right: 15px !important;
+
+      &::before {
+        right: 5px;
+        left: unset;
+        border-left-color: transparent;
+        border-right-color: $__textColor;
+        transform-origin: 75% 50%;
+      }
+
+      &.opened:not(.animated), &.animated:not(.opened) {
+
+        &::before {
+          transform: rotateZ(-90deg);
+        }
+      }
+    }
+  }
+
   > span.copied {
     left: unset;
     right: calc(#{$__bookmarksIconSize} + #{$__bookmarksHorizontalPadding} + 10px);

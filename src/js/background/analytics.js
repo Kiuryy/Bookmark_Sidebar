@@ -43,7 +43,7 @@
             const lastTrackDate = b.helper.model.getData("lastTrackDate");
             let today = +new Date().setHours(0, 0, 0, 0);
 
-            try { // try not to use the user specific page, but a date with defined timezone
+            try { // try not to use the user specific date, but a date with defined timezone
                 today = new Date().toLocaleString("en", {
                     day: "2-digit",
                     month: "2-digit",

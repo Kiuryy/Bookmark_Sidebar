@@ -621,6 +621,24 @@ a.dragHelper {
       -webkit-mask: no-repeat center/"%directoriesIconSize";
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
       background-color: "%bookmarksDirColor"; }
+  a.dragHelper.dir.has-arrow {
+    padding-left: 15px; }
+    a.dragHelper.dir.has-arrow::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 5px;
+      width: 0;
+      height: 0;
+      margin: auto;
+      border: 4px solid transparent;
+      border-left-color: "%textColor";
+      opacity: 0.6;
+      transform-origin: 25% 50%;
+      transition: transform 0.3s; }
+    a.dragHelper.dir.has-arrow.opened:not(.animated)::before, a.dragHelper.dir.has-arrow.animated:not(.opened)::before {
+      transform: rotateZ(90deg); }
   a.dragHelper.link > span.icon::before {
     content: "";
     position: absolute;
@@ -1067,6 +1085,24 @@ section#sidebar {
             -webkit-mask: no-repeat center/"%directoriesIconSize";
             -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-%bookmarksDirIcon.svg);
             background-color: "%bookmarksDirColor"; }
+        section#sidebar > div.scrollBox > ul a.dir.has-arrow, section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow {
+          padding-left: 15px; }
+          section#sidebar > div.scrollBox > ul a.dir.has-arrow::before, section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 5px;
+            width: 0;
+            height: 0;
+            margin: auto;
+            border: 4px solid transparent;
+            border-left-color: "%textColor";
+            opacity: 0.6;
+            transform-origin: 25% 50%;
+            transition: transform 0.3s; }
+          section#sidebar > div.scrollBox > ul a.dir.has-arrow.opened:not(.animated)::before, section#sidebar > div.scrollBox > ul a.dir.has-arrow.animated:not(.opened)::before, section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow.opened:not(.animated)::before, section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow.animated:not(.opened)::before {
+            transform: rotateZ(90deg); }
         section#sidebar > div.scrollBox > ul a.link > span.icon::before, section#sidebar > div.scrollBox > div.pinned > ul a.link > span.icon::before {
           content: "";
           position: absolute;
@@ -1370,6 +1406,17 @@ body.dragCancel section#sidebar > div.scrollBox ul li.isDragged {
 html[dir='rtl'] a.dragHelper {
   padding-right: "%bookmarksHorizontalPadding";
   padding-left: 46px; }
+  html[dir='rtl'] a.dragHelper.dir.has-arrow {
+    padding-left: "%bookmarksHorizontalPadding";
+    padding-right: 15px !important; }
+    html[dir='rtl'] a.dragHelper.dir.has-arrow::before {
+      right: 5px;
+      left: unset;
+      border-left-color: transparent;
+      border-right-color: "%textColor";
+      transform-origin: 75% 50%; }
+    html[dir='rtl'] a.dragHelper.dir.has-arrow.opened:not(.animated)::before, html[dir='rtl'] a.dragHelper.dir.has-arrow.animated:not(.opened)::before {
+      transform: rotateZ(-90deg); }
   html[dir='rtl'] a.dragHelper > span.copied {
     left: unset;
     right: calc(%bookmarksIconSize + %bookmarksHorizontalPadding + 10px); }
@@ -1415,6 +1462,18 @@ html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox {
   html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox + a {
     padding-left: unset;
     padding-right: 22px; }
+
+html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir.has-arrow, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow {
+  padding-left: "%bookmarksHorizontalPadding";
+  padding-right: 15px !important; }
+  html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir.has-arrow::before, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow::before {
+    right: 5px;
+    left: unset;
+    border-left-color: transparent;
+    border-right-color: "%textColor";
+    transform-origin: 75% 50%; }
+  html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir.has-arrow.opened:not(.animated)::before, html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir.has-arrow.animated:not(.opened)::before, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow.opened:not(.animated)::before, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow.animated:not(.opened)::before {
+    transform: rotateZ(-90deg); }
 
 html[dir='rtl'] section#sidebar > div.scrollBox > ul a > span.copied, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a > span.copied {
   left: unset;

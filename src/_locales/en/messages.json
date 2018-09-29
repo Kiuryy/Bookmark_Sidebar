@@ -617,6 +617,9 @@
     "settings_remember_state_nothing": {
         "message": "Nothing"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Remember opened sub directories"
+    },
     "settings_open_children_warn_limit": {
         "message": "Open all children (Warn limit)"
     },
@@ -854,6 +857,9 @@
     "settings_directories_icon_size": {
         "message": "Directories icon size"
     },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Directory arrows"
+    },
     "settings_bookmarks_line_height": {
         "message": "Bookmarks line height"
     },
@@ -979,6 +985,9 @@
     },
     "settings_feedback_send_failed": {
         "message": "Your message could not be sent. Please try again."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "This may be of interest to you"
     },
     "settings_headline_share_userdata": {
         "message": "Share information"

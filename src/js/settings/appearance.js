@@ -34,7 +34,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 initPreviews().then(() => {
-                    ["darkMode"].forEach((field) => {
+                    ["darkMode", "directoryArrows"].forEach((field) => {
                         let checked = false;
                         if (s.helper.model.getData("a/" + field) === true) {
                             s.elm.checkbox[field].trigger("click");
@@ -183,6 +183,12 @@
                     s.elm.preview[key].find("body").addClass($.cl.page.darkMode);
                 } else {
                     s.elm.preview[key].find("body").removeClass($.cl.page.darkMode);
+                }
+
+                if (config.appearance.directoryArrows) {
+                    s.elm.preview[key].find("div#bookmarkBox a.dir").addClass($.cl.sidebar.dirArrow);
+                } else {
+                    s.elm.preview[key].find("div#bookmarkBox a.dir").removeClass($.cl.sidebar.dirArrow);
                 }
 
                 updatePreviewTooltip(s.elm.preview[key]);
@@ -349,6 +355,7 @@
                 },
                 appearance: {
                     darkMode: s.helper.checkbox.isChecked(s.elm.checkbox.darkMode),
+                    directoryArrows: s.helper.checkbox.isChecked(s.elm.checkbox.directoryArrows),
                     highContrast: false,
                     showIndicator: true,
                     showIndicatorIcon: true,

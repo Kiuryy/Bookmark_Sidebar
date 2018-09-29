@@ -404,7 +404,7 @@
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
             const showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
-            const config = ext.helper.model.getData(["a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
+            const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
 
             if (list.parents("li").length() === 0) {
                 if (ext.helper.search.isResultsVisible() === false) { // don't show in search results
@@ -522,7 +522,7 @@
             const entryContent = $("<a />").appendTo(entry);
 
             const labelElm = $("<span />").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
-            const dragElm = $("<span />").addClass($.cl.drag.trigger).appendTo(entryContent);
+            $("<span />").addClass($.cl.drag.trigger).appendTo(entryContent);
 
             if (bookmark.id) {
                 entryContent.attr($.attr.id, bookmark.id);
@@ -540,6 +540,10 @@
 
                 if (opts.config.showDirectoryIcons) {
                     entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' />");
+                }
+
+                if (opts.config.directoryArrows) {
+                    entryContent.addClass($.cl.sidebar.dirArrow);
                 }
             } else if (bookmark.url) { // link
                 entryContent.addClass($.cl.sidebar.bookmarkLink);

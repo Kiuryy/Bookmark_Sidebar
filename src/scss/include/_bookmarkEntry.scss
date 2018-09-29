@@ -135,10 +135,40 @@
     }
   }
 
-  &.dir > span.icon {
-    @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__directoriesIconSize);
-    width: $__directoriesIconSize;
-    height: $__directoriesIconSize;
+  &.dir {
+
+    > span.icon {
+      @include mask(#{'icon-' + $__bookmarksDirIcon}, $__bookmarksDirColor, $__directoriesIconSize);
+      width: $__directoriesIconSize;
+      height: $__directoriesIconSize;
+    }
+
+    &.has-arrow {
+      padding-left: 15px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        width: 0;
+        height: 0;
+        margin: auto;
+        border: 4px solid transparent;
+        border-left-color: $__textColor;
+        opacity: 0.6;
+        transform-origin: 25% 50%;
+        transition: transform 0.3s;
+      }
+
+      &.opened:not(.animated), &.animated:not(.opened) {
+
+        &::before {
+          transform: rotateZ(90deg);
+        }
+      }
+    }
   }
 
   &.link > span.icon {

@@ -617,6 +617,9 @@
     "settings_remember_state_nothing": {
         "message": "Nichts"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Ge\u00f6ffnete Unterverzeichnisse merken"
+    },
     "settings_open_children_warn_limit": {
         "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"
     },
@@ -854,6 +857,9 @@
     "settings_directories_icon_size": {
         "message": "Verzeichnisse Symbolgr\u00f6\u00dfe"
     },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Verzeichnis-Pfeile"
+    },
     "settings_bookmarks_line_height": {
         "message": "Lesezeichen Zeilenh\u00f6he"
     },
@@ -979,6 +985,9 @@
     },
     "settings_feedback_send_failed": {
         "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "Das k\u00f6nnte dich auch interessieren"
     },
     "settings_headline_share_userdata": {
         "message": "Informationen teilen"

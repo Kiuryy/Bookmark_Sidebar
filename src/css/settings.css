@@ -2189,6 +2189,59 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.category {
           border: 10px solid transparent;
           border-top-color: #7b5fa4; }
 
+div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote {
+  position: relative;
+  padding: 10px 0 0 36px;
+  margin: 0 0 30px 0;
+  line-height: 150%; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/20px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-quote.svg);
+    background-color: #aaa; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote::before {
+    -webkit-mask-position: 0 15px; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote > footer {
+    font-weight: "%fontWeightMedium";
+    font-size: 90%; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote > footer::before {
+      content: "\2013";
+      margin: 0 4px 0 0; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.thanks input[type='email'] {
+  width: 180px;
+  margin: 0; }
+
+div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper {
+  margin-top: 40px; }
+  div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    transition: padding 0.3s;
+    cursor: pointer; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.close {
+      margin: 3px 0 0 12px;
+      padding: 2px 4px; }
+    div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.loading {
+      padding-right: 40px;
+      pointer-events: none; }
+      div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.loading > svg.loading {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        margin: auto;
+        width: 16px;
+        height: 16px; }
+        div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.loading > svg.loading > circle {
+          stroke: #fff; }
+
 html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > div.progress > div {
   right: 0;
   left: unset; }
@@ -2237,6 +2290,26 @@ html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div
     right: unset;
     left: -4px;
     transform: scaleX(-1) rotateZ(45deg); }
+
+html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote {
+  padding-right: 36px;
+  padding-left: 0; }
+  html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote::before {
+    -webkit-mask-position-x: right; }
+  html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote > footer::before {
+    margin-right: 0;
+    margin-left: 4px; }
+
+html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.close {
+  margin-right: 12px;
+  margin-left: 0; }
+
+html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.loading {
+  padding-right: 12px;
+  padding-left: 40px; }
+  html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.loading > svg.loading {
+    left: 10px;
+    right: unset; }
 
 div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export {
   margin: 30px 15px 0 0; }

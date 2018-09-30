@@ -4,8 +4,10 @@
     $.TranslationHelper = function (s) {
 
         let languages = {};
+
         const langvarsCache = {};
         const varsAmount = {};
+        const thanksLimit = 30;
 
         /**
          *
@@ -20,6 +22,7 @@
                         initOverview().then(() => {
                             initOverviewEvents();
                             initFormEvents();
+                            gotoOverview();
                         });
                     } else {
                         showUnavailableText();
@@ -60,13 +63,17 @@
                         });
                     });
 
+                    let translatedAmount = 0;
                     $.xhr($.opts.website.translation.submit, {
                         method: "POST",
                         data: {
                             lang: lang,
                             vars: vars
                         }
-                    }).then(() => { // load at least 1s
+                    }).then(() => {
+                        return storeChangedLangVars(lang, vars);
+                    }).then((response) => { // load at least 1s
+                        translatedAmount = response.translatedAmount;
                         return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
                     }).then(() => { // show success message
                         loader.remove();
@@ -74,11 +81,54 @@
                         return $.delay(1500);
                     }).then(() => { // reload page
                         s.elm.body.removeClass($.cl.loading);
-                        initEditForm(lang);
+
+                        if (translatedAmount >= thanksLimit && s.helper.model.getData("u/translationThanked") === false) { // user translated more than the limit and hasn't seen the thank you screen, yet
+                            initThanksForm(lang, translatedAmount);
+                        } else {
+                            initEditForm(lang);
+                        }
                     });
                 } else {
                     resolve();
                 }
+            });
+        };
+
+        /**
+         * Stores the amount of translated or changed language variables in the local storage,
+         * Returns the total amount of language variables, the user edited in the promise resolve
+         *
+         * @param {string} lang
+         * @param {object} vars
+         * @returns {Promise}
+         */
+        const storeChangedLangVars = (lang, vars) => {
+            return new Promise((resolve) => {
+                const storageKey = "translated_" + lang;
+
+                chrome.storage.local.get([storageKey], (obj) => {
+                    let translated = [];
+
+                    if (obj && obj[storageKey]) {
+                        translated = obj[storageKey];
+                    }
+
+                    Object.keys(vars).forEach((langVar) => {
+                        if (translated.indexOf(langVar) === -1) {
+                            translated.push(langVar);
+                        }
+                    });
+
+                    const translatedAmount = translated.length;
+                    if (translatedAmount > 0) {
+                        chrome.storage.local.set({
+                            [storageKey]: translated
+                        }, () => {
+                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                            resolve({translatedAmount: translatedAmount});
+                        });
+                    }
+                });
             });
         };
 
@@ -328,7 +378,6 @@
             s.elm.translation.wrapper.on("click", "a." + $.cl.settings.translation.back, (e) => {
                 e.preventDefault();
                 const lang = $(e.currentTarget).parents("div." + $.cl.settings.translation.category).eq(0).attr($.attr.settings.translation.language);
-
                 initEditForm(lang);
             });
 
@@ -347,6 +396,39 @@
                 const info = wrapper.data("info");
 
                 showLangVarsList(lang, name, info);
+            });
+
+            s.elm.translation.thanks.on("click", "a", (e) => {
+                e.preventDefault();
+                const lang = s.elm.translation.thanks.data("lang");
+
+                if ($(e.currentTarget).hasClass($.cl.close)) {
+                    initEditForm(lang);
+                } else {
+                    const email = s.elm.field.translationEmail[0].value;
+                    const translatedAmount = s.elm.translation.thanks.data("translatedAmount");
+
+                    $(e.currentTarget).addClass($.cl.loading);
+                    const loader = s.helper.template.loading().appendTo(e.currentTarget);
+
+                    Promise.all([
+                        $.xhr($.opts.website.translation.submit, {
+                            method: "POST",
+                            data: {
+                                lang: lang,
+                                email: email,
+                                translatedAmount: translatedAmount
+                            }
+                        }),
+                        $.delay(500),
+                    ]).then(() => {
+                        loader.remove();
+                        $(e.currentTarget).removeClass($.cl.loading);
+                        return $.delay(500);
+                    }).then(() => {
+                        initEditForm(lang);
+                    });
+                }
             });
         };
 
@@ -547,6 +629,25 @@
         };
 
         /**
+         * Shows the thank you box where the user can enter his email address
+         *
+         * @param {string} lang
+         * @param {int} translatedAmount
+         */
+        const initThanksForm = (lang, translatedAmount) => {
+            s.helper.model.setData({"u/translationThanked": true});
+
+            s.elm.translation.wrapper.find("div." + $.cl.settings.translation.category).removeClass($.cl.visible);
+            s.elm.translation.langvars.removeClass($.cl.visible);
+
+            s.elm.buttons.save.removeClass($.cl.hidden);
+            s.elm.translation.thanks.addClass($.cl.visible).data({
+                lang: lang,
+                translatedAmount: translatedAmount
+            });
+        };
+
+        /**
          * Initialises the form with all language variables
          *
          * @param {string} lang
@@ -563,6 +664,7 @@
             s.elm.translation.wrapper.find("div." + $.cl.settings.translation.category).removeClass($.cl.visible);
 
             s.elm.buttons.save.removeClass($.cl.hidden);
+            s.elm.translation.thanks.removeClass($.cl.visible);
             s.elm.translation.overview.removeClass($.cl.visible);
             s.elm.translation.langvars.addClass([$.cl.visible, $.cl.loading]);
             const loader = s.helper.template.loading().appendTo(s.elm.translation.langvars);

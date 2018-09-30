@@ -163,6 +163,7 @@
                 translation: {
                     select: "languageSelect",
                     category: "category",
+                    thanks: "thanks",
                     edit: "edit",
                     progress: "progress",
                     mark: "mark",

@@ -42,6 +42,7 @@
                 pinnedEntries: {},
                 lockPinned: true,
                 translationHelp: true,
+                translationThanked: false,
                 performReopening: false,
                 entryAmounts: {},
                 lastOpened: null,

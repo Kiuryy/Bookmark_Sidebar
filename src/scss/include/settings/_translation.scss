@@ -366,6 +366,72 @@ div.tab[data-name='language'] > div[data-name='translate'] {
       }
     }
   }
+
+  > div.thanks {
+
+    blockquote {
+      @include mask('settings/icon-quote', $textColorLight, 20px);
+      position: relative;
+      padding: 10px 0 0 36px;
+      margin: 0 0 30px 0;
+      line-height: 150%;
+
+      &::before {
+        -webkit-mask-position: 0 15px;
+      }
+
+      > footer {
+        font-weight: $__fontWeightMedium;
+        font-size: 90%;
+
+        &::before {
+          content: "\2013";
+          margin: 0 4px 0 0;
+        }
+      }
+    }
+
+    input[type='email'] {
+      width: 180px;
+      margin: 0;
+    }
+
+    p.submitWrapper {
+      margin-top: 40px;
+
+      > a {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+        transition: padding 0.3s;
+        cursor: pointer;
+
+        &.close {
+          margin: 3px 0 0 12px;
+          padding: 2px 4px;
+        }
+
+        &.loading {
+          padding-right: 40px;
+          pointer-events: none;
+
+          > svg.loading {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 10px;
+            margin: auto;
+            width: 16px;
+            height: 16px;
+
+            > circle {
+              stroke: $textColorInverted;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @import "../../rtl/include/settings/translation";

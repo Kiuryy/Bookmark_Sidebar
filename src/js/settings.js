@@ -62,6 +62,7 @@
                 goto: $("div.tab[data-name='language'] > div[data-name='general'] a.button"),
                 overview: $("div.tab[data-name='language'] > div[data-name='translate'] > div.overview"),
                 langvars: $("div.tab[data-name='language'] > div[data-name='translate'] > div.langvars"),
+                thanks: $("div.tab[data-name='language'] > div[data-name='translate'] > div.thanks"),
                 unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")
             },
             formElement: $("div.formElement"),
@@ -232,7 +233,7 @@
             });
 
             $("input, textarea, select").on("keyup change input", (e) => { // highlight save button the first time something got changed
-                if ($(e.currentTarget).parent("[" + $.attr.type + "='licenseKey']").length() > 0) {
+                if ($(e.currentTarget).parent("[" + $.attr.type + "='licenseKey']").length() > 0 || $(e.currentTarget).parents("div." + $.cl.settings.translation.thanks).length() > 0) {
                     return;
                 }
 

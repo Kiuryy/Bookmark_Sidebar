@@ -37,6 +37,13 @@ html[dir='rtl'] {
       }
     }
 
+    div.faq {
+
+      > div.suggestion {
+        direction: ltr;
+      }
+    }
+
     div.suggestedAnswers {
 
       > span.icon {

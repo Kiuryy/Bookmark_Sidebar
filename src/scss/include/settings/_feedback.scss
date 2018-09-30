@@ -48,6 +48,7 @@ div.tab[data-name='feedback'] {
     textarea {
       resize: vertical;
       height: 200px;
+      min-height: 200px;
     }
 
     div.upload {
@@ -127,10 +128,99 @@ div.tab[data-name='feedback'] {
 
     &.noHeight {
       height: 0 !important;
-      padding: 0;
+      padding-top: 0;
+      padding-bottom: 0;
       margin: 0;
     }
+  }
 
+  div.faq {
+
+    &.hidden {
+      display: none;
+    }
+
+    &.loading {
+      @extend %hidden;
+    }
+
+    > h2 {
+      margin-bottom: 30px;
+    }
+
+    > div.suggestion {
+      position: relative;
+      width: 100%;
+      user-select: text;
+      @include suggestion;
+
+      + div.suggestion {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        margin-top: 15px;
+        padding-top: 15px;
+      }
+
+      > strong {
+        display: inline-block;
+        font-size: 120%;
+        font-weight: $__fontWeightNormal;
+        line-height: 150%;
+        padding: 5px 0;
+        cursor: pointer;
+      }
+
+      > p {
+        font-size: 90%;
+        background: $bodyBackground;
+        border-radius: 0 0 10px 10px;
+        transition: opacity 0.3s, margin 0.5s, padding 0.5s;
+        @extend %hidden;
+
+        > a {
+          display: inline-block;
+          padding: 2px 7px;
+          font-weight: $__fontWeightMedium;
+          color: $mainColor;
+          border-radius: 3px;
+          margin: 0 4px;
+          cursor: pointer;
+          transition: background 0.5s;
+
+          &:hover {
+            background: rgba($mainColor, 0.1);
+          }
+        }
+
+        &[data-type='answer'] {
+          @extend %visible;
+          margin-bottom: 15px;
+          padding: 3px 0 7px;
+          transition: opacity 0.3s 0.3s, margin 0.5s, padding 0.5s;
+        }
+      }
+
+      > div.answer {
+        position: relative;
+        margin-top: 2px;
+        background: $bodyBackground;
+        padding: 10px 12px;
+        border-radius: 10px 10px 0 0;
+        @include suggestion;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -14px;
+          left: 20px;
+          border: 7px solid transparent;
+          border-bottom-color: $bodyBackground;
+        }
+
+        p + p {
+          margin-top: 10px;
+        }
+      }
+    }
   }
 
   div.suggestedAnswers {
@@ -214,17 +304,6 @@ div.tab[data-name='feedback'] {
         border-top-color: $contentBackground;
       }
 
-      &.hidden {
-        @extend %hidden;
-      }
-
-      &.noHeight {
-        height: 0 !important;
-        padding-top: 0;
-        padding-bottom: 0;
-        margin: 0;
-      }
-
       &.absolute {
         position: absolute;
         bottom: -9999px;
@@ -275,6 +354,10 @@ div.tab[data-name='feedback'] {
   &.onlySuggestions {
 
     div.feedbackWrapper {
+      display: none;
+    }
+
+    div.faq {
       display: none;
     }
 

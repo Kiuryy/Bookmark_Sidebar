@@ -1,8 +1,8 @@
-body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
+body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq.loading, div.tab[data-name='feedback'] div.faq > div.suggestion.hidden, div.tab[data-name='feedback'] div.faq > div.suggestion > p, div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > div.dialog.visible, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > div.dialog.visible, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -1136,7 +1136,8 @@ div.tab[data-name='feedback'] section.form {
     width: 180px; }
   div.tab[data-name='feedback'] section.form textarea {
     resize: vertical;
-    height: 200px; }
+    height: 200px;
+    min-height: 200px; }
   div.tab[data-name='feedback'] section.form div.upload {
     margin: 7px 0 0 0;
     float: right; }
@@ -1202,6 +1203,75 @@ div.tab[data-name='feedback'] ul.uploadedFiles > li {
       background-color: #666; }
     div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close:hover {
       background-color: rgba(0, 0, 0, 0.1); }
+
+div.tab[data-name='feedback'] div.faq.hidden {
+  display: none; }
+
+div.tab[data-name='feedback'] div.faq > h2 {
+  margin-bottom: 30px; }
+
+div.tab[data-name='feedback'] div.faq > div.suggestion {
+  position: relative;
+  width: 100%;
+  user-select: text;
+  transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
+  div.tab[data-name='feedback'] div.faq > div.suggestion.noHeight {
+    height: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0; }
+  div.tab[data-name='feedback'] div.faq > div.suggestion + div.suggestion {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    padding-top: 15px; }
+  div.tab[data-name='feedback'] div.faq > div.suggestion > strong {
+    display: inline-block;
+    font-size: 120%;
+    font-weight: "%fontWeightNormal";
+    line-height: 150%;
+    padding: 5px 0;
+    cursor: pointer; }
+  div.tab[data-name='feedback'] div.faq > div.suggestion > p {
+    font-size: 90%;
+    background: #f2f2f2;
+    border-radius: 0 0 10px 10px;
+    transition: opacity 0.3s, margin 0.5s, padding 0.5s; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > p > a {
+      display: inline-block;
+      padding: 2px 7px;
+      font-weight: "%fontWeightMedium";
+      color: #7b5fa4;
+      border-radius: 3px;
+      margin: 0 4px;
+      cursor: pointer;
+      transition: background 0.5s; }
+      div.tab[data-name='feedback'] div.faq > div.suggestion > p > a:hover {
+        background: rgba(123, 95, 164, 0.1); }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'] {
+      margin-bottom: 15px;
+      padding: 3px 0 7px;
+      transition: opacity 0.3s 0.3s, margin 0.5s, padding 0.5s; }
+  div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer {
+    position: relative;
+    margin-top: 2px;
+    background: #f2f2f2;
+    padding: 10px 12px;
+    border-radius: 10px 10px 0 0;
+    transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.noHeight {
+      height: 0 !important;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin: 0; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: 20px;
+      border: 7px solid transparent;
+      border-bottom-color: #f2f2f2; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer p + p {
+      margin-top: 10px; }
 
 div.tab[data-name='feedback'] div.suggestedAnswers {
   background: none !important;
@@ -1279,7 +1349,8 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
     transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
     div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.noHeight {
       height: 0 !important;
-      padding: 0;
+      padding-top: 0;
+      padding-bottom: 0;
       margin: 0; }
     div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion:last-of-type::before {
       content: "";
@@ -1288,11 +1359,6 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
       right: 20px;
       border: 16px solid transparent;
       border-top-color: #fff; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.noHeight {
-      height: 0 !important;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin: 0; }
     div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.absolute {
       position: absolute;
       bottom: -9999px;
@@ -1322,12 +1388,16 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
       transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
       div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.noHeight {
         height: 0 !important;
-        padding: 0;
+        padding-top: 0;
+        padding-bottom: 0;
         margin: 0; }
       div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer p + p {
         margin-top: 10px; }
 
 div.tab[data-name='feedback'].onlySuggestions div.feedbackWrapper {
+  display: none; }
+
+div.tab[data-name='feedback'].onlySuggestions div.faq {
   display: none; }
 
 div.tab[data-name='feedback'].onlySuggestions div.suggestedAnswers {
@@ -1355,6 +1425,9 @@ html[dir='rtl'] div.tab[data-name='feedback'] ul.uploadedFiles > li > span {
 html[dir='rtl'] div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close {
   left: 0;
   right: unset; }
+
+html[dir='rtl'] div.tab[data-name='feedback'] div.faq > div.suggestion {
+  direction: ltr; }
 
 html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > span.icon {
   left: 12px;

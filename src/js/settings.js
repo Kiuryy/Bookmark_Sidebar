@@ -49,6 +49,7 @@
             },
             feedback: {
                 wrapper: $("div.tab[data-name='feedback']"),
+                faq: $("div.tab[data-name='feedback'] > div.faq"),
                 form: $("section.form"),
                 send: $("section.form button[type='submit']"),
                 feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),

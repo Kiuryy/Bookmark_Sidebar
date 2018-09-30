@@ -33,7 +33,11 @@
                             showCommonSuggestions(path[2]);
                         }
 
-                        return $.delay(700);
+                        if (path[0] === "feedback") {
+                            initFaq();
+                        }
+
+                        return $.delay(500);
                     }).then(() => {
                         resolve();
                     });
@@ -112,7 +116,6 @@
          */
         const scanForKeywords = (text) => {
             if (data && data.suggestions) {
-
                 Object.entries(data.suggestions).some(([key, suggestion]) => {
                     let foundMatch = false;
 
@@ -137,7 +140,7 @@
          *
          * @param {string} key
          * @param {object} obj
-         * @param {bool} showAnswer
+         * @param {boolean} showAnswer
          */
         const showSuggestion = (key, obj, showAnswer = false) => {
             if (data && data.controls) {
@@ -166,12 +169,10 @@
                 $.delay().then(() => {
                     answer.css("height", answer[0].offsetHeight + "px");
                     answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
-
                     return $.delay(300);
                 }).then(() => {
                     suggestion.css("height", suggestion[0].offsetHeight + "px");
                     suggestion.addClass($.cl.settings.feedback.noHeight);
-
                     return $.delay(300);
                 }).then(() => {
                     suggestion.removeClass([$.cl.settings.feedback.absolute, $.cl.settings.feedback.noHeight]);
@@ -205,6 +206,7 @@
             });
 
             const controlWrapper = suggestion.children("p").html("");
+            controlWrapper.attr($.attr.type, "answer");
 
             suggestion.data("links").forEach((link) => {
                 $("<a />")
@@ -213,11 +215,12 @@
                     .appendTo(controlWrapper);
             });
 
-            $("<a />")
-                .attr($.attr.value, "0")
-                .text(data.controls.close.message)
-                .appendTo(controlWrapper);
-
+            if (suggestion.parent()[0] !== s.elm.feedback.faq[0]) {
+                $("<a />")
+                    .attr($.attr.value, "0")
+                    .text(data.controls.close.message)
+                    .appendTo(controlWrapper);
+            }
             suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.settings.feedback.noHeight);
 
             $.delay(300).then(() => {
@@ -254,11 +257,60 @@
         };
 
         /**
+         * Initialises the FAQ section
+         */
+        const initFaq = () => {
+            if (s.elm.feedback.faq.children("div." + $.cl.settings.suggestion).length() > 0) {
+                return;
+            }
+
+            if (data && data.suggestions && data.controls) {
+                s.elm.feedback.faq.addClass($.cl.loading);
+
+                Object.entries(data.suggestions).some(([key, obj]) => {
+                    if (obj.question && obj.question.faq) {
+                        const suggestion = $("<div />")
+                            .addClass($.cl.settings.suggestion)
+                            .attr($.attr.type, key)
+                            .append("<strong>" + obj.question.faq + "</strong>")
+                            .append("<div class='" + $.cl.settings.feedback.answer + "'>" + obj.answer.message + "</div>")
+                            .append("<p />")
+                            .appendTo(s.elm.feedback.faq);
+
+                        suggestion.data("links", obj.answer.links || []);
+
+                        const answer = suggestion.children("div." + $.cl.settings.feedback.answer);
+
+                        $.delay().then(() => {
+                            answer.css("height", answer[0].offsetHeight + "px");
+                            answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
+                            return $.delay(300);
+                        }).then(() => {
+                            suggestion
+                                .css("height", "")
+                                .removeClass($.cl.hidden);
+
+                            s.elm.feedback.faq.removeClass($.cl.loading);
+                        });
+                    }
+                });
+            } else {
+                s.elm.feedback.faq.addClass($.cl.hidden);
+            }
+        };
+
+        /**
          * Initialises the eventhandlers
          *
          * @returns {Promise}
          */
         const initEvents = async () => {
+            $(document).on($.opts.events.pageChanged, (e) => {
+                if (e.detail.path && e.detail.path[0] === "feedback") {
+                    initFaq();
+                }
+            });
+
             $(window).on("resize", () => {
                 updateSuggestionWrapperHeight();
             }, {passive: true});
@@ -274,7 +326,7 @@
                 s.elm.feedback.wrapper.removeClass($.cl.settings.feedback.onlySuggestions);
             });
 
-            s.elm.feedback.suggestions.on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
+            $([s.elm.feedback.suggestions, s.elm.feedback.faq]).on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
                 e.preventDefault();
                 chrome.tabs.create({
                     url: $(e.currentTarget).attr("href"),
@@ -292,6 +344,11 @@
                 } else { // hide suggestion
                     hideSuggestion(suggestion);
                 }
+            });
+
+            s.elm.feedback.faq.on("click", "div." + $.cl.settings.suggestion + " > strong", (e) => {
+                const suggestion = $(e.currentTarget).parent().eq(0);
+                showSuggestionAnswer(suggestion);
             });
 
             s.elm.feedback.uploadField.on("change", (e) => { // upload screenshots

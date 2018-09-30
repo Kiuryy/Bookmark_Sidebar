@@ -53,7 +53,7 @@
             } catch (e) {
                 //
             }
-
+            trackConfiguration();
             if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
@@ -131,20 +131,20 @@
             const configArr = [];
 
             const proceedConfig = (baseName, obj) => {
-                Object.keys(obj).forEach((attr) => {
+                Object.entries(obj).forEach(([attr, val]) => {
                     if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
-                        obj[attr] = obj[attr].length;
-                    } else if (baseName === "utility" && attr === "pinnedEntries" && typeof obj[attr] === "object") { // only track the amount of pinned entries
-                        obj[attr] = Object.keys(obj[attr]).length;
+                        val = val.length;
+                    } else if (baseName === "utility" && attr === "pinnedEntries" && typeof val === "object") { // only track the amount of pinned entries
+                        val = Object.keys(val).length;
                     } else if (baseName === "behaviour" && (attr === "blacklist" || attr === "whitelist")) { // only track the amount of url rules
-                        obj[attr] = obj[attr].length;
+                        val = val.length;
                     }
 
-                    if (typeof obj[attr] === "object") {
-                        proceedConfig(baseName + "_" + attr, obj[attr]);
+                    if (typeof val === "object") {
+                        proceedConfig(baseName + "_" + attr, val);
                     } else {
-                        if (typeof obj[attr] !== "string") { // parse everything to string
-                            obj[attr] = JSON.stringify(obj[attr]);
+                        if (typeof val !== "string") { // parse everything to string
+                            val = JSON.stringify(val);
                         }
 
                         if (
@@ -152,12 +152,12 @@
                             (baseName === "utility" && attr === "customCss") ||  // only track whether the user uses a custom css or not
                             (baseName === "utility" && attr === "newtabBackground")  // only track whether the user set a wallpaper as new tab background or not
                         ) {
-                            obj[attr] = obj[attr] && obj[attr].length > 0 ? "true" : "false";
+                            val = val && val.length > 0 ? "true" : "false";
                         }
 
                         configArr.push({
                             name: baseName + "_" + attr,
-                            value: obj[attr]
+                            value: val
                         });
                     }
                 });
@@ -166,7 +166,7 @@
             new Promise((resolve) => {
                 chrome.storage.sync.get(categories, (obj) => {
                     categories.forEach((category) => {
-                        if (category === "newtab") { // if the newtab page is not beeing overwritten, the other configurations are irrelevant
+                        if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
                             if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
                                 obj[category] = {
                                     override: false
@@ -183,14 +183,18 @@
                 });
             }).then(() => {
                 return new Promise((resolve) => {
-                    chrome.storage.local.get(["utility"], (obj) => {
+                    chrome.storage.local.get(["utility", "newtabBackground_1"], (obj) => {
                         if (obj.utility) {
                             const config = {};
-                            ["lockPinned", "pinnedEntries", "customCss", "newtabBackground"].forEach((field) => {
+                            ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
                                 if (typeof obj.utility[field] !== "undefined") {
                                     config[field] = obj.utility[field];
                                 }
                             });
+
+                            if (obj.newtabBackground_1) {
+                                config.newtabBackground = obj.newtabBackground_1;
+                            }
 
                             proceedConfig("utility", config);
                         }

@@ -115,7 +115,7 @@
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts
                 }).then(() => {
-                    const background = n.elm.body.css("background-image").replace(/(^url\(|\)$)/g, "");
+                    const background = n.elm.body.css("background-image").replace(/(^url\("?|"?\)$)/g, "");
 
                     return new Promise((rslv) => {
                         chrome.storage.local.set({

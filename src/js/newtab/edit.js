@@ -109,14 +109,22 @@
                 const loader = n.helper.template.loading().appendTo(n.elm.body);
                 n.elm.body.addClass($.cl.loading);
 
-                const background = n.elm.body.css("background-image").replace(/(^url\(|\)$)/g, "");
-
                 n.helper.model.setData({
                     "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
                     "n/topPagesType": n.elm.topPages.children("select")[0].value,
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
-                    "n/shortcuts": shortcuts,
-                    "u/newtabBackground": background && background !== "none" ? background : null
+                    "n/shortcuts": shortcuts
+                }).then(() => {
+                    const background = n.elm.body.css("background-image").replace(/(^url\(|\)$)/g, "");
+
+                    return new Promise((rslv) => {
+                        chrome.storage.local.set({
+                            newtabBackground_1: background && background !== "none" ? background : null
+                        }, () => {
+                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                            rslv();
+                        });
+                    });
                 }).then(() => { // load at least 1s
                     return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
                 }).then(() => {
@@ -144,7 +152,9 @@
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
             n.helper.shortcuts.refreshEntries();
 
-            n.setBackground();
+            n.getBackground().then((background) => {
+                n.setBackground(background);
+            });
 
             $.delay(500).then(() => {
                 $("menu." + $.cl.newtab.infoBar).remove();

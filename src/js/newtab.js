@@ -62,28 +62,65 @@
 
                 initEvents();
 
-                return $.delay(500);
-            }).then(() => {
+                return Promise.all([
+                    this.getBackground(),
+                    $.delay(500)]
+                );
+            }).then(([background]) => {
                 loader.remove();
-                this.setBackground();
+                this.setBackground(background);
                 this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
                 $(window).trigger("resize");
             });
         };
 
         /**
-         * Sets the stored image as body background, if there is one available
+         * Reads the stored background image
          *
          * @returns {Promise}
          */
-        this.setBackground = async () => {
-            if (this.helper.model.getUserType() === "premium") {
-                const background = this.helper.model.getData("u/newtabBackground");
-                if (background) {
-                    this.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + background + ")");
+        this.getBackground = () => {
+            return new Promise((resolve) => {
+                if (this.helper.model.getUserType() === "premium") {
+                    chrome.storage.local.get(["newtabBackground_1"], (obj) => {
+                        if (obj && obj.newtabBackground_1) {
+                            resolve(obj.newtabBackground_1);
+                        } else {
+                            //resolve(null);
+                            chrome.storage.local.get(["utility"], (obj2) => { // @deprecated background image is no longer stored in the utility object (10/2018)
+                                if (obj2 && obj2.utility && obj2.utility.newtabBackground) {
+                                    const bg = obj2.utility.newtabBackground;
+                                    delete obj2.utility.newtabBackground;
+
+                                    chrome.storage.local.set({ // remove background image from utility and store it in the 'newtabBackground_1' object
+                                        utility: obj2.utility,
+                                        newtabBackground_1: bg
+                                    }, () => {
+                                        resolve(bg);
+                                    });
+                                } else {
+                                    resolve(null);
+                                }
+                            });
+                        }
+                    });
                 } else {
-                    this.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
+                    resolve(null);
                 }
+            });
+        };
+
+        /**
+         * Sets the given image as body background, if there is one available
+         *
+         * @param {string} background
+         * @returns {Promise}
+         */
+        this.setBackground = async (background) => {
+            if (background === null) {
+                this.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
+            } else {
+                this.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + background + ")");
             }
         };
 

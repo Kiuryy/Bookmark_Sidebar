@@ -39,7 +39,6 @@
                 scrollPos: 0,
                 separators: {},
                 customCss: "",
-                newtabBackground: "",
                 pinnedEntries: {},
                 lockPinned: true,
                 translationHelp: true,
@@ -355,6 +354,7 @@
 
                     try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
                         chrome.storage.local.set({utility: data.utility}, () => {
+                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                             saved();
                         });
 

@@ -23,8 +23,13 @@ html[dir='rtl'] {
       }
 
       > div.searchBox {
-        left: auto;
-        right: 16px;
+        left: unset;
+        right: 12px;
+
+        > input[type='text'] {
+          padding-right: 12px;
+          padding-left: 5px;
+        }
       }
 
       &.searchVisible {

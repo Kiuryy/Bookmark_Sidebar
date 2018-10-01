@@ -156,10 +156,11 @@ section#sidebar {
       top: 0;
       bottom: 0;
       margin: auto;
-      left: 16px;
-      width: calc(100% - 105px);
+      left: 12px;
+      width: calc(100% - 100px);
       height: 30px;
       background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
       transform: translate3d(20px, 0, 0);
       transition: transform 0.3s, opacity 0.3s;
       @extend %hidden;
@@ -173,7 +174,7 @@ section#sidebar {
         border: 0;
         background: transparent;
         color: $__foregroundColor;
-        padding: 0 7px;
+        padding: 0 5px 0 12px;
 
         &::-webkit-input-placeholder {
           color: $__foregroundColor;
@@ -187,6 +188,7 @@ section#sidebar {
         display: inline-block;
         height: 30px;
         width: 30px;
+        border-radius: 50%;
         cursor: pointer;
         transition: background-color 0.3s;
 

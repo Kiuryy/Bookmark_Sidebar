@@ -22,7 +22,11 @@
                         initOverview().then(() => {
                             initOverviewEvents();
                             initFormEvents();
-                            gotoOverview();
+
+                            const path = s.helper.menu.getPath();
+                            if (path && path[1] === "translate") {
+                                gotoOverview();
+                            }
                         });
                     } else {
                         showUnavailableText();

@@ -541,7 +541,7 @@ section#sidebar {
         }
 
         &.menu::before {
-          @include maskImage('icon-menu-1');
+          @include maskImage('icon-menu');
         }
       }
 

@@ -12,7 +12,7 @@
             createFile: require("create-file"),
             minifyHtml: require("html-minifier").minify,
             minifyJson: require("jsonminify"),
-            uglifyjs: require("uglify-es"),
+            terser: require("terser"),
             sass: require("node-sass"),
             copy: require("cp-file"),
             request: require("request"),
@@ -301,7 +301,7 @@
                                 break;
                             }
                             case "js": {
-                                const result = module.uglifyjs.minify(content, {
+                                const result = module.terser.minify(content, {
                                     output: {
                                         preamble: "/*! (c) " + process.env.npm_package_author_name + " under " + process.env.npm_package_license + " */"
                                     },

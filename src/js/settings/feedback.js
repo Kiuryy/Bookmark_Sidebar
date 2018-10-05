@@ -284,6 +284,7 @@
                         $.delay().then(() => {
                             answer.css("height", answer[0].offsetHeight + "px");
                             answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
+                            s.elm.feedback.faq.removeClass($.cl.hidden);
                             return $.delay(300);
                         }).then(() => {
                             suggestion

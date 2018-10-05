@@ -135,6 +135,7 @@ div.tab[data-name='feedback'] {
   }
 
   div.faq {
+    transition: opacity 0.5s;
 
     &.hidden {
       display: none;
@@ -142,6 +143,7 @@ div.tab[data-name='feedback'] {
 
     &.loading {
       @extend %hidden;
+      transition: none;
     }
 
     > h2 {

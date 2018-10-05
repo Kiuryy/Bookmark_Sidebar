@@ -500,7 +500,7 @@ body > section#wrapper {
   body > section#wrapper > main {
     flex: 1;
     height: calc(100vh - 50px);
-    overflow: auto;
+    overflow-y: scroll;
     padding: 35px 30px 20px 20px; }
     @media (max-width: 1400px) {
       body > section#wrapper > main {
@@ -1208,74 +1208,76 @@ div.tab[data-name='feedback'] ul.uploadedFiles > li {
     div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close:hover {
       background-color: rgba(0, 0, 0, 0.1); }
 
-div.tab[data-name='feedback'] div.faq.hidden {
-  display: none; }
-
-div.tab[data-name='feedback'] div.faq > h2 {
-  margin-bottom: 30px; }
-
-div.tab[data-name='feedback'] div.faq > div.suggestion {
-  position: relative;
-  width: 100%;
-  user-select: text;
-  transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
-  div.tab[data-name='feedback'] div.faq > div.suggestion.noHeight {
-    height: 0 !important;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin: 0; }
-  div.tab[data-name='feedback'] div.faq > div.suggestion + div.suggestion {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
-    padding-top: 15px; }
-  div.tab[data-name='feedback'] div.faq > div.suggestion > strong {
-    display: inline-block;
-    font-size: 120%;
-    font-weight: "%fontWeightNormal";
-    line-height: 150%;
-    padding: 5px 0;
-    cursor: pointer; }
-  div.tab[data-name='feedback'] div.faq > div.suggestion > p {
-    font-size: 90%;
-    background: #f2f2f2;
-    border-radius: 0 0 10px 10px;
-    transition: opacity 0.3s, margin 0.5s, padding 0.5s; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > p > a {
-      display: inline-block;
-      padding: 2px 7px;
-      font-weight: "%fontWeightMedium";
-      color: #7b5fa4;
-      border-radius: 3px;
-      margin: 0 4px;
-      cursor: pointer;
-      transition: background 0.5s; }
-      div.tab[data-name='feedback'] div.faq > div.suggestion > p > a:hover {
-        background: rgba(123, 95, 164, 0.1); }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'] {
-      margin-bottom: 15px;
-      padding: 3px 0 7px;
-      transition: opacity 0.3s 0.3s, margin 0.5s, padding 0.5s; }
-  div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer {
+div.tab[data-name='feedback'] div.faq {
+  transition: opacity 0.5s; }
+  div.tab[data-name='feedback'] div.faq.hidden {
+    display: none; }
+  div.tab[data-name='feedback'] div.faq.loading {
+    transition: none; }
+  div.tab[data-name='feedback'] div.faq > h2 {
+    margin-bottom: 30px; }
+  div.tab[data-name='feedback'] div.faq > div.suggestion {
     position: relative;
-    margin-top: 2px;
-    background: #f2f2f2;
-    padding: 10px 12px;
-    border-radius: 10px 10px 0 0;
+    width: 100%;
+    user-select: text;
     transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.noHeight {
+    div.tab[data-name='feedback'] div.faq > div.suggestion.noHeight {
       height: 0 !important;
       padding-top: 0;
       padding-bottom: 0;
       margin: 0; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer::before {
-      content: "";
-      position: absolute;
-      top: -14px;
-      left: 20px;
-      border: 7px solid transparent;
-      border-bottom-color: #f2f2f2; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer p + p {
-      margin-top: 10px; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion + div.suggestion {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin-top: 15px;
+      padding-top: 15px; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > strong {
+      display: inline-block;
+      font-size: 120%;
+      font-weight: "%fontWeightNormal";
+      line-height: 150%;
+      padding: 5px 0;
+      cursor: pointer; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > p {
+      font-size: 90%;
+      background: #f2f2f2;
+      border-radius: 0 0 10px 10px;
+      transition: opacity 0.3s, margin 0.5s, padding 0.5s; }
+      div.tab[data-name='feedback'] div.faq > div.suggestion > p > a {
+        display: inline-block;
+        padding: 2px 7px;
+        font-weight: "%fontWeightMedium";
+        color: #7b5fa4;
+        border-radius: 3px;
+        margin: 0 4px;
+        cursor: pointer;
+        transition: background 0.5s; }
+        div.tab[data-name='feedback'] div.faq > div.suggestion > p > a:hover {
+          background: rgba(123, 95, 164, 0.1); }
+      div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'] {
+        margin-bottom: 15px;
+        padding: 3px 0 7px;
+        transition: opacity 0.3s 0.3s, margin 0.5s, padding 0.5s; }
+    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer {
+      position: relative;
+      margin-top: 2px;
+      background: #f2f2f2;
+      padding: 10px 12px;
+      border-radius: 10px 10px 0 0;
+      transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
+      div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.noHeight {
+        height: 0 !important;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0; }
+      div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer::before {
+        content: "";
+        position: absolute;
+        top: -14px;
+        left: 20px;
+        border: 7px solid transparent;
+        border-bottom-color: #f2f2f2; }
+      div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer p + p {
+        margin-top: 10px; }
 
 div.tab[data-name='feedback'] div.suggestedAnswers {
   background: none !important;

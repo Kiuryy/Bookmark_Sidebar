@@ -14,7 +14,7 @@
             initToggleAreaFields();
             initFilter();
 
-            ["dirAccordion", "animations", "contextmenu", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo"].forEach((field) => {
+            ["dirAccordion", "animations", "contextmenu", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.elm.checkbox[field].trigger("click");
                 }
@@ -78,7 +78,7 @@
                     config[field] = val;
                 });
 
-                ["dirAccordion", "animations", "contextmenu", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo"].forEach((field) => { // checkbox
+                ["dirAccordion", "animations", "contextmenu", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                     config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
                 });
 
@@ -274,6 +274,14 @@
                     toggleAreaWrapper.addClass($.cl.hidden);
                 } else {
                     toggleAreaWrapper.removeClass($.cl.hidden);
+                }
+            });
+
+            s.elm.select.rememberState.on("change", (e) => { // toggle the checkbox to configure whether to remember opened sub directories, too (won't be displayed when user select to remember nothing)
+                if (e.currentTarget.value === "nothing") {
+                    s.elm.sidebar.rememberOpenStatesSubDirectories.addClass($.cl.hidden);
+                } else {
+                    s.elm.sidebar.rememberOpenStatesSubDirectories.removeClass($.cl.hidden);
                 }
             });
 

@@ -599,9 +599,6 @@
     "settings_remember_state": {
         "message": "Ricorda"
     },
-    "settings_remember_state_desc": {
-        "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Posizione di scorrimento e cartelle aperte"
     },
@@ -616,6 +613,9 @@
     },
     "settings_remember_state_nothing": {
         "message": "Niente"
+    },
+    "settings_remember_desc": {
+        "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
     },
     "settings_open_children_warn_limit": {
         "message": "Apri tutto il contenuto (Avviso limite)"

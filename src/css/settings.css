@@ -598,6 +598,10 @@ body > section#wrapper div.advanced {
     body > section#wrapper div.advanced > div.visible {
       opacity: 1;
       transform: translate3d(0, 0, 0); }
+    body > section#wrapper div.advanced > div div.sub.rememberOpenStatesSubDirectories {
+      margin-top: 10px; }
+      body > section#wrapper div.advanced > div div.sub.rememberOpenStatesSubDirectories.hidden {
+        display: none; }
     body > section#wrapper div.advanced > div textarea[data-name='customCss'] {
       background: #fff;
       font-family: Consolas, sans-serif;

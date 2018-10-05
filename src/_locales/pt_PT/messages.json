@@ -545,7 +545,7 @@
     "settings_remember_state": {
         "message": "Lembrar"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
     "settings_remember_state_open_states_and_scroll": {

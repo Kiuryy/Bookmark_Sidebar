@@ -180,12 +180,17 @@
                 let childrenList = elm.next("ul");
                 const childrenLoaded = childrenList.length() > 0;
                 const initial = ext.refreshRun === true || ext.elm.iframe.hasClass($.cl.page.visible) === false;
+                const close = elm.hasClass($.cl.sidebar.dirOpened) && childrenLoaded;
 
                 if (typeof instant === "undefined") {
                     instant = initial || ext.helper.model.getData("b/animations") === false;
                 }
 
                 const preResolve = () => {
+                    if (initial === false && close === false && ext.helper.model.getData("b/rememberOpenStatesSubDirectories") === true) {
+                        this.restoreOpenStates(childrenList);
+                    }
+
                     if ((ext.helper.model.getData("b/rememberState") !== "nothing" && cache) && !initial && !ext.helper.search.isResultsVisible()) {
                         this.cacheList().then(resolve);
                     } else {
@@ -193,7 +198,7 @@
                     }
                 };
 
-                if (elm.hasClass($.cl.sidebar.dirOpened) && childrenLoaded) { // close children
+                if (close) { // close children
                     expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
                     if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
@@ -302,16 +307,17 @@
 
         /**
          * Restores the open states of the directories in your bookmarks,
-         * calls the restoreScrollPos-Method when all open states have been restored
+         * optionally calls the restoreScrollPos-Method when all open states have been restored
          *
          * @param {jsu} list
+         * @param {boolean} initial
          */
-        this.restoreOpenStates = (list) => {
+        this.restoreOpenStates = (list, initial = false) => {
             let restore = false;
             const data = ext.helper.model.getData(["b/rememberState", "u/openStates"]);
 
             const checkAllRestored = () => {
-                if (!restore && restoreOpenStateRunning === 0) { // all open statas restored -> restore scroll position
+                if (!restore && initial && restoreOpenStateRunning === 0) { // all open states restored -> restore scroll position
                     $.delay(100).then(() => {
                         restoreScrollPos();
                     });
@@ -319,12 +325,12 @@
             };
 
             if (data.rememberState === "all" || data.rememberState === "openStatesAndPos" || data.rememberState === "openStates" || data.rememberState === "openStatesRoot") {
-                Object.keys(data.openStates).forEach((node) => {
-                    if (data.openStates[node] === true) {
-                        const entry = list.find("> li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + (node) + "']");
+                Object.entries(data.openStates).forEach(([node, val]) => {
+                    if (val === true) {
+                        const entry = list.find("> li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + node + "']:not(." + $.cl.sidebar.dirOpened + ")");
 
                         if (entry.length() > 0) {
-                            if (data.rememberState !== "openStatesRoot" || entry.parents("ul").length() === 1) { // if rememberState = openStatesRoot -> only open top level directories
+                            if (data.rememberState !== "openStatesRoot" || entry.parents("ul").length() === 1 || initial === false) { // if rememberState = openStatesRoot -> initially only open top level directories
                                 restore = true;
                                 restoreOpenStateRunning++;
 
@@ -709,12 +715,12 @@
                 }
 
                 if (ext.refreshRun === true) { // restore open states of child nodes
-                    this.restoreOpenStates(list);
+                    this.restoreOpenStates(list, true);
                 } else {
                     const openStates = ext.helper.model.getData("u/openStates");
                     openStates[elm.attr($.attr.id)] = open;
 
-                    if (open === false) {
+                    if (open === false && ext.helper.model.getData("b/rememberOpenStatesSubDirectories") === false) { // open sub directories should not be remembered
                         closeAllChildDirs(elm, openStates);
                     } else if (ext.helper.search.isResultsVisible() === false) {
                         ext.helper.model.setData({
@@ -830,7 +836,7 @@
                             $("<a />").attr($.attr.name, "add").insertAfter(list);
                             this.toggleBookmarkDir(list.find("> li > a." + $.cl.sidebar.bookmarkDir).eq(0));
                         } else {
-                            this.restoreOpenStates(list);
+                            this.restoreOpenStates(list, true);
                         }
                     } else { // one dimensional without directories
                         this.addBookmarkDir(ext.helper.entry.getAllDataByType("bookmarks"), list, false);

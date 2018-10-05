@@ -75,6 +75,7 @@
                 reopenSidebar: false,
                 preventWindowed: false,
                 rememberState: "openStatesAndPos",
+                rememberOpenStatesSubDirectories: true,
                 tooltipDelay: 0.5,
                 tooltipContent: "all",
                 tooltipAdditionalInfo: true,

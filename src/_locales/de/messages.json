@@ -599,9 +599,6 @@
     "settings_remember_state": {
         "message": "Merken"
     },
-    "settings_remember_state_desc": {
-        "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Scrollposition und ge\u00f6ffnete Verzeichnisse"
     },
@@ -619,6 +616,9 @@
     },
     "settings_remember_open_states_sub_directories": {
         "message": "Ge\u00f6ffnete Unterverzeichnisse merken"
+    },
+    "settings_remember_desc": {
+        "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
     },
     "settings_open_children_warn_limit": {
         "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"

@@ -32,6 +32,14 @@ body > section#wrapper div.advanced {
       transform: translate3d(0, 0, 0);
     }
 
+    div.sub.rememberOpenStatesSubDirectories {
+      margin-top: 10px;
+
+      &.hidden {
+        display: none;
+      }
+    }
+
     textarea[data-name='customCss'] {
       background: $contentBackground;
       font-family: Consolas, sans-serif;

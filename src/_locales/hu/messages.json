@@ -593,7 +593,7 @@
     "settings_remember_state": {
         "message": "Utols\u00f3 m\u0171velet megjegyz\u00e9se"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "V\u00e1lassza ki, hogy mit jegyezzen meg az oldals\u00e1v a megnyit\u00e1sok k\u00f6z\u00f6tt. Ha az utols\u00f3nak megnyitott k\u00f6nyvjelz\u0151t v\u00e1lasztja, akkor a k\u00f6vetkez\u0151 megnyit\u00e1sn\u00e1l az lesz kiv\u00e1lasztva."
     },
     "settings_remember_state_open_states_and_scroll": {

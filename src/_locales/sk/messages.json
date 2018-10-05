@@ -593,7 +593,7 @@
     "settings_remember_state": {
         "message": "Zapam\u00e4tova\u0165"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Vyberte, \u010do si zapam\u00e4tova\u0165 medzi zmenami str\u00e1nok. Ak sa rozhodnete zapam\u00e4tova\u0165 posledn\u00fa otvoren\u00fa z\u00e1lo\u017eku, bude pri otvoren\u00ed postrann\u00e9ho panela ozna\u010den\u00e1."
     },
     "settings_remember_state_open_states_and_scroll": {

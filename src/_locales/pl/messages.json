@@ -593,7 +593,7 @@
     "settings_remember_state": {
         "message": "Zapami\u0119taj"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Wybierz co zapami\u0119ta\u0107 pomi\u0119dzy r\u00f3\u017cnymi stronami. Je\u015bli wybierzesz, aby zapami\u0119ta\u0107 ostatnio otwieran\u0105 zak\u0142adk\u0119, zostanie ona wybrana podczas nast\u0119pnego otwarcia bocznej listy."
     },
     "settings_remember_state_open_states_and_scroll": {

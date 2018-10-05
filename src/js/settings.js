@@ -32,7 +32,8 @@
             },
             sidebar: {
                 filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
-                filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation")
+                filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation"),
+                rememberOpenStatesSubDirectories: $("div.tab[data-name='sidebar'] div.rememberOpenStatesSubDirectories")
             },
             appearance: {
                 content: $("div.tab[data-name='appearance']"),

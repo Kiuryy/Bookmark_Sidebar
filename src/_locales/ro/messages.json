@@ -563,7 +563,7 @@
     "settings_remember_state": {
         "message": "\u021aine minte"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Selecta\u021bi ce s\u0103 \u021bin\u0103 minte \u00eentre modific\u0103rile paginii. Dac\u0103 alege\u021bi s\u0103 v\u0103 aminti\u021bi ultimul marcaj deschis, acesta va fi marcat c\u00e2nd deschide\u021bi din nou bara lateral\u0103."
     },
     "settings_remember_state_open_states_and_scroll": {

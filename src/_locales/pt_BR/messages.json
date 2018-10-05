@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
+    "newtab_upload_background": {
+        "message": "Carregar a imagem de fundo"
+    },
     "newtab_fallback_headline_general": {
         "message": "Algo bloqueou a barra lateral"
     },
@@ -497,6 +500,9 @@
     "settings_menu_support": {
         "message": "Suporte"
     },
+    "settings_menu_premium": {
+        "message": "Exclusivo"
+    },
     "settings_menu_export": {
         "message": "Importar\/Exportar"
     },
@@ -593,9 +599,6 @@
     "settings_remember_state": {
         "message": "Lembrar"
     },
-    "settings_remember_state_desc": {
-        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Posi\u00e7\u00e3o de rolamento e pastas abertas"
     },
@@ -610,6 +613,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nada"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Lembrar subpastas abertas"
+    },
+    "settings_remember_desc": {
+        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
     "settings_open_children_warn_limit": {
         "message": "Abrir todas as subpastas (avisar limite)"
@@ -848,6 +857,9 @@
     "settings_directories_icon_size": {
         "message": "Tamanho dos \u00edcones das pastas"
     },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Setas da pasta"
+    },
     "settings_bookmarks_line_height": {
         "message": "Altura da linha dos favoritos"
     },
@@ -974,10 +986,130 @@
     "settings_feedback_send_failed": {
         "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
     },
+    "settings_feedback_faq_headline": {
+        "message": "Isto pode ser de seu interesse"
+    },
     "settings_headline_share_userdata": {
         "message": "Compartilhar informa\u00e7\u00f5es"
     },
     "settings_saved_share_userdata": {
         "message": "Sua prefer\u00eancia foi salva com sucesso"
+    },
+    "settings_premium_activated": {
+        "message": "Conte\u00fado exclusivo ativado com sucesso"
+    },
+    "settings_premium_invalid_key": {
+        "message": "N\u00e3o foi poss\u00edvel concluir a ativa\u00e7\u00e3o. Por favor, entre com uma licen\u00e7a v\u00e1lida."
+    },
+    "premium_popup_text": {
+        "message": "Voc\u00ea j\u00e1 est\u00e1 sabendo da vers\u00e3o Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Este recurso est\u00e1 dispon\u00edvel apenas na vers\u00e3o Premium."
+    },
+    "premium_desc_1": {
+        "message": "Com a vers\u00e3o Premium, voc\u00ea ter\u00e1 acesso a recursos adicionais e poder\u00e1 me ajudar a manter a extens\u00e3o."
+    },
+    "premium_desc_2": {
+        "message": "Voc\u00ea pode verificar abaixo quais recursos est\u00e3o dispon\u00edveis na vers\u00e3o Premium. Todos os principais recursos da extens\u00e3o s\u00e3o gratuitos para usar e n\u00e3o requerem a vers\u00e3o Premium. Voc\u00ea pode pagar quanto a extens\u00e3o e meu trabalho valem para voc\u00ea, para ter acesso a estes recursos."
+    },
+    "premium_get_now": {
+        "message": "Obtenha a vers\u00e3o Premium agora"
+    },
+    "premium_show_license_input": {
+        "message": "Eu j\u00e1 tenho a vers\u00e3o Premium"
+    },
+    "premium_already_activated": {
+        "message": "Voc\u00ea j\u00e1 est\u00e1 usando a vers\u00e3o Premium"
+    },
+    "premium_activate": {
+        "message": "Ativar a vers\u00e3o Premium"
+    },
+    "premium_license_key": {
+        "message": "Chave de licen\u00e7a"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Seja o primeiro a testar novos recursos experimentais"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Com a vers\u00e3o Premium, voc\u00ea ter\u00e1 acesso a recursos ainda n\u00e3o lan\u00e7ados, os quais est\u00e3o em desenvolvimento ou passando por testes."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Altere a largura da sua barra lateral a qualquer momento"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importe e exporte suas configura\u00e7\u00f5es"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personalize sua p\u00e1gina de Nova Guia"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Se voc\u00ea est\u00e1 usando a p\u00e1gina de Nova Guia desta extens\u00e3o, poder\u00e1 escolher sua pr\u00f3pria imagem de fundo para deix\u00e1-la com uma apar\u00eancia ainda mais legal."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personalize tudo com sua pr\u00f3pria Folha de Estilo"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Se voc\u00ea est\u00e1 familiarizado com CSS, poder\u00e1 alterar completamente a apar\u00eancia da barra lateral, adicionando suas pr\u00f3prias defini\u00e7\u00f5es de estilo. Isto permite que voc\u00ea personalize absolutamente tudo."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Encontre links quebrados ou duplicados em seus favoritos"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer pasta da sua barra lateral para iniciar a verifica\u00e7\u00e3o. A p\u00e1gina de resultado apresentar\u00e1 todos os URLs atualizados, favoritos que n\u00e3o est\u00e3o mais funcionando e favoritos com o mesmo URL."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pague quanto voc\u00ea desejar"
+    },
+    "premium_pay_creditcard": {
+        "message": "Cart\u00e3o de cr\u00e9dito ou d\u00e9bito"
+    },
+    "premium_pay_contact": {
+        "message": "Se voc\u00ea est\u00e1 encontrando quaisquer problemas com o pagamento ou tem d\u00favidas a respeito, por favor entre em contato comigo atrav\u00e9s do e-mail {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_eula": {
+        "message": "Acordo de Licen\u00e7a de Usu\u00e1rio Final"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Eu li e aceito o [a]Acordo de Licen\u00e7a de Usu\u00e1rio Final[\/a]"
+    },
+    "premium_pay_buy": {
+        "message": "Adquira a vers\u00e3o Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verificando transa\u00e7\u00e3o"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Compre uma ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Obrigado por sua compra"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} foi ativado automaticamente para este dispositivo. Voc\u00ea n\u00e3o precisa realizar nenhuma etapa adicional."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Se voc\u00ea quiser ativar {1} em outro dispositivo ou ap\u00f3s reinstalar a extens\u00e3o, pode inserir a seguinte chave nas configura\u00e7\u00f5es da extens\u00e3o:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-mail"
+    },
+    "premium_pay_info_name": {
+        "message": "Nome"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "C\u00f3digo postal (CEP)"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "M\u00e9todo de pagamento"
+    },
+    "premium_pay_info_card_number": {
+        "message": "N\u00famero do cart\u00e3o"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "O cart\u00e3o expira em"
     }
 }

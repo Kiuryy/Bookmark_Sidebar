@@ -593,7 +593,7 @@
     "settings_remember_state": {
         "message": "Hat\u0131rla"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Sayfa de\u011fi\u015fikliklerinde ne hat\u0131rlanaca\u011f\u0131n\u0131 se\u00e7in. Son a\u00e7\u0131lan yer imini hat\u0131rlamay\u0131 se\u00e7erseniz, kenar \u00e7ubu\u011funu tekrar a\u00e7arken i\u015faretlenir."
     },
     "settings_remember_state_open_states_and_scroll": {

@@ -110,14 +110,12 @@
                     const _self = $(e.currentTarget);
 
                     const openChildren = (elm) => {
-                        elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir).forEach((childDir) => {
-                            if (!$(childDir).hasClass($.cl.sidebar.dirOpened)) {
-                                $.delay().then(() => {
-                                    ext.helper.list.toggleBookmarkDir($(childDir), false, false).then(() => {
-                                        openChildren($(childDir));
-                                    });
+                        $.delay().then(() => {
+                            elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir + ":not(." + $.cl.sidebar.dirOpened + ")").forEach((childDir) => {
+                                ext.helper.list.toggleBookmarkDir($(childDir), false, false).then(() => {
+                                    openChildren($(childDir));
                                 });
-                            }
+                            });
                         });
                     };
 
@@ -330,7 +328,7 @@
                 ext.elm.widthDrag.addClass($.cl.hover);
             }).on("mouseleave", () => {
                 ext.elm.widthDrag.removeClass($.cl.hover);
-            }).on("mousedown", (e) => { // change width of sidebar
+            }).on("mousedown", () => { // change width of sidebar
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
                 ext.helper.toggle.addSidebarHoverClass();

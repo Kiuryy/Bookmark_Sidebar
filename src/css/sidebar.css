@@ -1237,7 +1237,7 @@ section#sidebar {
   section#sidebar.openedOnce > header > a.sort::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-sort.svg); }
   section#sidebar.openedOnce > header > a.menu::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu-1.svg); }
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-menu.svg); }
   section#sidebar.openedOnce > header > div.searchBox > a.searchClose::before {
     content: "";
     position: absolute;

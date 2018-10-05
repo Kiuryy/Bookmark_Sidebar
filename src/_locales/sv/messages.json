@@ -443,7 +443,7 @@
     "settings_remember_state": {
         "message": "Kom ih\u00e5g"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "V\u00e4lj vad du ska komma ih\u00e5g \u00f6ver sid\u00e4ndringar. Om du v\u00e4ljer att komma ih\u00e5g det senaste \u00f6ppnade bokm\u00e4rket markeras det n\u00e4r du \u00f6ppnar sidopanelen igen."
     },
     "settings_remember_state_open_states_and_scroll": {

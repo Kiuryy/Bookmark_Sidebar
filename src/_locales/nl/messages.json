@@ -599,7 +599,7 @@
     "settings_remember_state": {
         "message": "Onthoud"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Selecteer wat er onthouden moet worden tijdens pagina wisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
     },
     "settings_remember_state_open_states_and_scroll": {

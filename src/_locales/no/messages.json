@@ -563,7 +563,7 @@
     "settings_remember_state": {
         "message": "Husk"
     },
-    "settings_remember_state_desc": {
+    "settings_remember_desc": {
         "message": "Velg hva som huskes p\u00e5 tvers av sider. Hvis du velger \u00e5 huske sist \u00e5pnet bokmerke, vil det bli markert n\u00e5r du \u00e5pner sidefeltet igjen."
     },
     "settings_remember_state_open_states_and_scroll": {

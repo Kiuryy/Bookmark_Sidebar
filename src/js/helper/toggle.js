@@ -136,6 +136,7 @@
 
                 if (!ext.elm.sidebar.hasClass($.cl.sidebar.openedOnce)) { // first time open -> mark last used bookmark and set html class
                     ext.elm.sidebar.addClass($.cl.sidebar.openedOnce);
+                    ext.helper.list.handleSidebarWidthChange();
                     this.markLastUsed();
                 }
 

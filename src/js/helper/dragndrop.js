@@ -120,14 +120,28 @@
                                 }
                             }
 
-                            ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
-                                values: {
-                                    index: entryPlaceholder.prevAll("li").length(),
-                                    parentId: entryPlaceholder.parent("ul").prev("a").attr($.attr.id),
-                                    title: title,
-                                    url: url
-                                }
-                            });
+                            const bookmarkObj = {
+                                index: entryPlaceholder.prevAll("li").length(),
+                                parentId: entryPlaceholder.parent("ul").prev("a").attr($.attr.id),
+                                title: title,
+                                url: url
+                            };
+
+                            const showOverlay = () => {
+                                ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
+                                    values: bookmarkObj
+                                });
+                            };
+
+                            if (bookmarkObj.title && bookmarkObj.url) { // title and url could be determined from the dragged element -> create bookmark directly
+                                ext.helper.model.call("createBookmark", bookmarkObj).then((result) => {
+                                    if (result.error) {
+                                        showOverlay();
+                                    }
+                                });
+                            } else { // title or url is unknown -> open overlay with dialog
+                                showOverlay();
+                            }
                         }
                     }
 

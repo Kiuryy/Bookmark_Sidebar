@@ -118,6 +118,17 @@
 
                 if (opts.newTab && opts.newTab === true) { // new tab
                     const createTab = (idx = null) => {
+                        if (/Opera|OPR\//.test(navigator.userAgent)) { // treat some Chrome specific urls differently to make them work in Opera, too
+                            switch (opts.href) {
+                                case "chrome://bookmarks":
+                                    opts.href = "opera://bookmarks";
+                                    break;
+                                case "chrome://extensions/shortcuts":
+                                    opts.href = "opera://settings/keyboardShortcuts";
+                                    break;
+                            }
+                        }
+
                         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                             chrome.tabs.create({
                                 url: opts.href,

@@ -287,8 +287,9 @@
 
             s.elm.buttons.keyboardShortcut.on("click", (e) => {
                 e.preventDefault();
-                chrome.tabs.create({
-                    url: "chrome://extensions/shortcuts",
+                s.helper.model.call("openLink", {
+                    href: "chrome://extensions/shortcuts",
+                    newTab: true,
                     active: true
                 });
             });

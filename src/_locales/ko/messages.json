@@ -599,9 +599,6 @@
     "settings_remember_state": {
         "message": "\uae30\uc5b5\ud558\uae30"
     },
-    "settings_remember_desc": {
-        "message": "\ud398\uc774\uc9c0 \ubcc0\uacbd\uc2dc \uae30\uc5b5\ud560 \ub0b4\uc6a9\uc744 \uc120\ud0dd\ud558\uc2ed\uc2dc\uc624. \ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc5f0 \ucc45\uac08\ud53c\ub97c \uae30\uc5b5\ud558\ub3c4\ub85d \uc120\ud0dd\ud558\uba74 \uc0ac\uc774\ub4dc \ubc14\ub97c \ub2e4\uc2dc \uc5f4 \ub54c \ucc45\uac08\ud53c\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "\uc2a4\ud06c\ub864 \uc704\uce58\uc640 \uc5f4\ub838\ub358 \ub514\ub809\ud1a0\ub9ac"
     },
@@ -616,6 +613,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "\uae30\uc5b5\ud558\uc9c0 \uc54a\uc74c"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "\uc5f4\ub838\ub358 \ud558\uc704 \ub514\ub809\ud1a0\ub9ac \uae30\uc5b5"
+    },
+    "settings_remember_desc": {
+        "message": "\ud398\uc774\uc9c0 \ubcc0\uacbd\uc2dc \uae30\uc5b5\ud560 \ub0b4\uc6a9\uc744 \uc120\ud0dd\ud558\uc2ed\uc2dc\uc624. \ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc5f0 \ucc45\uac08\ud53c\ub97c \uae30\uc5b5\ud558\ub3c4\ub85d \uc120\ud0dd\ud558\uba74 \uc0ac\uc774\ub4dc \ubc14\ub97c \ub2e4\uc2dc \uc5f4 \ub54c \ucc45\uac08\ud53c\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
     },
     "settings_open_children_warn_limit": {
         "message": "\ubaa8\ub4e0 \ud558\uc704 \ub514\ub809\ud1a0\ub9ac\ub97c \uc5f4 \ub54c \uacbd\uace0 \ud45c\uc2dc"
@@ -786,7 +789,7 @@
         "message": "\uc124\uc815\uc744 \ub0b4\ubcf4\ub0b4\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4."
     },
     "settings_presets": {
-        "message": "\ubbf8\ub9ac \uc815\ud558\ub2e4"
+        "message": "\uc0ac\uc804 \uc124\uc815"
     },
     "settings_color_scheme": {
         "message": "\uceec\ub7ec \uc2a4\ud0b4"
@@ -853,6 +856,9 @@
     },
     "settings_directories_icon_size": {
         "message": "\ub514\ub809\ud1a0\ub9ac \uc544\uc774\ucf58 \ud06c\uae30"
+    },
+    "settings_bookmarks_dir_arrows": {
+        "message": "\ub514\ub809\ud1a0\ub9ac \ud654\uc0b4\ud45c"
     },
     "settings_bookmarks_line_height": {
         "message": "\ubd81\ub9c8\ud06c \uc120 \uad75\uae30"
@@ -980,6 +986,9 @@
     "settings_feedback_send_failed": {
         "message": "\ud53c\ub4dc\ubc31\uc774 \uc804\uc1a1\ub418\uc9c0 \uc54a\uc558\uc2b5\ub2c8\ub2e4. \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694."
     },
+    "settings_feedback_faq_headline": {
+        "message": "\ub2f9\uc2e0\uc774 \ud765\ubbf8\ub97c \uac00\uc9c8\ub9cc\ud55c \uac83"
+    },
     "settings_headline_share_userdata": {
         "message": "\uc815\ubcf4 \uacf5\uc720"
     },
@@ -991,5 +1000,116 @@
     },
     "settings_premium_invalid_key": {
         "message": "\ud504\ub9ac\ubbf8\uc5c4\uc744 \ud65c\uc131\ud654\ud560 \uc218 \uc5c6\uc2b5\ub2c8\ub2e4. \uc62c\ubc14\ub978 \ub77c\uc774\uc13c\uc2a4 \ud0a4\ub97c \uc785\ub825\ud558\uc2ed\uc2dc\uc624."
+    },
+    "premium_popup_text": {
+        "message": "\ud504\ub9ac\ubbf8\uc5c4\uc744 \ud655\uc778\ud574 \ubcf4\uc168\ub098\uc694?"
+    },
+    "premium_restricted_text": {
+        "message": "\uc774 \uae30\ub2a5\uc740 \ud504\ub9ac\ubbf8\uc5c4\uc5d0\uc11c\ub9cc \uc774\uc6a9\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
+    },
+    "premium_desc_1": {
+        "message": "\ud504\ub9ac\ubbf8\uc5c4\uc73c\ub85c \ub354 \ub9ce\uc740 \uae30\ub2a5\uc744 \uc774\uc6a9\ud558\uace0 \ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc744 \uc720\uc9c0\ud558\ub294 \ub370 \ub3c4\uc6c0\uc744 \uc8fc\uc138\uc694."
+    },
+    "premium_desc_2": {
+        "message": "\uc544\ub798\uc5d0\uc11c \ud504\ub9ac\ubbf8\uc5c4\uc5d0 \ud3ec\ud568\ub41c \uae30\ub2a5\ub4e4\uc744 \ud655\uc778\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc758 \ubaa8\ub4e0 \ud575\uc2ec \uae30\ub2a5\ub4e4\uc740 \ubb34\ub8cc\uc774\uba70 \ud504\ub9ac\ubbf8\uc5c4\uc774 \ud544\uc694\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \ud558\uc9c0\ub9cc \ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uacfc \uc800\uc758 \ub178\ub825\uc5d0 \ubcf4\ub2f5\ud558\uc2dc\uba74 \ub354 \ub9ce\uc740 \uae30\ub2a5\ub4e4\uc5d0 \uc811\uadfc\ud558\uc2e4 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
+    },
+    "premium_get_now": {
+        "message": "\ud504\ub9ac\ubbf8\uc5c4 \uc2dc\uc791\ud558\uae30"
+    },
+    "premium_show_license_input": {
+        "message": "\uc774\ubbf8 \ud504\ub9ac\ubbf8\uc5c4\uc744 \uc2dc\uc791\ud588\uc2b5\ub2c8\ub2e4"
+    },
+    "premium_already_activated": {
+        "message": "\uc774\ubbf8 \ud504\ub9ac\ubbf8\uc5c4\uc744 \uc774\uc6a9\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4"
+    },
+    "premium_activate": {
+        "message": "\ud504\ub9ac\ubbf8\uc5c4 \ud65c\uc131\ud654"
+    },
+    "premium_license_key": {
+        "message": "\ub77c\uc774\uc13c\uc2a4 \ud0a4"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "\uc0c8\ub85c\uc6b4 \uc2e4\ud5d8\uc801 \uae30\ub2a5\ub4e4\uc744 \uc2dc\ub3c4\ud574\ubcf4\ub294 \uccab \ubc88\uc9f8 \uc8fc\uc778\uacf5\uc774 \ub418\uc138\uc694"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "\ud504\ub9ac\ubbf8\uc5c4\uc5d0\uc11c \uc544\uc9c1 \uacf5\uac1c\ub418\uc9c0 \uc54a\uc740 \uac1c\ubc1c \ub2e8\uacc4\uc758 \uae30\ub2a5\ub4e4\uc5d0 \uc811\uadfc\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "\uc5b8\uc81c \uc5b4\ub514\uc11c\ub098 \uc0ac\uc774\ub4dc\ubc14\uc758 \ud3ed\uc744 \uc870\uc808\ud558\uc138\uc694"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "\uc124\uc815 \ubd88\ub7ec\uc624\uae30\uc640 \ub0b4\ubcf4\ub0b4\uae30"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "\uc0c8 \ud0ed \ud398\uc774\uc9c0 \ucee4\uc2a4\ud130\ub9c8\uc774\uc9d5"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "\ud655\uc7a5 \ud504\ub85c\uadf8\ub7a8\uc758 \uc0c8 \ud0ed \ud398\uc774\uc9c0\ub97c \ub098\ub9cc\uc758 \ubc30\uacbd \uc774\ubbf8\uc9c0\ub85c \ub354\uc6b1 \uba4b\uc9c0\uac8c \uafb8\uba70\ubcf4\uc138\uc694."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "\uc2a4\ud0c0\uc77c \uc2dc\ud2b8\ub97c \ud1b5\ud55c \ucee4\uc2a4\ud130\ub9c8\uc774\uc9d5"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "CSS\ub97c \ub2e4\ub8f0 \uc904 \uc544\uc2e0\ub2e4\uace0\uc694? \uc9c1\uc811 \uc791\uc131\ud55c \uc2a4\ud0c0\uc77c \uc2dc\ud2b8\ub97c \ud1b5\ud574 \uc0ac\uc774\ub4dc\ubc14\uc758 \ubaa8\uc2b5\uc744 \uc644\uc804\ud788 \ubc14\uafc0 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc774 \uae30\ub2a5\uc740 \ubaa8\ub4e0 \uac83\uc744 \ucee4\uc2a4\ud130\ub9c8\uc774\uc9d5 \ud560 \uc218 \uc788\uac8c \ud574\uc90d\ub2c8\ub2e4."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "\ubd81\ub9c8\ud06c\uc5d0 \uae68\uc9c4 \ub9c1\ud06c \ub610\ub294 \uc911\ubcf5\uc774 \uc788\ub294\uc9c0 \ud655\uc778\ud558\uc2ed\uc2dc\uc624."
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "\uc0ac\uc774\ub4dc \ubc14\uc5d0\uc11c \uc784\uc758\uc758 \ub514\ub809\ud1a0\ub9ac\ub97c \ub9c8\uc6b0\uc2a4 \uc624\ub978\ucabd \ubc84\ud2bc\uc73c\ub85c \ud074\ub9ad\ud558\uace0 \ud655\uc778\uc744 \uc218\ud589 \ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uacb0\uacfc \ud398\uc774\uc9c0\uc5d0\ub294 \uc5c5\ub370\uc774\ud2b8 \ub41c \ubaa8\ub4e0 URL, \ub354 \uc774\uc0c1 \uc791\ub3d9\ud558\uc9c0 \uc54a\ub294 \ucc45\uac08\ud53c \ubc0f \ub3d9\uc77c\ud55c URL\ub85c \ucc45\uac08\ud53c\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
+    },
+    "premium_pay_what_you_want": {
+        "message": "\uc6d0\ud558\ub294 \uac83\uc744 \uc9c0\ubd88\ud558\uc2ed\uc2dc\uc624."
+    },
+    "premium_pay_creditcard": {
+        "message": "\uc2e0\uc6a9 \uce74\ub4dc \ub610\ub294 \uc9c1\ubd88 \uce74\ub4dc"
+    },
+    "premium_pay_contact": {
+        "message": "\uc9c0\ubd88 \uad00\ub828 \ubb38\uc81c\uac00 \uc788\uac70\ub098 \uc9c8\ubb38 \uc0ac\ud56d\uc774\uc788\ub294 \uacbd\uc6b0 {1}\uc5d0 \ubb38\uc758\ud558\uc2ed\uc2dc\uc624."
+    },
+    "premium_pay_price_total": {
+        "message": "\ucd1d\uae08\uc561"
+    },
+    "premium_pay_eula": {
+        "message": "\ucd5c\uc885 \uc0ac\uc6a9\uc790 \uc0ac\uc6a9\uad8c \uacc4\uc57d"
+    },
+    "premium_pay_eula_desc": {
+        "message": "[a] \ucd5c\uc885 \uc0ac\uc6a9\uc790 \uc0ac\uc6a9\uad8c \uacc4\uc57d [\/a]\uc744 \uc77d\uace0 \ub3d9\uc758\ud569\ub2c8\ub2e4."
+    },
+    "premium_pay_buy": {
+        "message": "\ud504\ub9ac\ubbf8\uc5c4 \uad6c\ub9e4"
+    },
+    "premium_pay_verifying": {
+        "message": "\uac70\ub798 \ud655\uc778"
+    },
+    "premium_pay_purchase_id": {
+        "message": "\uad6c\ub9e4 ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "\uad6c\uc785 \uc8fc\uc154\uc11c \uac10\uc0ac\ud569\ub2c8\ub2e4"
+    },
+    "premium_pay_success_info": {
+        "message": "{1}\uc774 (\uac00)\uc774 \uc7a5\uce58\uc5d0 \ub300\ud574 \uc790\ub3d9\uc73c\ub85c \ud65c\uc131\ud654\ub418\uc5c8\uc2b5\ub2c8\ub2e4. \ub354 \uc774\uc0c1\uc758 \uc870\uce58\ub97c \ucde8\ud560 \ud544\uc694\ub294 \uc5c6\uc2b5\ub2c8\ub2e4."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "\ub2e4\ub978 \uc7a5\uce58\uc5d0\uc11c \ub610\ub294 \ud655\uc7a5\uc744 \ub2e4\uc2dc \uc124\uce58 \ud55c \ud6c4\uc5d0 {1}\uc744 (\ub97c) \ud65c\uc131\ud654\ud558\ub824\uba74 \ud655\uc7a5\uc758 \uc124\uc815\uc5d0 \ub2e4\uc74c \ud0a4\ub97c \uc785\ub825\ud558\uc2ed\uc2dc\uc624."
+    },
+    "premium_pay_info_email": {
+        "message": "\uc774\uba54\uc77c"
+    },
+    "premium_pay_info_name": {
+        "message": "\uc774\ub984"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "\uc6b0\ud3b8\ubc88\ud638"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "\uacb0\uc81c \uc218\ub2e8"
+    },
+    "premium_pay_info_card_number": {
+        "message": "\uce74\ub4dc \ubc88\ud638"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "\uce74\ub4dc \ub9cc\ub8cc\uc77c"
     }
 }

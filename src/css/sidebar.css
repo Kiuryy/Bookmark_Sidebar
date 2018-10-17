@@ -1288,7 +1288,8 @@ div#premiumInfo {
     transform: translate3d(0, 0, 0); }
   div#premiumInfo > p {
     margin: 0 0 10px 0;
-    font-size: 110%; }
+    font-size: 110%;
+    line-height: 140%; }
   div#premiumInfo > a {
     position: relative;
     display: inline-block;

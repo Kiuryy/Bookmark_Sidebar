@@ -599,9 +599,6 @@
     "settings_remember_state": {
         "message": "Onthoud"
     },
-    "settings_remember_desc": {
-        "message": "Selecteer wat er onthouden moet worden tijdens pagina wisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Scroll positie en geopende mappen"
     },
@@ -616,6 +613,9 @@
     },
     "settings_remember_state_nothing": {
         "message": "Niets"
+    },
+    "settings_remember_desc": {
+        "message": "Selecteer wat er onthouden moet worden tijdens pagina wisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
     },
     "settings_open_children_warn_limit": {
         "message": "Waarschuwingslimiet aantal geopende bladwijzers"

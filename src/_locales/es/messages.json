@@ -6,10 +6,10 @@
         "message": "A\u00f1ade una barra lateral con todos tus marcadores en la parte izquierda de tu pantalla."
     },
     "header_bookmarks": {
-        "message": "marcadores"
+        "message": "Marcadores"
     },
     "header_bookmarks_single": {
-        "message": "marcador"
+        "message": "Marcador"
     },
     "sidebar_dir_children": {
         "message": "Elementos"
@@ -24,7 +24,7 @@
         "message": "URL copiada al portapapeles"
     },
     "sidebar_deleted": {
-        "message": "Removida"
+        "message": "Eliminada"
     },
     "sidebar_undo_deletion": {
         "message": "Deshacer"
@@ -599,9 +599,6 @@
     "settings_remember_state": {
         "message": "Recordar"
     },
-    "settings_remember_desc": {
-        "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Posici\u00f3n de desplazamiento y directorios abiertos"
     },
@@ -616,6 +613,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nada"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Subdirectorios abiertos"
+    },
+    "settings_remember_desc": {
+        "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
     },
     "settings_open_children_warn_limit": {
         "message": "Abrir todos los elementos secundarios de un directorio (Advertencia de l\u00edmite)"
@@ -854,6 +857,9 @@
     "settings_directories_icon_size": {
         "message": "Tama\u00f1o del icono de los directorios"
     },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Flechas de los directorios"
+    },
     "settings_bookmarks_line_height": {
         "message": "Altura de la l\u00ednea de los marcadores"
     },
@@ -980,6 +986,9 @@
     "settings_feedback_send_failed": {
         "message": "Su mensaje no pudo ser enviado. Por favor intente de nuevo."
     },
+    "settings_feedback_faq_headline": {
+        "message": "Esto puede ser de tu inter\u00e9s"
+    },
     "settings_headline_share_userdata": {
         "message": "Compartir informaci\u00f3n"
     },
@@ -991,5 +1000,116 @@
     },
     "settings_premium_invalid_key": {
         "message": "No se ha podido activar Premium. Introduce una clave de licencia valida, por favor."
+    },
+    "premium_popup_text": {
+        "message": "\u00bfYa has has probado Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Esta opci\u00f3n s\u00f3lo est\u00e1 disponible en Premium"
+    },
+    "premium_desc_1": {
+        "message": "Con Premium tendr\u00e1s acceso a caracter\u00edsticas adicionales y me ayudar\u00e1s a mantener la extensi\u00f3n."
+    },
+    "premium_desc_2": {
+        "message": "Puedes ver las caracter\u00edsticas incluidas en Premium a continuaci\u00f3n. Todas las caracter\u00edsticas principales de las extensiones son de uso gratuito y no requieren Premium. Puedes pagar lo que consideres que la extensi\u00f3n y mi trabajo valen para ti, y as\u00ed obtener acceso a estas caracter\u00edsticas."
+    },
+    "premium_get_now": {
+        "message": "Hazte Premium ahora"
+    },
+    "premium_show_license_input": {
+        "message": "Ya tengo Premium"
+    },
+    "premium_already_activated": {
+        "message": "Ya est\u00e1s usando Premium"
+    },
+    "premium_activate": {
+        "message": "Activar Premium"
+    },
+    "premium_license_key": {
+        "message": "Clave de licencia"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Se el primero en probar nuevas caracter\u00edsticas adicionales"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Con Premium, tienes acceso a caracter\u00edsticas no publicadas, que actualmente est\u00e1n en desarrollo o en fase de prueba."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Cambia la anchura de la barra lateral en cualquier momento"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importar y exportar tus ajustes"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personaliza tu p\u00e1gina Nueva pesta\u00f1a"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Si est\u00e1s usando la p\u00e1gina Nueva pesta\u00f1a de esta extensi\u00f3n, puedes configurar tu propia imagen de fondo para que se vea a\u00fan mejor."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personaliza todo con tu propia hoja de estilo"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Si est\u00e1s familiarizado con CSS, puedes cambiar la apariencia completa de la barra lateral agregando tus propias definiciones de estilo. Esto te permite personalizar absolutamente todo."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Revisa tus marcadores con enlaces rotos o duplicados"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Puedes hacer clic con el bot\u00f3n derecho en cualquier directorio de la barra lateral y realizar una comprobaci\u00f3n. La p\u00e1gina de resultados mostrar\u00e1 todas las URL actualizadas, los marcadores que ya no funcionan y los marcadores con la misma URL."
+    },
+    "premium_pay_what_you_want": {
+        "message": "Paga lo que quieras"
+    },
+    "premium_pay_creditcard": {
+        "message": "Tarjeta de cr\u00e9dito o d\u00e9bito"
+    },
+    "premium_pay_contact": {
+        "message": "Si tienes alg\u00fan problema con el pago o tienes alguna pregunta, ponte en contacto conmigo en {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_eula": {
+        "message": "Acuerdo de licencia de usuario final"
+    },
+    "premium_pay_eula_desc": {
+        "message": "He le\u00eddo y acepto el [a]acuerdo de licencia de usuario final[\/a]"
+    },
+    "premium_pay_buy": {
+        "message": "Comprar Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verificando transacci\u00f3n"
+    },
+    "premium_pay_purchase_id": {
+        "message": "ID de compra"
+    },
+    "premium_pay_success_headline": {
+        "message": "Gracias por tu compra"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} se ha activado autom\u00e1ticamente para este dispositivo. No tienes que hacer nada m\u00e1s."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Si quieres activar {1} en otro dispositivo o has reinstalado la extensi\u00f3n, puedes introducir la siguiente clave en la configuraci\u00f3n de la extensi\u00f3n:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-mail"
+    },
+    "premium_pay_info_name": {
+        "message": "Nombre"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "C\u00f3digo postal"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "M\u00e9todo de pago"
+    },
+    "premium_pay_info_card_number": {
+        "message": "N\u00famero de la tarjeta"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Caducidad de la tarjeta"
     }
 }

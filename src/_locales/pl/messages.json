@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "Nie pokazuj stron"
     },
+    "newtab_upload_background": {
+        "message": "Prze\u015blij obraz t\u0142a"
+    },
     "newtab_fallback_headline_general": {
         "message": "Co\u015b zablokowa\u0142o boczn\u0105 list\u0119"
     },
@@ -497,6 +500,9 @@
     "settings_menu_support": {
         "message": "Wsparcie"
     },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
     "settings_menu_export": {
         "message": "Importuj\/Eksportuj"
     },
@@ -593,9 +599,6 @@
     "settings_remember_state": {
         "message": "Zapami\u0119taj"
     },
-    "settings_remember_desc": {
-        "message": "Wybierz co zapami\u0119ta\u0107 pomi\u0119dzy r\u00f3\u017cnymi stronami. Je\u015bli wybierzesz, aby zapami\u0119ta\u0107 ostatnio otwieran\u0105 zak\u0142adk\u0119, zostanie ona wybrana podczas nast\u0119pnego otwarcia bocznej listy."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Pozycj\u0119 przewijania i otwarte foldery"
     },
@@ -610,6 +613,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nic"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Zapami\u0119tuj otwarte katalogi"
+    },
+    "settings_remember_desc": {
+        "message": "Wybierz co zapami\u0119ta\u0107 pomi\u0119dzy r\u00f3\u017cnymi stronami. Je\u015bli wybierzesz, aby zapami\u0119ta\u0107 ostatnio otwieran\u0105 zak\u0142adk\u0119, zostanie ona wybrana podczas nast\u0119pnego otwarcia bocznej listy."
     },
     "settings_open_children_warn_limit": {
         "message": "Otw\u00f3rz wszystkie zak\u0142adki w folderze (limit ostrze\u017cenia)"
@@ -848,6 +857,9 @@
     "settings_directories_icon_size": {
         "message": "Rozmiar ikony folder\u00f3w"
     },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Strza\u0142ki przy katalogach"
+    },
     "settings_bookmarks_line_height": {
         "message": "Interlinia mi\u0119dzy zak\u0142adkami"
     },
@@ -974,10 +986,112 @@
     "settings_feedback_send_failed": {
         "message": "Twoja wiadomo\u015b\u0107 nie mog\u0142a zosta\u0107 wys\u0142ana. Prosz\u0119, spr\u00f3buj ponownie"
     },
+    "settings_feedback_faq_headline": {
+        "message": "To mo\u017ce Ci\u0119 zainteresowa\u0107"
+    },
     "settings_headline_share_userdata": {
         "message": "Udost\u0119pnianie informacji"
     },
     "settings_saved_share_userdata": {
         "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
+    },
+    "settings_premium_activated": {
+        "message": "Konto premium zosta\u0142o aktywowane"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nie mo\u017cna aktywowa\u0107 konta premium. Wprowad\u017a poprawny klucz licencyjny"
+    },
+    "premium_popup_text": {
+        "message": "Czy sprawdzi\u0142e\u015b ju\u017c konto Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Ta funkcjonalno\u015b\u0107 dost\u0119pna jest jedynie dla konta premium"
+    },
+    "premium_desc_1": {
+        "message": "Z Premium uzyskasz dost\u0119p do dodatkowych funkcjonalno\u015bci oraz pomo\u017cesz mi rozwija\u0107 rozszerzenie."
+    },
+    "premium_desc_2": {
+        "message": "Poni\u017cej mo\u017cesz sprawdzi\u0107 funkcjonalno\u015bci zawarte w Premium. Wszystkie kluczowe funkcje rozszerzenia s\u0105 w pe\u0142ni darmowe i nie wymagaj\u0105 aktywacji konta Premium. Je\u015bli chcesz uzyska\u0107 dost\u0119p do dodatkowych funkcjonalno\u015bci, mo\u017cesz zap\u0142aci\u0107 za nie ile tylko dla Ciebie warta jest moja praca."
+    },
+    "premium_get_now": {
+        "message": "Otrzymaj konto Premium ju\u017c teraz"
+    },
+    "premium_show_license_input": {
+        "message": "Mam ju\u017c konto Premium"
+    },
+    "premium_already_activated": {
+        "message": "Aktualnie korzystasz z konta premium"
+    },
+    "premium_activate": {
+        "message": "Aktywuj konto Premium"
+    },
+    "premium_license_key": {
+        "message": "Klucz licencyjny"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Uzyskaj jako pierwszy dost\u0119p do nowych eksperymentalnych funkcjonalno\u015bci"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Z Premium uzyskasz dost\u0119p do nowych nie opublikowanych funkcjonalno\u015bci, kt\u00f3re s\u0105 w dalszym ci\u0105gu rozwijane lub w trakcie testowania."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Zmieniaj szeroko\u015b\u0107 swojego paska bocznego w ka\u017cdym momencie."
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importuj i eksportuj swoje ustawienia"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Dostosuj swoj\u0105 stron\u0119 Nowej Karty"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Je\u015bli korzystasz ze strony Nowej Karty z tego rozszerzenia mo\u017cesz ustawi\u0107 w\u0142asne t\u0142o aby wygl\u0105da\u0142a jeszcze lepiej."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Dostosuj wszystko stosuj\u0105c w\u0142asne arkusze styl\u00f3w."
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Je\u015bli jeste\u015b zaznajomiony z j\u0119zykiem CSS, mo\u017cesz ca\u0142kowicie zmieni\u0107 wygl\u0105d paska bocznego dodaj\u0105c w\u0142asne arkusze styl\u00f3w. To pozwoli Ci na dostosowanie praktycznie wszystkiego."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Sprawd\u017a swoje zak\u0142adki w poszukiwaniu uszkodzonych lub zduplikowanych link\u00f3w"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Zap\u0142a\u0107 ile chcesz"
+    },
+    "premium_pay_creditcard": {
+        "message": "Karta kredytowa lub debetowa"
+    },
+    "premium_pay_price_total": {
+        "message": "Suma"
+    },
+    "premium_pay_buy": {
+        "message": "Kup Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Zweryfikuj transakcj\u0119"
+    },
+    "premium_pay_purchase_id": {
+        "message": "ID zakupu"
+    },
+    "premium_pay_success_headline": {
+        "message": "Dzi\u0119kuj\u0119 za Tw\u00f3j zakup"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_name": {
+        "message": "Imi\u0119"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Kod pocztowy"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Metoda p\u0142atno\u015bci"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Numer karty"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Data wyga\u015bni\u0119cia karty"
     }
 }

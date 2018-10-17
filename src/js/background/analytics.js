@@ -53,7 +53,7 @@
             } catch (e) {
                 //
             }
-            trackConfiguration();
+
             if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 

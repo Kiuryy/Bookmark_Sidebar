@@ -674,7 +674,7 @@
                                     let el = e.target;
                                     while (el && el !== node) {
                                         if (el === element) {
-                                            const clonedEventObj = new MouseEvent(eventInfo[0], e);
+                                            const clonedEventObj = eventInfo[0].startsWith("key") ? new KeyboardEvent(eventInfo[0], e) : new MouseEvent(eventInfo[0], e);
                                             updateEventObject(clonedEventObj, {
                                                 preventDefault: opts.preventDefault,
                                                 stopPropagation: opts.stopPropagation,

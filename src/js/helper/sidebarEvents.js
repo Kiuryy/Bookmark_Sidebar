@@ -33,6 +33,15 @@
             }
         };
 
+        /**
+         * Handles the click on one of the entries in the sidebar,
+         * either opens the url, if the clicked entry was a bookmark,
+         * or opens/closes the directory
+         *
+         * @param {jsu} elm
+         * @param {object} opts
+         * @returns {boolean}
+         */
         this.handleEntryClick = (elm, opts) => {
             const data = ext.helper.entry.getDataById(elm.attr($.attr.id));
             if (!data) {

@@ -76,6 +76,10 @@
                             hoverNextContextmenuEntry();
                         } else {
                             hoverNextPrevEntry(e.shiftKey ? "prev" : "next");
+                            const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                            if (searchField[0]) {
+                                searchField[0].blur();
+                            }
                         }
                     } else if (e.key === "Enter") { // click the current entry
                         e.preventDefault();
@@ -99,7 +103,7 @@
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         copyHoveredEntryUrl();
-                    } else { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
+                    } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command") { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
                         const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
 
                         if (searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) {

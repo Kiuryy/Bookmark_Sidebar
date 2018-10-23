@@ -72,7 +72,6 @@
          */
         const handleSearch = (searchField, val) => {
             return new Promise((resolve) => {
-                const isFirstRun = ext.firstRun;
                 ext.elm.bookmarkBox.all.removeClass($.cl.active).removeClass($.cl.scrollBox.scrolled);
                 ext.elm.bookmarkBox.search.addClass($.cl.active);
                 ext.helper.scroll.focus();
@@ -100,7 +99,7 @@
                             $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elm.bookmarkBox.search);
                         }
 
-                        ext.endLoading(500);
+                        ext.endLoading(100);
                         resolve();
                     });
                 }
@@ -201,7 +200,17 @@
 
                 searchTimeout = setTimeout(() => {
                     this.update();
-                }, 500);
+                }, 300);
+            }).on("keydown", "div." + $.cl.sidebar.searchBox + " > input[type='text']", (e) => { // if there is only one search result, 'enter' will perform a click on this entry
+                if (e.key && e.key.toUpperCase() === "ENTER") {
+                    const searchResults = ext.elm.bookmarkBox.search.find("> ul > li");
+
+                    if (searchResults.length() === 1) {
+                        ext.helper.sidebarEvents.handleEntryClick(searchResults.eq(0).children("a"), {
+                            ctrlKey: (e.ctrlKey || e.metaKey)
+                        });
+                    }
+                }
             });
 
             ext.elm.header.on("click", "a." + $.cl.sidebar.searchClose, (e) => {

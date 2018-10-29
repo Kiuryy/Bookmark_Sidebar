@@ -614,6 +614,9 @@
     "settings_remember_state_nothing": {
         "message": "Niente"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Ricorda le sottodirectory aperte"
+    },
     "settings_remember_desc": {
         "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
     },
@@ -854,6 +857,9 @@
     "settings_directories_icon_size": {
         "message": "Dimensione dell'icona delle cartelle"
     },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Frecce delle directory"
+    },
     "settings_bookmarks_line_height": {
         "message": "Altezza della riga dei preferiti"
     },
@@ -979,6 +985,9 @@
     },
     "settings_feedback_send_failed": {
         "message": "Il tuo messaggio non \u00e8 stato inviato. Riprova."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "Potrebbe interessarti"
     },
     "settings_headline_share_userdata": {
         "message": "Condividi informazioni"

@@ -219,7 +219,7 @@
          * @returns {string}
          */
         this.getUserType = () => {
-            return userType;
+            return "premium";
         };
 
         /**

@@ -196,6 +196,10 @@ div.contextmenu {
           @include maskImage('icon-delete');
         }
 
+        &[data-name='edit']::before {
+          @include maskImage('icon-edit');
+        }
+
         &[data-name='checkBookmarks']::before {
           @include maskImage('icon-update');
         }

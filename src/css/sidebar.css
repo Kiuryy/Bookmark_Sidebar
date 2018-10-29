@@ -202,6 +202,8 @@ div.contextmenu {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-incognito.svg); }
       div.contextmenu > ul.list > li > a[data-name='delete']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-delete.svg); }
+      div.contextmenu > ul.list > li > a[data-name='edit']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg); }
       div.contextmenu > ul.list > li > a[data-name='checkBookmarks']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg); }
       div.contextmenu > ul.list > li > a[data-name='showInDir']::before {
@@ -547,6 +549,14 @@ a.dragHelper {
         width: 100%;
         height: 1px;
         background: rgba(0, 0, 0, 0.15); }
+      a.dragHelper.separator > span.label[data-name]::before {
+        content: attr(data-name);
+        position: relative;
+        background: #fff;
+        margin: 0 calc(%bookmarksHorizontalPadding + %directoriesIconSize);
+        box-shadow: 0 0 0 10px #fff;
+        font-style: italic;
+        z-index: 2; }
   a.dragHelper > span.removeMask {
     position: absolute;
     top: 0;
@@ -556,7 +566,8 @@ a.dragHelper {
     background: #ddd;
     padding: 0 "%bookmarksHorizontalPadding";
     transform: translateX(100%);
-    transition: transform 0.3s; }
+    transition: transform 0.3s;
+    z-index: 3; }
     a.dragHelper > span.removeMask > em {
       font-style: italic; }
     a.dragHelper > span.removeMask > span {
@@ -697,6 +708,8 @@ a.dragHelper {
       transition: inherit; }
     a.dragHelper > span.drag:hover {
       background-color: rgba(0, 0, 0, 0.125); }
+  a.dragHelper.separator {
+    background: #fff; }
   a.dragHelper > span.drag {
     display: block;
     background-color: rgba(0, 0, 0, 0.1); }
@@ -712,8 +725,7 @@ a.dragHelper {
       background-color: #888; }
   a.dragHelper.snap {
     transition: 0.2s;
-    box-shadow: none;
-    background: #fff; }
+    box-shadow: none; }
 
 section#sidebar {
   position: relative;
@@ -1013,6 +1025,14 @@ section#sidebar {
               width: 100%;
               height: 1px;
               background: rgba(0, 0, 0, 0.15); }
+            section#sidebar > div.scrollBox > ul a.separator > span.label[data-name]::before, section#sidebar > div.scrollBox > div.pinned > ul a.separator > span.label[data-name]::before {
+              content: attr(data-name);
+              position: relative;
+              background: #fff;
+              margin: 0 calc(%bookmarksHorizontalPadding + %directoriesIconSize);
+              box-shadow: 0 0 0 10px #fff;
+              font-style: italic;
+              z-index: 2; }
         section#sidebar > div.scrollBox > ul a > span.removeMask, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask {
           position: absolute;
           top: 0;
@@ -1022,7 +1042,8 @@ section#sidebar {
           background: #ddd;
           padding: 0 "%bookmarksHorizontalPadding";
           transform: translateX(100%);
-          transition: transform 0.3s; }
+          transition: transform 0.3s;
+          z-index: 3; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > em, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > em {
             font-style: italic; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > span, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > span {
@@ -1546,6 +1567,9 @@ body.dark section#sidebar {
     border-color: rgba(255, 255, 255, 0.2); }
   body.dark section#sidebar > div.scrollBox > ul a.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
+  body.dark section#sidebar > div.scrollBox > ul a.separator > span.label[data-name]::before {
+    background: #3d3d3d;
+    box-shadow: 0 0 0 10px #3d3d3d; }
   body.dark section#sidebar > div.scrollBox > ul a > span.removeMask {
     background: #666; }
   body.dark section#sidebar > div.scrollBox > ul a > span.drag {
@@ -1568,6 +1592,9 @@ body.dark section#sidebar {
     background: #3d3d3d; }
   body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
     background: rgba(255, 255, 255, 0.15); }
+  body.dark section#sidebar ~ a.dragHelper.separator > span.label[data-name]::before {
+    background: #3d3d3d;
+    box-shadow: 0 0 0 10px #3d3d3d; }
   body.dark section#sidebar ~ a.dragHelper > span.removeMask {
     background: #666; }
   body.dark section#sidebar ~ a.dragHelper > span.drag {
@@ -1579,6 +1606,8 @@ body.dark section#sidebar {
       body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
         background-color: #eee; }
   body.dark section#sidebar ~ a.dragHelper.snap {
+    background: #3d3d3d; }
+  body.dark section#sidebar ~ a.dragHelper.separator {
     background: #3d3d3d; }
 
 body.dark div#premiumInfo {

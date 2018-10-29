@@ -486,7 +486,35 @@ div.modal {
 
       > li {
         display: flex;
+        flex-flow: row wrap;
         margin: 20px 0 30px 0;
+
+        > span {
+          margin-top: 20px;
+          font-size: 120%;
+          line-height: 150%;
+        }
+
+        > span.experimental { // @experimental (11/2018)
+          @include mask('icon-experimental', $__textColor, 20px);
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 20px;
+          margin: 0 0 0 7px;
+          opacity: 0.5;
+
+          &::before {
+            -webkit-mask-position-x: 0;
+          }
+
+          &::after {
+            content: "Experimental feature";
+            padding-left: 34px;
+            margin: -2px 0 0 0;
+            display: block;
+          }
+        }
 
         > label {
           font-size: 140%;
@@ -580,6 +608,10 @@ div.modal {
       &.visible {
         @extend %visible;
         transform: translate3d(0, 0, 0);
+      }
+
+      > li > span {
+        margin-top: -20px;
       }
     }
 

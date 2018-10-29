@@ -27,7 +27,7 @@
             $(overlay[0].contentDocument).on("keydown", (e) => {
                 if (e.key === "Escape" || e.key === "Esc") { // close overlay
                     e.preventDefault();
-                    ext.helper.overlay.closeOverlay(true);
+                    ext.helper.overlay.closeOverlay();
                 } else if (e.key === "Enter") { // submit
                     const activeElm = overlay[0].contentDocument.activeElement;
 

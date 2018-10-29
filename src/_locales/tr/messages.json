@@ -1,9 +1,9 @@
 {
     "extension_name": {
-        "message": "Yer \u0130\u015fareti \u00c7ubu\u011fu"
+        "message": "Yer \u0130\u015faretleri \u00c7ubu\u011fu"
     },
     "extension_desc": {
-        "message": "Ekran\u0131n\u0131z\u0131n sol taraf\u0131na yer i\u015faretleriniz i\u00e7in a\u00e7\u0131l\u0131p kapanabilen bir \u00e7ubuk ekler."
+        "message": "Taray\u0131c\u0131n\u0131z\u0131n kenarlar\u0131na yer i\u015faretleriniz i\u00e7in a\u00e7\u0131l\u0131p kapanabilen bir \u00e7ubuk ekler."
     },
     "header_bookmarks": {
         "message": "Yer i\u015faretleri"
@@ -247,6 +247,9 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Sayfalar\u0131 g\u00f6sterme"
+    },
+    "newtab_upload_background": {
+        "message": "Arka plan g\u00f6r\u00fcnt\u00fcs\u00fc ekleyin"
     },
     "newtab_fallback_headline_general": {
         "message": "Bir \u015fey kenar \u00e7ubu\u011funu engelledi"
@@ -608,6 +611,9 @@
     "settings_remember_state_nothing": {
         "message": "Hi\u00e7bir \u015fey"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "\u00c7ubuktaki a\u00e7\u0131k konumu hat\u0131rla"
+    },
     "settings_remember_desc": {
         "message": "Sayfa de\u011fi\u015fikliklerinde ne hat\u0131rlanaca\u011f\u0131n\u0131 se\u00e7in. Son a\u00e7\u0131lan yer imini hat\u0131rlamay\u0131 se\u00e7erseniz, kenar \u00e7ubu\u011funu tekrar a\u00e7arken i\u015faretlenir."
     },
@@ -847,6 +853,9 @@
     },
     "settings_directories_icon_size": {
         "message": "Klas\u00f6rler simge boyutu"
+    },
+    "settings_bookmarks_dir_arrows": {
+        "message": "\u0130\u015faret oklar\u0131"
     },
     "settings_bookmarks_line_height": {
         "message": "Bookmark \u00e7izgi geni\u015fli\u011fi"

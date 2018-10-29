@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Edit Directory"
     },
+    "contextmenu_edit_separator": {
+        "message": "Edit Separator"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Delete Bookmark"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Separator"
+    },
+    "overlay_separator_title_desc": {
+        "message": "You can optionally enter a title for the separator. It will be displayed on top of the separator line and can help you organising your bookmark list."
     },
     "overlay_bookmark_views": {
         "message": "Views"

@@ -150,19 +150,16 @@
 
         /**
          * Returns whether the given entry is a separator,
-         * if the url is 'about:blank' and the title only contains dashes or underscores, the method will return true
+         * if the url is 'about:blank' and the title begins and ends with at least 3 dashes or underscores, the method will return true
          *
          * @param {int} id
          * @returns {boolean}
          */
         this.isSeparator = (id) => {
             let ret = false;
-
             if (typeof entries.bookmarks[id] === "object") {
-                const titleFiltered = entries.bookmarks[id].title.replace(/[^-_]/g, "");
-                ret = entries.bookmarks[id].url === "about:blank" && titleFiltered.length === entries.bookmarks[id].title.length;
+                ret = entries.bookmarks[id].url === "about:blank" && /^[-_]{3,}/.test(entries.bookmarks[id].title) && /[-_]{3,}$/.test(entries.bookmarks[id].title);
             }
-
             return ret;
         };
 

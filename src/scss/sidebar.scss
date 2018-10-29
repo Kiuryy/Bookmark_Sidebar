@@ -43,6 +43,10 @@ a.dragHelper {
   transition: none;
   z-index: 3;
 
+  &.separator {
+    background: $contentBackground;
+  }
+
   > span.drag {
     display: block;
     background-color: rgba(0, 0, 0, 0.1);
@@ -52,7 +56,6 @@ a.dragHelper {
   &.snap {
     transition: 0.2s;
     box-shadow: none;
-    background: $contentBackground;
   }
 }
 

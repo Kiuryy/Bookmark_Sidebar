@@ -1061,8 +1061,17 @@
     "premium_pay_creditcard": {
         "message": "Karta kredytowa lub debetowa"
     },
+    "premium_pay_contact": {
+        "message": "Je\u015bli napotkasz jakiekolwiek problemy z p\u0142atno\u015bci\u0105 lub masz jakie\u015b pytania, skontaktuj si\u0119 ze mn\u0105 pod adresem {1}."
+    },
     "premium_pay_price_total": {
         "message": "Suma"
+    },
+    "premium_pay_eula": {
+        "message": "Umowa licencyjna"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Przeczyta\u0142em i akceptuj\u0119 [a]Umow\u0119 Licencyjn\u0105 U\u017cytkownika Ko\u0144cowego[\/a]"
     },
     "premium_pay_buy": {
         "message": "Kup Premium"

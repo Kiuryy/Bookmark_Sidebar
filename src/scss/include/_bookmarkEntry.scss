@@ -47,6 +47,16 @@
         height: 1px;
         background: $separatorColor;
       }
+
+      &[data-name]::before {
+        content: attr(data-name);
+        position: relative;
+        background: $contentBackground;
+        margin: 0 calc(#{$__bookmarksHorizontalPadding} + #{$__directoriesIconSize});
+        box-shadow: 0 0 0 10px $contentBackground;
+        font-style: italic;
+        z-index: 2;
+      }
     }
   }
 
@@ -60,6 +70,7 @@
     padding: 0 $__bookmarksHorizontalPadding;
     transform: translateX(100%);
     transition: transform 0.3s;
+    z-index: 3;
 
     > em {
       font-style: italic;

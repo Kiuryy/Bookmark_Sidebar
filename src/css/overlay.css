@@ -612,7 +612,36 @@ div.modal {
     padding: 2px 30px; }
     div.modal[data-type='edit'] > ul > li, div.modal[data-type='add'] > ul > li {
       display: flex;
+      flex-flow: row wrap;
       margin: 20px 0 30px 0; }
+      div.modal[data-type='edit'] > ul > li > span, div.modal[data-type='add'] > ul > li > span {
+        margin-top: 20px;
+        font-size: 120%;
+        line-height: 150%; }
+      div.modal[data-type='edit'] > ul > li > span.experimental, div.modal[data-type='add'] > ul > li > span.experimental {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 20px;
+        margin: 0 0 0 7px;
+        opacity: 0.5; }
+        div.modal[data-type='edit'] > ul > li > span.experimental::before, div.modal[data-type='add'] > ul > li > span.experimental::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-mask: no-repeat center/20px;
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-experimental.svg);
+          background-color: "%textColor"; }
+        div.modal[data-type='edit'] > ul > li > span.experimental::before, div.modal[data-type='add'] > ul > li > span.experimental::before {
+          -webkit-mask-position-x: 0; }
+        div.modal[data-type='edit'] > ul > li > span.experimental::after, div.modal[data-type='add'] > ul > li > span.experimental::after {
+          content: "Experimental feature";
+          padding-left: 34px;
+          margin: -2px 0 0 0;
+          display: block; }
       div.modal[data-type='edit'] > ul > li > label, div.modal[data-type='add'] > ul > li > label {
         font-size: 140%;
         padding: 4px 0;
@@ -668,6 +697,8 @@ div.modal {
     transform: translate3d(0, 15px, 0); }
     div.modal[data-type='add'] > ul.visible {
       transform: translate3d(0, 0, 0); }
+    div.modal[data-type='add'] > ul > li > span {
+      margin-top: -20px; }
   div.modal[data-type='add'] > menu[data-name='select'] {
     position: absolute;
     top: 0;

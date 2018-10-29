@@ -1,7 +1,15 @@
 @mixin darkBookmarkEntry {
 
-  &.separator > span.label::after {
-    background: $darkSeparatorColor;
+  &.separator > span.label {
+
+    &::after {
+      background: $darkSeparatorColor;
+    }
+
+    &[data-name]::before {
+      background: $darkContentBackground;
+      box-shadow: 0 0 0 10px $darkContentBackground;
+    }
   }
 
   > span.removeMask {

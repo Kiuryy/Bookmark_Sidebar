@@ -67,6 +67,10 @@ body.dark {
 
     ~ a.dragHelper {
       @include darkBookmarkEntry;
+
+      &.separator {
+        background: $darkContentBackground;
+      }
     }
   }
 

@@ -2,7 +2,7 @@
     "use strict";
 
     /**
-     * @requires helper: model, i18n, tooltip, stylesheet, keyboard, scroll, checkbox, template, utility
+     * @requires helper: model, i18n, tooltip, stylesheet, keyboard, entry, scroll, checkbox, template, utility
      * @param {object} ext
      * @constructor
      */
@@ -64,7 +64,11 @@
                     break;
                 }
                 case "edit": {
-                    handleEditHtml(data);
+                    if (ext.helper.entry.isSeparator(data.id)) {
+                        handleEditSeparatorHtml(data);
+                    } else {
+                        handleEditHtml(data);
+                    }
                     break;
                 }
                 case "infos": {
@@ -130,7 +134,11 @@
                     break;
                 }
                 case "edit": {
-                    editEntry(data);
+                    if (ext.helper.entry.isSeparator(data.id)) {
+                        editSeparator(data);
+                    } else {
+                        editEntry(data);
+                    }
                     break;
                 }
                 case "add": {
@@ -142,11 +150,8 @@
 
         /**
          * Closes the overlay
-         *
-         * @param {boolean} cancel
-         * @param {string} labelAdd what to add the tracking event label
          */
-        this.closeOverlay = (cancel = false, labelAdd = "") => {
+        this.closeOverlay = () => {
             ext.helper.utility.triggerEvent("overlayClosed");
 
             ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
@@ -319,6 +324,26 @@
         };
 
         /**
+         * Extends the overlay html for the edit operation of a separator
+         *
+         * @param {object} data
+         */
+        const handleEditSeparatorHtml = (data) => {
+            const list = $("<ul />").appendTo(elements.modal);
+            const title = data.title.replace(/'/g, "&#x27;").replace(/(^[-_]+|[-_]+$)/g, "").trim();
+
+            $("<li />").html("<span>" + ext.helper.i18n.get("overlay_separator_title_desc") + "</span>").appendTo(list);
+            $("<li />")
+                .append("<label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label>")
+                .append("<input type='text' name='title' value='" + title + "' />")
+                .appendTo(list);
+
+            $("<li />").append("<span class='experimental' title='Experimental' />").appendTo(list); // @experimental (10/2018)
+
+            $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+        };
+
+        /**
          * Extends the overlay html for the edit operation
          *
          * @param {object} data
@@ -408,41 +433,51 @@
             }).on("click", (e) => {
                 e.preventDefault();
                 const type = $(e.currentTarget).attr($.attr.type);
+                const list = $("<ul />").attr($.attr.type, type).appendTo(elements.modal);
+
+                if (type === "separator" && ext.helper.model.getUserType() !== "premium") { // @experimental (10/2018)
+                    addSeparator(data);
+                    return;
+                }
+
+                let titleValue = "";
+                let urlValue = "";
+
+                if (type === "bookmark") { // default bookmark values -> current page information
+                    titleValue = $(document).find("head > title").eq(0).text();
+                    urlValue = location.href;
+                }
+
+                if (data && data.values) { // fill fields with given values
+                    titleValue = data.values.title || "";
+                    urlValue = data.values.url || "";
+                }
+
+                list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
 
                 if (type === "separator") {
-                    addSeparator(data);
-                } else {
-                    const list = $("<ul />").appendTo(elements.modal);
-
-                    let titleValue = "";
-                    let urlValue = "";
-
-                    if (type === "bookmark") { // default bookmark values -> current page information
-                        titleValue = $(document).find("head > title").eq(0).text();
-                        urlValue = location.href;
-                    }
-
-                    if (data && data.values) { // fill fields with given values
-                        titleValue = data.values.title || "";
-                        urlValue = data.values.url || "";
-                    }
-
-                    list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");
-                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue.replace(/'/g, "&#x27;") + "' /></li>");
-
-                    if (type === "bookmark") {
-                        list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
-                    }
-
-                    menu.addClass($.cl.hidden);
-                    menu.children("a").removeClass($.cl.hover);
-
-                    $.delay(data && data.values ? 0 : 100).then(() => {
-                        list.addClass($.cl.visible);
-                        list.find("input")[0].focus();
-                        submit.addClass($.cl.visible);
-                    });
+                    list.append("<li><span>" + ext.helper.i18n.get("overlay_separator_title_desc") + "</span></li>");
                 }
+
+                list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue.replace(/'/g, "&#x27;") + "' /></li>");
+
+                if (type === "separator") { // @experimental (10/2018)
+                    list.append("<li><span class='experimental' title='Experimental' /></li>");
+                }
+
+                if (type === "bookmark") {
+                    list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
+                }
+
+                menu.addClass($.cl.hidden);
+                menu.children("a").removeClass($.cl.hover);
+
+                $.delay(data && data.values ? 0 : 100).then(() => {
+                    list.addClass($.cl.visible);
+                    list.find("input")[0].focus();
+                    submit.addClass($.cl.visible);
+                });
+
             });
 
             if (data && data.values) { // add bookmark with existing data (e.g. after dragging url into sidebar)
@@ -583,6 +618,24 @@
         };
 
         /**
+         * Updates the title of the given separator
+         *
+         * @param {object} data
+         */
+        const editSeparator = (data) => {
+            const title = elements.modal.find("input[name='title']")[0].value.trim();
+
+            ext.helper.bookmark.editEntry({
+                id: data.id,
+                title: title.length > 0 ? "---- " + title + " ----" : "----------",
+                url: "about:blank",
+            }).then(() => {
+                ext.helper.model.call("reload", {type: "Edit"});
+                this.closeOverlay();
+            });
+        };
+
+        /**
          * Updates the given bookmark or directory (title, url and additional info)
          *
          * @param {object} data
@@ -634,15 +687,24 @@
          * @param {object} data
          */
         const addSeparator = (data) => {
+            // @experimental [START] -> direct creation of separators is only supported until the experimental implementation with mandatory title field is being shipped to everybody (11/2018)
+            let title = "";
+            if (elements.modal.find("input[name='title']").length() > 0) {
+                title = elements.modal.find("input[name='title']")[0].value.trim();
+            }
+            // @experimental [END] -> direct creation of separators is only supported until the experimental implementation with mandatory title field is being shipped to everybody (11/2018)
+
+            // const title = elements.modal.find("input[name='title']")[0].value.trim();
+
             const parentId = data.id || null;
 
             ext.helper.model.call("createBookmark", {
-                title: "----------",
+                title: title.length > 0 ? "---- " + title + " ----" : "----------",
                 url: "about:blank",
                 parentId: data.id || null,
                 index: getIndexOfNewEntry(parentId)
             }).then(() => {
-                this.closeOverlay(false, "_separator");
+                this.closeOverlay();
             });
         };
 
@@ -652,35 +714,39 @@
          * @param {object} data
          */
         const addEntry = (data) => {
-            const formValues = getFormValues(elements.modal.find("input[name='url']").length() === 0);
+            if (elements.modal.children("ul").attr($.attr.type) === "separator") {
+                addSeparator(data);
+            } else {
+                const formValues = getFormValues(elements.modal.find("input[name='url']").length() === 0);
 
-            if (formValues.errors === false) {
-                const obj = {
-                    title: formValues.values.title,
-                    url: formValues.values.url,
-                    parentId: data.id || null,
-                    index: 0
-                };
+                if (formValues.errors === false) {
+                    const obj = {
+                        title: formValues.values.title,
+                        url: formValues.values.url,
+                        parentId: data.id || null,
+                        index: 0
+                    };
 
-                if (data && data.values) { // use given data (available e.g. after dragging a url into the sidebar)
-                    if (data.values.index) {
-                        obj.index = data.values.index;
-                    }
+                    if (data && data.values) { // use given data (available e.g. after dragging a url into the sidebar)
+                        if (data.values.index) {
+                            obj.index = data.values.index;
+                        }
 
-                    if (data.values.parentId) {
-                        obj.parentId = data.values.parentId;
-                    }
-                } else {
-                    obj.index = getIndexOfNewEntry(obj.parentId);
-                }
-
-                ext.helper.model.call("createBookmark", obj).then((result) => {
-                    if (result.error) {
-                        elements.modal.find("input[name='url']").addClass($.cl.error);
+                        if (data.values.parentId) {
+                            obj.parentId = data.values.parentId;
+                        }
                     } else {
-                        this.closeOverlay(false, "_" + (obj.url ? "bookmark" : "directory"));
+                        obj.index = getIndexOfNewEntry(obj.parentId);
                     }
-                });
+
+                    ext.helper.model.call("createBookmark", obj).then((result) => {
+                        if (result.error) {
+                            elements.modal.find("input[name='url']").addClass($.cl.error);
+                        } else {
+                            this.closeOverlay();
+                        }
+                    });
+                }
             }
         };
 
@@ -693,13 +759,13 @@
                 clickstart = e.target;
             }).on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY" && clickstart.tagName === "BODY") {
-                    this.closeOverlay(true);
+                    this.closeOverlay();
                 }
             });
 
             elements.modal.find("a." + $.cl.close).on("click", (e) => { // close overlay by close button
                 e.preventDefault();
-                this.closeOverlay(true);
+                this.closeOverlay();
             });
 
             elements.modal.on("click", "a." + $.cl.overlay.action, (e) => { // perform the action

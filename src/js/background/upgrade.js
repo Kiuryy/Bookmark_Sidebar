@@ -90,6 +90,7 @@
                     try {
                         delete obj.behaviour.initialOpenOnNewTab;
                         delete obj.behaviour.rememberSearch;
+                        delete obj.behaviour.rememberScroll;
                         delete obj.behaviour.autoOpen;
                         delete obj.behaviour.pxTolerance;
                         delete obj.behaviour.scrollSensitivity;
@@ -98,6 +99,7 @@
                         delete obj.behaviour.language;
                         delete obj.appearance.language;
                         delete obj.appearance.sidebarPosition;
+                        delete obj.appearance.addVisual;
                         delete obj.newtab.initialOpen;
                     } catch (e) {
                         //

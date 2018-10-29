@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Verzeichnis bearbeiten"
     },
+    "contextmenu_edit_separator": {
+        "message": "Trennlinie bearbeiten"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Lesezeichen l\u00f6schen"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Trennlinie"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Du kannst der Trennlinie optional einen Titel geben. Dieser wird auf der Linie angezeigt und kann dir beim Organisieren deiner Lesezeichenliste helfen."
     },
     "overlay_bookmark_views": {
         "message": "Aufrufe"

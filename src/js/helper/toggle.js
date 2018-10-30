@@ -21,6 +21,7 @@
         const timeout = {};
         let keypressed = null;
         let hoveredOnce = false;
+        let lastFocussed = null;
 
         /**
          * Initializes the sidebar toggle
@@ -32,6 +33,10 @@
 
             if (ext.helper.model.getData("b/animations") === false) {
                 ext.elm.indicator.addClass($.cl.page.noAnimations);
+            }
+
+            if (document.activeElement) {
+                lastFocussed = document.activeElement;
             }
 
             const data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
@@ -111,6 +116,10 @@
                 ext.elm.iframe.removeClass($.cl.page.visible);
                 $("body").removeClass($.cl.page.noscroll);
                 $(document).trigger("mousemove.bs"); // hide indicator
+
+                if (lastFocussed && typeof lastFocussed.focus === "function") { // try to restore the focus on the website
+                    lastFocussed.focus();
+                }
             }
         };
 
@@ -250,6 +259,10 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
+            $(document).on("focus", "input,textarea", (e) => { // save the last focussed form element of the website -> will be restored when closing the sidebar
+                lastFocussed = e.target;
+            }, {capture: true});
+
             $(window).on("resize.bs", () => {
                 ext.elm.indicator.css("width", getToggleAreaWidth() + "px");
             });

@@ -10,8 +10,8 @@
     "url": "https://github.com/Kiuryy/Bookmark_Sidebar"
   },
   "scripts": {
-    "init": "npm install --only=dev && npm run release",
-    "release": "ncu -a --packageFile package.json && npm update && node build/run.js",
+    "init": "npm install --only=dev",
+    "release": "ncu -a --packageFile package.json && npm install --only=dev && node build/run.js",
     "scss": "node-sass --source-map true -o src/css src/scss"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "npm-check-updates": "^2.14.2",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
-    "terser": "^3.10.4",
+    "terser": "^3.10.8",
     "zip-dir": "^1.0.2"
   }
 }

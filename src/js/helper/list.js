@@ -10,6 +10,7 @@
 
         let restoreOpenStateRunning = 0;
         let sort = null;
+        let dirOpenDuration = 0;
 
         /**
          *
@@ -30,6 +31,9 @@
                     }
                 });
             });
+
+            const dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
+            dirOpenDuration = +dirOpenDurationRaw * 1000;
 
             this.updateBookmarkBox();
         };
@@ -201,12 +205,24 @@
                 if (close) { // close children
                     expandCollapseDir(elm, childrenList, false, instant).then(preResolve);
                 } else { // open children
-                    if (ext.helper.model.getData("b/dirAccordion")) { // close all directories except the current one and its parents
+                    if (ext.helper.model.getData("b/dirAccordion") && cache === true) { // close all directories except the current one and its parents
                         const visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
 
-                        ext.elm.bookmarkBox[visibleBox].find("a." + $.cl.sidebar.dirOpened).forEach((dir) => {
-                            if ($(dir).next("ul").find("a[" + $.attr.id + "='" + dirId + "']").length() === 0) {
-                                this.toggleBookmarkDir($(dir), instant, false);
+                        $([
+                            ext.elm.bookmarkBox[visibleBox].find("a." + $.cl.sidebar.dirOpened), // opened directory
+                            ext.elm.bookmarkBox[visibleBox].find("a." + $.cl.sidebar.dirAnimated + ":not(" + $.cl.sidebar.dirOpened + ")") // not yet opened directory
+                        ]).forEach((dir) => {
+                            if (dir !== elm[0] && $(dir).next("ul").find("a[" + $.attr.id + "='" + dirId + "']").length() === 0) {
+                                let delay = 0;
+
+                                if ($(dir).hasClass($.cl.sidebar.dirAnimated)) { // another directory is being opened already -> wait until the animation is finished to prevent visual bugs
+                                    delay = dirOpenDuration;
+                                }
+
+                                $.delay(instant ? 0 : delay).then(() => {
+                                    $(dir).addClass($.cl.sidebar.dirOpened); // add class to properly close it
+                                    this.toggleBookmarkDir($(dir), instant, false).then(preResolve);
+                                });
                             }
                         });
                     }
@@ -410,14 +426,14 @@
         this.addBookmarkDir = (bookmarks, list, asTree = true, sorting = true) => {
             let hasEntries = false;
             const showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
-            const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "b/dirOpenDuration", "u/showHidden"]);
+            const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "u/showHidden"]);
 
             if (list.parents("li").length() === 0) {
                 if (ext.helper.search.isResultsVisible() === false) { // don't show in search results
                     updatePinnedEntries(config);
                 }
             } else {
-                list.css("transition", "height " + config.dirOpenDuration + "s");
+                list.css("transition", "height " + dirOpenDuration + "ms");
             }
 
             let bookmarkCounter = 0;
@@ -713,7 +729,7 @@
                 list.css("height", list[0].scrollHeight + "px");
 
                 if (open === false) { // parameter false -> close list
-                    $.delay(0).then(() => {
+                    $.delay(50).then(() => {
                         list.css("height", 0);
                     });
                 }
@@ -733,9 +749,7 @@
                     }
                 }
 
-                const dirOpenDurationRaw = ext.helper.model.getData("b/dirOpenDuration");
-
-                $.delay(instant ? 0 : (+dirOpenDurationRaw * 1000)).then(() => { // unset changes in css, so opening of children in child list works properly
+                $.delay(instant ? 20 : dirOpenDuration).then(() => { // unset changes in css, so opening of children in child list works properly
                     if (open === false) {
                         elm.removeClass($.cl.sidebar.dirOpened);
                     } else {

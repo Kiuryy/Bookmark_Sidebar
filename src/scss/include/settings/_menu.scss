@@ -58,8 +58,8 @@ body > section#wrapper {
             }
           }
 
-          &[data-name='support'] > a {
-            @include mask('settings/icon-support', $textColor, 18px);
+          &[data-name='infos'] > a {
+            @include mask('icon-info', $textColor, 20px);
           }
 
           &[data-name='language'] {

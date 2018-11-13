@@ -1,0 +1,147 @@
+body > section#wrapper {
+
+  div[data-name="aboutme"] {
+
+    > div {
+      position: relative;
+      max-width: 1024px;
+      margin: 20px auto 40px;
+      display: flex;
+
+      @media (max-width: 1080px) {
+        flex-direction: column;
+      }
+
+      > div.desc {
+        @include mask('settings/icon-quote', $textColorLight, 36px);
+        position: relative;
+        padding: 17px 40px 0 50px;
+        text-align: justify;
+        flex: 1;
+
+        > p {
+          font-size: 110%;
+          line-height: 200%;
+          margin-bottom: 20px;
+
+          + p {
+            margin: 0;
+          }
+
+          &.highlight {
+            @include mask('settings/icon-heart', $colorError, 34px);
+            position: relative;
+            font-size: 150%;
+            padding: 0 0 0 44px;
+            margin-top: 50px;
+
+            &::before {
+              -webkit-mask-position-x: 0;
+            }
+          }
+        }
+
+        &::before {
+          width: 36px;
+          height: 36px;
+          left: -5px;
+          top: 20px;
+        }
+
+        @media (max-width: 1080px) {
+          order: 2;
+        }
+      }
+
+      > div.preview {
+        position: relative;
+        width: 220px;
+        height: 220px;
+
+        @media (max-width: 1080px) {
+          margin: auto;
+          width: 180px;
+          height: 180px;
+          margin-bottom: 20px;
+          order: 1;
+        }
+
+        > img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        > a {
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          display: block;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background: $textColor;
+
+          @media (max-width: 1080px) {
+            right: unset;
+          }
+
+          &.github {
+            @include mask('settings/icon-github', $textColorInverted, 24px);
+            bottom: -60px;
+
+            @media (max-width: 1080px) {
+              bottom: 0;
+              left: -40px;
+            }
+          }
+
+          &.website {
+            @include mask('icon-web', $textColorInverted, 24px);
+            bottom: -110px;
+
+            @media (max-width: 1080px) {
+              bottom: 0;
+              left: -90px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  div[data-name='permissions'] {
+
+    div.shareInformation {
+
+      p {
+        line-height: 150%;
+
+        + p {
+          margin-top: 10px;
+        }
+      }
+
+      ul.bulletList {
+        line-height: 150%;
+        margin: 10px 0;
+      }
+
+      label {
+        display: inline-block;
+        margin: 15px 20px 7px 0 !important;
+      }
+
+      div.checkbox {
+        display: inline-block;
+        vertical-align: top;
+        margin: 16px 0 0 0;
+      }
+    }
+  }
+}
+
+@import "../../rtl/include/settings/infos";

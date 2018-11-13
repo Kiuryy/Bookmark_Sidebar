@@ -19,15 +19,15 @@
     "cp-file": "^6.0.0",
     "create-file": "^1.0.1",
     "del": "^3.0.0",
-    "eslint": "^5.8.0",
+    "eslint": "^5.9.0",
     "glob-concat": "^1.0.1",
     "html-minifier": "^3.5.21",
     "jsonminify": "^0.4.1",
-    "node-sass": "^4.9.4",
-    "npm-check-updates": "^2.14.2",
+    "node-sass": "^4.10.0",
+    "npm-check-updates": "^2.14.3",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
-    "terser": "^3.10.8",
+    "terser": "^3.10.11",
     "zip-dir": "^1.0.2"
   }
 }

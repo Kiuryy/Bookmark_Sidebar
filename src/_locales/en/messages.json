@@ -506,6 +506,18 @@
     "settings_menu_support": {
         "message": "Support"
     },
+    "settings_menu_infos": {
+        "message": "Infos"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "About me"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permissions"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacy"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },

@@ -68,8 +68,8 @@
                 unavailable: $("div.tab[data-name='language'] > div[data-name='translate'] > div.unavailable")
             },
             formElement: $("div.formElement"),
-            support: {
-                shareInfoWrapper: $("div.tab[data-name='support'] div.shareInformation")
+            infos: {
+                shareInfoWrapper: $("div.tab[data-name='infos'] div.shareInformation")
             },
             preview: {},
             checkbox: {},
@@ -122,7 +122,7 @@
                     this.helper.sidebar.init(),
                     this.helper.appearance.init(),
                     this.helper.newtab.init(),
-                    this.helper.support.init(),
+                    this.helper.infos.init(),
                     this.helper.premium.init(),
                     this.helper.importExport.init(),
                 ]);
@@ -207,7 +207,7 @@
                 feedback: new $.FeedbackHelper(this),
                 premium: new $.PremiumHelper(this),
                 importExport: new $.ImportExportHelper(this),
-                support: new $.SupportHelper(this)
+                infos: new $.InfosHelper(this)
             };
         };
 

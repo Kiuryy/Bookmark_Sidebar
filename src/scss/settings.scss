@@ -14,11 +14,10 @@ $__scrollBarWidth: 14px;
 @import "include/settings/content";
 @import "include/settings/advanced";
 @import "include/settings/filter";
-@import "include/settings/aboutme";
+@import "include/settings/infos";
 @import "include/settings/toggleAdvanced";
 @import "include/settings/appearance";
 @import "include/settings/feedback";
-@import "include/settings/support";
 @import "include/settings/premium";
 @import "include/settings/form";
 @import "include/settings/translation";
@@ -49,7 +48,7 @@ body {
 
   &::after {
     content: attr(data-successtext);
-    top: 50px;
+    top: 70px;
     left: 0;
     right: 0;
     margin: auto;

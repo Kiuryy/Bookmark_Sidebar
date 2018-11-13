@@ -284,9 +284,9 @@ body > header {
   body > header[data-type='feedback'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
     -webkit-mask-size: 18px; }
-  body > header[data-type='support'] > h1::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-support.svg);
-    -webkit-mask-size: 20px; }
+  body > header[data-type='infos'] > h1::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+    -webkit-mask-size: 22px; }
   body > header[data-type='premium'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
     -webkit-mask-size: 22px; }
@@ -487,11 +487,9 @@ body > section#wrapper > main > div.loading.tab > div, body > section#wrapper > 
   visibility: hidden; }
 
 p.desc {
-  font-size: 90%;
   color: #aaa;
   margin-top: 10px;
-  line-height: 150%;
-  font-style: italic; }
+  line-height: 150%; }
 
 body > section#wrapper {
   position: relative;
@@ -645,75 +643,93 @@ div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation em {
   border-radius: 3px;
   color: #666; }
 
-body > section#wrapper div.aboutMe {
+body > section#wrapper div[data-name="aboutme"] > div {
   position: relative;
   max-width: 1024px;
-  margin: 0 auto 40px;
+  margin: 20px auto 40px;
   display: flex; }
   @media (max-width: 1080px) {
-    body > section#wrapper div.aboutMe {
+    body > section#wrapper div[data-name="aboutme"] > div {
       flex-direction: column; } }
-  body > section#wrapper div.aboutMe > div.desc {
+  body > section#wrapper div[data-name="aboutme"] > div > div.desc {
     position: relative;
-    padding: 20px 40px 0 40px;
+    padding: 17px 40px 0 50px;
     text-align: justify;
     flex: 1; }
-    body > section#wrapper div.aboutMe > div.desc::before {
+    body > section#wrapper div[data-name="aboutme"] > div > div.desc::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      -webkit-mask: no-repeat center/32px;
+      -webkit-mask: no-repeat center/36px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-quote.svg);
       background-color: #aaa; }
-    body > section#wrapper div.aboutMe > div.desc > p {
-      line-height: 170%;
+    body > section#wrapper div[data-name="aboutme"] > div > div.desc > p {
+      font-size: 110%;
+      line-height: 200%;
       margin-bottom: 20px; }
-      body > section#wrapper div.aboutMe > div.desc > p + p {
+      body > section#wrapper div[data-name="aboutme"] > div > div.desc > p + p {
         margin: 0; }
-      body > section#wrapper div.aboutMe > div.desc > p > span {
-        font-size: 120%;
-        background: #f5c525;
-        color: #fff;
-        padding: 3px 7px;
-        vertical-align: top; }
-    body > section#wrapper div.aboutMe > div.desc::before {
-      width: 32px;
-      height: 32px;
+      body > section#wrapper div[data-name="aboutme"] > div > div.desc > p.highlight {
+        position: relative;
+        font-size: 150%;
+        padding: 0 0 0 44px;
+        margin-top: 50px; }
+        body > section#wrapper div[data-name="aboutme"] > div > div.desc > p.highlight::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -webkit-mask: no-repeat center/34px;
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-heart.svg);
+          background-color: #f99; }
+        body > section#wrapper div[data-name="aboutme"] > div > div.desc > p.highlight::before {
+          -webkit-mask-position-x: 0; }
+    body > section#wrapper div[data-name="aboutme"] > div > div.desc::before {
+      width: 36px;
+      height: 36px;
       left: -5px;
       top: 20px; }
     @media (max-width: 1080px) {
-      body > section#wrapper div.aboutMe > div.desc {
+      body > section#wrapper div[data-name="aboutme"] > div > div.desc {
         order: 2; } }
-  body > section#wrapper div.aboutMe > div.preview {
+  body > section#wrapper div[data-name="aboutme"] > div > div.preview {
     position: relative;
     width: 220px;
     height: 220px; }
     @media (max-width: 1080px) {
-      body > section#wrapper div.aboutMe > div.preview {
+      body > section#wrapper div[data-name="aboutme"] > div > div.preview {
         margin: auto;
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
         order: 1; } }
-    body > section#wrapper div.aboutMe > div.preview > img {
+    body > section#wrapper div[data-name="aboutme"] > div > div.preview > img {
       display: block;
       width: 100%;
       height: 100%;
       border-radius: 50%;
       box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); }
-    body > section#wrapper div.aboutMe > div.preview > a {
+    body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
       position: absolute;
-      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
       display: block;
-      width: 36px;
-      height: 36px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: #666; }
-      body > section#wrapper div.aboutMe > div.preview > a.github {
-        left: -20px; }
-        body > section#wrapper div.aboutMe > div.preview > a.github::before {
+      @media (max-width: 1080px) {
+        body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
+          right: unset; } }
+      body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github {
+        bottom: -60px; }
+        body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github::before {
           content: "";
           position: absolute;
           top: 0;
@@ -724,11 +740,12 @@ body > section#wrapper div.aboutMe {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-github.svg);
           background-color: #fff; }
         @media (max-width: 1080px) {
-          body > section#wrapper div.aboutMe > div.preview > a.github {
+          body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github {
+            bottom: 0;
             left: -40px; } }
-      body > section#wrapper div.aboutMe > div.preview > a.website {
-        left: -64px; }
-        body > section#wrapper div.aboutMe > div.preview > a.website::before {
+      body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website {
+        bottom: -110px; }
+        body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website::before {
           content: "";
           position: absolute;
           top: 0;
@@ -739,25 +756,49 @@ body > section#wrapper div.aboutMe {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg);
           background-color: #fff; }
         @media (max-width: 1080px) {
-          body > section#wrapper div.aboutMe > div.preview > a.website {
-            left: -84px; } }
+          body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website {
+            bottom: 0;
+            left: -90px; } }
 
-html[dir='rtl'] div.aboutMe > div.desc::before {
+body > section#wrapper div[data-name='permissions'] div.shareInformation p {
+  line-height: 150%; }
+  body > section#wrapper div[data-name='permissions'] div.shareInformation p + p {
+    margin-top: 10px; }
+
+body > section#wrapper div[data-name='permissions'] div.shareInformation ul.bulletList {
+  line-height: 150%;
+  margin: 10px 0; }
+
+body > section#wrapper div[data-name='permissions'] div.shareInformation label {
+  display: inline-block;
+  margin: 15px 20px 7px 0 !important; }
+
+body > section#wrapper div[data-name='permissions'] div.shareInformation div.checkbox {
+  display: inline-block;
+  vertical-align: top;
+  margin: 16px 0 0 0; }
+
+html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.desc::before {
   left: unset;
   right: -5px; }
 
-html[dir='rtl'] div.aboutMe > div.preview > a {
-  left: unset; }
-  html[dir='rtl'] div.aboutMe > div.preview > a.github {
-    right: -20px; }
-    @media (max-width: 1080px) {
-      html[dir='rtl'] div.aboutMe > div.preview > a.github {
-        right: -40px; } }
-  html[dir='rtl'] div.aboutMe > div.preview > a.website {
-    right: -64px; }
-    @media (max-width: 1080px) {
-      html[dir='rtl'] div.aboutMe > div.preview > a.website {
-        right: -84px; } }
+html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.desc > p.highlight {
+  padding-right: 44px;
+  padding-left: 0; }
+  html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.desc > p.highlight::before {
+    -webkit-mask-position-x: right; }
+
+@media (max-width: 1080px) {
+  html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
+    left: unset; }
+    html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github {
+      right: -40px; }
+    html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website {
+      right: -90px; } }
+
+html[dir='rtl'] body > section#wrapper div[data-name='permissions'] div.shareInformation label {
+  margin-right: 0 !important;
+  margin-left: 20px !important; }
 
 @keyframes moveUpDown {
   25% {
@@ -1457,32 +1498,6 @@ html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > div.suggest
     text-align: left; }
     html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p > a[href] {
       float: right; }
-
-div.tab[data-name='support'] p {
-  line-height: 150%; }
-  div.tab[data-name='support'] p + p {
-    margin-top: 10px; }
-
-div.tab[data-name='support'] a.donate {
-  margin-top: 30px; }
-
-div.tab[data-name='support'] div.shareInformation ul.bulletList {
-  font-size: 90%;
-  line-height: 150%;
-  margin: 10px 0; }
-
-div.tab[data-name='support'] div.shareInformation label {
-  display: inline-block;
-  margin: 15px 20px 7px 0 !important; }
-
-div.tab[data-name='support'] div.shareInformation div.checkbox {
-  display: inline-block;
-  vertical-align: top;
-  margin: 16px 0 0 0; }
-
-html[dir='rtl'] div.tab[data-name='support'] div.shareInformation label {
-  margin-right: 0 !important;
-  margin-left: 20px !important; }
 
 div.tab[data-name='premium'] p {
   line-height: 170%;
@@ -2487,15 +2502,15 @@ body > section#wrapper > aside {
         background-color: #666; }
       body > section#wrapper > aside > nav > ul > li[data-name='premium'].inactive {
         background: rgba(245, 197, 37, 0.3); }
-      body > section#wrapper > aside > nav > ul > li[data-name='support'] > a::before {
+      body > section#wrapper > aside > nav > ul > li[data-name='infos'] > a::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        -webkit-mask: no-repeat center/18px;
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-support.svg);
+        -webkit-mask: no-repeat center/20px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
         background-color: #666; }
       body > section#wrapper > aside > nav > ul > li[data-name='language'] > a::before {
         content: "";
@@ -2750,7 +2765,7 @@ body {
     position: fixed; }
   body::after {
     content: attr(data-successtext);
-    top: 50px;
+    top: 70px;
     left: 0;
     right: 0;
     margin: auto;

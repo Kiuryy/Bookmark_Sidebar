@@ -1,0 +1,52 @@
+
+html[dir='rtl'] body > section#wrapper {
+
+  div[data-name="aboutme"] {
+
+    > div {
+
+      > div.desc {
+
+        &::before {
+          left: unset;
+          right: -5px;
+        }
+
+        > p.highlight {
+          padding-right: 44px;
+          padding-left: 0;
+
+          &::before {
+            -webkit-mask-position-x: right;
+          }
+        }
+      }
+
+      @media (max-width: 1080px) {
+
+        > div.preview > a {
+          left: unset;
+
+          &.github {
+            right: -40px;
+          }
+
+          &.website {
+            right: -90px;
+          }
+        }
+      }
+    }
+  }
+
+  div[data-name='permissions'] {
+
+    div.shareInformation {
+
+      label {
+        margin-right: 0 !important;
+        margin-left: 20px !important;
+      }
+    }
+  }
+}

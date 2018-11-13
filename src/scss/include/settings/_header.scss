@@ -76,9 +76,9 @@ body > header {
     -webkit-mask-size: 18px;
   }
 
-  &[data-type='support'] > h1::before {
-    @include maskImage('settings/icon-support');
-    -webkit-mask-size: 20px;
+  &[data-type='infos'] > h1::before {
+    @include maskImage('icon-info');
+    -webkit-mask-size: 22px;
   }
 
   &[data-type='premium'] > h1::before {

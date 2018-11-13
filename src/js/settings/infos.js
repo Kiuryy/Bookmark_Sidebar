@@ -1,10 +1,10 @@
 ($ => {
     "use strict";
 
-    $.SupportHelper = function (s) {
+    $.InfosHelper = function (s) {
 
         /**
-         * Initialises the contribution tab
+         * Initialises the information tab
          *
          * @returns {Promise}
          */
@@ -13,7 +13,7 @@
         };
 
         /**
-         * Initialises the eventhandler for the contribution tab
+         * Initialises the eventhandlers
          *
          * @returns {Promise}
          */
@@ -29,7 +29,7 @@
                     }
                 }
 
-                s.elm.support.shareInfoWrapper.find("input[type='checkbox']").on("change", () => {
+                s.elm.infos.shareInfoWrapper.find("input[type='checkbox']").on("change", () => {
                     s.helper.model.call("updateShareInfo", {
                         config: s.helper.checkbox.isChecked(s.elm.checkbox.shareConfig),
                         activity: s.helper.checkbox.isChecked(s.elm.checkbox.shareActivity)

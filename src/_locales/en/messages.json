@@ -503,11 +503,8 @@
     "settings_menu_feedback": {
         "message": "Feedback"
     },
-    "settings_menu_support": {
-        "message": "Support"
-    },
     "settings_menu_infos": {
-        "message": "Infos"
+        "message": "Information"
     },
     "settings_menu_infos_aboutme": {
         "message": "About me"
@@ -544,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "Will not be synchronized across your devices."
+    },
+    "settings_premium_activated": {
+        "message": "Premium has been activated successfully"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Could not activate Premium. Please enter a valid license key"
     },
     "settings_open_action": {
         "message": "Open sidebar"
@@ -1007,17 +1010,26 @@
     "settings_feedback_faq_headline": {
         "message": "This may be of interest to you"
     },
+    "settings_permissions_desc": {
+        "message": "In order to make a togglable sidebar possible in Chrome, the following permissions are required and requested by the extension:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Unfortunately Chrome has no mechanism to display content in the browser window without interacting with the currently visiting page."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Since the sidebar is being displayed on top of the current website, this permission is required. Besides this technical reason, this permission is not used any further."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "If you have concerns regarding what I'm doing with the permission, you can view the source code of the extension on Github. It's Open Source and visible for everyone."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "The extension is displaying your bookmarks in the sidebar and therefore needs this permission to get access. The permission also allows the extension to add, edit and remove bookmarks."
+    },
     "settings_headline_share_userdata": {
         "message": "Share information"
     },
     "settings_saved_share_userdata": {
         "message": "Your preference has been saved successfully"
-    },
-    "settings_premium_activated": {
-        "message": "Premium has been activated successfully"
-    },
-    "settings_premium_invalid_key": {
-        "message": "Could not activate Premium. Please enter a valid license key"
     },
     "premium_popup_text": {
         "message": "Have you checked out Premium yet?"

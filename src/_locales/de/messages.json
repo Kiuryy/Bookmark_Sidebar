@@ -503,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "Feedback"
     },
-    "settings_menu_support": {
-        "message": "Unterst\u00fctzen"
+    "settings_menu_infos": {
+        "message": "Informationen"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "\u00dcber mich"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Berechtigungen"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Datenschutz"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -532,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "Wird nicht zwischen deinen Ger\u00e4ten synchronisiert."
+    },
+    "settings_premium_activated": {
+        "message": "Premium wurde erfolgreich aktiviert"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premium konnte nicht aktiviert werden. Bitte gib einen g\u00fcltigen Aktivierungscode ein"
     },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"
@@ -995,17 +1010,26 @@
     "settings_feedback_faq_headline": {
         "message": "Das k\u00f6nnte dich auch interessieren"
     },
+    "settings_permissions_desc": {
+        "message": "Um eine ausklappbare Sidebar im Chrome zu realisieren, werden folgende Berechtigungen ben\u00f6tigt und angefragt:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Leider bietet Chrome keine M\u00f6glichkeit Inhalte im Browserfenster anzuzeigen, ohne mit der gerade ge\u00f6ffneten Webseite zu interagieren."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Da sich die Sidebar \u00fcber die aktuelle Webseite legt, ist diese Berechtigung notwendig. Neben diesem technischen Grund wird diese Berechtigung nicht weiter verwendet."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Falls du Bedenken hast, was ich mit der Berechtigung mache, kannst du dir den Quelltext der Erweiterung auf Github ansehen. Dieser ist Open Source and f\u00fcr jeden sichtbar."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Die Erweiterung zeigt deine Lesezeichen in der Sidebar an und ben\u00f6tigt daher diese Berechtigung, um Zugriff zu erlangen. Die Berechtigung erlaubt der Erweiterung au\u00dferdem, Lesezeichen hinzuzuf\u00fcgen, zu \u00e4ndern und zu l\u00f6schen."
+    },
     "settings_headline_share_userdata": {
         "message": "Informationen teilen"
     },
     "settings_saved_share_userdata": {
         "message": "Deine Einstellung wurde erfolgreich gespeichert"
-    },
-    "settings_premium_activated": {
-        "message": "Premium wurde erfolgreich aktiviert"
-    },
-    "settings_premium_invalid_key": {
-        "message": "Premium konnte nicht aktiviert werden. Bitte gib einen g\u00fcltigen Aktivierungscode ein"
     },
     "premium_popup_text": {
         "message": "Hast du dir schon die Premium-Funktionen angeschaut?"

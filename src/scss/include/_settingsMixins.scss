@@ -1,0 +1,29 @@
+
+@mixin bubble {
+  position: relative;
+  margin-top: 2px;
+  background: $bodyBackground;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    border: 7px solid transparent;
+    border-bottom-color: $bodyBackground;
+  }
+
+  p + p {
+    margin-top: 10px;
+  }
+}
+
+@mixin bubbleRtl {
+
+  &::before {
+    right: 20px;
+    left: unset;
+  }
+}

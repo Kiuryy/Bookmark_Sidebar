@@ -202,25 +202,10 @@ div.tab[data-name='feedback'] {
       }
 
       > div.answer {
-        position: relative;
-        margin-top: 2px;
-        background: $bodyBackground;
-        padding: 10px 12px;
-        border-radius: 10px 10px 0 0;
+        @include bubble;
         @include suggestion;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: -14px;
-          left: 20px;
-          border: 7px solid transparent;
-          border-bottom-color: $bodyBackground;
-        }
-
-        p + p {
-          margin-top: 10px;
-        }
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
   }

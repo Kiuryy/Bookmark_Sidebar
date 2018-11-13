@@ -69,7 +69,8 @@
             },
             formElement: $("div.formElement"),
             infos: {
-                shareInfoWrapper: $("div.tab[data-name='infos'] div.shareInformation")
+                shareInfoWrapper: $("div.tab[data-name='infos'] div.shareInformation"),
+                permissionsWrapper: $("div.tab[data-name='infos'] div.permissions")
             },
             preview: {},
             checkbox: {},

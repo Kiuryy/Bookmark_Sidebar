@@ -810,7 +810,10 @@
         "message": "Failed to import the configuration. Please choose a valid file."
     },
     "settings_presets": {
-        "message": "Preselection"
+        "message": "Set relative sizes"
+    },
+    "settings_presets_desc": {
+        "message": "You can select predefined sizes for the sidebar. This will change the sliders on this page to adjust the sidebar width, line heights, icon sizes and many more options."
     },
     "settings_color_scheme": {
         "message": "Color scheme"
@@ -1017,7 +1020,7 @@
         "message": "Unfortunately Chrome has no mechanism to display content in the browser window without interacting with the currently visiting page."
     },
     "settings_permissions_contentscript_desc_2": {
-        "message": "Since the sidebar is being displayed on top of the current website, this permission is required. Besides this technical reason, this permission is not used any further."
+        "message": "Since the sidebar is being displayed on top of the current website, this permission is required. Besides this technical reason, the permission is not used any further."
     },
     "settings_permissions_contentscript_desc_3": {
         "message": "If you have concerns regarding what I'm doing with the permission, you can view the source code of the extension on Github. It's Open Source and visible for everyone."

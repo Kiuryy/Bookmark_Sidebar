@@ -129,6 +129,10 @@ body[data-type^='appearance'] {
 
     div.presets {
 
+      > p {
+        margin: 10px 0;
+      }
+
       > a {
         display: inline-block;
         padding: 2px 10px;

@@ -810,7 +810,10 @@
         "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
     "settings_presets": {
-        "message": "Voreinstellung"
+        "message": "Relative Gr\u00f6\u00dfen"
+    },
+    "settings_presets_desc": {
+        "message": "Es lassen sich vordefinierte Gr\u00f6\u00dfen f\u00fcr die Sidebar ausw\u00e4hlen. Dadurch \u00e4ndern sich die Slider auf dieser Seite und passen die Breite der Sidebar, die Zeilenh\u00f6he, Icongr\u00f6\u00dfen und weitere Einstellungen an."
     },
     "settings_color_scheme": {
         "message": "Farbschema"
@@ -1017,7 +1020,7 @@
         "message": "Leider bietet Chrome keine M\u00f6glichkeit Inhalte im Browserfenster anzuzeigen, ohne mit der gerade ge\u00f6ffneten Webseite zu interagieren."
     },
     "settings_permissions_contentscript_desc_2": {
-        "message": "Da sich die Sidebar \u00fcber die aktuelle Webseite legt, ist diese Berechtigung notwendig. Neben diesem technischen Grund wird diese Berechtigung nicht weiter verwendet."
+        "message": "Da sich die Sidebar \u00fcber die aktuelle Webseite legt, ist diese Berechtigung notwendig. Neben diesem technischen Grund wird die Berechtigung nicht weiter verwendet."
     },
     "settings_permissions_contentscript_desc_3": {
         "message": "Falls du Bedenken hast, was ich mit der Berechtigung mache, kannst du dir den Quelltext der Erweiterung auf Github ansehen. Dieser ist Open Source and f\u00fcr jeden sichtbar."

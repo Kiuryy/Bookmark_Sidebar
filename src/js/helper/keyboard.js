@@ -65,6 +65,7 @@
             $([document, ext.elm.iframe[0].contentDocument]).on("keydown.bs", (e) => {
                 if (isSidebarFocussed()) { // sidebar is focussed
                     const scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
+                    const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
                     const isContextmenuOpen = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper).length() > 0;
                     const isDragged = ext.elm.iframeBody.hasClass($.cl.drag.isDragged);
 
@@ -97,18 +98,14 @@
                         } else { // close sidebar
                             ext.helper.toggle.closeSidebar();
                         }
-                    } else if (e.key === "Delete") {
+                    } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) { // remove the currently hovered entry
                         e.preventDefault();
                         removeHoveredEntry();
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         copyHoveredEntryUrl();
-                    } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command") { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
-                        const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
-
-                        if (searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) {
-                            searchField[0].focus();
-                        }
+                    } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command" && searchField.length() > 0 && searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
+                        searchField[0].focus();
                     }
                 }
             }).on("keyup.bs", () => {

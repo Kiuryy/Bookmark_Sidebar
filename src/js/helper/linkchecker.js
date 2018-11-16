@@ -76,17 +76,26 @@
                     });
 
                 } else { // website not available -> show message
-                    elements.loader.remove();
-                    elements.desc.remove();
-
-                    $("<div />").addClass($.cl.error)
-                        .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
-                        .append("<p>" + ext.helper.i18n.get("status_check_bookmarks_unavailable_desc") + "</p>")
-                        .appendTo(elements.modal);
-
-                    ext.helper.overlay.setCloseButtonLabel("close");
+                    displayErrorMessage();
                 }
             });
+        };
+
+        /**
+         * Displayes an error message telling the user, the service is not available
+         */
+        const displayErrorMessage = () => {
+            elements.progressBar.remove();
+            elements.progressLabel.remove();
+            elements.loader.remove();
+            elements.desc.remove();
+
+            $("<div />").addClass($.cl.error)
+                .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
+                .append("<p>" + ext.helper.i18n.get("status_check_bookmarks_unavailable_desc") + "</p>")
+                .appendTo(elements.modal);
+
+            ext.helper.overlay.setCloseButtonLabel("close");
         };
 
         /**
@@ -95,6 +104,10 @@
          * @param {object} results
          */
         const displayResultPage = (results) => {
+            if (elements.modal.children("div." + $.cl.error).length() > 0) { // if there is an error message -> don't show results
+                return;
+            }
+
             const hasResults = results.count > 0;
             delete results.count;
 
@@ -507,7 +520,12 @@
                             const obj = await checkChunk(chunk);
                             chunk = {};
 
-                            if (obj.success === false) {
+                            if (obj.success === false) { // a request failed
+
+                                if (finished === 0) { // not even parsed a single bookmark url -> show error message
+                                    displayErrorMessage();
+                                }
+
                                 break;
                             }
                         }

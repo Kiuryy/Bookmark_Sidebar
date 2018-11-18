@@ -497,8 +497,8 @@
     "settings_menu_feedback": {
         "message": "Feedback"
     },
-    "settings_menu_support": {
-        "message": "Support"
+    "settings_menu_infos": {
+        "message": "Informatie"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -526,6 +526,12 @@
     },
     "settings_not_synced": {
         "message": "Wordt niet gesynchroniseerd met je andere apparaten."
+    },
+    "settings_premium_activated": {
+        "message": "Premium is succesvol geactiveerd"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premium kon niet worden geactiveerd. Controleer uw code en probeer opnieuw."
     },
     "settings_open_action": {
         "message": "Open de zijbalk"
@@ -785,9 +791,6 @@
     "settings_import_failed": {
         "message": "Het importeren van de configuraties is mislukt - Gelieve een geldig veld te kiezen."
     },
-    "settings_presets": {
-        "message": "Voorselectie"
-    },
     "settings_color_scheme": {
         "message": "Kleurenschema"
     },
@@ -985,11 +988,5 @@
     },
     "settings_saved_share_userdata": {
         "message": "Je voorkeuren zijn opgeslagen"
-    },
-    "settings_premium_activated": {
-        "message": "Premium is succesvol geactiveerd"
-    },
-    "settings_premium_invalid_key": {
-        "message": "Premium kon niet worden geactiveerd. Controleer uw code en probeer opnieuw."
     }
 }

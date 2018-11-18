@@ -248,6 +248,9 @@
     "newtab_top_pages_hidden": {
         "message": "Nezobrazova\u0165 str\u00e1nky"
     },
+    "newtab_upload_background": {
+        "message": "Nahra\u0165 obr\u00e1zok pozadia"
+    },
     "newtab_fallback_headline_general": {
         "message": "Nie\u010do zablokovalo bo\u010dn\u00fd panel"
     },
@@ -494,8 +497,11 @@
     "settings_menu_feedback": {
         "message": "Sp\u00e4tn\u00e1 vazba"
     },
-    "settings_menu_support": {
-        "message": "Podpora"
+    "settings_menu_infos": {
+        "message": "Inform\u00e1cie"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Import\/Export"
@@ -520,6 +526,12 @@
     },
     "settings_not_synced": {
         "message": "Nebude synchronizovan\u00fd naprie\u010d zariadeniami."
+    },
+    "settings_premium_activated": {
+        "message": "Premium bol \u00faspe\u0161ne aktivovan\u00fd"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nepodarilo sa aktivova\u0165 Premium. Zadajte platn\u00fd licen\u010dn\u00fd k\u013e\u00fa\u010d"
     },
     "settings_open_action": {
         "message": "Otvorenie bo\u010dnej li\u0161ty"
@@ -591,7 +603,7 @@
         "message": "Uzavrie v\u0161etky adres\u00e1re s v\u00fdnimkou aktu\u00e1lneho adres\u00e1ra."
     },
     "settings_remember_state": {
-        "message": "Zapam\u00e4tova\u0165"
+        "message": "Zapam\u00e4ta\u0165"
     },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Poz\u00edcia pos\u00favania a otvoren\u00fdch adres\u00e1rov"
@@ -607,6 +619,9 @@
     },
     "settings_remember_state_nothing": {
         "message": "Ni\u010d"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Zapam\u00e4ta\u0165 notvoren\u00e9 podadres\u00e1re"
     },
     "settings_remember_desc": {
         "message": "Vyberte, \u010do si zapam\u00e4tova\u0165 medzi zmenami str\u00e1nok. Ak sa rozhodnete zapam\u00e4tova\u0165 posledn\u00fa otvoren\u00fa z\u00e1lo\u017eku, bude pri otvoren\u00ed postrann\u00e9ho panela ozna\u010den\u00e1."
@@ -778,9 +793,6 @@
     },
     "settings_import_failed": {
         "message": "Nepodarilo sa importova\u0165 nastavenia. Pros\u00edm, pou\u017eite spr\u00e1vny s\u00fabor."
-    },
-    "settings_presets": {
-        "message": "Predv\u00fdber"
     },
     "settings_color_scheme": {
         "message": "Farbn\u00e9 sch\u00e9ma"
@@ -973,6 +985,9 @@
     },
     "settings_feedback_send_failed": {
         "message": "Va\u0161a spr\u00e1va nemohla by\u0165 odoslan\u00e1. Sk\u00faste to znova."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "To V\u00e1s m\u00f4\u017ee zauj\u00edma\u0165"
     },
     "settings_headline_share_userdata": {
         "message": "Zdie\u013ea\u0165 inform\u00e1cie"

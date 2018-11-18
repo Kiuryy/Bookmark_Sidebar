@@ -29,11 +29,17 @@
     "sidebar_undo_deletion": {
         "message": "Desfazer"
     },
+    "more_link": {
+        "message": "Saiba mais"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Editar favorito"
     },
     "contextmenu_edit_dir": {
         "message": "Editar pasta"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Editar separador"
     },
     "contextmenu_delete_bookmark": {
         "message": "Apagar favorito"
@@ -59,8 +65,8 @@
     "contextmenu_add": {
         "message": "Adicionar entrada"
     },
-    "contextmenu_update_urls": {
-        "message": "Atualizar URLs"
+    "contextmenu_check_bookmarks": {
+        "message": "Verificar favoritos"
     },
     "contextmenu_toggle_hidden": {
         "message": "Mostrar entradas ocultas"
@@ -170,6 +176,9 @@
     "overlay_label_separator": {
         "message": "Separador"
     },
+    "overlay_separator_title_desc": {
+        "message": "Podes, opcionalmente, introduzir um t\u00edtulo para o seprador. Ser\u00e1 visualizado em cima da linha do separador para ajudar \u00e0 organiza\u00e7\u00e3o da lista de favoritos."
+    },
     "overlay_bookmark_views": {
         "message": "Visualiza\u00e7\u00f5es"
     },
@@ -194,14 +203,35 @@
     "overlay_dir_children_dirs": {
         "message": "Pastas"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Modificado"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Inv\u00e1lido"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicados"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Checando as URLs do favorito"
     },
-    "overlay_check_bookmarks_no_results": {
-        "message": "Todas as URLs do favorito est\u00e3o corretas"
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Atualiza\u00e7\u00e3o selecionada"
     },
-    "overlay_check_urls_not_found": {
-        "message": "URL n\u00e3o encontrada"
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Remo\u00e7\u00e3o selecionada"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Todos os endere\u00e7os dos favorito est\u00e3o corretos"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "N\u00e3o h\u00e1 mudan\u00e7as nos endere\u00e7os dos favoritos"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "A lista de favoritos n\u00e3o cont\u00e9m endere\u00e7os inv\u00e1lidos"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "N\u00e3o h\u00e1 duplica\u00e7\u00e3o de endere\u00e7os na lista de favoritos"
     },
     "newtab_title": {
         "message": "Nova guia"
@@ -224,6 +254,12 @@
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
+    "newtab_upload_background": {
+        "message": "Carregue a imagem de fundo"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Algo bloqueou a barra lateral"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore"
     },
@@ -236,6 +272,15 @@
     "newtab_fallback_headline_system": {
         "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome"
     },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Uma das regras de endere\u00e7os desativou a barra lateral"
+    },
+    "newtab_fallback_desc": {
+        "message": "Abrimos um novo separador com a barra lateral."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Apresentar sempre esta p\u00e1gina ao abrir um novo separador"
+    },
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"
     },
@@ -247,6 +292,9 @@
     },
     "status_translation_unavailable_desc": {
         "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
+    },
+    "status_changelog_unavailable_desc": {
+        "message": "N\u00e3o foi poss\u00edvel obter o log de altera\u00e7\u00f5es. Por favor, tente mais tarde."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
@@ -386,8 +434,23 @@
     "onboarding_finish_desc": {
         "message": "Divirta-se com sua barra lateral."
     },
+    "onboarding_finish_notice": {
+        "message": "Se clica frequentemente na localiza\u00e7\u00e3o da barra lateral {1} do browser, poder\u00e1 alterar o local onde a barra pode ser aberta para evitar a sua apresenta\u00e7\u00e3o acidentalmente."
+    },
     "onboarding_goto_settings": {
         "message": "Mais configura\u00e7\u00f5es"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Configura\u00e7\u00e3o da apar\u00eancia"
+    },
+    "changelog_title": {
+        "message": "Registro de altera\u00e7\u00f5es"
+    },
+    "changelog_current_version": {
+        "message": "Vers\u00e3o atual instalada"
+    },
+    "changelog_show_release_history": {
+        "message": "Ver hist\u00f3rico de vers\u00e3o detalhado"
     },
     "settings_title": {
         "message": "Configura\u00e7\u00f5es"
@@ -440,8 +503,11 @@
     "settings_menu_feedback": {
         "message": "Enviar feedback"
     },
-    "settings_menu_support": {
-        "message": "Suporte"
+    "settings_menu_infos": {
+        "message": "Informa\u00e7\u00e3o"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importar\/Exportar"
@@ -467,11 +533,11 @@
     "settings_not_synced": {
         "message": "N\u00e3o ser\u00e1 sincronizado com seus dispositivos."
     },
-    "settings_animations": {
-        "message": "Habilitar anima\u00e7\u00f5es"
+    "settings_premium_activated": {
+        "message": "O modo Premium foi ativado com sucesso"
     },
-    "settings_animations_desc": {
-        "message": "Permite que voc\u00ea desabilite todas as anima\u00e7\u00f5es da barra lateral. Isto pode ser \u00fatil se as anima\u00e7\u00f5es n\u00e3o est\u00e3o funcionando suavemente em seu sistema."
+    "settings_premium_invalid_key": {
+        "message": "N\u00e3o foi poss\u00edvel ativar o modo Premium. Por favor insira uma chave de licen\u00e7a v\u00e1lida."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -545,9 +611,6 @@
     "settings_remember_state": {
         "message": "Lembrar"
     },
-    "settings_remember_desc": {
-        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Posi\u00e7\u00e3o de rolamento e pastas abertas"
     },
@@ -562,6 +625,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nada"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Lembrar as subdiretorias abertas"
+    },
+    "settings_remember_desc": {
+        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
     "settings_open_children_warn_limit": {
         "message": "Abrir todos as subpastas (limite de aviso)"
@@ -629,6 +698,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Abrir automaticamente a barra lateral novamente, ap\u00f3s abrir um favorito a partir da barra lateral."
     },
+    "settings_prevent_windowed": {
+        "message": "Desativar o modo de janela da brra lateral"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Inativa a possibilidade de abrir a barra lateral atrav\u00e9s do click ou ao mover o rato sobre o conte\u00fado da p\u00e1gina quando o browser est\u00e1 em modo de seguran\u00e7a."
+    },
     "settings_tooltip_delay": {
         "message": "Atraso da dica de contexto"
     },
@@ -638,11 +713,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Nunca mostrar dicas de contexto"
     },
+    "settings_tooltip_desc": {
+        "message": "Selecionar qual informa\u00e7\u00e3o a dica de contexto deve conter."
+    },
     "settings_tooltip_content": {
         "message": "Conte\u00fado da dica de contexto"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Selecionar qual informa\u00e7\u00e3o a dica de contexto deve conter."
     },
     "settings_tooltip_content_all": {
         "message": "T\u00edtulo e URL"
@@ -652,6 +727,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Apenas URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Informa\u00e7\u00e3o adicional"
     },
     "settings_sidebar_position": {
         "message": "Posi\u00e7\u00e3o"
@@ -664,6 +742,48 @@
     },
     "settings_sidebar_position_right": {
         "message": "Direita"
+    },
+    "settings_animations": {
+        "message": "Habilitar anima\u00e7\u00f5es"
+    },
+    "settings_animations_desc": {
+        "message": "Permite que voc\u00ea desabilite todas as anima\u00e7\u00f5es da barra lateral. Isto pode ser \u00fatil se as anima\u00e7\u00f5es n\u00e3o est\u00e3o funcionando suavemente em seu sistema."
+    },
+    "settings_contextmenu": {
+        "message": "Elemento do menu de contexto"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Apresenta um elemento no menu de contexto do Chrome para ativar\/desativa a barra lateral."
+    },
+    "settings_filter_intro": {
+        "message": "Se n\u00e3o quer carregar a barra lateral em cada p\u00e1gina, pode configurar a lista de endere\u00e7os onde \u00e9 apresentada (whitelist) e onde n\u00e3o \u00e9 (blacklist)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Adicione apenas um endere\u00e7o por linha"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Use * para ter correspond\u00eancia com qualquer caracter (por exemplo: exemplo.com\/* corresponde a todas as p\u00e1ginas relacionadas a exemplo.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Se n\u00e3o incluir nenhum *, apenas o endere\u00e7o exato tr\u00e1 correspond\u00eancia (por exemplo: \"exemplo.com\" n\u00e3o corresponde ao URL \"exemplo.com\/sobre.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "N\u00e3o \u00e9 necess\u00e1rio indicar o protocolo (por exemplo: http:\/\/)"
+    },
+    "settings_filter_visibility": {
+        "message": "Apresenta a barra lateral"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Em todas as p\u00e1ginas"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Em todas as p\u00e1ginas, exceto p\u00e1ginas espec\u00edficas"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Apenas nas p\u00e1ginas indicadas"
+    },
+    "settings_filter_rules": {
+        "message": "Padr\u00f5es de URL"
     },
     "settings_import_export_desc": {
         "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para qualquer computador onde a extens\u00e3o esteja instalada."
@@ -679,9 +799,6 @@
     },
     "settings_import_failed": {
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
-    },
-    "settings_presets": {
-        "message": "Pr\u00e9-sele\u00e7\u00e3o"
     },
     "settings_color_scheme": {
         "message": "Esquema de cores"
@@ -748,6 +865,9 @@
     },
     "settings_directories_icon_size": {
         "message": "Tamanho dos \u00edcones das pastas"
+    },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Setas das diretorias"
     },
     "settings_bookmarks_line_height": {
         "message": "Altura da linha dos favoritos"
@@ -857,6 +977,15 @@
     "settings_feedback_email": {
         "message": "Seu endere\u00e7o de email"
     },
+    "settings_feedback_screenshot": {
+        "message": "Anexar imagens do ecr\u00e3"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "O tamanho do ficheiro de {1} \u00e9 demasiado grande (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Apenas pode anexar no m\u00e1ximo {1} ficheiro."
+    },
     "settings_feedback_send": {
         "message": "Enviar coment\u00e1rio"
     },
@@ -866,11 +995,8 @@
     "settings_feedback_send_failed": {
         "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
     },
-    "settings_headline_donation": {
-        "message": "Doar"
-    },
-    "settings_support_donation_desc": {
-        "message": "A doa\u00e7\u00e3o \u00e9 completamente opcional, mas se voc\u00ea gosta da extens\u00e3o e quer doar uma pequena quantia, voc\u00ea pode ent\u00e3o clicando no seguinte link. Agrade\u00e7o por toda ajuda que recebo, seja doa\u00e7\u00e3o, ajuda com tradu\u00e7\u00f5es ou envio de coment\u00e1rios, para melhorar a extens\u00e3o."
+    "settings_feedback_faq_headline": {
+        "message": "Isto poder\u00e1 ser do seu interesse"
     },
     "settings_headline_share_userdata": {
         "message": "Compartilhar informa\u00e7\u00f5es"

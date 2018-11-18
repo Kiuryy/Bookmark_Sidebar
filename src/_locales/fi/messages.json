@@ -455,8 +455,8 @@
     "settings_menu_feedback": {
         "message": "Palaute"
     },
-    "settings_menu_support": {
-        "message": "Tuki"
+    "settings_menu_infos": {
+        "message": "Tietoja"
     },
     "settings_menu_export": {
         "message": "Tuo\/Vie"
@@ -707,9 +707,6 @@
     "settings_import_failed": {
         "message": "Asetusten tuonti ep\u00e4onnistui. Ole hyv\u00e4 ja valitse kelvollinen tiedosto."
     },
-    "settings_presets": {
-        "message": "Esivalinnat"
-    },
     "settings_color_scheme": {
         "message": "V\u00e4ri teema"
     },
@@ -901,11 +898,5 @@
     },
     "settings_feedback_send_failed": {
         "message": "Viesti\u00e4si ei voitu l\u00e4hett\u00e4\u00e4. Yrit\u00e4 uudelleen."
-    },
-    "settings_headline_share_userdata": {
-        "message": "Jaa informaatiota"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Sinun mieltymyksesi on tallenettu"
     }
 }

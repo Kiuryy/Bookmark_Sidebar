@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Modifica cartella"
     },
+    "contextmenu_edit_separator": {
+        "message": "Modifica separatore"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Elimina preferito"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Separatore"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Puoi facoltativamente inserire un titolo per il separatore. Sar\u00e0 visualizzato sulla parte superiore della linea di separazione e pu\u00f2 aiutarti a organizzare la tua lista di segnalibri."
     },
     "overlay_bookmark_views": {
         "message": "Visualizzazioni"
@@ -497,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "Feedback"
     },
-    "settings_menu_support": {
-        "message": "Supporto"
+    "settings_menu_infos": {
+        "message": "Informazioni"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Riguardo a me"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permessi"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacy"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -526,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "Non verr\u00e0 sincronizzato fra i tuoi dispositivi."
+    },
+    "settings_premium_activated": {
+        "message": "La versione Premium \u00e8 stata attivata con successo"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Non \u00e8 stato possibile attivare la versione Premium. Per favore inserisci una licenza valida"
     },
     "settings_open_action": {
         "message": "Apri la barra laterale"
@@ -789,7 +810,10 @@
         "message": "Impossibile importare le impostazioni. Seleziona un file valido."
     },
     "settings_presets": {
-        "message": "Preselezione"
+        "message": "Imposta relative dimensioni"
+    },
+    "settings_presets_desc": {
+        "message": "\u00c8 possibile selezionare le dimensioni predefinite per la barra laterale. Ci\u00f2 cambier\u00e0 i cursori in questa pagina per regolare la larghezza della barra laterale, l'altezza delle linee, le dimensioni delle icone e molte altre opzioni."
     },
     "settings_color_scheme": {
         "message": "Schema colori"
@@ -989,17 +1013,26 @@
     "settings_feedback_faq_headline": {
         "message": "Potrebbe interessarti"
     },
+    "settings_permissions_desc": {
+        "message": "Per rendere possibile una barra laterale selezionabile in Chrome, le seguenti autorizzazioni sono richieste e richieste dall'estensione:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Sfortunatamente Chrome non ha alcun meccanismo per visualizzare il contenuto nella finestra del browser senza interagire con la pagina attualmente in visita."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Poich\u00e9 la barra laterale viene visualizzata in cima al sito Web corrente, \u00e8 necessaria questa autorizzazione. Oltre a questo motivo tecnico, l'autorizzazione non viene utilizzata per altri scopi."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Se hai dubbi su ci\u00f2 che sto facendo con il permesso, puoi visualizzare il codice sorgente dell'estensione su Github. \u00c8 Open Source e visibile per tutti."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "L'estensione sta visualizzando i segnalibri nella barra laterale e pertanto necessita di questa autorizzazione per ottenere l'accesso. L'autorizzazione consente inoltre all'estensione di aggiungere, modificare e rimuovere i segnalibri."
+    },
     "settings_headline_share_userdata": {
         "message": "Condividi informazioni"
     },
     "settings_saved_share_userdata": {
         "message": "Le tua scelta \u00e8 stata salvata correttamente"
-    },
-    "settings_premium_activated": {
-        "message": "La versione Premium \u00e8 stata attivata con successo"
-    },
-    "settings_premium_invalid_key": {
-        "message": "Non \u00e8 stato possibile attivare la versione Premium. Per favore inserisci una licenza valida"
     },
     "premium_popup_text": {
         "message": "Hai gi\u00e0 dato un'occhiata alla versione Premium?"

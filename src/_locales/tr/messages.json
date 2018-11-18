@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Dizini d\u00fczenle"
     },
+    "contextmenu_edit_separator": {
+        "message": "Ay\u0131r\u0131c\u0131y\u0131 d\u00fczenle"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Yer imini sil"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Ay\u0131r\u0131c\u0131"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Ay\u0131r\u0131c\u0131ya iste\u011fe ba\u011fl\u0131 olarak ba\u015fl\u0131k girebilirsiniz. Ay\u0131r\u0131c\u0131 \u00e7izgisinin \u00fczerinde g\u00f6z\u00fckecektir ve size yer imi listenizi d\u00fczenlemenizde yard\u0131mc\u0131 olabilir."
     },
     "overlay_bookmark_views": {
         "message": "G\u00f6r\u00fcn\u00fcmler"
@@ -497,8 +503,20 @@
     "settings_menu_feedback": {
         "message": "Geri Bildirim"
     },
-    "settings_menu_support": {
-        "message": "Destek"
+    "settings_menu_infos": {
+        "message": "Bilgi"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Hakk\u0131mda"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "\u0130zinler"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Gizlilik"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "\u0130\u00e7eri\/D\u0131\u015far\u0131 aktar"
@@ -523,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "Cihazlar\u0131n\u0131z aras\u0131nda senkronize edilmeyecek."
+    },
+    "settings_premium_activated": {
+        "message": "Premium \u00fcyeli\u011finiz ba\u015far\u0131yla aktif edildi"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premium \u00fcyeli\u011finiz aktif edilemedi.L\u00fctfen ge\u00e7erli bir lisans anahtar\u0131 girin"
     },
     "settings_open_action": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7"
@@ -785,9 +809,6 @@
     "settings_import_failed": {
         "message": "Yap\u0131land\u0131rma al\u0131namad\u0131. L\u00fctfen ge\u00e7erli bir dosya se\u00e7in."
     },
-    "settings_presets": {
-        "message": "Haz\u0131r se\u00e7im"
-    },
     "settings_color_scheme": {
         "message": "Renk se\u00e7imi"
     },
@@ -983,10 +1004,127 @@
     "settings_feedback_send_failed": {
         "message": "Mesaj\u0131n\u0131z g\u00f6nderilemedi. L\u00fctfen tekrar deneyin."
     },
+    "settings_feedback_faq_headline": {
+        "message": "Bu ilginizi \u00e7ekebilir"
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Kenar \u00e7ubu\u011fu mevcut web sayfas\u0131n\u0131n \u00fcst\u00fcnde g\u00f6sterildi\u011fi i\u00e7in bu izin gereklidir. Teknik gerek\u00e7elerin d\u0131\u015f\u0131nda bu izin ba\u015fka bir ama\u00e7la kullan\u0131lmayacak."
+    },
     "settings_headline_share_userdata": {
         "message": "Bilgi payla\u015f"
     },
     "settings_saved_share_userdata": {
         "message": "Tercihleriniz ba\u015far\u0131l\u0131 bir \u015fekilde kaydedildi."
+    },
+    "premium_popup_text": {
+        "message": "Premium \u00dcyeli\u011fini kontrol ettin mi?"
+    },
+    "premium_restricted_text": {
+        "message": "Bu \u00f6zellik sadece Premium \u00fcyelikte kullan\u0131labilir."
+    },
+    "premium_desc_1": {
+        "message": "Premium \u00fcyelikle ek \u00f6zelliklere eri\u015febilir ve bu uzant\u0131y\u0131 geli\u015ftirmemde bana yard\u0131mc\u0131 olabilirsin."
+    },
+    "premium_desc_2": {
+        "message": "Premium \u00dcyelikte olan \u00f6zellikleri a\u015fa\u011f\u0131da inceleyebilirsiniz.Uzant\u0131n\u0131n t\u00fcm temel \u00f6zellikleri \u00fccretsizdir ve Premium \u00dcyelik gerektirmez.A\u015fa\u011f\u0131daki \u00f6zelliklere eri\u015fmek i\u00e7in uzant\u0131n\u0131n ve \u00e7al\u0131\u015fmam\u0131n size g\u00f6re ederini \u00f6deyebilirsiniz!"
+    },
+    "premium_get_now": {
+        "message": "Premium \u00dcyelik Al"
+    },
+    "premium_show_license_input": {
+        "message": "Premium \u00dcyeli\u011fim Var"
+    },
+    "premium_already_activated": {
+        "message": "Zaten Premium \u00dcyelik Kullan\u0131yorsunuz"
+    },
+    "premium_activate": {
+        "message": "Premium \u00dcyeli\u011fi Aktif Et"
+    },
+    "premium_license_key": {
+        "message": "Lisans Anahtar\u0131"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Yeni deneysel \u00f6zellikleri deneyen ilk ki\u015fi siz olun"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Premium \u00dcyelik ile, \u015fu anda geli\u015ftirilmekte olan veya test a\u015famas\u0131nda olan yay\u0131nlanmam\u0131\u015f \u00f6zelliklere eri\u015febilirsiniz."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Kenar \u00e7ubu\u011funuzun geni\u015fli\u011fini istedi\u011finiz zaman de\u011fi\u015ftirin"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Ayarlar\u0131n\u0131z\u0131 i\u00e7e ve d\u0131\u015fa aktar\u0131n"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Yeni Sekme Sayfan\u0131z\u0131 \u00d6zelle\u015ftirin"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Uzant\u0131n\u0131n Yeni Sekme sayfas\u0131n\u0131 kullan\u0131yorsan\u0131z, sayfan\u0131z\u0131n daha g\u00fczel g\u00f6r\u00fcnmesi i\u00e7in kendi arka plan resminizi se\u00e7ebilirsiniz."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Her\u015feyi kendi Stylesheet'inizle \u00f6zelle\u015ftirin."
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "CSS biliyorsan\u0131z, kendi stil tan\u0131mlar\u0131n\u0131z\u0131 ekleyerek kenar \u00e7ubu\u011funun g\u00f6r\u00fcn\u00fcm\u00fcn\u00fc de\u011fi\u015ftirebilirsiniz. Bu \u00f6zellik sayesinde her \u015feyi \u00f6zelle\u015ftirebilirsiniz."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "K\u0131r\u0131k linkler veya birden fazla kopyalar i\u00e7in yer i\u015faretlerinizi kontrol edin"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Kenar \u00e7ubu\u011funuzdaki herhangi bir dizini sa\u011f t\u0131klay\u0131p Yer \u0130mlerini Kontrol Et'e t\u0131klayarak bir kontrol ger\u00e7ekle\u015ftirebilirsiniz. Bu kontrol\u00fcn sonu\u00e7 sayfas\u0131, g\u00fcncellenmi\u015f t\u00fcm URL'leri, art\u0131k \u00e7al\u0131\u015fmayan yer imlerini ve ayn\u0131 URL'ye sahip yer imlerini g\u00f6sterir."
+    },
+    "premium_pay_what_you_want": {
+        "message": "\u0130stedi\u011fin kadar \u00f6de"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kredi veya banka kart\u0131"
+    },
+    "premium_pay_contact": {
+        "message": "\u00d6demenizle ilgili herhangi bir sorunla kar\u015f\u0131la\u015f\u0131rsan\u0131z ya da herhangi bir sorunuz olursa l\u00fctfen benimle \u015furadan {1} ileti\u015fime ge\u00e7in."
+    },
+    "premium_pay_price_total": {
+        "message": "Toplam"
+    },
+    "premium_pay_eula": {
+        "message": "Son Kullan\u0131c\u0131 Lisans S\u00f6zle\u015fmesi"
+    },
+    "premium_pay_eula_desc": {
+        "message": "[a]Son Kullan\u0131c\u0131 Lisans S\u00f6zle\u015fmesini[\/a] okudum ve onayl\u0131yorum"
+    },
+    "premium_pay_buy": {
+        "message": "Premium \u00dcyelik Sat\u0131n Al"
+    },
+    "premium_pay_verifying": {
+        "message": "\u0130\u015flem Onaylan\u0131yor"
+    },
+    "premium_pay_purchase_id": {
+        "message": "\u00d6deme ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "\u00d6deme i\u00e7in Te\u015fekk\u00fcrler"
+    },
+    "premium_pay_success_info": {
+        "message": "Bu cihaz i\u00e7in {1} otomatik olarak etkinle\u015ftirildi. Ba\u015fka bir \u015fey yapman\u0131za gerek yok."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Bu uzant\u0131y\u0131 farkl\u0131 bir cihazda yada sonradan tekrar y\u00fckledi\u011finde {1} aktifle\u015ftirmek i\u00e7in , verilen anahtar\u0131 uzant\u0131n\u0131n ayarlar\u0131ndan girebilirsiniz:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Posta"
+    },
+    "premium_pay_info_name": {
+        "message": "\u0130sim"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Posta Kodu"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "\u00d6deme Y\u00f6ntemi"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Kart Numaras\u0131"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Kart Son Kullanma Tarihi"
     }
 }

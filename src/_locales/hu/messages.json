@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Mappa szerkeszt\u00e9se"
     },
+    "contextmenu_edit_separator": {
+        "message": "V\u00e1laszt\u00f3 szerkeszt\u00e9se"
+    },
     "contextmenu_delete_bookmark": {
         "message": "K\u00f6nyvjelz\u0151 t\u00f6rl\u00e9se"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Elv\u00e1laszt\u00f3"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Hozz\u00e1adhat c\u00edmet az elv\u00e1laszt\u00f3hoz. Ez jelenik meg az elv\u00e1laszt\u00f3sor tetej\u00e9n, \u00e9s seg\u00edt a k\u00f6nyvjelz\u0151lista rendez\u00e9s\u00e9ben."
     },
     "overlay_bookmark_views": {
         "message": "Megtekint\u00e9sek"
@@ -497,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "Visszajelz\u00e9s"
     },
-    "settings_menu_support": {
-        "message": "T\u00e1mogat\u00e1s"
+    "settings_menu_infos": {
+        "message": "Inform\u00e1ci\u00f3"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "R\u00f3lam"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Enged\u00e9lyek"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Biztons\u00e0g"
     },
     "settings_menu_premium": {
         "message": "Pr\u00e9mium"
@@ -526,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "Az eszk\u00f6zei k\u00f6z\u00f6tt nem lesz szinkroniz\u00e1lva."
+    },
+    "settings_premium_activated": {
+        "message": "A pr\u00e9mium sikeresen aktiv\u00e1lva"
+    },
+    "settings_premium_invalid_key": {
+        "message": "A pr\u00e9mium aktiv\u00e1l\u00e1sa nem siker\u00fclt. K\u00e9rem adj meg egy \u00e9rv\u00e9nyes licensz kulcsot."
     },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
@@ -789,7 +810,10 @@
         "message": "Az import\u00e1l\u00e1s sikertelen. \u00c9rv\u00e9nyes f\u00e1jlt adjon meg."
     },
     "settings_presets": {
-        "message": "El\u0151re be\u00e1ll\u00edtott m\u00e9retek"
+        "message": "\u00c1ll\u00edtsa be a relat\u00edv m\u00e9reteket"
+    },
+    "settings_presets_desc": {
+        "message": "Kiv\u00e1laszthat el\u0151re defini\u00e1lt m\u00e9reteket az oldals\u00e1vhoz. Ezzel megv\u00e1ltoztathatja az ezen az oldalon l\u00e9v\u0151 cs\u00faszk\u00e1kat, hogy be\u00e1ll\u00edthassa az oldals\u00e1v sz\u00e9less\u00e9g\u00e9t, a vonalmagass\u00e1gokat, az ikonm\u00e9reteket \u00e9s m\u00e9g sok m\u00e1s lehet\u0151s\u00e9get."
     },
     "settings_color_scheme": {
         "message": "Sz\u00edn s\u00e9ma"
@@ -989,17 +1013,26 @@
     "settings_feedback_faq_headline": {
         "message": "Ez \u00e9rdekelhet T\u00e9ged"
     },
+    "settings_permissions_desc": {
+        "message": "Annak \u00e9rdek\u00e9ben, hogy egy \u00e1tkapcsolhat\u00f3 oldals\u00e1v legyen lehets\u00e9ges a Chrome-ban, a kiterjeszt\u00e9shez a k\u00f6vetkez\u0151 enged\u00e9lyek sz\u00fcks\u00e9gesek:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Sajnos a Chromenek nincs mechanizmusa a tartalom megjelen\u00edt\u00e9s\u00e9re a b\u00f6ng\u00e9sz\u0151ablakban, an\u00e9lk\u00fcl, hogy k\u00f6lcs\u00f6nhat\u00e1sba l\u00e9pne a jelenleg l\u00e1togat\u00f3 oldalon."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Mivel az oldals\u00e1v a jelenlegi weboldal tetej\u00e9n jelenik meg, ez az enged\u00e9ly sz\u00fcks\u00e9ges. Ezen okok miatt az enged\u00e9lyt nem haszn\u00e1lj\u00e1k m\u00e1s c\u00e9lokra."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Ha agg\u00e1lyai vannak azzal kapcsolatban, hogy mit csin\u00e1lok az enged\u00e9ly\u00e9vel, akkor megtekintheti a kiterjeszt\u00e9s forr\u00e1sk\u00f3dj\u00e1t a Githubon. Ez Open Source \u00e9s mindenki sz\u00e1m\u00e1ra l\u00e1that\u00f3."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "A b\u0151v\u00edtm\u00e9ny megjelen\u00edti a k\u00f6nyvjelz\u0151ket az oldals\u00e1von, ez\u00e9rt sz\u00fcks\u00e9ge van erre az enged\u00e9lyre a hozz\u00e1f\u00e9r\u00e9shez. Az enged\u00e9ly lehet\u0151v\u00e9 teszi a kiterjeszt\u00e9s sz\u00e1m\u00e1ra a k\u00f6nyvjelz\u0151k hozz\u00e1ad\u00e1s\u00e1t, szerkeszt\u00e9s\u00e9t \u00e9s elt\u00e1vol\u00edt\u00e1s\u00e1t."
+    },
     "settings_headline_share_userdata": {
         "message": "Inform\u00e1ci\u00f3 megoszt\u00e1sa"
     },
     "settings_saved_share_userdata": {
         "message": "A be\u00e1ll\u00edt\u00e1sok ment\u00e9sre ker\u00fcltek"
-    },
-    "settings_premium_activated": {
-        "message": "A pr\u00e9mium sikeresen aktiv\u00e1lva"
-    },
-    "settings_premium_invalid_key": {
-        "message": "A pr\u00e9mium aktiv\u00e1l\u00e1sa nem siker\u00fclt. K\u00e9rem adj meg egy \u00e9rv\u00e9nyes licensz kulcsot."
     },
     "premium_popup_text": {
         "message": "Kifizetted a pr\u00e9mium el\u0151fizet\u00e9st?"

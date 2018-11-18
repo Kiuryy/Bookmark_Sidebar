@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Edytuj pozycj\u0119"
     },
+    "contextmenu_edit_separator": {
+        "message": "Edytuj separator"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Usu\u0144 zak\u0142adk\u0119"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Separator"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Mo\u017cesz opcjonalnie doda\u0107 tytu\u0142 dla separatora. B\u0119dzie wy\u015bwietlany na szczycie wiersza z separatorem i pomo\u017ce organizowa\u0107 zak\u0142adki."
     },
     "overlay_bookmark_views": {
         "message": "Wy\u015bwietle\u0144"
@@ -497,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "Opinie"
     },
-    "settings_menu_support": {
-        "message": "Wsparcie"
+    "settings_menu_infos": {
+        "message": "Informacje"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "O mnie"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Uprawnienia"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Prywatno\u015b\u0107"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -526,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "Nie b\u0119dzie synchronizacji na innych urz\u0105dzeniach"
+    },
+    "settings_premium_activated": {
+        "message": "Konto premium zosta\u0142o aktywowane"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nie mo\u017cna aktywowa\u0107 konta premium. Wprowad\u017a poprawny klucz licencyjny"
     },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
@@ -789,7 +810,7 @@
         "message": "Nie uda\u0142o si\u0119 zaimportowa\u0107 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
     },
     "settings_presets": {
-        "message": "Wyb\u00f3r wst\u0119pny"
+        "message": "Ustaw relatywne rozmiary"
     },
     "settings_color_scheme": {
         "message": "Kolor motywu"
@@ -994,12 +1015,6 @@
     },
     "settings_saved_share_userdata": {
         "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
-    },
-    "settings_premium_activated": {
-        "message": "Konto premium zosta\u0142o aktywowane"
-    },
-    "settings_premium_invalid_key": {
-        "message": "Nie mo\u017cna aktywowa\u0107 konta premium. Wprowad\u017a poprawny klucz licencyjny"
     },
     "premium_popup_text": {
         "message": "Czy sprawdzi\u0142e\u015b ju\u017c konto Premium?"

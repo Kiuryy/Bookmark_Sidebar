@@ -38,14 +38,17 @@
     "contextmenu_edit_dir": {
         "message": "Editar Carpeta"
     },
+    "contextmenu_edit_separator": {
+        "message": "Editar separador"
+    },
     "contextmenu_delete_bookmark": {
-        "message": "Borrar Marcador"
+        "message": "Borrar marcador"
     },
     "contextmenu_delete_dir": {
-        "message": "Borrar Carpeta"
+        "message": "Borrar carpeta"
     },
     "contextmenu_delete_separator": {
-        "message": "Borrar Separador"
+        "message": "Borrar separador"
     },
     "contextmenu_infos": {
         "message": "Mostrar informaci\u00f3n"
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Separador"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Opcionalmente puede ingresar un t\u00edtulo para el separador. Se mostrar\u00e1 en la parte superior de la l\u00ednea de separaci\u00f3n y puede ayudarlo a organizar su lista de marcadores."
     },
     "overlay_bookmark_views": {
         "message": "Punto de vista"
@@ -497,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "Retroalimentaci\u00f3n"
     },
-    "settings_menu_support": {
-        "message": "Soporte"
+    "settings_menu_infos": {
+        "message": "Mostrar informaci\u00f3n"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Sobre m\u00ed"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permisos"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacidad"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -526,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "No se sincronizar\u00e1 en sus dispositivos."
+    },
+    "settings_premium_activated": {
+        "message": "Premium activado correctamente"
+    },
+    "settings_premium_invalid_key": {
+        "message": "No se ha podido activar Premium. Introduce una clave de licencia valida, por favor."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -789,7 +810,10 @@
         "message": "Error al importar la configuraci\u00f3n. Por favor elija un archivo v\u00e1lido."
     },
     "settings_presets": {
-        "message": "Preselecci\u00f3n"
+        "message": "Establecer tama\u00f1os relativos"
+    },
+    "settings_presets_desc": {
+        "message": "Puede seleccionar tama\u00f1os predefinidos para la barra lateral. Esto cambiar\u00e1 los controles deslizantes en esta p\u00e1gina para ajustar el ancho de la barra lateral, la altura de las l\u00edneas, el tama\u00f1o de los \u00edconos y muchas m\u00e1s opciones."
     },
     "settings_color_scheme": {
         "message": "Esquema de colores"
@@ -988,18 +1012,6 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Esto puede ser de tu inter\u00e9s"
-    },
-    "settings_headline_share_userdata": {
-        "message": "Compartir informaci\u00f3n"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Tus preferencias se han guardado correctamente"
-    },
-    "settings_premium_activated": {
-        "message": "Premium activado correctamente"
-    },
-    "settings_premium_invalid_key": {
-        "message": "No se ha podido activar Premium. Introduce una clave de licencia valida, por favor."
     },
     "premium_popup_text": {
         "message": "\u00bfYa has has probado Premium?"

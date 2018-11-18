@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Modifier le dossier"
     },
+    "contextmenu_edit_separator": {
+        "message": "\u00c9diter le s\u00e9parateur"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Supprimer le favori"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "S\u00e9parateur"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Vous pouvez \u00e9ventuellement entrer un titre pour le s\u00e9parateur. Il sera affich\u00e9 en haut de la ligne de s\u00e9paration et peut vous aider \u00e0 organiser votre liste de signets."
     },
     "overlay_bookmark_views": {
         "message": "Vus"
@@ -497,8 +503,8 @@
     "settings_menu_feedback": {
         "message": "Retour d'exp\u00e9rience"
     },
-    "settings_menu_support": {
-        "message": "Support"
+    "settings_menu_infos": {
+        "message": "Propi\u00e9t\u00e9s"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -526,6 +532,12 @@
     },
     "settings_not_synced": {
         "message": "Ne sera pas synchronis\u00e9 sur vos appareils"
+    },
+    "settings_premium_activated": {
+        "message": "Votre compte Premium a \u00e9t\u00e9 activ\u00e9 avec succ\u00e8s"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Impossible d'activer votre compte Premium. Merci de saisir une cl\u00e9 de licence valide."
     },
     "settings_open_action": {
         "message": "Affichage de la barre"
@@ -788,9 +800,6 @@
     "settings_import_failed": {
         "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
     },
-    "settings_presets": {
-        "message": "Pr\u00e9s\u00e9lection"
-    },
     "settings_color_scheme": {
         "message": "Couleur"
     },
@@ -994,12 +1003,6 @@
     },
     "settings_saved_share_userdata": {
         "message": "Votre choix a bien \u00e9t\u00e9 pris en compte"
-    },
-    "settings_premium_activated": {
-        "message": "Votre compte Premium a \u00e9t\u00e9 activ\u00e9 avec succ\u00e8s"
-    },
-    "settings_premium_invalid_key": {
-        "message": "Impossible d'activer votre compte Premium. Merci de saisir une cl\u00e9 de licence valide."
     },
     "premium_popup_text": {
         "message": "Avez-vous d\u00e9j\u00e0 essay\u00e9 notre compte Premium ?"

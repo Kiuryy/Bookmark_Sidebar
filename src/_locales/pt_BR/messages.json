@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Editar pasta"
     },
+    "contextmenu_edit_separator": {
+        "message": "Editar separador"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Apagar favorito"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Separador"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Voc\u00ea pode, opcionalmente, digitar um t\u00edtulo para o separador. Ele ser\u00e1 exibido na parte superior da linha separadora e pode ajud\u00e1-lo a organizar sua lista de marcadores."
     },
     "overlay_bookmark_views": {
         "message": "Visualiza\u00e7\u00f5es"
@@ -497,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "Coment\u00e1rios"
     },
-    "settings_menu_support": {
-        "message": "Suporte"
+    "settings_menu_infos": {
+        "message": "Informa\u00e7\u00e3o"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Sobre mim"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permiss\u00f5es"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacidade"
     },
     "settings_menu_premium": {
         "message": "Exclusivo"
@@ -526,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "N\u00e3o ser\u00e1 sincronizado com seus dispositivos."
+    },
+    "settings_premium_activated": {
+        "message": "Conte\u00fado exclusivo ativado com sucesso"
+    },
+    "settings_premium_invalid_key": {
+        "message": "N\u00e3o foi poss\u00edvel concluir a ativa\u00e7\u00e3o. Por favor, entre com uma licen\u00e7a v\u00e1lida."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -789,7 +810,10 @@
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
     "settings_presets": {
-        "message": "Pr\u00e9-sele\u00e7\u00e3o"
+        "message": "Definir tamanhos relativos"
+    },
+    "settings_presets_desc": {
+        "message": "Voc\u00ea pode selecionar tamanhos pr\u00e9-definidos para a barra lateral. Isto ir\u00e1 mudar os controles deslizantes nesta p\u00e1gina para ajustar a largura da barra lateral, as alturas das linhas, os tamanhos dos \u00edcones e muito mais op\u00e7\u00f5es."
     },
     "settings_color_scheme": {
         "message": "Esquema de cores"
@@ -989,17 +1013,26 @@
     "settings_feedback_faq_headline": {
         "message": "Isto pode ser de seu interesse"
     },
+    "settings_permissions_desc": {
+        "message": "A fim de se tornar poss\u00edvel que a barra lateral seja ativada e desativada no Chrome, as seguintes permiss\u00f5es s\u00e3o requeridas e solicitadas pela extens\u00e3o:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Infelizmente, o Chrome n\u00e3o possui mecanismo para exibir conte\u00fado na janela do navegador sem que haja intera\u00e7\u00e3o com a p\u00e1gina visitada no momento."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Como a barra lateral est\u00e1 sendo exibida no topo da p\u00e1gina atual, essa permiss\u00e3o \u00e9 necess\u00e1ria. Al\u00e9m dessa raz\u00e3o t\u00e9cnica, a permiss\u00e3o n\u00e3o \u00e9 usada para outros fins."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Se voc\u00ea tiver alguma d\u00favida sobre o que estou fazendo com a permiss\u00e3o, pode visualizar o c\u00f3digo-fonte da extens\u00e3o no Github. \u00c9 Open Source e vis\u00edvel para todos."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "A extens\u00e3o est\u00e1 exibindo seus favoritos na barra lateral e, portanto, precisa desta permiss\u00e3o para obter acesso. A permiss\u00e3o tamb\u00e9m autoriza que a extens\u00e3o adicione, edite e remova favoritos."
+    },
     "settings_headline_share_userdata": {
         "message": "Compartilhar informa\u00e7\u00f5es"
     },
     "settings_saved_share_userdata": {
         "message": "Sua prefer\u00eancia foi salva com sucesso"
-    },
-    "settings_premium_activated": {
-        "message": "Conte\u00fado exclusivo ativado com sucesso"
-    },
-    "settings_premium_invalid_key": {
-        "message": "N\u00e3o foi poss\u00edvel concluir a ativa\u00e7\u00e3o. Por favor, entre com uma licen\u00e7a v\u00e1lida."
     },
     "premium_popup_text": {
         "message": "Voc\u00ea j\u00e1 est\u00e1 sabendo da vers\u00e3o Premium?"

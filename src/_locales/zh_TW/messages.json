@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "\u7de8\u8f2f\u76ee\u9304"
     },
+    "contextmenu_edit_separator": {
+        "message": "\u7de8\u8f2f\u5206\u9694\u5668"
+    },
     "contextmenu_delete_bookmark": {
         "message": "\u522a\u9664\u66f8\u7c64"
     },
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "\u5206\u9694\u7b26\u865f"
+    },
+    "overlay_separator_title_desc": {
+        "message": "\u60a8\u53ef\u4ee5\u9078\u64c7\u8f38\u5165\u5206\u9694\u7b26\u7684\u6a19\u984c\u3002 \u5b83\u5c07\u986f\u793a\u5728\u5206\u9694\u7dda\u7684\u9802\u90e8\uff0c\u53ef\u4ee5\u5e6b\u52a9\u60a8\u7d44\u7e54\u66f8\u7c64\u5217\u8868\u3002"
     },
     "overlay_bookmark_views": {
         "message": "\u700f\u89bd\u6578"
@@ -497,8 +503,17 @@
     "settings_menu_feedback": {
         "message": "\u56de\u994b"
     },
-    "settings_menu_support": {
-        "message": "\u652f\u63f4"
+    "settings_menu_infos": {
+        "message": "\u8a73\u7d30\u8cc7\u8a0a"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "\u95dc\u65bc\u6211"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "\u6b0a\u9650"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "\u96b1\u79c1"
     },
     "settings_menu_premium": {
         "message": "\u9ad8\u7d1a"
@@ -526,6 +541,12 @@
     },
     "settings_not_synced": {
         "message": "\u4e0d\u6703\u7d93\u904e\u60a8\u7684\u88dd\u7f6e\u540c\u6b65\u3002"
+    },
+    "settings_premium_activated": {
+        "message": "Premium\u5df2\u6210\u529f\u555f\u7528"
+    },
+    "settings_premium_invalid_key": {
+        "message": "\u7121\u6cd5\u555f\u7528Premium.\u8acb\u8f38\u5165\u6709\u6548\u7684\u8a3b\u518a\u78bc"
     },
     "settings_open_action": {
         "message": "\u958b\u555f\u5074\u908a\u6b04"
@@ -788,9 +809,6 @@
     "settings_import_failed": {
         "message": "\u532f\u5165\u8a2d\u5b9a\u5931\u6557\u3002\u8acb\u9078\u64c7\u6709\u6548\u7684\u6a94\u6848\u3002"
     },
-    "settings_presets": {
-        "message": "\u9810\u9078\u8a2d\u7f6e"
-    },
     "settings_color_scheme": {
         "message": "\u914d\u8272\u65b9\u6848"
     },
@@ -994,12 +1012,6 @@
     },
     "settings_saved_share_userdata": {
         "message": "\u6210\u529f\u5132\u5b58\u504f\u597d\u8a2d\u5b9a"
-    },
-    "settings_premium_activated": {
-        "message": "Premium\u5df2\u6210\u529f\u555f\u7528"
-    },
-    "settings_premium_invalid_key": {
-        "message": "\u7121\u6cd5\u555f\u7528Premium.\u8acb\u8f38\u5165\u6709\u6548\u7684\u8a3b\u518a\u78bc"
     },
     "premium_popup_text": {
         "message": "\u4f60\u6709\u7c3d\u51fa\u9ad8\u7d1a\u7248\u55ce\uff1f"

@@ -1013,6 +1013,27 @@
     "settings_feedback_faq_headline": {
         "message": "Esto puede ser de tu inter\u00e9s"
     },
+    "settings_permissions_desc": {
+        "message": "Para hacer una barra lateral activable\/desactivable en Chrome, los siguientes permisos son necesarios para la extensi\u00f3n:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Desafortunadamente, Chrome no tiene ning\u00fan mecanismo para mostrar contenido en la ventana del navegador sin interactuar con la p\u00e1gina actual."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Como la barra lateral se est\u00e1 mostrando a la parte superior de la p\u00e1gina actual, este permiso es necesario. El permiso no se usa con otros prop\u00f3sitos."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Si tienes dudas con lo que hago con el permiso, puedes ver el c\u00f3digo fuente de la extensi\u00f3n en Github. Es de c\u00f3digo abierto y est\u00e1 visible para todo el mundo."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "La extensi\u00f3n muestra tus marcadores en la barra lateral, por eso necesita este permiso, para lograr acceso. El permiso tambi\u00e9n permite a la extensi\u00f3n a\u00f1adir, editar y remover marcadores."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Compartir informaci\u00f3n"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Tus preferencias se han guardado correctamente"
+    },
     "premium_popup_text": {
         "message": "\u00bfYa has has probado Premium?"
     },

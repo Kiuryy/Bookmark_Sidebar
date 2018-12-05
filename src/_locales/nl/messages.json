@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Bewerk Map"
     },
+    "contextmenu_edit_separator": {
+        "message": "Bewerk Scheidingsteken"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Verwijder Bladwijzer"
     },
@@ -45,7 +48,7 @@
         "message": "Verwijder Map"
     },
     "contextmenu_delete_separator": {
-        "message": "Verwijder Afscheiding"
+        "message": "Verwijder Scheidingsteken"
     },
     "contextmenu_infos": {
         "message": "Informatie"
@@ -172,6 +175,9 @@
     },
     "overlay_label_separator": {
         "message": "Afscheiding"
+    },
+    "overlay_separator_title_desc": {
+        "message": "U kunt optioneel een titel voor het scheidingsteken invoeren. Het wordt bovenaan de scheidingslijn weergegeven en kan u helpen bij het organiseren van uw bladwijzerlijst."
     },
     "overlay_bookmark_views": {
         "message": "Weergaves"
@@ -500,6 +506,15 @@
     "settings_menu_infos": {
         "message": "Informatie"
     },
+    "settings_menu_infos_aboutme": {
+        "message": "Over mij"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Machtigingen"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacy"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -619,6 +634,9 @@
     },
     "settings_remember_state_nothing": {
         "message": "Niets"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Onthoud geopende sub mappen"
     },
     "settings_remember_desc": {
         "message": "Selecteer wat er onthouden moet worden tijdens pagina wisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
@@ -791,6 +809,12 @@
     "settings_import_failed": {
         "message": "Het importeren van de configuraties is mislukt - Gelieve een geldig veld te kiezen."
     },
+    "settings_presets": {
+        "message": "Stel de relatieve grootte in"
+    },
+    "settings_presets_desc": {
+        "message": "U kunt vooraf gedefinieerde formaten voor de zijbalk selecteren. Hierdoor worden de schuifregelaars op deze pagina gewijzigd om de breedte, lijnhoogten, pictogramformaten en veel meer opties van de zijbalk aan te passen."
+    },
     "settings_color_scheme": {
         "message": "Kleurenschema"
     },
@@ -856,6 +880,9 @@
     },
     "settings_directories_icon_size": {
         "message": "Mappen symboolgrootte"
+    },
+    "settings_bookmarks_dir_arrows": {
+        "message": "Mappenpijlen"
     },
     "settings_bookmarks_line_height": {
         "message": "Bladwijzers regelafstand"
@@ -982,6 +1009,24 @@
     },
     "settings_feedback_send_failed": {
         "message": "Je bericht kon niet verzonden worden. Probeer het opnieuw."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "Misschien interessant voor jouw."
+    },
+    "settings_permissions_desc": {
+        "message": "Om een inschakelbare zijbalk in Chrome mogelijk te maken, zijn de volgende machtigingen vereist en aangevraagd door de extensie:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Helaas heeft Chrome geen mechanisme om inhoud weer te geven in het browservenster zonder interactie met de pagina die momenteel wordt bezocht."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Omdat de zijbalk boven op de huidige website wordt weergegeven, is deze toestemming vereist. Naast deze technische reden, wordt de toestemming niet voor andere doeleinden gebruikt."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Als u zich zorgen maakt over wat ik met de toestemming doe, kunt u de broncode van de extensie op Github bekijken. Het is Open Source en zichtbaar voor iedereen."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "De extensie geeft uw bladwijzers weer in de zijbalk en heeft daarom deze toestemming nodig om toegang te krijgen. De toestemming staat ook de extensie toe om bladwijzers toe te voegen, te bewerken en te verwijderen."
     },
     "settings_headline_share_userdata": {
         "message": "Deel informatie"

@@ -65,7 +65,9 @@
                         if (tab.index === 0) {
                             func = "update";
                         } else {
-                            chrome.tabs.remove(tab.id);
+                            chrome.tabs.remove(tab.id, () => {
+                                chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
+                            });
                         }
 
                         if (config.website && config.website.length > 0) {

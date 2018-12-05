@@ -250,12 +250,18 @@
                 ext.helper.tooltip.close();
             });
 
-
             $(document).on($.opts.events.premiumPurchased, (e) => { // user purchased premium -> activate by checking the license key
                 if (e.detail && e.detail.licenseKey) {
                     $(document).off($.opts.events.premiumPurchased);
                     ext.helper.model.call("activatePremium", {licenseKey: e.detail.licenseKey});
                 }
+            }).on($.opts.events.showFeedbackForm, () => { // user accessed the feedback page from the webstore -> open the feedback form of the extension
+                $("div[data-name='blockbyte-extension']").removeAttr("data-name");
+
+                ext.helper.model.call("openLink", {
+                    href: chrome.extension.getURL("html/settings.html#feedback"),
+                    newTab: false
+                });
             });
 
             $(ext.elm.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {

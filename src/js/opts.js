@@ -261,6 +261,7 @@
             checkboxChanged: "blockbyte-bs-checkbox-changed",
             scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
             premiumPurchased: "blockbyte-bs-premiumPurchased",
+            showFeedbackForm: "blockbyte-bs-feedback",
             lsbLoaded: "blockbyte-lsb-loaded",
             pageChanged: "blockbyte-bs-pageChanged"
         },

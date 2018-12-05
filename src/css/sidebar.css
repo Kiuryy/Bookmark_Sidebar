@@ -753,7 +753,6 @@ section#sidebar {
     position: relative;
     display: flex;
     align-items: center;
-    align-content: flex-start;
     justify-content: flex-end;
     flex-wrap: wrap;
     width: 100%;

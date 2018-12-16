@@ -1007,15 +1007,6 @@
     "settings_feedback_faq_headline": {
         "message": "Bu ilginizi \u00e7ekebilir"
     },
-    "settings_permissions_contentscript_desc_2": {
-        "message": "Kenar \u00e7ubu\u011fu mevcut web sayfas\u0131n\u0131n \u00fcst\u00fcnde g\u00f6sterildi\u011fi i\u00e7in bu izin gereklidir. Teknik gerek\u00e7elerin d\u0131\u015f\u0131nda bu izin ba\u015fka bir ama\u00e7la kullan\u0131lmayacak."
-    },
-    "settings_headline_share_userdata": {
-        "message": "Bilgi payla\u015f"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Tercihleriniz ba\u015far\u0131l\u0131 bir \u015fekilde kaydedildi."
-    },
     "premium_popup_text": {
         "message": "Premium \u00dcyeli\u011fini kontrol ettin mi?"
     },

@@ -506,6 +506,15 @@
     "settings_menu_infos": {
         "message": "Propi\u00e9t\u00e9s"
     },
+    "settings_menu_infos_aboutme": {
+        "message": "A propos"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Autorisations"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Priv\u00e9"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -800,6 +809,12 @@
     "settings_import_failed": {
         "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
     },
+    "settings_presets": {
+        "message": "Param\u00e9trer les tailles par d\u00e9faut"
+    },
+    "settings_presets_desc": {
+        "message": "Vous pouvez r\u00e9gler les tailles par d\u00e9faut du panneau lat\u00e9ral. Cela affectera les curseurs de cette page pour ajuster la largeur du panneau lat\u00e9ral, la hauteur des lignes, la taille des ic\u00f4nes etc."
+    },
     "settings_color_scheme": {
         "message": "Couleur"
     },
@@ -997,6 +1012,21 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Ceci pourrait peut-\u00eatre vous int\u00e9resser"
+    },
+    "settings_permissions_desc": {
+        "message": "Afin de rendre possible une barre lat\u00e9rale basculable dans Chrome, les autorisations suivantes sont requises et demand\u00e9es par l'extension :"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Malheureusement, Chrome ne dispose d'aucun m\u00e9canisme pour afficher le contenu dans la fen\u00eatre du navigateur sans interagir avec la page actuellement visit\u00e9e."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "\u00c9tant donn\u00e9 que la barre lat\u00e9rale est affich\u00e9e en haut du site Web actuel, cette autorisation est requise. Outre cette raison technique, l'autorisation n'est pas utilis\u00e9e \u00e0 d'autres fins."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Si vous avez des inqui\u00e9tudes concernant ce que je fais avec l'autorisation, vous pouvez afficher le code source de l'extension sur GitHub. C'est Open Source et visible pour tout le monde."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "L'extension affiche vos signets dans la barre lat\u00e9rale et a donc besoin de cette autorisation pour pouvoir y acc\u00e9der. L'autorisation permet \u00e9galement \u00e0 l'extension d'ajouter, de modifier et de supprimer des signets."
     },
     "settings_headline_share_userdata": {
         "message": "Partager mes infos"

@@ -86,7 +86,7 @@
                     }).then(() => { // reload page
                         s.elm.body.removeClass($.cl.loading);
 
-                        if (translatedAmount >= thanksLimit && s.helper.model.getData("u/translationThanked") === false) { // user translated more than the limit and hasn't seen the thank you screen, yet
+                        if (s.helper.model.getUserType() !== "premium" && translatedAmount >= thanksLimit && s.helper.model.getData("u/translationThanked") === false) { // user translated more than the limit and hasn't seen the thank you screen, yet
                             initThanksForm(lang, translatedAmount);
                         } else {
                             initEditForm(lang);

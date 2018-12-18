@@ -21,7 +21,7 @@
         "message": "No bookmarks matching your search value"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "Url copied"
+        "message": "URL copied"
     },
     "sidebar_deleted": {
         "message": "Removed"
@@ -126,7 +126,7 @@
         "message": "Title"
     },
     "overlay_bookmark_url": {
-        "message": "Url"
+        "message": "URL"
     },
     "overlay_bookmark_additional_info": {
         "message": "Additional info"
@@ -177,7 +177,7 @@
         "message": "Separator"
     },
     "overlay_separator_title_desc": {
-        "message": "You can optionally enter a title for the separator. It will be displayed on top of the separator line and can help you organising your bookmark list."
+        "message": "You can optionally enter a title. It will be displayed on top of the separator line and can help you organising your bookmark list."
     },
     "overlay_bookmark_views": {
         "message": "Views"
@@ -213,7 +213,7 @@
         "message": "Duplicates"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Checking the bookmark urls"
+        "message": "Checking the bookmark URLs"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "Update selected"
@@ -222,16 +222,16 @@
         "message": "Remove selected"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "All bookmark urls are fine"
+        "message": "All bookmark URLs are fine"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "There are no changed bookmark urls"
+        "message": "There are no changed bookmark URLs"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "There are no broken bookmark urls"
+        "message": "There are no broken bookmark URLs"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "There are no duplicate bookmark urls"
+        "message": "There are no duplicate bookmark URLs"
     },
     "newtab_title": {
         "message": "New Tab"
@@ -273,7 +273,7 @@
         "message": "The sidebar cannot be used on chrome system pages"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "One of your url rules disallowed the sidebar to open"
+        "message": "One of your URL rules disallowed the sidebar to open"
     },
     "newtab_fallback_desc": {
         "message": "We have opened a new tab with the sidebar for you instead."
@@ -285,7 +285,7 @@
         "message": "Service unavailable"
     },
     "status_check_bookmarks_unavailable_desc": {
-        "message": "The service which checks the urls is not available at the moment. Please try again later."
+        "message": "The service which checks the URLs is not available at the moment. Please try again later."
     },
     "status_feedback_unavailable_desc": {
         "message": "The feedback service is currently unavailable. If you want to give feedback, please send me an email."
@@ -333,7 +333,7 @@
         "message": "Opens the contextmenu for the currently hovered entry"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Copies the url of the currently hovered entry"
+        "message": "Copies the URL of the currently hovered entry"
     },
     "keyboard_shortcuts_del_desc": {
         "message": "Removes the currently hovered entry"
@@ -641,6 +641,12 @@
     "settings_remember_desc": {
         "message": "Select what to remember across page changes. If you choose to remember the last opened bookmark, it will be marked when opening the sidebar again."
     },
+    "settings_drag_n_drop_add_dialog": {
+        "message": "Show creation dialog"
+    },
+    "settings_drag_n_drop_add_dialog_desc": {
+        "message": "Show the creation dialog before adding a new bookmark when drag&drop into the sidebar."
+    },
     "settings_open_children_warn_limit": {
         "message": "Open all children (Warn limit)"
     },
@@ -699,7 +705,7 @@
         "message": "Open by drag&drop"
     },
     "settings_drag_n_drop_open_desc": {
-        "message": "Allow dragging text selections, links and urls into the sidebar. This can be useful, if you want to bookmark the current page or other links on websites."
+        "message": "Allow dragging text selections, links and URLs into the sidebar. This can be useful, if you want to bookmark the current page or other links on websites."
     },
     "settings_reopen_sidebar": {
         "message": "Reopen sidebar"
@@ -729,13 +735,13 @@
         "message": "Tooltip content"
     },
     "settings_tooltip_content_all": {
-        "message": "Title and url"
+        "message": "Title and URL"
     },
     "settings_tooltip_content_title": {
         "message": "Only title"
     },
     "settings_tooltip_content_url": {
-        "message": "Only url"
+        "message": "Only URL"
     },
     "settings_tooltip_content_additional_info": {
         "message": "Additional info"
@@ -768,13 +774,13 @@
         "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to (blacklist)."
     },
     "settings_filter_explanation_1": {
-        "message": "Only add one url pattern per line"
+        "message": "Only add one URL pattern per line"
     },
     "settings_filter_explanation_2": {
         "message": "Use * to match any character (e.g. example.com\/* matches all pages under example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "If you don't include any * in a rule, only the exact url will match (e.g. \"example.com\" won't match for the url \"example.com\/about.html\")"
+        "message": "If you don't include any * in a rule, only the exact URL will match (e.g. \"example.com\" won't match for the URL \"example.com\/about.html\")"
     },
     "settings_filter_explanation_4": {
         "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"
@@ -792,7 +798,7 @@
         "message": "Only on specific pages"
     },
     "settings_filter_rules": {
-        "message": "Url patterns"
+        "message": "URL patterns"
     },
     "settings_import_export_desc": {
         "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
@@ -1089,7 +1095,10 @@
         "message": "Check your bookmarks for broken links or duplicates"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "You can right-click any directory in your sidebar and perform a check. The result page will show all updated urls, bookmarks which are no longer working and bookmarks with the same url."
+        "message": "You can right-click any directory in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Select a payment method"
     },
     "premium_pay_what_you_want": {
         "message": "Pay what you want"
@@ -1108,6 +1117,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "I read and accept the [a]End-User License Agreement[\/a]"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirm purchase"
     },
     "premium_pay_buy": {
         "message": "Buy Premium"

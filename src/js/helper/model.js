@@ -80,6 +80,7 @@
                 tooltipContent: "all",
                 tooltipAdditionalInfo: true,
                 dndOpen: true,
+                dndCreationDialog: false,
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.5,
                 scrollBarHide: 1.5,

@@ -9,6 +9,7 @@
     $.DragDropHelper = function (ext) {
 
         let sidebarPos = null;
+        let showCreationDialog = false;
         let oldAboveElm = null;
         let oldTopVal = 0;
         let dirOpenTimeout = null;
@@ -27,6 +28,7 @@
          */
         this.init = async () => {
             sidebarPos = ext.helper.model.getData("b/sidebarPosition");
+            showCreationDialog = ext.helper.model.getData("b/dndCreationDialog");
             initEvents();
             initExternalDragDropEvents();
         };
@@ -133,7 +135,7 @@
                                 });
                             };
 
-                            if (bookmarkObj.title && bookmarkObj.url) { // title and url could be determined from the dragged element -> create bookmark directly
+                            if (showCreationDialog === false && bookmarkObj.title && bookmarkObj.url) { // title and url could be determined from the dragged element -> create bookmark directly
                                 ext.helper.model.call("createBookmark", bookmarkObj).then((result) => {
                                     if (result.error) {
                                         showOverlay();

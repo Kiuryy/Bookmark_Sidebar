@@ -21,7 +21,7 @@
         "message": "Zu deinem Suchbegriff wurden keine Lesezeichen gefunden"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "Url kopiert"
+        "message": "URL kopiert"
     },
     "sidebar_deleted": {
         "message": "Gel\u00f6scht"
@@ -213,7 +213,7 @@
         "message": "Duplikate"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Lesezeichen-Urls werden \u00fcberpr\u00fcft"
+        "message": "Lesezeichen-URLs werden \u00fcberpr\u00fcft"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "Ausgew\u00e4hlte aktualisieren"
@@ -222,16 +222,16 @@
         "message": "Ausgew\u00e4hlte entfernen"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Alle Lesezeichen-Urls sind aktuell"
+        "message": "Alle Lesezeichen-URLs sind aktuell"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Es existieren keine ge\u00e4nderten Lesezeichen-Urls"
+        "message": "Es existieren keine ge\u00e4nderten Lesezeichen-URLs"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "Es existieren keine nicht erreichbaren Lesezeichen-Urls"
+        "message": "Es existieren keine nicht erreichbaren Lesezeichen-URLs"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Es existieren keine doppelten Lesezeichen-Urls"
+        "message": "Es existieren keine doppelten Lesezeichen-URLs"
     },
     "newtab_title": {
         "message": "Neuer Tab"
@@ -273,7 +273,7 @@
         "message": "Die Sidebar kann auf Chrome-Systemseiten nicht verwendet werden"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "Eine deiner Url-Regeln verhindert, dass die Sidebar ge\u00f6ffnet werden kann"
+        "message": "Eine deiner URL-Regeln verhindert, dass die Sidebar ge\u00f6ffnet werden kann"
     },
     "newtab_fallback_desc": {
         "message": "Wir haben stattdessen einen neuen Tab mit der Sidebar ge\u00f6ffnet."
@@ -285,7 +285,7 @@
         "message": "Dienst nicht erreichbar"
     },
     "status_check_bookmarks_unavailable_desc": {
-        "message": "Der Dienst der die Urls \u00fcberpr\u00fcft ist zur Zeit nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
+        "message": "Der Dienst der die URLs \u00fcberpr\u00fcft ist zur Zeit nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
     "status_feedback_unavailable_desc": {
         "message": "Der Feedback-Dienst ist aktuell nicht erreichbar. Wenn du Feedback geben willst, schreibe mir eine E-Mail."
@@ -333,7 +333,7 @@
         "message": "\u00d6ffnet das Rechtsklickmen\u00fc f\u00fcr den aktuell markierten Eintrag"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Kopiert die Url des aktuell markierten Eintrags"
+        "message": "Kopiert die URL des aktuell markierten Eintrags"
     },
     "keyboard_shortcuts_del_desc": {
         "message": "L\u00f6scht den aktuell markierten Eintrag"
@@ -641,6 +641,12 @@
     "settings_remember_desc": {
         "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
     },
+    "settings_drag_n_drop_add_dialog": {
+        "message": "Anlege-Dialog anzeigen"
+    },
+    "settings_drag_n_drop_add_dialog_desc": {
+        "message": "Zeigt den Anlege-Dialog an, wenn ein neues Lesezeichen per Drag&Drop in die Sidebar angelegt werden soll."
+    },
     "settings_open_children_warn_limit": {
         "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"
     },
@@ -699,7 +705,7 @@
         "message": "Per Drag&Drop \u00f6ffnen"
     },
     "settings_drag_n_drop_open_desc": {
-        "message": "Erm\u00f6glicht es, markierten Text, Links und Urls in die Sidebar zu ziehen. Das kann hilfreich sein, wenn man ein Lesezeichen f\u00fcr die aktuelle Seite oder Links auf andere Webseiten erstellen m\u00f6chte."
+        "message": "Erm\u00f6glicht es, markierten Text, Links und URLs in die Sidebar zu ziehen. Das kann hilfreich sein, wenn man ein Lesezeichen f\u00fcr die aktuelle Seite oder Links auf andere Webseiten erstellen m\u00f6chte."
     },
     "settings_reopen_sidebar": {
         "message": "Sidebar erneut \u00f6ffnen"
@@ -729,13 +735,13 @@
         "message": "Tooltip Inhalt"
     },
     "settings_tooltip_content_all": {
-        "message": "Titel und Url"
+        "message": "Titel und URL"
     },
     "settings_tooltip_content_title": {
         "message": "Nur Titel"
     },
     "settings_tooltip_content_url": {
-        "message": "Nur Url"
+        "message": "Nur URL"
     },
     "settings_tooltip_content_additional_info": {
         "message": "Zus\u00e4tzliche Infos"
@@ -768,13 +774,13 @@
         "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
     },
     "settings_filter_explanation_1": {
-        "message": "Nur eine Url-Regel pro Zeile"
+        "message": "Nur eine URL-Regel pro Zeile"
     },
     "settings_filter_explanation_2": {
         "message": "Verwende * f\u00fcr beliebige Zeichen (z.B. example.com\/* trifft f\u00fcr alle Seiten unterhalb von example.com zu)"
     },
     "settings_filter_explanation_3": {
-        "message": "Wenn kein * in einer Regel verwendet wird, trifft nur die exakte Url zu (z.B. \"example.com\" trifft nicht f\u00fcr die Url \"example.com\/about.html\" zu)"
+        "message": "Wenn kein * in einer Regel verwendet wird, trifft nur die exakte URL zu (z.B. \"example.com\" trifft nicht f\u00fcr die URL \"example.com\/about.html\" zu)"
     },
     "settings_filter_explanation_4": {
         "message": "Das Protokoll (z.b. http:\/\/) muss in den Regeln nicht vorangestellt werden"
@@ -792,7 +798,7 @@
         "message": "Nur auf spezifischen Seiten"
     },
     "settings_filter_rules": {
-        "message": "Url-Regeln"
+        "message": "URL-Regeln"
     },
     "settings_import_export_desc": {
         "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
@@ -1089,7 +1095,10 @@
         "message": "\u00dcberpr\u00fcfe deine Lesezeichen auf kaputte oder doppelte Links"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "Du kannst jeden Ordner in deiner Sidebar rechtsklicken und eine \u00dcberpr\u00fcfung starten. Die Ergebnis-Seite listet alle aktualisierten Urls, Lesezeichen die nicht mehr funktionieren und Eintr\u00e4ge mit doppelten Urls auf."
+        "message": "Du kannst jeden Ordner in deiner Sidebar rechtsklicken und eine \u00dcberpr\u00fcfung starten. Die Ergebnis-Seite listet alle aktualisierten URLs, Lesezeichen die nicht mehr funktionieren und Eintr\u00e4ge mit doppelten URLs auf."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "W\u00e4hle eine Zahlungsart aus"
     },
     "premium_pay_what_you_want": {
         "message": "Bezahl so viel du willst"
@@ -1108,6 +1117,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "Ich habe die [a]Endbenutzer-Lizenzvereinbarung[\/a] gelesen und akzeptiere diese."
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Kauf best\u00e4tigen"
     },
     "premium_pay_buy": {
         "message": "Premium kaufen"

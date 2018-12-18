@@ -80,6 +80,7 @@
                     const dataUrl = canvas.toDataURL("image/png");
                     resolve({img: dataUrl});
                 };
+                img.crossOrigin = "anonymous";
                 img.src = "chrome://favicon/size/16@2x/" + opts.url;
             });
         };

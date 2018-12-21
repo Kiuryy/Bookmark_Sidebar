@@ -120,22 +120,31 @@
          *
          * @param {string} msg
          * @param {Array} replaces
+         * @param {boolean} encoded
          * @returns {string}
          */
-        this.get = (msg, replaces = []) => {
+        this.get = (msg, replaces = [], encoded = false) => {
             let ret = "";
             const langVar = langVars[msg];
 
             if (langVar && langVar.message) {
                 ret = langVar.message;
-                replaces.forEach((replace, i) => {
-                    ret = ret.replace(new RegExp("\\{" + (i + 1) + "\\}"), replace);
-                });
+
+                if (replaces && replaces.length > 0) {
+                    replaces.forEach((replace, i) => {
+                        ret = ret.replace(new RegExp("\\{" + (i + 1) + "\\}"), replace);
+                    });
+                }
 
                 ret = ret.replace(/\[b\](.*)\[\/b\]/, "<strong>$1</strong>");
                 ret = ret.replace(/\[a\](.*)\[\/a\]/, "<a href='#'>$1</a>");
                 ret = ret.replace(/\[em\](.*)\[\/em\]/, "<em>$1</em>");
             }
+
+            if (encoded) {
+                ret = ret.replace(/'/g, "&#x27;");
+            }
+
             return ret;
         };
     };

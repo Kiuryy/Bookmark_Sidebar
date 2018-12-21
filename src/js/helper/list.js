@@ -305,7 +305,7 @@
 
             $("<h1 />")
                 .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
-                .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")))
+                .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : ""), null, true))
                 .appendTo(ext.elm.header);
 
             $("<a />").addClass($.cl.sidebar.search).appendTo(ext.elm.header);
@@ -316,7 +316,7 @@
 
             $("<div />")
                 .addClass($.cl.sidebar.searchBox)
-                .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder").replace(/'/g, "&#x27;") + "' />")
+                .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder", null, true) + "' />")
                 .append("<a class='" + $.cl.sidebar.searchClose + "'></a>")
                 .appendTo(ext.elm.header);
         };

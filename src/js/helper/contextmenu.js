@@ -177,9 +177,9 @@
             }
 
             iconWrapper
-                .append("<li><a " + $.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title") + "'></a></li>")
-                .append("<li><a " + $.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager") + "'></a></li>")
-                .append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='keyboardShortcuts' title='" + ext.helper.i18n.get("contextmenu_keyboard_shortcuts") + "'></a></li>");
+                .append("<li><a " + $.attr.name + "='settings' title='" + ext.helper.i18n.get("settings_title", null, true) + "'></a></li>")
+                .append("<li><a " + $.attr.name + "='bookmarkManager' title='" + ext.helper.i18n.get("contextmenu_bookmark_manager", null, true) + "'></a></li>")
+                .append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='keyboardShortcuts' title='" + ext.helper.i18n.get("contextmenu_keyboard_shortcuts", null, true) + "'></a></li>");
         };
 
         /**
@@ -239,27 +239,27 @@
                     }
                 }
 
-                iconWrapper.append("<li><a " + $.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos") + "'></a></li>");
+                iconWrapper.append("<li><a " + $.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos", null, true) + "'></a></li>");
 
                 if (data.parents.length > 0) { // root level can not be edited or deleted
                     iconWrapper
-                        .append("<li><a " + $.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend) + "'></a></li>")
-                        .append("<li><a " + $.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend) + "'></a></li>");
+                        .append("<li><a " + $.attr.name + "='edit' title='" + ext.helper.i18n.get("contextmenu_edit" + i18nAppend, null, true) + "'></a></li>")
+                        .append("<li><a " + $.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend, null, true) + "'></a></li>");
                 }
 
 
                 if (data.isDir) {
-                    iconWrapper.append("<li><a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add") + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add", null, true) + "'></a></li>");
                 } else if (data.pinned) {
-                    iconWrapper.append("<li><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin") + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin", null, true) + "'></a></li>");
                 } else {
-                    iconWrapper.append("<li><a " + $.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin") + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin", null, true) + "'></a></li>");
                 }
 
                 if (ext.helper.entry.isVisible(elmId)) {
-                    iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar") + "'></a></li>");
+                    iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='hide' title='" + ext.helper.i18n.get("contextmenu_hide_from_sidebar", null, true) + "'></a></li>");
                 } else if (ext.helper.search.isResultsVisible() === false && elm.parents("li." + $.cl.hidden).length() <= 1) {
-                    iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar") + "'></a></li>");
+                    iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='showHidden' title='" + ext.helper.i18n.get("contextmenu_show_in_sidebar", null, true) + "'></a></li>");
                 }
             }
         };

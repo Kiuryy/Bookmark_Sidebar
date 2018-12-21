@@ -485,9 +485,7 @@ div.modal {
       padding: 2px 30px;
 
       > li {
-        display: flex;
-        flex-flow: row wrap;
-        margin: 20px 0 30px 0;
+        margin: 10px 0 20px 0;
 
         > span {
           margin-top: 20px;
@@ -495,54 +493,32 @@ div.modal {
           line-height: 150%;
         }
 
-        > span.experimental { // @experimental (11/2018)
-          @include mask('icon-experimental', $__textColor, 20px);
-          position: relative;
-          display: block;
-          width: 100%;
-          height: 20px;
-          margin: 0 0 0 7px;
-          opacity: 0.5;
-
-          &::before {
-            -webkit-mask-position-x: 0;
-          }
-
-          &::after {
-            content: "Experimental feature";
-            padding-left: 34px;
-            margin: -2px 0 0 0;
-            display: block;
-          }
-        }
-
         > label {
-          font-size: 140%;
-          padding: 4px 0;
-          margin: 0 12px 0 0;
-          min-width: 45px;
+          display: block;
+          font-size: 100%;
+          font-weight: $__fontWeightMedium;
         }
 
-        > input, > textarea {
+        > input, > textarea, > select {
+          width: 100%;
+          max-width: 400px;
           background: transparent;
           font-size: 120%;
           padding: 5px 8px;
+          margin-top: 5px;
+          border-radius: 5px;
           outline: none;
           box-shadow: none;
           transition: border-color 0.5s;
-          border: 1px solid rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(0, 0, 0, 0.15);
 
           &.error {
             border-color: $colorError;
           }
 
           &:focus {
-            border-color: rgba(0, 0, 0, 0.25);
+            border-color: rgba(0, 0, 0, 0.3);
           }
-        }
-
-        > input {
-          flex: 1;
         }
       }
     }
@@ -555,23 +531,12 @@ div.modal {
     }
 
     > ul > li.info {
-      display: block;
-      margin-top: 40px;
-      padding: 30px 0 0 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-
-      > label {
-        width: 100%;
-        font-size: 100%;
-        font-weight: $__fontWeightMedium;
-        margin: 0 !important;
-      }
 
       > textarea {
-        width: 100%;
+        max-width: none;
         height: 60px;
         resize: none;
-        margin: 5px 0 3px;
+        margin-bottom: 3px;
       }
 
       > span {

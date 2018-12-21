@@ -557,7 +557,7 @@
             if (ext.helper.entry.isSeparator(bookmark.id)) { // separator
                 entryContent.addClass($.cl.sidebar.separator);
                 const label = bookmark.title.replace(/(^[-_]+|[-_]+$)/g, "").trim();
-                if (label.length > 0 && ext.helper.model.getUserType() === "premium") { // named separator (e.g. '---- Social ----') -> @experimental (11/2018)
+                if (label.length > 0) { // named separator (e.g. '---- Social ----')
                     labelElm.attr($.attr.name, label);
                 }
                 labelElm.text("");

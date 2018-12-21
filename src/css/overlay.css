@@ -611,80 +611,45 @@ div.modal {
   div.modal[data-type='edit'] > ul, div.modal[data-type='add'] > ul {
     padding: 2px 30px; }
     div.modal[data-type='edit'] > ul > li, div.modal[data-type='add'] > ul > li {
-      display: flex;
-      flex-flow: row wrap;
-      margin: 20px 0 30px 0; }
+      margin: 10px 0 20px 0; }
       div.modal[data-type='edit'] > ul > li > span, div.modal[data-type='add'] > ul > li > span {
         margin-top: 20px;
         font-size: 120%;
         line-height: 150%; }
-      div.modal[data-type='edit'] > ul > li > span.experimental, div.modal[data-type='add'] > ul > li > span.experimental {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 20px;
-        margin: 0 0 0 7px;
-        opacity: 0.5; }
-        div.modal[data-type='edit'] > ul > li > span.experimental::before, div.modal[data-type='add'] > ul > li > span.experimental::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          -webkit-mask: no-repeat center/20px;
-          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-experimental.svg);
-          background-color: "%textColor"; }
-        div.modal[data-type='edit'] > ul > li > span.experimental::before, div.modal[data-type='add'] > ul > li > span.experimental::before {
-          -webkit-mask-position-x: 0; }
-        div.modal[data-type='edit'] > ul > li > span.experimental::after, div.modal[data-type='add'] > ul > li > span.experimental::after {
-          content: "Experimental feature";
-          padding-left: 34px;
-          margin: -2px 0 0 0;
-          display: block; }
       div.modal[data-type='edit'] > ul > li > label, div.modal[data-type='add'] > ul > li > label {
-        font-size: 140%;
-        padding: 4px 0;
-        margin: 0 12px 0 0;
-        min-width: 45px; }
-      div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='edit'] > ul > li > textarea, div.modal[data-type='add'] > ul > li > input, div.modal[data-type='add'] > ul > li > textarea {
+        display: block;
+        font-size: 100%;
+        font-weight: "%fontWeightMedium"; }
+      div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='edit'] > ul > li > textarea, div.modal[data-type='edit'] > ul > li > select, div.modal[data-type='add'] > ul > li > input, div.modal[data-type='add'] > ul > li > textarea, div.modal[data-type='add'] > ul > li > select {
+        width: 100%;
+        max-width: 400px;
         background: transparent;
         font-size: 120%;
         padding: 5px 8px;
+        margin-top: 5px;
+        border-radius: 5px;
         outline: none;
         box-shadow: none;
         transition: border-color 0.5s;
-        border: 1px solid rgba(0, 0, 0, 0.1); }
-        div.modal[data-type='edit'] > ul > li > input.error, div.modal[data-type='edit'] > ul > li > textarea.error, div.modal[data-type='add'] > ul > li > input.error, div.modal[data-type='add'] > ul > li > textarea.error {
+        border: 1px solid rgba(0, 0, 0, 0.15); }
+        div.modal[data-type='edit'] > ul > li > input.error, div.modal[data-type='edit'] > ul > li > textarea.error, div.modal[data-type='edit'] > ul > li > select.error, div.modal[data-type='add'] > ul > li > input.error, div.modal[data-type='add'] > ul > li > textarea.error, div.modal[data-type='add'] > ul > li > select.error {
           border-color: #f99; }
-        div.modal[data-type='edit'] > ul > li > input:focus, div.modal[data-type='edit'] > ul > li > textarea:focus, div.modal[data-type='add'] > ul > li > input:focus, div.modal[data-type='add'] > ul > li > textarea:focus {
-          border-color: rgba(0, 0, 0, 0.25); }
-      div.modal[data-type='edit'] > ul > li > input, div.modal[data-type='add'] > ul > li > input {
-        flex: 1; }
+        div.modal[data-type='edit'] > ul > li > input:focus, div.modal[data-type='edit'] > ul > li > textarea:focus, div.modal[data-type='edit'] > ul > li > select:focus, div.modal[data-type='add'] > ul > li > input:focus, div.modal[data-type='add'] > ul > li > textarea:focus, div.modal[data-type='add'] > ul > li > select:focus {
+          border-color: rgba(0, 0, 0, 0.3); }
   div.modal[data-type='edit'] > header::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg); }
-  div.modal[data-type='edit'] > ul > li.info {
-    display: block;
-    margin-top: 40px;
-    padding: 30px 0 0 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1); }
-    div.modal[data-type='edit'] > ul > li.info > label {
-      width: 100%;
-      font-size: 100%;
-      font-weight: "%fontWeightMedium";
-      margin: 0 !important; }
-    div.modal[data-type='edit'] > ul > li.info > textarea {
-      width: 100%;
-      height: 60px;
-      resize: none;
-      margin: 5px 0 3px; }
-    div.modal[data-type='edit'] > ul > li.info > span {
-      opacity: 0;
-      font-size: 80%;
-      color: #f99;
-      transition: opacity 0.5s; }
-    div.modal[data-type='edit'] > ul > li.info.active > span {
-      opacity: 1; }
+  div.modal[data-type='edit'] > ul > li.info > textarea {
+    max-width: none;
+    height: 60px;
+    resize: none;
+    margin-bottom: 3px; }
+  div.modal[data-type='edit'] > ul > li.info > span {
+    opacity: 0;
+    font-size: 80%;
+    color: #f99;
+    transition: opacity 0.5s; }
+  div.modal[data-type='edit'] > ul > li.info.active > span {
+    opacity: 1; }
   div.modal[data-type='add'] > header::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg); }
   div.modal[data-type='add'] h2 {

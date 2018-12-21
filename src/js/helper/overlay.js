@@ -338,8 +338,6 @@
                 .append("<input type='text' name='title' value='" + title + "' />")
                 .appendTo(list);
 
-            $("<li />").append("<span class='experimental' title='Experimental' />").appendTo(list); // @experimental (10/2018)
-
             $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
@@ -435,11 +433,6 @@
                 const type = $(e.currentTarget).attr($.attr.type);
                 const list = $("<ul />").attr($.attr.type, type).appendTo(elements.modal);
 
-                if (type === "separator" && ext.helper.model.getUserType() !== "premium") { // @experimental (10/2018)
-                    addSeparator(data);
-                    return;
-                }
-
                 let titleValue = "";
                 let urlValue = "";
 
@@ -461,13 +454,17 @@
 
                 list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label><input type='text' name='title' value='" + titleValue.replace(/'/g, "&#x27;") + "' /></li>");
 
-                if (type === "separator") { // @experimental (10/2018)
-                    list.append("<li><span class='experimental' title='Experimental' /></li>");
-                }
-
                 if (type === "bookmark") {
                     list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                 }
+
+                list.append("<li>" +
+                    "<label>" + ext.helper.i18n.get("overlay_add_position") + "</label>" +
+                    "<select name='position'>" +
+                    " <option value='append'>" + ext.helper.i18n.get("overlay_add_position_append") + "</option>" +
+                    " <option value='prepend'>" + ext.helper.i18n.get("overlay_add_position_prepend") + "</option>" +
+                    "</select>" +
+                    "</li>");
 
                 menu.addClass($.cl.hidden);
                 menu.children("a").removeClass($.cl.hover);
@@ -589,6 +586,7 @@
         const getFormValues = (isDir) => {
             const titleInput = elements.modal.find("input[name='title']").removeClass($.cl.error);
             const urlInput = elements.modal.find("input[name='url']").removeClass($.cl.error);
+            const positionSelect = elements.modal.find("select[name='position'");
             const infoField = elements.modal.find("textarea[name='info']");
 
             const ret = {
@@ -596,6 +594,7 @@
                 values: {
                     title: titleInput[0].value.trim(),
                     url: isDir ? null : urlInput[0].value.trim(),
+                    position: positionSelect[0].value,
                     additionalInfo: infoField.length() > 0 ? (infoField[0].value || null) : null
                 }
             };
@@ -661,24 +660,19 @@
         };
 
         /**
-         * Returns the index which the newly created element should be positioned at,
-         * if the element is being created in the root of the tree, it should be appended, else prepended
+         * Returns the index which the newly created element should be positioned at, depending on the given 'position' parameter
          *
-         * @param parentId
+         * @param {int} parentId
+         * @param {string} position
          * @returns {*}
          */
-        const getIndexOfNewEntry = (parentId) => {
-            const bookmarkList = ext.elm.bookmarkBox.all.children("ul");
-
-            if (bookmarkList.hasClass($.cl.sidebar.hideRoot)) { // add entry to the root -> set index to the bottom
-                const rootId = bookmarkList.find("> li > a").eq(0).attr($.attr.id);
-
-                if (parentId && parentId === rootId) {
-                    return bookmarkList.find("> li > ul > li").length();
-                }
+        const getIndexOfNewEntry = (parentId, position) => {
+            if (position === "prepend") { // prepend -> index = 0
+                return 0;
+            } else { // append to directory -> determine index based on the amount of existing bookmarks in the parent directory
+                const parentList = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + parentId + "'] + ul");
+                return parentList.children("li").length();
             }
-
-            return 0;
         };
 
         /**
@@ -687,22 +681,15 @@
          * @param {object} data
          */
         const addSeparator = (data) => {
-            // @experimental [START] -> direct creation of separators is only supported until the experimental implementation with mandatory title field is being shipped to everybody (11/2018)
-            let title = "";
-            if (elements.modal.find("input[name='title']").length() > 0) {
-                title = elements.modal.find("input[name='title']")[0].value.trim();
-            }
-            // @experimental [END] -> direct creation of separators is only supported until the experimental implementation with mandatory title field is being shipped to everybody (11/2018)
-
-            // const title = elements.modal.find("input[name='title']")[0].value.trim();
-
+            const title = elements.modal.find("input[name='title']")[0].value.trim();
+            const position = elements.modal.find("select[name='position'")[0].value;
             const parentId = data.id || null;
 
             ext.helper.model.call("createBookmark", {
                 title: title.length > 0 ? "---- " + title + " ----" : "----------",
                 url: "about:blank",
                 parentId: data.id || null,
-                index: getIndexOfNewEntry(parentId)
+                index: getIndexOfNewEntry(parentId, position)
             }).then(() => {
                 this.closeOverlay();
             });
@@ -736,7 +723,7 @@
                             obj.parentId = data.values.parentId;
                         }
                     } else {
-                        obj.index = getIndexOfNewEntry(obj.parentId);
+                        obj.index = getIndexOfNewEntry(obj.parentId, formValues.values.position);
                     }
 
                     ext.helper.model.call("createBookmark", obj).then((result) => {

@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "Trennlinie"
     },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "An Anfang des Verzeichnisses"
+    },
+    "overlay_add_position_append": {
+        "message": "An Ende des Verzeichnisses"
+    },
     "overlay_separator_title_desc": {
         "message": "Du kannst der Trennlinie optional einen Titel geben. Dieser wird auf der Linie angezeigt und kann dir beim Organisieren deiner Lesezeichenliste helfen."
     },
@@ -1106,6 +1115,9 @@
     "premium_pay_creditcard": {
         "message": "Kreditkarte"
     },
+    "premium_pay_wechat_desc": {
+        "message": "Scanne den QR-Code mit WeChat um fortzufahren."
+    },
     "premium_pay_contact": {
         "message": "Wenn du irgendwelche Schwierigkeiten mit der Bezahlung, oder Fragen hast, kannst du mich gerne unter {1} kontaktieren."
     },
@@ -1141,6 +1153,9 @@
     },
     "premium_pay_info_email": {
         "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Bitte gib deine E-Mail-Adresse an, um den Lizenzschl\u00fcssel zu erhalten."
     },
     "premium_pay_info_name": {
         "message": "Name"

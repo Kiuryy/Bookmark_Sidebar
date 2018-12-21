@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "Separator"
     },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Prepend to directory"
+    },
+    "overlay_add_position_append": {
+        "message": "Append to directory"
+    },
     "overlay_separator_title_desc": {
         "message": "You can optionally enter a title. It will be displayed on top of the separator line and can help you organising your bookmark list."
     },
@@ -1106,6 +1115,9 @@
     "premium_pay_creditcard": {
         "message": "Credit or debit card"
     },
+    "premium_pay_wechat_desc": {
+        "message": "Scan this QR code on WeChat to proceed."
+    },
     "premium_pay_contact": {
         "message": "If you are encountering any issues with your payment or have any questions, please contact me at {1}."
     },
@@ -1141,6 +1153,9 @@
     },
     "premium_pay_info_email": {
         "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Please enter your mail address to receive the license key."
     },
     "premium_pay_info_name": {
         "message": "Name"

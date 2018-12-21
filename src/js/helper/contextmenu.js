@@ -194,10 +194,7 @@
 
             if (data && data.parents && data.parents.length > 0) {
                 const list = contextmenu.children("ul." + $.cl.contextmenu.list);
-
-                if (ext.helper.model.getUserType() === "premium") { // @experimental (11/2018)
-                    list.append("<li><a " + $.attr.name + "='edit'>" + ext.helper.i18n.get("contextmenu_edit_separator") + "</a></li>");
-                }
+                list.append("<li><a " + $.attr.name + "='edit'>" + ext.helper.i18n.get("contextmenu_edit_separator") + "</a></li>");
                 list.append("<li><a " + $.attr.name + "='delete'>" + ext.helper.i18n.get("contextmenu_delete_separator") + "</a></li>");
             }
 

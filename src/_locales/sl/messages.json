@@ -21,7 +21,7 @@
         "message": "Va\u0161e iskanje se ne ujema z nobenim zaznamkom"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "Url kopiran"
+        "message": "URL kopiran"
     },
     "sidebar_deleted": {
         "message": "Odstranjen"
@@ -126,7 +126,7 @@
         "message": "Naslov"
     },
     "overlay_bookmark_url": {
-        "message": "Url"
+        "message": "URL"
     },
     "overlay_bookmark_additional_info": {
         "message": "Dodatne informacije"
@@ -213,7 +213,7 @@
         "message": "Duplikati"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Preverjanje url-jev zaznamkov"
+        "message": "Preverjanje URL-jev zaznamkov"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "Posodobi izbrano"
@@ -222,16 +222,16 @@
         "message": "Izbri\u0161i izbrano"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Vsi url-ji zaznamkov so v redu"
+        "message": "Vsi URL-ji zaznamkov so v redu"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Ni spremenjenih url-jev zaznamkov"
+        "message": "Ni spremenjenih URL-jev zaznamkov"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "Ni pokvarjenih url-jev zaznamkov"
+        "message": "Ni pokvarjenih URL-jev zaznamkov"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Ni duplikatov url-jev zaznamkov"
+        "message": "Ni duplikatov URL-jev zaznamkov"
     },
     "newtab_title": {
         "message": "Nov zavihek"
@@ -273,7 +273,7 @@
         "message": "Stranska vrstica se ne more uporabljati na straneh Chrome System-a"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "En izmed va\u0161ih url-jev je prepre\u010dil stranski vrstici da se odpre"
+        "message": "En izmed va\u0161ih URL-jev je prepre\u010dil stranski vrstici da se odpre"
     },
     "newtab_fallback_desc": {
         "message": "Namesto tega smo odprli nov zavihek s stransko vrstico."
@@ -285,7 +285,7 @@
         "message": "Storitev ni dostopna"
     },
     "status_check_bookmarks_unavailable_desc": {
-        "message": "Storitev, ki preverja url-je trenutno ni dostopna. Prosimo poskusite kasneje."
+        "message": "Storitev, ki preverja URL-je trenutno ni dostopna. Prosimo poskusite kasneje."
     },
     "status_feedback_unavailable_desc": {
         "message": "Storitev povratnih informacij trenutno ni dostopna. \u010ce \u017eelite pustiti povratno informacijo, prosimo po\u0161ljite e-po\u0161to."
@@ -333,7 +333,7 @@
         "message": "Odpre kontekstni meni trenutnega prehoda vnosa"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Kopira url trenutnega prehodnega vnosa"
+        "message": "Kopira URL trenutnega prehodnega vnosa"
     },
     "keyboard_shortcuts_del_desc": {
         "message": "Odstrani trenutni prehodni vnos"
@@ -699,7 +699,7 @@
         "message": "Odpri z povleci-in-spusti"
     },
     "settings_drag_n_drop_open_desc": {
-        "message": "Dovoli vle\u010denje besedilnih izbir, povezav in url-jev v stransko vrstico. To je lahko uporabno, \u010de \u017eelite dodati zaznamek trenutne strani ali drugih povezav na strani."
+        "message": "Dovoli vle\u010denje besedilnih izbir, povezav in URL-jev v stransko vrstico. To je lahko uporabno, \u010de \u017eelite dodati zaznamek trenutne strani ali drugih povezav na strani."
     },
     "settings_reopen_sidebar": {
         "message": "Ponovno odpri stransko vrstico"
@@ -729,13 +729,13 @@
         "message": "Vsebina namiga"
     },
     "settings_tooltip_content_all": {
-        "message": "Naslov in url"
+        "message": "Naslov in URL"
     },
     "settings_tooltip_content_title": {
         "message": "Samo naslov"
     },
     "settings_tooltip_content_url": {
-        "message": "Samo url"
+        "message": "Samo URL"
     },
     "settings_tooltip_content_additional_info": {
         "message": "Dodatne informacije"
@@ -768,13 +768,13 @@
         "message": "\u010ce ne \u017eelite, da je stranska vrstica nalo\u017eena na vsaki strani, lahko izberete kje raz\u0161iritev nalo\u017eiti (bela lista) ali kje ne (\u010drna lista)."
     },
     "settings_filter_explanation_1": {
-        "message": "Dodajte le en url vzorec na vrstico"
+        "message": "Dodajte le en URL vzorec na vrstico"
     },
     "settings_filter_explanation_2": {
         "message": "Uporabite * za izbiro kateregakoli znaka (na primer: primer.com\/* izbere vse strani pod primer.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "\u010ce ne izberete nobene * v pravilih, bo izbran le to\u010den url (primer: \"primer.com\" ne bo izbral url-ja \"primer.com\/vizitka.html\")"
+        "message": "\u010ce ne izberete nobene * v pravilih, bo izbran le to\u010den URL (primer: \"primer.com\" ne bo izbral URL-ja \"primer.com\/vizitka.html\")"
     },
     "settings_filter_explanation_4": {
         "message": "V pravila ne rabite dodati protokolov (primer: http:\/\/)"
@@ -792,7 +792,7 @@
         "message": "Samo na dolo\u010denih straneh"
     },
     "settings_filter_rules": {
-        "message": "Vzorci url-jev"
+        "message": "Vzorci URL-jev"
     },
     "settings_import_export_desc": {
         "message": "Va\u0161e nastavitve raz\u0161iritve lahko izvozite in shranite lokalno na va\u0161 ra\u010dunalnik. Prej izvo\u017eeno datoteko lahko uvozite na katerekoli ra\u010dunalnik, kjer je name\u0161\u010dena raz\u0161iritev."
@@ -1089,7 +1089,7 @@
         "message": "Preveri va\u0161e zaznamke za pokvarjene povezave ali duplikate"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "Na vsako mapo va\u0161e stranske vrstice lahko kliknete z desno mi\u0161kino tipko da izberete preverjanje. Stran z rezultati vam bo pokazala vse posodobljene url-je, zaznamke, ki niso ve\u010d delujo\u010di in zaznamke z enakim url-jem."
+        "message": "Na vsako mapo va\u0161e stranske vrstice lahko kliknete z desno mi\u0161kino tipko da izberete preverjanje. Stran z rezultati vam bo pokazala vse posodobljene URL-je, zaznamke, ki niso ve\u010d delujo\u010di in zaznamke z enakim URL-jem."
     },
     "premium_pay_what_you_want": {
         "message": "Pla\u010dajte kolikor \u017eelite"

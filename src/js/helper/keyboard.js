@@ -71,6 +71,9 @@
 
                     if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
                         ext.helper.scroll.focus();
+                        $.delay(300).then(() => {
+                            hoverVisibleEntry();
+                        });
                     } else if (e.key === "Tab") { // jump to the next or previous entry
                         e.preventDefault();
                         if (isContextmenuOpen) {
@@ -310,7 +313,32 @@
         };
 
         /**
+         * Hovers a visible entry in the currently visible bookmark list,
+         * will be called after using scroll keys on the keyboard, like 'page up, home, arrow down'
+         */
+        const hoverVisibleEntry = () => {
+            Object.values(ext.elm.bookmarkBox).some((box) => {
+                if (box.hasClass($.cl.active)) {
+                    const scrollTop = ext.helper.scroll.getScrollPos(box);
+
+                    box.find("ul > li").forEach((entry) => {
+                        if (entry.offsetTop > scrollTop + 50) {
+                            box.find("ul > li > a." + $.cl.hover).removeClass($.cl.hover);
+                            box.find("ul > li > a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
+                            $(entry).children("a").addClass([$.cl.hover, $.cl.sidebar.lastHover]);
+                            return false;
+                        }
+                    });
+
+                    return true;
+                }
+            });
+        };
+
+        /**
          * Hovers the next or previous element in the currently visible bookmark list
+         *
+         * @param {string} type 'prev' or 'next'
          */
         const hoverNextPrevEntry = (type) => {
             Object.values(ext.elm.bookmarkBox).some((box) => {
@@ -326,7 +354,7 @@
                         firstVisibleEntry = box.find("ul > li > a." + $.cl.sidebar.lastHover).eq(0).parent("li");
                     } else {
                         box.find("ul > li").forEach((entry) => {
-                            if (entry.offsetTop >= scrollTop) {
+                            if (entry.offsetTop > scrollTop) {
                                 firstVisibleEntry = $(entry);
                                 return false;
                             }

@@ -300,6 +300,8 @@
                         value.fontFamily = fontInfo.name;
                         Object.assign(value, fontInfo.fontWeights);
                     }
+
+                    value.sidebarWidth = value.sidebarWidth.replace(/,/g, "."); // @deprecated 12/2018 -> Bugfix for browsers which return invalid width (e.g. "200,56" instead of "200.56") when changing the sidebar width
                 }
 
                 result[key] = value;

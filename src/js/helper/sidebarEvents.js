@@ -382,11 +382,15 @@
                     const styles = ext.helper.model.getData("a/styles");
 
                     $.delay().then(() => {
-                        styles.sidebarWidth = ext.elm.sidebar.realWidth() + "px";
-                        ext.helper.model.setData({"a/styles": styles});
+                        const widthValue = Math.round(ext.elm.sidebar.realWidth());
 
-                        if (ext.elm.iframe.hasClass($.cl.page.hideMask)) { // save width of iframe in data attribute
-                            ext.elm.iframe.data("width", ext.elm.sidebar.realWidth() + 50);
+                        if (!isNaN(widthValue)) {
+                            styles.sidebarWidth = widthValue + "px";
+                            ext.helper.model.setData({"a/styles": styles});
+
+                            if (ext.elm.iframe.hasClass($.cl.page.hideMask)) { // save width of iframe in data attribute
+                                ext.elm.iframe.data("width", widthValue + 50);
+                            }
                         }
 
                         ext.helper.toggle.removeSidebarHoverClass();

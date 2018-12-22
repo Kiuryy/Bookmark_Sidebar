@@ -855,10 +855,13 @@
                     const boundClientRect = node.getBoundingClientRect();
                     const computedStyle = window.getComputedStyle(node);
 
-                    let dim = boundClientRect[type];
+                    let dim = parseFloat((boundClientRect[type] + "").replace(/,/g, "."));
+
                     if (includeMargins) {
-                        dim += parseInt(computedStyle.getPropertyValue("margin-" + margins[0]));
-                        dim += parseInt(computedStyle.getPropertyValue("margin-" + margins[1]));
+                        margins.forEach((margin) => {
+                            const value = computedStyle.getPropertyValue("margin-" + margin);
+                            dim += parseFloat((value + "").replace(/,/g, "."));
+                        });
                     }
 
                     ret.push(dim);

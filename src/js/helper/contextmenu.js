@@ -7,7 +7,7 @@
      * @constructor
      */
     $.ContextmenuHelper = function (ext) {
-
+        let addMenuTimeout = null;
         const clickFuncs = {};
 
         /**
@@ -247,9 +247,15 @@
                         .append("<li><a " + $.attr.name + "='delete' title='" + ext.helper.i18n.get("contextmenu_delete" + i18nAppend, null, true) + "'></a></li>");
                 }
 
-
                 if (data.isDir) {
-                    iconWrapper.append("<li><a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add", null, true) + "'></a></li>");
+                    const listEntry = $("<li />").html("<a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add", null, true) + "'></a>").appendTo(iconWrapper);
+
+                    $("<ul />")
+                        .attr($.attr.name, "add")
+                        .append("<li><a " + $.attr.name + "='bookmark' title='" + ext.helper.i18n.get("overlay_label_bookmark", null, true) + "'></a></li>")
+                        .append("<li><a " + $.attr.name + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")
+                        .append("<li><a " + $.attr.name + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>")
+                        .appendTo(listEntry);
                 } else if (data.pinned) {
                     iconWrapper.append("<li><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin", null, true) + "'></a></li>");
                 } else {
@@ -492,6 +498,32 @@
         };
 
         /**
+         * Shows the menu for adding a new entry
+         *
+         * @param {jsu} contextmenu
+         */
+        const showAddMenu = (contextmenu) => {
+            if (addMenuTimeout) {
+                clearTimeout(addMenuTimeout);
+            }
+            contextmenu.find("ul[" + $.attr.name + "='add']").addClass($.cl.visible);
+        };
+
+        /**
+         * Hides the menu for adding a new entry after a small delay
+         *
+         * @param {jsu} contextmenu
+         */
+        const hideAddMenu = (contextmenu) => {
+            if (addMenuTimeout) {
+                clearTimeout(addMenuTimeout);
+            }
+            addMenuTimeout = setTimeout(() => {
+                contextmenu.find("ul[" + $.attr.name + "='add']").removeClass($.cl.visible);
+            }, 300);
+        };
+
+        /**
          * Initializes the events for the contextmenus
          *
          * @param {jsu} contextmenu
@@ -524,22 +556,43 @@
                 $(e.currentTarget).find("a").removeClass($.cl.hover);
             });
 
-            contextmenu.find("a").on("mouseenter", (e) => {
+            contextmenu.find("ul[" + $.attr.name + "='add']").on("mouseenter", () => {
+                showAddMenu(contextmenu);
+            }).on("mouseleave", () => {
+                hideAddMenu(contextmenu);
+            });
+
+            contextmenu.find("> ul > li > a").on("mouseenter", (e) => {
                 contextmenu.find("a").removeClass($.cl.hover);
                 $(e.currentTarget).addClass($.cl.hover);
+
+                if ($(e.currentTarget).attr($.attr.name) === "add") { // show sub menu when hovering the add-button
+                    showAddMenu(contextmenu);
+                }
             }).on("mouseleave", (e) => {
-                $(e.currentTarget).removeClass($.cl.hover);
-            }).on("click", (e) => {
+                const elm = $(e.currentTarget);
+                elm.removeClass($.cl.hover);
+                hideAddMenu(contextmenu);
+            });
+
+            contextmenu.find("a").on("click", (e) => {
                 e.preventDefault();
 
+                let elm = e.currentTarget;
+                const parentElm = $(elm).parents("ul").eq(0).prev("a");
+                if (parentElm.length() > 0) { // click on submenu entry -> perform the action of the parent element
+                    elm = parentElm;
+                }
+
                 const opts = {
-                    elm: e.currentTarget,
+                    elm: elm,
                     eventObj: e,
-                    name: $(e.currentTarget).attr($.attr.name),
+                    name: $(elm).attr($.attr.name),
                     id: contextmenu.attr($.attr.id)
                 };
 
                 opts.data = opts.id ? ext.helper.entry.getDataById(opts.id) : null;
+                opts.data.overlayType = $(e.currentTarget).attr($.attr.name);
 
                 if (opts.name === "sort" || opts.name === "toggleHidden") {
                     opts.name = "checkbox";

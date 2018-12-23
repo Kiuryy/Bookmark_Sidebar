@@ -1190,10 +1190,6 @@ html[dir='rtl'] div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul {
     left: 10px;
     right: unset; }
 
-html[dir='rtl'] div.modal[data-type='edit'] > ul > li > label, html[dir='rtl'] div.modal[data-type='add'] > ul > li > label {
-  margin-right: 0;
-  margin-left: 12px; }
-
 html[dir='rtl'] div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
   padding-left: 0;
   padding-right: 16px; }
@@ -1243,12 +1239,14 @@ body.dark div.modal {
     color: "%textColor"; }
   body.dark div.modal[data-type='edit'] > ul > li.info, body.dark div.modal[data-type='add'] > ul > li.info {
     border-color: rgba(255, 255, 255, 0.1); }
-  body.dark div.modal[data-type='edit'] > ul > li > input, body.dark div.modal[data-type='edit'] > ul > li > textarea, body.dark div.modal[data-type='add'] > ul > li > input, body.dark div.modal[data-type='add'] > ul > li > textarea {
+  body.dark div.modal[data-type='edit'] > ul > li > input, body.dark div.modal[data-type='edit'] > ul > li > textarea, body.dark div.modal[data-type='edit'] > ul > li > select, body.dark div.modal[data-type='add'] > ul > li > input, body.dark div.modal[data-type='add'] > ul > li > textarea, body.dark div.modal[data-type='add'] > ul > li > select {
     border-color: rgba(255, 255, 255, 0.1); }
-    body.dark div.modal[data-type='edit'] > ul > li > input.error, body.dark div.modal[data-type='edit'] > ul > li > textarea.error, body.dark div.modal[data-type='add'] > ul > li > input.error, body.dark div.modal[data-type='add'] > ul > li > textarea.error {
+    body.dark div.modal[data-type='edit'] > ul > li > input > option, body.dark div.modal[data-type='edit'] > ul > li > textarea > option, body.dark div.modal[data-type='edit'] > ul > li > select > option, body.dark div.modal[data-type='add'] > ul > li > input > option, body.dark div.modal[data-type='add'] > ul > li > textarea > option, body.dark div.modal[data-type='add'] > ul > li > select > option {
+      background: #4d4d4d; }
+    body.dark div.modal[data-type='edit'] > ul > li > input.error, body.dark div.modal[data-type='edit'] > ul > li > textarea.error, body.dark div.modal[data-type='edit'] > ul > li > select.error, body.dark div.modal[data-type='add'] > ul > li > input.error, body.dark div.modal[data-type='add'] > ul > li > textarea.error, body.dark div.modal[data-type='add'] > ul > li > select.error {
       border-color: rgba(255, 153, 153, 0.5); }
-    body.dark div.modal[data-type='edit'] > ul > li > input:focus, body.dark div.modal[data-type='edit'] > ul > li > textarea:focus, body.dark div.modal[data-type='add'] > ul > li > input:focus, body.dark div.modal[data-type='add'] > ul > li > textarea:focus {
-      border-color: rgba(255, 255, 255, 0.2); }
+    body.dark div.modal[data-type='edit'] > ul > li > input:focus, body.dark div.modal[data-type='edit'] > ul > li > textarea:focus, body.dark div.modal[data-type='edit'] > ul > li > select:focus, body.dark div.modal[data-type='add'] > ul > li > input:focus, body.dark div.modal[data-type='add'] > ul > li > textarea:focus, body.dark div.modal[data-type='add'] > ul > li > select:focus {
+      border-color: rgba(255, 255, 255, 0.25); }
   body.dark div.modal[data-type='add'] > menu:not(.buttons) > a {
     background-color: #4d4d4d; }
     body.dark div.modal[data-type='add'] > menu:not(.buttons) > a::before, body.dark div.modal[data-type='add'] > menu:not(.buttons) > a::after {

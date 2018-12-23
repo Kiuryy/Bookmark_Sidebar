@@ -113,14 +113,6 @@ html[dir='rtl'] {
       }
     }
 
-    &[data-type='edit'], &[data-type='add'] {
-
-      > ul > li > label {
-        margin-right: 0;
-        margin-left: 12px;
-      }
-    }
-
     &[data-type='keyboardShortcuts'] {
 
       > div.scrollBox > div > a {

@@ -24,14 +24,33 @@ body.dark div.contextmenu {
   > ul.icons {
     background: lighten($darkContentBackground2, 3%);
 
-    > li > a {
+    > li {
 
-      &::before {
-        background-color: $darkContextMenuIconColor;
+      > a {
+
+        &::before {
+          background-color: $darkContextMenuIconColor;
+        }
+
+        &.hover {
+          background-color: lighten($darkContentBackground2, 8%);
+        }
       }
 
-      &.hover {
-        background-color: lighten($darkContentBackground2, 8%);
+      > ul {
+        background: $darkContentBackground;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+        &::before {
+          border-bottom-color: $darkContentBackground;
+        }
+
+        > li {
+
+          > a::before {
+            background-color: $darkContextMenuIconColor;
+          }
+        }
       }
     }
   }

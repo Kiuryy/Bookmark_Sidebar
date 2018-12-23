@@ -208,12 +208,14 @@
                 let newActiveElm = null;
 
                 if (parentEntry.length() > 0 && parentEntry.next("li").length() > 0) {
-                    newActiveElm = parentEntry.next("li").find("input");
+                    newActiveElm = parentEntry.next("li").find("input,text,area,select").eq(0);
                 } else {
-                    newActiveElm = overlay.find("input").eq(0);
+                    newActiveElm = overlay.find("input,text,area,select").eq(0);
                 }
 
-                newActiveElm[0].focus();
+                if (newActiveElm && newActiveElm.length() > 0) {
+                    newActiveElm[0].focus();
+                }
             } else if (overlay.find("input").length() > 0) {
                 overlay.find("input")[0].focus();
             } else if (overlay.find("menu[" + $.attr.name + "='select']").length() > 0) {
@@ -236,9 +238,9 @@
             if (entry === null) { // hover the first entry
                 hoveredElm = contextmenu.find("a").eq(0);
             } else if (entry.parent("li").next("li").length() > 0) { // hover the next entry
-                hoveredElm = entry.parent("li").next("li").find("a");
+                hoveredElm = entry.parent("li").next("li").children("a");
             } else if (entry.parents("ul").eq(0).next("ul").length() > 0) { // hover the first entry of the next list
-                hoveredElm = entry.parents("ul").eq(0).next("ul").find("a").eq(0);
+                hoveredElm = entry.parents("ul").eq(0).next("ul").find("> li > a").eq(0);
             } else { // last entry of the last list -> hover the first entry
                 hoveredElm = contextmenu.find("a").eq(0);
             }

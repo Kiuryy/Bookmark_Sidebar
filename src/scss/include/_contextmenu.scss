@@ -5,8 +5,7 @@ div.contextmenu {
   min-width: 240px;
   background: $contentBackground;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-  overflow: hidden;
+  border-radius: 3px;
   transform: translate3d(0, -20px, 0);
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4;
@@ -42,6 +41,7 @@ div.contextmenu {
     padding: 3px 2px 5px 2px;
 
     > li {
+      position: relative;
       display: inline-block;
 
       &.right {
@@ -109,6 +109,67 @@ div.contextmenu {
         &[data-name='keyboardShortcuts']::before {
           @include maskImage('icon-keyboard');
           -webkit-mask-size: 22px;
+        }
+      }
+
+      > ul {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        transform: translate3d(calc(-50% + 19px), -7px, 0);
+        text-align: center;
+        white-space: nowrap;
+        background: $contentBackground;
+        border-radius: 20px;
+        padding: 2px 7px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        transition: opacity 0.3s, transform 0.3s;
+        @extend %hidden;
+
+        &.visible {
+          @extend %visible;
+          transform: translate3d(calc(-50% + 19px), 0, 0);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -14px;
+          left: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          margin: auto;
+          border: 7px solid transparent;
+          border-bottom-color: $contentBackground;
+        }
+
+        > li {
+          display: inline-block;
+
+          > a {
+            @include mask(none, $contextMenuIconColor, 18px);
+            position: relative;
+            display: block;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 0 1px;
+            transition: background-color 0.3s;
+
+            &[data-name='bookmark']::before {
+              @include maskImage('icon-bookmark');
+            }
+
+            &[data-name='dir']::before {
+              @include maskImage('icon-dir-1');
+            }
+
+            &[data-name='separator']::before {
+              @include maskImage('icon-separator');
+            }
+          }
         }
       }
     }

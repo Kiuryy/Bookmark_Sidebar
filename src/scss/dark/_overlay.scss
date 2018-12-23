@@ -25,15 +25,19 @@ body.dark div.modal {
         border-color: rgba(255, 255, 255, 0.1);
       }
 
-      > input, > textarea {
+      > input, > textarea, > select {
         border-color: rgba(255, 255, 255, 0.1);
+
+        > option {
+          background: $darkContentBackground2;
+        }
 
         &.error {
           border-color: rgba($colorError, 0.5);
         }
 
         &:focus {
-          border-color: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.25);
         }
       }
     }

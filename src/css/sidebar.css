@@ -1,8 +1,8 @@
-div.contextmenu, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#premiumInfo, div#premiumInfo > a::before, div#shareInfo.hidden, div#reloadInfo.hidden {
+div.contextmenu, div.contextmenu > ul.icons > li > ul, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#premiumInfo, div#premiumInfo > a::before, div#shareInfo.hidden, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
-div.contextmenu.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag, div#premiumInfo.visible {
+div.contextmenu.visible, div.contextmenu > ul.icons > li > ul.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag, div#premiumInfo.visible {
   opacity: 1;
   pointer-events: auto; }
 
@@ -72,8 +72,7 @@ div.contextmenu {
   min-width: 240px;
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-  overflow: hidden;
+  border-radius: 3px;
   transform: translate3d(0, -20px, 0);
   transition: opacity 0.3s, transform 0.3s;
   z-index: 4; }
@@ -95,6 +94,7 @@ div.contextmenu {
     background: #f4f4f4;
     padding: 3px 2px 5px 2px; }
     div.contextmenu > ul.icons > li {
+      position: relative;
       display: inline-block; }
       div.contextmenu > ul.icons > li.right {
         float: right; }
@@ -144,6 +144,58 @@ div.contextmenu {
         div.contextmenu > ul.icons > li > a[data-name='keyboardShortcuts']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-keyboard.svg);
           -webkit-mask-size: 22px; }
+      div.contextmenu > ul.icons > li > ul {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        transform: translate3d(calc(-50% + 19px), -7px, 0);
+        text-align: center;
+        white-space: nowrap;
+        background: #fff;
+        border-radius: 20px;
+        padding: 2px 7px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        transition: opacity 0.3s, transform 0.3s; }
+        div.contextmenu > ul.icons > li > ul.visible {
+          transform: translate3d(calc(-50% + 19px), 0, 0); }
+        div.contextmenu > ul.icons > li > ul::before {
+          content: "";
+          position: absolute;
+          top: -14px;
+          left: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          margin: auto;
+          border: 7px solid transparent;
+          border-bottom-color: #fff; }
+        div.contextmenu > ul.icons > li > ul > li {
+          display: inline-block; }
+          div.contextmenu > ul.icons > li > ul > li > a {
+            position: relative;
+            display: block;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 0 1px;
+            transition: background-color 0.3s; }
+            div.contextmenu > ul.icons > li > ul > li > a::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              -webkit-mask: no-repeat center/18px;
+              -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/none.svg);
+              background-color: #ccc; }
+            div.contextmenu > ul.icons > li > ul > li > a[data-name='bookmark']::before {
+              -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg); }
+            div.contextmenu > ul.icons > li > ul > li > a[data-name='dir']::before {
+              -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-dir-1.svg); }
+            div.contextmenu > ul.icons > li > ul > li > a[data-name='separator']::before {
+              -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-separator.svg); }
   div.contextmenu > ul.list > li {
     position: relative; }
     div.contextmenu > ul.list > li > div.checkbox {
@@ -277,6 +329,13 @@ body.dark div.contextmenu {
       background-color: #999; }
     body.dark div.contextmenu > ul.icons > li > a.hover {
       background-color: #616161; }
+    body.dark div.contextmenu > ul.icons > li > ul {
+      background: #3d3d3d;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
+      body.dark div.contextmenu > ul.icons > li > ul::before {
+        border-bottom-color: #3d3d3d; }
+      body.dark div.contextmenu > ul.icons > li > ul > li > a::before {
+        background-color: #999; }
 
 div.tooltip {
   position: absolute;

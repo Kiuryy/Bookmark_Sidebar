@@ -415,9 +415,12 @@
         const handleAddHtml = (data) => {
             const submit = $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
             const menu = $("<menu />").attr($.attr.name, "select").appendTo(elements.modal);
-            const bookmarkLink = $("<a />").attr($.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu);
-            $("<a />").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu);
-            $("<a />").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
+
+            const links = {
+                bookmark: $("<a />").attr($.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu),
+                dir: $("<a />").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu),
+                separator: $("<a />").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu)
+            };
 
             menu.on("mouseleave", (e) => {
                 $(e.currentTarget).children("a").removeClass($.cl.hover);
@@ -474,11 +477,12 @@
                     list.find("input")[0].focus();
                     submit.addClass($.cl.visible);
                 });
-
             });
 
-            if (data && data.values) { // add bookmark with existing data (e.g. after dragging url into sidebar)
-                bookmarkLink.trigger("click");
+            if (data.overlayType && links[data.overlayType]) { // skip selection of what to create
+                links[data.overlayType].trigger("click");
+            } else if (data && data.values) { // add bookmark with existing data (e.g. after dragging url into sidebar)
+                links.bookmark.trigger("click");
             }
         };
 

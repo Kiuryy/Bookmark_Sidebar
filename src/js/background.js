@@ -10,6 +10,7 @@
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
             track: "https://extensions.blockbyte.de/ajax/evaluate/bs",
+            translationInfo: "https://extensions.blockbyte.de/ajax/translation/bs/info",
             premiumCheck: "https://extensions.blockbyte.de/ajax/premium/bs/check",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
             checkUrls: "https://4v1.de/u",

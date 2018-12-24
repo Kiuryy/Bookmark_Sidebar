@@ -977,6 +977,9 @@
     "settings_translation_help": {
         "message": "Zu jedem Eintrag gibt es eine englische \u00dcbersetzung, die in deine Sprache \u00fcbersetzt werden muss. Als Hilfestellung wo der Text verwendet wird und f\u00fcr was er ist, besitzt jeder Eintrag einen Namen (z.B. {1}), der nicht \u00fcbersetzt werden soll. Bitte nicht vergessen die \u00c4nderungen mit Hilfe des Buttons oben rechts abzusenden!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Ich m\u00f6chte informiert werden, wenn neue Sprachvariablen zur Erweiterung hinzugef\u00fcgt werden"
+    },
     "settings_translation_submit": {
         "message": "Absenden"
     },

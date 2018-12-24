@@ -233,13 +233,21 @@
         };
 
         /**
-         * Shows a box with a link to the premium info page
+         * Shows a info box of the given type
+         *
+         * @parm {string} type
          */
-        this.addPremiumInfoBox = () => {
-            this.elm.sidebar.find("#" + $.opts.ids.sidebar.premiumInfo).remove();
-            const infoBox = $("<div />").attr("id", $.opts.ids.sidebar.premiumInfo).prependTo(this.elm.sidebar);
-            $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
-            $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
+        this.addInfoBox = (type) => {
+            this.elm.sidebar.find("#" + $.opts.ids.sidebar.infoBox).remove();
+            const infoBox = $("<div />").attr("id", $.opts.ids.sidebar.infoBox).prependTo(this.elm.sidebar);
+
+            if (type === "premium") {
+                $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
+            } else if (type === "translation") {
+                $("<p />").text(this.helper.i18n.get("settings_translation_incomplete_info")).appendTo(infoBox);
+            }
+
+            $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).attr($.attr.type, type).appendTo(infoBox);
             $("<a />").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
 
             $.delay(500).then(() => {

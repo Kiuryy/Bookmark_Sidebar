@@ -320,15 +320,31 @@
                 }
             });
 
-            ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.premiumInfo + " a", (e) => { // click on a link in the premium info box
+            ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.infoBox + " a", (e) => { // click on a link in the info box
                 e.preventDefault();
-                ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.premiumInfo).removeClass($.cl.visible);
+                ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.infoBox).removeClass($.cl.visible);
 
                 if ($(e.currentTarget).hasClass($.cl.info)) {
-                    ext.helper.model.call("openLink", {
-                        href: chrome.extension.getURL("html/settings.html#premium"),
-                        newTab: true
-                    });
+                    const type = $(e.currentTarget).attr($.attr.type);
+                    let href = null;
+
+                    switch (type) {
+                        case "premium": {
+                            href = "html/settings.html#premium";
+                            break;
+                        }
+                        case "translation": {
+                            href = "html/settings.html#language_translate";
+                            break;
+                        }
+                    }
+
+                    if (href) {
+                        ext.helper.model.call("openLink", {
+                            href: chrome.extension.getURL(href),
+                            newTab: true
+                        });
+                    }
                 }
             });
         };

@@ -3,6 +3,24 @@ html[dir='rtl'] {
 
   div.tab[data-name='language'] > div[data-name='translate'] {
 
+    div.translationInfo {
+
+      > hr {
+        margin-right: 40px;
+        margin-left: 0;
+      }
+
+      > div {
+        padding-right: 40px;
+        padding-left: 0;
+
+        > div.checkbox {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+    }
+
     > div.overview {
 
       div.box {

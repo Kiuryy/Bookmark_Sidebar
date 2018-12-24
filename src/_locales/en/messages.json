@@ -977,6 +977,9 @@
     "settings_translation_help": {
         "message": "For each entry you can see the English translation, which needs to be translated in your language. To help you identifing where the text is used and what it is for, each entry has a name (e.g. {1}), which should not be translated. Please don't forget to submit your translation by pressing the button in the top right corner!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "I want to be notified when new language variables are being added to the extension"
+    },
     "settings_translation_submit": {
         "message": "Submit"
     },

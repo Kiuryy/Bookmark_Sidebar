@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "S\u00e9parateur"
     },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Ajouter au r\u00e9pertoire"
+    },
+    "overlay_add_position_append": {
+        "message": "Joindre au r\u00e9pertoire"
+    },
     "overlay_separator_title_desc": {
         "message": "Vous pouvez \u00e9ventuellement entrer un titre pour le s\u00e9parateur. Il sera affich\u00e9 en haut de la ligne de s\u00e9paration et peut vous aider \u00e0 organiser votre liste de signets."
     },

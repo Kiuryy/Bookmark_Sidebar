@@ -236,7 +236,10 @@
             });
 
             $("input, textarea, select").on("keyup change input", (e) => { // highlight save button the first time something got changed
-                if ($(e.currentTarget).parent("[" + $.attr.type + "='licenseKey']").length() > 0 || $(e.currentTarget).parents("div." + $.cl.settings.translation.thanks).length() > 0) {
+                if ($(e.currentTarget).parent("[" + $.attr.type + "='licenseKey']").length() > 0 ||
+                    $(e.currentTarget).parent("[" + $.attr.name + "='translationInfo']").length() > 0 ||
+                    $(e.currentTarget).parents("div." + $.cl.settings.translation.thanks).length() > 0
+                ) {
                     return;
                 }
 

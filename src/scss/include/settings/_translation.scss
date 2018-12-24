@@ -1,5 +1,35 @@
 div.tab[data-name='language'] > div[data-name='translate'] {
 
+  div.translationInfo {
+
+    &::before {
+      top: 25px;
+      bottom: unset;
+    }
+
+    > hr {
+      margin-left: 40px;
+    }
+
+    > div {
+      display: flex;
+      flex-flow: row wrap;
+      padding: 0 0 0 40px;
+
+      > label {
+        display: inline-block;
+        order: 2;
+      }
+
+      > div.checkbox {
+        display: inline-block;
+        vertical-align: top;
+        margin: -1px 10px 0 0;
+        order: 1;
+      }
+    }
+  }
+
   > div {
     display: none;
 

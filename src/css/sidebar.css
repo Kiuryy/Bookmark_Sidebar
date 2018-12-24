@@ -1,8 +1,8 @@
-div.contextmenu, div.contextmenu > ul.icons > li > ul, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#premiumInfo, div#premiumInfo > a::before, div#shareInfo.hidden, div#reloadInfo.hidden {
+div.contextmenu, div.contextmenu > ul.icons > li > ul, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#infoBox, div#infoBox > a::before, div#shareInfo.hidden, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
-div.contextmenu.visible, div.contextmenu > ul.icons > li > ul.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag, div#premiumInfo.visible {
+div.contextmenu.visible, div.contextmenu > ul.icons > li > ul.visible, a.dragHelper:hover > span.drag, section#sidebar > header.searchVisible > div.searchBox, section#sidebar > a.lockPinned.active, section#sidebar > div.scrollBox > ul a:hover > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a:hover > span.drag, div#infoBox.visible {
   opacity: 1;
   pointer-events: auto; }
 
@@ -1350,7 +1350,7 @@ section#sidebar {
     top: calc(50% - 18px);
     left: calc(50% - 18px); }
 
-div#premiumInfo {
+div#infoBox {
   position: absolute;
   bottom: 12px;
   left: 15px;
@@ -1363,13 +1363,13 @@ div#premiumInfo {
   z-index: 4;
   transform: translate3d(0, 20px, 0);
   transition: transform 0.5s, opacity 0.5s; }
-  div#premiumInfo.visible {
+  div#infoBox.visible {
     transform: translate3d(0, 0, 0); }
-  div#premiumInfo > p {
+  div#infoBox > p {
     margin: 0 0 10px 0;
     font-size: 110%;
     line-height: 140%; }
-  div#premiumInfo > a {
+  div#infoBox > a {
     position: relative;
     display: inline-block;
     padding: 5px 10px 4px;
@@ -1379,7 +1379,7 @@ div#premiumInfo {
     text-transform: uppercase;
     border-radius: 3px;
     cursor: pointer; }
-    div#premiumInfo > a::before {
+    div#infoBox > a::before {
       content: "";
       position: absolute;
       display: block;
@@ -1390,7 +1390,7 @@ div#premiumInfo {
       border-radius: 3px;
       background: "%colorScheme";
       transition: opacity 0.5s; }
-    div#premiumInfo > a:hover::before {
+    div#infoBox > a:hover::before {
       opacity: 0.15; }
 
 div#shareInfo, div#reloadInfo {
@@ -1600,9 +1600,9 @@ body.highContrast:not(.dark) section#sidebar > header > div.searchBox {
   body.highContrast:not(.dark) section#sidebar > header > div.searchBox > a.searchClose:hover {
     background-color: rgba(0, 0, 0, 0.07); }
 
-body.highContrast:not(.dark) div#premiumInfo > a {
+body.highContrast:not(.dark) div#infoBox > a {
   color: "%textColor"; }
-  body.highContrast:not(.dark) div#premiumInfo > a::before {
+  body.highContrast:not(.dark) div#infoBox > a::before {
     background: "%textColor"; }
 
 body.dark section#sidebar {
@@ -1668,11 +1668,11 @@ body.dark section#sidebar {
   body.dark section#sidebar ~ a.dragHelper.separator {
     background: #3d3d3d; }
 
-body.dark div#premiumInfo {
+body.dark div#infoBox {
   background: #4d4d4d; }
-  body.dark div#premiumInfo > a {
+  body.dark div#infoBox > a {
     color: "%textColor"; }
-    body.dark div#premiumInfo > a::before {
+    body.dark div#infoBox > a::before {
       background: "%textColor"; }
 
 body.dark div#shareInfo, body.dark div#reloadInfo {

@@ -135,8 +135,8 @@
                     if (opts && opts.info) {
                         if (opts.info === "shareInfo") { // show mask to set the tracking preferences
                             ext.addShareInfoMask();
-                        } else if (opts.info === "premium") {
-                            ext.addPremiumInfoBox();
+                        } else if (opts.info === "premium" || opts.info === "translation") {
+                            ext.addInfoBox(opts.info);
                         }
                     } else {
                         ext.elm.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();

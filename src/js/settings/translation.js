@@ -4,6 +4,7 @@
     $.TranslationHelper = function (s) {
 
         let languages = {};
+        let translationReminder = [];
 
         const langvarsCache = {};
         const varsAmount = {};
@@ -143,9 +144,13 @@
          */
         const initLanguages = () => {
             return new Promise((resolve) => {
-                s.helper.model.call("languageInfos").then((opts) => {
-                    languages = opts.infos;
-                    resolve();
+                chrome.storage.sync.get(["translationInfo"], (obj) => {
+                    translationReminder = obj.translationInfo || [];
+
+                    s.helper.model.call("languageInfos").then((opts) => {
+                        languages = opts.infos;
+                        resolve();
+                    });
                 });
             });
         };
@@ -232,6 +237,25 @@
             s.elm.translation["goto"].on("click", (e) => {
                 e.preventDefault();
                 s.elm.aside.find("li[" + $.attr.name + "='translate'] > a").trigger("click");
+            });
+
+            s.elm.checkbox.translationInfo.children("input").on("change input", (e) => { // add/remove language to/from reminder list
+                if (s.elm.translation.langvars.hasClass($.cl.loading)) {
+                    return;
+                }
+
+                const checked = e.currentTarget.checked;
+                const lang = s.elm.translation.langvars.data("lang");
+                const idx = translationReminder.indexOf(lang);
+
+                if (checked && idx === -1) { // add to list
+                    translationReminder.push(lang);
+                } else if (checked === false && idx !== -1) { // remove rom list
+                    translationReminder.splice(idx, 1);
+                }
+
+                chrome.storage.sync.set({translationInfo: translationReminder});
+                s.showSuccessMessage("saved_message");
             });
 
             $(document).on($.opts.events.pageChanged, (e) => {
@@ -672,6 +696,12 @@
             s.elm.translation.overview.removeClass($.cl.visible);
             s.elm.translation.langvars.addClass([$.cl.visible, $.cl.loading]);
             const loader = s.helper.template.loading().appendTo(s.elm.translation.langvars);
+
+            const reminderIsChecked = s.helper.checkbox.isChecked(s.elm.checkbox.translationInfo);
+            const reminderEnabled = translationReminder.indexOf(lang) !== -1;
+            if (reminderIsChecked !== reminderEnabled) { // update reminder checkbox to fit the preferences of the currently edited language
+                s.elm.checkbox.translationInfo.trigger("click");
+            }
 
             getLanguageInfos(lang).then((obj) => {
                 if (obj) {

@@ -2068,6 +2068,26 @@ html[dir='rtl'] div.sub div.checkbox {
   html[dir='rtl'] div.sub div.checkbox + label {
     margin-left: unset; }
 
+div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo::before {
+  top: 25px;
+  bottom: unset; }
+
+div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > hr {
+  margin-left: 40px; }
+
+div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > div {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0 0 0 40px; }
+  div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > div > label {
+    display: inline-block;
+    order: 2; }
+  div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > div > div.checkbox {
+    display: inline-block;
+    vertical-align: top;
+    margin: -1px 10px 0 0;
+    order: 1; }
+
 div.tab[data-name='language'] > div[data-name='translate'] > div {
   display: none; }
   div.tab[data-name='language'] > div[data-name='translate'] > div.visible {
@@ -2389,6 +2409,17 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submit
         height: 16px; }
         div.tab[data-name='language'] > div[data-name='translate'] > div.thanks p.submitWrapper > a.loading > svg.loading > circle {
           stroke: #fff; }
+
+html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > hr {
+  margin-right: 40px;
+  margin-left: 0; }
+
+html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > div {
+  padding-right: 40px;
+  padding-left: 0; }
+  html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] div.translationInfo > div > div.checkbox {
+    margin-left: 10px;
+    margin-right: 0; }
 
 html[dir='rtl'] div.tab[data-name='language'] > div[data-name='translate'] > div.overview div.box > div.progress > div {
   right: 0;

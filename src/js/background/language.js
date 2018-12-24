@@ -173,6 +173,35 @@
         };
 
         /**
+         * Determines all languages with incomplete translations
+         *
+         * @returns {Promise}
+         */
+        this.getIncompleteLanguages = () => {
+            return new Promise((resolve) => {
+                $.xhr(b.urls.translationInfo).then((xhr) => {
+                    const infos = JSON.parse(xhr.responseText);
+                    const incompleteLangs = [];
+
+                    if (infos && infos.languages && infos.categories) {
+                        let totalVars = 0;
+                        Object.values(infos.categories).forEach((cat) => { // determine the total amount of language variables
+                            totalVars += cat.total;
+                        });
+
+                        infos.languages.forEach((lang) => { // add all languages with incomplete amount of variables to list
+                            if (lang.varsAmount < totalVars) {
+                                incompleteLangs.push(lang.name);
+                            }
+                        });
+                    }
+
+                    resolve(incompleteLangs);
+                });
+            });
+        };
+
+        /**
          * Returns the language variables for the given language
          *
          * @param {string} lang

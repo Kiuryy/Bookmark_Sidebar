@@ -4,6 +4,7 @@
     $.ModelHelper = function (b) {
         let data = {};
         let licenseKey = null;
+        let translationInfo = [];
         let shareInfo = {
             config: null,
             activity: null
@@ -15,7 +16,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["model", "shareInfo", "licenseKey"], (obj) => {
+                chrome.storage.sync.get(["model", "shareInfo", "translationInfo", "licenseKey"], (obj) => {
                     data = obj.model || {};
                     if (typeof obj.shareInfo === "object") {
                         shareInfo = obj.shareInfo;
@@ -25,12 +26,20 @@
                         licenseKey = obj.licenseKey;
                     }
 
+                    if (typeof obj.translationInfo === "object") {
+                        translationInfo = obj.translationInfo;
+                    }
+
                     if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
                         data.installationDate = +new Date();
                     }
 
                     if (typeof data.premiumInfo === "undefined") { // no premium teaser displayed yet -> initialise with null
                         data.premiumInfo = null;
+                    }
+
+                    if (typeof data.translationReminder === "undefined") { // no reminder of missing translation variables displayed yet -> initialise with null
+                        data.translationReminder = null;
                     }
 
                     saveModelData().then(resolve);
@@ -61,9 +70,22 @@
             return new Promise((resolve) => {
                 if (data && data.installationDate) {
                     const daysSinceInstall = (+new Date() - data.installationDate) / 86400000;
+                    const daysSinceTranslationReminder = data.translationReminder === null ? 365 : (+new Date() - data.translationReminder) / 86400000;
 
                     if (shareInfo.config === null && shareInfo.activity === null && daysSinceInstall > 7) { // user has installed the extension for at least 7 days and has not set his tracking preferences
                         resolve({info: "shareInfo"});
+                    } else if (translationInfo.length > 0 && daysSinceTranslationReminder > 3) { // user has enabled translation reminder and didn't got one the last three days -> check whether a language the user wants to be notified about is incomplete
+                        Promise.all([
+                            b.helper.language.getIncompleteLanguages(),
+                            this.setData("translationReminder", +new Date())
+                        ]).then(([langList]) => {
+                            translationInfo.some((lang) => {
+                                if (langList.indexOf(lang) !== -1) { // a language of the list is incomplete -> show info box
+                                    resolve({info: "translation"});
+                                }
+                            });
+                            resolve({info: null});
+                        });
                     } else {
                         this.getUserType().then((obj) => {
                             const daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;

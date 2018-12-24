@@ -51,10 +51,32 @@ body > section#wrapper {
 
             > a {
               @include mask('icon-premium', $textColor, 18px);
+
+              &::before {
+                z-index: 2;
+              }
             }
 
-            &.inactive {
-              background: rgba($colorNotice, 0.3);
+            &.inactive > a {
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 5px;
+                margin: auto;
+                width: 31px;
+                height: 31px;
+                border-radius: 50%;
+                background: rgba($colorNotice, 0.5);
+                transition: background 0.5s;
+                z-index: 1;
+              }
+
+              &:hover::after {
+                background: rgba($colorNotice, 0.8);
+              }
             }
           }
 

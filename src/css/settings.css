@@ -2585,8 +2585,23 @@ body > section#wrapper > aside {
         -webkit-mask: no-repeat center/18px;
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
         background-color: #666; }
-      body > section#wrapper > aside > nav > ul > li[data-name='premium'].inactive {
-        background: rgba(245, 197, 37, 0.3); }
+      body > section#wrapper > aside > nav > ul > li[data-name='premium'] > a::before {
+        z-index: 2; }
+      body > section#wrapper > aside > nav > ul > li[data-name='premium'].inactive > a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        margin: auto;
+        width: 31px;
+        height: 31px;
+        border-radius: 50%;
+        background: rgba(245, 197, 37, 0.5);
+        transition: background 0.5s;
+        z-index: 1; }
+      body > section#wrapper > aside > nav > ul > li[data-name='premium'].inactive > a:hover::after {
+        background: rgba(245, 197, 37, 0.8); }
       body > section#wrapper > aside > nav > ul > li[data-name='infos'] > a::before {
         content: "";
         position: absolute;
@@ -2687,6 +2702,10 @@ html[dir='rtl'] body > section#wrapper::before {
 html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='language'].incomplete > a > span {
   margin-right: 5px;
   margin-left: unset; }
+
+html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='premium'].inactive > a::after {
+  left: unset;
+  right: 5px; }
 
 html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='newtab'] > a::before, html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='feedback'] > a::before {
   transform: scaleX(-1);

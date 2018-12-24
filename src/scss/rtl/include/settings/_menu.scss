@@ -23,6 +23,11 @@ html[dir='rtl'] {
               }
             }
 
+            &[data-name='premium'].inactive > a::after {
+              left: unset;
+              right: 5px;
+            }
+
             &[data-name='newtab'] > a::before, &[data-name='feedback'] > a::before {
               transform: scaleX(-1);
               -webkit-mask-position-x: left !important;

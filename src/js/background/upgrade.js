@@ -30,6 +30,7 @@
                     always: true
                 });
 
+                updateOptions("install");
                 chrome.tabs.create({url: chrome.extension.getURL("html/intro.html")});
             }
 
@@ -50,7 +51,7 @@
             const versionPartsNew = newVersion.split(".");
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
-                handleVersionUpgrade().then(() => {
+                updateOptions("upgrade").then(() => {
                     b.reinitialize();
                 });
             } else {
@@ -59,11 +60,12 @@
         };
 
         /**
-         * Upgrades the stored settings and data to be compatible to the new version
+         * Updates the stored settings and data after installing or upgrading
          *
+         * @param {string} type
          * @returns {Promise}
          */
-        const handleVersionUpgrade = () => {
+        const updateOptions = (type) => {
             return new Promise((resolve) => {
                 let savedCount = 0;
 
@@ -87,22 +89,10 @@
                         obj.newtab = {};
                     }
 
-                    try {
-                        delete obj.behaviour.initialOpenOnNewTab;
-                        delete obj.behaviour.rememberSearch;
-                        delete obj.behaviour.rememberScroll;
-                        delete obj.behaviour.autoOpen;
-                        delete obj.behaviour.pxTolerance;
-                        delete obj.behaviour.scrollSensitivity;
-                        delete obj.behaviour.hideEmptyDirs;
-                        delete obj.behaviour.replaceNewTab;
-                        delete obj.behaviour.language;
-                        delete obj.appearance.language;
-                        delete obj.appearance.sidebarPosition;
-                        delete obj.appearance.addVisual;
-                        delete obj.newtab.initialOpen;
-                    } catch (e) {
-                        //
+                    if (type === "upgrade") {
+                        updateOptionsAfterUpgrade(obj);
+                    } else if (type === "install") {
+                        updateOptionsAfterInstall(obj);
                     }
 
                     chrome.storage.sync.set({behaviour: obj.behaviour}, savedValues);
@@ -110,6 +100,43 @@
                     chrome.storage.sync.set({appearance: obj.appearance}, savedValues);
                 });
             });
+        };
+
+        /**
+         * Sets some settings of the extension after the installation
+         *
+         * @param {object} obj
+         */
+        const updateOptionsAfterInstall = (obj) => {
+            if (chrome.i18n.getUILanguage() === "zh_CN") {
+                obj.newtab.searchEngine = "baidu";
+                obj.newtab.shortcuts = [{label: "百度", url: "https://www.baidu.com/"}];
+            }
+        };
+
+        /**
+         * Upgrades the stored settings and data to be compatible to the new version
+         *
+         * @param {object} obj
+         */
+        const updateOptionsAfterUpgrade = (obj) => {
+            try {
+                delete obj.behaviour.initialOpenOnNewTab;
+                delete obj.behaviour.rememberSearch;
+                delete obj.behaviour.rememberScroll;
+                delete obj.behaviour.autoOpen;
+                delete obj.behaviour.pxTolerance;
+                delete obj.behaviour.scrollSensitivity;
+                delete obj.behaviour.hideEmptyDirs;
+                delete obj.behaviour.replaceNewTab;
+                delete obj.behaviour.language;
+                delete obj.appearance.language;
+                delete obj.appearance.sidebarPosition;
+                delete obj.appearance.addVisual;
+                delete obj.newtab.initialOpen;
+            } catch (e) {
+                //
+            }
         };
     };
 

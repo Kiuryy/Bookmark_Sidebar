@@ -41,6 +41,18 @@
         };
 
         /**
+         * Shows the search field in the header of the sidebar
+         *
+         * @returns {Promise}
+         */
+        this.showSearchField = () => {
+            ext.helper.contextmenu.close();
+            ext.helper.tooltip.close();
+            ext.elm.header.addClass($.cl.sidebar.searchVisible);
+            ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].focus();
+        };
+
+        /**
          * Handles the view of the search result list
          *
          * @param {string} val
@@ -185,10 +197,13 @@
             ext.elm.header.on("click", "a." + $.cl.sidebar.search, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                ext.helper.contextmenu.close();
-                ext.helper.tooltip.close();
-                ext.elm.header.addClass($.cl.sidebar.searchVisible);
-                ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0].focus();
+                this.showSearchField();
+            });
+
+            ext.elm.header.on("click", "a." + $.cl.sidebar.searchClose, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.clearSearch();
             });
 
             ext.elm.header.on("keyup", "div." + $.cl.sidebar.searchBox + " > input[type='text']", (e) => {
@@ -211,12 +226,6 @@
                         });
                     }
                 }
-            });
-
-            ext.elm.header.on("click", "a." + $.cl.sidebar.searchClose, (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.clearSearch();
             });
         };
     };

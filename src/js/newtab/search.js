@@ -309,6 +309,17 @@
                 handleSearch(suggestion);
             });
 
+            $(document).on("keydown", (e) => {
+                if (e.key === "f" && (e.ctrlKey || e.metaKey)) { // open the search field of the sidebar
+                    e.preventDefault();
+                    if (n.sidebarHelper && n.sidebarHelper.search && n.elm.sidebar && n.elm.sidebar.iframe) {
+                        $(document).trigger($.opts.events.openSidebar);
+                        n.elm.sidebar.iframe[0].focus();
+                        n.sidebarHelper.search.showSearchField();
+                    }
+                }
+            });
+
             $(document).on("click", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
                 if (n.helper.edit.isEditMode() === false) {

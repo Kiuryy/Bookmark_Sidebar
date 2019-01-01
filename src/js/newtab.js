@@ -23,6 +23,7 @@
             topPages: $("div#topPages")
         };
 
+        this.sidebarHelper = {};
         this.enabledSetAsNewtab = false;
 
         /**
@@ -197,6 +198,7 @@
                 const sidebarEvents = [$.opts.events.loaded, $.opts.events.elementsCreated].join(" ");
                 $(document).off(sidebarEvents).on(sidebarEvents, (e) => {
                     this.elm.sidebar = e.detail.elm;
+                    this.sidebarHelper = e.detail.helper;
                     $(window).trigger("resize");
                 });
 

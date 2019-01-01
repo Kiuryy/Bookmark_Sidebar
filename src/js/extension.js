@@ -168,7 +168,8 @@
                     elm: {
                         iframe: this.elm.iframe,
                         sidebar: this.elm.sidebar
-                    }
+                    },
+                    helper: this.helper
                 });
             }
 
@@ -461,7 +462,8 @@
                 elm: {
                     iframe: this.elm.iframe,
                     sidebar: this.elm.sidebar
-                }
+                },
+                helper: this.helper
             });
         };
     };

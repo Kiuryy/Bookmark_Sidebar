@@ -650,6 +650,12 @@
     "settings_remember_desc": {
         "message": "S\u00e9lectionnez ce que vous souhaitez m\u00e9moriser. Si vous choisissez de m\u00e9moriser le dernier favori ouvert, celui-ci sera marqu\u00e9 au prochain affichage de la barre lat\u00e9rale."
     },
+    "settings_drag_n_drop_add_dialog": {
+        "message": "Afficher le dialogue de cr\u00e9ation"
+    },
+    "settings_drag_n_drop_add_dialog_desc": {
+        "message": "Afficher la bo\u00eete de dialogue de cr\u00e9ation avant d\u2019ajouter un nouveau signet lors d\u2019un glisser-d\u00e9poser dans la barre lat\u00e9rale."
+    },
     "settings_open_children_warn_limit": {
         "message": "Ouverture des favoris d'un dossier (limite avant message)"
     },
@@ -971,6 +977,9 @@
     "settings_translation_help": {
         "message": "Pour chaque \u00e9l\u00e9ment, vous pouvez voir le texte en anglais qui doit \u00eatre traduit dans votre langue. Pour vous aider \u00e0 trouver o\u00f9 le texte est utilis\u00e9 et \u00e0 quoi il sert, chaque \u00e9l\u00e9ment a un nom (e.g. {1}), qui lui n'est pas \u00e0 traduire. N'oubliez pas d'envoyer votre traduction en cliquant sur le bouton en haut \u00e0 droite !"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Je souhaite \u00eatre averti lorsque de nouvelles variables de langue sont ajout\u00e9es \u00e0 l'extension"
+    },
     "settings_translation_submit": {
         "message": "Envoyer"
     },
@@ -1100,11 +1109,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "Vous pouvez lancer une v\u00e9rification en faisant un clic droit sur n'importe quel dossier de votre barre lat\u00e9rale. La page des r\u00e9sultats affichera toutes les URLs mises \u00e0 jour, les favoris ne fonctionnant plus et ceux pointant vers la m\u00eame URL."
     },
+    "premium_pay_select_payment_method": {
+        "message": "S\u00e9lectionnez un moyen de paiement"
+    },
     "premium_pay_what_you_want": {
         "message": "Payez ce que vous voulez"
     },
     "premium_pay_creditcard": {
         "message": "Carte de d\u00e9bit ou de cr\u00e9dit"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Scannez ce QR code sur WeChat pour continuer"
     },
     "premium_pay_contact": {
         "message": "En cas de probl\u00e8me avec votre paiement, ou pour toute question suppl\u00e9mentaire, n'h\u00e9sitez pas \u00e0 me contacter : {1}"
@@ -1117,6 +1132,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "J'ai lu et j'accepte les [a]conditions g\u00e9n\u00e9rales d'utilisation[\/a]"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirmer l'achat"
     },
     "premium_pay_buy": {
         "message": "Acheter un compte Premium"
@@ -1138,6 +1156,9 @@
     },
     "premium_pay_info_email": {
         "message": "Adresse email"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Veuillez entrer votre adresse mail pour recevoir la cl\u00e9 de licence."
     },
     "premium_pay_info_name": {
         "message": "Nom"

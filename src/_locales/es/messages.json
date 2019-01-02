@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "Separador"
     },
+    "overlay_add_position": {
+        "message": "Posici\u00f3n"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Anteponer al directorio"
+    },
+    "overlay_add_position_append": {
+        "message": "Anexar al directorio"
+    },
     "overlay_separator_title_desc": {
         "message": "Opcionalmente puede ingresar un t\u00edtulo para el separador. Se mostrar\u00e1 en la parte superior de la l\u00ednea de separaci\u00f3n y puede ayudarlo a organizar su lista de marcadores."
     },
@@ -641,6 +650,12 @@
     "settings_remember_desc": {
         "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
     },
+    "settings_drag_n_drop_add_dialog": {
+        "message": "Mostrar el di\u00e1logo de creaci\u00f3n"
+    },
+    "settings_drag_n_drop_add_dialog_desc": {
+        "message": "Mostrar el di\u00e1logo de creaci\u00f3n antes de agregar el nuevo marcador al arrastrarlo dentro de la barra lateral."
+    },
     "settings_open_children_warn_limit": {
         "message": "Abrir todos los elementos secundarios de un directorio (Advertencia de l\u00edmite)"
     },
@@ -962,6 +977,9 @@
     "settings_translation_help": {
         "message": "Para cada entrada, puede ver la traducci\u00f3n al ingl\u00e9s, que debe traducirse en su idioma. Para ayudarle a identificar d\u00f3nde se usa el texto y para qu\u00e9 sirve, cada entrada tiene un nombre (por ejemplo, {1}), que no debe traducirse. \u00a1No olvide enviar su traducci\u00f3n pulsando el bot\u00f3n en la esquina superior derecha!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Quiero ser notificado cuando una nueva frase de mi lenguaje haya sido agregada a la extensi\u00f3n"
+    },
     "settings_translation_submit": {
         "message": "Enviar"
     },
@@ -1091,11 +1109,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "Puedes hacer clic con el bot\u00f3n derecho en cualquier directorio de la barra lateral y realizar una comprobaci\u00f3n. La p\u00e1gina de resultados mostrar\u00e1 todas las URL actualizadas, los marcadores que ya no funcionan y los marcadores con la misma URL."
     },
+    "premium_pay_select_payment_method": {
+        "message": "Seleccione un m\u00e9todo de pago"
+    },
     "premium_pay_what_you_want": {
         "message": "Paga lo que quieras"
     },
     "premium_pay_creditcard": {
         "message": "Tarjeta de cr\u00e9dito o d\u00e9bito"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Escanee este c\u00f3digo QR en WeChat para continuar."
     },
     "premium_pay_contact": {
         "message": "Si tienes alg\u00fan problema con el pago o tienes alguna pregunta, ponte en contacto conmigo en {1}."
@@ -1108,6 +1132,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "He le\u00eddo y acepto el [a]acuerdo de licencia de usuario final[\/a]"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirme su compra"
     },
     "premium_pay_buy": {
         "message": "Comprar Premium"
@@ -1129,6 +1156,9 @@
     },
     "premium_pay_info_email": {
         "message": "E-mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Por favor, ingrese su correo electr\u00f3nico para recibir la licencia."
     },
     "premium_pay_info_name": {
         "message": "Nombre"

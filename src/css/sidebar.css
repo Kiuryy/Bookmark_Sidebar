@@ -168,7 +168,8 @@ div.contextmenu {
           height: 0;
           margin: auto;
           border: 7px solid transparent;
-          border-bottom-color: #fff; }
+          border-bottom-color: #fff;
+          pointer-events: none; }
         div.contextmenu > ul.icons > li > ul > li {
           display: inline-block; }
           div.contextmenu > ul.icons > li > ul > li > a {

@@ -142,6 +142,7 @@ div.contextmenu {
           margin: auto;
           border: 7px solid transparent;
           border-bottom-color: $contentBackground;
+          pointer-events: none;
         }
 
         > li {

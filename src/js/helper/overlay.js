@@ -590,7 +590,7 @@
         const getFormValues = (isDir) => {
             const titleInput = elements.modal.find("input[name='title']").removeClass($.cl.error);
             const urlInput = elements.modal.find("input[name='url']").removeClass($.cl.error);
-            const positionSelect = elements.modal.find("select[name='position'");
+            const positionSelect = elements.modal.find("select[name='position']");
             const infoField = elements.modal.find("textarea[name='info']");
 
             const ret = {
@@ -598,7 +598,7 @@
                 values: {
                     title: titleInput[0].value.trim(),
                     url: isDir ? null : urlInput[0].value.trim(),
-                    position: positionSelect[0].value,
+                    position: positionSelect.length() > 0 ? (positionSelect[0].value || null) : null,
                     additionalInfo: infoField.length() > 0 ? (infoField[0].value || null) : null
                 }
             };

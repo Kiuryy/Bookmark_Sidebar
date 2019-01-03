@@ -591,7 +591,7 @@
                     id: contextmenu.attr($.attr.id)
                 };
 
-                opts.data = opts.id ? ext.helper.entry.getDataById(opts.id) : null;
+                opts.data = opts.id ? ext.helper.entry.getDataById(opts.id) : {};
                 opts.data.overlayType = $(e.currentTarget).attr($.attr.name);
 
                 if (opts.name === "sort" || opts.name === "toggleHidden") {

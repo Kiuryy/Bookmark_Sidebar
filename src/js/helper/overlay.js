@@ -461,13 +461,15 @@
                     list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                 }
 
-                list.append("<li>" +
-                    "<label>" + ext.helper.i18n.get("overlay_add_position") + "</label>" +
-                    "<select name='position'>" +
-                    " <option value='append'>" + ext.helper.i18n.get("overlay_add_position_append") + "</option>" +
-                    " <option value='prepend'>" + ext.helper.i18n.get("overlay_add_position_prepend") + "</option>" +
-                    "</select>" +
-                    "</li>");
+                if (!data.values || typeof data.values.index === "undefined") { // only show positioning option when there is not already a given index (like when dragging an url into the sidebar)
+                    list.append("<li>" +
+                        "<label>" + ext.helper.i18n.get("overlay_add_position") + "</label>" +
+                        "<select name='position'>" +
+                        " <option value='append'>" + ext.helper.i18n.get("overlay_add_position_append") + "</option>" +
+                        " <option value='prepend'>" + ext.helper.i18n.get("overlay_add_position_prepend") + "</option>" +
+                        "</select>" +
+                        "</li>");
+                }
 
                 menu.addClass($.cl.hidden);
                 menu.children("a").removeClass($.cl.hover);

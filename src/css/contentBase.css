@@ -23,7 +23,8 @@ body > iframe#blockbyte-bs-sidebar {
 body > iframe#blockbyte-bs-overlay {
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  display: block; }
 
 body > div#blockbyte-bs-indicator.noAnimations, body > div#blockbyte-bs-indicator.noAnimations::before, body > div#blockbyte-bs-indicator.noAnimations::after, body > div#blockbyte-bs-indicator.noAnimations > *,
 body > iframe#blockbyte-bs-sidebar.noAnimations,

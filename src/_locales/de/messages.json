@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "Die \u00c4nderungshistorie konnte nicht abgerufen werden. Bitte versuche es sp\u00e4ter erneut."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "Aufgrund eines Updates der Erweiterung muss die Seite neugeladen werden"
-    },
     "status_background_disconnected_reload_action": {
         "message": "Jetzt neuladen"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Aufgrund eines Updates der Erweiterung muss die Seite neugeladen werden"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -655,6 +655,12 @@
     },
     "settings_drag_n_drop_add_dialog_desc": {
         "message": "Zeigt den Anlege-Dialog an, wenn ein neues Lesezeichen per Drag&Drop in die Sidebar angelegt werden soll."
+    },
+    "settings_new_entry_position": {
+        "message": "Position neuer Eintr\u00e4ge"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "Die standardm\u00e4\u00dfig ausgew\u00e4hlte Position beim Hinzuf\u00fcgen neuer Eintr\u00e4ge zur Sidebar."
     },
     "settings_open_children_warn_limit": {
         "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"

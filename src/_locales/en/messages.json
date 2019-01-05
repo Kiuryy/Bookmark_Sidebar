@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "Could not retrieve the changelog. Please try again later."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "Due to an update of the extension this page needs to be reloaded."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Reload now"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Due to an update of the extension this page needs to be reloaded."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -655,6 +655,12 @@
     },
     "settings_drag_n_drop_add_dialog_desc": {
         "message": "Show the creation dialog before adding a new bookmark when drag&drop into the sidebar."
+    },
+    "settings_new_entry_position": {
+        "message": "Position of new entries"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "The preselected position when adding new entries to the sidebar."
     },
     "settings_open_children_warn_limit": {
         "message": "Open all children (Warn limit)"

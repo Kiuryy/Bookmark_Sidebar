@@ -22,7 +22,7 @@
 
             s.elm.select.language[0].value = s.helper.i18n.getLanguage();
 
-            ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+            ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newEntryPosition", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                 s.elm.select[field][0].value = s.helper.model.getData("b/" + field);
                 s.elm.select[field].trigger("change");
             });
@@ -64,7 +64,7 @@
                     config.toggleArea[field] = s.elm.range["toggleArea_" + field][0].value;
                 });
 
-                ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+                ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newEntryPosition", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
                     config[field] = s.elm.select[field][0].value;
                 });
 

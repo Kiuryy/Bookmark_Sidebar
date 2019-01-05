@@ -76,6 +76,7 @@
                 preventWindowed: false,
                 rememberState: "openStatesAndPos",
                 rememberOpenStatesSubDirectories: true,
+                newEntryPosition: "append",
                 tooltipDelay: 0.5,
                 tooltipContent: "all",
                 tooltipAdditionalInfo: true,

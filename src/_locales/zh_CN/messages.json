@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "\u65e0\u6cd5\u6062\u590d\u66f4\u65b0\u65e5\u5fd7\u3002\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002"
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "\u7531\u4e8e\u6269\u5c55\u7a0b\u5e8f\u66f4\u65b0\uff0c\u9700\u8981\u91cd\u65b0\u52a0\u8f7d\u8be5\u9875\u9762\u3002"
-    },
     "status_background_disconnected_reload_action": {
         "message": "\u7acb\u523b\u91cd\u65b0\u52a0\u8f7d"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "\u7531\u4e8e\u6269\u5c55\u7a0b\u5e8f\u66f4\u65b0\uff0c\u9700\u8981\u91cd\u65b0\u52a0\u8f7d\u8be5\u9875\u9762\u3002"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"

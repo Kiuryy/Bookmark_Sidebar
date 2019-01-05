@@ -296,11 +296,11 @@
     "status_changelog_unavailable_desc": {
         "message": "Impossibile recuperare il log delle modifiche. Per favore riprova pi\u00f9 tardi."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "A causa di un aggiornamento dell'estensione la pagina deve essere ricaricata."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Ricarica adesso"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "A causa di un aggiornamento dell'estensione la pagina deve essere ricaricata."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"

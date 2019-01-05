@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "Kan geen versiegeschiedenis ophalen. Probeer het later nog eens."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "Door het bijwerken van de extensie moet de pagina worden herladen."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Nu herladen"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Door het bijwerken van de extensie moet de pagina worden herladen."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"

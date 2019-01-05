@@ -469,6 +469,11 @@
                         " <option value='prepend'>" + ext.helper.i18n.get("overlay_add_position_prepend") + "</option>" +
                         "</select>" +
                         "</li>");
+
+                    const defaultPos = ext.helper.model.getData("b/newEntryPosition");
+                    if (list.find("select[name='position'] > option[value='" + defaultPos + "']").length() > 0) {
+                        list.find("select[name='position']")[0].value = defaultPos;
+                    }
                 }
 
                 menu.addClass($.cl.hidden);

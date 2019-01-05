@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "\u7121\u6cd5\u53d6\u5f97\u66f4\u65b0\u8a18\u9304\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "\u7531\u65bc\u64f4\u5145\u529f\u80fd\u66f4\u65b0\uff0c\u672c\u9801\u9762\u9700\u8981\u91cd\u65b0\u8f09\u5165\u3002"
-    },
     "status_background_disconnected_reload_action": {
         "message": "\u7acb\u523b\u91cd\u65b0\u8f09\u5165"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "\u7531\u65bc\u64f4\u5145\u529f\u80fd\u66f4\u65b0\uff0c\u672c\u9801\u9762\u9700\u8981\u91cd\u65b0\u8f09\u5165\u3002"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -655,6 +655,12 @@
     },
     "settings_drag_n_drop_add_dialog_desc": {
         "message": "\u5728\u62d6\u66f3\u5230\u5074\u908a\u6b04\u52a0\u5165\u65b0\u66f8\u7c64\u4e4b\u524d\u986f\u793a\u7de8\u8f2f\u5c0d\u8a71\u6846"
+    },
+    "settings_new_entry_position": {
+        "message": "\u65b0\u689d\u76ee\u7684\u4f4d\u7f6e"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "\u5411\u5074\u908a\u6b04\u6dfb\u52a0\u65b0\u689d\u76ee\u6642\u7684\u9810\u9078\u4f4d\u7f6e\u3002"
     },
     "settings_open_children_warn_limit": {
         "message": "\u958b\u555f\u6240\u6709\u5b50\u9805\u76ee ( \u8b66\u544a\u4e0a\u9650\u503c )"

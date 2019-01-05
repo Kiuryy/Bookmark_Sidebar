@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "No se pudo obtener la lista de cambios. Por favor intente luego."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "Debido a una actualizaci\u00f3n de la extensi\u00f3n, esta p\u00e1gina debe ser recargada."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Recargar ahora"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Debido a una actualizaci\u00f3n de la extensi\u00f3n, esta p\u00e1gina debe ser recargada."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"

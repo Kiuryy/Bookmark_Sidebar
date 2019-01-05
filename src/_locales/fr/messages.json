@@ -305,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "Il est impossible de retrouver l'historique des modifications. Essayez plus tard s'il vous pla\u00eet."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "Suite \u00e0 une mise \u00e0 jour de l'extension, cette page doit \u00eatre recharg\u00e9e."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Recharger maintenant"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Suite \u00e0 une mise \u00e0 jour de l'extension, cette page doit \u00eatre recharg\u00e9e."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tabulation"

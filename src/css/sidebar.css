@@ -629,7 +629,9 @@ a.dragHelper {
     transition: transform 0.3s;
     z-index: 3; }
     a.dragHelper > span.removeMask > em {
-      font-style: italic; }
+      font-style: italic;
+      font-size: 90%;
+      opacity: 0.8; }
     a.dragHelper > span.removeMask > span {
       pointer-events: auto;
       cursor: pointer;
@@ -1104,7 +1106,9 @@ section#sidebar {
           transition: transform 0.3s;
           z-index: 3; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > em, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > em {
-            font-style: italic; }
+            font-style: italic;
+            font-size: 90%;
+            opacity: 0.8; }
           section#sidebar > div.scrollBox > ul a > span.removeMask > span, section#sidebar > div.scrollBox > div.pinned > ul a > span.removeMask > span {
             pointer-events: auto;
             cursor: pointer;

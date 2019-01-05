@@ -296,11 +296,11 @@
     "status_changelog_unavailable_desc": {
         "message": "N\u00e3o foi poss\u00edvel recuperar os registros de altera\u00e7\u00f5es. Por favor, tente novamente mais tarde."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Recarregar agora"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"

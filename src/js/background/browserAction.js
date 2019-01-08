@@ -52,6 +52,12 @@
                             contexts: ["browser_action"]
                         });
 
+                        chrome.contextMenus.create({
+                            id: "bsPrivacy_" + uid,
+                            title: lang.vars.settings_menu_infos_privacy.message,
+                            contexts: ["browser_action"]
+                        });
+
                         if (pageContextmenu) { // only show page contextmenu when not disabled in the settings
                             chrome.contextMenus.create({
                                 id: "bsToggle_" + uid,
@@ -64,6 +70,8 @@
                         chrome.contextMenus.onClicked.addListener((obj) => {
                             if (obj.menuItemId === "bsChangelog_" + uid) {
                                 chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                            } else if (obj.menuItemId === "bsPrivacy_" + uid) {
+                                chrome.tabs.create({url: b.urls.privacyPolicy});
                             } else if (obj.menuItemId === "bsToggle_" + uid) {
                                 toggleSidebar();
                             }

@@ -176,8 +176,17 @@
     "overlay_label_separator": {
         "message": "Separador"
     },
+    "overlay_add_position": {
+        "message": "Posi\u00e7\u00e3o"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Preceder \u00e0 pasta"
+    },
+    "overlay_add_position_append": {
+        "message": "Acrescentar \u00e0 pasta"
+    },
     "overlay_separator_title_desc": {
-        "message": "Voc\u00ea pode, opcionalmente, digitar um t\u00edtulo para o separador. Ele ser\u00e1 exibido na parte superior da linha separadora e pode ajud\u00e1-lo a organizar sua lista de marcadores."
+        "message": "Voc\u00ea tem a op\u00e7\u00e3o de digitar um t\u00edtulo para o separador. Ele ser\u00e1 exibido na parte superior da linha separadora e pode ajud\u00e1-lo a organizar sua lista de favoritos."
     },
     "overlay_bookmark_views": {
         "message": "Visualiza\u00e7\u00f5es"
@@ -552,7 +561,7 @@
         "message": "Abrir barra lateral"
     },
     "settings_open_action_desc": {
-        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o cursor do mouse sobre a lateral da janela do navegador. De modo alternativo, voc\u00ea pode optar por abrir apenas se clicar no \u00edcone no menu do Chrome."
+        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o ponteiro do mouse sobre a borda da janela do navegador. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de abrir apenas se clicar no \u00edcone da extens\u00e3o no menu do Chrome."
     },
     "settings_open_action_leftclick": {
         "message": "Clicar com o bot\u00e3o esquerdo"
@@ -561,7 +570,7 @@
         "message": "Clicar com o bot\u00e3o direito"
     },
     "settings_open_action_mouseover": {
-        "message": "Posicionar o cursor do mouse"
+        "message": "Posicionar o ponteiro do mouse"
     },
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
@@ -570,7 +579,7 @@
         "message": "Configurar \u00e1rea"
     },
     "settings_toggle_area_desc": {
-        "message": "Por padr\u00e3o, a borda inteira da janela do navegador pode ser suspensa para abrir a barra lateral. Voc\u00ea pode alterar isso e configurar onde abrir a barra lateral exatamente."
+        "message": "Por padr\u00e3o, a barra lateral pode ser aberta posicionando-se o ponteiro do mouse sobre a borda inteira da janela do navegador. Voc\u00ea pode alterar isso e configurar o local exato por onde deseja abrir a barra lateral."
     },
     "settings_toggle_area_width": {
         "message": "Largura"
@@ -582,7 +591,7 @@
         "message": "Altura"
     },
     "settings_toggle_area_height_desc": {
-        "message": "Voc\u00ea pode reduzir a altura da \u00e1rea, de forma que a barra lateral seja aberta somente quando voc\u00ea mover o cursor para dentro deste local da borda da janela do navegador."
+        "message": "Voc\u00ea pode reduzir a altura da \u00e1rea, de forma que a barra lateral seja aberta somente quando voc\u00ea mover o ponteiro do mouse para dentro deste local da borda da janela do navegador."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
@@ -603,7 +612,7 @@
         "message": "Atraso de abertura"
     },
     "settings_open_delay_desc": {
-        "message": "Evita abrir imediatamente a barra lateral ao posicionar o cursor do mouse ou clicando com um atraso."
+        "message": "Evita abrir imediatamente a barra lateral ao posicionar o ponteiro do mouse ou ao clicar com um atraso."
     },
     "settings_prevent_pagescroll": {
         "message": "Impede a rolagem da p\u00e1gina"
@@ -641,11 +650,23 @@
     "settings_remember_desc": {
         "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
+    "settings_drag_n_drop_add_dialog": {
+        "message": "Mostrar caixa de di\u00e1logo de cria\u00e7\u00e3o"
+    },
+    "settings_drag_n_drop_add_dialog_desc": {
+        "message": "Mostrar a caixa de di\u00e1logo de cria\u00e7\u00e3o antes de adicionar um novo favorito ao arrastar e soltar dentro da barra lateral."
+    },
+    "settings_new_entry_position": {
+        "message": "Posi\u00e7\u00e3o de novas entradas"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "A posi\u00e7\u00e3o pr\u00e9-selecionada ao adicionar novas entradas \u00e0 barra lateral"
+    },
     "settings_open_children_warn_limit": {
         "message": "Abrir todas as subpastas (avisar limite)"
     },
     "settings_open_children_warn_limit_desc": {
-        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todas as subpastas da pasta ao mesmo tempo."
+        "message": "Quantidade de favoritos a partir da qual um aviso aparece ao se tentar abrir todas as subpastas da pasta ao mesmo tempo."
     },
     "settings_dir_open_duration": {
         "message": "Dura\u00e7\u00e3o de abertura da pasta"
@@ -681,7 +702,7 @@
         "message": "Tempo limite de fechamento"
     },
     "settings_close_timeout_desc": {
-        "message": "Tempo limite em segundos at\u00e9 que a barra lateral seja fechada. A contagem ser\u00e1 iniciada logo ap\u00f3s o cursor do mouse sair da barra lateral e ser\u00e1 interrompida quando o cursor for posicionado sobre a mesma novamente."
+        "message": "Tempo limite em segundos at\u00e9 que a barra lateral seja fechada. A contagem ser\u00e1 iniciada logo ap\u00f3s o cursor do mouse sair da barra lateral e ser\u00e1 interrompida quando o cursor for posicionado sobre ela novamente."
     },
     "settings_close_timeout_infinity": {
         "message": "N\u00e3o fechar automaticamente"
@@ -711,13 +732,13 @@
         "message": "Desativar a barra lateral no modo janela"
     },
     "settings_prevent_windowed_desc": {
-        "message": "Desativa a possibilidade de abrir a barra lateral ao clicar ou posicionar o cursor do mouse sobre a borda do conte\u00fado do navegador quando o navegador estiver no modo janela."
+        "message": "Desativa a possibilidade de abrir a barra lateral ao clicar ou posicionar o ponteiro do mouse sobre a borda do conte\u00fado do navegador quando o navegador estiver no modo janela."
     },
     "settings_tooltip_delay": {
         "message": "Atraso da dica de contexto"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Atraso antes que as dicas de contexto para os favoritos sejas mostradas ao posicionar-se o mouse."
+        "message": "Atraso antes que as dicas de contexto para os favoritos sejas mostradas ao pairar o ponteiro do mouse."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Nunca mostrar dicas de contexto"
@@ -962,6 +983,9 @@
     "settings_translation_help": {
         "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, a qual precisa ser traduzida para o seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que se destina, cada entrada tem um nome (por exemplo, {1}), o qual n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o, pressionando o bot\u00e3o no canto superior direito!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Quero ser notificado quando novas vari\u00e1veis de idioma forem adicionadas \u00e0 extens\u00e3o"
+    },
     "settings_translation_submit": {
         "message": "Enviar"
     },
@@ -1091,11 +1115,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer pasta da sua barra lateral para iniciar a verifica\u00e7\u00e3o. A p\u00e1gina de resultado apresentar\u00e1 todos os URLs atualizados, favoritos que n\u00e3o est\u00e3o mais funcionando e favoritos com o mesmo URL."
     },
+    "premium_pay_select_payment_method": {
+        "message": "Selecionar um m\u00e9todo de pagamento"
+    },
     "premium_pay_what_you_want": {
         "message": "Pague quanto voc\u00ea desejar"
     },
     "premium_pay_creditcard": {
         "message": "Cart\u00e3o de cr\u00e9dito ou d\u00e9bito"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Escaneie este c\u00f3digo QR no WeChat para proceder"
     },
     "premium_pay_contact": {
         "message": "Se voc\u00ea est\u00e1 encontrando quaisquer problemas com o pagamento ou tem d\u00favidas a respeito, por favor entre em contato comigo atrav\u00e9s do e-mail {1}."
@@ -1108,6 +1138,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "Eu li e aceito o [a]Acordo de Licen\u00e7a de Usu\u00e1rio Final[\/a]"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirmar compra"
     },
     "premium_pay_buy": {
         "message": "Adquira a vers\u00e3o Premium"
@@ -1129,6 +1162,9 @@
     },
     "premium_pay_info_email": {
         "message": "E-mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Por favor, informe seu endere\u00e7o de e-mail para receber a chave de licen\u00e7a."
     },
     "premium_pay_info_name": {
         "message": "Nome"

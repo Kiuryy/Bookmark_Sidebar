@@ -35,10 +35,16 @@
 
                         subTabs.forEach((subElm) => {
                             const subName = $(subElm).attr($.attr.name);
-                            $("<li />")
+                            const src = $(subElm).attr($.attr.src);
+
+                            const subEntry = $("<li />")
                                 .attr($.attr.name, subName)
                                 .html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name + "_" + subName) + "</a>")
                                 .appendTo(subList);
+
+                            if (src) {
+                                subEntry.attr($.attr.src, src);
+                            }
                         });
 
                         $.delay(500).then(() => {
@@ -96,8 +102,11 @@
                 e.preventDefault();
                 const elm = $(e.currentTarget).parent("li");
                 const name = elm.attr($.attr.name);
+                const src = elm.attr($.attr.src);
 
-                if (elm.parents("li").length() > 0) {
+                if (src && $.opts.website[src]) {
+                    chrome.tabs.create({url: $.opts.website[src]});
+                } else if (elm.parents("li").length() > 0) {
                     const parentName = elm.parent("ul").parent("li").attr($.attr.name);
                     showPage(parentName, name);
                 } else {

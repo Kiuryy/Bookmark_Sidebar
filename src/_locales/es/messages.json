@@ -656,6 +656,12 @@
     "settings_drag_n_drop_add_dialog_desc": {
         "message": "Mostrar el di\u00e1logo de creaci\u00f3n antes de agregar el nuevo marcador al arrastrarlo dentro de la barra lateral."
     },
+    "settings_new_entry_position": {
+        "message": "Posici\u00f3n de nuevas entradas"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "La posici\u00f3n preseleccionada al agregar nuevas entradas a la barra lateral."
+    },
     "settings_open_children_warn_limit": {
         "message": "Abrir todos los elementos secundarios de un directorio (Advertencia de l\u00edmite)"
     },

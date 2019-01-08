@@ -524,6 +524,9 @@
     "settings_menu_infos_privacy": {
         "message": "Priv\u00e9"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contact"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -655,6 +658,12 @@
     },
     "settings_drag_n_drop_add_dialog_desc": {
         "message": "Afficher la bo\u00eete de dialogue de cr\u00e9ation avant d\u2019ajouter un nouveau signet lors d\u2019un glisser-d\u00e9poser dans la barre lat\u00e9rale."
+    },
+    "settings_new_entry_position": {
+        "message": "Emplacement des nouvelles entr\u00e9es"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "Emplacement pr\u00e9s\u00e9lectionn\u00e9 lors de l'ajout de nouvelles entr\u00e9es \u00e0 la barre lat\u00e9rale."
     },
     "settings_open_children_warn_limit": {
         "message": "Ouverture des favoris d'un dossier (limite avant message)"

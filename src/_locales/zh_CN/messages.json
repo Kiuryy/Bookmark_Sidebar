@@ -656,6 +656,12 @@
     "settings_drag_n_drop_add_dialog_desc": {
         "message": "\u5728\u62d6\u62fd\u4e00\u4e2a\u65b0\u7684\u4e66\u7b7e\u5230\u4fa7\u8fb9\u680f\u4e4b\u524d\uff0c\u5c55\u793a\u5f39\u7a97\u521b\u5efa\u5668\u3002"
     },
+    "settings_new_entry_position": {
+        "message": "\u65b0\u6761\u76ee\u7684\u4f4d\u7f6e\u3002"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "\u5411\u4fa7\u8fb9\u680f\u6dfb\u52a0\u65b0\u6761\u76ee\u65f6\u7684\u4f4d\u7f6e\u3002"
+    },
     "settings_open_children_warn_limit": {
         "message": "\u6253\u5f00\u5168\u90e8\u76ee\u5f55\u9650\u5236\uff08\u8b66\u544a\u9650\u5236\uff09"
     },

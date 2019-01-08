@@ -12,6 +12,7 @@
             track: "https://extensions.blockbyte.de/ajax/evaluate/bs",
             translationInfo: "https://extensions.blockbyte.de/ajax/translation/bs/info",
             premiumCheck: "https://extensions.blockbyte.de/ajax/premium/bs/check",
+            privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
             checkUrls: "https://4v1.de/u",
             thumbnail: "https://4v1.de/t"

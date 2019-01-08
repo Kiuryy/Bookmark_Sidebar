@@ -524,6 +524,9 @@
     "settings_menu_infos_privacy": {
         "message": "Privacy"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contact"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -1138,6 +1141,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "I read and accept the [a]End-User License Agreement[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Cancellation Policy"
     },
     "premium_pay_confirm_headline": {
         "message": "Confirm purchase"

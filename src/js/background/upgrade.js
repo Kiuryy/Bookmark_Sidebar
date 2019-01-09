@@ -31,7 +31,10 @@
                 });
 
                 updateOptions("install");
-                chrome.tabs.create({url: chrome.extension.getURL("html/intro.html")});
+                b.helper.utility.openLink({
+                    href: chrome.extension.getURL("html/intro.html"),
+                    newTab: true
+                });
             }
 
             b.reinitialize();

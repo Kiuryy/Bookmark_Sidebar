@@ -22,6 +22,7 @@
       "js/background/cache.js",
       "js/background/icon.js",
       "js/background/browserAction.js",
+      "js/background/utility.js",
       "js/background/port.js",
       "js/background.js"
     ],

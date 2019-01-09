@@ -128,59 +128,6 @@
         };
 
         /**
-         * Activates premium by checking the given license key and storing the license key in the sync storage
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        this.activatePremium = (opts) => {
-            return new Promise((resolve) => {
-                if (this.helper.model.getLicenseKey() === opts.licenseKey) { // the given license key is already stored -> return true, but don't reinitialize
-                    resolve({success: true, skip: true});
-                } else {
-                    checkLicenseKey(opts.licenseKey).then((response) => {
-                        if (response.valid === true) { // valid license key -> reinitialize sidebar
-                            this.helper.model.setLicenseKey(opts.licenseKey).then(() => {
-                                return this.reinitialize({type: "premiumActivated"});
-                            }).then(() => {
-                                resolve({success: true});
-                            });
-                        } else { // invalid license key
-                            resolve({success: false});
-                        }
-                    });
-                }
-            });
-        };
-
-        /**
-         * Checks, whether the given license key is valid or not
-         *
-         * @param {string} licenseKey
-         * @returns {Promise}
-         */
-        const checkLicenseKey = (licenseKey) => {
-            return new Promise((resolve) => {
-
-                $.xhr(this.urls.premiumCheck, {
-                    method: "POST",
-                    responseType: "json",
-                    data: {
-                        licenseKey: licenseKey
-                    }
-                }).then((xhr) => {
-                    if (xhr.response && typeof xhr.response.valid !== "undefined") {
-                        resolve({valid: xhr.response.valid});
-                    } else {
-                        resolve({valid: null});
-                    }
-                }, () => {
-                    resolve({valid: null});
-                });
-            });
-        };
-
-        /**
          * Initialises the eventhandlers
          *
          * @returns {Promise}
@@ -230,6 +177,7 @@
                 port: new $.PortHelper(this),
                 icon: new $.IconHelper(this),
                 browserAction: new $.BrowserActionHelper(this),
+                utility: new $.UtilityHelper(this),
                 cache: new $.CacheHelper(this),
                 analytics: new $.AnalyticsHelper(this)
             };
@@ -295,7 +243,7 @@
                 const licenseKey = this.helper.model.getLicenseKey();
                 const rnd = Math.floor(Math.random() * 20) + 1;
                 if (licenseKey && rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)
-                    checkLicenseKey(licenseKey).then((response) => {
+                    this.helper.utility.checkLicenseKey(licenseKey).then((response) => {
                         if (response.valid === false) {
                             this.helper.model.setLicenseKey(null);
                         }

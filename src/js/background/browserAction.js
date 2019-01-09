@@ -69,9 +69,16 @@
 
                         chrome.contextMenus.onClicked.addListener((obj) => {
                             if (obj.menuItemId === "bsChangelog_" + uid) {
-                                chrome.tabs.create({url: chrome.extension.getURL("html/changelog.html")});
+                                b.helper.utility.openLink({
+                                    href: chrome.extension.getURL("html/changelog.html"),
+                                    newTab: true
+                                });
                             } else if (obj.menuItemId === "bsPrivacy_" + uid) {
-                                chrome.tabs.create({url: b.urls.privacyPolicy});
+                                b.helper.utility.openLink({
+                                    hrefName: "privacyPolicy",
+                                    newTab: true,
+                                    params: {lang: chrome.i18n.getUILanguage()}
+                                });
                             } else if (obj.menuItemId === "bsToggle_" + uid) {
                                 toggleSidebar();
                             }
@@ -166,7 +173,11 @@
                 }
             }
 
-            chrome.tabs.create({url: chrome.extension.getURL("html/newtab.html") + "?type=" + type});
+            b.helper.utility.openLink({
+                href: chrome.extension.getURL("html/newtab.html"),
+                newTab: true,
+                params: {type: type}
+            });
         };
 
         /**

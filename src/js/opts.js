@@ -267,7 +267,6 @@
         },
         website: {
             versionHistory: "https://extensions.blockbyte.de/ajax/changelog/bs",
-            privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",
             premium: "https://extensions.blockbyte.de/premium/bs/checkout",
             feedback: {
                 form: "https://extensions.blockbyte.de/ajax/feedback",

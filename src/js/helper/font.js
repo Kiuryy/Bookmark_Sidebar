@@ -16,24 +16,24 @@
             },
             general: {
                 name: "Roboto",
-                href: "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,100i,200i,300i,400i,500i",
+                href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,100i,200i,300i,400i,500i",
                 fontWeights: {
-                    Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 400, Bold: 500, ExtraBold: 500, Black: 500
+                    Thin: 100, ExtraLight: 100, Light: 100, Normal: 300, Medium: 400, SemiBold: 400, Bold: 500, ExtraBold: 500, Black: 500
                 }
             },
             fa: {
                 fontWeights: {
-                    Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
+                    Thin: 100, ExtraLight: 100, Light: 100, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
                 }
             },
             ar: {
                 fontWeights: {
-                    Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
+                    Thin: 100, ExtraLight: 100, Light: 100, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
                 }
             },
             he: {
                 fontWeights: {
-                    Thin: 100, ExtraLight: 100, Light: 200, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
+                    Thin: 100, ExtraLight: 100, Light: 100, Normal: 300, Medium: 400, SemiBold: 500, Bold: 600, ExtraBold: 600, Black: 600
                 }
             },
             ja: {

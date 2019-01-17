@@ -83,7 +83,7 @@
                 dndOpen: true,
                 dndCreationDialog: false,
                 openChildrenWarnLimit: 10,
-                dirOpenDuration: 0.5,
+                dirOpenDuration: 0.4,
                 scrollBarHide: 1.5,
                 openDelay: 0,
                 closeTimeout: 1

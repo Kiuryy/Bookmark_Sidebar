@@ -28,6 +28,8 @@
                             if (path && path[1] === "translate") {
                                 gotoOverview();
                             }
+                        })["catch"](() => {
+                            showUnavailableText();
                         });
                     } else {
                         showUnavailableText();
@@ -159,7 +161,7 @@
          * Initialises the language overview
          */
         const initOverview = () => {
-            return new Promise((resolve) => {
+            return new Promise((resolve, reject) => {
                 s.elm.translation.overview.children("div." + $.cl.settings.boxWrapper).html("");
 
                 $.xhr($.opts.website.translation.info).then((xhr) => {
@@ -226,6 +228,8 @@
 
                     s.elm.translation.overview.addClass($.cl.visible);
                     resolve();
+                }, () => {
+                    reject();
                 });
             });
         };

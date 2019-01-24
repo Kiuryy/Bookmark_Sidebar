@@ -88,15 +88,6 @@
                 openDelay: 0,
                 closeTimeout: 1
             },
-            n: { // new tab -> synced across devices
-                override: false,
-                autoOpen: true,
-                shortcutsPosition: "right",
-                searchEngine: "google",
-                topPagesType: "topPages",
-                shortcuts: [{label: "Google", url: "https://google.com"}],
-                website: ""
-            },
             a: { // appearance -> synced across devices
                 showIndicator: true,
                 showIndicatorIcon: true,
@@ -133,6 +124,15 @@
                     iconShape: "bookmark",
                     iconColor: "#555555"
                 }
+            },
+            n: { // new tab -> synced across devices
+                override: false,
+                autoOpen: true,
+                shortcutsPosition: "right",
+                searchEngine: "google",
+                topPagesType: "topPages",
+                shortcuts: [{label: "Google", url: "https://google.com"}],
+                website: ""
             }
         };
 
@@ -216,6 +216,31 @@
         };
 
         /**
+         * Returns the name of the given alias
+         * e.g. "b" -> "behaviour"
+         *
+         * @param alias
+         * @returns {*}
+         */
+        const getNameByAlias = (alias) => {
+            switch (alias) {
+                case "u": {
+                    return "utility";
+                }
+                case "b": {
+                    return "behaviour";
+                }
+                case "a": {
+                    return "appearance";
+                }
+                case "n": {
+                    return "newtab";
+                }
+            }
+            return null;
+        };
+
+        /**
          * Returns the user type (default, legacy or premium)
          *
          * @returns {string}
@@ -229,8 +254,24 @@
          *
          * @returns {object}
          */
-        this.getAllData = () => {
-            return data;
+        this.getAllData = () => data;
+
+        /**
+         * Returns the default configuration
+         *
+         * @returns {object}
+         */
+        this.getDefaultData = () => {
+            const ret = {};
+
+            Object.entries(defaults).forEach(([alias, values]) => {
+                const scopeName = getNameByAlias(alias);
+                if (scopeName) {
+                    ret[scopeName] = values;
+                }
+            });
+
+            return ret;
         };
 
         /**
@@ -252,34 +293,15 @@
                 const scope = keyInfo.split("/")[0];
                 const key = keyInfo.split("/")[1];
                 let value = null;
-                let dataSearchScope = null;
 
-                switch (scope) {
-                    case "u": {
-                        dataSearchScope = data.utility;
-                        break;
-                    }
-                    case "b": {
-                        dataSearchScope = data.behaviour;
-                        break;
-                    }
-                    case "a": {
-                        dataSearchScope = data.appearance;
-                        break;
-                    }
-                    case "n": {
-                        dataSearchScope = data.newtab;
-                        break;
-                    }
-                }
-
-                if (dataSearchScope !== null) {
-                    if (defaultVal === true || typeof dataSearchScope[key] === "undefined") {
+                const scopeName = getNameByAlias(scope);
+                if (scopeName && data[scopeName]) {
+                    if (defaultVal === true || typeof data[scopeName][key] === "undefined") {
                         if (typeof defaults[scope] !== "undefined" && typeof defaults[scope][key] !== "undefined") { // default values if undefined
                             value = defaults[scope][key];
                         }
                     } else {
-                        value = dataSearchScope[key];
+                        value = data[scopeName][key];
                     }
                 }
 

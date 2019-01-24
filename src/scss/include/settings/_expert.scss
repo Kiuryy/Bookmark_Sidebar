@@ -1,0 +1,119 @@
+div.tab[data-name='expert'] {
+
+  input.search {
+    max-width: 250px;
+    margin-top: 25px;
+  }
+
+  p + p {
+    margin-top: 15px;
+  }
+
+  > div[data-type] {
+
+    > ul {
+
+      li {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-start;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.04);
+        }
+
+        > label {
+          position: relative;
+          padding-right: 15px;
+          margin-right: 10px;
+          line-height: 28px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 6px;
+            height: 6px;
+            margin: auto;
+            border-top: 2px solid rgba(0, 0, 0, 0.2);
+            border-right: 2px solid rgba(0, 0, 0, 0.2);
+            transform: rotateZ(45deg);
+          }
+
+          > div.info {
+            @include mask("icon-info", $textColorLight, 16px);
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            font-weight: normal;
+            vertical-align: middle;
+            margin: -1px 0 0 5px;
+            cursor: help;
+
+            > span {
+              position: absolute;
+              width: 200px;
+              background: rgba(0, 0, 0, 0.8);
+              top: 32px;
+              left: calc(-100px + 10px);
+              color: $textColorInverted;
+              font-size: 80%;
+              line-height: normal;
+              padding: 5px;
+              border-radius: 2px;
+              transform: translate3d(0, -5px, 0);
+              opacity: 0;
+              pointer-events: none;
+              transition: opacity 0.3s, transform 0.3s;
+              z-index: 9;
+
+              &::before {
+                content: "";
+                position: absolute;
+                top: -14px;
+                left: 0;
+                right: 0;
+                width: 0;
+                height: 0;
+                margin: auto;
+                border: 7px solid transparent;
+                border-bottom-color: $tooltipBackground;
+              }
+            }
+
+            &:hover > span {
+              opacity: 1;
+            }
+          }
+        }
+
+        > input[type='text'] {
+          width: auto;
+          flex: 1;
+          margin: 0;
+          background: none;
+          font-size: 90%;
+          transition: box-shadow 0.5s;
+
+          &:focus {
+            background: rgba(0, 0, 0, 0.04);
+          }
+
+          &.error {
+            box-shadow: 0 0 3px $colorError;
+          }
+        }
+      }
+
+      ul {
+        flex: 1;
+        margin-top: 24px;
+      }
+    }
+  }
+}
+
+//@import "../../rtl/include/settings/expert";

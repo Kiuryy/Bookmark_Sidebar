@@ -45,6 +45,11 @@
             importExport: {
                 content: $("div.tab[data-name='export']")
             },
+            expert: {
+                content: $("div.tab[data-name='expert']"),
+                search: $("div.tab[data-name='expert'] input.search"),
+                template: $("div.tab[data-name='expert'] > template")
+            },
             premium: {
                 wrapper: $("div.tab[data-name='premium']"),
             },
@@ -83,7 +88,7 @@
         };
 
         this.serviceAvailable = true;
-        const restoreTypes = ["behaviour", "appearance", "newtab"];
+        const restoreTypes = ["behaviour", "appearance", "newtab", "expert"];
         let unsavedChanges = false;
 
         /**
@@ -125,6 +130,7 @@
                     this.helper.newtab.init(),
                     this.helper.infos.init(),
                     this.helper.premium.init(),
+                    this.helper.expert.init(),
                     this.helper.importExport.init(),
                 ]);
             }).then(() => { // initialise events and remove loading mask
@@ -182,6 +188,21 @@
             });
         };
 
+        /**
+         * Highlights the save button to indicate, that there are unsaved changes
+         */
+        this.highlightUnsavedChanges = () => {
+            if (unsavedChanges === false) {
+                this.elm.buttons.save.addClass([$.cl.settings.highlight, $.cl.info]);
+
+                $.delay(1000).then(() => {
+                    this.elm.buttons.save.removeClass($.cl.settings.highlight);
+                });
+
+                unsavedChanges = true;
+            }
+        };
+
         /*
          * ################################
          * PRIVATE
@@ -208,6 +229,7 @@
                 feedback: new $.FeedbackHelper(this),
                 premium: new $.PremiumHelper(this),
                 importExport: new $.ImportExportHelper(this),
+                expert: new $.ExpertHelper(this),
                 infos: new $.InfosHelper(this)
             };
         };
@@ -238,20 +260,13 @@
             $("input, textarea, select").on("keyup change input", (e) => { // highlight save button the first time something got changed
                 if ($(e.currentTarget).parent("[" + $.attr.type + "='licenseKey']").length() > 0 ||
                     $(e.currentTarget).parent("[" + $.attr.name + "='translationInfo']").length() > 0 ||
+                    e.currentTarget === this.elm.expert.search[0] ||
                     $(e.currentTarget).parents("div." + $.cl.settings.translation.thanks).length() > 0
                 ) {
                     return;
                 }
 
-                if (unsavedChanges === false) {
-                    this.elm.buttons.save.addClass([$.cl.settings.highlight, $.cl.info]);
-
-                    $.delay(1000).then(() => {
-                        this.elm.buttons.save.removeClass($.cl.settings.highlight);
-                    });
-                }
-
-                unsavedChanges = true;
+                this.highlightUnsavedChanges();
             });
 
             $(document).on("click", () => {
@@ -270,6 +285,7 @@
 
                 if (restoreTypes.indexOf(type) !== -1) {
                     const promises = [];
+                    let configToRemove = [type];
 
                     if (type === "appearance") { // restore custom css aswell
                         promises.push(new Promise((resolve) => {
@@ -282,10 +298,12 @@
                                 });
                             });
                         }));
+                    } else if (type === "expert") { // restore all configuration
+                        configToRemove = ["behaviour", "appearance", "newtab"];
                     }
 
                     promises.push(new Promise((resolve) => {
-                        chrome.storage.sync.remove([type], () => {
+                        chrome.storage.sync.remove(configToRemove, () => {
                             this.showSuccessMessage("restored_message");
                             this.helper.model.call("reloadIcon");
                             $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
@@ -329,6 +347,19 @@
                     this.helper.translation.submit();
                 } else if (path[0] === "premium") {
                     chrome.tabs.create({url: $.opts.website.premium + "?lang=" + this.helper.i18n.getLanguage()});
+                } else if (path[0] === "expert") {
+                    this.helper.expert.save().then(() => {
+                        this.showSuccessMessage("saved_message");
+                        return this.helper.model.call("reinitialize");
+                    }).then(() => {
+                        this.helper.model.call("reloadIcon");
+                        this.helper.model.call("reloadContextmenus");
+                        return $.delay(1500);
+                    }).then(() => {
+                        location.reload(true);
+                    })["catch"](() => {
+                        // something went wrong saving
+                    });
                 } else {
                     Promise.all([
                         this.helper.sidebar.save(),
@@ -340,11 +371,14 @@
                     }).then(() => {
                         this.helper.model.call("reloadIcon");
                         this.helper.model.call("reloadContextmenus");
+                        return this.helper.model.init();
+                    }).then(() => {
+                        this.helper.expert.updateRawConfigList();
                     });
                 }
             });
 
-            this.elm.buttons.restore.on("click", (e) => {
+            this.elm.buttons.restore.on("click", (e) => { // restore button
                 e.preventDefault();
                 const path = this.helper.menu.getPath();
                 let type = path[0];
@@ -366,6 +400,10 @@
                         .append("<a>" + this.helper.i18n.get("settings_restore") + "</a>")
                         .css(paddingDir, this.elm.header.css("padding-" + paddingDir))
                         .appendTo(this.elm.body);
+
+                    if (type === "expert") { // when restoring from the expert page, all configuration will be restored
+                        dialog.children("span").remove();
+                    }
 
                     $.delay().then(() => {
                         dialog.addClass($.cl.visible);

@@ -533,6 +533,9 @@
     "settings_menu_export": {
         "message": "Import\/Export"
     },
+    "settings_menu_expert": {
+        "message": "Experteneinstellungen"
+    },
     "settings_save": {
         "message": "\u00c4nderungen speichern"
     },
@@ -559,6 +562,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Premium konnte nicht aktiviert werden. Bitte gib einen g\u00fcltigen Aktivierungscode ein"
+    },
+    "settings_search_placeholder": {
+        "message": "Nach Konfiguration suchen"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Mit Hilfe der Experteneinstellungen k\u00f6nnen alle Konfigurationen der Erweiterungen ge\u00e4ndert werden. Es lassen sich auch Werte \u00e4ndern, die nicht \u00fcber die normalen Checkboxen und Regler in den Einstellungen angepasst werden k\u00f6nnen."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Bitte \u00e4ndere die Werte hier nur, wenn du wei\u00dft was du tust. Fehlerhafte Konfiguration kann zu unerwartetem Verhalten der Erweiterung f\u00fchren. Falls etwas nicht mehr funktionieren sollte, kann die Standard-Konfiguration wiederhergestellt werden."
+    },
+    "settings_expert_save_error": {
+        "message": "Einstellungen konnten nicht gespeichert werden. Bitte \u00fcberpr\u00fcfe deine Eingabe."
     },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"

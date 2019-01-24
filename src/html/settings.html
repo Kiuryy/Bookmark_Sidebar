@@ -707,6 +707,29 @@
                 <a class="import button"><input type='file' accept=".config,.bookmark_sidebar,text/json" /><span data-i18n="settings_import"></span></a>
             </div>
         </div>
+
+
+        <!--
+        #
+        #
+        # EXPERT SETTINGS
+        #
+        #
+        -->
+        <div class="tab" data-name="expert" data-save="settings_save" data-restore="true">
+            <div class="contentBox">
+                <p data-i18n="settings_expert_settings_desc"></p>
+                <p data-i18n="settings_expert_settings_notice"></p>
+                <input type="text" class="search" />
+            </div>
+
+            <template>
+                <div class="contentBox" data-type>
+                    <h2></h2>
+                    <ul></ul>
+                </div>
+            </template>
+        </div>
     </main>
 </section>
 
@@ -744,6 +767,7 @@
 <script src='/js/settings/premium.js'></script>
 <script src='/js/settings/translation.js'></script>
 <script src='/js/settings/menu.js'></script>
+<script src='/js/settings/expert.js'></script>
 <script src='/js/settings/importExport.js'></script>
 <!-- [END REMOVE] -->
 <script src='/js/settings.js'></script>

@@ -1042,7 +1042,7 @@ section#sidebar {
       max-width: 350px;
       margin: 0 auto; }
     section#sidebar > div.scrollBox.scrolled ~ div.filter {
-      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); }
     section#sidebar > div.scrollBox.scrolled:not([data-direction='up']) ~ div.filter {
       transform: translate3d(0, -100%, 0);
       box-shadow: none; }

@@ -394,7 +394,7 @@ section#sidebar {
     }
 
     &.scrolled ~ div.filter {
-      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
     }
 
     &.scrolled:not([data-direction='up']) ~ div.filter {

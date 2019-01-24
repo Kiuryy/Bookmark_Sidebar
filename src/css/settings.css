@@ -1929,7 +1929,7 @@ input.color {
     input.color ~ span.suggestion::after {
       background-color: inherit; }
     input.color ~ span.suggestion[data-value="transparent"], input.color ~ span.suggestion[data-value^="rgba(255,255,255,"], input.color ~ span.suggestion [data-value="#ffffff"] {
-      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(0, 0, 0, 0.07); }
 
 ul.radioWrapper > li {
@@ -2661,6 +2661,26 @@ body > section#wrapper > aside {
           -webkit-mask: no-repeat center/22px;
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-importExport.svg);
           background-color: #666; }
+      body > section#wrapper > aside > nav > ul > li[data-name='expert'] {
+        font-size: 90%;
+        background: #ddd;
+        margin: 15px -10px -10px;
+        line-height: 25px;
+        padding: 0 0 0 20px; }
+        body > section#wrapper > aside > nav > ul > li[data-name='expert'] > a {
+          padding-left: 32px; }
+          body > section#wrapper > aside > nav > ul > li[data-name='expert'] > a::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 10px;
+            width: 6px;
+            height: 6px;
+            margin: auto;
+            border-top: 2px solid #666;
+            border-right: 2px solid #666;
+            transform: rotateZ(45deg); }
     body > section#wrapper > aside > nav ul > li {
       position: relative;
       display: block;
@@ -2731,6 +2751,100 @@ html[dir='rtl'] body > section#wrapper > aside > nav ul > li > ul {
 
 div.tab[data-name='sidebar'] > div[data-name='tooltip'] div.sub.additionalInfo {
   margin-top: 10px; }
+
+div.tab[data-name='expert'] input.search {
+  max-width: 250px;
+  margin-top: 25px; }
+
+div.tab[data-name='expert'] p + p {
+  margin-top: 15px; }
+
+div.tab[data-name='expert'] > div[data-type] > ul li {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start; }
+  div.tab[data-name='expert'] > div[data-type] > ul li:hover {
+    background: rgba(0, 0, 0, 0.04); }
+  div.tab[data-name='expert'] > div[data-type] > ul li > label {
+    position: relative;
+    padding-right: 15px;
+    margin-right: 10px;
+    line-height: 28px; }
+    div.tab[data-name='expert'] > div[data-type] > ul li > label::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      margin: auto;
+      border-top: 2px solid rgba(0, 0, 0, 0.2);
+      border-right: 2px solid rgba(0, 0, 0, 0.2);
+      transform: rotateZ(45deg); }
+    div.tab[data-name='expert'] > div[data-type] > ul li > label > div.info {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      font-weight: normal;
+      vertical-align: middle;
+      margin: -1px 0 0 5px;
+      cursor: help; }
+      div.tab[data-name='expert'] > div[data-type] > ul li > label > div.info::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/16px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+        background-color: #aaa; }
+      div.tab[data-name='expert'] > div[data-type] > ul li > label > div.info > span {
+        position: absolute;
+        width: 200px;
+        background: rgba(0, 0, 0, 0.8);
+        top: 32px;
+        left: calc(-100px + 10px);
+        color: #fff;
+        font-size: 80%;
+        line-height: normal;
+        padding: 5px;
+        border-radius: 2px;
+        transform: translate3d(0, -5px, 0);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s, transform 0.3s;
+        z-index: 9; }
+        div.tab[data-name='expert'] > div[data-type] > ul li > label > div.info > span::before {
+          content: "";
+          position: absolute;
+          top: -14px;
+          left: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          margin: auto;
+          border: 7px solid transparent;
+          border-bottom-color: #444; }
+      div.tab[data-name='expert'] > div[data-type] > ul li > label > div.info:hover > span {
+        opacity: 1; }
+  div.tab[data-name='expert'] > div[data-type] > ul li > input[type='text'] {
+    width: auto;
+    flex: 1;
+    margin: 0;
+    background: none;
+    font-size: 90%;
+    transition: box-shadow 0.5s; }
+    div.tab[data-name='expert'] > div[data-type] > ul li > input[type='text']:focus {
+      background: rgba(0, 0, 0, 0.04); }
+    div.tab[data-name='expert'] > div[data-type] > ul li > input[type='text'].error {
+      box-shadow: 0 0 3px #f99; }
+
+div.tab[data-name='expert'] > div[data-type] > ul ul {
+  flex: 1;
+  margin-top: 24px; }
 
 div.color-picker {
   position: absolute;

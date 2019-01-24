@@ -14,7 +14,7 @@
             initToggleAreaFields();
             initFilter();
 
-            ["dirAccordion", "animations", "contextmenu", "dndCreationDialog", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+            ["dirAccordion", "contextmenu", "dndCreationDialog", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.elm.checkbox[field].trigger("click");
                 }
@@ -54,54 +54,53 @@
          */
         this.save = () => {
             return new Promise((resolve) => {
-                const config = {
-                    toggleArea: {},
-                    blacklist: [],
-                    whitelist: []
-                };
+                chrome.storage.sync.get(["behaviour", "language"], (conf) => {
+                    conf.behaviour = conf.behaviour || {};
+                    conf.behaviour.toggleArea = {};
+                    conf.behaviour.blacklist = [];
+                    conf.behaviour.whitelist = [];
 
-                ["width", "height", "top", "widthWindowed"].forEach((field) => {
-                    config.toggleArea[field] = s.elm.range["toggleArea_" + field][0].value;
-                });
+                    ["width", "height", "top", "widthWindowed"].forEach((field) => {
+                        conf.behaviour.toggleArea[field] = s.elm.range["toggleArea_" + field][0].value;
+                    });
 
-                ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newEntryPosition", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
-                    config[field] = s.elm.select[field][0].value;
-                });
+                    ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newEntryPosition", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+                        conf.behaviour[field] = s.elm.select[field][0].value;
+                    });
 
-                ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
-                    let val = -1;
+                    ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
+                        let val = -1;
 
-                    if (s.elm.range[field].hasClass($.cl.settings.inactive) === false) { // if inactive set -1 as value else use the selected value
-                        val = s.elm.range[field][0].value;
+                        if (s.elm.range[field].hasClass($.cl.settings.inactive) === false) { // if inactive set -1 as value else use the selected value
+                            val = s.elm.range[field][0].value;
+                        }
+
+                        conf.behaviour[field] = val;
+                    });
+
+                    ["dirAccordion", "contextmenu", "dndCreationDialog", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+                        conf.behaviour[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
+                    });
+
+                    if (conf.behaviour.visibility === "blacklist" || conf.behaviour.visibility === "whitelist") {
+                        const rules = s.elm.textarea.visibilityFilter[0].value;
+                        conf.behaviour[conf.behaviour.visibility] = rules.split(/\n+/);
+
+                        if (conf.behaviour[conf.behaviour.visibility][0] === "") {
+                            conf.behaviour.visibility = "always";
+                        }
                     }
 
-                    config[field] = val;
-                });
-
-                ["dirAccordion", "animations", "contextmenu", "dndCreationDialog", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
-                    config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
-                });
-
-                if (config.visibility === "blacklist" || config.visibility === "whitelist") {
-                    const rules = s.elm.textarea.visibilityFilter[0].value;
-                    config[config.visibility] = rules.split(/\n+/);
-
-                    if (config[config.visibility][0] === "") {
-                        config.visibility = "always";
+                    let lang = s.elm.select.language[0].value;
+                    if (lang === s.helper.i18n.getUILanguage()) {
+                        lang = "default";
                     }
-                }
 
-                let lang = s.elm.select.language[0].value;
-                if (lang === s.helper.i18n.getUILanguage()) {
-                    lang = "default";
-                }
-
-                chrome.storage.sync.get(["language"], (obj) => {
                     chrome.storage.sync.set({
-                        behaviour: config,
+                        behaviour: conf.behaviour,
                         language: lang
                     }, () => {
-                        if (!(obj && obj.language && obj.language === lang)) {
+                        if (!(conf && conf.language && conf.language === lang)) {
                             $.delay(1500).then(() => {
                                 location.reload(true);
                             });

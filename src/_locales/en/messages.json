@@ -533,6 +533,9 @@
     "settings_menu_export": {
         "message": "Import\/Export"
     },
+    "settings_menu_expert": {
+        "message": "Expert settings"
+    },
     "settings_save": {
         "message": "Save Changes"
     },
@@ -559,6 +562,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Could not activate Premium. Please enter a valid license key"
+    },
+    "settings_search_placeholder": {
+        "message": "Search for configuration"
+    },
+    "settings_expert_settings_desc": {
+        "message": "The expert settings allow you to configure every configuration flag of the extension, even those you cannot change using the regular checkboxes or sliders of the settings page."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Please do only change the values here, if you know what you are doing. Faulty configurations can cause unexpected behaviour of the extension. If something breaks, you can revert to the default configuration."
+    },
+    "settings_expert_save_error": {
+        "message": "Could not save settings. Please correct your input."
     },
     "settings_open_action": {
         "message": "Open sidebar"

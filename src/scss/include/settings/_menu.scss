@@ -120,6 +120,32 @@ body > section#wrapper {
               @include mask('settings/icon-importExport', $textColor, 22px);
             }
           }
+
+          &[data-name='expert'] {
+            font-size: 90%;
+            background: $settingsMenuHoverBackground;
+            margin: 15px -10px -10px;
+            line-height: 25px;
+            padding: 0 0 0 20px;
+
+            > a {
+              padding-left: 32px;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 10px;
+                width: 6px;
+                height: 6px;
+                margin: auto;
+                border-top: 2px solid $textColor;
+                border-right: 2px solid $textColor;
+                transform: rotateZ(45deg);
+              }
+            }
+          }
         }
       }
 

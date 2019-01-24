@@ -95,16 +95,23 @@
          */
         this.save = () => {
             return new Promise((resolve) => {
-                const config = getCurrentConfig();
+                const newConfig = getCurrentConfig();
 
-                chrome.storage.sync.set({appearance: config.appearance}, () => {
+                chrome.storage.sync.get(["appearance"], (conf) => {
+                    conf.appearance = conf.appearance || {};
 
-                    chrome.storage.local.get(["utility"], (obj) => {
-                        const utility = obj.utility || {};
-                        utility.customCss = config.utility.customCss;
+                    Object.entries(newConfig.appearance).forEach(([key, val]) => {
+                        conf.appearance[key] = val;
+                    });
 
-                        chrome.storage.local.set({utility: utility}, () => {
-                            resolve();
+                    chrome.storage.sync.set({appearance: conf.appearance}, () => {
+                        chrome.storage.local.get(["utility"], (obj) => {
+                            const utility = obj.utility || {};
+                            utility.customCss = newConfig.utility.customCss;
+
+                            chrome.storage.local.set({utility: utility}, () => {
+                                resolve();
+                            });
                         });
                     });
                 });

@@ -650,10 +650,10 @@
     "settings_remember_desc": {
         "message": "\ud398\uc774\uc9c0 \ubcc0\uacbd\uc2dc \uae30\uc5b5\ud560 \ub0b4\uc6a9\uc744 \uc120\ud0dd\ud558\uc2ed\uc2dc\uc624. \ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc5f0 \ucc45\uac08\ud53c\ub97c \uae30\uc5b5\ud558\ub3c4\ub85d \uc120\ud0dd\ud558\uba74 \uc0ac\uc774\ub4dc \ubc14\ub97c \ub2e4\uc2dc \uc5f4 \ub54c \ucc45\uac08\ud53c\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
     },
-    "settings_drag_n_drop_add_dialog": {
+    "settings_dnd_creation_dialog": {
         "message": "\ubd81\ub9c8\ud06c \ucd94\uac00 \ub300\ud654\uc0c1\uc790 \ud45c\uc2dc"
     },
-    "settings_drag_n_drop_add_dialog_desc": {
+    "settings_dnd_creation_dialog_desc": {
         "message": "\uc0ac\uc774\ub4dc\ubc14\ub85c \ub4dc\ub798\uadf8&\ub4dc\ub86d\ud574\uc11c \uc0c8\ub85c\uc6b4 \ubd81\ub9c8\ud06c\ub97c \ucd94\uac00\ud560 \ub54c \ub300\ud654\uc0c1\uc790\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4."
     },
     "settings_new_entry_position": {
@@ -704,19 +704,19 @@
     "settings_close_timeout_infinity": {
         "message": "\uc790\ub3d9\uc73c\ub85c \ub2eb\uc9c0 \uc54a\uc74c"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "\uc2a4\ud06c\ub864 \ubc14 \uc228\uae40"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "\ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc2a4\ud06c\ub864\ud55c \ub4a4, \uc124\uc815\ub41c \uc2dc\uac04\uc774 \uc9c0\ub098\uba74 \uc2a4\ud06c\ub864 \ubc14\uac00 \uc0ac\ub77c\uc9d1\ub2c8\ub2e4. \ub2e4\uc2dc \uc2a4\ud06c\ub864\ud558\uba74 \uc2a4\ud06c\ub864\ubc14\uac00 \ub098\ud0c0\ub0a9\ub2c8\ub2e4."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "\uc228\uae30\uc9c0 \uc54a\uc74c"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "\ub4dc\ub798\uadf8 \uc564 \ub4dc\ub86d\uc73c\ub85c \uc5f4\uae30"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "\ud14d\uc2a4\ud2b8 \uc120\ud0dd, \ub9c1\ud06c \ubc0f URL\uc744 \uc0ac\uc774\ub4dc \ubc14\uc5d0 \ub4dc\ub798\uadf8 \ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \ud604\uc7ac \ud398\uc774\uc9c0 \ub098 \uc6f9 \uc0ac\uc774\ud2b8\uc758 \ub2e4\ub978 \ub9c1\ud06c\ub97c \ubd81\ub9c8\ud06c\uc5d0 \ucd94\uac00\ud558\ub824\ub294 \uacbd\uc6b0 \uc720\uc6a9 \ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4."
     },
     "settings_reopen_sidebar": {
@@ -857,7 +857,7 @@
     "settings_font_family_desc": {
         "message": "\uc0ac\uc774\ub4dc\ubc14\uc758 \ud3f0\ud2b8 \ubaa8\uc591 \ubc0f \uc704\uce58"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "\uc2a4\ud06c\ub864\ubc14 \ud3ed"
     },
     "settings_icon_color": {
@@ -899,7 +899,7 @@
     "settings_directories_icon_size": {
         "message": "\ub514\ub809\ud1a0\ub9ac \uc544\uc774\ucf58 \ud06c\uae30"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "\ub514\ub809\ud1a0\ub9ac \ud654\uc0b4\ud45c"
     },
     "settings_bookmarks_line_height": {

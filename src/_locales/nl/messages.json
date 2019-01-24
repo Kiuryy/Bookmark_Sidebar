@@ -524,6 +524,9 @@
     "settings_menu_infos_privacy": {
         "message": "Privacy"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contact"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -650,11 +653,17 @@
     "settings_remember_desc": {
         "message": "Selecteer wat er onthouden moet worden tijdens paginawisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
     },
-    "settings_drag_n_drop_add_dialog": {
+    "settings_dnd_creation_dialog": {
         "message": "Toon de aanmaakdialoog"
     },
-    "settings_drag_n_drop_add_dialog_desc": {
+    "settings_dnd_creation_dialog_desc": {
         "message": "Toon de aanmaakdialoog vooraleer een nieuwe bladwijzer aan de zijbalk toe te voegen."
+    },
+    "settings_new_entry_position": {
+        "message": "Positie van nieuwe items"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "De vooringestelde positie voor nieuwe intems in de zijbalk."
     },
     "settings_open_children_warn_limit": {
         "message": "Waarschuwingslimiet aantal geopende bladwijzers"
@@ -701,19 +710,19 @@
     "settings_close_timeout_infinity": {
         "message": "Niet automatisch sluiten"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Verberg schuifbalk"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Sluitingstijd in seconden nadat de schuifbalk zal verdwijnen. Scrollen zorgt ervoor dat de schuifbalk weer tevoorschijn komt."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nooit verbergen"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Openen door slepen en droppen"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Laat het slepen van tekstselecties, koppelingen en URL's toe in de zijbalk. Dit kan handig zijn als je de huidige pagina of koppelingen naar andere websites als bladwijzer wilt toevoegen."
     },
     "settings_reopen_sidebar": {
@@ -854,7 +863,7 @@
     "settings_font_family_desc": {
         "message": "Het lettertype van de zijbalk en de hulpvensters"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Schuifbalk breedte"
     },
     "settings_icon_color": {
@@ -896,7 +905,7 @@
     "settings_directories_icon_size": {
         "message": "Mapicoon grootte"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Mappenpijlen"
     },
     "settings_bookmarks_line_height": {
@@ -1132,6 +1141,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "Ik heb de [a]Licentie-overeenkomst eindgebruiker[\/a] gelezen en aanvaard deze"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Annuleringsbeleid"
     },
     "premium_pay_confirm_headline": {
         "message": "Bevestig de aankoop"

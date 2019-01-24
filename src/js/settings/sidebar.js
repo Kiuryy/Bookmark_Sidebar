@@ -14,7 +14,7 @@
             initToggleAreaFields();
             initFilter();
 
-            ["dirAccordion", "contextmenu", "dndCreationDialog", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+            ["dirAccordion", "preventPageScroll", "reopenSidebar", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                 if (s.helper.model.getData("b/" + field) === true) {
                     s.elm.checkbox[field].trigger("click");
                 }
@@ -27,7 +27,7 @@
                 s.elm.select[field].trigger("change");
             });
 
-            ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
+            ["openDelay", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
                 const val = s.helper.model.getData("b/" + field);
 
                 if (val === -1) {
@@ -68,7 +68,7 @@
                         conf.behaviour[field] = s.elm.select[field][0].value;
                     });
 
-                    ["openDelay", "dirOpenDuration", "openChildrenWarnLimit", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
+                    ["openDelay", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
                         let val = -1;
 
                         if (s.elm.range[field].hasClass($.cl.settings.inactive) === false) { // if inactive set -1 as value else use the selected value
@@ -78,7 +78,7 @@
                         conf.behaviour[field] = val;
                     });
 
-                    ["dirAccordion", "contextmenu", "dndCreationDialog", "preventPageScroll", "reopenSidebar", "preventWindowed", "dndOpen", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+                    ["dirAccordion", "preventPageScroll", "reopenSidebar", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
                         conf.behaviour[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
                     });
 

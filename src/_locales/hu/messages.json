@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "Elv\u00e1laszt\u00f3"
     },
+    "overlay_add_position": {
+        "message": "Poz\u00edci\u00f3"
+    },
+    "overlay_add_position_prepend": {
+        "message": "A k\u00f6nyvt\u00e1r el\u00e9"
+    },
+    "overlay_add_position_append": {
+        "message": "A k\u00f6nyvt\u00e1r m\u00f6g\u00e9"
+    },
     "overlay_separator_title_desc": {
         "message": "Hozz\u00e1adhat c\u00edmet az elv\u00e1laszt\u00f3hoz. Ez jelenik meg az elv\u00e1laszt\u00f3sor tetej\u00e9n, \u00e9s seg\u00edt a k\u00f6nyvjelz\u0151lista rendez\u00e9s\u00e9ben."
     },
@@ -189,7 +198,7 @@
         "message": "Ekkor hozz\u00e1adott"
     },
     "overlay_bookmark_views_per_month": {
-        "message": "h\u00f3naponta"
+        "message": "havonta"
     },
     "overlay_bookmark_created_date": {
         "message": "K\u00e9sz\u00fclt"
@@ -515,6 +524,9 @@
     "settings_menu_infos_privacy": {
         "message": "Biztons\u00e0g"
     },
+    "settings_menu_infos_contact": {
+        "message": "Kapcsolat"
+    },
     "settings_menu_premium": {
         "message": "Pr\u00e9mium"
     },
@@ -641,6 +653,18 @@
     "settings_remember_desc": {
         "message": "V\u00e1lassza ki, hogy mit jegyezzen meg az oldals\u00e1v a megnyit\u00e1sok k\u00f6z\u00f6tt. Ha az utols\u00f3nak megnyitott k\u00f6nyvjelz\u0151t v\u00e1lasztja, akkor a k\u00f6vetkez\u0151 megnyit\u00e1sn\u00e1l az lesz kiv\u00e1lasztva."
     },
+    "settings_dnd_creation_dialog": {
+        "message": "L\u00e9trehoz\u00e1si p\u00e1rbesz\u00e9dablak megjelen\u00edt\u00e9se"
+    },
+    "settings_dnd_creation_dialog_desc": {
+        "message": "Amikor egy \u00faj k\u00f6nyvjelz\u0151t az oldals\u00e1vba h\u00faz, hozz\u00e1ad\u00e1s el\u0151tt jelen\u00edtse meg a l\u00e9trehoz\u00e1si p\u00e1rbesz\u00e9dablakot."
+    },
+    "settings_new_entry_position": {
+        "message": "\u00daj bejegyz\u00e9sek helye"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "Az el\u0151zetesen kijel\u00f6lt poz\u00edci\u00f3, ahova \u00faj bejegyz\u00e9seket adunk az oldals\u00e1vhoz."
+    },
     "settings_open_children_warn_limit": {
         "message": "Minden k\u00f6nyvjelz\u0151 megnyit\u00e1sa a mapp\u00e1ban"
     },
@@ -686,19 +710,19 @@
     "settings_close_timeout_infinity": {
         "message": "Ne z\u00e1rja be automatikusan"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "G\u00f6rget\u0151s\u00e1v elrejt\u00e9se"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "G\u00f6rget\u0151s\u00e1v elrejt\u00e9s\u00e9nek ideje. A g\u00f6rget\u00e9s ism\u00e9t el\u0151hozza."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Ne rejse el"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Megnyit\u00e1s H\u00fazd&Vidd m\u0171veletre"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Kijel\u00f6l\u00e9sek, linkek, URL-ek vonszol\u00e1s\u00e1nak enged\u00e9lyez\u00e9se az oldals\u00e1vra. Akkor lehet hasznos, ha ilyeneket akar a k\u00f6nyvjelz\u0151be tenni."
     },
     "settings_reopen_sidebar": {
@@ -839,7 +863,7 @@
     "settings_font_family_desc": {
         "message": "Az oldals\u00e1v \u00e9s az overlay bet\u0171t\u00edpusa"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "G\u00f6rget\u0151s\u00e1v sz\u00e9less\u00e9ge"
     },
     "settings_icon_color": {
@@ -881,7 +905,7 @@
     "settings_directories_icon_size": {
         "message": "Mappa ikon sz\u00edne"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "K\u00f6nyvt\u00e1r nyilak"
     },
     "settings_bookmarks_line_height": {
@@ -961,6 +985,9 @@
     },
     "settings_translation_help": {
         "message": "Minden t\u00e9telhez l\u00e1that\u00f3 az angol eredeti, amelyet az \u00d6n nyelv\u00e9re kell ford\u00edtani. Hogy seg\u00edts\u00fcnk a sz\u00f6veg hely\u00e9nek \u00e9s funkci\u00f3j\u00e1nak beazonos\u00edt\u00e1s\u00e1ban, minden bejegyz\u00e9snek van egy neve (pl. {1}), amit nem kell leford\u00edtani. K\u00e9rem ne felejtse el a ford\u00edt\u00e1s elk\u00fcld\u00e9s\u00e9t a jobb fels\u0151 sarokban l\u00e9v\u0151 Elk\u00fcld\u00e9s gombra kattint\u00e1ssal!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Szeretn\u00e9k \u00e9rtes\u00edt\u00e9st kapni, amikor \u00faj nyelvv\u00e1ltoz\u00f3kat adnak hozz\u00e1 a kiterjeszt\u00e9shez."
     },
     "settings_translation_submit": {
         "message": "Elk\u00fcld\u00e9s"
@@ -1091,11 +1118,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "A jobb oldali eg\u00e9rgombbal kattints b\u00e1rmelyik k\u00f6nyvt\u00e1rra az oldals\u00e1von, \u00e9s ellen\u0151rizheted. Az eredm\u00e9nyoldal az \u00f6sszes friss\u00edtett URL-t, a m\u00e1r nem m\u0171k\u00f6d\u0151 k\u00f6nyvjelz\u0151ket \u00e9s az azonos URL-c\u00edmmel rendelkez\u0151 k\u00f6nyvjelz\u0151ket jelen\u00edti meg."
     },
+    "premium_pay_select_payment_method": {
+        "message": "V\u00e1lasszon fizet\u00e9si m\u00f3dot"
+    },
     "premium_pay_what_you_want": {
         "message": "Fizess ami\u00e9rt akarsz"
     },
     "premium_pay_creditcard": {
         "message": "Hitel vagy bet\u00e9ti k\u00e1rty\u00e1val"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "A folytat\u00e1shoz olvassa le ezt a QR-k\u00f3dot a WeChat programban."
     },
     "premium_pay_contact": {
         "message": "Ha b\u00e1rmilyen probl\u00e9m\u00e1ja van a fizet\u00e9ssel kapcsolatban, vagy b\u00e1rmilyen k\u00e9rd\u00e9se van, k\u00e9rj\u00fck, l\u00e9pjen velem kapcsolatba a k\u00f6vetkez\u0151 c\u00edmen: {1}."
@@ -1108,6 +1141,12 @@
     },
     "premium_pay_eula_desc": {
         "message": "Elolvastam \u00e9s elfogadom a [a]v\u00e9gfelhaszn\u00e1l\u00f3i szerz\u0151d\u00e9st[\/a]."
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Lemond\u00e1si felt\u00e9telek"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "V\u00e1s\u00e1rl\u00e1s meger\u0151s\u00edt\u00e9se"
     },
     "premium_pay_buy": {
         "message": "V\u00e1s\u00e1rolj pr\u00e9mium hozz\u00e1f\u00e9r\u00e9st"
@@ -1130,6 +1169,9 @@
     "premium_pay_info_email": {
         "message": "E-mail"
     },
+    "premium_pay_info_email_desc": {
+        "message": "K\u00e9rj\u00fck, adja meg e-mail c\u00edm\u00e9t, hogy megkapja a licenckulcsot."
+    },
     "premium_pay_info_name": {
         "message": "N\u00e9v"
     },
@@ -1140,7 +1182,7 @@
         "message": "Fizet\u00e9si m\u00f3d"
     },
     "premium_pay_info_card_number": {
-        "message": "K\u00e1rtya sz\u00e1m"
+        "message": "K\u00e1rtyasz\u00e1m"
     },
     "premium_pay_info_card_expires": {
         "message": "A k\u00e1rtya \u00e9rv\u00e9nyess\u00e9ge"

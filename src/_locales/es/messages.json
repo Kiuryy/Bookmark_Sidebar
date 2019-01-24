@@ -524,6 +524,9 @@
     "settings_menu_infos_privacy": {
         "message": "Privacidad"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contacto"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -650,10 +653,10 @@
     "settings_remember_desc": {
         "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
     },
-    "settings_drag_n_drop_add_dialog": {
+    "settings_dnd_creation_dialog": {
         "message": "Mostrar el di\u00e1logo de creaci\u00f3n"
     },
-    "settings_drag_n_drop_add_dialog_desc": {
+    "settings_dnd_creation_dialog_desc": {
         "message": "Mostrar el di\u00e1logo de creaci\u00f3n antes de agregar el nuevo marcador al arrastrarlo dentro de la barra lateral."
     },
     "settings_new_entry_position": {
@@ -707,19 +710,19 @@
     "settings_close_timeout_infinity": {
         "message": "No cerrar autom\u00e1ticamente"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Esconder la barra de desplazamiento"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Tiempo de espera en segundos para que se oculte la barra de desplazamiento. Al desplazar se mostrar\u00e1 la barra de desplazamiento de nuevo."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Abrir al arrastrar y soltar"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Permite arrastrar selecciones de texto, enlaces y URL a la barra lateral. Esto puede ser \u00fatil si desea marcar la p\u00e1gina actual u otros enlaces en sitios web."
     },
     "settings_reopen_sidebar": {
@@ -860,7 +863,7 @@
     "settings_font_family_desc": {
         "message": "El tipo de letra de la barra lateral y las superposiciones"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Ancho de la barra de desplazamiento"
     },
     "settings_icon_color": {
@@ -902,7 +905,7 @@
     "settings_directories_icon_size": {
         "message": "Tama\u00f1o del icono de los directorios"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Flechas de los directorios"
     },
     "settings_bookmarks_line_height": {
@@ -1138,6 +1141,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "He le\u00eddo y acepto el [a]acuerdo de licencia de usuario final[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Pol\u00edtica de cancelaci\u00f3n"
     },
     "premium_pay_confirm_headline": {
         "message": "Confirme su compra"

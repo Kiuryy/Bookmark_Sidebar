@@ -524,6 +524,9 @@
     "settings_menu_infos_privacy": {
         "message": "Privacidade"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contato"
+    },
     "settings_menu_premium": {
         "message": "Exclusivo"
     },
@@ -615,10 +618,10 @@
         "message": "Evita abrir imediatamente a barra lateral ao posicionar o ponteiro do mouse ou ao clicar com um atraso."
     },
     "settings_prevent_pagescroll": {
-        "message": "Impede a rolagem da p\u00e1gina"
+        "message": "Impedir a rolagem da p\u00e1gina"
     },
     "settings_prevent_pagescroll_desc": {
-        "message": "Impede a rolagem da p\u00e1gina atual enquanto a barra lateral estiver aberta."
+        "message": "Impedir a rolagem da p\u00e1gina em uso enquanto a barra lateral estiver aberta."
     },
     "settings_dir_accordion": {
         "message": "Mostrar somente a pasta atual"
@@ -650,10 +653,10 @@
     "settings_remember_desc": {
         "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
-    "settings_drag_n_drop_add_dialog": {
+    "settings_dnd_creation_dialog": {
         "message": "Mostrar caixa de di\u00e1logo de cria\u00e7\u00e3o"
     },
-    "settings_drag_n_drop_add_dialog_desc": {
+    "settings_dnd_creation_dialog_desc": {
         "message": "Mostrar a caixa de di\u00e1logo de cria\u00e7\u00e3o antes de adicionar um novo favorito ao arrastar e soltar dentro da barra lateral."
     },
     "settings_new_entry_position": {
@@ -707,20 +710,20 @@
     "settings_close_timeout_infinity": {
         "message": "N\u00e3o fechar automaticamente"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Ocultar barra de rolagem"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Tempo limite em segundos at\u00e9 que a barra de rolagem seja ocultada. Ao rolar-se a p\u00e1gina, a barra de rolagem aparecer\u00e1 novamente."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Abrir com Arrastar e Soltar"
     },
-    "settings_drag_n_drop_open_desc": {
-        "message": "Permite arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar a p\u00e1gina atual aos favoritos ou quaisquer outros links em sites."
+    "settings_dnd_open_desc": {
+        "message": "Permitir arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar a p\u00e1gina atual aos favoritos ou quaisquer outros links em sites."
     },
     "settings_reopen_sidebar": {
         "message": "Reabrir a barra lateral."
@@ -738,7 +741,7 @@
         "message": "Atraso da dica de contexto"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Atraso antes que as dicas de contexto para os favoritos sejas mostradas ao pairar o ponteiro do mouse."
+        "message": "Atraso antes que as dicas de contexto para os favoritos sejam mostradas ao passar o ponteiro do mouse por cima."
     },
     "settings_tooltip_delay_infinity": {
         "message": "Nunca mostrar dicas de contexto"
@@ -783,7 +786,7 @@
         "message": "Entrada de menu de contexto"
     },
     "settings_contextmenu_desc": {
-        "message": "Exibe uma entrada no menu de contexto do Chrome para alternar a barra lateral."
+        "message": "Exibir uma entrada no menu de contexto do Chrome para alternar a barra lateral."
     },
     "settings_filter_intro": {
         "message": "Se voc\u00ea n\u00e3o deseja que a barra lateral seja carregada em todas as p\u00e1ginas, pode configurar onde carregar a extens\u00e3o (lista branca) ou onde n\u00e3o carreg\u00e1-la (lista negra)."
@@ -860,7 +863,7 @@
     "settings_font_family_desc": {
         "message": "O estilo da fonte da barra lateral e das sobreposi\u00e7\u00f5es"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Largura da barra de rolagem"
     },
     "settings_icon_color": {
@@ -902,7 +905,7 @@
     "settings_directories_icon_size": {
         "message": "Tamanho dos \u00edcones das pastas"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Setas da pasta"
     },
     "settings_bookmarks_line_height": {
@@ -1138,6 +1141,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "Eu li e aceito o [a]Acordo de Licen\u00e7a de Usu\u00e1rio Final[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Pol\u00edtica de cancelamento"
     },
     "premium_pay_confirm_headline": {
         "message": "Confirmar compra"

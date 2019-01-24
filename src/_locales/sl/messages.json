@@ -3,7 +3,7 @@
         "message": "Vrstica z zaznamki"
     },
     "extension_desc": {
-        "message": "Doda toggleabilno vrstico z vsemi va\u0161imi zaznamki na rob okna va\u0161ega brskalnika."
+        "message": "Doda preklopljivo vrstico z vsemi va\u0161imi zaznamki na rob okna va\u0161ega brskalnika."
     },
     "header_bookmarks": {
         "message": "Zaznamki"
@@ -54,7 +54,7 @@
         "message": "Informacije"
     },
     "contextmenu_new_tab": {
-        "message": "Odpri v novem zabihku"
+        "message": "Odpri v novem zavihku"
     },
     "contextmenu_new_window": {
         "message": "Odpri v novem oknu"
@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "Delilnik"
     },
+    "overlay_add_position": {
+        "message": "Polo\u017eaj"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Pripni v mapo"
+    },
+    "overlay_add_position_append": {
+        "message": "Dodaj v mapo"
+    },
     "overlay_separator_title_desc": {
         "message": "Imate mo\u017enost poimenovanja naslova delilnika. Ime bo prikazano na vrhu delilne \u010drte in vam lahko pomaga pri organizaciji seznama zaznamkov."
     },
@@ -210,7 +219,7 @@
         "message": "Pokvarjeno"
     },
     "overlay_check_bookmarks_menu_duplicate": {
-        "message": "Duplikati"
+        "message": "Dvojniki"
     },
     "overlay_check_bookmarks_loading": {
         "message": "Preverjanje URL-jev zaznamkov"
@@ -231,7 +240,7 @@
         "message": "Ni pokvarjenih URL-jev zaznamkov"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Ni duplikatov URL-jev zaznamkov"
+        "message": "Ni podvojenih URL-jev zaznamkov"
     },
     "newtab_title": {
         "message": "Nov zavihek"
@@ -515,11 +524,17 @@
     "settings_menu_infos_privacy": {
         "message": "Zasebnost"
     },
+    "settings_menu_infos_contact": {
+        "message": "Stik"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Uvoz\/izvoz"
+    },
+    "settings_menu_expert": {
+        "message": "Strokovne nastavitve"
     },
     "settings_save": {
         "message": "Shrani spremembe"
@@ -547,6 +562,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Premium aktivacija nu uspela. Prosim vnesite veljaven licen\u010dni klju\u010d"
+    },
+    "settings_search_placeholder": {
+        "message": "Poi\u0161\u010dite konfiguracijo"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Strokovne nastavitve vam omogo\u010dajo, da nastavite vsako zastavico konfiguracije raz\u0161iritve, tudi tiste, ki jih ne morete spremeniti z obi\u010dajnimi potrditvenimi polji ali drsniki strani z nastavitvami."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Prosimo, spremenite samo vrednosti tukaj, \u010de veste, kaj po\u010dnete. Napa\u010dne konfiguracije lahko povzro\u010dijo nepri\u010dakovano obna\u0161anje raz\u0161iritve. \u010ce se nekaj pokvari, se lahko vrnete na privzeto konfiguracijo."
+    },
+    "settings_expert_save_error": {
+        "message": "Nastavitev ni bilo mogo\u010de shraniti. Prosimo, popravite vnos."
     },
     "settings_open_action": {
         "message": "Odpri vrstico z zaznamki"
@@ -641,6 +668,18 @@
     "settings_remember_desc": {
         "message": "Izberite kaj se zapomni na splo\u0161no pri spremembah strani. \u010ce izberete, da se zapomni zadnji odprt zaznamek, bo ozna\u010den, ko se stranska vrstica odpre ponovno."
     },
+    "settings_dnd_creation_dialog": {
+        "message": "Prika\u017ei pogovorno okno za ustvarjanje"
+    },
+    "settings_dnd_creation_dialog_desc": {
+        "message": "Pred dodajanjem novega zaznamka prika\u017eite pogovorno okno za ustvarjanje, ko ga povle\u010dete in spustite v stransko vrstico."
+    },
+    "settings_new_entry_position": {
+        "message": "Polo\u017eaj novih vnosov"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "Vnaprej izbrani polo\u017eaj pri dodajanju novih vnosov v stransko vrstico."
+    },
     "settings_open_children_warn_limit": {
         "message": "Odpri vse otroke (opozorilni limit)"
     },
@@ -686,19 +725,19 @@
     "settings_close_timeout_infinity": {
         "message": "Ne zapri samodejno"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Skrij stransko vrstico"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "\u010cas v sekundah po katerem bo stranska vrstica skrita. Vrtenje bo stransko vrstico pokazalo ponovno."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nikoli skrij"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Odpri z povleci-in-spusti"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Dovoli vle\u010denje besedilnih izbir, povezav in URL-jev v stransko vrstico. To je lahko uporabno, \u010de \u017eelite dodati zaznamek trenutne strani ali drugih povezav na strani."
     },
     "settings_reopen_sidebar": {
@@ -839,7 +878,7 @@
     "settings_font_family_desc": {
         "message": "Typeface stranske vrstice in overlay-ev"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "\u0160irina drsnika"
     },
     "settings_icon_color": {
@@ -881,7 +920,7 @@
     "settings_directories_icon_size": {
         "message": "Velikost ikone map"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Pu\u0161\u010dice map"
     },
     "settings_bookmarks_line_height": {
@@ -954,13 +993,16 @@
         "message": "Urejate lahko \u017ee obstoje\u010de prevode ali dodate manjkajo\u010de. \u010ce oddate svoje spremembe, bom preveril va\u0161 vnos in ga odobril."
     },
     "settings_translation_notice1": {
-        "message": "Takoj, ko bodo prevedene vse kategorije ozna\u010dene kot potrebovanje, bom izdal prevod."
+        "message": "Takoj, ko bodo prevedene vse kategorije ozna\u010dene kot potrebovane, bom izdal prevod."
     },
     "settings_translation_notice2": {
         "message": "Nepopolne kategorije ne bodo izdane, da se prepre\u010dijo nepopolno prevedenih tekstov."
     },
     "settings_translation_help": {
         "message": "Za vsak vnos, ki mora biti preveden v va\u0161 jezik, lahko vidite angle\u0161ki prevod. Za la\u017ejo identifikacijo kje se tekst uporablja in za kaj sploh je, ima vsak vnos svoje ime (na primer: {1}), in ne sme biti preveden. Prosim ne pozabite oddati va\u0161ega prevoda z klikom na gumb v zgornjem desnem kotu!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "\u017delim biti obve\u0161\u010den, ko se v raz\u0161iritev dodajo nove jezikovne spremenljivke"
     },
     "settings_translation_submit": {
         "message": "Oddaj"
@@ -969,13 +1011,13 @@
         "message": "Va\u0161 prevod je bil uspe\u0161no oddan"
     },
     "settings_translation_status_released": {
-        "message": "Prevod je dosegljiv"
+        "message": "Prevod je na voljo"
     },
     "settings_translation_status_incomplete": {
-        "message": "Prevod je dosegljiv, ampak nekatere kategorije so nepopolne"
+        "message": "Prevod je na voljo, vendar so nekatere kategorije nepopolne"
     },
     "settings_translation_status_draft": {
-        "message": "Prevod je nepopoln ali potrebuje ocenitev in ni dosegljiv uporabnikom"
+        "message": "Prevod je nepopoln ali potrebuje ocenitev in ni na voljo uporabnikom"
     },
     "settings_translation_incomplete_info": {
         "message": "Nekateri prevodi manjkajo"
@@ -1044,7 +1086,7 @@
         "message": "Z Premium dobite dostop do dodatnih funkcij in mi pomagate vzdr\u017eevati raz\u0161iritev."
     },
     "premium_desc_2": {
-        "message": "Spodaj lahko pogledate funkcije Premium-a. Vse klju\u010dne funkcije raz\u0161iritve so brezpla\u010dne za uporabo in ne bodo potrebovale Premium-a. Za dostop do funkcij Premium-a lahko pla\u010date toliko, kot se vam raz\u0161iritev in moje delov zdi vredna."
+        "message": "Spodaj lahko pogledate funkcije Premium-a. Vse klju\u010dne funkcije raz\u0161iritve so brezpla\u010dne za uporabo in ne bodo potrebovale Premium-a. Za dostop do funkcij Premium-a lahko pla\u010date toliko, kot se vam raz\u0161iritev in moje delo zdi vredna."
     },
     "premium_get_now": {
         "message": "Pridobi Premium zdaj"
@@ -1065,7 +1107,7 @@
         "message": "Bodite prvi pri preizku\u0161evanju novih eksperimentalnih funkcij."
     },
     "premium_feature_early_access_desc": {
-        "message": "Z Premium-om dobite dostop do ne-releasanih funkcij, ki so \u0161e trenutno v izdelavi ali so v testiranju."
+        "message": "Z Premium-om dobite dostop do neobjavljenih funkcij, ki so \u0161e trenutno v izdelavi ali so v testiranju."
     },
     "premium_feature_sidebar_width_headline": {
         "message": "Spremenite \u0161irino va\u0161e stranske vrstice kadarkoli."
@@ -1091,11 +1133,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "Na vsako mapo va\u0161e stranske vrstice lahko kliknete z desno mi\u0161kino tipko da izberete preverjanje. Stran z rezultati vam bo pokazala vse posodobljene URL-je, zaznamke, ki niso ve\u010d delujo\u010di in zaznamke z enakim URL-jem."
     },
+    "premium_pay_select_payment_method": {
+        "message": "Izberite na\u010din pla\u010dila"
+    },
     "premium_pay_what_you_want": {
         "message": "Pla\u010dajte kolikor \u017eelite"
     },
     "premium_pay_creditcard": {
         "message": "Kreditna ali debetna kartica"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Za nadaljevanje skenirajte to kodo QR v programu WeChat."
     },
     "premium_pay_contact": {
         "message": "\u010ce imate z pla\u010dilom kakr\u0161nekoli te\u017eave ali vpra\u0161anja, me prosim kontaktirajte na {1}."
@@ -1108,6 +1156,12 @@
     },
     "premium_pay_eula_desc": {
         "message": "Prebral sem in sprejmem [a]End-User License Agreement[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Politika odpovedi"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Potrdite nakup"
     },
     "premium_pay_buy": {
         "message": "Premium nakup"
@@ -1129,6 +1183,9 @@
     },
     "premium_pay_info_email": {
         "message": "E-po\u0161ta"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Vnesite svoj e-po\u0161tni naslov, da boste prejeli licen\u010dni klju\u010d."
     },
     "premium_pay_info_name": {
         "message": "Ime"

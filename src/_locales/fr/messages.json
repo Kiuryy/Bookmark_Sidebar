@@ -653,10 +653,10 @@
     "settings_remember_desc": {
         "message": "S\u00e9lectionnez ce que vous souhaitez m\u00e9moriser. Si vous choisissez de m\u00e9moriser le dernier favori ouvert, celui-ci sera marqu\u00e9 au prochain affichage de la barre lat\u00e9rale."
     },
-    "settings_drag_n_drop_add_dialog": {
+    "settings_dnd_creation_dialog": {
         "message": "Afficher le dialogue de cr\u00e9ation"
     },
-    "settings_drag_n_drop_add_dialog_desc": {
+    "settings_dnd_creation_dialog_desc": {
         "message": "Afficher la bo\u00eete de dialogue de cr\u00e9ation avant d\u2019ajouter un nouveau signet lors d\u2019un glisser-d\u00e9poser dans la barre lat\u00e9rale."
     },
     "settings_new_entry_position": {
@@ -710,19 +710,19 @@
     "settings_close_timeout_infinity": {
         "message": "Ne pas fermer automatiquement"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Cacher la barre de d\u00e9filement"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "D\u00e9lai, en secondes, au bout lequel la barre de d\u00e9filement est cach\u00e9e. Faire d\u00e9filer r\u00e9active l'affichage de la barre."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Ne jamais cacher"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Ouvrir par glisser-d\u00e9poser"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Permet de glisser-d\u00e9poser du texte, des liens ou des URL dans la barre lat\u00e9rale. Pratique si vous voulez marquer comme favori la page en visit\u00e9e ou des liens pr\u00e9sents sur celle-ci."
     },
     "settings_reopen_sidebar": {
@@ -863,7 +863,7 @@
     "settings_font_family_desc": {
         "message": "Police utilis\u00e9e dans la barre lat\u00e9rale et les fen\u00eatres d'info"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Largeur de la barre de d\u00e9filement"
     },
     "settings_icon_color": {
@@ -905,7 +905,7 @@
     "settings_directories_icon_size": {
         "message": "Taille de l'ic\u00f4ne des r\u00e9pertoires"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Fl\u00e8ches de direction"
     },
     "settings_bookmarks_line_height": {
@@ -1141,6 +1141,9 @@
     },
     "premium_pay_eula_desc": {
         "message": "J'ai lu et j'accepte les [a]conditions g\u00e9n\u00e9rales d'utilisation[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Informations sur le droit de r\u00e9traction"
     },
     "premium_pay_confirm_headline": {
         "message": "Confirmer l'achat"

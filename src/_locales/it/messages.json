@@ -686,19 +686,19 @@
     "settings_close_timeout_infinity": {
         "message": "Non chiudere automaticamente"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Nascondi barra di scorrimento"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Il numero di secondi necessari per far nascondere la barra di scorrimento. Scorrere i preferiti far\u00e0 apparire nuovamente la barra."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Non nascondere mai"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Apri trascinando"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Permette di trascinare del testo selezionato, link e URL nella barra laterale. Pu\u00f2 risultare utile se vuoi salvare velocemente nei preferiti la pagina attuale o altri collegamenti dei siti web che visiti."
     },
     "settings_reopen_sidebar": {
@@ -839,7 +839,7 @@
     "settings_font_family_desc": {
         "message": "Il font della barra laterale e delle sovrapposizioni"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Larghezza barra di scorrimento"
     },
     "settings_icon_color": {
@@ -881,7 +881,7 @@
     "settings_directories_icon_size": {
         "message": "Dimensione dell'icona delle cartelle"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Frecce delle directory"
     },
     "settings_bookmarks_line_height": {

@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Upravit adres\u00e1\u0159"
     },
+    "contextmenu_edit_separator": {
+        "message": "Upravit odd\u011blova\u010d"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Odstranit z\u00e1lo\u017eku"
     },
@@ -61,6 +64,9 @@
     },
     "contextmenu_add": {
         "message": "P\u0159idat polo\u017eku"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Zkontrolovat z\u00e1lo\u017eky"
     },
     "contextmenu_toggle_hidden": {
         "message": "Zobrazit skryt\u00e9 polo\u017eky"
@@ -170,6 +176,18 @@
     "overlay_label_separator": {
         "message": "Odd\u011blova\u010d"
     },
+    "overlay_add_position": {
+        "message": "Um\u00edst\u011bn\u00ed"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Vlo\u017eit p\u0159ed adres\u00e1\u0159"
+    },
+    "overlay_add_position_append": {
+        "message": "P\u0159ipojit za adres\u00e1\u0159"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Voliteln\u011b lze vlo\u017eit n\u00e1zev. Bude zobrazen na linii odd\u011blova\u010de a m\u016f\u017ee pomoci t\u0159\u00eddit seznam z\u00e1lo\u017eek."
+    },
     "overlay_bookmark_views": {
         "message": "N\u00e1hledy"
     },
@@ -194,11 +212,35 @@
     "overlay_dir_children_dirs": {
         "message": "Adres\u00e1\u0159e"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Zm\u011bn\u011bno"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Po\u0161kozeno"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplik\u00e1t"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Zkontrolovat url adresy z\u00e1lo\u017eek"
     },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Aktualizovat vybran\u00e9"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Odstranit vybran\u00e9"
+    },
     "overlay_check_bookmarks_no_results": {
         "message": "V\u0161echny url adresy z\u00e1lo\u017eek jsou v po\u0159\u00e1dku"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "\u017d\u00e1dn\u00e9 zm\u011bn\u011bn\u00e9 url adresy z\u00e1lo\u017eek"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "\u017d\u00e1dn\u00e9 po\u0161kozen\u00e9 url adresy z\u00e1lo\u017eek"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "\u017d\u00e1dn\u00e9 duplik\u00e1ty mezi url adresami z\u00e1lo\u017eek"
     },
     "newtab_title": {
         "message": "Nov\u00e1 karta"
@@ -220,6 +262,9 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Nezobrazovat str\u00e1nky"
+    },
+    "newtab_upload_background": {
+        "message": "Nahr\u00e1t obr\u00e1zek pozad\u00ed"
     },
     "newtab_fallback_headline_general": {
         "message": "Postrann\u00ed panel je blokov\u00e1n"
@@ -260,11 +305,11 @@
     "status_changelog_unavailable_desc": {
         "message": "Nelze na\u010d\u00edst seznam zm\u011bn. Pros\u00edm zkuste to znovu pozd\u011bji."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "V d\u016fsledku aktualizace roz\u0161\u00ed\u0159en\u00ed je t\u0159eba tuto str\u00e1nku znovu na\u010d\u00edst."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Znovu na\u010d\u00edst"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "V d\u016fsledku aktualizace roz\u0161\u00ed\u0159en\u00ed je t\u0159eba tuto str\u00e1nku znovu na\u010d\u00edst."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -398,6 +443,9 @@
     "onboarding_finish_desc": {
         "message": "Bavte se s bo\u010dn\u00edm panelem."
     },
+    "onboarding_finish_notice": {
+        "message": "Pokud \u010dasto klik\u00e1te na {1} okraj okna prohl\u00ed\u017ee\u010de, lze nastavit, v jak\u00e9 \u010d\u00e1sti (vertik\u00e1ln\u011b) m\u016f\u017ee b\u00fdt postrann\u00ed panel otev\u0159en, abyste p\u0159ede\u0161li n\u00e1hodn\u00e9mu otev\u0159en\u00ed."
+    },
     "onboarding_goto_settings": {
         "message": "Dal\u0161\u00ed nastaven\u00ed"
     },
@@ -464,8 +512,23 @@
     "settings_menu_feedback": {
         "message": "Zp\u011btn\u00e1 vazba"
     },
-    "settings_menu_support": {
-        "message": "Podpora"
+    "settings_menu_infos": {
+        "message": "Informace"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "O m\u011b"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Opr\u00e1vn\u011bn\u00ed"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Soukrom\u00ed"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importu\/Exportu"
@@ -490,6 +553,12 @@
     },
     "settings_not_synced": {
         "message": "Nelze synchronizovat mezi Va\u0161imi za\u0159\u00edzen\u00edmi"
+    },
+    "settings_premium_activated": {
+        "message": "Premium bylo \u00fasp\u011b\u0161n\u011b aktivov\u00e1no"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nelze aktivovat Premium. Vlo\u017ete pros\u00edm platn\u00fd licen\u010dn\u00ed kl\u00ed\u010d"
     },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
@@ -563,9 +632,6 @@
     "settings_remember_state": {
         "message": "Zapamatov\u00e1n\u00ed"
     },
-    "settings_remember_desc": {
-        "message": "Vyberte, co si zapamatovat mezi zm\u011bnami str\u00e1nek. Pokud se rozhodnete zapamatovat posledn\u00ed otev\u0159enou z\u00e1lo\u017eku, bude p\u0159i otev\u0159en\u00ed postrann\u00edho panelu ozna\u010dena."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Pozice posuvu a otev\u0159en\u00e9 adres\u00e1\u0159e"
     },
@@ -580,6 +646,24 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nic"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Zapamatovat otev\u0159en\u00e9 podadres\u00e1\u0159e"
+    },
+    "settings_remember_desc": {
+        "message": "Vyberte, co si zapamatovat mezi zm\u011bnami str\u00e1nek. Pokud se rozhodnete zapamatovat posledn\u00ed otev\u0159enou z\u00e1lo\u017eku, bude p\u0159i otev\u0159en\u00ed postrann\u00edho panelu ozna\u010dena."
+    },
+    "settings_dnd_creation_dialog": {
+        "message": "Uk\u00e1zat dialog pro vytvo\u0159en\u00ed"
+    },
+    "settings_dnd_creation_dialog_desc": {
+        "message": "Uk\u00e1zat dialog pro vytvo\u0159en\u00ed p\u0159ed vlo\u017een\u00edm nov\u00e9 z\u00e1lo\u017eky p\u0159i p\u0159eta\u017een\u00ed do postrann\u00edho panelu."
+    },
+    "settings_new_entry_position": {
+        "message": "Um\u00edst\u011bn\u00ed nov\u00fdch z\u00e1znam\u016f"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "P\u0159edvolba um\u00edst\u011bn\u00ed p\u0159i p\u0159id\u00e1v\u00e1n\u00ed nov\u00fdch z\u00e1znam\u016f do postrann\u00edho panelu"
     },
     "settings_open_children_warn_limit": {
         "message": "Otev\u0159\u00edt v\u0161echny d\u011bti (limit upozorn\u011bn\u00ed)"
@@ -626,19 +710,19 @@
     "settings_close_timeout_infinity": {
         "message": "Nezav\u00edrat automaticky"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Skr\u00fdt posuvn\u00edk"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "\u010casov\u00fd limit v sekund\u00e1ch po posuvn\u00edku bude skryt. Posunem se znovu zobraz\u00ed posuvn\u00edk."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nikdy se neschov\u00e1vej"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Otev\u0159ete t\u00e1hni&pus\u0165"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Umo\u017e\u0148uje p\u0159eta\u017een\u00ed textov\u00fdch voleb, odkaz\u016f a adres URL do postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud chcete ulo\u017eit na z\u00e1lo\u017eku aktu\u00e1ln\u00ed str\u00e1nku nebo jin\u00e9 odkazy na webov\u00fdch str\u00e1nk\u00e1ch."
     },
     "settings_reopen_sidebar": {
@@ -646,6 +730,12 @@
     },
     "settings_reopen_sidebar_desc": {
         "message": "Postrann\u00ed panel se znovu otev\u0159e po otev\u0159en\u00ed z\u00e1lo\u017eky z postrann\u00edho panelu."
+    },
+    "settings_prevent_windowed": {
+        "message": "Vypnout postrann\u00ed panel v re\u017eimu okna"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Vyp\u00edn\u00e1 mo\u017enost otev\u0159en\u00ed postrann\u00edho panelu kliknut\u00edm nebo najet\u00edm na okraj obsahu prohl\u00ed\u017ee\u010de v re\u017eimu okna."
     },
     "settings_tooltip_delay": {
         "message": "Zpo\u017ed\u011bn\u00ed n\u00e1pov\u011bdy"
@@ -691,6 +781,12 @@
     },
     "settings_animations_desc": {
         "message": "Umo\u017e\u0148uje zak\u00e1zat v\u0161echny animace postrann\u00edho panelu. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, pokud animace nefunguj\u00ed hladce ve va\u0161em syst\u00e9mu."
+    },
+    "settings_contextmenu": {
+        "message": "Z\u00e1znam kontextov\u00e9ho menu"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Zobraz\u00ed p\u0159ep\u00edna\u010d postrann\u00edho panelu v kontextov\u00e9m menu Chrome."
     },
     "settings_filter_intro": {
         "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."
@@ -738,7 +834,10 @@
         "message": "Import konfigurace se nepoda\u0159ilo. Zvolte pros\u00edm platn\u00fd soubor."
     },
     "settings_presets": {
-        "message": "P\u0159edvolba"
+        "message": "Nastavit relativn\u00ed velikost"
+    },
+    "settings_presets_desc": {
+        "message": "Lze nastavit v\u00fdchoz\u00ed velikost postrann\u00edho panelu. Toto zm\u011bn\u00ed velikost posuvn\u00edky na t\u00e9to str\u00e1nce k upraven\u00ed \u0161\u00ed\u0159ky postrann\u00edho panelu, v\u00fd\u0161ky \u0159\u00e1dk\u016f, velikost ikon a mnoho dal\u0161\u00edch parametr\u016f."
     },
     "settings_color_scheme": {
         "message": "Barevn\u00e9 sch\u00e9ma"
@@ -764,7 +863,7 @@
     "settings_font_family_desc": {
         "message": "P\u00edsmo bo\u010dn\u00ed li\u0161ty a p\u0159ekr\u00fdvac\u00edch popisek"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "\u0160\u00ed\u0159ka posuvn\u00edku"
     },
     "settings_icon_color": {
@@ -805,6 +904,9 @@
     },
     "settings_directories_icon_size": {
         "message": "Velikost ikon adres\u00e1\u0159\u016f"
+    },
+    "settings_directory_arrows": {
+        "message": "\u0160ipky adres\u00e1\u0159e"
     },
     "settings_bookmarks_line_height": {
         "message": "V\u00fd\u0161ka \u0159\u00e1dku z\u00e1lo\u017eek"
@@ -884,6 +986,9 @@
     "settings_translation_help": {
         "message": "U ka\u017ed\u00e9 polo\u017eky vid\u00edte anglick\u00fd p\u0159eklad, kter\u00fd je t\u0159eba p\u0159elo\u017eit. Pro lep\u0161\u00ed vyhled\u00e1n\u00ed a zasazen\u00ed do kontextu, m\u00e1 ka\u017ed\u00e1 polo\u017eka n\u00e1zev (nap\u0159. {1}), kter\u00fd se nep\u0159ekl\u00e1d\u00e1. Nezapome\u0148te pros\u00edm odeslat v\u00e1\u0161 p\u0159eklad pomoc\u00ed tla\u010d\u00edtka v horn\u00edm prav\u00e9m rohu!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Chci b\u00fdt informov\u00e1n, kdy\u017e budou do roz\u0161\u00ed\u0159en\u00ed p\u0159id\u00e1ny nov\u00e9 prom\u011bnn\u00e9 jazyka"
+    },
     "settings_translation_submit": {
         "message": "Odeslat"
     },
@@ -914,6 +1019,15 @@
     "settings_feedback_email": {
         "message": "Va\u0161e emailov\u00e1 adresa"
     },
+    "settings_feedback_screenshot": {
+        "message": "P\u0159ipojit screenshot"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Velikost souboru je p\u0159\u00edli\u0161 velk\u00e1 {1} (>1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Je mo\u017en\u00e9 nahr\u00e1t maxim\u00e1ln\u011b {1} screenshot\u016f"
+    },
     "settings_feedback_send": {
         "message": "Odeslat zp\u011btnou vazbu"
     },
@@ -923,16 +1037,154 @@
     "settings_feedback_send_failed": {
         "message": "Va\u0161e zpr\u00e1va nemohla b\u00fdt odesl\u00e1na. Pros\u00edm zkuste to znovu."
     },
-    "settings_headline_donation": {
-        "message": "P\u0159isp\u011bt"
+    "settings_feedback_faq_headline": {
+        "message": "Toto V\u00e1s m\u016f\u017ee zaj\u00edmat"
     },
-    "settings_support_donation_desc": {
-        "message": "Darov\u00e1n\u00ed je zcela voliteln\u00e9, ale pokud m\u00e1te r\u00e1di roz\u0161\u00ed\u0159en\u00ed a chcete darovat malou \u010d\u00e1stku, m\u016f\u017eete to ud\u011blat kliknut\u00edm na n\u00e1sleduj\u00edc\u00ed odkaz. Oce\u0148uji ka\u017edou pomoc, kterou dostanu, a\u0165 u\u017e jde o darov\u00e1n\u00ed, pomoc p\u0159i p\u0159eklady nebo poskytov\u00e1n\u00ed zp\u011btn\u00e9 vazby, s c\u00edlem zlep\u0161it roz\u0161\u00ed\u0159en\u00ed."
+    "settings_permissions_desc": {
+        "message": "K umo\u017en\u011bn\u00ed p\u0159ep\u00edn\u00e1n\u00ed postrann\u00edho panelu jsou vy\u017eadov\u00e1na n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Chrome bohu\u017eel nem\u00e1 mechanizmus ke zobrazen\u00ed obsahu uvnit\u0159 okna prohl\u00ed\u017ee\u010de bez interakce s nyn\u00ed prohl\u00ed\u017eenou str\u00e1nkou."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Kv\u016fli tomu, \u017ee se postrann\u00ed panel zobrazuje na sou\u010dasn\u00e9 str\u00e1nce je vy\u017eadov\u00e1no n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed. Krom\u011b tohoto technick\u00e9ho d\u016fvodu se povolen\u00ed nevyu\u017e\u00edv\u00e1 k jin\u00fdm \u00fa\u010del\u016fm."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Pokud p\u0159em\u00fd\u0161l\u00edte, k \u010demu jsou vyu\u017e\u00edv\u00e1na opr\u00e1vn\u011bn\u00ed, m\u016f\u017eete si prohl\u00e9dnout zdrojov\u00fd k\u00f3d roz\u0161\u00ed\u0159en\u00ed, kter\u00fd je dostupn\u00fd na Githubu. Jedn\u00e1 se o Open Source a je zp\u0159\u00edstupn\u011bn ka\u017ed\u00e9mu."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Roz\u0161\u00ed\u0159en\u00ed zobrazuje Va\u0161e z\u00e1lo\u017eky v postrann\u00edm panelu a proto vy\u017eaduje opr\u00e1vn\u011bn\u00ed k z\u00edsk\u00e1n\u00ed p\u0159\u00edstupu. Opr\u00e1vn\u011bn\u00ed rovn\u011b\u017e umo\u017e\u0148uje tomuto roz\u0161\u00ed\u0159en\u00ed editovat a odstra\u0148ovat z\u00e1lo\u017eky."
     },
     "settings_headline_share_userdata": {
         "message": "Sd\u00edlen\u00ed informac\u00ed"
     },
     "settings_saved_share_userdata": {
         "message": "Va\u0161e p\u0159edvolba byla \u00fasp\u011b\u0161n\u011b ulo\u017eena"
+    },
+    "premium_popup_text": {
+        "message": "Prozkoumal jste ji\u017e Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Tato funkce je dostupn\u00e1 jen s Premium"
+    },
+    "premium_desc_1": {
+        "message": "S Premium z\u00edsk\u00e1te p\u0159\u00edstup k dal\u0161\u00edm funkc\u00edm a pom\u016f\u017eete tak s \u00fadr\u017ebou roz\u0161\u00ed\u0159en\u00ed."
+    },
+    "premium_desc_2": {
+        "message": "N\u00ed\u017ee m\u016f\u017eete zkontrolovat funkce zahrnut\u00e9 v Premium. V\u0161echny kl\u00ed\u010dov\u00e9 funkce roz\u0161\u00ed\u0159en\u00ed jsou zdarma a nevy\u017eaduj\u00ed Premium. M\u016f\u017eete platit za\u010d V\u00e1m stoj\u00ed toto roz\u0161\u00ed\u0159en\u00ed a m\u00e1 pr\u00e1ce ke zp\u0159\u00edstupn\u011bn\u00ed t\u011bchto funkc\u00ed."
+    },
+    "premium_get_now": {
+        "message": "Z\u00edskejte Premium nyn\u00ed"
+    },
+    "premium_show_license_input": {
+        "message": "Ji\u017e m\u00e1m Premium"
+    },
+    "premium_already_activated": {
+        "message": "Ji\u017e pou\u017e\u00edv\u00e1te Premium"
+    },
+    "premium_activate": {
+        "message": "Aktivovat Premium"
+    },
+    "premium_license_key": {
+        "message": "Licen\u010dn\u00ed kl\u00ed\u010d"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Bu\u010fte prvn\u00edm, kdo vyzkou\u0161\u00ed nov\u00e9 experiment\u00e1ln\u00ed funkce"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "S Premium z\u00edsk\u00e1te p\u0159\u00edstup k nevydan\u00fdm funkc\u00edm."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Zm\u011bna \u0161\u00ed\u0159ky postrann\u00edho panelu kdykoliv"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Import a export Va\u0161ich nastaven\u00ed"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "P\u0159izp\u016fsobte va\u0161i str\u00e1nku Nov\u00e1 karta"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Pokud pou\u017e\u00edv\u00e1te str\u00e1nku Nov\u00e1 karta tohoto roz\u0161\u00ed\u0159en\u00ed, m\u016f\u017eete nastavit libovoln\u00fd obr\u00e1zek jako pozad\u00ed, aby v\u0161e bylo je\u0161t\u011b kr\u00e1sn\u011bj\u0161\u00ed."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "P\u0159izp\u016fsobte v\u0161e pomoc\u00ed vlastn\u00ed Stylessheet"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Pokud rozum\u00edte CSS, m\u016f\u017eete zcela zm\u011bnit vzhled postrann\u00edho panelu p\u0159id\u00e1n\u00edm vlastn\u00edch definic. Umo\u017en\u00ed V\u00e1m to p\u0159izp\u016fsobit cokoliv."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Zkontrolujte sv\u00e9 z\u00e1lo\u017eky kv\u016fli po\u0161kozen\u00fdm link\u016fm nebo duplik\u00e1t\u016fm"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "M\u016f\u017eete kliknout na adres\u00e1\u0159 v postrann\u00edm panelu k proveden\u00ed kontroly. V\u00fdsledek uk\u00e1\u017ee aktualizovan\u00e9 url, z\u00e1lo\u017eky, kter\u00e9 ji\u017e nepracuj\u00ed, a z\u00e1lo\u017eky s toto\u017enou url."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Zvolte platebn\u00ed metodu"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pla\u0165te jak chcete"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kreditn\u00ed nebo debetn\u00ed karta"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Skenujte QR kod na WeChat pro pokra\u010dov\u00e1n\u00ed"
+    },
+    "premium_pay_contact": {
+        "message": "Pokud se setk\u00e1te s pot\u00ed\u017eemi b\u011bhem platby, nebo pokud m\u00e1te n\u011bjak\u00e9 ot\u00e1zky, kontaktujte m\u011b pros\u00edm na {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Celkem"
+    },
+    "premium_pay_eula": {
+        "message": "Licen\u010dn\u00ed smlouva koncov\u00e9ho u\u017eivatele"
+    },
+    "premium_pay_eula_desc": {
+        "message": "\u010cetl jsem a souhlas\u00edm s [a]Licen\u010dn\u00ed smlouvou koncov\u00e9ho u\u017eivatele[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Storno podm\u00ednky"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Potvr\u010fte n\u00e1kup"
+    },
+    "premium_pay_buy": {
+        "message": "Kupte Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Ov\u011b\u0159en\u00ed transakce"
+    },
+    "premium_pay_purchase_id": {
+        "message": "ID n\u00e1kupu"
+    },
+    "premium_pay_success_headline": {
+        "message": "D\u011bkuji za n\u00e1kup"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} byl automaticky aktivov\u00e1n pro toto za\u0159\u00edzen\u00ed. Nen\u00ed t\u0159eba \u010dinit \u017e\u00e1dn\u00e9 dal\u0161\u00ed kroky."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Chcete-li aktivovat {1} na jin\u00e9m za\u0159\u00edzen\u00ed, nebo po reinstalaci roz\u0161\u00ed\u0159en\u00ed, m\u016f\u017eete vlo\u017eit n\u00e1sleduj\u00edc\u00ed kl\u00ed\u010d do nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Pros\u00edm vlo\u017ete mailovou adresu na kterou m\u00e1 b\u00fdt zasl\u00e1n licen\u010dn\u00ed kl\u00ed\u010d."
+    },
+    "premium_pay_info_name": {
+        "message": "Jm\u00e9no"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Sm\u011brovac\u00ed \u010d\u00edslo"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Platebn\u00ed metoda"
+    },
+    "premium_pay_info_card_number": {
+        "message": "\u010c\u00edslo karty"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Expirace karty"
     }
 }

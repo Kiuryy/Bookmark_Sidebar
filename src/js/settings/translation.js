@@ -488,6 +488,10 @@
                 const list = $("<ul />").appendTo(elm);
 
                 info.category.vars.forEach((field, i) => {
+                    if (field.translatable === false && lang !== defaultLang) { // skip non-translatable variables for all languages except the default
+                        return;
+                    }
+
                     const entry = $("<li />")
                         .append("<div />")
                         .append("<div />")
@@ -507,7 +511,7 @@
                     const variableName = $("<footer />")
                         .addClass($.cl.sidebar.breadcrumb)
                         .data("name", field.label)
-                        .html("<label>Variable name:</label><div />")
+                        .html("<label>Variable name:</label><div />") // @toDo Replace hardcoded
                         .appendTo(entry.children("div").eq(0));
 
                     field.label.split(" - ").forEach((variablePart) => {
@@ -701,6 +705,7 @@
             s.elm.translation.langvars.addClass([$.cl.visible, $.cl.loading]);
             const loader = s.helper.template.loading().appendTo(s.elm.translation.langvars);
 
+            const defaultLang = s.helper.i18n.getDefaultLanguage();
             const reminderIsChecked = s.helper.checkbox.isChecked(s.elm.checkbox.translationInfo);
             const reminderEnabled = translationReminder.indexOf(lang) !== -1;
             if (reminderIsChecked !== reminderEnabled) { // update reminder checkbox to fit the preferences of the currently edited language
@@ -729,6 +734,10 @@
                                 total: infos[category].vars.length,
                                 filled: 0
                             };
+
+                            if (lang !== defaultLang) { // substract the non-translatable variables from the total counter for all languages except the default
+                                varsAmount[key].total -= infos[category].nonTranslatable;
+                            }
 
                             infos[category].vars.forEach((field) => {
                                 if (field.value) {

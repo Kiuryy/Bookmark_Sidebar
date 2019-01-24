@@ -668,10 +668,10 @@
     "settings_remember_desc": {
         "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
     },
-    "settings_drag_n_drop_add_dialog": {
+    "settings_dnd_creation_dialog": {
         "message": "Anlege-Dialog anzeigen"
     },
-    "settings_drag_n_drop_add_dialog_desc": {
+    "settings_dnd_creation_dialog_desc": {
         "message": "Zeigt den Anlege-Dialog an, wenn ein neues Lesezeichen per Drag&Drop in die Sidebar angelegt werden soll."
     },
     "settings_new_entry_position": {
@@ -725,19 +725,19 @@
     "settings_close_timeout_infinity": {
         "message": "Nicht automatisch schlie\u00dfen"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Scrollbalken ausblenden"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Dauer in Sekunden bis der Scrollbalken ausgeblendet wird. Scrollen blendet ihn wieder ein."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nie ausblenden"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Per Drag&Drop \u00f6ffnen"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Erm\u00f6glicht es, markierten Text, Links und URLs in die Sidebar zu ziehen. Das kann hilfreich sein, wenn man ein Lesezeichen f\u00fcr die aktuelle Seite oder Links auf andere Webseiten erstellen m\u00f6chte."
     },
     "settings_reopen_sidebar": {
@@ -878,7 +878,7 @@
     "settings_font_family_desc": {
         "message": "Die Schriftart f\u00fcr die Sidebar und Overlays"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Scrollbalken-Breite"
     },
     "settings_icon_color": {
@@ -920,7 +920,7 @@
     "settings_directories_icon_size": {
         "message": "Verzeichnisse Symbolgr\u00f6\u00dfe"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Verzeichnis-Pfeile"
     },
     "settings_bookmarks_line_height": {

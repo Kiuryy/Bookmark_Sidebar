@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "Der \u00dcbersetzungsdienst ist aktuell nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Die \u00c4nderungshistorie konnte nicht abgerufen werden. Bitte versuche es sp\u00e4ter erneut."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Jetzt neuladen"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Aussehen konfigurieren"
     },
-    "changelog_title": {
-        "message": "\u00c4nderungshistorie"
-    },
-    "changelog_current_version": {
-        "message": "Aktuell installierte Version"
-    },
-    "changelog_show_release_history": {
-        "message": "Detailierte Versions-Historie anzeigen"
-    },
     "settings_title": {
         "message": "Einstellungen"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Kontakt"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "\u00c4nderungshistorie"
     },
     "settings_menu_premium": {
         "message": "Premium"

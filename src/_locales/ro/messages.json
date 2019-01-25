@@ -257,14 +257,11 @@
     "status_translation_unavailable_desc": {
         "message": "Serviciul de traducere nu este disponibil momentan. V\u0103 rug\u0103m s\u0103 \u00eencerca\u021bi din nou mai t\u00e2rziu."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Nu s-a putut prelua istoria schimb\u0103rilor. V\u0103 rug\u0103m s\u0103 \u00eencerca\u021bi din nou mai t\u00e2rziu."
+    "status_background_disconnected_reload_action": {
+        "message": "Re\u00eenc\u0103rca\u021bi acum"
     },
     "status_background_disconnected_reload_desc": {
         "message": "Datorit\u0103 actualiz\u0103rii extensiei, aceast\u0103 pagin\u0103 trebuie re\u00eenc\u0103rcat\u0103."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Re\u00eenc\u0103rca\u021bi acum"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -404,15 +401,6 @@
     "onboarding_goto_appearance": {
         "message": "Configura\u021bi aspectul"
     },
-    "changelog_title": {
-        "message": "Istoric schimb\u0103ri"
-    },
-    "changelog_current_version": {
-        "message": "Versiunea instalat\u0103 curent"
-    },
-    "changelog_show_release_history": {
-        "message": "Afi\u0219eaz\u0103 istoricul versiunilor detaliat"
-    },
     "settings_title": {
         "message": "Set\u0103ri"
     },
@@ -464,8 +452,11 @@
     "settings_menu_feedback": {
         "message": "Feedback"
     },
-    "settings_menu_support": {
-        "message": "Suport"
+    "settings_menu_infos": {
+        "message": "informa\u021bii"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Istoric schimb\u0103ri"
     },
     "settings_menu_export": {
         "message": "Import\/Export"
@@ -563,9 +554,6 @@
     "settings_remember_state": {
         "message": "\u021aine minte"
     },
-    "settings_remember_desc": {
-        "message": "Selecta\u021bi ce s\u0103 \u021bin\u0103 minte \u00eentre modific\u0103rile paginii. Dac\u0103 alege\u021bi s\u0103 v\u0103 aminti\u021bi ultimul marcaj deschis, acesta va fi marcat c\u00e2nd deschide\u021bi din nou bara lateral\u0103."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Derula\u021bi pozi\u021bia \u0219i directoarele deschise"
     },
@@ -580,6 +568,9 @@
     },
     "settings_remember_state_nothing": {
         "message": "Nimic"
+    },
+    "settings_remember_desc": {
+        "message": "Selecta\u021bi ce s\u0103 \u021bin\u0103 minte \u00eentre modific\u0103rile paginii. Dac\u0103 alege\u021bi s\u0103 v\u0103 aminti\u021bi ultimul marcaj deschis, acesta va fi marcat c\u00e2nd deschide\u021bi din nou bara lateral\u0103."
     },
     "settings_open_children_warn_limit": {
         "message": "Deschide to\u021bi copii (Limit\u0103 avertizare)"
@@ -626,19 +617,19 @@
     "settings_close_timeout_infinity": {
         "message": "Nu \u00eenchide automat"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Ascunde bara de derulare"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Timpul de expirare \u00een secunde dup\u0103 ce bara de derulare va fi ascuns\u0103. Deplasarea va afi\u0219a din nou bara de derulare."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nu ascunde niciodat\u0103"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Deschide prin drag & drop"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Permite\u021bi tragerea selec\u021biilor de text, a linkurilor \u0219i a adreselor URL \u00een bara lateral\u0103. Acest lucru poate fi util, dac\u0103 dori\u021bi s\u0103 marca\u021bi pagina curent\u0103 sau alte link-uri de pe site-uri web."
     },
     "settings_reopen_sidebar": {
@@ -737,9 +728,6 @@
     "settings_import_failed": {
         "message": "Nu s-au putut importa set\u0103rile. V\u0103 rug\u0103m s\u0103 selecta\u021bi un fi\u0219ier valid."
     },
-    "settings_presets": {
-        "message": "Preselec\u021bie"
-    },
     "settings_color_scheme": {
         "message": "Schem\u0103 de culori"
     },
@@ -764,7 +752,7 @@
     "settings_font_family_desc": {
         "message": "Fontul b\u0103rii laterale \u0219i al suprapunerilor"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "L\u0103\u021bimea b\u0103rii de scroll"
     },
     "settings_icon_color": {
@@ -914,6 +902,9 @@
     "settings_feedback_email": {
         "message": "Adresa dvs. de email"
     },
+    "settings_feedback_screenshot": {
+        "message": "Ataseaza Screenshot"
+    },
     "settings_feedback_send": {
         "message": "Trimite\u021bi feedback"
     },
@@ -923,16 +914,7 @@
     "settings_feedback_send_failed": {
         "message": "Mesajul dvs. nu a putut fi trimis. V\u0103 rug\u0103m s\u0103 re\u00eencerca\u021bi."
     },
-    "settings_headline_donation": {
-        "message": "Dona\u021bi"
-    },
-    "settings_support_donation_desc": {
-        "message": "Donarea este complet op\u021bional\u0103, dar dac\u0103 v\u0103 place extensia \u0219i dori\u021bi s\u0103 dona\u021bi o sum\u0103 mic\u0103, face\u021bi clic pe urm\u0103torul link. Apreciez fiecare ajutor pe care-l primesc, fie c\u0103 este vorba de dona\u021bie, de a ajuta la traduceri sau de a oferi feedback, pentru a \u00eembun\u0103t\u0103\u021bi extensia."
-    },
-    "settings_headline_share_userdata": {
-        "message": "Partaja\u021bi informa\u021bii"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Preferin\u021bele dvs. au fost salvate cu succes"
+    "settings_feedback_faq_headline": {
+        "message": "Aceasta iti poate fii de ajutor"
     }
 }

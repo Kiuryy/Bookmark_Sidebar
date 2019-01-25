@@ -48,7 +48,7 @@
 
                         chrome.contextMenus.create({
                             id: "bsChangelog_" + uid,
-                            title: lang.vars.changelog_title.message,
+                            title: lang.vars.settings_menu_infos_changelog.message,
                             contexts: ["browser_action"]
                         });
 
@@ -70,8 +70,9 @@
                         chrome.contextMenus.onClicked.addListener((obj) => {
                             if (obj.menuItemId === "bsChangelog_" + uid) {
                                 b.helper.utility.openLink({
-                                    href: chrome.extension.getURL("html/changelog.html"),
-                                    newTab: true
+                                    hrefName: "changelog",
+                                    newTab: true,
+                                    params: {lang: chrome.i18n.getUILanguage()}
                                 });
                             } else if (obj.menuItemId === "bsPrivacy_" + uid) {
                                 b.helper.utility.openLink({

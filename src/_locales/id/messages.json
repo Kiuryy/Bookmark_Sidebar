@@ -29,11 +29,17 @@
     "sidebar_undo_deletion": {
         "message": "Ulangi"
     },
+    "more_link": {
+        "message": "Belajar lebih lanjut"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Ubah Bookmark"
     },
     "contextmenu_edit_dir": {
         "message": "Ubah Direktori"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Sunting Pemisah"
     },
     "contextmenu_delete_bookmark": {
         "message": "Hapus Bookmark"
@@ -58,6 +64,9 @@
     },
     "contextmenu_add": {
         "message": "Tambahkan entri"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Periksa bookmark"
     },
     "contextmenu_toggle_hidden": {
         "message": "Perlihatkan entri tersembunyi"
@@ -167,6 +176,18 @@
     "overlay_label_separator": {
         "message": "Pemisah"
     },
+    "overlay_add_position": {
+        "message": "Posisi"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Tambahkan ke awal direktori"
+    },
+    "overlay_add_position_append": {
+        "message": "Tambahkan ke akhir direktori"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Anda dapat memasukkan judul secara opsional. Judul tersebut akan ditampilkan di atas garis pemisah dan dapat membantu Anda mengatur daftar bookmark Anda."
+    },
     "overlay_bookmark_views": {
         "message": "Melihat"
     },
@@ -191,11 +212,35 @@
     "overlay_dir_children_dirs": {
         "message": "Direktori"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Diubah"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Rusak"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplikat"
+    },
     "overlay_check_bookmarks_loading": {
-        "message": "Mengecek url bookmark"
+        "message": "Mengecek URL bookmark"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Pembaruan dipilih"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Penghapusan dipilih"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Semua url bookmark baik-baik saja"
+        "message": "Semua URL bookmark baik-baik saja"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Tidak ada perubahan pada URL bookmark"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Tidak ada URL bookmark yang rusak"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Tidak ada URL bookmark duplikat"
     },
     "newtab_title": {
         "message": "Tab Baru"
@@ -218,6 +263,9 @@
     "newtab_top_pages_hidden": {
         "message": "Jangan perlihatkan halaman"
     },
+    "newtab_upload_background": {
+        "message": "Unggah gambar latar belakang"
+    },
     "newtab_fallback_headline_general": {
         "message": "Ada sesuatu menghalangkan sidebar"
     },
@@ -239,9 +287,6 @@
     "newtab_fallback_desc": {
         "message": "Kita telah membuka tab baru untuk sidebar anda sebagai gantinya."
     },
-    "more_link": {
-        "message": "Belajar lebih lanjut"
-    },
     "newtab_fallback_set_as_new_tab": {
         "message": "Selalu menunjukan halaman ini jika ingin membuka tab baru"
     },
@@ -257,14 +302,11 @@
     "status_translation_unavailable_desc": {
         "message": "Service penejermahan sedang tidak bisa sekarang. Tolong untuk mencob lagi nanti."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Tidak bisa menerima changelog. Tolong coba lagi nanti."
+    "status_background_disconnected_reload_action": {
+        "message": "Reload sekarang."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Karena ada update extennsion ini halaman ini harus di reload lagi."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Reload sekarang."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -304,6 +346,51 @@
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Menutup sidebar, overyang sudah dibuka"
+    },
+    "contribute_headline": {
+        "message": "Saya butuh bantuan anda"
+    },
+    "contribute_intro": {
+        "message": "Untuk meningkatkan kualitas extension ini saya ingin lebih tau tentang bagaimana cara pengguna menggunakan sidebar dan konfigurasi apa yang mereka lakukan."
+    },
+    "contribute_outro": {
+        "message": "Jika anda mempunyai pertanya atau kekhawatiran tentang membagi informasi, tolong mengirimkan saya sebuah feedback."
+    },
+    "contribute_dismiss": {
+        "message": "Medismiskan"
+    },
+    "contribute_share_config_label": {
+        "message": "Konfigurasi pembagian"
+    },
+    "contribute_share_config_desc": {
+        "message": "Anda akan membagikan konfigurasi tanpa nama, yang membantu saya untuk mengenali pengaturan terkenal dan mencari tahu, untuk meningkatkan kualitas atau menggantikan di rilis di masa mendatang."
+    },
+    "contribute_share_activity_label": {
+        "message": "Membagi aktivitas"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Anda dapat membagikan aktivitas Anda dalam sidebar secara anonim. Hal ini membantu saya mengetahui bagaimana pengguna menggunakan sidebar secara umum. Informasi tentang bookmark Anda atau situs yang Anda kunjungi [b]TIDAK AKAN[\/b] terbaca."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Informasi ini sangat berguna untuk mengidentifikasi masalah terkait usabilitas atau fitur yang, misalnya, tidak sering digunakan."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Data yang dibagikan adalah sebagai berikut :"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Berapa rata-rata bookmark yang dimiliki pengguna?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Platform apa yang digunakan oleh pengguna (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Apakah pengguna sedang menggunakan pencarian?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Apakah pengguna mengubah sortiran bookmark?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Seberapa sering pengguna menyusun ulang atau menyunting entri?"
     },
     "onboarding_title": {
         "message": "Setup"
@@ -352,6 +439,9 @@
     },
     "onboarding_finish_desc": {
         "message": "Selamat bersenang-senang dengan sidebar kamu."
+    },
+    "onboarding_finish_notice": {
+        "message": "Jika Anda terus-menerus mengklik pada sisi {1} pada jendela browser, Anda dapat memilih apakah sidebar akan dibuka secara vertikal untuk mencegah sidebar terbuka secara tidak sengaja."
     },
     "onboarding_goto_settings": {
         "message": "Pengaturan Lainnya"
@@ -410,8 +500,23 @@
     "settings_menu_feedback": {
         "message": "Saran"
     },
-    "settings_menu_support": {
-        "message": "Support"
+    "settings_menu_infos": {
+        "message": "Informasi"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Tentang saya"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Izin"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privasi"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Changelog"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Impor\/Ekspor"
@@ -429,24 +534,225 @@
         "message": "Apa kamu betu-betul ingin mengembalikan konfigurasi awal?"
     },
     "settings_restored_message": {
-        "message": "Konfigurasi pulih dengan sukses"
+        "message": "Konfigurasi berhasil dipulihkan"
     },
     "settings_advanced": {
-        "message": "Pengaturan lebih maju"
+        "message": "Pengaturan lebih lanjut"
     },
     "settings_not_synced": {
-        "message": "Tidak akan disinkronkan di perangkat Anda"
+        "message": "Tidak akan disinkronkan di perangkat Anda."
     },
-    "settings_headline_donation": {
-        "message": "Mendonasi"
+    "settings_premium_activated": {
+        "message": "Premium berhasil diaktifkan"
     },
-    "settings_support_donation_desc": {
-        "message": "Donasi ini 100% tidak harus dilakukan, tetapi jika anda suka extension ini dan ingin mendonasikan dengan uang berjumlah sedikit, anda dapat melakukan ini dengan memencet link berikut ini. Saya sangat mengapreasikan setiap bantuan yang saya dapati, baik itu Donasi, membantu dengan menejermahkan atau memberi balasan balik, maupun untuk meningkatkan extension ini."
+    "settings_premium_invalid_key": {
+        "message": "Tidak dapat mengaktifkan Premium. Mohon masukkan nomor lisensi yang sah"
     },
-    "settings_headline_share_userdata": {
-        "message": "Membagi informasi"
+    "settings_language": {
+        "message": "Bahasa"
     },
-    "settings_saved_share_userdata": {
-        "message": "Pillihan mu telah berhasil di save"
+    "settings_language_default": {
+        "message": "Default peramban"
+    },
+    "settings_language_desc": {
+        "message": "Bahasa antarmuka pengguna"
+    },
+    "settings_translation_link": {
+        "message": "Pergi ke ikhtisar penterjemah"
+    },
+    "settings_translation_desc": {
+        "message": "Anda dapat membantu menerjemahkan ekstensi pada bahasa Anda atau mengembangkan terjemahan ekstensi yang sudah ada."
+    },
+    "settings_translation_add_language": {
+        "message": "Tambahkan bahasa"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Kembali ke ikhtisar"
+    },
+    "settings_translation_info": {
+        "message": "Anda dapat menyunting terjemahan yang sudah ada ataupun terjemahan yang hilang. Jika anda mengirimkan perubahan Anda, kami akan memeriksa masukan Anda dan menyetujuinya."
+    },
+    "settings_translation_notice1": {
+        "message": "Segera setelah kategori yang ditandai sebagai diperlukan diterjemahkan, hasil terjemahkan akan diterbitkan."
+    },
+    "settings_translation_notice2": {
+        "message": "Kategori yang tidak lengkap tidak akan diterbitkan untuk mencegah teks yang diterjemahkan setengah-setengah."
+    },
+    "settings_translation_help": {
+        "message": "Untuk setiap entri Anda dapat melihat terjemahan Bahasa Inggris yang harus diterjemahkan ke dalam bahasa Anda. Untuk membantu anda mengidentifikasi tempat dan tujuan teks digunakan, setiap entri memiliki nama (contoh {1}) yang tidak dapat diterjemahkan. Harap diingat untuk mengirimkan terjemahan Anda dengan meng-klik tombol di pojok kanan atas!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Saya ingin diberitahu ketika variabel bahasa baru ditambahkan pada ekstensi ini"
+    },
+    "settings_translation_submit": {
+        "message": "Kirim"
+    },
+    "settings_translation_submit_message": {
+        "message": "Terjemahan Anda telah berhasil dikirim"
+    },
+    "settings_translation_status_released": {
+        "message": "Terjemahan tersedia"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "Terjemahan tersedia, tetapi beberapa kategori tidak lengkap"
+    },
+    "settings_translation_status_draft": {
+        "message": "Terjemahan tidak lengkap atau perlu ditinjau dan tidak tersedia untuk pengguna"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Beberapa terjemahan hilang"
+    },
+    "settings_translation_required_category": {
+        "message": "Wajib"
+    },
+    "settings_feedback_desc": {
+        "message": "Apakah Anda memiliki saran untuk peningkatan ke depan, pertanyaan, mendapati pilihan konfigurasi yang hilang, atau menemukan bug? Untuk membantu kami meningkatkan pengalaman dengan ekstensi ini, kritik dan masukan dari Anda akan kami terima."
+    },
+    "settings_feedback_notice": {
+        "message": "Harap tuliskan masukan Anda dalam Bahasa Inggris, karena pesan Anda akan sulit dimengerti dan dibalas."
+    },
+    "settings_feedback_email": {
+        "message": "Alamat email Anda"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Lampirkan screenshot"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Ukuran file {1} terlalu besar (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Anda hanya dapat mengunggah maksimal {1} screenshot"
+    },
+    "settings_feedback_send": {
+        "message": "Kirim masukan"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Terima kasih atas masukan Anda"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Pesan Anda tidak dapat dikirim. Silahkan coba lagi."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "Mungkin ini menarik bagi Anda"
+    },
+    "premium_popup_text": {
+        "message": "Apakah Anda sudah melihat Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Fitur ini hanya tersedia pada Premium"
+    },
+    "premium_desc_1": {
+        "message": "Dengan Premium Anda akan mendapatkan akses pada fitur tambahan dan membantu saya memelihara ekstensi ini."
+    },
+    "premium_desc_2": {
+        "message": "Anda dapat melihat fitur-fitur yang tersedia pada Premium di bawah ini. Semua fitur kunci pada ekstensi dapat digunakan secara gratis tanpa memerlukan Premium. Anda dapat membayar secara sukarela untuk mendapatkan akses pada fitur-fitur tersebut."
+    },
+    "premium_get_now": {
+        "message": "Dapatkan Premium sekarang"
+    },
+    "premium_show_license_input": {
+        "message": "Saya sudah memiliki Premium"
+    },
+    "premium_already_activated": {
+        "message": "Anda sudah menggunakan Premium"
+    },
+    "premium_activate": {
+        "message": "Aktivasi Premium"
+    },
+    "premium_license_key": {
+        "message": "Kode Lisensi"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Jadilah yang pertama mencoba fitur-fitur eksperimental"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Dengan Premium Anda mendapatkan akses pada fitur-fitur yang belum dirilis, yang saat ini sedang dalam proses pengembangan dan\/atau pengujian."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Ubah lebar sidebar Anda kapanpun"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Impor dan ekspor pengaturan Anda"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Kustomisasi halaman Tab Baru"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Jika saat ini Anda menggunakan halaman Tab Baru ekstensi ini, anda dapat mengatur gambar latar belakang Anda untuk membuatnya menjadi lebih indah."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Kustomisasi segala hal dengan Stylesheet pribadi Anda"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Jika Anda terbiasa dengan CSS, Anda dapat mengubah tampilan keseluruhan sidebar dengan menambahkan definisi style Anda sendiri. Hal ini memungkinkan Anda untuk melakukan kustomisasi segala hal."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Periksa bookmark Anda untuk mendeteksi tautan yang rusak atau duplikat"
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Pilih metode pembayaran"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Bayar yang Anda inginkan"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kartu debit\/kartu kredit"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Pindai kode QR ini pada WeChat untuk melanjutkan."
+    },
+    "premium_pay_contact": {
+        "message": "Jika Anda mengalami masalah dengan pembayaran atau memiliki pertanyaan, silahkan hubungi saya pada {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_eula": {
+        "message": "Perjanjian Lisensi Pengguna Akhir"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Saya telah membaca dan menyetujui [a]Perjanjian Lisensi Pengguna Akhir[\/a]"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Konfirmasi pembelian"
+    },
+    "premium_pay_buy": {
+        "message": "Beli Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verifikasi transaksi"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Pembelian ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Terima kasih atas pembelian Anda"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} telah diaktifkan pada perangkat ini. Anda tidak perlu lagi melakukan apapun."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Jika Anda ingin mengaktivasi {1} pada perangkat lain atau setelah menginstall ulang ekstensi, anda dapat memasukkan kode berikut pada pengaturan ekstensi:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Mohon masukkan alamat email Anda untuk menerima kode lisensi."
+    },
+    "premium_pay_info_name": {
+        "message": "Nama"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Kode pos"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Metode pembayaran"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Nomor kartu"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Kadaluwarsa kartu"
     }
 }

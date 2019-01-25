@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "Storitev prevodov trenutno ni odstopna. Prosimo poskusite kasneje."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Pridobitev seznama sprememb ni uspela. Prosimo poskusite kasneje."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Ponovno nalo\u017ei zdaj"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Nastavi izgled"
     },
-    "changelog_title": {
-        "message": "Seznam sprememnb"
-    },
-    "changelog_current_version": {
-        "message": "Trenutno name\u0161\u010dena razli\u010dica"
-    },
-    "changelog_show_release_history": {
-        "message": "Poka\u017ei podrobno zgodovino sprememb"
-    },
     "settings_title": {
         "message": "Nastavitve"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Stik"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Seznam sprememnb"
     },
     "settings_menu_premium": {
         "message": "Premium"

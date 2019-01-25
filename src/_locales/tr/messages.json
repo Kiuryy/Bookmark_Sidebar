@@ -176,6 +176,9 @@
     "overlay_label_separator": {
         "message": "Ay\u0131r\u0131c\u0131"
     },
+    "overlay_add_position": {
+        "message": "Konum"
+    },
     "overlay_separator_title_desc": {
         "message": "Ay\u0131r\u0131c\u0131ya iste\u011fe ba\u011fl\u0131 olarak ba\u015fl\u0131k girebilirsiniz. Ay\u0131r\u0131c\u0131 \u00e7izgisinin \u00fczerinde g\u00f6z\u00fckecektir ve size yer imi listenizi d\u00fczenlemenizde yard\u0131mc\u0131 olabilir."
     },
@@ -293,14 +296,11 @@
     "status_translation_unavailable_desc": {
         "message": "\u00c7eviri servisi \u015fu an kullan\u0131lam\u0131yor. L\u00fctfen daha sonra tekrar deneyin."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Yeni s\u00fcr\u00fcmdeki de\u011fi\u015fikliklere eri\u015femedik. L\u00fctfen tekrar deneyin."
+    "status_background_disconnected_reload_action": {
+        "message": "Yeniden y\u00fckle."
     },
     "status_background_disconnected_reload_desc": {
         "message": "Uzant\u0131n\u0131n g\u00fcncellenmesinden dolay\u0131 sayfan\u0131n yenilenmesi gerekiyor."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Yeniden y\u00fckle."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -443,15 +443,6 @@
     "onboarding_goto_appearance": {
         "message": "Geli\u015fmi\u015f \u00d6zellikler"
     },
-    "changelog_title": {
-        "message": "Yeni s\u00fcr\u00fcmdeki de\u011fi\u015fiklikler"
-    },
-    "changelog_current_version": {
-        "message": "\u015eu anda kurulu versiyon"
-    },
-    "changelog_show_release_history": {
-        "message": "Detayl\u0131 g\u00fcncelle\u015ftirme ge\u00e7mi\u015fini g\u00f6ster"
-    },
     "settings_title": {
         "message": "Ayarlar"
     },
@@ -515,11 +506,20 @@
     "settings_menu_infos_privacy": {
         "message": "Gizlilik"
     },
+    "settings_menu_infos_contact": {
+        "message": "\u0130leti\u015fim"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Yeni s\u00fcr\u00fcmdeki de\u011fi\u015fiklikler"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
     "settings_menu_export": {
         "message": "\u0130\u00e7eri\/D\u0131\u015far\u0131 aktar"
+    },
+    "settings_menu_expert": {
+        "message": "Geli\u015fmi\u015f ayarlar"
     },
     "settings_save": {
         "message": "De\u011fi\u015fiklikleri kaydet"
@@ -547,6 +547,12 @@
     },
     "settings_premium_invalid_key": {
         "message": "Premium \u00fcyeli\u011finiz aktif edilemedi.L\u00fctfen ge\u00e7erli bir lisans anahtar\u0131 girin"
+    },
+    "settings_search_placeholder": {
+        "message": "Ayarlarda ara"
+    },
+    "settings_expert_save_error": {
+        "message": "Ayarlar kaydedilemiyor. L\u00fctfen do\u011fru de\u011fer giriniz."
     },
     "settings_open_action": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7"
@@ -686,19 +692,19 @@
     "settings_close_timeout_infinity": {
         "message": "Otomatik kapama"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Kayd\u0131rma \u00e7ubu\u011funu gizle"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Kayd\u0131rma \u00e7ubu\u011fu gizlendikten sonra saniyeler i\u00e7inde zamana\u015f\u0131m\u0131. Kayd\u0131rma kayd\u0131rma \u00e7ubu\u011funu tekrar g\u00f6sterecektir."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Asla gizleme"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "S\u00fcr\u00fckle ve b\u0131rak ile a\u00e7"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Metin se\u00e7imlerini, ba\u011flant\u0131lar\u0131 ve URL'leri kenar \u00e7ubu\u011fa s\u00fcr\u00fcklemeye izin ver. Ge\u00e7erli sayfay\u0131 veya web sitelerindeki di\u011fer ba\u011flant\u0131lar\u0131 yer imi koymak isterseniz bu yararl\u0131 olabilir."
     },
     "settings_reopen_sidebar": {
@@ -833,7 +839,7 @@
     "settings_font_family_desc": {
         "message": "Varsay\u0131lan"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Kayd\u0131rma tekerle\u011fi geni\u015fli\u011fi"
     },
     "settings_icon_color": {
@@ -875,7 +881,7 @@
     "settings_directories_icon_size": {
         "message": "Klas\u00f6rler simge boyutu"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "\u0130\u015faret oklar\u0131"
     },
     "settings_bookmarks_line_height": {

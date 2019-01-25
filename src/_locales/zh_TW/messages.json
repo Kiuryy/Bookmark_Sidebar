@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "\u7ffb\u8b6f\u670d\u52d9\u73fe\u5728\u7121\u6cd5\u4f7f\u7528\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
     },
-    "status_changelog_unavailable_desc": {
-        "message": "\u7121\u6cd5\u53d6\u5f97\u66f4\u65b0\u8a18\u9304\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
-    },
     "status_background_disconnected_reload_action": {
         "message": "\u7acb\u523b\u91cd\u65b0\u8f09\u5165"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "\u958b\u555f\u5916\u89c0\u8a2d\u5b9a"
     },
-    "changelog_title": {
-        "message": "\u66f4\u65b0\u8a18\u9304"
-    },
-    "changelog_current_version": {
-        "message": "\u76ee\u524d\u5b89\u88dd\u7248\u672c"
-    },
-    "changelog_show_release_history": {
-        "message": "\u986f\u793a\u8a73\u7d30\u7684\u767c\u5e03\u6b77\u53f2"
-    },
     "settings_title": {
         "message": "\u8a2d\u5b9a"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "\u806f\u7e6b\u65b9\u5f0f"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "\u66f4\u65b0\u8a18\u9304"
     },
     "settings_menu_premium": {
         "message": "\u9ad8\u7d1a\u7248"

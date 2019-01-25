@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "\ud604\uc7ac \ubc88\uc5ed \uae30\ub2a5 \uc774\uc6a9\uc774 \ubd88\uac00\ud569\ub2c8\ub2e4. \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "\uccb4\uc778\uc9c0\ub85c\uadf8\ub97c \ubd88\ub7ec\uc62c \uc218 \uc5c6\uc2b5\ub2c8\ub2e4. \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694"
-    },
     "status_background_disconnected_reload_action": {
         "message": "\uc0c8\ub85c\uace0\uce68"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "\uc678\ud615 \ubcc0\uacbd"
     },
-    "changelog_title": {
-        "message": "\ubcc0\uacbd \uc0ac\ud56d"
-    },
-    "changelog_current_version": {
-        "message": "\ud604\uc7ac \ubc84\uc804"
-    },
-    "changelog_show_release_history": {
-        "message": "\uc790\uc138\ud55c \ub9b4\ub9ac\uc988 \ub0b4\uc5ed"
-    },
     "settings_title": {
         "message": "\uc124\uc815"
     },
@@ -523,6 +511,9 @@
     },
     "settings_menu_infos_privacy": {
         "message": "\uac1c\uc778\uc815\ubcf4"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "\ubcc0\uacbd \uc0ac\ud56d"
     },
     "settings_menu_premium": {
         "message": "\ud504\ub9ac\ubbf8\uc5c4"

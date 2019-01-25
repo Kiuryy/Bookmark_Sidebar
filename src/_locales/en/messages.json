@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "The translation service is not available at the moment. Please try again later."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Could not retrieve the changelog. Please try again later."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Reload now"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Configure appearance"
     },
-    "changelog_title": {
-        "message": "Changelog"
-    },
-    "changelog_current_version": {
-        "message": "Currently installed version"
-    },
-    "changelog_show_release_history": {
-        "message": "Show detailed release history"
-    },
     "settings_title": {
         "message": "Settings"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Contact"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Changelog"
     },
     "settings_menu_premium": {
         "message": "Premium"

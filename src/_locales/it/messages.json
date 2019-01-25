@@ -176,6 +176,15 @@
     "overlay_label_separator": {
         "message": "Separatore"
     },
+    "overlay_add_position": {
+        "message": "Posizione"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Anteporre alla cartella"
+    },
+    "overlay_add_position_append": {
+        "message": "Aggiungere alla cartella"
+    },
     "overlay_separator_title_desc": {
         "message": "Puoi facoltativamente inserire un titolo per il separatore. Sar\u00e0 visualizzato sulla parte superiore della linea di separazione e pu\u00f2 aiutarti a organizzare la tua lista di segnalibri."
     },
@@ -292,9 +301,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Il servizio di traduzione non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
-    },
-    "status_changelog_unavailable_desc": {
-        "message": "Impossibile recuperare il log delle modifiche. Per favore riprova pi\u00f9 tardi."
     },
     "status_background_disconnected_reload_action": {
         "message": "Ricarica adesso"
@@ -443,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Configura l'aspetto"
     },
-    "changelog_title": {
-        "message": "Changelog"
-    },
-    "changelog_current_version": {
-        "message": "Versione attualmente in uso"
-    },
-    "changelog_show_release_history": {
-        "message": "Mostra storia dettagliata degli aggiornamenti"
-    },
     "settings_title": {
         "message": "Impostazioni"
     },
@@ -515,11 +512,20 @@
     "settings_menu_infos_privacy": {
         "message": "Privacy"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contatto"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Changelog"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importa\/Esporta"
+    },
+    "settings_menu_expert": {
+        "message": "Impostazioni avanzate"
     },
     "settings_save": {
         "message": "Salva le modifiche"
@@ -547,6 +553,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Non \u00e8 stato possibile attivare la versione Premium. Per favore inserisci una licenza valida"
+    },
+    "settings_search_placeholder": {
+        "message": "Cerca la configurazione"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Le impostazioni avanzate ti consentono di configurare tutti i flag di configurazione dell'estensione, anche quelli che non puoi modificare utilizzando le normali caselle di controllo o slider della pagina delle impostazioni."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Si prega di fare cambiare i valori solo qui, se sai cosa stai facendo. Le configurazioni errate possono causare un comportamento imprevisto dell'estensione. Se qualcosa si rompe, \u00e8 possibile ripristinare la configurazione predefinita."
+    },
+    "settings_expert_save_error": {
+        "message": "Impossibile salvare le impostazioni. Per favore correggi il tuo contributo."
     },
     "settings_open_action": {
         "message": "Apri la barra laterale"
@@ -640,6 +658,18 @@
     },
     "settings_remember_desc": {
         "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
+    },
+    "settings_dnd_creation_dialog": {
+        "message": "Mostra la finestra di dialogo di creazione"
+    },
+    "settings_dnd_creation_dialog_desc": {
+        "message": "Mostra la finestra di dialogo di creazione prima di aggiungere un nuovo segnalibro quando drag&drop nella barra laterale."
+    },
+    "settings_new_entry_position": {
+        "message": "Posizione delle nuove voci"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "La posizione preselezionata quando si aggiungono nuove voci alla barra laterale."
     },
     "settings_open_children_warn_limit": {
         "message": "Apri tutto il contenuto (Avviso limite)"
@@ -962,6 +992,9 @@
     "settings_translation_help": {
         "message": "Per ogni sezione di testo puoi vedere la traduzione inglese, che deve essere tradotta nella tua lingua. Per aiutarti a capire dove deve essere utilizzato il testo e a cosa serve, ogni sezione ha un nome (es. {1}), che non dev'essere tradotto. Non dimenticare di inviare la tua traduzione cliccando il pulsante nell'angolo in alto a destra!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Voglio essere avvisato quando nuove variabili linguistiche vengono aggiunte all'estensione"
+    },
     "settings_translation_submit": {
         "message": "Invia"
     },
@@ -1091,11 +1124,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "Puoi cliccare con il tasto destro del mouse su ogni cartella della tua barra laterale e fare un controllo. La pagina dei risultati mostrer\u00e0 tutti gli URL aggiornati, i preferiti che non funzionano pi\u00f9 e quelli con lo stesso URL."
     },
+    "premium_pay_select_payment_method": {
+        "message": "Seleziona il metodo di pagamento"
+    },
     "premium_pay_what_you_want": {
         "message": "Paga quanto vuoi"
     },
     "premium_pay_creditcard": {
         "message": "Carta di credito o debito"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Scannerizza questo codice QR su WeChat per procedere."
     },
     "premium_pay_contact": {
         "message": "Se stai avendo problemi con il pagamento o hai una domanda, per favore contattami a {1}."
@@ -1108,6 +1147,12 @@
     },
     "premium_pay_eula_desc": {
         "message": "Ho letto e accetto l'[a]Accordo della Licenza per l'Utente[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Policy di cancellazione"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confermare l'acquisto"
     },
     "premium_pay_buy": {
         "message": "Compra la versione Premium"
@@ -1129,6 +1174,9 @@
     },
     "premium_pay_info_email": {
         "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Inserisci il tuo indirizzo e-mail per ricevere la chiave di licenza."
     },
     "premium_pay_info_name": {
         "message": "Nome"

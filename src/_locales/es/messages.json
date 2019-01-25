@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "El servicio de traducci\u00f3n no est\u00e1 disponible en este momento. Por favor, int\u00e9ntelo de nuevo m\u00e1s tarde."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "No se pudo obtener la lista de cambios. Por favor intente luego."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Recargar ahora"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Configurar apariencia"
     },
-    "changelog_title": {
-        "message": "Registro de cambios"
-    },
-    "changelog_current_version": {
-        "message": "Versi\u00f3n actual instalada"
-    },
-    "changelog_show_release_history": {
-        "message": "Mostrar historial detallado de lanzamiento."
-    },
     "settings_title": {
         "message": "Ajustes"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Contacto"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Registro de cambios"
     },
     "settings_menu_premium": {
         "message": "Premium"

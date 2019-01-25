@@ -121,7 +121,6 @@
                         path.tmp + "background.js",
                         path.tmp + "newtab.js",
                         path.src + "js/opts.js",
-                        path.src + "js/changelog.js",
                         path.src + "js/onboarding.js"
                     ], path.dist + "js/");
                 }).then(() => {
@@ -190,7 +189,6 @@
             return measureTime((resolve) => {
                 func.replace({
                     [path.src + "html/settings.html"]: path.tmp + "html/settings.html",
-                    [path.src + "html/changelog.html"]: path.tmp + "html/changelog.html",
                     [path.src + "html/newtab.html"]: path.tmp + "html/newtab.html",
                     [path.src + "html/intro.html"]: path.tmp + "html/intro.html"
                 }, [

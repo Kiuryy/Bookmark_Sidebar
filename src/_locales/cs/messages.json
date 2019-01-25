@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "P\u0159ekladatelsk\u00e1 slu\u017eba moment\u00e1ln\u011b nen\u00ed k dispozici. Pros\u00edm zkuste to znovu pozd\u011bji."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Nelze na\u010d\u00edst seznam zm\u011bn. Pros\u00edm zkuste to znovu pozd\u011bji."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Znovu na\u010d\u00edst"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Konfigurace vzhledu"
     },
-    "changelog_title": {
-        "message": "Z\u00e1znam zm\u011bn"
-    },
-    "changelog_current_version": {
-        "message": "Sou\u010dasn\u00e1 verze"
-    },
-    "changelog_show_release_history": {
-        "message": "Uka\u017e z\u00e1znam zm\u011bn"
-    },
     "settings_title": {
         "message": "Nastaven\u00ed"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Kontakt"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Z\u00e1znam zm\u011bn"
     },
     "settings_menu_premium": {
         "message": "Premium"

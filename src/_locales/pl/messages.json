@@ -293,14 +293,11 @@
     "status_translation_unavailable_desc": {
         "message": "Us\u0142uga t\u0142umacze\u0144 jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Nie mo\u017cna otworzy\u0107 dziennika zmian. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej"
+    "status_background_disconnected_reload_action": {
+        "message": "Od\u015bwie\u017c teraz"
     },
     "status_background_disconnected_reload_desc": {
         "message": "Z powodu aktualizacji rozszerzenia, ta strona powinna zosta\u0107 od\u015bwie\u017cona."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Od\u015bwie\u017c teraz"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -443,15 +440,6 @@
     "onboarding_goto_appearance": {
         "message": "Konfiguracja wygl\u0105du"
     },
-    "changelog_title": {
-        "message": "Lista zmian"
-    },
-    "changelog_current_version": {
-        "message": "Obecnie zainstalowana wersja"
-    },
-    "changelog_show_release_history": {
-        "message": "Poka\u017c szczeg\u00f3\u0142ow\u0105 histori\u0119 wydania"
-    },
     "settings_title": {
         "message": "Ustawienia"
     },
@@ -514,6 +502,9 @@
     },
     "settings_menu_infos_privacy": {
         "message": "Prywatno\u015b\u0107"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Lista zmian"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -686,19 +677,19 @@
     "settings_close_timeout_infinity": {
         "message": "Nie zamykaj automatycznie"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Ukryj pasek przewijania"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Limit czasu w sekundach, po kt\u00f3rym pasek przewijania zostanie ukryty. Przewijanie spowoduje ponowne pokazanie paska przewijania."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nigdy nie chowaj."
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Otw\u00f3rz poprzez przeci\u0105gni\u0119cie i upuszczenie"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Zezwalaj na przeci\u0105ganie zaznaczonego tekstu, link\u00f3w i URL do bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli chcesz zapisa\u0107 aktualn\u0105 stron\u0119 lub inne linki na stronie."
     },
     "settings_reopen_sidebar": {
@@ -836,7 +827,7 @@
     "settings_font_family_desc": {
         "message": "Kr\u00f3j pisma bocznej listy i okna"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Szeroko\u015b\u0107 paska przewijania."
     },
     "settings_icon_color": {
@@ -878,7 +869,7 @@
     "settings_directories_icon_size": {
         "message": "Rozmiar ikony folder\u00f3w"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Strza\u0142ki przy katalogach"
     },
     "settings_bookmarks_line_height": {
@@ -1009,12 +1000,6 @@
     },
     "settings_feedback_faq_headline": {
         "message": "To mo\u017ce Ci\u0119 zainteresowa\u0107"
-    },
-    "settings_headline_share_userdata": {
-        "message": "Udost\u0119pnianie informacji"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
     },
     "premium_popup_text": {
         "message": "Czy sprawdzi\u0142e\u015b ju\u017c konto Premium?"

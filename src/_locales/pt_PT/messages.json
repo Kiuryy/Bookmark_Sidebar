@@ -3,7 +3,7 @@
         "message": "Barra lateral de favoritos"
     },
     "extension_desc": {
-        "message": "Adiciona uma barra lateral, que pode ser ativada ou desativada, contendo todos os seus favoritos na lateral da sua tela."
+        "message": "Adiciona uma barra lateral, que pode ser alternada, contendo todos os teus favoritos na lateral da janela do explorador."
     },
     "header_bookmarks": {
         "message": "Favoritos"
@@ -15,10 +15,10 @@
         "message": "Elementos"
     },
     "sidebar_search_placeholder": {
-        "message": "Buscar favorito"
+        "message": "Procurar favorito"
     },
     "sidebar_search_no_results": {
-        "message": "Nenhum favorito correspondente \u00e0 sua pesquisa"
+        "message": "Nenhum favorito correspondente \u00e0 tua pesquisa"
     },
     "sidebar_copied_to_clipboard": {
         "message": "URL copiada"
@@ -54,13 +54,13 @@
         "message": "Informa\u00e7\u00e3o"
     },
     "contextmenu_new_tab": {
-        "message": "Abrir em uma nova guia"
+        "message": "Abrir numa nova aba"
     },
     "contextmenu_new_window": {
-        "message": "Abrir em uma nova janela"
+        "message": "Abrir numa nova janela"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Abrir em uma janela an\u00f4nima"
+        "message": "Abrir numa janela an\u00f4nima"
     },
     "contextmenu_add": {
         "message": "Adicionar entrada"
@@ -96,13 +96,13 @@
         "message": "Remover do topo"
     },
     "contextmenu_bookmark_manager": {
-        "message": "Gerenciador de favoritos"
+        "message": "Gestor de favoritos"
     },
     "contextmenu_keyboard_shortcuts": {
-        "message": "Telhas de atalho"
+        "message": "Teclas de atalho"
     },
     "sort_label_custom": {
-        "message": "Definido pelo usu\u00e1rio"
+        "message": "Definido pelo utilizador"
     },
     "sort_label_alphabetical": {
         "message": "Ordem alfab\u00e9tica"
@@ -138,7 +138,7 @@
         "message": "Fechar"
     },
     "overlay_save": {
-        "message": "Salvar"
+        "message": "Gravar"
     },
     "overlay_delete": {
         "message": "Apagar"
@@ -150,22 +150,22 @@
         "message": "Abrir todos"
     },
     "overlay_confirm_open_children": {
-        "message": "Voc\u00ea realmente deseja abrir todos os {1} favoritos subordinados?"
+        "message": "Deseja realmente abrir todos os {1} favoritos subordinados?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Esconder da barra lateral"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Voc\u00ea realmente deseja esconder este favorito da barra lateral?"
+        "message": "Deseja realmente esconder este favorito da barra lateral?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Voc\u00ea realmente deseja esconder esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o escondidos tamb\u00e9m."
+        "message": "Deseja realmente esconder esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o escondidos tamb\u00e9m."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Voc\u00ea realmente deseja apagar este favorito?"
+        "message": "Deseja realmente apagar este favorito?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Voc\u00ea realmente deseja apagar esta pasta? Todos os favoritos subordinados ser\u00e3o removidos tamb\u00e9m."
+        "message": "Deseja realmente apagar esta pasta? Todos os favoritos subordinados ser\u00e3o removidos tamb\u00e9m."
     },
     "overlay_label_bookmark": {
         "message": "Favorito"
@@ -177,7 +177,7 @@
         "message": "Separador"
     },
     "overlay_separator_title_desc": {
-        "message": "Podes, opcionalmente, introduzir um t\u00edtulo para o seprador. Ser\u00e1 visualizado em cima da linha do separador para ajudar \u00e0 organiza\u00e7\u00e3o da lista de favoritos."
+        "message": "Podes, opcionalmente, introduzir um t\u00edtulo para o separador. Ser\u00e1 visualizado em cima da linha do separador para ajudar \u00e0 organiza\u00e7\u00e3o da lista de favoritos."
     },
     "overlay_bookmark_views": {
         "message": "Visualiza\u00e7\u00f5es"
@@ -213,7 +213,7 @@
         "message": "Duplicados"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Checando as URLs do favorito"
+        "message": "Verificando os URLs dos favoritos"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "Atualiza\u00e7\u00e3o selecionada"
@@ -237,7 +237,7 @@
         "message": "Nova guia"
     },
     "newtab_search_placeholder": {
-        "message": "Pesquisar no {1} ou digite a URL"
+        "message": "Pesquisar no {1} ou escreva o URL"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
@@ -249,13 +249,13 @@
         "message": "Favoritos mais usados"
     },
     "newtab_top_pages_pinned_entries": {
-        "message": "Favoritos fixados"
+        "message": "Favoritos afixados"
     },
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
     "newtab_upload_background": {
-        "message": "Carregue a imagem de fundo"
+        "message": "Carregar imagem de fundo"
     },
     "newtab_fallback_headline_general": {
         "message": "Algo bloqueou a barra lateral"
@@ -285,22 +285,19 @@
         "message": "Servi\u00e7o indispon\u00edvel"
     },
     "status_check_bookmarks_unavailable_desc": {
-        "message": "O servi\u00e7o que verifica URLs n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
+        "message": "O servi\u00e7o que verifica URLs n\u00e3o est\u00e1 dispon\u00edvel de momento. Por favor, tenta mais tarde."
     },
     "status_feedback_unavailable_desc": {
-        "message": "O servi\u00e7o de coment\u00e1rios n\u00e3o est\u00e1 dispon\u00edvel no momento. Se quiser enviar coment\u00e1rios, por favor envie-me um e-mail."
+        "message": "O servi\u00e7o de coment\u00e1rios n\u00e3o est\u00e1 dispon\u00edvel de momento. Se quiser deixar coment\u00e1rios, por favor envie-me um e-mail."
     },
     "status_translation_unavailable_desc": {
-        "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
-    },
-    "status_changelog_unavailable_desc": {
-        "message": "N\u00e3o foi poss\u00edvel obter o log de altera\u00e7\u00f5es. Por favor, tente mais tarde."
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
+        "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel de momento. Por favor, tenta mais tarde."
     },
     "status_background_disconnected_reload_action": {
         "message": "Recarregar agora"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -324,46 +321,46 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Posiciona a pr\u00f3xima entrada na barra lateral ou no menu de contexto aberto no momento"
+        "message": "Posiciona a pr\u00f3xima entrada na barra lateral ou no menu de contexto aberto de momento"
     },
     "keyboard_shortcuts_enter_desc": {
-        "message": "Executa um clique na atual entrada suspensa"
+        "message": "Executa um clique na entrada atual suspensa"
     },
     "keyboard_shortcuts_shift_enter_desc": {
-        "message": "Abre o menu de contexto para a atual entrada suspensa"
+        "message": "Abre o menu de contexto para a entrada atual suspensa"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Copia a URL da atual entrada suspensa"
+        "message": "Copia o URL da entrada atual suspensa"
     },
     "keyboard_shortcuts_del_desc": {
-        "message": "Remove a atual entrada suspensa"
+        "message": "Remove a entrada atual suspensa"
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Fecha a barra lateral, a sobreposi\u00e7\u00e3o aberta ou o menu de contexto"
     },
     "contribute_headline": {
-        "message": "Eu preciso da sua ajuda"
+        "message": "Eu preciso da tua ajuda"
     },
     "contribute_intro": {
-        "message": "Para melhorar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
+        "message": "Para melhorar a extens\u00e3o, eu gostaria de saber mais sobre como os utilizadores est\u00e3o a usar a barra lateral e que configura\u00e7\u00f5es usam."
     },
     "contribute_outro": {
-        "message": "Se voc\u00ea tiver d\u00favidas ou estiver preocupado por compartilhar informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
+        "message": "Se tiveres d\u00favidas ou estiveres preocupado por compartilhar informa\u00e7\u00f5es, por favor, envia-me uma mensagem com coment\u00e1rios."
     },
     "contribute_dismiss": {
-        "message": "Remover"
+        "message": "Dispensar"
     },
     "contribute_share_config_label": {
         "message": "Compartilhar configura\u00e7\u00e3o"
     },
     "contribute_share_config_desc": {
-        "message": "Voc\u00ea compartilha sua configura\u00e7\u00e3o anonimamente, o que me ajuda a identificar configura\u00e7\u00f5es populares e descobrir o que melhorar ou mudar em vers\u00f5es futuras."
+        "message": "Compartilharas a tua configura\u00e7\u00e3o anonimamente, o que me ajuda a identificar configura\u00e7\u00f5es populares e descobrir o que melhorar ou mudar em vers\u00f5es futuras."
     },
     "contribute_share_activity_label": {
         "message": "Compartilhar atividade"
     },
     "contribute_share_activity_desc1": {
-        "message": "Voc\u00ea pode compartilhar sua atividade dentro da barra lateral anonimamente, o que me ajuda a saber como os usu\u00e1rios est\u00e3o usando a barra lateral de forma geral. As informa\u00e7\u00f5es sobre seus favoritos ou seus sites visitados [b]n\u00e3o ser\u00e3o[\/ b] medidas."
+        "message": "Podes compartilhar a tua atividade dentro da barra lateral anonimamente, o que me ajuda a saber como os utilizadores est\u00e3o a usar a barra lateral de forma geral. As informa\u00e7\u00f5es sobre os teus favoritos ou os teus sites visitados [b]n\u00e3o ser\u00e3o[\/ b] anotados."
     },
     "contribute_share_activity_desc2": {
         "message": "Esta informa\u00e7\u00e3o \u00e9 muito \u00fatil para identificar problemas na usabilidade ou caracter\u00edsticas que, por exemplo, n\u00e3o s\u00e3o usadas frequentemente."
@@ -372,19 +369,19 @@
         "message": "Os dados compartilhados s\u00e3o, por exemplo:"
     },
     "contribute_share_activity_example_1": {
-        "message": "Quantos favoritos os usu\u00e1rios t\u00eam em m\u00e9dia?"
+        "message": "Quantos favoritos os utilizadores t\u00eam em m\u00e9dia?"
     },
     "contribute_share_activity_example_2": {
-        "message": "Em qual plataforma os usu\u00e1rios est\u00e3o (Windows, Mac, Linux,...)?"
+        "message": "Em qual plataforma os utilizadores est\u00e3o (Windows, Mac, Linux,...)?"
     },
     "contribute_share_activity_example_3": {
-        "message": "Os usu\u00e1rios t\u00eam usado a pesquisa?"
+        "message": "Os utilizadores t\u00eam usado a pesquisa?"
     },
     "contribute_share_activity_example_4": {
-        "message": "Os usu\u00e1rios mudam a classifica\u00e7\u00e3o dos favoritos?"
+        "message": "Os utilizadores mudam a classifica\u00e7\u00e3o dos favoritos?"
     },
     "contribute_share_activity_example_5": {
-        "message": "Com que frequ\u00eancia os usu\u00e1rios reorganizam ou editam as entradas?"
+        "message": "Com que frequ\u00eancia os utilizadores reorganizam ou editam as entradas?"
     },
     "onboarding_title": {
         "message": "Configura\u00e7\u00e3o"
@@ -396,16 +393,16 @@
         "message": "Configurar agora"
     },
     "onboarding_skip": {
-        "message": "Pular configura\u00e7\u00e3o"
+        "message": "Saltar configura\u00e7\u00e3o"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "Em que posi\u00e7\u00e3o voc\u00ea quer a sua barra lateral?"
+        "message": "Em que posi\u00e7\u00e3o queres a tua barra lateral?"
     },
     "onboarding_sidebar_open_action_desc": {
-        "message": "Como voc\u00ea quer abrir a sua barra lateral?"
+        "message": "Como queres abrir a tua barra lateral?"
     },
     "onboarding_sidebar_surface_desc": {
-        "message": "Que estilo voc\u00ea prefere?"
+        "message": "Que estilo preferes?"
     },
     "onboarding_sidebar_surface_light": {
         "message": "Claro"
@@ -414,13 +411,13 @@
         "message": "Escuro"
     },
     "onboarding_handson_desc": {
-        "message": "Agora pode experimentar voc\u00ea mesmo."
+        "message": "Agora podes experimentar tu mesmo."
     },
     "onboarding_handson_mouse_desc_1": {
-        "message": "Mova o cursor para o lado {1} da janela."
+        "message": "Move o cursor para o lado {1} da janela."
     },
     "onboarding_handson_mouse_desc_2": {
-        "message": "Depois clique com o bot\u00e3o {1} do mouse para abrir a barra lateral."
+        "message": "Depois clica com o bot\u00e3o {1} do rato para abrir a barra lateral."
     },
     "onboarding_handson_icon_desc": {
         "message": "Clique no \u00edcone da extens\u00e3o para abrir a barra lateral."
@@ -432,25 +429,16 @@
         "message": "direito"
     },
     "onboarding_finish_desc": {
-        "message": "Divirta-se com sua barra lateral."
+        "message": "Divirte-te com a tua barra lateral."
     },
     "onboarding_finish_notice": {
-        "message": "Se clica frequentemente na localiza\u00e7\u00e3o da barra lateral {1} do browser, poder\u00e1 alterar o local onde a barra pode ser aberta para evitar a sua apresenta\u00e7\u00e3o acidentalmente."
+        "message": "Se clicas frequentemente na localiza\u00e7\u00e3o da barra lateral {1} do explorador, poder\u00e1s alterar o local onde a barra pode ser aberta para evitar a sua apresenta\u00e7\u00e3o acidentalmente."
     },
     "onboarding_goto_settings": {
         "message": "Mais configura\u00e7\u00f5es"
     },
     "onboarding_goto_appearance": {
         "message": "Configura\u00e7\u00e3o da apar\u00eancia"
-    },
-    "changelog_title": {
-        "message": "Registro de altera\u00e7\u00f5es"
-    },
-    "changelog_current_version": {
-        "message": "Vers\u00e3o atual instalada"
-    },
-    "changelog_show_release_history": {
-        "message": "Ver hist\u00f3rico de vers\u00e3o detalhado"
     },
     "settings_title": {
         "message": "Configura\u00e7\u00f5es"
@@ -462,7 +450,7 @@
         "message": "Geral"
     },
     "settings_menu_sidebar_toggle": {
-        "message": "Ativar e desativar"
+        "message": "Alternar"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Dicas de contexto"
@@ -506,6 +494,18 @@
     "settings_menu_infos": {
         "message": "Informa\u00e7\u00e3o"
     },
+    "settings_menu_infos_aboutme": {
+        "message": "Acerca"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permiss\u00f5es"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacidade"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Registro de altera\u00e7\u00f5es"
+    },
     "settings_menu_premium": {
         "message": "Premium"
     },
@@ -513,16 +513,16 @@
         "message": "Importar\/Exportar"
     },
     "settings_save": {
-        "message": "Salvar altera\u00e7\u00f5es"
+        "message": "Guardar altera\u00e7\u00f5es"
     },
     "settings_saved_message": {
-        "message": "Altera\u00e7\u00f5es salvas com sucesso"
+        "message": "Altera\u00e7\u00f5es guardadas com sucesso"
     },
     "settings_restore": {
         "message": "Restaurar padr\u00e3o"
     },
     "settings_restore_confirm": {
-        "message": "Voc\u00ea deseja mesmo restaurar a configura\u00e7\u00e3o padr\u00e3o?"
+        "message": "Desejas restaurar a configura\u00e7\u00e3o padr\u00e3o?"
     },
     "settings_restored_message": {
         "message": "Configura\u00e7\u00e3o restaurada com sucesso"
@@ -531,19 +531,19 @@
         "message": "Configura\u00e7\u00f5es avan\u00e7adas"
     },
     "settings_not_synced": {
-        "message": "N\u00e3o ser\u00e1 sincronizado com seus dispositivos."
+        "message": "N\u00e3o ser\u00e1 sincronizado com os teus dispositivos."
     },
     "settings_premium_activated": {
         "message": "O modo Premium foi ativado com sucesso"
     },
     "settings_premium_invalid_key": {
-        "message": "N\u00e3o foi poss\u00edvel ativar o modo Premium. Por favor insira uma chave de licen\u00e7a v\u00e1lida."
+        "message": "N\u00e3o foi poss\u00edvel ativar o modo Premium. Por favor, insire uma chave de licen\u00e7a v\u00e1lida."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },
     "settings_open_action_desc": {
-        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o cursor do mouse sobre a lateral da janela do navegador. De modo alternativo, voc\u00ea pode optar por abrir apenas se clicar no \u00edcone no menu do Chrome."
+        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do rato ou posicionando o cursor do rato sobre a lateral da janela do navegador. De modo alternativo, podes optar por abrir apenas se clicares no \u00edcone no menu do Chrome."
     },
     "settings_open_action_leftclick": {
         "message": "Clicar com o bot\u00e3o esquerdo"
@@ -552,16 +552,16 @@
         "message": "Clicar com o bot\u00e3o direito"
     },
     "settings_open_action_mouseover": {
-        "message": "Posicionar o cursor do mouse"
+        "message": "Posicionar o cursor do rato"
     },
     "settings_open_action_icon": {
-        "message": "Clique no \u00edcone"
+        "message": "Clica no \u00edcone"
     },
     "settings_toggle_area": {
         "message": "Configurar \u00e1rea"
     },
     "settings_toggle_area_desc": {
-        "message": "Por defeito, todo o bordo da janela do seu navegador pode ser usado pelo cursor para abrir a barra lateral. Pode mudar este comportamento e configurar onde abrir exactamente a barra lateral."
+        "message": "Por defeito, todo o bordo da janela do teu navegador pode ser usado pelo cursor para abrir a barra lateral. Podes mudar este comportamento e configurar onde abrir exactamente a barra lateral."
     },
     "settings_toggle_area_width": {
         "message": "Largura"
@@ -573,7 +573,7 @@
         "message": "Altura"
     },
     "settings_toggle_area_height_desc": {
-        "message": "Pode reduzir a altura da \u00e1rea de modo a que a barra lateral abra somente quando mover o cursor para essa localiza\u00e7\u00e3o do bordo da janela do navegador."
+        "message": "Podes reduzir a altura da \u00e1rea de modo a que a barra lateral abra somente quando mover o cursor para essa localiza\u00e7\u00e3o do bordo da janela do navegador."
     },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
@@ -582,7 +582,7 @@
         "message": "Abrir favoritos"
     },
     "settings_link_action_desc": {
-        "message": "Ao clicar com o bot\u00e3o esquerdo em um favorito, este ser\u00e1 aberto na guia atual ou em uma nova guia."
+        "message": "Ao clicares com o bot\u00e3o esquerdo em um favorito, este ser\u00e1 aberto na guia atual ou numa nova guia."
     },
     "settings_link_action_current_tab": {
         "message": "Guia atual"
@@ -594,13 +594,13 @@
         "message": "Atraso de abertura"
     },
     "settings_open_delay_desc": {
-        "message": "Evita abrir imediatamente a barra lateral ao posicionar o cursor do mouse ou clicando com um atraso."
+        "message": "Evita abrir imediatamente a barra lateral ao posicionar o cursor do rato ou clicando com um atraso."
     },
     "settings_prevent_pagescroll": {
-        "message": "Impede a rolagem da p\u00e1gina"
+        "message": "Impede a p\u00e1gina de se deslocar"
     },
     "settings_prevent_pagescroll_desc": {
-        "message": "Impede a rolagem da p\u00e1gina atual enquanto a barra lateral estiver aberta."
+        "message": "Impede a desloca\u00e7\u00e3o da p\u00e1gina atual enquanto a barra lateral estiver aberta."
     },
     "settings_dir_accordion": {
         "message": "Mostrar somente a pasta atual"
@@ -612,10 +612,10 @@
         "message": "Lembrar"
     },
     "settings_remember_state_open_states_and_scroll": {
-        "message": "Posi\u00e7\u00e3o de rolamento e pastas abertas"
+        "message": "Posi\u00e7\u00e3o de deslocamento e pastas abertas"
     },
     "settings_remember_state_all": {
-        "message": "Posi\u00e7\u00e3o de rolamento, pastas abertas e \u00faltimo favorito aberto"
+        "message": "Posi\u00e7\u00e3o de deslocamento, pastas abertas e \u00faltimo favorito aberto"
     },
     "settings_remember_state_open_states": {
         "message": "Pastas abertas"
@@ -630,7 +630,7 @@
         "message": "Lembrar as subdiretorias abertas"
     },
     "settings_remember_desc": {
-        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
+        "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se escolheres lembrar o \u00faltimo favorito aberto, esse ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
     "settings_open_children_warn_limit": {
         "message": "Abrir todos as subpastas (limite de aviso)"
@@ -677,19 +677,19 @@
     "settings_close_timeout_infinity": {
         "message": "N\u00e3o fechar automaticamente"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Ocultar barra de rolagem"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Tempo limite em segundos at\u00e9 que a barra de rolagem seja ocultada. Ao rolar-se a p\u00e1gina, a barra de rolagem aparecer\u00e1 novamente."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Abrir com Arrastar e Soltar"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Permite arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar a p\u00e1gina atual aos favoritos ou quaisquer outros links em sites."
     },
     "settings_reopen_sidebar": {
@@ -800,6 +800,9 @@
     "settings_import_failed": {
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
+    "settings_presets": {
+        "message": "Definir tamanho relativo"
+    },
     "settings_color_scheme": {
         "message": "Esquema de cores"
     },
@@ -824,7 +827,7 @@
     "settings_font_family_desc": {
         "message": "O estilo da fonte da barra lateral e das sobreposi\u00e7\u00f5es"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Largura da barra de rolagem"
     },
     "settings_icon_color": {
@@ -866,7 +869,7 @@
     "settings_directories_icon_size": {
         "message": "Tamanho dos \u00edcones das pastas"
     },
-    "settings_bookmarks_dir_arrows": {
+    "settings_directory_arrows": {
         "message": "Setas das diretorias"
     },
     "settings_bookmarks_line_height": {
@@ -997,11 +1000,5 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Isto poder\u00e1 ser do seu interesse"
-    },
-    "settings_headline_share_userdata": {
-        "message": "Compartilhar informa\u00e7\u00f5es"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Sua prefer\u00eancia foi salva com sucesso"
     }
 }

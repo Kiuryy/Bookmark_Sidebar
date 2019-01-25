@@ -284,14 +284,11 @@
     "status_translation_unavailable_desc": {
         "message": "K\u00e4\u00e4nn\u00f6spalvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Muutoslokin lataaminen ei onnistu. Yrit\u00e4 my\u00f6hemmin uudelleen."
+    "status_background_disconnected_reload_action": {
+        "message": "Lataa uudelleen nyt"
     },
     "status_background_disconnected_reload_desc": {
         "message": "Laajennuksen p\u00e4ivittymisen vuoksi t\u00e4m\u00e4 sivu on ladattava uudelleen."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Lataa uudelleen nyt"
     },
     "contribute_headline": {
         "message": "Tarvitsen apuasi"
@@ -395,15 +392,6 @@
     "onboarding_goto_appearance": {
         "message": "Ulkon\u00e4k\u00f6 asetukset"
     },
-    "changelog_title": {
-        "message": "Muutos loki"
-    },
-    "changelog_current_version": {
-        "message": "Asennetu versio"
-    },
-    "changelog_show_release_history": {
-        "message": "N\u00e4yt\u00e4 yksityiskohtainen julkaisu historia"
-    },
     "settings_title": {
         "message": "Asetukset"
     },
@@ -457,6 +445,9 @@
     },
     "settings_menu_infos": {
         "message": "Tietoja"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Muutos loki"
     },
     "settings_menu_export": {
         "message": "Tuo\/Vie"
@@ -608,19 +599,19 @@
     "settings_close_timeout_infinity": {
         "message": "\u00c4l\u00e4 sulje automaattisesti"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Piilota vierityspalkki"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Viive sekunneissa jonka j\u00e4lkeen vierityspalkki piilotetaan. Vieritys n\u00e4ytt\u00e4\u00e4 vierityspalkin uudelleen."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "\u00c4l\u00e4 piilota"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Ved\u00e4 ja pudota"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Mahdollistaa tekstivalintojen, linkkien ja urlien vet\u00e4misen sivupalkkiin. T\u00e4m\u00e4 voi olla hy\u00f6dyllist\u00e4 jos haluat lis\u00e4t\u00e4 kirjanmekin avoimeen sivuun tai johonkin sivun linkeist\u00e4."
     },
     "settings_reopen_sidebar": {
@@ -731,7 +722,7 @@
     "settings_font_family_desc": {
         "message": "Sivupalkin ja j\u00e4rjestelm\u00e4n kirjasintyyppi"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Vierityspalkin leveys"
     },
     "settings_icon_color": {

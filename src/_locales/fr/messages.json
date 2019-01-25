@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "Le service de traduction n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Il est impossible de retrouver l'historique des modifications. Essayez plus tard s'il vous pla\u00eet."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Recharger maintenant"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Param\u00e8tres d'affichage"
     },
-    "changelog_title": {
-        "message": "Historique des modifications"
-    },
-    "changelog_current_version": {
-        "message": "Version actuellement install\u00e9e"
-    },
-    "changelog_show_release_history": {
-        "message": "Afficher l'historique d\u00e9taill\u00e9 des versions"
-    },
     "settings_title": {
         "message": "Param\u00e8tres"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Contact"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Historique des modifications"
     },
     "settings_menu_premium": {
         "message": "Premium"

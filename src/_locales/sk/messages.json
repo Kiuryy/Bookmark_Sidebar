@@ -287,14 +287,11 @@
     "status_translation_unavailable_desc": {
         "message": "Slu\u017eba prekladu je moment\u00e1lne nedostupn\u00e1. Pros\u00edm, sk\u00faste to nesk\u00f4r."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Nepodarilo sa z\u00edska\u0165 z\u00e1znam zmien. Pros\u00edm, sk\u00faste to nesk\u00f4r."
+    "status_background_disconnected_reload_action": {
+        "message": "Obnovi\u0165 teraz"
     },
     "status_background_disconnected_reload_desc": {
         "message": "Kv\u00f4li aktualiz\u00e1cii roz\u0161\u00edrenie mus\u00ed by\u0165 t\u00e1to str\u00e1nka obnoven\u00e1."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Obnovi\u0165 teraz"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tabul\u00e1tor"
@@ -437,15 +434,6 @@
     "onboarding_goto_appearance": {
         "message": "Nastavi\u0165 vzh\u013ead"
     },
-    "changelog_title": {
-        "message": "Z\u00e1znam zmien"
-    },
-    "changelog_current_version": {
-        "message": "Aktu\u00e1lne nain\u0161talovan\u00e1 verzia"
-    },
-    "changelog_show_release_history": {
-        "message": "Zobraz podrobn\u00fa hist\u00f3riu vydan\u00ed"
-    },
     "settings_title": {
         "message": "Nastavenie"
     },
@@ -499,6 +487,9 @@
     },
     "settings_menu_infos": {
         "message": "Inform\u00e1cie"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Z\u00e1znam zmien"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -671,19 +662,19 @@
     "settings_close_timeout_infinity": {
         "message": "Nezatv\u00e1ra\u0165 automaticky"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Skry\u0165 scrollbar"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "\u010casov\u00fd limit v sekund\u00e1ch, po ktor\u00e9ho uplynut\u00ed bude scrollbar skryt\u00fd. Pos\u00favanie obnov\u00ed scrollbar."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Nikdy neskr\u00fdva\u0165"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "Otvori\u0165 pomocou drag&drop"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Povo\u013euje \u0165ahanie vybrat\u00e9ho textu a odkazov do panelu. Je to u\u017eito\u010dn\u00e9 ak chcete ulo\u017ei\u0165 aktu\u00e1lne zobrazen\u00fa str\u00e1nku alebo odkazy na str\u00e1nke."
     },
     "settings_reopen_sidebar": {
@@ -818,7 +809,7 @@
     "settings_font_family_desc": {
         "message": "P\u00edsmo panela a vrstiev"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "\u0160\u00edrka posuvn\u00e9ho jazdca"
     },
     "settings_icon_color": {
@@ -988,11 +979,5 @@
     },
     "settings_feedback_faq_headline": {
         "message": "To V\u00e1s m\u00f4\u017ee zauj\u00edma\u0165"
-    },
-    "settings_headline_share_userdata": {
-        "message": "Zdie\u013ea\u0165 inform\u00e1cie"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Va\u0161e preferencie boli \u00faspe\u0161ne ulo\u017een\u00e9"
     }
 }

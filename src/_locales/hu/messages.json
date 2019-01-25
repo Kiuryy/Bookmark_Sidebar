@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "A ford\u00edt\u00f3 szolg\u00e1ltat\u00e1s nem el\u00e9rhet\u0151. K\u00e9rem pr\u00f3b\u00e1lja meg k\u00e9s\u0151bb"
     },
-    "status_changelog_unavailable_desc": {
-        "message": "A v\u00e1ltoz\u00e1sok list\u00e1ja nem el\u00e9rhet\u0151. Pr\u00f3b\u00e1lja \u00fajra k\u00e9s\u0151bb."
-    },
     "status_background_disconnected_reload_action": {
         "message": "\u00dajrat\u00f6lt\u00e9s most"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Megjelen\u00e9s be\u00e1ll\u00edt\u00e1sa"
     },
-    "changelog_title": {
-        "message": "V\u00e1ltoz\u00e1sok list\u00e1ja"
-    },
-    "changelog_current_version": {
-        "message": "Jelenleg telep\u00edtett verzi\u00f3"
-    },
-    "changelog_show_release_history": {
-        "message": "V\u00e1ltoz\u00e1sok r\u00e9szletes list\u00e1ja"
-    },
     "settings_title": {
         "message": "Be\u00e1ll\u00edt\u00e1sok"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Kapcsolat"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "V\u00e1ltoz\u00e1sok list\u00e1ja"
     },
     "settings_menu_premium": {
         "message": "Pr\u00e9mium"

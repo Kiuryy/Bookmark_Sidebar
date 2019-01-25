@@ -302,9 +302,6 @@
     "status_translation_unavailable_desc": {
         "message": "De vertaaldienst is momenteel niet beschikbaar. Probeer het later nog eens."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Kan geen versiegeschiedenis ophalen. Probeer het later nog eens."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Nu herladen"
     },
@@ -452,15 +449,6 @@
     "onboarding_goto_appearance": {
         "message": "Bewerk het uiterlijk"
     },
-    "changelog_title": {
-        "message": "Logboek"
-    },
-    "changelog_current_version": {
-        "message": "Huidige versie"
-    },
-    "changelog_show_release_history": {
-        "message": "Toon uitbreide versiegeschiedenis"
-    },
     "settings_title": {
         "message": "Instellingen"
     },
@@ -526,6 +514,9 @@
     },
     "settings_menu_infos_contact": {
         "message": "Contact"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Logboek"
     },
     "settings_menu_premium": {
         "message": "Premium"

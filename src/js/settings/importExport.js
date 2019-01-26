@@ -64,7 +64,7 @@
                 e.preventDefault();
                 const _self = e.currentTarget;
 
-                if (_self.files && _self.files[0] && (_self.files[0].name.search(/\.bookmark_sidebar$/) > -1 || _self.files[0].name.search(/\.config$/) > -1)) { // @deprecated '.config' is not used anymore to avoid conflicts (01-2018)
+                if (_self.files && _self.files[0] && _self.files[0].name.search(/\.bookmark_sidebar$/) > -1) {
                     const reader = new FileReader();
 
                     reader.onload = (e) => {

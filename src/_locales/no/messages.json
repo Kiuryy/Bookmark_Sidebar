@@ -257,14 +257,11 @@
     "status_translation_unavailable_desc": {
         "message": "Oversettelsestjenesten er ikke tilgjengelig for \u00f8yeblikket. Vennligst fors\u00f8k igjen senere."
     },
-    "status_changelog_unavailable_desc": {
-        "message": "Kunne ikke hente changelog. Pr\u00f8v igjen senere."
+    "status_background_disconnected_reload_action": {
+        "message": "Last inn p\u00e5 nytt n\u00e5"
     },
     "status_background_disconnected_reload_desc": {
         "message": "Grunnet en oppdatering av tillegget m\u00e5 denne siden lastes inn p\u00e5 nytt."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Last inn p\u00e5 nytt n\u00e5"
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Fane"
@@ -404,15 +401,6 @@
     "onboarding_goto_appearance": {
         "message": "Configure appearance"
     },
-    "changelog_title": {
-        "message": "Endringshistorikk"
-    },
-    "changelog_current_version": {
-        "message": "For \u00f8yeblikket installert versjon"
-    },
-    "changelog_show_release_history": {
-        "message": "Vis detaljert utgivelseshistorikk"
-    },
     "settings_title": {
         "message": "Innstillinger"
     },
@@ -464,8 +452,11 @@
     "settings_menu_feedback": {
         "message": "Tilbakemelding"
     },
-    "settings_menu_support": {
-        "message": "St\u00f8tte"
+    "settings_menu_infos": {
+        "message": "Informasjon"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Endringshistorikk"
     },
     "settings_menu_export": {
         "message": "Importer\/eksporter"
@@ -563,9 +554,6 @@
     "settings_remember_state": {
         "message": "Husk"
     },
-    "settings_remember_desc": {
-        "message": "Velg hva som huskes p\u00e5 tvers av sider. Hvis du velger \u00e5 huske sist \u00e5pnet bokmerke, vil det bli markert n\u00e5r du \u00e5pner sidefeltet igjen."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Rulleb\u00e5nd posisjon og \u00e5pne kataloger"
     },
@@ -580,6 +568,9 @@
     },
     "settings_remember_state_nothing": {
         "message": "Ingenting"
+    },
+    "settings_remember_desc": {
+        "message": "Velg hva som huskes p\u00e5 tvers av sider. Hvis du velger \u00e5 huske sist \u00e5pnet bokmerke, vil det bli markert n\u00e5r du \u00e5pner sidefeltet igjen."
     },
     "settings_open_children_warn_limit": {
         "message": "\u00c5pne alle undermapper (advarselsgrense)"
@@ -626,19 +617,19 @@
     "settings_close_timeout_infinity": {
         "message": "Ikke lukk automatisk"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "Skjul rulleb\u00e5ndet"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Tidsavbrudd i sekunder til rulleb\u00e5ndet skjules. Rulling vil synliggj\u00f8re rulleb\u00e5ndet igjn."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "Aldri skjul"
     },
-    "settings_drag_n_drop_open": {
+    "settings_dnd_open": {
         "message": "\u00c5pne ved dra-og-slipp"
     },
-    "settings_drag_n_drop_open_desc": {
+    "settings_dnd_open_desc": {
         "message": "Tillat draing av markert tekst, lenker og url til sidefeltet. Dette kan v\u00e6re nyttig hvis du vil bokmerke gjeldende side eller andre lenker fra sider."
     },
     "settings_reopen_sidebar": {
@@ -737,9 +728,6 @@
     "settings_import_failed": {
         "message": "Importering av konfigurasjon mislykket. Vennligst velg en gyldig fil."
     },
-    "settings_presets": {
-        "message": "Forh\u00e5ndsvalg"
-    },
     "settings_color_scheme": {
         "message": "Farge-tema"
     },
@@ -764,7 +752,7 @@
     "settings_font_family_desc": {
         "message": "Skrifttypen til sidefeltet og overleggene"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Rullefeltbredde"
     },
     "settings_icon_color": {
@@ -922,17 +910,5 @@
     },
     "settings_feedback_send_failed": {
         "message": "Meldingen din kunne ikke sendes. Vennligst fors\u00f8k igjen."
-    },
-    "settings_headline_donation": {
-        "message": "Don\u00e9r"
-    },
-    "settings_support_donation_desc": {
-        "message": "Donasjoner er helt frivillig, men hvis du liker tillegget og \u00f8nsker \u00e5 donere et lite bel\u00f8p, kan du gj\u00f8re dette ved \u00e5 klikke f\u00f8lgende link. Jeg setter pris p\u00e5 all hjelp jeg f\u00e5r; b\u00e5de donasjoner, hjelp med oversettelse og tilbakemeldinger for \u00e5 forbedre dette tillegget."
-    },
-    "settings_headline_share_userdata": {
-        "message": "Del informasjon"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Dine valg har blitt lagret"
     }
 }

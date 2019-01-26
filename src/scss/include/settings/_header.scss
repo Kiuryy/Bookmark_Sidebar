@@ -3,33 +3,77 @@ body > header {
   position: relative;
   width: 100%;
   height: $settingsHeaderHeight;
-  background: $gradient;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 2;
 
-  &::before {
-    content: "";
+  div#logo {
     position: absolute;
-    top: 0;
-    left: 8px;
-    width: $settingsHeaderHeight;
-    height: $settingsHeaderHeight;
-    background: img('icon/icon.webp') no-repeat center / 40px;
+    top: 18px;
+    left: 24px;
+    z-index: 2;
+
+    > span {
+      position: relative;
+      display: block;
+      width: 64px;
+      height: 64px;
+      background: img('icon/icon.webp') no-repeat center / 40px;
+      z-index: 3;
+    }
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    &::before {
+      top: -4px;
+      left: -4px;
+      width: calc(100% + 8px);
+      height: calc(100% + 8px);
+      background: $gradient;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    &::after {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $settingsMenuBackground;
+      z-index: 2;
+    }
   }
 
   > h1 {
-    @include mask('icon-settings', $textColorInverted, 22px);
+    @include mask('icon-settings', $textColorLight2, 22px);
     position: relative;
     display: inline-flex;
-    font-size: 150%;
-    margin: 10px 0 0 70px;
-    padding: 0 0 0 30px;
-    color: $textColorInverted;
-    font-weight: $__fontWeightLight;
+    font-size: 120%;
+    padding: 0 30px 0 calc(#{$settingsMenuWidth} + 55px);
+    color: $textColorLight2;
+    background: $settingsMenuBackground;
+    line-height: $settingsHeaderHeight;
+    font-weight: $__fontWeightMedium;
+    border-bottom-right-radius: 20px;
 
     &::before {
-      -webkit-mask-position-x: left;
-      opacity: 0.7;
+      -webkit-mask-position-x: calc(#{$settingsMenuWidth} + 15px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: calc(#{$settingsMenuWidth} - 10px);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 10px solid transparent;
+      border-top-color: $settingsMenuBackground;
+      transform: rotateZ(-45deg);
+      pointer-events: none;
     }
 
     > span {
@@ -42,11 +86,14 @@ body > header {
         &::before {
           content: "";
           position: absolute;
-          top: 8px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
           left: -14px;
+          width: 0;
+          height: 0;
           border: 5px solid transparent;
-          border-left-color: $textColorInverted;
-          opacity: 0.5;
+          border-left-color: $textColorLight;
         }
       }
 
@@ -93,8 +140,8 @@ body > header {
 
   > menu {
     display: inline-block;
-    margin: 10px 30px 0 0;
-    float: right;
+    margin: 12px 0 0 40px;
+    vertical-align: top;
 
     > li {
       display: inline-block;
@@ -108,30 +155,23 @@ body > header {
         cursor: pointer;
 
         &.save {
-          @include mask('icon-info', $colorNotice, 21px);
-          position: relative;
-          background: $contentBackground;
-          color: $mainColor;
-          padding: 4px 8px;
-          font-weight: $__fontWeightMedium;
-          font-size: 100%;
-          border-radius: 5px;
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+          @extend %highlightButton;
+          @include mask('icon-info', $textColorInverted, 21px);
           transition: box-shadow 1s, padding 0.5s;
           z-index: 2;
 
           &::before {
-            -webkit-mask-position-x: 6px;
+            -webkit-mask-position-x: 8px;
             @extend %hidden;
             transition: opacity 0.5s;
           }
 
           &.highlight {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 0 0 100px $colorNotice;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 120px $colorNotice;
           }
 
           &.info {
-            padding-left: 32px;
+            padding-left: 34px;
 
             &::before {
               opacity: 1;
@@ -140,7 +180,7 @@ body > header {
         }
 
         &.restore {
-          @include mask('icon-update', $textColorInverted, 24px);
+          @include mask('icon-update', $textColorLight, 24px);
           background: transparent;
           margin: 2px 0 0 10px;
           width: 24px;
@@ -162,15 +202,17 @@ body > div.dialog {
   padding: 12px 10px;
   text-align: center;
   background: $contentBackground;
-  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+  margin-left: calc(-150px + 12px);
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
   transition: opacity 0.3s, transform 0.3s;
-  transform: translate3d(-12px, -10px, 0);
+  transform: translate3d(0, -10px, 0);
+  border-radius: 10px;
   z-index: 5;
   @extend %hidden;
 
   &.visible {
     @extend %visible;
-    transform: translate3d(-12px, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
   &::before {
@@ -179,7 +221,11 @@ body > div.dialog {
     border: 10px solid transparent;
     border-bottom-color: $contentBackground;
     top: -20px;
-    right: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0;
+    height: 0;
   }
 
   > p {
@@ -189,7 +235,7 @@ body > div.dialog {
   > a {
     position: relative;
     display: inline-block;
-    color: $mainColorAlt;
+    color: $mainColor2;
     padding: 3px 5px 3px 15px;
     margin-bottom: 5px;
     font-weight: $__fontWeightMedium;
@@ -202,8 +248,8 @@ body > div.dialog {
       left: 0;
       width: 7px;
       height: 7px;
-      border-top: 2px solid $mainColorAlt;
-      border-left: 2px solid $mainColorAlt;
+      border-top: 2px solid $mainColor2;
+      border-left: 2px solid $mainColor2;
       transform: rotateZ(135deg);
     }
   }

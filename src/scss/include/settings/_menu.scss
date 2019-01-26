@@ -5,17 +5,17 @@ body > section#wrapper {
     position: absolute;
     top: 0;
     left: 0;
-    width: 240px;
+    width: $settingsMenuWidth;
     height: 100%;
     background: $settingsMenuBackground;
   }
 
   > aside {
     position: relative;
-    width: 240px;
-    height: calc(100vh - #{$settingsHeaderHeight});
-    padding: 20px 10px 10px;
-    overflow: auto;
+    width: $settingsMenuWidth;
+    height: calc(100vh - #{$settingsHeaderHeight} - 60px);
+    margin-top: 60px;
+    overflow-y: auto;
 
     > nav {
       height: 100%;
@@ -32,25 +32,25 @@ body > section#wrapper {
         > li {
 
           &[data-name='sidebar'] > a {
-            @include mask('icon-settings', $textColor, 20px);
+            @include mask('icon-settings', $textColorLight, 20px);
           }
 
           &[data-name='appearance'] > a {
-            @include mask('settings/icon-appearance', $textColor, 20px);
+            @include mask('settings/icon-appearance', $textColorLight, 20px);
           }
 
           &[data-name='newtab'] > a {
-            @include mask('settings/icon-newtab', $textColor, 16px);
+            @include mask('settings/icon-newtab', $textColorLight, 16px);
           }
 
           &[data-name='feedback'] > a {
-            @include mask('settings/icon-feedback', $textColor, 16px);
+            @include mask('settings/icon-feedback', $textColorLight, 16px);
           }
 
           &[data-name='premium'] {
 
             > a {
-              @include mask('icon-premium', $textColor, 18px);
+              @include mask('icon-premium', $textColorLight, 18px);
 
               &::before {
                 z-index: 2;
@@ -64,34 +64,34 @@ body > section#wrapper {
                 position: absolute;
                 top: 0;
                 bottom: 0;
-                left: 5px;
+                left: 15px;
                 margin: auto;
                 width: 31px;
                 height: 31px;
                 border-radius: 50%;
-                background: rgba($colorNotice, 0.5);
+                background: rgba($colorNotice, 0.8);
                 transition: background 0.5s;
                 z-index: 1;
               }
 
-              &:hover::after {
-                background: rgba($colorNotice, 0.8);
+              &::before {
+                background-color: $settingsMenuBackground;
               }
             }
           }
 
           &[data-name='infos'] > a {
-            @include mask('icon-info', $textColor, 20px);
+            @include mask('icon-info', $textColorLight, 20px);
           }
 
           &[data-name='language'] {
 
             > a {
-              @include mask('settings/icon-translate', $textColor, 20px);
+              @include mask('settings/icon-translate', $textColorLight, 20px);
             }
 
             &.incomplete > a > span {
-              @include mask('icon-info', $colorError, 20px);
+              @include mask('icon-info', rgba($colorError, 0.8), 16px);
               display: inline-block;
               position: relative;
               width: 24px;
@@ -103,30 +103,22 @@ body > section#wrapper {
           }
 
           &[data-name='export'] {
-            padding-top: 20px;
             margin-top: auto;
 
-            &::before {
-              content: "";
-              position: absolute;
-              top: 10px;
-              left: 0;
-              width: 100%;
-              height: 1px;
-              background: rgba(0, 0, 0, 0.1);
-            }
-
             > a {
-              @include mask('settings/icon-importExport', $textColor, 22px);
+              @include mask('settings/icon-importExport', $textColorLight, 22px);
             }
           }
 
           &[data-name='expert'] {
             font-size: 90%;
             background: $settingsMenuHoverBackground;
-            margin: 15px -10px -10px;
-            line-height: 25px;
-            padding: 0 0 0 20px;
+            margin-top: 16px;
+            line-height: 32px;
+
+            &.active::after {
+              top: 6px;
+            }
 
             > a {
               padding-left: 32px;
@@ -140,9 +132,31 @@ body > section#wrapper {
                 width: 6px;
                 height: 6px;
                 margin: auto;
-                border-top: 2px solid $textColor;
-                border-right: 2px solid $textColor;
+                border-top: 2px solid $textColorLight;
+                border-right: 2px solid $textColorLight;
                 transform: rotateZ(45deg);
+              }
+            }
+          }
+
+          &.active {
+
+            &::after {
+              content: "";
+              position: absolute;
+              top: 12px;
+              right: 0;
+              width: 0;
+              height: 0;
+              border: 10px solid transparent;
+              border-right-color: $bodyBackground;
+            }
+
+            > a {
+              background: $settingsMenuHoverBackground;
+
+              &::before {
+                background-color: $textColorLight2;
               }
             }
           }
@@ -154,13 +168,14 @@ body > section#wrapper {
         > li {
           position: relative;
           display: block;
-          line-height: 45px;
+          line-height: 44px;
 
           > a {
             position: relative;
             display: block;
             width: 100%;
-            padding: 0 10px 0 42px;
+            padding: 0 10px 0 52px;
+            color: $textColorLight;
             transition: background 0.5s;
 
             &:hover {
@@ -169,7 +184,7 @@ body > section#wrapper {
 
             &::before {
               width: 32px !important;
-              left: 12px !important;
+              left: 22px !important;
               -webkit-mask-position: left center !important;
               pointer-events: none;
             }
@@ -179,6 +194,7 @@ body > section#wrapper {
 
             > a {
               font-weight: $__fontWeightMedium;
+              color: $textColorLight2;
             }
           }
 
@@ -198,7 +214,11 @@ body > section#wrapper {
                 &::before {
                   content: "-";
                   position: absolute;
-                  left: 10px;
+                  left: 12px !important;
+                }
+
+                &::after {
+                  display: none;
                 }
               }
             }

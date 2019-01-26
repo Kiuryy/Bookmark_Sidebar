@@ -100,6 +100,10 @@ body > div.toggleAreaModal {
         margin: 7px 0 0 10px;
         display: inline-block;
       }
+
+      &.save {
+        @extend %highlightButton;
+      }
     }
   }
 

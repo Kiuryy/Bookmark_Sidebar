@@ -4,11 +4,11 @@ html[dir='rtl'] {
   body > section#wrapper {
 
     > main {
-      padding-right: 20px;
+      padding-right: 70px;
       padding-left: 30px;
 
       @media (max-width: 1400px) {
-        padding-right: 20px;
+        padding-right: 50px;
         padding-left: 20px;
       }
     }

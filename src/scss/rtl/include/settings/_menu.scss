@@ -25,12 +25,32 @@ html[dir='rtl'] {
 
             &[data-name='premium'].inactive > a::after {
               left: unset;
-              right: 5px;
+              right: 15px;
             }
 
             &[data-name='newtab'] > a::before, &[data-name='feedback'] > a::before {
               transform: scaleX(-1);
               -webkit-mask-position-x: left !important;
+            }
+
+            &[data-name='expert'] > a {
+              padding-left: 10px;
+              padding-right: 32px;
+
+              &::after {
+                right: 10px;
+                left: unset;
+                transform: rotateZ(-135deg);
+              }
+            }
+
+            &.active {
+
+              &::after {
+                left: 0;
+                right: unset;
+                transform: scaleX(-1);
+              }
             }
           }
         }
@@ -40,12 +60,12 @@ html[dir='rtl'] {
           > li {
 
             > a {
-              padding-right: 42px;
+              padding-right: 52px;
               padding-left: 10px;
 
               &::before {
                 left: unset !important;
-                right: 12px !important;
+                right: 22px !important;
                 -webkit-mask-position: right center !important;
               }
             }
@@ -61,7 +81,7 @@ html[dir='rtl'] {
                   padding-left: 10px;
 
                   &::before {
-                    right: 10px;
+                    right: 12px !important;
                     left: unset;
                   }
                 }

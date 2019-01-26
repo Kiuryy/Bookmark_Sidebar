@@ -1,12 +1,18 @@
 div.tab[data-name='export'] {
 
+  p.premium {
+    margin-top: 30px;
+  }
+
   a.import, a.export {
+    @extend %button;
     margin: 30px 15px 0 0;
 
     &.inactive {
       pointer-events: none;
       background: $contentBackground2;
       color: $textColorLight;
+      box-shadow: none;
     }
   }
 

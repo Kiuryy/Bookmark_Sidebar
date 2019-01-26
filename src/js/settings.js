@@ -345,8 +345,6 @@
 
                 if (path[1] === "translate") {
                     this.helper.translation.submit();
-                } else if (path[0] === "premium") {
-                    chrome.tabs.create({url: $.opts.website.premium + "?lang=" + this.helper.i18n.getLanguage()});
                 } else if (path[0] === "expert") {
                     this.helper.expert.save().then(() => {
                         this.showSuccessMessage("saved_message");
@@ -389,7 +387,7 @@
 
                 if (restoreTypes.indexOf(type) !== -1) {
                     $("div." + $.cl.settings.dialog).remove();
-                    const paddingDir = this.helper.i18n.isRtl() ? "left" : "right";
+                    const rect = e.currentTarget.getBoundingClientRect();
 
                     const dialog = $("<div />")
                         .attr($.attr.type, type)
@@ -398,7 +396,7 @@
                         .append("<span>" + this.helper.i18n.get("settings_menu_" + path[0]) + "</span>")
                         .append("<br />")
                         .append("<a>" + this.helper.i18n.get("settings_restore") + "</a>")
-                        .css(paddingDir, this.elm.header.css("padding-" + paddingDir))
+                        .css("left", rect.left + "px")
                         .appendTo(this.elm.body);
 
                     if (type === "expert") { // when restoring from the expert page, all configuration will be restored

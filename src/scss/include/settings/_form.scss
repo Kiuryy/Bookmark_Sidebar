@@ -141,7 +141,7 @@ input[type='range'] {
   width: 100%;
   max-width: 250px;
   height: 20px;
-  background-image: linear-gradient(to right, $mainColor 0%, $mainColor -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
+  background-image: linear-gradient(to right, $mainColor2 0%, $mainColor2 -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
   background-repeat: no-repeat;
   background-size: 100% 3px;
   background-position: 0 9px;
@@ -168,7 +168,7 @@ input[type='range'] {
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: $mainColor;
+    background: $mainColor2;
     border-radius: 50%;
     cursor: pointer;
     height: 12px;

@@ -38,10 +38,7 @@ html[dir='rtl'] {
     }
 
     div.faq {
-
-      > div.suggestion {
-        direction: ltr;
-      }
+      direction: ltr;
     }
 
     div.suggestedAnswers {

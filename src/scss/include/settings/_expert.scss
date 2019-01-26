@@ -9,6 +9,10 @@ div.tab[data-name='expert'] {
     margin-top: 15px;
   }
 
+  p.premium {
+    margin-top: 30px;
+  }
+
   > div[data-type] {
 
     > ul {
@@ -17,6 +21,7 @@ div.tab[data-name='expert'] {
         display: flex;
         flex-flow: row wrap;
         align-items: flex-start;
+        padding: 0 5px;
 
         &:hover {
           background: rgba(0, 0, 0, 0.04);
@@ -24,8 +29,8 @@ div.tab[data-name='expert'] {
 
         > label {
           position: relative;
-          padding-right: 15px;
-          margin-right: 10px;
+          padding-right: 12px;
+          margin-right: 7px;
           line-height: 28px;
 
           &::after {
@@ -57,13 +62,13 @@ div.tab[data-name='expert'] {
               position: absolute;
               width: 200px;
               background: rgba(0, 0, 0, 0.8);
-              top: 32px;
+              top: 28px;
               left: calc(-100px + 10px);
               color: $textColorInverted;
               font-size: 80%;
               line-height: normal;
               padding: 5px;
-              border-radius: 2px;
+              border-radius: 5px;
               transform: translate3d(0, -5px, 0);
               opacity: 0;
               pointer-events: none;
@@ -85,6 +90,7 @@ div.tab[data-name='expert'] {
             }
 
             &:hover > span {
+              transform: translate3d(0, 0, 0);
               opacity: 1;
             }
           }
@@ -116,4 +122,4 @@ div.tab[data-name='expert'] {
   }
 }
 
-//@import "../../rtl/include/settings/expert";
+@import "../../rtl/include/settings/expert";

@@ -29,11 +29,17 @@
     "sidebar_undo_deletion": {
         "message": "Vrati"
     },
+    "more_link": {
+        "message": "Vi\u0161e o tome"
+    },
     "contextmenu_edit_bookmark": {
         "message": "Uredi oznaku"
     },
     "contextmenu_edit_dir": {
         "message": "Uredi mjesto spremanja"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Uredi podjeljiva\u010d"
     },
     "contextmenu_delete_bookmark": {
         "message": "Obri\u0161i oznaku"
@@ -42,7 +48,7 @@
         "message": "Obri\u0161i mjesto spremanja"
     },
     "contextmenu_delete_separator": {
-        "message": "Obri\u0161i"
+        "message": "Obri\u0161i podjeljiva\u010d"
     },
     "contextmenu_infos": {
         "message": "Informacije"
@@ -265,9 +271,6 @@
     },
     "newtab_fallback_desc": {
         "message": "Za tebe smo otvorili novu karticu s bo\u010dnom trakom oznaka."
-    },
-    "more_link": {
-        "message": "Vi\u0161e o tome"
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Uvijek prika\u017ei ovu stranicu kada se otvara nova kartica"

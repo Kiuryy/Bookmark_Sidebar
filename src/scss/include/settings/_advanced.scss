@@ -1,16 +1,16 @@
 
 body > section#wrapper div.advanced {
   position: relative;
-  margin: 20px auto;
+  margin: 20px 0;
   max-width: 1024px;
   background: $bodyBackground;
   padding: 16px 0;
 
   > h3 {
-    @include mask('icon-add', $mainColor, 18px);
+    @include mask('icon-add', $textColor, 18px);
     position: relative;
     display: inline-block;
-    color: $mainColor;
+    color: $textColor;
     font-weight: $__fontWeightMedium;
     padding: 3px 5px 3px 22px;
     font-size: 100%;
@@ -41,7 +41,7 @@ body > section#wrapper div.advanced {
     }
 
     textarea[data-name='customCss'] {
-      background: $contentBackground;
+      background: rgba(0, 0, 0, 0.05);
       font-family: Consolas, sans-serif;
       font-size: 90%;
       height: 200px;

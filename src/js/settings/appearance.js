@@ -156,7 +156,6 @@
                     config.appearance.styles.fontFamily = fontInfo.name;
                 }
 
-                updatePageLayout(key);
                 Object.assign(config.appearance.styles, s.helper.font.getFontWeights(config.appearance.styles.fontFamily));
 
                 let css = previews[key].css;
@@ -293,59 +292,6 @@
                     });
                 } else {
                     tooltip.removeClass($.cl.visible);
-                }
-            }
-        };
-
-        /**
-         * Adds a right padding to the content, so the preview doesn't cover the controls,
-         * Adds a class to the content if the columns aren't lined next to each other anymore
-         *
-         * @param {string} key
-         */
-        const updatePageLayout = (key) => {
-            s.elm.content.removeClass($.cl.settings.small);
-
-            if (s.elm.preview[key]) {
-                const padding = "padding-" + (s.helper.i18n.isRtl() ? "left" : "right");
-                const config = getCurrentConfig();
-
-                if (s.elm.preview[key][0].offsetParent !== null) { // preview is visible -> if screen is too small it's hidden
-                    let headerRightPadding = 0;
-
-                    if (key === "overlay") {
-                        s.elm.content.addClass($.cl.settings.small);
-                    } else if (key === "indicator") {
-                        headerRightPadding = config.appearance.styles.indicatorWidth;
-                    } else if (key === "sidebar" || key === "general") {
-                        headerRightPadding = config.appearance.styles.sidebarWidth;
-                    }
-
-                    s.elm.header.css(padding, headerRightPadding);
-                    s.elm.content.css(padding, headerRightPadding);
-                } else {
-                    s.elm.header.css(padding, "");
-                    s.elm.content.css(padding, "");
-                }
-
-                const boxes = s.helper.menu.getPage().find("div." + $.cl.settings.box);
-
-                if (boxes.length() > 1) { // set class for wrapper if there is only one box per row
-                    let hasColumns = false;
-                    let top = null;
-
-                    s.helper.menu.getPage().find("div." + $.cl.settings.box).forEach((elm) => {
-                        if (top === elm.offsetTop) {
-                            hasColumns = true;
-                            return false;
-                        } else {
-                            top = elm.offsetTop;
-                        }
-                    });
-
-                    if (!hasColumns) {
-                        s.elm.content.addClass($.cl.settings.small);
-                    }
                 }
             }
         };
@@ -489,13 +435,6 @@
          * Initialises the eventhandlers
          */
         const initEvents = () => {
-            $(window).on("resize", () => {
-                const path = s.helper.menu.getPath();
-                if (path && path[0] === "appearance" && path[1]) {
-                    updatePageLayout(path[1]);
-                }
-            }, {passive: true});
-
             s.elm.appearance.presetWrapper.children("a").on("click", (e) => {
                 const type = $(e.currentTarget).attr($.attr.type);
                 const defaults = s.helper.model.getData("a/styles", true);

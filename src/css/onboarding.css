@@ -76,7 +76,7 @@ section.slide[data-name='intro'] > a.nextSlide, section.slide[data-name='positio
   border-radius: 3px; }
 
 body {
-  background: linear-gradient(45deg, #7b5fa4 0%, #2b35c8 100%);
+  background: linear-gradient(45deg, #8741ed 0%, #00e5fd 100%);
   height: 100vh;
   overflow: hidden; }
   body > svg.loading {
@@ -316,7 +316,7 @@ body.hideOpenType::before {
     left: 40px; } }
 
 html[dir='rtl'] body {
-  background: linear-gradient(45deg, #2b35c8 0%, #7b5fa4 100%); }
+  background: linear-gradient(-45deg, #8741ed 0%, #00e5fd 100%); }
 
 html[dir='rtl'] section.slide[data-name='position'] > div {
   flex-direction: row-reverse; }

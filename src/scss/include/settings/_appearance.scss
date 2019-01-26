@@ -14,12 +14,10 @@ body[data-type^='appearance'] {
   > section#wrapper > main {
 
     div.boxWrapper {
-      justify-content: flex-start;
-      margin: 0 20px;
+      max-width: 820px;
 
       > div.box {
         max-width: 400px;
-        margin-right: 20px;
 
         label, input[type='range'], select, input.color, input.color + span {
           margin-bottom: 5px;
@@ -83,15 +81,17 @@ body[data-type^='appearance'] {
         }
 
         ul.radioWrapper {
-          margin-top: 10px;
+          margin-top: 20px;
 
           span[class^='icon-'] {
-            @include mask(null, $mainColor, 24px);
+            @include mask(null, $textColorInverted, 20px);
             position: relative;
             display: inline-block;
-            margin-top: -2px;
-            width: 24px;
-            height: 24px;
+            margin: -10px 0 5px 3px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: $textColor;
           }
 
           span.icon-bookmark::before {
@@ -123,7 +123,6 @@ body[data-type^='appearance'] {
     }
 
     div.contentBox {
-      margin: 0 20px 20px 20px;
       max-width: 820px;
     }
 
@@ -135,9 +134,9 @@ body[data-type^='appearance'] {
 
       > a {
         display: inline-block;
-        padding: 2px 10px;
+        padding: 2px 15px;
         border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
+        border-radius: 20px;
         margin: 10px 7px 0 0;
         cursor: pointer;
         transition: background 0.5s;
@@ -148,19 +147,8 @@ body[data-type^='appearance'] {
         }
 
         &:hover {
-          background: rgba(0, 0, 0, 0.1);
+          background: rgba(0, 0, 0, 0.07);
         }
-      }
-    }
-
-    div.advanced {
-      max-width: 860px;
-      padding-left: 20px;
-      padding-right: 20px;
-      margin: 20px 0;
-
-      > div {
-        flex-direction: column;
       }
     }
 
@@ -169,18 +157,6 @@ body[data-type^='appearance'] {
 
       + li {
         margin-left: 30px;
-      }
-    }
-
-    &.small {
-
-      div.boxWrapper {
-        display: block;
-
-        > div.box {
-          width: 100%;
-          max-width: 520px;
-        }
       }
     }
   }
@@ -200,7 +176,7 @@ iframe[data-appearance] {
 
 iframe[data-appearance='overlay'] {
   width: 700px;
-  height: 600px;
+  height: 650px;
   top: 35px;
   transform-origin: top right;
 
@@ -217,13 +193,9 @@ iframe[data-appearance='overlay'] {
     top: 45px;
     transform: scale(0.6);
   }
-
-  @media (max-width: 1200px) {
-    display: none !important;
-  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   body[data-type='appearance_general'] > iframe[data-appearance='general'],
   body[data-type='appearance_sidebar'] > iframe[data-appearance='sidebar'],
   body[data-type='appearance_indicator'] > iframe[data-appearance='indicator'],

@@ -12,6 +12,7 @@
 
 <body class="building">
 <header>
+    <div id="logo"><span></span></div>
     <h1 data-i18n="settings_title"></h1>
 
     <menu>
@@ -82,7 +83,7 @@
                     </div>
                 </div>
 
-                <div class=" advanced">
+                <div class="advanced">
                     <h3 data-i18n="settings_advanced"></h3>
                     <div class="boxWrapper">
                         <div class="box">
@@ -226,7 +227,7 @@
                         <div class="formElement" data-type="checkbox" data-name="darkMode" data-i18n="settings_dark_mode"></div>
                     </div>
                     <div class="box">
-                        <div class="formElement" data-type="color" data-suggestions='["#ff0070","#ffaa00","#903cfc","#00897b","#1f4d80","#1b82f1"]' data-name="colorScheme" data-i18n="settings_color_scheme"></div>
+                        <div class="formElement" data-type="color" data-suggestions='["#ff6670","#ffaa00","#903cfc","#00897b","#1f4d80","#1b82f1"]' data-name="colorScheme" data-i18n="settings_color_scheme"></div>
                     </div>
                     <div class="box">
                         <div class="formElement" data-type="color" data-name="textColor" data-suggestions='["#c8c8c8","#646464"]' data-i18n="settings_text_color"></div>
@@ -236,10 +237,12 @@
                     </div>
                 </div>
 
-                <div class=" advanced">
+                <div class="advanced">
                     <h3 data-i18n="settings_advanced"></h3>
                     <div>
-                        <div class="formElement" data-type="textarea" data-name="customCss" data-i18n="settings_custom_css"></div>
+                        <div class="contentBox">
+                            <div class="formElement" data-type="textarea" data-name="customCss" data-i18n="settings_custom_css"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -582,7 +585,7 @@
         #
         #
         -->
-        <div class="tab" data-name="premium" data-save="premium_get_now">
+        <div class="tab" data-name="premium">
             <section data-type="intro">
                 <p class="large" data-i18n="premium_desc_1"></p>
                 <p data-i18n="premium_desc_2"></p>

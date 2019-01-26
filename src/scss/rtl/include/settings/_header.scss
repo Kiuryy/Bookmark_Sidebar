@@ -2,21 +2,24 @@
 html[dir='rtl'] {
 
   body > header {
-    background: $gradientRtl;
 
-    &::before {
+    div#logo {
+      right: 24px;
       left: unset;
-      right: 8px;
+
+      &::before {
+        background: $gradientRtl;
+      }
     }
 
     > h1 {
-      margin-right: 70px;
-      margin-left: 0;
-      padding-right: 30px;
-      padding-left: 0;
+      padding-left: 30px;
+      padding-right: calc(#{$settingsMenuWidth} + 55px);
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 20px;
 
       &::before {
-        -webkit-mask-position-x: right;
+        -webkit-mask-position-x: calc(100% - #{$settingsMenuWidth} - 15px);
       }
 
       > span {
@@ -28,22 +31,28 @@ html[dir='rtl'] {
           &::before {
             left: unset;
             right: -14px;
-            border-right-color: $textColorInverted;
+            border-right-color: $textColorLight;
             border-left-color: transparent;
           }
         }
       }
+
+      &::after {
+        left: unset;
+        right: calc(#{$settingsMenuWidth} - 10px);
+        transform: rotateZ(45deg);
+      }
+
     }
 
     &[data-type='newtab'] > h1::before, &[data-type='feedback'] > h1::before {
       transform: scaleX(-1);
-      -webkit-mask-position-x: left;
+      -webkit-mask-position-x: calc(#{$settingsMenuWidth} + 15px) !important;
     }
 
     > menu {
-      margin-left: 30px;
-      margin-right: 0;
-      float: left;
+      margin-left: 0;
+      margin-right: 40px;
 
       > li {
 
@@ -61,8 +70,8 @@ html[dir='rtl'] {
             }
 
             &.info {
-              padding-left: 8px;
-              padding-right: 32px;
+              padding-left: 12px;
+              padding-right: 34px;
             }
           }
         }
@@ -71,16 +80,6 @@ html[dir='rtl'] {
   }
 
   body > div.dialog {
-    transform: translate3d(12px, -10px, 0);
-
-    &.visible {
-      transform: translate3d(12px, 0, 0);
-    }
-
-    &::before {
-      left: 20px;
-      right: unset;
-    }
 
     > a {
       padding-right: 15px;

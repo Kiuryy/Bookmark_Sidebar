@@ -1,13 +1,19 @@
 // General
 $baseFontSize: 14px;
 
-$mainColor: #7b5fa4;
-$mainColorAlt: #2b35c8;
-$gradient: linear-gradient(45deg, $mainColor 0%, $mainColorAlt 100%);
-$gradientRtl: linear-gradient(45deg, $mainColorAlt 0%, $mainColor 100%);
+$mainColor: #7b5fa4; // @deprecated
+$mainColorAlt: #2b35c8; // @deprecated
+
+$mainColor1: #8741ed;
+$mainColor2: #6494f4;
+$mainColor3: #00e5fd;
+
+$gradient: linear-gradient(45deg, $mainColor1 0%, $mainColor3 100%);
+$gradientRtl: linear-gradient(-45deg, $mainColor1 0%, $mainColor3 100%);
 
 $textColor: #666;
 $textColorLight: #aaa;
+$textColorLight2: #ccc;
 $textColorInverted: #fff;
 $contentBackground: #fff;
 $bodyBackground: #f2f2f2;
@@ -18,8 +24,9 @@ $colorError: #f99;
 
 // Settings
 $settingsHeaderHeight: 50px;
-$settingsMenuBackground: #e9e9e9;
-$settingsMenuHoverBackground: #ddd;
+$settingsMenuWidth: 250px;
+$settingsMenuBackground: #322e2f;
+$settingsMenuHoverBackground: rgba(255,255,255,0.07);
 
 // New tab
 $newTabSearchWidth: 630px;

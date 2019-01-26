@@ -2,7 +2,7 @@
 @import "include/mixins";
 @import "include/settingsMixins";
 //
-$__colorScheme: $mainColor;
+$__colorScheme: $mainColor2;
 $__textColor: $textColor;
 @import "include/loading";
 @import "include/checkbox";
@@ -34,7 +34,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  min-width: 800px;
+  min-width: 1024px;
   height: 100%;
   user-select: none;
   overflow: hidden;
@@ -115,7 +115,7 @@ body {
 h2 {
   font-size: 150%;
   font-weight: $__fontWeightNormal;
-  color: $mainColor;
+  color: $mainColor2;
   margin: 0 0 15px 0;
 }
 
@@ -167,19 +167,8 @@ hr {
 }
 
 // Button
-main button[type='submit'], a.button, div.upload, a[data-type="premium"] {
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  border: 0;
-  outline: 0;
-  cursor: pointer;
-  background: $mainColor;
-  color: $textColorInverted;
-  padding: 6px 12px;
-  font-weight: $__fontWeightMedium;
-  font-size: 100%;
-  border-radius: 3px;
+main button[type='submit'], a.button {
+  @extend %button;
   margin: 10px 0;
 }
 
@@ -204,7 +193,7 @@ p.premium {
   > a {
     font-weight: $__fontWeightMedium;
     cursor: pointer;
-    color: $mainColor;
+    color: $mainColor2;
     font-size: 80%;
   }
 }

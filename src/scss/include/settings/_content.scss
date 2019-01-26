@@ -26,12 +26,15 @@ body > section#wrapper {
   flex-flow: row;
 
   > main {
+    position: relative;
     flex: 1;
-    height: calc(100vh - #{$settingsHeaderHeight});
+    height: calc(100vh - #{$settingsHeaderHeight} - 10px);
     overflow-y: scroll;
-    padding: 35px 30px 20px 20px;
+    margin-top: 10px;
+    padding: 35px 30px 20px 70px;
 
     @media (max-width: 1400px) {
+      padding-left: 50px;
       padding-right: 20px;
     }
 
@@ -61,7 +64,8 @@ body > section#wrapper {
       padding: 16px 20px;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
       max-width: 1024px;
-      margin: 0 auto 20px;
+      margin: 0 0 20px;
+      border-radius: 10px;
       line-height: 140%;
     }
 
@@ -72,7 +76,6 @@ body > section#wrapper {
       align-items: stretch;
       justify-content: space-between;
       max-width: 1024px;
-      margin: 0 auto;
 
       @media (max-width: 900px) {
         display: block;
@@ -86,6 +89,7 @@ body > section#wrapper {
         background: $contentBackground;
         padding: 16px 20px;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
 
         @media (max-width: 900px) {
           width: 100%;

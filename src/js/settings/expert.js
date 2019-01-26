@@ -19,7 +19,7 @@
                 initSearch();
                 this.updateRawConfigList();
             } else {
-                // @toDo styling
+                s.elm.expert.search.remove();
                 s.addNoPremiumText(s.elm.expert.content.children("div"));
             }
         };
@@ -254,7 +254,7 @@
                         .appendTo(entry.children("label"));
                 }
 
-                if (typeof configValues[key] !== "undefined") { // fill with user configuration, rather than the default value
+                if (configValues && typeof configValues === "object" && typeof configValues[key] !== "undefined") { // fill with user configuration, rather than the default value
                     _val = configValues[key];
                 }
 

@@ -88,7 +88,7 @@ div.color-picker {
     right: 7px;
     width: 45px;
     padding: 0 5px;
-    background: $settingsMenuBackground;
+    background: $bodyBackground;
     border-radius: 18px;
     display: flex;
 
@@ -109,6 +109,7 @@ div.color-picker {
       line-height: 18px;
       border: none;
       color: $textColor;
+      background: transparent;
       text-align: right;
       font-size: 80%;
     }
@@ -135,14 +136,13 @@ div.color-picker {
     > input {
       width: $leftColWidth;
       margin: 0;
-      padding: 0;
+      padding: 0 10px;
       height: 18px;
       line-height: 18px;
       border-radius: 18px;
-      padding: 0 10px;
       border: none;
       color: $textColor;
-      background: $settingsMenuBackground;
+      background: $bodyBackground;
       font-size: 80%;
     }
   }

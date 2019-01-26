@@ -77,7 +77,7 @@ body > section#wrapper {
       justify-content: space-between;
       max-width: 1024px;
 
-      @media (max-width: 900px) {
+      @media (max-width: 1100px) {
         display: block;
       }
 
@@ -91,7 +91,7 @@ body > section#wrapper {
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
 
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
           width: 100%;
         }
 
@@ -106,6 +106,14 @@ body > section#wrapper {
         p.info {
           margin: 20px 0 10px;
           line-height: 150%;
+        }
+      }
+
+      &.noCol {
+        flex-flow: column;
+
+        > div.box {
+          width: 100%;
         }
       }
     }

@@ -149,11 +149,6 @@ input[type='range'] {
   cursor: pointer;
   transition: opacity 0.3s;
 
-  @media (max-width: 1000px) and (min-width: 900px) {
-    max-width: none;
-    margin-bottom: 0;
-  }
-
   &:focus {
     outline: 0;
   }
@@ -188,10 +183,6 @@ input[type='range'] {
     min-width: 35px;
     transition: opacity 0.3s;
 
-    @media (max-width: 1000px) and (min-width: 900px) {
-      margin: 2px 0 10px 0;
-    }
-
     &::before {
       content: "";
       position: absolute;
@@ -199,13 +190,6 @@ input[type='range'] {
       left: -8px;
       border: 4px solid transparent;
       border-right-color: rgba(0, 0, 0, 0.1);
-
-      @media (max-width: 1000px) and (min-width: 900px) {
-        top: -8px;
-        left: 4px;
-        border: 4px solid transparent !important;
-        border-bottom-color: rgba(0, 0, 0, 0.1) !important;
-      }
     }
   }
 

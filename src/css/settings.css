@@ -584,7 +584,7 @@ body > section#wrapper {
       align-items: stretch;
       justify-content: space-between;
       max-width: 1024px; }
-      @media (max-width: 900px) {
+      @media (max-width: 1100px) {
         body > section#wrapper > main div.boxWrapper {
           display: block; } }
       body > section#wrapper > main div.boxWrapper > div.box {
@@ -596,7 +596,7 @@ body > section#wrapper {
         padding: 16px 20px;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         border-radius: 10px; }
-        @media (max-width: 900px) {
+        @media (max-width: 1100px) {
           body > section#wrapper > main div.boxWrapper > div.box {
             width: 100%; } }
         body > section#wrapper > main div.boxWrapper > div.box.hidden {
@@ -606,6 +606,10 @@ body > section#wrapper {
         body > section#wrapper > main div.boxWrapper > div.box p.info {
           margin: 20px 0 10px;
           line-height: 150%; }
+      body > section#wrapper > main div.boxWrapper.noCol {
+        flex-flow: column; }
+        body > section#wrapper > main div.boxWrapper.noCol > div.box {
+          width: 100%; }
 
 html[dir='rtl'] body > section#wrapper > main {
   padding-right: 70px;
@@ -1039,6 +1043,9 @@ body[data-type^='appearance'] > div.colorMask {
 
 body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
   max-width: 820px; }
+  @media (max-width: 1500px) {
+    body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
+      display: block; } }
   body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box {
     max-width: 400px; }
     body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box label, body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box input[type='range'], body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box select, body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box input.color, body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box input.color + span {
@@ -1173,19 +1180,13 @@ iframe[data-appearance] {
 iframe[data-appearance='overlay'] {
   width: 700px;
   height: 650px;
-  top: 35px;
   transform-origin: top right; }
-  @media (max-width: 1550px) {
-    iframe[data-appearance='overlay'] {
-      transform: scale(0.9); } }
   @media (max-width: 1400px) {
     iframe[data-appearance='overlay'] {
-      top: 40px;
       transform: scale(0.8); } }
   @media (max-width: 1280px) {
     iframe[data-appearance='overlay'] {
-      top: 45px;
-      transform: scale(0.6); } }
+      transform: scale(0.7); } }
 
 @media (min-width: 1200px) {
   body[data-type='appearance_general'] > iframe[data-appearance='general'],
@@ -1989,10 +1990,6 @@ input[type='range'] {
   margin: 7px 0 20px;
   cursor: pointer;
   transition: opacity 0.3s; }
-  @media (max-width: 1000px) and (min-width: 900px) {
-    input[type='range'] {
-      max-width: none;
-      margin-bottom: 0; } }
   input[type='range']:focus {
     outline: 0; }
   input[type='range']::-webkit-slider-runnable-track {
@@ -2020,9 +2017,6 @@ input[type='range'] {
     text-align: center;
     min-width: 35px;
     transition: opacity 0.3s; }
-    @media (max-width: 1000px) and (min-width: 900px) {
-      input[type='range'] + span {
-        margin: 2px 0 10px 0; } }
     input[type='range'] + span::before {
       content: "";
       position: absolute;
@@ -2030,12 +2024,6 @@ input[type='range'] {
       left: -8px;
       border: 4px solid transparent;
       border-right-color: rgba(0, 0, 0, 0.1); }
-      @media (max-width: 1000px) and (min-width: 900px) {
-        input[type='range'] + span::before {
-          top: -8px;
-          left: 4px;
-          border: 4px solid transparent !important;
-          border-bottom-color: rgba(0, 0, 0, 0.1) !important; } }
   input[type='range'].inactive {
     opacity: 0.2;
     pointer-events: none; }

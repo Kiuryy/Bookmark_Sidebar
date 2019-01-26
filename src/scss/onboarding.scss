@@ -9,18 +9,19 @@ $__textColor: $textColor;
 %button {
   display: inline-block;
   background: $contentBackground;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  color: $mainColor;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  color: $textColor;
   font-size: 140%;
   font-weight: 300;
   text-decoration: none;
   margin: 10px 0;
   padding: 10px 20px;
-  border-radius: 3px;
+  border-radius: 25px;
+  white-space: nowrap;
 }
 
 body {
-  background: $gradient;
+  background: $mainColor2;
   height: 100vh;
   overflow: hidden;
 
@@ -47,8 +48,8 @@ section.slide {
   }
 
   > p.large {
-    font-size: 200%;
-    font-weight: 200;
+    font-size: 180%;
+    font-weight: $__fontWeightNormal;
     color: $textColorInverted;
     margin: 0 0 40px 0;
   }
@@ -104,6 +105,8 @@ section.slide {
       line-height: 160%;
       margin: 15px auto 0;
       padding: 7px 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
       transform: translate3d(0, -7px, 0);
       transition: opacity 0.3s, transform 0.3s;
       @extend %hidden;
@@ -123,7 +126,7 @@ section.slide {
 
     > a.info {
       @extend %button;
-      @include mask('icon-info', $mainColor, 26px);
+      @include mask('icon-info', $textColor, 26px);
       position: relative;
       display: block;
       width: 48px;
@@ -172,7 +175,7 @@ section.slide {
       margin: 0 10px;
       color: $textColorInverted;
       vertical-align: top;
-      border-radius: 3px;
+      border-radius: 10px;
       transition: background 0.5s;
 
       &::before {
@@ -195,8 +198,9 @@ section.slide {
     p.info {
       @include mask('icon-info', $textColorInverted, 36px);
       position: relative;
-      padding: 20px 30px 20px 65px;
+      padding: 20px 30px 24px 65px;
       margin: 0 0 40px 0;
+      border-radius: 10px;
       background: rgba(255, 255, 255, 0.1);
       text-align: left;
 
@@ -216,11 +220,12 @@ section.slide {
         position: relative;
         display: inline-block;
         background: $textColorInverted;
-        color: $mainColor;
+        color: $textColor;
         cursor: pointer;
-        padding: 4px 10px;
+        padding: 4px 12px;
         margin-top: 10px;
-        border-radius: 3px;
+        border-radius: 25px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       }
     }
   }

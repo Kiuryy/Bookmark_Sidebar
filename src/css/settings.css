@@ -606,11 +606,6 @@ body > section#wrapper {
         body > section#wrapper > main div.boxWrapper > div.box p.info {
           margin: 20px 0 10px;
           line-height: 150%; }
-          body > section#wrapper > main div.boxWrapper > div.box p.info > a {
-            color: #2b35c8;
-            font-weight: "%fontWeightMedium"; }
-          body > section#wrapper > main div.boxWrapper > div.box p.info > em {
-            color: #666; }
 
 html[dir='rtl'] body > section#wrapper > main {
   padding-right: 70px;

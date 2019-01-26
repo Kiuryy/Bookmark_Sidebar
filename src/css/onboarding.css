@@ -108,7 +108,7 @@ section.slide {
     margin: auto;
     width: 64px;
     height: 64px;
-    background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp) no-repeat center/100%; }
+    background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png) no-repeat center/100%; }
   section.slide[data-name='intro'] > a.skip {
     color: #fff;
     font-size: 90%;

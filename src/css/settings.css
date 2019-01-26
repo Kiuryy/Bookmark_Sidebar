@@ -255,7 +255,7 @@ body > header {
       display: block;
       width: 64px;
       height: 64px;
-      background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.webp) no-repeat center/40px;
+      background: url(chrome-extension://__MSG_@@extension_id__/img/icon/icon.png) no-repeat center/40px;
       z-index: 3; }
     body > header div#logo::before, body > header div#logo::after {
       content: "";

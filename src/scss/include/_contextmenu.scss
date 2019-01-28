@@ -159,15 +159,15 @@ div.contextmenu {
             margin: 0 1px;
             transition: background-color 0.3s;
 
-            &[data-name='bookmark']::before {
+            &[data-type='bookmark']::before {
               @include maskImage('icon-bookmark');
             }
 
-            &[data-name='dir']::before {
+            &[data-type='dir']::before {
               @include maskImage('icon-dir-1');
             }
 
-            &[data-name='separator']::before {
+            &[data-type='separator']::before {
               @include maskImage('icon-separator');
             }
           }
@@ -232,6 +232,11 @@ div.contextmenu {
             background-color: $__colorScheme;
             opacity: 0.8;
           }
+        }
+
+        &[data-name='add']::before {
+          @include maskImage('icon-add');
+          -webkit-mask-size: 22px;
         }
 
         &[data-name='reload']::before {

@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Open in incognito window"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Add bookmark"
+    },
     "contextmenu_add": {
         "message": "Add entry"
     },
@@ -984,7 +987,7 @@
         "message": "You can edit existing translations or add missing ones. If you submit your changes, I will review your input and approve it."
     },
     "settings_translation_notice1": {
-        "message": "As soon as all categories marked as required are translated, the translation will be released."
+        "message": "As soon as all categories, which are marked as required are translated, the translation will be released."
     },
     "settings_translation_notice2": {
         "message": "Incomplete categories will not be released, to prevent half translated texts."

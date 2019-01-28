@@ -191,11 +191,11 @@ div.contextmenu {
               -webkit-mask: no-repeat center/18px;
               -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/none.svg);
               background-color: #ccc; }
-            div.contextmenu > ul.icons > li > ul > li > a[data-name='bookmark']::before {
+            div.contextmenu > ul.icons > li > ul > li > a[data-type='bookmark']::before {
               -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg); }
-            div.contextmenu > ul.icons > li > ul > li > a[data-name='dir']::before {
+            div.contextmenu > ul.icons > li > ul > li > a[data-type='dir']::before {
               -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-dir-1.svg); }
-            div.contextmenu > ul.icons > li > ul > li > a[data-name='separator']::before {
+            div.contextmenu > ul.icons > li > ul > li > a[data-type='separator']::before {
               -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-separator.svg); }
   div.contextmenu > ul.list > li {
     position: relative; }
@@ -243,6 +243,9 @@ div.contextmenu {
         div.contextmenu > ul.list > li > a.hover::before {
           background-color: "%colorScheme";
           opacity: 0.8; }
+      div.contextmenu > ul.list > li > a[data-name='add']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg);
+        -webkit-mask-size: 22px; }
       div.contextmenu > ul.list > li > a[data-name='reload']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg); }
       div.contextmenu > ul.list > li > a[data-name='closeAll']::before {

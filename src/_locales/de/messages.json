@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "In Inkognito-Fenster \u00f6ffnen"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Lesezeichen hinzuf\u00fcgen"
+    },
     "contextmenu_add": {
         "message": "Eintrag hinzuf\u00fcgen"
     },

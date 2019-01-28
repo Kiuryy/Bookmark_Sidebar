@@ -223,6 +223,8 @@
                 if (data.isDir) {
                     const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
 
+                    list.append("<li><a " + $.attr.name + "='add' " + $.attr.type + "='bookmark'>" + ext.helper.i18n.get("contextmenu_add_bookmark") + "</a></li>");
+
                     if (bookmarks.length > 0) {
                         list.append("<li><a " + $.attr.name + "='openChildren'>" + ext.helper.i18n.get("contextmenu_open_children") + " <span>(" + bookmarks.length + ")</span></a></li>");
                     }
@@ -252,9 +254,9 @@
 
                     $("<ul />")
                         .attr($.attr.name, "add")
-                        .append("<li><a " + $.attr.name + "='bookmark' title='" + ext.helper.i18n.get("overlay_label_bookmark", null, true) + "'></a></li>")
-                        .append("<li><a " + $.attr.name + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")
-                        .append("<li><a " + $.attr.name + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>")
+                        .append("<li><a " + $.attr.type + "='bookmark' title='" + ext.helper.i18n.get("overlay_label_bookmark", null, true) + "'></a></li>")
+                        .append("<li><a " + $.attr.type + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")
+                        .append("<li><a " + $.attr.type + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>")
                         .appendTo(listEntry);
                 } else if (data.pinned) {
                     iconWrapper.append("<li><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin", null, true) + "'></a></li>");
@@ -563,10 +565,11 @@
             });
 
             contextmenu.find("> ul > li > a").on("mouseenter", (e) => {
+                const elm = $(e.currentTarget);
                 contextmenu.find("a").removeClass($.cl.hover);
-                $(e.currentTarget).addClass($.cl.hover);
+                elm.addClass($.cl.hover);
 
-                if ($(e.currentTarget).attr($.attr.name) === "add") { // show sub menu when hovering the add-button
+                if (elm.parents("ul." + $.cl.contextmenu.icons).length() > 0 && elm.attr($.attr.name) === "add") { // show sub menu when hovering the add-button
                     showAddMenu(contextmenu);
                 }
             }).on("mouseleave", (e) => {
@@ -592,7 +595,7 @@
                 };
 
                 opts.data = opts.id ? ext.helper.entry.getDataById(opts.id) : {};
-                opts.data.overlayType = $(e.currentTarget).attr($.attr.name);
+                opts.data.overlayType = $(e.currentTarget).attr($.attr.type);
 
                 if (opts.name === "sort" || opts.name === "toggleHidden") {
                     opts.name = "checkbox";

@@ -440,13 +440,15 @@
                 let urlValue = "";
 
                 if (type === "bookmark") { // default bookmark values -> current page information
-                    titleValue = $(document).find("head > title").eq(0).text();
+                    if ($(document).find("head > title").length() > 0) {
+                        titleValue = $(document).find("head > title").eq(0).text().trim();
+                    }
                     urlValue = location.href;
                 }
 
                 if (data && data.values) { // fill fields with given values
-                    titleValue = data.values.title || "";
-                    urlValue = data.values.url || "";
+                    titleValue = (data.values.title || "").trim();
+                    urlValue = (data.values.url || "").trim();
                 }
 
                 list.append("<li><h2>" + $(e.currentTarget).attr("title") + "</h2></li>");

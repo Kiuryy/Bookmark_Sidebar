@@ -125,7 +125,7 @@
                             const bookmarkObj = {
                                 index: entryPlaceholder.prevAll("li").length(),
                                 parentId: entryPlaceholder.parent("ul").prev("a").attr($.attr.id),
-                                title: title,
+                                title: title.trim(),
                                 url: url
                             };
 

@@ -74,10 +74,14 @@
          * @returns {boolean}
          */
         this.isBackgroundConnected = () => {
-            const port = chrome.runtime.connect();
-            if (port) {
-                port.disconnect();
-                return true;
+            try {
+                const port = chrome.runtime.connect();
+                if (port) {
+                    port.disconnect();
+                    return true;
+                }
+            } catch (e) {
+                //
             }
             return false;
         };

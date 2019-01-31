@@ -158,6 +158,105 @@
         };
 
         /**
+         * Returns the available sortings
+         *
+         * @returns {object}
+         */
+        this.getSortList = () => {
+            return {
+                custom: {
+                    dir: "ASC"
+                },
+                alphabetical: {
+                    dir: "ASC"
+                },
+                mostUsed: {
+                    dir: "DESC"
+                },
+                recentlyUsed: {
+                    dir: "DESC"
+                },
+                recentlyAdded: {
+                    dir: "DESC"
+                }
+            };
+        };
+
+        /**
+         * Sorts the given bookmarks by the given sorting
+         *
+         * @param {Array} bookmarks
+         * @param {object} sortObj
+         */
+        this.sortEntries = (bookmarks, sortObj) => {
+            if (bookmarks.length > 1) {
+                const collator = ext.helper.i18n.getLocaleSortCollator();
+                const doSort = (defaultDir, func) => {
+                    bookmarks.sort((a, b) => {
+                        const aChildren = !!(a.children);
+                        const bChildren = !!(b.children);
+
+                        if (sortObj.name !== "custom" && aChildren !== bChildren) {
+                            return aChildren ? -1 : 1;
+                        } else {
+                            return (defaultDir === sortObj.dir ? 1 : -1) * func(a, b);
+                        }
+                    });
+                };
+
+                switch (sortObj.name) {
+                    case "custom": {
+                        doSort("ASC", (a, b) => {
+                            return a.index - b.index;
+                        });
+                        break;
+                    }
+                    case "alphabetical": {
+                        doSort("ASC", (a, b) => {
+                            return collator.compare(a.title, b.title);
+                        });
+                        break;
+                    }
+                    case "recentlyAdded": {
+                        doSort("DESC", (a, b) => {
+                            return b.dateAdded - a.dateAdded;
+                        });
+                        break;
+                    }
+                    case "mostUsed": {
+                        const mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
+                        doSort("DESC", (a, b) => {
+                            const aData = ext.helper.entry.getDataById(a.id);
+                            const bData = ext.helper.entry.getDataById(b.id);
+                            const aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                            const bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
+                            if (aViews === bViews) {
+                                return collator.compare(a.title, b.title);
+                            } else {
+                                return bViews - aViews;
+                            }
+                        });
+                        break;
+                    }
+                    case "recentlyUsed": {
+                        doSort("DESC", (a, b) => {
+                            const aData = ext.helper.entry.getDataById(a.id);
+                            const bData = ext.helper.entry.getDataById(b.id);
+                            const aLastView = aData ? aData.views.lastView : 0;
+                            const bLastView = bData ? bData.views.lastView : 0;
+                            if (aLastView === bLastView) {
+                                return collator.compare(a.title, b.title);
+                            } else {
+                                return bLastView - aLastView;
+                            }
+                        });
+                        break;
+                    }
+                }
+            }
+        };
+
+        /**
          * Returns whether the browser is windowed or not
          * returns always true if Chrome mobile is used (e.g. when viewing a website in mobile view with devtools)
          *

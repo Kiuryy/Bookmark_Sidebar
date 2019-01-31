@@ -9,7 +9,7 @@
     $.ListHelper = function (ext) {
 
         let restoreOpenStateRunning = 0;
-        let sort = null;
+        let sort = {};
         let dirOpenDuration = 0;
 
         /**
@@ -39,31 +39,6 @@
         };
 
         /**
-         * Returns the available sortings
-         *
-         * @returns {object}
-         */
-        this.getSortList = () => {
-            return {
-                custom: {
-                    dir: "ASC"
-                },
-                alphabetical: {
-                    dir: "ASC"
-                },
-                mostUsed: {
-                    dir: "DESC"
-                },
-                recentlyUsed: {
-                    dir: "DESC"
-                },
-                recentlyAdded: {
-                    dir: "DESC"
-                }
-            };
-        };
-
-        /**
          * Returns information about the current sorting
          *
          * @returns {object}
@@ -79,7 +54,7 @@
          * @param {string} direction 'ASC' or 'DESC'
          */
         this.updateSort = (name, direction) => {
-            const sortList = this.getSortList();
+            const sortList = ext.helper.utility.getSortList();
             if (sortList[name]) {
                 if (typeof direction === "undefined") {
                     direction = sortList[name].dir;
@@ -440,7 +415,7 @@
             list.removeData("remainingEntries");
 
             if (sorting) {
-                sortEntries(bookmarks);
+                ext.helper.utility.sortEntries(bookmarks, sort);
             }
 
             bookmarks.some((bookmark, idx) => {
@@ -497,7 +472,7 @@
             if (pinnedEntries.length === 0) {
                 ext.elm.pinnedBox.addClass($.cl.hidden);
             } else {
-                sortEntries(pinnedEntries);
+                ext.helper.utility.sortEntries(pinnedEntries, sort);
                 const list = $("<ul />").appendTo(ext.elm.pinnedBox);
 
                 if (ext.helper.model.getData("u/lockPinned")) {
@@ -640,79 +615,6 @@
                     resolve();
                 });
             });
-        };
-
-        /**
-         * Sorts the given bookmarks
-         *
-         * @param {Array} bookmarks
-         */
-        const sortEntries = (bookmarks) => {
-            if (bookmarks.length > 1) {
-                const collator = ext.helper.i18n.getLocaleSortCollator();
-                const doSort = (defaultDir, func) => {
-                    bookmarks.sort((a, b) => {
-                        const aChildren = !!(a.children);
-                        const bChildren = !!(b.children);
-
-                        if (sort.name !== "custom" && aChildren !== bChildren) {
-                            return aChildren ? -1 : 1;
-                        } else {
-                            return (defaultDir === sort.dir ? 1 : -1) * func(a, b);
-                        }
-                    });
-                };
-
-                switch (sort.name) {
-                    case "custom": {
-                        doSort("ASC", (a, b) => {
-                            return a.index - b.index;
-                        });
-                        break;
-                    }
-                    case "alphabetical": {
-                        doSort("ASC", (a, b) => {
-                            return collator.compare(a.title, b.title);
-                        });
-                        break;
-                    }
-                    case "recentlyAdded": {
-                        doSort("DESC", (a, b) => {
-                            return b.dateAdded - a.dateAdded;
-                        });
-                        break;
-                    }
-                    case "mostUsed": {
-                        const mostViewedPerMonth = ext.helper.model.getData("u/mostViewedPerMonth");
-                        doSort("DESC", (a, b) => {
-                            const aData = ext.helper.entry.getDataById(a.id);
-                            const bData = ext.helper.entry.getDataById(b.id);
-                            const aViews = aData ? aData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                            const bViews = bData ? bData.views[mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                            if (aViews === bViews) {
-                                return collator.compare(a.title, b.title);
-                            } else {
-                                return bViews - aViews;
-                            }
-                        });
-                        break;
-                    }
-                    case "recentlyUsed": {
-                        doSort("DESC", (a, b) => {
-                            const aData = ext.helper.entry.getDataById(a.id);
-                            const bData = ext.helper.entry.getDataById(b.id);
-                            const aLastView = aData ? aData.views.lastView : 0;
-                            const bLastView = bData ? bData.views.lastView : 0;
-                            if (aLastView === bLastView) {
-                                return collator.compare(a.title, b.title);
-                            } else {
-                                return bLastView - aLastView;
-                            }
-                        });
-                        break;
-                    }
-                }
-            }
         };
 
         /**

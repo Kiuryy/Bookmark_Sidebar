@@ -236,14 +236,16 @@
          * @returns {Array}
          */
         const getPinnedEntries = () => {
+            const sortObj = n.helper.model.getData("u/sort");
             const pinnedEntries = n.helper.entry.getAllDataByType("pinned");
-            const config = n.helper.model.getData(["u/showHidden"]);
+            const showHidden = n.helper.model.getData("u/showHidden");
             const amount = getAmount();
 
+            n.helper.utility.sortEntries(pinnedEntries, sortObj); // sort pinned entries the same way they are arranged in the sidebar
             const list = [];
 
             pinnedEntries.some((bookmark) => {
-                if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
+                if ((showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
                     list.push(bookmark);
                     if (list.length >= amount.total) {
                         return true;
@@ -262,40 +264,14 @@
          */
         const getSortedBookmarks = (type) => {
             const amount = getAmount();
-            const allBookmarks = n.helper.entry.getAllDataByType("bookmarks");
-            const config = n.helper.model.getData(["u/showHidden", "u/mostViewedPerMonth"]);
-            const collator = n.helper.i18n.getLocaleSortCollator();
-
-            if (type === "recentlyUsed") {
-                allBookmarks.sort((a, b) => {
-                    const aData = n.helper.entry.getDataById(a.id);
-                    const bData = n.helper.entry.getDataById(b.id);
-                    const aLastView = aData ? aData.views.lastView : 0;
-                    const bLastView = bData ? bData.views.lastView : 0;
-                    if (aLastView === bLastView) {
-                        return collator.compare(a.title, b.title);
-                    } else {
-                        return bLastView - aLastView;
-                    }
-                });
-            } else if (type === "mostUsed") {
-                allBookmarks.sort((a, b) => {
-                    const aData = n.helper.entry.getDataById(a.id);
-                    const bData = n.helper.entry.getDataById(b.id);
-                    const aViews = aData ? aData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                    const bViews = bData ? bData.views[config.mostViewedPerMonth ? "perMonth" : "total"] : 0;
-                    if (aViews === bViews) {
-                        return collator.compare(a.title, b.title);
-                    } else {
-                        return bViews - aViews;
-                    }
-                });
-            }
-
             const list = [];
+            const showHidden = n.helper.model.getData("u/showHidden");
+            const allBookmarks = n.helper.entry.getAllDataByType("bookmarks");
+
+            n.helper.utility.sortEntries(allBookmarks, {name: type, dir: "DESC"});
 
             allBookmarks.some((bookmark) => {
-                if ((config.showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false && bookmark.url.search(/^file:\/\//) !== 0) {
+                if ((showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false && bookmark.url.search(/^file:\/\//) !== 0) {
                     list.push(bookmark);
                     if (list.length >= amount.total) {
                         return true;
@@ -305,7 +281,6 @@
 
             return list;
         };
-
     };
 
 })(jsu);

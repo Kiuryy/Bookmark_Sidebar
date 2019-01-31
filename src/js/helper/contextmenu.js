@@ -116,7 +116,7 @@
          * @param {jsu} contextmenu
          */
         const handleSortMenu = (contextmenu) => {
-            const sortList = ext.helper.list.getSortList();
+            const sortList = ext.helper.utility.getSortList();
             const currentSort = ext.helper.list.getSort();
             const list = contextmenu.children("ul." + $.cl.contextmenu.list);
             contextmenu.children("ul." + $.cl.contextmenu.icons).remove();

@@ -62,15 +62,19 @@
          */
         this.save = () => {
             return new Promise((resolve, reject) => {
-                if (s.elm.expert.content.find("input[type='text']." + $.cl.error).length() > 0) { // atleast one of the input fields has an invalid value -> don't save
-                    alert(s.helper.i18n.get("settings_expert_save_error"));
-                    reject();
-                } else { // no errors -> save to sync storage
-                    chrome.storage.sync.set({
-                        behaviour: configObj.behaviour || {},
-                        appearance: configObj.appearance || {},
-                        newtab: configObj.newtab || {}
-                    }, resolve);
+                if (s.helper.model.getUserType() !== "default") {
+                    if (s.elm.expert.content.find("input[type='text']." + $.cl.error).length() > 0) { // atleast one of the input fields has an invalid value -> don't save
+                        alert(s.helper.i18n.get("settings_expert_save_error"));
+                        reject();
+                    } else { // no errors -> save to sync storage
+                        chrome.storage.sync.set({
+                            behaviour: configObj.behaviour || {},
+                            appearance: configObj.appearance || {},
+                            newtab: configObj.newtab || {}
+                        }, resolve);
+                    }
+                } else { // no premium -> do nothing
+                    resolve();
                 }
             });
         };

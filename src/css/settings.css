@@ -2544,10 +2544,10 @@ html[dir='rtl'] div.tab[data-name='export'] a.import, html[dir='rtl'] div.tab[da
 body > section#wrapper::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 0;
   width: 250px;
-  height: 100%;
+  height: calc(100% + 20px);
   background: #322e2f; }
 
 body > section#wrapper > aside {

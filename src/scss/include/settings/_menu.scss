@@ -3,10 +3,10 @@ body > section#wrapper {
   &::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -10px;
     left: 0;
     width: $settingsMenuWidth;
-    height: 100%;
+    height: calc(100% + 20px);
     background: $settingsMenuBackground;
   }
 

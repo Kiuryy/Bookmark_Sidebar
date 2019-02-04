@@ -17,7 +17,8 @@
             search: {
                 wrapper: $("div#search"),
                 field: $("div#search > input[type='text']"),
-                submit: $("div#search > button[type='submit']")
+                submit: $("div#search > button[type='submit']"),
+                speechSearch: $("div#search > a.speechSearch")
             },
             fallbackInfo: $("div#fallbackInfo"),
             topPages: $("div#topPages")

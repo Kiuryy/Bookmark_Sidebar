@@ -248,7 +248,15 @@
             });
         };
 
+        /**
+         * Initialises the eventhandler
+         */
         const initEvents = () => {
+            n.elm.search.speechSearch.on("click", (e) => {
+                e.preventDefault();
+                handleSpeechInput();
+            });
+
             n.elm.search.submit.on("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -330,6 +338,71 @@
             $(window).on("resize", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
             }, {passive: true});
+        };
+
+        /**
+         * Handles the speech input
+         */
+        const handleSpeechInput = () => {
+            const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+            if (SpeechRecognition) {
+                if (n.elm.search.wrapper.hasClass($.cl.newtab.listening) && n.elm.search.wrapper.data("recognition")) { // already listening -> abort
+                    n.elm.search.wrapper.data("recognition").stop();
+                    return;
+                }
+
+
+                const recognition = new SpeechRecognition();
+                n.elm.search.wrapper.data("recognition", recognition);
+                let hasInput = false;
+
+                recognition.continuous = false;
+                recognition.interimResults = true;
+                recognition.start();
+
+                recognition.onresult = (e) => {
+                    let transcript = "";
+                    let isFinal = false;
+
+                    for (let i = e.resultIndex; i < e.results.length; ++i) {
+                        transcript += e.results[i][0].transcript;
+                        if (e.results[i].isFinal) {
+                            isFinal = true;
+                        }
+                    }
+
+                    if (transcript.length > 0) {
+                        n.elm.search.field[0].value = transcript;
+                        hasInput = true;
+                    }
+
+                    if (isFinal) {
+                        handleSearch(transcript);
+                    }
+                };
+
+                recognition.onstart = () => {
+                    n.elm.search.wrapper.addClass($.cl.newtab.listening);
+                    n.elm.search.field[0].value = n.helper.i18n.get("newtab_speech_search_listening") + " ...";
+                };
+
+                recognition.onend = () => {
+                    n.elm.search.wrapper.removeClass($.cl.newtab.listening);
+                    if (hasInput === false) {
+                        n.elm.search.field[0].value = "";
+                    }
+                };
+
+                recognition.onerror = (e) => {
+                    recognition.stop();
+                    recognition.onend(null);
+
+                    if (e.error === "not-allowed") {
+                        alert(n.helper.i18n.get("newtab_speech_search_error"));
+                    }
+                };
+            }
         };
     };
 

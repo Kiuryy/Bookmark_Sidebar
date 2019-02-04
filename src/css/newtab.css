@@ -315,7 +315,7 @@ div#search {
     width: 100%;
     height: 100%;
     border-radius: 27px;
-    padding: 0 55px 0 30px;
+    padding: 0 90px 0 30px;
     border: none;
     outline: none;
     font-size: 125%;
@@ -350,6 +350,26 @@ div#search {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg);
       background-color: #aaa; }
     div#search > button[type="submit"]:hover {
+      background: #f2f2f2; }
+  div#search > a.speechSearch {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    width: calc(54px - 20px);
+    height: calc(54px - 20px);
+    border-radius: 50%;
+    transition: background 0.3s; }
+    div#search > a.speechSearch::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/20px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-speech.svg);
+      background-color: #aaa; }
+    div#search > a.speechSearch:hover {
       background: #f2f2f2; }
   div#search > ul.suggestions {
     position: absolute;
@@ -388,11 +408,30 @@ div#search {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg); }
       div#search > ul.suggestions > li[data-type='word']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
+  div#search.listening > input[type='text'] {
+    pointer-events: none;
+    font-style: italic;
+    color: transparent;
+    text-shadow: 0 0 0 gray; }
+  div#search.listening > a.speechSearch {
+    right: 20px; }
+    div#search.listening > a.speechSearch::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/20px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
+      background-color: #aaa; }
+  div#search.listening > ul.suggestions, div#search.listening > button[type="submit"] {
+    display: none; }
 
 body.customBackground div#search > input[type='text'] {
   background: rgba(255, 255, 255, 0.8); }
 
-body.customBackground div#search > button[type="submit"]::before {
+body.customBackground div#search > button[type="submit"]::before, body.customBackground div#search > a.speechSearch::before {
   background-color: #848484; }
 
 html[dir='rtl'] div#search > input[type='text'] {
@@ -400,7 +439,11 @@ html[dir='rtl'] div#search > input[type='text'] {
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2); }
 
 html[dir='rtl'] div#search > button[type="submit"] {
-  left: 16px;
+  left: 15px;
+  right: unset; }
+
+html[dir='rtl'] div#search > a.speechSearch {
+  left: 60px;
   right: unset; }
 
 html[dir='rtl'] div#search > ul.suggestions > li {
@@ -410,10 +453,14 @@ html[dir='rtl'] div#search > ul.suggestions > li {
     left: unset;
     right: 7px; }
 
+html[dir='rtl'] div#search.listening > a.speechSearch {
+  left: 20px;
+  right: unset; }
+
 body.dark div#search > input[type='text'] {
   background: #4d4d4d; }
 
-body.dark div#search > button[type="submit"]:hover {
+body.dark div#search > button[type="submit"]:hover, body.dark div#search > a.speechSearch:hover {
   background: #5a5a5a; }
 
 body.dark div#search > ul.suggestions {
@@ -424,7 +471,7 @@ body.dark div#search > ul.suggestions {
 body.dark.customBackground div#search > input[type='text'] {
   background: rgba(61, 61, 61, 0.7); }
 
-body.dark.customBackground div#search > button[type="submit"]::before {
+body.dark.customBackground div#search > button[type="submit"]::before, body.dark.customBackground div#search > a.speechSearch::before {
   background: #aaa; }
 
 div#fallbackInfo {

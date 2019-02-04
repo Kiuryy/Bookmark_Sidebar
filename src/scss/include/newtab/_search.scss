@@ -11,7 +11,7 @@ div#search {
     width: 100%;
     height: 100%;
     border-radius: $newTabSearchHeight / 2;
-    padding: 0 55px 0 30px;
+    padding: 0 90px 0 30px;
     border: none;
     outline: none;
     font-size: 125%;
@@ -41,6 +41,21 @@ div#search {
     background: none;
     border-radius: 50%;
     cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: $bodyBackground;
+    }
+  }
+
+  > a.speechSearch {
+    @include mask('icon-speech', $textColorLight, 20px);
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    width: calc(#{$newTabSearchHeight} - 20px);
+    height: calc(#{$newTabSearchHeight} - 20px);
+    border-radius: 50%;
     transition: background 0.3s;
 
     &:hover {
@@ -88,6 +103,25 @@ div#search {
       }
     }
   }
+
+  &.listening {
+
+    > input[type='text'] {
+      pointer-events: none;
+      font-style: italic;
+      color: transparent;
+      text-shadow: 0 0 0 gray;
+    }
+
+    > a.speechSearch {
+      @include mask('icon-close', $textColorLight, 20px);
+      right: 20px;
+    }
+
+    > ul.suggestions, > button[type="submit"] {
+      display: none;
+    }
+  }
 }
 
 body.customBackground div#search {
@@ -96,7 +130,7 @@ body.customBackground div#search {
     background: rgba($contentBackground, 0.8);
   }
 
-  > button[type="submit"]::before {
+  > button[type="submit"]::before, > a.speechSearch::before {
     background-color: darken($textColorLight, 15%);
   }
 }

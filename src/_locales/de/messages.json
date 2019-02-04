@@ -266,6 +266,12 @@
     "newtab_top_pages_hidden": {
         "message": "Keine Seiten anzeigen"
     },
+    "newtab_speech_search_listening": {
+        "message": "Jetzt sprechen"
+    },
+    "newtab_speech_search_error": {
+        "message": "Um die Sprachsuche zu aktivieren, muss der Erweiterung Zugriff auf dein Mikrofon gew\u00e4hrt werden."
+    },
     "newtab_upload_background": {
         "message": "Hintergrundbild hochladen"
     },

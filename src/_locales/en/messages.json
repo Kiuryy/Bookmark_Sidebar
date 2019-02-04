@@ -266,6 +266,12 @@
     "newtab_top_pages_hidden": {
         "message": "Don't show pages"
     },
+    "newtab_speech_search_listening": {
+        "message": "Speak now"
+    },
+    "newtab_speech_search_error": {
+        "message": "To enable the speech search, you have to allow microphone access."
+    },
     "newtab_upload_background": {
         "message": "Upload background image"
     },

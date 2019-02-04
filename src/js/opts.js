@@ -130,6 +130,7 @@
                 add: "add",
                 link: "link",
                 permanentSidebar: "permanentSidebar",
+                listening: "listening",
                 remove: "remove",
                 infoBar: "infoBar",
                 upload: "upload",

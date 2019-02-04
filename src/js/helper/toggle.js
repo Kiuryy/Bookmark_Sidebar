@@ -7,20 +7,20 @@
      * @constructor
      */
     $.ToggleHelper = function (ext) {
+        const toggleArea = {};
+        const timeout = {};
 
+        let openDelay = 0;
+        let mouseNotTopLeft = false;
+        let hoveredOnce = false;
         let sidebarPos = null;
         let dndOpen = null;
-        const toggleArea = {};
         let preventPageScroll = null;
         let preventWindowed = null;
-        let openDelay = 0;
         let indicatorWidth = null;
         let sidebarWidth = null;
         let inPixelToleranceTime = null;
-        let mouseNotTopLeft = false;
-        const timeout = {};
         let keypressed = null;
-        let hoveredOnce = false;
         let lastFocussed = null;
 
         /**
@@ -456,6 +456,8 @@
 
             if (preventWindowed && ext.helper.utility.isWindowed()) {
                 // prevent opening the sidebar in window mode with the according setting set to true
+            } else if (document.fullscreen || document.webkitIsFullScreen) {
+                // don't open the sidebar when the website requested fullscreen (will be false when a user browses with F11 fullscreen)
             } else if (keypressed !== null && +new Date() - keypressed < 500) {
                 // a key is pressed -> prevent opening the sidebar
             } else if (typeof clientX !== "undefined" && clientX !== null) {

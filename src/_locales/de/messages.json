@@ -224,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikate"
     },
+    "overlay_check_bookmarks_menu_empty_dirs": {
+        "message": "Leere Verzeichnisse"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Lesezeichen-URLs werden \u00fcberpr\u00fcft"
     },
@@ -244,6 +247,9 @@
     },
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Es existieren keine doppelten Lesezeichen-URLs"
+    },
+    "overlay_check_bookmarks_no_results_empty_dirs": {
+        "message": "Es existieren keine Verzeichnisse ohne Lesezeichen"
     },
     "newtab_title": {
         "message": "Neuer Tab"
@@ -668,29 +674,11 @@
     "settings_remember_desc": {
         "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Anlege-Dialog anzeigen"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Zeigt den Anlege-Dialog an, wenn ein neues Lesezeichen per Drag&Drop in die Sidebar angelegt werden soll."
-    },
     "settings_new_entry_position": {
         "message": "Position neuer Eintr\u00e4ge"
     },
     "settings_new_entry_position_desc": {
         "message": "Die standardm\u00e4\u00dfig ausgew\u00e4hlte Position beim Hinzuf\u00fcgen neuer Eintr\u00e4ge zur Sidebar."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Alle Lesezeichen \u00f6ffnen (Warnungsgrenze)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Anzahl Lesezeichen ab denen eine Warnung erscheinen soll, wenn alle Lesezeichen eines Verzeichnisses auf einmal ge\u00f6ffnet werden sollen."
-    },
-    "settings_dir_open_duration": {
-        "message": "Verzeichnis-Animationsdauer"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Dauer der Animation eines Verzeichnisses beim \u00d6ffnen und Schlie\u00dfen"
     },
     "settings_new_tab": {
         "message": "Neuer Tab"
@@ -733,12 +721,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nie ausblenden"
-    },
-    "settings_dnd_open": {
-        "message": "Per Drag&Drop \u00f6ffnen"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Erm\u00f6glicht es, markierten Text, Links und URLs in die Sidebar zu ziehen. Das kann hilfreich sein, wenn man ein Lesezeichen f\u00fcr die aktuelle Seite oder Links auf andere Webseiten erstellen m\u00f6chte."
     },
     "settings_reopen_sidebar": {
         "message": "Sidebar erneut \u00f6ffnen"
@@ -790,12 +772,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
-    },
-    "settings_animations": {
-        "message": "Animation aktivieren"
-    },
-    "settings_animations_desc": {
-        "message": "Erm\u00f6glicht die Deaktivierung aller Animationen der Sidebar. Dies kann hilfreich sein, wenn die Animationen ruckeln oder zu viel Leistung ben\u00f6tigen."
     },
     "settings_contextmenu": {
         "message": "Eintrag im Rechtsklickmen\u00fc"

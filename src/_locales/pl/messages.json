@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otw\u00f3rz w oknie incognito"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Dodaj zak\u0142adk\u0119"
+    },
     "contextmenu_add": {
         "message": "Dodaj element"
     },
@@ -176,6 +179,15 @@
     "overlay_label_separator": {
         "message": "Separator"
     },
+    "overlay_add_position": {
+        "message": "Pozycja"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Do\u0142\u00f3\u017c do katalogu"
+    },
+    "overlay_add_position_append": {
+        "message": "Dodaj do katalogu"
+    },
     "overlay_separator_title_desc": {
         "message": "Mo\u017cesz opcjonalnie doda\u0107 tytu\u0142 dla separatora. B\u0119dzie wy\u015bwietlany na szczycie wiersza z separatorem i pomo\u017ce organizowa\u0107 zak\u0142adki."
     },
@@ -253,6 +265,12 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Nie pokazuj stron"
+    },
+    "newtab_speech_search_listening": {
+        "message": "M\u00f3w teraz"
+    },
+    "newtab_speech_search_error": {
+        "message": "Aby w\u0142\u0105czy\u0107 wyszukiwanie mow\u0105, musisz zezwoli\u0107 na dost\u0119p do mikrofonu."
     },
     "newtab_upload_background": {
         "message": "Prze\u015blij obraz t\u0142a"
@@ -503,6 +521,9 @@
     "settings_menu_infos_privacy": {
         "message": "Prywatno\u015b\u0107"
     },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
     "settings_menu_infos_changelog": {
         "message": "Lista zmian"
     },
@@ -511,6 +532,9 @@
     },
     "settings_menu_export": {
         "message": "Importuj\/Eksportuj"
+    },
+    "settings_menu_expert": {
+        "message": "Ustawienia eksperckie"
     },
     "settings_save": {
         "message": "Zapisz zmiany"
@@ -538,6 +562,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Nie mo\u017cna aktywowa\u0107 konta premium. Wprowad\u017a poprawny klucz licencyjny"
+    },
+    "settings_search_placeholder": {
+        "message": "Wyszukiwanie konfiguracji"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Ustawienia eksperckie umo\u017cliwiaj\u0105 skonfigurowanie ka\u017cdej flagi konfiguracji rozszerzenia, nawet tych, kt\u00f3rych nie mo\u017cna zmieni\u0107 za pomoc\u0105 zwyk\u0142ych p\u00f3l wyboru lub suwak\u00f3w na stronie ustawie\u0144."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Prosimy o zmian\u0119 warto\u015bci tylko wtedy, gdy wiesz, co robisz. Wadliwe konfiguracje mog\u0105 spowodowa\u0107 nieoczekiwane zachowanie rozszerzenia. Je\u015bli co\u015b si\u0119 zepsuje, mo\u017cesz powr\u00f3ci\u0107 do konfiguracji domy\u015blnej."
+    },
+    "settings_expert_save_error": {
+        "message": "Nie uda\u0142o si\u0119 zapisa\u0107 ustawie\u0144. Upewnij si\u0119, \u017ce wprowadzone dane s\u0105 prawid\u0142owe."
     },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
@@ -632,18 +668,6 @@
     "settings_remember_desc": {
         "message": "Wybierz co zapami\u0119ta\u0107 pomi\u0119dzy r\u00f3\u017cnymi stronami. Je\u015bli wybierzesz, aby zapami\u0119ta\u0107 ostatnio otwieran\u0105 zak\u0142adk\u0119, zostanie ona wybrana podczas nast\u0119pnego otwarcia bocznej listy."
     },
-    "settings_open_children_warn_limit": {
-        "message": "Otw\u00f3rz wszystkie zak\u0142adki w folderze (limit ostrze\u017cenia)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Liczba zak\u0142adek przy kt\u00f3rych pojawia si\u0119 ostrze\u017cenie, kiedy pr\u00f3buje otworzy\u0107 si\u0119 na raz wszystkie zak\u0142adki w folderze."
-    },
-    "settings_dir_open_duration": {
-        "message": "Czas trwania otwierania folderu"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Czas trwania animacji otwierania i zamykania folderu."
-    },
     "settings_new_tab": {
         "message": "Nowa karta"
     },
@@ -685,12 +709,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nigdy nie chowaj."
-    },
-    "settings_dnd_open": {
-        "message": "Otw\u00f3rz poprzez przeci\u0105gni\u0119cie i upuszczenie"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Zezwalaj na przeci\u0105ganie zaznaczonego tekstu, link\u00f3w i URL do bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli chcesz zapisa\u0107 aktualn\u0105 stron\u0119 lub inne linki na stronie."
     },
     "settings_reopen_sidebar": {
         "message": "Otw\u00f3rz ponownie boczn\u0105 list\u0119"
@@ -742,12 +760,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Prawa"
-    },
-    "settings_animations": {
-        "message": "W\u0142\u0105cz animacje"
-    },
-    "settings_animations_desc": {
-        "message": "Pozwala wy\u0142\u0105czy\u0107 wszystkie animacje bocznej listy. Mo\u017ce by\u0107 to u\u017cyteczne, je\u015bli animacje nie s\u0105 p\u0142ynne."
     },
     "settings_contextmenu": {
         "message": "Wpis w menu kontekstowym"
@@ -802,6 +814,9 @@
     },
     "settings_presets": {
         "message": "Ustaw relatywne rozmiary"
+    },
+    "settings_presets_desc": {
+        "message": "Mo\u017cna wybra\u0107 predefiniowane rozmiary paska bocznego. Spowoduje to zmian\u0119 suwak\u00f3w na tej stronie w celu dostosowania szeroko\u015bci paska bocznego, wysoko\u015bci linii, rozmiar\u00f3w ikon i wielu innych opcji."
     },
     "settings_color_scheme": {
         "message": "Kolor motywu"
@@ -950,6 +965,9 @@
     "settings_translation_help": {
         "message": "Dla ka\u017cdego wpisu mo\u017cna zobaczy\u0107 t\u0142umaczenie w j\u0119zyku angielskim, kt\u00f3re nale\u017cy przet\u0142umaczy\u0107 na tw\u00f3j j\u0119zyk. Aby pom\u00f3c Ci zidentyfikowa\u0107, gdzie jest ten tekst i po co, ka\u017cdy wpis ma nazw\u0119 (np. {1}), kt\u00f3ra nie powinna by\u0107 t\u0142umaczona. Prosz\u0119 nie zapomnij o przes\u0142aniu t\u0142umaczenia, naciskaj\u0105c przycisk w prawym g\u00f3rnym rogu!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Chc\u0119 otrzymywa\u0107 powiadomienia o dodaniu nowych zmiennych j\u0119zykowych do rozszerzenia"
+    },
     "settings_translation_submit": {
         "message": "Zatwierd\u017a"
     },
@@ -1000,6 +1018,27 @@
     },
     "settings_feedback_faq_headline": {
         "message": "To mo\u017ce Ci\u0119 zainteresowa\u0107"
+    },
+    "settings_permissions_desc": {
+        "message": "Aby w Chrome mo\u017cliwe by\u0142o stosowanie prze\u0142\u0105czanego paska bocznego, wymagane s\u0105 nast\u0119puj\u0105ce pozwolenia wymagane przez rozszerzenie:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Niestety Chrome nie ma mechanizmu wy\u015bwietlania tre\u015bci w oknie przegl\u0105darki bez interakcji z aktualnie odwiedzan\u0105 stron\u0105."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Poniewa\u017c pasek boczny jest wy\u015bwietlany w g\u00f3rnej cz\u0119\u015bci bie\u017c\u0105cej strony internetowej, to uprawnienie jest wymagane. Poza tym powodem technicznym, pozwolenie nie jest wykorzystywane do innych cel\u00f3w."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Je\u015bli masz w\u0105tpliwo\u015bci dotycz\u0105ce tego, co robi\u0119 za pozwoleniem, mo\u017cesz wy\u015bwietli\u0107 kod \u017ar\u00f3d\u0142owy rozszerzenia na Github. Jest ono otwarte i widoczne dla wszystkich."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Rozszerzenie wy\u015bwietla zak\u0142adki w pasku bocznym i dlatego potrzebuje tego uprawnienia, aby uzyska\u0107 dost\u0119p. Uprawnienie to pozwala r\u00f3wnie\u017c na dodawanie, edycj\u0119 i usuwanie zak\u0142adek."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Udost\u0119pnianie informacji"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Twoje preferencje zosta\u0142y zapisane pomy\u015blnie"
     },
     "premium_popup_text": {
         "message": "Czy sprawdzi\u0142e\u015b ju\u017c konto Premium?"
@@ -1055,11 +1094,20 @@
     "premium_feature_linkchecker_headline": {
         "message": "Sprawd\u017a swoje zak\u0142adki w poszukiwaniu uszkodzonych lub zduplikowanych link\u00f3w"
     },
+    "premium_feature_linkchecker_desc": {
+        "message": "Mo\u017cesz klikn\u0105\u0107 prawym przyciskiem myszy dowolny katalog na pasku bocznym i wykona\u0107 kontrol\u0119. Strona z wynikami wy\u015bwietli wszystkie zaktualizowane adresy URL, zak\u0142adki, kt\u00f3re ju\u017c nie dzia\u0142aj\u0105, i zak\u0142adki z tym samym adresem URL."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Wybierz metod\u0119 p\u0142atno\u015bci"
+    },
     "premium_pay_what_you_want": {
         "message": "Zap\u0142a\u0107 ile chcesz"
     },
     "premium_pay_creditcard": {
         "message": "Karta kredytowa lub debetowa"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Zeskanuj ten kod QR w serwisie WeChat, aby kontynuowa\u0107."
     },
     "premium_pay_contact": {
         "message": "Je\u015bli napotkasz jakiekolwiek problemy z p\u0142atno\u015bci\u0105 lub masz jakie\u015b pytania, skontaktuj si\u0119 ze mn\u0105 pod adresem {1}."
@@ -1073,6 +1121,12 @@
     "premium_pay_eula_desc": {
         "message": "Przeczyta\u0142em i akceptuj\u0119 [a]Umow\u0119 Licencyjn\u0105 U\u017cytkownika Ko\u0144cowego[\/a]"
     },
+    "premium_pay_cancellation_policy": {
+        "message": "Zasady anulowania"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Potwierd\u017a zakup"
+    },
     "premium_pay_buy": {
         "message": "Kup Premium"
     },
@@ -1085,8 +1139,17 @@
     "premium_pay_success_headline": {
         "message": "Dzi\u0119kuj\u0119 za Tw\u00f3j zakup"
     },
+    "premium_pay_success_info": {
+        "message": "Us\u0142uga {1} zosta\u0142a aktywowana automatycznie dla tego urz\u0105dzenia. Nie musisz podejmowa\u0107 \u017cadnych dalszych krok\u00f3w."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Je\u015bli chcesz aktywowa\u0107 {1} na innym urz\u0105dzeniu lub po ponownym zainstalowaniu rozszerzenia, mo\u017cesz wprowadzi\u0107 nast\u0119puj\u0105cy klucz w ustawieniach rozszerzenia:"
+    },
     "premium_pay_info_email": {
         "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Wprowad\u017a sw\u00f3j adres e-mail, aby otrzyma\u0107 klucz licencyjny."
     },
     "premium_pay_info_name": {
         "message": "Imi\u0119"

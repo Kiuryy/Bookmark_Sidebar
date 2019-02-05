@@ -511,7 +511,7 @@
                     const variableName = $("<footer />")
                         .addClass($.cl.sidebar.breadcrumb)
                         .data("name", field.label)
-                        .html("<label>Variable name:</label><div />") // @toDo Replace hardcoded
+                        .html("<label>" + s.helper.i18n.get("settings_translation_variable_name") + ":</label><div />")
                         .appendTo(entry.children("div").eq(0));
 
                     field.label.split(" - ").forEach((variablePart) => {

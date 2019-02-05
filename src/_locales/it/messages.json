@@ -659,29 +659,11 @@
     "settings_remember_desc": {
         "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Mostra la finestra di dialogo di creazione"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Mostra la finestra di dialogo di creazione prima di aggiungere un nuovo segnalibro quando drag&drop nella barra laterale."
-    },
     "settings_new_entry_position": {
         "message": "Posizione delle nuove voci"
     },
     "settings_new_entry_position_desc": {
         "message": "La posizione preselezionata quando si aggiungono nuove voci alla barra laterale."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Apri tutto il contenuto (Avviso limite)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Il numero di preferiti necessari per mostrare l'avviso, quando si tenta di aprire tutto il contenuto di una cartella in una volta sola."
-    },
-    "settings_dir_open_duration": {
-        "message": "Durata apertura cartella"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Durata dell'animazione di apertura e chiusura delle cartelle"
     },
     "settings_new_tab": {
         "message": "Nuova scheda"
@@ -724,12 +706,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Non nascondere mai"
-    },
-    "settings_dnd_open": {
-        "message": "Apri trascinando"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Permette di trascinare del testo selezionato, link e URL nella barra laterale. Pu\u00f2 risultare utile se vuoi salvare velocemente nei preferiti la pagina attuale o altri collegamenti dei siti web che visiti."
     },
     "settings_reopen_sidebar": {
         "message": "Riapri la barra laterale"
@@ -781,12 +757,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Destro"
-    },
-    "settings_animations": {
-        "message": "Abilita animazioni"
-    },
-    "settings_animations_desc": {
-        "message": "Permette di disattivare tutte le animazioni della barra. Pu\u00f2 essere utile se le animazioni non sono riprodotte in maniera fluida sul tuo sistema."
     },
     "settings_contextmenu": {
         "message": "Voce nel men\u00f9 contestuale"

@@ -176,6 +176,12 @@
     "overlay_label_separator": {
         "message": "Separador"
     },
+    "overlay_add_position": {
+        "message": "Posi\u00e7\u00e3o"
+    },
+    "overlay_add_position_append": {
+        "message": "Acrescentar \u00e0 directoria"
+    },
     "overlay_separator_title_desc": {
         "message": "Podes, opcionalmente, introduzir um t\u00edtulo para o separador. Ser\u00e1 visualizado em cima da linha do separador para ajudar \u00e0 organiza\u00e7\u00e3o da lista de favoritos."
     },
@@ -632,18 +638,6 @@
     "settings_remember_desc": {
         "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se escolheres lembrar o \u00faltimo favorito aberto, esse ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
-    "settings_open_children_warn_limit": {
-        "message": "Abrir todos as subpastas (limite de aviso)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Quantidade de favoritos com a qual um aviso aparece ao se tentar abrir todos as subpastas ao mesmo tempo."
-    },
-    "settings_dir_open_duration": {
-        "message": "Dura\u00e7\u00e3o de abertura da pasta"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Dura\u00e7\u00e3o da anima\u00e7\u00e3o de abertura e fechamento das pastas"
-    },
     "settings_new_tab": {
         "message": "Nova guia"
     },
@@ -685,12 +679,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
-    },
-    "settings_dnd_open": {
-        "message": "Abrir com Arrastar e Soltar"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Permite arrastar textos selecionados, links e URLs para dentro da barra lateral. Isto pode ser \u00fatil se voc\u00ea quiser adicionar a p\u00e1gina atual aos favoritos ou quaisquer outros links em sites."
     },
     "settings_reopen_sidebar": {
         "message": "Reabrir a barra lateral."
@@ -742,12 +730,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Direita"
-    },
-    "settings_animations": {
-        "message": "Habilitar anima\u00e7\u00f5es"
-    },
-    "settings_animations_desc": {
-        "message": "Permite que voc\u00ea desabilite todas as anima\u00e7\u00f5es da barra lateral. Isto pode ser \u00fatil se as anima\u00e7\u00f5es n\u00e3o est\u00e3o funcionando suavemente em seu sistema."
     },
     "settings_contextmenu": {
         "message": "Elemento do menu de contexto"

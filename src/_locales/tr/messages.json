@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Yeni gizli sayfada a\u00e7"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Yer imi ekle"
+    },
     "contextmenu_add": {
         "message": "Girdi ekle"
     },
@@ -178,6 +181,12 @@
     },
     "overlay_add_position": {
         "message": "Konum"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Dizinin en ba\u015f\u0131na ekle"
+    },
+    "overlay_add_position_append": {
+        "message": "Dizine ekle"
     },
     "overlay_separator_title_desc": {
         "message": "Ay\u0131r\u0131c\u0131ya iste\u011fe ba\u011fl\u0131 olarak ba\u015fl\u0131k girebilirsiniz. Ay\u0131r\u0131c\u0131 \u00e7izgisinin \u00fczerinde g\u00f6z\u00fckecektir ve size yer imi listenizi d\u00fczenlemenizde yard\u0131mc\u0131 olabilir."
@@ -647,18 +656,6 @@
     "settings_remember_desc": {
         "message": "Sayfa de\u011fi\u015fikliklerinde ne hat\u0131rlanaca\u011f\u0131n\u0131 se\u00e7in. Son a\u00e7\u0131lan yer imini hat\u0131rlamay\u0131 se\u00e7erseniz, kenar \u00e7ubu\u011funu tekrar a\u00e7arken i\u015faretlenir."
     },
-    "settings_open_children_warn_limit": {
-        "message": "T\u00fcm alt sekmeleri a\u00e7 (Uyar\u0131 s\u0131n\u0131r\u0131)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Bir dizinin t\u00fcm alt sekmelerini bir seferde a\u00e7maya \u00e7al\u0131\u015f\u0131rken bir uyar\u0131n\u0131n g\u00f6r\u00fcnd\u00fc\u011f\u00fc yer imi miktar\u0131."
-    },
-    "settings_dir_open_duration": {
-        "message": "Dizin a\u00e7\u0131l\u0131\u015f s\u00fcresi"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Dizinlerin a\u00e7\u0131l\u0131\u015f ve kapan\u0131\u015f animasyon s\u00fcreleri"
-    },
     "settings_new_tab": {
         "message": "Yeni sekme"
     },
@@ -700,12 +697,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Asla gizleme"
-    },
-    "settings_dnd_open": {
-        "message": "S\u00fcr\u00fckle ve b\u0131rak ile a\u00e7"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Metin se\u00e7imlerini, ba\u011flant\u0131lar\u0131 ve URL'leri kenar \u00e7ubu\u011fa s\u00fcr\u00fcklemeye izin ver. Ge\u00e7erli sayfay\u0131 veya web sitelerindeki di\u011fer ba\u011flant\u0131lar\u0131 yer imi koymak isterseniz bu yararl\u0131 olabilir."
     },
     "settings_reopen_sidebar": {
         "message": "Kenar \u00e7ubu\u011funu yeniden a\u00e7"
@@ -757,12 +748,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Sa\u011f"
-    },
-    "settings_animations": {
-        "message": "Animasyonlar\u0131 etkinle\u015ftir"
-    },
-    "settings_animations_desc": {
-        "message": "Kenar \u00e7ubu\u011funun t\u00fcm animasyonlar\u0131n\u0131 devre d\u0131\u015f\u0131 b\u0131rakman\u0131za izin verir. Animasyonlar sisteminizde d\u00fczg\u00fcn \u00e7al\u0131\u015fm\u0131yorsa, bu yararl\u0131 olabilir."
     },
     "settings_contextmenu": {
         "message": "Sa\u011f t\u0131k men\u00fcs\u00fc se\u00e7ene\u011fi"

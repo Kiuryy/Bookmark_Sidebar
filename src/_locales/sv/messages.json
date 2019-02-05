@@ -24,16 +24,22 @@
         "message": "Url kopierad"
     },
     "sidebar_deleted": {
-        "message": "Tog bort"
+        "message": "Borttagen"
     },
     "sidebar_undo_deletion": {
         "message": "\u00c5ngra"
+    },
+    "more_link": {
+        "message": "L\u00e4r mer"
     },
     "contextmenu_edit_bookmark": {
         "message": "\u00c4ndra bokm\u00e4rke"
     },
     "contextmenu_edit_dir": {
         "message": "\u00c4ndra mapp"
+    },
+    "contextmenu_edit_separator": {
+        "message": "\u00c4ndra Separator"
     },
     "contextmenu_delete_bookmark": {
         "message": "Ta bort bokm\u00e4rke"
@@ -56,11 +62,14 @@
     "contextmenu_new_tab_incognito": {
         "message": "\u00d6ppna i nytt inkognito f\u00f6nster"
     },
+    "contextmenu_add_bookmark": {
+        "message": "L\u00e4gg till bokm\u00e4rke"
+    },
     "contextmenu_add": {
         "message": "L\u00e4gg till post"
     },
-    "contextmenu_update_urls": {
-        "message": "Uppdatera url'er"
+    "contextmenu_check_bookmarks": {
+        "message": "Kolla bokm\u00e4rken"
     },
     "contextmenu_toggle_hidden": {
         "message": "Visa dolda poster"
@@ -116,93 +125,6 @@
     "sort_most_used_per_month": {
         "message": "Per m\u00e5nad"
     },
-    "overlay_bookmark_title": {
-        "message": "Titel"
-    },
-    "overlay_bookmark_url": {
-        "message": "URL"
-    },
-    "overlay_bookmark_additional_info": {
-        "message": "Mer info"
-    },
-    "overlay_cancel": {
-        "message": "Avbryt"
-    },
-    "overlay_close": {
-        "message": "St\u00e4ng"
-    },
-    "overlay_save": {
-        "message": "Spara"
-    },
-    "overlay_delete": {
-        "message": "Ta bort"
-    },
-    "overlay_update": {
-        "message": "Uppdatera"
-    },
-    "overlay_open_children": {
-        "message": "\u00d6ppna alla"
-    },
-    "overlay_confirm_open_children": {
-        "message": "Vill du verkligen \u00f6ppna alla (1) underliggande bokm\u00e4rken?"
-    },
-    "overlay_hide_from_sidebar": {
-        "message": "G\u00f6m fr\u00e5n sidopanel"
-    },
-    "overlay_hide_bookmark_confirm": {
-        "message": "Vill du verkligen g\u00f6mma detta bokm\u00e4rke fr\u00e5n sidopanelen?"
-    },
-    "overlay_hide_dir_confirm": {
-        "message": "Vill du verkligen g\u00f6mma denna mapp fr\u00e5n sidopanelen? Alla underliggande bokm\u00e4rken kommer ocks\u00e5 att g\u00f6mmas."
-    },
-    "overlay_delete_bookmark_confirm": {
-        "message": "Vill du verkligen ta bort detta bokm\u00e4rke?"
-    },
-    "overlay_delete_dir_confirm": {
-        "message": "Vill du verkligen ta bort denna mapp? Alla underliggande bokm\u00e4rken kommer ocks\u00e5 att tas bort."
-    },
-    "overlay_label_bookmark": {
-        "message": "Bokm\u00e4rke"
-    },
-    "overlay_label_dir": {
-        "message": "Mapp"
-    },
-    "overlay_label_separator": {
-        "message": "Separator"
-    },
-    "overlay_bookmark_views": {
-        "message": "Vyer"
-    },
-    "overlay_bookmark_views_single": {
-        "message": "Vy"
-    },
-    "overlay_bookmark_views_since": {
-        "message": "Inspelad sen"
-    },
-    "overlay_bookmark_views_per_month": {
-        "message": "per m\u00e5nad"
-    },
-    "overlay_bookmark_created_date": {
-        "message": "Skapad den"
-    },
-    "overlay_dir_children": {
-        "message": "Element"
-    },
-    "overlay_dir_children_bookmarks": {
-        "message": "Bokm\u00e4rken"
-    },
-    "overlay_dir_children_dirs": {
-        "message": "Mappar"
-    },
-    "overlay_check_bookmarks_loading": {
-        "message": "Kollar bokm\u00e4rkens url'er"
-    },
-    "overlay_check_bookmarks_no_results": {
-        "message": "Alla bokm\u00e4rken \u00e4r okej"
-    },
-    "overlay_check_urls_not_found": {
-        "message": "Url hittades ej"
-    },
     "newtab_title": {
         "message": "Ny flik"
     },
@@ -224,6 +146,12 @@
     "newtab_top_pages_hidden": {
         "message": "Visa inte sidor"
     },
+    "newtab_upload_background": {
+        "message": "Ladda upp bakgrundsbild"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "N\u00e5gonting har blockerat sidof\u00e4ltet"
+    },
     "newtab_fallback_headline_webstore": {
         "message": "Sidopanelen kan inte anv\u00e4ndas i Chrome Webstore"
     },
@@ -235,6 +163,15 @@
     },
     "newtab_fallback_headline_system": {
         "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 Chrome systemsidor"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "En av dina URL regler till ej att sidof\u00e4lt \u00f6ppnades"
+    },
+    "newtab_fallback_desc": {
+        "message": "Vi har \u00f6ppnat en ny flik med sidof\u00e4lt f\u00f6r dig ist\u00e4llet"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "\u00d6ppna alltid denna sida vid \u00f6ppning av ny flik"
     },
     "status_service_unavailable_headline": {
         "message": "Tj\u00e4nst otillg\u00e4nglig"
@@ -248,11 +185,11 @@
     "status_translation_unavailable_desc": {
         "message": "\u00d6vers\u00e4ttningstj\u00e4nsten \u00e4r f\u00f6r tillf\u00e4llet inte tillg\u00e4ngligt. V\u00e4nligen f\u00f6rs\u00f6k senare."
     },
-    "status_background_disconnected_reload_desc": {
-        "message": "P\u00e5 grund av en uppdatering av till\u00e4gget m\u00e5ste denna sida laddas om."
-    },
     "status_background_disconnected_reload_action": {
         "message": "Ladda om nu"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "P\u00e5 grund av en uppdatering av till\u00e4gget m\u00e5ste denna sida laddas om."
     },
     "onboarding_title": {
         "message": "Installation"
@@ -302,8 +239,14 @@
     "onboarding_finish_desc": {
         "message": "Mycket n\u00f6je med din sidopanel!"
     },
+    "onboarding_finish_notice": {
+        "message": "Om du ofta klickar p\u00e5 n\u00e5got av sidan i webbl\u00e4saren s\u00e5 kanske du vill \u00e4ndra s\u00e5 att sidof\u00e4ltet \u00f6ppnas vertikalt f\u00f6r att undvika att det \u00f6ppnas av misstag."
+    },
     "onboarding_goto_settings": {
         "message": "Fler inst\u00e4llningar"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Konfigurationsframtr\u00e4dande"
     },
     "settings_title": {
         "message": "Inst\u00e4llningar"
@@ -356,11 +299,32 @@
     "settings_menu_feedback": {
         "message": "Feedback"
     },
-    "settings_menu_support": {
-        "message": "Support"
+    "settings_menu_infos": {
+        "message": "Information"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Om mig"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Tilll\u00e5telser"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Sekretess"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "\u00c4ndringslogg"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
     },
     "settings_menu_export": {
         "message": "Importera\/exportera"
+    },
+    "settings_menu_expert": {
+        "message": "Expertinst\u00e4llningar"
     },
     "settings_save": {
         "message": "Spara \u00e4ndringar"
@@ -383,11 +347,14 @@
     "settings_not_synced": {
         "message": "Kommer inte synkroniseras mellan dina enheter"
     },
-    "settings_animations": {
-        "message": "Aktivera animeringar"
+    "settings_premium_activated": {
+        "message": "Premium har blivit aktiverat"
     },
-    "settings_animations_desc": {
-        "message": "L\u00e5ter dig inaktivera hela animeringen i sidof\u00e4ltet. Detta kan vara anv\u00e4ndbart om animationerna inte l\u00f6per smidigt p\u00e5 ditt system."
+    "settings_premium_invalid_key": {
+        "message": "Kunde inte aktivera Premium. Var v\u00e4nlig anv\u00e4nd en \u00e4kta licens nyckel"
+    },
+    "settings_search_placeholder": {
+        "message": "S\u00f6k efter konfiguration"
     },
     "settings_open_action": {
         "message": "\u00d6ppna sidopanel"
@@ -406,6 +373,21 @@
     },
     "settings_open_action_icon": {
         "message": "Klicka p\u00e5 ikon"
+    },
+    "settings_toggle_area": {
+        "message": "Konfigurationsyta"
+    },
+    "settings_toggle_area_width": {
+        "message": "Bredd"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Bredd (F\u00f6nster)"
+    },
+    "settings_toggle_area_height": {
+        "message": "H\u00f6jd"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Du kan minska h\u00f6jden p\u00e5 omr\u00e5det, s\u00e5 sidof\u00e4ltet bara \u00f6ppnas n\u00e4r du flyttar mark\u00f6ren till den platsen i kanten av ditt webbl\u00e4sarf\u00f6nster."
     },
     "settings_keyboard_shortcut_button": {
         "message": "S\u00e4tt tangentbordsgenv\u00e4g"
@@ -443,9 +425,6 @@
     "settings_remember_state": {
         "message": "Kom ih\u00e5g"
     },
-    "settings_remember_desc": {
-        "message": "V\u00e4lj vad du ska komma ih\u00e5g \u00f6ver sid\u00e4ndringar. Om du v\u00e4ljer att komma ih\u00e5g det senaste \u00f6ppnade bokm\u00e4rket markeras det n\u00e4r du \u00f6ppnar sidopanelen igen."
-    },
     "settings_remember_state_open_states_and_scroll": {
         "message": "Rulla position och \u00f6ppna kataloger"
     },
@@ -461,17 +440,17 @@
     "settings_remember_state_nothing": {
         "message": "Ingenting"
     },
-    "settings_open_children_warn_limit": {
-        "message": "\u00d6ppna alla barn (Varningsgr\u00e4ns)"
+    "settings_remember_open_states_sub_directories": {
+        "message": "Kom ih\u00e5g \u00f6ppnade underkataloger"
     },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Antal bokm\u00e4rken d\u00e4r en varning visas n\u00e4r du f\u00f6rs\u00f6ker \u00f6ppna alla barn i en mapp samtidigt."
+    "settings_remember_desc": {
+        "message": "V\u00e4lj vad du ska komma ih\u00e5g \u00f6ver sid\u00e4ndringar. Om du v\u00e4ljer att komma ih\u00e5g det senaste \u00f6ppnade bokm\u00e4rket markeras det n\u00e4r du \u00f6ppnar sidopanelen igen."
     },
-    "settings_dir_open_duration": {
-        "message": "\u00d6ppningsvaraktighet f\u00f6r mappar"
+    "settings_new_entry_position": {
+        "message": "Placering av nya poster"
     },
-    "settings_dir_open_duration_desc": {
-        "message": "Varaktighet f\u00f6r \u00f6ppna och st\u00e4nga animering av mappar"
+    "settings_new_entry_position_desc": {
+        "message": "Den f\u00f6rinst\u00e4llda positionen n\u00e4r du l\u00e4gger till nya poster i sidof\u00e4ltet."
     },
     "settings_new_tab": {
         "message": "Ny flik"
@@ -506,26 +485,26 @@
     "settings_close_timeout_infinity": {
         "message": "St\u00e4ng inte automatiskt"
     },
-    "settings_scrollbar_hide": {
+    "settings_scroll_bar_hide": {
         "message": "G\u00f6m rullningsf\u00e4lt"
     },
-    "settings_scrollbar_hide_desc": {
+    "settings_scroll_bar_hide_desc": {
         "message": "Timeout i sekunder efter att rullningsf\u00e4ltet \u00e4r dolt. Rullning visar rullningsf\u00e4ltet igen."
     },
-    "settings_scrollbar_hide_infinity": {
+    "settings_scroll_bar_hide_infinity": {
         "message": "G\u00f6m aldrig"
-    },
-    "settings_drag_n_drop_open": {
-        "message": "\u00d6ppna med drag&sl\u00e4pp"
-    },
-    "settings_drag_n_drop_open_desc": {
-        "message": "Till\u00e5t att dra textval, l\u00e4nkar och webbadresser till sidopanelen. Detta kan vara anv\u00e4ndbart om du vill bokm\u00e4rke den aktuella sidan eller andra l\u00e4nkar p\u00e5 webbplatser."
     },
     "settings_reopen_sidebar": {
         "message": "\u00d6ppna sidof\u00e4ltet igen"
     },
     "settings_reopen_sidebar_desc": {
         "message": "\u00d6ppna automatiskt sidf\u00e4ltet igen, efter att ha \u00f6ppnat ett bokm\u00e4rke innanf\u00f6r sidof\u00e4ltet."
+    },
+    "settings_prevent_windowed": {
+        "message": "Avaktivera sidof\u00e4lt i f\u00f6nsterl\u00e4ge"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Avaktivera m\u00f6jligheten att \u00f6ppna sidof\u00e4lt genom klick eller sv\u00e4va \u00f6ver kanten av webbl\u00e4sarens inneh\u00e5ll n\u00e4r webbl\u00e4saren \u00e4r i f\u00f6nsterl\u00e4ge."
     },
     "settings_tooltip_delay": {
         "message": "Tipsf\u00f6rdr\u00f6jning"
@@ -536,11 +515,11 @@
     "settings_tooltip_delay_infinity": {
         "message": "Visa aldrig tips"
     },
+    "settings_tooltip_desc": {
+        "message": "Visa vilken information tipset ska inneh\u00e5lla."
+    },
     "settings_tooltip_content": {
         "message": "Tipsinneh\u00e5ll"
-    },
-    "settings_tooltip_content_desc": {
-        "message": "Visa vilken information tipset ska inneh\u00e5lla."
     },
     "settings_tooltip_content_all": {
         "message": "Titel och url"
@@ -550,6 +529,9 @@
     },
     "settings_tooltip_content_url": {
         "message": "Endast url"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Mer info"
     },
     "settings_sidebar_position": {
         "message": "Position"
@@ -562,6 +544,30 @@
     },
     "settings_sidebar_position_right": {
         "message": "H\u00f6ger"
+    },
+    "settings_filter_explanation_1": {
+        "message": "L\u00e4gg bara till ett URL m\u00f6nster per rad"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Om du inte l\u00e4gger in n\u00e5gra * i en regel, matchas bara den exakta webbadressen (till exempel \"example.com\" matchar inte URL-adressen \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Du beh\u00f6ver inte l\u00e4gga till protokollet (t ex http:\/\/) i reglerna"
+    },
+    "settings_filter_visibility": {
+        "message": "Ladda sidof\u00e4ltet"
+    },
+    "settings_filter_visibility_always": {
+        "message": "P\u00e5 varje sida"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "P\u00e5 varje sida utom specifika sidor"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Endast p\u00e5 specifika sidor"
+    },
+    "settings_filter_rules": {
+        "message": "URL-m\u00f6nster"
     },
     "settings_import_export_desc": {
         "message": "Du kan exportera dina till\u00e4ggsinst\u00e4llningar och spara dem lokalt p\u00e5 din dator. Du kan importera den tidigare exporterade filen p\u00e5 vilken dator som helst, d\u00e4r till\u00e4gget \u00e4r installerat."
@@ -579,7 +585,7 @@
         "message": "Misslyckades att importera konfiguration. V\u00e4nligen v\u00e4lj giltlig fil."
     },
     "settings_presets": {
-        "message": "F\u00f6rvald"
+        "message": "Best\u00e4m relativ storlek"
     },
     "settings_color_scheme": {
         "message": "F\u00e4rgschema"
@@ -605,7 +611,7 @@
     "settings_font_family_desc": {
         "message": "Typsnitt f\u00f6r sidopanelen och \u00f6verlagren"
     },
-    "settings_scrollbar_width": {
+    "settings_scroll_bar_width": {
         "message": "Rullningslistbredd"
     },
     "settings_icon_color": {
@@ -647,6 +653,9 @@
     "settings_directories_icon_size": {
         "message": "Storlek p\u00e5 mappikon"
     },
+    "settings_directory_arrows": {
+        "message": "Mapppilar"
+    },
     "settings_bookmarks_line_height": {
         "message": "Bokm\u00e4rkets radh\u00f6jd"
     },
@@ -664,6 +673,9 @@
     },
     "settings_icon_shape": {
         "message": "Form"
+    },
+    "settings_custom_css": {
+        "message": "Eget stilformat"
     },
     "settings_newtab_desc": {
         "message": "Tyv\u00e4rr har Google tagit bort m\u00f6jligheten att ladda till\u00e4gg p\u00e5 den vanliga nya fliksidan. P\u00e5 grund av detta lade jag till n\u00e5gra alternativ som l\u00e5ter dig komma \u00e5t dina bokm\u00e4rken n\u00e4r du \u00f6ppnar en ny flik p\u00e5 ett annat s\u00e4tt."
@@ -719,6 +731,9 @@
     "settings_translation_help": {
         "message": "F\u00f6r varje post kan du se den engelska \u00f6vers\u00e4ttningen, som m\u00e5ste \u00f6vers\u00e4ttas p\u00e5 ditt spr\u00e5k. F\u00f6r att hj\u00e4lpa dig att identifiera var texten anv\u00e4nds och vad den \u00e4r f\u00f6r har varje post ett namn (t ex {1}), som inte ska \u00f6vers\u00e4ttas. Gl\u00f6m inte att skicka in din \u00f6vers\u00e4ttning genom att trycka p\u00e5 knappen l\u00e4ngst upp till h\u00f6ger!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Jag vill bli informerad n\u00e4r nya variabler till spr\u00e5ket l\u00e4ggs till i till\u00e4gget"
+    },
     "settings_translation_submit": {
         "message": "Inl\u00e4mna"
     },
@@ -749,6 +764,15 @@
     "settings_feedback_email": {
         "message": "Din mejladress"
     },
+    "settings_feedback_screenshot": {
+        "message": "Bifoga sk\u00e4rmdumpar"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Filstorleken p\u00e5 {1} \u00e4r f\u00f6r stor (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Du kan bara ladda upp maximalt {1} sk\u00e4rmdumpar"
+    },
     "settings_feedback_send": {
         "message": "Skicka \u00e5terkoppling"
     },
@@ -758,16 +782,7 @@
     "settings_feedback_send_failed": {
         "message": "Ditt meddelande kunde inte skickas. V\u00e4nligen f\u00f6rs\u00f6k igen."
     },
-    "settings_headline_donation": {
-        "message": "Donera"
-    },
-    "settings_support_donation_desc": {
-        "message": "Donation \u00e4r helt frivilligt, men om du gillar till\u00e4gget och vill donera en liten summa, kan du s\u00e5 genom att klicka p\u00e5 f\u00f6ljande l\u00e4nk. Jag uppskattar varje hj\u00e4lp jag f\u00e5r, om det \u00e4r donation, hj\u00e4lp med \u00f6vers\u00e4ttningar eller \u00e5terkoppling, f\u00f6r att f\u00f6rb\u00e4ttra till\u00e4gget."
-    },
-    "settings_headline_share_userdata": {
-        "message": "Dela information"
-    },
-    "settings_saved_share_userdata": {
-        "message": "Dina inst\u00e4llningar har sparats"
+    "settings_feedback_faq_headline": {
+        "message": "Det h\u00e4r kan vara intressant f\u00f6r dig"
     }
 }

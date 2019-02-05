@@ -413,12 +413,13 @@ div.tab[data-name='language'] > div[data-name='translate'] {
       line-height: 150%;
 
       &::before {
-        -webkit-mask-position: 0 15px;
+        -webkit-mask-position: 0 12px;
       }
 
       > footer {
         font-weight: $__fontWeightMedium;
         font-size: 90%;
+        margin-top: 7px;
 
         &::before {
           content: "\2013";

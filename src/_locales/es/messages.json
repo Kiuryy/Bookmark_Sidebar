@@ -644,29 +644,11 @@
     "settings_remember_desc": {
         "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Mostrar el di\u00e1logo de creaci\u00f3n"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Mostrar el di\u00e1logo de creaci\u00f3n antes de agregar el nuevo marcador al arrastrarlo dentro de la barra lateral."
-    },
     "settings_new_entry_position": {
         "message": "Posici\u00f3n de nuevas entradas"
     },
     "settings_new_entry_position_desc": {
         "message": "La posici\u00f3n preseleccionada al agregar nuevas entradas a la barra lateral."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Abrir todos los elementos secundarios de un directorio (Advertencia de l\u00edmite)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Cantidad de marcadores a los que aparece una advertencia al intentar abrir todos los elementos secundarios de un directorio a la vez."
-    },
-    "settings_dir_open_duration": {
-        "message": "Duraci\u00f3n del directorio abierto"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Duraci\u00f3n de la apertura y cierre de animaci\u00f3n de los directorios"
     },
     "settings_new_tab": {
         "message": "Nueva Pesta\u00f1a"
@@ -709,12 +691,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nunca ocultar"
-    },
-    "settings_dnd_open": {
-        "message": "Abrir al arrastrar y soltar"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Permite arrastrar selecciones de texto, enlaces y URL a la barra lateral. Esto puede ser \u00fatil si desea marcar la p\u00e1gina actual u otros enlaces en sitios web."
     },
     "settings_reopen_sidebar": {
         "message": "Reabrir la barra lateral"
@@ -766,12 +742,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Derecha"
-    },
-    "settings_animations": {
-        "message": "Activar animaciones"
-    },
-    "settings_animations_desc": {
-        "message": "Permite desactivar todas las animaciones de la barra lateral. Esto puede ser \u00fatil si las animaciones no funcionan correctamente en su sistema."
     },
     "settings_contextmenu": {
         "message": "Entrada al men\u00fa contextual"

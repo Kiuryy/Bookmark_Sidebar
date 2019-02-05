@@ -644,29 +644,11 @@
     "settings_remember_desc": {
         "message": "Selecteer wat er onthouden moet worden tijdens paginawisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Toon de aanmaakdialoog"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Toon de aanmaakdialoog vooraleer een nieuwe bladwijzer aan de zijbalk toe te voegen."
-    },
     "settings_new_entry_position": {
         "message": "Positie van nieuwe items"
     },
     "settings_new_entry_position_desc": {
         "message": "De vooringestelde positie voor nieuwe intems in de zijbalk."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Waarschuwingslimiet aantal geopende bladwijzers"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Het aantal geopende bladwijzers waarbij een waarschuwing verschijnt wanneer je alle bladwijzers van een map tegelijkertijd probeert te openen."
-    },
-    "settings_dir_open_duration": {
-        "message": "Tijdsduur mapopening"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Tijdsduur van de animatie bij het openen en sluiten van mappen"
     },
     "settings_new_tab": {
         "message": "Nieuw tabblad"
@@ -709,12 +691,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nooit verbergen"
-    },
-    "settings_dnd_open": {
-        "message": "Openen door slepen en droppen"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Laat het slepen van tekstselecties, koppelingen en URL's toe in de zijbalk. Dit kan handig zijn als je de huidige pagina of koppelingen naar andere websites als bladwijzer wilt toevoegen."
     },
     "settings_reopen_sidebar": {
         "message": "Heropen zijbalk"
@@ -766,12 +742,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Rechts"
-    },
-    "settings_animations": {
-        "message": "Animaties gebruiken"
-    },
-    "settings_animations_desc": {
-        "message": "Hiermee kun je de animaties van de zijbalk uitschakelen. Dit kan handig zijn als de animaties niet vloeiend worden weergegeven op je systeem."
     },
     "settings_contextmenu": {
         "message": "Contextueel menu"

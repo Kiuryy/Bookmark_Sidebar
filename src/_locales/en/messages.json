@@ -5,6 +5,9 @@
     "extension_desc": {
         "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
     },
+    "extension_author": {
+        "message": "Philipp K\u00f6nig"
+    },
     "header_bookmarks": {
         "message": "Bookmarks"
     },
@@ -224,6 +227,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplicates"
     },
+    "overlay_check_bookmarks_menu_empty_dirs": {
+        "message": "Empty directories"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Checking the bookmark URLs"
     },
@@ -244,6 +250,9 @@
     },
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "There are no duplicate bookmark URLs"
+    },
+    "overlay_check_bookmarks_no_results_empty_dirs": {
+        "message": "There are no directories without bookmarks"
     },
     "newtab_title": {
         "message": "New Tab"
@@ -1025,6 +1034,18 @@
     "settings_translation_required_category": {
         "message": "Required"
     },
+    "settings_translation_variable_name": {
+        "message": "Variable name"
+    },
+    "settings_translation_thanks_headline": {
+        "message": "Thank you for translating"
+    },
+    "settings_translation_thanks_desc": {
+        "message": "I really appreciate your support by translating the extensions texts. I would like to thank you by sending you a [b]free license key[\/b], which you can use to activate Premium. If you leave your email address, I will get back to you."
+    },
+    "settings_translation_thanks_close": {
+        "message": "No thanks"
+    },
     "settings_feedback_desc": {
         "message": "Have any suggestions for improvements, questions, notice missing configuration options, or found a bug? To help improve experiences with this extension I would be very grateful for any and all feedback given or you might have."
     },
@@ -1054,6 +1075,12 @@
     },
     "settings_feedback_faq_headline": {
         "message": "This may be of interest to you"
+    },
+    "settings_about_me_desc": {
+        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Aalen, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore, so other people can try it out. At that time I couldn't imagine that so many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
+    },
+    "settings_about_me_sub_text": {
+        "message": "Thank you for your support."
     },
     "settings_permissions_desc": {
         "message": "In order to make a togglable sidebar possible in Chrome, the following permissions are required and requested by the extension:"

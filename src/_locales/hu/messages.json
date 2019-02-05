@@ -644,29 +644,11 @@
     "settings_remember_desc": {
         "message": "V\u00e1lassza ki, hogy mit jegyezzen meg az oldals\u00e1v a megnyit\u00e1sok k\u00f6z\u00f6tt. Ha az utols\u00f3nak megnyitott k\u00f6nyvjelz\u0151t v\u00e1lasztja, akkor a k\u00f6vetkez\u0151 megnyit\u00e1sn\u00e1l az lesz kiv\u00e1lasztva."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "L\u00e9trehoz\u00e1si p\u00e1rbesz\u00e9dablak megjelen\u00edt\u00e9se"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Amikor egy \u00faj k\u00f6nyvjelz\u0151t az oldals\u00e1vba h\u00faz, hozz\u00e1ad\u00e1s el\u0151tt jelen\u00edtse meg a l\u00e9trehoz\u00e1si p\u00e1rbesz\u00e9dablakot."
-    },
     "settings_new_entry_position": {
         "message": "\u00daj bejegyz\u00e9sek helye"
     },
     "settings_new_entry_position_desc": {
         "message": "Az el\u0151zetesen kijel\u00f6lt poz\u00edci\u00f3, ahova \u00faj bejegyz\u00e9seket adunk az oldals\u00e1vhoz."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Minden k\u00f6nyvjelz\u0151 megnyit\u00e1sa a mapp\u00e1ban"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Mennyi egyidej\u0171 k\u00f6nyvjelz\u0151 megnyit\u00e1s\u00e1n\u00e1l jelenjen meg figyelmeztet\u0151 ablak."
-    },
-    "settings_dir_open_duration": {
-        "message": "Mappa megnyit\u00e1si anim\u00e1ci\u00f3 ideje"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Mappa megnyit\u00e1s\u00e1n\u00e1l l\u00e9v\u0151 anim\u00e1ci\u00f3 ideje"
     },
     "settings_new_tab": {
         "message": "\u00daj f\u00fcl"
@@ -709,12 +691,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Ne rejse el"
-    },
-    "settings_dnd_open": {
-        "message": "Megnyit\u00e1s H\u00fazd&Vidd m\u0171veletre"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Kijel\u00f6l\u00e9sek, linkek, URL-ek vonszol\u00e1s\u00e1nak enged\u00e9lyez\u00e9se az oldals\u00e1vra. Akkor lehet hasznos, ha ilyeneket akar a k\u00f6nyvjelz\u0151be tenni."
     },
     "settings_reopen_sidebar": {
         "message": "Oldals\u00e1v \u00fajb\u00f3li megnyit\u00e1sa"
@@ -766,12 +742,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Jobb"
-    },
-    "settings_animations": {
-        "message": "Anim\u00e1ci\u00f3k enged\u00e9lyez\u00e9se"
-    },
-    "settings_animations_desc": {
-        "message": "Tilthatja az oldals\u00e1v anim\u00e1ci\u00f3j\u00e1t. Akkor lehet hasznos, ha akad\u00e1sokat tapasztal."
     },
     "settings_contextmenu": {
         "message": "Megjelen\u00edt\u00e9s a helyi men\u00fcben"

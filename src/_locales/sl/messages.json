@@ -659,29 +659,11 @@
     "settings_remember_desc": {
         "message": "Izberite kaj se zapomni na splo\u0161no pri spremembah strani. \u010ce izberete, da se zapomni zadnji odprt zaznamek, bo ozna\u010den, ko se stranska vrstica odpre ponovno."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Prika\u017ei pogovorno okno za ustvarjanje"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Pred dodajanjem novega zaznamka prika\u017eite pogovorno okno za ustvarjanje, ko ga povle\u010dete in spustite v stransko vrstico."
-    },
     "settings_new_entry_position": {
         "message": "Polo\u017eaj novih vnosov"
     },
     "settings_new_entry_position_desc": {
         "message": "Vnaprej izbrani polo\u017eaj pri dodajanju novih vnosov v stransko vrstico."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Odpri vse otroke (opozorilni limit)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "\u0160tevilo zaznamkov pri katerem se pojavi opozorilo, ko posku\u0161ate odpreti vse otroke map na enkrat."
-    },
-    "settings_dir_open_duration": {
-        "message": "Trajanje odpiranja map"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Trajanje animacij odpiranja in zapiranja map"
     },
     "settings_new_tab": {
         "message": "Nov zaznamek"
@@ -724,12 +706,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nikoli skrij"
-    },
-    "settings_dnd_open": {
-        "message": "Odpri z povleci-in-spusti"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Dovoli vle\u010denje besedilnih izbir, povezav in URL-jev v stransko vrstico. To je lahko uporabno, \u010de \u017eelite dodati zaznamek trenutne strani ali drugih povezav na strani."
     },
     "settings_reopen_sidebar": {
         "message": "Ponovno odpri stransko vrstico"
@@ -781,12 +757,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Desno"
-    },
-    "settings_animations": {
-        "message": "Omogo\u010di animacije"
-    },
-    "settings_animations_desc": {
-        "message": "Dovoli vam onemogo\u010diti celotne animacije stranske vrstice. To je lahko uporabno, \u010de animacije ne delujejo teko\u010de na va\u0161em sistemu."
     },
     "settings_contextmenu": {
         "message": "Vnos kontekstnega menija"

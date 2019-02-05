@@ -2398,10 +2398,11 @@ div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquo
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-quote.svg);
     background-color: #aaa; }
   div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote::before {
-    -webkit-mask-position: 0 15px; }
+    -webkit-mask-position: 0 12px; }
   div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote > footer {
     font-weight: "%fontWeightMedium";
-    font-size: 90%; }
+    font-size: 90%;
+    margin-top: 7px; }
     div.tab[data-name='language'] > div[data-name='translate'] > div.thanks blockquote > footer::before {
       content: "\2013";
       margin: 0 4px 0 0; }

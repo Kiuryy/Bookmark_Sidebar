@@ -617,18 +617,6 @@
     "settings_remember_desc": {
         "message": "Vyberte, \u010do si zapam\u00e4tova\u0165 medzi zmenami str\u00e1nok. Ak sa rozhodnete zapam\u00e4tova\u0165 posledn\u00fa otvoren\u00fa z\u00e1lo\u017eku, bude pri otvoren\u00ed postrann\u00e9ho panela ozna\u010den\u00e1."
     },
-    "settings_open_children_warn_limit": {
-        "message": "Otvori\u0165 v\u0161etky deti (limit upozornenia)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Mno\u017estvo z\u00e1lo\u017eiek, pri ktor\u00fdch sa zobraz\u00ed upozornenie, ak sa sna\u017e\u00edte otvori\u0165 v\u0161etky deti adres\u00e1ra naraz."
-    },
-    "settings_dir_open_duration": {
-        "message": "Doba otvorenia adres\u00e1ra"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Doba anim\u00e1cie otvorenia a zatv\u00e1rania adres\u00e1rov."
-    },
     "settings_new_tab": {
         "message": "Nov\u00e1 karta"
     },
@@ -670,12 +658,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Nikdy neskr\u00fdva\u0165"
-    },
-    "settings_dnd_open": {
-        "message": "Otvori\u0165 pomocou drag&drop"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Povo\u013euje \u0165ahanie vybrat\u00e9ho textu a odkazov do panelu. Je to u\u017eito\u010dn\u00e9 ak chcete ulo\u017ei\u0165 aktu\u00e1lne zobrazen\u00fa str\u00e1nku alebo odkazy na str\u00e1nke."
     },
     "settings_reopen_sidebar": {
         "message": "Znovu otvori\u0165 panel"
@@ -727,12 +709,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Vpravo"
-    },
-    "settings_animations": {
-        "message": "Povoli\u0165 anim\u00e1cie"
-    },
-    "settings_animations_desc": {
-        "message": "Umo\u017e\u0148uje zak\u00e1za\u0165 v\u0161etky anim\u00e1cie postrann\u00e9ho panelu. To m\u00f4\u017ee by\u0165 u\u017eito\u010dn\u00e9, ak anim\u00e1cie nefunguj\u00fa hladko vo va\u0161om syst\u00e9me."
     },
     "settings_contextmenu": {
         "message": "Polo\u017eka kontextovej ponuky"

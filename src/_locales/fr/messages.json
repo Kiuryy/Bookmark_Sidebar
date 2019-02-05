@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Ouvrir dans une nouvelle fen\u00eatre priv\u00e9e"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Ajouter le favori"
+    },
     "contextmenu_add": {
         "message": "Ajouter l'\u00e9l\u00e9ment"
     },
@@ -644,29 +647,11 @@
     "settings_remember_desc": {
         "message": "S\u00e9lectionnez ce que vous souhaitez m\u00e9moriser. Si vous choisissez de m\u00e9moriser le dernier favori ouvert, celui-ci sera marqu\u00e9 au prochain affichage de la barre lat\u00e9rale."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Afficher le dialogue de cr\u00e9ation"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Afficher la bo\u00eete de dialogue de cr\u00e9ation avant d\u2019ajouter un nouveau signet lors d\u2019un glisser-d\u00e9poser dans la barre lat\u00e9rale."
-    },
     "settings_new_entry_position": {
         "message": "Emplacement des nouvelles entr\u00e9es"
     },
     "settings_new_entry_position_desc": {
         "message": "Emplacement pr\u00e9s\u00e9lectionn\u00e9 lors de l'ajout de nouvelles entr\u00e9es \u00e0 la barre lat\u00e9rale."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Ouverture des favoris d'un dossier (limite avant message)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Nombre de favoris \u00e0 partir duquel un message est affich\u00e9 lors de l'ouverture de tous les \u00e9l\u00e9ments d'un dossier."
-    },
-    "settings_dir_open_duration": {
-        "message": "Dur\u00e9e d'ouverture des dossiers"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Dur\u00e9e de la cin\u00e9matique d'ouverture et de fermeture des dossiers"
     },
     "settings_new_tab": {
         "message": "Nouvel onglet"
@@ -709,12 +694,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Ne jamais cacher"
-    },
-    "settings_dnd_open": {
-        "message": "Ouvrir par glisser-d\u00e9poser"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Permet de glisser-d\u00e9poser du texte, des liens ou des URL dans la barre lat\u00e9rale. Pratique si vous voulez marquer comme favori la page en visit\u00e9e ou des liens pr\u00e9sents sur celle-ci."
     },
     "settings_reopen_sidebar": {
         "message": "R\u00e9afficher la barre lat\u00e9rale"
@@ -766,12 +745,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Droite"
-    },
-    "settings_animations": {
-        "message": "Activer les animations"
-    },
-    "settings_animations_desc": {
-        "message": "Permet de d\u00e9sactiver l'ensemble des animations de la barre lat\u00e9rale. Cela peut \u00eatre utile si les animations ne sont pas fluides sur votre machine."
     },
     "settings_contextmenu": {
         "message": "Entr\u00e9e du menu contextuel"

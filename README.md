@@ -1,4 +1,4 @@
-# Bookmark Sidebar <img src="src/img/icon/256x256.png" width="76" align="left" />
+# Bookmark Sidebar <img src="src/img/icon/256x256.png" width="88" align="left" />
 
 [![GitHub release](https://img.shields.io/github/release/kiuryy/bookmark_sidebar.svg)](https://github.com/Kiuryy/Bookmark_Sidebar/releases)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/jdbnofccmhefkmjbkkdkfiicjkgofkdh.svg)](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh)
@@ -13,7 +13,7 @@ Bookmark Sidebar is an extension for Chrome, which adds a toggleable sidebar wit
 <img src="https://extensions.blockbyte.de/img/chromeWebStore_border.png" width="200" />
 </a>
 
-The extension is currently available in 31 different languages.
+The extension is currently available in 31 different languages. If you want to help translating the extension, feel free to contribute by submitting some translations.
 
 ## Release History
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions, or the less detailed [Changelog](changelog.md).
@@ -24,4 +24,4 @@ This project is licensed under the GNU General Public License v3.0 - see the [li
 
 ## Contact
 
-If you have questions, problems or ideas, please do not hesitate to contact me at <a href="mailto:p.koenig@blockbyte.de">p.koenig@blockbyte.de</a>.
+If you have questions, problems or ideas, please do not hesitate to submit the feedback form of the extension, open an issue here on GitHub or directly contact me at <a href="mailto:p.koenig@blockbyte.de">p.koenig@blockbyte.de</a>.

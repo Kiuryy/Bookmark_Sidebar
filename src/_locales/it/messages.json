@@ -659,12 +659,6 @@
     "settings_remember_desc": {
         "message": "Scegli cosa \"ricordare\" durante il cambio pagina. Se scegli di ricordare l'ultimo preferito aperto, rimarr\u00e0 evidenziato all'attivazione successiva della barra laterale."
     },
-    "settings_new_entry_position": {
-        "message": "Posizione delle nuove voci"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "La posizione preselezionata quando si aggiungono nuove voci alla barra laterale."
-    },
     "settings_new_tab": {
         "message": "Nuova scheda"
     },

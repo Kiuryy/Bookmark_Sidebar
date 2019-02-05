@@ -2845,7 +2845,7 @@ div.tab[data-name='expert'] > div[data-type] > ul li {
       height: 20px;
       font-weight: normal;
       vertical-align: middle;
-      margin: -1px 0 0 5px;
+      margin: -3px 0 0 5px;
       cursor: help; }
       div.tab[data-name='expert'] > div[data-type] > ul li > label > div.info::before {
         content: "";

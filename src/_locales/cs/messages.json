@@ -662,12 +662,6 @@
     "settings_remember_desc": {
         "message": "Vyberte, co si zapamatovat mezi zm\u011bnami str\u00e1nek. Pokud se rozhodnete zapamatovat posledn\u00ed otev\u0159enou z\u00e1lo\u017eku, bude p\u0159i otev\u0159en\u00ed postrann\u00edho panelu ozna\u010dena."
     },
-    "settings_new_entry_position": {
-        "message": "Um\u00edst\u011bn\u00ed nov\u00fdch z\u00e1znam\u016f"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "P\u0159edvolba um\u00edst\u011bn\u00ed p\u0159i p\u0159id\u00e1v\u00e1n\u00ed nov\u00fdch z\u00e1znam\u016f do postrann\u00edho panelu"
-    },
     "settings_new_tab": {
         "message": "Nov\u00e1 karta"
     },

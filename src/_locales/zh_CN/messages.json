@@ -662,12 +662,6 @@
     "settings_remember_desc": {
         "message": "\u9009\u62e9\u9875\u9762\u66f4\u6539\u540e\u8981\u8bb0\u4f4f\u7684\u5185\u5bb9\u3002 \u5982\u679c\u60a8\u9009\u62e9\u8bb0\u4f4f\u4e0a\u6b21\u6253\u5f00\u7684\u4e66\u7b7e\uff0c\u5f53\u518d\u6b21\u6253\u5f00\u4fa7\u8fb9\u680f\u65f6\u5b83\u5c06\u88ab\u6807\u8bb0\u3002"
     },
-    "settings_new_entry_position": {
-        "message": "\u65b0\u6761\u76ee\u7684\u4f4d\u7f6e\u3002"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "\u5411\u4fa7\u8fb9\u680f\u6dfb\u52a0\u65b0\u6761\u76ee\u65f6\u7684\u4f4d\u7f6e\u3002"
-    },
     "settings_new_tab": {
         "message": "\u65b0\u6807\u7b7e\u9875"
     },

@@ -446,12 +446,6 @@
     "settings_remember_desc": {
         "message": "V\u00e4lj vad du ska komma ih\u00e5g \u00f6ver sid\u00e4ndringar. Om du v\u00e4ljer att komma ih\u00e5g det senaste \u00f6ppnade bokm\u00e4rket markeras det n\u00e4r du \u00f6ppnar sidopanelen igen."
     },
-    "settings_new_entry_position": {
-        "message": "Placering av nya poster"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "Den f\u00f6rinst\u00e4llda positionen n\u00e4r du l\u00e4gger till nya poster i sidof\u00e4ltet."
-    },
     "settings_new_tab": {
         "message": "Ny flik"
     },

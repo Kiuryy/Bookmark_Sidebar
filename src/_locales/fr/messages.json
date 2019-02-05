@@ -647,12 +647,6 @@
     "settings_remember_desc": {
         "message": "S\u00e9lectionnez ce que vous souhaitez m\u00e9moriser. Si vous choisissez de m\u00e9moriser le dernier favori ouvert, celui-ci sera marqu\u00e9 au prochain affichage de la barre lat\u00e9rale."
     },
-    "settings_new_entry_position": {
-        "message": "Emplacement des nouvelles entr\u00e9es"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "Emplacement pr\u00e9s\u00e9lectionn\u00e9 lors de l'ajout de nouvelles entr\u00e9es \u00e0 la barre lat\u00e9rale."
-    },
     "settings_new_tab": {
         "message": "Nouvel onglet"
     },

@@ -644,12 +644,6 @@
     "settings_remember_desc": {
         "message": "Elige qu\u00e9 recordar en los cambios de p\u00e1gina. Si elige recordar el \u00faltimo marcador abierto, se marcar\u00e1 al abrir nuevamente la barra lateral."
     },
-    "settings_new_entry_position": {
-        "message": "Posici\u00f3n de nuevas entradas"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "La posici\u00f3n preseleccionada al agregar nuevas entradas a la barra lateral."
-    },
     "settings_new_tab": {
         "message": "Nueva Pesta\u00f1a"
     },

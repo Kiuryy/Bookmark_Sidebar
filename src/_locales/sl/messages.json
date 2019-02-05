@@ -659,12 +659,6 @@
     "settings_remember_desc": {
         "message": "Izberite kaj se zapomni na splo\u0161no pri spremembah strani. \u010ce izberete, da se zapomni zadnji odprt zaznamek, bo ozna\u010den, ko se stranska vrstica odpre ponovno."
     },
-    "settings_new_entry_position": {
-        "message": "Polo\u017eaj novih vnosov"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "Vnaprej izbrani polo\u017eaj pri dodajanju novih vnosov v stransko vrstico."
-    },
     "settings_new_tab": {
         "message": "Nov zaznamek"
     },

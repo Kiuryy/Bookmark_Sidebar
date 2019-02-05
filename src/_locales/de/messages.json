@@ -674,12 +674,6 @@
     "settings_remember_desc": {
         "message": "W\u00e4hle aus, was beim Wechseln der Seiten gemerkt werden soll. Wenn das zuletzt ge\u00f6ffnete Lesezeichen gespeichert werden soll, wird es beim n\u00e4chsten Mal \u00d6ffnen der Sidebar markiert."
     },
-    "settings_new_entry_position": {
-        "message": "Position neuer Eintr\u00e4ge"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "Die standardm\u00e4\u00dfig ausgew\u00e4hlte Position beim Hinzuf\u00fcgen neuer Eintr\u00e4ge zur Sidebar."
-    },
     "settings_new_tab": {
         "message": "Neuer Tab"
     },

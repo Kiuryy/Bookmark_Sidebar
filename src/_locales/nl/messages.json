@@ -644,12 +644,6 @@
     "settings_remember_desc": {
         "message": "Selecteer wat er onthouden moet worden tijdens paginawisselingen. Als je kiest voor de laatst geopende bladwijzer dan zal deze gemarkeerd worden als de zijbalk weer geopend wordt."
     },
-    "settings_new_entry_position": {
-        "message": "Positie van nieuwe items"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "De vooringestelde positie voor nieuwe intems in de zijbalk."
-    },
     "settings_new_tab": {
         "message": "Nieuw tabblad"
     },

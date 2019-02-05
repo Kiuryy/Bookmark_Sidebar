@@ -644,12 +644,6 @@
     "settings_remember_desc": {
         "message": "Selecione o que lembrar em todas as mudan\u00e7as na p\u00e1gina. Se voc\u00ea escolher lembrar o \u00faltimo favorito aberto, ele ser\u00e1 marcado ao abrir a barra lateral novamente."
     },
-    "settings_new_entry_position": {
-        "message": "Posi\u00e7\u00e3o de novas entradas"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "A posi\u00e7\u00e3o pr\u00e9-selecionada ao adicionar novas entradas \u00e0 barra lateral"
-    },
     "settings_new_tab": {
         "message": "Nova guia"
     },

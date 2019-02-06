@@ -77,7 +77,7 @@ div.modal[data-type='checkBookmarks'] {
     position: absolute;
     top: $__overlayHeaderHeight;
     left: 0;
-    width: 180px;
+    width: 210px;
     height: calc(100% - #{$__overlayHeaderHeight} - 57px);
     padding-top: 20px;
     border-right-width: 1px;
@@ -105,6 +105,11 @@ div.modal[data-type='checkBookmarks'] {
 
       &[data-name='duplicate']::before {
         @include maskImage('icon-duplicate');
+      }
+
+      &[data-name='empty']::before {
+        @include maskImage('icon-dir-1');
+        -webkit-mask-size: 16px;
       }
 
       &.active {
@@ -151,7 +156,7 @@ div.modal[data-type='checkBookmarks'] {
   > div[id^='results_'] {
     position: relative;
     height: calc(100% - #{$__overlayHeaderHeight} - 57px);
-    margin-left: 180px;
+    margin-left: 210px;
     display: none;
 
     &.visible {
@@ -243,6 +248,35 @@ div.modal[data-type='checkBookmarks'] {
           }
         }
 
+        > ul.breadcrumb {
+          display: inline-block;
+          font-weight: $__fontWeightBold;
+          vertical-align: top;
+
+          > li {
+            position: relative;
+            display: inline-block;
+
+            &:not(:last-child) {
+              padding-right: 16px;
+
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 1px;
+                margin: auto;
+                width: 0;
+                height: 0;
+                border: 4px solid transparent;
+                border-left-color: $__textColor;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+
         > ul[data-type='urls'] {
           margin: 0 30px 0 65px;
 
@@ -304,12 +338,25 @@ div.modal[data-type='checkBookmarks'] {
               margin-top: 3px;
 
               > li {
+                position: relative;
                 display: inline-block;
 
-                &:not(:last-child)::after {
-                  content: ">";
-                  margin: 0 4px;
-                  opacity: 0.7;
+                &:not(:last-child) {
+                  padding-right: 14px;
+
+                  &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 1px;
+                    margin: auto;
+                    width: 0;
+                    height: 0;
+                    border: 3px solid transparent;
+                    border-left-color: $__textColor;
+                    opacity: 0.5;
+                  }
                 }
               }
             }

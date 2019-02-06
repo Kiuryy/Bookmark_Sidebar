@@ -224,7 +224,7 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikate"
     },
-    "overlay_check_bookmarks_menu_empty_dirs": {
+    "overlay_check_bookmarks_menu_empty": {
         "message": "Leere Verzeichnisse"
     },
     "overlay_check_bookmarks_loading": {
@@ -248,7 +248,7 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Es existieren keine doppelten Lesezeichen-URLs"
     },
-    "overlay_check_bookmarks_no_results_empty_dirs": {
+    "overlay_check_bookmarks_no_results_empty": {
         "message": "Es existieren keine Verzeichnisse ohne Lesezeichen"
     },
     "newtab_title": {

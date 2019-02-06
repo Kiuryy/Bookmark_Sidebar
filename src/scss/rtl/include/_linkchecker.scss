@@ -74,6 +74,20 @@ html[dir='rtl'] {
               margin-right: 0;
             }
 
+            > ul.breadcrumb {
+
+              > li:not(:last-child) {
+                padding-left: 16px;
+                padding-right: 0;
+
+                &::after {
+                  left: 1px;
+                  right: unset;
+                  transform: scaleX(-1);
+                }
+              }
+            }
+
             > ul[data-type='urls'] {
               margin-left: 30px;
               margin-right: 65px;
@@ -90,6 +104,20 @@ html[dir='rtl'] {
                 > a.urlCheckAction {
                   right: 0;
                   left: unset;
+                }
+
+                > ul.breadcrumb {
+
+                  > li:not(:last-child) {
+                    padding-left: 14px;
+                    padding-right: 0;
+
+                    &::after {
+                      left: 1px;
+                      right: unset;
+                      transform: scaleX(-1);
+                    }
+                  }
                 }
               }
             }

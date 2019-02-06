@@ -227,7 +227,7 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplicates"
     },
-    "overlay_check_bookmarks_menu_empty_dirs": {
+    "overlay_check_bookmarks_menu_empty": {
         "message": "Empty directories"
     },
     "overlay_check_bookmarks_loading": {
@@ -251,7 +251,7 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "There are no duplicate bookmark URLs"
     },
-    "overlay_check_bookmarks_no_results_empty_dirs": {
+    "overlay_check_bookmarks_no_results_empty": {
         "message": "There are no directories without bookmarks"
     },
     "newtab_title": {

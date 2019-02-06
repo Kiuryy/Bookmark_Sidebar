@@ -60,10 +60,9 @@
 
             ext.helper.model.call("websiteStatus").then((opts) => {
                 if (opts.status === "available") {
-                    const bookmarks = getFlatBookmarkList(entries);
-
+                    const entryObj = getFlatEntryList(entries);
                     elements.progressBar = $("<div />").addClass($.cl.overlay.progressBar).html("<div />").appendTo(elements.modal);
-                    elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
+                    elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + entryObj.bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
 
                     $.delay(200).then(() => {
                         elements.modal.addClass($.cl.overlay.urlCheckLoading);
@@ -71,10 +70,19 @@
 
                     initGeneralEvents();
 
-                    checkBookmarks(bookmarks).then((results) => {
+                    const results = {
+                        count: 0,
+                        changed: [],
+                        broken: [],
+                        duplicate: [],
+                        empty: []
+                    };
+
+                    checkDirectories(entryObj.directories, results).then(() => {
+                        return checkBookmarks(entryObj.bookmarks, results);
+                    }).then(() => {
                         displayResultPage(results);
                     });
-
                 } else { // website not available -> show message
                     displayErrorMessage();
                 }
@@ -144,10 +152,15 @@
                         }
 
                         if (key !== "duplicate") { // show button to update all urls from the currently displayed list, except for the list with duplicates
+                            let langVarPrefix = "overlay_check_bookmarks_update";
+                            if (key === "broken" || key === "empty") {
+                                langVarPrefix = "overlay_check_bookmarks_remove";
+                            }
+
                             elements.actions[key] = $("<a />")
                                 .addClass($.cl.overlay.urlCheckAction)
                                 .attr($.attr.name, key)
-                                .text(ext.helper.i18n.get("overlay_check_bookmarks_" + (key === "broken" ? "remove" : "update") + "_selected"))
+                                .text(ext.helper.i18n.get(langVarPrefix + "_selected"))
                                 .appendTo(elements.buttonWrapper);
                         }
 
@@ -166,6 +179,10 @@
                                     displayDuplicateUrls(entry, resultEntry);
                                     break;
                                 }
+                                case "empty": {
+                                    displayEmptyDirectory(entry, resultEntry);
+                                    break;
+                                }
                             }
                         });
                     });
@@ -178,6 +195,32 @@
                     }
                 }
             });
+        };
+
+        /**
+         * Displays the entry in the result list for the empty directory
+         *
+         * @param {object} entry
+         * @param {jsu} resultEntry
+         */
+        const displayEmptyDirectory = (entry, resultEntry) => {
+            const parentInfos = ext.helper.entry.getParentsById(entry.id);
+
+            if (parentInfos.length > 0) {
+                ext.helper.checkbox.get(elements.body, {checked: "checked"}).appendTo(resultEntry);
+
+                const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(resultEntry);
+
+                parentInfos.forEach((parentInfo) => {
+                    $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                });
+
+                $("<li />").text(entry.title).appendTo(breadcrumb);
+            } else {
+                resultEntry.remove();
+            }
+
+            $("<a />").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
         };
 
         /**
@@ -302,7 +345,7 @@
 
                     $.delay().then(() => {
                         entry.addClass($.cl.hidden);
-                        updateBookmark(data);
+                        updateEntry(data);
 
                         return $.delay(500);
                     }).then(() => {
@@ -334,14 +377,14 @@
         };
 
         /**
-         * Updates the list of entries, by calling the updateBookmark method one after each other
+         * Updates the list of entries, by calling the updateEntry method one after each other
          *
          * @param {Array} entries
          * @returns {Promise}
          */
         const updateMultipleBookmarks = async (entries) => {
             for (const entry of entries) {
-                await updateBookmark(entry);
+                await updateEntry(entry);
             }
         };
 
@@ -351,11 +394,11 @@
          * @param {object} entry
          * @returns {Promise}
          */
-        const updateBookmark = (entry) => {
+        const updateEntry = (entry) => {
             return new Promise((resolve) => {
                 updated = true;
 
-                if (entry.statusCode === 404 || entry.duplicate) {
+                if (entry.statusCode === 404 || entry.duplicate || (entry.children && entry.children.length === 0)) {
                     ext.helper.bookmark.performDeletion(entry, true).then(resolve);
                 } else if (entry.url !== entry.newUrl) {
                     const additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
@@ -442,20 +485,30 @@
         };
 
         /**
+         * Checks the directories and adds all empty directories to the results
+         *
+         * @param {Array} directories
+         * @param {object} results
+         * @returns {Promise}
+         */
+        const checkDirectories = async (directories, results) => {
+            directories.forEach((directory) => {
+                if (directory.children.length === 0) {
+                    results.empty.push(directory);
+                    results.count++;
+                }
+            });
+        };
+
+        /**
          * Checks the urls of the given bookmarks and returns the check results
          *
          * @param {Array} bookmarks
+         * @param {object} results
          * @returns {Promise}
          */
-        const checkBookmarks = (bookmarks) => {
+        const checkBookmarks = (bookmarks, results) => {
             return new Promise((resolve) => {
-                const results = {
-                    count: 0,
-                    changed: [],
-                    broken: [],
-                    duplicate: []
-                };
-
                 let finished = 0;
                 const info = {};
                 const duplicateLabels = [];
@@ -539,18 +592,23 @@
         };
 
         /**
-         * Extracts the bookmarks from the given tree and returns them as a flat list
+         * Extracts the bookmarks and directories from the given tree and returns them as a flat list
          *
          * @param {object} entries
-         * @returns {Array}
+         * @returns {object}
          */
-        const getFlatBookmarkList = (entries) => {
-            const ret = [];
+        const getFlatEntryList = (entries) => {
+            const ret = {
+                bookmarks: [],
+                directories: []
+            };
+
             const process = (entries) => { // check all subordinate bookmarks of the given directory
                 entries.forEach((entry) => {
                     if (entry.url && ext.helper.utility.isUrlOnBlacklist(entry.url) === false) {
-                        ret.push(entry);
+                        ret.bookmarks.push(entry);
                     } else if (entry.children) {
+                        ret.directories.push(entry);
                         process(entry.children);
                     }
                 });

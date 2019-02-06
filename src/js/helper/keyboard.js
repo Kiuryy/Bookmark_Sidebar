@@ -38,7 +38,6 @@
                 } else if (e.key === "Tab") { // jump to the next entry
                     e.preventDefault();
                     hoverNextOverlayEntry(overlay);
-
                 }
             });
         };
@@ -359,7 +358,7 @@
                         firstVisibleEntry = box.find("ul > li > a." + $.cl.sidebar.lastHover).eq(0).parent("li");
                     } else {
                         box.find("ul > li").forEach((entry) => {
-                            if (entry.offsetTop > scrollTop) {
+                            if (entry.offsetTop >= scrollTop) {
                                 firstVisibleEntry = $(entry);
                                 return false;
                             }

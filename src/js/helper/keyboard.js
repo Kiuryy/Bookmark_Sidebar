@@ -386,11 +386,12 @@
 
                             const offset = hoveredElm[0].offsetTop - scrollTop;
                             const pos = window.innerHeight - offset;
+                            const limit = 150 + ext.elm.pinnedBox[0].offsetHeight;
 
                             if (offset < 0) { // element is not visible (from the top) -> scroll to the top offset of the entry
                                 ext.helper.scroll.setScrollPos(box, hoveredElm[0].offsetTop);
-                            } else if (pos < 150) { // element is not visible (from the bottom) -> scroll further to the entry
-                                ext.helper.scroll.setScrollPos(box, scrollTop + (150 - pos));
+                            } else if (pos < limit) { // element is not visible (from the bottom) -> scroll further to the entry
+                                ext.helper.scroll.setScrollPos(box, scrollTop + (limit - pos));
                             }
                         }
                     }

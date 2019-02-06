@@ -15,8 +15,8 @@
             privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",
             changelog: "https://extensions.blockbyte.de/changelog/bs",
             uninstall: "https://extensions.blockbyte.de/uninstall/bs",
-            checkUrls: "https://4v1.de/u",
-            thumbnail: "https://4v1.de/t"
+            checkUrls: "https://api.blockbyte.de/v1/urlcheck",
+            thumbnail: "https://api.blockbyte.de/v1/thumbnail"
         };
 
         this.isDev = false;

@@ -14,7 +14,7 @@
             minifyJson: require("jsonminify"),
             terser: require("terser"),
             sass: require("node-sass"),
-            copy: require("cp-file"),
+            copy: require("fs-extra").copy,
             request: require("request"),
             zip: require("zip-dir"),
             exec: require("child_process").exec

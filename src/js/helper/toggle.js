@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * @requires helper: model, contextmenu, tooltip, dragndrop, utility, entry, scroll, overlay
      * @param {object} ext
      * @constructor
      */

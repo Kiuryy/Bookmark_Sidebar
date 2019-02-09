@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * @requires helper: i18n, overlay, toggle, contextmenu, tooltip, dragndrop, scroll, search, entry, bookmark, sidebarEvents, utility
      * @param {object} ext
      * @constructor
      */

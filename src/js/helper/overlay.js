@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * @requires helper: model, i18n, tooltip, stylesheet, keyboard, entry, scroll, checkbox, template, utility
      * @param {object} ext
      * @constructor
      */

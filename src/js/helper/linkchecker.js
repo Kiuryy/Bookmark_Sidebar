@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * @requires helper: i18n, overlay, model, utility, template
      * @param {object} ext
      * @constructor
      */

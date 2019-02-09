@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * @requires helper: (optional) utility
      * @param {object} ext
      * @constructor
      */

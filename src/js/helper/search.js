@@ -2,7 +2,6 @@
     "use strict";
 
     /**
-     * @requires helper: model, contextmenu, tooltip, scroll, list, entry
      * @param {object} ext
      * @constructor
      */

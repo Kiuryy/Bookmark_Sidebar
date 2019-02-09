@@ -105,7 +105,11 @@
                 const src = elm.attr($.attr.src);
 
                 if (src) {
-                    s.helper.model.call("openLink", {hrefName: src, newTab: true, params: {lang: s.helper.i18n.getLanguage()}});
+                    s.helper.model.call("openLink", {
+                        hrefName: src,
+                        newTab: true,
+                        params: {lang: s.helper.i18n.getLanguage()}
+                    });
                 } else if (elm.parents("li").length() > 0) {
                     const parentName = elm.parent("ul").parent("li").attr($.attr.name);
                     showPage(parentName, name);

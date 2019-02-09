@@ -8,7 +8,7 @@
      */
     $.OverlayHelper = function (ext) {
 
-        const elements = {};
+        let elements = {};
 
         /**
          * Creates a new overlay for the given bookmark
@@ -19,42 +19,9 @@
          */
         this.create = (type, title, data) => {
             ext.helper.tooltip.close();
-            const config = ext.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
 
-            elements.overlay = $("<iframe />")
-                .attr("id", $.opts.ids.page.overlay)
-                .data("info", data || {})
-                .addClass("notranslate") // 'notranslate' prevents Google translator from translating the content of the overlay
-                .appendTo("body");
-
-            ext.helper.stylesheet.addStylesheets(["overlay"], elements.overlay);
-
-            const iframeBody = elements.overlay.find("body");
-            iframeBody.parent("html").attr("dir", ext.helper.i18n.isRtl() ? "rtl" : "ltr");
-
-            elements.modal = $("<div />")
-                .attr($.attr.type, type)
-                .addClass($.cl.overlay.modal)
-                .appendTo(iframeBody);
-
-            if (config.animations === false) {
-                elements.overlay.addClass($.cl.page.noAnimations);
-            }
-
-            if (config.darkMode) {
-                iframeBody.addClass($.cl.page.darkMode);
-            } else if (config.highContrast) {
-                iframeBody.addClass($.cl.page.highContrast);
-            }
-
-            const header = $("<header />").appendTo(elements.modal);
-            $("<h1 />").text(title).appendTo(header);
-            $("<a />").addClass($.cl.close).appendTo(header);
-
-            elements.buttonWrapper = $("<menu />").addClass($.cl.overlay.buttonWrapper).appendTo(elements.modal);
-            $("<a />")
-                .addClass($.cl.close)
-                .appendTo(elements.buttonWrapper);
+            elements = ext.helper.template.overlay(type, title);
+            elements.overlay.data("info", data || {});
 
             this.setCloseButtonLabel(type === "infos" ? "close" : "cancel");
 
@@ -100,18 +67,12 @@
                 }
             }
 
-            elements.overlay[0].focus();
             if (elements.modal.find("input").length() > 0) {
                 elements.modal.find("input")[0].focus();
             }
 
             ext.helper.keyboard.initOverlayEvents(elements.overlay);
             initEvents();
-
-            $.delay(100).then(() => {
-                elements.modal.addClass($.cl.visible);
-                elements.overlay.addClass($.cl.page.visible);
-            });
         };
 
         /**

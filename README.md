@@ -1,4 +1,4 @@
-# Bookmark Sidebar <img src="src/img/icon/256x256.png" width="88" align="left" />
+# <img src="https://raw.githubusercontent.com/Kiuryy/Bookmark_Sidebar/master/src/img/icon/256x256.png" width="88" align="left" /> Bookmark Sidebar
 
 [![GitHub release](https://img.shields.io/github/release/kiuryy/bookmark_sidebar.svg)](https://github.com/Kiuryy/Bookmark_Sidebar/releases)
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/jdbnofccmhefkmjbkkdkfiicjkgofkdh.svg)](https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh)

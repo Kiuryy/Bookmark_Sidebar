@@ -703,7 +703,9 @@ div.modal {
 }
 
 @import "include/linkchecker";
-
+@import "include/newtab/overlay";
+//
+//
 @import "rtl/overlay";
 @import "highContrast/overlay";
 @import "dark/overlay";

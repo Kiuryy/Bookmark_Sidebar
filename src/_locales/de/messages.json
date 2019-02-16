@@ -254,9 +254,6 @@
     "newtab_title": {
         "message": "Neuer Tab"
     },
-    "newtab_search_placeholder": {
-        "message": "Bei {1} suchen oder URL eingeben"
-    },
     "newtab_top_pages_default": {
         "message": "Top-Seiten"
     },
@@ -272,11 +269,26 @@
     "newtab_top_pages_hidden": {
         "message": "Keine Seiten anzeigen"
     },
+    "newtab_search_placeholder": {
+        "message": "Bei {1} suchen oder URL eingeben"
+    },
     "newtab_speech_search_listening": {
         "message": "Jetzt sprechen"
     },
     "newtab_speech_search_error": {
         "message": "Um die Sprachsuche zu aktivieren, muss der Erweiterung Zugriff auf dein Mikrofon gew\u00e4hrt werden."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Suchmachine"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Benutzerdefiniert"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL der Startseite"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL der Suchergebnisse"
     },
     "newtab_upload_background": {
         "message": "Hintergrundbild hochladen"
@@ -1120,6 +1132,9 @@
     },
     "premium_pay_price_total": {
         "message": "Insgesamt"
+    },
+    "premium_pay_price_info": {
+        "message": "Dies ist eine einmalige Zahlung und beinhaltet alle zuk\u00fcnftigen Premium-Funktionen."
     },
     "premium_pay_eula": {
         "message": "Endbenutzer-Lizenzvereinbarung"

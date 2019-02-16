@@ -1179,6 +1179,29 @@ body.dark div.modal[data-type='checkBookmarks'] > div.progressBar {
 body.dark div.modal[data-type='checkBookmarks'].urlCheckResults::after {
   background: #4d4d4d; }
 
+div.modal[data-type='searchEngine'] > header::before {
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
+
+div.modal[data-type='searchEngine'] > ul {
+  margin: 30px 30px 20px 30px; }
+  div.modal[data-type='searchEngine'] > ul > li {
+    position: relative; }
+    div.modal[data-type='searchEngine'] > ul > li > div.checkbox {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0; }
+    div.modal[data-type='searchEngine'] > ul > li > a {
+      display: inline-block;
+      line-height: 39px;
+      padding: 0 5px 0 30px;
+      cursor: pointer;
+      transition: color 0.3s; }
+      div.modal[data-type='searchEngine'] > ul > li > a:hover {
+        color: "%colorScheme"; }
+
 html[dir='rtl'] div.modal > header {
   padding: 0 52px 0 75px; }
   html[dir='rtl'] div.modal > header::before {

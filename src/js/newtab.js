@@ -64,10 +64,7 @@
 
                 initEvents();
 
-                return Promise.all([
-                    this.getBackground(),
-                    $.delay(500)]
-                );
+                return Promise.all([this.getBackground(), $.delay(500)]);
             }).then(([background]) => {
                 loader.remove();
                 this.setBackground(background);
@@ -145,6 +142,7 @@
                 checkbox: new $.CheckboxHelper(this),
                 utility: new $.UtilityHelper(this),
                 search: new $.SearchHelper(this),
+                overlay: new $.OverlayHelper(this),
                 entry: new $.EntryHelper(this),
                 shortcuts: new $.ShortcutsHelper(this),
                 topPages: new $.TopPagesHelper(this),

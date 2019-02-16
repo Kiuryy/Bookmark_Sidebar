@@ -29,13 +29,11 @@ div#search {
     }
   }
 
-  > button[type="submit"] {
-    @include mask('icon-search', $textColorLight, 26px);
+  > button, > a {
     position: absolute;
-    top: 4px;
-    right: 15px;
-    width: calc(#{$newTabSearchHeight} - 8px);
-    height: calc(#{$newTabSearchHeight} - 8px);
+    top: 0;
+    bottom: 0;
+    margin: auto;
     outline: none;
     border: none;
     background: none;
@@ -48,19 +46,18 @@ div#search {
     }
   }
 
+  > button[type="submit"] {
+    @include mask('icon-search', $textColorLight, 26px);
+    right: 15px;
+    width: calc(#{$newTabSearchHeight} - 8px);
+    height: calc(#{$newTabSearchHeight} - 8px);
+  }
+
   > a.speechSearch {
     @include mask('icon-speech', $textColorLight, 20px);
-    position: absolute;
-    top: 10px;
     right: 60px;
     width: calc(#{$newTabSearchHeight} - 20px);
     height: calc(#{$newTabSearchHeight} - 20px);
-    border-radius: 50%;
-    transition: background 0.3s;
-
-    &:hover {
-      background: $bodyBackground;
-    }
   }
 
   > ul.suggestions {

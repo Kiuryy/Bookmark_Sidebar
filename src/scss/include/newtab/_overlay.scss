@@ -1,0 +1,36 @@
+
+div.modal[data-type='searchEngine'] {
+
+  > header::before {
+    @include maskImage('icon-search');
+  }
+
+  > ul {
+    margin: 30px 30px 20px 30px;
+
+    > li {
+      position: relative;
+
+      > div.checkbox {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 0;
+      }
+
+      > a {
+        display: inline-block;
+        line-height: 39px;
+        padding: 0 5px 0 30px;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $__colorScheme;
+        }
+      }
+    }
+  }
+}

@@ -110,7 +110,7 @@
                 n.elm.body.addClass($.cl.loading);
 
                 n.helper.model.setData({
-                    "n/searchEngine": n.elm.search.wrapper.children("select")[0].value,
+                    "n/searchEngine": n.helper.search.getCurrentSearchEngine(),
                     "n/topPagesType": n.elm.topPages.children("select")[0].value,
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts
@@ -143,7 +143,7 @@
             history.pushState({}, null, location.href.replace(/#edit/g, ""));
             n.elm.body.removeClass($.cl.newtab.edit);
 
-            n.elm.search.wrapper.children("select").remove();
+            n.elm.search.wrapper.children("a." + $.cl.newtab.edit).remove();
             n.elm.topPages.children("select").remove();
             n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
@@ -332,19 +332,14 @@
         };
 
         /**
-         * Initialises the dropdown for the search engine
+         * Initialises the edit button for the search
          */
         const initSearchEngineConfig = () => {
-            const select = $("<select />").appendTo(n.elm.search.wrapper);
-            const searchEngines = n.helper.search.getSearchEngineList();
-            const currentSearchEngine = n.helper.model.getData("n/searchEngine");
+            const edit = $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.search.wrapper);
 
-            Object.entries(searchEngines).forEach(([value, info]) => {
-                $("<option value='" + value + "' " + (currentSearchEngine === value ? "selected" : "") + " />").text(info.name).appendTo(select);
-            });
-
-            select.on("input change", (e) => {
-                n.helper.search.updateSearchEngine(e.currentTarget.value);
+            edit.on("click", (e) => {
+                e.preventDefault();
+                n.helper.overlay.create("searchEngine", n.helper.i18n.get("newtab_search_engine_headline"));
             });
         };
     };

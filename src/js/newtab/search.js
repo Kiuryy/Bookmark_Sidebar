@@ -107,6 +107,12 @@
 
         /**
          *
+         * @returns {string}
+         */
+        this.getCurrentSearchEngine = () => searchEngine;
+
+        /**
+         *
          * @returns {object}
          */
         this.getSearchEngineList = () => searchEngineList;

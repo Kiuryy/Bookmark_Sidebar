@@ -432,22 +432,15 @@ body.edit {
       padding-right: 125px;
     }
 
-    > button[type="submit"] {
+    > button[type="submit"], > a.speechSearch {
       display: none;
     }
 
-    > select {
-      position: absolute;
-      top: 10px;
-      right: 23px;
-      background: $bodyBackground;
-      width: 100px;
-      height: $newTabSearchHeight - 20;
-      border-radius: ($newTabSearchHeight - 20) / 2;
-      padding: 0 7px;
-      border: none;
-      outline: none;
-      cursor: pointer;
+    > a.edit {
+      @include mask('icon-edit', $textColorLight, 22px);
+      right: 20px;
+      width: calc(#{$newTabSearchHeight} - 14px);
+      height: calc(#{$newTabSearchHeight} - 14px);
     }
   }
 

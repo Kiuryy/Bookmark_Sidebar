@@ -257,9 +257,6 @@
     "newtab_title": {
         "message": "New Tab"
     },
-    "newtab_search_placeholder": {
-        "message": "Search {1} or type URL"
-    },
     "newtab_top_pages_default": {
         "message": "Top pages"
     },
@@ -275,11 +272,26 @@
     "newtab_top_pages_hidden": {
         "message": "Don't show pages"
     },
+    "newtab_search_placeholder": {
+        "message": "Search {1} or type URL"
+    },
     "newtab_speech_search_listening": {
         "message": "Speak now"
     },
     "newtab_speech_search_error": {
         "message": "To enable the speech search, you have to allow microphone access."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Search engine"
+    },
+    "newtab_search_engine_custom": {
+        "message": "User-defined"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL of homepage"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL of search results"
     },
     "newtab_upload_background": {
         "message": "Upload background image"
@@ -1177,6 +1189,9 @@
     },
     "premium_pay_price_total": {
         "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "This is a one-time charge and includes all future premium features as well."
     },
     "premium_pay_eula": {
         "message": "End-User License Agreement"

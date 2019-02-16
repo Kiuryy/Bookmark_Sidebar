@@ -327,18 +327,23 @@ div#search {
     div#search > input[type='text']::-moz-placeholder {
       color: "%textColor";
       opacity: 0.7; }
-  div#search > button[type="submit"] {
+  div#search > button, div#search > a {
     position: absolute;
-    top: 4px;
-    right: 15px;
-    width: calc(54px - 8px);
-    height: calc(54px - 8px);
+    top: 0;
+    bottom: 0;
+    margin: auto;
     outline: none;
     border: none;
     background: none;
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s; }
+    div#search > button:hover, div#search > a:hover {
+      background: #f2f2f2; }
+  div#search > button[type="submit"] {
+    right: 15px;
+    width: calc(54px - 8px);
+    height: calc(54px - 8px); }
     div#search > button[type="submit"]::before {
       content: "";
       position: absolute;
@@ -349,16 +354,10 @@ div#search {
       -webkit-mask: no-repeat center/26px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg);
       background-color: #aaa; }
-    div#search > button[type="submit"]:hover {
-      background: #f2f2f2; }
   div#search > a.speechSearch {
-    position: absolute;
-    top: 10px;
     right: 60px;
     width: calc(54px - 20px);
-    height: calc(54px - 20px);
-    border-radius: 50%;
-    transition: background 0.3s; }
+    height: calc(54px - 20px); }
     div#search > a.speechSearch::before {
       content: "";
       position: absolute;
@@ -369,8 +368,6 @@ div#search {
       -webkit-mask: no-repeat center/20px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-speech.svg);
       background-color: #aaa; }
-    div#search > a.speechSearch:hover {
-      background: #f2f2f2; }
   div#search > ul.suggestions {
     position: absolute;
     width: calc(100% - 20px);
@@ -894,21 +891,23 @@ body.edit section#content {
 body.edit div#search > input[type='text'] {
   padding-right: 125px; }
 
-body.edit div#search > button[type="submit"] {
+body.edit div#search > button[type="submit"], body.edit div#search > a.speechSearch {
   display: none; }
 
-body.edit div#search > select {
-  position: absolute;
-  top: 10px;
-  right: 23px;
-  background: #f2f2f2;
-  width: 100px;
-  height: 34px;
-  border-radius: 17px;
-  padding: 0 7px;
-  border: none;
-  outline: none;
-  cursor: pointer; }
+body.edit div#search > a.edit {
+  right: 20px;
+  width: calc(54px - 14px);
+  height: calc(54px - 14px); }
+  body.edit div#search > a.edit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/22px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg);
+    background-color: #aaa; }
 
 body.edit div#topPages > select.edit {
   margin-top: -25px; }

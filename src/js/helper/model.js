@@ -129,6 +129,11 @@
                 autoOpen: true,
                 shortcutsPosition: "right",
                 searchEngine: "google",
+                searchEngineCustom: {
+                    title: "",
+                    homepage: "",
+                    queryUrl: ""
+                },
                 topPagesType: "topPages",
                 shortcuts: [{label: "Google", url: "https://google.com"}],
                 website: ""

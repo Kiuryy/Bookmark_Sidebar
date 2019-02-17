@@ -1,0 +1,6 @@
+body.highContrast:not(.dark) div.modal[data-type='searchEngine'] {
+
+  > div.scrollBox > ul > li > a:hover {
+    color: $__textColor;
+  }
+}

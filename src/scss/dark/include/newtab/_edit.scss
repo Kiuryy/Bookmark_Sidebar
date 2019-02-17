@@ -39,6 +39,10 @@ body.dark {
 
     section#content > nav {
 
+      select.edit {
+        background: lighten($darkContentBackground2, 5%);
+      }
+
       a.add {
         background: $darkContentBackground;
 
@@ -86,8 +90,8 @@ body.dark {
 
     div#search {
 
-      > select {
-        background: lighten($darkContentBackground2, 10%);
+      > a.edit:hover {
+        background: lighten($darkContentBackground2, 5%);
       }
     }
 

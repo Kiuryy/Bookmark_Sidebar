@@ -101,6 +101,11 @@ html[dir='rtl'] {
         left: 23px;
         right: unset;
       }
+
+      > a.edit {
+        left: 20px;
+        right: unset;
+      }
     }
 
     select.edit {

@@ -109,8 +109,13 @@
                 const loader = n.helper.template.loading().appendTo(n.elm.body);
                 n.elm.body.addClass($.cl.loading);
 
+                const searchEngineObj = n.helper.search.getCurrentSearchEngine();
+                const searchEngineName = searchEngineObj.name;
+                delete searchEngineObj.name;
+
                 n.helper.model.setData({
-                    "n/searchEngine": n.helper.search.getCurrentSearchEngine(),
+                    "n/searchEngine": searchEngineName,
+                    "n/searchEngineCustom": searchEngineObj,
                     "n/topPagesType": n.elm.topPages.children("select")[0].value,
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts
@@ -148,7 +153,7 @@
             n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
 
-            n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
+            n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
             n.helper.shortcuts.refreshEntries();
 

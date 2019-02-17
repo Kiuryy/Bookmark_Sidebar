@@ -960,6 +960,10 @@ html[dir='rtl'] body.edit div#search > select {
   left: 23px;
   right: unset; }
 
+html[dir='rtl'] body.edit div#search > a.edit {
+  left: 20px;
+  right: unset; }
+
 html[dir='rtl'] body.edit select.edit {
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1); }
 
@@ -978,6 +982,9 @@ body.dark menu.infoBar {
 
 body.dark > a.edit:hover {
   background: #4d4d4d; }
+
+body.dark.edit section#content > nav select.edit {
+  background: #5a5a5a; }
 
 body.dark.edit section#content > nav a.add {
   background: #3d3d3d; }
@@ -1005,8 +1012,8 @@ body.dark.edit section#content > nav > ul > li {
     body.dark.edit section#content > nav > ul > li > div > button[type='submit'] {
       color: "%textColor"; }
 
-body.dark.edit div#search > select {
-  background: #676767; }
+body.dark.edit div#search > a.edit:hover {
+  background: #5a5a5a; }
 
 body.dark.edit div#topPages > select {
   background: #5a5a5a; }

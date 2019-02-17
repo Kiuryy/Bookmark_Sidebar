@@ -92,6 +92,22 @@
                         obj.newtab = {};
                     }
 
+                    if (obj.newtab.searchEngine === "duckduckgo") { // @deprecated duckduckgo is now a custom search engine (03/2019)
+                        obj.newtab.searchEngine = "custom";
+                        obj.newtab.searchEngineCustom = {
+                            title: "DuckDuckGo",
+                            homepage: "https://duckduckgo.com/",
+                            queryUrl: "https://duckduckgo.com/?q={1}"
+                        };
+                    } else if (obj.newtab.searchEngine === "duckduckgo") { // @deprecated yahoo is now a custom search engine (03/2019)
+                        obj.newtab.searchEngine = "custom";
+                        obj.newtab.searchEngineCustom = {
+                            title: "Yahoo",
+                            homepage: "https://search.yahoo.com/",
+                            queryUrl: "https://search.yahoo.com/search?p={1}"
+                        };
+                    }
+
                     if (type === "upgrade") {
                         updateOptionsAfterUpgrade(obj);
                     } else if (type === "install") {

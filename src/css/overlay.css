@@ -6,6 +6,16 @@ div.modal[data-type='add'] > ul.visible {
   opacity: 1;
   pointer-events: auto; }
 
+div.modal[data-type='keyboardShortcuts']::after, div.modal[data-type='shareInfoDesc']::after, div.modal.urlCheckResults[data-type='checkBookmarks']::after, div.modal[data-type='searchEngine']::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 57px;
+  z-index: 2;
+  background: #f5f5f5; }
+
 @keyframes rotator {
   0% {
     transform: rotate(0deg); }
@@ -235,16 +245,6 @@ body {
   body.noAnimations *, body.noAnimations *::before, body.noAnimations *::after {
     transition: none !important; }
 
-div.modal[data-type='keyboardShortcuts']::after, div.modal[data-type='shareInfoDesc']::after, div.modal.urlCheckResults[data-type='checkBookmarks']::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 57px;
-  z-index: 2;
-  background: #f5f5f5; }
-
 div.modal {
   position: relative;
   width: 600px;
@@ -309,6 +309,8 @@ div.modal {
         background-color: "%foregroundColor"; }
       div.modal > header > a.close:hover {
         background-color: rgba(255, 255, 255, 0.2); }
+  div.modal > div.scrollBox {
+    height: calc(100% - %overlayHeaderHeight - 57px); }
   div.modal > a.preview, div.modal > span.preview {
     display: block;
     font-size: 140%;
@@ -427,53 +429,51 @@ div.modal {
     max-height: 100%; }
     div.modal[data-type='keyboardShortcuts'] > header::before {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-keyboard.svg); }
-    div.modal[data-type='keyboardShortcuts'] > div.scrollBox {
-      height: calc(100% - %overlayHeaderHeight - 57px); }
-      div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div {
-        background: #fff;
-        padding: 30px 30px 5px 30px; }
-        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > h3 {
-          font-weight: "%fontWeightMedium";
-          margin: 0 0 10px 0; }
-        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
-          position: relative;
-          font-weight: "%fontWeightMedium";
-          cursor: pointer;
-          color: "%colorScheme";
-          padding-left: 16px; }
-          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            width: 7px;
-            height: 7px;
-            border-top: 2px solid "%colorScheme";
-            border-right: 2px solid "%colorScheme";
-            transform: rotateZ(45deg); }
-        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul {
-          margin-top: 20px;
-          padding-top: 20px;
-          border-top: 1px solid rgba(0, 0, 0, 0.1); }
-          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li {
-            padding: 0 0 25px 0; }
-            div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong {
-              font-size: 80%;
-              font-weight: normal;
-              margin-left: -2px; }
-              div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
-                display: inline-block;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                background: rgba(0, 0, 0, 0.05);
-                font-style: normal;
-                padding: 2px 4px;
-                border-radius: 2px;
-                margin: 0 2px; }
-            div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > span {
-              display: block;
-              margin-top: 5px; }
+    div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div {
+      background: #fff;
+      padding: 30px 30px 5px 30px; }
+      div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > h3 {
+        font-weight: "%fontWeightMedium";
+        margin: 0 0 10px 0; }
+      div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
+        position: relative;
+        font-weight: "%fontWeightMedium";
+        cursor: pointer;
+        color: "%colorScheme";
+        padding-left: 16px; }
+        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          width: 7px;
+          height: 7px;
+          border-top: 2px solid "%colorScheme";
+          border-right: 2px solid "%colorScheme";
+          transform: rotateZ(45deg); }
+      div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1); }
+        div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li {
+          padding: 0 0 25px 0; }
+          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong {
+            font-size: 80%;
+            font-weight: normal;
+            margin-left: -2px; }
+            div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > strong > i {
+              display: inline-block;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              background: rgba(0, 0, 0, 0.05);
+              font-style: normal;
+              padding: 2px 4px;
+              border-radius: 2px;
+              margin: 0 2px; }
+          div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > ul > li > span {
+            display: block;
+            margin-top: 5px; }
   div.modal[data-type='delete'] > p, div.modal[data-type='hide'] > p, div.modal[data-type='openChildren'] > p {
     padding: 30px 30px 5px 30px;
     font-size: 140%;
@@ -494,7 +494,6 @@ div.modal {
       width: 600px;
       height: 550px; }
     div.modal[data-type='shareInfoDesc'] > div.scrollBox {
-      height: calc(100% - %overlayHeaderHeight - 57px);
       font-size: 120%;
       line-height: 150%; }
       div.modal[data-type='shareInfoDesc'] > div.scrollBox > p {
@@ -1179,28 +1178,94 @@ body.dark div.modal[data-type='checkBookmarks'] > div.progressBar {
 body.dark div.modal[data-type='checkBookmarks'].urlCheckResults::after {
   background: #4d4d4d; }
 
-div.modal[data-type='searchEngine'] > header::before {
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
+div.modal[data-type='searchEngine'] {
+  width: 600px;
+  height: 550px;
+  max-height: 100%; }
+  div.modal[data-type='searchEngine'] > header::before {
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
+  div.modal[data-type='searchEngine'] > div.scrollBox > ul {
+    margin: 30px 30px 0 30px; }
+    div.modal[data-type='searchEngine'] > div.scrollBox > ul > li {
+      position: relative;
+      padding: 0 5px 0 32px; }
+      div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > div.checkbox {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: 0; }
+      div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > a {
+        display: inline-block;
+        line-height: 39px;
+        font-weight: "%fontWeightMedium";
+        cursor: pointer;
+        transition: color 0.3s; }
+        div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > a:hover {
+          color: "%colorScheme"; }
+        div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > a > img {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          margin-right: 8px;
+          vertical-align: middle; }
+    div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] {
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding: 0 30px;
+      display: none; }
+      div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'].visible {
+        display: block; }
+      div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li {
+        margin: 0 0 12px 0;
+        padding: 2px; }
+        div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li > label {
+          display: block;
+          font-size: 100%;
+          font-weight: "%fontWeightMedium"; }
+        div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li > input {
+          width: 100%;
+          max-width: 400px;
+          background: transparent;
+          font-size: 120%;
+          padding: 5px 8px;
+          margin-top: 5px;
+          border-radius: 5px;
+          outline: none;
+          box-shadow: none;
+          transition: border-color 0.5s;
+          border: 1px solid rgba(0, 0, 0, 0.15); }
+          div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li > input:focus {
+            border-color: rgba(0, 0, 0, 0.3); }
 
-div.modal[data-type='searchEngine'] > ul {
-  margin: 30px 30px 20px 30px; }
-  div.modal[data-type='searchEngine'] > ul > li {
-    position: relative; }
-    div.modal[data-type='searchEngine'] > ul > li > div.checkbox {
-      position: absolute;
-      z-index: 2;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      left: 0; }
-    div.modal[data-type='searchEngine'] > ul > li > a {
-      display: inline-block;
-      line-height: 39px;
-      padding: 0 5px 0 30px;
-      cursor: pointer;
-      transition: color 0.3s; }
-      div.modal[data-type='searchEngine'] > ul > li > a:hover {
-        color: "%colorScheme"; }
+html[dir='rtl'] div.modal[data-type='searchEngine'] > div.scrollBox > ul > li {
+  padding: 0 32px 0 5px; }
+  html[dir='rtl'] div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > div.checkbox {
+    left: unset;
+    right: 0; }
+  html[dir='rtl'] div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > a > img {
+    margin-left: 8px;
+    margin-right: 0; }
+
+html[dir='rtl'] div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li {
+  padding: 2px; }
+  html[dir='rtl'] div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li > input {
+    direction: ltr; }
+
+body.dark div.modal[data-type='searchEngine']::after {
+  background: #4d4d4d; }
+
+body.dark div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > a:hover {
+  color: "%textColor"; }
+
+body.dark div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li > input {
+  border-color: rgba(255, 255, 255, 0.1); }
+  body.dark div.modal[data-type='searchEngine'] > div.scrollBox > ul[data-type='custom'] > li > input:focus {
+    border-color: rgba(255, 255, 255, 0.25); }
+
+body.highContrast:not(.dark) div.modal[data-type='searchEngine'] > div.scrollBox > ul > li > a:hover {
+  color: "%textColor"; }
 
 html[dir='rtl'] div.modal > header {
   padding: 0 52px 0 75px; }

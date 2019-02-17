@@ -58,9 +58,11 @@
          * Extends the overlay html for the search engine selection
          */
         const handleSearchEngineHtml = () => {
-            const list = $("<ul />").appendTo(elements.modal);
+            const scrollBox = $("<div />").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
+
+            const list = $("<ul />").appendTo(scrollBox);
             const searchEngines = n.helper.search.getSearchEngineList();
-            const currentSearchEngine = n.helper.model.getData("n/searchEngine");
+            const currentSearchEngine = n.helper.search.getCurrentSearchEngine();
 
             Object.entries(searchEngines).forEach(([value, info]) => {
                 const entry = $("<li />")
@@ -71,20 +73,43 @@
                     .append("<a>" + info.name + "</a>")
                     .appendTo(list);
 
-                if (currentSearchEngine === value) {
+                if (info.favicon) {
+                    $("<img />").attr("src", info.favicon).prependTo(entry.children("a"));
+                }
+
+                if (currentSearchEngine.name === value) {
                     entry.find("input[" + $.attr.name + "='searchEngine'][" + $.attr.value + "='" + value + "']").parent("div." + $.cl.checkbox.box).trigger("click");
                 }
             });
 
+            const customWrapper = $("<ul />").attr($.attr.type, "custom").appendTo(scrollBox);
+
+            if (currentSearchEngine.name === "custom") {
+                customWrapper.addClass($.cl.visible);
+            }
+
+            $("<li />")
+                .append("<label>" + n.helper.i18n.get("newtab_search_engine_custom_title") + "</label>")
+                .append("<input type='text' name='title' value='" + currentSearchEngine.title.replace(/'/g, "&#x27;") + "' />")
+                .appendTo(customWrapper);
+            $("<li />")
+                .append("<label>" + n.helper.i18n.get("newtab_search_engine_custom_url_homepage") + "</label>")
+                .append("<input type='text' name='homepage' value='" + currentSearchEngine.homepage.replace(/'/g, "&#x27;") + "' placeholder='https://example.com' />")
+                .appendTo(customWrapper);
+            $("<li />")
+                .append("<label>" + n.helper.i18n.get("newtab_search_engine_custom_url_results") + "</label>")
+                .append("<input type='text' name='queryUrl' value='" + currentSearchEngine.queryUrl.replace(/'/g, "&#x27;") + "' placeholder='https://example.com/?q={1}' />")
+                .appendTo(customWrapper);
 
             $("<a />").addClass($.cl.overlay.action).text(n.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
-
         /**
-         * Sets the selected search engine and closes the overlay
+         * Returns the currently selectes search engine from the list
+         *
+         * @returns {string}
          */
-        const updateSearchEngine = () => {
+        const getSelectedSearchEngine = () => {
             let value = null;
             elements.modal.find("input[type='checkbox']").forEach((elm) => {
                 if (elm.checked) {
@@ -92,8 +117,24 @@
                     return false;
                 }
             });
+            return value;
+        };
 
-            n.helper.search.updateSearchEngine(value);
+
+        /**
+         * Sets the selected search engine and closes the overlay
+         */
+        const updateSearchEngine = () => {
+            const value = getSelectedSearchEngine();
+
+            if (value) {
+                n.helper.search.updateSearchEngine(value, {
+                    title: elements.modal.find("input[name='title']")[0].value,
+                    homepage: elements.modal.find("input[name='homepage']")[0].value,
+                    queryUrl: elements.modal.find("input[name='queryUrl']")[0].value
+                });
+            }
+
             closeOverlay();
         };
 
@@ -128,6 +169,17 @@
                 if (elmObj.hasClass($.cl.overlay.action)) { // perform the action
                     performAction();
                 }
+            });
+
+            elements.modal.find("input[type='checkbox']").on("change", () => {
+                $.delay().then(() => {
+                    const customList = elements.modal.find("ul[" + $.attr.type + "='custom']");
+                    if (getSelectedSearchEngine() === "custom") {
+                        customList.addClass($.cl.visible);
+                    } else {
+                        customList.removeClass($.cl.visible);
+                    }
+                });
             });
         };
     };

@@ -1,0 +1,27 @@
+body.dark {
+
+  div.modal[data-type='searchEngine'] {
+
+    &::after {
+      background: $darkContentBackground2;
+    }
+
+    > div.scrollBox {
+
+      > ul {
+
+        > li > a:hover {
+          color: $__textColor;
+        }
+
+        &[data-type='custom'] > li > input {
+          border-color: rgba(255, 255, 255, 0.1);
+
+          &:focus {
+            border-color: rgba(255, 255, 255, 0.25);
+          }
+        }
+      }
+    }
+  }
+}

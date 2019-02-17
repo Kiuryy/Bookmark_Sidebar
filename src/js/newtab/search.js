@@ -4,7 +4,7 @@
     $.SearchHelper = function (n) {
 
         const suggestionCache = {};
-        let searchEngine = null;
+        let searchEngine = {};
         let searchEngineList = {};
 
         const searchEngineInfo = {
@@ -12,41 +12,22 @@
                 name: "Google",
                 url: "https://www.google.com/",
                 queryUrl: "https://www.google.com/search?q={1}",
+                favicon: "https://www.google.com/favicon.ico",
                 sorting: 10
             },
             bing: {
                 name: "Bing",
                 url: "https://www.bing.com/",
                 queryUrl: "https://www.bing.com/search?q={1}",
+                favicon: "https://www.bing.com/favicon.ico",
                 sorting: 20
-            },
-            yahoo: {
-                name: "Yahoo",
-                url: "https://search.yahoo.com/",
-                queryUrl: "https://search.yahoo.com/search?p={1}",
-                sorting: 30,
-                lang: {
-                    de: {
-                        url: "https://de.search.yahoo.com/",
-                        queryUrl: "https://de.search.yahoo.com/search?p={1}",
-                    },
-                    jp: {
-                        url: "https://search.yahoo.co.jp/",
-                        queryUrl: "https://search.yahoo.co.jp/search?p={1}",
-                    }
-                }
-            },
-            duckduckgo: {
-                name: "DuckDuckGo",
-                url: "https://duckduckgo.com/",
-                queryUrl: "https://duckduckgo.com/?q={1}",
-                sorting: 40
             },
             yandex: {
                 name: "Yandex",
                 url: "https://yandex.com/",
                 queryUrl: "https://yandex.com/search/?text={1}",
-                sorting: 50,
+                favicon: "https://yandex.com/favicon.ico",
+                sorting: 30,
                 lang: {
                     ru: {
                         name: "Яндекс",
@@ -71,13 +52,17 @@
                 name: "Baidu",
                 url: "https://www.baidu.com/",
                 queryUrl: "https://www.baidu.com/s?wd={1}",
-                sorting: 60,
+                favicon: "https://www.baidu.com/favicon.ico",
+                sorting: 40,
                 lang: {
                     "zh-CN": {
                         name: "百度",
-                        sorting: 15
+                        sorting: 5
                     }
                 }
+            },
+            custom: {
+                sorting: 50
             }
         };
 
@@ -89,19 +74,26 @@
             initSearchEngineList();
             initEvents();
 
-            this.updateSearchEngine(n.helper.model.getData("n/searchEngine"));
+            this.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
         };
 
         /**
          * Updates the currently used search engine
          *
          * @param {string} name
+         * @param {object} opts
          */
-        this.updateSearchEngine = (name) => {
+        this.updateSearchEngine = (name, opts = {}) => {
             if (searchEngineList[name]) {
-                searchEngine = name;
-                const text = n.helper.i18n.get("newtab_search_placeholder", [searchEngineList[name].name]);
-                n.elm.search.field.attr("placeholder", text);
+                searchEngine = {
+                    name: name,
+                    title: opts.title || "",
+                    homepage: opts.homepage || "",
+                    queryUrl: opts.queryUrl || ""
+                };
+
+                const label = searchEngine.name === "custom" && searchEngine.title ? searchEngine.title : searchEngineList[name].label;
+                n.elm.search.field.attr("placeholder", n.helper.i18n.get("newtab_search_placeholder", [label]));
             }
         };
 
@@ -124,22 +116,32 @@
             const lang = n.helper.i18n.getUILanguage();
             const list = [];
 
-            Object.entries(searchEngineInfo).forEach(([alias, searchEngine]) => {
+            Object.entries(searchEngineInfo).forEach(([alias, obj]) => {
+                if (alias === "custom") {
+                    const customData = n.helper.model.getData("n/searchEngineCustom");
+                    obj.name = n.helper.i18n.get("newtab_search_engine_custom");
+                    obj.label = customData.title;
+                    obj.url = customData.homepage;
+                    obj.queryUrl = customData.queryUrl;
+                }
+
                 const entry = {
                     alias: alias,
-                    name: searchEngine.name,
-                    url: searchEngine.url,
-                    queryUrl: searchEngine.queryUrl,
-                    sorting: searchEngine.sorting
+                    name: obj.name,
+                    label: obj.label || obj.name,
+                    favicon: obj.favicon || null,
+                    url: obj.url,
+                    queryUrl: obj.queryUrl,
+                    sorting: obj.sorting
                 };
 
-                if (searchEngine.lang && searchEngine.lang[lang]) {
-                    Object.entries(searchEngine.lang[lang]).forEach(([field, val]) => {
+                if (obj.lang && obj.lang[lang]) {
+                    Object.entries(obj.lang[lang]).forEach(([field, val]) => {
                         entry[field] = val;
                     });
                 }
 
-                if (entry.name && entry.url && entry.queryUrl) {
+                if (entry.name) {
                     list.push(entry);
                 }
             });
@@ -196,8 +198,21 @@
             if (val && val.trim().length > 0) {
                 if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
                     chrome.tabs.update({url: val});
-                } else if (searchEngineList[searchEngine]) {
-                    chrome.tabs.update({url: searchEngineList[searchEngine].queryUrl.replace("{1}", encodeURIComponent(val))});
+                } else if (searchEngineList[searchEngine.name]) {
+                    let url = "";
+
+                    if (searchEngine.name === "custom" && searchEngine.queryUrl) {
+                        url = searchEngine.queryUrl;
+                    } else if (searchEngineList[searchEngine.name].queryUrl) {
+                        url = searchEngineList[searchEngine.name].queryUrl;
+                    }
+
+                    if (url) {
+                        if (url.includes("{1}") === false) { // query url is missing the {1} placeholder -> paste it at the end
+                            url += "{1}";
+                        }
+                        chrome.tabs.update({url: url.replace("{1}", encodeURIComponent(val))});
+                    }
                 }
             }
         };
@@ -269,8 +284,18 @@
                 const val = n.elm.search.field[0].value;
                 if (val && val.trim().length > 0) {
                     handleSearch(val);
-                } else if (searchEngineList[searchEngine]) {
-                    chrome.tabs.update({url: searchEngineList[searchEngine].url});
+                } else if (searchEngineList[searchEngine.name]) {
+                    let url = "";
+
+                    if (searchEngine.name === "custom" && searchEngine.homepage) {
+                        url = searchEngine.homepage;
+                    } else if (searchEngineList[searchEngine.name].url) {
+                        url = searchEngineList[searchEngine.name].url;
+                    }
+
+                    if (url) {
+                        chrome.tabs.update({url: url});
+                    }
                 }
             });
 
@@ -357,7 +382,6 @@
                     n.elm.search.wrapper.data("recognition").stop();
                     return;
                 }
-
 
                 const recognition = new SpeechRecognition();
                 n.elm.search.wrapper.data("recognition", recognition);

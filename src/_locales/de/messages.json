@@ -284,6 +284,9 @@
     "newtab_search_engine_custom": {
         "message": "Benutzerdefiniert"
     },
+    "newtab_search_engine_custom_title": {
+        "message": "Titel"
+    },
     "newtab_search_engine_custom_url_homepage": {
         "message": "URL der Startseite"
     },

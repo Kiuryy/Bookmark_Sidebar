@@ -1,36 +1,96 @@
 
 div.modal[data-type='searchEngine'] {
+  @extend %modalFooterBackground;
+  width: 600px;
+  height: 550px;
+  max-height: 100%;
 
   > header::before {
     @include maskImage('icon-search');
   }
 
-  > ul {
-    margin: 30px 30px 20px 30px;
+  > div.scrollBox {
 
-    > li {
-      position: relative;
+    > ul {
+      margin: 30px 30px 0 30px;
 
-      > div.checkbox {
-        position: absolute;
-        z-index: 2;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        left: 0;
+      > li {
+        position: relative;
+        padding: 0 5px 0 32px;
+
+        > div.checkbox {
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          left: 0;
+        }
+
+        > a {
+          display: inline-block;
+          line-height: 39px;
+          font-weight: $__fontWeightMedium;
+          cursor: pointer;
+          transition: color 0.3s;
+
+          &:hover {
+            color: $__colorScheme;
+          }
+
+          > img {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            vertical-align: middle;
+          }
+        }
       }
 
-      > a {
-        display: inline-block;
-        line-height: 39px;
-        padding: 0 5px 0 30px;
-        cursor: pointer;
-        transition: color 0.3s;
+      &[data-type='custom'] {
+        margin-top: 0;
+        margin-bottom: 20px;
+        padding: 0 30px;
+        display: none;
 
-        &:hover {
-          color: $__colorScheme;
+        &.visible {
+          display: block;
+        }
+
+        > li {
+          margin: 0 0 12px 0;
+          padding: 2px;
+
+          > label {
+            display: block;
+            font-size: 100%;
+            font-weight: $__fontWeightMedium;
+          }
+
+          > input {
+            width: 100%;
+            max-width: 400px;
+            background: transparent;
+            font-size: 120%;
+            padding: 5px 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            outline: none;
+            box-shadow: none;
+            transition: border-color 0.5s;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+
+            &:focus {
+              border-color: rgba(0, 0, 0, 0.3);
+            }
+          }
         }
       }
     }
   }
 }
+
+@import "../../rtl/include/newtab/overlay";
+@import "../../dark/include/newtab/overlay";
+@import "../../highContrast/include/newtab/overlay";

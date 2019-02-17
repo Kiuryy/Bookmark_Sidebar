@@ -1,0 +1,34 @@
+
+html[dir='rtl'] div.modal[data-type='searchEngine'] {
+
+  > div.scrollBox {
+
+    > ul {
+
+      > li {
+        padding: 0 32px 0 5px;
+
+        > div.checkbox {
+          left: unset;
+          right: 0;
+        }
+
+        > a > img {
+          margin-left: 8px;
+          margin-right: 0;
+        }
+      }
+
+      &[data-type='custom'] {
+
+        > li {
+          padding: 2px;
+
+          > input {
+            direction: ltr;
+          }
+        }
+      }
+    }
+  }
+}

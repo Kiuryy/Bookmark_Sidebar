@@ -9,6 +9,20 @@
   pointer-events: auto;
 }
 
+%modalFooterBackground {
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 57px;
+    z-index: 2;
+    background: $contentBackground2;
+  }
+}
+
 @mixin maskImage($icon) {
   -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/#{$icon}.svg);
 }

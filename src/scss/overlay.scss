@@ -29,20 +29,6 @@ body {
   }
 }
 
-%modalFooterBackground {
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 57px;
-    z-index: 2;
-    background: $contentBackground2;
-  }
-}
-
 div.modal {
   position: relative;
   width: 600px;
@@ -101,6 +87,10 @@ div.modal {
         background-color: rgba(255, 255, 255, 0.2);
       }
     }
+  }
+
+  > div.scrollBox {
+    height: calc(100% - #{$__overlayHeaderHeight} - 57px);
   }
 
   > a.preview, > span.preview {
@@ -218,7 +208,6 @@ div.modal {
     }
 
     > div.scrollBox {
-      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
 
       > div {
         background: $contentBackground;
@@ -325,7 +314,6 @@ div.modal {
     }
 
     > div.scrollBox {
-      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
       font-size: 120%;
       line-height: 150%;
 

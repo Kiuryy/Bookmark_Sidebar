@@ -3,7 +3,6 @@
 
     $.ModelHelper = function (b) {
         let data = {};
-        let dataFallback = {};
         let licenseKey = null;
         let translationInfo = [];
         let shareInfo = {
@@ -17,10 +16,6 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                chrome.storage.local.get(["model"], (obj) => {
-                    dataFallback = obj.model || {};
-                });
-
                 chrome.storage.sync.get(["model", "shareInfo", "translationInfo", "licenseKey"], (obj) => {
                     data = obj.model || {};
                     if (typeof obj.shareInfo === "object") {
@@ -159,7 +154,6 @@
          */
         this.setLicenseKey = (key) => {
             return new Promise((resolve) => {
-
                 chrome.storage.sync.set({
                     licenseKey: key
                 }, () => {
@@ -180,7 +174,6 @@
         this.setData = (key, val) => {
             return new Promise((resolve) => {
                 data[key] = val;
-                dataFallback[key] = val;
                 saveModelData().then(resolve);
             });
         };
@@ -192,7 +185,7 @@
          * @returns {*|null}
          */
         this.getData = (key) => {
-            return data[key] || dataFallback[key] || null;
+            return data[key] || null;
         };
 
         /**
@@ -207,13 +200,7 @@
                         model: data
                     }, () => {
                         chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
-
-                        chrome.storage.local.set({ // save to local storage as well (as a fallback in case sync storage is not working)
-                            model: data
-                        }, () => {
-                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
-                            resolve();
-                        });
+                        resolve();
                     });
                 }
             });

@@ -61,6 +61,10 @@
                     b.helper.model.getUserType(),
                     b.helper.model.setData("lastTrackDate", today)
                 ]).then(([response]) => {
+                    if (lastTrackDate === null) { // not tracked yet -> don't track the first time, but set the lastTrackDate above -> this will prevent double tracking of users, where setting the lastTrackDate fails
+                        return;
+                    }
+
                     const shareInfo = b.helper.model.getShareInfo();
                     let shareState = "not_set";
 

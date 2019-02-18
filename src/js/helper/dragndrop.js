@@ -41,7 +41,6 @@
             const entryElm = draggedElm.data("elm");
 
             if (entryElm) {
-                const elm = entryElm.children("a");
                 entryElm.insertAfter(dragInitialElm).removeClass($.cl.drag.isDragged);
             }
 
@@ -445,9 +444,10 @@
                                 elm: newAboveLink.addClass($.cl.drag.dragHover)
                             };
 
+                            const dndOpenDirDelayRaw = ext.helper.model.getData("b/dndOpenDirDelay");
                             dirOpenTimeout.instance = setTimeout(() => { // open closed directory after short delay -> possibility for user to cancel timeout
                                 ext.helper.list.toggleBookmarkDir(newAboveLink);
-                            }, 700);
+                            }, +dndOpenDirDelayRaw * 1000);
                         }
                     } else if (newAboveLink.next("ul").length() === 0) { // empty directory
                         newAboveLink.addClass($.cl.sidebar.dirOpened);

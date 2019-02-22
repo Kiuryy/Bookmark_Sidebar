@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Abrir em uma janela an\u00f4nima"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Adicionar favorito"
+    },
     "contextmenu_add": {
         "message": "Adicionar entrada"
     },
@@ -221,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplicatas"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Pastas vazias"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Verificando os URLs dos favoritos"
     },
@@ -242,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "N\u00e3o h\u00e1 URLs de favoritos com duplicata"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "N\u00e3o h\u00e1 pastas sem favoritos"
+    },
     "newtab_title": {
         "message": "Nova guia"
-    },
-    "newtab_search_placeholder": {
-        "message": "Pesquise no {1} ou digite um URL"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
@@ -262,6 +268,30 @@
     },
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
+    },
+    "newtab_search_placeholder": {
+        "message": "Pesquise no {1} ou digite um URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Fale agora"
+    },
+    "newtab_speech_search_error": {
+        "message": "Para habilitar a pesquisa por voz, voc\u00ea precisa permitir o acesso ao microfone."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Motor de pesquisa"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definido pelo usu\u00e1rio"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "T\u00edtulo"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Endere\u00e7o da p\u00e1gina inicial"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Endere\u00e7o da p\u00e1gina de resultados"
     },
     "newtab_upload_background": {
         "message": "Carregar a imagem de fundo"
@@ -524,6 +554,9 @@
     "settings_menu_export": {
         "message": "Importar\/Exportar"
     },
+    "settings_menu_expert": {
+        "message": "Configura\u00e7\u00f5es de especialistas"
+    },
     "settings_save": {
         "message": "Salvar altera\u00e7\u00f5es"
     },
@@ -550,6 +583,15 @@
     },
     "settings_premium_invalid_key": {
         "message": "N\u00e3o foi poss\u00edvel concluir a ativa\u00e7\u00e3o. Por favor, entre com uma licen\u00e7a v\u00e1lida."
+    },
+    "settings_search_placeholder": {
+        "message": "Procurar configura\u00e7\u00e3o"
+    },
+    "settings_expert_settings_notice": {
+        "message": "Por favor, apenas altere os valores daqui se souber o que est\u00e1 fazendo. Configura\u00e7\u00f5es incorretas podem causar um comportamento inesperado da extens\u00e3o. Se algo quebrar, voc\u00ea pode reverter para a configura\u00e7\u00e3o padr\u00e3o."
+    },
+    "settings_expert_save_error": {
+        "message": "N\u00e3o foi poss\u00edvel salvar as configura\u00e7\u00f5es. Por favor, corrija suas entradas."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -1090,6 +1132,9 @@
     },
     "premium_pay_price_total": {
         "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Essa \u00e9 uma mudan\u00e7a que s\u00f3 acontece uma vez e tamb\u00e9m inclui todas as futuras funcionalidades premium."
     },
     "premium_pay_eula": {
         "message": "Acordo de Licen\u00e7a de Usu\u00e1rio Final"

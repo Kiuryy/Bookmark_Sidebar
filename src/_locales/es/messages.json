@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Abrir en ventana de inc\u00f3gnito"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Adicionar Marcador"
+    },
     "contextmenu_add": {
         "message": "Agregar entrada"
     },
@@ -221,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplicados"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Directorios Vacios"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Comprobar las URL de los marcadores"
     },
@@ -242,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "No hay duplicado alguno en las URLs de los marcadores"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "No hay directorios sin marcadores."
+    },
     "newtab_title": {
         "message": "Nueva pesta\u00f1a"
-    },
-    "newtab_search_placeholder": {
-        "message": "Busca {1} o escribe la URL"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas de arriba"
@@ -262,6 +268,21 @@
     },
     "newtab_top_pages_hidden": {
         "message": "No mostrar p\u00e1ginas"
+    },
+    "newtab_search_placeholder": {
+        "message": "Busca {1} o escribe la URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Hable Ahora"
+    },
+    "newtab_speech_search_error": {
+        "message": "Para habilitar la b\u00fasqueda de voz, debe permitir el acceso al micr\u00f3fono."
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definido por el usuario"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titulo"
     },
     "newtab_upload_background": {
         "message": "Subir imagen de fondo"
@@ -524,6 +545,9 @@
     "settings_menu_export": {
         "message": "Importar\/Exportar"
     },
+    "settings_menu_expert": {
+        "message": "Configuraciones avanzadas"
+    },
     "settings_save": {
         "message": "Grabar cambios"
     },
@@ -550,6 +574,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "No se ha podido activar Premium. Introduce una clave de licencia valida, por favor."
+    },
+    "settings_search_placeholder": {
+        "message": "Buscar configuraci\u00f3n"
+    },
+    "settings_expert_settings_desc": {
+        "message": "La configuraci\u00f3n experta le permite configurar cada marca de configuraci\u00f3n de la extensi\u00f3n, incluso aquellas que no puede cambiar utilizando las casillas de verificaci\u00f3n o los controles deslizantes de la p\u00e1gina de configuraci\u00f3n."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Por favor, solo cambie los valores aqu\u00ed, si sabe lo que est\u00e1 haciendo. Las configuraciones defectuosas pueden causar un comportamiento inesperado de la extensi\u00f3n. Si algo se rompe, puede volver a la configuraci\u00f3n predeterminada."
+    },
+    "settings_expert_save_error": {
+        "message": "No se pudo guardar la configuraci\u00f3n. Por favor, corrija su entrada."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -1090,6 +1126,9 @@
     },
     "premium_pay_price_total": {
         "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Este es un cargo por \u00fanica vez e incluye todas las funciones premium futuras tambi\u00e9n."
     },
     "premium_pay_eula": {
         "message": "Acuerdo de licencia de usuario final"

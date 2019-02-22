@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Megnyit\u00e1s \u00faj inkognit\u00f3 ablakban"
     },
+    "contextmenu_add_bookmark": {
+        "message": "K\u00f6nyvjelz\u0151 hozz\u00e1ad\u00e1sa"
+    },
     "contextmenu_add": {
         "message": "Tal\u00e1lat hozz\u00e1ad\u00e1sa"
     },
@@ -221,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Dupla"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "\u00dcres k\u00f6nyvt\u00e1rak"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "K\u00f6nyvjelz\u0151k c\u00edm\u00e9nek ellen\u0151rz\u00e9se"
     },
@@ -242,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Nincs dupla k\u00f6nyvjelz\u0151"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Nincsenek k\u00f6nyvjelz\u0151k n\u00e9lk\u00fcli k\u00f6nyvt\u00e1rak"
+    },
     "newtab_title": {
         "message": "\u00daj f\u00fcl"
-    },
-    "newtab_search_placeholder": {
-        "message": "Keres\u00e9s {1} vagy g\u00e9pelje be a c\u00edmet"
     },
     "newtab_top_pages_default": {
         "message": "Fontosabb lapok"
@@ -262,6 +268,30 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Ne mutassa a lapokat"
+    },
+    "newtab_search_placeholder": {
+        "message": "Keres\u00e9s {1} vagy g\u00e9pelje be a c\u00edmet"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Most besz\u00e9lj"
+    },
+    "newtab_speech_search_error": {
+        "message": "A besz\u00e9dkeres\u00e9s enged\u00e9lyez\u00e9s\u00e9hez enged\u00e9lyeznie kell a mikrofon hozz\u00e1f\u00e9r\u00e9s\u00e9t."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Keres\u0151motor"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Felhaszn\u00e1l\u00f3 \u00e1ltal hozz\u00e1adott"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "C\u00edm"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Honlap URL-c\u00edme"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Keres\u00e9si eredm\u00e9nyek URL-c\u00edme"
     },
     "newtab_upload_background": {
         "message": "H\u00e1tt\u00e9rk\u00e9p felt\u00f6lt\u00e9se"
@@ -524,6 +554,9 @@
     "settings_menu_export": {
         "message": "Import\/Export"
     },
+    "settings_menu_expert": {
+        "message": "Szak\u00e9rt\u0151i be\u00e1ll\u00edt\u00e1sok"
+    },
     "settings_save": {
         "message": "V\u00e1ltoz\u00e1sok ment\u00e9se"
     },
@@ -550,6 +583,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "A pr\u00e9mium aktiv\u00e1l\u00e1sa nem siker\u00fclt. K\u00e9rem adj meg egy \u00e9rv\u00e9nyes licensz kulcsot."
+    },
+    "settings_search_placeholder": {
+        "message": "Keresse meg a konfigur\u00e1ci\u00f3t"
+    },
+    "settings_expert_settings_desc": {
+        "message": "A szak\u00e9rt\u0151i be\u00e1ll\u00edt\u00e1sok lehet\u0151v\u00e9 teszik a b\u0151v\u00edtm\u00e9ny minden konfigur\u00e1ci\u00f3s jelz\u0151j\u00e9nek be\u00e1ll\u00edt\u00e1s\u00e1t, m\u00e9g akkor is, ha nem m\u00f3dos\u00edthatja a be\u00e1ll\u00edt\u00e1soldalak rendszeres jel\u00f6l\u0151n\u00e9gyzeteit vagy cs\u00faszk\u00e1it."
+    },
+    "settings_expert_settings_notice": {
+        "message": "K\u00e9rj\u00fck, csak itt v\u00e1ltoztassa meg az \u00e9rt\u00e9keket, ha tudja, mit csin\u00e1l. A hib\u00e1s konfigur\u00e1ci\u00f3k a b\u0151v\u00edtm\u00e9ny v\u00e1ratlan viselked\u00e9s\u00e9t okozhatj\u00e1k. Ha valami megszakad, visszat\u00e9rhet az alap\u00e9rtelmezett konfigur\u00e1ci\u00f3hoz."
+    },
+    "settings_expert_save_error": {
+        "message": "Nem siker\u00fclt menteni a be\u00e1ll\u00edt\u00e1sokat. K\u00e9rj\u00fck, jav\u00edtsa ki a bevitelt."
     },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
@@ -1090,6 +1135,9 @@
     },
     "premium_pay_price_total": {
         "message": "\u00d6sszesen"
+    },
+    "premium_pay_price_info": {
+        "message": "Ez egyszeri d\u00edj, \u00e9s tartalmazza a j\u00f6v\u0151beni pr\u00e9mium funkci\u00f3kat is."
     },
     "premium_pay_eula": {
         "message": "V\u00e9gfelhaszn\u00e1l\u00f3i szerz\u0151d\u00e9s"

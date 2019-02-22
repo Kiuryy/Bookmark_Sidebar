@@ -224,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplik\u00e1t"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Pr\u00e1zdn\u00e1 slo\u017eka"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Zkontrolovat url adresy z\u00e1lo\u017eek"
     },
@@ -245,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "\u017d\u00e1dn\u00e9 duplik\u00e1ty mezi url adresami z\u00e1lo\u017eek"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "\u017d\u00e1dn\u00e9 slo\u017eky bez z\u00e1lo\u017eek"
+    },
     "newtab_title": {
         "message": "Nov\u00e1 karta"
-    },
-    "newtab_search_placeholder": {
-        "message": "Vyhledat {1} nebo typ URL"
     },
     "newtab_top_pages_default": {
         "message": "Nejnav\u0161t\u011bvovan\u011bj\u0161\u00ed str\u00e1nky"
@@ -265,6 +268,21 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Nezobrazovat str\u00e1nky"
+    },
+    "newtab_search_placeholder": {
+        "message": "Vyhledat {1} nebo typ URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Mluvte te\u010f"
+    },
+    "newtab_speech_search_error": {
+        "message": "Chcete-li povolit hlasov\u00e9 vyhled\u00e1v\u00e1n\u00ed, mus\u00edte povolit p\u0159\u00edstup k mikrofonu."
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definov\u00e1no u\u017eivatelem"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "N\u00e1zev"
     },
     "newtab_upload_background": {
         "message": "Nahr\u00e1t obr\u00e1zek pozad\u00ed"

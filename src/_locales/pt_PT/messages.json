@@ -242,9 +242,6 @@
     "newtab_title": {
         "message": "Nova guia"
     },
-    "newtab_search_placeholder": {
-        "message": "Pesquisar no {1} ou escreva o URL"
-    },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
     },
@@ -259,6 +256,15 @@
     },
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
+    },
+    "newtab_search_placeholder": {
+        "message": "Pesquisar no {1} ou escreva o URL"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definido pelo utilizador"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "T\u00edtulo"
     },
     "newtab_upload_background": {
         "message": "Carregar imagem de fundo"

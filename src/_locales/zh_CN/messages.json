@@ -224,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "\u91cd\u590d"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "\u7a7a\u76ee\u5f55"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "\u68c0\u67e5\u4e66\u7b7e\u94fe\u63a5\u5730\u5740"
     },
@@ -245,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "\u65e0\u91cd\u590d\u94fe\u63a5"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "\u6240\u4ee5\u76ee\u5f55\u4e0b\u5747\u6709\u4e66\u7b7e"
+    },
     "newtab_title": {
         "message": "\u65b0\u6807\u7b7e\u9875"
-    },
-    "newtab_search_placeholder": {
-        "message": "\u641c\u7d22{1}\u6216\u8f93\u5165\u7f51\u5740"
     },
     "newtab_top_pages_default": {
         "message": "\u9996\u9875"
@@ -265,6 +268,30 @@
     },
     "newtab_top_pages_hidden": {
         "message": "\u4e0d\u663e\u793a\u9875\u9762"
+    },
+    "newtab_search_placeholder": {
+        "message": "\u641c\u7d22{1}\u6216\u8f93\u5165\u7f51\u5740"
+    },
+    "newtab_speech_search_listening": {
+        "message": "\u8bf7\u8bf4"
+    },
+    "newtab_speech_search_error": {
+        "message": "\u60a8\u9700\u8981\u786e\u4fdd\u9ea6\u514b\u98ce\u53ef\u7528\u540e\u624d\u80fd\u8fdb\u884c\u8bed\u97f3\u641c\u7d22\u3002"
+    },
+    "newtab_search_engine_headline": {
+        "message": "\u641c\u7d22\u5f15\u64ce"
+    },
+    "newtab_search_engine_custom": {
+        "message": "\u81ea\u5b9a\u4e49"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "\u6807\u9898"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "\u4e3b\u9875\u7684URL"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "\u641c\u7d22\u7ed3\u679cURLs"
     },
     "newtab_upload_background": {
         "message": "\u4e0a\u4f20\u80cc\u666f\u56fe\u50cf"
@@ -1108,6 +1135,9 @@
     },
     "premium_pay_price_total": {
         "message": "\u603b\u6570"
+    },
+    "premium_pay_price_info": {
+        "message": "\u4e00\u6b21\u6027\u4ea4\u8d39\uff0c\u5305\u62ec\u89e3\u9501\u6240\u6709\u672a\u6765\u7684\u9ad8\u7ea7\u529f\u80fd\u3002"
     },
     "premium_pay_eula": {
         "message": "\u7ec8\u6b62\u7528\u6237\u8bb8\u53ef\u534f\u8bae"

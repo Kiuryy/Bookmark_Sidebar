@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Odpri v oknu brez bele\u017eenja zgodovine"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Dodaj zaznamek"
+    },
     "contextmenu_add": {
         "message": "Dodaj vnos"
     },
@@ -221,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Dvojniki"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Prazne mape"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Preverjanje URL-jev zaznamkov"
     },
@@ -242,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Ni podvojenih URL-jev zaznamkov"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Ni map brez zaznamkov"
+    },
     "newtab_title": {
         "message": "Nov zavihek"
-    },
-    "newtab_search_placeholder": {
-        "message": "Iskanje {1} ali vnesi URL"
     },
     "newtab_top_pages_default": {
         "message": "Top strani"
@@ -262,6 +268,30 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Ne poka\u017ei strani"
+    },
+    "newtab_search_placeholder": {
+        "message": "Iskanje {1} ali vnesi URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Govori zdaj"
+    },
+    "newtab_speech_search_error": {
+        "message": "\u010ce \u017eelite omogo\u010diti govorno iskanje, morate omogo\u010diti dostop do mikrofona."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Iskalni pogon"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Dolo\u010den s strani uporabnika"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Naslov"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL doma\u010de strani"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL rezultatov iskanja"
     },
     "newtab_upload_background": {
         "message": "Nalo\u017ei sliko ozadja"
@@ -1105,6 +1135,9 @@
     },
     "premium_pay_price_total": {
         "message": "Skupaj"
+    },
+    "premium_pay_price_info": {
+        "message": "To je enkratno pla\u010dilo in vklju\u010duje tudi vse prihodnje premijske funkcije."
     },
     "premium_pay_eula": {
         "message": "End-User License Agreement"

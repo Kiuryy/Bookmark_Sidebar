@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Open in incognitovenster"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Nieuwe bladwijzer toevoegen"
+    },
     "contextmenu_add": {
         "message": "Nieuw item toevoegen"
     },
@@ -221,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplicaten"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Lege mappen"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "De URL's van de bladwijzers controleren"
     },
@@ -242,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Er zijn geen dubbele bladwijzer URL's"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Er zijn geen mappen zonder bladwijzers"
+    },
     "newtab_title": {
         "message": "Nieuw tabblad"
-    },
-    "newtab_search_placeholder": {
-        "message": "Zoek {1} of typ de URL"
     },
     "newtab_top_pages_default": {
         "message": "Top pagina's"
@@ -262,6 +268,15 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Verberg pagina's"
+    },
+    "newtab_search_placeholder": {
+        "message": "Zoek {1} of typ de URL"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Gedefinieerd door gebruiker"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titel"
     },
     "newtab_upload_background": {
         "message": "Een achtergrondafbeelding uploaden"
@@ -523,6 +538,9 @@
     },
     "settings_menu_export": {
         "message": "Importeren\/Exporteren"
+    },
+    "settings_menu_expert": {
+        "message": "Geavanceerde instellingen"
     },
     "settings_save": {
         "message": "Wijzigingen opslaan"

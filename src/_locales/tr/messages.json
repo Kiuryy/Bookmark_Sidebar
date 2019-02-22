@@ -248,9 +248,6 @@
     "newtab_title": {
         "message": "Yeni sekme"
     },
-    "newtab_search_placeholder": {
-        "message": "{1} ara veya URL gir"
-    },
     "newtab_top_pages_default": {
         "message": "En iyi sayfalar"
     },
@@ -265,6 +262,15 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Sayfalar\u0131 g\u00f6sterme"
+    },
+    "newtab_search_placeholder": {
+        "message": "{1} ara veya URL gir"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Kullan\u0131c\u0131 tan\u0131ml\u0131"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Ba\u015fl\u0131k"
     },
     "newtab_upload_background": {
         "message": "Arka plan g\u00f6r\u00fcnt\u00fcs\u00fc ekleyin"

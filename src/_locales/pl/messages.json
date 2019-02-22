@@ -224,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Podwojone"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Puste katalogi"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Sprawdzanie URL zak\u0142adek"
     },
@@ -245,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Brak podwojonych link\u00f3w"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Brak pustych katalog\u00f3w"
+    },
     "newtab_title": {
         "message": "Nowa karta"
-    },
-    "newtab_search_placeholder": {
-        "message": "Wyszukaj {1} lub wprowad\u017a URL"
     },
     "newtab_top_pages_default": {
         "message": "Domy\u015blne"
@@ -266,11 +269,20 @@
     "newtab_top_pages_hidden": {
         "message": "Nie pokazuj stron"
     },
+    "newtab_search_placeholder": {
+        "message": "Wyszukaj {1} lub wprowad\u017a URL"
+    },
     "newtab_speech_search_listening": {
         "message": "M\u00f3w teraz"
     },
     "newtab_speech_search_error": {
         "message": "Aby w\u0142\u0105czy\u0107 wyszukiwanie mow\u0105, musisz zezwoli\u0107 na dost\u0119p do mikrofonu."
+    },
+    "newtab_search_engine_custom": {
+        "message": "Ustawienie u\u017cytkownika"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Tytu\u0142"
     },
     "newtab_upload_background": {
         "message": "Prze\u015blij obraz t\u0142a"
@@ -1114,6 +1126,9 @@
     },
     "premium_pay_price_total": {
         "message": "Suma"
+    },
+    "premium_pay_price_info": {
+        "message": "To jest jednorazowa op\u0142ata zawieraj\u0105ca wszystkie funkcje premium."
     },
     "premium_pay_eula": {
         "message": "Umowa licencyjna"

@@ -224,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Double"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "R\u00e9pertoires vides"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "V\u00e9rification de l'URL des favoris"
     },
@@ -245,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Il n'y a pas d'URL de favoris en double"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Il n'y a pas de r\u00e9pertoires sans signets"
+    },
     "newtab_title": {
         "message": "Nouvel onglet"
-    },
-    "newtab_search_placeholder": {
-        "message": "Rechercher {1} ou saisir l'URL"
     },
     "newtab_top_pages_default": {
         "message": "Top pages"
@@ -265,6 +268,30 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Ne rien afficher"
+    },
+    "newtab_search_placeholder": {
+        "message": "Rechercher {1} ou saisir l'URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Parlez"
+    },
+    "newtab_speech_search_error": {
+        "message": "Pour pouvoir utiliser la recherche vocale vous devez autoriser l'acc\u00e8s au microphone."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Moteur de Recherche"
+    },
+    "newtab_search_engine_custom": {
+        "message": "R\u00e9glages utilisateur"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titre"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Adresse de la page d'accueil"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL des r\u00e9sultats de recherche"
     },
     "newtab_upload_background": {
         "message": "T\u00e9l\u00e9charger une image d'arri\u00e8re-plan"
@@ -527,6 +554,9 @@
     "settings_menu_export": {
         "message": "Importer\/Exporter"
     },
+    "settings_menu_expert": {
+        "message": "Options expertes"
+    },
     "settings_save": {
         "message": "Enregistrer les modifications"
     },
@@ -553,6 +583,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Impossible d'activer votre compte Premium. Merci de saisir une cl\u00e9 de licence valide."
+    },
+    "settings_search_placeholder": {
+        "message": "Chercher une configuration"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Les param\u00e8tres expert vous permettent de configurer chaque param\u00e8tre de l'extension, m\u00eame celles que vous ne pouvez pas modifier en utilisant les cases \u00e0 cocher habituelles, ou les boutons d'activation de la page des param\u00e8tres."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Ne changez que les valeurs ici, si vous savez ce que vous faites. Une mauvaise configuration peut causer des comportements inattendus de l'extension. Si quelque chose ne fonctionne plus, vous pouvez revenir \u00e0 la configuration par d\u00e9faut."
+    },
+    "settings_expert_save_error": {
+        "message": "N'a pas pu sauvegard\u00e9 les param\u00e8tres. V\u00e9rifiez ce que vous avez entr\u00e9"
     },
     "settings_open_action": {
         "message": "Affichage de la barre"
@@ -1093,6 +1135,9 @@
     },
     "premium_pay_price_total": {
         "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Ceci est un paiement unique et inclue toutes les prochaines fonctionnalit\u00e9s premium."
     },
     "premium_pay_eula": {
         "message": "Conditions g\u00e9n\u00e9rale d'utilisation"

@@ -591,7 +591,7 @@
         "message": "Search for configuration"
     },
     "settings_expert_settings_desc": {
-        "message": "The expert settings allow you to configure every configuration flag of the extension, even those you cannot change using the regular checkboxes or sliders of the settings page."
+        "message": "With the expert settings, you can change every configuration flag of the extension, even those you cannot change using the regular checkboxes or sliders of the settings page."
     },
     "settings_expert_settings_notice": {
         "message": "Please do only change the values here, if you know what you are doing. Faulty configurations can cause unexpected behaviour of the extension. If something breaks, you can revert to the default configuration."

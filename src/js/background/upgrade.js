@@ -88,8 +88,17 @@
                         obj.appearance = {};
                     }
 
+                    if (typeof obj.appearance.styles === "undefined") {
+                        obj.appearance.styles = {};
+                    }
+
                     if (typeof obj.newtab === "undefined") {
                         obj.newtab = {};
+                    }
+
+                    if (!obj.appearance.styles.iconShape || obj.appearance.styles.iconShape === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
+                        obj.appearance.styles.iconShape = "bookmark";
+                        obj.appearance.styles.iconColor = "#555555";
                     }
 
                     if (obj.newtab.searchEngine === "duckduckgo") { // @deprecated duckduckgo is now a custom search engine (03/2019)

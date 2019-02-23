@@ -18,7 +18,7 @@
                 ]).then(([info, lang]) => {
                     chrome.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
 
-                    if (info.name === "logo") {
+                    if (info.name === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
                         chrome.browserAction.setIcon({
                             path: b.manifest.browser_action.default_icon
                         });

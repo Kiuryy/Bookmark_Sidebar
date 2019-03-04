@@ -132,11 +132,12 @@
          */
         const trackConfiguration = () => {
             const categories = ["behaviour", "appearance", "newtab", "language"];
-            const configArr = [];
 
             const proceedConfig = (baseName, obj) => {
                 Object.entries(obj).forEach(([attr, val]) => {
-                    if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
+                    if (baseName === "newtab_searchEngineCustom") { // don't track information about the custom search engine
+                        return;
+                    } else if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
                         val = val.length;
                     } else if (baseName === "utility" && attr === "pinnedEntries" && typeof val === "object") { // only track the amount of pinned entries
                         val = Object.keys(val).length;
@@ -159,7 +160,7 @@
                             val = val && val.length > 0 ? "true" : "false";
                         }
 
-                        configArr.push({
+                        addToStack("configuration", {
                             name: baseName + "_" + attr,
                             value: val
                         });
@@ -206,8 +207,6 @@
                         resolve();
                     });
                 });
-            }).then(() => {
-                addToStack("configuration", configArr);
             });
         };
 
@@ -233,7 +232,14 @@
             }
 
             if (allowed === true && b.isDev === false) { // the current type may be tracked
-                stack.push({type: type, value: value});
+                const obj = {type: type};
+
+                if (typeof value === "object") {
+                    obj.values = value;
+                } else {
+                    obj.value = "" + value;
+                }
+                stack.push(obj);
             }
         };
 
@@ -255,7 +261,7 @@
             }
 
             return new Promise((resolve) => {
-                $.xhr(b.urls.track, {
+                $.xhr(b.urls.evaluate, {
                     method: "POST",
                     responseType: "json",
                     timeout: 10000,

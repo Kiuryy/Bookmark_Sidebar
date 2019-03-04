@@ -9,7 +9,7 @@
         this.urls = {
             website: "https://extensions.blockbyte.de/",
             checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
-            track: "https://extensions.blockbyte.de/ajax/evaluate/bs",
+            evaluate: "https://api.blockbyte.de/v3/evaluate/extension/bs",
             translationInfo: "https://extensions.blockbyte.de/ajax/translation/bs/info",
             premiumCheck: "https://extensions.blockbyte.de/ajax/premium/bs/check",
             privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",

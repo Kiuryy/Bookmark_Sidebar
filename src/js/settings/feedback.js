@@ -465,7 +465,7 @@
                     if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
                         s.helper.model.call("track", {
                             name: "action",
-                            value: {name: "feedback", value: 1},
+                            value: {name: "feedback", value: "true"},
                             always: true
                         });
 

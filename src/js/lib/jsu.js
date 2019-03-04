@@ -122,8 +122,14 @@
                         });
                     }
 
+                    if (opts.header) {
+                        Object.entries(opts.header).forEach(([key, value]) => { // set additional headers
+                            xhr.setRequestHeader(key, value);
+                        });
+                    }
+
                     Object.entries(opts).forEach(([key, value]) => { // set specific variables
-                        if (key !== "method" && key !== "data") {
+                        if (key !== "method" && key !== "data" && key !== "header") {
                             xhr[key] = value;
                         }
                     });

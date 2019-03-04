@@ -5,7 +5,11 @@
 
         const entryHelperInited = false;
         let type = null;
+        let appearance = null;
         let updateRunning = false;
+
+        const appearances = ["thumbnail", "favicon"];
+
         const types = {
             topPages: "default",
             mostUsed: "most_used",
@@ -21,7 +25,10 @@
         this.init = async () => {
             initEvents();
             n.elm.topPages.html("<ul />");
-            this.setType(n.helper.model.getData("n/topPagesType"));
+            type = n.helper.model.getData("n/topPagesType");
+            appearance = n.helper.model.getData("n/topPagesAppearance");
+
+            updateEntries();
 
             setInterval(() => { // refresh the entries every 2 minutes
                 if (document.hidden) {
@@ -38,11 +45,28 @@
 
         /**
          *
+         * @returns {Array}
+         */
+        this.getAllAppearances = () => appearances;
+
+        /**
+         *
          * @param {string} val
          */
         this.setType = (val) => {
             if (type !== val || type === "hidden") { // don't unneccessary reload the top pages if the type is still the same
                 type = val;
+                updateEntries();
+            }
+        };
+
+        /**
+         *
+         * @param {string} val
+         */
+        this.setAppearance = (val) => {
+            if (appearance !== val) { // don't unneccessary reload the top pages if the appearance is still the same
+                appearance = val;
                 updateEntries();
             }
         };
@@ -113,11 +137,12 @@
          * Updates the entries which are displayed as top pages
          */
         const updateEntries = () => {
-            n.elm.topPages.children("ul").removeClass($.cl.visible);
+            const topPagesWrapper = n.elm.topPages.children("ul");
+            topPagesWrapper.removeClass($.cl.visible);
 
             if (type === "hidden") {
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
-                    n.elm.topPages.children("ul").data("total", 0).html("");
+                    topPagesWrapper.data("total", 0).html("");
                 }
             } else if (updateRunning === false) {
                 updateRunning = true;
@@ -125,39 +150,48 @@
                 Promise.all([
                     getEntryData(),
                     $.delay(200) // allows smooth fading between switching of types
-                ]).then(([list]) => {
+                ]).then(([pages]) => {
                     const amount = getAmount();
 
-                    n.elm.topPages.children("ul")
+                    topPagesWrapper
                         .html("")
                         .data("total", amount.total)
+                        .attr($.attr.newtab.appearance, appearance)
                         .attr($.attr.newtab.perRow, amount.total / amount.rows);
 
-                    list.forEach((page) => {
-                        const entry = $("<li />").appendTo(n.elm.topPages.children("ul"));
+                    pages.forEach((page) => {
+                        const entry = $("<li />").appendTo(topPagesWrapper);
                         const entryLink = $("<a />").attr({href: page.url, title: page.title}).appendTo(entry);
                         const entryLabel = $("<span />").text(page.title).appendTo(entryLink);
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
-                                entryLabel.prepend("<img src='" + response.img + "' />");
+                                const favicon = $("<img />").attr("src", response.img);
+
+                                if (appearance === "thumbnail") {
+                                    favicon.prependTo(entryLabel);
+                                } else {
+                                    $("<div />").append(favicon).prependTo(entryLink);
+                                }
                             }
                         });
 
-                        const thumb = $("<img />").appendTo(entryLink);
+                        if (appearance === "thumbnail") {
+                            const thumb = $("<img />").appendTo(entryLink);
 
-                        if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
-                            n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
-                                if (response.img) { //
-                                    thumb.attr("src", response.img).addClass($.cl.visible);
-                                }
-                            });
+                            if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
+                                n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
+                                    if (response.img) { //
+                                        thumb.attr("src", response.img).addClass($.cl.visible);
+                                    }
+                                });
+                            }
                         }
                     });
 
                     return $.delay(100);
                 }).then(() => {
-                    n.elm.topPages.children("ul").addClass($.cl.visible);
+                    topPagesWrapper.addClass($.cl.visible);
                     updateRunning = false;
                 });
             }

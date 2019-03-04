@@ -136,6 +136,7 @@
                     queryUrl: ""
                 },
                 topPagesType: "topPages",
+                topPagesAppearance: "favicon",
                 shortcuts: [{label: "Google", url: "https://google.com"}],
                 website: ""
             }

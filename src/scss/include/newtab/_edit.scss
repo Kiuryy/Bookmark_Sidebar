@@ -444,8 +444,13 @@ body.edit {
     }
   }
 
-  div#topPages > select.edit {
-    margin-top: -25px;
+  div#topPages {
+    margin-top: 25px;
+
+    > select.edit {
+      display: inline-block;
+      margin: 0 7px;
+    }
   }
 
   &.customBackground {

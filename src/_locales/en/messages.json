@@ -272,6 +272,12 @@
     "newtab_top_pages_hidden": {
         "message": "Don't show pages"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Display website previews"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Display website icons"
+    },
     "newtab_search_placeholder": {
         "message": "Search {1} or type URL"
     },

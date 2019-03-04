@@ -3,6 +3,7 @@ $imageWidth: $entryWidth - 2px;
 
 div#topPages {
   margin: 50px auto 0;
+  text-align: center;
 
   &.hidden {
     display: none;
@@ -12,6 +13,7 @@ div#topPages {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    text-align: left;
     transition: opacity 0.2s;
     @extend %hidden;
 
@@ -21,8 +23,23 @@ div#topPages {
 
     > li {
       display: block;
-      padding: 8px 7px;
       font-size: 90%;
+
+      > a {
+
+      }
+    }
+
+    &[data-perRow='3'] {
+      max-width: ($entryWidth + 14) * 3;
+    }
+
+    &[data-perRow='2'] {
+      max-width: ($entryWidth + 14) * 2;
+    }
+
+    &[data-appearance='thumbnail'] > li {
+      padding: 8px 7px;
 
       > a {
         display: block;
@@ -69,20 +86,79 @@ div#topPages {
       }
     }
 
-    &[data-perRow='3'] {
-      max-width: ($entryWidth + 14) * 3;
-    }
+    &[data-appearance='favicon'] > li {
+      font-weight: $__fontWeightMedium;
+      padding: 16px 0;
 
-    &[data-perRow='2'] {
-      max-width: ($entryWidth + 14) * 2;
+      > a {
+        display: block;
+        margin: 0 auto;
+        padding: 5px 0 0 0;
+        width: $entryWidth;
+        text-align: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+
+        > div {
+          width: 52px;
+          padding: 15px;
+          margin: 0 auto 5px;
+          background: $contentBackground;
+          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 50%;
+          transition: border-color 0.3s, box-shadow 0.3s;
+
+          > img {
+            display: block;
+            width: 100%;
+          }
+        }
+
+        > span {
+          display: block;
+          padding: 5px 7px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        &:hover {
+          background: darken($bodyBackground, 5%);
+
+          > div {
+            border-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
+          }
+        }
+      }
     }
   }
 }
 
 body.customBackground div#topPages {
 
-  > ul > li > a {
+  > ul[data-appearance='thumbnail'] > li > a {
     background: rgba($contentBackground, 0.8);
+  }
+
+  > ul[data-appearance='favicon'] > li {
+
+    > a {
+
+      &:hover {
+        background: rgba($contentBackground, 0.3);
+      }
+
+      > div {
+        background: rgba($contentBackground, 0.8);
+      }
+
+      > span {
+        color: $textColorInverted;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      }
+    }
   }
 }
 

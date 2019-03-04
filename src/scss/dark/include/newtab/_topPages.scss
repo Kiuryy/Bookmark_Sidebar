@@ -1,17 +1,59 @@
 
 body.dark {
 
-  div#topPages > ul > li > a {
-    background: $darkContentBackground2;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+  div#topPages {
 
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+    > ul[data-appearance='thumbnail'] > li > a {
+      background: $darkContentBackground2;
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    > ul[data-appearance='favicon'] > li > a {
+
+      > div {
+        background: $darkContentBackground2;
+      }
+
+      &:hover {
+        background: rgba($darkContentBackground2, 0.5);
+
+        > div {
+          border-color: rgba(255, 255, 255, 0.03);
+          box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
+        }
+      }
     }
   }
 
-  &.customBackground div#topPages > ul > li > a {
-    background: rgba($darkContentBackground,0.7);
+  &.customBackground div#topPages {
+
+    > ul[data-appearance='thumbnail'] > li > a {
+      background: rgba($darkContentBackground, 0.7);
+    }
+
+    > ul[data-appearance='favicon'] > li {
+
+      > a {
+
+        &:hover {
+          background: rgba($darkContentBackground2, 0.4);
+        }
+
+        > div {
+          background: rgba($darkContentBackground, 0.7);
+        }
+
+        > span {
+          color: $__textColor;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
   }
+
 }

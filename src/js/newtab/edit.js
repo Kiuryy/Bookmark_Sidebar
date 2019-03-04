@@ -113,13 +113,19 @@
                 const searchEngineName = searchEngineObj.name;
                 delete searchEngineObj.name;
 
-                n.helper.model.setData({
+                const data = {
                     "n/searchEngine": searchEngineName,
                     "n/searchEngineCustom": searchEngineObj,
-                    "n/topPagesType": n.elm.topPages.children("select")[0].value,
+                    "n/topPagesType": n.elm.topPages.children("select[" + $.attr.type + "='type']")[0].value,
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts
-                }).then(() => {
+                };
+
+                if (n.helper.model.getUserType() === "premium" && n.elm.topPages.children("select[" + $.attr.type + "='appearance']").length() > 0) {
+                    data["n/topPagesAppearance"] = n.elm.topPages.children("select[" + $.attr.type + "='appearance']")[0].value;
+                }
+
+                n.helper.model.setData(data).then(() => {
                     const background = n.elm.body.css("background-image").replace(/(^url\("?|"?\)$)/g, "");
 
                     return new Promise((rslv) => {
@@ -155,6 +161,7 @@
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
+            n.helper.topPages.setAppearance(n.helper.model.getData("n/topPagesAppearance"));
             n.helper.shortcuts.refreshEntries();
 
             n.getBackground().then((background) => {
@@ -195,8 +202,12 @@
             $.delay().then(() => {
                 n.elm.body.addClass($.cl.newtab.edit);
                 initSearchEngineConfig();
-                initTopPagesConfig();
+                initTopPagesTypeConfig();
                 initShortcutsConfig();
+
+                if (n.helper.model.getUserType() === "premium") {
+                    initTopPagesAppearanceConfig();
+                }
 
                 $.delay(500).then(() => {
                     $(window).trigger("resize");
@@ -319,10 +330,14 @@
         };
 
         /**
-         * Initialises the dropdown for the top pages
+         * Initialises the dropdown for the top pages types
          */
-        const initTopPagesConfig = () => {
-            const select = $("<select />").addClass($.cl.newtab.edit).prependTo(n.elm.topPages);
+        const initTopPagesTypeConfig = () => {
+            const select = $("<select />")
+                .addClass($.cl.newtab.edit)
+                .attr($.attr.type, "type")
+                .prependTo(n.elm.topPages);
+
             const types = n.helper.topPages.getAllTypes();
             const currentType = n.helper.model.getData("n/topPagesType");
 
@@ -333,6 +348,27 @@
 
             select.on("input change", (e) => {
                 n.helper.topPages.setType(e.currentTarget.value);
+            });
+        };
+
+        /**
+         * Initialises the dropdown for the top pages appearances
+         */
+        const initTopPagesAppearanceConfig = () => {
+            const select = $("<select />")
+                .addClass($.cl.newtab.edit)
+                .attr($.attr.type, "appearance")
+                .prependTo(n.elm.topPages);
+
+            const currentAppearance = n.helper.model.getData("n/topPagesAppearance");
+
+            n.helper.topPages.getAllAppearances().forEach((name) => {
+                const label = n.helper.i18n.get("newtab_top_pages_appearance_" + name);
+                $("<option value='" + name + "' " + (currentAppearance === name ? "selected" : "") + " />").text(label).appendTo(select);
+            });
+
+            select.on("input change", (e) => {
+                n.helper.topPages.setAppearance(e.currentTarget.value);
             });
         };
 

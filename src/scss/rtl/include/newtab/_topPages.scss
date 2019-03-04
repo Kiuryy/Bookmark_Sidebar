@@ -3,18 +3,10 @@ html[dir='rtl'] {
   div#topPages {
 
     > ul {
+      text-align: right;
 
-      > li {
-
-        > a {
-
-          > span {
-
-            > img {
-              margin: 0 0 0 5px;
-            }
-          }
-        }
+      &[data-appearance='thumbnail'] > li > a > span > img {
+        margin: 0 0 0 5px;
       }
     }
   }

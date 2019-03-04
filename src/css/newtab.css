@@ -197,19 +197,26 @@ a {
   text-decoration: none; }
 
 div#topPages {
-  margin: 50px auto 0; }
+  margin: 50px auto 0;
+  text-align: center; }
   div#topPages.hidden {
     display: none; }
   div#topPages > ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    text-align: left;
     transition: opacity 0.2s; }
     div#topPages > ul > li {
       display: block;
-      padding: 8px 7px;
       font-size: 90%; }
-      div#topPages > ul > li > a {
+    div#topPages > ul[data-perRow='3'] {
+      max-width: 477px; }
+    div#topPages > ul[data-perRow='2'] {
+      max-width: 318px; }
+    div#topPages > ul[data-appearance='thumbnail'] > li {
+      padding: 8px 7px; }
+      div#topPages > ul[data-appearance='thumbnail'] > li > a {
         display: block;
         margin: 0 auto;
         background: #fff;
@@ -218,49 +225,110 @@ div#topPages {
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 3px;
         transition: border-color 0.3s, box-shadow 0.3s; }
-        div#topPages > ul > li > a:hover {
+        div#topPages > ul[data-appearance='thumbnail'] > li > a:hover {
           border-color: rgba(0, 0, 0, 0.2);
           box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15); }
-        div#topPages > ul > li > a > span {
+        div#topPages > ul[data-appearance='thumbnail'] > li > a > span {
           display: block;
           padding: 5px 7px;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden; }
-          div#topPages > ul > li > a > span > img {
+          div#topPages > ul[data-appearance='thumbnail'] > li > a > span > img {
             display: inline-block;
             width: 14px;
             margin: 0 5px 0 0;
             vertical-align: top; }
-        div#topPages > ul > li > a > img {
+        div#topPages > ul[data-appearance='thumbnail'] > li > a > img {
           display: block;
           width: 143px;
           height: 89.375px;
           opacity: 0;
           background: #fff;
           transition: opacity 0.5s; }
-          div#topPages > ul > li > a > img.visible {
+          div#topPages > ul[data-appearance='thumbnail'] > li > a > img.visible {
             opacity: 1; }
-    div#topPages > ul[data-perRow='3'] {
-      max-width: 477px; }
-    div#topPages > ul[data-perRow='2'] {
-      max-width: 318px; }
+    div#topPages > ul[data-appearance='favicon'] > li {
+      font-weight: "%fontWeightMedium";
+      padding: 16px 0; }
+      div#topPages > ul[data-appearance='favicon'] > li > a {
+        display: block;
+        margin: 0 auto;
+        padding: 5px 0 0 0;
+        width: 145px;
+        text-align: center;
+        border-radius: 5px;
+        transition: background 0.3s; }
+        div#topPages > ul[data-appearance='favicon'] > li > a > div {
+          width: 52px;
+          padding: 15px;
+          margin: 0 auto 5px;
+          background: #fff;
+          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          border-radius: 50%;
+          transition: border-color 0.3s, box-shadow 0.3s; }
+          div#topPages > ul[data-appearance='favicon'] > li > a > div > img {
+            display: block;
+            width: 100%; }
+        div#topPages > ul[data-appearance='favicon'] > li > a > span {
+          display: block;
+          padding: 5px 7px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden; }
+        div#topPages > ul[data-appearance='favicon'] > li > a:hover {
+          background: #e5e5e5; }
+          div#topPages > ul[data-appearance='favicon'] > li > a:hover > div {
+            border-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15); }
 
-body.customBackground div#topPages > ul > li > a {
+body.customBackground div#topPages > ul[data-appearance='thumbnail'] > li > a {
   background: rgba(255, 255, 255, 0.8); }
 
-html[dir='rtl'] div#topPages > ul > li > a > span > img {
-  margin: 0 0 0 5px; }
+body.customBackground div#topPages > ul[data-appearance='favicon'] > li > a:hover {
+  background: rgba(255, 255, 255, 0.3); }
 
-body.dark div#topPages > ul > li > a {
+body.customBackground div#topPages > ul[data-appearance='favicon'] > li > a > div {
+  background: rgba(255, 255, 255, 0.8); }
+
+body.customBackground div#topPages > ul[data-appearance='favicon'] > li > a > span {
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); }
+
+html[dir='rtl'] div#topPages > ul {
+  text-align: right; }
+  html[dir='rtl'] div#topPages > ul[data-appearance='thumbnail'] > li > a > span > img {
+    margin: 0 0 0 5px; }
+
+body.dark div#topPages > ul[data-appearance='thumbnail'] > li > a {
   background: #4d4d4d;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3); }
-  body.dark div#topPages > ul > li > a:hover {
+  body.dark div#topPages > ul[data-appearance='thumbnail'] > li > a:hover {
     border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.6); }
 
-body.dark.customBackground div#topPages > ul > li > a {
+body.dark div#topPages > ul[data-appearance='favicon'] > li > a > div {
+  background: #4d4d4d; }
+
+body.dark div#topPages > ul[data-appearance='favicon'] > li > a:hover {
+  background: rgba(77, 77, 77, 0.5); }
+  body.dark div#topPages > ul[data-appearance='favicon'] > li > a:hover > div {
+    border-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3); }
+
+body.dark.customBackground div#topPages > ul[data-appearance='thumbnail'] > li > a {
   background: rgba(61, 61, 61, 0.7); }
+
+body.dark.customBackground div#topPages > ul[data-appearance='favicon'] > li > a:hover {
+  background: rgba(77, 77, 77, 0.4); }
+
+body.dark.customBackground div#topPages > ul[data-appearance='favicon'] > li > a > div {
+  background: rgba(61, 61, 61, 0.7); }
+
+body.dark.customBackground div#topPages > ul[data-appearance='favicon'] > li > a > span {
+  color: "%textColor";
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); }
 
 section#content > nav {
   position: absolute;
@@ -909,8 +977,11 @@ body.edit div#search > a.edit {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-edit.svg);
     background-color: #aaa; }
 
-body.edit div#topPages > select.edit {
-  margin-top: -25px; }
+body.edit div#topPages {
+  margin-top: 25px; }
+  body.edit div#topPages > select.edit {
+    display: inline-block;
+    margin: 0 7px; }
 
 body.edit.customBackground select.edit {
   background: rgba(255, 255, 255, 0.8); }

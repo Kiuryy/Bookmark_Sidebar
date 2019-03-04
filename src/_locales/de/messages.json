@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Keine Seiten anzeigen"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Seitenvorschau anzeigen"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Seiten-Icons anzeigen"
+    },
     "newtab_search_placeholder": {
         "message": "Bei {1} suchen oder URL eingeben"
     },

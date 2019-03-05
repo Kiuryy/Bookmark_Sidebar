@@ -294,7 +294,7 @@ body[data-openType]::before {
   transition: opacity 0.2s; }
 
 body[data-openType='icon']::before {
-  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/onboarding/icon-arrow.svg);
+  -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-arrow-sketch.svg);
   top: 50px;
   left: auto;
   right: 80px; }

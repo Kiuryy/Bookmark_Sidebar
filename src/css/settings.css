@@ -1,8 +1,8 @@
-body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq.loading, div.tab[data-name='feedback'] div.faq > div.suggestion.hidden, div.tab[data-name='feedback'] div.faq > div.suggestion > p, div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
+body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='feedback'] div.faq.loading, div.tab[data-name='feedback'] div.faq > div.suggestion.hidden, div.tab[data-name='feedback'] div.faq > div.suggestion > p, div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > div.dialog.visible, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > div.dialog.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -820,7 +820,7 @@ body > section#wrapper div[data-name="aboutme"] > div {
 body > section#wrapper div[data-name='permissions'] div.permissions h3 {
   display: inline-block;
   font-size: 120%;
-  font-weight: 400;
+  font-weight: "%fontWeightMedium";
   line-height: 150%;
   padding: 5px 0;
   margin: 20px 0 0 0; }
@@ -906,14 +906,6 @@ html[dir='rtl'] body > section#wrapper div[data-name='permissions'] div.shareInf
   margin-right: 0 !important;
   margin-left: 20px !important; }
 
-@keyframes moveUpDown {
-  25% {
-    transform: translate3d(0, 15px, 0); }
-  75% {
-    transform: translate3d(0, -15px, 0); }
-  100% {
-    transform: translate3d(0, 0, 0); } }
-
 body > section#wrapper div.toggleAreaDesc {
   position: relative; }
   body > section#wrapper div.toggleAreaDesc::before {
@@ -946,42 +938,78 @@ body > div.toggleAreaModal {
   left: 0;
   right: 0;
   margin: auto;
-  padding: 20px 25px;
+  padding: 90px 25px 20px;
   width: 600px;
-  height: 400px;
+  height: 480px;
   background: #fff;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   z-index: 99;
   transform: scale(0.7);
   transition: transform 0.3s, opacity 0.3s; }
-  body > div.toggleAreaModal > div.preview {
+  body > div.toggleAreaModal::before {
+    content: "";
     position: absolute;
     top: 0;
-    width: 15px;
-    height: 100%;
-    background: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.15) 5px, rgba(0, 0, 0, 0.15) 10px);
-    border: 1px solid #aaa;
-    transition: width 0.2s, height 0.2s, top 0.2s;
-    cursor: ns-resize; }
-    body > div.toggleAreaModal > div.preview::before {
-      content: "";
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/mockup-left.png), url(chrome-extension://__MSG_@@extension_id__/img/settings/mockup-right.png), url(chrome-extension://__MSG_@@extension_id__/img/settings/mockup-middle.png);
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: left 0, right 0, left 0;
+    background-size: auto 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 2; }
+  body > div.toggleAreaModal > div.preview {
+    position: absolute;
+    top: 60px;
+    width: 20px;
+    height: calc(100% - 60px); }
+    body > div.toggleAreaModal > div.preview > div {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      -webkit-mask: no-repeat center/28px;
-      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
-      background-color: #666; }
-    body > div.toggleAreaModal > div.preview::before {
-      animation: moveUpDown 1.2s 1.5s; }
-    body > div.toggleAreaModal > div.preview.fullHeight {
-      cursor: default; }
-      body > div.toggleAreaModal > div.preview.fullHeight::before {
-        display: none; }
-    body > div.toggleAreaModal > div.preview.dragging {
-      transition: none; }
+      background: rgba(0, 0, 0, 0.5);
+      transition: width 0.2s, height 0.2s, top 0.2s, border-radius 0.2s;
+      cursor: ns-resize; }
+      body > div.toggleAreaModal > div.preview > div::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/100%;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg);
+        background-color: #fff; }
+      body > div.toggleAreaModal > div.preview > div.fullHeight {
+        cursor: default; }
+      body > div.toggleAreaModal > div.preview > div.dragging {
+        transition: none; }
+    body > div.toggleAreaModal > div.preview > span {
+      position: absolute;
+      top: 0;
+      display: block;
+      white-space: nowrap;
+      padding: 8px;
+      font-size: 90%;
+      font-weight: "%fontWeightMedium";
+      transition: opacity 0.3s; }
+      body > div.toggleAreaModal > div.preview > span::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-mask: no-repeat center/100%;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-arrow-sketch.svg);
+        background-color: #666; }
+      body > div.toggleAreaModal > div.preview > span::before {
+        width: 26px;
+        -webkit-mask-position: 0 -4px; }
   body > div.toggleAreaModal > div.hidden {
     display: none; }
   body > div.toggleAreaModal > p.buttons {
@@ -996,15 +1024,27 @@ body > div.toggleAreaModal {
   body > div.toggleAreaModal[data-type='left'] {
     padding-left: 75px; }
     body > div.toggleAreaModal[data-type='left'] > div.preview {
-      border-radius: 0 7px 7px 0;
-      border-left: 0;
       left: 0; }
+      body > div.toggleAreaModal[data-type='left'] > div.preview > div:not(.fullHeight) {
+        border-radius: 0 12px 12px 0; }
+      body > div.toggleAreaModal[data-type='left'] > div.preview > span {
+        padding-left: 32px;
+        left: calc(100% + 3px); }
+        body > div.toggleAreaModal[data-type='left'] > div.preview > span::before {
+          transform: scaleX(-1) scaleY(-1); }
   body > div.toggleAreaModal[data-type='right'] {
     padding-right: 75px; }
     body > div.toggleAreaModal[data-type='right'] > div.preview {
-      border-radius: 7px 0 0 7px;
-      border-right: 0;
       right: 0; }
+      body > div.toggleAreaModal[data-type='right'] > div.preview > div:not(.fullHeight) {
+        border-radius: 12px 0 0 12px; }
+      body > div.toggleAreaModal[data-type='right'] > div.preview > span {
+        padding-right: 32px;
+        right: calc(100% + 3px); }
+        body > div.toggleAreaModal[data-type='right'] > div.preview > span::before {
+          transform: scaleY(-1);
+          left: unset;
+          right: 0; }
 
 body.showModal::before {
   opacity: 1; }

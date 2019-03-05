@@ -684,12 +684,15 @@
 
 <div class="modal toggleAreaModal">
     <h2 data-i18n="settings_toggle_area"></h2>
-    <div class="preview"></div>
+    <div class="preview">
+        <div></div>
+        <span data-i18n="settings_toggle_area_drag_desc"></span>
+    </div>
     <div class="formElement" data-type="range" data-name="toggleArea_width" data-min="1" data-max="50" data-unit="px" data-i18n="settings_toggle_area_width"></div>
     <div class="formElement" data-type="range" data-name="toggleArea_widthWindowed" data-min="1" data-max="100" data-unit="px" data-i18n="settings_toggle_area_width_windowed"></div>
     <div class="formElement" data-type="range" data-name="toggleArea_height" data-min="5" data-max="100" data-unit="%" data-i18n="settings_toggle_area_height"></div>
     <div class="hidden">
-        <div class="formElement" data-type="range" data-name="toggleArea_top" data-min="0" data-max="100" data-unit="%"></div>
+        <div class="formElement" data-type="range" data-name="toggleArea_top" data-min="0" data-step="0.1" data-max="100" data-unit="%"></div>
     </div>
     <p class="buttons">
         <a class="button save" data-i18n="settings_save"></a>

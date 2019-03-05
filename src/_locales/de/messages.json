@@ -638,6 +638,9 @@
     "settings_toggle_area_height_desc": {
         "message": "Du kannst die H\u00f6he des Bereichts verringern, so dass die Sidebar nur ge\u00f6ffnet wird, wenn der Mauszeiger in diesen Bereich des Browserrands bewegt wird."
     },
+    "settings_toggle_area_drag_desc": {
+        "message": "Ziehen zum Bewegen"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Tastenkombination einrichten"
     },

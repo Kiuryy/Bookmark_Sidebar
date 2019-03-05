@@ -641,6 +641,9 @@
     "settings_toggle_area_height_desc": {
         "message": "You can reduce the height of the area, so the sidebar will only open when you move your cursor into that location of the edge of your browser window."
     },
+    "settings_toggle_area_drag_desc": {
+        "message": "Drag to move"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Set keyboard shortcut"
     },

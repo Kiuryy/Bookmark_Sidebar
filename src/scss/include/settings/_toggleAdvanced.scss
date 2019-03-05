@@ -1,15 +1,3 @@
-@keyframes moveUpDown {
-  25% {
-    transform: translate3d(0, 15px, 0);
-  }
-  75% {
-    transform: translate3d(0, -15px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 body > section#wrapper {
 
   div.toggleAreaDesc {
@@ -46,9 +34,9 @@ body > div.toggleAreaModal {
   left: 0;
   right: 0;
   margin: auto;
-  padding: 20px 25px;
+  padding: 90px 25px 20px;
   width: 600px;
-  height: 400px;
+  height: 480px;
   background: $contentBackground;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -56,31 +44,67 @@ body > div.toggleAreaModal {
   transform: scale(0.7);
   transition: transform 0.3s, opacity 0.3s;
 
-  > div.preview {
-    @include mask('icon-reorder', $textColor, 28px);
+  &::before {
+    content: "";
     position: absolute;
     top: 0;
-    width: 15px;
-    height: 100%;
-    background: repeating-linear-gradient(-45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.15) 5px, rgba(0, 0, 0, 0.15) 10px);
-    border: 1px solid $textColorLight;
-    transition: width 0.2s, height 0.2s, top 0.2s;
-    cursor: ns-resize;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-image: img('settings/mockup-left.png'), img('settings/mockup-right.png'), img('settings/mockup-middle.png');
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: left 0, right 0, left 0;
+    background-size: auto 60px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+  }
 
-    &::before {
-      animation: moveUpDown 1.2s 1.5s;
-    }
+  > div.preview {
+    position: absolute;
+    top: 60px;
+    width: 20px;
+    height: calc(100% - 60px);
 
-    &.fullHeight {
-      cursor: default;
+    > div {
+      @include mask('icon-bookmark', $textColorInverted, 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      transition: width 0.2s, height 0.2s, top 0.2s, border-radius 0.2s;
+      cursor: ns-resize;
 
-      &::before {
-        display: none;
+      &.fullHeight {
+        cursor: default;
+      }
+
+      &.dragging {
+        transition: none;
       }
     }
 
-    &.dragging {
-      transition: none;
+    > span {
+      @include mask('icon-arrow-sketch', $textColor, 100%);
+      position: absolute;
+      top: 0;
+      display: block;
+      white-space: nowrap;
+      padding: 8px;
+      font-size: 90%;
+      font-weight: $__fontWeightMedium;
+      transition: opacity 0.3s;
+      @extend %hidden;
+
+      &::before {
+        width: 26px;
+        -webkit-mask-position: 0 -4px;
+      }
+    }
+
+    > div:not(.fullHeight) ~ span {
+      @extend %visible;
     }
   }
 
@@ -111,9 +135,20 @@ body > div.toggleAreaModal {
     padding-left: 75px;
 
     > div.preview {
-      border-radius: 0 7px 7px 0;
-      border-left: 0;
       left: 0;
+
+      > div:not(.fullHeight) {
+        border-radius: 0 12px 12px 0;
+      }
+
+      > span {
+        padding-left: 32px;
+        left: calc(100% + 3px);
+
+        &::before {
+          transform: scaleX(-1) scaleY(-1);
+        }
+      }
     }
   }
 
@@ -121,9 +156,22 @@ body > div.toggleAreaModal {
     padding-right: 75px;
 
     > div.preview {
-      border-radius: 7px 0 0 7px;
-      border-right: 0;
       right: 0;
+
+      > div:not(.fullHeight) {
+        border-radius: 12px 0 0 12px;
+      }
+
+      > span {
+        padding-right: 32px;
+        right: calc(100% + 3px);
+
+        &::before {
+          transform: scaleY(-1);
+          left: unset;
+          right: 0;
+        }
+      }
     }
   }
 }

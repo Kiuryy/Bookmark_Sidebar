@@ -302,7 +302,7 @@ body {
   }
 
   &[data-openType='icon']::before {
-    @include maskImage('onboarding/icon-arrow');
+    @include maskImage('icon-arrow-sketch');
     top: 50px;
     left: auto;
     right: 80px;

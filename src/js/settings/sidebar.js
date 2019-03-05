@@ -159,10 +159,11 @@
          */
         const initToggleAreaEvents = async () => {
             const modal = s.elm.body.children("div." + $.cl.settings.toggleArea.modal);
-            const preview = modal.children("div." + $.cl.settings.toggleArea.preview);
+            const previewWrapper = modal.children("div." + $.cl.settings.toggleArea.preview);
+            const preview = previewWrapper.children("div");
 
             $([s.elm.range.toggleArea_width, s.elm.range.toggleArea_height, s.elm.range.toggleArea_top]).on("change input", (e) => {
-                const minWidth = 14;
+                const minWidth = 19;
 
                 const val = {
                     width: +s.elm.range.toggleArea_width[0].value,
@@ -184,8 +185,8 @@
                         s.elm.range.toggleArea_top.trigger("change");
                     }
                 } else {
+                    previewWrapper.css("width", (minWidth + val.width) + "px");
                     preview.css({
-                        width: (minWidth + val.width) + "px",
                         height: (val.height) + "%",
                         top: val.top + "%"
                     });
@@ -244,7 +245,7 @@
             }).on("mousemove", (e) => { // drag move
                 if (preview.hasClass($.cl.settings.toggleArea.dragging) && e.which === 1) {
                     const pos = preview.data("pos");
-                    s.elm.range.toggleArea_top[0].value = ((pos.start + e.pageY - pos.y) / modal[0].offsetHeight) * 100;
+                    s.elm.range.toggleArea_top[0].value = ((pos.start + e.pageY - pos.y) / previewWrapper[0].offsetHeight) * 100;
                     s.elm.range.toggleArea_top.trigger("change");
                 }
             }, {passive: true});

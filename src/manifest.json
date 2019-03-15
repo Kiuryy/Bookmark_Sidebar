@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "68",
+  "minimum_chrome_version": "69",
   "homepage_url": "https://extensions.blockbyte.de/",
   "background": {
     "scripts": [

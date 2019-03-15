@@ -11,23 +11,23 @@
   },
   "scripts": {
     "init": "npm install --only=dev",
-    "release": "ncu -a --packageFile package.json && npm install --only=dev && node build/run.js",
+    "release": "ncu -u --packageFile package.json && npm install --only=dev && node build/run.js",
     "scss": "node-sass --source-map true -o src/css src/scss"
   },
   "devDependencies": {
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
     "del": "^4.0.0",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.2",
     "fs-extra": "^7.0.1",
     "glob-concat": "^1.0.1",
     "html-minifier": "^3.5.21",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.11.0",
-    "npm-check-updates": "^2.15.0",
+    "npm-check-updates": "^3.0.9",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
-    "terser": "^3.16.1",
+    "terser": "^3.17.0",
     "zip-dir": "^1.0.2"
   }
 }

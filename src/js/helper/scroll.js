@@ -97,14 +97,6 @@
          * @param {int} duration if set the scroll position will be set animated to the given value
          */
         this.setScrollPos = (scrollBox, scrollPos, duration = 0) => {
-            if (typeof scrollPos !== "number") { // @deprecated scrollPos is no longer an object, but an integer (06/2018)
-                try {
-                    scrollPos = scrollPos.bookmarkBox || 0;
-                } catch (e) {
-                    scrollPos = 0;
-                }
-            }
-
             if (duration === 0) {
                 scrollBox[0].scrollTop = scrollPos;
                 this.update(scrollBox);

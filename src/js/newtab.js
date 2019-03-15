@@ -85,22 +85,7 @@
                         if (obj && obj.newtabBackground_1) {
                             resolve(obj.newtabBackground_1);
                         } else {
-                            //resolve(null);
-                            chrome.storage.local.get(["utility"], (obj2) => { // @deprecated background image is no longer stored in the utility object (10/2018)
-                                if (obj2 && obj2.utility && obj2.utility.newtabBackground) {
-                                    const bg = obj2.utility.newtabBackground;
-                                    delete obj2.utility.newtabBackground;
-
-                                    chrome.storage.local.set({ // remove background image from utility and store it in the 'newtabBackground_1' object
-                                        utility: obj2.utility,
-                                        newtabBackground_1: bg
-                                    }, () => {
-                                        resolve(bg);
-                                    });
-                                } else {
-                                    resolve(null);
-                                }
-                            });
+                            resolve(null);
                         }
                     });
                 } else {

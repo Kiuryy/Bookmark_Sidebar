@@ -40,7 +40,7 @@ body > div.toggleAreaModal {
   background: $contentBackground;
   box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  z-index: 99;
+  z-index: 97;
   transform: scale(0.7);
   transition: transform 0.3s, opacity 0.3s;
 
@@ -189,6 +189,7 @@ body.showModal {
   > div.toggleAreaModal {
     @extend %visible;
     transform: scale(1);
+    z-index: 99;
   }
 }
 

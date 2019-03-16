@@ -59,18 +59,6 @@
         };
 
         /**
-         * Triggers the update method of all visible scrollboxes and optionally saves the scroll position afterwards,
-         * important if the content height of the scrollbox has changed
-         */
-        this.updateAll = () => {
-            scrollBoxes.forEach((scrollBox) => {
-                if (scrollBox.hasClass($.cl.active)) {
-                    this.update(scrollBox);
-                }
-            });
-        };
-
-        /**
          * Restores the scroll position from the storage if configurated so
          *
          * @param {jsu} scrollBox

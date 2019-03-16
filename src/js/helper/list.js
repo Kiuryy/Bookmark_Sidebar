@@ -717,8 +717,10 @@
                     $("<a />").attr($.attr.name, "add").insertAfter(list);
                 }
 
-                restoreScrollPos();
-                resolve();
+                $.delay(100).then(() => {
+                    restoreScrollPos();
+                    resolve();
+                });
             });
         };
 

@@ -108,9 +108,11 @@
 
                 this.helper.font.init();
                 this.helper.stylesheet.init({defaultVal: true});
-                this.helper.stylesheet.addStylesheets(["settings"], $(document));
 
-                return this.helper.form.init();
+                return Promise.all([
+                    this.helper.form.init(),
+                    this.helper.stylesheet.addStylesheets(["settings"], $(document))
+                ]);
             }).then(() => {
                 this.elm.body.removeClass($.cl.building);
 

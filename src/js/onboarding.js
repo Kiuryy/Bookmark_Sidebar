@@ -35,12 +35,11 @@
 
                 this.helper.font.init();
                 this.helper.stylesheet.init({defaultVal: true});
-                this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
 
                 this.helper.i18n.parseHtml(document);
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
-
-                return $.delay();
+                
+                return this.helper.stylesheet.addStylesheets(["onboarding"], $(document));
             }).then(() => {
                 this.elm.body.removeClass($.cl.building);
 

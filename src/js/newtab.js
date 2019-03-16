@@ -49,9 +49,11 @@
 
                 this.helper.font.init();
                 this.helper.stylesheet.init();
-                this.helper.stylesheet.addStylesheets(["newtab"], $(document));
 
-                return this.helper.i18n.init();
+                return Promise.all([
+                    this.helper.i18n.init(),
+                    this.helper.stylesheet.addStylesheets(["newtab"], $(document))
+                ]);
             }).then(() => {
                 this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
                 this.helper.i18n.parseHtml(document);

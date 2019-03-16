@@ -60,8 +60,8 @@
                         this.helper.i18n.init().then(() => {
                             this.helper.font.init();
                             this.helper.stylesheet.init();
-                            this.helper.stylesheet.addStylesheets(["content"]);
-
+                            return this.helper.stylesheet.addStylesheets(["content"]);
+                        }).then(() => {
                             return initSidebar();
                         }).then(() => {
                             if (this.elm.iframe && this.elm.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way

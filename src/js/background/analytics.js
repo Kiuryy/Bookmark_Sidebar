@@ -264,7 +264,7 @@
                 $.xhr(b.urls.evaluate, {
                     method: "POST",
                     responseType: "json",
-                    timeout: 10000,
+                    timeout: 60000,
                     data: {stack: data}
                 }).then((xhr) => {
                     if (xhr.response && xhr.response.success) {

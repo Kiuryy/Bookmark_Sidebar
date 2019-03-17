@@ -278,11 +278,20 @@
     "newtab_speech_search_error": {
         "message": "Para habilitar la b\u00fasqueda de voz, debe permitir el acceso al micr\u00f3fono."
     },
+    "newtab_search_engine_headline": {
+        "message": "Buscador"
+    },
     "newtab_search_engine_custom": {
         "message": "Definido por el usuario"
     },
     "newtab_search_engine_custom_title": {
         "message": "Titulo"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL de la pagina de inicio"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL de los resultados de busqueda"
     },
     "newtab_upload_background": {
         "message": "Subir imagen de fondo"

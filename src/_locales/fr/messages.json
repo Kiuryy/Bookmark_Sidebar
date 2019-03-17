@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Ne rien afficher"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Afficher les aper\u00e7us des sites web"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Afficher les ic\u00f4nes des sites web"
+    },
     "newtab_search_placeholder": {
         "message": "Rechercher {1} ou saisir l'URL"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Vous pouvez r\u00e9duire la hauteur de la zone pour que la barre lat\u00e9rale s'ouvre uniquement lorsque vous passez la souris dans cette zone de la bordure du navigateur."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Glisser pour d\u00e9placer"
     },
     "settings_keyboard_shortcut_button": {
         "message": "D\u00e9finir un raccourci clavier"

@@ -272,11 +272,26 @@
     "newtab_search_placeholder": {
         "message": "Zoek {1} of typ de URL"
     },
+    "newtab_speech_search_listening": {
+        "message": "nu spreken"
+    },
+    "newtab_speech_search_error": {
+        "message": "Om het zoeken naar spraak mogelijk te maken, moet u microfoontoegang toestaan."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Zoekmachine"
+    },
     "newtab_search_engine_custom": {
         "message": "Gedefinieerd door gebruiker"
     },
     "newtab_search_engine_custom_title": {
         "message": "Titel"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL van startpagina"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL van zoekresultaten"
     },
     "newtab_upload_background": {
         "message": "Een achtergrondafbeelding uploaden"
@@ -568,6 +583,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "Premium kon niet worden geactiveerd. Controleer uw code en probeer opnieuw."
+    },
+    "settings_search_placeholder": {
+        "message": "Zoeken naar configuratie"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Met de expertinstellingen kunt u elke configuratievlag van de extensie wijzigen, zelfs die u niet kunt wijzigen met de gewone selectievakjes of schuifregelaars van de instellingenpagina."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Wijzig de waarden hier alleen als u weet wat u doet. Defecte configuraties kunnen onverwacht gedrag van de extensie veroorzaken. Als iets kapot gaat, kunt u terugkeren naar de standaardconfiguratie."
+    },
+    "settings_expert_save_error": {
+        "message": "Kon instellingen niet opslaan. Corrigeer uw invoer."
     },
     "settings_open_action": {
         "message": "Open de zijbalk"
@@ -1108,6 +1135,9 @@
     },
     "premium_pay_price_total": {
         "message": "Totaal"
+    },
+    "premium_pay_price_info": {
+        "message": "Dit is een eenmalig bedrag en bevat ook alle toekomstige premiumfuncties."
     },
     "premium_pay_eula": {
         "message": "Licentie-overeenkomst eindgebruiker"

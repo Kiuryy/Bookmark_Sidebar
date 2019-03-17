@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Ne poka\u017ei strani"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Prika\u017ei predoglede spletnih strani"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Prika\u017ei ikone spletnih strani"
+    },
     "newtab_search_placeholder": {
         "message": "Iskanje {1} ali vnesi URL"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Spremenite lahko vi\u0161ino obmo\u010dja, tako da se bo stranska vrstica odprla samo ko boste naredili prehod z mi\u0161ko le na tej lokaciji roba okna brskalnika."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Povlecite, da premaknete"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastavi bli\u017enjico na tipkovnici"

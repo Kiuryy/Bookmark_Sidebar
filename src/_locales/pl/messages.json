@@ -278,11 +278,20 @@
     "newtab_speech_search_error": {
         "message": "Aby w\u0142\u0105czy\u0107 wyszukiwanie mow\u0105, musisz zezwoli\u0107 na dost\u0119p do mikrofonu."
     },
+    "newtab_search_engine_headline": {
+        "message": "Wyszukiwarka"
+    },
     "newtab_search_engine_custom": {
         "message": "Ustawienie u\u017cytkownika"
     },
     "newtab_search_engine_custom_title": {
         "message": "Tytu\u0142"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Adres URL strony g\u0142\u00f3wnej"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Adres URL wynik\u00f3w wyszukiwania"
     },
     "newtab_upload_background": {
         "message": "Prze\u015blij obraz t\u0142a"

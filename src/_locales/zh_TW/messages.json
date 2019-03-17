@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "\u4e0d\u986f\u793a\u9801\u9762"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "\u986f\u793a\u7db2\u9801\u9810\u89bd"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "\u986f\u793a\u7db2\u9801\u5716\u793a"
+    },
     "newtab_search_placeholder": {
         "message": "\u641c\u5c0b{1}\u6216\u8f38\u5165\u7db2\u5740"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "\u60a8\u53ef\u4ee5\u6e1b\u5c11\u5340\u57df\u7684\u9ad8\u5ea6\uff0c\u5982\u6b64\u4e00\u4f86\u5074\u908a\u6b04\u5c31\u53ea\u6703\u5728\u60a8\u79fb\u52d5\u6e38\u6a19\u5230\u8996\u7a97\u908a\u7de3\u6642\u958b\u555f\u3002"
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "\u62d6\u52d5"
     },
     "settings_keyboard_shortcut_button": {
         "message": "\u8a2d\u5b9a\u9375\u76e4\u5feb\u901f\u9375"

@@ -278,11 +278,20 @@
     "newtab_speech_search_error": {
         "message": "Chcete-li povolit hlasov\u00e9 vyhled\u00e1v\u00e1n\u00ed, mus\u00edte povolit p\u0159\u00edstup k mikrofonu."
     },
+    "newtab_search_engine_headline": {
+        "message": "Vyhled\u00e1va\u010d"
+    },
     "newtab_search_engine_custom": {
         "message": "Definov\u00e1no u\u017eivatelem"
     },
     "newtab_search_engine_custom_title": {
         "message": "N\u00e1zev"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL domovsk\u00e9 str\u00e1nky"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL v\u00fdsledku vyhled\u00e1v\u00e1n\u00ed"
     },
     "newtab_upload_background": {
         "message": "Nahr\u00e1t obr\u00e1zek pozad\u00ed"
@@ -1126,6 +1135,9 @@
     },
     "premium_pay_price_total": {
         "message": "Celkem"
+    },
+    "premium_pay_price_info": {
+        "message": "Toto je jednor\u00e1zov\u00e1 zm\u011bna a zahrnuje rovn\u011b\u017e budouc\u00ed funkce Premium."
     },
     "premium_pay_eula": {
         "message": "Licen\u010dn\u00ed smlouva koncov\u00e9ho u\u017eivatele"

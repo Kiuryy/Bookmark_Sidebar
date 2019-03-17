@@ -1,0 +1,329 @@
+{
+    "extension_name": {
+        "message": "Bogm\u00e6rke sidepanel"
+    },
+    "extension_desc": {
+        "message": "Tilf\u00f8jer en skiftebar sidebj\u00e6lke med alle dine bogm\u00e6rker i kanten af dit browservindue."
+    },
+    "header_bookmarks": {
+        "message": "Bogm\u00e6rker"
+    },
+    "header_bookmarks_single": {
+        "message": "Bogm\u00e6rke"
+    },
+    "sidebar_dir_children": {
+        "message": "Elementer"
+    },
+    "sidebar_search_placeholder": {
+        "message": "S\u00f8g Bogm\u00e6rke"
+    },
+    "sidebar_search_no_results": {
+        "message": "Ingen bogm\u00e6rker matcher s\u00f8gestrengen"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "URL kopieret"
+    },
+    "sidebar_deleted": {
+        "message": "Fjernet"
+    },
+    "sidebar_undo_deletion": {
+        "message": "omg\u00f8r"
+    },
+    "more_link": {
+        "message": "L\u00e6r mere"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Rediger bogm\u00e6rke"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Rediger folder"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Rediger seperator"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Slet bogm\u00e6rke"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Slet folder"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Slet separator"
+    },
+    "contextmenu_infos": {
+        "message": "Information"
+    },
+    "contextmenu_new_tab": {
+        "message": "\u00c5bn i ny fane"
+    },
+    "contextmenu_new_window": {
+        "message": "\u00c5bn i nyt vindue"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "\u00c5bn i Inkognito vindue"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Tilf\u00f8j bogm\u00e6rke"
+    },
+    "contextmenu_add": {
+        "message": "Tilf\u00f8j"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Kontroller bogm\u00e6rker"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Vis skjulte poster"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Luk alle foldere"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Genindl\u00e6s sidepanel"
+    },
+    "contextmenu_open_children": {
+        "message": "\u00c5bn bogm\u00e6rker"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Skjul fra sidepanel"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Vis i sidepanel"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Vis i folder"
+    },
+    "contextmenu_pin": {
+        "message": "Fastg\u00f8r til top"
+    },
+    "contextmenu_unpin": {
+        "message": "Frig\u00f8r fra top"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Bogm\u00e6ke administrator"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Tastatur genveje"
+    },
+    "sort_label_custom": {
+        "message": "Brugerdefineret"
+    },
+    "sort_label_alphabetical": {
+        "message": "Alfabetisk"
+    },
+    "sort_label_most_used": {
+        "message": "Mest brugte"
+    },
+    "sort_label_recently_used": {
+        "message": "Senest brugte"
+    },
+    "sort_label_recently_added": {
+        "message": "Senest tilf\u00f8jede"
+    },
+    "sort_view_as_tree": {
+        "message": "Vis mapper"
+    },
+    "sort_most_used_per_month": {
+        "message": "Per m\u00e5ned"
+    },
+    "overlay_bookmark_title": {
+        "message": "Titel"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Mere info"
+    },
+    "overlay_cancel": {
+        "message": "Annuller"
+    },
+    "overlay_close": {
+        "message": "Luk"
+    },
+    "overlay_save": {
+        "message": "Gem"
+    },
+    "overlay_delete": {
+        "message": "Slet"
+    },
+    "overlay_update": {
+        "message": "Opdat\u00e9r"
+    },
+    "overlay_open_children": {
+        "message": "\u00c5bn alle"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Vil du virkelig \u00e5bne alle {1} underliggende bogm\u00e6rker?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Skjul fra sidebar"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Vil du virkelig skjule dette bogm\u00e6rke fra sidebaren?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Vil du virkelig skjule denne mappe fra sidebaren? Alle underliggende bogm\u00e6rker vil ogs\u00e5 blive skjult."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Vil du virkelig slette dette bogm\u00e6rke?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Vil du virkelig slette denne mappe? Alle underliggende bogm\u00e6rker vil ogs\u00e5 blive fjernet."
+    },
+    "overlay_label_bookmark": {
+        "message": "Bogm\u00e6rke"
+    },
+    "overlay_label_dir": {
+        "message": "Mappe"
+    },
+    "overlay_label_separator": {
+        "message": "Separator"
+    },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "S\u00e6t foran mappenavn"
+    },
+    "overlay_add_position_append": {
+        "message": "S\u00e6t efter mappenavn"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Du kan eventuelt indtaste en titel. Den vil blive vist oven over separator-linien, og kan hj\u00e6lpe dig med at organisere din bogm\u00e6rkeliste."
+    },
+    "overlay_bookmark_views": {
+        "message": "Visninger"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Vis"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Optaget siden"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "per m\u00e5ned"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Oprettet den"
+    },
+    "overlay_dir_children": {
+        "message": "Elementer"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Bogm\u00e6rker"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Mapper"
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "\u00c6ndret"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "\u00d8delagte"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Dubletter"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Tomme mapper"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Checker bogm\u00e6rke-URL'erne"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Opdat\u00e9r de valgte"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Fjern de valgte"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Alle bogm\u00e6rke URLs fungerer"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Der er ingen \u00e6ndrede bogm\u00e6rke URLs"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Der er ingen \u00f8delagte bogm\u00e6rke URLs"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Der er ingen bogm\u00e6rke-URL dubletter"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Der er ingen mapper uden bogm\u00e6rker"
+    },
+    "newtab_title": {
+        "message": "Ny fane"
+    },
+    "newtab_top_pages_default": {
+        "message": "Mest viste"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Senest brugte bogm\u00e6rker"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Mest brugte bogm\u00e6rker"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Fastgjorte bogm\u00e6rker"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Vis ikke sider"
+    },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Vis forh\u00e5ndsvisning af hjemmesider"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Vis hjemmeside ikoner"
+    },
+    "newtab_search_placeholder": {
+        "message": "S\u00f8g {1} eller skriv URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Tal nu"
+    },
+    "newtab_speech_search_error": {
+        "message": "For at sl\u00e5 tales\u00f8gning til, er du n\u00f8dt til at tillade brug af mikrofonen."
+    },
+    "newtab_search_engine_headline": {
+        "message": "S\u00f8gemaskine"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Brugerdefineret"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titel"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Hjemmesidens URL"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL med s\u00f8geresultater"
+    },
+    "newtab_upload_background": {
+        "message": "Upload baggrundsbillede"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Noget har blokeret sidebaren"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "Sidebaren kan ikke bruges i Chrome Webstore"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Sidebaren kan ikke bruges p\u00e5 udvidelsessider"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Sidebaren kan ikke bruges p\u00e5 nyt faneblad siden"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "Sidebaren kan ikke bruges p\u00e5 chrome system sider"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "En af dine URL-regler forhindrede sidebaren i at \u00e5bne"
+    },
+    "newtab_fallback_desc": {
+        "message": "Vi har \u00e5bnet et nyt faneblad med sidebaren for dig i stedet."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Vis altid denne side n\u00e5r et nyt faneblad \u00e5bnes"
+    }
+}

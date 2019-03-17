@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Mostrar pr\u00e9via do site"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Mostrar \u00edcone do site"
+    },
     "newtab_search_placeholder": {
         "message": "Pesquise no {1} ou digite um URL"
     },
@@ -586,6 +592,9 @@
     },
     "settings_search_placeholder": {
         "message": "Procurar configura\u00e7\u00e3o"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Com as configura\u00e7\u00f5es avan\u00e7adas, voc\u00ea pode alterar todos os sinalizadores de configura\u00e7\u00e3o da extens\u00e3o, mesmo aqueles que voc\u00ea n\u00e3o pode alterar usando as caixas de sele\u00e7\u00e3o ou controles deslizantes regulares da p\u00e1gina de configura\u00e7\u00f5es."
     },
     "settings_expert_settings_notice": {
         "message": "Por favor, apenas altere os valores daqui se souber o que est\u00e1 fazendo. Configura\u00e7\u00f5es incorretas podem causar um comportamento inesperado da extens\u00e3o. Se algo quebrar, voc\u00ea pode reverter para a configura\u00e7\u00e3o padr\u00e3o."

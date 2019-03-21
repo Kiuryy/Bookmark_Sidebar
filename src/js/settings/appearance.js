@@ -304,7 +304,7 @@
         const getCurrentConfig = () => {
             const ret = {
                 utility: {
-                    customCss: s.helper.model.getUserType() === "default" ? "" : s.elm.textarea.customCss[0].value
+                    customCss: s.helper.model.getUserType() === "default" ? "" : s.elm.textarea.customCss[0].value.replace(/[\u200B-\u200D\uFEFF]/g, "").trim()
                 },
                 appearance: {
                     darkMode: s.helper.checkbox.isChecked(s.elm.checkbox.darkMode),

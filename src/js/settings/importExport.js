@@ -125,22 +125,9 @@
          * @returns {Promise}
          */
         const initExport = async () => {
-            s.elm.buttons["export"].on("click", (e) => {
-                e.preventDefault();
-
-                chrome.permissions.request({ // request additional permissions in order to trigger a download with the configuration
-                    permissions: ["downloads"]
-                }, (granted) => {
-                    if (granted) { // not granted -> no download
-                        const blob = new Blob([JSON.stringify(this.getExportConfig())], {type: "application/json"});
-
-                        chrome.downloads.download({
-                            url: URL.createObjectURL(blob),
-                            filename: getExportFilename(),
-                            saveAs: true
-                        });
-                    }
-                });
+            s.elm.buttons["export"].attr({
+                href: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.getExportConfig())),
+                download: getExportFilename()
             });
         };
 

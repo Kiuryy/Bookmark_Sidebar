@@ -91,7 +91,6 @@
   ],
   "optional_permissions": [
     "tabs",
-    "topSites",
-    "downloads"
+    "topSites"
   ]
 }

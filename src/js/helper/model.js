@@ -96,6 +96,7 @@
                 directoryArrows: false,
                 showBookmarkIcons: true,
                 showDirectoryIcons: true,
+                devModeIconBadge: true,
                 styles: {
                     colorScheme: defaultColors.colorScheme.light,
                     foregroundColor: defaultColors.foregroundColor.light,

@@ -29,9 +29,11 @@
                         });
                     }
 
-                    if (b.isDev) { // add badge for the dev version
+                    if (b.isDev && info.devModeIconBadge) { // add badge for the dev version
                         chrome.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
                         chrome.browserAction.setBadgeText({text: " "});
+                    } else {
+                        chrome.browserAction.setBadgeText({text: ""});
                     }
 
                     resolve();
@@ -49,21 +51,29 @@
                 chrome.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
                     let color = "#555555";
+                    let devModeIconBadge = true;
 
                     if (obj && obj.appearance && obj.appearance.styles) {
 
-                        if (obj.appearance.styles.iconShape) {
-                            name = obj.appearance.styles.iconShape;
+                        if (typeof obj.appearance.devModeIconBadge !== "undefined") {
+                            devModeIconBadge = obj.appearance.devModeIconBadge;
                         }
 
-                        if (obj.appearance.styles.iconColor) {
-                            color = obj.appearance.styles.iconColor;
+                        if (obj.appearance.styles) {
+                            if (obj.appearance.styles.iconShape) {
+                                name = obj.appearance.styles.iconShape;
+                            }
+
+                            if (obj.appearance.styles.iconColor) {
+                                color = obj.appearance.styles.iconColor;
+                            }
                         }
                     }
 
                     resolve({
                         name: name,
-                        color: color
+                        color: color,
+                        devModeIconBadge: devModeIconBadge
                     });
                 });
             });

@@ -352,9 +352,11 @@
                         this.showSuccessMessage("saved_message");
                         return this.helper.model.call("reinitialize");
                     }).then(() => {
+                        return $.delay(1500);
+                    }).then(() => {
                         this.helper.model.call("reloadIcon");
                         this.helper.model.call("reloadContextmenus");
-                        return $.delay(1500);
+                        return $.delay(0);
                     }).then(() => {
                         location.reload(true);
                     })["catch"](() => {

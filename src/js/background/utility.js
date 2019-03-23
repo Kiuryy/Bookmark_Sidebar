@@ -3,6 +3,10 @@
 
     $.UtilityHelper = function (b) {
 
+        const importantURLParameters = {
+            "youtube.com": ["v"]
+        };
+
         /**
          * Activates premium by checking the given license key and storing the license key in the sync storage
          *
@@ -211,11 +215,32 @@
             const ret = {};
             const urlList = Object.values(urls);
 
-            const getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123 -> google.com
+            const getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123#top -> google.com
+                let urlObj = null;
+                try {
+                    urlObj = new URL(url);
+                } catch (e) {
+                    //
+                }
+
                 url = url.split("?")[0];
                 url = url.split("#")[0];
                 url = url.replace(/^https?:\/\//, "");
                 url = url.replace(/^www\./, "");
+
+                const hostname = url.split("/")[0];
+
+                if (urlObj && importantURLParameters[hostname]) { // keep important parameters of known urls -> e.g. https://www.youtube.com/?v=abcdefg&list=xyz -> youtube.com/?v=abcdefg
+                    const params = [];
+                    importantURLParameters[hostname].forEach((param) => {
+                        const val = urlObj.searchParams.get(param);
+                        if (val) {
+                            params.push(param + "=" + val);
+                        }
+                    });
+                    url += "?" + params.join("&");
+                }
+
                 return url;
             };
 

@@ -14,22 +14,24 @@
          * @returns {Promise}
          */
         this.activatePremium = (opts) => {
-            return new Promise((resolve) => {
-                if (b.helper.model.getLicenseKey() === opts.licenseKey) { // the given license key is already stored -> return true, but don't reinitialize
-                    resolve({success: true, skip: true});
-                } else {
-                    this.checkLicenseKey(opts.licenseKey).then((response) => {
-                        if (response.valid === true) { // valid license key -> reinitialize sidebar
-                            b.helper.model.setLicenseKey(opts.licenseKey).then(() => {
-                                return b.reinitialize({type: "premiumActivated"});
-                            }).then(() => {
-                                resolve({success: true});
-                            });
-                        } else { // invalid license key
-                            resolve({success: false});
-                        }
-                    });
-                }
+            return new Promise(async (resolve) => {
+                b.helper.model.getLicenseKey().then((response) => {
+                    if (response.licenseKey === opts.licenseKey) { // the given license key is already stored -> return true, but don't reinitialize
+                        resolve({success: true, skip: true});
+                    } else {
+                        this.checkLicenseKey(opts.licenseKey).then((response) => {
+                            if (response.valid === true) { // valid license key -> reinitialize sidebar
+                                b.helper.model.setLicenseKey(opts.licenseKey).then(() => {
+                                    return b.reinitialize({type: "premiumActivated"});
+                                }).then(() => {
+                                    resolve({success: true});
+                                });
+                            } else { // invalid license key
+                                resolve({success: false});
+                            }
+                        });
+                    }
+                });
             });
         };
 

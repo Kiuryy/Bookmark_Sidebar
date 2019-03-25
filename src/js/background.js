@@ -243,8 +243,10 @@
 
                 const licenseKey = this.helper.model.getLicenseKey();
                 const rnd = Math.floor(Math.random() * 20) + 1;
-                if (licenseKey && rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)
-                    this.helper.utility.checkLicenseKey(licenseKey).then((response) => {
+                if (rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)
+                    this.helper.model.getLicenseKey().then((response) => {
+                        return this.helper.utility.checkLicenseKey(response.licenseKey);
+                    }).then((response) => {
                         if (response.valid === false) {
                             this.helper.model.setLicenseKey(null);
                         }

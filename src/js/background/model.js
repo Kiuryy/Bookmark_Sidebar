@@ -57,9 +57,13 @@
         /**
          * Returns the stored license key
          *
-         * @returns {object}
+         * @returns {Promise}
          */
-        this.getLicenseKey = () => licenseKey;
+        this.getLicenseKey = () => {
+            return new Promise((resolve) => {
+                resolve({licenseKey: licenseKey});
+            });
+        };
 
         /**
          * Checks if there is any information the extension should display to the user and returns the name of this info

@@ -96,10 +96,6 @@
                         obj.newtab = {};
                     }
 
-                    if (b.helper.model.getLicenseKey() && typeof obj.newtab.topPagesAppearance === "undefined") { // set default appearance to "thumbnail" for premium users (03/2019)
-                        obj.newtab.topPagesAppearance = "thumbnail";
-                    }
-
                     if (!obj.appearance.styles.iconShape || obj.appearance.styles.iconShape === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
                         obj.appearance.styles.iconShape = "bookmark";
                         obj.appearance.styles.iconColor = "#555555";

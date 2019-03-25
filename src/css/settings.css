@@ -1687,6 +1687,14 @@ div.tab[data-name='premium'] > section {
         background-color: #5eba7d; }
       div.tab[data-name='premium'] > section[data-type='intro'] > span[data-type='activated']::before {
         width: 50px; }
+    div.tab[data-name='premium'] > section[data-type='intro'] > span[data-type='key'] {
+      display: block;
+      font-size: 80%; }
+      div.tab[data-name='premium'] > section[data-type='intro'] > span[data-type='key'] > span {
+        direction: ltr;
+        margin: 0 5px;
+        font-family: Consolas, sans-serif;
+        user-select: text; }
     div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'] {
       margin: 30px 0 20px 0;
       padding: 10px 12px;

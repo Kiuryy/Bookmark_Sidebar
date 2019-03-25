@@ -25,9 +25,19 @@
 
             const introSlide = s.elm.premium.wrapper.children("section[" + $.attr.type + "='intro']");
 
-            if (s.helper.model.getUserType() === "premium") {
+            if (s.helper.model.getUserType() === "premium") { // user has already premium -> show text and the license key
                 $("<span />").attr($.attr.type, "activated").text(s.helper.i18n.get("premium_already_activated")).appendTo(introSlide);
-            } else {
+
+                s.helper.model.call("licenseKey").then((response) => { // show the used license key
+                    if (response && response.licenseKey) {
+                        $("<span />")
+                            .attr($.attr.type, "key")
+                            .append("<strong>" + s.helper.i18n.get("premium_license_key") + ":</strong>")
+                            .append("<span>" + response.licenseKey + "</span>")
+                            .appendTo(introSlide);
+                    }
+                });
+            } else { // user is not using premium
                 s.elm.aside.find("li[" + $.attr.name + "='premium']").addClass($.cl.settings.inactive); // mark the premium menu point when the user has no premium
 
                 elm.linkPremium = $("<a />").attr($.attr.type, "premium").text(s.helper.i18n.get("premium_get_now")).appendTo(introSlide);

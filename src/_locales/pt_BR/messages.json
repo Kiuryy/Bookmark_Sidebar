@@ -638,6 +638,9 @@
     "settings_toggle_area_height_desc": {
         "message": "Voc\u00ea pode reduzir a altura da \u00e1rea, de forma que a barra lateral seja aberta somente quando voc\u00ea mover o ponteiro do mouse para dentro deste local da borda da janela do navegador."
     },
+    "settings_toggle_area_drag_desc": {
+        "message": "Arraste para mover"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
     },

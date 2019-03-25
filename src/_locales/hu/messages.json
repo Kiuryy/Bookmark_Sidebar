@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Ne mutassa a lapokat"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Weboldal el\u0151n\u00e9zet"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Weboldal icon megjelen\u00edt\u00e9se"
+    },
     "newtab_search_placeholder": {
         "message": "Keres\u00e9s {1} vagy g\u00e9pelje be a c\u00edmet"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Magass\u00e1g (ablakos \u00fczemm\u00f3d)"
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "\u00c1thelyez\u00e9s"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Gyorsbillenty\u0171 be\u00e1ll\u00edt\u00e1sa"

@@ -325,5 +325,323 @@
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Vis altid denne side n\u00e5r et nyt faneblad \u00e5bnes"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Tjeneste ikke tilg\u00e6ngelig"
+    },
+    "status_check_bookmarks_unavailable_desc": {
+        "message": "Tjenesten som tjekker URLs er ikke tilg\u00e6ngelig i \u00f8jeblikket. Pr\u00f8v venligst senere."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Tjenesten til indsamling af feedback er i \u00f8jeblikket ikke tilg\u00e6ngelig. Hvis du \u00f8nsker at give din feedback, send mig venligst en email i stedet."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Overs\u00e6ttelsestjenesten er i \u00f8jeblikket ikke tilg\u00e6ngelig. Pr\u00f8v venligst igen senere."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Genindl\u00e6s nu"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Grundet en opdatering af denne Chrome udvidelse, er der behov for at genindl\u00e6se denne side."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Sv\u00e6ver hen over n\u00e6ste emne i sidebaren eller i den \u00e5bne kontekstmenu."
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Udf\u00f8rer et klik p\u00e5 det fremh\u00e6vede emne"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "\u00c5bner en kontekstmenu for det fremh\u00e6vede emne"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Kopierer URL'en for det fremh\u00e6vede emne"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Fjerner det fremh\u00e6vede emne"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Lukker sidebaren, det \u00e5bne overl\u00e6g eller den \u00e5bne kontekstmenu"
+    },
+    "contribute_headline": {
+        "message": "Jeg har brug for din hj\u00e6lp"
+    },
+    "contribute_intro": {
+        "message": "For at g\u00f8re denne udvidelse bedre \u00f8nsker jeg at opn\u00e5 kendskab til hvordan brugere benytter sidebaren, samt hvilke ops\u00e6tning de bruger."
+    },
+    "contribute_outro": {
+        "message": "Hvis du har sp\u00f8rgsm\u00e5l eller bekymringer om at dele denne information, send mig gerne din feedback."
+    },
+    "contribute_dismiss": {
+        "message": "Afvis"
+    },
+    "contribute_share_config_label": {
+        "message": "Del ops\u00e6tning"
+    },
+    "contribute_share_config_desc": {
+        "message": "Du deler din ops\u00e6tning anonymt, hvilket hj\u00e6lper mig med at identificere popul\u00e6re indstillinger, samt hj\u00e6lper mig med at forst\u00e5 hvad der beh\u00f8ver forbedringer eller \u00e6ndringer i fremtidige udgivelser."
+    },
+    "contribute_share_activity_label": {
+        "message": "Del aktivitet"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Du kan dele din sidebar-aktivitet anonymt, hvilket hj\u00e6lper mig til at forst\u00e5 hvordan brugere generelt benytter sidebaren. Information omkring dine bogm\u00e6rker eller dine bes\u00f8gte hjemmesider [b]vil ikke[\/b] blive m\u00e5lt."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Denne information er meget brugbar til at identificere problemer med brugervenligheden, eller features som for eksempel ikke bliver brugt s\u00e6rligt ofte."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Data som bliver delt er for eksempel:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Hvor mange bogm\u00e6rker har brugere i gennemsnit?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Hvilken platform benytter brugere (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Benytter brugere s\u00f8gefunktionen?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "\u00c6ndrer brugere sorteringen af bogm\u00e6rkerne?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Hvor ofte omarrangerer eller \u00e6ndrer brugerne p\u00e5 emner?"
+    },
+    "onboarding_title": {
+        "message": "Ops\u00e6tning"
+    },
+    "onboarding_headline": {
+        "message": "Tak fordi du installerede denne udvidelse."
+    },
+    "onboarding_setup": {
+        "message": "Ops\u00e6t nu"
+    },
+    "onboarding_skip": {
+        "message": "Skip setup"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Hvor vil du have din sidebar?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Hvordan \u00f8nsker du at \u00e5bne din sidebar?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Hvilken stil foretr\u00e6kker du?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Lys"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "M\u00f8rk"
+    },
+    "onboarding_handson_desc": {
+        "message": "Nu kan du pr\u00f8ve selv."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Flyt mark\u00f8ren til den {1} side af dit vindue."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Derefter {1} -klik med din mus for at \u00e5bne sidebaren."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Klik p\u00e5 udvidelses-ikonet for at \u00e5bne sidebaren."
+    },
+    "onboarding_left": {
+        "message": "venstre"
+    },
+    "onboarding_right": {
+        "message": "h\u00f8jre"
+    },
+    "onboarding_finish_desc": {
+        "message": "God forn\u00f8jelse med din sidebar."
+    },
+    "onboarding_finish_notice": {
+        "message": "Hvis du ofte klikker p\u00e5 ting i {1} side af dit browser vindue, kan du med fordel \u00e6ndre s\u00e5ledes sidebaren \u00e5bner vertikalt for at \u00e5bne den ved en fejl."
+    },
+    "onboarding_goto_settings": {
+        "message": "Flere indstillinger"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Ops\u00e6t udseende"
+    },
+    "settings_title": {
+        "message": "Indstillinger"
+    },
+    "settings_menu_sidebar": {
+        "message": "Sidebar"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Generelt"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Toggle"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "V\u00e6rkt\u00f8jstips"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
+    },
+    "settings_menu_appearance": {
+        "message": "Udseende"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Generelt"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Sidebar"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indikator"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikon"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Overl\u00e6g"
+    },
+    "settings_menu_newtab": {
+        "message": "Nyt faneblad"
+    },
+    "settings_menu_language": {
+        "message": "Sprog"
+    },
+    "settings_menu_language_general": {
+        "message": "Generelt"
+    },
+    "settings_menu_language_translate": {
+        "message": "Overs\u00e6t"
+    },
+    "settings_menu_feedback": {
+        "message": "Feedback"
+    },
+    "settings_menu_infos": {
+        "message": "Information"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Om mig"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Tilladelser"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privatliv"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "\u00c6ndringslog"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Eksport"
+    },
+    "settings_menu_expert": {
+        "message": "Ekspert indstillinger"
+    },
+    "settings_save": {
+        "message": "Gem \u00c6ndringer"
+    },
+    "settings_saved_message": {
+        "message": "\u00c6ndringer gemt med succes"
+    },
+    "settings_restore": {
+        "message": "Gendan standardindstillingerne"
+    },
+    "settings_restore_confirm": {
+        "message": "\u00d8nsker du virkelig at gendanne standardindstillingerne?"
+    },
+    "settings_restored_message": {
+        "message": "Gendannelse af indstillinger gennemf\u00f8rt"
+    },
+    "settings_advanced": {
+        "message": "Avancerede indstillinger"
+    },
+    "settings_not_synced": {
+        "message": "Vil ikke blive synkroniseret p\u00e5 tv\u00e6rs af dine enheder."
+    },
+    "settings_premium_activated": {
+        "message": "Premium er blevet aktiveret!"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Kunne ikke aktivere Premium. Indtast venligst en valid licensn\u00f8gle"
+    },
+    "settings_search_placeholder": {
+        "message": "S\u00f8g efter indstilling"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Med ekspertindstillingerne kan du \u00e6ndre hver konfigurations-indstilling i udvidelsen, selv dem som ikke kan \u00e6ndres ved brug af de almindelige afkrydsningsbokse eller slidere p\u00e5 ops\u00e6tningssiden."
+    },
+    "settings_expert_settings_notice": {
+        "message": "\u00c6ndr venligst kun v\u00e6rdier her, hvis du ved hvad du laver. Fejlagtige ops\u00e6tninger kan for\u00e5rsage at udvidelsen opf\u00f8rer sig uventet. Hvis noget g\u00e5r i stykker, kan du gendanne standardindstillingerne."
+    },
+    "settings_expert_save_error": {
+        "message": "Kunne ikke gemme ops\u00e6tningen. Ret venligst din indtastning."
+    },
+    "settings_newtab_desc": {
+        "message": "Desv\u00e6rre har Google fjernet muligheden for at loade udvidelser p\u00e5 standard-siden for et nyt faneblad. Grundet dette har jeg tilf\u00f8jet nogle muligheder der tillader dig at tilg\u00e5 dine bogm\u00e6rker, n\u00e5r et nyt faneblad \u00e5bnes, p\u00e5 en anden facon."
+    },
+    "settings_newtab_override": {
+        "message": "Omg\u00e5 standardsiden for nye faneblade"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Skal udvidelsen omg\u00e5 din nuv\u00e6rende side for nye faneblade, med enten en hjemmestrikket side eller indl\u00e6sning af en hjemmeside af eget valg, n\u00e5r et nyt faneblad \u00e5bnes?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "\u00c5bn sidebaren automatisk"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Indstil hvorvidt sidebaren skal \u00e5bne automatisk n\u00e5r et nyt faneblad \u00e5bnes."
+    },
+    "settings_newtab_website": {
+        "message": "Indl\u00e6s en hjemmeside"
+    },
+    "settings_newtab_website_desc": {
+        "message": "I stedet for at \u00e5bne en hjemmeside ved \u00e5bning af et nyt faneblad kan du v\u00e6lge indl\u00e6sning af en hjemmeside."
+    },
+    "settings_permissions_desc": {
+        "message": "For at g\u00f8re det muligt at lave en sidebar der kan vises\/skjules i Chrome, har udvidelsen brug for f\u00f8lgende tilladelser:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Desv\u00e6rre har Chrome ingen mekanisme til at vise indhold i browser-vinduet uden at interagere med den bes\u00f8gte hjemmeside."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Eftersom sidebaren bliver vist oven over den bes\u00f8gte hjemmeside, er denne indstilling n\u00f8dvendig. Udover denne tekniske \u00e5rsag bliver tilladelsen ikke benyttet."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Hvis du har bekymringer om hvad jeg benytter tilladelsen til, er det muligt at se kildekoden for denne udvidelse p\u00e5 Github. Den er Open Source og tilg\u00e6ngelig for alle."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Udvidelsen viser dine bogm\u00e6rker i sidebaren, og kr\u00e6ver derfor denne tilladelse for at f\u00e5 adgang hertil. Denne tilladelse g\u00f8r det desuden muligt for udvidelsen at tilf\u00f8je, redigere samt fjerne bogm\u00e6rker."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Del information"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Dine pr\u00e6ferencer er blevet gemt"
     }
 }

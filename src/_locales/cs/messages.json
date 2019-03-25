@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Nezobrazovat str\u00e1nky"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Zobrazit n\u00e1hledy webov\u00fdch str\u00e1nek"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Zobrazit ikony webov\u00fdch str\u00e1nek"
+    },
     "newtab_search_placeholder": {
         "message": "Vyhledat {1} nebo typ URL"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "M\u016f\u017eete sn\u00ed\u017eit v\u00fd\u0161ku oblasti, tak\u017ee postrann\u00ed panel se otev\u0159e pouze tehdy, kdy\u017e p\u0159esunete kurzor na ur\u010den\u00e9 m\u00edsto na okraji okna prohl\u00ed\u017ee\u010de."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Ta\u017een\u00edm p\u0159esunout"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Nastav kl\u00e1vesovou zkratku"

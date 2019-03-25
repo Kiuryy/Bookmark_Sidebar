@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "No mostrar p\u00e1ginas"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Mostrar vista previa de sitios web"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Mostrar iconos de sitios web"
+    },
     "newtab_search_placeholder": {
         "message": "Busca {1} o escribe la URL"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Puede reducir la altura del \u00e1rea, por lo que la barra lateral solo se abrir\u00e1 cuando mueva el cursor a esa ubicaci\u00f3n del borde de la ventana de su navegador."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Arrastra para mover"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Establecer atajo de teclado"

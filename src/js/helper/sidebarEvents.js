@@ -65,7 +65,8 @@
                 data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
 
                 if (middleClick) { // new tab -> middle click
-                    ext.helper.utility.openUrl(data, "newTab", config.newTab === "background" && config.linkAction === "newtab"); // open always in background except a normal click opens them in new tab in the background
+                    const active = opts.shiftKey || (config.newTab === "background" && config.linkAction === "newtab");
+                    ext.helper.utility.openUrl(data, "newTab", active); // open in foreground when a normal click opens the tab in new tab in the background or while pressing 'shift' always in the foreground
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
                 } else { // current tab

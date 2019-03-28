@@ -262,10 +262,11 @@
          * @returns {boolean}
          */
         this.isWindowed = () => {
-            const limit = 12;
-            return window.screenX > limit ||
-                window.screenY > limit ||
-                Math.abs(window.screen.availWidth - window.innerWidth) > limit ||
+            const limitX = 100;
+            const limitY = 50;
+            return window.screenX > limitX ||
+                window.screenY > limitY ||
+                Math.abs(window.screen.availWidth - window.innerWidth) > limitY ||
                 (window.navigator && window.navigator && window.navigator.userAgent && window.navigator.userAgent && window.navigator.userAgent.search(/[/\s-_]mobile[/\s-_]/i) > -1);
         };
     };

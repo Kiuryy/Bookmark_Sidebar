@@ -4,7 +4,9 @@
     $.UtilityHelper = function (b) {
 
         const importantURLParameters = {
-            "youtube.com": ["v"]
+            "youtube.com": ["v"],
+            "google.com": ["q"],
+            "google.de": ["q"],
         };
 
         /**

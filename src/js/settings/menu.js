@@ -63,7 +63,6 @@
             });
         };
 
-        this.getPage = () => currentPage || $();
         this.getPath = () => currentPath;
 
         this.addBreadcrumb = (obj) => {

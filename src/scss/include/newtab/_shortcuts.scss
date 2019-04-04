@@ -8,11 +8,13 @@ section#content {
 
     > ul {
       display: flex;
+      flex-flow: row wrap;
 
       > li {
         position: relative;
         display: inline-block;
         text-align: center;
+        margin-bottom: 5px;
 
         > a.link {
           position: relative;
@@ -44,8 +46,12 @@ section#content {
 
 body.customBackground section#content > nav {
 
-  > ul > li > a.link {
-    background: rgba($bodyBackground, 0.8);
+  > ul > li {
+    margin: 0 2px 5px;
+
+    > a.link {
+      background: rgba($bodyBackground, 0.8);
+    }
   }
 }
 

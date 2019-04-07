@@ -19,6 +19,8 @@
             return new Promise((resolve) => {
                 if (infos.url === "about:blank") {
                     return;
+                } else if (infos.url.startsWith("javascript:")) {
+                    location.href = infos.url;
                 }
 
                 ext.helper.model.setData({

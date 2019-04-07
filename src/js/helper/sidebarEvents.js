@@ -106,11 +106,12 @@
 
                 $(selector).on("click mousedown", "> ul a", (e) => { // click on a bookmark (link or dir)
                     e.preventDefault();
+                    const elm = $(e.target);
 
                     if (
-                        !$(e.target).hasClass($.cl.drag.trigger) &&
-                        !$(e.target).hasClass($.cl.sidebar.separator) &&
-                        !$(e.target).parent().hasClass($.cl.sidebar.removeMask) &&
+                        !elm.hasClass($.cl.drag.trigger) &&
+                        !elm.hasClass($.cl.sidebar.separator) &&
+                        !elm.parent().hasClass($.cl.sidebar.removeMask) &&
                         ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)
                     ) { // only left click
                         this.handleEntryClick($(e.currentTarget), e);

@@ -59,6 +59,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otvori\u0165 v inkognito okne"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Prida\u0165 z\u00e1lo\u017eku"
+    },
     "contextmenu_add": {
         "message": "Prida\u0165 polo\u017eku"
     },
@@ -230,9 +233,6 @@
     "newtab_title": {
         "message": "Nov\u00e1 karta"
     },
-    "newtab_search_placeholder": {
-        "message": "H\u013eada\u0165 {1} alebo zada\u0165 URL"
-    },
     "newtab_top_pages_default": {
         "message": "Najnav\u0161tevovanej\u0161ie str\u00e1nky"
     },
@@ -247,6 +247,15 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Nezobrazova\u0165 str\u00e1nky"
+    },
+    "newtab_search_placeholder": {
+        "message": "H\u013eada\u0165 {1} alebo zada\u0165 URL"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Predvolen\u00e9 u\u017e\u00edvate\u013eom"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titul"
     },
     "newtab_upload_background": {
         "message": "Nahra\u0165 obr\u00e1zok pozadia"

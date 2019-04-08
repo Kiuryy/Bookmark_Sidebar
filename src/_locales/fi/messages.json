@@ -230,9 +230,6 @@
     "newtab_title": {
         "message": "Uusi v\u00e4lilehti"
     },
-    "newtab_search_placeholder": {
-        "message": "Etsi {1} tai kirjoita linkki"
-    },
     "newtab_top_pages_default": {
         "message": "Parhaat verkkosivustot"
     },
@@ -247,6 +244,15 @@
     },
     "newtab_top_pages_hidden": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
+    },
+    "newtab_search_placeholder": {
+        "message": "Etsi {1} tai kirjoita linkki"
+    },
+    "newtab_search_engine_custom": {
+        "message": "K\u00e4ytt\u00e4j\u00e4n m\u00e4\u00e4rittelem\u00e4"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Otsikko"
     },
     "newtab_fallback_headline_general": {
         "message": "Jokin esti sivupalkin avautumisen."
@@ -472,6 +478,207 @@
     },
     "settings_not_synced": {
         "message": "Ei synkronoida laitteittesi v\u00e4lill\u00e4."
+    },
+    "settings_open_action": {
+        "message": "Avaa sivupalkki"
+    },
+    "settings_open_action_desc": {
+        "message": "Avaa sivupalkki hiiren vasemmalla tai oikealla painikkeella tai siirt\u00e4m\u00e4ll\u00e4 hiiri selainikkunan reunaan. Vaihtoehtoisesti voit avata sivupalkin vain chrome valikossa laajennuksen kuvaketta painamalla."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Vasen hiiri"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Oikea hiiri"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Hiiri p\u00e4\u00e4ll\u00e4"
+    },
+    "settings_open_action_icon": {
+        "message": "Klikkaa kuvaketta"
+    },
+    "settings_toggle_area": {
+        "message": "M\u00e4\u00e4rit\u00e4 alue"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Oletuksena koko selaimen reunaa voi k\u00e4ytt\u00e4\u00e4 sivupalkin avaamiseen. Voit muuttaa aluetta joka avaa sivupalkin kun hiiri siirret\u00e4\u00e4n alueelle."
+    },
+    "settings_toggle_area_width": {
+        "message": "Leveys"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Leveys (Ikkunassa)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Korkeus"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Voit pienent\u00e4\u00e4 alueen korkeutta jossa sivupalkki aukaistaan. Vain kun hiiri siirret\u00e4\u00e4n t\u00e4lle alueelle, sivupalkki aukeaa."
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "M\u00e4\u00e4rit\u00e4 pikan\u00e4pp\u00e4imet"
+    },
+    "settings_link_action": {
+        "message": "Avaa kirjanmerkit"
+    },
+    "settings_link_action_current_tab": {
+        "message": "Nykyinen v\u00e4lilehti"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "settings_open_delay": {
+        "message": "Avaamisen viive"
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Est\u00e4 sivun vieritys"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Poistaa web-sivun vierityksen k\u00e4yt\u00f6st\u00e4 kun sivupalkki on auki."
+    },
+    "settings_dir_accordion": {
+        "message": "N\u00e4yt\u00e4 vain nykyinen kansio"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Sulkee kaikki kansiot paitsi nyt aktiivisena olevan."
+    },
+    "settings_remember_state": {
+        "message": "Muista"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Vierityksen sijainti ja avatut kansiot"
+    },
+    "settings_remember_state_all": {
+        "message": "Vierityksen sijainti, avatut kansiot ja viimeksi avattu kirjanmerkki"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Avatut kansiot"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Avatut yl\u00e4tason kansiot"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Ei mit\u00e4\u00e4n"
+    },
+    "settings_new_tab": {
+        "message": "Uusi v\u00e4lilehti"
+    },
+    "settings_new_tab_desc": {
+        "message": "Avaa kirjanmerkit uudessa v\u00e4lilehdess\u00e4 etualalla tai taustalla."
+    },
+    "settings_new_tab_foreground": {
+        "message": "Avaa etualalla"
+    },
+    "settings_new_tab_background": {
+        "message": "Avaa taustalla"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Avaa uudet v\u00e4lilehdet viimeisen tai nykyisen v\u00e4lilehden j\u00e4lkeen"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Viimeisen v\u00e4lilehden j\u00e4lkeen"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Nykyisen v\u00e4lilehden j\u00e4lkeen"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Ennen ensimm\u00e4ist\u00e4 v\u00e4lilehte\u00e4"
+    },
+    "settings_close_timeout": {
+        "message": "Sulkemisen viive"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Viive sekunneissa jonka j\u00e4lkeen sivupalkki suljetaan. Aika aletaan laskea siit\u00e4 kun hiiri siirret\u00e4\u00e4n pois sivupalkista ja lopetetaan kun hiiri palaa takaisin sivupalkin p\u00e4\u00e4lle."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "\u00c4l\u00e4 sulje automaattisesti"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Piilota vierityspalkki"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Viive sekunneissa jonka j\u00e4lkeen vierityspalkki piilotetaan. Vieritys n\u00e4ytt\u00e4\u00e4 vierityspalkin uudelleen."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "\u00c4l\u00e4 piilota"
+    },
+    "settings_reopen_sidebar": {
+        "message": "Avaa sivupalkki uudelleen"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Avaa sivupalkki automaattisesti uudelleen sen j\u00e4lkeen kun linkki on avattu."
+    },
+    "settings_tooltip_delay": {
+        "message": "Ty\u00f6kaluvinkin viive"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Viive ennen ty\u00f6kaluvinkin n\u00e4ytt\u00e4mist\u00e4 kun hiirt\u00e4 pidet\u00e4\u00e4n linkin p\u00e4\u00e4ll\u00e4."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 ty\u00f6kaluvinkkej\u00e4"
+    },
+    "settings_tooltip_desc": {
+        "message": "Valitse mit\u00e4 tietoa ty\u00f6kaluvinkki sis\u00e4lt\u00e4\u00e4."
+    },
+    "settings_tooltip_content": {
+        "message": "Ty\u00f6kaluvinkin sis\u00e4lt\u00f6"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Otsikko ja linkki"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Vain otsikko"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Vain linkki"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Lis\u00e4tietoja"
+    },
+    "settings_sidebar_position": {
+        "message": "Sijainti"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Valitse avataanko sivupalkki selainikkunan oikeassa tai vasemmassa reunassa."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Vasen"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Oikea"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Lis\u00e4\u00e4 vain yksi URL sy\u00f6te yhdelle riville"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Protokollaa (e.g. http:\/\/) ei tarvitse lis\u00e4t\u00e4 s\u00e4\u00e4nt\u00f6ihin."
+    },
+    "settings_filter_visibility": {
+        "message": "Lataa sivupalkki"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Joka sivulla"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Joka sivulla lukuunottamatta erikseen m\u00e4\u00e4riteltyj\u00e4 sivuja."
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Vain m\u00e4\u00e4ritellyill\u00e4 sivuilla"
+    },
+    "settings_import_export_desc": {
+        "message": "Voit tallentaa laajennuksen asetukset tietokoneellesi. Voit palauttaa tallentamasi asetukset mille tietokoneelle tahansa jossa laajennus on asennettuna."
+    },
+    "settings_export": {
+        "message": "Vie asetukset"
+    },
+    "settings_import": {
+        "message": "Tuo asetukset"
+    },
+    "settings_import_saved": {
+        "message": "Asetukset tuotiin onnistuneesti"
+    },
+    "settings_import_failed": {
+        "message": "Asetusten tuonti ep\u00e4onnistui. Ole hyv\u00e4 ja valitse kelvollinen tiedosto."
     },
     "settings_color_scheme": {
         "message": "V\u00e4ri teema"

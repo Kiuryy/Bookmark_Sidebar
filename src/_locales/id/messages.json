@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Buka di jendela penyamaran"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Tambahkan bookmark"
+    },
     "contextmenu_add": {
         "message": "Tambahkan entri"
     },
@@ -221,6 +224,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikat"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Direktori kosong"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Mengecek URL bookmark"
     },
@@ -242,11 +248,11 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Tidak ada URL bookmark duplikat"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Tidak ada direktori tanpa bookmark"
+    },
     "newtab_title": {
         "message": "Tab Baru"
-    },
-    "newtab_search_placeholder": {
-        "message": "Cari {1} atau ketik URL"
     },
     "newtab_top_pages_default": {
         "message": "Halaman teratas"
@@ -262,6 +268,15 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Jangan perlihatkan halaman"
+    },
+    "newtab_search_placeholder": {
+        "message": "Cari {1} atau ketik URL"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Ditetapkan-pengguna"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Judul"
     },
     "newtab_upload_background": {
         "message": "Unggah gambar latar belakang"
@@ -548,6 +563,123 @@
     "settings_premium_invalid_key": {
         "message": "Tidak dapat mengaktifkan Premium. Mohon masukkan nomor lisensi yang sah"
     },
+    "settings_presets": {
+        "message": "Atur ukuran relatif"
+    },
+    "settings_presets_desc": {
+        "message": "Anda dapat memilih ukuran yang telah ditentukan sebelumnya untuk sidebar. Ini akan mengubah bilah geser di halaman ini untuk menyesuaikan lebar bilah sisi, ketinggian garis, ukuran ikon, dan banyak lagi opsi lainnya."
+    },
+    "settings_color_scheme": {
+        "message": "Skema warna"
+    },
+    "settings_dark_mode": {
+        "message": "Permukaan"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Warna header sidebar, kotak centang, dll."
+    },
+    "settings_text_color": {
+        "message": "Warna tek"
+    },
+    "settings_font_family": {
+        "message": "Jenis huruf"
+    },
+    "settings_font_family_default": {
+        "message": "Default"
+    },
+    "settings_font_family_desc": {
+        "message": "Jenis huruf pada bilah sisi dan hamparan"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Lebar scrollbar"
+    },
+    "settings_icon_color": {
+        "message": "Warna"
+    },
+    "settings_indicator_width": {
+        "message": "Lebar"
+    },
+    "settings_indicator_color": {
+        "message": "Warna"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Ukuran ikon"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Warna ikon"
+    },
+    "settings_sidebar_width": {
+        "message": "Lebar"
+    },
+    "settings_header_height": {
+        "message": "Ketinggian header"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Warna topeng"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Ikon direktori"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Warna ikon direktori"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Ukuran font bookmark"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Ukuran ikon bookmark"
+    },
+    "settings_directories_icon_size": {
+        "message": "Ukuran ikon direktori"
+    },
+    "settings_directory_arrows": {
+        "message": "Panah direktori"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Ketinggian baris bookmark"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Penanda padding horizontal"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Indentasi direktori"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Ukuran font tooltip"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Warna topeng"
+    },
+    "settings_icon_shape": {
+        "message": "Bidang"
+    },
+    "settings_custom_css": {
+        "message": "Lembar gaya khusus"
+    },
+    "settings_custom_css_desc": {
+        "message": "Anda dapat menentukan stylesheet Anda sendiri untuk mengganti style default. Harap hanya gunakan opsi ini, jika Anda terbiasa dengan CSS dan tahu apa yang Anda lakukan."
+    },
+    "settings_newtab_desc": {
+        "message": "Sayangnya Google menghapus kemungkinan memuat ekstensi pada halaman tab baru default. Karena itu, saya menambahkan beberapa opsi yang memungkinkan Anda mengakses bookmark ketika membuka tab baru dengan cara lain."
+    },
+    "settings_newtab_override": {
+        "message": "Timpa halaman tab baru"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Haruskah ekstensi mengganti laman tab baru Anda saat ini dengan yang dibuat khusus atau situs web yang harus dimuat saat membuka tab baru?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Buka bilah sisi secara otomatis"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Konfigurasikan apakah bilah samping harus dibuka secara otomatis saat membuka tab baru."
+    },
+    "settings_newtab_website": {
+        "message": "Memuat situs web"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Di tempat membuka penggantian tab baru, Anda dapat mengatur situs web yang dimuat sebagai gantinya."
+    },
     "settings_language": {
         "message": "Bahasa"
     },
@@ -634,6 +766,18 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Mungkin ini menarik bagi Anda"
+    },
+    "settings_permissions_desc": {
+        "message": "Untuk memungkinkan bilah samping yang dapat diubah ke Chrome, izin berikut diperlukan dan diminta oleh ekstensi:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Sayang sekali, Chrome tidak memiliki mekanisme untuk menampilkan konten pada jendela peramban tanpa berinteraksi dengan halaman yang sedang dikunjungi saat ini."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Membagi informasi"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Pillihan mu telah berhasil di save"
     },
     "premium_popup_text": {
         "message": "Apakah Anda sudah melihat Premium?"

@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Non mostrare le pagine"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Mostra le anteprime dei siti"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Mostra le icone dei siti"
+    },
     "newtab_search_placeholder": {
         "message": "Cerca su {1} o inserisci indirizzo"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Puoi ridurre l'altezza dell'area, in modo che la barra laterale si apra solo quando sposti il cursore in quella zona del bordo della finestra."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Trascina per spostare"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Imposta la scorciatoia da tastiera"

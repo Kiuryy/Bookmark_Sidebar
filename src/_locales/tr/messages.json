@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Sayfalar\u0131 g\u00f6sterme"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Site \u00f6nizlemesini g\u00f6ster"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Site simgelerini g\u00f6ster"
+    },
     "newtab_search_placeholder": {
         "message": "{1} ara veya URL gir"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Bu alan\u0131n y\u00fcksekli\u011fini azaltabilirsiniz, b\u00f6ylece kenar \u00e7ubu\u011fu taray\u0131c\u0131 ekran\u0131n\u0131n kenar\u0131nda sadece belirlenen alan\u0131n \u00fczerine fare imleci ile geldi\u011finiz zaman a\u00e7\u0131l\u0131r."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Hareket ettirmek i\u00e7in s\u00fcr\u00fckle"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Klavye k\u0131sayollar\u0131n\u0131 ayarla"

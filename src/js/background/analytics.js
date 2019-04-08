@@ -18,7 +18,7 @@
                 if (stack.length > 0) {
                     sendStackToServer();
                 }
-            }, 20000);
+            }, 30000);
         };
 
         /**
@@ -264,7 +264,7 @@
                 $.xhr(b.urls.evaluate, {
                     method: "POST",
                     responseType: "json",
-                    timeout: 60000,
+                    timeout: 30000,
                     data: {stack: data}
                 }).then((xhr) => {
                     if (xhr.response && xhr.response.success) {
@@ -273,8 +273,8 @@
                         resolve({success: false});
                     }
                 }, () => {
-                    if (retry.count < 500) {
-                        $.delay(15000 + (retry.count * 500)).then(() => { // could not send request -> try again later
+                    if (retry.count < 100) {
+                        $.delay((retry.count + 1) * 15000).then(() => { // could not send request -> try again later
                             retry.count++;
                             return sendStackToServer(retry);
                         }).then(resolve);

@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Nie pokazuj stron"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Wy\u015bwietl podgl\u0105d witryny"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Wy\u015bwietl ikony witryny"
+    },
     "newtab_search_placeholder": {
         "message": "Wyszukaj {1} lub wprowad\u017a URL"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Mo\u017cesz ograniczy\u0107 wysoko\u015b\u0107 obszaru odpowiedzialnego za otwieranie bocznej listy zak\u0142adek po najechaniu na niego wska\u017anikiem myszki."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "przeci\u0105gnij aby poruszy\u0107"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Ustaw skr\u00f3t klawiaturowy"

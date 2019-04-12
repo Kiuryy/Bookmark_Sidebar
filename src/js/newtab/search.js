@@ -6,6 +6,7 @@
         const suggestionCache = {};
         let searchEngine = {};
         let searchEngineList = {};
+        let searchAlreadyFocussed = false;
 
         const searchEngineInfo = {
             google: {
@@ -362,6 +363,12 @@
             $(document).on("click", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
                 if (n.helper.edit.isEditMode() === false) {
+
+                    if (searchAlreadyFocussed === false) { // first time the search field get's focussed -> prefill with already typed keyboard inputs
+                        searchAlreadyFocussed = true;
+                        n.elm.search.field[0].value = (window.cachedKeys || []).join("");
+                    }
+
                     n.elm.search.field[0].focus();
                 }
             });

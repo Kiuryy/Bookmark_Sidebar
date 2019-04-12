@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <title data-i18n="newtab_title"></title>
+    <script>
+        window.cachedKeys = [];
+        document.addEventListener("keypress", (e) => {
+            window.cachedKeys.push(e.key);
+        });
+    </script>
     <style>
         body.building > * {
             display: none !important;
@@ -16,7 +22,7 @@
 
     <section class="mid">
         <div id="search">
-            <input type="text" autofocus spellcheck="false" />
+            <input type="text" spellcheck="false" />
             <button type="submit"></button>
             <a href="#" class="speechSearch"></a>
         </div>

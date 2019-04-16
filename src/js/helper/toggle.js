@@ -258,11 +258,6 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
-            $(window).on("mouseout", () => { // Hide indicator when leaving the browser content
-                clearSidebarTimeout("indicator");
-                ext.elm.indicator.removeClass($.cl.page.hover);
-            });
-
             $(document).on("focus", "input,textarea", (e) => { // save the last focussed form element of the website -> will be restored when closing the sidebar
                 lastFocussed = e.target;
             }, {capture: true});
@@ -344,8 +339,10 @@
                         this.closeSidebar();
                     }
                 }
-            }).on("mouseout.bs", () => {
+            }).on("mouseleave.bs", () => {
                 clearSidebarTimeout("open");
+                clearSidebarTimeout("indicator");
+                ext.elm.indicator.removeClass($.cl.page.hover);
             }).on("mousemove.bs", (e) => { // check mouse position
                 if (e.isTrusted && isMousePosInPixelTolerance(e.clientX, e.clientY)) {
                     const inPixelToleranceDelay = +new Date() - (inPixelToleranceTime || 0);

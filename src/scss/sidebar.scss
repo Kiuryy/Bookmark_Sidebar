@@ -64,7 +64,7 @@ section#sidebar {
   position: relative;
   width: $__sidebarWidth;
   background: $contentBackground;
-  box-shadow: 15px 0 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 15px 0 35px rgba(0, 0, 0, 0.12);
   height: 100%;
   display: flex;
   float: left;
@@ -82,7 +82,7 @@ section#sidebar {
 
   &[data-pos='right'] {
     float: right;
-    box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15);
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.12);
 
     &.permanent {
       border-width: 0 0 0 1px;

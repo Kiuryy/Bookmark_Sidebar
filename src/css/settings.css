@@ -705,9 +705,6 @@ body > section#wrapper div[data-name="aboutme"] > div {
   max-width: 1024px;
   margin: 20px 0 40px;
   display: flex; }
-  @media (max-width: 1080px) {
-    body > section#wrapper div[data-name="aboutme"] > div {
-      flex-direction: column; } }
   body > section#wrapper div[data-name="aboutme"] > div > div.desc {
     position: relative;
     padding: 17px 40px 0 50px;
@@ -751,41 +748,27 @@ body > section#wrapper div[data-name="aboutme"] > div {
       height: 36px;
       left: -5px;
       top: 20px; }
-    @media (max-width: 1080px) {
-      body > section#wrapper div[data-name="aboutme"] > div > div.desc {
-        order: 2; } }
   body > section#wrapper div[data-name="aboutme"] > div > div.preview {
     position: relative;
-    width: 220px;
-    height: 220px; }
-    @media (max-width: 1080px) {
-      body > section#wrapper div[data-name="aboutme"] > div > div.preview {
-        margin: auto;
-        width: 180px;
-        height: 180px;
-        margin-bottom: 20px;
-        order: 1; } }
+    width: 240px; }
     body > section#wrapper div[data-name="aboutme"] > div > div.preview > img {
       display: block;
       width: 100%;
       height: 100%;
-      border-radius: 50%;
-      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); }
+      border-radius: 20px;
+      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2); }
     body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
       position: absolute;
-      left: 0;
-      right: 0;
+      bottom: 10px;
       margin: auto;
       display: block;
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: #666; }
-      @media (max-width: 1080px) {
-        body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
-          right: unset; } }
+      background: rgba(255, 255, 255, 0.8);
+      transition: background 0.3s; }
       body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github {
-        bottom: -60px; }
+        left: 10px; }
         body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github::before {
           content: "";
           position: absolute;
@@ -795,13 +778,9 @@ body > section#wrapper div[data-name="aboutme"] > div {
           height: 100%;
           -webkit-mask: no-repeat center/24px;
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-github.svg);
-          background-color: #fff; }
-        @media (max-width: 1080px) {
-          body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github {
-            bottom: 0;
-            left: -40px; } }
+          background-color: #666; }
       body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website {
-        bottom: -110px; }
+        left: 60px; }
         body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website::before {
           content: "";
           position: absolute;
@@ -811,11 +790,11 @@ body > section#wrapper div[data-name="aboutme"] > div {
           height: 100%;
           -webkit-mask: no-repeat center/24px;
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg);
-          background-color: #fff; }
-        @media (max-width: 1080px) {
-          body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website {
-            bottom: 0;
-            left: -90px; } }
+          background-color: #666; }
+      body > section#wrapper div[data-name="aboutme"] > div > div.preview > a::before {
+        background: linear-gradient(45deg, #8741ed 0%, #00e5fd 100%); }
+      body > section#wrapper div[data-name="aboutme"] > div > div.preview > a:hover {
+        background: #fff; }
 
 body > section#wrapper div[data-name='permissions'] div.permissions h3 {
   display: inline-block;
@@ -883,14 +862,6 @@ html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.desc
   padding-left: 0; }
   html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.desc > p.highlight::before {
     -webkit-mask-position-x: right; }
-
-@media (max-width: 1080px) {
-  html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
-    left: unset; }
-    html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.github {
-      right: -40px; }
-    html[dir='rtl'] body > section#wrapper div[data-name="aboutme"] > div > div.preview > a.website {
-      right: -90px; } }
 
 html[dir='rtl'] body > section#wrapper div[data-name='permissions'] div.permissions div.details::before {
   right: 20px;

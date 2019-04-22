@@ -8,10 +8,6 @@ body > section#wrapper {
       margin: 20px 0 40px;
       display: flex;
 
-      @media (max-width: 1080px) {
-        flex-direction: column;
-      }
-
       > div.desc {
         @include mask('settings/icon-quote', $textColorLight, 36px);
         position: relative;
@@ -47,66 +43,47 @@ body > section#wrapper {
           left: -5px;
           top: 20px;
         }
-
-        @media (max-width: 1080px) {
-          order: 2;
-        }
       }
 
       > div.preview {
         position: relative;
-        width: 220px;
-        height: 220px;
-
-        @media (max-width: 1080px) {
-          margin: auto;
-          width: 180px;
-          height: 180px;
-          margin-bottom: 20px;
-          order: 1;
-        }
+        width: 240px;
 
         > img {
           display: block;
           width: 100%;
           height: 100%;
-          border-radius: 50%;
-          box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+          border-radius: 20px;
+          box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
         }
 
         > a {
           position: absolute;
-          left: 0;
-          right: 0;
+          bottom: 10px;
           margin: auto;
           display: block;
           width: 42px;
           height: 42px;
           border-radius: 50%;
-          background: $textColor;
-
-          @media (max-width: 1080px) {
-            right: unset;
-          }
+          background: rgba($textColorInverted, 0.8);
+          transition: background 0.3s;
 
           &.github {
-            @include mask('settings/icon-github', $textColorInverted, 24px);
-            bottom: -60px;
-
-            @media (max-width: 1080px) {
-              bottom: 0;
-              left: -40px;
-            }
+            @include mask('settings/icon-github', $textColor, 24px);
+            left: 10px;
           }
 
           &.website {
-            @include mask('icon-web', $textColorInverted, 24px);
-            bottom: -110px;
+            @include mask('icon-web', $textColor, 24px);
+            left: 60px;
+          }
 
-            @media (max-width: 1080px) {
-              bottom: 0;
-              left: -90px;
-            }
+          &::before {
+            background: $gradient;
+          }
+
+          &:hover {
+            background: $textColorInverted;
           }
         }
       }

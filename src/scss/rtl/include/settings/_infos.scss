@@ -21,21 +21,6 @@ html[dir='rtl'] body > section#wrapper {
           }
         }
       }
-
-      @media (max-width: 1080px) {
-
-        > div.preview > a {
-          left: unset;
-
-          &.github {
-            right: -40px;
-          }
-
-          &.website {
-            right: -90px;
-          }
-        }
-      }
     }
   }
 

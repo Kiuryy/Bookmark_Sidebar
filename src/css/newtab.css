@@ -475,6 +475,8 @@ div#search {
         margin: auto; }
       div#search > ul.suggestions > li[data-type='url']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg); }
+      div#search > ul.suggestions > li[data-type='bookmark']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-bookmark.svg); }
       div#search > ul.suggestions > li[data-type='word']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-search.svg); }
   div#search.listening > input[type='text'] {

@@ -179,7 +179,7 @@
                 if (suggestion.length() > 0) { // show the suggestion value in the search field
                     fromSuggestion = true;
                     suggestion.addClass($.cl.active);
-                    n.elm.search.field[0].value = suggestion.text().trim();
+                    n.elm.search.field[0].value = (suggestion.attr($.attr.src) || suggestion.text()).trim();
                 }
             }
 
@@ -219,7 +219,7 @@
         };
 
         /**
-         * Returns suggestions for the given input using the google search api
+         * Returns suggestions (words, urls, bookmarks) for the given input using the google search api and the according Chrome API for bookmark search
          *
          * @param {string} val
          * @returns {Promise}
@@ -238,28 +238,56 @@
                         resolve(obj);
                     };
 
-                    $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"}).then((xhr) => {
-                        try {
-                            if (xhr.response && xhr.response[0] === val) {
-                                const urls = [];
-                                const words = [];
+                    const promises = [
+                        $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"})
+                    ];
 
+                    if (val.length >= 2) {
+                        promises.push(n.helper.model.call("searchBookmarks", {searchVal: val}));
+                    }
+
+                    Promise.all(promises).then(([xhr, searchResults]) => {
+                        try {
+                            const urls = [];
+                            const words = [];
+
+                            if (searchResults && searchResults.bookmarks && searchResults.bookmarks.length > 0) { // add bookmarks to the suggestions
+                                searchResults.bookmarks.some((bookmark, i) => {
+                                    urls.push({
+                                        type: "bookmark",
+                                        label: bookmark.title,
+                                        url: bookmark.url
+                                    });
+                                    if (i >= 1) {
+                                        return true;
+                                    }
+                                });
+                            }
+
+                            if (xhr.response && xhr.response.length > 1 && xhr.response[0] === val) { // there are suggestions of the google search api
                                 xhr.response[1].forEach((suggestion, i) => {
+                                    let label = suggestion;
+
                                     if (xhr.response[4]["google:suggesttype"][i] === "NAVIGATION") { // show url suggestions at first in the list
+                                        label = label.replace(/^https?:\/\//, "");
+                                        label = label.replace(/\/$/, "");
+                                        label = label.replace(/^www\./, "");
+
                                         urls.push({
                                             type: "url",
-                                            label: suggestion
+                                            url: suggestion,
+                                            label: label
                                         });
                                     } else {
                                         words.push({
                                             type: "word",
-                                            label: suggestion
+                                            label: label
                                         });
                                     }
                                 });
-
-                                finishObj(urls.concat(words));
                             }
+
+                            finishObj(urls.concat(words)); // display urls first and then the words
                         } catch (e) {
                             finishObj();
                         }
@@ -304,7 +332,7 @@
                 e.preventDefault();
                 e.stopPropagation();
 
-                const val = e.currentTarget.value;
+                const val = e.currentTarget.value.trim();
                 const keyCode = event.which || event.keyCode;
 
                 if (keyCode === 13) {
@@ -323,7 +351,18 @@
                             const list = $("<ul />").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
 
                             suggestions.some((suggestion, i) => {
-                                $("<li />").attr($.attr.type, suggestion.type).text(suggestion.label).appendTo(list);
+                                const elm = $("<li />")
+                                    .attr($.attr.type, suggestion.type)
+                                    .text(suggestion.label)
+                                    .appendTo(list);
+
+                                if (suggestion.url) {
+                                    elm.attr({
+                                        "title": suggestion.url,
+                                        [$.attr.src]: suggestion.url
+                                    });
+                                }
+
                                 if (i > 4) {
                                     return true;
                                 }
@@ -344,7 +383,7 @@
             }).on("click", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                const suggestion = $(e.currentTarget).text().trim();
+                const suggestion = ($(e.currentTarget).attr($.attr.src) || $(e.currentTarget).text()).trim();
                 n.elm.search.field[0].value = suggestion;
                 handleSearch(suggestion);
             });

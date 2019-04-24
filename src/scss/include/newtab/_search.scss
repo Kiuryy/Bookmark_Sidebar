@@ -95,6 +95,10 @@ div#search {
         @include maskImage('icon-web');
       }
 
+      &[data-type='bookmark']::before {
+        @include maskImage('icon-bookmark');
+      }
+
       &[data-type='word']::before {
         @include maskImage('icon-search');
       }

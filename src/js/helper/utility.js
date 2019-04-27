@@ -145,6 +145,7 @@
                 "localhost",
                 "https?://127\.0\.0\.",
                 "127\.0\.0\.",
+                "javascript:",
                 "file://",
                 "chrome://",
                 "chrome\-extension://"

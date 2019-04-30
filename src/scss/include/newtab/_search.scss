@@ -72,6 +72,9 @@ div#search {
       @include mask(null, $textColorLight, 14px);
       position: relative;
       background: $contentBackground;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
       pointer-events: auto;
       font-size: 110%;
       padding: 3px 10px 3px 28px;

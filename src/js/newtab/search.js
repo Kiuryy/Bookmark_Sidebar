@@ -252,14 +252,20 @@
                             const words = [];
 
                             if (searchResults && searchResults.bookmarks && searchResults.bookmarks.length > 0) { // add bookmarks to the suggestions
-                                searchResults.bookmarks.some((bookmark, i) => {
-                                    urls.push({
-                                        type: "bookmark",
-                                        label: bookmark.title,
-                                        url: bookmark.url
-                                    });
-                                    if (i >= 1) {
-                                        return true;
+                                let i = 0;
+                                searchResults.bookmarks.some((bookmark) => {
+                                    if (bookmark.url) {
+                                        urls.push({
+                                            type: "bookmark",
+                                            label: bookmark.title,
+                                            url: bookmark.url
+                                        });
+
+                                        i++;
+
+                                        if (i >= 1) {
+                                            return true;
+                                        }
                                     }
                                 });
                             }

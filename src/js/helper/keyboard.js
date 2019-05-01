@@ -102,7 +102,7 @@
                     } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) { // remove the currently hovered entry
                         e.preventDefault();
                         removeHoveredEntry();
-                    } else if (e.key === "f" && (e.ctrlKey || e.metaKey)) { // open the search field
+                    } else if (e.key === "f" && (e.ctrlKey || e.metaKey) && e.ctrlKey !== e.metaKey && !e.shiftKey) { // open the search field
                         e.preventDefault();
                         ext.helper.search.showSearchField();
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark

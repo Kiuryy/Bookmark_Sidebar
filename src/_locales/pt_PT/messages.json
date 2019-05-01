@@ -62,6 +62,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Abrir numa janela an\u00f4nima"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Adicionar favorito"
+    },
     "contextmenu_add": {
         "message": "Adicionar entrada"
     },
@@ -218,6 +221,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplicados"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Direct\u00f3rios vazios"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Verificando os URLs dos favoritos"
     },
@@ -239,6 +245,9 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "N\u00e3o h\u00e1 duplica\u00e7\u00e3o de endere\u00e7os na lista de favoritos"
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "N\u00e3o h\u00e1 direct\u00f3rios sem favoritos"
+    },
     "newtab_title": {
         "message": "Nova guia"
     },
@@ -257,14 +266,35 @@
     "newtab_top_pages_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Mostra pr\u00e9-visualiza\u00e7\u00f5es do Website"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Mostrar \u00edcones do Website"
+    },
     "newtab_search_placeholder": {
         "message": "Pesquisar no {1} ou escreva o URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Fale agora"
+    },
+    "newtab_speech_search_error": {
+        "message": "Para permitir a pesquisa de voz, o acesso ao microfone tem de ser autorizado."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Motor de pesquisa"
     },
     "newtab_search_engine_custom": {
         "message": "Definido pelo utilizador"
     },
     "newtab_search_engine_custom_title": {
         "message": "T\u00edtulo"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL da P\u00e1gina inicial"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL dos resultados da pesquisa"
     },
     "newtab_upload_background": {
         "message": "Carregar imagem de fundo"
@@ -515,6 +545,9 @@
     "settings_menu_infos_privacy": {
         "message": "Privacidade"
     },
+    "settings_menu_infos_contact": {
+        "message": "Contacto"
+    },
     "settings_menu_infos_changelog": {
         "message": "Registro de altera\u00e7\u00f5es"
     },
@@ -523,6 +556,9 @@
     },
     "settings_menu_export": {
         "message": "Importar\/Exportar"
+    },
+    "settings_menu_expert": {
+        "message": "Defini\u00e7\u00f5es de Perito"
     },
     "settings_save": {
         "message": "Guardar altera\u00e7\u00f5es"
@@ -550,6 +586,18 @@
     },
     "settings_premium_invalid_key": {
         "message": "N\u00e3o foi poss\u00edvel ativar o modo Premium. Por favor, insire uma chave de licen\u00e7a v\u00e1lida."
+    },
+    "settings_search_placeholder": {
+        "message": "Procurar por configura\u00e7\u00e3o"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Com as defini\u00e7\u00f5es de perito, podes mudar cada configura\u00e7\u00e3o na extens\u00e3o, at\u00e9 aquelas que n\u00e3o podes mudar utilizando as checkboxes ou as barras de deslizamento da p\u00e1gina de defini\u00e7\u00f5es"
+    },
+    "settings_expert_settings_notice": {
+        "message": "Por favor apenas muda os valores aqui se souber aquilo que est\u00e1 a fazer. Configura\u00e7\u00f5es incorrectas podem causar um comportamento inesperado da extens\u00e3o. Se algo deixar de funcionar, podes sempre reverter para as configura\u00e7\u00e3o por omiss\u00e3o"
+    },
+    "settings_expert_save_error": {
+        "message": "As defini\u00e7\u00f5es n\u00e3o puderam ser guardadas. Por favor corriga as informa\u00e7\u00f5es."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -586,6 +634,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Podes reduzir a altura da \u00e1rea de modo a que a barra lateral abra somente quando mover o cursor para essa localiza\u00e7\u00e3o do bordo da janela do navegador."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Arrastar para mover"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Definir tecla de atalho"
@@ -791,6 +842,9 @@
     "settings_presets": {
         "message": "Definir tamanho relativo"
     },
+    "settings_presets_desc": {
+        "message": "Podes seleccionar tamanhos predefinidos para a barra lateral. Isto ir\u00e1 mudar as barras de deslizamento para ajustar a largura da barra lateral, a altura da linha, o tamanhos dos \u00edcones e muitas mais op\u00e7\u00f5es."
+    },
     "settings_color_scheme": {
         "message": "Esquema de cores"
     },
@@ -937,6 +991,9 @@
     },
     "settings_translation_help": {
         "message": "Para cada entrada, voc\u00ea pode ver a tradu\u00e7\u00e3o em ingl\u00eas, a qual precisa ser traduzida para o seu idioma. Para ajud\u00e1-lo a identificar onde o texto \u00e9 usado e para o que \u00e9, cada entrada tem um nome (por exemplo, {1}), o qual n\u00e3o deve ser traduzido. Por favor, n\u00e3o se esque\u00e7a de enviar sua tradu\u00e7\u00e3o, pressionando o bot\u00e3o no canto superior direito!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Eu quero ser notificado quando vari\u00e1veis de uma nova linguagem s\u00e3o adicionadas \u00e0 extens\u00e3o"
     },
     "settings_translation_submit": {
         "message": "Enviar"

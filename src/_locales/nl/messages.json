@@ -269,6 +269,12 @@
     "newtab_top_pages_hidden": {
         "message": "Verberg pagina's"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Toon website voorbeelden"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Toon website iconen"
+    },
     "newtab_search_placeholder": {
         "message": "Zoek {1} of typ de URL"
     },
@@ -631,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Je kan de hoogte van het oppervlak verkleinen zodat de balk alleen opent als je met je muis precies over die zone van het browservenster beweegt."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Sleep om te bewegen"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Een sneltoets instellen"

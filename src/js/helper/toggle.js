@@ -364,7 +364,9 @@
                 $(document).on(openAction + ".bs dragover.bs", (e) => {
                     let openByType = false;
                     if (e.type === "dragover") { // drag -> only open when configuration is set
-                        openByType = dndOpen;
+                        const dt = e.dataTransfer;
+                        const isAddableToSidebar = dt && dt.types && (dt.types.indexOf ? dt.types.indexOf("text/plain") !== -1 : dt.types.contains("text/plain"));
+                        openByType = dndOpen && isAddableToSidebar;
                     } else if (e.type === "mousedown") { // mousedown -> only open when the left mouse button is pressed
                         openByType = e.button === 0;
                     } else {

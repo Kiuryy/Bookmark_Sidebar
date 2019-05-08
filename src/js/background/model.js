@@ -162,7 +162,7 @@
                     licenseKey: key
                 }, () => {
                     if (chrome.runtime.lastError) {
-                        resolve({success: false, message: chrome.runtime.lastError});
+                        resolve({success: false, message: chrome.runtime.lastError.message});
                     } else {
                         licenseKey = key;
                         resolve({success: true});

@@ -62,7 +62,9 @@
                             this.helper.stylesheet.init();
                             return this.helper.stylesheet.addStylesheets(["content"]);
                         }).then(() => {
-                            return initSidebar();
+                            return initSidebarMarkup();
+                        }).then(() => {
+                            return this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframe);
                         }).then(() => {
                             if (this.elm.iframe && this.elm.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
                                 this.elm.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
@@ -419,11 +421,11 @@
         };
 
         /**
-         * Creates the basic html markup for the sidebar and the visual
+         * Creates the basic html markup for the sidebar
          *
          * @returns {Promise}
          */
-        const initSidebar = async () => {
+        const initSidebarMarkup = async () => {
             const config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
             this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").addClass("notranslate").appendTo("body");  // 'notranslate' prevents Google translator from translating the content of the sidebar
 
@@ -450,7 +452,6 @@
             this.elm.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elm.sidebar);
 
             this.elm.header = $("<header />").prependTo(this.elm.sidebar);
-            this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframe);
 
             if (config.darkMode === true) {
                 this.elm.iframeBody.addClass($.cl.page.darkMode);

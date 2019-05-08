@@ -92,9 +92,9 @@
 
                     if (info && info.success) { // activated successfully -> show success message
                         s.showSuccessMessage("premium_activated");
-                    } else { // invalid license key
+                    } else { // invalid license key or error storing the key
                         $.delay(100).then(() => {
-                            alert(s.helper.i18n.get("settings_premium_invalid_key"));
+                            alert(info.message || s.helper.i18n.get("settings_premium_invalid_key"));
                         });
                     }
                 });

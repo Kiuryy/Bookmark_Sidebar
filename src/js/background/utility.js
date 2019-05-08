@@ -22,14 +22,19 @@
                         resolve({success: true, skip: true});
                     } else {
                         this.checkLicenseKey(opts.licenseKey).then((response) => {
+                            let returnData = {success: false};
+
                             if (response.valid === true) { // valid license key -> reinitialize sidebar
-                                b.helper.model.setLicenseKey(opts.licenseKey).then(() => {
+                                returnData.success = true;
+
+                                b.helper.model.setLicenseKey(opts.licenseKey).then((response) => {
+                                    returnData = response;
                                     return b.reinitialize({type: "premiumActivated"});
                                 }).then(() => {
-                                    resolve({success: true});
+                                    resolve(returnData);
                                 });
                             } else { // invalid license key
-                                resolve({success: false});
+                                resolve(returnData);
                             }
                         });
                     }

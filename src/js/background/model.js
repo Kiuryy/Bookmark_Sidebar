@@ -161,9 +161,12 @@
                 chrome.storage.sync.set({
                     licenseKey: key
                 }, () => {
-                    chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
-                    licenseKey = key;
-                    resolve();
+                    if (chrome.runtime.lastError) {
+                        resolve({success: false, message: chrome.runtime.lastError});
+                    } else {
+                        licenseKey = key;
+                        resolve({success: true});
+                    }
                 });
             });
         };

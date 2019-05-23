@@ -1,6 +1,6 @@
 .idea/
 __tmp/
-dist/
+__dist/
 node_modules/
 package-lock.json
 *.zip

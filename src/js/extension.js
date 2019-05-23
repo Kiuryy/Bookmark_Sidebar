@@ -15,7 +15,6 @@
          * ################################
          */
         this.initialized = null;
-        this.firstRun = true;
         this.refreshRun = true;
         this.isDev = false;
         this.elm = {};

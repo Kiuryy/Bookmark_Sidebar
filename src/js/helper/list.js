@@ -777,7 +777,6 @@
             ext.helper.scroll.restoreScrollPos(ext.elm.bookmarkBox.all).then(() => {
                 ext.initImages();
                 ext.endLoading(200);
-                ext.firstRun = false;
                 ext.refreshRun = false;
 
                 if ((ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") && !ext.elm.bookmarkBox.all.hasClass($.cl.sidebar.cached)) {

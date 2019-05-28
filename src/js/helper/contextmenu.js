@@ -6,6 +6,8 @@
      * @constructor
      */
     $.ContextmenuHelper = function (ext) {
+        let sidebarPos = null;
+        let sidebarWidth = 0;
         let addMenuTimeout = null;
         const clickFuncs = {};
 
@@ -16,6 +18,13 @@
          * @param {jsu} elm
          */
         this.create = (type, elm) => {
+            const config = ext.helper.model.getData(["b/sidebarPosition", "a/styles"]);
+            sidebarPos = config.sidebarPosition;
+
+            if (config.styles && config.styles.sidebarWidth) {
+                sidebarWidth = parseInt(config.styles.sidebarWidth);
+            }
+
             ext.helper.toggle.addSidebarHoverClass();
             ext.helper.tooltip.close();
 
@@ -290,13 +299,28 @@
             }
 
             if (type !== "sort" && type !== "menu") {
-                let left = elm.parent("li")[0].offsetLeft;
+                const offset = {
+                    left: elm.parent("li")[0].offsetLeft,
+                    right: "auto"
+                };
 
                 if (ext.helper.i18n.isRtl()) {
-                    left = elmBoundClientRect.width - dim.w;
+                    offset.left = elmBoundClientRect.width - dim.w;
+
+                    if (sidebarPos === "left" && offset.left < 0) { // contextmenu will be cut at the left -> limit left position to positive values to prevent that
+                        offset.left = 0;
+                    }
+                } else if (sidebarPos === "right" && offset.left + dim.w > sidebarWidth) { // contextmenu will be cut at the right -> stick contextmenu to right=0 to prevent that
+                    offset.left = "auto";
+                    offset.right = 0;
                 }
 
-                contextmenu.css("left", left + "px");
+                ["left", "right"].forEach((pos) => {
+                    if (typeof offset[pos] === "number") {
+                        offset[pos] += "px";
+                    }
+                    contextmenu.css(pos, offset[pos]);
+                });
             }
         };
 

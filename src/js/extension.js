@@ -146,13 +146,17 @@
          */
         this.loaded = () => {
             if (!this.elm.iframeBody.hasClass($.cl.sidebar.extLoaded)) {
-                const data = this.helper.model.getData(["b/toggleArea", "a/showIndicator"]);
+                const data = this.helper.model.getData(["b/animations", "b/toggleArea", "a/showIndicator"]);
                 this.elm.iframeBody.addClass($.cl.sidebar.extLoaded);
                 this.helper.list.updateSidebarHeader();
                 this.helper.search.init();
 
                 if (this.elm.iframe.hasClass($.cl.page.visible)) { // try to mark the last used bookmark if the sidebar is already opened
                     this.helper.toggle.markLastUsed();
+                }
+
+                if (data.animations === true) { // remove noAnimations class, if the user want to have animations (the class is just being set temporary to initialize the sidebar without flickering of transitions)
+                    this.elm.iframe.removeClass($.cl.page.noAnimations);
                 }
 
                 checkExistence();
@@ -425,12 +429,10 @@
          * @returns {Promise}
          */
         const initSidebarMarkup = async () => {
-            const config = this.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
-            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />").addClass("notranslate").appendTo("body");  // 'notranslate' prevents Google translator from translating the content of the sidebar
-
-            if (config.animations === false) {
-                this.elm.iframe.addClass($.cl.page.noAnimations);
-            }
+            const config = this.helper.model.getData(["a/darkMode", "a/highContrast"]);
+            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />")
+                .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
+                .appendTo("body");
 
             this.elm.iframeBody = this.elm.iframe.find("body");
             this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\" />").appendTo(this.elm.iframeBody);

@@ -246,7 +246,7 @@ section#sidebar {
     border-radius: 10px;
     transition: transform 0.5s, opacity 0.5s;
     transform: translate3d(-7px, 0, 0);
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     @extend %hidden;
 

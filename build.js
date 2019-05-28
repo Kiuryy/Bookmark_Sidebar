@@ -5,7 +5,16 @@
     /* global Func, path */
 
     global.modulePath = __dirname + "/node_modules/";
-    require("../node.js_build/funcs");
+
+    try {
+        require("../node.js_Build/funcs");
+    } catch (e) {
+        if (e.code !== "MODULE_NOT_FOUND") {
+            throw e;
+        }
+        console.error("Build script is missing. Please download from https://github.com/Kiuryy/node.js_Build");
+        process.exit(1);
+    }
 
     // SCSS Filewatcher -> <PATH_TO_node>/npm.cmd run scss
 
@@ -165,11 +174,11 @@
             const files = [
                 {
                     file: "colorpicker.js",
-                    urlPath: "Colorpicker/master/src/js/colorpicker.js"
+                    urlPath: "colorpicker.js/master/src/js/colorpicker.js"
                 },
                 {
                     file: "jsu.js",
-                    urlPath: "jsu/master/src/js/jsu.js"
+                    urlPath: "jsu.js/master/src/js/jsu.js"
                 }
             ];
 

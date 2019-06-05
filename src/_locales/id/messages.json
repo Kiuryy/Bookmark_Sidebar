@@ -563,6 +563,117 @@
     "settings_premium_invalid_key": {
         "message": "Tidak dapat mengaktifkan Premium. Mohon masukkan nomor lisensi yang sah"
     },
+    "settings_open_action": {
+        "message": "Buka sidebar"
+    },
+    "settings_open_action_leftclick": {
+        "message": "Klik kiri"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Klik kanan"
+    },
+    "settings_open_action_icon": {
+        "message": "Klik pada ikon"
+    },
+    "settings_toggle_area": {
+        "message": "Konfigurasi area"
+    },
+    "settings_toggle_area_width": {
+        "message": "Lebar"
+    },
+    "settings_toggle_area_height": {
+        "message": "Ketinggian"
+    },
+    "settings_link_action": {
+        "message": "Buka bookmark"
+    },
+    "settings_link_action_current_tab": {
+        "message": "Tab saat ini"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Tab baru"
+    },
+    "settings_remember_state": {
+        "message": "Ingat"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Tidak ada"
+    },
+    "settings_new_tab": {
+        "message": "Tab Baru"
+    },
+    "settings_new_tab_background": {
+        "message": "Buka pada latar belakang"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Setelah tab terakhir"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Setelah tab saat ini"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Sebelum tab pertama"
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Jangan tutup secara otomatis"
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Jangan sembunyikan"
+    },
+    "settings_reopen_sidebar": {
+        "message": "Buka ulang sidebar"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Judul dan URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Hanya judul"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Hanya URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Info tambahan"
+    },
+    "settings_sidebar_position": {
+        "message": "Posisi"
+    },
+    "settings_sidebar_position_left": {
+        "message": "Kiri"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Kanan"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Hanya tambahkan satu pola URL tiap baris"
+    },
+    "settings_filter_visibility": {
+        "message": "Muat sidebar"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Pada semua laman"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Pada semua laman kecuali laman tertentu"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Hanya pada laman tertentu"
+    },
+    "settings_filter_rules": {
+        "message": "Pola URL"
+    },
+    "settings_export": {
+        "message": "Ekspor pengaturan"
+    },
+    "settings_import": {
+        "message": "Impor pengaturan"
+    },
+    "settings_import_saved": {
+        "message": "Konfigurasi berhasil diimpor"
+    },
+    "settings_import_failed": {
+        "message": "Gagal mengimpor konfigurasi. Mohon pilih file yang sesuai."
+    },
     "settings_presets": {
         "message": "Atur ukuran relatif"
     },

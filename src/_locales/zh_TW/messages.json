@@ -1029,7 +1029,7 @@
         "message": "\u60a8\u7684\u96fb\u5b50\u4fe1\u7bb1"
     },
     "settings_feedback_screenshot": {
-        "message": "\u9644\u52a0\u87a2\u5e55\u622a\u5716"
+        "message": "\u9644\u52a0\u87a2\u5e55\u64f7\u5716"
     },
     "settings_feedback_screenshot_error_filesize": {
         "message": "{1}\u7684\u6a94\u6848\u5927\u5c0f\u592a\u5927\u4e86(> 1 MB)"

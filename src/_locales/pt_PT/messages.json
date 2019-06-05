@@ -182,6 +182,9 @@
     "overlay_add_position": {
         "message": "Posi\u00e7\u00e3o"
     },
+    "overlay_add_position_prepend": {
+        "message": "Prefira ao diret\u00f3rio"
+    },
     "overlay_add_position_append": {
         "message": "Acrescentar \u00e0 directoria"
     },
@@ -1045,5 +1048,155 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Isto poder\u00e1 ser do seu interesse"
+    },
+    "settings_permissions_desc": {
+        "message": "Para possibilitar uma barra lateral acion\u00e1vel no Chrome, as seguintes permiss\u00f5es s\u00e3o necess\u00e1rias e solicitadas pela extens\u00e3o:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Infelizmente, o Chrome n\u00e3o possui mecanismo para exibir conte\u00fado na janela do navegador sem interagir com a p\u00e1gina visitada no momento."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Como a barra lateral est\u00e1 sendo exibida no topo do site atual, essa permiss\u00e3o \u00e9 necess\u00e1ria. Al\u00e9m dessa raz\u00e3o t\u00e9cnica, a permiss\u00e3o n\u00e3o \u00e9 usada para outros fins."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Se voc\u00ea tiver d\u00favidas sobre o que estou fazendo com a permiss\u00e3o, pode ver o c\u00f3digo-fonte da extens\u00e3o no Github. \u00c9 uma fonte aberta e vis\u00edvel para todos."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "A extens\u00e3o est\u00e1 exibindo seus favoritos na barra lateral e, portanto, precisa dessa permiss\u00e3o para obter acesso. A permiss\u00e3o tamb\u00e9m permite que a extens\u00e3o adicione, edite e remova marcadores."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Compartilhar informa\u00e7\u00f5es"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Sua prefer\u00eancia foi gravada com sucesso"
+    },
+    "premium_popup_text": {
+        "message": "J\u00e1 desta uma vista de olhos no Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Esta funcionalidade s\u00f3 est\u00e1 dispon\u00edvel com Premium"
+    },
+    "premium_desc_1": {
+        "message": "Com Premium poder\u00e1s aceder a fun\u00e7\u00f5es adicionais e ajudar-me a preservar esta extens\u00e3o."
+    },
+    "premium_desc_2": {
+        "message": "Voc\u00ea pode conferir os recursos inclu\u00eddos no Premium abaixo. Todos os principais recursos das extens\u00f5es s\u00e3o gratuitos e n\u00e3o exigem Premium. Voc\u00ea pode pagar o que a extens\u00e3o e meu trabalho valem para voc\u00ea, para obter acesso a esses recursos."
+    },
+    "premium_get_now": {
+        "message": "Adquirir Premium agora"
+    },
+    "premium_show_license_input": {
+        "message": "J\u00e1 possuo-o Premium"
+    },
+    "premium_already_activated": {
+        "message": "J\u00e1 est\u00e1s a utilizar Premium"
+    },
+    "premium_activate": {
+        "message": "Ativar Premium"
+    },
+    "premium_license_key": {
+        "message": "C\u00f3digo de Licen\u00e7a"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Se o primeiro a testar novas funcionalidades experimentais"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Com o Premium, voc\u00ea tem acesso a recursos n\u00e3o lan\u00e7ados, que est\u00e3o atualmente em desenvolvimento ou passando por testes."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Altere a largura da sua barra lateral a qualquer momento."
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importar e exportar as tuas configura\u00e7\u00f5es"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Customize your New Tab page."
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Se voc\u00ea estiver usando a p\u00e1gina Nova guia dessa extens\u00e3o, poder\u00e1 definir sua pr\u00f3pria imagem de plano de fundo para torn\u00e1-la ainda melhor."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personalize tudo com sua pr\u00f3pria folha de estilo."
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Se voc\u00ea estiver familiarizado com CSS, poder\u00e1 alterar a apar\u00eancia completa da barra lateral adicionando suas pr\u00f3prias defini\u00e7\u00f5es de estilo. Isso permite que voc\u00ea personalize absolutamente tudo."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Verifique seus favoritos quanto a links quebrados ou duplicados."
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Voc\u00ea pode clicar com o bot\u00e3o direito do mouse em qualquer diret\u00f3rio da barra lateral e realizar uma verifica\u00e7\u00e3o. A p\u00e1gina de resultados mostrar\u00e1 todos os URLs atualizados, marcadores que n\u00e3o est\u00e3o mais funcionando e marcadores com o mesmo URL."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Selecione um m\u00e9todo de pagamento"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pague o que quiser"
+    },
+    "premium_pay_creditcard": {
+        "message": "Cart\u00e3o de cr\u00e9dito ou d\u00e9bito"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Digitalize este c\u00f3digo QR no WeChat para prosseguir."
+    },
+    "premium_pay_contact": {
+        "message": "Se voc\u00ea tiver algum problema com seu pagamento ou tiver alguma d\u00favida, entre em contato comigo em {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Esta \u00e9 uma cobran\u00e7a \u00fanica e inclui todos os futuros recursos premium tamb\u00e9m."
+    },
+    "premium_pay_eula": {
+        "message": "Contrato de Licen\u00e7a do Usu\u00e1rio Final"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Eu li e aceito o [a]Contrato de Licen\u00e7a do Usu\u00e1rio Final[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Pol\u00edtica de cancelamento"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirme a compra"
+    },
+    "premium_pay_buy": {
+        "message": "Compre Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verificando transa\u00e7\u00e3o"
+    },
+    "premium_pay_purchase_id": {
+        "message": "ID de compra"
+    },
+    "premium_pay_success_headline": {
+        "message": "Obrigado pela sua compra."
+    },
+    "premium_pay_success_info": {
+        "message": "{1} foi ativado automaticamente para este dispositivo. Voc\u00ea n\u00e3o precisa fazer mais nada."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Se voc\u00ea quiser ativar {1} em outro dispositivo ou depois de reinstalar a extens\u00e3o, insira a seguinte chave nas configura\u00e7\u00f5es da extens\u00e3o:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Por favor, digite seu endere\u00e7o de e-mail para receber a chave de licen\u00e7a."
+    },
+    "premium_pay_info_name": {
+        "message": "Nome"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Zip Code"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "M\u00e9todo de Pagamento"
+    },
+    "premium_pay_info_card_number": {
+        "message": "N\u00famero de cart\u00e3o"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Cart\u00e3o expirado"
     }
 }

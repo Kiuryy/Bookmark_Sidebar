@@ -15,40 +15,38 @@
          * @param {boolean} active
          * @returns {Promise}
          */
-        this.openUrl = (infos, type = "default", active = true) => {
-            return new Promise((resolve) => {
-                if (infos.url === "about:blank") {
-                    return;
-                } else if (infos.url.startsWith("javascript:")) {
-                    location.href = infos.url;
-                }
+        this.openUrl = async (infos, type = "default", active = true) => {
+            if (infos.url === "about:blank") {
+                return;
+            } else if (infos.url.startsWith("javascript:")) {
+                location.href = infos.url;
+            }
 
-                ext.helper.model.setData({
-                    "u/lastOpened": infos.id,
-                    "u/performReopening": active ? (infos.reopenSidebar || false) : false
-                });
-
-                if (type === "incognito") {
-                    ext.helper.model.call("openLink", {
-                        href: infos.url,
-                        incognito: true
-                    }).then(resolve);
-                } else if (type === "newWindow") {
-                    ext.helper.model.call("openLink", {
-                        href: infos.url,
-                        newWindow: true
-                    }).then(resolve);
-                } else {
-                    ext.helper.model.call("openLink", {
-                        parentId: infos.parentId,
-                        id: infos.id,
-                        href: infos.url,
-                        newTab: type === "newTab",
-                        position: ext.helper.model.getData("b/newTabPosition"),
-                        active: active
-                    }).then(resolve);
-                }
+            ext.helper.model.setData({
+                "u/lastOpened": infos.id,
+                "u/performReopening": active ? (infos.reopenSidebar || false) : false
             });
+
+            if (type === "incognito") {
+                await ext.helper.model.call("openLink", {
+                    href: infos.url,
+                    incognito: true
+                });
+            } else if (type === "newWindow") {
+                await ext.helper.model.call("openLink", {
+                    href: infos.url,
+                    newWindow: true
+                });
+            } else {
+                await ext.helper.model.call("openLink", {
+                    parentId: infos.parentId,
+                    id: infos.id,
+                    href: infos.url,
+                    newTab: type === "newTab",
+                    position: ext.helper.model.getData("b/newTabPosition"),
+                    active: active
+                });
+            }
         };
 
         /**

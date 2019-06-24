@@ -16,7 +16,7 @@
          * @returns {Promise}
          */
         this.activatePremium = (opts) => {
-            return new Promise(async (resolve) => {
+            return new Promise((resolve) => {
                 b.helper.model.getLicenseKey().then((response) => {
                     if (response.licenseKey === opts.licenseKey) { // the given license key is already stored -> return true, but don't reinitialize
                         resolve({success: true, skip: true});

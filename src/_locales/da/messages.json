@@ -602,6 +602,345 @@
     "settings_expert_save_error": {
         "message": "Kunne ikke gemme ops\u00e6tningen. Ret venligst din indtastning."
     },
+    "settings_open_action": {
+        "message": "\u00c5bn sidebj\u00e6lke"
+    },
+    "settings_open_action_desc": {
+        "message": "\u00c5bn sidelinjen ved at venstre eller h\u00f8jre klikke eller musen over kanten af browservinduet. Alternativt kan du \u00e6ndre det for kun at \u00e5bne, hvis ikonet i Chrome-menuen er klikket."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Venstre klik"
+    },
+    "settings_open_action_rightclick": {
+        "message": "H\u00f8jre klik"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Mouseover"
+    },
+    "settings_open_action_icon": {
+        "message": "Klik p\u00e5 ikon"
+    },
+    "settings_toggle_area": {
+        "message": "Konfigurer omr\u00e5de"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Som standard kan hele kanten af dit browservindue h\u00e6ves for at \u00e5bne sidebj\u00e6lken. Du kan \u00e6ndre dette og konfigurere hvor du skal \u00e5bne sidelinjen n\u00f8jagtigt."
+    },
+    "settings_toggle_area_width": {
+        "message": "Bredde"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Bredde (Windowed)"
+    },
+    "settings_toggle_area_height": {
+        "message": "H\u00f8jde"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Du kan reducere omr\u00e5dets h\u00f8jde, s\u00e5 sidebj\u00e6lken \u00e5bnes kun, n\u00e5r du flytter mark\u00f8ren til den placering af kanten af dit browservindue."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Tr\u00e6k for at flytte"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Indstil tastaturgenvej"
+    },
+    "settings_link_action": {
+        "message": "\u00c5bn bogm\u00e6rker"
+    },
+    "settings_link_action_desc": {
+        "message": "Venstre klik p\u00e5 et bogm\u00e6rke \u00e5bner dem enten i den aktuelle fane eller i en ny fane."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Nuv\u00e6rende fane"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Ny fane"
+    },
+    "settings_open_delay": {
+        "message": "\u00c5ben forsinkelse"
+    },
+    "settings_open_delay_desc": {
+        "message": "Forhindrer straks at \u00e5bne sidebj\u00e6lken p\u00e5 mouseover eller ved at klikke med en forsinkelse."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Forhindre side rulle"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Forhindrer at rulle den aktuelle hjemmeside, mens sidebj\u00e6lken er \u00e5ben."
+    },
+    "settings_dir_accordion": {
+        "message": "Vis kun nuv\u00e6rende mappe"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Lukker alle mapper bortset fra den aktuelt aktive."
+    },
+    "settings_remember_state": {
+        "message": "Husk"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Rul position og \u00e5bne mapper"
+    },
+    "settings_remember_state_all": {
+        "message": "Rul position, \u00e5bnede mapper og sidste \u00e5bnet bogm\u00e6rke"
+    },
+    "settings_remember_state_open_states": {
+        "message": "\u00c5bnede mapper"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "\u00c5bnede kataloger p\u00e5 \u00f8verste niveau"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Ingenting"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Husk \u00e5bnede undermapper"
+    },
+    "settings_remember_desc": {
+        "message": "V\u00e6lg hvad du skal huske p\u00e5 tv\u00e6rs af side\u00e6ndringer. Hvis du v\u00e6lger at huske det sidst \u00e5bnede bogm\u00e6rke, markeres det, n\u00e5r du \u00e5bner sidebj\u00e6lken igen."
+    },
+    "settings_new_tab": {
+        "message": "Ny Fane"
+    },
+    "settings_new_tab_desc": {
+        "message": "\u00c5bn bogm\u00e6rker i ny fane i forgrunden eller baggrunden"
+    },
+    "settings_new_tab_foreground": {
+        "message": "\u00c5ben i forgrunden"
+    },
+    "settings_new_tab_background": {
+        "message": "\u00c5ben i baggrunden"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "\u00c5bn nye faner efter den sidste eller den aktuelle fane"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Efter den sidste fane"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Efter den nuv\u00e6rende fane"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Efter den f\u00f8rste fane"
+    },
+    "settings_close_timeout": {
+        "message": "Luk timeout"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Timeout i sekunder efter at sidebj\u00e6lken er lukket. Det t\u00e6ller s\u00e5 snart musen forlader sidebj\u00e6lken og stopper, n\u00e5r du bev\u00e6ger den igen."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Luk ikke automatisk"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Skjul rullepanel"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Timeout i sekunder efter at rullebj\u00e6lken er skjult. Rulning viser rullebj\u00e6lken igen."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Aldrig gem"
+    },
+    "settings_reopen_sidebar": {
+        "message": "\u00c5bn sidebj\u00e6lken igen"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "\u00c5bn sidebj\u00e6lken igen automatisk, efter at du har \u00e5bnet et bogm\u00e6rke inde i sidebj\u00e6lken."
+    },
+    "settings_prevent_windowed": {
+        "message": "Disable sidebar in window mode"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Deaktiverer muligheden for at \u00e5bne sidebj\u00e6lken ved at klikke eller sv\u00e6ve kanten af browserens indhold, n\u00e5r browseren er i vinduet tilstand."
+    },
+    "settings_tooltip_delay": {
+        "message": "V\u00e6rkt\u00f8jstip forsinkelse"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Forsinkelse, f\u00f8r v\u00e6rkt\u00f8jstipene til bogm\u00e6rkerne vises, n\u00e5r du svinger med musen."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Vis aldrig v\u00e6rkt\u00f8jstips"
+    },
+    "settings_tooltip_desc": {
+        "message": "V\u00e6lg hvilke oplysninger v\u00e6rkt\u00f8jstipen skal indeholde."
+    },
+    "settings_tooltip_content": {
+        "message": "V\u00e6rkt\u00f8jstip indhold"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Titel og URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Kun titel"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Kun URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Yderligere information"
+    },
+    "settings_sidebar_position": {
+        "message": "Position"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Giver dig mulighed for at indstille om sidebj\u00e6lken skal \u00e5bnes i venstre eller h\u00f8jre kant af browservinduet."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Venstre"
+    },
+    "settings_sidebar_position_right": {
+        "message": "H\u00f8jre"
+    },
+    "settings_contextmenu": {
+        "message": "Kontekstmenu indgang"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Vis en post i kontekstmenuen for Chrome for at skifte sidebj\u00e6lken."
+    },
+    "settings_filter_intro": {
+        "message": "Hvis du ikke vil have sidebj\u00e6lken indl\u00e6st p\u00e5 hver side, kan du konfigurere hvor du skal indl\u00e6se udvidelsen (hvidlisten) eller hvor ikke (sortliste)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Tilf\u00f8j kun et webadressem\u00f8nster pr. Linje"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Brug * til at matche ethvert tegn (fx example.com\/* matcher alle sider under example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Hvis du ikke inkluderer nogen * i en regel, matcher kun den n\u00f8jagtige webadresse (for eksempel \"example.com\" svarer ikke til URL'en \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Du beh\u00f8ver ikke at tilf\u00f8je protokollen (f.eks. Http: \/\/) i reglerne"
+    },
+    "settings_filter_visibility": {
+        "message": "Indl\u00e6s sidebj\u00e6lke"
+    },
+    "settings_filter_visibility_always": {
+        "message": "P\u00e5 hver side"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "P\u00e5 hver side undtagen specifikke sider"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Kun p\u00e5 specifikke sider"
+    },
+    "settings_filter_rules": {
+        "message": "URL-m\u00f8nstre"
+    },
+    "settings_import_export_desc": {
+        "message": "Du kan eksportere dine udvidelsesindstillinger og gemme dem lokalt p\u00e5 din computer. Du kan importere den tidligere eksporterede fil p\u00e5 en hvilken som helst computer, hvor udvidelsen er installeret."
+    },
+    "settings_export": {
+        "message": "Eksportindstillinger"
+    },
+    "settings_import": {
+        "message": "Importindstillinger"
+    },
+    "settings_import_saved": {
+        "message": "Konfigurationen importeres med succes"
+    },
+    "settings_import_failed": {
+        "message": "Kunne ikke importere konfigurationen. V\u00e6lg venligst en gyldig fil."
+    },
+    "settings_presets": {
+        "message": "Indstil relative st\u00f8rrelser"
+    },
+    "settings_presets_desc": {
+        "message": "Du kan v\u00e6lge foruddefinerede st\u00f8rrelser til sidebj\u00e6lken. Dette \u00e6ndrer skyderen p\u00e5 denne side for at justere sidebj\u00e6lkens bredde, linjeh\u00f8jder, ikonst\u00f8rrelser og mange flere muligheder."
+    },
+    "settings_color_scheme": {
+        "message": "Farveskema"
+    },
+    "settings_dark_mode": {
+        "message": "Overflade"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Farven p\u00e5 sidebj\u00e6lkehovedet, afkrydsningsfelterne osv."
+    },
+    "settings_text_color": {
+        "message": "Tekst farve"
+    },
+    "settings_hover_color": {
+        "message": "Mouseover farve"
+    },
+    "settings_font_family": {
+        "message": "Skrifttype"
+    },
+    "settings_font_family_default": {
+        "message": "Standard"
+    },
+    "settings_font_family_desc": {
+        "message": "Skrifttypen p\u00e5 side baren og overlagene"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Rullebar bredde"
+    },
+    "settings_icon_color": {
+        "message": "Farve"
+    },
+    "settings_indicator_width": {
+        "message": "Bredde"
+    },
+    "settings_indicator_color": {
+        "message": "Farve"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Ikon st\u00f8rrelse"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Ikon farve"
+    },
+    "settings_sidebar_width": {
+        "message": "Bredde"
+    },
+    "settings_header_height": {
+        "message": "H\u00f8jde"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Maske farve"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Vejviser ikon"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Vejviser ikon farve"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Bogm\u00e6rke skrift st\u00f8rrelse"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Bogm\u00e6rke ikon st\u00f8rrelse"
+    },
+    "settings_directories_icon_size": {
+        "message": "Vejviser ikon st\u00f8rrelse"
+    },
+    "settings_directory_arrows": {
+        "message": "Vejviser pile"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Bogm\u00e6rke linje h\u00f8jde"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Bogm\u00e6rker vandret polstring"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Directory indrykning"
+    },
+    "settings_tooltip_font_size": {
+        "message": "V\u00e6rkt\u00f8jstip skriftst\u00f8rrelse"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Maske farve"
+    },
+    "settings_icon_shape": {
+        "message": "Form"
+    },
+    "settings_custom_css": {
+        "message": "Brugerdefineret stilark"
+    },
+    "settings_custom_css_desc": {
+        "message": "Du kan definere dit eget stylesheet for at tilsides\u00e6tte standard styling. Brug kun denne mulighed, hvis du er bekendt med CSS og ved, hvad du g\u00f8r."
+    },
     "settings_newtab_desc": {
         "message": "Desv\u00e6rre har Google fjernet muligheden for at loade udvidelser p\u00e5 standard-siden for et nyt faneblad. Grundet dette har jeg tilf\u00f8jet nogle muligheder der tillader dig at tilg\u00e5 dine bogm\u00e6rker, n\u00e5r et nyt faneblad \u00e5bnes, p\u00e5 en anden facon."
     },
@@ -623,6 +962,93 @@
     "settings_newtab_website_desc": {
         "message": "I stedet for at \u00e5bne en hjemmeside ved \u00e5bning af et nyt faneblad kan du v\u00e6lge indl\u00e6sning af en hjemmeside."
     },
+    "settings_language": {
+        "message": "Sprog"
+    },
+    "settings_language_default": {
+        "message": "Standard browser"
+    },
+    "settings_language_desc": {
+        "message": "Sproget i brugergr\u00e6nsefladen"
+    },
+    "settings_translation_link": {
+        "message": "G\u00e5 til overs\u00e6ttelse oversigt"
+    },
+    "settings_translation_desc": {
+        "message": "Du kan hj\u00e6lpe med at overs\u00e6tte udvidelsen p\u00e5 dit sprog eller forbedre den eksisterende."
+    },
+    "settings_translation_add_language": {
+        "message": "Tilf\u00f8j sprog"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Tilbage til oversigt"
+    },
+    "settings_translation_info": {
+        "message": "Du kan redigere eksisterende overs\u00e6ttelser eller tilf\u00f8je manglende. Hvis du sender dine \u00e6ndringer, vil jeg gennemg\u00e5 dit input og godkende det."
+    },
+    "settings_translation_notice1": {
+        "message": "S\u00e5 snart alle kategorier, der er markeret som p\u00e5kr\u00e6vet overs\u00e6ttes, vil overs\u00e6ttelsen blive frigivet."
+    },
+    "settings_translation_notice2": {
+        "message": "Ufuldst\u00e6ndige kategorier frigives ikke for at forhindre halv oversatte tekster."
+    },
+    "settings_translation_help": {
+        "message": "For hver post kan du se den engelske overs\u00e6ttelse, som skal overs\u00e6ttes til dit sprog. For at hj\u00e6lpe dig med at identificere, hvor teksten bruges og hvad den er til, har hver post et navn (f.eks. {1}), som ikke skal overs\u00e6ttes. Husk at sende din overs\u00e6ttelse ved at trykke p\u00e5 knappen \u00f8verst til h\u00f8jre!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Jeg vil gerne blive underrettet, n\u00e5r nye sprogvariabler tilf\u00f8jes til udvidelsen"
+    },
+    "settings_translation_submit": {
+        "message": "Indsend"
+    },
+    "settings_translation_submit_message": {
+        "message": "Din overs\u00e6ttelse er blevet sendt succesfuldt"
+    },
+    "settings_translation_status_released": {
+        "message": "Overs\u00e6ttelse er tilg\u00e6ngelig"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "Translation is available, but some categories are incomplete"
+    },
+    "settings_translation_status_draft": {
+        "message": "Overs\u00e6ttelse er ufuldst\u00e6ndig eller har brug for en anmeldelse og er ikke tilg\u00e6ngelig for brugerne"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Nogle overs\u00e6ttelser mangler"
+    },
+    "settings_translation_required_category": {
+        "message": "N\u00f8dvendig"
+    },
+    "settings_feedback_desc": {
+        "message": "Har du forslag til forbedringer, sp\u00f8rgsm\u00e5l, bem\u00e6rkning manglende konfigurationsindstillinger eller fundet en fejl? For at hj\u00e6lpe med at forbedre erfaringerne med denne udvidelse, ville jeg v\u00e6re meget taknemmelig for alle de tilbagemeldinger, du har f\u00e5et, eller du m\u00e5tte have."
+    },
+    "settings_feedback_notice": {
+        "message": "Skriv venligst din feedback p\u00e5 engelsk, ellers Det vil v\u00e6re sv\u00e6rt at forst\u00e5 og svare p\u00e5 din besked."
+    },
+    "settings_feedback_email": {
+        "message": "Din email adresse"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Vedh\u00e6ft sk\u00e6rmbilleder"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Filst\u00f8rrelsen p\u00e5 {1} er for stor (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Du kan kun uploade maksimalt {1} sk\u00e6rmbilleder"
+    },
+    "settings_feedback_send": {
+        "message": "Send feedback"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Tak for tilbagemeldingen"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Din besked kunne ikke sendes. Pr\u00f8v igen."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "Dette kan v\u00e6re af interesse for dig"
+    },
     "settings_permissions_desc": {
         "message": "For at g\u00f8re det muligt at lave en sidebar der kan vises\/skjules i Chrome, har udvidelsen brug for f\u00f8lgende tilladelser:"
     },
@@ -643,5 +1069,134 @@
     },
     "settings_saved_share_userdata": {
         "message": "Dine pr\u00e6ferencer er blevet gemt"
+    },
+    "premium_popup_text": {
+        "message": "Har du tjekket ud Premium endnu?"
+    },
+    "premium_restricted_text": {
+        "message": "Denne funktion er kun tilg\u00e6ngelig med Premium"
+    },
+    "premium_desc_1": {
+        "message": "Med Premium f\u00e5r du adgang til yderligere funktioner og hj\u00e6lper mig med at opretholde udvidelsen."
+    },
+    "premium_desc_2": {
+        "message": "Du kan tjekke de funktioner, der er inkluderet i Premium nedenfor. Alle n\u00f8glefunktioner i udvidelserne er gratis at bruge og kr\u00e6ver slet ikke Premium. Du kan betale, hvad udvidelsen og mit arbejde er v\u00e6rd for dig, for at f\u00e5 adgang til disse funktioner."
+    },
+    "premium_get_now": {
+        "message": "F\u00e5 Premium nu"
+    },
+    "premium_show_license_input": {
+        "message": "I already have Premium"
+    },
+    "premium_already_activated": {
+        "message": "Du bruger allerede Premium"
+    },
+    "premium_activate": {
+        "message": "Aktiv\u00e9r Premium"
+    },
+    "premium_license_key": {
+        "message": "Licensn\u00f8gle"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "V\u00e6r den f\u00f8rste, der pr\u00f8ver nye eksperimentelle funktioner"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Med Premium f\u00e5r du adgang til uudgivne funktioner, som for \u00f8jeblikket er under udvikling eller underkastet test."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Skift bredden p\u00e5 dit sidebj\u00e6lke til enhver tid"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importer og eksporter dine indstillinger"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Tilpas din ny fane side"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Hvis du bruger siden Ny fane i denne udvidelse, kan du indstille dit eget baggrundsbillede for at f\u00e5 det til at se endnu p\u00e6nere ud."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Tilpas alt sammen med dit eget stilark"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Hvis du er bekendt med CSS, kan du \u00e6ndre sidebj\u00e6lkens komplette udseende ved at tilf\u00f8je dine egne stildefinitioner. Dette giver dig mulighed for at tilpasse helt alt."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Tjek dine bogm\u00e6rker for brudte links eller dubletter"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Du kan h\u00f8jreklikke p\u00e5 en mappe i dit sidebj\u00e6lke og udf\u00f8re en check. Resultatsiden viser alle opdaterede webadresser, bogm\u00e6rker, der ikke l\u00e6ngere fungerer og bogm\u00e6rker med samme webadresse."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "V\u00e6lg en betalingsmetode"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Betal hvad du vil"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kredit- eller betalingskort"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Scan denne QR-kode p\u00e5 WeChat for at forts\u00e6tte."
+    },
+    "premium_pay_contact": {
+        "message": "Scan denne QR-kode p\u00e5 WeChat for at forts\u00e6tte. Hvis du st\u00f8der p\u00e5 problemer med din betaling eller har sp\u00f8rgsm\u00e5l, kontakt mig venligst p\u00e5 {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "I alt"
+    },
+    "premium_pay_price_info": {
+        "message": "Dette er en engangsafgift og omfatter ogs\u00e5 alle fremtidige premium-funktioner."
+    },
+    "premium_pay_eula": {
+        "message": "Slutbrugeraftale"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Jeg l\u00e6ser og accepterer [a] Slutbrugerlicensaftale [\/ a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Afbestillingspolitik"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Bekr\u00e6ft k\u00f8b"
+    },
+    "premium_pay_buy": {
+        "message": "K\u00f8b Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Bekr\u00e6fter transaktion"
+    },
+    "premium_pay_purchase_id": {
+        "message": "K\u00f8b-id"
+    },
+    "premium_pay_success_headline": {
+        "message": "Tak for dit k\u00f8b"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} er blevet aktiveret automatisk for denne enhed. Du beh\u00f8ver ikke at g\u00f8re yderligere skridt."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Hvis du vil aktivere {1} p\u00e5 en anden enhed eller efter geninstallation af udvidelsen, kan du indtaste f\u00f8lgende tast i indstillingerne for udvidelsen:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Indtast venligst din e-mailadresse for at modtage licensn\u00f8glen."
+    },
+    "premium_pay_info_name": {
+        "message": "Navn"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Postnummer"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Betalingsmetode"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Kortnummer"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Kort udl\u00f8ber"
     }
 }

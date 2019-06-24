@@ -1,0 +1,332 @@
+{
+    "extension_name": {
+        "message": "J\u00e4rjehoidjate k\u00fclgriba"
+    },
+    "extension_desc": {
+        "message": "Lisab brauseriakna serva k\u00f5iki j\u00e4rjehoidjaid sisaldava l\u00fclitatava k\u00fclgriba."
+    },
+    "header_bookmarks": {
+        "message": "J\u00e4rjehoidjad"
+    },
+    "header_bookmarks_single": {
+        "message": "J\u00e4rjehoidja"
+    },
+    "sidebar_dir_children": {
+        "message": "Elemendid"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Otsi j\u00e4rjehoidjat"
+    },
+    "sidebar_search_no_results": {
+        "message": "Otsis\u00f5nale vastavat j\u00e4rjehoidjat pole"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "URL kopeeritud"
+    },
+    "sidebar_deleted": {
+        "message": "Eemaldatud"
+    },
+    "sidebar_undo_deletion": {
+        "message": "V\u00f5ta tagasi"
+    },
+    "more_link": {
+        "message": "Uuri lisa"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Muuda j\u00e4rjehoidjat"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Muuda kataloogi"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Muuda eraldajat"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Kustuta j\u00e4rjehoidja"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Kustuta kataloog"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Kustuta eraldaja"
+    },
+    "contextmenu_infos": {
+        "message": "Info"
+    },
+    "contextmenu_new_tab": {
+        "message": "Ava uuel kaardil"
+    },
+    "contextmenu_new_window": {
+        "message": "Ava uues aknas"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Ava inkognito kaardil"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Lisa j\u00e4rjehoidja"
+    },
+    "contextmenu_add": {
+        "message": "Lisa \u00fcksus"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Kontrolli j\u00e4rjehoidjaid"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Kuva peidetud \u00fcksused"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Sulge k\u00f5ik kataloogid"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Laadi k\u00fclgriba uuesti"
+    },
+    "contextmenu_open_children": {
+        "message": "Ava j\u00e4rjehoidjad"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Peida k\u00fclgribal"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Kuva k\u00fclgribal"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Kuva kataloogis"
+    },
+    "contextmenu_pin": {
+        "message": "Kuva k\u00f5igi peal"
+    },
+    "contextmenu_unpin": {
+        "message": "Eemalda k\u00f5igi peal kuvamine"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "J\u00e4rjehoidjate haldur"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Klaviatuuri otseteed"
+    },
+    "sort_label_custom": {
+        "message": "Kasutaja m\u00e4\u00e4ratud"
+    },
+    "sort_label_alphabetical": {
+        "message": "T\u00e4hestikuline"
+    },
+    "sort_label_most_used": {
+        "message": "Enim kasutatud"
+    },
+    "sort_label_recently_used": {
+        "message": "Hiljuti kasutatud"
+    },
+    "sort_label_recently_added": {
+        "message": "Hiljuti lisatud"
+    },
+    "sort_view_as_tree": {
+        "message": "Kuva kataloogid"
+    },
+    "sort_most_used_per_month": {
+        "message": "\u00dches kuus"
+    },
+    "overlay_bookmark_title": {
+        "message": "Pealkiri"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Lisainfo"
+    },
+    "overlay_cancel": {
+        "message": "T\u00fchista"
+    },
+    "overlay_close": {
+        "message": "Sulge"
+    },
+    "overlay_save": {
+        "message": "Salvesta"
+    },
+    "overlay_delete": {
+        "message": "Kustuta"
+    },
+    "overlay_update": {
+        "message": "Uuenda"
+    },
+    "overlay_open_children": {
+        "message": "Ava k\u00f5ik"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Kas t\u00f5esti avada k\u00f5ik {1} j\u00e4rjehoidjat?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Peida k\u00fclgribal"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Kas peita see j\u00e4rjehoidja k\u00fclgribal?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Kas t\u00f5esti peita see kataloogi k\u00fclgribal? Peidetakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Kas t\u00f5esti kustutada see j\u00e4rjehoidja?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Kas t\u00f5esti kustutada see kataloogl? Eemaldatakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
+    },
+    "overlay_label_bookmark": {
+        "message": "J\u00e4rjehoidja"
+    },
+    "overlay_label_dir": {
+        "message": "Kataloog"
+    },
+    "overlay_label_separator": {
+        "message": "Eraldaja"
+    },
+    "overlay_add_position": {
+        "message": "Asukoht"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Salvestatuud alates"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "\u00fches kuus"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Loodud"
+    },
+    "overlay_dir_children": {
+        "message": "Elemendid"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "J\u00e4rjehoidjad"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Kataloogid"
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Muudetud"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Katki"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplikaadid"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "T\u00fchjad kataloogid"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "J\u00e4rjehoidjate URL-ide kontroll"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Uuenda valitud"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Eemalda valitud"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "K\u00f5ik URL-id on korras"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "J\u00e4rjehoidjate muudetud URL-e pole"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "J\u00e4rjehoijate katkisi URL-e pole"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "J\u00e4rjehoidjate duplikaat URL-e pole"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "J\u00e4rjehoidjateta katalooge pole"
+    },
+    "newtab_title": {
+        "message": "Uus kaart"
+    },
+    "newtab_top_pages_default": {
+        "message": "Tipplehed"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Hiljuti kasutatud j\u00e4rjehoidjad"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Enim kasutatud j\u00e4rjehoidjad"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Peale kinnitatud j\u00e4rjehoidjad"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "\u00c4ra kuva lehti"
+    },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Kuva veebilehtede eelvaade"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Kuva veebilehtede ikoonid"
+    },
+    "newtab_search_placeholder": {
+        "message": "Otsi {1} v\u00f5i sisesta URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "R\u00e4\u00e4gi n\u00fc\u00fcd"
+    },
+    "newtab_speech_search_error": {
+        "message": "K\u00f5neotsingu lubamiseks tuleb lubada mikrofonile juurdep\u00e4\u00e4s."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Otsingumootor"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Kasutaja m\u00e4\u00e4ratud"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Pealkiri"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Kodulehe URL"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Otsitulemuste URL"
+    },
+    "newtab_upload_background": {
+        "message": "Laadi taustapilt \u00fcles"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Miski blokeeris k\u00fclgriba"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "Chrome veebipoes ei saa k\u00fclgriba kasutada"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "Laienduste lehel ei saa k\u00fclgriba kasutada"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Uue kaardi vaikelehel ei saa k\u00fclgriba kasutada"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "S\u00fcsteemilehtedel ei saa k\u00fclgriba kasutada"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "\u00dcks URL reeglitest ei lubanud k\u00fclgriba avada"
+    },
+    "newtab_fallback_desc": {
+        "message": "Avasime selle asemel uue otsiribaga kaardi."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Kuva seda lehte alati uue kaardi avamisel"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Teenus pole saadaval"
+    },
+    "status_check_bookmarks_unavailable_desc": {
+        "message": "URL-id kontrolliv teenus pole hetkel saadaval. Palun proovi hiljem uuesti."
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Tagasiside teenus pole hetkel saadaval. Kasuta selleks e-posti."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "T\u00f5lke teenus pole hetkel saadaval. Palun proovi hiljem uuesti."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Laadi uuesti"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Laienduse uuendamiseks tuleb see leht uuesti laadida."
+    }
+}

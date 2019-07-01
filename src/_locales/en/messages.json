@@ -1005,7 +1005,7 @@
         "message": "Load website"
     },
     "settings_newtab_website_desc": {
-        "message": "In place of opening the new tab replacement, you can set a website which is loaded instead."
+        "message": "Instead of opening the new tab replacement, you can set a website which is loaded instead."
     },
     "settings_language": {
         "message": "Language"

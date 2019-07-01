@@ -54,7 +54,7 @@
         "message": "Info"
     },
     "contextmenu_new_tab": {
-        "message": "Ava uuel kaardil"
+        "message": "Ava uuel vahekaardil"
     },
     "contextmenu_new_window": {
         "message": "Ava uues aknas"
@@ -182,8 +182,23 @@
     "overlay_add_position": {
         "message": "Asukoht"
     },
+    "overlay_add_position_prepend": {
+        "message": "Lisa kataloogi \u00fclalt"
+    },
+    "overlay_add_position_append": {
+        "message": "Lisa kataloogi alt"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Eraldajale v\u00f5ib anda nime. See kuvatakse eraldusjoone kohal ja v\u00f5ib olla abiks j\u00e4rjehoidjate loendi korrastamisel."
+    },
+    "overlay_bookmark_views": {
+        "message": "Vaatamisi"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Vaatamine"
+    },
     "overlay_bookmark_views_since": {
-        "message": "Salvestatuud alates"
+        "message": "Salvestatud alates"
     },
     "overlay_bookmark_views_per_month": {
         "message": "\u00fches kuus"
@@ -237,7 +252,7 @@
         "message": "J\u00e4rjehoidjateta katalooge pole"
     },
     "newtab_title": {
-        "message": "Uus kaart"
+        "message": "Uus vahekaart"
     },
     "newtab_top_pages_default": {
         "message": "Tipplehed"
@@ -297,7 +312,7 @@
         "message": "Laienduste lehel ei saa k\u00fclgriba kasutada"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Uue kaardi vaikelehel ei saa k\u00fclgriba kasutada"
+        "message": "Uue vahekaardi vaikelehel ei saa k\u00fclgriba kasutada"
     },
     "newtab_fallback_headline_system": {
         "message": "S\u00fcsteemilehtedel ei saa k\u00fclgriba kasutada"
@@ -306,10 +321,10 @@
         "message": "\u00dcks URL reeglitest ei lubanud k\u00fclgriba avada"
     },
     "newtab_fallback_desc": {
-        "message": "Avasime selle asemel uue otsiribaga kaardi."
+        "message": "Avasime selle asemel uue otsiribaga vahekaardi."
     },
     "newtab_fallback_set_as_new_tab": {
-        "message": "Kuva seda lehte alati uue kaardi avamisel"
+        "message": "Kuva seda lehte alati uue vahekaardi avamisel"
     },
     "status_service_unavailable_headline": {
         "message": "Teenus pole saadaval"
@@ -328,5 +343,860 @@
     },
     "status_background_disconnected_reload_desc": {
         "message": "Laienduse uuendamiseks tuleb see leht uuesti laadida."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Viib kursori k\u00fclgpaneeli j\u00e4rgmisele kirjele v\u00f5i avatud kontekstmen\u00fc\u00fcle"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Kl\u00f5psab kursori alusel kirjel"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Avab kursori aluse kirje kontekstmen\u00fc\u00fc"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Kopeerib kursori aluse kirje URL-i"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Eemaldab kursori aluse kirje"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Sulgeb k\u00fclgriba, avatud katte v\u00f5i kontekstmen\u00fc\u00fc"
+    },
+    "contribute_headline": {
+        "message": "Ma vajan sinu abi"
+    },
+    "contribute_intro": {
+        "message": "Laienduse parandamiseks soovin paremini teada, kuidas ja millise seadistusega kasutajad k\u00fclgriba kasutavad."
+    },
+    "contribute_outro": {
+        "message": "Kui sul on k\u00fcsimusi v\u00f5i kahtlusi info jagamise suhtes, saada mulle palun tagasiside s\u00f5num."
+    },
+    "contribute_dismiss": {
+        "message": "Keeldu"
+    },
+    "contribute_share_config_label": {
+        "message": "Jaga seadistust"
+    },
+    "contribute_share_config_desc": {
+        "message": "Sa jagad oma seadistust anon\u00fc\u00fcmselt, mis aitab mul selgitada populaarsed s\u00e4tted ja m\u00f5ista, mida tulevikus parandada."
+    },
+    "contribute_share_activity_label": {
+        "message": "Jaga tegevusi"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "V\u00f5i jagada tegevusi k\u00fclgribas anon\u00fc\u00fcmselt, mis aitab m\u00f5ista, kuidas kasutajad k\u00fclgriba \u00fcldisemalt kasutavad. J\u00e4rjehoidjaid ja k\u00fclastatud veebilehti [b]ei[\/b] ei j\u00e4lgita."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "See info on v\u00e4ga kasulik leidmaks probleeme laienduse kasutuses v\u00f5i n\u00e4iteks v\u00f5imalustes, mida kasutatakse harva."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Jagatavad andmed on n\u00e4iteks:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Kui palju kasutajatel keskmiselt j\u00e4rjehoidjaid on?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Millist platvormi kasutajad kasutavad (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Kas kasutajad kasutavad otsingut?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Kas kasutajad muudavad j\u00e4rjehoidjate j\u00e4rjestust?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Kui tihti kasutajad sordivad v\u00f5i muudavad kirjeid?"
+    },
+    "onboarding_title": {
+        "message": "Seadistamine"
+    },
+    "onboarding_headline": {
+        "message": "T\u00e4nan selle laienduse paigaldamise eest."
+    },
+    "onboarding_setup": {
+        "message": "Seadista n\u00fc\u00fcd"
+    },
+    "onboarding_skip": {
+        "message": "J\u00e4ta seadistamine vahele"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Kuhu soovid k\u00fclgriba paigutada?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Kuidas soovid k\u00fclgriba avada?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Millist stiili eelistad?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Hele"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Tume"
+    },
+    "onboarding_handson_desc": {
+        "message": "V\u00f5id n\u00fc\u00fcd ise proovida"
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Liiguta kursor akna {1} servale."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Siis kl\u00f5psa hiire {1} klahvile k\u00fclgriba avamiseks."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Kl\u00f5psa laiendusel k\u00fclgriba avamiseks."
+    },
+    "onboarding_left": {
+        "message": "vasemale"
+    },
+    "onboarding_right": {
+        "message": "paremale"
+    },
+    "onboarding_finish_desc": {
+        "message": "Tunne k\u00fclgribast r\u00f5\u00f5mu."
+    },
+    "onboarding_finish_notice": {
+        "message": "Kui kl\u00f5psad pidevalt brauseriakna {1} k\u00fcljele, v\u00f5id proovida muuta k\u00fclgriba avamise asukohta, et v\u00e4ltida selle juhuslikku avamist."
+    },
+    "onboarding_goto_settings": {
+        "message": "Veel s\u00e4tteid"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Seadista v\u00e4limust"
+    },
+    "settings_title": {
+        "message": "S\u00e4tted"
+    },
+    "settings_menu_sidebar": {
+        "message": "K\u00fclgriba"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "\u00dcldseaded"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Vaheta"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Vihjed"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
+    },
+    "settings_menu_appearance": {
+        "message": "V\u00e4limus"
+    },
+    "settings_menu_appearance_general": {
+        "message": "\u00dcldseaded"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "K\u00fclgriba"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indikaator"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikoon"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "\u00dclekate"
+    },
+    "settings_menu_newtab": {
+        "message": "Uus vahekaart"
+    },
+    "settings_menu_language": {
+        "message": "Keel"
+    },
+    "settings_menu_language_general": {
+        "message": "\u00dcldseaded"
+    },
+    "settings_menu_language_translate": {
+        "message": "T\u00f5lgi"
+    },
+    "settings_menu_feedback": {
+        "message": "Tagasiside"
+    },
+    "settings_menu_infos": {
+        "message": "Info"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Minust"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Load"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privaatsus"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Muudatuste logi"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
+    "settings_menu_export": {
+        "message": "Import\/eksport"
+    },
+    "settings_menu_expert": {
+        "message": "Eksperdi s\u00e4tted"
+    },
+    "settings_save": {
+        "message": "Salvesta muudatused"
+    },
+    "settings_saved_message": {
+        "message": "Muudatused salvestati"
+    },
+    "settings_restore": {
+        "message": "Taasta vaikev\u00e4\u00e4rtused"
+    },
+    "settings_restore_confirm": {
+        "message": "Kas tahad t\u00f5esti taastada vaikeseadistuse?"
+    },
+    "settings_restored_message": {
+        "message": "Seadistus taastati"
+    },
+    "settings_advanced": {
+        "message": "Lisaseaded"
+    },
+    "settings_not_synced": {
+        "message": "Ei s\u00fcnkroonita teiste seadmetega."
+    },
+    "settings_premium_activated": {
+        "message": "Premium aktiveeriti"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premiumi aktiveerimine nurjus. Sisesta kehtiv litsentsi v\u00f5ti."
+    },
+    "settings_search_placeholder": {
+        "message": "Otsi seadistust"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Eksperts\u00e4tetes on v\u00f5imalik muuta laienduse igat v\u00e4\u00e4rtust, ka neid, mida pole v\u00f5imalik muuta tavaliste valikukastide v\u00f5i liugurite abil s\u00e4tete lehel."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Palun muuda siin v\u00e4\u00e4rtusi ainult siis, kui tead mida teed. Vigane seadistus v\u00f5ib p\u00f5hjustada laienduse ootamatut k\u00e4itumist. Kui miski l\u00e4heb katki, saad taastada vaikev\u00e4\u00e4rtused."
+    },
+    "settings_expert_save_error": {
+        "message": "S\u00e4tete salvestamine nurjus. Paranda sisestatud andmed."
+    },
+    "settings_open_action": {
+        "message": "Ava k\u00fclgriba"
+    },
+    "settings_open_action_desc": {
+        "message": "Ava k\u00fclgriba vasak- v\u00f5i paremkl\u00f5psuga v\u00f5i viies kursori brauseri akna servale. Teise v\u00f5imalusena saab selle panna avanema ainult siis, kui kl\u00f5psata laienduse ikoonil."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Vasakkl\u00f5ps"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Paremkl\u00f5ps"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Hiirekursoriga"
+    },
+    "settings_open_action_icon": {
+        "message": "Kl\u00f5ps ikoonil"
+    },
+    "settings_toggle_area": {
+        "message": "Seadista piirkond"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Vaikimisi avaneb k\u00fclgriba hiirekursori all kogu brauseriakna laiuses. Seda saab muuta ja seadistada t\u00e4pne koht k\u00fclgriba avamiseks."
+    },
+    "settings_toggle_area_width": {
+        "message": "Laius"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Laius (aknaga)"
+    },
+    "settings_toggle_area_height": {
+        "message": "K\u00f5rgus"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "K\u00f5rgust saab v\u00e4hendada, et k\u00fclgriba avaneks kursori all brauseriakna serval ainult m\u00e4\u00e4ratud piirkonnas."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Lohista liigutamiseks"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "M\u00e4\u00e4ra kiirklahv"
+    },
+    "settings_link_action": {
+        "message": "Ava j\u00e4rjehoidjad"
+    },
+    "settings_link_action_desc": {
+        "message": "Vasakkl\u00f5ps j\u00e4rjehoidjal avab selle kas aktiivsel v\u00f5i uuel vahekaardil."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Aktiivne vahekaart"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Uus vahekaart"
+    },
+    "settings_open_delay": {
+        "message": "Avamise viiteaeg"
+    },
+    "settings_open_delay_desc": {
+        "message": "Avab k\u00fclgriba hiirekursori all v\u00f5i kl\u00f5psates p\u00e4rast viiteaega"
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Peata lehe kerimine"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Peata aktiivse veebilehe kerimine, kui k\u00fclgriba on avatud"
+    },
+    "settings_dir_accordion": {
+        "message": "Kuva ainult aktiivne kataloog"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Sulge k\u00f5ik kataloogid peale aktiivse."
+    },
+    "settings_remember_state": {
+        "message": "Pea meeles"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Asukoht lehel ja avatud kataloogid"
+    },
+    "settings_remember_state_all": {
+        "message": "Asukoht lehel, avatud kataloogid ja viimati avatud j\u00e4rjehoidja"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Avatud kataloogid"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Avatud \u00fclemkataloogid"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Mitte midagi"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Pea avatud alamkataloogid meeles"
+    },
+    "settings_remember_desc": {
+        "message": "Vali, mida lehe muutustel meeles pidada. Kui selleks on viimane avatud j\u00e4rjehoidja, m\u00e4rgitakse see k\u00fclgriba avamisel uuesti."
+    },
+    "settings_new_tab": {
+        "message": "Uus vahekaart"
+    },
+    "settings_new_tab_desc": {
+        "message": "Ava j\u00e4rjehoidjad uuel vahekaardil esiplaanil v\u00f5i taustal"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Ava esiplaanil"
+    },
+    "settings_new_tab_background": {
+        "message": "Ava taustal"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Avab uue kaardi p\u00e4rast viimast v\u00f5i aktiivset kaarti"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "P\u00e4rast viimast vahekaarti"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Enne aktiivset vahekaarti"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Enne esimest vahekaarti"
+    },
+    "settings_close_timeout": {
+        "message": "Sulgemise taimer"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Aeg sekundites, p\u00e4rast mida k\u00fclgriba sulgub. See algab kohe p\u00e4rast kursori lahkumist k\u00fclgribalt ja peatub kursori uuesti k\u00fclgribale viimisel."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "\u00c4ra sulge automaatselt"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Peida kerimisriba"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Aeg sekundites, p\u00e4rast mida kerimisriba peidetakse. Kerimisel kuvatakse see uuesti."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Ei peida kunagi"
+    },
+    "settings_reopen_sidebar": {
+        "message": "Ava k\u00fclgriba uuesti"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "P\u00e4rast j\u00e4rjehoidja avamist k\u00fclgribast ava k\u00fclgriba automaatselt uuesti."
+    },
+    "settings_prevent_windowed": {
+        "message": "Keela k\u00fclgriba"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Keelab v\u00f5imaluse k\u00fclgriba avamiseks hiirekursoriga v\u00f5i kl\u00f5psuga servale, kui brauser on aknare\u017eiimis."
+    },
+    "settings_tooltip_delay": {
+        "message": "Kohtspikri viiteaeg"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Viiteaeg kohtspikrite kuvamisel, kui neile liikuda kursoriga."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Kohtspikreid ei kuvata"
+    },
+    "settings_tooltip_desc": {
+        "message": "Vali, millist infot peaks ohtspikker sisaldama."
+    },
+    "settings_tooltip_content": {
+        "message": "Kohtspikri sisu"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Pealkiri ja URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Ainult pealkiri"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Ainult URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Lisainfo"
+    },
+    "settings_sidebar_position": {
+        "message": "Asukoht"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "V\u00f5imaldab m\u00e4\u00e4rata, kas k\u00fclgriba avaneb brauseriakna paremal v\u00f5i vasakul serval."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Vasakul"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Paremal"
+    },
+    "settings_contextmenu": {
+        "message": "Kontekstmen\u00fc\u00fc kirje"
+    },
+    "settings_contextmenu_desc": {
+        "message": "Kuva k\u00fclgriba l\u00fclitamise kirje Chrome kontekstmen\u00fc\u00fcs"
+    },
+    "settings_filter_intro": {
+        "message": "Kui sa ei soovi, et k\u00fclgriba laetakse igal lehel, saab m\u00e4\u00e4rata lehed musta (keelatud) ja valgesse (lubatud) nimekirja."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Lisa reale ainult \u00fcks URL-i muster"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Kasuta * vasteks k\u00f5igile t\u00e4htedele. N\u00e4iteks example.com\/* vastab k\u00f5igile lehtedele example.com saidil."
+    },
+    "settings_filter_explanation_3": {
+        "message": "Kui reeglis puudub *, sobib vasteks ainult t\u00e4pne URL. N\u00e4iteks \"example.com\" ei vasta URL-ile \"example.com\/about.html\""
+    },
+    "settings_filter_explanation_4": {
+        "message": "Reeglitesse pole vaja lisada protokolli (n\u00e4iteks http:\/\/)"
+    },
+    "settings_filter_visibility": {
+        "message": "Laadi k\u00fclgriba"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Igal lehel"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Igal lehel peale m\u00e4\u00e4ratud lehtede"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Ainult m\u00e4\u00e4ratud lehtedel"
+    },
+    "settings_filter_rules": {
+        "message": "URL-i mustrid"
+    },
+    "settings_import_export_desc": {
+        "message": "Saad eksportida laienduse s\u00e4tted ja salvestada need arvutisse. Eelnevalt eksporditud faili saab importida mis tahes arvutisse, kus laiendus on paigaldatud."
+    },
+    "settings_export": {
+        "message": "Ekspordi s\u00e4tted"
+    },
+    "settings_import": {
+        "message": "Impordi s\u00e4tted"
+    },
+    "settings_import_saved": {
+        "message": "Seadistus imporditi edukalt"
+    },
+    "settings_import_failed": {
+        "message": "Seadistuse import nurjus. Vali kehtiv fail."
+    },
+    "settings_presets": {
+        "message": "M\u00e4\u00e4ra suhtelised suurused"
+    },
+    "settings_presets_desc": {
+        "message": "V\u00f5id valida k\u00fclgribale eelm\u00e4\u00e4ratud suurused. See muudab selle lehek\u00fclje liugureid, et kohandada k\u00fclgriba laiust, joone k\u00f5rgust, ikoonide suurusi ja palju muud."
+    },
+    "settings_color_scheme": {
+        "message": "V\u00e4rviskeem"
+    },
+    "settings_dark_mode": {
+        "message": "Taust"
+    },
+    "settings_color_scheme_desc": {
+        "message": "K\u00fclgriba p\u00e4ise, valikukastide jne. v\u00e4rv"
+    },
+    "settings_text_color": {
+        "message": "Teksti v\u00e4rv"
+    },
+    "settings_hover_color": {
+        "message": "Kursorialune v\u00e4rv"
+    },
+    "settings_font_family": {
+        "message": "Kirjat\u00fc\u00fcp"
+    },
+    "settings_font_family_default": {
+        "message": "Vaikimisi"
+    },
+    "settings_font_family_desc": {
+        "message": "K\u00fclgriba ja \u00fclekatete kirjat\u00fc\u00fcp"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Kerimisriba laius"
+    },
+    "settings_icon_color": {
+        "message": "V\u00e4rv"
+    },
+    "settings_indicator_width": {
+        "message": "Laius"
+    },
+    "settings_indicator_color": {
+        "message": "V\u00e4rv"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Ikooni suurus"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Ikooni v\u00e4rv"
+    },
+    "settings_sidebar_width": {
+        "message": "Laius"
+    },
+    "settings_header_height": {
+        "message": "P\u00e4ise k\u00f5rgus"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Maski v\u00e4rv"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Kataloogi ikoon"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Kataloogi ikooni v\u00e4rv"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "J\u00e4rjehoidjate t\u00e4hesuurus"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "J\u00e4rjehoidjate ikooni suurus"
+    },
+    "settings_directories_icon_size": {
+        "message": "Kataloogide ikooni suurus"
+    },
+    "settings_directory_arrows": {
+        "message": "Kataloogi nooled"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "J\u00e4rjehoidjate rivi k\u00f5rgus"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "J\u00e4rjehoidjate horisontaalne tihendamine"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Kataloogide treppimine"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Kohtspikri t\u00e4hesuurus"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Maski v\u00e4rv"
+    },
+    "settings_icon_shape": {
+        "message": "Kuju"
+    },
+    "settings_custom_css": {
+        "message": "Kohandatud stiilileht"
+    },
+    "settings_custom_css_desc": {
+        "message": "V\u00f5id m\u00e4\u00e4rata oma stiililehe, mis kaalub \u00fcle vaikestiili. Palun kasuta seda v\u00f5imalust ainult juhul, kui tunned CSS koodi ja tead mida teed."
+    },
+    "settings_newtab_desc": {
+        "message": "Kahjuks eemaldas Google v\u00f5imaluse laienduste laadimiseks uuel vaikekaardilehel. Sellep\u00e4rast lisasin m\u00f5ningaid valikuid, mis v\u00f5imaldavad uue vahekaardi avamisel m\u00f5nel muul viisil oma j\u00e4rjehoidjaid juurde p\u00e4\u00e4seda."
+    },
+    "settings_newtab_override": {
+        "message": "Kaalu uus vahekaart \u00fcle"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Kas laiendus peaks praeguse uue vahekaardilehe asendama muudetud variandiga v\u00f5i laadida uue vahekaardi avamisel veebileht?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Ava k\u00fclgriba automaatselt"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Seadista, kas k\u00fclgriba avaneb uue vahekaardi avamisel automaatselt."
+    },
+    "settings_newtab_website": {
+        "message": "Laadi veebileht"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Muudetud uue vahekaardi asemel v\u00f5ib m\u00e4\u00e4rata veebilehe, mis avatakse."
+    },
+    "settings_language": {
+        "message": "Keel"
+    },
+    "settings_language_default": {
+        "message": "Brauseri vaikev\u00e4\u00e4rtus"
+    },
+    "settings_language_desc": {
+        "message": "Kasutajaliidese keel"
+    },
+    "settings_translation_link": {
+        "message": "Liigu t\u00f5lke \u00fclevaatesse"
+    },
+    "settings_translation_desc": {
+        "message": "Saad aidata laienduse t\u00f5lkimisel oma keelde v\u00f5i parandada olemasolevat."
+    },
+    "settings_translation_add_language": {
+        "message": "Lisa keel"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Tagasi \u00fclevaatesse"
+    },
+    "settings_translation_info": {
+        "message": "V\u00f5id muuta olemasolevat t\u00f5lget v\u00f5i lisada puuduvaid. Kui esitad oma muudatused, vaatan need \u00fcle ja kinnitan."
+    },
+    "settings_translation_notice1": {
+        "message": "Kohe, kui k\u00f5ik n\u00f5utavateks m\u00e4rgitud kategooriad on t\u00f5lgitud, t\u00f5lge avaldatakse."
+    },
+    "settings_translation_notice2": {
+        "message": "Poolikult t\u00f5lgitud kategooriaid ei avaldata, et v\u00e4ltida poolikult t\u00f5lgitud tekste."
+    },
+    "settings_translation_help": {
+        "message": "Iga \u00fcksuse jaoks on n\u00e4htav inglise keelne tekst, mis tuleb t\u00f5lkida oma keelde. Et kergendada tuvastamist, kus ja mille jaoks teksti kasutatakse, on igal \u00fcksusel nimi (nt. {1}), mida ei t\u00f5lgita. \u00c4ra unusta oma t\u00f5lke esitamist, kasutades paremal \u00fcleval nurgas asuvat nuppu!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Soovin saada teavitusi, kui laienduse t\u00f5lkesse lisatakse uusi ridasi"
+    },
+    "settings_translation_submit": {
+        "message": "Esita"
+    },
+    "settings_translation_submit_message": {
+        "message": "T\u00f5lge edastati edukalt"
+    },
+    "settings_translation_status_released": {
+        "message": "T\u00f5lge on saadaval"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "T\u00f5lge on saadaval, aga m\u00f5ned kategooriad pole t\u00e4ielikud"
+    },
+    "settings_translation_status_draft": {
+        "message": "T\u00f5lge on poolik v\u00f5i vajab \u00fclevaadet ja pole kasutajate jaoks saadaval"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "M\u00f5ned t\u00f5lked puuduvad"
+    },
+    "settings_translation_required_category": {
+        "message": "N\u00f5utav"
+    },
+    "settings_feedback_desc": {
+        "message": "Kas on parandusettepanekuid, k\u00fcsimusi, m\u00e4rkasid puuduvaid seadistuste valikuid v\u00f5i leidsid vea? Laienduse parandamiseks olen v\u00e4ga t\u00e4nulik iga tagasiside eest, mis sul v\u00f5iks olla."
+    },
+    "settings_feedback_notice": {
+        "message": "Palun saada tagasiside inglise keeles, muidu on s\u00f5numist raske aru saada ja sellele vastata."
+    },
+    "settings_feedback_email": {
+        "message": "Sinu e-posti aadress"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Lisa kuvat\u00f5mmis"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Fail {1} on liiga suur (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "\u00dcles v\u00f5ib laadida maksimaalselt {1} kuvat\u00f5mmist"
+    },
+    "settings_feedback_send": {
+        "message": "Saada tagasisidet"
+    },
+    "settings_feedback_sent_message": {
+        "message": "T\u00e4nan tagasiside eest"
+    },
+    "settings_feedback_send_failed": {
+        "message": "S\u00f5numi saatmine nurjus. Palun proovi uuesti."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "See v\u00f5ib sulle huvi pakkuda"
+    },
+    "settings_permissions_desc": {
+        "message": "K\u00fclgriba kasutamiseks Chrome brauseris tuleb anda j\u00e4rgmised \u00f5igused:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Kahjuks puudub Chrome'l v\u00f5imalus brauseriakna sisu kuvamiseks ilma hetkel k\u00fclastatava lehega suhtlemata."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Kuna k\u00fclgriba kuvatakse aktiivse veebilehe peal, on need \u00f5igused vajalikud. Lisaks tehnilistele p\u00f5hjustele pole neid \u00f5igusi v\u00f5imalik muuks tarbeks kasutada."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Kui omad kahtlusi, mida \u00f5igustega tehakse, v\u00f5i uurida laienduse koodi Githubis. See on avatud l\u00e4htekood ja n\u00e4htav k\u00f5igile."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Laiendus kuvab j\u00e4rjehoidjaid k\u00fclgribal ja vajab neile ligip\u00e4\u00e4suks \u00f5igusi. Need \u00f5igused lubavad ka lisada, muuta ja eemaldada j\u00e4rjehoidjaid."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Jaga infot"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Eelistused salvestati"
+    },
+    "premium_popup_text": {
+        "message": "Kas oled laienduse Premium versiooni uurinud?"
+    },
+    "premium_restricted_text": {
+        "message": "Need v\u00f5imalused leiduvad ainult Premium versioonis"
+    },
+    "premium_desc_1": {
+        "message": "Premiumiga saad ligip\u00e4\u00e4su lisav\u00f5imalustele ja aitad mind laienduse arendamisel."
+    },
+    "premium_desc_2": {
+        "message": "Allpool saad tutvuda Premium versiooni v\u00f5imalustega. K\u00f5ik rakenduse p\u00f5hiomadused on tasuta ja ei n\u00f5ua Premiumi omandamist. V\u00f5id maksta, mis see laiendus ja minu t\u00f6\u00f6 sinu jaoks on v\u00e4\u00e4rt,et saada ligip\u00e4\u00e4s neile v\u00f5imalustele."
+    },
+    "premium_get_now": {
+        "message": "Hangi Premium"
+    },
+    "premium_show_license_input": {
+        "message": "Mul on Premium juba olemas"
+    },
+    "premium_already_activated": {
+        "message": "Sa kasutad juba Premium versiooni"
+    },
+    "premium_activate": {
+        "message": "Aktiveeri Premium"
+    },
+    "premium_license_key": {
+        "message": "Litsentsiv\u00f5ti"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Ole esimene, kes proovib uusi eksperimentaalseid v\u00f5imalusi"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Premium annab juurdep\u00e4\u00e4su avaldamata funktsioonidele, mis on praegu v\u00e4ljat\u00f6\u00f6tamisel v\u00f5i testimisel."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Muuda k\u00fclgriba laiust igal ajal"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Impordi ja ekspordi s\u00e4tteid"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Kohanda uue vahekaardi lehte"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Kui kasutad selle laienduse uue vahekaardi lehte, saad sellele seada oma taustapildi, et muuta see veel kenamaks."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Kohanda k\u00f5ike oma stiililehega"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Kui tunned CSS koodi, v\u00f5id muuta k\u00fclgriba v\u00e4imust t\u00e4ielikult lisades oma stiili m\u00e4\u00e4ratlused. See v\u00f5imaldab kohandada absoluutselt k\u00f5ike."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Otsi j\u00e4rjehoidjatest katkisi linke v\u00f5i duplikaate."
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Otsinguks v\u00f5id k\u00fclgribal paremkl\u00f5psata igat kataloogi. Vastuste leht kuvab k\u00f5ik uuendatud URL-id, j\u00e4rjehoidjad, mis enam ei t\u00f6\u00f6ta ja sama URL-iga j\u00e4rjehoidjad."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Vali makseviis"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Maksa oma tunde j\u00e4rgi"
+    },
+    "premium_pay_creditcard": {
+        "message": "Krediit- v\u00f5i deebetkaart"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "J\u00e4tkamiseks skanni see QR-kood WeChatis,."
+    },
+    "premium_pay_contact": {
+        "message": "Kui sul tekib maksega seotud probleeme v\u00f5i k\u00fcsimusi, v\u00f5ta minuga \u00fchendust aadressil {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Kokku"
+    },
+    "premium_pay_price_info": {
+        "message": "See on \u00fchekordne tasu ja sisaldab ka k\u00f5iki tulevasi Premium funktsioone."
+    },
+    "premium_pay_eula": {
+        "message": "L\u00f5ppkasutaja litsentsileping"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Olen lugenud ja n\u00f5ustun [a]L\u00f5ppkasutaja litsentsilepinguga[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Ostu t\u00fchistamise tingimused"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Kinnita ost"
+    },
+    "premium_pay_buy": {
+        "message": "Osta Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Tehingu kontrollimine"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Ostu ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "T\u00e4nan ostu eest"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} on selle seadme jaoks automaatselt aktiveeritud. Mingeid lisasamme pole enam vaja."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Kui soovid aktiveerida {1} teises seadmes v\u00f5i p\u00e4rast laienduse uuesti paigaldamist, sisesta laienduse s\u00e4tetes j\u00e4rgmine v\u00f5ti:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-post"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Sisesta litsentsiv\u00f5tme saamiseks oma e-posti aadress."
+    },
+    "premium_pay_info_name": {
+        "message": "Nimi"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Zip kood"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Makseviis"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Kaardi number"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Kaardi t\u00e4htaeg"
     }
 }

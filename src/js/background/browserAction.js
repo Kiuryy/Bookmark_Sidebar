@@ -61,7 +61,7 @@
                         if (pageContextmenu) { // only show page contextmenu when not disabled in the settings
                             chrome.contextMenus.create({
                                 id: "bsToggle_" + uid,
-                                title: b.manifest.name,
+                                title: $.opts.manifest.name,
                                 contexts: ["page"],
                                 documentUrlPatterns: ["https://*/*", "http://*/*"]
                             });

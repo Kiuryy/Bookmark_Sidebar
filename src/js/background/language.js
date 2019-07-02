@@ -72,7 +72,7 @@
         this.init = () => {
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["language"], (data) => {
-                    const defaultLang = b.manifest.default_locale;
+                    const defaultLang = $.opts.manifest.default_locale;
                     let lang = data.language || "default";
                     let fallbackLang = null;
 
@@ -179,7 +179,7 @@
          */
         this.getIncompleteLanguages = () => {
             return new Promise((resolve) => {
-                $.xhr(b.urls.translationInfo).then((xhr) => {
+                $.xhr($.opts.website.translation.info).then((xhr) => {
                     const infos = JSON.parse(xhr.responseText);
                     const incompleteLangs = [];
 

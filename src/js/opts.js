@@ -267,7 +267,16 @@
             pageChanged: "blockbyte-bs-pageChanged"
         },
         website: {
-            premium: "https://extensions.blockbyte.de/premium/bs/checkout",
+            info: {
+                landing: "https://extensions.blockbyte.de/",
+                privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",
+                changelog: "https://extensions.blockbyte.de/changelog/bs",
+                uninstall: "https://extensions.blockbyte.de/uninstall/bs",
+            },
+            premium: {
+                checkout: "https://extensions.blockbyte.de/premium/bs/checkout",
+                checkLicenseKey: "https://extensions.blockbyte.de/ajax/premium/bs/check",
+            },
             feedback: {
                 form: "https://extensions.blockbyte.de/ajax/feedback",
                 suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"
@@ -276,6 +285,12 @@
                 info: "https://extensions.blockbyte.de/ajax/translation/bs/info",
                 langvars: "https://extensions.blockbyte.de/ajax/translation/bs/langvars",
                 submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
+            },
+            api: {
+                checkUrls: "https://api.blockbyte.de/v1/urlcheck",
+                thumbnail: "https://api.blockbyte.de/v1/thumbnail",
+                checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
+                evaluate: "https://api.blockbyte.de/v3/evaluate/extension/bs",
             }
         },
         defaults: {

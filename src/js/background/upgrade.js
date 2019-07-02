@@ -48,7 +48,7 @@
          */
         this.onUpdated = (details) => {
             chrome.storage.local.remove(["languageInfos"]);
-            const newVersion = b.manifest.version;
+            const newVersion = $.opts.manifest.version;
 
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");

@@ -35,7 +35,7 @@
                     if (cachedValue) {
                         resolve({img: cachedValue});
                     } else {
-                        $.xhr(b.urls.thumbnail, {
+                        $.xhr($.opts.website.api.thumbnail, {
                             method: "POST",
                             timeout: 10000,
                             data: {

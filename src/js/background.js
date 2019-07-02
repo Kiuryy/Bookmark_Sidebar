@@ -4,21 +4,6 @@
     const background = function () {
         this.importRunning = false;
         this.preventReload = false;
-        this.manifest = chrome.runtime.getManifest();
-
-        this.urls = {
-            website: "https://extensions.blockbyte.de/",
-            checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
-            evaluate: "https://api.blockbyte.de/v3/evaluate/extension/bs",
-            translationInfo: "https://extensions.blockbyte.de/ajax/translation/bs/info",
-            premiumCheck: "https://extensions.blockbyte.de/ajax/premium/bs/check",
-            privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",
-            changelog: "https://extensions.blockbyte.de/changelog/bs",
-            uninstall: "https://extensions.blockbyte.de/uninstall/bs",
-            checkUrls: "https://api.blockbyte.de/v1/urlcheck",
-            thumbnail: "https://api.blockbyte.de/v1/thumbnail"
-        };
-
         this.isDev = false;
         this.reinitialized = null;
 
@@ -89,7 +74,7 @@
 
                                 $.delay(delay).then(() => {
                                     Object.entries(types).forEach(([type, func]) => {
-                                        const files = this.manifest.content_scripts[0][type];
+                                        const files = $.opts.manifest.content_scripts[0][type];
                                         let failed = false;
 
                                         files.forEach((file) => {
@@ -210,13 +195,13 @@
          */
         this.run = () => {
             const start = +new Date();
-            this.isDev = this.manifest.version_name === "Dev" || !("update_url" in this.manifest);
+            this.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
 
             chrome.runtime.onInstalled.addListener((details) => {
                 callOnInstalledCallback(details);
             });
 
-            chrome.runtime.setUninstallURL(this.urls[this.isDev ? "website" : "uninstall"]);
+            chrome.runtime.setUninstallURL($.opts.website.info[this.isDev ? "landing" : "uninstall"]);
 
             initHelpers();
 

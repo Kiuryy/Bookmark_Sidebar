@@ -249,7 +249,7 @@
                 [path.src + "manifest.json"]: path.tmp + "manifest.json"
             }, [
                 [/("content_scripts":[\s\S]*?"js":\s?\[)([\s\S]*?)(\])/mig, "$1\"js/lib/jsu.js\",\"js/opts.js\",\"js/extension.js\"$3"],
-                [/("background":[\s\S]*?"scripts":\s?\[)([\s\S]*?)(\])/mig, "$1\"js/lib/jsu.js\",\"js/background.js\"$3"],
+                [/("background":[\s\S]*?"scripts":\s?\[)([\s\S]*?)(\])/mig, "$1\"js/lib/jsu.js\",\"js/opts.js\",\"js/background.js\"$3"],
                 [/("version":[\s]*")[^"]*("[\s]*,)/ig, "$1" + process.env.npm_package_version + "$2"],
                 [/("version_name":[\s]*")[^"]*("[\s]*,)/ig, "$1" + process.env.npm_package_versionName + "$2"],
                 [/(img\/icon\/)dev\/(.*\.png)/ig, "$1$2"]

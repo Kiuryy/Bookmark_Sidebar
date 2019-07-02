@@ -51,7 +51,7 @@
         this.checkLicenseKey = (licenseKey) => {
             return new Promise((resolve) => {
 
-                $.xhr(b.urls.premiumCheck, {
+                $.xhr($.opts.website.premium.checkLicenseKey, {
                     method: "POST",
                     responseType: "json",
                     data: {
@@ -76,11 +76,11 @@
          */
         this.checkWebsiteStatus = () => {
             return new Promise((resolve) => {
-                $.xhr(b.urls.checkStatus, {
+                $.xhr($.opts.website.api.checkStatus, {
                     method: "POST",
                     responseType: "json",
                     data: {
-                        version: b.isDev ? "9.9.9" : b.manifest.version
+                        version: b.isDev ? "9.9.9" : $.opts.manifest.version
                     }
                 }).then((xhr) => {
                     if (xhr.response && xhr.response.available) {
@@ -104,10 +104,10 @@
         this.checkUrls = (opts) => {
             return new Promise((resolve) => {
                 if (opts.abort && opts.abort === true) {
-                    $.cancelXhr(b.urls.checkUrls);
+                    $.cancelXhr($.opts.website.api.checkStatus);
                 } else {
                     Promise.all([
-                        $.xhr(b.urls.checkUrls, {
+                        $.xhr($.opts.website.api.checkUrls, {
                             method: "POST",
                             data: {
                                 urlList: opts.urls,
@@ -140,8 +140,8 @@
                 b.helper.viewAmount.addByEntry(opts);
 
                 if (opts.hrefName) {
-                    if (b.urls[opts.hrefName]) {
-                        opts.href = b.urls[opts.hrefName];
+                    if ($.opts.website.info[opts.hrefName]) {
+                        opts.href = $.opts.website.info[opts.hrefName];
                     } else { // hrefName is not a known url -> abort
                         resolve();
                         return;

@@ -64,7 +64,7 @@
 
             elm.linkPremium && elm.linkPremium.on("click", (e) => {
                 e.preventDefault();
-                chrome.tabs.create({url: $.opts.website.premium + "?lang=" + s.helper.i18n.getLanguage()});
+                chrome.tabs.create({url: $.opts.website.premium.checkout + "?lang=" + s.helper.i18n.getLanguage()});
             });
 
             elm.showLicenseField && elm.showLicenseField.on("click", (e) => {

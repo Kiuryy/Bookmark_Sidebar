@@ -78,7 +78,7 @@
                         shareState = "nothing";
                     }
 
-                    addToStack("version", b.manifest.version_name);
+                    addToStack("version", $.opts.manifest.version_name);
                     addToStack("system", navigator.userAgent);
                     addToStack("language", b.helper.language.getLanguage());
                     addToStack("shareInfo", shareState);
@@ -261,7 +261,7 @@
             }
 
             return new Promise((resolve) => {
-                $.xhr(b.urls.evaluate, {
+                $.xhr($.opts.website.api.evaluate, {
                     method: "POST",
                     responseType: "json",
                     timeout: 30000,

@@ -252,9 +252,7 @@
          *
          * @returns {string}
          */
-        this.getUserType = () => {
-            return userType;
-        };
+        this.getUserType = () => userType;
 
         /**
          * Returns all stored configuration

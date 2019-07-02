@@ -23,7 +23,7 @@
 
                     if (info.name === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
                         chrome.browserAction.setIcon({
-                            path: b.manifest.browser_action.default_icon
+                            path: $.opts.manifest.browser_action.default_icon
                         });
                     } else {
                         this.set({
@@ -101,7 +101,7 @@
                     }
                 }).then((svg) => {
                     if (color === "auto") {
-                        color = window.matchMedia("(prefers-color-scheme: dark)").matches ? "#ffffff" : "#555555";
+                        color = $.opts.defaults[window.matchMedia("(prefers-color-scheme: dark)").matches ? "iconColorForDark" : "iconColorForLight"];
                     }
 
                     color = color.replace(/#/g, "%23");

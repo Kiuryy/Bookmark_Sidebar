@@ -923,6 +923,18 @@
     "settings_icon_color": {
         "message": "Color"
     },
+    "settings_icon_color_auto": {
+        "message": "Automatically"
+    },
+    "settings_icon_color_custom": {
+        "message": "Custom"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "The icon color will be set automatically to match color scheme of your system (light or dark). You can also define your own custom color for the icon."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Please note that the automatic color is not working, when using a custom Chrome theme."
+    },
     "settings_indicator_width": {
         "message": "Width"
     },

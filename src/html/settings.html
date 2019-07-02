@@ -341,7 +341,15 @@
                         </div>
                     </div>
                     <div class="box">
-                        <div class="formElement" data-type="color" data-suggestions='["#c8c8c8","#555555"]' data-name="iconColor" data-i18n="settings_icon_color"></div>
+                        <div class="formElement" data-type="select" data-i18n="settings_icon_color" data-name="iconColorType">
+                            <span data-value="custom" data-i18n="settings_icon_color_custom"></span>
+                            <span data-value="auto" data-i18n="settings_icon_color_auto"></span>
+                        </div>
+                        <div class="iconColorWrapper">
+                            <div class="formElement" data-type="color" data-suggestions='["#c8c8c8","#555555"]' data-name="iconColor"></div>
+                        </div>
+                        <p class="desc" data-i18n="settings_icon_color_desc_1"></p>
+                        <p class="note" data-i18n="settings_icon_color_desc_2"></p>
                     </div>
                 </div>
             </div>

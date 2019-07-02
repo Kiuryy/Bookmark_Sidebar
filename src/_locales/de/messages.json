@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "Farbe"
     },
+    "settings_icon_color_auto": {
+        "message": "Automatisch"
+    },
+    "settings_icon_color_custom": {
+        "message": "Benutzerdefiniert"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Die Farbe des Symbols wird automatisch gesetzt, um passend zur Farbgebung deines Systems (hell oder dunkel) zu sein. Es l\u00e4sst sich auch eine eigene Farbe f\u00fcr das Symbol festlegen."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Beachte, dass das automatische Einf\u00e4rben nicht funktioniert, wenn ein ge\u00e4ndertes Chrome-Design verwendet wird."
+    },
     "settings_indicator_width": {
         "message": "Breite"
     },

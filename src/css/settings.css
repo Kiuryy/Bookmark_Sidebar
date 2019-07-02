@@ -1028,7 +1028,6 @@ body.showModal > div.toggleAreaModal {
   z-index: 99; }
 
 html[dir='rtl'] body > section#wrapper div.toggleAreaDesc::before {
-  top: 18px;
   right: 0;
   left: unset; }
 
@@ -1173,6 +1172,33 @@ body[data-type^='appearance'] > section#wrapper > main div.presets > a {
   body[data-type^='appearance'] > section#wrapper > main div.presets > a:hover {
     background: rgba(0, 0, 0, 0.07); }
 
+body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper ~ p.note {
+  position: relative;
+  display: none;
+  line-height: 150%;
+  padding: 3px 0 3px 40px;
+  margin-top: 12px; }
+  body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper ~ p.note::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/32px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
+    background-color: #aaa; }
+  body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper ~ p.note::before {
+    top: 8px;
+    left: 0;
+    width: 32px;
+    height: 32px; }
+
+body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper.hidden {
+  display: none; }
+  body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper.hidden ~ p.note {
+    display: block; }
+
 body[data-type^='appearance'] > section#wrapper > main div[data-name='sidebar'] ul.radioWrapper > li {
   display: inline-block; }
   body[data-type^='appearance'] > section#wrapper > main div[data-name='sidebar'] ul.radioWrapper > li + li {
@@ -1232,6 +1258,13 @@ html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.prese
 html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div[data-name='sidebar'] ul.radioWrapper > li + li {
   margin-right: 30px;
   margin-left: unset; }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper ~ p.note {
+  padding-right: 40px;
+  padding-left: unset; }
+  html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.iconColorWrapper ~ p.note::before {
+    right: 0;
+    left: unset; }
 
 html[dir='rtl'] iframe[data-appearance] {
   right: unset;

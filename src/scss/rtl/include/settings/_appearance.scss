@@ -59,6 +59,19 @@ html[dir='rtl'] {
           margin-left: unset;
         }
       }
+
+      div.iconColorWrapper {
+
+        ~ p.note {
+          padding-right: 40px;
+          padding-left: unset;
+
+          &::before {
+            right: 0;
+            left: unset;
+          }
+        }
+      }
     }
   }
 

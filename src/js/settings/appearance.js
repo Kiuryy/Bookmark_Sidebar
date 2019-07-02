@@ -62,6 +62,11 @@
                             s.elm.range[key].data("initial", value.replace("px", ""));
                             s.elm.range[key].trigger("change");
                         } else if (s.elm.color[key]) {
+                            if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the default icon color for the light OS preference as predefined color
+                                value = $.opts.defaults.iconColorForLight;
+                                s.elm.select.iconColorType[0].value = "auto";
+                            }
+
                             changeColorValue(s.elm.color[key], value);
                             s.elm.color[key].data("initial", s.elm.color[key][0].value);
                         } else if (s.elm.select[key]) {
@@ -203,7 +208,7 @@
             } else if (key === "icon") {
                 s.helper.model.call("updateIcon", {
                     name: config.appearance.styles.iconShape,
-                    color: config.appearance.styles.iconColor,
+                    color: s.elm.select.iconColorType[0].value === "auto" ? "auto" : config.appearance.styles.iconColor,
                     onlyCurrentTab: true
                 });
             }
@@ -353,6 +358,10 @@
                 }
             });
 
+            if (s.elm.select.iconColorType[0].value === "auto") {
+                ret.appearance.styles.iconColor = "auto";
+            }
+
             return ret;
         };
 
@@ -449,6 +458,17 @@
                     s.elm.range[key].trigger("change");
                 });
             });
+
+            s.elm.select.iconColorType.on("change, input", (e) => { //
+                if (e.currentTarget.value === "auto") {
+                    s.elm.appearance.iconColorWrapper.addClass($.cl.hidden);
+                } else {
+                    s.elm.appearance.iconColorWrapper.removeClass($.cl.hidden);
+                }
+
+                updatePreviewStyle("icon");
+            }).trigger("input");
+
 
             s.elm.range.tooltipFontSize.on("change, input", () => { // show tooltip in preview for 2s when changing the font size
                 lastTooltipChange = +new Date();

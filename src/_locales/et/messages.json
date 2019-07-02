@@ -60,19 +60,19 @@
         "message": "Ava uues aknas"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Ava inkognito kaardil"
+        "message": "Ava inkognito aknas"
     },
     "contextmenu_add_bookmark": {
         "message": "Lisa j\u00e4rjehoidja"
     },
     "contextmenu_add": {
-        "message": "Lisa \u00fcksus"
+        "message": "Lisa kirje"
     },
     "contextmenu_check_bookmarks": {
         "message": "Kontrolli j\u00e4rjehoidjaid"
     },
     "contextmenu_toggle_hidden": {
-        "message": "Kuva peidetud \u00fcksused"
+        "message": "Kuva peidetud kirjed"
     },
     "contextmenu_close_all_directories": {
         "message": "Sulge k\u00f5ik kataloogid"
@@ -153,7 +153,7 @@
         "message": "Ava k\u00f5ik"
     },
     "overlay_confirm_open_children": {
-        "message": "Kas t\u00f5esti avada k\u00f5ik {1} j\u00e4rjehoidjat?"
+        "message": "Kas t\u00f5esti avada k\u00f5ik {1} kataloogis olevat j\u00e4rjehoidjat?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Peida k\u00fclgribal"
@@ -162,13 +162,13 @@
         "message": "Kas peita see j\u00e4rjehoidja k\u00fclgribal?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Kas t\u00f5esti peita see kataloogi k\u00fclgribal? Peidetakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
+        "message": "Kas t\u00f5esti peita see kataloog k\u00fclgribal? Peidetakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
     },
     "overlay_delete_bookmark_confirm": {
         "message": "Kas t\u00f5esti kustutada see j\u00e4rjehoidja?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Kas t\u00f5esti kustutada see kataloogl? Eemaldatakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
+        "message": "Kas t\u00f5esti kustutada see kataloog? Eemaldatakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
     },
     "overlay_label_bookmark": {
         "message": "J\u00e4rjehoidja"
@@ -240,13 +240,13 @@
         "message": "K\u00f5ik URL-id on korras"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "J\u00e4rjehoidjate muudetud URL-e pole"
+        "message": "Muudetud j\u00e4rjehoidjaid pole"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "J\u00e4rjehoijate katkisi URL-e pole"
+        "message": "Katkisi j\u00e4rjehoidjaid pole"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "J\u00e4rjehoidjate duplikaat URL-e pole"
+        "message": "Korduvaid j\u00e4rjehoidjaid pole"
     },
     "overlay_check_bookmarks_no_results_empty": {
         "message": "J\u00e4rjehoidjateta katalooge pole"
@@ -321,7 +321,7 @@
         "message": "\u00dcks URL reeglitest ei lubanud k\u00fclgriba avada"
     },
     "newtab_fallback_desc": {
-        "message": "Avasime selle asemel uue otsiribaga vahekaardi."
+        "message": "Avasime selle asemel otsiribaga uue vahekaardi."
     },
     "newtab_fallback_set_as_new_tab": {
         "message": "Kuva seda lehte alati uue vahekaardi avamisel"
@@ -330,7 +330,7 @@
         "message": "Teenus pole saadaval"
     },
     "status_check_bookmarks_unavailable_desc": {
-        "message": "URL-id kontrolliv teenus pole hetkel saadaval. Palun proovi hiljem uuesti."
+        "message": "URL-i kontrolliv teenus pole hetkel saadaval. Palun proovi hiljem uuesti."
     },
     "status_feedback_unavailable_desc": {
         "message": "Tagasiside teenus pole hetkel saadaval. Kasuta selleks e-posti."
@@ -387,10 +387,10 @@
         "message": "Ma vajan sinu abi"
     },
     "contribute_intro": {
-        "message": "Laienduse parandamiseks soovin paremini teada, kuidas ja millise seadistusega kasutajad k\u00fclgriba kasutavad."
+        "message": "Laienduse parandamiseks soovin t\u00e4psemalt teada, kuidas ja millise seadistusega kasutajad k\u00fclgriba kasutavad."
     },
     "contribute_outro": {
-        "message": "Kui sul on k\u00fcsimusi v\u00f5i kahtlusi info jagamise suhtes, saada mulle palun tagasiside s\u00f5num."
+        "message": "Kui sul on k\u00fcsimusi v\u00f5i kahtlusi info jagamise suhtes, saada mulle tagasiside s\u00f5num."
     },
     "contribute_dismiss": {
         "message": "Keeldu"
@@ -405,10 +405,10 @@
         "message": "Jaga tegevusi"
     },
     "contribute_share_activity_desc1": {
-        "message": "V\u00f5i jagada tegevusi k\u00fclgribas anon\u00fc\u00fcmselt, mis aitab m\u00f5ista, kuidas kasutajad k\u00fclgriba \u00fcldisemalt kasutavad. J\u00e4rjehoidjaid ja k\u00fclastatud veebilehti [b]ei[\/b] ei j\u00e4lgita."
+        "message": "V\u00f5id anon\u00fc\u00fcmselt jagada tegevusi k\u00fclgribas, mis aitab m\u00f5ista, kuidas kasutajad k\u00fclgriba \u00fcldisemalt kasutavad. J\u00e4rjehoidjaid ja k\u00fclastatud veebilehti [b]ei[\/b] j\u00e4lgita."
     },
     "contribute_share_activity_desc2": {
-        "message": "See info on v\u00e4ga kasulik leidmaks probleeme laienduse kasutuses v\u00f5i n\u00e4iteks v\u00f5imalustes, mida kasutatakse harva."
+        "message": "See info on v\u00e4ga kasulik leidmaks probleeme laienduse kasutuses v\u00f5i n\u00e4iteks funktsioonides, mida kasutatakse harva."
     },
     "contribute_share_activity_examples_intro": {
         "message": "Jagatavad andmed on n\u00e4iteks:"
@@ -456,7 +456,7 @@
         "message": "Tume"
     },
     "onboarding_handson_desc": {
-        "message": "V\u00f5id n\u00fc\u00fcd ise proovida"
+        "message": "V\u00f5id n\u00fc\u00fcd ise proovida."
     },
     "onboarding_handson_mouse_desc_1": {
         "message": "Liiguta kursor akna {1} servale."
@@ -468,13 +468,13 @@
         "message": "Kl\u00f5psa laiendusel k\u00fclgriba avamiseks."
     },
     "onboarding_left": {
-        "message": "vasemale"
+        "message": "vasakule"
     },
     "onboarding_right": {
         "message": "paremale"
     },
     "onboarding_finish_desc": {
-        "message": "Tunne k\u00fclgribast r\u00f5\u00f5mu."
+        "message": "Kasuta k\u00fclgriba m\u00f5nuga."
     },
     "onboarding_finish_notice": {
         "message": "Kui kl\u00f5psad pidevalt brauseriakna {1} k\u00fcljele, v\u00f5id proovida muuta k\u00fclgriba avamise asukohta, et v\u00e4ltida selle juhuslikku avamist."
@@ -744,10 +744,10 @@
         "message": "Ava k\u00fclgriba uuesti"
     },
     "settings_reopen_sidebar_desc": {
-        "message": "P\u00e4rast j\u00e4rjehoidja avamist k\u00fclgribast ava k\u00fclgriba automaatselt uuesti."
+        "message": "P\u00e4rast j\u00e4rjehoidja avamist k\u00fclgribal ava k\u00fclgriba automaatselt uuesti."
     },
     "settings_prevent_windowed": {
-        "message": "Keela k\u00fclgriba"
+        "message": "Keela k\u00fclgriba aknare\u017eiimis"
     },
     "settings_prevent_windowed_desc": {
         "message": "Keelab v\u00f5imaluse k\u00fclgriba avamiseks hiirekursoriga v\u00f5i kl\u00f5psuga servale, kui brauser on aknare\u017eiimis."
@@ -762,7 +762,7 @@
         "message": "Kohtspikreid ei kuvata"
     },
     "settings_tooltip_desc": {
-        "message": "Vali, millist infot peaks ohtspikker sisaldama."
+        "message": "Vali, millist infot peaks kohtspikker sisaldama."
     },
     "settings_tooltip_content": {
         "message": "Kohtspikri sisu"
@@ -795,7 +795,7 @@
         "message": "Kontekstmen\u00fc\u00fc kirje"
     },
     "settings_contextmenu_desc": {
-        "message": "Kuva k\u00fclgriba l\u00fclitamise kirje Chrome kontekstmen\u00fc\u00fcs"
+        "message": "Kuva k\u00fclgriba l\u00fclitamise kirje Chrome kontekstmen\u00fc\u00fcs."
     },
     "settings_filter_intro": {
         "message": "Kui sa ei soovi, et k\u00fclgriba laetakse igal lehel, saab m\u00e4\u00e4rata lehed musta (keelatud) ja valgesse (lubatud) nimekirja."
@@ -906,13 +906,13 @@
         "message": "Kataloogi ikooni v\u00e4rv"
     },
     "settings_bookmarks_font_size": {
-        "message": "J\u00e4rjehoidjate t\u00e4hesuurus"
+        "message": "J\u00e4rjehoidja t\u00e4hesuurus"
     },
     "settings_bookmarks_icon_size": {
-        "message": "J\u00e4rjehoidjate ikooni suurus"
+        "message": "J\u00e4rjehoidja ikooni suurus"
     },
     "settings_directories_icon_size": {
-        "message": "Kataloogide ikooni suurus"
+        "message": "Kataloogi ikooni suurus"
     },
     "settings_directory_arrows": {
         "message": "Kataloogi nooled"
@@ -942,7 +942,7 @@
         "message": "V\u00f5id m\u00e4\u00e4rata oma stiililehe, mis kaalub \u00fcle vaikestiili. Palun kasuta seda v\u00f5imalust ainult juhul, kui tunned CSS koodi ja tead mida teed."
     },
     "settings_newtab_desc": {
-        "message": "Kahjuks eemaldas Google v\u00f5imaluse laienduste laadimiseks uuel vaikekaardilehel. Sellep\u00e4rast lisasin m\u00f5ningaid valikuid, mis v\u00f5imaldavad uue vahekaardi avamisel m\u00f5nel muul viisil oma j\u00e4rjehoidjaid juurde p\u00e4\u00e4seda."
+        "message": "Kahjuks eemaldas Google v\u00f5imaluse laienduste laadimiseks uuel vaikekaardilehel. Sellep\u00e4rast lisasin m\u00f5ningaid valikuid, mis v\u00f5imaldavad uue vahekaardi avamisel m\u00f5nel muul viisil oma j\u00e4rjehoidjate juurde p\u00e4\u00e4seda."
     },
     "settings_newtab_override": {
         "message": "Kaalu uus vahekaart \u00fcle"
@@ -972,7 +972,7 @@
         "message": "Kasutajaliidese keel"
     },
     "settings_translation_link": {
-        "message": "Liigu t\u00f5lke \u00fclevaatesse"
+        "message": "Ava t\u00f5lke\u00fclevaade"
     },
     "settings_translation_desc": {
         "message": "Saad aidata laienduse t\u00f5lkimisel oma keelde v\u00f5i parandada olemasolevat."
@@ -987,7 +987,7 @@
         "message": "V\u00f5id muuta olemasolevat t\u00f5lget v\u00f5i lisada puuduvaid. Kui esitad oma muudatused, vaatan need \u00fcle ja kinnitan."
     },
     "settings_translation_notice1": {
-        "message": "Kohe, kui k\u00f5ik n\u00f5utavateks m\u00e4rgitud kategooriad on t\u00f5lgitud, t\u00f5lge avaldatakse."
+        "message": "Kohe, kui k\u00f5ik n\u00f5utavaks m\u00e4rgitud kategooriad on t\u00f5lgitud, t\u00f5lge avaldatakse."
     },
     "settings_translation_notice2": {
         "message": "Poolikult t\u00f5lgitud kategooriaid ei avaldata, et v\u00e4ltida poolikult t\u00f5lgitud tekste."
@@ -1071,16 +1071,16 @@
         "message": "Eelistused salvestati"
     },
     "premium_popup_text": {
-        "message": "Kas oled laienduse Premium versiooni uurinud?"
+        "message": "Kas oled laienduse Premium versiooniga tuttav?"
     },
     "premium_restricted_text": {
-        "message": "Need v\u00f5imalused leiduvad ainult Premium versioonis"
+        "message": "See funktsioon on saadaval ainult Premium versioonis"
     },
     "premium_desc_1": {
         "message": "Premiumiga saad ligip\u00e4\u00e4su lisav\u00f5imalustele ja aitad mind laienduse arendamisel."
     },
     "premium_desc_2": {
-        "message": "Allpool saad tutvuda Premium versiooni v\u00f5imalustega. K\u00f5ik rakenduse p\u00f5hiomadused on tasuta ja ei n\u00f5ua Premiumi omandamist. V\u00f5id maksta, mis see laiendus ja minu t\u00f6\u00f6 sinu jaoks on v\u00e4\u00e4rt,et saada ligip\u00e4\u00e4s neile v\u00f5imalustele."
+        "message": "Allpool saad tutvuda Premium versiooni v\u00f5imalustega. K\u00f5ik rakenduse p\u00f5hiomadused on tasuta ja ei n\u00f5ua Premiumi omandamist. V\u00f5id maksta, mis see laiendus ja minu t\u00f6\u00f6 sinu jaoks on v\u00e4\u00e4rt, et saada ligip\u00e4\u00e4s neile funktsioonidele."
     },
     "premium_get_now": {
         "message": "Hangi Premium"
@@ -1137,7 +1137,7 @@
         "message": "Krediit- v\u00f5i deebetkaart"
     },
     "premium_pay_wechat_desc": {
-        "message": "J\u00e4tkamiseks skanni see QR-kood WeChatis,."
+        "message": "J\u00e4tkamiseks sk\u00e4nni see QR-kood WeChatis,."
     },
     "premium_pay_contact": {
         "message": "Kui sul tekib maksega seotud probleeme v\u00f5i k\u00fcsimusi, v\u00f5ta minuga \u00fchendust aadressil {1}."

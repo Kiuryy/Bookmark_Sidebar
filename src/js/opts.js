@@ -278,6 +278,10 @@
                 submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
             }
         },
+        defaults: {
+            iconColorForLight: "#555555",
+            iconColorForDark: "#ffffff"
+        },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
         manifest: chrome.runtime.getManifest(),
         demoMode: false

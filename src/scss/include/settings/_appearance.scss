@@ -156,6 +156,33 @@ body[data-type^='appearance'] {
       }
     }
 
+    div.iconColorWrapper {
+
+      ~ p.note {
+        @include mask('icon-info', $textColorLight, 32px);
+        position: relative;
+        display: none;
+        line-height: 150%;
+        padding: 3px 0 3px 40px;
+        margin-top: 12px;
+
+        &::before {
+          top: 8px;
+          left: 0;
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      &.hidden {
+        display: none;
+
+        ~ p.note {
+          display: block;
+        }
+      }
+    }
+
     div[data-name='sidebar'] ul.radioWrapper > li {
       display: inline-block;
 

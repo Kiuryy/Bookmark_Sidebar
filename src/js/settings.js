@@ -37,7 +37,8 @@
             },
             appearance: {
                 content: $("div.tab[data-name='appearance']"),
-                presetWrapper: $("div.tab[data-name='appearance'] div.presets")
+                presetWrapper: $("div.tab[data-name='appearance'] div.presets"),
+                iconColorWrapper: $("div.tab[data-name='appearance'] div.iconColorWrapper"),
             },
             newtab: {
                 content: $("div.tab[data-name='newtab']")

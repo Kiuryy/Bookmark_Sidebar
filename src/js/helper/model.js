@@ -123,7 +123,7 @@
                     overlayHeaderHeight: "50px",
                     fontFamily: "default",
                     iconShape: "bookmark",
-                    iconColor: "#555555"
+                    iconColor: "auto"
                 }
             },
             n: { // new tab -> synced across devices

@@ -3,7 +3,7 @@
 
     $.IconHelper = function (b) {
 
-        const cachedSvg = {};
+        let cachedSvg = {};
         let currentIcon = null;
 
         /**
@@ -16,6 +16,9 @@
                     getInfo(),
                     b.helper.language.getLangVars()
                 ]).then(([info, lang]) => {
+                    cachedSvg = {};
+                    currentIcon = null;
+
                     chrome.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
 
                     if (info.name === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
@@ -50,7 +53,7 @@
             return new Promise((resolve) => {
                 chrome.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
-                    let color = "#555555";
+                    let color = "auto";
                     let devModeIconBadge = true;
 
                     if (obj && obj.appearance && obj.appearance.styles) {
@@ -97,6 +100,10 @@
                         });
                     }
                 }).then((svg) => {
+                    if (color === "auto") {
+                        color = window.matchMedia("(prefers-color-scheme: dark)").matches ? "#ffffff" : "#555555";
+                    }
+
                     color = color.replace(/#/g, "%23");
                     svg = svg.replace(/(#|%23)000/g, color);
                     resolve(svg);

@@ -142,27 +142,6 @@
                 delete obj.appearance.addVisual;
                 delete obj.newtab.initialOpen;
 
-                if (!obj.appearance.styles.iconShape || obj.appearance.styles.iconShape === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
-                    obj.appearance.styles.iconShape = "bookmark";
-                    obj.appearance.styles.iconColor = "#555555";
-                }
-
-                if (obj.newtab.searchEngine === "duckduckgo") { // @deprecated duckduckgo is now a custom search engine (03/2019)
-                    obj.newtab.searchEngine = "custom";
-                    obj.newtab.searchEngineCustom = {
-                        title: "DuckDuckGo",
-                        homepage: "https://duckduckgo.com/",
-                        queryUrl: "https://duckduckgo.com/?q={1}"
-                    };
-                } else if (obj.newtab.searchEngine === "duckduckgo") { // @deprecated yahoo is now a custom search engine (03/2019)
-                    obj.newtab.searchEngine = "custom";
-                    obj.newtab.searchEngineCustom = {
-                        title: "Yahoo",
-                        homepage: "https://search.yahoo.com/",
-                        queryUrl: "https://search.yahoo.com/search?p={1}"
-                    };
-                }
-
                 if (typeof obj.appearance.styles.iconColor === "undefined" || obj.appearance.styles.iconColor === "#555555" || obj.appearance.styles.iconColor === "#555") { // @deprecated icon color is now per default automatically light/dark depending on OS setting (07/2019)
                     obj.appearance.styles.iconColor = "auto";
                 }

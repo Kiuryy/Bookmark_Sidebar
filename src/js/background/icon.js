@@ -21,16 +21,10 @@
 
                     chrome.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
 
-                    if (info.name === "logo") { // @deprecated logo as extension icon in the Chrome menu is no longer supported (03/2019)
-                        chrome.browserAction.setIcon({
-                            path: $.opts.manifest.browser_action.default_icon
-                        });
-                    } else {
-                        this.set({
-                            name: info.name,
-                            color: info.color
-                        });
-                    }
+                    this.set({
+                        name: info.name,
+                        color: info.color
+                    });
 
                     if (b.isDev && info.devModeIconBadge) { // add badge for the dev version
                         chrome.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});

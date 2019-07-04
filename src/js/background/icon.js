@@ -95,7 +95,7 @@
                     }
                 }).then((svg) => {
                     if (color === "auto") {
-                        color = $.opts.defaults[window.matchMedia("(prefers-color-scheme: dark)").matches ? "iconColorForDark" : "iconColorForLight"];
+                        color = $.opts.defaultColors.icon[window.matchMedia("(prefers-color-scheme: dark)").matches ? "forDark" : "forLight"];
                     }
 
                     color = color.replace(/#/g, "%23");

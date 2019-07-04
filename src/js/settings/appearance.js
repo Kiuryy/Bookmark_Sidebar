@@ -63,7 +63,7 @@
                             s.elm.range[key].trigger("change");
                         } else if (s.elm.color[key]) {
                             if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the default icon color for the light OS preference as predefined color
-                                value = $.opts.defaults.iconColorForLight;
+                                value = $.opts.defaultColors.icon.forLight;
                                 s.elm.select.iconColorType[0].value = "auto";
                             }
 
@@ -334,7 +334,7 @@
 
                     if (key === "colorScheme") {
                         const lum = colorValue.luminance ? colorValue.luminance : 0;
-                        ret.appearance.styles.foregroundColor = s.helper.model.getDefaultColor("foregroundColor", lum > 170 ? "dark" : "light");
+                        ret.appearance.styles.foregroundColor = $.opts.defaultColors.foregroundColor[lum > 170 ? "dark" : "light"];
 
                         if (lum > 215) {
                             ret.appearance.highContrast = true;
@@ -497,13 +497,13 @@
                                 "old": val ? "light" : "dark"
                             };
 
-                            const textColor = s.helper.model.getDefaultColor("textColor", scheme["new"]);
+                            const textColor = $.opts.defaultColors.textColor[scheme["new"]];
                             changeColorValue(s.elm.color.textColor, textColor);
                             changeColorValue(s.elm.color.bookmarksDirColor, textColor);
 
                             ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
-                                if (colorName === "hoverColor" || s.elm.color[colorName][0].value === s.helper.model.getDefaultColor(colorName, scheme.old)) { // only change, if it was the default color before
-                                    const color = s.helper.model.getDefaultColor(colorName, scheme["new"]);
+                                if (colorName === "hoverColor" || s.elm.color[colorName][0].value === $.opts.defaultColors[colorName][scheme.old]) { // only change, if it was the default color before
+                                    const color = $.opts.defaultColors[colorName][scheme["new"]];
                                     changeColorValue(s.elm.color[colorName], color);
                                 }
                             });

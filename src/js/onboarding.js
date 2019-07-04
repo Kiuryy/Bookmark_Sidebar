@@ -154,11 +154,11 @@
 
                 if (e.type === "click") {
                     const styles = this.helper.model.getData("a/styles");
-                    styles.colorScheme = this.helper.model.getDefaultColor("colorScheme", value);
-                    styles.textColor = this.helper.model.getDefaultColor("textColor", value);
-                    styles.bookmarksDirColor = this.helper.model.getDefaultColor("textColor", value);
-                    styles.sidebarMaskColor = this.helper.model.getDefaultColor("sidebarMaskColor", value);
-                    styles.hoverColor = this.helper.model.getDefaultColor("hoverColor", value);
+                    styles.colorScheme = $.opts.defaultColors.colorScheme[value];
+                    styles.textColor = $.opts.defaultColors.textColor[value];
+                    styles.bookmarksDirColor = $.opts.defaultColors.textColor[value];
+                    styles.sidebarMaskColor = $.opts.defaultColors.sidebarMaskColor[value];
+                    styles.hoverColor = $.opts.defaultColors.hoverColor[value];
 
                     Object.values(this.elm.sidebar).forEach((sidebar) => {
                         sidebar.removeClass($.cl.visible);

@@ -7,29 +7,6 @@
      */
     $.ModelHelper = function (ext) {
 
-        const defaultColors = {
-            textColor: {
-                light: "#646464",
-                dark: "#c8c8c8"
-            },
-            sidebarMaskColor: {
-                light: "rgba(255,255,255,0.8)",
-                dark: "rgba(0,0,0,0.6)"
-            },
-            hoverColor: {
-                light: "#f5f5f5",
-                dark: "#555555"
-            },
-            colorScheme: {
-                light: "#1b82f1",
-                dark: "#1f4d80"
-            },
-            foregroundColor: {
-                light: "#ffffff",
-                dark: "#333333"
-            }
-        };
-
         const defaults = {
             u: { // utility -> saved locally
                 openStates: {},
@@ -98,23 +75,23 @@
                 showDirectoryIcons: true,
                 devModeIconBadge: true,
                 styles: {
-                    colorScheme: defaultColors.colorScheme.light,
-                    foregroundColor: defaultColors.foregroundColor.light,
-                    textColor: defaultColors.textColor.light,
-                    hoverColor: defaultColors.hoverColor.light,
+                    colorScheme: $.opts.defaultColors.colorScheme.light,
+                    foregroundColor: $.opts.defaultColors.foregroundColor.light,
+                    textColor: $.opts.defaultColors.textColor.light,
+                    hoverColor: $.opts.defaultColors.hoverColor.light,
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",
                     indicatorIconColor: "#ffffff",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",
                     sidebarHeaderHeight: "50px",
-                    sidebarMaskColor: defaultColors.sidebarMaskColor.light,
+                    sidebarMaskColor: $.opts.defaultColors.sidebarMaskColor.light,
                     bookmarksFontSize: "14px",
                     directoriesIconSize: "16px",
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "38px",
                     bookmarksDirIcon: "dir-1",
-                    bookmarksDirColor: defaultColors.textColor.light,
+                    bookmarksDirColor: $.opts.defaultColors.textColor.light,
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     scrollBarWidth: "11px",
@@ -422,25 +399,6 @@
 
                 port.postMessage(opts);
             });
-        };
-
-        /**
-         * Returns the default text color for the given appearance (light or dark)
-         *
-         * @param {string} name
-         * @param {string} appearance
-         * @returns {string|null}
-         */
-        this.getDefaultColor = (name, appearance) => {
-            if (defaultColors[name]) {
-                if (appearance && defaultColors[name][appearance]) {
-                    return defaultColors[name][appearance];
-                } else {
-                    return defaultColors[name].light;
-                }
-            }
-
-            return null;
         };
     };
 

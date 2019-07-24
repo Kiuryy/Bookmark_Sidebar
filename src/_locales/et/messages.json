@@ -6,13 +6,13 @@
         "message": "Lisab brauseriakna serva k\u00f5iki j\u00e4rjehoidjaid sisaldava l\u00fclitatava k\u00fclgriba."
     },
     "header_bookmarks": {
-        "message": "J\u00e4rjehoidjad"
+        "message": "j\u00e4rjehoidjat"
     },
     "header_bookmarks_single": {
-        "message": "J\u00e4rjehoidja"
+        "message": "j\u00e4rjehoidja"
     },
     "sidebar_dir_children": {
-        "message": "Elemendid"
+        "message": "elementi"
     },
     "sidebar_search_placeholder": {
         "message": "Otsi j\u00e4rjehoidjat"
@@ -102,7 +102,7 @@
         "message": "J\u00e4rjehoidjate haldur"
     },
     "contextmenu_keyboard_shortcuts": {
-        "message": "Klaviatuuri otseteed"
+        "message": "Kiirklahvid"
     },
     "sort_label_custom": {
         "message": "Kasutaja m\u00e4\u00e4ratud"
@@ -159,7 +159,7 @@
         "message": "Peida k\u00fclgribal"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Kas peita see j\u00e4rjehoidja k\u00fclgribal?"
+        "message": "Kas t\u00f5esti peita see j\u00e4rjehoidja k\u00fclgribal?"
     },
     "overlay_hide_dir_confirm": {
         "message": "Kas t\u00f5esti peita see kataloog k\u00fclgribal? Peidetakse ka k\u00f5ik seal olevad j\u00e4rjehoidjad."
@@ -495,10 +495,10 @@
         "message": "\u00dcldseaded"
     },
     "settings_menu_sidebar_toggle": {
-        "message": "Vaheta"
+        "message": "L\u00fcliti"
     },
     "settings_menu_sidebar_tooltip": {
-        "message": "Vihjed"
+        "message": "Kohtspikrid"
     },
     "settings_menu_sidebar_filter": {
         "message": "Filter"
@@ -877,6 +877,18 @@
     },
     "settings_icon_color": {
         "message": "V\u00e4rv"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automaatselt"
+    },
+    "settings_icon_color_custom": {
+        "message": "Kohandatud"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Ikooni v\u00e4rv seatakse automaatselt vastavaks s\u00fcsteemi v\u00e4rviskeemiga (hele v\u00f5i tume). Saad ikoonile m\u00e4\u00e4rata ka oma kohandatud v\u00e4rvi."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Automaatne v\u00e4rvivalik ei t\u00f6\u00f6ta, kui kasutuses on kohandatud Chrome kujundus."
     },
     "settings_indicator_width": {
         "message": "Laius"

@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "\u989c\u8272"
     },
+    "settings_icon_color_auto": {
+        "message": "\u81ea\u52a8\u5339\u914d"
+    },
+    "settings_icon_color_custom": {
+        "message": "\u4e60\u60ef"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "\u56fe\u6807\u989c\u8272\u5c06\u81ea\u52a8\u8bbe\u7f6e\u4e3a\u4e0e\u60a8\u7684\u7cfb\u7edf\u914d\u8272\u65b9\u6848\uff08\u6d45\u8272\u6216\u6df1\u8272\uff09\u5339\u914d\u7684\u989c\u8272\u3002\u60a8\u540c\u6837\u53ef\u4ee5\u6839\u636e\u60a8\u7684\u4e60\u60ef\u81ea\u5b9a\u4e49\u56fe\u6807\u989c\u8272\u3002"
+    },
+    "settings_icon_color_desc_2": {
+        "message": "\u8bf7\u6ce8\u610f\uff0c\u5f53\u60a8\u4f7f\u7528\u81ea\u5b9a\u4e49Chrome\u4e3b\u9898\u65f6\uff0c\u56fe\u6807\u81ea\u52a8\u989c\u8272\u8bbe\u7f6e\u4e0d\u53d7\u63a7\u5236\u3002"
+    },
     "settings_indicator_width": {
         "message": "\u5bbd\u5ea6"
     },

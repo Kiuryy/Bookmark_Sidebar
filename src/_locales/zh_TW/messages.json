@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "\u8272\u5f69"
     },
+    "settings_icon_color_auto": {
+        "message": "\u81ea\u52d5"
+    },
+    "settings_icon_color_custom": {
+        "message": "\u81ea\u8a02"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "\u5716\u793a\u8272\u5f69\u5c07\u6703\u81ea\u52d5\u8207\u60a8\u7684\u7cfb\u7d71\u914d\u8272\u65b9\u6848 (\u6dfa\u8272\u6216\u6df1\u8272) \u76f8\u914d\u3002\u60a8\u4e5f\u53ef\u4ee5\u70ba\u5716\u793a\u5b9a\u7fa9\u60a8\u7684\u81ea\u8a02\u8272\u5f69\u3002"
+    },
+    "settings_icon_color_desc_2": {
+        "message": "\u8acb\u6ce8\u610f\uff0c\u8272\u5f69\u81ea\u52d5\u5316\u5c07\u4e0d\u6703\u5728\u4f7f\u7528\u81ea\u8a02 Chrome \u4e3b\u984c\u7684\u60c5\u6cc1\u4e0b\u904b\u4f5c\u3002"
+    },
     "settings_indicator_width": {
         "message": "\u5bec\u5ea6"
     },

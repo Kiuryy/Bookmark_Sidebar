@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "\uc544\uc774\ucf58 \uc0c9\uc0c1"
     },
+    "settings_icon_color_auto": {
+        "message": "\uc790\ub3d9"
+    },
+    "settings_icon_color_custom": {
+        "message": "\ucee4\uc2a4\ud140"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "\uc544\uc774\ucf58 \uc0c9\uc0c1\uc740 \uc0ac\uc6a9\uc790 \uc2dc\uc2a4\ud15c\uc758 \uc0c9 \uc870\ud569\uc5d0 \ub9de\uac8c \uc790\ub3d9\uc73c\ub85c \uc124\uc815\ub429\ub2c8\ub2e4. \uc0ac\uc6a9\uc790\ub294 \uc544\uc774\ucf58 \uc0c9\uc0c1\uc744 \uafb8\ubc00 \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "\ud06c\ub86c \ud14c\ub9c8\ub97c \ucee4\uc2a4\ud140\uc73c\ub85c \uc0ac\uc6a9 \uc911\uc77c \ub54c\ub294 \uc544\uc774\ucf58 \uc0c9\uc0c1\uc774 \uc790\ub3d9\uc73c\ub85c \uc124\uc815\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4."
+    },
     "settings_indicator_width": {
         "message": "\uac00\ub85c\ud3ed"
     },

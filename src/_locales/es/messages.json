@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "Color"
     },
+    "settings_icon_color_auto": {
+        "message": "Automaticamente"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personalizado"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "El color del \u00edcono se emparejar\u00e1 automaticamente con el esquema de tu sistema (claro u oscuro). Puedes tambi\u00e9n definir tu propio color de \u00edcono."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "El color autom\u00e1tico no funcionar\u00e1 cuando uses un tema Chrome."
+    },
     "settings_indicator_width": {
         "message": "Ancho"
     },

@@ -843,7 +843,7 @@
         "message": "Impossibile importare le impostazioni. Seleziona un file valido."
     },
     "settings_presets": {
-        "message": "Imposta relative dimensioni"
+        "message": "Imposta dimensioni relative"
     },
     "settings_presets_desc": {
         "message": "\u00c8 possibile selezionare le dimensioni predefinite per la barra laterale. Ci\u00f2 cambier\u00e0 i cursori in questa pagina per regolare la larghezza della barra laterale, l'altezza delle linee, le dimensioni delle icone e molte altre opzioni."
@@ -877,6 +877,18 @@
     },
     "settings_icon_color": {
         "message": "Colore"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automatico"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personalizzato"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Il colore dell'icona sar\u00e0 impostato automaticamente per corrispondere allo schema colori del vostro sistema (luminoso o scuro). Potete anche definire un colore personalizzato per l'icona"
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Considerate che l'impostazione automatica non funziona quando si usa un tema personalizzato per Chrome."
     },
     "settings_indicator_width": {
         "message": "Larghezza"
@@ -936,10 +948,10 @@
         "message": "Forma"
     },
     "settings_custom_css": {
-        "message": "Stylesheet personalizzato"
+        "message": "Foglio di style personalizzato"
     },
     "settings_custom_css_desc": {
-        "message": "Puoi impostare il tuo stylesheet in modo da sostituire quello di default. Usa questa opzione solo se hai esperienza con il CSS e sai cosa stai facendo."
+        "message": "Puoi impostare il tuo file di stile in modo da sostituire quello di default. Usa questa opzione solo se hai esperienza con il CSS e sai cosa stai facendo."
     },
     "settings_newtab_desc": {
         "message": "Sfortunatamente Google ha rimosso la possibilit\u00e0 di caricare le estensioni nella pagina di default \"Nuova scheda\". Per questo motivo ho aggiunto, in maniera alternativa, delle opzioni che ti permettono di accedere ai tuoi preferiti quando apri una nuova scheda."

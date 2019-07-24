@@ -878,6 +878,9 @@
     "settings_icon_color": {
         "message": "M\u00e0u"
     },
+    "settings_icon_color_auto": {
+        "message": "T\u1ef1 \u0111\u1ed9ng"
+    },
     "settings_indicator_width": {
         "message": "Chi\u1ec1u r\u1ed9ng"
     },

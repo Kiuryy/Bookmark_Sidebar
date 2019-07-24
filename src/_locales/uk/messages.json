@@ -878,6 +878,12 @@
     "settings_icon_color": {
         "message": "\u041a\u043e\u043b\u0456\u0440"
     },
+    "settings_icon_color_auto": {
+        "message": "\u0410\u0432\u0442\u043e"
+    },
+    "settings_icon_color_custom": {
+        "message": "\u0406\u043d\u0448\u0438\u0439"
+    },
     "settings_indicator_width": {
         "message": "\u0428\u0438\u0440\u0438\u043d\u0430"
     },

@@ -3,7 +3,7 @@
         "message": "Barra lateral de favoritos"
     },
     "extension_desc": {
-        "message": "Adiciona uma barra lateral personaliz\u00e1vel com todos os seus favoritos ao seu navegador."
+        "message": "Adiciona \u00e0 borda da janela do seu navegador uma barra lateral com todos os seus favoritos que pode ser exibida e ocultada."
     },
     "header_bookmarks": {
         "message": "Favoritos"
@@ -495,7 +495,7 @@
         "message": "Geral"
     },
     "settings_menu_sidebar_toggle": {
-        "message": "Ativar e desativar"
+        "message": "Exibir e ocultar"
     },
     "settings_menu_sidebar_tooltip": {
         "message": "Dicas de contexto"
@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "Cor"
     },
+    "settings_icon_color_auto": {
+        "message": "Automaticamente"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personalizado"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "A cor do \u00edcone ser\u00e1 definida automaticamente, de forma a corresponder ao esquema de cores do seu sistema (claro ou escuro). Voc\u00ea tamb\u00e9m pode definir sua pr\u00f3pria cor personalizada para o \u00edcone."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Por favor, observe que a cor autom\u00e1tica n\u00e3o funciona quando \u00e9 usado um tema personalizado do Chrome."
+    },
     "settings_indicator_width": {
         "message": "Largura"
     },
@@ -1035,7 +1047,7 @@
         "message": "O tamanho do arquivo de {1} \u00e9 muito grande (> 1 MB)"
     },
     "settings_feedback_screenshot_error_amount": {
-        "message": "Voc\u00ea s\u00f3 pode fazer upload de no m\u00e1ximo {1} capturas de tela"
+        "message": "Voc\u00ea s\u00f3 pode enviar no m\u00e1ximo {1} capturas de tela"
     },
     "settings_feedback_send": {
         "message": "Enviar coment\u00e1rio"

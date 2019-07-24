@@ -864,19 +864,31 @@
         "message": "Barva ob prehodu z mi\u0161ko"
     },
     "settings_font_family": {
-        "message": "Typeface"
+        "message": "Pisava"
     },
     "settings_font_family_default": {
         "message": "Privzeto"
     },
     "settings_font_family_desc": {
-        "message": "Typeface stranske vrstice in overlay-ev"
+        "message": "Pisava stranske vrstice v pregledu"
     },
     "settings_scroll_bar_width": {
         "message": "\u0160irina drsnika"
     },
     "settings_icon_color": {
         "message": "Barva"
+    },
+    "settings_icon_color_auto": {
+        "message": "Avtomati\u010dno"
+    },
+    "settings_icon_color_custom": {
+        "message": "Ro\u010dno"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Barva ikone bo nastavljena avtomati\u010dno, ko izberete barvno shemo(svetlo ali temno). Lahko pa v nastavitvah sami dolo\u010dite barvo ikone."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Avtomati\u010dna barva ikon ni mo\u017ena kadar privzeto uporabljate temo iz Chroma."
     },
     "settings_indicator_width": {
         "message": "\u0160irina"
@@ -936,10 +948,10 @@
         "message": "Oblika"
     },
     "settings_custom_css": {
-        "message": "Stylesheet po meri"
+        "message": "Stil po meri"
     },
     "settings_custom_css_desc": {
-        "message": "Definirate lahko lasten stylesheet da preglasite privzet stil. Prosim uporabite to mo\u017enost samo, \u010de vam je CSS poznan in veste kaj po\u010dnete."
+        "message": "Nastavite lahko lasten stil, da preglasite privzet stil. To mo\u017enost uporabite samo, \u010de vam je CSS poznan in veste kaj po\u010dnete."
     },
     "settings_newtab_desc": {
         "message": "Na \u017ealost je Google odstranil mo\u017enost nalaganja raz\u0161iritev na privzeti strani za nov zavihek. Zaradi tega sem dodal nekaj opcij, ki pri odpiranju novega zavihka omogo\u010dajo dostop do zaznamkov na druge na\u010dine."

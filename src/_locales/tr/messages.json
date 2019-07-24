@@ -432,7 +432,7 @@
         "message": "Y\u00fckle"
     },
     "onboarding_headline": {
-        "message": "Uzant\u0131m\u0131y\u0131 y\u00fckledi\u011finiz i\u00e7in te\u015fekk\u00fcrler"
+        "message": "Uzant\u0131y\u0131 y\u00fckledi\u011finiz i\u00e7in te\u015fekk\u00fcrler."
     },
     "onboarding_setup": {
         "message": "\u015eimdi Y\u00fckle"
@@ -877,6 +877,18 @@
     },
     "settings_icon_color": {
         "message": "Renk"
+    },
+    "settings_icon_color_auto": {
+        "message": "Otomatik"
+    },
+    "settings_icon_color_custom": {
+        "message": "\u00d6zel"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Simge rengi, sisteminizin renk d\u00fczenine (a\u00e7\u0131k veya koyu) uyacak \u015fekilde otomatik olarak ayarlan\u0131r. Simge i\u00e7in kendi \u00f6zel renginizi de tan\u0131mlayabilirsiniz."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "\u00d6zel bir Chrome temas\u0131 kullan\u0131rken, otomatik rengin \u00e7al\u0131\u015fmad\u0131\u011f\u0131n\u0131 l\u00fctfen unutmay\u0131n."
     },
     "settings_indicator_width": {
         "message": "Geni\u015flik"

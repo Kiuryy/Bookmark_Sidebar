@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "Sz\u00edn"
     },
+    "settings_icon_color_auto": {
+        "message": "Automatikusan"
+    },
+    "settings_icon_color_custom": {
+        "message": "Egyedi"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Az ikonsz\u00edn automatikusan illeszkedik a rendszer\u00e9nek sz\u00edns\u00e9m\u00e1j\u00e1hoz (vil\u00e1gos vagy s\u00f6t\u00e9t). Saj\u00e1t \u00edzl\u00e9s\u00e9nek megfelel\u0151en is be\u00e1ll\u00edthatja az ikon sz\u00edn\u00e9t."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "K\u00e9rj\u00fck, vegye figyelembe, hogy az automatikus sz\u00ednbe\u00e1ll\u00edt\u00e1s nem m\u0171k\u00f6dik, ha saj\u00e1t Chrome t\u00e9m\u00e1t haszn\u00e1l."
+    },
     "settings_indicator_width": {
         "message": "Sz\u00e9less\u00e9g"
     },

@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "Kolor"
     },
+    "settings_icon_color_auto": {
+        "message": "Automatycznie"
+    },
+    "settings_icon_color_custom": {
+        "message": "Niestandardowy"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Kolor ikony zostanie ustawiony automatycznie, aby dopasowa\u0107 schemat kolor\u00f3w systemu (jasny lub ciemny). Mo\u017cesz tak\u017ce zdefiniowa\u0107 w\u0142asny niestandardowy kolor ikony."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Pami\u0119taj, \u017ce automatyczny kolor nie dzia\u0142a, gdy u\u017cywasz niestandardowego motywu Chrome."
+    },
     "settings_indicator_width": {
         "message": "Szeroko\u015b\u0107"
     },

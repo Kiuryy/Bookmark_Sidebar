@@ -878,6 +878,18 @@
     "settings_icon_color": {
         "message": "Couleur"
     },
+    "settings_icon_color_auto": {
+        "message": "Automatiquement"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personnalis\u00e9"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "La couleur de l'ic\u00f4ne sera automatiquement d\u00e9finie pour correspondre au jeu de couleurs de votre syst\u00e8me (clair ou fonc\u00e9). Vous pouvez \u00e9galement d\u00e9finir votre propre couleur personnalis\u00e9e pour l'ic\u00f4ne."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Veuillez noter que la couleur automatique ne fonctionne pas si vous utilisez un th\u00e8me Chrome personnalis\u00e9."
+    },
     "settings_indicator_width": {
         "message": "Largeur"
     },

@@ -137,6 +137,7 @@
                 delete obj.behaviour.hideEmptyDirs;
                 delete obj.behaviour.replaceNewTab;
                 delete obj.behaviour.language;
+                delete obj.behaviour.model;
                 delete obj.appearance.language;
                 delete obj.appearance.sidebarPosition;
                 delete obj.appearance.addVisual;

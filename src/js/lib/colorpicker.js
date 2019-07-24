@@ -7,6 +7,22 @@
 window.Colorpicker = (() => {
     "use strict";
 
+    const DEFAULT_OPTS = {
+        alpha: false,
+        classes: {
+            picker: "color-picker",
+            preview: "color-preview",
+            pickingArea: "picking-area",
+            pickingAreaThumb: "picker",
+            hueSlider: "hue",
+            hueSliderThumb: "slider-picker",
+            alphaSlider: "alpha",
+            alphaSliderThumb: "slider-picker",
+            inputFieldPreview: "input-",
+            visible: "visible"
+        }
+    };
+
     /**
      * Color class -> Provides information about the current color of the picker
      *
@@ -288,7 +304,6 @@ window.Colorpicker = (() => {
      * @constructor
      */
     function Picker(field, opts) {
-        opts = opts || {};
         let wrapper = null;
         let preview = null;
         let alpha = null;
@@ -300,6 +315,8 @@ window.Colorpicker = (() => {
          * Initialize the picker object
          */
         const init = () => {
+            opts = getOpts(opts);
+
             initPreview();
             initPickingArea();
             initHueSlider();
@@ -336,6 +353,20 @@ window.Colorpicker = (() => {
             updateUI();
         };
 
+        const getOpts = (obj) => {
+            const merge = (target, source) => {
+                for (const key of Object.keys(source)) { // Iterate through source and if a key is an object, set the property to a merge of target and source
+                    if (source[key] instanceof Object) {
+                        Object.assign(source[key], merge(target[key], source[key]));
+                    }
+                }
+                Object.assign(target || {}, source);
+                return target;
+            };
+
+            return merge(Object.assign({}, DEFAULT_OPTS), obj || {});
+        };
+
         /**
          * Adds the mousedown/mouseup listener for the given element
          *
@@ -358,11 +389,11 @@ window.Colorpicker = (() => {
          */
         const initPreview = () => {
             wrapper = document.createElement("div");
-            wrapper.className = "color-picker";
+            wrapper.className = opts.classes.picker;
             document.body.appendChild(wrapper);
 
             preview = document.createElement("span");
-            preview.className = "color-preview";
+            preview.className = opts.classes.preview;
             field.parentNode.insertBefore(preview, field.nextSibling);
 
             field.ownerDocument.defaultView.addEventListener("resize", () => {
@@ -389,8 +420,8 @@ window.Colorpicker = (() => {
             const area = document.createElement("div");
             const picker = document.createElement("div");
 
-            area.className = "picking-area";
-            picker.className = "picker";
+            area.className = opts.classes.pickingArea;
+            picker.className = opts.classes.pickingAreaThumb;
 
             this.pickingArea = area;
             this.colorPicker = picker;
@@ -435,8 +466,8 @@ window.Colorpicker = (() => {
             const area = document.createElement("div");
             const picker = document.createElement("div");
 
-            area.className = "hue";
-            picker.className = "slider-picker";
+            area.className = opts.classes.hueSlider;
+            picker.className = opts.classes.hueSliderThumb;
 
             this.hueArea = area;
             this.huePicker = picker;
@@ -467,9 +498,8 @@ window.Colorpicker = (() => {
             const mask = document.createElement("div");
             const picker = document.createElement("div");
 
-            area.className = "alpha";
-            mask.className = "alpha-mask";
-            picker.className = "slider-picker";
+            area.className = opts.classes.alphaSlider;
+            picker.className = opts.classes.alphaSliderThumb;
 
             alpha = {
                 area: area,
@@ -513,7 +543,7 @@ window.Colorpicker = (() => {
             const input = document.createElement("input");
             const info = document.createElement("span");
 
-            elm.className = "input-" + type;
+            elm.className = opts.classes.inputFieldPreview + type;
             info.textContent = type;
             input.setAttribute("type", "text");
 
@@ -687,7 +717,7 @@ window.Colorpicker = (() => {
          * @public
          */
         this.reposition = () => {
-            if (wrapper.classList.contains("visible")) {
+            if (wrapper.classList.contains(opts.classes.visible)) {
                 const isRtl = document.documentElement.getAttribute("dir") === "rtl";
                 const rect = preview.getBoundingClientRect();
 
@@ -727,11 +757,11 @@ window.Colorpicker = (() => {
          * @public
          */
         this.show = () => {
-            [].forEach.call(document.getElementsByClassName("color-picker"), (elm) => {
-                elm.classList.remove("visible");
+            [].forEach.call(document.getElementsByClassName(opts.classes.picker), (elm) => {
+                elm.classList.remove(opts.classes.visible);
             });
 
-            wrapper.classList.add("visible");
+            wrapper.classList.add(opts.classes.visible);
             this.reposition();
             triggerEvent("show");
             updateUI();
@@ -743,9 +773,9 @@ window.Colorpicker = (() => {
          * @public
          */
         this.close = () => {
-            if (wrapper.classList.contains("visible")) {
+            if (wrapper.classList.contains(opts.classes.visible)) {
                 triggerEvent("hide");
-                wrapper.classList.remove("visible");
+                wrapper.classList.remove(opts.classes.visible);
             }
         };
 

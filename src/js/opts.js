@@ -314,7 +314,7 @@
                 light: "#ffffff",
                 dark: "#333333"
             },
-            icon:{
+            icon: {
                 forLight: "#555555",
                 forDark: "#ffffff"
             }

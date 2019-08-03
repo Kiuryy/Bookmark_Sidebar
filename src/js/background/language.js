@@ -77,7 +77,7 @@
                     let fallbackLang = null;
 
                     if (lang === "default") {
-                        lang = chrome.i18n.getUILanguage();
+                        lang = this.getUILanguage();
                     }
                     lang = lang.replace("-", "_");
 
@@ -107,6 +107,17 @@
                     });
                 });
             });
+        };
+
+        /**
+         * Returns the UI language of the browser in the format "de_DE" or "de"
+         *
+         * @returns {string}
+         */
+        this.getUILanguage = () => {
+            let ret = chrome.i18n.getUILanguage();
+            ret = ret.replace("-", "_");
+            return ret;
         };
 
         /**

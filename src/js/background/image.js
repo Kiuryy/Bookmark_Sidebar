@@ -40,7 +40,7 @@
                             timeout: 10000,
                             data: {
                                 url: opts.url,
-                                lang: chrome.i18n.getUILanguage(),
+                                lang: b.helper.language.getUILanguage(),
                                 ua: navigator.userAgent
                             }
                         }).then((xhr) => {

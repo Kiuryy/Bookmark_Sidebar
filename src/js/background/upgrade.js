@@ -115,7 +115,7 @@
          * @param {object} obj
          */
         const updateOptionsAfterInstall = (obj) => {
-            if (chrome.i18n.getUILanguage() === "zh_CN") {
+            if (b.helper.language.getUILanguage() === "zh_CN") {
                 obj.newtab.searchEngine = "baidu";
                 obj.newtab.shortcuts = [{label: "百度", url: "https://www.baidu.com/"}];
             }

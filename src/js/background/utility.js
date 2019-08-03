@@ -112,7 +112,7 @@
                             data: {
                                 urlList: opts.urls,
                                 ua: navigator.userAgent,
-                                lang: chrome.i18n.getUILanguage()
+                                lang: b.helper.language.getUILanguage()
                             }
                         }),
                         getDuplicateInfo(opts.urls)

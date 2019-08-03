@@ -46,12 +46,14 @@
         };
 
         /**
-         * Returns the language of the user interface
+         * Returns the UI language of the browser in the format "de_DE" or "de"
          *
          * @returns {string}
          */
         this.getUILanguage = () => {
-            return chrome.i18n.getUILanguage();
+            let ret = chrome.i18n.getUILanguage();
+            ret = ret.replace("-", "_");
+            return ret;
         };
 
         /**

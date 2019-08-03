@@ -72,13 +72,13 @@
                                 b.helper.utility.openLink({
                                     hrefName: "changelog",
                                     newTab: true,
-                                    params: {lang: chrome.i18n.getUILanguage()}
+                                    params: {lang: b.helper.language.getUILanguage()}
                                 });
                             } else if (obj.menuItemId === "bsPrivacy_" + uid) {
                                 b.helper.utility.openLink({
                                     hrefName: "privacyPolicy",
                                     newTab: true,
-                                    params: {lang: chrome.i18n.getUILanguage()}
+                                    params: {lang: b.helper.language.getUILanguage()}
                                 });
                             } else if (obj.menuItemId === "bsToggle_" + uid) {
                                 toggleSidebar();

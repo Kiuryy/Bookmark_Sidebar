@@ -62,8 +62,21 @@
                     }
                 }
             },
+            mijisou: {
+                name: "mijisou",
+                url: "https://mijisou.com/",
+                queryUrl: "https://mijisou.com/search?q=%s",
+                favicon: "https://www.mijisou.com/favicon.ico",
+                sorting: 50,
+                lang: {
+                    "zh-CN": {
+                        name: "秘迹",
+                        sorting: 5
+                    }
+                }
+            },
             custom: {
-                sorting: 50
+                sorting: 60
             }
         };
 
@@ -198,7 +211,7 @@
         const handleSearch = (val) => {
             if (val && val.trim().length > 0) {
                 if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
-                    chrome.tabs.update({url: val});
+                    chrome.tabs.update({ url: val });
                 } else if (searchEngineList[searchEngine.name]) {
                     let url = "";
 
@@ -212,7 +225,7 @@
                         if (url.includes("{1}") === false) { // query url is missing the {1} placeholder -> paste it at the end
                             url += "{1}";
                         }
-                        chrome.tabs.update({url: url.replace("{1}", encodeURIComponent(val))});
+                        chrome.tabs.update({ url: url.replace("{1}", encodeURIComponent(val)) });
                     }
                 }
             }
@@ -239,11 +252,11 @@
                     };
 
                     const promises = [
-                        $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"})
+                        $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, { responseType: "json" })
                     ];
 
                     if (val.length >= 2) {
-                        promises.push(n.helper.model.call("searchBookmarks", {searchVal: val}));
+                        promises.push(n.helper.model.call("searchBookmarks", { searchVal: val }));
                     }
 
                     Promise.all(promises).then(([xhr, searchResults]) => {
@@ -329,7 +342,7 @@
                     }
 
                     if (url) {
-                        chrome.tabs.update({url: url});
+                        chrome.tabs.update({ url: url });
                     }
                 }
             });
@@ -420,7 +433,7 @@
 
             $(window).on("resize", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
-            }, {passive: true});
+            }, { passive: true });
         };
 
         /**

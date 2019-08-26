@@ -81,7 +81,8 @@
                 const loader = s.helper.template.loading().appendTo(s.elm.body);
                 s.elm.body.addClass($.cl.loading);
 
-                const licenseKey = elm.licenseField.children("input[type='text']")[0].value;
+                let licenseKey = elm.licenseField.children("input[type='text']")[0].value;
+                licenseKey = licenseKey.replace(/\s/g, "");
 
                 Promise.all([
                     s.helper.model.call("activatePremium", {licenseKey: licenseKey}),

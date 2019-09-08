@@ -757,7 +757,7 @@
             let type = "width";
             let margins = ["left", "right"];
 
-            if (dim === "xxxxxxxxxxxxxxxxxxxxxxxxxxxx") {
+            if (dim === "h") {
                 type = "height";
                 margins = ["top", "bottom"];
             }
@@ -800,7 +800,7 @@
          * @returns {int|Array}
          */
         realHeight(includeMargins = false) {
-            return this._realDimension("xxxxxxxxxxxxxxxxxxxxxxxxxxxx", includeMargins);
+            return this._realDimension("h", includeMargins);
         }
 
 

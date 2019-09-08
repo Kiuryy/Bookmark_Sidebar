@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Destro"
     },
-    "settings_contextmenu": {
-        "message": "Voce nel men\u00f9 contestuale"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Mostra una voce nel men\u00f9 contestuale di Chrome per aprire la barra laterale."
-    },
     "settings_filter_intro": {
         "message": "Se non vuoi che la barra laterale venga aperta in ogni pagina, puoi decidere in quali \u00e8 permesso (whitelist) e in quali \u00e8 proibito (blacklist)."
     },

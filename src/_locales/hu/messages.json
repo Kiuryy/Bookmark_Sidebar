@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Jobb"
     },
-    "settings_contextmenu": {
-        "message": "Megjelen\u00edt\u00e9s a helyi men\u00fcben"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Kapcsol\u00f3 megjelen\u00edt\u00e9se a Chrome helyi men\u00fcj\u00e9ben, amivel az oldals\u00e1vot lehet el\u0151h\u00edvni\/elt\u0171ntetni"
-    },
     "settings_filter_intro": {
         "message": "Ha nem szeretn\u00e9, hogy az oldals\u00e1v minden lapon bet\u00f6lt\u0151dj\u00f6n, akkor be\u00e1ll\u00edthat enged\u00e9lyez\u0151 list\u00e1t vagy tilt\u00f3list\u00e1t is."
     },

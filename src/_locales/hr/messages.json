@@ -179,6 +179,9 @@
     "overlay_label_separator": {
         "message": "Odvaja\u010d"
     },
+    "overlay_add_position": {
+        "message": "Pozicija"
+    },
     "overlay_bookmark_views": {
         "message": "Pogledi"
     },
@@ -211,6 +214,9 @@
     },
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Udvostru\u010di"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Prazni direktoriji"
     },
     "overlay_check_bookmarks_loading": {
         "message": "Provjera URLa oznaka"
@@ -254,11 +260,29 @@
     "newtab_search_placeholder": {
         "message": "Pretra\u017ei {1} ili unesi URL"
     },
+    "newtab_speech_search_listening": {
+        "message": "Govori sad"
+    },
+    "newtab_speech_search_error": {
+        "message": "Da biste omogu\u0107ili tra\u017eenje govora, morate omogu\u0107iti pristup mikrofonu."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Pretra\u017eiva\u010d"
+    },
     "newtab_search_engine_custom": {
         "message": "Korisni\u010dki definirano"
     },
     "newtab_search_engine_custom_title": {
         "message": "Naslov"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL po\u010detne stranice"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL rezultata pretra\u017eivanja"
+    },
+    "newtab_upload_background": {
+        "message": "Prenesite pozadinsku sliku"
     },
     "newtab_fallback_headline_general": {
         "message": "Ne\u0161to sprje\u010dava rad bo\u010dne trake oznaka"

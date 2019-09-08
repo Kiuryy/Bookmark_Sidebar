@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_contextmenu": {
-        "message": "Eintrag im Rechtsklickmen\u00fc"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Zeigt im Rechtsklickmen\u00fc von Chrome einen Eintrag zum Ein- und Ausblenden der Sidebar an."
-    },
     "settings_filter_intro": {
         "message": "Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kann hier konfiguriert werden, wo die Erweiterung geladen werden soll (Whitelist) oder wo sie nicht geladen werden soll (Blacklist)."
     },

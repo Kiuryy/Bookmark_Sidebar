@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Desno"
     },
-    "settings_contextmenu": {
-        "message": "Vnos kontekstnega menija"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Poka\u017ei vnos v kontekstnem meniju Chrome-a za toggle-ati stransko vrstico."
-    },
     "settings_filter_intro": {
         "message": "\u010ce ne \u017eelite, da je stranska vrstica nalo\u017eena na vsaki strani, lahko izberete kje raz\u0161iritev nalo\u017eiti (bela lista) ali kje ne (\u010drna lista)."
     },

@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Direita"
     },
-    "settings_contextmenu": {
-        "message": "Elemento do menu de contexto"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Apresenta um elemento no menu de contexto do Chrome para ativar\/desativa a barra lateral."
-    },
     "settings_filter_intro": {
         "message": "Se n\u00e3o quer carregar a barra lateral em cada p\u00e1gina, pode configurar a lista de endere\u00e7os onde \u00e9 apresentada (whitelist) e onde n\u00e3o \u00e9 (blacklist)."
     },

@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Direita"
     },
-    "settings_contextmenu": {
-        "message": "Entrada de menu de contexto"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Exibir uma entrada no menu de contexto do Chrome para alternar a barra lateral."
-    },
     "settings_filter_intro": {
         "message": "Se voc\u00ea n\u00e3o deseja que a barra lateral seja carregada em todas as p\u00e1ginas, pode configurar onde carregar a extens\u00e3o (lista branca) ou onde n\u00e3o carreg\u00e1-la (lista negra)."
     },

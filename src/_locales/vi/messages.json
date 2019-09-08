@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Ph\u1ea3i"
     },
-    "settings_contextmenu": {
-        "message": "N\u1ed9i dung c\u1ee7a menu chu\u1ed9t ph\u1ea3i"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Th\u00eam l\u1ec7nh m\u1edf Sidebar v\u00e0o menu chu\u1ed9t ph\u1ea3i c\u1ee7a Chrome."
-    },
     "settings_filter_intro": {
         "message": "B\u1ea1n c\u00f3 th\u1ec3 thi\u1ebft l\u1eadp c\u00e1c trang m\u00e0 Sidebar s\u1ebd kh\u00f4ng \u0111\u01b0\u1ee3c k\u00edch ho\u1ea1t"
     },
@@ -881,6 +875,15 @@
     "settings_icon_color_auto": {
         "message": "T\u1ef1 \u0111\u1ed9ng"
     },
+    "settings_icon_color_custom": {
+        "message": "T\u00f9y Ch\u1ecdn"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Bi\u1ec3u t\u01b0\u1ee3ng m\u00e0u s\u1eafc s\u1ebd \u0111\u01b0\u1ee3c t\u1ef1 \u0111\u1ed9ng \u0111i\u1ec1u ch\u1ec9nh \u0111\u1ec3 \u0111\u1ed3ng b\u1ed9 v\u1edbi b\u1ea3ng m\u00e0u h\u1ec7 th\u1ed1ng c\u1ee7a b\u1ea1n (s\u00e1ng ho\u1eb7c t\u1ed1i). B\u1ea1n c\u0169ng c\u00f3 th\u1ec3 t\u1ef1 x\u00e1c \u0111\u1ecbnh m\u00e0u s\u1eafc c\u1ee7a bi\u1ec3u t\u01b0\u1ee3ng theo \u00fd mu\u1ed1n."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "L\u01b0u \u00fd r\u1eb1ng khi b\u1ea1n s\u1eed d\u1ee5ng m\u1ed9t giao di\u1ec7n t\u00f9y ch\u1ec9nh t\u1eeb Chrome, ch\u1ee9c n\u0103ng t\u1ef1 \u0111\u1ed9ng \u0111i\u1ec1u ch\u1ec9nh m\u00e0u s\u1eafc s\u1ebd kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng."
+    },
     "settings_indicator_width": {
         "message": "Chi\u1ec1u r\u1ed9ng"
     },
@@ -900,7 +903,7 @@
         "message": "Chi\u1ec1u cao ph\u1ea7n ti\u00eau \u0111\u1ec1"
     },
     "settings_sidebar_mask_color": {
-        "message": "M\u00e0u m\u1eb7t n\u1ea1"
+        "message": "M\u00e0u l\u1edbp ph\u1ee7"
     },
     "settings_bookmarks_dir_icon": {
         "message": "Bi\u1ec3u t\u01b0\u1ee3ng th\u01b0 m\u1ee5c"
@@ -909,10 +912,10 @@
         "message": "M\u00e0u c\u1ee7a th\u01b0 m\u1ee5c"
     },
     "settings_bookmarks_font_size": {
-        "message": "K\u00edch th\u01b0\u1edbc ph\u00f4ng ch\u1eef bookmark"
+        "message": "K\u00edch th\u01b0\u1edbc ph\u00f4ng ch\u1eef d\u1ea5u trang"
     },
     "settings_bookmarks_icon_size": {
-        "message": "K\u00edch th\u01b0\u1edbc bi\u1ec3u t\u01b0\u1ee3ng tr\u00ecnh duy\u1ec7t"
+        "message": "K\u00edch th\u01b0\u1edbc bi\u1ec3u t\u01b0\u1ee3ng d\u1ea5u trang"
     },
     "settings_directories_icon_size": {
         "message": "K\u00edch th\u01b0\u1edbc bi\u1ec3u t\u01b0\u1ee3ng th\u01b0 m\u1ee5c"
@@ -933,7 +936,7 @@
         "message": "K\u00edch th\u01b0\u1edbc ch\u1eef Tooltip"
     },
     "settings_overlay_mask_color": {
-        "message": "M\u00e0u m\u1eb7t n\u1ea1"
+        "message": "M\u00e0u l\u1edbp ph\u1ee7"
     },
     "settings_icon_shape": {
         "message": "H\u00ecnh d\u1ea1ng"
@@ -1072,5 +1075,134 @@
     },
     "settings_saved_share_userdata": {
         "message": "T\u00f9y ch\u1ecdn c\u1ee7a b\u1ea1n \u0111\u00e3 \u0111\u01b0\u1ee3c l\u01b0u th\u00e0nh c\u00f4ng"
+    },
+    "premium_popup_text": {
+        "message": "B\u1ea1n \u0111\u00e3 xem qua c\u00e1c t\u00ednh n\u0103ng cao c\u1ea5p ch\u01b0a?"
+    },
+    "premium_restricted_text": {
+        "message": "T\u00ednh n\u0103ng n\u00e0y ch\u1ec9 c\u00f3 trong phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_desc_1": {
+        "message": "V\u1edbi phi\u00ean b\u1ea3n Cao C\u1ea5p, b\u1ea1n s\u1ebd \u0111\u01b0\u1ee3c truy c\u1eadp v\u00e0o nh\u1eefng t\u00ednh n\u0103ng b\u1ed5 sung v\u00e0 gi\u00fap t\u00f4i ho\u00e0n thi\u1ec7n ti\u1ec7n \u00edch n\u00e0y h\u01a1n."
+    },
+    "premium_desc_2": {
+        "message": "B\u1ea1n c\u00f3 th\u1ec3 xem qua c\u00e1c t\u00ednh n\u0103ng c\u00f3 trong phi\u00ean b\u1ea3n Cao C\u1ea5p \u1edf b\u00ean d\u01b0\u1edbi. Nh\u1eefng t\u00ednh n\u0103ng tr\u1ecdng y\u1ebfu c\u1ee7a ti\u1ec7n \u00edch \u0111\u1ec1u \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng mi\u1ec5n ph\u00ed v\u00e0 kh\u00f4ng y\u00eau c\u1ea7u phi\u00ean b\u1ea3n Cao C\u1ea5p. B\u1ea1n c\u00f3 th\u1ec3 \u0111\u00f3ng g\u00f3p cho t\u00f4i d\u1ef1a tr\u00ean gi\u00e1 tr\u1ecb ti\u1ec7n \u00edch c\u1ee7a t\u00f4i \u0111\u1ed1i v\u1edbi b\u1ea1n, theo \u0111\u00f3, b\u1ea1n s\u1ebd \u0111\u01b0\u1ee3c truy c\u1eadp v\u00e0o c\u00e1c t\u00ednh n\u0103ng b\u1ed5 sung."
+    },
+    "premium_get_now": {
+        "message": "Mua phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_show_license_input": {
+        "message": "T\u00f4i \u0111\u00e3 c\u00f3 phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_already_activated": {
+        "message": "T\u00f4i \u0111ang s\u1eed d\u1ee5ng phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_activate": {
+        "message": "K\u00edch ho\u1ea1t phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_license_key": {
+        "message": "M\u00e3 B\u1ea3n Quy\u1ec1n"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Tr\u1edf th\u00e0nh ng\u01b0\u1eddi \u0111\u1ea7u ti\u00ean tr\u1ea3i nghi\u1ec7m c\u00e1c t\u00ednh n\u0103ng th\u1eed nghi\u1ec7m"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "v\u1edbi phi\u00ean b\u1ea3n Cao C\u1ea5p, b\u1ea1n \u0111\u01b0\u1ee3c truy c\u1eadp v\u00e0o c\u00e1c t\u00ednh n\u0103ng ch\u01b0a ph\u00e1t h\u00e0nh, hi\u1ec7n \u0111ang trong qu\u00e1 tr\u00ecnh ph\u00e1t tri\u1ec3n ho\u1eb7c \u0111ang \u0111\u01b0\u1ee3c th\u1eed nghi\u1ec7m."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Thay \u0111\u1ed5i \u0111\u1ed9 d\u00e0i thanh d\u1ea5u trang b\u1ea5t c\u1ee9 l\u00fac n\u00e0o"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Nh\u1eadp v\u00e0 xu\u1ea5t t\u00f9y ch\u1ec9nh c\u00e0i \u0111\u1eb7t"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "C\u00e1 nh\u00e2n h\u00f3a Trang M\u1edbi"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "N\u1ebfu b\u1ea1n \u0111ang s\u1eed d\u1ee5ng t\u00ednh n\u0103ng Trang M\u1edbi c\u1ee7a ti\u1ec7n \u00edch n\u00e0y, b\u1ea1n c\u00f3 th\u1ec3 t\u1ef1 ch\u1ecdn h\u00ecnh n\u1ec1n cho b\u1eaft m\u1eaft h\u01a1n."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "T\u00d9y ch\u1ec9nh m\u1ecdi th\u1ee9 v\u1edbi B\u1ea3n \u0111\u1ecbnh ki\u1ec3u"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "N\u1ebfu b\u1ea1n bi\u1ebft c\u00e1ch s\u1eed d\u1ee5ng CSS, b\u1ea1n c\u00f3 th\u1ec3 thay \u0111\u1ed5i ho\u00e0n to\u00e0n giao di\u1ec7n c\u1ee7a thanh b\u00ean b\u1eb1ng c\u00e1ch th\u00eam v\u00e0o nh\u1eefng \u0111i\u1ec1u ch\u1ec9nh c\u00e1 nh\u00e2n. \u0110i\u1ec1u n\u00e0y gi\u00fap b\u1ea1n c\u00f3 th\u1ec3 thay \u0111\u1ed5i ho\u00e0n to\u00e0n m\u1ecdi th\u1ee9."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Gi\u00e1m \u0111\u1ecbnh d\u1ea5u trang b\u1ecb h\u1ecfng ho\u1eb7c l\u1eb7p l\u1ea1i"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "B\u1ea1n c\u00f3 th\u1ec3 nh\u1ea5p chu\u1ed9t ph\u1ea3i v\u00e0o th\u01b0 m\u1ee5c b\u1ea5t k\u1ef3 trong thanh b\u00ean \u0111\u1ec3 ti\u1ebfn h\u00e0nh ki\u1ec3m tra. Trang k\u1ebft qu\u1ea3 s\u1ebd hi\u1ec3n th\u1ecb t\u1ea5t c\u1ea3 \u0111\u01b0\u1eddng d\u1eabn \u0111\u00e3 \u0111\u01b0\u1ee3c c\u1eadp nh\u1eadt, d\u1ea5u trang b\u1ecb h\u01b0 h\u1ea1i v\u00e0 d\u1ea5u trang c\u00f3 c\u00f9ng \u0111\u01b0\u1eddng d\u1eabn."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Ch\u1ecdn ph\u01b0\u01a1ng th\u1ee9c thanh to\u00e1n"
+    },
+    "premium_pay_what_you_want": {
+        "message": "\u0110\u00f3ng g\u00f3p theo \u00fd mu\u1ed1n"
+    },
+    "premium_pay_creditcard": {
+        "message": "th\u1ebb t\u00edn d\u1ee5ng ho\u1eb7c th\u1ebb ghi n\u1ee3"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Qu\u00e9t m\u00e3 QR qua WeChat \u0111\u1ec3 ti\u1ebfp t\u1ee5c."
+    },
+    "premium_pay_contact": {
+        "message": "N\u1ebfu b\u1ea1n g\u1eb7p b\u1ea5t k\u1ef3 v\u1ea5n \u0111\u1ec1 n\u00e0o trong qu\u00e1 tr\u00ecnh thanh to\u00e1n ho\u1eb7c c\u00f3 b\u1ea5t k\u1ef3 c\u00e2u h\u1ecfi n\u00e0o, h\u00e3y li\u00ean l\u1ea1c v\u1edbi t\u00f4i {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "T\u1ed5ng c\u1ed9ng"
+    },
+    "premium_pay_price_info": {
+        "message": "\u0110\u00e2y l\u00e0 h\u00ecnh th\u1ee9c thanh to\u00e1n m\u1ed9t l\u1ea7n duy nh\u1ea5t v\u00e0 s\u1ebd bao g\u1ed3m t\u1ea5t c\u1ea3 t\u00ednh n\u0103ng trong phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_pay_eula": {
+        "message": "\u0110i\u1ec1u Kho\u1ea3n Cho Ng\u01b0\u1eddi S\u1eed D\u1ee5ng"
+    },
+    "premium_pay_eula_desc": {
+        "message": "T\u00f4i \u0111\u00e3 \u0111\u1ecdc v\u00e0 \u0111\u1ed3ng \u00fd v\u1edbi [a]\u0110i\u1ec1u kho\u1ea3n Cho Ng\u01b0\u1eddi S\u1eed D\u1ee5ng[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Ch\u00ednh s\u00e1ch H\u1ee7y B\u1ecf"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "X\u00e1c nh\u1eadn thanh to\u00e1n"
+    },
+    "premium_pay_buy": {
+        "message": "Mua phi\u00ean b\u1ea3n Cao C\u1ea5p"
+    },
+    "premium_pay_verifying": {
+        "message": "X\u00e1c nh\u1eadn giao d\u1ecbch"
+    },
+    "premium_pay_purchase_id": {
+        "message": "M\u00e3 thanh to\u00e1n"
+    },
+    "premium_pay_success_headline": {
+        "message": "C\u1ea3m \u01a1n b\u1ea1n \u0111\u00e3 thanh to\u00e1n"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} Thi\u1ebft b\u1ecb \u0111\u00e3 \u0111\u01b0\u1ee3c t\u1ef1 \u0111\u1ed9ng k\u00edch ho\u1ea1t. B\u1ea1n kh\u00f4ng c\u1ea7n th\u1ef1c hi\u1ec7n th\u00eam b\u1ea5t k\u1ef3 thao t\u00e1c n\u00e0o."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "N\u1ebfu b\u1ea1n mu\u1ed1n k\u00edch ho\u1ea1t {1} tr\u00ean thi\u1ebft b\u1ecb kh\u00e1c ho\u1eb7c sau khi t\u00e1i c\u00e0i \u0111\u1eb7t ti\u1ec7n \u00edch, b\u1ea1n c\u00f3 th\u1ec3 nh\u1eadp m\u00e3 d\u01b0\u1edbi \u0111\u00e2y v\u00e0o m\u1ee5c c\u00e0i \u0111\u1eb7t c\u1ee7a ti\u1ec7n \u00edch:"
+    },
+    "premium_pay_info_email": {
+        "message": "H\u1ed9p th\u01b0 \u0111i\u1ec7n t\u1eed"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Nh\u1eadp v\u00e0o \u0111\u1ecba ch\u1ec9 h\u1ed9p th\u01b0 c\u1ee7a b\u1ea1n \u0111\u1ec3 nh\u1eadn m\u00e3 b\u1ea3n quy\u1ec1n"
+    },
+    "premium_pay_info_name": {
+        "message": "T\u00ean"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "M\u00e3 v\u00f9ng"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Ph\u01b0\u01a1ng th\u1ee9c thanh to\u00e1n"
+    },
+    "premium_pay_info_card_number": {
+        "message": "S\u1ed1 th\u1ebb"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Ng\u00e0y h\u1ebft h\u1ea1n"
     }
 }

@@ -441,7 +441,7 @@
         "message": "Daha Sonra Y\u00fckle"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "Nereye Y\u00fcklenmesini \u0130stersiniz ?"
+        "message": "Hangi Tarafa Y\u00fcklenmesini \u0130stersiniz ?"
     },
     "onboarding_sidebar_open_action_desc": {
         "message": "Kenar \u00e7ubu\u011funu nas\u0131l kullanmak istersiniz ?"
@@ -790,12 +790,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Sa\u011f"
-    },
-    "settings_contextmenu": {
-        "message": "Sa\u011f t\u0131k men\u00fcs\u00fc se\u00e7ene\u011fi"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Kenar \u00e7ubu\u011funu a\u00e7\u0131p kapatmak i\u00e7in sa\u011f t\u0131k men\u00fcs\u00fcnde bir se\u00e7enek ekle"
     },
     "settings_filter_intro": {
         "message": "Kenar \u00e7ubu\u011funun her sayfa y\u00fcklenmesinde a\u00e7\u0131lmas\u0131n\u0131 istemiyorsan beyaz liste veya kara listeden d\u00fczenleyebilirsin"

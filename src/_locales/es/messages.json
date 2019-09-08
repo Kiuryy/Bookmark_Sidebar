@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Derecha"
     },
-    "settings_contextmenu": {
-        "message": "Entrada al men\u00fa contextual"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Mostrar una entrada en el men\u00fa contextual de Chrome para alternar la barra lateral."
-    },
     "settings_filter_intro": {
         "message": "Si no quieres que la barra lateral se cargue en cada p\u00e1gina, puedes configurar d\u00f3nde cargar la extensi\u00f3n (Lista blanca) y donde no (Lista negra)"
     },

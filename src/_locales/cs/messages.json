@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Vpravo"
     },
-    "settings_contextmenu": {
-        "message": "Z\u00e1znam kontextov\u00e9ho menu"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Zobraz\u00ed p\u0159ep\u00edna\u010d postrann\u00edho panelu v kontextov\u00e9m menu Chrome."
-    },
     "settings_filter_intro": {
         "message": "Pokud nechcete, aby se postrann\u00ed panel zobrazil na ka\u017ed\u00e9 str\u00e1nce, m\u016f\u017eete nakonfigurovat, kde se m\u00e1 roz\u0161\u00ed\u0159en\u00ed (whitelist) na\u010d\u00edst a kde ne (\u010dern\u00e1 listina)."
     },
@@ -877,6 +871,18 @@
     },
     "settings_icon_color": {
         "message": "Barva"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automaticky"
+    },
+    "settings_icon_color_custom": {
+        "message": "Vlastn\u00ed"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Barva ikony bude nastavena automaticky podle barev syst\u00e9mu (sv\u011btl\u00e1 nebo tmav\u00e1). M\u016f\u017eete tak\u00e9 definovat barvu vlastn\u00ed."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Pokud pou\u017eijete vlastn\u00ed motiv Chrome, automatick\u00e1 barva nebude fungovat."
     },
     "settings_indicator_width": {
         "message": "\u0160\u00ed\u0159ka"

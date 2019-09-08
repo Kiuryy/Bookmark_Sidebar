@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Rechts"
     },
-    "settings_contextmenu": {
-        "message": "Contextueel menu"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Geef een item weer in het contextueel menu van Chrome om de zijbalk te schakelen."
-    },
     "settings_filter_intro": {
         "message": "Geef hier optioneel aan waar je de zijbalk wel (whitelist) en niet (blacklist) wilt tonen."
     },
@@ -877,6 +871,18 @@
     },
     "settings_icon_color": {
         "message": "Kleur"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automatisch"
+    },
+    "settings_icon_color_custom": {
+        "message": "Aangepast"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "De pictogramkleur wordt automatisch ingesteld op het kleurenschema van uw systeem (licht of donker). U kunt ook uw eigen aangepaste kleur voor het pictogram defini\u00ebren."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Houd er rekening mee dat de automatische kleur niet werkt wanneer u een aangepast Chrome-thema gebruikt."
     },
     "settings_indicator_width": {
         "message": "Breedte"

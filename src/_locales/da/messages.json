@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "H\u00f8jre"
     },
-    "settings_contextmenu": {
-        "message": "Kontekstmenu indgang"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Vis en post i kontekstmenuen for Chrome for at skifte sidebj\u00e6lken."
-    },
     "settings_filter_intro": {
         "message": "Hvis du ikke vil have sidebj\u00e6lken indl\u00e6st p\u00e5 hver side, kan du konfigurere hvor du skal indl\u00e6se udvidelsen (hvidlisten) eller hvor ikke (sortliste)."
     },
@@ -878,6 +872,18 @@
     "settings_icon_color": {
         "message": "Farve"
     },
+    "settings_icon_color_auto": {
+        "message": "Automatisk"
+    },
+    "settings_icon_color_custom": {
+        "message": "Brugerdefinerede"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Ikonfarven indstilles automatisk til at matche farveskemaet p\u00e5 dit system (lys eller m\u00f8rk). Du kan ogs\u00e5 definere din brugerdefinerede farve til ikonet."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Bem\u00e6rk, at den automatiske farve ikke fungerer, n\u00e5r du bruger et tilpasset Chrome-tema."
+    },
     "settings_indicator_width": {
         "message": "Bredde"
     },
@@ -939,7 +945,7 @@
         "message": "Brugerdefineret stilark"
     },
     "settings_custom_css_desc": {
-        "message": "Du kan definere dit eget stylesheet for at tilsides\u00e6tte standard styling. Brug kun denne mulighed, hvis du er bekendt med CSS og ved, hvad du g\u00f8r."
+        "message": "Du kan definere dit typografiark for at tilsides\u00e6tte standard styling. Brug kun denne mulighed, hvis du er bekendt med CSS og ved, hvad du laver."
     },
     "settings_newtab_desc": {
         "message": "Desv\u00e6rre har Google fjernet muligheden for at loade udvidelser p\u00e5 standard-siden for et nyt faneblad. Grundet dette har jeg tilf\u00f8jet nogle muligheder der tillader dig at tilg\u00e5 dine bogm\u00e6rker, n\u00e5r et nyt faneblad \u00e5bnes, p\u00e5 en anden facon."

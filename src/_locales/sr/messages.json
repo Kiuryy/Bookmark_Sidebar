@@ -484,5 +484,173 @@
     },
     "onboarding_goto_appearance": {
         "message": "Podesi izgled."
+    },
+    "settings_title": {
+        "message": "Pode\u0161avanja"
+    },
+    "settings_menu_sidebar": {
+        "message": "Bo\u010dna traka"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Op\u0161te"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Uklju\u010di\/Isklju\u010di"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Kratka obja\u0161njenja"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
+    },
+    "settings_menu_appearance": {
+        "message": "Izgled"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Op\u0161te"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Bo\u010dna traka"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indikator"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikona"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Prikaz preko"
+    },
+    "settings_menu_newtab": {
+        "message": "Novi tab"
+    },
+    "settings_menu_language": {
+        "message": "Jezik"
+    },
+    "settings_menu_language_general": {
+        "message": "Op\u0161te"
+    },
+    "settings_menu_language_translate": {
+        "message": "Prevo\u0111enje"
+    },
+    "settings_menu_feedback": {
+        "message": "Povratne informacije"
+    },
+    "settings_menu_infos": {
+        "message": "Informacije"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "O meni"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Dozvole"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privatnost"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Dnevnik izmena"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Export"
+    },
+    "settings_menu_expert": {
+        "message": "Ekspertska pode\u0161avanja"
+    },
+    "settings_save": {
+        "message": "Sacuvajte izmene"
+    },
+    "settings_saved_message": {
+        "message": "Izmene uspesno sacuvane"
+    },
+    "settings_restore": {
+        "message": "Prethodni korak"
+    },
+    "settings_restore_confirm": {
+        "message": "Jeste li sigurni da \u017eelite vratiti zadane konfiguracije?"
+    },
+    "settings_restored_message": {
+        "message": "Zadana konfiguracija uspesno postavljena"
+    },
+    "settings_advanced": {
+        "message": "Napredne postavke"
+    },
+    "settings_not_synced": {
+        "message": "Ne\u0107e se sinkronizirati na va\u0161im ure\u0111ajima."
+    },
+    "settings_premium_activated": {
+        "message": "Uspesno ste aktivirali Premium nalog"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Neuspesna aktivacija Premium naloga. Molimo Vas unesite validan kljuc"
+    },
+    "settings_search_placeholder": {
+        "message": "Pretraga konfiguracije"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Pomocu naprednih postavki, mozete da promenite svaku od ponudjenih konfiguracija ekstenzije, ukljucujuci i prethodno nedostupna potvrdna polja i klizace, pomocu kojih menjate zeljene konfiguracije."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Molimo promenite vrijednosti ovdje iskljucivo ako znate sta radite. Neispravne konfiguracije mogu prouzrokovati smetnje u radu ekstenzije. Ukoliko primetite smetnje u radu, mozete se vratiti na zadanu konfiguraciju."
+    },
+    "settings_expert_save_error": {
+        "message": "Neuspjesno pohranjivanje postavki. Molimo da ispravite unos."
+    },
+    "settings_newtab_desc": {
+        "message": "Na\u017ealost, Google je uklonio moguc\u0301nost u\u010ditavanja pro\u0161irenja na zadanu stranicu nove kartice (taba). Zbog toga sam dodao neke opcije koje vam omoguc\u0301avaju da pristupite va\u0161im obele\u017eiva\u010dima kada otvarate novu karticu na drugi na\u010din."
+    },
+    "settings_newtab_override": {
+        "message": "Premosti stranicu nove kartice (taba)"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Da li pro\u0161irenje treba da premosti va\u0161u trenutnu stranicu nove kartice (taba) sa prilago\u0111enom ili veb lokacijom koju treba u\u010ditati prilikom otvaranja nove kartice?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Otvori bo\u010dnu traku automatski"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Podesi da li bo\u010dna stranica treba da se otvori automatski kada se otvori nova kartica (tab)."
+    },
+    "settings_newtab_website": {
+        "message": "U\u010ditaj veb lokaciju"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Umesto otvaranja zamenske nove kartice, mo\u017eete podesiti veb lokaciju koja \u0107e se u\u010ditati umesto nje."
+    },
+    "settings_feedback_desc": {
+        "message": "Imate bilo kakve sugestije za pobolj\u0161anja, pitanja, uo\u010dili ste nedostajuc\u0301e opcije za konfiguraciju ili prona\u0161li gre\u0161ku? U cilju pobolj\u0161anja iskustva sa ovim pro\u0161irenjem (ekstenzijom), bio bih vam veoma zahvalan za bilo koju i svaku povratnu informaciju ili predlog koji mo\u017eda imate."
+    },
+    "settings_feedback_notice": {
+        "message": "Molim vas da va\u0161e povratne informacije pi\u0161ete na engleskom jeziku, kako bi lak\u0161e razumeo i odgovorio na va\u0161u poruku."
+    },
+    "settings_feedback_email": {
+        "message": "Va\u0161a email adresa"
+    },
+    "settings_feedback_screenshot": {
+        "message": "Prilo\u017eite snimke ekrana"
+    },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Veli\u010dina datoteke {1} je prevelika (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Ne mo\u017eete otpremiti vi\u0161e od {1} snimaka ekrana"
+    },
+    "settings_feedback_send": {
+        "message": "Po\u0161alji povratne informacije"
+    },
+    "settings_feedback_sent_message": {
+        "message": "Hvala vam na povratnim informacijama"
+    },
+    "settings_feedback_send_failed": {
+        "message": "Va\u0161a poruka nije mogla biti poslata. Molim vas, poku\u0161ajte ponovo."
+    },
+    "settings_feedback_faq_headline": {
+        "message": "Ovo mo\u017ee biti od va\u017enosti za vas"
     }
 }

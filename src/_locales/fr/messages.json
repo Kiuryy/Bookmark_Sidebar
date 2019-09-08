@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Droite"
     },
-    "settings_contextmenu": {
-        "message": "Entr\u00e9e du menu contextuel"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Affiche une entr\u00e9e dans le menu contextuel de Chrome pour afficher ou cacher la barre lat\u00e9rale."
-    },
     "settings_filter_intro": {
         "message": "Si vous ne voulez pas charger la barre lat\u00e9rale pour chacune des pages, vous pouvez sp\u00e9cifier une liste d'URL ; blanche (whitelist) pour autoriser le chargement de la barre lat\u00e9rale ou noire (blacklist) pour l'emp\u00eacher."
     },

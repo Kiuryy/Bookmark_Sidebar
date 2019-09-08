@@ -791,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Paremal"
     },
-    "settings_contextmenu": {
-        "message": "Kontekstmen\u00fc\u00fc kirje"
-    },
-    "settings_contextmenu_desc": {
-        "message": "Kuva k\u00fclgriba l\u00fclitamise kirje Chrome kontekstmen\u00fc\u00fcs."
-    },
     "settings_filter_intro": {
         "message": "Kui sa ei soovi, et k\u00fclgriba laetakse igal lehel, saab m\u00e4\u00e4rata lehed musta (keelatud) ja valgesse (lubatud) nimekirja."
     },

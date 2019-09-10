@@ -51,9 +51,7 @@
          * @returns {string}
          */
         this.getUILanguage = () => {
-            let ret = chrome.i18n.getUILanguage();
-            ret = ret.replace("-", "_");
-            return ret;
+            return chrome.i18n.getUILanguage();
         };
 
         /**

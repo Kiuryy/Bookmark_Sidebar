@@ -31,7 +31,6 @@
             },
             b: { // behaviour -> synced across devices
                 animations: true,
-                contextmenu: true,
                 preventPageScroll: false,
                 toggleArea: {
                     width: 1,

@@ -26,23 +26,7 @@
          */
         this.initContextmenus = async () => {
             return new Promise((resolve) => {
-
-                const configPromise = new Promise((rslv) => {
-                    chrome.storage.sync.get(["behaviour"], (obj) => {
-                        rslv(obj);
-                    });
-                });
-
-                Promise.all([
-                    configPromise,
-                    b.helper.language.getLangVars()
-                ]).then(([config, lang]) => {
-                    let pageContextmenu = true;
-
-                    if (config && config.behaviour && typeof config.behaviour.contextmenu !== "undefined") {
-                        pageContextmenu = config.behaviour.contextmenu;
-                    }
-
+                b.helper.language.getLangVars().then((lang) => {
                     chrome.contextMenus.removeAll(() => {
                         const uid = Math.random().toString(36).substr(2, 12);
 
@@ -58,15 +42,6 @@
                             contexts: ["browser_action"]
                         });
 
-                        if (pageContextmenu) { // only show page contextmenu when not disabled in the settings
-                            chrome.contextMenus.create({
-                                id: "bsToggle_" + uid,
-                                title: $.opts.manifest.name,
-                                contexts: ["page"],
-                                documentUrlPatterns: ["https://*/*", "http://*/*"]
-                            });
-                        }
-
                         chrome.contextMenus.onClicked.addListener((obj) => {
                             if (obj.menuItemId === "bsChangelog_" + uid) {
                                 b.helper.utility.openLink({
@@ -80,8 +55,6 @@
                                     newTab: true,
                                     params: {lang: b.helper.language.getUILanguage()}
                                 });
-                            } else if (obj.menuItemId === "bsToggle_" + uid) {
-                                toggleSidebar();
                             }
                         });
 

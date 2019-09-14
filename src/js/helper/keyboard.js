@@ -62,7 +62,7 @@
         const initSidebarEvents = () => {
             $([document, ext.elm.iframe[0].contentDocument]).on("keydown.bs", (e) => {
                 if (isSidebarFocussed()) { // sidebar is focussed
-                    const scrollKeys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", "Space"];
+                    const scrollKeys = ["PageDown", "PageUp", "Home", "End", "Space"];
                     const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
                     const isContextmenuOpen = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper).length() > 0;
                     const isDragged = ext.elm.iframeBody.hasClass($.cl.drag.isDragged);
@@ -72,16 +72,23 @@
                         $.delay(300).then(() => {
                             hoverVisibleEntry();
                         });
-                    } else if (e.key === "Tab") { // jump to the next or previous entry
+                    } else if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) { // jump to the next entry
                         e.preventDefault();
                         if (isContextmenuOpen) {
-                            hoverNextContextmenuEntry();
+                            hoverNextPrevContextmenuEntry("next");
                         } else {
-                            hoverNextPrevEntry(e.shiftKey ? "prev" : "next");
+                            hoverNextPrevEntry("next");
                             const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
                             if (searchField[0]) {
                                 searchField[0].blur();
                             }
+                        }
+                    } else if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) { // jump to the previous entry
+                        e.preventDefault();
+                        if (isContextmenuOpen) {
+                            hoverNextPrevContextmenuEntry("prev");
+                        } else {
+                            hoverNextPrevEntry("prev");
                         }
                     } else if (e.key === "Enter") { // click the current entry
                         e.preventDefault();
@@ -226,24 +233,33 @@
 
         /**
          * Hovers the next entry in the currently visible contextmenu
+         *
+         * @param {string} type 'prev' or 'next'
          */
-        const hoverNextContextmenuEntry = () => {
+        const hoverNextPrevContextmenuEntry = (type) => {
             const contextmenu = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper);
-            let hoveredElm = null;
             let entry = null;
 
             if (contextmenu.find("a." + $.cl.hover).length() > 0) {
                 entry = contextmenu.find("a." + $.cl.hover).eq(0);
             }
 
-            if (entry === null) { // hover the first entry
-                hoveredElm = contextmenu.find("a").eq(0);
-            } else if (entry.parent("li").next("li").length() > 0) { // hover the next entry
-                hoveredElm = entry.parent("li").next("li").children("a");
-            } else if (entry.parents("ul").eq(0).next("ul").length() > 0) { // hover the first entry of the next list
-                hoveredElm = entry.parents("ul").eq(0).next("ul").find("> li > a").eq(0);
-            } else { // last entry of the last list -> hover the first entry
-                hoveredElm = contextmenu.find("a").eq(0);
+            let hoveredElm = contextmenu.find("a").eq(0);
+
+            if (entry !== null) {
+                if (type === "next") {
+                    if (entry.parent("li").next("li").length() > 0) { // hover the next entry
+                        hoveredElm = entry.parent("li").next("li").children("a");
+                    } else if (entry.parents("ul").eq(0).next("ul").length() > 0) { // hover the first entry of the next list
+                        hoveredElm = entry.parents("ul").eq(0).next("ul").find("> li > a").eq(0);
+                    }
+                } else if (type === "prev") {
+                    if (entry.parent("li").prev("li").length() > 0) { // hover the prev entry
+                        hoveredElm = entry.parent("li").prev("li").children("a");
+                    } else if (entry.parents("ul").eq(0).prev("ul").length() > 0) { // hover the last entry of the prev list
+                        hoveredElm = entry.parents("ul").eq(0).prev("ul").find("> li > a").eq(-1);
+                    }
+                }
             }
 
             contextmenu.find("a." + $.cl.hover).removeClass($.cl.hover);
@@ -317,7 +333,7 @@
 
         /**
          * Hovers a visible entry in the currently visible bookmark list,
-         * will be called after using scroll keys on the keyboard, like 'page up, home, arrow down'
+         * will be called after using scroll keys on the keyboard, like 'page up, home, end'
          */
         const hoverVisibleEntry = () => {
             Object.values(ext.elm.bookmarkBox).some((box) => {

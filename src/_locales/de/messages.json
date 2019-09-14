@@ -366,7 +366,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Markiert den n\u00e4chsten Eintrag in der Sidebar oder dem aktuell ge\u00f6ffneten Rechtsklickmen\u00fc"
+        "message": "Markiert den n\u00e4chsten bzw. vorherigen Eintrag in der Sidebar"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Klickt den aktuell markierten Eintrag an"

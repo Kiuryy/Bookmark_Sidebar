@@ -7,7 +7,22 @@
      */
     $.OverlayHelper = function (ext) {
 
+        /**
+         *
+         * @type {object}
+         */
         let elements = {};
+
+        /**
+         *
+         * @type {object}
+         */
+        const keyboardKeyIcons = {
+            tab: "&#8633;",
+            shift: "&#8679;",
+            cmd: "&#8984;",
+            enter: "&#9166;"
+        };
 
         /**
          * Creates a new overlay for the given bookmark
@@ -210,33 +225,32 @@
             });
 
             const list = $("<ul />").appendTo(wrapper);
-            const icons = {
-                tab: "&#8633;",
-                shift: "&#8679;",
-                cmd: "&#8984;",
-                enter: "&#9166;"
+            const shortcutList = {
+                tab: [["&#8593;"], ["&#8595;"], ["tab"]],
+                enter: [["enter"]],
+                shift_enter: [["shift", "enter"]],
+                ctrl_c: [[navigator.platform.indexOf("Mac") > -1 ? "cmd" : "ctrl", "c"]],
+                del: [["del"]],
+                esc: [["esc"]]
             };
 
-            Object.entries({
-                tab: ["tab"],
-                enter: ["enter"],
-                shift_enter: ["shift", "enter"],
-                ctrl_c: [navigator.platform.indexOf("Mac") > -1 ? "cmd" : "ctrl", "c"],
-                del: ["del"],
-                esc: ["esc"]
-            }).forEach(([name, keys]) => {
-                keys = keys.map((k) => {
-                    let ret = "<i>";
-                    ret += ext.helper.i18n.get("keyboard_shortcuts_key_" + k) || k;
-                    if (icons[k]) {
-                        ret += " " + icons[k];
-                    }
-                    ret += "</i>";
-                    return ret;
+            Object.entries(shortcutList).forEach(([name, shortcuts]) => {
+                const shortcutHtmlArr = [];
+                shortcuts.forEach((keys) => {
+                    keys = keys.map((k) => {
+                        let ret = "<i>";
+                        ret += ext.helper.i18n.get("keyboard_shortcuts_key_" + k) || k;
+                        if (keyboardKeyIcons[k]) {
+                            ret += " " + keyboardKeyIcons[k];
+                        }
+                        ret += "</i>";
+                        return ret;
+                    });
+                    shortcutHtmlArr.push("<strong>" + keys.join("+") + "</strong>");
                 });
 
                 $("<li />")
-                    .append("<strong>" + keys.join("+") + "</strong>")
+                    .html(shortcutHtmlArr.join(", "))
                     .append("<span>" + ext.helper.i18n.get("keyboard_shortcuts_" + name + "_desc") + "</span>")
                     .appendTo(list);
             });

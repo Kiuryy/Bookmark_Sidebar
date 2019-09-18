@@ -70,8 +70,11 @@
                             changeColorValue(s.elm.color[key], value);
                             s.elm.color[key].data("initial", s.elm.color[key][0].value);
                         } else if (s.elm.select[key]) {
-                            if (key === "fontFamily" && s.elm.select[key].children("option[value='" + value + "']").length() === 0) {
-                                value = "default";
+                            if (key === "fontFamily") {
+                                value = value.replace(/^'|'$/g, "");
+                                if (s.elm.select[key].children("option[value='" + value + "']").length() === 0) {
+                                    value = "default";
+                                }
                             }
 
                             s.elm.select[key][0].value = value;
@@ -342,6 +345,9 @@
                     }
                 } else if (s.elm.select[key]) {
                     ret.appearance.styles[key] = s.elm.select[key][0].value;
+                    if (key === "fontFamily" && ret.appearance.styles[key] !== "default") { // wrap ticks around the font name to prevent Chrome to ignore fonts with spaces or special characters in the css definition
+                        ret.appearance.styles[key] = "'" + ret.appearance.styles[key] + "'";
+                    }
                 } else if (s.elm.radio[key]) {
                     ret.appearance.styles[key] = s.elm.radio[key][0].value;
                 }

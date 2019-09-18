@@ -147,6 +147,10 @@
                 if (typeof obj.appearance.styles.iconColor === "undefined" || obj.appearance.styles.iconColor === "#555555" || obj.appearance.styles.iconColor === "#555") { // @deprecated icon color is now per default automatically light/dark depending on OS setting (07/2019)
                     obj.appearance.styles.iconColor = "auto";
                 }
+
+                if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily !== "default") { // @deprecated wrap fontFamily in ticks (10/2019)
+                    obj.appearance.styles.fontFamily = "'" + obj.appearance.styles.fontFamily + "'";
+                }
             } catch (e) {
                 //
             }

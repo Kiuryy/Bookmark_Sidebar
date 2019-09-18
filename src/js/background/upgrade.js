@@ -128,6 +128,7 @@
          */
         const updateOptionsAfterUpgrade = (obj) => {
             try {
+                delete obj.behaviour.contextmenu;
                 delete obj.behaviour.initialOpenOnNewTab;
                 delete obj.behaviour.rememberSearch;
                 delete obj.behaviour.rememberScroll;

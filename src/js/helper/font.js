@@ -72,7 +72,9 @@
             fontInfo["default"] = this.getDefaultFontInfo();
             fontInfo["default"].fontWeights = this.getFontWeights(fontInfo["default"].name);
 
-            if (styles.fontFamily && styles.fontFamily !== "default" && styles.fontFamily !== fontInfo["default"].name) {
+            styles.fontFamily = (styles.fontFamily || "default").replace(/^'|'$/g, "");
+
+            if (styles.fontFamily !== "default" && styles.fontFamily !== fontInfo["default"].name) {
                 fontInfo.config = {
                     name: styles.fontFamily,
                     fontWeights: this.getFontWeights(styles.fontFamily)
@@ -104,6 +106,7 @@
          * @returns {object}
          */
         this.getFontWeights = (font) => {
+            font = font.replace(/^'|'$/g, "");
             const lang = ext.helper.i18n.getLanguage();
             const ret = {};
 

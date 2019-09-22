@@ -24,7 +24,7 @@
         "message": "URL copiado"
     },
     "sidebar_deleted": {
-        "message": "Removida"
+        "message": "Exclu\u00eddo"
     },
     "sidebar_undo_deletion": {
         "message": "Desfazer"
@@ -66,13 +66,13 @@
         "message": "Adicionar favorito"
     },
     "contextmenu_add": {
-        "message": "Adicionar entrada"
+        "message": "Adicionar um item"
     },
     "contextmenu_check_bookmarks": {
         "message": "Verificar favoritos"
     },
     "contextmenu_toggle_hidden": {
-        "message": "Mostrar entradas ocultas"
+        "message": "Mostrar itens ocultos"
     },
     "contextmenu_close_all_directories": {
         "message": "Fechar todas as pastas"
@@ -366,19 +366,19 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Posiciona a pr\u00f3xima entrada na barra lateral ou no menu de contexto aberto no momento"
+        "message": "Passa para o item seguinte ou anterior na barra lateral"
     },
     "keyboard_shortcuts_enter_desc": {
-        "message": "Executa um clique na atual entrada suspensa"
+        "message": "Clica no atual item selecionado"
     },
     "keyboard_shortcuts_shift_enter_desc": {
-        "message": "Abre o menu de contexto para a atual entrada suspensa"
+        "message": "Abre o menu de contexto do atual item selecionado"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Copia o URL da atual entrada suspensa"
+        "message": "Copia o URL do atual item selecionado"
     },
     "keyboard_shortcuts_del_desc": {
-        "message": "Remove a atual entrada suspensa"
+        "message": "Exclui o atual item selecionado"
     },
     "keyboard_shortcuts_esc_desc": {
         "message": "Fecha a barra lateral, a sobreposi\u00e7\u00e3o aberta ou o menu de contexto"
@@ -615,13 +615,13 @@
         "message": "Clicar com o bot\u00e3o direito"
     },
     "settings_open_action_mouseover": {
-        "message": "Posicionar o ponteiro do mouse"
+        "message": "Posicionar o ponteiro do mouse sobre uma \u00e1rea"
     },
     "settings_open_action_icon": {
         "message": "Clique no \u00edcone"
     },
     "settings_toggle_area": {
-        "message": "Configurar \u00e1rea"
+        "message": "Configurar a \u00e1rea"
     },
     "settings_toggle_area_desc": {
         "message": "Por padr\u00e3o, a barra lateral pode ser aberta posicionando-se o ponteiro do mouse sobre a borda inteira da janela do navegador. Voc\u00ea pode alterar isso e configurar o local exato por onde deseja abrir a barra lateral."
@@ -660,7 +660,7 @@
         "message": "Atraso de abertura"
     },
     "settings_open_delay_desc": {
-        "message": "Evita abrir imediatamente a barra lateral ao posicionar o ponteiro do mouse ou ao clicar com um atraso."
+        "message": "Evita que a barra lateral abra imediatamente ao posicionar o mouse sobre ou ao clicar na \u00e1rea de ativa\u00e7\u00e3o."
     },
     "settings_prevent_pagescroll": {
         "message": "Impedir a rolagem da p\u00e1gina"

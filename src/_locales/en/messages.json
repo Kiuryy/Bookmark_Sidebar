@@ -663,7 +663,7 @@
         "message": "Open delay"
     },
     "settings_open_delay_desc": {
-        "message": "Prevents immediately opening of the sidebar on mouseover or by clicking with a delay."
+        "message": "Prevents, that the sidebar will open immediately when hovering or clicking the activation area."
     },
     "settings_prevent_pagescroll": {
         "message": "Prevent page scrolling"

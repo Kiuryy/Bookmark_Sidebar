@@ -366,7 +366,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Posiciona a pr\u00f3xima entrada na barra lateral ou no menu de contexto aberto de momento"
+        "message": "Salienta a entrada seguinte ou anterior na barra lateral"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Executa um clique na entrada atual suspensa"

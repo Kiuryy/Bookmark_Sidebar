@@ -866,6 +866,9 @@
     "settings_filter_rules": {
         "message": "URL patterns"
     },
+    "settings_import_export_notice": {
+        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to Chrome with your Google account. If you don't want to login or want to share your settings with other people, you can use this import\/export option."
+    },
     "settings_import_export_desc": {
         "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
     },

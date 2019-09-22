@@ -821,6 +821,9 @@
     "settings_filter_rules": {
         "message": "URL-Regeln"
     },
+    "settings_import_export_notice": {
+        "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du im Chrome mit deinem Google-Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
+    },
     "settings_import_export_desc": {
         "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
     },

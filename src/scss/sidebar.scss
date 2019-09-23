@@ -40,6 +40,7 @@ a.dragHelper {
   background: $__hoverColor;
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
   transition: none;
   z-index: 3;
 
@@ -48,9 +49,11 @@ a.dragHelper {
   }
 
   > span.drag {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.1);
     @include mask('icon-reorder', $reorderIconColorActive, 18px);
+    display: block;
+    transition: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: grabbing;
   }
 
   &.snap {
@@ -554,6 +557,7 @@ section#sidebar {
 
     > div.scrollBox a > span.drag {
       @include mask('icon-reorder', $reorderIconColor, 18px);
+      cursor: grab;
 
       &:hover::before {
         background-color: $reorderIconColorActive;

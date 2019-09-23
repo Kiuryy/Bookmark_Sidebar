@@ -584,6 +584,7 @@ a.dragHelper {
   background: "%hoverColor";
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
   transition: none;
   z-index: 3; }
   a.dragHelper.hover:not(.separator) {
@@ -764,8 +765,8 @@ a.dragHelper {
     width: "%bookmarksLineHeight";
     height: "%bookmarksLineHeight";
     max-width: 24px;
-    max-height: 24px;
-    border-radius: 2px;
+    max-height: 22px;
+    border-radius: 3px;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
     transition: background-color 0.5s, opacity 0.5s; }
@@ -777,7 +778,9 @@ a.dragHelper {
     background: #fff; }
   a.dragHelper > span.drag {
     display: block;
-    background-color: rgba(0, 0, 0, 0.1); }
+    transition: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: grabbing; }
     a.dragHelper > span.drag::before {
       content: "";
       position: absolute;
@@ -1241,8 +1244,8 @@ section#sidebar {
           width: "%bookmarksLineHeight";
           height: "%bookmarksLineHeight";
           max-width: 24px;
-          max-height: 24px;
-          border-radius: 2px;
+          max-height: 22px;
+          border-radius: 3px;
           cursor: pointer;
           background-color: rgba(0, 0, 0, 0.05);
           transition: background-color 0.5s, opacity 0.5s; }
@@ -1335,18 +1338,20 @@ section#sidebar {
     -webkit-mask: no-repeat center/18px;
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
     background-color: "%foregroundColor"; }
-  section#sidebar.openedOnce > div.scrollBox a > span.drag::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: no-repeat center/18px;
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
-    background-color: #aaa; }
-  section#sidebar.openedOnce > div.scrollBox a > span.drag:hover::before {
-    background-color: #888; }
+  section#sidebar.openedOnce > div.scrollBox a > span.drag {
+    cursor: grab; }
+    section#sidebar.openedOnce > div.scrollBox a > span.drag::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/18px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-reorder.svg);
+      background-color: #aaa; }
+    section#sidebar.openedOnce > div.scrollBox a > span.drag:hover::before {
+      background-color: #888; }
   section#sidebar[data-sort='custom'] > div#bookmarkBox a:hover {
     padding-right: 46px; }
   section#sidebar[data-sort='custom'] > div#bookmarkBox a > span.drag {

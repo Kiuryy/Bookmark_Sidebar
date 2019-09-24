@@ -13,7 +13,6 @@
         let mouseNotTopLeft = false;
         let hoveredOnce = false;
         let sidebarPos = null;
-        let dndOpen = null;
         let preventPageScroll = null;
         let preventWindowed = null;
         let indicatorWidth = null;
@@ -38,7 +37,7 @@
                 lastFocussed = document.activeElement;
             }
 
-            const data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/dndOpen", "n/autoOpen", "u/performReopening"]);
+            const data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "n/autoOpen", "u/performReopening"]);
 
             Object.entries(data.toggleArea).forEach(([key, val]) => {
                 toggleArea[key] = +val;
@@ -48,7 +47,6 @@
             sidebarPos = data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
             preventWindowed = data.preventWindowed;
-            dndOpen = data.dndOpen;
 
             ext.elm.indicator.css({
                 width: getToggleAreaWidth() + "px",
@@ -365,8 +363,7 @@
                     let openByType = false;
                     if (e.type === "dragover") { // drag -> only open when configuration is set
                         const dt = e.dataTransfer;
-                        const isAddableToSidebar = dt && dt.types && (dt.types.indexOf ? dt.types.indexOf("text/plain") !== -1 : dt.types.contains("text/plain"));
-                        openByType = dndOpen && isAddableToSidebar;
+                        openByType = dt && dt.types && (dt.types.indexOf ? dt.types.indexOf("text/plain") !== -1 : dt.types.contains("text/plain"));
                     } else if (e.type === "mousedown") { // mousedown -> only open when the left mouse button is pressed
                         openByType = e.button === 0;
                     } else {

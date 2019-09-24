@@ -55,7 +55,6 @@
                 tooltipDelay: 0.5,
                 tooltipContent: "all",
                 tooltipAdditionalInfo: true,
-                dndOpen: true,
                 dndCreationDialog: false,
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.4,

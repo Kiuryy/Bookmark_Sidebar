@@ -366,7 +366,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Spring naar het volgende item in de zijbalk of het momenteel geopende contextuele menu"
+        "message": "Selecteert het volgende of vorige item in de zijbalk"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Kies voor het geselecteerde item"
@@ -820,6 +820,9 @@
     },
     "settings_filter_rules": {
         "message": "URL parameters"
+    },
+    "settings_import_export_notice": {
+        "message": "De instellingen van de uitbreiding worden automatisch gesynchroniseerd tussen je apparaten als je in Chrome bent ingelogd met je Google account. Als je niet wil inloggen of je instellingen wil delen met anderen, dan kan je deze import\/export functie daarvoor gebruiken."
     },
     "settings_import_export_desc": {
         "message": "Je kan de instellingen van deze extensie lokaal opslaan. Je kan het opgeslagen bestand dan op elke computer importeren zolang de extensie maar is geinstalleerd."

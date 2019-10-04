@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Prehod naslednjega vnosa stranske vrstice ali trenutno odprtega kontekstnega menija"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Izvede klik na trenutni prehod vnosa"
     },

@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Przechodzi do nast\u0119pnej pozycji bocznej listy zak\u0142adek lub aktualnie otwartego menu kontekstowego"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Uruchamia akcj\u0119 klikni\u0119cia lewym przyciskiem myszki na aktualnie wskazywanej pozycji"
     },

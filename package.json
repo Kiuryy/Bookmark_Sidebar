@@ -18,7 +18,7 @@
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
     "del": "^5.1.0",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "fs-extra": "^8.1.0",
     "glob-concat": "^1.0.1",
     "html-minifier": "^4.0.0",
@@ -27,7 +27,7 @@
     "npm-check-updates": "^3.1.23",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
-    "terser": "^4.3.2",
+    "terser": "^4.3.4",
     "zip-dir": "^1.0.2"
   }
 }

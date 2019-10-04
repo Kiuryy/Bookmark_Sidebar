@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Modific\u0103 folderul"
     },
+    "contextmenu_edit_separator": {
+        "message": "Modific\u0103 separatorul"
+    },
     "contextmenu_delete_bookmark": {
         "message": "\u0218terge semnul de carte"
     },
@@ -59,8 +62,14 @@
     "contextmenu_new_tab_incognito": {
         "message": "Deschide \u00eentr-o fereastr\u0103 incognito nou\u0103"
     },
+    "contextmenu_add_bookmark": {
+        "message": "Adaug\u0103 semn carte"
+    },
     "contextmenu_add": {
         "message": "Adaug\u0103 intrare"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Verifica\u021bi marcajele"
     },
     "contextmenu_toggle_hidden": {
         "message": "Arat\u0103 intr\u0103rile ascunse"
@@ -170,6 +179,18 @@
     "overlay_label_separator": {
         "message": "Separator"
     },
+    "overlay_add_position": {
+        "message": "Pozi\u021bie"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Preg\u0103tit la dosar"
+    },
+    "overlay_add_position_append": {
+        "message": "Anexeaz\u0103 la dosar"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Op\u021bional po\u021bi ad\u0103uga un titlu. Acesta va fii afi\u0219at deasupra separatorului \u0219i te poate ajuta \u00een organizarea semnelor de carte."
+    },
     "overlay_bookmark_views": {
         "message": "Vizualiz\u0103ri"
     },
@@ -194,17 +215,44 @@
     "overlay_dir_children_dirs": {
         "message": "Directoare"
     },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Schimbat"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Stricat"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Dubluri"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Dosare goale"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Se verific\u0103 URL_urile marcajelor"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Actualizeaz\u0103 selectat"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "\u00cenl\u0103tur\u0103 selectat"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Toate URL-urile marcajelor sunt ok"
     },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Nu exist\u0103 URL-uri schimbate \u00een marcaje"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Nu exist\u0103 URL-uri defecte \u00een marcaje"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Nu exist\u0103 URL-uri dublate \u00een marcaje"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Nu exist\u0103 dosare f\u0103r\u0103 marcaje"
+    },
     "newtab_title": {
         "message": "Tab nou"
-    },
-    "newtab_search_placeholder": {
-        "message": "Caut\u0103 {1} sau tasteaz\u0103 URL-ul"
     },
     "newtab_top_pages_default": {
         "message": "Pagini de top"
@@ -220,6 +268,39 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Nu ar\u0103ta paginile"
+    },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Afi\u0219eaz\u0103 previzualiz\u0103ri sit-uri web"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Afi\u0219eaz\u0103 icoane sit-uri web"
+    },
+    "newtab_search_placeholder": {
+        "message": "Caut\u0103 {1} sau tasteaz\u0103 URL-ul"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Spune acum"
+    },
+    "newtab_speech_search_error": {
+        "message": "Pentru a activa c\u0103utarea vocal\u0103, trebuie s\u0103 autoriza\u021bi accesul la microfon."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Motor c\u0103utare"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definit de utilizator"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titlu"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL pagin\u0103 de pornire"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL-urile rezultatelor c\u0103ut\u0103rii"
+    },
+    "newtab_upload_background": {
+        "message": "\u00cencarc\u0103 imagine fundal"
     },
     "newtab_fallback_headline_general": {
         "message": "Ceva a blocat bara lateral\u0103"
@@ -285,7 +366,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Selecteaz\u0103 urm\u0103toarea intrare \u00een bara lateral\u0103 sau \u00een meniul contextual deschis"
+        "message": "Planeaz\u0103 urm\u0103toarea sau anterioara intrare din bara lateral\u0103"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Efectueaz\u0103 un click pe intrarea selectat\u0103"
@@ -395,6 +476,9 @@
     "onboarding_finish_desc": {
         "message": "Distra\u021bi-v\u0103 cu bara lateral\u0103."
     },
+    "onboarding_finish_notice": {
+        "message": "Dac\u0103 clic-ui\u021bi des \u00een partea din {1} a ferestrei exploratorului, poate dori\u021bi s\u0103 schimba\u021bi deschiderea ferestrei de marcaje pe vertical\u0103 pentru a evita deschideri accidentale."
+    },
     "onboarding_goto_settings": {
         "message": "Mai multe set\u0103ri"
     },
@@ -455,11 +539,29 @@
     "settings_menu_infos": {
         "message": "informa\u021bii"
     },
+    "settings_menu_infos_aboutme": {
+        "message": "Despre mine"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permisiuni"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Intimitate"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Contact"
+    },
     "settings_menu_infos_changelog": {
         "message": "Istoric schimb\u0103ri"
     },
+    "settings_menu_premium": {
+        "message": "Premiu"
+    },
     "settings_menu_export": {
         "message": "Import\/Export"
+    },
+    "settings_menu_expert": {
+        "message": "Set\u0103ri avansate"
     },
     "settings_save": {
         "message": "Salveaz\u0103 modific\u0103rile"
@@ -481,6 +583,24 @@
     },
     "settings_not_synced": {
         "message": "Nu vor fi sincronizate cu celelalte dispozitive."
+    },
+    "settings_premium_activated": {
+        "message": "Versiunea Premium a fost activat\u0103 cu succes"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nu se poate activa versiunea Premium. V\u0103 rug\u0103m s\u0103 introduce\u021bi un serial de licen\u021b\u0103 valid"
+    },
+    "settings_search_placeholder": {
+        "message": "Caut\u0103 dup\u0103 configurare"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Cu set\u0103rile pentru exper\u021bi, pute\u021bi modifica fiecare setare a extensiei, chiar \u0219i acelea pe care nu le pute\u021bi schimba folosind bifarea c\u0103su\u021belor sau cursoarelor \u00een pagina de set\u0103ri."
+    },
+    "settings_expert_settings_notice": {
+        "message": "V\u0103 rug\u0103m s\u0103 nu modifica\u021bi valorile de aici, dec\u00e2t dac\u0103 \u0219ti\u021bi ce face\u021bi. Configur\u0103rile gre\u0219ite pot cauza comportament nea\u0219teptat al extensiei. Dac\u0103 ceva nu mai func\u021bioneaz\u0103, pute\u021bi reveni la set\u0103rile implicite."
+    },
+    "settings_expert_save_error": {
+        "message": "Nu se pot salva set\u0103rile. V\u0103 rug\u0103m s\u0103 corecta\u021bi datele introduse."
     },
     "settings_open_action": {
         "message": "Deschide bara lateral\u0103"
@@ -517,6 +637,9 @@
     },
     "settings_toggle_area_height_desc": {
         "message": "Pute\u021bi reduce \u00een\u0103l\u021bimea zonei, astfel \u00eenc\u00e2t bara lateral\u0103 se va deschide numai c\u00e2nd muta\u021bi cursorul \u00een acea loca\u021bie a marginii ferestrei browserului."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Trage pentru a muta"
     },
     "settings_keyboard_shortcut_button": {
         "message": "Seta\u021bi scurt\u0103tur\u0103 a tastaturii"
@@ -569,20 +692,11 @@
     "settings_remember_state_nothing": {
         "message": "Nimic"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Memoreaz\u0103 sub-dosarele deschise"
+    },
     "settings_remember_desc": {
         "message": "Selecta\u021bi ce s\u0103 \u021bin\u0103 minte \u00eentre modific\u0103rile paginii. Dac\u0103 alege\u021bi s\u0103 v\u0103 aminti\u021bi ultimul marcaj deschis, acesta va fi marcat c\u00e2nd deschide\u021bi din nou bara lateral\u0103."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Deschide to\u021bi copii (Limit\u0103 avertizare)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Num\u0103rul marcajelor pentru care avertizarea apare, c\u00e2nd \u00eencerca\u021bi s\u0103 deschide\u021bi to\u021bi copii unui director dintr-odat\u0103."
-    },
-    "settings_dir_open_duration": {
-        "message": "Durata deschiderii directorului"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Durata anima\u021biei de deschidere \u0219i \u00eenchidere a directoarelor"
     },
     "settings_new_tab": {
         "message": "Tab nou"
@@ -626,17 +740,17 @@
     "settings_scroll_bar_hide_infinity": {
         "message": "Nu ascunde niciodat\u0103"
     },
-    "settings_dnd_open": {
-        "message": "Deschide prin drag & drop"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Permite\u021bi tragerea selec\u021biilor de text, a linkurilor \u0219i a adreselor URL \u00een bara lateral\u0103. Acest lucru poate fi util, dac\u0103 dori\u021bi s\u0103 marca\u021bi pagina curent\u0103 sau alte link-uri de pe site-uri web."
-    },
     "settings_reopen_sidebar": {
         "message": "Redeschide bara lateral\u0103"
     },
     "settings_reopen_sidebar_desc": {
         "message": "Deschide automat din nou bara lateral\u0103, dup\u0103 deschiderea unui marcaj din cadrul b\u0103rii laterale."
+    },
+    "settings_prevent_windowed": {
+        "message": "Dezactiveaz\u0103 bara de marcaje \u00een modul fereastr\u0103"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Dezactiveaz\u0103 posibilitatea de a deschide bara de marcaje prin clic sau trecere peste con\u021binutul din marginea exploratorului atunci c\u00e2nd exploratorul este \u00een modul fereastr\u0103."
     },
     "settings_tooltip_delay": {
         "message": "\u00cent\u00e2rzierea baloanelor informative"
@@ -677,12 +791,6 @@
     "settings_sidebar_position_right": {
         "message": "Dreapta"
     },
-    "settings_animations": {
-        "message": "Activa\u021bi anima\u021biile"
-    },
-    "settings_animations_desc": {
-        "message": "V\u0103 permite s\u0103 dezactiva\u021bi \u00eentreaga anima\u021bie a b\u0103rii laterale. Aceasta poate fi folositoare daca anima\u021biile nu merg fluent pe sistemul dvs."
-    },
     "settings_filter_intro": {
         "message": "Dac\u0103 nu dori\u021bi ca bara lateral\u0103 s\u0103 fie \u00eenc\u0103rcat\u0103 pe fiecare pagin\u0103, pute\u021bi configura unde s\u0103 \u00eenc\u0103rca\u021bi extensia (list\u0103 alb\u0103) sau unde nu (lista neagr\u0103)."
     },
@@ -713,6 +821,9 @@
     "settings_filter_rules": {
         "message": "Modele URL"
     },
+    "settings_import_export_notice": {
+        "message": "Set\u0103rile extensiei sunt sincronizate automat \u00eentre dispozitive, dac\u0103 sunte\u021bi autentificat \u00een Chrome cu contul dumneavoastr\u0103 Google. Dac\u0103 nu dori\u021bi s\u0103 v\u0103 autentifica\u021bi sau s\u0103 partaja\u021bi set\u0103rile dumneavoastr\u0103 cu alte persoane, pute\u021bi folosi aceast\u0103 op\u021biune de import\/export."
+    },
     "settings_import_export_desc": {
         "message": "Pute\u021bi exporta set\u0103rile extensiei \u0219i le pute\u021bi salva local pe computer. Pute\u021bi importa fi\u0219ierul exportat anterior pe orice computer, unde este instalat\u0103 extensia."
     },
@@ -728,6 +839,12 @@
     "settings_import_failed": {
         "message": "Nu s-au putut importa set\u0103rile. V\u0103 rug\u0103m s\u0103 selecta\u021bi un fi\u0219ier valid."
     },
+    "settings_presets": {
+        "message": "Seteaz\u0103 dimensiuni corespunz\u0103toare"
+    },
+    "settings_presets_desc": {
+        "message": "Pute\u021bi selecta dimensiuni predefinite pentru bara lateral\u0103. Aceasta va schimba cursoarele \u00een aceast\u0103 pagin\u0103 pentru a ajusta l\u0103\u021bimea barei laterale, \u00een\u0103l\u021bimea liniei, dimensiunea icoanei \u0219i multe alte op\u021biuni."
+    },
     "settings_color_scheme": {
         "message": "Schem\u0103 de culori"
     },
@@ -741,7 +858,7 @@
         "message": "Culoarea textului"
     },
     "settings_hover_color": {
-        "message": "Culoarea c\u00e2nd est emouse-ul peste"
+        "message": "Culoarea c\u00e2nd este mouse-ul peste"
     },
     "settings_font_family": {
         "message": "Font"
@@ -757,6 +874,18 @@
     },
     "settings_icon_color": {
         "message": "Culoare"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automat"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personalizat"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Culoarea icoanei va fi setat\u0103 automat pentru a se potrivi schemei de culori ale sistemului (luminos sau \u00eentunecat). Pute\u021bi deasemenea defini culoarea personal\u0103 proprie pentru icoan\u0103."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "\u021aine\u021bi cont c\u0103, culoarea automat\u0103 nu func\u021bioneaz\u0103 atunci c\u00e2nd este folosit\u0103 o tem\u0103 personalizat\u0103 pentru Chrome."
     },
     "settings_indicator_width": {
         "message": "L\u0103\u021bime"
@@ -793,6 +922,9 @@
     },
     "settings_directories_icon_size": {
         "message": "Dimensiunea iconi\u021bei directoarelor"
+    },
+    "settings_directory_arrows": {
+        "message": "S\u0103ge\u021bi dosar"
     },
     "settings_bookmarks_line_height": {
         "message": "\u00cen\u0103l\u021bimea liniilor marcajelor"
@@ -872,6 +1004,9 @@
     "settings_translation_help": {
         "message": "Pentru fiecare intrare pute\u021bi vedea traducerea \u00een englez\u0103, care trebuie tradus\u0103 \u00een limba dvs. Pentru a v\u0103 ajuta s\u0103 identifica\u021bi unde se utilizeaz\u0103 textul \u0219i ce este pentru el, fiecare intrare are un nume (de exemplu {1}), care nu trebuie tradus. Nu uita\u021bi s\u0103 trimite\u021bi traducerea dvs. ap\u0103s\u00e2nd butonul din col\u021bul din dreapta sus!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Doresc s\u0103 fiu notificat atunci c\u00e2nd sunt ad\u0103ugate variabile noi de limb\u0103 la extensie"
+    },
     "settings_translation_submit": {
         "message": "Trimite"
     },
@@ -905,6 +1040,12 @@
     "settings_feedback_screenshot": {
         "message": "Ataseaza Screenshot"
     },
+    "settings_feedback_screenshot_error_filesize": {
+        "message": "Dimensiunea fi\u0219ierului {1} este prea mare (> 1 MB)"
+    },
+    "settings_feedback_screenshot_error_amount": {
+        "message": "Pute\u021bi \u00eenc\u0103rca un num\u0103r maxim de {1} imagini"
+    },
     "settings_feedback_send": {
         "message": "Trimite\u021bi feedback"
     },
@@ -916,5 +1057,155 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Aceasta iti poate fii de ajutor"
+    },
+    "settings_permissions_desc": {
+        "message": "Pentru a face posibil comutabil\u0103 bar\u0103 lateral\u0103 \u00een Chrome, sunt necesare \u0219i solicitate de c\u0103tre extensie, urm\u0103toarele permisiuni:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Din p\u0103cate Chrome nu are un mecanism de afi\u0219are a con\u021binutului \u00een fereastra exploratorului f\u0103r\u0103 interac\u021biunea cu pagina curent\u0103 vizitat\u0103."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Din cauz\u0103 c\u0103 bara lateral\u0103 este afi\u0219at\u0103 \u00een partea de sus a paginii actuale, este necesar\u0103 aceast\u0103 permisiune. Pe l\u00e2ng\u0103 acest motiv tehnic, permisiunea nu este folosit\u0103 \u00een alte scopuri."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Dac\u0103 ave\u021bi griji privind ce voi face cu permisiunea, pute\u021bi vedea codul surs\u0103 pentru extensie pe Github. Este Open Source \u0219i vizibil pentru toat\u0103 lumea."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Extensia afi\u0219eaz\u0103 marcajele tale \u00een bara lateral\u0103 \u0219i de aceea are nevoie de permisiune pentru a ob\u021bine accesul. Permisiunea va da voie extensiei s\u0103 adauge, editeze \u0219i s\u0103 elimine marcaje."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Partaja\u021bi informa\u021bii"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Preferin\u021bele dvs. au fost salvate cu succes"
+    },
+    "premium_popup_text": {
+        "message": "Ai \u00eencercat deja versiunea Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Aceast\u0103 func\u021bie este disponibil\u0103 doar cu versiunea Premium"
+    },
+    "premium_desc_1": {
+        "message": "Cu versiunea Premium vei ob\u021bine acces la func\u021bii suplimentare \u0219i m\u0103 vei ajuta s\u0103 men\u021bin activ\u0103 extensia."
+    },
+    "premium_desc_2": {
+        "message": "Pute\u021bi \u00eencerca mai jos func\u021biile incluse \u00een versiunea Premium. Toate func\u021biile principale ale extensiei sunt gratuite \u0219i nu necesit\u0103 deloc versiunea Premium. Pute\u021bi pl\u0103ti c\u00e2t considera\u021bi c\u0103 merit\u0103 munca mea pentru d-voastr\u0103, pentru a avea acces la aceste func\u021bii."
+    },
+    "premium_get_now": {
+        "message": "Ia versiunea Premium acum"
+    },
+    "premium_show_license_input": {
+        "message": "Am deja versiunea Premium"
+    },
+    "premium_already_activated": {
+        "message": "Folosi\u021bi deja versiunea Premium"
+    },
+    "premium_activate": {
+        "message": "Activa\u021bi Premium"
+    },
+    "premium_license_key": {
+        "message": "Cheie licen\u021b\u0103"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Fi\u021bi primul care \u00eencearc\u0103 noile func\u021bii experimentale"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Cu versiunea Premium ob\u021bine\u021bi acces la func\u021bii nelansate, care sunt \u00een dezvoltare sau \u00een curs de testare \u00een momentul actual."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Schimba\u021bi oric\u00e2nd l\u0103\u021bimea barei laterale"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importa\u021bi \u0219i exporta\u021bi set\u0103rile d-voastr\u0103"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personaliza\u021bi pagina Fil\u0103 nou\u0103"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Dac\u0103 folosi\u021bi pagina Fil\u0103 nou\u0103 din aceast\u0103 extensie, pute\u021bi seta propria d-voastr\u0103 imagine de fundal pentru a o face s\u0103 arate \u0219i mai bine."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personaliza\u021bi totul cu propriul d-voastr\u0103 Stylesheet"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Dac\u0103 sunte\u021bi familiarizat cu CSS, pute\u021bi schimba \u00eentregul aspect al barei laterale prin ad\u0103ugarea de defini\u021bii \u00een propriul stil. Aceasta v\u0103 permite s\u0103 personaliza\u021bi absolut totul."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Verifica\u021bi marcajele personale dup\u0103 adrese deteriorate sau dublate"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Pute\u021bi face clic dreapta pe orice dosar \u00een bara lateral\u0103 pentru a efectua o verificare. Pagina cu rezultatul va afi\u0219a toate URL-urile actualizate, marcajele care nu mai func\u021bioneaz\u0103 \u0219i marcajele cu acela\u0219i URL."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Alege\u021bi o metod\u0103 de plat\u0103"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pl\u0103ti\u021bi c\u00e2t dori\u021bi"
+    },
+    "premium_pay_creditcard": {
+        "message": "Card de credit sau debit"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Scana\u021bi cod QR sau WeChat pentru a continua."
+    },
+    "premium_pay_contact": {
+        "message": "Dac\u0103 \u00eent\u00e2mpina\u021bi orice probleme cu plata sau ave\u021bi orice \u00eentrebare, v\u0103 rog s\u0103 m\u0103 contacta\u021bi la {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Aceasta este o plat\u0103 unic\u0103 \u0219i include deasemenea toate func\u021biile viitoare premium."
+    },
+    "premium_pay_eula": {
+        "message": "Acord final de licen\u021b\u0103 utilizator"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Am citit \u0219i acceptat [a]Acord final de licen\u021b\u0103 utilizator[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Politic\u0103 de anulare"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirm\u0103 achizi\u021bia"
+    },
+    "premium_pay_buy": {
+        "message": "Cump\u0103r\u0103 Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Se verific\u0103 tranzac\u021bia"
+    },
+    "premium_pay_purchase_id": {
+        "message": "ID achizi\u021bie"
+    },
+    "premium_pay_success_headline": {
+        "message": "Mul\u021bumesc pentru achizi\u021bie"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} a fost activat\u0103 automat pentru acest dispozitiv. Nu mai trebuie s\u0103 urmezi pa\u0219i urm\u0103tori."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Dac\u0103 dori\u021bi s\u0103 activa\u021bi {1} pe un alt dispozitiv sau dup\u0103 reinstalarea extensiei, pute\u021bi introduce urm\u0103toarea cheie \u00een set\u0103rile extensiei:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "V\u0103 rog s\u0103 introduce\u021bi adresa d-voastr\u0103 de mail pentru a primi cheia de licen\u021b\u0103"
+    },
+    "premium_pay_info_name": {
+        "message": "Nume"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Cod po\u0219tal"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Metod\u0103 de plat\u0103"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Num\u0103r Card"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Cardul expir\u0103 \u00een"
     }
 }

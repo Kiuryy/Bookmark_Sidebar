@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Az oldals\u00e1von vagy a megnyitott helyi men\u00fcn a k\u00f6vetkez\u0151 elem kiv\u00e1laszt\u00e1sa"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Kattint\u00e1s az eg\u00e9r alatti elemen"
     },

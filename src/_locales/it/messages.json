@@ -366,7 +366,7 @@
         "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
-        "message": "Passa alla voce successiva nella barra laterale o, quando aperto, nel men\u00f9 contestuale."
+        "message": "Visualizza la voce successiva o precedente nella barra laterale"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Equivale a un click sulla voce evidenziata."
@@ -820,6 +820,9 @@
     },
     "settings_filter_rules": {
         "message": "Pattern degli indirizzi"
+    },
+    "settings_import_export_notice": {
+        "message": "I settaggi dell'estensione sono sincronizzati automaticamente tra i tuoi dispositivi, se sei loggato con la tua utenza Google.Se non vuoi loggarti o vuoi condividere le tue impostazioni con altre persone, puoi usare questa opzione di impostazione\/esportazione."
     },
     "settings_import_export_desc": {
         "message": "Puoi esportare le impostazioni dell'estensione e salvare in locale sul tuo computer. Puoi importare i file esportati in precedenza in qualsiasi computer dove sia installata l'estensione."

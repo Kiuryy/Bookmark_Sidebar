@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Viib kursori k\u00fclgpaneeli j\u00e4rgmisele kirjele v\u00f5i avatud kontekstmen\u00fc\u00fcle"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Kl\u00f5psab kursori alusel kirjel"
     },

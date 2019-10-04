@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Escape"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Zvol\u00ed \u010fal\u0161iu polo\u017eku v paneli alebo aktu\u00e1lnej kontextovej ponuke"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Potvrd\u00ed aktu\u00e1lne zvolen\u00fa polo\u017eku"
     },

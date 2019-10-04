@@ -821,6 +821,9 @@
     "settings_filter_rules": {
         "message": "Vzory URL"
     },
+    "settings_import_export_notice": {
+        "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed je automaticky synchronizovan\u00e9 mezi va\u0161imi za\u0159\u00edzen\u00edmi, jestli\u017ee jste p\u0159ihl\u00e1\u0161eni v Chromu va\u0161\u00edm Google u\u010dtem. Pokud nechcete b\u00fdt p\u0159ihl\u00e1\u0161eni, nebo chcete sd\u00edlet va\u0161e nastaven\u00ed s jin\u00fdmi u\u017eivateli, m\u016f\u017eete pou\u017e\u00edt funkci import\/export."
+    },
     "settings_import_export_desc": {
         "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed m\u016f\u017eete exportovat a ulo\u017eit je m\u00edstn\u011b do po\u010d\u00edta\u010de. P\u0159edt\u00edm exportovan\u00fd soubor m\u016f\u017eete importovat do libovoln\u00e9ho po\u010d\u00edta\u010de, ve kter\u00e9m je nainstalov\u00e1na roz\u0161\u00ed\u0159en\u00ed."
     },

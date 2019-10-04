@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Sv\u00e6ver hen over n\u00e6ste emne i sidebaren eller i den \u00e5bne kontekstmenu."
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Udf\u00f8rer et klik p\u00e5 det fremh\u00e6vede emne"
     },

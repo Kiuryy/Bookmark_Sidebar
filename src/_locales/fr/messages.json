@@ -365,9 +365,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Echap"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Mise en surbrillance du prochain \u00e9l\u00e9ment de la barre lat\u00e9rale ou de l'\u00e9l\u00e9ment ouvert actuellement"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Clic sur l'\u00e9l\u00e9ment en surbrillance"
     },

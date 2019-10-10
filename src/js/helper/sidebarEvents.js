@@ -12,7 +12,7 @@
         let isRestoring = false;
         let sidebarPos = null;
 
-        const sidebarWidthRange = {min: 150, max: 600};
+        const sidebarWidthRange = {min: 150, max: 1800};
 
         /**
          * Initializes the helper

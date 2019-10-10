@@ -23,6 +23,8 @@
             tooltipFontSize: {xs: 9, s: 9, l: 12}
         };
 
+        const sidebarMaxSelectableWidth = 600;
+
         let lastTooltipChange = null;
         let tooltipTimeout = null;
 
@@ -58,8 +60,14 @@
 
                     Object.entries(styles).forEach(([key, value]) => {
                         if (s.elm.range[key]) {
-                            s.elm.range[key][0].value = value.replace("px", "");
-                            s.elm.range[key].data("initial", value.replace("px", ""));
+                            value = value.replace("px", "");
+
+                            if (key === "sidebarWidth" && +value > sidebarMaxSelectableWidth) { // wider sidebar is possible when the user expanded the width manually
+                                s.elm.range[key].attr("max", value);
+                            }
+
+                            s.elm.range[key][0].value = value;
+                            s.elm.range[key].data("initial", value);
                             s.elm.range[key].trigger("change");
                         } else if (s.elm.color[key]) {
                             if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the default icon color for the light OS preference as predefined color
@@ -170,7 +178,15 @@
                 css += config.utility.customCss;
 
                 Object.keys(config.appearance.styles).forEach((key) => {
-                    css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), config.appearance.styles[key]);
+                    let styleValue = config.appearance.styles[key];
+
+                    if (key === "sidebarWidth") {
+                        styleValue = styleValue.replace("px", "");
+                        styleValue = Math.min(+styleValue, sidebarMaxSelectableWidth);
+                        styleValue += "px";
+                    }
+
+                    css = css.replace(new RegExp("\"?%" + key + "\"?", "g"), styleValue);
                 });
 
                 s.elm.preview[key].find("[" + $.attr.style + "]").forEach((elm) => {

@@ -148,6 +148,13 @@
                 }
             });
 
+            $(document).on("keydown", (e) => {
+                if (e.key === "Tab" && this.elm.sidebar.sidebar.hasClass($.cl.sidebar.permanent)) { // "Tab" key will focus the sidebar, if it's permanently opened
+                    e.preventDefault();
+                    this.elm.sidebar.iframe[0].focus();
+                }
+            });
+
             if (this.helper.model.getData("n/autoOpen")) { // sidebar should be opened automatically -> pin sidebar permanent if there is enough space to do so
                 $(window).on("resize", () => {
                     if (this.elm.sidebar && this.elm.sidebar.iframe && this.elm.sidebar.sidebar) {

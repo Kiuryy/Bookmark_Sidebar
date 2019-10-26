@@ -262,7 +262,7 @@
     };
 
     /**
-     * Updates the mininum Chrome version in the manifest.json to the current version - 4
+     * Updates the mininum Chrome version in the manifest.json to the current version - 5
      *
      * @returns {Promise}
      */
@@ -288,7 +288,7 @@
                     console.error("Could not determine current Chrome version");
                     process.exit(1);
                 } else {
-                    const minVersion = currentVersion - 4;
+                    const minVersion = currentVersion - 5;
 
                     Func.replace({ // update the min version in the manifest
                         [path.src + "manifest.json"]: path.src + "manifest.json"

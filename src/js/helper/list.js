@@ -159,6 +159,7 @@
                 const childrenLoaded = childrenList.length() > 0;
                 const initial = ext.refreshRun === true || ext.elm.iframe.hasClass($.cl.page.visible) === false;
                 const close = elm.hasClass($.cl.sidebar.dirOpened) && childrenLoaded;
+                const rememberState = ext.helper.model.getData("b/rememberState");
 
                 if (typeof instant === "undefined") {
                     instant = initial || ext.helper.model.getData("b/animations") === false;
@@ -169,7 +170,14 @@
                         this.restoreOpenStates(childrenList);
                     }
 
-                    if ((ext.helper.model.getData("b/rememberState") !== "nothing" && cache) && !initial && !ext.helper.search.isResultsVisible()) {
+                    let doCaching = cache && !initial && !ext.helper.search.isResultsVisible();
+                    if (rememberState === "nothing") {
+                        doCaching = false;
+                    } else if (rememberState === "openStatesRoot" && elm.parents("ul:not(." + $.cl.sidebar.hideRoot + ")").length() !== 1) {
+                        doCaching = false;
+                    }
+
+                    if (doCaching) {
                         this.cacheList().then(resolve);
                     } else {
                         resolve();

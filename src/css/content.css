@@ -64,6 +64,7 @@ body > iframe#blockbyte-bs-sidebar {
   border: none;
   display: block !important;
   transform: translate3d(-"%sidebarWidth", 0, 0);
+  will-change: width, height, opacity, transform;
   transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s; }
   body > iframe#blockbyte-bs-sidebar[data-pos='right'] {
     left: auto;

@@ -261,7 +261,7 @@
                                     if (bookmark.url) {
                                         urls.push({type: "bookmark", label: bookmark.title, url: bookmark.url});
                                         i++;
-                                        if (i >= 1) {
+                                        if (i >= 2) {
                                             return true;
                                         }
                                     }
@@ -274,7 +274,7 @@
                                     if (history.url) {
                                         urls.push({type: "history", label: history.title, url: history.url});
                                         i++;
-                                        if (i >= 1) {
+                                        if (i >= 2) {
                                             return true;
                                         }
                                     }
@@ -380,7 +380,7 @@
                                     });
                                 }
 
-                                if (i > 4) {
+                                if (i > 5) {
                                     return true;
                                 }
                             });

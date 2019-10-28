@@ -38,7 +38,8 @@
                 clearNotWorkingTimeout: b.helper.browserAction.clearTimeout,
                 setNotWorkingReason: b.helper.browserAction.setReason,
                 addViewAmount: b.helper.viewAmount.addByUrl,
-                viewAmounts: b.helper.viewAmount.getAll
+                viewAmounts: b.helper.viewAmount.getAll,
+                searchHistory: b.helper.utility.getHistoryBySearchVal
             };
 
             chrome.runtime.onConnect.addListener((port) => {

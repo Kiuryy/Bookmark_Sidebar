@@ -10,6 +10,36 @@
         };
 
         /**
+         * Returns all history entries where the title or url are matching the given search value
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.getHistoryBySearchVal = (opts) => {
+            return new Promise((resolve) => {
+
+                if (chrome.history) {
+                    chrome.history.search({
+                        text: opts.searchVal,
+                        maxResults: 100
+                    }, (results) => {
+                        const searchValFiltered = opts.searchVal.toLowerCase();
+
+                        results.sort(function (a, b) { // sort the history entry to prefer entries where the search value is part of the label and the url, as well as pages, which were visited more often
+                            const aScore = (a.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (a.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + a.visitCount + a.typedCount;
+                            const bScore = (b.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (b.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + b.visitCount + b.typedCount;
+                            return aScore - bScore;
+                        });
+
+                        resolve({history: results});
+                    });
+                } else {
+                    resolve({history: []});
+                }
+            });
+        };
+
+        /**
          * Activates premium by checking the given license key and storing the license key in the sync storage
          *
          * @param {object} opts

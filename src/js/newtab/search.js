@@ -246,7 +246,11 @@
                         promises.push(n.helper.model.call("searchBookmarks", {searchVal: val}));
                     }
 
-                    Promise.all(promises).then(([xhr, searchResults]) => {
+                    if (val.length >= 3 && chrome.history) {
+                        promises.push(n.helper.model.call("searchHistory", {searchVal: val}));
+                    }
+
+                    Promise.all(promises).then(([xhr, searchResults, historyResults]) => {
                         try {
                             const urls = [];
                             const words = [];
@@ -255,14 +259,21 @@
                                 let i = 0;
                                 searchResults.bookmarks.some((bookmark) => {
                                     if (bookmark.url) {
-                                        urls.push({
-                                            type: "bookmark",
-                                            label: bookmark.title,
-                                            url: bookmark.url
-                                        });
-
+                                        urls.push({type: "bookmark", label: bookmark.title, url: bookmark.url});
                                         i++;
+                                        if (i >= 1) {
+                                            return true;
+                                        }
+                                    }
+                                });
+                            }
 
+                            if (historyResults && historyResults.history && historyResults.history.length > 0) { // add history to the suggestions
+                                let i = 0;
+                                historyResults.history.some((history) => {
+                                    if (history.url) {
+                                        urls.push({type: "history", label: history.title, url: history.url});
+                                        i++;
                                         if (i >= 1) {
                                             return true;
                                         }

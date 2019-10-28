@@ -18,7 +18,7 @@
                 if (s.helper.model.getData("n/" + field) === true) {
                     if (field === "override") { // only enable override checkbox if the user granted permissions
                         chrome.permissions.contains({
-                            permissions: ["tabs", "topSites"]
+                            permissions: ["tabs", "topSites", "history"]
                         }, (result) => {
                             if (result) {
                                 s.elm.checkbox[field].trigger("click");
@@ -76,7 +76,7 @@
                 if (override) {
                     if (overrideCheckboxInited === true) {
                         chrome.permissions.request({ // request additional permissions in order to override the new tab page
-                            permissions: ["tabs", "topSites"]
+                            permissions: ["tabs", "topSites", "history"]
                         }, (granted) => {
                             if (!granted) { // not granted -> no overriding
                                 s.elm.checkbox.override.trigger("click");

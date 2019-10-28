@@ -69,7 +69,7 @@ div#search {
     z-index: 2;
 
     > li {
-      @include mask(null, $textColorLight, 14px);
+      @include mask(null, $textColorLight, 16px);
       position: relative;
       background: $contentBackground;
       white-space: nowrap;
@@ -77,7 +77,7 @@ div#search {
       overflow: hidden;
       pointer-events: auto;
       font-size: 110%;
-      padding: 3px 10px 3px 28px;
+      padding: 6px 10px 6px 30px;
       transition: background 0.1s;
 
       &.active {
@@ -86,8 +86,8 @@ div#search {
       }
 
       &::before {
-        width: 14px;
-        height: 14px;
+        width: 16px;
+        height: 16px;
         left: 7px;
         top: 0;
         bottom: 0;
@@ -100,6 +100,11 @@ div#search {
 
       &[data-type='bookmark']::before {
         @include maskImage('icon-bookmark');
+      }
+
+      &[data-type='history']::before {
+        @include maskImage('icon-history');
+        -webkit-mask-size: 18px;
       }
 
       &[data-type='word']::before {

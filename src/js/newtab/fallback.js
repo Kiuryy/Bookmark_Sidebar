@@ -56,7 +56,7 @@
             checkbox.children("input[type='checkbox']").on("change", (e) => {
                 if (e.currentTarget.checked) {
                     chrome.permissions.request({ // request additional permissions in order to override the new tab page
-                        permissions: ["tabs", "topSites"]
+                        permissions: ["tabs", "topSites", "history"]
                     }, (granted) => {
                         if (granted) {
                             setAsNewtab(true);

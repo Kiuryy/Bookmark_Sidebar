@@ -194,26 +194,38 @@
          * if not the value will be searched with a search engine
          *
          * @param {string} val
+         * @param {object} opts
          */
-        const handleSearch = (val) => {
-            if (val && val.trim().length > 0) {
-                if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
-                    chrome.tabs.update({url: val});
-                } else if (searchEngineList[searchEngine.name]) {
-                    let url = "";
+        const handleSearch = (val, opts = {}) => {
+            if (!val || val.trim().length === 0) {
+                return;
+            }
 
-                    if (searchEngine.name === "custom" && searchEngine.queryUrl) {
-                        url = searchEngine.queryUrl;
-                    } else if (searchEngineList[searchEngine.name].queryUrl) {
-                        url = searchEngineList[searchEngine.name].queryUrl;
-                    }
+            const openLink = (url) => {
+                n.helper.model.call("openLink", {
+                    href: url,
+                    newTab: opts.newtab || false,
+                    position: n.helper.model.getData("b/newTabPosition"),
+                    active: !opts.newtab
+                });
+            };
 
-                    if (url) {
-                        if (url.includes("{1}") === false) { // query url is missing the {1} placeholder -> paste it at the end
-                            url += "{1}";
-                        }
-                        chrome.tabs.update({url: url.replace("{1}", encodeURIComponent(val))});
+            if (val.search(/https?\:\/\//) === 0 || val.search(/s?ftps?\:\/\//) === 0 || val.search(/chrome\:\/\//) === 0) {
+                openLink(val);
+            } else if (searchEngineList[searchEngine.name]) {
+                let url = "";
+
+                if (searchEngine.name === "custom" && searchEngine.queryUrl) {
+                    url = searchEngine.queryUrl;
+                } else if (searchEngineList[searchEngine.name].queryUrl) {
+                    url = searchEngineList[searchEngine.name].queryUrl;
+                }
+
+                if (url) {
+                    if (url.includes("{1}") === false) { // query url is missing the {1} placeholder -> paste it at the end
+                        url += "{1}";
                     }
+                    openLink(url.replace("{1}", encodeURIComponent(val)));
                 }
             }
         };
@@ -397,12 +409,11 @@
             $(document).on("mousemove", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
                 $("ul." + $.cl.newtab.suggestions + " > li").removeClass($.cl.active);
                 $(e.currentTarget).addClass($.cl.active);
-            }).on("click", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
+            }).on("click auxclick", "ul." + $.cl.newtab.suggestions + " > li", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 const suggestion = ($(e.currentTarget).attr($.attr.src) || $(e.currentTarget).text()).trim();
-                n.elm.search.field[0].value = suggestion;
-                handleSearch(suggestion);
+                handleSearch(suggestion, {newtab: e.type === "auxclick"});
             });
 
             $(document).on("keydown", (e) => {

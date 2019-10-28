@@ -352,7 +352,10 @@
                     }
 
                     if (url) {
-                        chrome.tabs.update({url: url});
+                        n.helper.model.call("openLink", {
+                            href: url,
+                            newTab: false
+                        });
                     }
                 }
             });
@@ -389,7 +392,7 @@
                                     elm.attr({
                                         "title": suggestion.url,
                                         [$.attr.src]: suggestion.url
-                                    });
+                                    }).append("<span>" + suggestion.url + "</span>");
                                 }
 
                                 if (i > 5) {

@@ -466,6 +466,14 @@ div#search {
         height: 100%;
         -webkit-mask: no-repeat center/16px;
         background-color: #aaa; }
+      div#search > ul.suggestions > li > span {
+        display: block;
+        margin: 3px 0 0 0;
+        font-size: 70%;
+        color: #aaa;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; }
       div#search > ul.suggestions > li.active {
         cursor: pointer;
         background: "%hoverColor" !important; }
@@ -473,9 +481,7 @@ div#search {
         width: 16px;
         height: 16px;
         left: 7px;
-        top: 0;
-        bottom: 0;
-        margin: auto; }
+        top: 7px; }
       div#search > ul.suggestions > li[data-type='url']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-web.svg); }
       div#search > ul.suggestions > li[data-type='bookmark']::before {

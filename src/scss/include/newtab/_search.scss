@@ -80,6 +80,16 @@ div#search {
       padding: 6px 10px 6px 30px;
       transition: background 0.1s;
 
+      > span {
+        display: block;
+        margin: 3px 0 0 0;
+        font-size: 70%;
+        color: $textColorLight;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
       &.active {
         cursor: pointer;
         background: $__hoverColor !important;
@@ -89,9 +99,7 @@ div#search {
         width: 16px;
         height: 16px;
         left: 7px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+        top: 7px;
       }
 
       &[data-type='url']::before {

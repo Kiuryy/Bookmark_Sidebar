@@ -125,11 +125,134 @@
     "sort_most_used_per_month": {
         "message": "Per m\u00e5nad"
     },
+    "overlay_bookmark_title": {
+        "message": "Titel"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Mer info"
+    },
+    "overlay_cancel": {
+        "message": "Avbryt"
+    },
+    "overlay_close": {
+        "message": "St\u00e4ng"
+    },
+    "overlay_save": {
+        "message": "Spara"
+    },
+    "overlay_delete": {
+        "message": "Ta bort"
+    },
+    "overlay_update": {
+        "message": "Uppdatera"
+    },
+    "overlay_open_children": {
+        "message": "\u00d6ppna alla"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Vill du verkligen \u00f6ppna alla {1} underliggande bokm\u00e4rken?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "G\u00f6m fr\u00e5n sidopanel"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Vill du verkligen g\u00f6mma detta bokm\u00e4rke fr\u00e5n sidopanelen?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Vill du verkligen g\u00f6mma denna mapp fr\u00e5n sidopanelen? Alla underliggande bokm\u00e4rken kommer ocks\u00e5 att g\u00f6mmas."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Vill du verkligen ta bort detta bokm\u00e4rke?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Vill du verkligen ta bort denna mapp? Alla underliggande bokm\u00e4rken kommer ocks\u00e5 att tas bort."
+    },
+    "overlay_label_bookmark": {
+        "message": "Bokm\u00e4rke"
+    },
+    "overlay_label_dir": {
+        "message": "Mapp"
+    },
+    "overlay_label_separator": {
+        "message": "Separator"
+    },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "F\u00f6rberedd katalog"
+    },
+    "overlay_add_position_append": {
+        "message": "L\u00e4gg till i katalogen"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Om du vill kan du ange en titel. Den kommer att visas ovanp\u00e5 och kan hj\u00e4lpa dig att organisera din bokm\u00e4rkeslista."
+    },
+    "overlay_bookmark_views": {
+        "message": "Vyer"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Vy"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Inspelad sen"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "per m\u00e5nad"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Skapad den"
+    },
+    "overlay_dir_children": {
+        "message": "Element"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Bokm\u00e4rken"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Mappar"
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "\u00c4ndrad"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Trasig"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Dubbletter"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Tomma mappar"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Kollar bokm\u00e4rkens url'er"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Uppdatera valda"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Ta bort valda"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Alla bokm\u00e4rken \u00e4r okej"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Det finns inga \u00e4ndringar p\u00e5 bokm\u00e4rkes URL"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Det finns inga brutna bokm\u00e4rkes URL"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Det finns inga dubbletter bland bokm\u00e4rkes URL"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Det finns inga mappar utan bokm\u00e4rken"
+    },
     "newtab_title": {
         "message": "Ny flik"
-    },
-    "newtab_search_placeholder": {
-        "message": "S\u00f6k {1} eller skriv in URL"
     },
     "newtab_top_pages_default": {
         "message": "Toppsidor"
@@ -145,6 +268,36 @@
     },
     "newtab_top_pages_hidden": {
         "message": "Visa inte sidor"
+    },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Visa f\u00f6rhandstitt av website"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Visa ikoner f\u00f6r sajt"
+    },
+    "newtab_search_placeholder": {
+        "message": "S\u00f6k {1} eller skriv in URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Prata nu"
+    },
+    "newtab_speech_search_error": {
+        "message": "F\u00f6r att till\u00e5ta s\u00f6kning av talat spr\u00e5k s\u00e5 m\u00e5ste du godk\u00e4nna tillg\u00e5ng till Mikrofon."
+    },
+    "newtab_search_engine_headline": {
+        "message": "S\u00f6kmotor"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Anv\u00e4ndardefinierad"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Titel"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Hemside-URL"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL till s\u00f6kresultat"
     },
     "newtab_upload_background": {
         "message": "Ladda upp bakgrundsbild"
@@ -389,6 +542,9 @@
     "settings_toggle_area_height_desc": {
         "message": "Du kan minska h\u00f6jden p\u00e5 omr\u00e5det, s\u00e5 sidof\u00e4ltet bara \u00f6ppnas n\u00e4r du flyttar mark\u00f6ren till den platsen i kanten av ditt webbl\u00e4sarf\u00f6nster."
     },
+    "settings_toggle_area_drag_desc": {
+        "message": "Dra f\u00f6r att flytta"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "S\u00e4tt tangentbordsgenv\u00e4g"
     },
@@ -539,8 +695,14 @@
     "settings_sidebar_position_right": {
         "message": "H\u00f6ger"
     },
+    "settings_filter_intro": {
+        "message": "Om du inte vill att sidof\u00e4ltet ska laddas p\u00e5 varje sida, s\u00e5 kan du v\u00e4lja var extension (Vitlista) eller inte ska (svartlista) laddas."
+    },
     "settings_filter_explanation_1": {
         "message": "L\u00e4gg bara till ett URL m\u00f6nster per rad"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Anv\u00e4nd * f\u00f6r att matcha n\u00e5got tecken (Ex. exempel.com* matchar alla sidor under exempel.com)"
     },
     "settings_filter_explanation_3": {
         "message": "Om du inte l\u00e4gger in n\u00e5gra * i en regel, matchas bara den exakta webbadressen (till exempel \"example.com\" matchar inte URL-adressen \"example.com\/about.html\")"
@@ -610,6 +772,15 @@
     },
     "settings_icon_color": {
         "message": "F\u00e4rg"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automatisk"
+    },
+    "settings_icon_color_custom": {
+        "message": "Skr\u00e4ddarsydd"
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Notera att automatisk f\u00e4rg fungerar inte n\u00e4r skr\u00e4ddarsydd chrome-tema anv\u00e4nts."
     },
     "settings_indicator_width": {
         "message": "Bredd"

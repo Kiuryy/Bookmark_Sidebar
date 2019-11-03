@@ -3,16 +3,16 @@
         "message": "Thanh D\u1ea5u Trang"
     },
     "extension_desc": {
-        "message": "Th\u00eam m\u1ed9t thanh b\u00ean c\u00f3 th\u1ec3 b\u1eadt v\u1edbi t\u1ea5t c\u1ea3 d\u1ea5u trang c\u1ee7a b\u1ea1n \u1edf c\u1ea1nh c\u1eeda s\u1ed5 tr\u00ecnh duy\u1ec7t."
+        "message": "Th\u00eam m\u1ed9t thanh d\u1ea5u trang c\u00f3 th\u1ec3 m\u1edf ra \u1edf m\u1ed9t c\u1ea1nh c\u1ee7a tr\u00ecnh duy\u1ec7t."
     },
     "header_bookmarks": {
-        "message": "D\u1ea5u Trang"
+        "message": "D\u1ea5u trang"
     },
     "header_bookmarks_single": {
-        "message": "D\u1ea5u Trang"
+        "message": "D\u1ea5u trang"
     },
     "sidebar_dir_children": {
-        "message": "Ph\u1ea7n T\u1eed"
+        "message": "Ph\u1ea7n t\u1eed"
     },
     "sidebar_search_placeholder": {
         "message": "T\u00ecm ki\u1ebfm"
@@ -39,7 +39,7 @@
         "message": "Ch\u1ec9nh s\u1eeda th\u01b0 m\u1ee5c"
     },
     "contextmenu_edit_separator": {
-        "message": "S\u1eeda v\u1ea1ch ng\u0103n c\u00e1ch"
+        "message": "S\u1eeda v\u1ea1ch ph\u00e2n c\u00e1ch"
     },
     "contextmenu_delete_bookmark": {
         "message": "X\u00f3a d\u1ea5u trang"
@@ -66,13 +66,13 @@
         "message": "Th\u00eam d\u1ea5u trang"
     },
     "contextmenu_add": {
-        "message": "Th\u00eam n\u1ed9i dung"
+        "message": "Th\u00eam ph\u1ea7n t\u1eed"
     },
     "contextmenu_check_bookmarks": {
         "message": "Ki\u1ec3m tra d\u1ea5u trang"
     },
     "contextmenu_toggle_hidden": {
-        "message": "Hi\u1ec7n n\u1ed9i dung \u1ea9n"
+        "message": "Hi\u1ec7n ph\u1ea7n t\u1eed \u1ea9n"
     },
     "contextmenu_close_all_directories": {
         "message": "Thu g\u1ecdn t\u1ea5t c\u1ea3 th\u01b0 m\u1ee5c"
@@ -105,7 +105,7 @@
         "message": "Ph\u00edm t\u1eaft"
     },
     "sort_label_custom": {
-        "message": "Ng\u01b0\u1eddi d\u00f9ng \u0111\u1eb7t"
+        "message": "Ng\u01b0\u1eddi d\u00f9ng t\u1ef1 \u0111\u1eb7t"
     },
     "sort_label_alphabetical": {
         "message": "Th\u1ee9 t\u1ef1 ch\u1eef c\u00e1i"
@@ -156,7 +156,7 @@
         "message": "B\u1ea1n c\u00f3 mu\u1ed1n m\u1edf to\u00e0n b\u1ed9 {1} d\u1ea5u trang?"
     },
     "overlay_hide_from_sidebar": {
-        "message": "\u1ea8n kh\u1ecfi Sidebar"
+        "message": "\u1ea8n kh\u1ecfi sidebar"
     },
     "overlay_hide_bookmark_confirm": {
         "message": "B\u1ea1n c\u00f3 mu\u1ed1n \u1ea9n d\u1ea5u trang n\u00e0y?"
@@ -198,7 +198,7 @@
         "message": "Xem"
     },
     "overlay_bookmark_views_since": {
-        "message": "Ghi l\u1ea1i t\u1eeb"
+        "message": "\u0110\u01b0\u1ee3c ghi l\u1ea1i t\u1eeb"
     },
     "overlay_bookmark_views_per_month": {
         "message": "h\u00e0ng th\u00e1ng"
@@ -207,7 +207,7 @@
         "message": "Ng\u00e0y t\u1ea1o"
     },
     "overlay_dir_children": {
-        "message": "ph\u1ea7n t\u1eed"
+        "message": "Ph\u1ea7n t\u1eed"
     },
     "overlay_dir_children_bookmarks": {
         "message": "D\u1ea5u trang"
@@ -234,22 +234,22 @@
         "message": "C\u1eadp nh\u1eadt c\u00e1c m\u1ee5c \u0111\u00e3 ch\u1ecdn"
     },
     "overlay_check_bookmarks_remove_selected": {
-        "message": "B\u1ecf c\u00e1c m\u1ee5c \u0111\u00e3 ch\u1ecdn"
+        "message": "X\u00f3a c\u00e1c m\u1ee5c \u0111\u00e3 ch\u1ecdn"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "\u0110\u1ecba ch\u1ec9 c\u1ee7a to\u00e0n b\u1ed9 d\u1ea5u trang \u0111\u1ec1u \u1ed5n"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Kh\u00f4ng c\u00f3 d\u1ea5u trang b\u1ecb thay \u0111\u1ed5i"
+        "message": "Kh\u00f4ng c\u00f3 d\u1ea5u trang n\u00e0o \u0111\u01b0\u1ee3c thay \u0111\u1ed5i \u0111\u1ecba ch\u1ec9 URL"
     },
     "overlay_check_bookmarks_no_results_broken": {
         "message": "Kh\u00f4ng c\u00f3 d\u1ea5u trang b\u1ecb h\u1ecfng"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Kh\u00f4ng c\u00f3 d\u1ea5u trang b\u1ecb tr\u00f9ng"
+        "message": "Kh\u00f4ng c\u00f3 d\u1ea5u trang b\u1ecb tr\u00f9ng l\u1eb7p"
     },
     "overlay_check_bookmarks_no_results_empty": {
-        "message": "Kh\u00f4ng c\u00f3 th\u01b0 m\u1ee5c kh\u00f4ng c\u00f3 d\u1ea5u trang"
+        "message": "Kh\u00f4ng c\u00f3 th\u01b0 m\u1ee5c r\u1ed7ng"
     },
     "newtab_title": {
         "message": "Trang m\u1edbi"
@@ -364,6 +364,9 @@
     },
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "R\u00ea chu\u1ed9t v\u00e0o m\u1ee5c ti\u1ebfp theo ho\u1eb7c tr\u01b0\u1edbc \u0111\u00f3 tr\u00ean thanh b\u00ean"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Cho ph\u00e9p click chu\u1ed9t v\u00e0o m\u1ee5c \u0111ang ch\u1ecdn"
@@ -817,6 +820,9 @@
     },
     "settings_filter_rules": {
         "message": "Danh s\u00e1ch URL"
+    },
+    "settings_import_export_notice": {
+        "message": "C\u00e1c thi\u1ebft l\u1eadp c\u1ee7a ti\u1ec7n \u00edch \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 t\u1ef1 \u0111\u1ed9ng n\u1ebfu b\u1ea1n \u0111\u0103ng nh\u1eadp v\u00e0o Chrome b\u1eb1ng t\u00e0i kho\u1ea3n Google. N\u1ebfu b\u1ea1n kh\u00f4ng mu\u1ed1n \u0111\u0103ng nh\u1eadp ho\u1eb7c chia s\u1ebb c\u00e1ch thi\u1ebft l\u1eadp c\u1ee7a m\u00ecnh v\u1edbi ng\u01b0\u1eddi d\u00f9ng kh\u00e1c. H\u00e3y s\u1eed d\u1ee5ng ch\u1ee9c n\u0103ng Nh\u1eadp\/Xu\u1ea5t thi\u1ebft l\u1eadp."
     },
     "settings_import_export_desc": {
         "message": "B\u1ea1n c\u00f3 th\u1ec3 tr\u00edch xu\u1ea5t c\u00e1c c\u00e0i \u0111\u1eb7t \u0111\u1ec3 l\u01b0u l\u1ea1i tr\u00ean m\u00e1y. Sau \u0111\u00f3 c\u00f3 th\u1ec3 \u00e1p d\u1ee5ng l\u00ean c\u00e1c m\u00e1y t\u00ednh kh\u00e1c c\u00f3 c\u00e0i ti\u1ec7n \u00edch n\u00e0y."

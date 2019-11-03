@@ -821,6 +821,9 @@
     "settings_filter_rules": {
         "message": "URL desenleri"
     },
+    "settings_import_export_notice": {
+        "message": "Google hesab\u0131n\u0131zla Chrome'da oturum a\u00e7t\u0131ysan\u0131z, uzant\u0131 ayarlar\u0131 cihazlar\u0131n\u0131z aras\u0131nda otomatik olarak senkronize edilir. Giri\u015f yapmak istemiyorsan\u0131z veya ayarlar\u0131n\u0131z\u0131 ba\u015fkalar\u0131yla payla\u015fmak istiyorsan\u0131z, bu i\u00e7e \/ d\u0131\u015fa aktarma se\u00e7ene\u011fini kullanabilirsiniz."
+    },
     "settings_import_export_desc": {
         "message": "Uzant\u0131 ayarlar\u0131n\u0131z\u0131 d\u0131\u015fa aktarabilir ve bunlar\u0131 yerel olarak bilgisayar\u0131n\u0131za kaydedebilirsiniz. \u00d6nceden aktar\u0131lan dosyay\u0131, uzant\u0131n\u0131n y\u00fckl\u00fc oldu\u011fu herhangi bir bilgisayardan i\u00e7e aktarabilirsiniz."
     },

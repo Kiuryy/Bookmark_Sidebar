@@ -365,6 +365,9 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Echap"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Survolez l\u2019\u00e9l\u00e9ment suivant ou pr\u00e9c\u00e9dent dans la barre lat\u00e9rale"
+    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Clic sur l'\u00e9l\u00e9ment en surbrillance"
     },
@@ -817,6 +820,9 @@
     },
     "settings_filter_rules": {
         "message": "Masque d'URL"
+    },
+    "settings_import_export_notice": {
+        "message": "Les param\u00e8tres de l'extension sont automatiquement synchronis\u00e9s entre vos appareils si vous \u00eates connect\u00e9 \u00e0 Chrome avec votre compte Google. Si vous ne souhaitez pas connecter votre compte ou partager vos param\u00e8tres avec d'autres personnes, vous pouvez utiliser l'option d'importation \/ exportation."
     },
     "settings_import_export_desc": {
         "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."

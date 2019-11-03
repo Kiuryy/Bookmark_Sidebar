@@ -365,6 +365,9 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "El\u0151z\u0151 vagy k\u00f6vetkez\u0151 elem kijel\u00f6l\u00e9se."
+    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Kattint\u00e1s az eg\u00e9r alatti elemen"
     },
@@ -817,6 +820,9 @@
     },
     "settings_filter_rules": {
         "message": "Webc\u00edm maszkok"
+    },
+    "settings_import_export_notice": {
+        "message": "Ha be van jelentkezve a Google fi\u00f3kj\u00e1val, a b\u0151v\u00edtm\u00e9ny be\u00e1ll\u00edt\u00e1sai automatikusan szinkroniz\u00e1l\u00f3dnak az eszk\u00f6zei k\u00f6z\u00f6tt,. Ha nem akar bejelentkezni vagy meg akarja osztani a be\u00e1ll\u00edt\u00e1sait m\u00e1sokkal, akkor az import\/export lehet\u0151s\u00e9get tudja haszn\u00e1lni."
     },
     "settings_import_export_desc": {
         "message": "Export\u00e1lhatja a be\u00e1ll\u00edt\u00e1sait a helyi g\u00e9pre. Kor\u00e1bban export\u00e1lt be\u00e1ll\u00edt\u00e1sait import\u00e1lhatja b\u00e1rmely g\u00e9pen, amelyen telep\u00edtve van ez a b\u0151v\u00edtm\u00e9ny."

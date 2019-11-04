@@ -60,7 +60,7 @@
         const initEvents = async () => {
             chrome.tabs.onCreated.addListener((tab) => {
                 const url = tab.url || tab.pendingUrl;
-                if (url && url === "chrome://newtab/") {
+                if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || b.helper.utility.getParsedUrl(url === "chrome://startpage/"))) {
                     if (typeof config.override !== "undefined" && config.override === true) {
                         let func = "create";
                         if (tab.index === 0) {

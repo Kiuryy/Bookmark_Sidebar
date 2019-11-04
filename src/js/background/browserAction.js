@@ -106,9 +106,9 @@
             let ret = null;
             let found = false;
             const types = {
-                new_tab: ["chrome://newtab/"],
-                system: ["chrome://", "about:blank"],
-                extension_page: ["chrome\-extension://"],
+                new_tab: [b.helper.utility.getParsedUrl("chrome://newtab/")],
+                system: ["chrome://", "edge://", "about:blank"],
+                extension_page: ["chrome\-extension://", "extension://"],
                 webstore: ["https?://chrome\.google\.com/webstore/"]
             };
 

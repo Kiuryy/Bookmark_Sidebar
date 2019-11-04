@@ -160,6 +160,32 @@
         };
 
         /**
+         * treat some Chrome specific urls differently to make them work in Edge, Opera, ...
+         *
+         * @param url
+         * @returns {string|null}
+         */
+        this.getParsedUrl = (url) => {
+            if (!url) {
+                return url;
+            }
+
+            let browserAlias = null;
+
+            if (/OPERA|OPR\//i.test(navigator.userAgent)) {
+                browserAlias = "opera";
+            } else if (/EDG\//i.test(navigator.userAgent)) {
+                browserAlias = "edge";
+            }
+
+            if (browserAlias && $.opts.urlAliases[browserAlias] && $.opts.urlAliases[browserAlias][url]) {
+                url = $.opts.urlAliases[browserAlias][url];
+            }
+
+            return url;
+        };
+
+        /**
          * Opens the given url while regarding the specified parameters
          *
          * @param {object} opts
@@ -192,21 +218,9 @@
 
                 if (opts.newTab && opts.newTab === true) { // new tab
                     const createTab = (idx = null) => {
-                        let browserAlias = null; // treat some Chrome specific urls differently to make them work in Edge, Opera, ...
-
-                        if (/OPERA|OPR\//i.test(navigator.userAgent)) {
-                            browserAlias = "opera";
-                        } else if (/EDG\//i.test(navigator.userAgent)) {
-                            browserAlias = "edge";
-                        }
-
-                        if (browserAlias && $.opts.urlAliases[browserAlias] && $.opts.urlAliases[browserAlias][opts.href]) {
-                            opts.href = $.opts.urlAliases[browserAlias][opts.href];
-                        }
-
                         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
                             chrome.tabs.create({
-                                url: opts.href + params,
+                                url: this.getParsedUrl(opts.href) + params,
                                 active: typeof opts.active === "undefined" ? true : !!(opts.active),
                                 index: idx === null ? tabs[0].index + 1 : idx,
                                 openerTabId: tabs[0].id

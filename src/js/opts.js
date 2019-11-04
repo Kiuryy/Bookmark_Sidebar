@@ -295,10 +295,12 @@
         },
         urlAliases: {
             edge: {
+                "chrome://newtab/": "edge://newtab/",
                 "chrome://bookmarks": "edge://favorites",
                 "chrome://extensions/shortcuts": "edge://extensions/shortcuts"
             },
             opera: {
+                "chrome://newtab/": "chrome://startpage/",
                 "chrome://bookmarks": "opera://bookmarks",
                 "chrome://extensions/shortcuts": "opera://settings/keyboardShortcuts"
             }

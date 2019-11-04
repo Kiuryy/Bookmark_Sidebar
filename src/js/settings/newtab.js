@@ -18,7 +18,7 @@
                 if (s.helper.model.getData("n/" + field) === true) {
                     if (field === "override") { // only enable override checkbox if the user granted permissions
                         chrome.permissions.contains({
-                            permissions: ["tabs", "topSites", "history"]
+                            permissions: ["tabs", "topSites"] // don't check the "history" permission, since in legacy versions of the extension this permission wasn't necessary
                         }, (result) => {
                             if (result) {
                                 s.elm.checkbox[field].trigger("click");

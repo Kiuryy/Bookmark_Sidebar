@@ -146,6 +146,8 @@
                 "javascript:",
                 "file://",
                 "chrome://",
+                "edge://",
+                "extension://",
                 "chrome\-extension://"
             ].some((str) => {
                 if (url.search(new RegExp(str, "gi")) === 0) {

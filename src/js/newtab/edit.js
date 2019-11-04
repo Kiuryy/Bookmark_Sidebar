@@ -95,7 +95,7 @@
                 const shortcuts = [];
                 n.elm.topNav.find("a." + $.cl.newtab.link).forEach((elm) => {
                     const label = $(elm).text().trim();
-                    const url = ($(elm).data("href") || $(elm).attr("href")).trim();
+                    const url = $(elm).data("href").trim();
 
                     if (label && label.length > 0 && url && url.length > 0) {
                         shortcuts.push({
@@ -294,7 +294,7 @@
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
                 .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
-                .append("<input type='text' value='" + (link.data("href") || link.attr("href")).trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
+                .append("<input type='text' value='" + link.data("href").trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
                 .append("<button type='submit'>" + n.helper.i18n.get("overlay_close") + "</button>")
                 .appendTo(elm);
 
@@ -306,14 +306,10 @@
                         link.removeAttr("href").removeData("href");
 
                         if (val && val.length > 0) {
-                            if (val.startsWith("chrome://") || val.startsWith("chrome-extension://")) {
-                                link.data("href", val);
-                            } else {
-                                if (val.search(/^\w+:\/\//) !== 0) { // prepend http if no protocol specified
-                                    val = "http://" + val;
-                                }
-                                link.attr("href", val);
+                            if (val.search(/^\w+:\/\//) !== 0) { // prepend http if no protocol specified
+                                val = "http://" + val;
                             }
+                            link.data("href", val);
                         }
                         break;
                     }

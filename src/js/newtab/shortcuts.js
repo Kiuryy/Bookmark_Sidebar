@@ -27,12 +27,7 @@
                 entries.forEach((entry) => {
                     const elm = $("<li />").appendTo(list);
                     const link = $("<a />").addClass($.cl.newtab.link).text(entry.label).appendTo(elm);
-
-                    if (entry.url.startsWith("chrome://") || entry.url.startsWith("chrome-extension://")) {
-                        link.data("href", entry.url);
-                    } else {
-                        link.attr("href", entry.url);
-                    }
+                    link.data("href", entry.url).attr("href", entry.url);
                 });
             }
         };
@@ -41,21 +36,18 @@
          * Initialises the eventhandler
          */
         const initEvents = () => {
-            n.elm.topNav.on("mousedown", "a." + $.cl.newtab.link, (e) => { // handle chrome urls -> regular clicking will be blocked
-                const dataHref = $(e.currentTarget).data("href");
-                if (dataHref) {
-                    e.preventDefault();
-
+            n.elm.topNav.on("click auxclick", "a." + $.cl.newtab.link, (e) => { // handle chrome urls -> regular clicking will be blocked
+                e.preventDefault();
+                if (e.button === 0 || e.button === 1) {
                     n.helper.model.call("openLink", {
-                        href: dataHref,
-                        newTab: e.which === 2,
+                        href: $(e.currentTarget).data("href"),
+                        newTab: e.type === "auxclick",
                         position: n.helper.model.getData("b/newTabPosition"),
-                        active: e.which !== 2
+                        active: e.type === "auxclick"
                     });
                 }
             });
         };
-
     };
 
 })(jsu);

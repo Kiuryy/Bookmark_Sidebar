@@ -424,9 +424,9 @@
                 newtab_replacement: [chrome.extension.getURL("html/newtab.html")],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],
-                onboarding: ["chrome\\-extension://.*/intro.html"],
-                chrome: ["chrome://"],
-                extension: ["chrome\\-extension://"],
+                onboarding: ["chrome\\-extension://.*/intro.html", "extension://.*/intro.html"],
+                chrome: ["chrome://", "edge://"],
+                extension: ["chrome\\-extension://", "extension://"],
                 local: ["file://"]
             }).some(([key, patterns]) => {
                 patterns.some((str) => {

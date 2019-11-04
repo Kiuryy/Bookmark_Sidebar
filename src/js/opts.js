@@ -293,6 +293,16 @@
                 evaluate: "https://api.blockbyte.de/v3/evaluate/extension/bs",
             }
         },
+        urlAliases: {
+            edge: {
+                "chrome://bookmarks": "edge://favorites",
+                "chrome://extensions/shortcuts": "edge://extensions/shortcuts"
+            },
+            opera: {
+                "chrome://bookmarks": "opera://bookmarks",
+                "chrome://extensions/shortcuts": "opera://settings/keyboardShortcuts"
+            }
+        },
         defaultColors: {
             textColor: {
                 light: "#646464",

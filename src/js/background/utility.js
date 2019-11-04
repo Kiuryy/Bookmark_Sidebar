@@ -192,15 +192,16 @@
 
                 if (opts.newTab && opts.newTab === true) { // new tab
                     const createTab = (idx = null) => {
-                        if (/Opera|OPR\//.test(navigator.userAgent)) { // treat some Chrome specific urls differently to make them work in Opera, too
-                            switch (opts.href) {
-                                case "chrome://bookmarks":
-                                    opts.href = "opera://bookmarks";
-                                    break;
-                                case "chrome://extensions/shortcuts":
-                                    opts.href = "opera://settings/keyboardShortcuts";
-                                    break;
-                            }
+                        let browserAlias = null; // treat some Chrome specific urls differently to make them work in Edge, Opera, ...
+
+                        if (/OPERA|OPR\//i.test(navigator.userAgent)) {
+                            browserAlias = "opera";
+                        } else if (/EDG\//i.test(navigator.userAgent)) {
+                            browserAlias = "edge";
+                        }
+
+                        if (browserAlias && $.opts.urlAliases[browserAlias] && $.opts.urlAliases[browserAlias][opts.href]) {
+                            opts.href = $.opts.urlAliases[browserAlias][opts.href];
                         }
 
                         chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {

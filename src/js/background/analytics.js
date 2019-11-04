@@ -41,18 +41,7 @@
          */
         this.trackUserData = async () => {
             const lastTrackDate = b.helper.model.getData("lastTrackDate");
-            let today = +new Date().setHours(0, 0, 0, 0);
-
-            try { // try not to use the user specific date, but a date with defined timezone
-                today = new Date().toLocaleString("en", {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "2-digit",
-                    timeZone: "Europe/Berlin"
-                });
-            } catch (e) {
-                //
-            }
+            const today = +new Date().setHours(0, 0, 0, 0);
 
             if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
@@ -61,7 +50,7 @@
                     b.helper.model.getUserType(),
                     b.helper.model.setData("lastTrackDate", today)
                 ]).then(([response]) => {
-                    if (lastTrackDate === null) { // not tracked yet -> don't track the first time, but set the lastTrackDate above -> this will prevent double tracking of users, where setting the lastTrackDate fails
+                    if (!lastTrackDate) { // not tracked yet -> don't track the first time, but set the lastTrackDate above -> this will prevent double tracking of users, where setting the lastTrackDate fails
                         return;
                     }
 
@@ -267,7 +256,10 @@
                     method: "POST",
                     responseType: "json",
                     timeout: 30000,
-                    data: {stack: data}
+                    data: {
+                        stack: data,
+                        tz: new Date().getTimezoneOffset()
+                    }
                 }).then((xhr) => {
                     if (xhr.response && xhr.response.success) {
                         resolve({success: xhr.response.success});

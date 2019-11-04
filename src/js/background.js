@@ -69,7 +69,7 @@
 
                     chrome.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
-                            if (typeof tab.url === "undefined" || (!tab.url.startsWith("chrome://") && !tab.url.startsWith("chrome-extension://"))) {
+                            if (typeof tab.url === "undefined" || tab.url.startsWith("http://") || tab.url.startsWith("https://") || tab.url.startsWith("file://")) {
                                 const delay = tab.active ? 0 : (i * 100); // stagger script injection for all tabs which are not currently visible
 
                                 $.delay(delay).then(() => {

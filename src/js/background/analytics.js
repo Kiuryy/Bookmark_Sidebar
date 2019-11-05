@@ -73,8 +73,13 @@
                     addToStack("shareInfo", shareState);
                     addToStack("userType", response.userType);
 
+                    const installationDate = b.helper.model.getData("installationDate");
+                    if (installationDate) { // track the year of installation
+                        addToStack("installationYear", new Date(installationDate).getFullYear());
+                    }
+
                     if (shareInfo.activity === true) { // user allowed to share activity
-                        trackGeneralInfo();
+                        trackBookmarkAmount();
                     }
 
                     if (shareInfo.config === true) { // user allowed to share configuration
@@ -87,14 +92,9 @@
         };
 
         /**
-         * Tracks some general information, like the bookmark amount or installation date
+         * Tracks the amount of bookmarks
          */
-        const trackGeneralInfo = () => {
-            const installationDate = b.helper.model.getData("installationDate");
-            if (installationDate) { // track installation date
-                addToStack("installationDate", new Date(installationDate).toISOString().slice(0, 10));
-            }
-
+        const trackBookmarkAmount = () => {
             b.helper.bookmarks.api.getSubTree(0).then((response) => { // track bookmark amount
                 let bookmarkAmount = 0;
                 const processBookmarks = (bookmarks) => {

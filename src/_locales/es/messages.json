@@ -306,7 +306,7 @@
         "message": "Algo ha bloqueado la barra lateral"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "La barra lateral no se puede usar en la Chrome Webstore"
+        "message": "La barra lateral no se puede usar en la {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "La barra lateral no se puede usar en las p\u00e1ginas de las extensiones"
@@ -315,7 +315,7 @@
         "message": "La barra lateral no se puede usar en la p\u00e1gina de nueva pesta\u00f1a"
     },
     "newtab_fallback_headline_system": {
-        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de Chrome"
+        "message": "La barra lateral no se puede usar en las p\u00e1ginas de sistema de {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Una de las reglas de su URL no permite que la barra lateral se abra"
@@ -606,7 +606,7 @@
         "message": "Abrir barra lateral"
     },
     "settings_open_action_desc": {
-        "message": "Abre la barra lateral con el bot\u00f3n izquierdo o derecho o haz clic con el mouse sobre el borde de la ventana del navegador. Alternativamente, puede cambiarlo para que se abra s\u00f3lo si se hace clic en el icono del men\u00fa de Chrome."
+        "message": "Abre la barra lateral con el bot\u00f3n izquierdo o derecho o haz clic con el mouse sobre el borde de la ventana del navegador. Alternativamente, puede cambiarlo para que se abra s\u00f3lo si se hace clic en el icono del men\u00fa de {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "Clic Izquierdo"
@@ -822,7 +822,7 @@
         "message": "Patrones URL"
     },
     "settings_import_export_notice": {
-        "message": "La configuraci\u00f3n de la extensi\u00f3n se sincroniza autom\u00e1ticamente entre los dispositivos si has iniciado sesi\u00f3n en Chrome con tu cuenta de Google. Si no desea iniciar sesi\u00f3n o desea compartir su configuraci\u00f3n con otras personas, puede utilizar esta opci\u00f3n de importaci\u00f3n\/exportaci\u00f3n."
+        "message": "La configuraci\u00f3n de la extensi\u00f3n se sincroniza autom\u00e1ticamente entre los dispositivos si has iniciado sesi\u00f3n en {browserName} con tu cuenta de Google. Si no desea iniciar sesi\u00f3n o desea compartir su configuraci\u00f3n con otras personas, puede utilizar esta opci\u00f3n de importaci\u00f3n\/exportaci\u00f3n."
     },
     "settings_import_export_desc": {
         "message": "Puede exportar la configuraci\u00f3n de su extensi\u00f3n y guardarla de manera local en su computadora. Puede importar el archivo exportado previamente en cualquier computadora, donde est\u00e1 instalada la extensi\u00f3n."
@@ -885,7 +885,7 @@
         "message": "El color del \u00edcono se emparejar\u00e1 automaticamente con el esquema de tu sistema (claro u oscuro). Puedes tambi\u00e9n definir tu propio color de \u00edcono."
     },
     "settings_icon_color_desc_2": {
-        "message": "El color autom\u00e1tico no funcionar\u00e1 cuando uses un tema Chrome."
+        "message": "El color autom\u00e1tico no funcionar\u00e1 cuando uses un tema {browserName}."
     },
     "settings_indicator_width": {
         "message": "Ancho"
@@ -1059,10 +1059,10 @@
         "message": "Esto puede ser de tu inter\u00e9s"
     },
     "settings_permissions_desc": {
-        "message": "Para hacer una barra lateral activable\/desactivable en Chrome, los siguientes permisos son necesarios para la extensi\u00f3n:"
+        "message": "Para hacer una barra lateral activable\/desactivable en {browserName}, los siguientes permisos son necesarios para la extensi\u00f3n:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Desafortunadamente, Chrome no tiene ning\u00fan mecanismo para mostrar contenido en la ventana del navegador sin interactuar con la p\u00e1gina actual."
+        "message": "Desafortunadamente, {browserName} no tiene ning\u00fan mecanismo para mostrar contenido en la ventana del navegador sin interactuar con la p\u00e1gina actual."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Como la barra lateral se est\u00e1 mostrando a la parte superior de la p\u00e1gina actual, este permiso es necesario. El permiso no se usa con otros prop\u00f3sitos."

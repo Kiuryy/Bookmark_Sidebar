@@ -260,7 +260,7 @@
 
         /**
          * Returns whether the browser is windowed or not
-         * returns always true if Chrome mobile is used (e.g. when viewing a website in mobile view with devtools)
+         * returns always true if Chrome/Edge mobile is used (e.g. when viewing a website in mobile view with devtools)
          *
          * @returns {boolean}
          */

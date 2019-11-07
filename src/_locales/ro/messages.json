@@ -306,7 +306,7 @@
         "message": "Ceva a blocat bara lateral\u0103"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina Chrome Webstore"
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe pagina de extensii"
@@ -315,7 +315,7 @@
         "message": "Bara lateral\u0103 nu poate fi folosit\u0103 \u00een noul tab implicit"
     },
     "newtab_fallback_headline_system": {
-        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem chrome"
+        "message": "Bara lateral\u0103 nu poate fi folosit\u0103 pe paginile de sistem {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Una dintre regulile dumneavoastr\u0103 de adrese URL nu a permis bara lateral\u0103 s\u0103 se deschid\u0103"
@@ -606,7 +606,7 @@
         "message": "Deschide bara lateral\u0103"
     },
     "settings_open_action_desc": {
-        "message": "Deschide\u021bi bara lateral\u0103 f\u0103c\u00e2nd clic st\u00e2nga sau dreapta sau s\u0103 pune\u021bi mouse-ul peste marginea ferestrei browserului. \u00cen mod alternativ, pute\u021bi s\u0103 modifica\u021bi pentru a deschide numai dac\u0103 se face clic pe pictograma din meniul Chrome."
+        "message": "Deschide\u021bi bara lateral\u0103 f\u0103c\u00e2nd clic st\u00e2nga sau dreapta sau s\u0103 pune\u021bi mouse-ul peste marginea ferestrei browserului. \u00cen mod alternativ, pute\u021bi s\u0103 modifica\u021bi pentru a deschide numai dac\u0103 se face clic pe pictograma din meniul {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "Clic st\u00e2nga"
@@ -822,7 +822,7 @@
         "message": "Modele URL"
     },
     "settings_import_export_notice": {
-        "message": "Set\u0103rile extensiei sunt sincronizate automat \u00eentre dispozitive, dac\u0103 sunte\u021bi autentificat \u00een Chrome cu contul dumneavoastr\u0103 Google. Dac\u0103 nu dori\u021bi s\u0103 v\u0103 autentifica\u021bi sau s\u0103 partaja\u021bi set\u0103rile dumneavoastr\u0103 cu alte persoane, pute\u021bi folosi aceast\u0103 op\u021biune de import\/export."
+        "message": "Set\u0103rile extensiei sunt sincronizate automat \u00eentre dispozitive, dac\u0103 sunte\u021bi autentificat \u00een {browserName} cu contul dumneavoastr\u0103 Google. Dac\u0103 nu dori\u021bi s\u0103 v\u0103 autentifica\u021bi sau s\u0103 partaja\u021bi set\u0103rile dumneavoastr\u0103 cu alte persoane, pute\u021bi folosi aceast\u0103 op\u021biune de import\/export."
     },
     "settings_import_export_desc": {
         "message": "Pute\u021bi exporta set\u0103rile extensiei \u0219i le pute\u021bi salva local pe computer. Pute\u021bi importa fi\u0219ierul exportat anterior pe orice computer, unde este instalat\u0103 extensia."
@@ -885,7 +885,7 @@
         "message": "Culoarea icoanei va fi setat\u0103 automat pentru a se potrivi schemei de culori ale sistemului (luminos sau \u00eentunecat). Pute\u021bi deasemenea defini culoarea personal\u0103 proprie pentru icoan\u0103."
     },
     "settings_icon_color_desc_2": {
-        "message": "\u021aine\u021bi cont c\u0103, culoarea automat\u0103 nu func\u021bioneaz\u0103 atunci c\u00e2nd este folosit\u0103 o tem\u0103 personalizat\u0103 pentru Chrome."
+        "message": "\u021aine\u021bi cont c\u0103, culoarea automat\u0103 nu func\u021bioneaz\u0103 atunci c\u00e2nd este folosit\u0103 o tem\u0103 personalizat\u0103 pentru {browserName}."
     },
     "settings_indicator_width": {
         "message": "L\u0103\u021bime"
@@ -1059,10 +1059,10 @@
         "message": "Aceasta iti poate fii de ajutor"
     },
     "settings_permissions_desc": {
-        "message": "Pentru a face posibil comutabil\u0103 bar\u0103 lateral\u0103 \u00een Chrome, sunt necesare \u0219i solicitate de c\u0103tre extensie, urm\u0103toarele permisiuni:"
+        "message": "Pentru a face posibil comutabil\u0103 bar\u0103 lateral\u0103 \u00een {browserName}, sunt necesare \u0219i solicitate de c\u0103tre extensie, urm\u0103toarele permisiuni:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Din p\u0103cate Chrome nu are un mecanism de afi\u0219are a con\u021binutului \u00een fereastra exploratorului f\u0103r\u0103 interac\u021biunea cu pagina curent\u0103 vizitat\u0103."
+        "message": "Din p\u0103cate {browserName} nu are un mecanism de afi\u0219are a con\u021binutului \u00een fereastra exploratorului f\u0103r\u0103 interac\u021biunea cu pagina curent\u0103 vizitat\u0103."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Din cauz\u0103 c\u0103 bara lateral\u0103 este afi\u0219at\u0103 \u00een partea de sus a paginii actuale, este necesar\u0103 aceast\u0103 permisiune. Pe l\u00e2ng\u0103 acest motiv tehnic, permisiunea nu este folosit\u0103 \u00een alte scopuri."

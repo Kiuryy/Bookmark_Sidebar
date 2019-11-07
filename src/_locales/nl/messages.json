@@ -306,16 +306,16 @@
         "message": "De zijbalk is geblokkeerd."
     },
     "newtab_fallback_headline_webstore": {
-        "message": "De zijbalk kan niet worden gebruikt op de Chrome Webstore"
+        "message": "De zijbalk kan niet worden gebruikt op de {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van Chrome"
+        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van {browserName}"
     },
     "newtab_fallback_headline_new_tab": {
         "message": "De zijbalk kan niet worden gebruikt op het standaard nieuwe tabblad"
     },
     "newtab_fallback_headline_system": {
-        "message": "De zijbalk kan niet worden gebruikt op de systeem-pagina's van Chrome"
+        "message": "De zijbalk kan niet worden gebruikt op de systeem-pagina's van {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Een URL-regel voorkomt dat de zijbalk kan worden geopend."
@@ -606,7 +606,7 @@
         "message": "Open de zijbalk"
     },
     "settings_open_action_desc": {
-        "message": "Open de zijbalk door een linker- of rechtermuisklik, of door de aanwijzer over de rand van het browservenster te bewegen. Je kan ook instellen dat de zijbalk alleen opent door te klikken op het icoon in het Chrome menu."
+        "message": "Open de zijbalk door een linker- of rechtermuisklik, of door de aanwijzer over de rand van het browservenster te bewegen. Je kan ook instellen dat de zijbalk alleen opent door te klikken op het icoon in het {browserName} menu."
     },
     "settings_open_action_leftclick": {
         "message": "Linkermuisklik"
@@ -822,7 +822,7 @@
         "message": "URL parameters"
     },
     "settings_import_export_notice": {
-        "message": "De instellingen van de uitbreiding worden automatisch gesynchroniseerd tussen je apparaten als je in Chrome bent ingelogd met je Google account. Als je niet wil inloggen of je instellingen wil delen met anderen, dan kan je deze import\/export functie daarvoor gebruiken."
+        "message": "De instellingen van de uitbreiding worden automatisch gesynchroniseerd tussen je apparaten als je in {browserName} bent ingelogd met je Google account. Als je niet wil inloggen of je instellingen wil delen met anderen, dan kan je deze import\/export functie daarvoor gebruiken."
     },
     "settings_import_export_desc": {
         "message": "Je kan de instellingen van deze extensie lokaal opslaan. Je kan het opgeslagen bestand dan op elke computer importeren zolang de extensie maar is geinstalleerd."
@@ -885,7 +885,7 @@
         "message": "De pictogramkleur wordt automatisch ingesteld op het kleurenschema van uw systeem (licht of donker). U kunt ook uw eigen aangepaste kleur voor het pictogram defini\u00ebren."
     },
     "settings_icon_color_desc_2": {
-        "message": "Houd er rekening mee dat de automatische kleur niet werkt wanneer u een aangepast Chrome-thema gebruikt."
+        "message": "Houd er rekening mee dat de automatische kleur niet werkt wanneer u een aangepast {browserName}-thema gebruikt."
     },
     "settings_indicator_width": {
         "message": "Breedte"
@@ -1059,10 +1059,10 @@
         "message": "Misschien interessant voor jou"
     },
     "settings_permissions_desc": {
-        "message": "Om een inschakelbare zijbalk in Chrome mogelijk te maken, zijn de volgende machtigingen vereist en aangevraagd door de extensie:"
+        "message": "Om een inschakelbare zijbalk in {browserName} mogelijk te maken, zijn de volgende machtigingen vereist en aangevraagd door de extensie:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Helaas heeft Chrome geen mechanisme om inhoud weer te geven in het browservenster zonder interactie met de pagina die momenteel wordt bezocht."
+        "message": "Helaas heeft {browserName} geen mechanisme om inhoud weer te geven in het browservenster zonder interactie met de pagina die momenteel wordt bezocht."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Omdat de zijbalk boven op de huidige website wordt weergegeven, is deze toestemming vereist. Behalve om deze technische reden, wordt de toestemming niet voor andere doeleinden gebruikt."

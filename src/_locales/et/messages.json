@@ -306,7 +306,7 @@
         "message": "Miski blokeeris k\u00fclgriba"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Chrome veebipoes ei saa k\u00fclgriba kasutada"
+        "message": "{browserName} veebipoes ei saa k\u00fclgriba kasutada"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Laienduste lehel ei saa k\u00fclgriba kasutada"
@@ -879,7 +879,7 @@
         "message": "Ikooni v\u00e4rv seatakse automaatselt vastavaks s\u00fcsteemi v\u00e4rviskeemiga (hele v\u00f5i tume). Saad ikoonile m\u00e4\u00e4rata ka oma kohandatud v\u00e4rvi."
     },
     "settings_icon_color_desc_2": {
-        "message": "Automaatne v\u00e4rvivalik ei t\u00f6\u00f6ta, kui kasutuses on kohandatud Chrome kujundus."
+        "message": "Automaatne v\u00e4rvivalik ei t\u00f6\u00f6ta, kui kasutuses on kohandatud {browserName} kujundus."
     },
     "settings_indicator_width": {
         "message": "Laius"
@@ -1053,10 +1053,10 @@
         "message": "See v\u00f5ib sulle huvi pakkuda"
     },
     "settings_permissions_desc": {
-        "message": "K\u00fclgriba kasutamiseks Chrome brauseris tuleb anda j\u00e4rgmised \u00f5igused:"
+        "message": "K\u00fclgriba kasutamiseks {browserName} brauseris tuleb anda j\u00e4rgmised \u00f5igused:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Kahjuks puudub Chrome'l v\u00f5imalus brauseriakna sisu kuvamiseks ilma hetkel k\u00fclastatava lehega suhtlemata."
+        "message": "Kahjuks puudub {browserName}'l v\u00f5imalus brauseriakna sisu kuvamiseks ilma hetkel k\u00fclastatava lehega suhtlemata."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Kuna k\u00fclgriba kuvatakse aktiivse veebilehe peal, on need \u00f5igused vajalikud. Lisaks tehnilistele p\u00f5hjustele pole neid \u00f5igusi v\u00f5imalik muuks tarbeks kasutada."

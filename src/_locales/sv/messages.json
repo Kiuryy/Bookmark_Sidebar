@@ -306,7 +306,7 @@
         "message": "N\u00e5gonting har blockerat sidof\u00e4ltet"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Sidopanelen kan inte anv\u00e4ndas i Chrome Webstore"
+        "message": "Sidopanelen kan inte anv\u00e4ndas i {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 till\u00e4gg-sidor"
@@ -315,7 +315,7 @@
         "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 den f\u00f6rvalda Ny flik-sidan"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 Chrome systemsidor"
+        "message": "Sidopanelen kan inte anv\u00e4ndas p\u00e5 {browserName} systemsidor"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "En av dina URL regler till ej att sidof\u00e4lt \u00f6ppnades"
@@ -492,28 +492,37 @@
         "message": "\u00c4r du s\u00e4ker p\u00e5 att du vill \u00e5terst\u00e4lla standardkonfigurationen?"
     },
     "settings_restored_message": {
-        "message": "\u00c5terst\u00e4lld till standard"
+        "message": "Standardinst\u00e4llningar \u00e5terst\u00e4llda"
     },
     "settings_advanced": {
         "message": "Avancerade inst\u00e4llningar"
     },
     "settings_not_synced": {
-        "message": "Kommer inte synkroniseras mellan dina enheter"
+        "message": "Kommer inte att synkroniseras mellan dina enheter"
     },
     "settings_premium_activated": {
         "message": "Premium har blivit aktiverat"
     },
     "settings_premium_invalid_key": {
-        "message": "Kunde inte aktivera Premium. Var v\u00e4nlig anv\u00e4nd en \u00e4kta licens nyckel"
+        "message": "Kunde inte aktivera Premium. Var v\u00e4nlig anv\u00e4nd en \u00e4kta licensnyckel"
     },
     "settings_search_placeholder": {
         "message": "S\u00f6k efter konfiguration"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Med expertinst\u00e4llningarna kan du \u00e4ndra allting, \u00e4ven s\u00e5nt som inte g\u00e5r att justera med kryssrutor eller reglage."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Om du inte vet vad du h\u00e5ller p\u00e5 med b\u00f6r du inte \u00e4ndra n\u00e5gonting h\u00e4r. Felaktiga inst\u00e4llningar kan f\u00e5 till\u00e4gget att kr\u00e5ngla. On n\u00e5gonting g\u00e5r s\u00f6nder kan du alltid \u00e5terst\u00e4lla standardinst\u00e4llningarna."
+    },
+    "settings_expert_save_error": {
+        "message": "Kunde ej spara inst\u00e4llningarna. Kontrollera om n\u00e5got blev fel."
     },
     "settings_open_action": {
         "message": "\u00d6ppna sidopanel"
     },
     "settings_open_action_desc": {
-        "message": "\u00d6ppna sidof\u00e4ltet genom att v\u00e4nsterklicka eller h\u00f6gerklicka eller mouseover p\u00e5 sidan av webbl\u00e4sarf\u00f6nstret. Alternativt kan du \u00e4ndra det f\u00f6r att endast \u00f6ppna om ikonen i Chromemenyn \u00e4r klickad."
+        "message": "\u00d6ppna sidof\u00e4ltet genom att v\u00e4nsterklicka eller h\u00f6gerklicka eller mouseover p\u00e5 sidan av webbl\u00e4sarf\u00f6nstret. Alternativt kan du \u00e4ndra det f\u00f6r att endast \u00f6ppna om ikonen i {browserName}menyn \u00e4r klickad."
     },
     "settings_open_action_leftclick": {
         "message": "V\u00e4nsterklick"
@@ -780,7 +789,7 @@
         "message": "Skr\u00e4ddarsydd"
     },
     "settings_icon_color_desc_2": {
-        "message": "Notera att automatisk f\u00e4rg fungerar inte n\u00e4r skr\u00e4ddarsydd chrome-tema anv\u00e4nts."
+        "message": "Notera att automatisk f\u00e4rg fungerar inte n\u00e4r skr\u00e4ddarsydd {browserName}-tema anv\u00e4nts."
     },
     "settings_indicator_width": {
         "message": "Bredd"

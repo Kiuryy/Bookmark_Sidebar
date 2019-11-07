@@ -306,7 +306,7 @@
         "message": "Nie\u010do zablokovalo bo\u010dn\u00fd panel"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na webovom obchode Chrome"
+        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na webovom obchode {browserName}"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na str\u00e1nkach roz\u0161\u00edren\u00ed"
@@ -315,7 +315,7 @@
         "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na predvolenej novej karte"
     },
     "newtab_fallback_headline_system": {
-        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na syst\u00e9mov\u00fdch str\u00e1nkach Chrome"
+        "message": "Bo\u010dn\u00fd panel nie je mo\u017en\u00e9 pou\u017ei\u0165 na syst\u00e9mov\u00fdch str\u00e1nkach {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Jedno z va\u0161ich pravidiel pre URL adresy zak\u00e1zalo otvorenie bo\u010dn\u00e9ho panela"
@@ -603,7 +603,7 @@
         "message": "Otvorenie bo\u010dnej li\u0161ty"
     },
     "settings_open_action_desc": {
-        "message": "Li\u0161tu otvor\u00edte \u013eav\u00fdm alebo prav\u00fdm klikom my\u0161i na strane okna. Pr\u00edpadne m\u00f4\u017aete nastavenia zmeni\u0165 na otvorenie pomocou kliknutia na ikonu v menu Chrome."
+        "message": "Li\u0161tu otvor\u00edte \u013eav\u00fdm alebo prav\u00fdm klikom my\u0161i na strane okna. Pr\u00edpadne m\u00f4\u017aete nastavenia zmeni\u0165 na otvorenie pomocou kliknutia na ikonu v menu {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "\u013dav\u00fd klik"
@@ -879,7 +879,7 @@
         "message": "Farba ikony sa nastav\u00ed automaticky tak, aby zodpovedala farebnej sch\u00e9me v\u00e1\u0161ho syst\u00e9mu (svetl\u00e1 alebo tmav\u00e1). M\u00f4\u017eete tie\u017e definova\u0165 svoju vlastn\u00fa farbu ikony."
     },
     "settings_icon_color_desc_2": {
-        "message": "Upozor\u0148ujeme, \u017ee pri pou\u017eit\u00ed vlastn\u00e9ho mot\u00edvu Chrome nefunguje automatick\u00e1 farba."
+        "message": "Upozor\u0148ujeme, \u017ee pri pou\u017eit\u00ed vlastn\u00e9ho mot\u00edvu {browserName} nefunguje automatick\u00e1 farba."
     },
     "settings_indicator_width": {
         "message": "\u0160\u00edrka"
@@ -1053,10 +1053,10 @@
         "message": "To V\u00e1s m\u00f4\u017ee zauj\u00edma\u0165"
     },
     "settings_permissions_desc": {
-        "message": "Ak chcete v prehliada\u010di Chrome umo\u017eni\u0165 prep\u00ednate\u013en\u00fd bo\u010dn\u00fd panel, nasleduj\u00face povolenia s\u00fa povinn\u00e9 a vy\u017eiadan\u00e9 roz\u0161\u00edren\u00edm:"
+        "message": "Ak chcete v prehliada\u010di {browserName} umo\u017eni\u0165 prep\u00ednate\u013en\u00fd bo\u010dn\u00fd panel, nasleduj\u00face povolenia s\u00fa povinn\u00e9 a vy\u017eiadan\u00e9 roz\u0161\u00edren\u00edm:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Prehliada\u010d Chrome bohu\u017eia\u013e nem\u00e1 \u017eiadny mechanizmus na zobrazovanie obsahu v okne prehliada\u010da bez toho, aby interagoval s aktu\u00e1lne nav\u0161tevovanou str\u00e1nkou."
+        "message": "Prehliada\u010d {browserName} bohu\u017eia\u013e nem\u00e1 \u017eiadny mechanizmus na zobrazovanie obsahu v okne prehliada\u010da bez toho, aby interagoval s aktu\u00e1lne nav\u0161tevovanou str\u00e1nkou."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Ke\u010f\u017ee sa bo\u010dn\u00fd panel zobrazuje v hornej \u010dasti aktu\u00e1lnej webovej str\u00e1nky, je potrebn\u00e9 toto povolenie. Okrem tohto technick\u00e9ho d\u00f4vodu sa povolenie nevyu\u017e\u00edva na in\u00e9 \u00fa\u010dely."

@@ -306,7 +306,7 @@
         "message": "C\u00f3 g\u00ec \u0111\u00f3 sai sai! Thanh d\u1ea5u trang \u0111\u00e3 b\u1ecb ch\u1eb7n kh\u00f4ng th\u1ec3 m\u1edf."
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Kh\u00f4ng th\u1ec3 s\u1eed d\u1ee5ng thanh d\u1ea5u trang tr\u00ean C\u1eeda h\u00e0ng Chrome tr\u1ef1c tuy\u1ebfn"
+        "message": "Kh\u00f4ng th\u1ec3 s\u1eed d\u1ee5ng thanh d\u1ea5u trang tr\u00ean C\u1eeda h\u00e0ng {browserName} tr\u1ef1c tuy\u1ebfn"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Kh\u00f4ng th\u1ec3 s\u1eed d\u1ee5ng thanh d\u1ea5u trang tr\u00ean c\u00e1c trang ti\u1ec7n \u00edch"
@@ -315,7 +315,7 @@
         "message": "Thanh d\u1ea5u trang kh\u00f4ng th\u1ec3 s\u1eed d\u1ee5ng tr\u00ean trang tab m\u1edbi m\u1eb7c \u0111\u1ecbnh"
     },
     "newtab_fallback_headline_system": {
-        "message": "Thanh d\u1ea5u trang kh\u00f4ng th\u1ec3 s\u1ef1 d\u1ee5ng tr\u00ean trang h\u1ec7 th\u1ed1ng c\u1ee7a Chrome"
+        "message": "Thanh d\u1ea5u trang kh\u00f4ng th\u1ec3 s\u1ef1 d\u1ee5ng tr\u00ean trang h\u1ec7 th\u1ed1ng c\u1ee7a {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "M\u1ed9t trong nh\u1eefng URL kh\u00f4ng cho ph\u00e9p m\u1edf thanh d\u1ea5u trang"
@@ -822,7 +822,7 @@
         "message": "Danh s\u00e1ch URL"
     },
     "settings_import_export_notice": {
-        "message": "C\u00e1c thi\u1ebft l\u1eadp c\u1ee7a ti\u1ec7n \u00edch \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 t\u1ef1 \u0111\u1ed9ng n\u1ebfu b\u1ea1n \u0111\u0103ng nh\u1eadp v\u00e0o Chrome b\u1eb1ng t\u00e0i kho\u1ea3n Google. N\u1ebfu b\u1ea1n kh\u00f4ng mu\u1ed1n \u0111\u0103ng nh\u1eadp ho\u1eb7c chia s\u1ebb c\u00e1ch thi\u1ebft l\u1eadp c\u1ee7a m\u00ecnh v\u1edbi ng\u01b0\u1eddi d\u00f9ng kh\u00e1c. H\u00e3y s\u1eed d\u1ee5ng ch\u1ee9c n\u0103ng Nh\u1eadp\/Xu\u1ea5t thi\u1ebft l\u1eadp."
+        "message": "C\u00e1c thi\u1ebft l\u1eadp c\u1ee7a ti\u1ec7n \u00edch \u0111\u01b0\u1ee3c \u0111\u1ed3ng b\u1ed9 t\u1ef1 \u0111\u1ed9ng n\u1ebfu b\u1ea1n \u0111\u0103ng nh\u1eadp v\u00e0o {browserName} b\u1eb1ng t\u00e0i kho\u1ea3n Google. N\u1ebfu b\u1ea1n kh\u00f4ng mu\u1ed1n \u0111\u0103ng nh\u1eadp ho\u1eb7c chia s\u1ebb c\u00e1ch thi\u1ebft l\u1eadp c\u1ee7a m\u00ecnh v\u1edbi ng\u01b0\u1eddi d\u00f9ng kh\u00e1c. H\u00e3y s\u1eed d\u1ee5ng ch\u1ee9c n\u0103ng Nh\u1eadp\/Xu\u1ea5t thi\u1ebft l\u1eadp."
     },
     "settings_import_export_desc": {
         "message": "B\u1ea1n c\u00f3 th\u1ec3 tr\u00edch xu\u1ea5t c\u00e1c c\u00e0i \u0111\u1eb7t \u0111\u1ec3 l\u01b0u l\u1ea1i tr\u00ean m\u00e1y. Sau \u0111\u00f3 c\u00f3 th\u1ec3 \u00e1p d\u1ee5ng l\u00ean c\u00e1c m\u00e1y t\u00ednh kh\u00e1c c\u00f3 c\u00e0i ti\u1ec7n \u00edch n\u00e0y."
@@ -885,7 +885,7 @@
         "message": "Bi\u1ec3u t\u01b0\u1ee3ng m\u00e0u s\u1eafc s\u1ebd \u0111\u01b0\u1ee3c t\u1ef1 \u0111\u1ed9ng \u0111i\u1ec1u ch\u1ec9nh \u0111\u1ec3 \u0111\u1ed3ng b\u1ed9 v\u1edbi b\u1ea3ng m\u00e0u h\u1ec7 th\u1ed1ng c\u1ee7a b\u1ea1n (s\u00e1ng ho\u1eb7c t\u1ed1i). B\u1ea1n c\u0169ng c\u00f3 th\u1ec3 t\u1ef1 x\u00e1c \u0111\u1ecbnh m\u00e0u s\u1eafc c\u1ee7a bi\u1ec3u t\u01b0\u1ee3ng theo \u00fd mu\u1ed1n."
     },
     "settings_icon_color_desc_2": {
-        "message": "L\u01b0u \u00fd r\u1eb1ng khi b\u1ea1n s\u1eed d\u1ee5ng m\u1ed9t giao di\u1ec7n t\u00f9y ch\u1ec9nh t\u1eeb Chrome, ch\u1ee9c n\u0103ng t\u1ef1 \u0111\u1ed9ng \u0111i\u1ec1u ch\u1ec9nh m\u00e0u s\u1eafc s\u1ebd kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng."
+        "message": "L\u01b0u \u00fd r\u1eb1ng khi b\u1ea1n s\u1eed d\u1ee5ng m\u1ed9t giao di\u1ec7n t\u00f9y ch\u1ec9nh t\u1eeb {browserName}, ch\u1ee9c n\u0103ng t\u1ef1 \u0111\u1ed9ng \u0111i\u1ec1u ch\u1ec9nh m\u00e0u s\u1eafc s\u1ebd kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng."
     },
     "settings_indicator_width": {
         "message": "Chi\u1ec1u r\u1ed9ng"
@@ -1059,10 +1059,10 @@
         "message": "\u0110i\u1ec1u n\u00e0y s\u1ebd khi\u1ebfn b\u1ea1n th\u00edch th\u00fa."
     },
     "settings_permissions_desc": {
-        "message": "\u0110\u1ec3 ti\u1ec7n \u00edch c\u00f3 th\u1ec3 ho\u1ea1t \u0111\u1ed9ng \u0111\u01b0\u1ee3c tr\u00ean Chrome, b\u1ea1n c\u1ea7n cung c\u1ea5p cho ti\u1ec7n \u00edch m\u1ed9t c\u00e1c quy\u1ec1n sau:"
+        "message": "\u0110\u1ec3 ti\u1ec7n \u00edch c\u00f3 th\u1ec3 ho\u1ea1t \u0111\u1ed9ng \u0111\u01b0\u1ee3c tr\u00ean {browserName}, b\u1ea1n c\u1ea7n cung c\u1ea5p cho ti\u1ec7n \u00edch m\u1ed9t c\u00e1c quy\u1ec1n sau:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Xui qu\u00e1, Chrome kh\u00f4ng cho ph\u00e9p c\u00e1c ti\u1ec7n \u00edch hi\u1ec3n th\u1ecb n\u1ed9i dung tr\u00ean c\u1eeda s\u1ed5 tr\u00ecnh duy\u1ec7t m\u00e0 kh\u00f4ng ph\u1ee5 thu\u1ed9c v\u00e0o trang \u0111ang truy c\u1eadp."
+        "message": "Xui qu\u00e1, {browserName} kh\u00f4ng cho ph\u00e9p c\u00e1c ti\u1ec7n \u00edch hi\u1ec3n th\u1ecb n\u1ed9i dung tr\u00ean c\u1eeda s\u1ed5 tr\u00ecnh duy\u1ec7t m\u00e0 kh\u00f4ng ph\u1ee5 thu\u1ed9c v\u00e0o trang \u0111ang truy c\u1eadp."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "\u0110\u1ec3 thanh d\u1ea5u trang c\u1ee7a ti\u1ec7n \u00edch c\u00f3 th\u1ec3 \u0111\u00e8 l\u00ean trang \u0111ang truy c\u1eadp, quy\u1ec1n sau \u0111\u00e2y s\u1ebd \u0111\u01b0\u1ee3c c\u1ea5p. Ngo\u00e0i vi\u1ec7c ph\u1ee5c v\u1ee5 cho b\u1ea1n, quy\u1ec1n n\u00e0y kh\u00f4ng \u0111\u01b0\u1ee3c s\u1eed d\u1ee5ng v\u1edbi m\u1ee5c \u0111\u00edch n\u00e0o kh\u00e1c."

@@ -306,7 +306,7 @@
         "message": "Nekaj je blokiralo stransko vrstico"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Stranska vrstica se ne more uporabljati na strani Chrome Webstore"
+        "message": "Stranska vrstica se ne more uporabljati na strani {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Stranska vrstica se ne more uporabljati na strani raz\u0161iritev"
@@ -315,7 +315,7 @@
         "message": "Stranska vrstica se ne more uporabljati na privzeti strani novega zavihka"
     },
     "newtab_fallback_headline_system": {
-        "message": "Stranska vrstica se ne more uporabljati na straneh Chrome System-a"
+        "message": "Stranska vrstica se ne more uporabljati na straneh {browserName} System-a"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "En izmed va\u0161ih URL-jev je prepre\u010dil stranski vrstici da se odpre"
@@ -603,7 +603,7 @@
         "message": "Odpri vrstico z zaznamki"
     },
     "settings_open_action_desc": {
-        "message": "Odpri vrstico z zaznamki z levim ali desnim klikom ali prehodom mi\u0161kinega kazalca na rob okna brskalnika. Alternativno lahko to spremenite tako, da se odpre le ob kliku na ikono v meniju Chrome-a."
+        "message": "Odpri vrstico z zaznamki z levim ali desnim klikom ali prehodom mi\u0161kinega kazalca na rob okna brskalnika. Alternativno lahko to spremenite tako, da se odpre le ob kliku na ikono v meniju {browserName}-a."
     },
     "settings_open_action_leftclick": {
         "message": "Levi klik"
@@ -1053,10 +1053,10 @@
         "message": "To bi vas lahko zanimalo"
     },
     "settings_permissions_desc": {
-        "message": "Da je toggeable stranska vrstica mo\u017ena v Chrome-u, so potrebna in zahtevana slede\u010da dovoljenja raz\u0161iritve:"
+        "message": "Da je toggeable stranska vrstica mo\u017ena v {browserName}-u, so potrebna in zahtevana slede\u010da dovoljenja raz\u0161iritve:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Na \u017ealost Chrome nima mehanizma za prikaz vsebina v oknu brskalnika brez interakcije z trenutno obiskano stranjo."
+        "message": "Na \u017ealost {browserName} nima mehanizma za prikaz vsebina v oknu brskalnika brez interakcije z trenutno obiskano stranjo."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Ker je stranska vrstica prikazana na vrhu trenutne spletne strani, je to dovoljenje potrebovano. Razen tehni\u010dnih razlogov, to dovoljenje ni uporabljeno za druge namene."

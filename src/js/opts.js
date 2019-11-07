@@ -294,12 +294,12 @@
             }
         },
         urlAliases: {
-            edge: {
+            Edge: {
                 "chrome://newtab/": "edge://newtab/",
                 "chrome://bookmarks": "edge://favorites",
                 "chrome://extensions/shortcuts": "edge://extensions/shortcuts"
             },
-            opera: {
+            Opera: {
                 "chrome://newtab/": "chrome://startpage/",
                 "chrome://bookmarks": "opera://bookmarks",
                 "chrome://extensions/shortcuts": "opera://settings/keyboardShortcuts"
@@ -335,6 +335,13 @@
         manifest: chrome.runtime.getManifest(),
         demoMode: false
     };
+
+    $.browserName = "Chrome";
+    if (/EDG\//i.test(navigator.userAgent)) {
+        $.browserName = "Edge";
+    } else if (/OPERA|OPR\//i.test(navigator.userAgent)) {
+        $.browserName = "Opera";
+    }
 
     $.cl = $.opts.classes;
     $.attr = $.opts.attr;

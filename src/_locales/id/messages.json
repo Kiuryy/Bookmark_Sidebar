@@ -285,7 +285,7 @@
         "message": "Ada sesuatu menghalangkan sidebar"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Sidebar tidak dapat di gunakan di Chrome Webstore"
+        "message": "Sidebar tidak dapat di gunakan di {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Sidebar tidak dapat di gunakan di halaman ekstensi"
@@ -294,7 +294,7 @@
         "message": "Sidebar tidak dapat di gunakan di halaman default Tab Baru"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sidebar tidak dapat di gunakan di halaman sistem chrome"
+        "message": "Sidebar tidak dapat di gunakan di halaman sistem {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Salah satu peraturan URL anda telah menolak sidebar untuk dibuka"
@@ -343,9 +343,6 @@
     },
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
-    },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Menunggu dekat entry selanjutnya di sidebar atau contextmenu yang sedang di buka"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Melakukan pemencetan entry yang lagi ditunggu dekat"
@@ -879,10 +876,10 @@
         "message": "Mungkin ini menarik bagi Anda"
     },
     "settings_permissions_desc": {
-        "message": "Untuk memungkinkan bilah samping yang dapat diubah ke Chrome, izin berikut diperlukan dan diminta oleh ekstensi:"
+        "message": "Untuk memungkinkan bilah samping yang dapat diubah ke {browserName}, izin berikut diperlukan dan diminta oleh ekstensi:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Sayang sekali, Chrome tidak memiliki mekanisme untuk menampilkan konten pada jendela peramban tanpa berinteraksi dengan halaman yang sedang dikunjungi saat ini."
+        "message": "Sayang sekali, {browserName} tidak memiliki mekanisme untuk menampilkan konten pada jendela peramban tanpa berinteraksi dengan halaman yang sedang dikunjungi saat ini."
     },
     "settings_headline_share_userdata": {
         "message": "Membagi informasi"

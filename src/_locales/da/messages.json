@@ -306,7 +306,7 @@
         "message": "Noget har blokeret sidebaren"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Sidebaren kan ikke bruges i Chrome Webstore"
+        "message": "Sidebaren kan ikke bruges i {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Sidebaren kan ikke bruges p\u00e5 udvidelsessider"
@@ -315,7 +315,7 @@
         "message": "Sidebaren kan ikke bruges p\u00e5 nyt faneblad siden"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sidebaren kan ikke bruges p\u00e5 chrome system sider"
+        "message": "Sidebaren kan ikke bruges p\u00e5 {browserName} system sider"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "En af dine URL-regler forhindrede sidebaren i at \u00e5bne"
@@ -342,7 +342,7 @@
         "message": "Genindl\u00e6s nu"
     },
     "status_background_disconnected_reload_desc": {
-        "message": "Grundet en opdatering af denne Chrome udvidelse, er der behov for at genindl\u00e6se denne side."
+        "message": "Grundet en opdatering af denne {browserName} udvidelse, er der behov for at genindl\u00e6se denne side."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -603,7 +603,7 @@
         "message": "\u00c5bn sidebj\u00e6lke"
     },
     "settings_open_action_desc": {
-        "message": "\u00c5bn sidelinjen ved at venstre eller h\u00f8jre klikke eller musen over kanten af browservinduet. Alternativt kan du \u00e6ndre det for kun at \u00e5bne, hvis ikonet i Chrome-menuen er klikket."
+        "message": "\u00c5bn sidelinjen ved at venstre eller h\u00f8jre klikke eller musen over kanten af browservinduet. Alternativt kan du \u00e6ndre det for kun at \u00e5bne, hvis ikonet i {browserName}-menuen er klikket."
     },
     "settings_open_action_leftclick": {
         "message": "Venstre klik"
@@ -879,7 +879,7 @@
         "message": "Ikonfarven indstilles automatisk til at matche farveskemaet p\u00e5 dit system (lys eller m\u00f8rk). Du kan ogs\u00e5 definere din brugerdefinerede farve til ikonet."
     },
     "settings_icon_color_desc_2": {
-        "message": "Bem\u00e6rk, at den automatiske farve ikke fungerer, n\u00e5r du bruger et tilpasset Chrome-tema."
+        "message": "Bem\u00e6rk, at den automatiske farve ikke fungerer, n\u00e5r du bruger et tilpasset {browserName}-tema."
     },
     "settings_indicator_width": {
         "message": "Bredde"
@@ -1053,10 +1053,10 @@
         "message": "Dette kan v\u00e6re af interesse for dig"
     },
     "settings_permissions_desc": {
-        "message": "For at g\u00f8re det muligt at lave en sidebar der kan vises\/skjules i Chrome, har udvidelsen brug for f\u00f8lgende tilladelser:"
+        "message": "For at g\u00f8re det muligt at lave en sidebar der kan vises\/skjules i {browserName}, har udvidelsen brug for f\u00f8lgende tilladelser:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Desv\u00e6rre har Chrome ingen mekanisme til at vise indhold i browser-vinduet uden at interagere med den bes\u00f8gte hjemmeside."
+        "message": "Desv\u00e6rre har {browserName} ingen mekanisme til at vise indhold i browser-vinduet uden at interagere med den bes\u00f8gte hjemmeside."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Eftersom sidebaren bliver vist oven over den bes\u00f8gte hjemmeside, er denne indstilling n\u00f8dvendig. Udover denne tekniske \u00e5rsag bliver tilladelsen ikke benyttet."

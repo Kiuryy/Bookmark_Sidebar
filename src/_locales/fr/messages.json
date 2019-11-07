@@ -306,7 +306,7 @@
         "message": "Quelque chose a bloqu\u00e9 la barre lat\u00e9rale"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le Store de Google Chrome"
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur le Store de Google {browserName}"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page des extensions"
@@ -315,7 +315,7 @@
         "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur la page nouvel onglet"
     },
     "newtab_fallback_headline_system": {
-        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de chrome"
+        "message": "La barre lat\u00e9rale ne peut pas \u00eatre affich\u00e9e sur les pages syst\u00e8me de {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "L'une de vos r\u00e8gles URL emp\u00eache la barre lat\u00e9rale de s'ouvrir"
@@ -822,7 +822,7 @@
         "message": "Masque d'URL"
     },
     "settings_import_export_notice": {
-        "message": "Les param\u00e8tres de l'extension sont automatiquement synchronis\u00e9s entre vos appareils si vous \u00eates connect\u00e9 \u00e0 Chrome avec votre compte Google. Si vous ne souhaitez pas connecter votre compte ou partager vos param\u00e8tres avec d'autres personnes, vous pouvez utiliser l'option d'importation \/ exportation."
+        "message": "Les param\u00e8tres de l'extension sont automatiquement synchronis\u00e9s entre vos appareils si vous \u00eates connect\u00e9 \u00e0 {browserName} avec votre compte Google. Si vous ne souhaitez pas connecter votre compte ou partager vos param\u00e8tres avec d'autres personnes, vous pouvez utiliser l'option d'importation \/ exportation."
     },
     "settings_import_export_desc": {
         "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."
@@ -885,7 +885,7 @@
         "message": "La couleur de l'ic\u00f4ne sera automatiquement d\u00e9finie pour correspondre au jeu de couleurs de votre syst\u00e8me (clair ou fonc\u00e9). Vous pouvez \u00e9galement d\u00e9finir votre propre couleur personnalis\u00e9e pour l'ic\u00f4ne."
     },
     "settings_icon_color_desc_2": {
-        "message": "Veuillez noter que la couleur automatique ne fonctionne pas si vous utilisez un th\u00e8me Chrome personnalis\u00e9."
+        "message": "Veuillez noter que la couleur automatique ne fonctionne pas si vous utilisez un th\u00e8me {browserName} personnalis\u00e9."
     },
     "settings_indicator_width": {
         "message": "Largeur"
@@ -1059,10 +1059,10 @@
         "message": "Ceci pourrait peut-\u00eatre vous int\u00e9resser"
     },
     "settings_permissions_desc": {
-        "message": "Afin de rendre possible une barre lat\u00e9rale basculable dans Chrome, les autorisations suivantes sont requises et demand\u00e9es par l'extension :"
+        "message": "Afin de rendre possible une barre lat\u00e9rale basculable dans {browserName}, les autorisations suivantes sont requises et demand\u00e9es par l'extension :"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Malheureusement, Chrome ne dispose d'aucun m\u00e9canisme pour afficher le contenu dans la fen\u00eatre du navigateur sans interagir avec la page actuellement visit\u00e9e."
+        "message": "Malheureusement, {browserName} ne dispose d'aucun m\u00e9canisme pour afficher le contenu dans la fen\u00eatre du navigateur sans interagir avec la page actuellement visit\u00e9e."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "\u00c9tant donn\u00e9 que la barre lat\u00e9rale est affich\u00e9e en haut du site Web actuel, cette autorisation est requise. Outre cette raison technique, l'autorisation n'est pas utilis\u00e9e \u00e0 d'autres fins."

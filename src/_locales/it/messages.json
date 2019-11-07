@@ -306,7 +306,7 @@
         "message": "Qualcosa ha bloccato la barra laterale"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata sul Chrome Webstore"
+        "message": "La barra laterale non pu\u00f2 essere utilizzata sul {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "La barra laterale non pu\u00f2 essere utilizzata sulle pagine delle estensioni"
@@ -315,7 +315,7 @@
         "message": "La barra laterale non pu\u00f2 essere utilizzata nella pagina di default \"Nuova Scheda\""
     },
     "newtab_fallback_headline_system": {
-        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di Chrome"
+        "message": "La barra laterale non pu\u00f2 essere utilizzata nelle pagine di sistema di {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Una delle tue regole sugli indirizzi non ha permesso alla barra laterale di aprirsi"
@@ -606,7 +606,7 @@
         "message": "Apri la barra laterale"
     },
     "settings_open_action_desc": {
-        "message": "Apri la barra laterale con un click (pulsante destro o sinistro) del mouse o passando col cursore sul bordo della finestra del browser. Oppure puoi scegliere di aprire la barra laterale esclusivamente con un click sull'icona dell'estensione nella barra dei menu di Chrome."
+        "message": "Apri la barra laterale con un click (pulsante destro o sinistro) del mouse o passando col cursore sul bordo della finestra del browser. Oppure puoi scegliere di aprire la barra laterale esclusivamente con un click sull'icona dell'estensione nella barra dei menu di {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "Premi il pulsante sinistro del mouse"
@@ -885,7 +885,7 @@
         "message": "Il colore dell'icona sar\u00e0 impostato automaticamente per corrispondere allo schema colori del vostro sistema (luminoso o scuro). Potete anche definire un colore personalizzato per l'icona"
     },
     "settings_icon_color_desc_2": {
-        "message": "Considerate che l'impostazione automatica non funziona quando si usa un tema personalizzato per Chrome."
+        "message": "Considerate che l'impostazione automatica non funziona quando si usa un tema personalizzato per {browserName}."
     },
     "settings_indicator_width": {
         "message": "Larghezza"
@@ -1059,10 +1059,10 @@
         "message": "Potrebbe interessarti"
     },
     "settings_permissions_desc": {
-        "message": "Per rendere possibile una barra laterale selezionabile in Chrome, le seguenti autorizzazioni sono richieste e richieste dall'estensione:"
+        "message": "Per rendere possibile una barra laterale selezionabile in {browserName}, le seguenti autorizzazioni sono richieste e richieste dall'estensione:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Sfortunatamente Chrome non ha alcun meccanismo per visualizzare il contenuto nella finestra del browser senza interagire con la pagina attualmente in visita."
+        "message": "Sfortunatamente {browserName} non ha alcun meccanismo per visualizzare il contenuto nella finestra del browser senza interagire con la pagina attualmente in visita."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Poich\u00e9 la barra laterale viene visualizzata in cima al sito Web corrente, \u00e8 necessaria questa autorizzazione. Oltre a questo motivo tecnico, l'autorizzazione non viene utilizzata per altri scopi."

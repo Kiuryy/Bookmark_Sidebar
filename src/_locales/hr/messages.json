@@ -182,17 +182,26 @@
     "overlay_add_position": {
         "message": "Pozicija"
     },
+    "overlay_add_position_prepend": {
+        "message": "Prethodi mapi"
+    },
+    "overlay_add_position_append": {
+        "message": "Dodaj mapi"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Dodaj naslov ako \u017eeli\u0161. Biti \u0107e prikazan iznad grani\u010dne linije .Korisno je kod organizacije oznaka."
+    },
     "overlay_bookmark_views": {
-        "message": "Pogledi"
+        "message": "Pregledi"
     },
     "overlay_bookmark_views_single": {
-        "message": "Pogled"
+        "message": "Pregled"
     },
     "overlay_bookmark_views_since": {
         "message": "Pregledi od"
     },
     "overlay_bookmark_views_per_month": {
-        "message": "Po mjesecu"
+        "message": "Mjese\u010dno"
     },
     "overlay_bookmark_created_date": {
         "message": "Stvoreno"
@@ -216,7 +225,7 @@
         "message": "Udvostru\u010di"
     },
     "overlay_check_bookmarks_menu_empty": {
-        "message": "Prazni direktoriji"
+        "message": "Prazne mape"
     },
     "overlay_check_bookmarks_loading": {
         "message": "Provjera URLa oznaka"
@@ -238,6 +247,9 @@
     },
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Nema udvostru\u010denih URLa oznaka"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Nema mapa bez oznaka"
     },
     "newtab_title": {
         "message": "Nova kartica"
@@ -288,16 +300,16 @@
         "message": "Ne\u0161to sprje\u010dava rad bo\u010dne trake oznaka"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na Chrome Webstore stranicama"
+        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na {browserName} Webstore stranicama"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na stranicama dodataka"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na prvotno zadanoj novoj kartici Chromea"
+        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na prvotno zadanoj novoj kartici {browserName}a"
     },
     "newtab_fallback_headline_system": {
-        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na sistemskim stranicama Chromea"
+        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na sistemskim stranicama {browserName}a"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Jedno od tvojih URL pravila ne dozvoljava otvaranje bo\u010dne trake oznaka"

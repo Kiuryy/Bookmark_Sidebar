@@ -170,16 +170,8 @@
                 return url;
             }
 
-            let browserAlias = null;
-
-            if (/OPERA|OPR\//i.test(navigator.userAgent)) {
-                browserAlias = "opera";
-            } else if (/EDG\//i.test(navigator.userAgent)) {
-                browserAlias = "edge";
-            }
-
-            if (browserAlias && $.opts.urlAliases[browserAlias] && $.opts.urlAliases[browserAlias][url]) {
-                url = $.opts.urlAliases[browserAlias][url];
+            if ($.opts.urlAliases[$.browserName] && $.opts.urlAliases[$.browserName][url]) {
+                url = $.opts.urlAliases[$.browserName][url];
             }
 
             return url;

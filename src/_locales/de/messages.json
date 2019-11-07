@@ -306,7 +306,7 @@
         "message": "Die Sidebar wurde von etwas blockiert"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Die Sidebar kann im Chrome Webstore nicht verwendet werden"
+        "message": "Die Sidebar kann im {browserName} Webstore nicht verwendet werden"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Die Sidebar kann auf Erweiterungsseiten nicht verwendet werden"
@@ -315,7 +315,7 @@
         "message": "Die Sidebar kann auf der Standard-New-Tab-Seite nicht verwendet werden"
     },
     "newtab_fallback_headline_system": {
-        "message": "Die Sidebar kann auf Chrome-Systemseiten nicht verwendet werden"
+        "message": "Die Sidebar kann auf {browserName}-Systemseiten nicht verwendet werden"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Eine deiner URL-Regeln verhindert, dass die Sidebar ge\u00f6ffnet werden kann"
@@ -606,7 +606,7 @@
         "message": "Sidebar \u00f6ffnen"
     },
     "settings_open_action_desc": {
-        "message": "\u00d6ffne die Sidebar per Links- bzw. Rechtsklick oder Mouseover des Browserfensterrandes. Alternativ kannst du es so einstellen, dass nur der Klick auf das Symbol im Chrome-Men\u00fc die Sidebar \u00f6ffnet."
+        "message": "\u00d6ffne die Sidebar per Links- bzw. Rechtsklick oder Mouseover des Browserfensterrandes. Alternativ kannst du es so einstellen, dass nur der Klick auf das Symbol im {browserName}-Men\u00fc die Sidebar \u00f6ffnet."
     },
     "settings_open_action_leftclick": {
         "message": "Linksklick"
@@ -822,7 +822,7 @@
         "message": "URL-Regeln"
     },
     "settings_import_export_notice": {
-        "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du im Chrome mit deinem Google-Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
+        "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du im {browserName} mit deinem Google-Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
     },
     "settings_import_export_desc": {
         "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
@@ -885,7 +885,7 @@
         "message": "Die Farbe des Symbols wird automatisch gesetzt, um passend zur Farbgebung deines Systems (hell oder dunkel) zu sein. Es l\u00e4sst sich auch eine eigene Farbe f\u00fcr das Symbol festlegen."
     },
     "settings_icon_color_desc_2": {
-        "message": "Beachte, dass das automatische Einf\u00e4rben nicht funktioniert, wenn ein ge\u00e4ndertes Chrome-Design verwendet wird."
+        "message": "Beachte, dass das automatische Einf\u00e4rben nicht funktioniert, wenn ein ge\u00e4ndertes {browserName}-Design verwendet wird."
     },
     "settings_indicator_width": {
         "message": "Breite"
@@ -1059,10 +1059,10 @@
         "message": "Das k\u00f6nnte dich auch interessieren"
     },
     "settings_permissions_desc": {
-        "message": "Um eine ausklappbare Sidebar im Chrome zu realisieren, werden folgende Berechtigungen ben\u00f6tigt und angefragt:"
+        "message": "Um eine ausklappbare Sidebar im {browserName} zu realisieren, werden folgende Berechtigungen ben\u00f6tigt und angefragt:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Leider bietet Chrome keine M\u00f6glichkeit Inhalte im Browserfenster anzuzeigen, ohne mit der gerade ge\u00f6ffneten Webseite zu interagieren."
+        "message": "Leider bietet {browserName} keine M\u00f6glichkeit Inhalte im Browserfenster anzuzeigen, ohne mit der gerade ge\u00f6ffneten Webseite zu interagieren."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Da sich die Sidebar \u00fcber die aktuelle Webseite legt, ist diese Berechtigung notwendig. Neben diesem technischen Grund wird die Berechtigung nicht weiter verwendet."

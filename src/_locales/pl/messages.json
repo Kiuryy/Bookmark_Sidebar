@@ -306,7 +306,7 @@
         "message": "Co\u015b zablokowa\u0142o boczn\u0105 list\u0119"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie Chrome Webstore"
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronie {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach rozszerze\u0144"
@@ -315,7 +315,7 @@
         "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na domy\u015blnej stronie nowej karty"
     },
     "newtab_fallback_headline_system": {
-        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki Chrome"
+        "message": "Boczna lista nie mo\u017ce by\u0107 u\u017cywana na stronach systemowych przegl\u0105darki {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Jedna z regu\u0142 URL zablokowa\u0142a wy\u015bwietlenie bocznej listy"
@@ -606,7 +606,7 @@
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
     },
     "settings_open_action_desc": {
-        "message": "Otw\u00f3rz boczn\u0105 list\u0119 za pomoc\u0105 lewego lub prawego przycisku myszy albo najed\u017a kursorem na bok okna przegl\u0105darki. Alternatywnie mo\u017cesz te\u017c zmieni\u0107 tak, aby boczna lista otwiera\u0142a si\u0119 po klikni\u0119ciu na ikon\u0119 w menu chrome."
+        "message": "Otw\u00f3rz boczn\u0105 list\u0119 za pomoc\u0105 lewego lub prawego przycisku myszy albo najed\u017a kursorem na bok okna przegl\u0105darki. Alternatywnie mo\u017cesz te\u017c zmieni\u0107 tak, aby boczna lista otwiera\u0142a si\u0119 po klikni\u0119ciu na ikon\u0119 w menu {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "Lewy przycisk myszy"
@@ -822,7 +822,7 @@
         "message": "Wzory URL"
     },
     "settings_import_export_notice": {
-        "message": "Ustawienia rozszerzenia s\u0105 automatycznie synchronizowane pomi\u0119dzy twoimi urz\u0105dzeniami, je\u015bli jeste\u015b zalogowany do swojego konta Google w przegl\u0105darce Chrome. Je\u015bli nie chcesz zapisywa\u0107 lub dzieli\u0107 si\u0119 swoimi ustawieniami z innymi lud\u017ami, mo\u017cesz u\u017cy\u0107 tej opcji importu\/eksportu."
+        "message": "Ustawienia rozszerzenia s\u0105 automatycznie synchronizowane pomi\u0119dzy twoimi urz\u0105dzeniami, je\u015bli jeste\u015b zalogowany do swojego konta Google w przegl\u0105darce {browserName}. Je\u015bli nie chcesz zapisywa\u0107 lub dzieli\u0107 si\u0119 swoimi ustawieniami z innymi lud\u017ami, mo\u017cesz u\u017cy\u0107 tej opcji importu\/eksportu."
     },
     "settings_import_export_desc": {
         "message": "Mo\u017cesz eksportowa\u0107 swoje ustawienia tego rozszerzenia i zapisa\u0107 je lokalnie na swoim komputerze. Mo\u017cesz zaimportowa\u0107 wcze\u015bniej wyeksportowany plik na jakimkolwiek komputerze, na kt\u00f3rym jest zainstalowane to rozszerzenie."
@@ -885,7 +885,7 @@
         "message": "Kolor ikony zostanie ustawiony automatycznie, aby dopasowa\u0107 schemat kolor\u00f3w systemu (jasny lub ciemny). Mo\u017cesz tak\u017ce zdefiniowa\u0107 w\u0142asny niestandardowy kolor ikony."
     },
     "settings_icon_color_desc_2": {
-        "message": "Pami\u0119taj, \u017ce automatyczny kolor nie dzia\u0142a, gdy u\u017cywasz niestandardowego motywu Chrome."
+        "message": "Pami\u0119taj, \u017ce automatyczny kolor nie dzia\u0142a, gdy u\u017cywasz niestandardowego motywu {browserName}."
     },
     "settings_indicator_width": {
         "message": "Szeroko\u015b\u0107"
@@ -1059,10 +1059,10 @@
         "message": "To mo\u017ce Ci\u0119 zainteresowa\u0107"
     },
     "settings_permissions_desc": {
-        "message": "Aby w Chrome mo\u017cliwe by\u0142o stosowanie prze\u0142\u0105czanego paska bocznego, wymagane s\u0105 nast\u0119puj\u0105ce pozwolenia wymagane przez rozszerzenie:"
+        "message": "Aby w {browserName} mo\u017cliwe by\u0142o stosowanie prze\u0142\u0105czanego paska bocznego, wymagane s\u0105 nast\u0119puj\u0105ce pozwolenia wymagane przez rozszerzenie:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Niestety Chrome nie ma mechanizmu wy\u015bwietlania tre\u015bci w oknie przegl\u0105darki bez interakcji z aktualnie odwiedzan\u0105 stron\u0105."
+        "message": "Niestety {browserName} nie ma mechanizmu wy\u015bwietlania tre\u015bci w oknie przegl\u0105darki bez interakcji z aktualnie odwiedzan\u0105 stron\u0105."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Poniewa\u017c pasek boczny jest wy\u015bwietlany w g\u00f3rnej cz\u0119\u015bci bie\u017c\u0105cej strony internetowej, to uprawnienie jest wymagane. Poza tym powodem technicznym, pozwolenie nie jest wykorzystywane do innych cel\u00f3w."

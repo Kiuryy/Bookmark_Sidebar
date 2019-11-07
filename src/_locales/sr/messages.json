@@ -306,7 +306,7 @@
         "message": "Ne\u0161to je blokiralo bo\u010dnu traku"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Ova bo\u010dna taka se ne mo\u017ee koristi na Chrome veb prodavnici"
+        "message": "Ova bo\u010dna taka se ne mo\u017ee koristi na {browserName} veb prodavnici"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Ova bo\u010dna taka se ne mo\u017ee koristiti na stranicama pro\u0161irenja (ekstenzija)"
@@ -315,7 +315,7 @@
         "message": "Ova bo\u010dna traka se ne mo\u017ee koristiti na uobi\u010dajenoj (default) stranici novog taba"
     },
     "newtab_fallback_headline_system": {
-        "message": "Ova bo\u010dna traka se ne mo\u017ee koristiti na chrome sistemskim stranicama"
+        "message": "Ova bo\u010dna traka se ne mo\u017ee koristiti na {browserName} sistemskim stranicama"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Neka od va\u0161ih URL pravila (pode\u0161avanja) je spre\u010dila otvaranje bo\u010dne trake"
@@ -364,9 +364,6 @@
     },
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
-    },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Prikazuje lebde\u0107i slede\u0107i unos u bo\u010dnoj strani ili trenutno otvoreni kontekstualni meni"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Klik\u0107e na unos koji je trenutno prikazan lebde\u0107i"

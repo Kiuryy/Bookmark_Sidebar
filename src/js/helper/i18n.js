@@ -129,6 +129,8 @@
             if (langVar && langVar.message) {
                 ret = langVar.message;
 
+                ret = ret.replace(/\{browserName\}/gi, $.browserName);
+
                 if (replaces && replaces.length > 0) {
                     replaces.forEach((replace, i) => {
                         ret = ret.replace(new RegExp("\\{" + (i + 1) + "\\}"), replace);

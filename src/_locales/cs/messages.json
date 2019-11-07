@@ -306,7 +306,7 @@
         "message": "Postrann\u00ed panel je blokov\u00e1n"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt v Obchodu Chrome"
+        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt v Obchodu {browserName}"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na str\u00e1nk\u00e1ch s roz\u0161\u00ed\u0159en\u00edmi"
@@ -315,7 +315,7 @@
         "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na z\u00e1lo\u017ece \u00favodn\u00ed str\u00e1nky"
     },
     "newtab_fallback_headline_system": {
-        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na syst\u00e9mov\u00fdch str\u00e1nk\u00e1ch Chrome"
+        "message": "Postrann\u00ed panel nelze pou\u017e\u00edt na syst\u00e9mov\u00fdch str\u00e1nk\u00e1ch {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "N\u011bkter\u00e1 z Va\u0161ich str\u00e1nek zak\u00e1zala otev\u0159en\u00ed postrann\u00edho panelu"
@@ -606,7 +606,7 @@
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },
     "settings_open_action_desc": {
-        "message": "Li\u0161tu otev\u0159ete lev\u00fdm nebo prav\u00fdm klikem my\u0161i na stran\u011b okna. P\u0159\u00edpadn\u011b m\u016f\u017eete nastaven\u00ed zm\u011bnit na otev\u0159en\u00ed pomoc\u00ed kliknut\u00ed na ikonu v menu Chrome."
+        "message": "Li\u0161tu otev\u0159ete lev\u00fdm nebo prav\u00fdm klikem my\u0161i na stran\u011b okna. P\u0159\u00edpadn\u011b m\u016f\u017eete nastaven\u00ed zm\u011bnit na otev\u0159en\u00ed pomoc\u00ed kliknut\u00ed na ikonu v menu {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "Lev\u00fd klik"
@@ -885,7 +885,7 @@
         "message": "Barva ikony bude nastavena automaticky podle barev syst\u00e9mu (sv\u011btl\u00e1 nebo tmav\u00e1). M\u016f\u017eete tak\u00e9 definovat barvu vlastn\u00ed."
     },
     "settings_icon_color_desc_2": {
-        "message": "Pokud pou\u017eijete vlastn\u00ed motiv Chrome, automatick\u00e1 barva nebude fungovat."
+        "message": "Pokud pou\u017eijete vlastn\u00ed motiv {browserName}, automatick\u00e1 barva nebude fungovat."
     },
     "settings_indicator_width": {
         "message": "\u0160\u00ed\u0159ka"
@@ -1062,7 +1062,7 @@
         "message": "K umo\u017en\u011bn\u00ed p\u0159ep\u00edn\u00e1n\u00ed postrann\u00edho panelu jsou vy\u017eadov\u00e1na n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Chrome bohu\u017eel nem\u00e1 mechanizmus ke zobrazen\u00ed obsahu uvnit\u0159 okna prohl\u00ed\u017ee\u010de bez interakce s nyn\u00ed prohl\u00ed\u017eenou str\u00e1nkou."
+        "message": "{browserName} bohu\u017eel nem\u00e1 mechanizmus ke zobrazen\u00ed obsahu uvnit\u0159 okna prohl\u00ed\u017ee\u010de bez interakce s nyn\u00ed prohl\u00ed\u017eenou str\u00e1nkou."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Kv\u016fli tomu, \u017ee se postrann\u00ed panel zobrazuje na sou\u010dasn\u00e9 str\u00e1nce je vy\u017eadov\u00e1no n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed. Krom\u011b tohoto technick\u00e9ho d\u016fvodu se povolen\u00ed nevyu\u017e\u00edv\u00e1 k jin\u00fdm \u00fa\u010del\u016fm."

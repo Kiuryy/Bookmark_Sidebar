@@ -306,7 +306,7 @@
         "message": "Algo bloqueou a barra lateral"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "A barra lateral n\u00e3o pode ser usada na Chrome Webstore"
+        "message": "A barra lateral n\u00e3o pode ser usada na {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o"
@@ -315,7 +315,7 @@
         "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o"
     },
     "newtab_fallback_headline_system": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema Chrome"
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "Uma de suas regras de URL n\u00e3o permitiu que a barra lateral fosse aberta"
@@ -606,7 +606,7 @@
         "message": "Abrir barra lateral"
     },
     "settings_open_action_desc": {
-        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o ponteiro do mouse sobre a borda da janela do navegador. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de abrir apenas se clicar no \u00edcone da extens\u00e3o no menu do Chrome."
+        "message": "Abrir a barra lateral clicando com o bot\u00e3o esquerdo ou direito do mouse ou posicionando o ponteiro do mouse sobre a borda da janela do navegador. Voc\u00ea tamb\u00e9m tem a op\u00e7\u00e3o de abrir apenas se clicar no \u00edcone da extens\u00e3o no menu do {browserName}."
     },
     "settings_open_action_leftclick": {
         "message": "Clicar com o bot\u00e3o esquerdo"
@@ -822,7 +822,7 @@
         "message": "Padr\u00f5es de URL"
     },
     "settings_import_export_notice": {
-        "message": "As configura\u00e7\u00f5es da extens\u00e3o s\u00e3o sincronizadas automaticamente entre seus dispositivos, se sua conta do Google estiver conectada no Chrome . Se voc\u00ea n\u00e3o quiser que sua conta esteja conectada ou quiser compartilhar suas configura\u00e7\u00f5es com outras pessoas, pode usar esta op\u00e7\u00e3o de importar\/exportar."
+        "message": "As configura\u00e7\u00f5es da extens\u00e3o s\u00e3o sincronizadas automaticamente entre seus dispositivos, se sua conta do Google estiver conectada no {browserName} . Se voc\u00ea n\u00e3o quiser que sua conta esteja conectada ou quiser compartilhar suas configura\u00e7\u00f5es com outras pessoas, pode usar esta op\u00e7\u00e3o de importar\/exportar."
     },
     "settings_import_export_desc": {
         "message": "Voc\u00ea pode exportar suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Voc\u00ea pode importar o arquivo previamente exportado para qualquer computador onde a extens\u00e3o esteja instalada."
@@ -885,7 +885,7 @@
         "message": "A cor do \u00edcone ser\u00e1 definida automaticamente, de forma a corresponder ao esquema de cores do seu sistema (claro ou escuro). Voc\u00ea tamb\u00e9m pode definir sua pr\u00f3pria cor personalizada para o \u00edcone."
     },
     "settings_icon_color_desc_2": {
-        "message": "Por favor, observe que a cor autom\u00e1tica n\u00e3o funciona quando \u00e9 usado um tema personalizado do Chrome."
+        "message": "Por favor, observe que a cor autom\u00e1tica n\u00e3o funciona quando \u00e9 usado um tema personalizado do {browserName}."
     },
     "settings_indicator_width": {
         "message": "Largura"
@@ -1059,10 +1059,10 @@
         "message": "Isto pode ser de seu interesse"
     },
     "settings_permissions_desc": {
-        "message": "A fim de se tornar poss\u00edvel que a barra lateral seja ativada e desativada no Chrome, as seguintes permiss\u00f5es s\u00e3o requeridas e solicitadas pela extens\u00e3o:"
+        "message": "A fim de se tornar poss\u00edvel que a barra lateral seja ativada e desativada no {browserName}, as seguintes permiss\u00f5es s\u00e3o requeridas e solicitadas pela extens\u00e3o:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Infelizmente, o Chrome n\u00e3o possui mecanismo para exibir conte\u00fado na janela do navegador sem que haja intera\u00e7\u00e3o com a p\u00e1gina visitada no momento."
+        "message": "Infelizmente, o {browserName} n\u00e3o possui mecanismo para exibir conte\u00fado na janela do navegador sem que haja intera\u00e7\u00e3o com a p\u00e1gina visitada no momento."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Como a barra lateral est\u00e1 sendo exibida no topo da p\u00e1gina atual, essa permiss\u00e3o \u00e9 necess\u00e1ria. Al\u00e9m dessa raz\u00e3o t\u00e9cnica, a permiss\u00e3o n\u00e3o \u00e9 usada para outros fins."

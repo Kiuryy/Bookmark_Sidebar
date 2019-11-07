@@ -309,7 +309,7 @@
         "message": "Something has blocked the sidebar"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "The sidebar cannot be used on the Chrome Webstore"
+        "message": "The sidebar cannot be used on the {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "The sidebar cannot be used on extension pages"
@@ -318,7 +318,7 @@
         "message": "The sidebar cannot be used on the default new tab page"
     },
     "newtab_fallback_headline_system": {
-        "message": "The sidebar cannot be used on chrome system pages"
+        "message": "The sidebar cannot be used on {browserName} system pages"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "One of your URL rules disallowed the sidebar to open"
@@ -609,7 +609,7 @@
         "message": "Open sidebar"
     },
     "settings_open_action_desc": {
-        "message": "Open the sidebar by left or right clicking or mouseover on the edge of the browser window. Alternatively you can change it to open only if the icon in the chrome menu is clicked."
+        "message": "Open the sidebar by left or right clicking or mouseover on the edge of the browser window. Alternatively you can change it to open only if the icon in the {browserName} menu is clicked."
     },
     "settings_open_action_leftclick": {
         "message": "Left click"
@@ -861,7 +861,7 @@
         "message": "URL patterns"
     },
     "settings_import_export_notice": {
-        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to Chrome with your Google account. If you don't want to login or want to share your settings with other people, you can use this import\/export option."
+        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your Google account. If you don't want to login or want to share your settings with other people, you can use this import\/export option."
     },
     "settings_import_export_desc": {
         "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
@@ -924,7 +924,7 @@
         "message": "The icon color will be set automatically to match color scheme of your system (light or dark). You can also define your own custom color for the icon."
     },
     "settings_icon_color_desc_2": {
-        "message": "Please note that the automatic color is not working, when using a custom Chrome theme."
+        "message": "Please note that the automatic color is not working, when using a custom {browserName} theme."
     },
     "settings_indicator_width": {
         "message": "Width"
@@ -1110,16 +1110,16 @@
         "message": "This may be of interest to you"
     },
     "settings_about_me_desc": {
-        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Aalen, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore, so other people can try it out. At that time I couldn't imagine that so many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
+        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Aalen, Germany. I didn't like the default bookmark management of {browserName}, so I started making this extension back in 2016 and uploaded it to the {browserName} Webstore, so other people can try it out. At that time I couldn't imagine that so many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
     },
     "settings_about_me_sub_text": {
         "message": "Thank you for your support."
     },
     "settings_permissions_desc": {
-        "message": "In order to make a togglable sidebar possible in Chrome, the following permissions are required and requested by the extension:"
+        "message": "In order to make a togglable sidebar possible in {browserName}, the following permissions are required and requested by the extension:"
     },
     "settings_permissions_contentscript_desc_1": {
-        "message": "Unfortunately Chrome has no mechanism to display content in the browser window without interacting with the currently visiting page."
+        "message": "Unfortunately {browserName} has no mechanism to display content in the browser window without interacting with the currently visiting page."
     },
     "settings_permissions_contentscript_desc_2": {
         "message": "Since the sidebar is being displayed on top of the current website, this permission is required. Besides this technical reason, the permission is not used for other purposes."

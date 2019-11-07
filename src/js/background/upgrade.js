@@ -145,11 +145,15 @@
                 delete obj.appearance.addVisual;
                 delete obj.newtab.initialOpen;
 
-                if (typeof obj.appearance.styles.iconColor === "undefined" || obj.appearance.styles.iconColor === "#555555" || obj.appearance.styles.iconColor === "#555") { // @deprecated icon color is now per default automatically light/dark depending on OS setting (07/2019)
+                if (typeof obj.appearance.styles.iconColor === "undefined" || obj.appearance.styles.iconColor === "#555555" || obj.appearance.styles.iconColor === "#555") { // @deprecated (07/2019) icon color is now per default automatically light/dark depending on OS setting
                     obj.appearance.styles.iconColor = "auto";
                 }
 
-                if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily !== "default") { // @deprecated wrap fontFamily in ticks (10/2019)
+                if ((/EDG\//i.test(navigator.userAgent) || /OPERA|OPR\//i.test(navigator.userAgent)) && obj.newtab.override) { // @deprecated (11/2019) enabling the fallback newtab page wasn't working for Edge and Opera in previous versions of the extension -> to keep everything as it was for existing users, the override option will be set to false for these browsers
+                    obj.newtab.override = false;
+                }
+
+                if (typeof obj.appearance.styles.fontFamily !== "undefined" && obj.appearance.styles.fontFamily !== "default") { // @deprecated (10/2019) wrap fontFamily in ticks
                     obj.appearance.styles.fontFamily = "'" + obj.appearance.styles.fontFamily + "'";
                 }
             } catch (e) {

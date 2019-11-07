@@ -7,7 +7,7 @@
 
         const restrictedTypes = {
             config: ["configuration"],
-            activity: ["installationDate", "bookmarks", "action"]
+            activity: ["bookmarks", "action"]
         };
 
         /**
@@ -46,14 +46,10 @@
             if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
-                Promise.all([
-                    b.helper.model.getUserType(),
-                    b.helper.model.setData("lastTrackDate", today)
-                ]).then(([response]) => {
-                    if (!lastTrackDate) { // not tracked yet -> don't track the first time, but set the lastTrackDate above -> this will prevent double tracking of users, where setting the lastTrackDate fails
-                        return;
-                    }
+                await b.helper.model.setData("lastTrackDate", today);
+                await b.helper.model.init(); // re-init model to see, if the lastTrackDate is really saved or whether it's gone when fetching the date freshly from the sync storage
 
+                if (lastTrackDate && b.helper.model.getData("lastTrackDate")) { // don't proceed when lastTrackDate is empty or the variable stored in the sync storage is empty -> prevent double tracking of users, where saving the lastTrackDate fails
                     const shareInfo = b.helper.model.getShareInfo();
                     let shareState = "not_set";
 
@@ -71,7 +67,7 @@
                     addToStack("system", navigator.userAgent);
                     addToStack("language", b.helper.language.getLanguage());
                     addToStack("shareInfo", shareState);
-                    addToStack("userType", response.userType);
+                    addToStack("userType", (await b.helper.model.getUserType()).userType);
 
                     const installationDate = b.helper.model.getData("installationDate");
                     if (installationDate) { // track the year of installation
@@ -85,9 +81,10 @@
                     if (shareInfo.config === true) { // user allowed to share configuration
                         trackConfiguration();
                     }
+                }
 
-                    trackUserDataRunning = false;
-                });
+                // eslint-disable-next-line require-atomic-updates
+                trackUserDataRunning = false;
             }
         };
 

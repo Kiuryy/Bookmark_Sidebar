@@ -72,7 +72,8 @@
             return new Promise((resolve) => {
                 $.xhr($.opts.website.feedback.suggestions).then((xhr) => {
                     if (xhr && xhr.responseText) {
-                        const response = JSON.parse(xhr.responseText);
+                        const responseString = xhr.responseText.replace(/\{browserName\}/gi, $.browserName);
+                        const response = JSON.parse(responseString);
 
                         if (response && response.suggestions && response.controls) {
                             data = response;
@@ -209,8 +210,13 @@
             controlWrapper.attr($.attr.type, "answer");
 
             suggestion.data("links").forEach((link) => {
+                let href = link.target;
+                if ($.opts.urlAliases[$.browserName] && $.opts.urlAliases[$.browserName][href]) { // check, whether there is an alias for this URL for the current browser
+                    href = $.opts.urlAliases[$.browserName][href];
+                }
+
                 $("<a />")
-                    .attr("href", link.target)
+                    .attr("href", href)
                     .text(link.message)
                     .appendTo(controlWrapper);
             });

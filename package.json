@@ -1,7 +1,7 @@
 {
   "name": "bookmark_sidebar",
-  "version": "1.16.7",
-  "versionName": "1.16.7",
+  "version": "1.17.0",
+  "versionName": "1.17.0",
   "license": "GPL-3.0",
   "author": "Philipp König",
   "homepage": "https://extensions.blockbyte.de/",
@@ -24,7 +24,7 @@
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.13.0",
-    "npm-check-updates": "^3.2.0",
+    "npm-check-updates": "^3.2.1",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
     "terser": "^4.3.9",

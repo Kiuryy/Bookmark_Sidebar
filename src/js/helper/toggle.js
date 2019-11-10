@@ -115,7 +115,9 @@
                 $(document).trigger("mousemove.bs"); // hide indicator
 
                 if (lastFocussed && typeof lastFocussed.focus === "function") { // try to restore the focus on the website
-                    lastFocussed.focus();
+                    lastFocussed.focus({
+                        preventScroll: true
+                    });
                 }
             }
         };

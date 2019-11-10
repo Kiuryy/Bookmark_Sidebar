@@ -606,7 +606,7 @@
         "message": "Sidebar \u00f6ffnen"
     },
     "settings_open_action_desc": {
-        "message": "\u00d6ffne die Sidebar per Links- bzw. Rechtsklick oder Mouseover des Browserfensterrandes. Alternativ kannst du es so einstellen, dass nur der Klick auf das Symbol im {browserName}-Men\u00fc die Sidebar \u00f6ffnet."
+        "message": "\u00d6ffne die Sidebar per Links- bzw. Rechtsklick oder Mouseover des Browserfensterrandes. Alternativ kannst du es so einstellen, dass nur der Klick auf das Symbol der Erweiterung die Sidebar \u00f6ffnet."
     },
     "settings_open_action_leftclick": {
         "message": "Linksklick"
@@ -822,7 +822,7 @@
         "message": "URL-Regeln"
     },
     "settings_import_export_notice": {
-        "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du im {browserName} mit deinem Google-Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
+        "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du in {browserName} mit deinem Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
     },
     "settings_import_export_desc": {
         "message": "Du kannst deine Einstellungen exportieren und lokal auf deinem Computer speichern. Au\u00dferdem kannst du die zuvor exportierten Dateien auf jedem Computer, auf dem die Erweiterung installiert ist, importieren."
@@ -951,7 +951,7 @@
         "message": "Du kanst dein eigenes Stylesheet definieren und das Standard-Styling \u00fcberschreiben. Bitte nutze diese Option nur, wenn du dich mit CSS auskennst und wei\u00dft, was du tust."
     },
     "settings_newtab_desc": {
-        "message": "Leider d\u00fcrfen Erweiterungen auf der Standard-New-Tab-Seite keine Inhalte mehr laden, Google hat die entsprechende Schnittstelle mittlerweile entfernt. Deshalb habe ich ein paar Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du auf deine Lesezeichen, wenn auch anders als zuvor, trotzdem zugreifen kannst."
+        "message": "Leider k\u00f6nnen Erweiterungen in Chromium-basierten Browsern auf der Standard-New-Tab-Seite keine Inhalte laden. Deshalb funktioniert dort auch die Sidebar nicht. Um dieses Problem zu umgehen, habe ich Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du trotzdem beim \u00d6ffnen eines neuen Tabs auf deine Lesezeichen zugreifen kannst."
     },
     "settings_newtab_override": {
         "message": "New-Tab-Seite \u00fcberschreiben"

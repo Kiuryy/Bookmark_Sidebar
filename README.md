@@ -15,7 +15,7 @@ Bookmark Sidebar is a browser extension, which adds a toggleable sidebar with al
 
 The extension should work with all Chromium-based browsers, while officially only Chrome and Edge are fully supported.
 
-If you want to help translating the extension, feel free to contribute by submitting some translations. Currently 35 different languages are available.
+If you want to help translating the extension, feel free to contribute by submitting some translations. Currently 36 different languages are available.
 
 ## Release History
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions.

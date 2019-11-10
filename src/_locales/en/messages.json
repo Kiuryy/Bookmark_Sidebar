@@ -609,7 +609,7 @@
         "message": "Open sidebar"
     },
     "settings_open_action_desc": {
-        "message": "Open the sidebar by left or right clicking or mouseover on the edge of the browser window. Alternatively you can change it to open only if the icon in the {browserName} menu is clicked."
+        "message": "Open the sidebar by left or right clicking or mouseover on the edge of the browser window. Alternatively you can change it to only open, if the extension icon is clicked."
     },
     "settings_open_action_leftclick": {
         "message": "Left click"
@@ -861,7 +861,7 @@
         "message": "URL patterns"
     },
     "settings_import_export_notice": {
-        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your Google account. If you don't want to login or want to share your settings with other people, you can use this import\/export option."
+        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people, you can use this import\/export option."
     },
     "settings_import_export_desc": {
         "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
@@ -990,7 +990,7 @@
         "message": "You can define your own stylesheet to override the default styling. Please only use this option, if you are familiar with CSS and know what you are doing."
     },
     "settings_newtab_desc": {
-        "message": "Unfortunately Google removed the possibility of loading extensions on the default new tab page. Because of this I added some options allowing you to access your bookmarks when opening a new tab in another way."
+        "message": "Chromium-based browsers do not loading extensions on the default new tab page. Because of this, the sidebar is not working there. To face this problem, I added some options allowing you to access your bookmarks when opening a new tab in another way."
     },
     "settings_newtab_override": {
         "message": "Override new tab page"
@@ -1110,7 +1110,7 @@
         "message": "This may be of interest to you"
     },
     "settings_about_me_desc": {
-        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Aalen, Germany. I didn't like the default bookmark management of {browserName}, so I started making this extension back in 2016 and uploaded it to the {browserName} Webstore, so other people can try it out. At that time I couldn't imagine that so many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
+        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Aalen, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. At that time I couldn't imagine how many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
     },
     "settings_about_me_sub_text": {
         "message": "Thank you for your support."

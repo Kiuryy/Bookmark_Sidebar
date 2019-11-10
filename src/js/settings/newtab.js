@@ -14,7 +14,7 @@
             initEvents();
             s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.hidden);
 
-            ["override", "autoOpen"].forEach((field) => {
+            ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
                     if (field === "override") { // only enable override checkbox if the user granted permissions
                         chrome.permissions.contains({
@@ -48,7 +48,7 @@
                 chrome.storage.sync.get(["newtab"], (obj) => {
                     const config = obj.newtab || {};
 
-                    ["override", "autoOpen"].forEach((field) => {
+                    ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
                         config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
                     });
 

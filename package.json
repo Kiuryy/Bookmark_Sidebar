@@ -27,7 +27,7 @@
     "npm-check-updates": "^3.2.1",
     "read-file": "^0.2.0",
     "request": "^2.88.0",
-    "terser": "^4.3.9",
+    "terser": "^4.3.11",
     "zip-dir": "^1.0.2"
   }
 }

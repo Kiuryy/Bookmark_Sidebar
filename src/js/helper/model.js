@@ -104,6 +104,7 @@
             n: { // new tab -> synced across devices
                 override: false,
                 autoOpen: true,
+                focusOmnibox: false,
                 shortcutsPosition: "right",
                 searchEngine: "google",
                 searchEngineCustom: {

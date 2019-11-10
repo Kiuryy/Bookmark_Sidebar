@@ -965,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Wenn ein neuer Tab ge\u00f6ffnet wird, kann eingestellt werden ob die Sidebar automatisch ge\u00f6ffnet werden soll."
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "Adressleiste fokussieren"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Wenn aktiviert, wird die Adressleiste fokussiert, wenn ein neuer Tab ge\u00f6ffnet wird. Ansonsten wird das Suchfeld auf der Webseite fokussiert."
+    },
     "settings_newtab_website": {
         "message": "Webseite laden"
     },

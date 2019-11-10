@@ -62,47 +62,21 @@
                 const url = tab.url || tab.pendingUrl;
                 if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || b.helper.utility.getParsedUrl(url === "chrome://startpage/"))) {
                     if (typeof config.override !== "undefined" && config.override === true) {
-                        let func = "create";
-                        if (tab.index === 0) {
-                            func = "update";
+                        let url = chrome.extension.getURL("html/newtab.html");
+                        if (config.website && config.website.length > 0) {
+                            url = addParameterToUrl(config.website, "bs_nt", 1);
+                        }
+
+                        if (config.focusOmnibox || tab.index === 0) {
+                            chrome.tabs.update(tab.id, {url: url, active: true});
                         } else {
                             chrome.tabs.remove(tab.id, () => {
                                 chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
                             });
-                        }
-
-                        if (config.website && config.website.length > 0) {
-                            overrideWithUrl(func);
-                        } else {
-                            overrideWithNewTabReplacement(func);
+                            chrome.tabs.create({url: url, active: true});
                         }
                     }
                 }
-            });
-        };
-
-        /**
-         * Overrides the current tab with the new tab replacement,
-         * removes the current tab and reopens it to prevent the cursor to focus the omnibox, but focus the search field
-         *
-         * @param {string} func
-         */
-        const overrideWithNewTabReplacement = (func) => {
-            chrome.tabs[func]({
-                url: chrome.extension.getURL("html/newtab.html"),
-                active: true
-            });
-        };
-
-        /**
-         * Overrides the current tab with a redirection to the configured url
-         *
-         * @param {string} func
-         */
-        const overrideWithUrl = (func) => {
-            chrome.tabs[func]({
-                url: addParameterToUrl(config.website, "bs_nt", 1),
-                active: true
             });
         };
 

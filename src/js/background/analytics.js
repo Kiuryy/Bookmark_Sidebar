@@ -130,7 +130,7 @@
                     } else if (baseName === "behaviour" && (attr === "blacklist" || attr === "whitelist")) { // only track the amount of url rules
                         val = val.length;
                     } else if (baseName === "appearance_styles" && attr === "fontFamily") { // remove ticks around fontFamily
-                        val = val.replace(/^'|'$/g, "");
+                        val = val.replace(/(^'*)|('*$)/g, "");
                     }
 
                     if (typeof val === "object") {

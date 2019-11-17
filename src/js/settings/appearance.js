@@ -79,7 +79,7 @@
                             s.elm.color[key].data("initial", s.elm.color[key][0].value);
                         } else if (s.elm.select[key]) {
                             if (key === "fontFamily") {
-                                value = value.replace(/^'|'$/g, "");
+                                value = value.replace(/(^'*)|('*$)/g, "");
                                 if (s.elm.select[key].children("option[value='" + value + "']").length() === 0) {
                                     value = "default";
                                 }

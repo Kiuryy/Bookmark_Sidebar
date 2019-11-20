@@ -965,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Affichage automatique de la barre lat\u00e9rale \u00e0 l'ouverture d'un nouvel onglet."
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "Ciblage de la barre d'adresse"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Si cette option est activ\u00e9e, la barre d'adresse sera cibl\u00e9e lors de l'ouverture d'un nouvel onglet. Sinon, le champ de recherche du site Web sera cibl\u00e9 \u00e0 la place."
+    },
     "settings_newtab_website": {
         "message": "Ouvrir une page web"
     },

@@ -965,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "\u914d\u7f6e\u662f\u5426\u5728\u6253\u5f00\u65b0\u9009\u9879\u5361\u65f6\u81ea\u52a8\u6253\u5f00\u4fa7\u8fb9\u680f\u3002"
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "\u9009\u62e9\u5730\u5740\u680f"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "\u5982\u679c\u542f\u7528\uff0c\u5219\u6253\u5f00\u65b0\u6807\u7b7e\u9875\u65f6\uff0c\u5730\u5740\u680f\u5c06\u5904\u4e8e\u9009\u62e9\u72b6\u6001\u3002 \u5982\u679c\u6ca1\u6709\uff0c\u5219\u5c06\u9009\u62e9\u7f51\u7ad9\u7684\u641c\u7d22\u6846\u3002"
+    },
     "settings_newtab_website": {
         "message": "\u52a0\u8f7d\u7f51\u7ad9"
     },

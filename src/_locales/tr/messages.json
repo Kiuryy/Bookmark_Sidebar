@@ -965,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Yeni bir sekme a\u00e7arken kenar \u00e7ubu\u011funun otomatik olarak a\u00e7\u0131l\u0131p a\u00e7\u0131lmayaca\u011f\u0131n\u0131 yap\u0131land\u0131r\u0131n."
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "Adres \u00c7ubu\u011funa Odakla"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "E\u011fer etkinle\u015ftirilirse, adres \u00e7ubu\u011funuz yeni bir sekme a\u00e7arken odaklanarak a\u00e7\u0131l\u0131r. E\u011fer, etkin de\u011filse, internet sitesindeki arama kutusu odaklan\u0131r."
+    },
     "settings_newtab_website": {
         "message": "Web sitesini y\u00fckle"
     },

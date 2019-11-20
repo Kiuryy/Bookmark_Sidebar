@@ -965,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Configurar se a barra lateral deve ser aberta automaticamente quando uma nova guia for aberta."
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "Focar a barra de endere\u00e7o"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Se habilitado, ao abrir uma nova guia a barra de endere\u00e7o estar\u00e1 focada. Se estiver desabilitado, em vez da barra de endere\u00e7o, a caixa de pesquisa do site estar\u00e1 focada ."
+    },
     "settings_newtab_website": {
         "message": "Carregar site"
     },

@@ -822,7 +822,7 @@
         "message": "Patrones URL"
     },
     "settings_import_export_notice": {
-        "message": "La configuraci\u00f3n de la extensi\u00f3n se sincroniza autom\u00e1ticamente entre los dispositivos si has iniciado sesi\u00f3n en {browserName} con tu cuenta de Google. Si no desea iniciar sesi\u00f3n o desea compartir su configuraci\u00f3n con otras personas, puede utilizar esta opci\u00f3n de importaci\u00f3n\/exportaci\u00f3n."
+        "message": "La configuraci\u00f3n de la extensi\u00f3n se sincroniza autom\u00e1ticamente entre los dispositivos si has iniciado sesi\u00f3n en {browserName} con tu cuenta. Si no desea iniciar sesi\u00f3n o desea compartir su configuraci\u00f3n con otras personas, puede utilizar esta opci\u00f3n de importaci\u00f3n\/exportaci\u00f3n."
     },
     "settings_import_export_desc": {
         "message": "Puede exportar la configuraci\u00f3n de su extensi\u00f3n y guardarla de manera local en su computadora. Puede importar el archivo exportado previamente en cualquier computadora, donde est\u00e1 instalada la extensi\u00f3n."
@@ -964,6 +964,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Configure si la barra lateral debe abrirse autom\u00e1ticamente al abrir una nueva pesta\u00f1a."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Centrar barra de direcciones"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Si lo habilitas, tu barra de direcciones sera centrada cuando abras una nueva pesta\u00f1a. Si no la caja de b\u00fasqueda del sitio web sera centrada en su lugar."
     },
     "settings_newtab_website": {
         "message": "Cargar sitio web"

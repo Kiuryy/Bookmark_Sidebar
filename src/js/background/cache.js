@@ -12,7 +12,7 @@
         this.set = (opts) => {
             return new Promise((resolve) => {
                 try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                    chrome.storage.local.set({["cache_" + opts.name]: opts.val}, () => {
+                    $.api.storage.local.set({["cache_" + opts.name]: opts.val}, () => {
                         resolve();
                     });
                 } catch (e) {
@@ -29,7 +29,7 @@
          */
         this.get = (opts) => {
             return new Promise((resolve) => {
-                chrome.storage.local.get(["cache_" + opts.name], (result) => {
+                $.api.storage.local.get(["cache_" + opts.name], (result) => {
                     resolve({val: result["cache_" + opts.name]});
                 });
             });
@@ -46,7 +46,7 @@
                 if (b.importRunning) { // don't remove cache while import in running
                     resolve();
                 } else {
-                    chrome.storage.local.remove(["cache_" + opts.name], () => {
+                    $.api.storage.local.remove(["cache_" + opts.name], () => {
                         resolve();
                     });
                 }

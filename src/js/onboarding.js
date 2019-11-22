@@ -228,11 +228,11 @@
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='finished'] a").on("click", (e) => {
                 e.preventDefault();
                 if ($(e.currentTarget).hasClass($.cl.onboarding.settings)) {
-                    location.href = chrome.extension.getURL("html/settings.html");
+                    location.href = $.api.extension.getURL("html/settings.html");
                 } else if ($(e.currentTarget).hasClass($.cl.onboarding.appearance)) {
-                    location.href = chrome.extension.getURL("html/settings.html") + "#appearance_sidebar";
+                    location.href = $.api.extension.getURL("html/settings.html") + "#appearance_sidebar";
                 } else if ($(e.currentTarget).hasClass($.cl.onboarding.toggleArea)) {
-                    location.href = chrome.extension.getURL("html/settings.html") + "#sidebar_toggle_area";
+                    location.href = $.api.extension.getURL("html/settings.html") + "#sidebar_toggle_area";
                 }
             });
         };
@@ -322,7 +322,7 @@
          */
         const loadSidebar = () => {
             $.opts.manifest.content_scripts[0].css.forEach((css) => {
-                $("head").append("<link href='" + chrome.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
+                $("head").append("<link href='" + $.api.extension.getURL(css) + "' type='text/css' rel='stylesheet' />");
             });
 
             const loadJs = (i = 0) => {

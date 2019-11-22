@@ -113,7 +113,7 @@
             return new Promise((resolve) => {
                 const storageKey = "translated_" + lang;
 
-                chrome.storage.local.get([storageKey], (obj) => {
+                $.api.storage.local.get([storageKey], (obj) => {
                     let translated = [];
 
                     if (obj && obj[storageKey]) {
@@ -128,10 +128,10 @@
 
                     const translatedAmount = translated.length;
                     if (translatedAmount > 0) {
-                        chrome.storage.local.set({
+                        $.api.storage.local.set({
                             [storageKey]: translated
                         }, () => {
-                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                             resolve({translatedAmount: translatedAmount});
                         });
                     }
@@ -146,7 +146,7 @@
          */
         const initLanguages = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["translationInfo"], (obj) => {
+                $.api.storage.sync.get(["translationInfo"], (obj) => {
                     translationReminder = obj.translationInfo || [];
 
                     s.helper.model.call("languageInfos").then((opts) => {
@@ -258,7 +258,7 @@
                     translationReminder.splice(idx, 1);
                 }
 
-                chrome.storage.sync.set({translationInfo: translationReminder});
+                $.api.storage.sync.set({translationInfo: translationReminder});
                 s.showSuccessMessage("saved_message");
             });
 

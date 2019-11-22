@@ -40,7 +40,7 @@
             link.on("click", (e) => {
                 e.preventDefault();
                 ext.helper.model.call("openLink", {
-                    href: chrome.extension.getURL("html/settings.html#premium"),
+                    href: $.api.extension.getURL("html/settings.html#premium"),
                     newTab: true
                 });
             });

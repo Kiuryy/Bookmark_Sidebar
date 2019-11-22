@@ -157,7 +157,7 @@
             };
 
             new Promise((resolve) => {
-                chrome.storage.sync.get(categories, (obj) => {
+                $.api.storage.sync.get(categories, (obj) => {
                     categories.forEach((category) => {
                         if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
                             if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
@@ -176,7 +176,7 @@
                 });
             }).then(() => {
                 return new Promise((resolve) => {
-                    chrome.storage.local.get(["utility", "newtabBackground_1"], (obj) => {
+                    $.api.storage.local.get(["utility", "newtabBackground_1"], (obj) => {
                         if (obj.utility) {
                             const config = {};
                             ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {

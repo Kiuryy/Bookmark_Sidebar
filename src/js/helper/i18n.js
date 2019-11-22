@@ -51,7 +51,7 @@
          * @returns {string}
          */
         this.getUILanguage = () => {
-            return chrome.i18n.getUILanguage();
+            return $.api.i18n.getUILanguage();
         };
 
         /**

@@ -151,7 +151,7 @@
                     port.disconnect();
                 }
 
-                port = chrome.runtime.connect({name: "background"});
+                port = $.api.runtime.connect({name: "background"});
 
                 port.onMessage.addListener((obj) => {
                     if (callbacks[obj.uid]) {
@@ -176,7 +176,7 @@
                 const len = keys.length;
                 let loaded = 0;
                 keys.forEach((key) => {
-                    chrome.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
+                    $.api.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
                         newData[key] = obj[key] || {};
 
                         if (++loaded === len) { // all data loaded from storage -> resolve promise
@@ -360,17 +360,17 @@
                     };
 
                     try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                        chrome.storage.local.set({utility: data.utility}, () => {
-                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                        $.api.storage.local.set({utility: data.utility}, () => {
+                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                             saved();
                         });
 
-                        chrome.storage.sync.set({
+                        $.api.storage.sync.set({
                             behaviour: data.behaviour,
                             appearance: data.appearance,
                             newtab: data.newtab
                         }, () => {
-                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                             saved(3);
                         });
                     } catch (e) {

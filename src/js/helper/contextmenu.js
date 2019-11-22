@@ -244,7 +244,7 @@
                     list.append("<li><a " + $.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
                     list.append("<li><a " + $.attr.name + "='newWindow'>" + ext.helper.i18n.get("contextmenu_new_window") + "</a></li>");
 
-                    if (chrome.extension.inIncognitoContext === false) {
+                    if ($.api.extension.inIncognitoContext === false) {
                         list.append("<li><a " + $.attr.name + "='newIncognito'>" + ext.helper.i18n.get("contextmenu_new_tab_incognito") + "</a></li>");
                     }
                 }
@@ -329,7 +329,7 @@
          */
         clickFuncs.settings = () => {
             ext.helper.model.call("openLink", {
-                href: chrome.extension.getURL("html/settings.html"),
+                href: $.api.extension.getURL("html/settings.html"),
                 newTab: true
             });
         };

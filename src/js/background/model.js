@@ -16,7 +16,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["model", "shareInfo", "translationInfo", "licenseKey"], (obj) => {
+                $.api.storage.sync.get(["model", "shareInfo", "translationInfo", "licenseKey"], (obj) => {
                     data = obj.model || {};
                     if (typeof obj.shareInfo === "object") {
                         shareInfo = obj.shareInfo;
@@ -141,10 +141,10 @@
                     activity: opts.activity || false
                 };
 
-                chrome.storage.sync.set({
+                $.api.storage.sync.set({
                     shareInfo: shareInfo
                 }, () => {
-                    chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                    $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                     resolve();
                 });
             });
@@ -158,11 +158,11 @@
          */
         this.setLicenseKey = (key) => {
             return new Promise((resolve) => {
-                chrome.storage.sync.set({
+                $.api.storage.sync.set({
                     licenseKey: key
                 }, () => {
-                    if (chrome.runtime.lastError) {
-                        resolve({success: false, message: chrome.runtime.lastError.message});
+                    if ($.api.runtime.lastError) {
+                        resolve({success: false, message: $.api.runtime.lastError.message});
                     } else {
                         licenseKey = key;
                         resolve({success: true});
@@ -203,10 +203,10 @@
         const saveModelData = () => {
             return new Promise((resolve) => {
                 if (Object.getOwnPropertyNames(data).length > 0) {
-                    chrome.storage.sync.set({ // save to sync storage
+                    $.api.storage.sync.set({ // save to sync storage
                         model: data
                     }, () => {
-                        chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                        $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                         resolve();
                     });
                 }

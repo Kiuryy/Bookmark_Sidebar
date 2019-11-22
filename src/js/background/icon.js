@@ -19,7 +19,7 @@
                     cachedSvg = {};
                     currentIcon = null;
 
-                    chrome.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
+                    $.api.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
 
                     this.set({
                         name: info.name,
@@ -27,10 +27,10 @@
                     });
 
                     if (b.isDev && info.devModeIconBadge) { // add badge for the dev version
-                        chrome.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
-                        chrome.browserAction.setBadgeText({text: " "});
+                        $.api.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
+                        $.api.browserAction.setBadgeText({text: " "});
                     } else {
-                        chrome.browserAction.setBadgeText({text: ""});
+                        $.api.browserAction.setBadgeText({text: ""});
                     }
 
                     resolve();
@@ -45,7 +45,7 @@
          */
         const getInfo = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["appearance"], (obj) => {
+                $.api.storage.sync.get(["appearance"], (obj) => {
                     let name = "bookmark";
                     let color = "auto";
                     let devModeIconBadge = true;
@@ -87,7 +87,7 @@
                     if (cachedSvg[name]) {
                         rslv(cachedSvg[name]);
                     } else {
-                        $.xhr(chrome.extension.getURL("img/icon/action/icon-" + name + ".svg")).then((obj) => {
+                        $.xhr($.api.extension.getURL("img/icon/action/icon-" + name + ".svg")).then((obj) => {
                             const svg = obj.responseText;
                             cachedSvg[name] = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
                             rslv(cachedSvg[name]);
@@ -130,7 +130,7 @@
                         img.onload = () => {
                             ctx.drawImage(img, 0, 0, size, size);
 
-                            chrome.browserAction.setIcon({
+                            $.api.browserAction.setIcon({
                                 imageData: ctx.getImageData(0, 0, size, size),
                                 tabId: onlyCurrentTab && opts.tabInfo ? opts.tabInfo.id : null
                             });

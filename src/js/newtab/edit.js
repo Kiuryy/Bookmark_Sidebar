@@ -78,7 +78,7 @@
             } else {
                 $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload).on("click", () => {
                     n.helper.model.call("openLink", {
-                        href: chrome.extension.getURL("html/settings.html#premium"),
+                        href: $.api.extension.getURL("html/settings.html#premium"),
                         newTab: true
                     });
                 });
@@ -129,10 +129,10 @@
                     const background = n.elm.body.css("background-image").replace(/(^url\("?|"?\)$)/g, "");
 
                     return new Promise((rslv) => {
-                        chrome.storage.local.set({
+                        $.api.storage.local.set({
                             newtabBackground_1: background && background !== "none" ? background : null
                         }, () => {
-                            chrome.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
                             rslv();
                         });
                     });

@@ -55,7 +55,7 @@
                 let loaded = 0;
 
                 files.forEach((file) => {
-                    $.xhr(chrome.extension.getURL("css/" + file + ".css")).then((xhr) => {
+                    $.xhr($.api.extension.getURL("css/" + file + ".css")).then((xhr) => {
                         if (xhr.response) {
                             let css = xhr.response;
                             css += customCss;

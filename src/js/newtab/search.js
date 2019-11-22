@@ -258,7 +258,7 @@
                         promises.push(n.helper.model.call("searchBookmarks", {searchVal: val}));
                     }
 
-                    if (val.length >= 3 && chrome.history) {
+                    if (val.length >= 3 && $.api.history) {
                         promises.push(n.helper.model.call("searchHistory", {searchVal: val}));
                     }
 

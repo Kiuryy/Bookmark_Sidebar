@@ -24,7 +24,7 @@
          */
         const initPermissionList = () => {
             return new Promise((resolve) => {
-                chrome.management.getPermissionWarningsByManifest(JSON.stringify($.opts.manifest), (obj) => { // returns the warnings of the required permissions in the browser language
+                $.api.management.getPermissionWarningsByManifest(JSON.stringify($.opts.manifest), (obj) => { // returns the warnings of the required permissions in the browser language
                     const permissions = {};
                     [permissions.contentscript, permissions.bookmarks] = obj;
 
@@ -43,7 +43,7 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
-            chrome.storage.sync.get(["shareInfo"], (obj) => {
+            $.api.storage.sync.get(["shareInfo"], (obj) => {
                 if (obj.shareInfo) {
                     if (obj.shareInfo.config) {
                         s.elm.checkbox.shareConfig.trigger("click");

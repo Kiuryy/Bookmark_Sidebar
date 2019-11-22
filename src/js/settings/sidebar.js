@@ -54,7 +54,7 @@
          */
         this.save = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["behaviour", "language"], (conf) => {
+                $.api.storage.sync.get(["behaviour", "language"], (conf) => {
                     conf.behaviour = conf.behaviour || {};
                     conf.behaviour.toggleArea = {};
                     conf.behaviour.blacklist = [];
@@ -96,7 +96,7 @@
                         lang = "default";
                     }
 
-                    chrome.storage.sync.set({
+                    $.api.storage.sync.set({
                         behaviour: conf.behaviour,
                         language: lang
                     }, () => {

@@ -17,7 +17,7 @@
             ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
                     if (field === "override") { // only enable override checkbox if the user granted permissions
-                        chrome.permissions.contains({
+                        $.api.permissions.contains({
                             permissions: ["tabs", "topSites"] // don't check the "history" permission, since in legacy versions of the extension this permission wasn't necessary
                         }, (result) => {
                             if (result) {
@@ -45,7 +45,7 @@
          */
         this.save = () => {
             return new Promise((resolve) => {
-                chrome.storage.sync.get(["newtab"], (obj) => {
+                $.api.storage.sync.get(["newtab"], (obj) => {
                     const config = obj.newtab || {};
 
                     ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
@@ -60,7 +60,7 @@
                         config.website = "http://" + config.website;
                     }
 
-                    chrome.storage.sync.set({newtab: config}, resolve);
+                    $.api.storage.sync.set({newtab: config}, resolve);
                 });
             });
         };
@@ -75,7 +75,7 @@
 
                 if (override) {
                     if (overrideCheckboxInited === true) {
-                        chrome.permissions.request({ // request additional permissions in order to override the new tab page
+                        $.api.permissions.request({ // request additional permissions in order to override the new tab page
                             permissions: ["tabs", "topSites", "history"]
                         }, (granted) => {
                             if (!granted) { // not granted -> no overriding

@@ -67,7 +67,7 @@
                         alert(s.helper.i18n.get("settings_expert_save_error"));
                         reject();
                     } else { // no errors -> save to sync storage
-                        chrome.storage.sync.set({
+                        $.api.storage.sync.set({
                             behaviour: configObj.behaviour || {},
                             appearance: configObj.appearance || {},
                             newtab: configObj.newtab || {}

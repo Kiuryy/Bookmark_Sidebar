@@ -153,7 +153,7 @@
         initField.font = (opts) => {
             return new Promise((resolve) => {
                 s.elm.select[opts.name] = $("<select />").insertAfter(opts.label);
-                chrome.fontSettings.getFontList((fontList) => {
+                $.api.fontSettings.getFontList((fontList) => {
                     fontList.unshift({
                         fontId: "default",
                         displayName: s.helper.i18n.get("settings_font_family_default")

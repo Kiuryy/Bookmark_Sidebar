@@ -113,19 +113,19 @@
             return new Promise((resolve) => {
                 const newConfig = getCurrentConfig();
 
-                chrome.storage.sync.get(["appearance"], (conf) => {
+                $.api.storage.sync.get(["appearance"], (conf) => {
                     conf.appearance = conf.appearance || {};
 
                     Object.entries(newConfig.appearance).forEach(([key, val]) => {
                         conf.appearance[key] = val;
                     });
 
-                    chrome.storage.sync.set({appearance: conf.appearance}, () => {
-                        chrome.storage.local.get(["utility"], (obj) => {
+                    $.api.storage.sync.set({appearance: conf.appearance}, () => {
+                        $.api.storage.local.get(["utility"], (obj) => {
                             const utility = obj.utility || {};
                             utility.customCss = newConfig.utility.customCss;
 
-                            chrome.storage.local.set({utility: utility}, () => {
+                            $.api.storage.local.set({utility: utility}, () => {
                                 resolve();
                             });
                         });
@@ -430,7 +430,7 @@
                         .attr($.attr.settings.appearance, key)
                         .appendTo(s.elm.body);
 
-                    $.xhr(chrome.extension.getURL("html/template/" + previews[key].template + ".html")).then((xhr) => {
+                    $.xhr($.api.extension.getURL("html/template/" + previews[key].template + ".html")).then((xhr) => {
                         if (xhr && xhr.responseText) {
                             let html = xhr.responseText;
                             html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
@@ -452,7 +452,7 @@
                     });
 
                     previews[key].styles.forEach((stylesheet) => {
-                        $.xhr(chrome.extension.getURL("css/" + stylesheet + ".css")).then((xhr) => {
+                        $.xhr($.api.extension.getURL("css/" + stylesheet + ".css")).then((xhr) => {
                             if (xhr && xhr.responseText) {
                                 previews[key].css += xhr.responseText;
                             }

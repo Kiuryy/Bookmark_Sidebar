@@ -20,12 +20,12 @@
                     this.helper.cache.remove({name: "htmlList"}),
                     this.helper.cache.remove({name: "htmlPinnedEntries"})
                 ]).then(() => {
-                    chrome.tabs.query({}, (tabs) => {
+                    $.api.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
                             const delay = tab.active ? 0 : (i * 100); // stagger the reload event for all tabs which are not currently visible
 
                             $.delay(delay).then(() => {
-                                chrome.tabs.sendMessage(tab.id, {
+                                $.api.tabs.sendMessage(tab.id, {
                                     action: "reload",
                                     scrollTop: opts.scrollTop || false,
                                     reinitialized: this.reinitialized,
@@ -67,7 +67,7 @@
                         type = opts.type;
                     }
 
-                    chrome.tabs.query({}, (tabs) => {
+                    $.api.tabs.query({}, (tabs) => {
                         tabs.forEach((tab, i) => {
                             if (typeof tab.url === "undefined" || tab.url.startsWith("http://") || tab.url.startsWith("https://") || tab.url.startsWith("file://")) {
                                 const delay = tab.active ? 0 : (i * 100); // stagger script injection for all tabs which are not currently visible
@@ -78,8 +78,8 @@
                                         let failed = false;
 
                                         files.forEach((file) => {
-                                            chrome.tabs[func](tab.id, {file: file}, () => {
-                                                const error = chrome.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
+                                            $.api.tabs[func](tab.id, {file: file}, () => {
+                                                const error = $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab cannot be accessed (like chrome:// urls)
                                                 if (error && error.message && failed === false) { // send a notification instead to let the page deal with it
                                                     failed = true;
                                                     notifyReinitialization(tab.id, type);
@@ -107,7 +107,7 @@
          * @param {string} type
          */
         const notifyReinitialization = (tabId, type) => {
-            chrome.tabs.sendMessage(tabId, {
+            $.api.tabs.sendMessage(tabId, {
                 action: "reinitialize",
                 type: type
             });
@@ -119,16 +119,16 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
-            chrome.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
+            $.api.bookmarks.onImportBegan.addListener(() => { // indicate that the import process started
                 this.importRunning = true;
             });
 
-            chrome.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
+            $.api.bookmarks.onImportEnded.addListener(() => { // indicate that the import process finished
                 this.importRunning = false;
             });
 
             ["Changed", "Created", "Removed"].forEach((eventName) => { // trigger an event in all tabs after changing/creating/removing a bookmark
-                chrome.bookmarks["on" + eventName].addListener(() => {
+                $.api.bookmarks["on" + eventName].addListener(() => {
                     if (this.importRunning === false && this.preventReload === false) { // don't reload sidebar while import in running
                         this.reload({type: eventName});
                     }
@@ -136,7 +136,7 @@
             });
 
             ["Moved", "ChildrenReordered"].forEach((eventName) => { // deleted the html cache after moving a bookmark
-                chrome.bookmarks["on" + eventName].addListener(() => {
+                $.api.bookmarks["on" + eventName].addListener(() => {
                     Promise.all([
                         this.helper.cache.remove({name: "htmlList"}),
                         this.helper.cache.remove({name: "htmlPinnedEntries"})
@@ -194,11 +194,11 @@
             const start = +new Date();
             this.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
 
-            chrome.runtime.onInstalled.addListener((details) => {
+            $.api.runtime.onInstalled.addListener((details) => {
                 callOnInstalledCallback(details);
             });
 
-            chrome.runtime.setUninstallURL($.opts.website.info[this.isDev ? "landing" : "uninstall"]);
+            $.api.runtime.setUninstallURL($.opts.website.info[this.isDev ? "landing" : "uninstall"]);
 
             initHelpers();
 

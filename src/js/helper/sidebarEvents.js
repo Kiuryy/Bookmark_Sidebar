@@ -264,7 +264,7 @@
                 $("div[data-name='blockbyte-extension']").removeAttr("data-name");
 
                 ext.helper.model.call("openLink", {
-                    href: chrome.extension.getURL("html/settings.html#feedback"),
+                    href: $.api.extension.getURL("html/settings.html#feedback"),
                     newTab: false
                 });
             });
@@ -298,8 +298,8 @@
             });
 
             // listen for events from the background script
-            chrome.extension.onMessage.removeListener(handleBackgroundMessage);
-            chrome.extension.onMessage.addListener(handleBackgroundMessage);
+            $.api.extension.onMessage.removeListener(handleBackgroundMessage);
+            $.api.extension.onMessage.addListener(handleBackgroundMessage);
 
             ["menu", "sort"].forEach((type) => {
                 ext.elm.header.on("click contextmenu", "a." + $.cl.sidebar[type], (e) => { // Menu and sort contextmenu
@@ -346,7 +346,7 @@
 
                     if (href) {
                         ext.helper.model.call("openLink", {
-                            href: chrome.extension.getURL(href),
+                            href: $.api.extension.getURL(href),
                             newTab: true
                         });
                     }

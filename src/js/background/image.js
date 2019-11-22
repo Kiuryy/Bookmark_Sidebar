@@ -12,7 +12,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                chrome.storage.local.get(["imageCache"], (obj) => {
+                $.api.storage.local.get(["imageCache"], (obj) => {
                     cache = obj.imageCache || {};
                     resolve();
                 });
@@ -122,7 +122,7 @@
                 });
 
                 return new Promise((resolve) => {
-                    chrome.storage.local.set({
+                    $.api.storage.local.set({
                         imageCache: cache
                     }, () => {
                         isSaving = false;

@@ -335,7 +335,7 @@
 
             $([s.elm.feedback.suggestions, s.elm.feedback.faq]).on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
                 e.preventDefault();
-                chrome.tabs.create({
+                $.api.tabs.create({
                     url: $(e.currentTarget).attr("href"),
                     active: true
                 });

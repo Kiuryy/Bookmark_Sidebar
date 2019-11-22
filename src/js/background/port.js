@@ -42,7 +42,7 @@
                 searchHistory: b.helper.utility.getHistoryBySearchVal
             };
 
-            chrome.runtime.onConnect.addListener((port) => {
+            $.api.runtime.onConnect.addListener((port) => {
                 if (port.name && port.name === "background") {
                     port.onMessage.addListener((message, info) => {
                         if (mapping[message.type]) { // function for message type exists

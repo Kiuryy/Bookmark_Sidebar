@@ -422,8 +422,8 @@
 
             Object.entries({
                 newtab_default: ["https?://www\\.google\\..+/_/chrome/newtab"],
-                newtab_fallback: [chrome.extension.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
-                newtab_replacement: [chrome.extension.getURL("html/newtab.html")],
+                newtab_fallback: [$.api.extension.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
+                newtab_replacement: [$.api.extension.getURL("html/newtab.html")],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],
                 onboarding: ["chrome\\-extension://.*/intro.html", "extension://.*/intro.html"],

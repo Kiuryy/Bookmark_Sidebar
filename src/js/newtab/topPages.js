@@ -243,9 +243,9 @@
                         }
                         case "topPages":
                         default: {
-                            if (chrome.topSites && chrome.topSites.get) { // topSites may not be available -> requires topSites permission
-                                chrome.topSites.get((list) => {
-                                    const lastError = chrome.runtime.lastError;
+                            if ($.api.topSites && $.api.topSites.get) { // topSites may not be available -> requires topSites permission
+                                $.api.topSites.get((list) => {
+                                    const lastError = $.api.runtime.lastError;
 
                                     if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
                                         const filteredList = list.slice(0, amount.total);

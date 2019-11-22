@@ -10,8 +10,8 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            chrome.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
-                chrome.runtime.reload();
+            $.api.runtime.onUpdateAvailable.addListener(() => { // reload background script when an update is available
+                $.api.runtime.reload();
             });
 
             this.loaded = true;
@@ -32,7 +32,7 @@
 
                 updateOptions("install");
                 b.helper.utility.openLink({
-                    href: chrome.extension.getURL("html/intro.html"),
+                    href: $.api.extension.getURL("html/intro.html"),
                     newTab: true
                 });
             }
@@ -47,7 +47,7 @@
          * @param {object} details
          */
         this.onUpdated = (details) => {
-            chrome.storage.local.remove(["languageInfos"]);
+            $.api.storage.local.remove(["languageInfos"]);
             const newVersion = $.opts.manifest.version;
 
             const versionPartsOld = details.previousVersion.split(".");
@@ -79,7 +79,7 @@
                     }
                 };
 
-                chrome.storage.sync.get(null, (obj) => { // get all stored information
+                $.api.storage.sync.get(null, (obj) => { // get all stored information
                     if (typeof obj.behaviour === "undefined") {
                         obj.behaviour = {};
                     }
@@ -102,9 +102,9 @@
                         updateOptionsAfterInstall(obj);
                     }
 
-                    chrome.storage.sync.set({behaviour: obj.behaviour}, savedValues);
-                    chrome.storage.sync.set({newtab: obj.newtab}, savedValues);
-                    chrome.storage.sync.set({appearance: obj.appearance}, savedValues);
+                    $.api.storage.sync.set({behaviour: obj.behaviour}, savedValues);
+                    $.api.storage.sync.set({newtab: obj.newtab}, savedValues);
+                    $.api.storage.sync.set({appearance: obj.appearance}, savedValues);
                 });
             });
         };

@@ -251,7 +251,7 @@
                 }
             });
 
-            chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
+            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && message.action === "reinitialize" && message.type === "premiumActivated") { // premium has been activated -> reload settings
                     $.delay(2000).then(() => {
                         unsavedChanges = false;
@@ -292,11 +292,11 @@
 
                     if (type === "appearance") { // restore custom css aswell
                         promises.push(new Promise((resolve) => {
-                            chrome.storage.local.get(["utility"], (obj) => {
+                            $.api.storage.local.get(["utility"], (obj) => {
                                 const utility = obj.utility || {};
                                 delete utility.customCss;
 
-                                chrome.storage.local.set({utility: utility}, () => {
+                                $.api.storage.local.set({utility: utility}, () => {
                                     resolve();
                                 });
                             });
@@ -306,7 +306,7 @@
                     }
 
                     promises.push(new Promise((resolve) => {
-                        chrome.storage.sync.remove(configToRemove, () => {
+                        $.api.storage.sync.remove(configToRemove, () => {
                             this.showSuccessMessage("restored_message");
                             this.helper.model.call("reloadIcon");
                             $("div." + $.cl.settings.dialog).removeClass($.cl.visible);

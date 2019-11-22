@@ -83,7 +83,7 @@
         this.getBackground = () => {
             return new Promise((resolve) => {
                 if (this.helper.model.getUserType() === "premium") {
-                    chrome.storage.local.get(["newtabBackground_1"], (obj) => {
+                    $.api.storage.local.get(["newtabBackground_1"], (obj) => {
                         if (obj && obj.newtabBackground_1) {
                             resolve(obj.newtabBackground_1);
                         } else {
@@ -142,7 +142,7 @@
          * Initialises the eventhandler
          */
         const initEvents = async () => {
-            chrome.extension.onMessage.addListener((message) => { // listen for events from the background script
+            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && message.action === "reinitialize" && this.enabledSetAsNewtab === false) { // sidebar has changed (e.g. due to saving configuration
                     location.reload(true);
                 }
@@ -197,7 +197,7 @@
 
                 $.opts.manifest.content_scripts[0].css.forEach((css) => {
                     $("<link />").attr({
-                        href: chrome.extension.getURL(css),
+                        href: $.api.extension.getURL(css),
                         type: "text/css",
                         rel: "stylesheet",
                         [$.attr.type]: "script_sidebar"

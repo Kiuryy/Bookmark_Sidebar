@@ -74,7 +74,7 @@
          */
         this.isBackgroundConnected = () => {
             try {
-                const port = chrome.runtime.connect();
+                const port = $.api.runtime.connect();
                 if (port) {
                     port.disconnect();
                     return true;

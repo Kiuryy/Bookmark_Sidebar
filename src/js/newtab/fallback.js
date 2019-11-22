@@ -41,7 +41,7 @@
                         break;
                 }
 
-                chrome.tabs.create({url: chrome.extension.getURL("html/settings.html#feedback_error_" + suggestionType)});
+                $.api.tabs.create({url: $.api.extension.getURL("html/settings.html#feedback_error_" + suggestionType)});
             });
         };
 
@@ -55,7 +55,7 @@
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
                 if (e.currentTarget.checked) {
-                    chrome.permissions.request({ // request additional permissions in order to override the new tab page
+                    $.api.permissions.request({ // request additional permissions in order to override the new tab page
                         permissions: ["tabs", "topSites", "history"]
                     }, (granted) => {
                         if (granted) {
@@ -76,10 +76,10 @@
          * @param {bool} val
          */
         const setAsNewtab = (val) => {
-            chrome.storage.sync.get(["newtab"], (obj) => {
+            $.api.storage.sync.get(["newtab"], (obj) => {
                 const config = obj.newtab || {};
                 config.override = val;
-                chrome.storage.sync.set({newtab: config}, () => {
+                $.api.storage.sync.set({newtab: config}, () => {
                     n.enabledSetAsNewtab = true;
                     n.helper.model.call("reinitialize");
                 });

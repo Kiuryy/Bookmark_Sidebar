@@ -27,22 +27,22 @@
         this.initContextmenus = async () => {
             return new Promise((resolve) => {
                 b.helper.language.getLangVars().then((lang) => {
-                    chrome.contextMenus.removeAll(() => {
+                    $.api.contextMenus.removeAll(() => {
                         const uid = Math.random().toString(36).substr(2, 12);
 
-                        chrome.contextMenus.create({
+                        $.api.contextMenus.create({
                             id: "bsChangelog_" + uid,
                             title: lang.vars.settings_menu_infos_changelog.message,
                             contexts: ["browser_action"]
                         });
 
-                        chrome.contextMenus.create({
+                        $.api.contextMenus.create({
                             id: "bsPrivacy_" + uid,
                             title: lang.vars.settings_menu_infos_privacy.message,
                             contexts: ["browser_action"]
                         });
 
-                        chrome.contextMenus.onClicked.addListener((obj) => {
+                        $.api.contextMenus.onClicked.addListener((obj) => {
                             if (obj.menuItemId === "bsChangelog_" + uid) {
                                 b.helper.utility.openLink({
                                     hrefName: "changelog",
@@ -148,7 +148,7 @@
             }
 
             b.helper.utility.openLink({
-                href: chrome.extension.getURL("html/newtab.html"),
+                href: $.api.extension.getURL("html/newtab.html"),
                 newTab: true,
                 params: {type: type}
             });
@@ -160,16 +160,16 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
-            chrome.browserAction.onClicked.removeListener(toggleSidebar);
-            chrome.browserAction.onClicked.addListener(toggleSidebar); // click on extension icon shall toggle the sidebar
+            $.api.browserAction.onClicked.removeListener(toggleSidebar);
+            $.api.browserAction.onClicked.addListener(toggleSidebar); // click on extension icon shall toggle the sidebar
         };
 
         /**
          * Sends a message to the currently active tab and tell it to toggle the sidebar
          */
         const toggleSidebar = () => {
-            chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                chrome.tabs.sendMessage(tabs[0].id, {
+            $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                $.api.tabs.sendMessage(tabs[0].id, {
                     action: "toggleSidebar",
                     reinitialized: b.reinitialized
                 });

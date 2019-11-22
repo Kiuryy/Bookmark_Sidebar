@@ -82,7 +82,7 @@
                             }
                         });
                     } else { // disallowed to load sidebar (blacklisted or not whitelisted)
-                        chrome.extension.onMessage.addListener((message) => {
+                        $.api.extension.onMessage.addListener((message) => {
                             if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
                                 this.helper.model.call("setNotWorkingReason", {reason: this.state});
                             }
@@ -335,7 +335,7 @@
             let ret = true;
             const visibility = this.helper.model.getData("b/visibility");
 
-            if (visibility === "always" || location.href.indexOf(chrome.extension.getURL("html/newtab.html")) === 0) {
+            if (visibility === "always" || location.href.indexOf($.api.extension.getURL("html/newtab.html")) === 0) {
                 ret = true;
             } else if (visibility === "blacklist" || visibility === "whitelist") {
                 const rules = this.helper.model.getData("b/" + visibility);

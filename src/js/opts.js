@@ -1,6 +1,9 @@
 ($ => {
     "use strict";
 
+    // eslint-disable-next-line no-undef
+    $.api = typeof chrome === "undefined" ? browser : chrome;
+
     $.opts = {
         ids: {
             page: {
@@ -332,7 +335,7 @@
             }
         },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
-        manifest: chrome.runtime.getManifest(),
+        manifest: $.api.runtime.getManifest(),
         demoMode: false
     };
 

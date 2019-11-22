@@ -62,7 +62,7 @@
                     clickCounter[bookmark.id].c++;
                     clickCounter[bookmark.id].d = +new Date();
 
-                    chrome.storage.local.set({
+                    $.api.storage.local.set({
                         clickCounter: clickCounter
                     });
                 });
@@ -76,7 +76,7 @@
          */
         const getClickCounter = () => {
             return new Promise((resolve) => {
-                chrome.storage.local.get(["clickCounter"], (obj) => {
+                $.api.storage.local.get(["clickCounter"], (obj) => {
                     let ret = {};
 
                     if (typeof obj.clickCounter !== "undefined") { // data available

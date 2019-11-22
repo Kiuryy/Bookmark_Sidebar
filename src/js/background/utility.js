@@ -18,8 +18,8 @@
         this.getHistoryBySearchVal = (opts) => {
             return new Promise((resolve) => {
 
-                if (chrome.history) {
-                    chrome.history.search({
+                if ($.api.history) {
+                    $.api.history.search({
                         text: opts.searchVal,
                         maxResults: 100
                     }, (results) => {
@@ -210,8 +210,8 @@
 
                 if (opts.newTab && opts.newTab === true) { // new tab
                     const createTab = (idx = null) => {
-                        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                            chrome.tabs.create({
+                        $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                            $.api.tabs.create({
                                 url: this.getParsedUrl(opts.href) + params,
                                 active: typeof opts.active === "undefined" ? true : !!(opts.active),
                                 index: idx === null ? tabs[0].index + 1 : idx,
@@ -223,7 +223,7 @@
                     };
 
                     if (opts.position === "afterLast") {
-                        chrome.tabs.query({currentWindow: true}, (tabs) => {
+                        $.api.tabs.query({currentWindow: true}, (tabs) => {
                             let idx = 0;
                             tabs.forEach((tab) => {
                                 idx = Math.max(idx, tab.index);
@@ -236,14 +236,14 @@
                         createTab();
                     }
                 } else if (opts.newWindow && opts.newWindow === true) { // new normal window
-                    chrome.windows.create({url: opts.href + params, state: "maximized"});
+                    $.api.windows.create({url: opts.href + params, state: "maximized"});
                     resolve();
                 } else if (opts.incognito && opts.incognito === true) { // incognito window
-                    chrome.windows.create({url: opts.href + params, state: "maximized", incognito: true});
+                    $.api.windows.create({url: opts.href + params, state: "maximized", incognito: true});
                     resolve();
                 } else { // current tab
-                    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                        chrome.tabs.update(tabs[0].id, {url: opts.href + params}, (tab) => {
+                    $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
+                        $.api.tabs.update(tabs[0].id, {url: opts.href + params}, (tab) => {
                             b.helper.model.setData("openedByExtension", tab.id).then(resolve);
                         });
                     });

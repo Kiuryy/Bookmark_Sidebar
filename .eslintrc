@@ -9,7 +9,6 @@
     "node": true
   },
   "globals": {
-    "chrome": true,
     "jsu": true
   },
   "extends": [

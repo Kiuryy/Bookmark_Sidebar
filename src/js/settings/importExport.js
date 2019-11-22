@@ -90,7 +90,7 @@
          */
         const saveConfig = (config) => {
             if (config.behaviour && config.appearance && config.newtab) {
-                chrome.storage.sync.set({
+                $.api.storage.sync.set({
                     behaviour: config.behaviour,
                     appearance: config.appearance,
                     newtab: config.newtab
@@ -106,7 +106,7 @@
                         currentConfig.utility[field] = val;
                     });
 
-                    chrome.storage.local.set({utility: currentConfig.utility}, () => {
+                    $.api.storage.local.set({utility: currentConfig.utility}, () => {
                         s.helper.model.call("reinitialize");
                         s.showSuccessMessage("import_saved");
                         $.delay(1500).then(() => {

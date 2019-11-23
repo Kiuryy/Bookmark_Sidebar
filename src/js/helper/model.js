@@ -151,7 +151,7 @@
                     port.disconnect();
                 }
 
-                port = $.api.runtime.connect({name: "background"});
+                port = $.api.runtime.connect(null, {name: "background"});
 
                 port.onMessage.addListener((obj) => {
                     if (callbacks[obj.uid]) {

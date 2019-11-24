@@ -289,12 +289,13 @@
             n.elm.topNav.find("> ul > li > div").remove();
 
             const link = elm.children("a." + $.cl.newtab.link).eq(0);
+            const href = (link.data("href") || "").trim();
 
             const tooltip = $("<div />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
                 .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
-                .append("<input type='text' value='" + link.data("href").trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
+                .append("<input type='text' value='" + href.replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
                 .append("<button type='submit'>" + n.helper.i18n.get("overlay_close") + "</button>")
                 .appendTo(elm);
 
@@ -306,7 +307,7 @@
                         link.removeAttr("href").removeData("href");
 
                         if (val && val.length > 0) {
-                            if (val.search(/^\w+:\/\//) !== 0) { // prepend http if no protocol specified
+                            if (val.search(/^[\w-]+:\/\//) !== 0) { // prepend http if no protocol specified
                                 val = "http://" + val;
                             }
                             link.data("href", val);

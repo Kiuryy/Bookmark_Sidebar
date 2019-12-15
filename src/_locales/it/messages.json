@@ -965,6 +965,9 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Scegli se aprire automaticamente la barra laterale quando viene aperta una nuova scheda."
     },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Se abilitato, verr\u00e0 evidenziata la barra degli indirizzi all'apertura di una scheda, viceversa sar\u00e0 focalizzata la casella di ricerca del sito Web."
+    },
     "settings_newtab_website": {
         "message": "Carica sito web"
     },

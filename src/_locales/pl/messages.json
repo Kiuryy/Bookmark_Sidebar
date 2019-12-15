@@ -965,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Ustaw, czy boczna lista ma by\u0107 otwierana automatycznie po otwarciu nowej karty."
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "Aktywuj pasek adresu"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Je\u017celi to ustawienie b\u0119dzie w\u0142\u0105czone to po otwarciu nowej karty aktywnym elementem b\u0119dzie pasek adresu, w przeciwnym razie b\u0119dzie nim pole wyszukiwarki na stronie"
+    },
     "settings_newtab_website": {
         "message": "Za\u0142aduj stron\u0119 internetow\u0105"
     },

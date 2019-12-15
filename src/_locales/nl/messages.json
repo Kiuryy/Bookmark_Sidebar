@@ -822,7 +822,7 @@
         "message": "URL parameters"
     },
     "settings_import_export_notice": {
-        "message": "De instellingen van de uitbreiding worden automatisch gesynchroniseerd tussen je apparaten als je in {browserName} bent ingelogd met je Google account. Als je niet wil inloggen of je instellingen wil delen met anderen, dan kan je deze import\/export functie daarvoor gebruiken."
+        "message": "De instellingen van de uitbreiding worden automatisch gesynchroniseerd tussen je apparaten als je in {browserName} bent ingelogd met je account. Als je niet wil inloggen of je instellingen wil delen met anderen, dan kan je deze import\/export functie daarvoor gebruiken."
     },
     "settings_import_export_desc": {
         "message": "Je kan de instellingen van deze extensie lokaal opslaan. Je kan het opgeslagen bestand dan op elke computer importeren zolang de extensie maar is geinstalleerd."
@@ -964,6 +964,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Kies of de zijbalk automatisch geopend moet worden wanneer er een nieuw tabblad wordt geopend"
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Richt op de adres bar"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Indien ingeschakeld wordt de adres bar vastgezet bij het openen van een nieuw tabblad. Indien uitgeschakeld wordt het zoekvak van de website vastgezet."
     },
     "settings_newtab_website": {
         "message": "Website laden"

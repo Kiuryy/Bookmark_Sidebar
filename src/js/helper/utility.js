@@ -18,8 +18,6 @@
         this.openUrl = async (infos, type = "default", active = true) => {
             if (infos.url === "about:blank") {
                 return;
-            } else if (infos.url.startsWith("javascript:")) {
-                location.href = infos.url;
             }
 
             ext.helper.model.setData({
@@ -38,14 +36,19 @@
                     newWindow: true
                 });
             } else {
-                await ext.helper.model.call("openLink", {
-                    parentId: infos.parentId,
-                    id: infos.id,
-                    href: infos.url,
-                    newTab: type === "newTab",
-                    position: ext.helper.model.getData("b/newTabPosition"),
-                    active: active
-                });
+                const newtab = type === "newTab";
+                if (infos.url.startsWith("javascript:") && newtab === false) {
+                    location.href = infos.url;
+                } else {
+                    await ext.helper.model.call("openLink", {
+                        parentId: infos.parentId,
+                        id: infos.id,
+                        href: infos.url,
+                        newTab: type === "newTab",
+                        position: ext.helper.model.getData("b/newTabPosition"),
+                        active: active
+                    });
+                }
             }
         };
 

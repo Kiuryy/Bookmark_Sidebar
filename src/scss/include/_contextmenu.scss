@@ -251,6 +251,10 @@ div.contextmenu {
           @include maskImage('icon-newTab');
         }
 
+        &[data-name='currentTab']::before {
+          @include maskImage('icon-currentTab');
+        }
+
         &[data-name='newWindow']::before {
           @include maskImage('icon-newWindow');
         }

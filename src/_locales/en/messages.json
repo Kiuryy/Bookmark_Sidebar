@@ -59,6 +59,9 @@
     "contextmenu_new_tab": {
         "message": "Open in new tab"
     },
+    "contextmenu_current_tab": {
+        "message": "Open in current tab"
+    },
     "contextmenu_new_window": {
         "message": "Open in new window"
     },

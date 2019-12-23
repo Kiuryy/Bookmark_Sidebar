@@ -252,6 +252,8 @@ div.contextmenu {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg); }
       div.contextmenu > ul.list > li > a[data-name='newTab']::before, div.contextmenu > ul.list > li > a[data-name='openChildren']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.svg); }
+      div.contextmenu > ul.list > li > a[data-name='currentTab']::before {
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-currentTab.svg); }
       div.contextmenu > ul.list > li > a[data-name='newWindow']::before {
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newWindow.svg); }
       div.contextmenu > ul.list > li > a[data-name='newIncognito']::before {

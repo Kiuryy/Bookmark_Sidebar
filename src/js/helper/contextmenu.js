@@ -241,7 +241,12 @@
                         list.append("<li><a " + $.attr.name + "='checkBookmarks'>" + ext.helper.i18n.get("contextmenu_check_bookmarks") + "</a></li>");
                     }
                 } else {
-                    list.append("<li><a " + $.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
+                    if (ext.helper.model.getData("b/linkAction") === "newtab") {
+                        list.append("<li><a " + $.attr.name + "='currentTab'>" + ext.helper.i18n.get("contextmenu_current_tab") + "</a></li>");
+                    } else {
+                        list.append("<li><a " + $.attr.name + "='newTab'>" + ext.helper.i18n.get("contextmenu_new_tab") + "</a></li>");
+                    }
+
                     list.append("<li><a " + $.attr.name + "='newWindow'>" + ext.helper.i18n.get("contextmenu_new_window") + "</a></li>");
 
                     if ($.api.extension.inIncognitoContext === false) {
@@ -375,6 +380,18 @@
             if (opts.data) {
                 ext.helper.utility.openUrl(opts.data, "newWindow");
                 ext.helper.toggle.closeSidebar();
+            }
+        };
+
+        /**
+         * Opens the bookmark in the current tab
+         *
+         * @param {object} opts
+         */
+        clickFuncs.currentTab = (opts) => {
+            if (opts.data) {
+                opts.data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
+                ext.helper.utility.openUrl(opts.data);
             }
         };
 

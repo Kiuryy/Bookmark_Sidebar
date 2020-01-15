@@ -7,6 +7,10 @@ div#search {
   padding: 0 10px;
   height: $newTabSearchHeight;
 
+  &.hidden {
+    display: none;
+  }
+
   > input[type='text'] {
     width: 100%;
     height: 100%;

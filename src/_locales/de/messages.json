@@ -281,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "Bei {1} suchen oder URL eingeben"
     },
+    "newtab_search_field_show": {
+        "message": "Suchfeld anzeigen"
+    },
+    "newtab_search_field_hide": {
+        "message": "Suchfeld ausblenden"
+    },
     "newtab_speech_search_listening": {
         "message": "Jetzt sprechen"
     },

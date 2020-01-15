@@ -106,6 +106,7 @@
                 autoOpen: true,
                 focusOmnibox: false,
                 shortcutsPosition: "right",
+                searchField: "show",
                 searchEngine: "google",
                 searchEngineCustom: {
                     title: "",

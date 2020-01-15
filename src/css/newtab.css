@@ -283,6 +283,9 @@ div#topPages {
             border-color: rgba(0, 0, 0, 0.2);
             box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15); }
 
+div#search.hidden ~ div#topPages {
+  margin-top: 0; }
+
 body.customBackground div#topPages > ul[data-appearance='thumbnail'] > li > a {
   background: rgba(255, 255, 255, 0.8); }
 
@@ -383,6 +386,8 @@ div#search {
   width: 100%;
   padding: 0 10px;
   height: 54px; }
+  div#search.hidden {
+    display: none; }
   div#search > input[type='text'] {
     width: 100%;
     height: 100%;
@@ -974,6 +979,15 @@ body.edit section#content {
       left: 20px;
       right: unset; }
 
+body.edit div#search.hidden {
+  display: block; }
+  body.edit div#search.hidden > input[type='text'] {
+    opacity: 0.5; }
+
+body.edit div#search > select.edit {
+  margin-top: -40px;
+  margin-bottom: 15px; }
+
 body.edit div#search > input[type='text'] {
   padding-right: 125px; }
 
@@ -996,7 +1010,7 @@ body.edit div#search > a.edit {
     background-color: #aaa; }
 
 body.edit div#topPages {
-  margin-top: 25px; }
+  margin-top: 25px !important; }
   body.edit div#topPages > select.edit {
     display: inline-block;
     margin: 0 7px; }

@@ -284,6 +284,12 @@
     "newtab_search_placeholder": {
         "message": "Search {1} or type URL"
     },
+    "newtab_search_field_show": {
+        "message": "Show search field"
+    },
+    "newtab_search_field_hide": {
+        "message": "Hide search field"
+    },
     "newtab_speech_search_listening": {
         "message": "Speak now"
     },
@@ -993,7 +999,7 @@
         "message": "You can define your own stylesheet to override the default styling. Please only use this option, if you are familiar with CSS and know what you are doing."
     },
     "settings_newtab_desc": {
-        "message": "Chromium-based browsers do not loading extensions on the default new tab page. Because of this, the sidebar is not working there. To face this problem, I added some options allowing you to access your bookmarks when opening a new tab in another way."
+        "message": "Chromium-based browsers do not allow loading extensions on the default new tab page. Because of this, the sidebar feature is not working there. To circumvent this problem, some options were added allowing you to access your bookmarks when opening a new tab in another way."
     },
     "settings_newtab_override": {
         "message": "Override new tab page"
@@ -1119,7 +1125,7 @@
         "message": "This may be of interest to you"
     },
     "settings_about_me_desc": {
-        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Aalen, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. At that time I couldn't imagine how many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
+        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. At that time I couldn't imagine how many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
     },
     "settings_about_me_sub_text": {
         "message": "Thank you for your support."

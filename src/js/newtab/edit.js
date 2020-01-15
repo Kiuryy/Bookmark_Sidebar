@@ -114,6 +114,7 @@
                 delete searchEngineObj.name;
 
                 const data = {
+                    "n/searchField": n.elm.search.wrapper.children("select[" + $.attr.type + "='searchField']")[0].value,
                     "n/searchEngine": searchEngineName,
                     "n/searchEngineCustom": searchEngineObj,
                     "n/topPagesType": n.elm.topPages.children("select[" + $.attr.type + "='type']")[0].value,
@@ -155,11 +156,13 @@
             n.elm.body.removeClass($.cl.newtab.edit);
 
             n.elm.search.wrapper.children("a." + $.cl.newtab.edit).remove();
+            n.elm.search.wrapper.children("select").remove();
             n.elm.topPages.children("select").remove();
             n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
+            n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
             n.helper.topPages.setAppearance(n.helper.model.getData("n/topPagesAppearance"));
             n.helper.shortcuts.refreshEntries();
@@ -201,7 +204,7 @@
 
             $.delay().then(() => {
                 n.elm.body.addClass($.cl.newtab.edit);
-                initSearchEngineConfig();
+                initSearchConfig();
                 initTopPagesTypeConfig();
                 initShortcutsConfig();
 
@@ -370,11 +373,27 @@
         };
 
         /**
-         * Initialises the edit button for the search
+         * Initialises the edit button for the search engine and the dropdown to show/hide the search field
          */
-        const initSearchEngineConfig = () => {
-            const edit = $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.search.wrapper);
+        const initSearchConfig = () => {
+            const select = $("<select />")
+                .addClass($.cl.newtab.edit)
+                .attr($.attr.type, "searchField")
+                .prependTo(n.elm.search.wrapper);
 
+            const currentType = n.helper.model.getData("n/searchField");
+
+            ["show", "hide"].forEach((name) => {
+                const label = n.helper.i18n.get("newtab_search_field_" + name);
+                $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + " />").text(label).appendTo(select);
+            });
+
+            select.on("input change", (e) => {
+                n.helper.search.setVisibility(e.currentTarget.value);
+            });
+
+
+            const edit = $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.search.wrapper);
             edit.on("click", (e) => {
                 e.preventDefault();
                 n.helper.overlay.create("searchEngine", n.helper.i18n.get("newtab_search_engine_headline"));

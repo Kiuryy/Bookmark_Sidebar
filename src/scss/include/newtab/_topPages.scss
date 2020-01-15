@@ -136,6 +136,10 @@ div#topPages {
   }
 }
 
+div#search.hidden ~ div#topPages {
+  margin-top: 0;
+}
+
 body.customBackground div#topPages {
 
   > ul[data-appearance='thumbnail'] > li > a {

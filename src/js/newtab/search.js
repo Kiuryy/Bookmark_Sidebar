@@ -76,6 +76,19 @@
             initEvents();
 
             this.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
+            this.setVisibility(n.helper.model.getData("n/searchField"));
+        };
+
+        /**
+         *
+         * @param visibility
+         */
+        this.setVisibility = (visibility) => {
+            if (visibility === "hide") {
+                n.elm.search.wrapper.addClass($.cl.hidden);
+            } else {
+                n.elm.search.wrapper.removeClass($.cl.hidden);
+            }
         };
 
         /**
@@ -433,13 +446,17 @@
             $(document).on("click", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
                 if (n.helper.edit.isEditMode() === false) {
+                    if (n.elm.search.wrapper.hasClass($.cl.hidden) === false) { // Search field is visible
+                        if (searchAlreadyFocussed === false) { // first time the search field get's focussed -> prefill with already typed keyboard inputs
+                            searchAlreadyFocussed = true;
+                            n.elm.search.field[0].value = (window.cachedKeys || []).join("");
+                        }
 
-                    if (searchAlreadyFocussed === false) { // first time the search field get's focussed -> prefill with already typed keyboard inputs
-                        searchAlreadyFocussed = true;
-                        n.elm.search.field[0].value = (window.cachedKeys || []).join("");
+                        n.elm.search.field[0].focus();
+                    } else if (n.elm.sidebar && n.elm.sidebar.iframe) { // Search field is hidden -> focus sidebar search instead
+                        $(document).trigger($.opts.events.openSidebar);
+                        n.elm.sidebar.iframe[0].focus();
                     }
-
-                    n.elm.search.field[0].focus();
                 }
             });
 

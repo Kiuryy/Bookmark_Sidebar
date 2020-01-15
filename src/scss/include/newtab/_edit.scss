@@ -1,4 +1,3 @@
-
 body > a.edit {
   @include mask('icon-edit', $textColorLight, 24px);
   position: absolute;
@@ -428,6 +427,19 @@ body.edit {
 
   div#search {
 
+    &.hidden {
+      display: block;
+
+      > input[type='text'] {
+        opacity: 0.5;
+      }
+    }
+
+    > select.edit {
+      margin-top: -40px;
+      margin-bottom: 15px;
+    }
+
     > input[type='text'] {
       padding-right: 125px;
     }
@@ -445,7 +457,7 @@ body.edit {
   }
 
   div#topPages {
-    margin-top: 25px;
+    margin-top: 25px !important;
 
     > select.edit {
       display: inline-block;

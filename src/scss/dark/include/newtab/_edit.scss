@@ -90,6 +90,10 @@ body.dark {
 
     div#search {
 
+      > select {
+        background: lighten($darkContentBackground2, 5%);
+      }
+
       > a.edit:hover {
         background: lighten($darkContentBackground2, 5%);
       }

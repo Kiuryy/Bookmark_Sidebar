@@ -1115,6 +1115,9 @@ body.dark.edit section#content > nav > ul > li {
     body.dark.edit section#content > nav > ul > li > div > button[type='submit'] {
       color: "%textColor"; }
 
+body.dark.edit div#search > select {
+  background: #5a5a5a; }
+
 body.dark.edit div#search > a.edit:hover {
   background: #5a5a5a; }
 

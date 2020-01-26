@@ -327,7 +327,7 @@
 
         /**
          * Returns whether the sidebar is allowed to be initialized for the current url,
-         * Checks the configured url rules
+         * Checks the configured patter rules
          *
          * @returns {boolean}
          */
@@ -346,9 +346,9 @@
                     rule = rule.replace(/\./g, "\\.");
                     rule = rule.replace(/\*/g, ".*");
 
-                    const regex = new RegExp("^https?://" + rule + "$");
+                    const regex = new RegExp(rule);
 
-                    if (location.href.search(regex) === 0) {
+                    if (location.href.search(regex) !== -1) {
                         match = true;
                         return true;
                     }

@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Ouvrir dans un nouvel onglet"
     },
+    "contextmenu_current_tab": {
+        "message": "Ouvrir dans l'onglet"
+    },
     "contextmenu_new_window": {
         "message": "Ouvrir dans une nouvelle fen\u00eatre"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "Rechercher {1} ou saisir l'URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Afficher le champ de recherche"
+    },
+    "newtab_search_field_hide": {
+        "message": "Masquer le champ de recherche"
     },
     "newtab_speech_search_listening": {
         "message": "Parlez"

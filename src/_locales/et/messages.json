@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Ava uuel vahekaardil"
     },
+    "contextmenu_current_tab": {
+        "message": "Ava praeguses aknas"
+    },
     "contextmenu_new_window": {
         "message": "Ava uues aknas"
     },
@@ -278,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "Otsi {1} v\u00f5i sisesta URL"
     },
+    "newtab_search_field_show": {
+        "message": "Kuva otsiriba"
+    },
+    "newtab_search_field_hide": {
+        "message": "Peida otsiriba"
+    },
     "newtab_speech_search_listening": {
         "message": "R\u00e4\u00e4gi n\u00fc\u00fcd"
     },
@@ -364,6 +373,9 @@
     },
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Kuvab j\u00e4rgimise v\u00f5i eelmise kursori all oleva kirje"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Kl\u00f5psab kursori alusel kirjel"
@@ -818,6 +830,9 @@
     "settings_filter_rules": {
         "message": "URL-i mustrid"
     },
+    "settings_import_export_notice": {
+        "message": "Kui oled oma kontoga {browserName} brauserisse sisse loginud, s\u00fcnkroonitakse laienduse seaded automaatselt teiste seadmete vahel. Kui sa ei soovi sisse logida v\u00f5i tahad oma seadeid teiste inimestega jagada, v\u00f5ib kasutada seda impordi\/ekspordi valikut."
+    },
     "settings_import_export_desc": {
         "message": "Saad eksportida laienduse s\u00e4tted ja salvestada need arvutisse. Eelnevalt eksporditud faili saab importida mis tahes arvutisse, kus laiendus on paigaldatud."
     },
@@ -958,6 +973,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Seadista, kas k\u00fclgriba avaneb uue vahekaardi avamisel automaatselt."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Fookus aadressiribal"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Kui lubatud, on fookus uue vahekaardi avamisel aadressiribal. Kui ei, on fookus veebisaidi otsingukastil."
     },
     "settings_newtab_website": {
         "message": "Laadi veebileht"

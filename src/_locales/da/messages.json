@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "\u00c5bn i ny fane"
     },
+    "contextmenu_current_tab": {
+        "message": "\u00c5bne i den nuv\u00e6rende fane."
+    },
     "contextmenu_new_window": {
         "message": "\u00c5bn i nyt vindue"
     },
@@ -278,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "S\u00f8g {1} eller skriv URL"
     },
+    "newtab_search_field_show": {
+        "message": "Vis s\u00f8gefelt"
+    },
+    "newtab_search_field_hide": {
+        "message": "Skjul s\u00f8gefelt"
+    },
     "newtab_speech_search_listening": {
         "message": "Tal nu"
     },
@@ -364,6 +373,9 @@
     },
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Flyt til forrige eller n\u00e6ste felt i sidebaren"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Udf\u00f8rer et klik p\u00e5 det fremh\u00e6vede emne"
@@ -818,6 +830,9 @@
     "settings_filter_rules": {
         "message": "URL-m\u00f8nstre"
     },
+    "settings_import_export_notice": {
+        "message": "Sidebarens ops\u00e6tning synkroniseres automatisk mellem dine enheder, hvis du er logget ind med din {browserName} konto. Hvis du ikke \u00f8nsker at logge ind eller at dele din ops\u00e6tning, kan du istedet benytte import\/eksport funktionen."
+    },
     "settings_import_export_desc": {
         "message": "Du kan eksportere dine udvidelsesindstillinger og gemme dem lokalt p\u00e5 din computer. Du kan importere den tidligere eksporterede fil p\u00e5 en hvilken som helst computer, hvor udvidelsen er installeret."
     },
@@ -828,7 +843,7 @@
         "message": "Importindstillinger"
     },
     "settings_import_saved": {
-        "message": "Konfigurationen importeres med succes"
+        "message": "Konfigurationen importeret med succes"
     },
     "settings_import_failed": {
         "message": "Kunne ikke importere konfigurationen. V\u00e6lg venligst en gyldig fil."
@@ -958,6 +973,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Indstil hvorvidt sidebaren skal \u00e5bne automatisk n\u00e5r et nyt faneblad \u00e5bnes."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Flyt fokus til adressebaren."
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Hvis aktiveret, vil fokus flyttes til adressebaren n\u00e5r du \u00e5bner et ny fane. Hvis denne ikke er aktiveret vil det istedet v\u00e6re websitets s\u00f8gefunktion der benyttes."
     },
     "settings_newtab_website": {
         "message": "Indl\u00e6s en hjemmeside"

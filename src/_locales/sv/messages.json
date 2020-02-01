@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "\u00d6ppna i ny flik"
     },
+    "contextmenu_current_tab": {
+        "message": "\u00d6ppna i aktiv flik"
+    },
     "contextmenu_new_window": {
         "message": "\u00d6ppna i nytt f\u00f6nster"
     },
@@ -852,25 +855,31 @@
         "message": "Eget stilformat"
     },
     "settings_newtab_desc": {
-        "message": "Tyv\u00e4rr har Google tagit bort m\u00f6jligheten att ladda till\u00e4gg p\u00e5 den vanliga nya fliksidan. P\u00e5 grund av detta lade jag till n\u00e5gra alternativ som l\u00e5ter dig komma \u00e5t dina bokm\u00e4rken n\u00e4r du \u00f6ppnar en ny flik p\u00e5 ett annat s\u00e4tt."
+        "message": "Tyv\u00e4rr har Google tagit bort m\u00f6jligheten att ladda till\u00e4gg p\u00e5 den vanliga \"ny flik\"-sidan. P\u00e5 grund av detta lade jag till n\u00e5gra alternativ som l\u00e5ter dig komma \u00e5t dina bokm\u00e4rken p\u00e5 ett annat s\u00e4tt n\u00e4r du \u00f6ppnar en ny flik."
     },
     "settings_newtab_override": {
-        "message": "\u00c5sidos\u00e4tta den nya fliksidan"
+        "message": "Ers\u00e4tta den \"ny flik\"-sida som visas som standard"
     },
     "settings_newtab_override_desc": {
-        "message": "Skulle utvidgningen \u00e5sidos\u00e4tta din nuvarande nya fliksida med antingen en skr\u00e4ddarsydd eller en webbplats som ska laddas n\u00e4r du \u00f6ppnar en ny flik?"
+        "message": "Ska utvidgningen ers\u00e4tta din nuvarande \"ny flik\"-sida med antingen en skr\u00e4ddarsydd \"ny flik\"-sida eller en webbsida som ska laddas n\u00e4r du \u00f6ppnar en ny flik?"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "\u00d6ppna sidopanelen automatiskt"
     },
     "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Konfigurera om sidopanelen ska \u00f6ppnas automatiskt n\u00e4r en ny flik \u00f6ppnas."
+        "message": "Konfigurera huruvida sidopanelen ska \u00f6ppnas automatiskt n\u00e4r en ny flik \u00f6ppnas."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "S\u00e4tt fokus p\u00e5 adressf\u00e4ltet"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Adressf\u00e4ltet f\u00e5r fokus n\u00e4r en ny flik \u00f6ppnas ist\u00e4llet f\u00f6r att webbsidans s\u00f6kruta f\u00e5r fokus."
     },
     "settings_newtab_website": {
         "message": "Ladda webbsida"
     },
     "settings_newtab_website_desc": {
-        "message": "I st\u00e4llet f\u00f6r att \u00f6ppna det nya flikutbytet kan du st\u00e4lla in en webbplats som laddas ist\u00e4llet."
+        "message": "I st\u00e4llet f\u00f6r att \u00f6ppna den nya utbytta \"ny flik\"-sidan kan du ange att en webbsida ska laddas."
     },
     "settings_language": {
         "message": "Spr\u00e5k"

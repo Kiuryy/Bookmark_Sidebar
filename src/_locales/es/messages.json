@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Abrir en una nueva pesta\u00f1a"
     },
+    "contextmenu_current_tab": {
+        "message": "Abrir en la pesta\u00f1a actual"
+    },
     "contextmenu_new_window": {
         "message": "Abrir en una nueva ventana"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "Busca {1} o escribe la URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Mostrar campo de b\u00fasqueda"
+    },
+    "newtab_search_field_hide": {
+        "message": "Ocultar campo de b\u00fasqueda"
     },
     "newtab_speech_search_listening": {
         "message": "Hable Ahora"

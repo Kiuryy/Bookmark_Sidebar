@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Megnyit\u00e1s \u00faj f\u00fcl\u00f6n"
     },
+    "contextmenu_current_tab": {
+        "message": "Megnyit\u00e1s a jelenlegi lapon"
+    },
     "contextmenu_new_window": {
         "message": "Megnyit\u00e1s \u00faj ablakban"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "Keres\u00e9s {1} vagy g\u00e9pelje be a c\u00edmet"
+    },
+    "newtab_search_field_show": {
+        "message": "Keres\u00e9s megjelen\u00edt\u00e9se"
+    },
+    "newtab_search_field_hide": {
+        "message": "Keres\u00e9s elrejt\u00e9se"
     },
     "newtab_speech_search_listening": {
         "message": "Most besz\u00e9lj"
@@ -964,6 +973,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "\u00daj f\u00fcl eset\u00e9n az oldals\u00e1v automatikusan megnyit\u00e1sa"
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "C\u00edmsor el\u0151t\u00e9rbe"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Ha enged\u00e9lyezve van a c\u00edmsor, el\u0151t\u00e9rbe ker\u00fcl, ha \u00faj lap ny\u00edlik. Ha nincs enged\u00e9lyezve, akkor a weboldal keres\u0151 ablaka ker\u00fcl az el\u0151t\u00e9rbe."
     },
     "settings_newtab_website": {
         "message": "Webhely bet\u00f6lt\u00e9se"

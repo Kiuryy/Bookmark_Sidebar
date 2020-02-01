@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Open in nieuwe tab"
     },
+    "contextmenu_current_tab": {
+        "message": "Open in huidige tab"
+    },
     "contextmenu_new_window": {
         "message": "Open in nieuw venster"
     },

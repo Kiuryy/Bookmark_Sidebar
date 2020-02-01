@@ -1,9 +1,9 @@
 {
     "extension_name": {
-        "message": "Barra lateral de favoritos"
+        "message": "Barra de Favoritos"
     },
     "extension_desc": {
-        "message": "Adiciona \u00e0 borda da janela do seu navegador uma barra lateral com todos os seus favoritos que pode ser exibida e ocultada."
+        "message": "Adiciona uma barra lateral que pode ser exibida e ocultada, com todos os seus favoritos, \u00e0 borda da janela do seu navegador."
     },
     "header_bookmarks": {
         "message": "Favoritos"
@@ -33,28 +33,31 @@
         "message": "Saiba mais"
     },
     "contextmenu_edit_bookmark": {
-        "message": "Editar favorito"
+        "message": "Editar Favorito"
     },
     "contextmenu_edit_dir": {
-        "message": "Editar pasta"
+        "message": "Editar Pasta"
     },
     "contextmenu_edit_separator": {
-        "message": "Editar separador"
+        "message": "Editar Separador"
     },
     "contextmenu_delete_bookmark": {
-        "message": "Apagar favorito"
+        "message": "Apagar Favorito"
     },
     "contextmenu_delete_dir": {
-        "message": "Apagar pasta"
+        "message": "Apagar Pasta"
     },
     "contextmenu_delete_separator": {
-        "message": "Apagar separador"
+        "message": "Apagar Separador"
     },
     "contextmenu_infos": {
         "message": "Informa\u00e7\u00e3o"
     },
     "contextmenu_new_tab": {
         "message": "Abrir em uma nova guia"
+    },
+    "contextmenu_current_tab": {
+        "message": "Abrir na guia atual"
     },
     "contextmenu_new_window": {
         "message": "Abrir em uma nova janela"
@@ -66,7 +69,7 @@
         "message": "Adicionar favorito"
     },
     "contextmenu_add": {
-        "message": "Adicionar um item"
+        "message": "Adicionar item"
     },
     "contextmenu_check_bookmarks": {
         "message": "Verificar favoritos"
@@ -99,10 +102,10 @@
         "message": "Desafixar do topo"
     },
     "contextmenu_bookmark_manager": {
-        "message": "Gerenciador de favoritos"
+        "message": "Gerenciador de Favoritos"
     },
     "contextmenu_keyboard_shortcuts": {
-        "message": "Telhas de atalho"
+        "message": "Atalhos do teclado"
     },
     "sort_label_custom": {
         "message": "Definido pelo usu\u00e1rio"
@@ -144,7 +147,7 @@
         "message": "Salvar"
     },
     "overlay_delete": {
-        "message": "Apagar"
+        "message": "Excluir"
     },
     "overlay_update": {
         "message": "Atualizar"
@@ -153,7 +156,7 @@
         "message": "Abrir todos"
     },
     "overlay_confirm_open_children": {
-        "message": "Voc\u00ea realmente quer abrir todos os {1} favoritos subordinados?"
+        "message": "Voc\u00ea realmente quer abrir todos os {1} favoritos inferiores?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Ocultar da barra lateral"
@@ -162,13 +165,13 @@
         "message": "Voc\u00ea realmente quer ocultar este favorito da barra lateral?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Voc\u00ea realmente quer ocultar esta pasta da barra lateral? Todos os favoritos subordinados ser\u00e3o ocultados tamb\u00e9m."
+        "message": "Voc\u00ea realmente quer ocultar esta pasta da barra lateral? Todos os favoritos inferiores ser\u00e3o ocultados tamb\u00e9m."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Voc\u00ea realmente quer apagar este favorito?"
+        "message": "Voc\u00ea realmente quer excluir este favorito?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Voc\u00ea realmente quer apagar esta pasta? Todos os favoritos subordinados ser\u00e3o apagados tamb\u00e9m."
+        "message": "Voc\u00ea realmente quer excluir esta pasta? Todos os favoritos inferiores ser\u00e3o apagados tamb\u00e9m."
     },
     "overlay_label_bookmark": {
         "message": "Favorito"
@@ -183,7 +186,7 @@
         "message": "Posi\u00e7\u00e3o"
     },
     "overlay_add_position_prepend": {
-        "message": "Preceder \u00e0 pasta"
+        "message": "Acrescentar ao in\u00edcio da pasta"
     },
     "overlay_add_position_append": {
         "message": "Acrescentar \u00e0 pasta"
@@ -198,7 +201,7 @@
         "message": "Visualiza\u00e7\u00e3o"
     },
     "overlay_bookmark_views_since": {
-        "message": "Guardado desde"
+        "message": "Salvo desde"
     },
     "overlay_bookmark_views_per_month": {
         "message": "por m\u00eas"
@@ -278,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "Pesquise no {1} ou digite um URL"
     },
+    "newtab_search_field_show": {
+        "message": "Exibir campo de busca"
+    },
+    "newtab_search_field_hide": {
+        "message": "Ocultar campo de busca"
+    },
     "newtab_speech_search_listening": {
         "message": "Fale agora"
     },
@@ -285,7 +294,7 @@
         "message": "Para habilitar a pesquisa por voz, voc\u00ea precisa permitir o acesso ao microfone."
     },
     "newtab_search_engine_headline": {
-        "message": "Motor de pesquisa"
+        "message": "Motor de busca"
     },
     "newtab_search_engine_custom": {
         "message": "Definido pelo usu\u00e1rio"
@@ -309,16 +318,16 @@
         "message": "A barra lateral n\u00e3o pode ser usada na {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o"
+        "message": "A barra lateral n\u00e3o pode ser usada nas p\u00e1ginas das extens\u00f5es"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o"
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina padr\u00e3o da nova guia"
     },
     "newtab_fallback_headline_system": {
-        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema {browserName}"
+        "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema do {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "Uma de suas regras de URL n\u00e3o permitiu que a barra lateral fosse aberta"
+        "message": "Uma de suas regras de URL impediu a barra lateral de ser aberta"
     },
     "newtab_fallback_desc": {
         "message": "Abrimos uma nova guia com a barra lateral para voc\u00ea."
@@ -981,7 +990,7 @@
         "message": "Idioma"
     },
     "settings_language_default": {
-        "message": "Navegador padr\u00e3o"
+        "message": "Padr\u00e3o do navegador"
     },
     "settings_language_desc": {
         "message": "O idioma da interface do usu\u00e1rio"
@@ -996,10 +1005,10 @@
         "message": "Adicionar idioma"
     },
     "settings_translation_back_to_overview": {
-        "message": "Voltar ao in\u00edcio"
+        "message": "Voltar \u00e0 vis\u00e3o geral"
     },
     "settings_translation_info": {
-        "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
+        "message": "Voc\u00ea pode editar tradu\u00e7\u00f5es existentes ou adicionar novas. Se voc\u00ea enviar suas mudan\u00e7as, eu irei revis\u00e1-las e aprov\u00e1-las."
     },
     "settings_translation_notice1": {
         "message": "Assim que todas as categorias marcadas como requeridas forem traduzidas, a tradu\u00e7\u00e3o ser\u00e1 lan\u00e7ada."

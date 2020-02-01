@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Yeni sekmede a\u00e7"
     },
+    "contextmenu_current_tab": {
+        "message": "Mevcut sekmede a\u00e7"
+    },
     "contextmenu_new_window": {
         "message": "Yeni pencere a\u00e7"
     },
@@ -278,14 +281,20 @@
     "newtab_search_placeholder": {
         "message": "{1} ara veya URL gir"
     },
+    "newtab_search_field_show": {
+        "message": "Arama alan\u0131n\u0131 g\u00f6ster"
+    },
+    "newtab_search_field_hide": {
+        "message": "Arama alan\u0131n\u0131 gizle"
+    },
     "newtab_speech_search_listening": {
-        "message": "\u015fimdi konu\u015fun"
+        "message": "\u015eimdi konu\u015fun"
     },
     "newtab_speech_search_error": {
         "message": "Konu\u015fma aramay\u0131 etkinle\u015ftirmek i\u00e7in mikrofon eri\u015fimine izin vermeniz gerekir."
     },
     "newtab_search_engine_headline": {
-        "message": "arama motoru"
+        "message": "Arama motoru"
     },
     "newtab_search_engine_custom": {
         "message": "Kullan\u0131c\u0131 tan\u0131ml\u0131"

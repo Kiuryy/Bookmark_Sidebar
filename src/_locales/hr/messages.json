@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Otvori u novoj kartici"
     },
+    "contextmenu_current_tab": {
+        "message": "Otvori u trenutnoj kartici"
+    },
     "contextmenu_new_window": {
         "message": "Otvori u novom prozoru"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "Pretra\u017ei {1} ili unesi URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Prika\u017ei polje pretra\u017eivanja"
+    },
+    "newtab_search_field_hide": {
+        "message": "Sakrij polje pretra\u017eivanja"
     },
     "newtab_speech_search_listening": {
         "message": "Govori sada"

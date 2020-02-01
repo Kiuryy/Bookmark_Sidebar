@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "M\u1edf trong tab m\u1edbi"
     },
+    "contextmenu_current_tab": {
+        "message": "M\u1edf trong c\u1eeda s\u1ed5 hi\u1ec7n t\u1ea1i"
+    },
     "contextmenu_new_window": {
         "message": "M\u1edf trong c\u1eeda s\u1ed5 m\u1edbi"
     },

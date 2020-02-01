@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "\u041e\u0442\u0432\u0430\u0440\u044f\u043d\u0435 \u043d\u0430 \u043d\u043e\u0432 \u0442\u0430\u0431"
     },
+    "contextmenu_current_tab": {
+        "message": "\u041e\u0442\u0432\u0430\u0440\u044f\u043d\u0435 \u0432 \u0442\u0435\u043a\u0443\u0449\u0438\u044f \u0440\u0430\u0437\u0434\u0435\u043b"
+    },
     "contextmenu_new_window": {
         "message": "\u041e\u0442\u0432\u0430\u0440\u044f\u043d\u0435 \u043d\u0430 \u043d\u043e\u0432 \u043f\u0440\u043e\u0437\u043e\u0440\u0435\u0446"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "\u0422\u044a\u0440\u0441\u0438 \u0438\u043b\u0438 \u0432\u044a\u0432\u0435\u0434\u0438 \u043b\u0438\u043d\u043a"
+    },
+    "newtab_search_field_show": {
+        "message": "\u041f\u043e\u043a\u0430\u0437\u0432\u0430\u0439 \u0442\u044a\u0440\u0441\u0430\u0447\u043a\u0430\u0442\u0430"
+    },
+    "newtab_search_field_hide": {
+        "message": "\u0421\u043a\u0440\u0438\u0439 \u0442\u044a\u0440\u0441\u0430\u0447\u043a\u0430\u0442\u0430"
     },
     "newtab_speech_search_listening": {
         "message": "\u0421\u043b\u0443\u0448\u0430\u043c \u0442\u0435!"

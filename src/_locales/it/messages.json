@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Apri in una nuova scheda"
     },
+    "contextmenu_current_tab": {
+        "message": "Apri nella scheda corrente"
+    },
     "contextmenu_new_window": {
         "message": "Apri in una nuova finestra"
     },
@@ -964,6 +967,9 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Scegli se aprire automaticamente la barra laterale quando viene aperta una nuova scheda."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Focus barra degli indirizzi"
     },
     "settings_newtab_focus_omnibox_desc": {
         "message": "Se abilitato, verr\u00e0 evidenziata la barra degli indirizzi all'apertura di una scheda, viceversa sar\u00e0 focalizzata la casella di ricerca del sito Web."

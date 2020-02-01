@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "\u5728\u65b0\u6807\u7b7e\u9875\u6253\u5f00"
     },
+    "contextmenu_current_tab": {
+        "message": "\u5728\u5f53\u524d\u6807\u7b7e\u9875\u6253\u5f00"
+    },
     "contextmenu_new_window": {
         "message": "\u5728\u65b0\u7a97\u53e3\u4e2d\u6253\u5f00"
     },
@@ -261,7 +264,7 @@
         "message": "\u6700\u8fd1\u4f7f\u7528\u7684\u4e66\u7b7e"
     },
     "newtab_top_pages_most_used": {
-        "message": "\u6700\u5e38\u7528\u7684\u4e66\u7b7e"
+        "message": "\u5e38\u7528\u4e66\u7b7e"
     },
     "newtab_top_pages_pinned_entries": {
         "message": "\u56fa\u5b9a\u4e66\u7b7e"
@@ -278,8 +281,14 @@
     "newtab_search_placeholder": {
         "message": "\u641c\u7d22{1}\u6216\u8f93\u5165\u7f51\u5740"
     },
+    "newtab_search_field_show": {
+        "message": "\u663e\u793a\u641c\u7d22\u57df"
+    },
+    "newtab_search_field_hide": {
+        "message": "\u9690\u85cf\u641c\u7d22\u57df"
+    },
     "newtab_speech_search_listening": {
-        "message": "\u8bf7\u8bf4"
+        "message": "\u73b0\u5728\u8bf7\u8bb2"
     },
     "newtab_speech_search_error": {
         "message": "\u60a8\u9700\u8981\u786e\u4fdd\u9ea6\u514b\u98ce\u53ef\u7528\u540e\u624d\u80fd\u8fdb\u884c\u8bed\u97f3\u641c\u7d22\u3002"
@@ -294,19 +303,19 @@
         "message": "\u6807\u9898"
     },
     "newtab_search_engine_custom_url_homepage": {
-        "message": "\u4e3b\u9875\u7684URL"
+        "message": "\u4e3b\u9875\u7684\u94fe\u63a5"
     },
     "newtab_search_engine_custom_url_results": {
-        "message": "\u641c\u7d22\u7ed3\u679cURLs"
+        "message": "\u94fe\u63a5\u641c\u7d22\u7ed3\u679c"
     },
     "newtab_upload_background": {
-        "message": "\u4e0a\u4f20\u80cc\u666f\u56fe\u50cf"
+        "message": "\u4e0a\u4f20\u80cc\u666f\u56fe\u7247"
     },
     "newtab_fallback_headline_general": {
         "message": "\u4fa7\u8fb9\u680f\u88ab\u5c4f\u853d"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "\u5728{browserName}\u5e94\u7528\u5546\u5e97\u4fa7\u680f\u4e0d\u53ef\u7528"
+        "message": "\u4fa7\u8fb9\u680f\u4e0d\u80fd\u88ab\u7528\u4e8e{browserName}\u7684\u7f51\u4e0a\u5546\u5e97"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "\u5728\u6269\u5c55\u7ba1\u7406\u9875\u9762\u4fa7\u680f\u4e0d\u53ef\u7528"

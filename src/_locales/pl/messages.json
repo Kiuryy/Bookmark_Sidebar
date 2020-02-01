@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Otw\u00f3rz w nowej karcie"
     },
+    "contextmenu_current_tab": {
+        "message": "Otw\u00f3rz w bie\u017c\u0105cym oknie"
+    },
     "contextmenu_new_window": {
         "message": "Otw\u00f3rz w nowym oknie"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "Wyszukaj {1} lub wprowad\u017a URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Poka\u017c pole wyszukiwania"
+    },
+    "newtab_search_field_hide": {
+        "message": "Ukryj pole wyszukiwania"
     },
     "newtab_speech_search_listening": {
         "message": "M\u00f3w teraz"

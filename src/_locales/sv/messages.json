@@ -347,6 +347,57 @@
     "status_background_disconnected_reload_desc": {
         "message": "P\u00e5 grund av en uppdatering av till\u00e4gget m\u00e5ste denna sida laddas om."
     },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Ta bort"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "contribute_headline": {
+        "message": "Jag beh\u00f6ver din hj\u00e4lp"
+    },
+    "contribute_intro": {
+        "message": "F\u00f6r att f\u00f6rb\u00e4ttra pluginen skulle jag vilja veta mer om hur anv\u00e4ndare anv\u00e4nder pluginen och vilka inst\u00e4llningar de anv\u00e4nder."
+    },
+    "contribute_outro": {
+        "message": "Om du har fr\u00e5gor kring hur informationen delas, v\u00e4nligen skicka ett feedbackmeddelande"
+    },
+    "contribute_dismiss": {
+        "message": "Avf\u00e4rda"
+    },
+    "contribute_share_config_label": {
+        "message": "Dela inst\u00e4llningar"
+    },
+    "contribute_share_config_desc": {
+        "message": "Du delar dina inst\u00e4llningar anonymt, vilket hj\u00e4lper mig att veta vilka inst\u00e4llningar som \u00e4r popul\u00e4ra och vad som beh\u00f6ver f\u00f6rb\u00e4ttras i kommande versioner."
+    },
+    "contribute_share_activity_label": {
+        "message": "Dela aktivitet"
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Data som delas \u00e4r till exempel:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Hur m\u00e5nga bokm\u00e4rken i genomsnitt har en anv\u00e4ndare?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Beh\u00f6ver anv\u00e4ndarna \u00e4ndra sorteringsinst\u00e4llning f\u00f6r bokm\u00e4rkena?"
+    },
     "onboarding_title": {
         "message": "Installation"
     },

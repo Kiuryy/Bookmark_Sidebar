@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Buka di Tab Baru"
     },
+    "contextmenu_current_tab": {
+        "message": "Buka di tab saat ini"
+    },
     "contextmenu_new_window": {
         "message": "Buka di jendela baru"
     },
@@ -269,14 +272,35 @@
     "newtab_top_pages_hidden": {
         "message": "Jangan perlihatkan halaman"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Tampilkan pratinjau situs web"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Tampilkan ikon situs web"
+    },
     "newtab_search_placeholder": {
         "message": "Cari {1} atau ketik URL"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Bicara sekarang"
+    },
+    "newtab_speech_search_error": {
+        "message": "Untuk mengaktifkan pencarian ucapan anda harus mengizinkan akses mikrofon"
+    },
+    "newtab_search_engine_headline": {
+        "message": "Mesin pencari"
     },
     "newtab_search_engine_custom": {
         "message": "Ditetapkan-pengguna"
     },
     "newtab_search_engine_custom_title": {
         "message": "Judul"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL Beranda"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL hasil pencarian"
     },
     "newtab_upload_background": {
         "message": "Unggah gambar latar belakang"
@@ -343,6 +367,9 @@
     },
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Arahkan entri berikutnya atau sebelumnya di bilah sisi"
     },
     "keyboard_shortcuts_enter_desc": {
         "message": "Melakukan pemencetan entry yang lagi ditunggu dekat"
@@ -524,6 +551,9 @@
     "settings_menu_infos_privacy": {
         "message": "Privasi"
     },
+    "settings_menu_infos_contact": {
+        "message": "Kontak"
+    },
     "settings_menu_infos_changelog": {
         "message": "Changelog"
     },
@@ -532,6 +562,9 @@
     },
     "settings_menu_export": {
         "message": "Impor\/Ekspor"
+    },
+    "settings_menu_expert": {
+        "message": "Pengaturan ahli"
     },
     "settings_save": {
         "message": "Simpan Perubahan"
@@ -560,14 +593,32 @@
     "settings_premium_invalid_key": {
         "message": "Tidak dapat mengaktifkan Premium. Mohon masukkan nomor lisensi yang sah"
     },
+    "settings_search_placeholder": {
+        "message": "Cari konfigurasi"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Dengan pengaturan ahli, Anda dapat mengubah setiap flag konfigurasi ekstensi, bahkan yang tidak dapat Anda ubah menggunakan kotak centang atau slider biasa pada halaman pengaturan."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Harap lakukan hanya mengubah nilai di sini, jika Anda tahu apa yang Anda lakukan. Konfigurasi yang salah dapat menyebabkan perilaku ekstensi yang tidak terduga. Jika ada yang rusak, Anda dapat kembali ke konfigurasi default."
+    },
+    "settings_expert_save_error": {
+        "message": "Tidak dapat menyimpan pengaturan. Harap perbaiki input Anda."
+    },
     "settings_open_action": {
         "message": "Buka sidebar"
+    },
+    "settings_open_action_desc": {
+        "message": "Buka bilah sisi dengan mengklik kiri atau kanan atau arahkan mouse di tepi jendela browser. Atau Anda dapat mengubahnya menjadi hanya terbuka, jika ikon ekstensi diklik"
     },
     "settings_open_action_leftclick": {
         "message": "Klik kiri"
     },
     "settings_open_action_rightclick": {
         "message": "Klik kanan"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Mouseover"
     },
     "settings_open_action_icon": {
         "message": "Klik pada ikon"
@@ -578,17 +629,35 @@
     "settings_toggle_area_width": {
         "message": "Lebar"
     },
+    "settings_toggle_area_width_windowed": {
+        "message": "Lebar (windowed)"
+    },
     "settings_toggle_area_height": {
         "message": "Ketinggian"
     },
+    "settings_toggle_area_height_desc": {
+        "message": "Anda dapat mengurangi ketinggian area, sehingga bilah samping hanya akan terbuka saat Anda memindahkan kursor ke lokasi tepi jendela browser Anda."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Seret untuk bergerak"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Setel pintasan keyboard"
+    },
     "settings_link_action": {
         "message": "Buka bookmark"
+    },
+    "settings_link_action_desc": {
+        "message": "klik kiri bookmark akan membukanya di tab saat ini atau di tab baru."
     },
     "settings_link_action_current_tab": {
         "message": "Tab saat ini"
     },
     "settings_link_action_new_tab": {
         "message": "Tab baru"
+    },
+    "settings_open_delay": {
+        "message": "Buka penundaan"
     },
     "settings_remember_state": {
         "message": "Ingat"

@@ -56,11 +56,14 @@
     "contextmenu_new_tab": {
         "message": "Otvoru u novom tabu"
     },
+    "contextmenu_current_tab": {
+        "message": "Otvori u trenutnom prozoru"
+    },
     "contextmenu_new_window": {
         "message": "Otvori u novom prozoru"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Otvoru i inkognito (anonimnom) prozoru"
+        "message": "Otvori u anonimnom prozoru"
     },
     "contextmenu_add_bookmark": {
         "message": "Dodaj marker"
@@ -365,20 +368,23 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Preskace na sledece ili proslo mesto za unos"
+    },
     "keyboard_shortcuts_enter_desc": {
-        "message": "Klik\u0107e na unos koji je trenutno prikazan lebde\u0107i"
+        "message": "Klik\u0107e na unos koji je trenutno prikazan"
     },
     "keyboard_shortcuts_shift_enter_desc": {
-        "message": "Otvara kontekstualni meni za trenutno prikazan lebde\u0107i unos"
+        "message": "Otvara sadrzajni meni za trenutno prikazan unos"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Kopira URL od trenutno prikazanog lebde\u0107eg unosa"
+        "message": "Kopira URL od trenutno prikazanog unosa"
     },
     "keyboard_shortcuts_del_desc": {
-        "message": "Uklanja trenutno prikazani lebde\u0107i unos"
+        "message": "Uklanja trenutno prikazani unos"
     },
     "keyboard_shortcuts_esc_desc": {
-        "message": "Zatvara bo\u010dnu traku, otvoreni prikaz ili kontekstualni meni."
+        "message": "Zatvara bo\u010dnu traku, otvoreni prikaz ili sadrzajni meni."
     },
     "contribute_headline": {
         "message": "Potrebna mi je va\u0161a pomo\u0107"
@@ -599,26 +605,275 @@
     "settings_expert_save_error": {
         "message": "Neuspjesno pohranjivanje postavki. Molimo da ispravite unos."
     },
+    "settings_open_action": {
+        "message": "Otvori bo\u010dnu traku."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Levi klik"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Desni klik"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Prelazak mi\u0161em"
+    },
+    "settings_open_action_icon": {
+        "message": "Klik na ikonu"
+    },
+    "settings_toggle_area": {
+        "message": "Podesi prostor"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Po zadanom, cela ivica va\u0161eg prozora pretra\u017eiva\u010da mo\u017ee biti aktivirana prelaskom mi\u0161a za otvaranje bo\u010dne trake. Mo\u017eete izmeniti ovo i podesiti gde da se bo\u010dna traka ta\u010dno otvori."
+    },
+    "settings_toggle_area_width": {
+        "message": "\u0160irina."
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "\u0160irina (unutar prozora)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Visina"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Mo\u017eete umanjiti visinu prostora, tako da se bo\u010dna traka otvara samo kada pomerite kursor mi\u0161a unutar te lokacije ivice od prozora va\u0161eg pretra\u017eiva\u010da."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Povucite da pomerite"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Podesi skra\u0107enicu tastaturom"
+    },
+    "settings_link_action": {
+        "message": "Otvori markere"
+    },
+    "settings_link_action_desc": {
+        "message": "Levi klik na marker \u0107e ga otvoriti ili u trenutnoj kartici ili u novoj kartici."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Trenutna kartica (tab)"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nova kartica"
+    },
+    "settings_open_delay": {
+        "message": "Odlo\u017eeno otvaranje"
+    },
+    "settings_open_delay_desc": {
+        "message": "Spre\u010dava trenutno otvaranje bo\u010dne trake na prelazak mi\u0161em ili klikom sa odlo\u017eenim otvaranjem."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Spre\u010di skrolovanje stranice"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Spre\u010dava skrolovanje trenutne veb lokacije dok je bo\u010dna traka otvorena."
+    },
+    "settings_dir_accordion": {
+        "message": "Prika\u017ei samo trenutni direktorijum."
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Zatvara sve direktorijume osim trenutno aktivnog."
+    },
+    "settings_remember_state": {
+        "message": "Zapamti"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Pozicija skrola na stranici i otvorenih direktorijuma"
+    },
+    "settings_remember_state_all": {
+        "message": "Skrol pozicija, otvoreni direktorijumi i poslednji otvoreni marker"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Otvoreni direktorijumi."
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Otvoreni direktorijumi na osnovnom nivou"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Ni\u0161ta"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Zapamti otvorene pod-direktorijume"
+    },
+    "settings_remember_desc": {
+        "message": "Odaberite \u0161ta da se zapamati kroz izmene stranica. Ako odaberete da se zapamti poslednji otvoreni marker, bi\u0107e ozna\u010den kada se ponovo otvori bo\u010dna traka."
+    },
+    "settings_new_tab": {
+        "message": "Nova kartica"
+    },
+    "settings_new_tab_desc": {
+        "message": "Otvori markere u novoj kartici ispred ili u pozadini"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Otvori ispred"
+    },
+    "settings_new_tab_background": {
+        "message": "Otvori u pozadini"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Otvori nove kartice nakon poslednje ili trenutne kartice"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Nakon poslednje kartice"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Nakon trenutne kartice"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Pre prve kartice"
+    },
+    "settings_close_timeout": {
+        "message": "Istek vremena za zatvaranje"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Istek vremena u sekundama nakon \u010dega \u0107e bo\u010dna traka biti zatvorena. To \u0107e se ra\u010dunati od trenutka kada kursor mi\u0161a napusti bo\u010dnu traku i presta\u0107e kada pre\u0107e ponovo preko."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Ne zatvaraj automatski"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Sakrij skrol bar"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Istek vremena u sekundama nakon \u0161to \u0107e skrol bar biti saktiven. Skrolovanje \u0107e ponovo prikazati skrol bar."
+    },
+    "settings_presets": {
+        "message": "Odredi relativnu velicinu"
+    },
+    "settings_presets_desc": {
+        "message": "Mozete odabrati vec odredjene velicine za bocnu traku. To ce promeniti slajdere na stranici kako bi promenio sirinu bocne trake, visinu linija, velicine ikonica i jos mnogo drugih opcija."
+    },
+    "settings_color_scheme": {
+        "message": "Sema boja"
+    },
+    "settings_dark_mode": {
+        "message": "Povrsina"
+    },
+    "settings_color_scheme_desc": {
+        "message": "Boja bocnog hedera, potvrdnih dugmica, itd."
+    },
+    "settings_text_color": {
+        "message": "Boja teksta"
+    },
+    "settings_hover_color": {
+        "message": "Boja kada je mis preko"
+    },
+    "settings_font_family": {
+        "message": "Font"
+    },
+    "settings_font_family_default": {
+        "message": "Osnovni"
+    },
+    "settings_font_family_desc": {
+        "message": "Font na bocnoj traci i dodatnih baloncica"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Sirina klizaca"
+    },
+    "settings_icon_color": {
+        "message": "Boja"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automatsko"
+    },
+    "settings_icon_color_custom": {
+        "message": "Vasa boja"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Boja ikonice ce biti postavljena automatski kako bi se uklopila sa bojom sistema(svetla ili tamna). Takodje Vi mozete promeniti boju ikonice po Vasem izboru."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Izvinjavamo se, automatska boja ne radi kada koristite Vasu temu."
+    },
+    "settings_indicator_width": {
+        "message": "Sirina"
+    },
+    "settings_indicator_color": {
+        "message": "Boja"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Velicina ikonica"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Boja ikonica"
+    },
+    "settings_sidebar_width": {
+        "message": "Sirina"
+    },
+    "settings_header_height": {
+        "message": "Visina hedera"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Boja maske"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Ikonica foldera"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Boja ikonice foldera"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Velicina fonta obelezivaca"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Velicina ikonice obelezivaca"
+    },
+    "settings_directories_icon_size": {
+        "message": "Velicina ikonice foldera"
+    },
+    "settings_directory_arrows": {
+        "message": "Strelice foldera"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Visina obelezivaca"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Horizontalna ispuna obelezivaca"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Uvlacenje foldera"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Velicina fonta opisa"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Boja maske"
+    },
+    "settings_icon_shape": {
+        "message": "Oblik"
+    },
+    "settings_custom_css": {
+        "message": "Vasa stilska lista"
+    },
+    "settings_custom_css_desc": {
+        "message": "Mozete postaviti Vasu stilsku listu kako bi promenili osnovnu. Molimo koristite ovu opciju samo ukoliko ste upoznati sa CSS i znate sta radite."
+    },
     "settings_newtab_desc": {
-        "message": "Na\u017ealost, Google je uklonio moguc\u0301nost u\u010ditavanja pro\u0161irenja na zadanu stranicu nove kartice (taba). Zbog toga sam dodao neke opcije koje vam omoguc\u0301avaju da pristupite va\u0161im obele\u017eiva\u010dima kada otvarate novu karticu na drugi na\u010din."
+        "message": "Na\u017ealost, Google je uklonio moguc\u0301nost u\u010ditavanje dodatka na novoj kartici. Zbog toga su dodate neke opcije koje omoguc\u0301avaju da pristupite obele\u017eiva\u010dima na drugi na\u010din."
     },
     "settings_newtab_override": {
-        "message": "Premosti stranicu nove kartice (taba)"
+        "message": "Zameni stranicu nove kartice"
     },
     "settings_newtab_override_desc": {
-        "message": "Da li pro\u0161irenje treba da premosti va\u0161u trenutnu stranicu nove kartice (taba) sa prilago\u0111enom ili veb lokacijom koju treba u\u010ditati prilikom otvaranja nove kartice?"
+        "message": "Da li dodatak moze da zameni trenutnu stranicu nove kartice sa prilago\u0111enom ili sajtom koju treba u\u010ditati prilikom otvaranja nove kartice?"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Otvori bo\u010dnu traku automatski"
     },
     "settings_newtab_sidebar_auto_open_desc": {
-        "message": "Podesi da li bo\u010dna stranica treba da se otvori automatski kada se otvori nova kartica (tab)."
+        "message": "Podesite da li bo\u010dna traka treba da se otvori automatski kada se otvori nova kartica."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Oznaci adresnu traku"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Ukoliko je omoguceno, adresna traka ce biti izabrana kada je nova kartica otvorena."
     },
     "settings_newtab_website": {
-        "message": "U\u010ditaj veb lokaciju"
+        "message": "U\u010ditaj sajt"
     },
     "settings_newtab_website_desc": {
-        "message": "Umesto otvaranja zamenske nove kartice, mo\u017eete podesiti veb lokaciju koja \u0107e se u\u010ditati umesto nje."
+        "message": "Umesto otvaranja zamenske nove kartice, mo\u017eete podesiti sajt koji \u0107e se u\u010ditati umesto nje."
     },
     "settings_feedback_desc": {
         "message": "Imate bilo kakve sugestije za pobolj\u0161anja, pitanja, uo\u010dili ste nedostajuc\u0301e opcije za konfiguraciju ili prona\u0161li gre\u0161ku? U cilju pobolj\u0161anja iskustva sa ovim pro\u0161irenjem (ekstenzijom), bio bih vam veoma zahvalan za bilo koju i svaku povratnu informaciju ili predlog koji mo\u017eda imate."
@@ -649,5 +904,134 @@
     },
     "settings_feedback_faq_headline": {
         "message": "Ovo mo\u017ee biti od va\u017enosti za vas"
+    },
+    "premium_popup_text": {
+        "message": "Jeste li probali Premijum?"
+    },
+    "premium_restricted_text": {
+        "message": "Ova opcija je moguca samo na Premijum verziji dodatka."
+    },
+    "premium_desc_1": {
+        "message": "Sa Premijumom bicete u mogucnosti da pristupite dodatnim opcijama i pomognete mi u odrzavanja dodatka."
+    },
+    "premium_desc_2": {
+        "message": "Ispod mozete videti opcije koje su ukljucene uz Premijum. Sve osnovne opcije i funkcije dodatka su besplatne za koriscenje i ne zahtevaju Premijum licencu. Mozete platiti koliko mislite da dodatak i moj posao vredi Vama i time dobili ove opcije."
+    },
+    "premium_get_now": {
+        "message": "Uzmi Premijum sada"
+    },
+    "premium_show_license_input": {
+        "message": "Vec imam Premijum"
+    },
+    "premium_already_activated": {
+        "message": "Vec koristite Premijum"
+    },
+    "premium_activate": {
+        "message": "Aktiviraj Premijum"
+    },
+    "premium_license_key": {
+        "message": "Broj licence"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Budite prvi koji koristi nove eksperimentalne opcije i funkcije"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Sa premijumom dobijate pristup neobjavljenim opcijama i funkcijama koje su trenutno u razvoju i testiranju"
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Promeni sirinu bocne trake bilo kad"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Uvezi i izvezi sva podesavanja"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Prilagodi novu karticu"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Ukoliko koristite novu karticu dodatka, mozete postaviti Vasu sliku za pozadinu i napravite je jos lepsom"
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Podesite sve sa Vasom stilskom listom"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Ukoliko ste upoznati sa CSS, mozete promeniti potpuni izgled bocne trake dodavanjem Vas stil. To omogucava prilagodjavanje potpuno svega."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Proveri obelezivace za sajtove koji su prestali sa radom ili duplikate"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Mozete kliknuti desni klik na bilo koji folder na bocnoj traci da pokrenete proveru. Rezultat ce pokazati sve azurirane URL(linkove), obelezivaci koji vise nisu u funkciji i duplikate"
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Odaberite nacin placanja"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Platite koliko zelite"
+    },
+    "premium_pay_creditcard": {
+        "message": "Kreditna ili debitna kartica"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Skenirajte ovaj QR kod pomocu WeChat aplikacije kako biste nastavili"
+    },
+    "premium_pay_contact": {
+        "message": "Ukoliko imate neki problem sa placanjem ili imate bilo kakva pitanja, molim Vas da me kontaktirate na {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Ukupno"
+    },
+    "premium_pay_price_info": {
+        "message": "Ovo je jednokratna nadoknada i ukljucuje sve buduce Premijum opcije i funkcije"
+    },
+    "premium_pay_eula": {
+        "message": "Uslovi koriscenja"
+    },
+    "premium_pay_eula_desc": {
+        "message": "Procitao sam i slazem se sa [a]Uslovima koriscenja[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Prava otkazivanja"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Potvrdi porudzbenicu"
+    },
+    "premium_pay_buy": {
+        "message": "Kupi Premijum"
+    },
+    "premium_pay_verifying": {
+        "message": "Provera transakcije"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Broj porudzbenice"
+    },
+    "premium_pay_success_headline": {
+        "message": "Hvala Vam na kupovini"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} je aktiviran automatski na ovom uredjaju. Vise ne morate uraditi nijedan korak."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Ukoliko zelite da aktivirate {1} na drugom uredjaju ili nakon reinstalacije dodatka, mozete upisati sledeci broj u podesavanja dodatka."
+    },
+    "premium_pay_info_email": {
+        "message": "Emajl"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Molim Vas unesite emajl adresu na kojoj cete primiti broj licence."
+    },
+    "premium_pay_info_name": {
+        "message": "Ime"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Postanski broj"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Nacin placanja"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Broj kartice"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Kartica istice"
     }
 }

@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Otev\u0159\u00edt na nov\u00e9 kart\u011b"
     },
+    "contextmenu_current_tab": {
+        "message": "Otev\u0159\u00edt v aktu\u00e1ln\u00ed kart\u011b"
+    },
     "contextmenu_new_window": {
         "message": "Otev\u0159\u00edt v nov\u00e9m okn\u011b"
     },
@@ -277,6 +280,12 @@
     },
     "newtab_search_placeholder": {
         "message": "Vyhledat {1} nebo typ URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Zobrazit vyhled\u00e1vac\u00ed pole"
+    },
+    "newtab_search_field_hide": {
+        "message": "Schovat vyhled\u00e1vac\u00ed pole"
     },
     "newtab_speech_search_listening": {
         "message": "Mluvte te\u010f"

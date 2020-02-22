@@ -296,6 +296,33 @@
     "status_background_disconnected_reload_desc": {
         "message": "Laajennuksen p\u00e4ivittymisen vuoksi t\u00e4m\u00e4 sivu on ladattava uudelleen."
     },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Sarkain"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Vaihto"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Command"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Kopioi valitun osoitteen"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Poistaa valitun kohteen"
+    },
     "contribute_headline": {
         "message": "Tarvitsen apuasi"
     },

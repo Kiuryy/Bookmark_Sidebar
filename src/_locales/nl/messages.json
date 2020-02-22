@@ -281,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "Zoek {1} of typ de URL"
     },
+    "newtab_search_field_show": {
+        "message": "Toon zoekveld"
+    },
+    "newtab_search_field_hide": {
+        "message": "Verberg zoekveld"
+    },
     "newtab_speech_search_listening": {
         "message": "nu spreken"
     },

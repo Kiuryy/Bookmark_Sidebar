@@ -96,7 +96,7 @@
 
                     initEvents();
 
-                    $.delay(100).then(() => {
+                    $.delay(0).then(() => {
                         updateAllPreviewStyles();
                         $(window).trigger("resize");
                         resolve();
@@ -173,7 +173,7 @@
                 }
 
                 Object.assign(config.appearance.styles, s.helper.font.getFontWeights(config.appearance.styles.fontFamily));
-
+                console.log(previews[key]);
                 let css = previews[key].css;
                 css += config.utility.customCss;
 
@@ -420,8 +420,18 @@
          */
         const initPreviews = () => {
             return new Promise((resolve) => {
-                let previewsLoaded = 0;
                 const previewAmount = Object.keys(previews).length;
+                let styleAmount = 0;
+                Object.values(previews).forEach((preview) => styleAmount += preview.styles.length);
+
+                let previewsLoaded = 0;
+                let stylesLoaded = 0;
+
+                const resolveWhenAllFinished = () => { // resolves the promise, once all preview html and css is loaded
+                    if (previewsLoaded === previewAmount && stylesLoaded === previewAmount) {
+                        resolve();
+                    }
+                };
 
                 Object.keys(previews).forEach((key) => {
                     previews[key].css = "";
@@ -444,10 +454,7 @@
                             s.helper.font.addStylesheet(s.elm.preview[key]);
 
                             previewsLoaded++;
-
-                            if (previewsLoaded === previewAmount) {
-                                resolve();
-                            }
+                            resolveWhenAllFinished();
                         }
                     });
 
@@ -455,6 +462,8 @@
                         $.xhr($.api.extension.getURL("css/" + stylesheet + ".css")).then((xhr) => {
                             if (xhr && xhr.responseText) {
                                 previews[key].css += xhr.responseText;
+                                stylesLoaded++;
+                                resolveWhenAllFinished();
                             }
                         });
                     });

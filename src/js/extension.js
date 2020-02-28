@@ -448,7 +448,7 @@
                 this.elm.widthDrag = this.elm.widthDrag.appendTo(this.elm.sidebar);
             }
 
-            this.elm.filterBox = $("<div />").addClass($.cl.sidebar.filterBox).appendTo(this.elm.sidebar);
+            this.elm.filterBox = $("<div />").addClass([$.cl.sidebar.filterBox, $.cl.hidden]).appendTo(this.elm.sidebar);
             this.elm.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
             this.elm.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elm.sidebar);
 

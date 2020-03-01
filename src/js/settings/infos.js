@@ -10,6 +10,10 @@
          */
         this.init = async () => {
             return new Promise((resolve) => {
+                if (s.elm.infos.aboutWrapper.hasClass($.cl.active)) {
+                    s.loadImages(s.elm.infos.aboutWrapper);
+                }
+
                 Promise.all([
                     initPermissionList(),
                     initEvents()
@@ -43,6 +47,12 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
+            $(document).on($.opts.events.pageChanged, (e) => {
+                if (e.detail.path && e.detail.path[0] === "infos") {
+                    s.loadImages(s.elm.infos.aboutWrapper);
+                }
+            });
+
             $.api.storage.sync.get(["shareInfo"], (obj) => {
                 if (obj.shareInfo) {
                     if (obj.shareInfo.config) {

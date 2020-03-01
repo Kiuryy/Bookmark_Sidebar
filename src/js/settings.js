@@ -75,6 +75,7 @@
             },
             formElement: $("div.formElement"),
             infos: {
+                aboutWrapper: $("div.tab[data-name='infos'] div[data-name='aboutme']"),
                 shareInfoWrapper: $("div.tab[data-name='infos'] div.shareInformation"),
                 permissionsWrapper: $("div.tab[data-name='infos'] div.permissions")
             },
@@ -151,6 +152,24 @@
                         loader[name].remove();
                         this.elm[name].wrapper.removeClass($.cl.loading);
                     });
+                });
+            });
+        };
+
+        /**
+         * Loads the images of the given wrapper by replacing the data-src attribute with src attributes
+         *
+         * @param wrapper
+         */
+        this.loadImages = (wrapper)=> {
+            wrapper.find("img[" + $.attr.src + "]").forEach((_self) => {
+                const img = $(_self);
+                const src = img.attr($.attr.src);
+                img.removeAttr($.attr.src);
+                img.attr("src", src);
+
+                $.delay().then(() => {
+                    img.addClass($.cl.visible);
                 });
             });
         };

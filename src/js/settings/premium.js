@@ -20,7 +20,7 @@
          */
         const initLayout = () => {
             if (s.elm.premium.wrapper.hasClass($.cl.active)) {
-                loadBackgroundImages();
+                s.loadImages(s.elm.premium.wrapper);
             }
 
             const introSlide = s.elm.premium.wrapper.children("section[" + $.attr.type + "='intro']");
@@ -58,7 +58,7 @@
         const initEvents = () => {
             $(document).on($.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "premium") {
-                    loadBackgroundImages();
+                    s.loadImages(s.elm.premium.wrapper);
                 }
             });
 
@@ -100,22 +100,6 @@
                     }
                 });
 
-            });
-        };
-
-        /**
-         * Loads the background images of the slides by replacing the data-src attribute with src attributes
-         */
-        const loadBackgroundImages = () => {
-            s.elm.premium.wrapper.find("img[" + $.attr.src + "]").forEach((_self) => {
-                const img = $(_self);
-                const src = img.attr($.attr.src);
-                img.removeAttr($.attr.src);
-                img.attr("src", src);
-
-                $.delay().then(() => {
-                    img.addClass($.cl.visible);
-                });
             });
         };
     };

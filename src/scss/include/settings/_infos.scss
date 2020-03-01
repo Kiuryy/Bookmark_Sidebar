@@ -49,12 +49,21 @@ body > section#wrapper {
         position: relative;
         width: 310px;
         height: 310px;
+        border-radius: 15px;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        background: rgba($mainColor2,0.2);
+        overflow: hidden;
 
         > img {
           display: block;
           width: 100%;
-          border-radius: 20px;
-          box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+
+          transition: opacity 0.5s;
+          @extend %hidden;
+
+          &.visible {
+            @extend %visible;
+          }
         }
 
         > a {

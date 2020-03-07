@@ -887,6 +887,9 @@
     "settings_import_failed": {
         "message": "Failed to import the configuration. Please choose a valid file."
     },
+    "settings_theme_changed": {
+        "message": "Changed theme successfully"
+    },
     "settings_presets": {
         "message": "Set relative sizes"
     },
@@ -956,6 +959,12 @@
     "settings_sidebar_mask_color": {
         "message": "Mask color"
     },
+    "settings_background_transparency": {
+        "message": "Background transparency"
+    },
+    "settings_background_blur": {
+        "message": "Background blur effect"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Directory icon"
     },
@@ -997,6 +1006,36 @@
     },
     "settings_custom_css_desc": {
         "message": "You can define your own stylesheet to override the default styling. Please only use this option, if you are familiar with CSS and know what you are doing."
+    },
+    "settings_theme": {
+        "message": "Theme"
+    },
+    "settings_themes_notice": {
+        "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and color options."
+    },
+    "settings_available_themes": {
+        "message": "Available Themes"
+    },
+    "settings_show_themes": {
+        "message": "Show available themes"
+    },
+    "settings_theme_default": {
+        "message": "Default theme"
+    },
+    "settings_theme_default_desc": {
+        "message": "This theme lets you access your bookmarks in a clean, modern way. Many elements are colored in a configurable color scheme."
+    },
+    "settings_theme_glass": {
+        "message": "Glass theme"
+    },
+    "settings_theme_glass_desc": {
+        "message": "This theme makes the background of the sidebar semi-transparent and adds a blurry glass effect to it. You can adjust this effect and the transparency of the sidebar."
+    },
+    "settings_install_theme": {
+        "message": "Install theme"
+    },
+    "settings_installed_theme_info": {
+        "message": "Currently installed"
     },
     "settings_newtab_desc": {
         "message": "Chromium-based browsers do not allow loading extensions on the default new tab page. Because of this, the sidebar feature is not working there. To circumvent this problem, some options were added allowing you to access your bookmarks when opening a new tab in another way."

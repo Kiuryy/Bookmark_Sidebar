@@ -848,6 +848,9 @@
     "settings_import_failed": {
         "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
     },
+    "settings_theme_changed": {
+        "message": "Das Design wurde erfolgreich ge\u00e4ndert"
+    },
     "settings_presets": {
         "message": "Relative Gr\u00f6\u00dfen"
     },
@@ -917,6 +920,12 @@
     "settings_sidebar_mask_color": {
         "message": "Maskenfarbe"
     },
+    "settings_background_transparency": {
+        "message": "Hintergrund-Transparenz"
+    },
+    "settings_background_blur": {
+        "message": "Hintergrund Unsch\u00e4rfe-Effekt"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Verzeichnis-Symbol"
     },
@@ -958,6 +967,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Du kanst dein eigenes Stylesheet definieren und das Standard-Styling \u00fcberschreiben. Bitte nutze diese Option nur, wenn du dich mit CSS auskennst und wei\u00dft, was du tust."
+    },
+    "settings_theme": {
+        "message": "Design"
+    },
+    "settings_themes_notice": {
+        "message": "Du kannst das Grunddesign der Sidebar ausw\u00e4hlen. Das ausgew\u00e4hlte Design kann mit den vorhandenen Reglern und Farboptionen zus\u00e4tzlich angepasst werden."
+    },
+    "settings_available_themes": {
+        "message": "Verf\u00fcgbare Designs"
+    },
+    "settings_show_themes": {
+        "message": "Verf\u00fcgbare Designs anzeigen"
+    },
+    "settings_theme_default": {
+        "message": "Standard-Design"
+    },
+    "settings_theme_default_desc": {
+        "message": "Dieses Design stellt die Lesezeichen klar und modern dar. Viele Elemente sind in einem konfigurierbaren Farbschema eingef\u00e4rbt"
+    },
+    "settings_theme_glass": {
+        "message": "Glas-Design"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Dieses Design macht den Hintergrund der Sidebar halbtransparent und f\u00fcgt einen Milchglas-Effekt hinzu. Dieser Effekt, sowie die Transparenz kann angepasst werden."
+    },
+    "settings_install_theme": {
+        "message": "Design installieren"
+    },
+    "settings_installed_theme_info": {
+        "message": "Aktuell installiert"
     },
     "settings_newtab_desc": {
         "message": "Leider k\u00f6nnen Erweiterungen in Chromium-basierten Browsern auf der Standard-New-Tab-Seite keine Inhalte laden. Deshalb funktioniert dort auch die Sidebar nicht. Um dieses Problem zu umgehen, habe ich Einstellungsm\u00f6glichkeiten hinzugef\u00fcgt, damit du trotzdem beim \u00d6ffnen eines neuen Tabs auf deine Lesezeichen zugreifen kannst."

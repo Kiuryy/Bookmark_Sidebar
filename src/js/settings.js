@@ -37,6 +37,9 @@
             },
             appearance: {
                 content: $("div.tab[data-name='appearance']"),
+                selectedTheme: $("div.tab[data-name='appearance'] div.selectedTheme"),
+                showThemes: $("div.tab[data-name='appearance'] a.showThemes"),
+                themeListWrapper: $("div.tab[data-name='appearance'] div.themeList"),
                 presetWrapper: $("div.tab[data-name='appearance'] div.presets"),
                 iconColorWrapper: $("div.tab[data-name='appearance'] div.iconColorWrapper"),
             },
@@ -161,7 +164,7 @@
          *
          * @param wrapper
          */
-        this.loadImages = (wrapper)=> {
+        this.loadImages = (wrapper) => {
             wrapper.find("img[" + $.attr.src + "]").forEach((_self) => {
                 const img = $(_self);
                 const src = img.attr($.attr.src);

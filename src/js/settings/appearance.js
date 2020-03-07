@@ -10,23 +10,36 @@
             indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
+        const themeDefaultStyles = {
+            glass: {
+                sidebarHeaderHeight: "60px",
+                overlayHeaderHeight: "60px"
+            }
+        };
+
         const presets = {
-            sidebarHeaderHeight: {xs: 32, s: 36, l: 55},
-            bookmarksFontSize: {xs: 11, s: 12, l: 16},
-            bookmarksLineHeight: {xs: 20, s: 26, l: 45},
-            sidebarWidth: {xs: 250, s: 300, l: 400},
-            bookmarksDirIndentation: {xs: 20, s: 22, l: 30},
-            bookmarksHorizontalPadding: {xs: 6, s: 10, l: 18},
-            bookmarksIconSize: {xs: 12, s: 14, l: 18},
-            directoriesIconSize: {xs: 12, s: 14, l: 18},
-            scrollBarWidth: {xs: 10, s: 11, l: 12},
-            tooltipFontSize: {xs: 9, s: 9, l: 12}
+            "default": {
+                sidebarHeaderHeight: {xs: 32, s: 36, l: 55},
+                bookmarksFontSize: {xs: 11, s: 12, l: 16},
+                bookmarksLineHeight: {xs: 20, s: 26, l: 45},
+                sidebarWidth: {xs: 250, s: 300, l: 400},
+                bookmarksDirIndentation: {xs: 20, s: 22, l: 30},
+                bookmarksHorizontalPadding: {xs: 6, s: 10, l: 18},
+                bookmarksIconSize: {xs: 12, s: 14, l: 18},
+                directoriesIconSize: {xs: 12, s: 14, l: 18},
+                scrollBarWidth: {xs: 10, s: 11, l: 12},
+                tooltipFontSize: {xs: 9, s: 9, l: 12}
+            },
+            glass: {
+                sidebarHeaderHeight: {xs: 32, s: 40, m: 60, l: 80}
+            }
         };
 
         const sidebarMaxSelectableWidth = 600;
 
         let lastTooltipChange = null;
         let tooltipTimeout = null;
+        let theme = null;
 
         /**
          * Initialises the appearance settings
@@ -35,7 +48,11 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
+                theme = s.helper.model.getData("a/theme");
+
                 initPreviews().then(() => {
+                    return initThemeSelector();
+                }).then(() => {
                     ["darkMode", "directoryArrows"].forEach((field) => {
                         let checked = false;
                         if (s.helper.model.getData("a/" + field) === true) {
@@ -70,8 +87,8 @@
                             s.elm.range[key].data("initial", value);
                             s.elm.range[key].trigger("change");
                         } else if (s.elm.color[key]) {
-                            if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the default icon color for the light OS preference as predefined color
-                                value = $.opts.defaultColors.icon.forLight;
+                            if (key === "iconColor" && value === "auto") { // since 'auto' isn't a valid color for the picker, we choose the color of the first suggestion as predefined color
+                                value = s.elm.color[key].siblings("span." + $.cl.settings.suggestion).eq(0).attr($.attr.value);
                                 s.elm.select.iconColorType[0].value = "auto";
                             }
 
@@ -96,7 +113,7 @@
 
                     initEvents();
 
-                    $.delay(0).then(() => {
+                    $.delay(100).then(() => {
                         updateAllPreviewStyles();
                         $(window).trigger("resize");
                         resolve();
@@ -165,6 +182,7 @@
             const config = getCurrentConfig();
 
             if (s.elm.preview[key]) {
+                s.elm.preview[key].find("body").attr($.attr.theme, theme);
                 s.elm.preview[key].find("head > style").remove();
 
                 if (config.appearance.styles.fontFamily === "default") {
@@ -173,7 +191,6 @@
                 }
 
                 Object.assign(config.appearance.styles, s.helper.font.getFontWeights(config.appearance.styles.fontFamily));
-                console.log(previews[key]);
                 let css = previews[key].css;
                 css += config.utility.customCss;
 
@@ -352,8 +369,9 @@
                     ret.appearance.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
+                        const defaultColors = s.helper.model.getDefaultColors(theme);
                         const lum = colorValue.luminance ? colorValue.luminance : 0;
-                        ret.appearance.styles.foregroundColor = $.opts.defaultColors.foregroundColor[lum > 170 ? "dark" : "light"];
+                        ret.appearance.styles.foregroundColor = defaultColors.foregroundColor[lum > 170 ? "dark" : "light"];
 
                         if (lum > 215) {
                             ret.appearance.highContrast = true;
@@ -414,6 +432,93 @@
         };
 
         /**
+         * Applies the given theme,
+         * resets the current style settings and sets the default styles for the given theme,
+         * will perform a browser refresh afterwards to update the previews, options, etc...
+         *
+         * @param {string} theme
+         */
+        const changeTheme = (theme) => {
+            $.api.storage.sync.get(["appearance"], (conf) => {
+                const appearance = conf.appearance || {};
+                appearance.styles = appearance.styles || {};
+                appearance.theme = theme;
+
+                Object.keys(appearance.styles).forEach((key) => {
+                    if (!key.startsWith("indicator") && !key.startsWith("icon") && key !== "colorScheme") { // remove all styles, but keep some (indicator, color scheme, icon, ...)
+                        delete appearance.styles[key];
+                    }
+                });
+
+                const defaultColors = s.helper.model.getDefaultColors(theme);
+                const surface = appearance.darkMode ? "dark" : "light";
+                Object.entries(defaultColors).forEach(([key, val]) => { // apply the default colors for the selected theme
+                    appearance.styles[key] = val[surface];
+                });
+
+                if (themeDefaultStyles[theme]) {
+                    Object.entries(themeDefaultStyles[theme]).forEach(([key, val]) => {
+                        appearance.styles[key] = val;
+                    });
+                }
+
+                $.api.storage.sync.set({appearance: appearance}, () => {
+                    s.helper.model.call("reinitialize");
+                    s.showSuccessMessage("theme_changed");
+                    $.delay(1500).then(() => {
+                        location.reload(true);
+                    });
+                });
+            });
+        };
+
+        /**
+         * Initializes the theme selector
+         */
+        const initThemeSelector = () => {
+            if (s.elm.appearance.content.hasClass($.cl.active)) {
+                s.loadImages(s.elm.appearance.content);
+            }
+
+            s.elm.appearance.selectedTheme.children("span").text(s.helper.i18n.get("settings_theme_" + theme));
+
+            s.elm.appearance.themeListWrapper.find("> ul > li").forEach((elm) => {
+                const elmObj = $(elm);
+                const caption = elmObj.children("div");
+                const availableTheme = elmObj.attr($.attr.name);
+
+                if (theme === availableTheme) {
+                    $("<span />").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
+                } else {
+                    $("<a />").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
+                }
+            });
+
+            s.elm.appearance.themeListWrapper.find("> ul > li > div > a").on("click", (e) => {
+                e.preventDefault();
+                const theme = $(e.currentTarget).parents("li").eq(0).attr($.attr.name);
+                changeTheme(theme);
+            });
+
+            s.elm.appearance.themeListWrapper.css("display", "none");
+            $([s.elm.appearance.showThemes, s.elm.appearance.selectedTheme]).on("click", () => { // toggle the list with all available themes
+                if (s.elm.appearance.themeListWrapper.hasClass($.cl.visible)) {
+                    s.elm.appearance.themeListWrapper.removeClass($.cl.visible);
+
+                    $.delay(300).then(() => {
+                        s.elm.appearance.themeListWrapper.css("display", "none");
+                    });
+                } else {
+                    s.elm.appearance.themeListWrapper.css("display", "block");
+
+                    $.delay(0).then(() => {
+                        s.elm.appearance.themeListWrapper.addClass($.cl.visible);
+                    });
+                }
+            });
+        };
+
+        /**
          * Initialises the previews
          *
          * @returns {Promise}
@@ -421,8 +526,13 @@
         const initPreviews = () => {
             return new Promise((resolve) => {
                 const previewAmount = Object.keys(previews).length;
+
+                const styles = {};
                 let styleAmount = 0;
-                Object.values(previews).forEach((preview) => styleAmount += preview.styles.length);
+                Object.entries(previews).forEach(([key, preview]) => { // extend the styles of the preview with the selected theme
+                    styles[key] = s.helper.stylesheet.getStylesheetFilesWithThemes(preview.styles);
+                    styleAmount += styles[key].length;
+                });
 
                 let previewsLoaded = 0;
                 let stylesLoaded = 0;
@@ -458,7 +568,7 @@
                         }
                     });
 
-                    previews[key].styles.forEach((stylesheet) => {
+                    styles[key].forEach((stylesheet) => {
                         $.xhr($.api.extension.getURL("css/" + stylesheet + ".css")).then((xhr) => {
                             if (xhr && xhr.responseText) {
                                 previews[key].css += xhr.responseText;
@@ -478,8 +588,9 @@
             s.elm.appearance.presetWrapper.children("a").on("click", (e) => {
                 const type = $(e.currentTarget).attr($.attr.type);
                 const defaults = s.helper.model.getData("a/styles", true);
+                const themePresets = Object.assign({}, presets["default"], presets[theme]);
 
-                Object.entries(presets).forEach(([key, values]) => {
+                Object.entries(themePresets).forEach(([key, values]) => {
                     if (values[type]) {
                         s.elm.range[key][0].value = values[type];
                     } else {
@@ -528,13 +639,14 @@
                                 "old": val ? "light" : "dark"
                             };
 
-                            const textColor = $.opts.defaultColors.textColor[scheme["new"]];
+                            const defaultColors = s.helper.model.getDefaultColors(theme);
+                            const textColor = defaultColors.textColor[scheme["new"]];
                             changeColorValue(s.elm.color.textColor, textColor);
                             changeColorValue(s.elm.color.bookmarksDirColor, textColor);
 
                             ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
-                                if (colorName === "hoverColor" || s.elm.color[colorName][0].value === $.opts.defaultColors[colorName][scheme.old]) { // only change, if it was the default color before
-                                    const color = $.opts.defaultColors[colorName][scheme["new"]];
+                                if (colorName === "hoverColor" || s.elm.color[colorName][0].value === defaultColors[colorName][scheme.old]) { // only change, if it was the default color before
+                                    const color = defaultColors[colorName][scheme["new"]];
                                     changeColorValue(s.elm.color[colorName], color);
                                 }
                             });
@@ -579,6 +691,7 @@
             $(document).on($.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "appearance") {
                     updatePreviewStyle(e.detail.path[1]);
+                    s.loadImages(s.elm.appearance.content);
                 }
             });
         };

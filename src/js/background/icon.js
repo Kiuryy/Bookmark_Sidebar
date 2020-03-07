@@ -3,6 +3,11 @@
 
     $.IconHelper = function (b) {
 
+        const defaultColors = {
+            forLight: "#555555",
+            forDark: "#ffffff"
+        };
+
         let cachedSvg = {};
         let currentIcon = null;
 
@@ -95,7 +100,7 @@
                     }
                 }).then((svg) => {
                     if (color === "auto") {
-                        color = $.opts.defaultColors.icon[window.matchMedia("(prefers-color-scheme: dark)").matches ? "forDark" : "forLight"];
+                        color = defaultColors[window.matchMedia("(prefers-color-scheme: dark)").matches ? "forDark" : "forLight"];
                     }
 
                     color = color.replace(/#/g, "%23");

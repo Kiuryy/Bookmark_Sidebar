@@ -44,6 +44,49 @@ html[dir='rtl'] {
         }
       }
 
+      div.selectedTheme {
+
+        > span {
+          padding-right: 42px;
+          padding-left: 14px;
+        }
+
+        &::after {
+          left: unset;
+          right: -5px;
+        }
+
+        &::before {
+          left: unset;
+        }
+
+        &:hover {
+
+          > span {
+            padding-right: 14px;
+            margin-right: 40px;
+            margin-left: 0;
+          }
+        }
+      }
+
+      a.showThemes {
+        padding-right: 22px;
+        padding-left: 5px;
+
+        &::before {
+          -webkit-mask-position-x: right;
+        }
+      }
+
+      div.themeList {
+
+        &::before {
+          left: unset;
+          right: 35px;
+        }
+      }
+
       div.presets {
 
         > a {

@@ -40,5 +40,3 @@ body > iframe#blockbyte-bs-overlay.noAnimations > * {
 @media print {
   [id^='blockbyte-bs-'] {
     display: none !important; } }
-
-/*# sourceMappingURL=contentBase.css.map */

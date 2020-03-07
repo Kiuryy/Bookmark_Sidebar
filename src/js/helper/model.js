@@ -7,6 +7,53 @@
      */
     $.ModelHelper = function (ext) {
 
+        const defaultColors = {
+            "default": {
+                textColor: {
+                    light: "#646464",
+                    dark: "#c8c8c8"
+                },
+                sidebarMaskColor: {
+                    light: "rgba(255, 255, 255, 0.8)",
+                    dark: "rgba(0, 0, 0, 0.6)"
+                },
+                hoverColor: {
+                    light: "#f5f5f5",
+                    dark: "#555555"
+                },
+                colorScheme: {
+                    light: "#1b82f1",
+                    dark: "#1f4d80"
+                },
+                foregroundColor: {
+                    light: "#ffffff",
+                    dark: "#333333"
+                },
+                icon: {
+                    forLight: "#555555",
+                    forDark: "#ffffff"
+                }
+            },
+            glass: {
+                sidebarMaskColor: {
+                    light: "rgba(0, 0, 0, 0)",
+                    dark: "rgba(0, 0, 0, 0)"
+                },
+                overlayMaskColor: {
+                    light: "rgba(0, 0, 0, 0.3)",
+                    dark: "rgba(0, 0, 0, 0.3)"
+                },
+                textColor: {
+                    light: "#444444",
+                    dark: "#cfcfcf"
+                },
+                hoverColor: {
+                    light: "rgba(0, 0, 0, 0.05)",
+                    dark: "rgba(255, 255, 255, 0.08)"
+                }
+            }
+        };
+
         const defaults = {
             u: { // utility -> saved locally
                 openStates: {},
@@ -64,6 +111,7 @@
                 dndOpenDirDelay: 0.5
             },
             a: { // appearance -> synced across devices
+                theme: "default",
                 showIndicator: true,
                 showIndicatorIcon: true,
                 darkMode: false,
@@ -73,23 +121,23 @@
                 showDirectoryIcons: true,
                 devModeIconBadge: true,
                 styles: {
-                    colorScheme: $.opts.defaultColors.colorScheme.light,
-                    foregroundColor: $.opts.defaultColors.foregroundColor.light,
-                    textColor: $.opts.defaultColors.textColor.light,
-                    hoverColor: $.opts.defaultColors.hoverColor.light,
+                    colorScheme: defaultColors["default"].colorScheme.light,
+                    foregroundColor: defaultColors["default"].foregroundColor.light,
+                    textColor: defaultColors["default"].textColor.light,
+                    hoverColor: defaultColors["default"].hoverColor.light,
                     indicatorWidth: "40px",
                     indicatorIconSize: "32px",
                     indicatorIconColor: "#ffffff",
                     indicatorColor: "rgba(0,0,0,0.5)",
                     sidebarWidth: "350px",
                     sidebarHeaderHeight: "50px",
-                    sidebarMaskColor: $.opts.defaultColors.sidebarMaskColor.light,
+                    sidebarMaskColor: defaultColors["default"].sidebarMaskColor.light,
                     bookmarksFontSize: "14px",
                     directoriesIconSize: "16px",
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "38px",
                     bookmarksDirIcon: "dir-1",
-                    bookmarksDirColor: $.opts.defaultColors.textColor.light,
+                    bookmarksDirColor: defaultColors["default"].textColor.light,
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     scrollBarWidth: "11px",
@@ -254,6 +302,10 @@
             });
 
             return ret;
+        };
+
+        this.getDefaultColors = (theme = "default") => {
+            return Object.assign({}, defaultColors["default"], defaultColors[theme]);
         };
 
         /**

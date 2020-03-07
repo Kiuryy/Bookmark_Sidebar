@@ -216,6 +216,7 @@
             type: "data-type",
             name: "data-name",
             value: "data-value",
+            theme: "data-theme",
             sort: "data-sort",
             direction: "data-direction",
             style: "data-style",
@@ -306,32 +307,6 @@
                 "chrome://newtab/": "chrome://startpage/",
                 "chrome://bookmarks": "opera://bookmarks",
                 "chrome://extensions/shortcuts": "opera://settings/keyboardShortcuts"
-            }
-        },
-        defaultColors: {
-            textColor: {
-                light: "#646464",
-                dark: "#c8c8c8"
-            },
-            sidebarMaskColor: {
-                light: "rgba(255,255,255,0.8)",
-                dark: "rgba(0,0,0,0.6)"
-            },
-            hoverColor: {
-                light: "#f5f5f5",
-                dark: "#555555"
-            },
-            colorScheme: {
-                light: "#1b82f1",
-                dark: "#1f4d80"
-            },
-            foregroundColor: {
-                light: "#ffffff",
-                dark: "#333333"
-            },
-            icon: {
-                forLight: "#555555",
-                forDark: "#ffffff"
             }
         },
         leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",

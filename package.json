@@ -1,7 +1,7 @@
 {
   "name": "bookmark_sidebar",
-  "version": "1.17.1",
-  "versionName": "1.17.1",
+  "version": "1.18.0",
+  "versionName": "1.18.0",
   "license": "GPL-3.0",
   "author": "Philipp König",
   "homepage": "https://extensions.blockbyte.de/",
@@ -12,7 +12,7 @@
   "scripts": {
     "init": "npm install --only=dev",
     "release": "ncu -u --packageFile package.json && npm install --only=dev && node build.js",
-    "scss": "node-sass --source-map true -o src/css src/scss"
+    "scss": "node-sass -o src/css src/scss"
   },
   "devDependencies": {
     "concat": "^1.0.3",
@@ -24,10 +24,10 @@
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.13.1",
-    "npm-check-updates": "^4.0.1",
+    "npm-check-updates": "^4.0.2",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^4.6.3",
+    "terser": "^4.6.4",
     "zip-dir": "^1.0.2"
   }
 }

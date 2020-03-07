@@ -1434,5 +1434,3 @@ body.dark div.modal {
     color: "%textColor"; }
     body.dark div.modal > menu.buttons > a::before {
       background: "%textColor"; }
-
-/*# sourceMappingURL=overlay.css.map */

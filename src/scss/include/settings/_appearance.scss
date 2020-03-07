@@ -130,6 +130,162 @@ body[data-type^='appearance'] {
       max-width: 820px;
     }
 
+    div.selectedTheme {
+      @include mask('settings/icon-theme', $textColor, 20px);
+      position: relative;
+      display: inline-block;
+      margin: 17px 0 8px;
+      color: $textColor;
+      font-weight: $__fontWeightBold;
+      cursor: pointer;
+
+      > span {
+        position: relative;
+        display: block;
+        padding: 10px 14px 10px 42px;
+        background: $contentBackground;
+        border-radius: 9px;
+        z-index: 2;
+        transition: margin 0.2s, padding 0.2s;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -4.5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 9px);
+        border-radius: 14px;
+        background: $gradient;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      &::before {
+        width: 36px;
+        z-index: 3;
+        transition: background-color 0.2s, transform 0.3s;
+      }
+
+      &:hover {
+
+        > span {
+          padding-left: 14px;
+          margin-left: 40px;
+        }
+
+        &::before {
+          transform: scale(1.4, 1.4);
+          background: $textColorInverted;
+        }
+      }
+    }
+
+    a.showThemes {
+      @include mask('icon-add', $textColor, 18px);
+      position: relative;
+      display: inline-block;
+      color: $textColor;
+      font-weight: $__fontWeightMedium;
+      padding: 3px 5px 3px 22px;
+      margin-top: 16px;
+      font-size: 100%;
+      cursor: pointer;
+
+      &::before {
+        -webkit-mask-position-x: left;
+      }
+    }
+
+    div.themeList {
+      background: rgba($mainColor2, 0.5);
+      padding-bottom: 30px;
+      transform: translate3d(0, -10px, 0);
+      opacity: 0;
+      margin-top: 20px;
+      transition: opacity 0.3s, transform 0.3s;
+
+      &.visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: 35px;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-bottom-color: rgba($mainColor2, 0.5);
+      }
+
+      > h2 {
+        color: $textColorInverted;
+        margin: 10px 0 30px;
+      }
+
+      > ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 25px;
+
+        > li {
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+          background: $contentBackground;
+
+          > img {
+            display: block;
+            width: 100%;
+          }
+
+          > div.caption {
+            position: relative;
+            padding: 0 10px 8px 10px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: -25px;
+              left: 0;
+              width: 100%;
+              height: 25px;
+              background: linear-gradient(to bottom, transparent 0%, $contentBackground 100%);
+            }
+
+            > h3 {
+              font-size: 120%;
+              font-weight: $__fontWeightMedium;
+            }
+
+            > p {
+              font-size: 90%;
+              margin: 5px 0 0 0;
+            }
+
+            > a {
+              @extend %button;
+              background: $mainColor2;
+              font-size: 90%;
+              margin-top: 10px;
+              padding: 4px 12px;
+            }
+
+            > span.active {
+              display: block;
+              margin-top: 5px;
+              font-weight: 400;
+              font-style: italic;
+              color: $colorSuccess;
+            }
+          }
+        }
+      }
+    }
+
     div.presets {
 
       > p {

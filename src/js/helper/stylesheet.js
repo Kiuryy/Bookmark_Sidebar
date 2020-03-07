@@ -7,8 +7,10 @@
      */
     $.StylesheetHelper = function (ext) {
 
+        const themeableFiles = ["overlay", "sidebar"];
         let styles = {};
         let customCss = "";
+        let theme = "";
         let defaultVal = false;
 
         /**
@@ -22,7 +24,26 @@
             }
 
             styles = ext.helper.model.getData("a/styles", defaultVal);
+            theme = ext.helper.model.getData("a/theme");
             customCss = ext.helper.model.getData("u/customCss");
+        };
+
+        /**
+         * Extends the given list of stylesheets with the ones of the currently selected theme
+         *
+         * @param files
+         * @returns {Array}
+         */
+        this.getStylesheetFilesWithThemes = (files) => {
+            const ret = files;
+            if (theme && theme !== "default") { // add theme css files to the list, so that they will be loaded, too
+                files.forEach((file) => {
+                    if (themeableFiles.includes(file)) {
+                        ret.push("themes/" + theme + "/" + file);
+                    }
+                });
+            }
+            return ret;
         };
 
         /**
@@ -53,8 +74,7 @@
                 }
 
                 let loaded = 0;
-
-                files.forEach((file) => {
+                this.getStylesheetFilesWithThemes(files).forEach((file) => {
                     $.xhr($.api.extension.getURL("css/" + file + ".css")).then((xhr) => {
                         if (xhr.response) {
                             let css = xhr.response;

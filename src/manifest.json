@@ -72,6 +72,7 @@
     "css/sidebar.css",
     "css/overlay.css",
     "css/content.css",
+    "css/themes/*",
     "img/*"
   ],
   "content_security_policy": "script-src 'self' 'sha256-nl+LCdUZCsURbeBC1buBlAcvBhCD2/SswpeCH2ZaR34=' 'sha256-nuF8drPPKUM4+b3urtYHupidizytc1BonZF1t/vSzs0'; object-src 'self'",

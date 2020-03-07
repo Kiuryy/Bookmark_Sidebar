@@ -1,12 +1,12 @@
-body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='feedback'] div.faq.loading, div.tab[data-name='feedback'] div.faq > div.suggestion.hidden, div.tab[data-name='feedback'] div.faq > div.suggestion > p, div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
+body > header > menu > li > button.save::before, body > div.dialog, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='feedback'] div.faq.loading, div.tab[data-name='feedback'] div.faq > div.suggestion.hidden, div.tab[data-name='feedback'] div.faq > div.suggestion > p, div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > div.dialog.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > div.dialog.visible, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
-body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons > a.save, div.tab[data-name='feedback'] section.form button[type="submit"], div.tab[data-name='premium'] > section[data-type='intro'] > a[data-type="premium"], div.tab[data-name='feedback'] section.form div.upload, div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export, main button[type='submit'], a.button {
+body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons > a.save, div.tab[data-name='feedback'] section.form button[type="submit"], div.tab[data-name='premium'] > section[data-type='intro'] > a[data-type="premium"], body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > a, div.tab[data-name='feedback'] section.form div.upload, div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export, main button[type='submit'], a.button {
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -751,12 +751,15 @@ body > section#wrapper div[data-name="aboutme"] > div {
   body > section#wrapper div[data-name="aboutme"] > div > div.preview {
     position: relative;
     width: 310px;
-    height: 310px; }
+    height: 310px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(100, 148, 244, 0.2);
+    overflow: hidden; }
     body > section#wrapper div[data-name="aboutme"] > div > div.preview > img {
       display: block;
       width: 100%;
-      border-radius: 20px;
-      box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2); }
+      transition: opacity 0.5s; }
     body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
       position: absolute;
       bottom: 10px;
@@ -1155,6 +1158,137 @@ body[data-type^='appearance'] > section#wrapper > main div.boxWrapper {
 body[data-type^='appearance'] > section#wrapper > main div.contentBox {
   max-width: 820px; }
 
+body[data-type^='appearance'] > section#wrapper > main div.selectedTheme {
+  position: relative;
+  display: inline-block;
+  margin: 17px 0 8px;
+  color: #666;
+  font-weight: "%fontWeightBold";
+  cursor: pointer; }
+  body[data-type^='appearance'] > section#wrapper > main div.selectedTheme::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/20px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-theme.svg);
+    background-color: #666; }
+  body[data-type^='appearance'] > section#wrapper > main div.selectedTheme > span {
+    position: relative;
+    display: block;
+    padding: 10px 14px 10px 42px;
+    background: #fff;
+    border-radius: 9px;
+    z-index: 2;
+    transition: margin 0.2s, padding 0.2s; }
+  body[data-type^='appearance'] > section#wrapper > main div.selectedTheme::after {
+    content: "";
+    position: absolute;
+    top: -4.5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 9px);
+    border-radius: 14px;
+    background: linear-gradient(45deg, #8741ed 0%, #00e5fd 100%);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); }
+  body[data-type^='appearance'] > section#wrapper > main div.selectedTheme::before {
+    width: 36px;
+    z-index: 3;
+    transition: background-color 0.2s, transform 0.3s; }
+  body[data-type^='appearance'] > section#wrapper > main div.selectedTheme:hover > span {
+    padding-left: 14px;
+    margin-left: 40px; }
+  body[data-type^='appearance'] > section#wrapper > main div.selectedTheme:hover::before {
+    transform: scale(1.4, 1.4);
+    background: #fff; }
+
+body[data-type^='appearance'] > section#wrapper > main a.showThemes {
+  position: relative;
+  display: inline-block;
+  color: #666;
+  font-weight: "%fontWeightMedium";
+  padding: 3px 5px 3px 22px;
+  margin-top: 16px;
+  font-size: 100%;
+  cursor: pointer; }
+  body[data-type^='appearance'] > section#wrapper > main a.showThemes::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/18px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg);
+    background-color: #666; }
+  body[data-type^='appearance'] > section#wrapper > main a.showThemes::before {
+    -webkit-mask-position-x: left; }
+
+body[data-type^='appearance'] > section#wrapper > main div.themeList {
+  background: rgba(100, 148, 244, 0.5);
+  padding-bottom: 30px;
+  transform: translate3d(0, -10px, 0);
+  opacity: 0;
+  margin-top: 20px;
+  transition: opacity 0.3s, transform 0.3s; }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 35px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-bottom-color: rgba(100, 148, 244, 0.5); }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList > h2 {
+    color: #fff;
+    margin: 10px 0 30px; }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px; }
+    body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+      background: #fff; }
+      body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > img {
+        display: block;
+        width: 100%; }
+      body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption {
+        position: relative;
+        padding: 0 10px 8px 10px; }
+        body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption::before {
+          content: "";
+          position: absolute;
+          top: -25px;
+          left: 0;
+          width: 100%;
+          height: 25px;
+          background: linear-gradient(to bottom, transparent 0%, #fff 100%); }
+        body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > h3 {
+          font-size: 120%;
+          font-weight: "%fontWeightMedium"; }
+        body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > p {
+          font-size: 90%;
+          margin: 5px 0 0 0; }
+        body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > a {
+          background: #6494f4;
+          font-size: 90%;
+          margin-top: 10px;
+          padding: 4px 12px; }
+        body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > span.active {
+          display: block;
+          margin-top: 5px;
+          font-weight: 400;
+          font-style: italic;
+          color: #5eba7d; }
+
 body[data-type^='appearance'] > section#wrapper > main div.presets > p {
   margin: 10px 0; }
 
@@ -1250,6 +1384,32 @@ html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.boxWr
       -webkit-mask-position-x: 32px; }
     html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.boxWrapper > div.box.darkMode div.checkbox.active::after {
       transform: translate3d(-30px, 0, 0); }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selectedTheme > span {
+  padding-right: 42px;
+  padding-left: 14px; }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selectedTheme::after {
+  left: unset;
+  right: -5px; }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selectedTheme::before {
+  left: unset; }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selectedTheme:hover > span {
+  padding-right: 14px;
+  margin-right: 40px;
+  margin-left: 0; }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main a.showThemes {
+  padding-right: 22px;
+  padding-left: 5px; }
+  html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main a.showThemes::before {
+    -webkit-mask-position-x: right; }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.themeList::before {
+  left: unset;
+  right: 35px; }
 
 html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.presets > a {
   margin-right: 0;
@@ -3229,5 +3389,3 @@ html[dir='rtl'] p.premium {
   padding-right: 50px; }
   html[dir='rtl'] p.premium::before {
     transform: scaleX(-1); }
-
-/*# sourceMappingURL=settings.css.map */

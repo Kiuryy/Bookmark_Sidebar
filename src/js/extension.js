@@ -429,12 +429,14 @@
          * @returns {Promise}
          */
         const initSidebarMarkup = async () => {
-            const config = this.helper.model.getData(["a/darkMode", "a/highContrast"]);
+            const config = this.helper.model.getData(["a/theme", "a/darkMode", "a/highContrast"]);
             this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />")
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
                 .appendTo("body");
 
             this.elm.iframeBody = this.elm.iframe.find("body");
+            this.elm.iframeBody.attr($.attr.theme, config.theme);
+
             this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\" />").appendTo(this.elm.iframeBody);
             this.elm.bookmarkBox = {};
 

@@ -336,5 +336,3 @@ html[dir='rtl'] div#sidebar {
   html[dir='rtl'] div#sidebar > p::before {
     right: -50px;
     left: unset; }
-
-/*# sourceMappingURL=onboarding.css.map */

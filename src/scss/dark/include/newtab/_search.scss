@@ -16,6 +16,10 @@ body.dark {
 
       > li {
         background: $darkContentBackground2;
+
+        &::after {
+          background: $darkContentBackground2;
+        }
       }
     }
   }

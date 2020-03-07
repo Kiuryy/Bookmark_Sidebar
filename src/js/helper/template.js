@@ -28,7 +28,7 @@
          */
         this.overlay = (type, title) => {
             const ret = {};
-            const config = ext.helper.model.getData(["b/animations", "a/darkMode", "a/highContrast"]);
+            const config = ext.helper.model.getData(["a/theme", "b/animations", "a/darkMode", "a/highContrast"]);
 
             ret.overlay = $("<iframe />")
                 .attr("id", $.opts.ids.page.overlay)
@@ -38,6 +38,7 @@
             ext.helper.stylesheet.addStylesheets(["overlay"], ret.overlay);
 
             const iframeBody = ret.overlay.find("body");
+            iframeBody.attr($.attr.theme, config.theme);
             iframeBody.parent("html").attr("dir", ext.helper.i18n.isRtl() ? "rtl" : "ltr");
 
             ret.modal = $("<div />")

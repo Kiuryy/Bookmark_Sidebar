@@ -150,15 +150,16 @@
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='surface'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
                 const value = $(e.currentTarget).attr($.attr.value);
+                const defaultColors = this.helper.model.getDefaultColors();
                 this.elm.body.attr($.attr.onboarding.surface, value);
 
                 if (e.type === "click") {
                     const styles = this.helper.model.getData("a/styles");
-                    styles.colorScheme = $.opts.defaultColors.colorScheme[value];
-                    styles.textColor = $.opts.defaultColors.textColor[value];
-                    styles.bookmarksDirColor = $.opts.defaultColors.textColor[value];
-                    styles.sidebarMaskColor = $.opts.defaultColors.sidebarMaskColor[value];
-                    styles.hoverColor = $.opts.defaultColors.hoverColor[value];
+                    styles.colorScheme = defaultColors.colorScheme[value];
+                    styles.textColor = defaultColors.textColor[value];
+                    styles.bookmarksDirColor = defaultColors.textColor[value];
+                    styles.sidebarMaskColor = defaultColors.sidebarMaskColor[value];
+                    styles.hoverColor = defaultColors.hoverColor[value];
 
                     Object.values(this.elm.sidebar).forEach((sidebar) => {
                         sidebar.removeClass($.cl.visible);

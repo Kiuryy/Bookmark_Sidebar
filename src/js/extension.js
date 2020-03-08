@@ -251,6 +251,8 @@
                 $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
             } else if (type === "translation") {
                 $("<p />").text(this.helper.i18n.get("settings_translation_incomplete_info")).appendTo(infoBox);
+            } else if (type === "shareInfo") {
+                $("<p />").text(this.helper.i18n.get("contribute_notice")).appendTo(infoBox);
             }
 
             $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).attr($.attr.type, type).appendTo(infoBox);
@@ -260,37 +262,6 @@
                 infoBox.addClass($.cl.visible);
             });
         };
-
-        /**
-         * Adds a mask over the sidebar to encourage the user the share their userdata
-         */
-        this.addShareInfoMask = () => {
-            this.elm.sidebar.find("#" + $.opts.ids.sidebar.shareInfo).remove();
-            const shareInfoMask = $("<div />").attr("id", $.opts.ids.sidebar.shareInfo).prependTo(this.elm.sidebar);
-            const contentBox = $("<div />").prependTo(shareInfoMask);
-
-            $("<h2 />").html(this.helper.i18n.get("contribute_headline")).appendTo(contentBox);
-            $("<p />").html(this.helper.i18n.get("contribute_intro")).appendTo(contentBox);
-            $("<p />").addClass($.cl.info).html(this.helper.i18n.get("contribute_notice")).appendTo(contentBox);
-
-            ["config", "activity"].forEach((type) => {
-                const label = $("<label />")
-                    .text(this.helper.i18n.get("contribute_share_" + type + "_label"))
-                    .appendTo(contentBox);
-
-                $("<a />").data({
-                    title: label.text(),
-                    type: type
-                }).appendTo(label);
-
-                this.helper.checkbox.get(this.elm.iframeBody, {
-                    [$.attr.name]: type
-                }, "checkbox", "switch").appendTo(contentBox);
-            });
-
-            $("<a />").text(this.helper.i18n.get("contribute_dismiss")).appendTo(contentBox);
-        };
-
 
         /*
          * ################################

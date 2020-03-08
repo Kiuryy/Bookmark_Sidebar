@@ -210,7 +210,6 @@ div.modal {
     > div.scrollBox {
 
       > div {
-        background: $contentBackground;
         padding: 30px 30px 5px 30px;
 
         > h3 {
@@ -295,47 +294,10 @@ div.modal {
     @include maskImage('icon-newTab');
   }
 
-  &[data-type='infos'], &[data-type='shareInfoDesc'] {
+  &[data-type='infos'] {
 
     > header::before {
       @include maskImage('icon-info');
-    }
-  }
-
-  &[data-type='shareInfoDesc'] {
-    @extend %modalFooterBackground;
-    width: 500px;
-    height: 300px;
-    max-height: 100%;
-
-    &[data-value='activity'] {
-      width: 600px;
-      height: 550px;
-    }
-
-    > div.scrollBox {
-      font-size: 120%;
-      line-height: 150%;
-
-      > p {
-        padding: 20px 30px 5px 30px;
-      }
-
-      > ul {
-        padding: 0 30px;
-
-        > li {
-          position: relative;
-          padding-left: 10px;
-          font-size: 80%;
-
-          &::before {
-            content: "-";
-            position: absolute;
-            left: 0;
-          }
-        }
-      }
     }
   }
 

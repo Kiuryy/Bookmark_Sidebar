@@ -660,7 +660,7 @@ div#infoBox {
   }
 }
 
-div#shareInfo, div#reloadInfo {
+div#reloadInfo {
   position: absolute;
   top: 0;
   left: 0;
@@ -677,10 +677,16 @@ div#shareInfo, div#reloadInfo {
   }
 
   > div {
-    padding: 20px;
+    @include mask('icon-update', $textColor, 64px);
+    position: relative;
+    padding: 90px 20px 20px 20px;
     text-align: center;
     margin: auto;
     color: $textColor;
+
+    &::before {
+      -webkit-mask-position-y: 0;
+    }
 
     > h2 {
       font-size: 180%;
@@ -750,25 +756,6 @@ div#shareInfo, div#reloadInfo {
   }
 }
 
-div#shareInfo {
-
-  > div {
-    margin-top: 10px;
-  }
-}
-
-div#reloadInfo {
-
-  > div {
-    @include mask('icon-update', $textColor, 64px);
-    position: relative;
-    padding-top: 90px;
-
-    &::before {
-      -webkit-mask-position-y: 0;
-    }
-  }
-}
 
 body {
 

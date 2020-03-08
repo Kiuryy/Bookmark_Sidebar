@@ -279,21 +279,6 @@
                         ext.startLoading();
                         ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                     });
-                } else if (name === "config" || name === "activity") { // check whether all tracking checkboxes are checked
-                    let allChecked = true;
-                    ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
-                        const wrapper = $(elm).parent();
-                        if (ext.helper.checkbox.isChecked(wrapper) === false) {
-                            allChecked = false;
-                            return false;
-                        }
-                    });
-
-                    if (allChecked) {
-                        $.delay(300).then(() => {
-                            saveTrackingPreferences();
-                        });
-                    }
                 }
             });
 
@@ -314,17 +299,6 @@
                 location.reload(true);
             });
 
-            ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.shareInfo + " a", (e) => { // click on a link in the share info mask
-                e.preventDefault();
-                const title = $(e.currentTarget).data("title");
-
-                if (title) { // show info about what will be tracked
-                    ext.helper.overlay.create("shareInfoDesc", title, {type: $(e.currentTarget).data("type")});
-                } else { // save preferences
-                    saveTrackingPreferences();
-                }
-            });
-
             ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.infoBox + " a", (e) => { // click on a link in the info box
                 e.preventDefault();
                 ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.infoBox).removeClass($.cl.visible);
@@ -340,6 +314,10 @@
                         }
                         case "translation": {
                             href = "html/settings.html#language_translate";
+                            break;
+                        }
+                        case "shareInfo": {
+                            href = "html/settings.html#infos_permissions";
                             break;
                         }
                     }
@@ -464,25 +442,6 @@
                     }
                 }
             }
-        };
-
-        /**
-         * Saves the preference of the user which data should be shared (configuration or activity)
-         */
-        const saveTrackingPreferences = () => {
-            const shareInfo = {
-                config: false,
-                activity: false
-            };
-
-            ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo + " input[type='checkbox']").forEach((elm) => {
-                const wrapper = $(elm).parent();
-                const name = wrapper.attr($.attr.name);
-                shareInfo[name] = ext.helper.checkbox.isChecked(wrapper);
-            });
-
-            ext.helper.model.call("updateShareInfo", shareInfo);
-            ext.elm.iframeBody.find("div#" + $.opts.ids.sidebar.shareInfo).addClass($.cl.hidden);
         };
     };
 

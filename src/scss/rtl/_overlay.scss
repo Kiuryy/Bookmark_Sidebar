@@ -28,25 +28,6 @@ html[dir='rtl'] {
       transform: scaleX(-1);
     }
 
-    &[data-type='shareInfoDesc'] {
-
-      > div.scrollBox {
-
-        > ul {
-
-          > li {
-            padding-right: 10px;
-            padding-left: 0;
-
-            &::before {
-              left: unset;
-              right: 0;
-            }
-          }
-        }
-      }
-    }
-
     &[data-type='infos'] {
 
       > ul.breadcrumb {

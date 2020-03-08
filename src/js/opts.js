@@ -13,7 +13,6 @@
             },
             sidebar: {
                 sidebar: "sidebar",
-                shareInfo: "shareInfo",
                 reloadInfo: "reloadInfo",
                 infoBox: "infoBox",
                 bookmarkBox: {

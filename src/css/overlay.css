@@ -6,7 +6,7 @@ div.modal[data-type='add'] > ul.visible {
   opacity: 1;
   pointer-events: auto; }
 
-div.modal[data-type='keyboardShortcuts']::after, div.modal[data-type='shareInfoDesc']::after, div.modal.urlCheckResults[data-type='checkBookmarks']::after, div.modal[data-type='searchEngine']::after {
+div.modal[data-type='keyboardShortcuts']::after, div.modal.urlCheckResults[data-type='checkBookmarks']::after, div.modal[data-type='searchEngine']::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -430,7 +430,6 @@ div.modal {
     div.modal[data-type='keyboardShortcuts'] > header::before {
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-keyboard.svg); }
     div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div {
-      background: #fff;
       padding: 30px 30px 5px 30px; }
       div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > h3 {
         font-weight: "%fontWeightMedium";
@@ -484,30 +483,8 @@ div.modal {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-hide.svg); }
   div.modal[data-type='openChildren'] > header::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-newTab.svg); }
-  div.modal[data-type='infos'] > header::before, div.modal[data-type='shareInfoDesc'] > header::before {
+  div.modal[data-type='infos'] > header::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg); }
-  div.modal[data-type='shareInfoDesc'] {
-    width: 500px;
-    height: 300px;
-    max-height: 100%; }
-    div.modal[data-type='shareInfoDesc'][data-value='activity'] {
-      width: 600px;
-      height: 550px; }
-    div.modal[data-type='shareInfoDesc'] > div.scrollBox {
-      font-size: 120%;
-      line-height: 150%; }
-      div.modal[data-type='shareInfoDesc'] > div.scrollBox > p {
-        padding: 20px 30px 5px 30px; }
-      div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul {
-        padding: 0 30px; }
-        div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li {
-          position: relative;
-          padding-left: 10px;
-          font-size: 80%; }
-          div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li::before {
-            content: "-";
-            position: absolute;
-            left: 0; }
   div.modal[data-type='infos'] > ul.breadcrumb {
     font-size: 80%;
     margin: 0 30px 20px 30px;
@@ -1280,13 +1257,6 @@ html[dir='rtl'] div.modal > a.preview > img, html[dir='rtl'] div.modal > a.previ
 html[dir='rtl'] div.modal[data-type='openChildren'] > header::before {
   transform: scaleX(-1); }
 
-html[dir='rtl'] div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li {
-  padding-right: 10px;
-  padding-left: 0; }
-  html[dir='rtl'] div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li::before {
-    left: unset;
-    right: 0; }
-
 html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb {
   float: left; }
   html[dir='rtl'] div.modal[data-type='infos'] > ul.breadcrumb::before {
@@ -1414,10 +1384,8 @@ body.dark div.modal {
       color: #eee; }
       body.dark div.modal[data-type='infos'] > ul:not(.breadcrumb) > li > ul::before {
         border-bottom-color: #222; }
-  body.dark div.modal[data-type='shareInfoDesc']::after, body.dark div.modal[data-type='keyboardShortcuts']::after {
+  body.dark div.modal[data-type='keyboardShortcuts']::after {
     background: #4d4d4d; }
-  body.dark div.modal[data-type='shareInfoDesc'] > div.scrollBox > *, body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > * {
-    background: #3d3d3d; }
   body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a {
     color: "%textColor"; }
     body.dark div.modal[data-type='keyboardShortcuts'] > div.scrollBox > div > a::before {

@@ -1,4 +1,4 @@
-div.contextmenu, div.contextmenu > ul.icons > li > ul, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#infoBox, div#infoBox > a::before, div#shareInfo.hidden, div#reloadInfo.hidden {
+div.contextmenu, div.contextmenu > ul.icons > li > ul, div.tooltip, a.dragHelper > span.drag, section#sidebar > header > div.searchBox, section#sidebar > header.searchVisible > a.search, section#sidebar > a.lockPinned, section#sidebar > div.scrollBox > ul a > span.drag, section#sidebar > div.scrollBox > div.pinned > ul a > span.drag, section#sidebar.loading > div.scrollBox, section#sidebar.loading > div.filter, div#infoBox, div#infoBox > a::before, div#reloadInfo.hidden {
   opacity: 0;
   pointer-events: none; }
 
@@ -1408,7 +1408,7 @@ div#infoBox {
     div#infoBox > a:hover::before {
       opacity: 0.15; }
 
-div#shareInfo, div#reloadInfo {
+div#reloadInfo {
   position: absolute;
   top: 0;
   left: 0;
@@ -1419,29 +1419,42 @@ div#shareInfo, div#reloadInfo {
   overflow: auto;
   display: flex;
   transition: opacity 0.3s; }
-  div#shareInfo > div, div#reloadInfo > div {
-    padding: 20px;
+  div#reloadInfo > div {
+    position: relative;
+    padding: 90px 20px 20px 20px;
     text-align: center;
     margin: auto;
     color: "%textColor"; }
-    div#shareInfo > div > h2, div#reloadInfo > div > h2 {
+    div#reloadInfo > div::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-mask: no-repeat center/64px;
+      -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
+      background-color: "%textColor"; }
+    div#reloadInfo > div::before {
+      -webkit-mask-position-y: 0; }
+    div#reloadInfo > div > h2 {
       font-size: 180%;
       font-weight: "%fontWeightNormal";
       margin-bottom: 40px; }
-    div#shareInfo > div > p, div#reloadInfo > div > p {
+    div#reloadInfo > div > p {
       font-size: 110%;
       line-height: 150%;
       margin: 18px 0; }
-      div#shareInfo > div > p + p, div#reloadInfo > div > p + p {
+      div#reloadInfo > div > p + p {
         margin-top: 0; }
-      div#shareInfo > div > p > strong, div#reloadInfo > div > p > strong {
+      div#reloadInfo > div > p > strong {
         text-decoration: underline; }
-    div#shareInfo > div > label, div#reloadInfo > div > label {
+    div#reloadInfo > div > label {
       display: block;
       text-align: center;
       font-size: 120%;
       margin-top: 35px; }
-      div#shareInfo > div > label > a, div#reloadInfo > div > label > a {
+      div#reloadInfo > div > label > a {
         position: relative;
         display: inline-block;
         width: 26px;
@@ -1451,7 +1464,7 @@ div#shareInfo, div#reloadInfo {
         border-radius: 50%;
         cursor: pointer;
         transition: background 0.5s; }
-        div#shareInfo > div > label > a::before, div#reloadInfo > div > label > a::before {
+        div#reloadInfo > div > label > a::before {
           content: "";
           position: absolute;
           top: 0;
@@ -1461,11 +1474,11 @@ div#shareInfo, div#reloadInfo {
           -webkit-mask: no-repeat center/18px;
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
           background-color: #aaa; }
-        div#shareInfo > div > label > a:hover, div#reloadInfo > div > label > a:hover {
+        div#reloadInfo > div > label > a:hover {
           background: "%hoverColor"; }
-    div#shareInfo > div > div.checkbox, div#reloadInfo > div > div.checkbox {
+    div#reloadInfo > div > div.checkbox {
       margin: 20px auto 0; }
-    div#shareInfo > div > a, div#reloadInfo > div > a {
+    div#reloadInfo > div > a {
       position: relative;
       font-size: 120%;
       color: "%textColor";
@@ -1477,27 +1490,8 @@ div#shareInfo, div#reloadInfo {
       border-radius: 2px;
       cursor: pointer;
       z-index: 2; }
-      div#shareInfo > div > a:hover, div#reloadInfo > div > a:hover {
+      div#reloadInfo > div > a:hover {
         background: "%hoverColor"; }
-
-div#shareInfo > div {
-  margin-top: 10px; }
-
-div#reloadInfo > div {
-  position: relative;
-  padding-top: 90px; }
-  div#reloadInfo > div::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: no-repeat center/64px;
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-update.svg);
-    background-color: "%textColor"; }
-  div#reloadInfo > div::before {
-    -webkit-mask-position-y: 0; }
 
 body.dragCancel * {
   cursor: no-drop !important; }
@@ -1608,7 +1602,7 @@ html[dir='rtl'] section#sidebar[data-sort='custom'] > div#bookmarkBox a:hover {
   padding-right: "%bookmarksHorizontalPadding";
   padding-left: 46px; }
 
-html[dir='rtl'] div#shareInfo > div > label > a, html[dir='rtl'] div#reloadInfo > div > label > a {
+html[dir='rtl'] div#reloadInfo > div > label > a {
   margin-right: 5px;
   margin-left: unset; }
 
@@ -1695,5 +1689,5 @@ body.dark div#infoBox {
     body.dark div#infoBox > a::before {
       background: "%textColor"; }
 
-body.dark div#shareInfo, body.dark div#reloadInfo {
+body.dark div#reloadInfo {
   background: #3d3d3d; }

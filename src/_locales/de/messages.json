@@ -392,20 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Schlie\u00dft die Sidebar, das ge\u00f6ffnete Overlay oder Rechtsklickmen\u00fc"
     },
-    "contribute_headline": {
-        "message": "Ich brauche deine Unterst\u00fctzung"
-    },
     "contribute_intro": {
         "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen, wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
     },
     "contribute_notice": {
-        "message": "Dies ist komplett optional. Du kannst die Maske einfach schlie\u00dfen, wenn du keine Daten teilen m\u00f6chtest."
+        "message": "Du kannst mich unterst\u00fctzen, indem du deine Konfiguration teilst"
     },
     "contribute_outro": {
         "message": "Wenn du Fragen oder Bedenken bez\u00fcglich des Teilens von Nutzerinformationen hast, kannst du mir gerne Feedback hinterlassen."
-    },
-    "contribute_dismiss": {
-        "message": "Ausblenden"
     },
     "contribute_share_config_label": {
         "message": "Einstellungen \u00fcbermittelt"

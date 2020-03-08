@@ -118,18 +118,11 @@ body.dark div.modal {
     }
   }
 
-  &[data-type='shareInfoDesc'], &[data-type='keyboardShortcuts'] {
+  &[data-type='keyboardShortcuts'] {
 
     &::after {
       background: $darkContentBackground2;
     }
-
-    > div.scrollBox > * {
-      background: $darkContentBackground;
-    }
-  }
-
-  &[data-type='keyboardShortcuts'] {
 
     > div.scrollBox > div {
 

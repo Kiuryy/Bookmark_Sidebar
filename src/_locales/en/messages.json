@@ -401,6 +401,9 @@
     "contribute_intro": {
         "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
     },
+    "contribute_notice": {
+        "message": "This is completely optional. You can simply dismiss the overlay, if you don't want to share any data."
+    },
     "contribute_outro": {
         "message": "If you have questions or concerns about the sharing of information, please send me a feedback message."
     },

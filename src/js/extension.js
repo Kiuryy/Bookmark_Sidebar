@@ -271,6 +271,7 @@
 
             $("<h2 />").html(this.helper.i18n.get("contribute_headline")).appendTo(contentBox);
             $("<p />").html(this.helper.i18n.get("contribute_intro")).appendTo(contentBox);
+            $("<p />").addClass($.cl.info).html(this.helper.i18n.get("contribute_notice")).appendTo(contentBox);
 
             ["config", "activity"].forEach((type) => {
                 const label = $("<label />")

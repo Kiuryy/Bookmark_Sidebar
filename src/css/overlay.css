@@ -497,11 +497,9 @@ div.modal {
       font-size: 120%;
       line-height: 150%; }
       div.modal[data-type='shareInfoDesc'] > div.scrollBox > p {
-        padding: 20px 30px 5px 30px;
-        background: #fff; }
+        padding: 20px 30px 5px 30px; }
       div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul {
-        padding: 0 30px;
-        background: #fff; }
+        padding: 0 30px; }
         div.modal[data-type='shareInfoDesc'] > div.scrollBox > ul > li {
           position: relative;
           padding-left: 10px;

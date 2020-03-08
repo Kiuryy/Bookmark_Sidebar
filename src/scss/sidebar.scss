@@ -691,7 +691,11 @@ div#shareInfo, div#reloadInfo {
     > p {
       font-size: 110%;
       line-height: 150%;
-      margin: 20px 0;
+      margin: 18px 0;
+
+      + p {
+        margin-top: 0;
+      }
 
       > strong {
         text-decoration: underline;
@@ -702,7 +706,7 @@ div#shareInfo, div#reloadInfo {
       display: block;
       text-align: center;
       font-size: 120%;
-      margin-top: 40px;
+      margin-top: 35px;
 
       > a {
         @include mask('icon-info', $textColorLight, 18px);
@@ -743,6 +747,13 @@ div#shareInfo, div#reloadInfo {
         background: $__hoverColor;
       }
     }
+  }
+}
+
+div#shareInfo {
+
+  > div {
+    margin-top: 10px;
   }
 }
 

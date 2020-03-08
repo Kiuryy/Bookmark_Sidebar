@@ -398,6 +398,9 @@
     "contribute_intro": {
         "message": "Um die Erweiterung weiter zu verbessern, w\u00fcrde ich gerne verstehen, wie die Nutzer die Sidebar verwenden und welche Einstellungen sie vorgenommen haben."
     },
+    "contribute_notice": {
+        "message": "Dies ist komplett optional. Du kannst die Maske einfach schlie\u00dfen, wenn du keine Daten teilen m\u00f6chtest."
+    },
     "contribute_outro": {
         "message": "Wenn du Fragen oder Bedenken bez\u00fcglich des Teilens von Nutzerinformationen hast, kannst du mir gerne Feedback hinterlassen."
     },

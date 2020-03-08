@@ -1431,14 +1431,16 @@ div#shareInfo, div#reloadInfo {
     div#shareInfo > div > p, div#reloadInfo > div > p {
       font-size: 110%;
       line-height: 150%;
-      margin: 20px 0; }
+      margin: 18px 0; }
+      div#shareInfo > div > p + p, div#reloadInfo > div > p + p {
+        margin-top: 0; }
       div#shareInfo > div > p > strong, div#reloadInfo > div > p > strong {
         text-decoration: underline; }
     div#shareInfo > div > label, div#reloadInfo > div > label {
       display: block;
       text-align: center;
       font-size: 120%;
-      margin-top: 40px; }
+      margin-top: 35px; }
       div#shareInfo > div > label > a, div#reloadInfo > div > label > a {
         position: relative;
         display: inline-block;
@@ -1477,6 +1479,9 @@ div#shareInfo, div#reloadInfo {
       z-index: 2; }
       div#shareInfo > div > a:hover, div#reloadInfo > div > a:hover {
         background: "%hoverColor"; }
+
+div#shareInfo > div {
+  margin-top: 10px; }
 
 div#reloadInfo > div {
   position: relative;

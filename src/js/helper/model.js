@@ -129,6 +129,8 @@
                     indicatorIconSize: "32px",
                     indicatorIconColor: "#ffffff",
                     indicatorColor: "rgba(0,0,0,0.5)",
+                    iconShape: "bookmark",
+                    iconColor: "auto",
                     sidebarWidth: "350px",
                     sidebarHeaderHeight: "50px",
                     sidebarMaskColor: defaultColors["default"].sidebarMaskColor.light,
@@ -145,8 +147,9 @@
                     overlayMaskColor: "rgba(0,0,0,0.5)",
                     overlayHeaderHeight: "50px",
                     fontFamily: "default",
-                    iconShape: "bookmark",
-                    iconColor: "auto"
+                    //
+                    backgroundTransparency: 0.9,
+                    backgroundBlur: "5px"
                 }
             },
             n: { // new tab -> synced across devices

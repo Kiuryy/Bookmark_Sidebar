@@ -53,6 +53,12 @@
                 initPreviews().then(() => {
                     return initThemeSelector();
                 }).then(() => {
+                    $("[" + $.attr.theme + "]").forEach((elm) => { // hide all options, which aren't meant for the currently selected theme
+                        if ($(elm).attr($.attr.theme) !== theme) {
+                            $(elm).addClass($.cl.hidden);
+                        }
+                    });
+
                     ["darkMode", "directoryArrows"].forEach((field) => {
                         let checked = false;
                         if (s.helper.model.getData("a/" + field) === true) {
@@ -77,7 +83,7 @@
 
                     Object.entries(styles).forEach(([key, value]) => {
                         if (s.elm.range[key]) {
-                            value = value.replace("px", "");
+                            value = ("" + value).replace("px", "");
 
                             if (key === "sidebarWidth" && +value > sidebarMaxSelectableWidth) { // wider sidebar is possible when the user expanded the width manually
                                 s.elm.range[key].attr("max", value);
@@ -363,7 +369,8 @@
 
             Object.keys(styles).forEach((key) => {
                 if (s.elm.range[key]) {
-                    ret.appearance.styles[key] = s.elm.range[key][0].value + "px";
+                    const unit = s.elm.range[key].attr($.attr.settings.range.unit) || "";
+                    ret.appearance.styles[key] = s.elm.range[key][0].value + unit;
                 } else if (s.elm.color[key]) {
                     const colorValue = getColorValue(key, s.elm.color[key][0].value);
                     ret.appearance.styles[key] = colorValue.color;

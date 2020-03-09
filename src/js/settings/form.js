@@ -285,8 +285,11 @@
 
                 s.elm.range[opts.name].attr("value", $(opts.elm).attr($.attr.value) || "");
 
-                const unit = $(opts.elm).attr($.attr.settings.range.unit) || "";
                 const valTooltip = $("<span />").insertAfter(s.elm.range[opts.name]);
+                const unit = $(opts.elm).attr($.attr.settings.range.unit) || "";
+                if (unit) {
+                    s.elm.range[opts.name].attr($.attr.settings.range.unit, unit);
+                }
 
                 s.elm.range[opts.name].on("input change", (e) => {
                     const elm = e.currentTarget;

@@ -1,0 +1,38 @@
+html[dir='rtl'] [data-theme='glass'] div.modal {
+
+  &[data-type='checkBookmarks'] {
+
+    > menu.categories > li.active {
+
+      &::after {
+        right: unset;
+        left: -4px;
+        border: none;
+        border-left: 3px solid $__textColor;
+        border-bottom: 3px solid $__textColor;
+      }
+    }
+  }
+
+  &[data-type='infos'] {
+
+    > ul.breadcrumb {
+
+      > li {
+
+        + li {
+          padding-right: 18px;
+        }
+
+        &:last-child {
+          margin-left: 0;
+        }
+
+        &:not(:last-child)::before {
+          right: unset;
+          left: -12px;
+        }
+      }
+    }
+  }
+}

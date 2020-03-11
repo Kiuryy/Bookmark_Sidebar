@@ -1,0 +1,15 @@
+html[dir='rtl'] [data-theme='glass'] section#sidebar {
+
+  > div.scrollBox {
+
+    > div.pinned {
+
+      &.fixed {
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,49 @@
+.dark[data-theme='glass'] section#sidebar {
+  background: #{"rgba(0, 0, 0, #{$__backgroundTransparency})"};
+
+  > header {
+
+    &.searchVisible > div.searchBox {
+      background-color: rgba(255, 255, 255, 0.1);
+
+      > a.searchClose {
+
+        &::before {
+          background-color: $__textColor;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+
+  > div.filter {
+    background: $__textColor;
+
+    a {
+      color: $darkContentBackground2;
+
+      &[data-direction]::before {
+        background-color: $darkContentBackground2;
+      }
+    }
+
+    > ul > li > div.checkbox::before {
+      background-color: $darkContentBackground2;
+    }
+  }
+
+  > div.scrollBox {
+
+    > div.pinned {
+      background: transparent;
+
+      &.fixed {
+        background: $darkContentBackground;
+        border-color: rgba(255,255,255, 0.2);
+      }
+    }
+  }
+}

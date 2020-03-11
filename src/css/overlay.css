@@ -1083,7 +1083,7 @@ html[dir='rtl'] div.modal[data-type='checkBookmarks'] > menu.categories {
       margin-left: 0; }
 
 html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] {
-  margin-right: 180px;
+  margin-right: 210px;
   margin-left: 0; }
   html[dir='rtl'] div.modal[data-type='checkBookmarks'] > div[id^='results_'] > p > span {
     padding-right: 40px;

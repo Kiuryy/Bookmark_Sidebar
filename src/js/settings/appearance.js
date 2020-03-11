@@ -462,6 +462,7 @@
                 Object.entries(defaultColors).forEach(([key, val]) => { // apply the default colors for the selected theme
                     appearance.styles[key] = val[surface];
                 });
+                appearance.styles.bookmarksDirColor = appearance.styles.textColor;
 
                 if (themeDefaultStyles[theme]) {
                     Object.entries(themeDefaultStyles[theme]).forEach(([key, val]) => {

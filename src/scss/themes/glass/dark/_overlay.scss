@@ -1,0 +1,26 @@
+.dark[data-theme='glass'] div.modal {
+  background: #{"rgba(0, 0, 0, #{$__backgroundTransparency})"};
+
+  &[data-type='keyboardShortcuts']::after,
+  &.urlCheckResults[data-type='checkBookmarks']::after,
+  &[data-type='searchEngine']::after {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &[data-type='edit'], &[data-type='add'] {
+
+    > ul {
+
+      > li {
+
+        > input, > textarea, > select {
+          border-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+  }
+
+  > a.preview, > span.preview {
+    background: rgba(255, 255, 255, 0.1)
+  }
+}

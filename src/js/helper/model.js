@@ -40,16 +40,16 @@
                     dark: "rgba(0, 0, 0, 0)"
                 },
                 overlayMaskColor: {
-                    light: "rgba(0, 0, 0, 0.3)",
+                    light: "rgba(255, 255, 255, 0.5)",
                     dark: "rgba(0, 0, 0, 0.3)"
                 },
                 textColor: {
                     light: "#444444",
-                    dark: "#cfcfcf"
+                    dark: "#dfdfdf"
                 },
                 hoverColor: {
                     light: "rgba(0, 0, 0, 0.05)",
-                    dark: "rgba(255, 255, 255, 0.08)"
+                    dark: "rgba(255, 255, 255, 0.1)"
                 }
             }
         };
@@ -147,9 +147,9 @@
                     overlayMaskColor: "rgba(0,0,0,0.5)",
                     overlayHeaderHeight: "50px",
                     fontFamily: "default",
-                    //
-                    backgroundTransparency: 0.9,
-                    backgroundBlur: "5px"
+                    // styles for glass theme
+                    backgroundTransparency: 0.8,
+                    backgroundBlur: "7px"
                 }
             },
             n: { // new tab -> synced across devices

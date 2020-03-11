@@ -1,0 +1,123 @@
+@import "../../include/vars";
+@import "../../include/mixins";
+
+[data-theme='glass'] {
+  backdrop-filter: blur($__backgroundBlur);
+
+  div.modal {
+    background: #{"rgba(255, 255, 255, #{$__backgroundTransparency})"};
+    backdrop-filter: blur($__backgroundBlur);
+    transition: transform 0.15s;
+
+    &:not(.visible) {
+      transform: scale(0.9);
+    }
+
+    > header {
+      color: $__textColor;
+      box-shadow: none;
+      background: none;
+
+      &::before {
+        background: $__textColor;
+      }
+
+      > h1 {
+        font-size: 140%;
+      }
+
+      > a.close {
+
+        &::before {
+          background: $__textColor;
+        }
+
+        &:hover {
+          background-color: $__hoverColor;
+        }
+      }
+    }
+
+    > div.scrollBox {
+      height: calc(100% - #{$__overlayHeaderHeight} - 57px);
+    }
+
+    &[data-type='keyboardShortcuts']::after,
+    &.urlCheckResults[data-type='checkBookmarks']::after,
+    &[data-type='searchEngine']::after {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    &[data-type='checkBookmarks'] {
+
+      > menu.categories > li.active {
+        background-color: $__hoverColor;
+
+        &::after {
+          right: -4px;
+          width: 10px;
+          height: 10px;
+          border: none;
+          border-top: 3px solid $__textColor;
+          border-right: 3px solid $__textColor;
+          background: none;
+        }
+      }
+
+      > div[id^='results_'] {
+
+        > p, > ul {
+          background: transparent;
+        }
+
+        > ul > li a.urlCheckAction:hover {
+          background-color: $__hoverColor;
+        }
+      }
+    }
+
+    &[data-type='infos'] {
+
+      > ul.breadcrumb {
+
+        &::before {
+          display: none;
+        }
+
+        > li {
+
+          + li {
+            padding-left: 18px;
+          }
+
+          &::after {
+            display: none;
+          }
+
+          &:last-child {
+            margin-right: 0;
+
+            &::before {
+              display: none;
+            }
+          }
+
+          &:not(:last-child)::before {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 0;
+            height: 0;
+            right: -12px;
+            border: 4px solid transparent;
+            border-left-color: $__textColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@import "rtl/overlay";
+@import "dark/overlay";

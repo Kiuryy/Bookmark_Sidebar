@@ -1244,6 +1244,12 @@
     "premium_feature_linkchecker_desc": {
         "message": "You can right-click any directory in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
     },
+    "premium_feature_themes_headline": {
+        "message": "Change the theme of your sidebar"
+    },
+    "premium_feature_themes_desc": {
+        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and color options."
+    },
     "premium_pay_select_payment_method": {
         "message": "Select a payment method"
     },

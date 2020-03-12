@@ -1944,6 +1944,17 @@ div.tab[data-name='premium'] > section {
           top: 15%;
           right: 4%;
           width: 50%; } }
+  div.tab[data-name='premium'] > section[data-type='themes'] {
+    background-color: #d4483a; }
+    div.tab[data-name='premium'] > section[data-type='themes'] > img {
+      bottom: unset; }
+    div.tab[data-name='premium'] > section[data-type='themes'] > div {
+      color: #fff; }
+      @media (min-width: 1151px) {
+        div.tab[data-name='premium'] > section[data-type='themes'] > div {
+          top: 16%;
+          right: 3%;
+          width: 43%; } }
   div.tab[data-name='premium'] > section[data-type='customCss'] {
     background-color: #333a45; }
     div.tab[data-name='premium'] > section[data-type='customCss'] > div {

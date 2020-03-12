@@ -204,6 +204,24 @@ div.tab[data-name='premium'] {
       }
     }
 
+    &[data-type='themes'] {
+      background-color: #d4483a;
+
+      > img {
+        bottom: unset;
+      }
+
+      > div {
+        color: $textColorInverted;
+
+        @media (min-width: 1151px) {
+          top: 16%;
+          right: 3%;
+          width: 43%;
+        }
+      }
+    }
+
     &[data-type='customCss'] {
       background-color: #333a45;
 

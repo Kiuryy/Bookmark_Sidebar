@@ -1,94 +1,97 @@
 @import "../../include/vars";
 @import "../../include/mixins";
 
-[data-theme='glass'] section#sidebar {
-  background: #{"rgba(255, 255, 255, #{$__backgroundTransparency})"};
-  backdrop-filter: blur($__backgroundBlur);
+[data-theme='glass'] {
 
-  > header {
-    background: none;
-    box-shadow: none;
-    color: $__textColor;
+  section#sidebar {
+    background: #{"rgba(255, 255, 255, #{$__backgroundTransparency})"};
+    backdrop-filter: blur($__backgroundBlur);
 
-    > h1 {
+    > header {
+      background: none;
+      box-shadow: none;
       color: $__textColor;
-    }
 
-    > a {
-
-      &::before {
-        background-color: $__textColor;
-      }
-
-      &:hover, &.active {
-        background-color: $__hoverColor;
-      }
-    }
-
-    &.searchVisible > div.searchBox {
-      background-color: rgba(0, 0, 0, 0.07);
-
-      > input[type='text'] {
+      > h1 {
         color: $__textColor;
-
-        &::-webkit-input-placeholder {
-          color: $__textColor;
-          opacity: 0.7;
-        }
       }
 
-      > a.searchClose {
+      > a {
 
         &::before {
           background-color: $__textColor;
         }
 
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.07);
+        &:hover, &.active {
+          background-color: $__hoverColor;
+        }
+      }
+
+      &.searchVisible > div.searchBox {
+        background-color: rgba(0, 0, 0, 0.07);
+
+        > input[type='text'] {
+          color: $__textColor;
+
+          &::-webkit-input-placeholder {
+            color: $__textColor;
+            opacity: 0.7;
+          }
+        }
+
+        > a.searchClose {
+
+          &::before {
+            background-color: $__textColor;
+          }
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.07);
+          }
         }
       }
     }
-  }
 
-  > div.filter {
-    background: $__textColor;
-    border-radius: 5px;
-    transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+    > div.filter {
+      background: $__textColor;
+      border-radius: 5px;
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
 
-    a {
-      color: $__foregroundColor;
+      a {
+        color: $__foregroundColor;
 
-      &[data-direction]::before {
+        &[data-direction]::before {
+          background-color: $__foregroundColor;
+        }
+      }
+
+      > ul > li > div.checkbox::before {
         background-color: $__foregroundColor;
       }
     }
 
-    > ul > li > div.checkbox::before {
-      background-color: $__foregroundColor;
-    }
-  }
+    > div.scrollBox {
 
-  > div.scrollBox {
+      > div.pinned {
+        background: transparent;
 
-    > div.pinned {
-      background: transparent;
+        &.fixed {
+          border: 2px solid rgba(0, 0, 0, 0.2);
+          background: $contentBackground;
+          border-radius: 5px;
+          padding: 3px 0;
+          margin: 0 0 0 10px;
 
-      &.fixed {
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        background: $contentBackground;
-        border-radius: 5px;
-        padding: 3px 0;
-        margin: 0 0 0 10px;
-
-        &::after {
-          display: none;
+          &::after {
+            display: none;
+          }
         }
       }
-    }
 
-    &.scrolled:not([data-direction='up']) ~ div.filter {
-      opacity: 0;
-      transform: translate3d(0, -20px, 0);
+      &.scrolled:not([data-direction='up']) ~ div.filter {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0);
+      }
     }
   }
 }

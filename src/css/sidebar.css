@@ -583,7 +583,7 @@ a.dragHelper {
   cursor: pointer;
   transition: background 0.3s, color 0.3s;
   position: absolute;
-  background: "%hoverColor";
+  background: #fff !important;
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
   cursor: grabbing;
@@ -776,8 +776,6 @@ a.dragHelper {
       transition: inherit; }
     a.dragHelper > span.drag:hover {
       background-color: rgba(0, 0, 0, 0.125); }
-  a.dragHelper.separator {
-    background: #fff; }
   a.dragHelper > span.drag {
     display: block;
     transition: none;
@@ -1662,25 +1660,25 @@ body.dark section#sidebar {
       background-color: #eee; }
   body.dark section#sidebar > div.scrollBox > p {
     background: #3d3d3d; }
-  body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
-    background: rgba(255, 255, 255, 0.15); }
-  body.dark section#sidebar ~ a.dragHelper.separator > span.label[data-name]::before {
-    background: #3d3d3d;
-    box-shadow: 0 0 0 10px #3d3d3d; }
-  body.dark section#sidebar ~ a.dragHelper > span.removeMask {
-    background: #666; }
-  body.dark section#sidebar ~ a.dragHelper > span.drag {
-    background-color: rgba(255, 255, 255, 0.1); }
-    body.dark section#sidebar ~ a.dragHelper > span.drag::before {
-      background-color: #bbb; }
-    body.dark section#sidebar ~ a.dragHelper > span.drag:hover {
-      background-color: rgba(255, 255, 255, 0.25) !important; }
-      body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
-        background-color: #eee; }
-  body.dark section#sidebar ~ a.dragHelper.snap {
-    background: #3d3d3d; }
-  body.dark section#sidebar ~ a.dragHelper.separator {
-    background: #3d3d3d; }
+  body.dark section#sidebar ~ a.dragHelper {
+    background: #3d3d3d !important; }
+    body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {
+      background: rgba(255, 255, 255, 0.15); }
+    body.dark section#sidebar ~ a.dragHelper.separator > span.label[data-name]::before {
+      background: #3d3d3d;
+      box-shadow: 0 0 0 10px #3d3d3d; }
+    body.dark section#sidebar ~ a.dragHelper > span.removeMask {
+      background: #666; }
+    body.dark section#sidebar ~ a.dragHelper > span.drag {
+      background-color: rgba(255, 255, 255, 0.1); }
+      body.dark section#sidebar ~ a.dragHelper > span.drag::before {
+        background-color: #bbb; }
+      body.dark section#sidebar ~ a.dragHelper > span.drag:hover {
+        background-color: rgba(255, 255, 255, 0.25) !important; }
+        body.dark section#sidebar ~ a.dragHelper > span.drag:hover::before {
+          background-color: #eee; }
+    body.dark section#sidebar ~ a.dragHelper.snap {
+      background: #3d3d3d; }
 
 body.dark div#infoBox {
   background: #4d4d4d; }

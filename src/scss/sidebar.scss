@@ -37,16 +37,12 @@ body > textarea {
 a.dragHelper {
   @include bookmarkEntry;
   position: absolute;
-  background: $__hoverColor;
+  background: $contentBackground !important;
   padding-right: 46px;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
   cursor: grabbing;
   transition: none;
   z-index: 3;
-
-  &.separator {
-    background: $contentBackground;
-  }
 
   > span.drag {
     @include mask('icon-reorder', $reorderIconColorActive, 18px);

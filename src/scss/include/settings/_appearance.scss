@@ -284,6 +284,21 @@ body[data-type^='appearance'] {
           }
         }
       }
+
+      p.premium {
+        color: $textColorInverted;
+        background: rgba($contentBackground, 0.2);
+        box-shadow: 0 0 0 20px rgba($contentBackground, 0.2);
+        margin: 40px 0 50px;
+
+        &::before {
+          background-color: $textColorInverted;
+        }
+
+        > a {
+          color: rgba($textColorInverted, 0.8);
+        }
+      }
     }
 
     div.presets {

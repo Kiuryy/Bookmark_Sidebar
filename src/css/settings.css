@@ -1288,6 +1288,15 @@ body[data-type^='appearance'] > section#wrapper > main div.themeList {
           font-weight: 400;
           font-style: italic;
           color: #5eba7d; }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList p.premium {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2);
+    margin: 40px 0 50px; }
+    body[data-type^='appearance'] > section#wrapper > main div.themeList p.premium::before {
+      background-color: #fff; }
+    body[data-type^='appearance'] > section#wrapper > main div.themeList p.premium > a {
+      color: rgba(255, 255, 255, 0.8); }
 
 body[data-type^='appearance'] > section#wrapper > main div.presets > p {
   margin: 10px 0; }

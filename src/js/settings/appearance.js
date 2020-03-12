@@ -488,6 +488,11 @@
                 s.loadImages(s.elm.appearance.content);
             }
 
+            const displayThemes = s.helper.model.getUserType() === "premium";
+            if (displayThemes === false) {
+                s.addNoPremiumText(s.elm.appearance.themeListWrapper.children("div"));
+            }
+
             s.elm.appearance.selectedTheme.children("span").text(s.helper.i18n.get("settings_theme_" + theme));
 
             s.elm.appearance.themeListWrapper.find("> ul > li").forEach((elm) => {
@@ -495,18 +500,22 @@
                 const caption = elmObj.children("div");
                 const availableTheme = elmObj.attr($.attr.name);
 
-                if (theme === availableTheme) {
-                    $("<span />").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
-                } else {
-                    $("<a />").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
+                if (displayThemes) {
+                    if (theme === availableTheme) {
+                        $("<span />").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
+                    } else {
+                        $("<a />").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
+                    }
                 }
             });
 
-            s.elm.appearance.themeListWrapper.find("> ul > li > div > a").on("click", (e) => {
-                e.preventDefault();
-                const theme = $(e.currentTarget).parents("li").eq(0).attr($.attr.name);
-                changeTheme(theme);
-            });
+            if (displayThemes) {
+                s.elm.appearance.themeListWrapper.find("> ul > li > div > a").on("click", (e) => {
+                    e.preventDefault();
+                    const theme = $(e.currentTarget).parents("li").eq(0).attr($.attr.name);
+                    changeTheme(theme);
+                });
+            }
 
             s.elm.appearance.themeListWrapper.css("display", "none");
             $([s.elm.appearance.showThemes, s.elm.appearance.selectedTheme]).on("click", () => { // toggle the list with all available themes

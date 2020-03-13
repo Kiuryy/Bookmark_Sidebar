@@ -1954,7 +1954,7 @@ div.tab[data-name='premium'] > section {
           right: 4%;
           width: 50%; } }
   div.tab[data-name='premium'] > section[data-type='themes'] {
-    background-color: #d4483a; }
+    background-color: #222222; }
     div.tab[data-name='premium'] > section[data-type='themes'] > img {
       bottom: unset; }
     div.tab[data-name='premium'] > section[data-type='themes'] > div {

@@ -57,16 +57,16 @@
             premium: {
                 wrapper: $("div.tab[data-name='premium']"),
             },
-            feedback: {
-                wrapper: $("div.tab[data-name='feedback']"),
-                faq: $("div.tab[data-name='feedback'] > div.faq"),
+            support: {
+                wrapper: $("div.tab[data-name='support']"),
+                faq: $("div.tab[data-name='support'] > div.faq"),
                 form: $("section.form"),
                 send: $("section.form button[type='submit']"),
-                feedback: $("div.tab[data-name='feedback'] div.feedbackWrapper"),
-                showForm: $("div.tab[data-name='feedback'] div.suggestedAnswers > a"),
+                feedback: $("div.tab[data-name='support'] div.feedbackWrapper"),
+                showForm: $("div.tab[data-name='support'] div.suggestedAnswers > a"),
                 uploadField: $("div.upload > input[type='file']"),
                 uploadedFiles: $("ul.uploadedFiles"),
-                suggestions: $("div.tab[data-name='feedback'] div.suggestedAnswers")
+                suggestions: $("div.tab[data-name='support'] div.suggestedAnswers")
             },
             translation: {
                 wrapper: $("div.tab[data-name='language'] > div[data-name='translate']"),
@@ -124,7 +124,7 @@
                 this.helper.i18n.parseHtml(document);
                 this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                ["translation", "feedback"].forEach((name) => {
+                ["translation", "support"].forEach((name) => {
                     loader[name] = this.helper.template.loading().appendTo(this.elm[name].wrapper);
                     this.elm[name].wrapper.addClass($.cl.loading);
                 });
@@ -150,7 +150,7 @@
             }).then((opts) => { // if website is available, feedback form and translation overview can be used
                 this.serviceAvailable = opts.status === "available";
 
-                ["translation", "feedback"].forEach((name) => {
+                ["translation", "support"].forEach((name) => {
                     this.helper[name].init().then(() => {
                         loader[name].remove();
                         this.elm[name].wrapper.removeClass($.cl.loading);
@@ -251,7 +251,7 @@
                 sidebar: new $.SidebarHelper(this),
                 newtab: new $.NewtabHelper(this),
                 appearance: new $.AppearanceHelper(this),
-                feedback: new $.FeedbackHelper(this),
+                support: new $.SupportHelper(this),
                 premium: new $.PremiumHelper(this),
                 importExport: new $.ImportExportHelper(this),
                 expert: new $.ExpertHelper(this),

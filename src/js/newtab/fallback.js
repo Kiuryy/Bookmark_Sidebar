@@ -41,7 +41,7 @@
                         break;
                 }
 
-                $.api.tabs.create({url: $.api.extension.getURL("html/settings.html#feedback_error_" + suggestionType)});
+                $.api.tabs.create({url: $.api.extension.getURL("html/settings.html#support_error_" + suggestionType)});
             });
         };
 

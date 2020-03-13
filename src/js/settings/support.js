@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    $.FeedbackHelper = function (s) {
+    $.SupportHelper = function (s) {
 
         let data = null;
         const suggestionInfo = {
@@ -18,10 +18,10 @@
             return new Promise((resolve) => {
                 if (s.serviceAvailable) {
                     const path = s.helper.menu.getPath();
-                    const showOnlySuggestions = path.length >= 2 && path[0] === "feedback" && path[1] === "error" && path[2];
+                    const showOnlySuggestions = path.length >= 2 && path[0] === "support" && path[1] === "error" && path[2];
 
-                    if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show form, but suggestions first
-                        s.elm.feedback.wrapper.addClass($.cl.settings.feedback.onlySuggestions);
+                    if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show faq/form, but suggestions first
+                        s.elm.support.wrapper.addClass($.cl.settings.support.onlySuggestions);
                     }
 
                     initEvents();
@@ -33,7 +33,7 @@
                             showCommonSuggestions(path[2]);
                         }
 
-                        if (path[0] === "feedback") {
+                        if (path[0] === "support") {
                             initFaq();
                         }
 
@@ -42,13 +42,13 @@
                         resolve();
                     });
                 } else {
-                    s.elm.feedback.form.addClass($.cl.hidden);
+                    s.elm.support.form.addClass($.cl.hidden);
 
                     $("<p />")
                         .addClass($.cl.error)
                         .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
                         .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
-                        .insertAfter(s.elm.feedback.form);
+                        .insertAfter(s.elm.support.form);
 
                     resolve();
                 }
@@ -60,8 +60,8 @@
          * the height needs to be a defined value, because otherwise new suggestions wouldn't push old suggestions to the top1
          */
         const updateSuggestionWrapperHeight = () => {
-            const height = s.elm.feedback.feedback[0].offsetHeight;
-            s.elm.feedback.suggestions.css("max-height", height + "px");
+            const height = s.elm.support.feedback[0].offsetHeight;
+            s.elm.support.suggestions.css("max-height", height + "px");
         };
 
         /**
@@ -152,11 +152,11 @@
                 });
 
                 const suggestion = $("<div />")
-                    .addClass([$.cl.settings.suggestion, $.cl.hidden, $.cl.settings.feedback.absolute])
+                    .addClass([$.cl.settings.suggestion, $.cl.hidden, $.cl.settings.support.absolute])
                     .attr($.attr.type, key)
                     .append("<strong>" + obj.question.message + "</strong>")
-                    .append("<div class='" + $.cl.settings.feedback.answer + "'>" + obj.answer.message + "</div>")
-                    .appendTo(s.elm.feedback.suggestions);
+                    .append("<div class='" + $.cl.settings.support.answer + "'>" + obj.answer.message + "</div>")
+                    .appendTo(s.elm.support.suggestions);
 
                 $("<p />")
                     .append("<a " + $.attr.value + "='1'>" + data.controls.yes.message + "</a>")
@@ -165,25 +165,25 @@
 
                 suggestion.data("links", obj.answer.links || []);
 
-                const answer = suggestion.children("div." + $.cl.settings.feedback.answer);
+                const answer = suggestion.children("div." + $.cl.settings.support.answer);
 
                 $.delay().then(() => {
                     answer.css("height", answer[0].offsetHeight + "px");
-                    answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
+                    answer.addClass([$.cl.settings.support.noHeight, $.cl.hidden]);
                     return $.delay(300);
                 }).then(() => {
                     suggestion.css("height", suggestion[0].offsetHeight + "px");
-                    suggestion.addClass($.cl.settings.feedback.noHeight);
+                    suggestion.addClass($.cl.settings.support.noHeight);
                     return $.delay(300);
                 }).then(() => {
-                    suggestion.removeClass([$.cl.settings.feedback.absolute, $.cl.settings.feedback.noHeight]);
+                    suggestion.removeClass([$.cl.settings.support.absolute, $.cl.settings.support.noHeight]);
                     return $.delay(300);
                 }).then(() => {
                     suggestion
                         .css("height", "")
                         .removeClass($.cl.hidden);
 
-                    s.elm.feedback.suggestions.addClass($.cl.visible);
+                    s.elm.support.suggestions.addClass($.cl.visible);
 
                     if (showAnswer) {
                         showSuggestionAnswer(suggestion);
@@ -221,16 +221,16 @@
                     .appendTo(controlWrapper);
             });
 
-            if (suggestion.parent()[0] !== s.elm.feedback.faq[0]) {
+            if (suggestion.parent()[0] !== s.elm.support.faq[0]) {
                 $("<a />")
                     .attr($.attr.value, "0")
                     .text(data.controls.close.message)
                     .appendTo(controlWrapper);
             }
-            suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.settings.feedback.noHeight);
+            suggestion.children("div." + $.cl.settings.support.answer).removeClass($.cl.settings.support.noHeight);
 
             $.delay(300).then(() => {
-                suggestion.children("div." + $.cl.settings.feedback.answer).removeClass($.cl.hidden);
+                suggestion.children("div." + $.cl.settings.support.answer).removeClass($.cl.hidden);
             });
         };
 
@@ -246,17 +246,17 @@
                 .addClass($.cl.hidden);
 
             $.delay(200).then(() => {
-                suggestion.addClass($.cl.settings.feedback.noHeight);
+                suggestion.addClass($.cl.settings.support.noHeight);
                 return $.delay(300);
             }).then(() => {
                 suggestion.remove();
                 return $.delay();
             }).then(() => {
-                if (s.elm.feedback.suggestions.children("div." + $.cl.settings.suggestion).length() === 0) {
-                    s.elm.feedback.suggestions.removeClass($.cl.visible);
+                if (s.elm.support.suggestions.children("div." + $.cl.settings.suggestion).length() === 0) {
+                    s.elm.support.suggestions.removeClass($.cl.visible);
 
                     $.delay(300).then(() => {
-                        s.elm.feedback.wrapper.removeClass($.cl.settings.feedback.onlySuggestions);
+                        s.elm.support.wrapper.removeClass($.cl.settings.support.onlySuggestions);
                     });
                 }
             });
@@ -266,12 +266,12 @@
          * Initialises the FAQ section
          */
         const initFaq = () => {
-            if (s.elm.feedback.faq.children("div." + $.cl.settings.suggestion).length() > 0) {
+            if (s.elm.support.faq.children("div." + $.cl.settings.suggestion).length() > 0) {
                 return;
             }
 
             if (data && data.suggestions && data.controls) {
-                s.elm.feedback.faq.addClass($.cl.loading);
+                s.elm.support.faq.addClass($.cl.loading);
 
                 Object.entries(data.suggestions).some(([key, obj]) => {
                     if (obj.question && obj.question.faq) {
@@ -279,30 +279,30 @@
                             .addClass($.cl.settings.suggestion)
                             .attr($.attr.type, key)
                             .append("<strong>" + obj.question.faq + "</strong>")
-                            .append("<div class='" + $.cl.settings.feedback.answer + "'>" + obj.answer.message + "</div>")
+                            .append("<div class='" + $.cl.settings.support.answer + "'>" + obj.answer.message + "</div>")
                             .append("<p />")
-                            .appendTo(s.elm.feedback.faq);
+                            .appendTo(s.elm.support.faq);
 
                         suggestion.data("links", obj.answer.links || []);
 
-                        const answer = suggestion.children("div." + $.cl.settings.feedback.answer);
+                        const answer = suggestion.children("div." + $.cl.settings.support.answer);
 
                         $.delay().then(() => {
                             answer.css("height", answer[0].offsetHeight + "px");
-                            answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
-                            s.elm.feedback.faq.removeClass($.cl.hidden);
+                            answer.addClass([$.cl.settings.support.noHeight, $.cl.hidden]);
+                            s.elm.support.faq.removeClass($.cl.hidden);
                             return $.delay(300);
                         }).then(() => {
                             suggestion
                                 .css("height", "")
                                 .removeClass($.cl.hidden);
 
-                            s.elm.feedback.faq.removeClass($.cl.loading);
+                            s.elm.support.faq.removeClass($.cl.loading);
                         });
                     }
                 });
             } else {
-                s.elm.feedback.faq.addClass($.cl.hidden);
+                s.elm.support.faq.addClass($.cl.hidden);
             }
         };
 
@@ -313,7 +313,7 @@
          */
         const initEvents = async () => {
             $(document).on($.opts.events.pageChanged, (e) => {
-                if (e.detail.path && e.detail.path[0] === "feedback") {
+                if (e.detail.path && e.detail.path[0] === "support") {
                     initFaq();
                 }
             });
@@ -328,12 +328,15 @@
                 scanForKeywords(e.currentTarget.value);
             });
 
-            s.elm.feedback.showForm.on("click", (e) => { // show feedback form -> is only visible if the feedback form is hidden
+            s.elm.support.showForm.on("click", (e) => { // show feedback form -> is only visible if the feedback form is hidden
                 e.preventDefault();
-                s.elm.feedback.wrapper.removeClass($.cl.settings.feedback.onlySuggestions);
+                s.elm.support.wrapper.removeClass($.cl.settings.support.onlySuggestions);
+
+                const rect = s.elm.support.feedback[0].getBoundingClientRect();
+                s.elm.content[0].scrollTop = rect.y;
             });
 
-            $([s.elm.feedback.suggestions, s.elm.feedback.faq]).on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
+            $([s.elm.support.suggestions, s.elm.support.faq]).on("click", "a[href]:not([href^='#'])", (e) => { // open non local links in the suggestion in a new tab
                 e.preventDefault();
                 $.api.tabs.create({
                     url: $(e.currentTarget).attr("href"),
@@ -341,7 +344,7 @@
                 });
             });
 
-            s.elm.feedback.suggestions.on("click", "a[" + $.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
+            s.elm.support.suggestions.on("click", "a[" + $.attr.value + "]", (e) => { // hide suggestion when user clicked 'no' or show answer when user clicked 'yes'
                 e.preventDefault();
                 const val = +$(e.currentTarget).attr($.attr.value);
                 const suggestion = $(e.currentTarget).parents("div." + $.cl.settings.suggestion).eq(0);
@@ -353,23 +356,23 @@
                 }
             });
 
-            s.elm.feedback.faq.on("click", "div." + $.cl.settings.suggestion + " > strong", (e) => {
+            s.elm.support.faq.on("click", "div." + $.cl.settings.suggestion + " > strong", (e) => {
                 const suggestion = $(e.currentTarget).parent().eq(0);
                 showSuggestionAnswer(suggestion);
             });
 
-            s.elm.feedback.uploadField.on("change", (e) => { // upload screenshots
+            s.elm.support.uploadField.on("change", (e) => { // upload screenshots
                 if (e.currentTarget.files) {
                     handleFileUpload(e.currentTarget.files);
                 }
             });
 
-            s.elm.feedback.uploadedFiles.on("click", "a." + $.cl.close, (e) => { // remove uploaded screenshot from the list
+            s.elm.support.uploadedFiles.on("click", "a." + $.cl.close, (e) => { // remove uploaded screenshot from the list
                 e.preventDefault();
                 $(e.currentTarget).parent("li").remove();
             });
 
-            s.elm.feedback.send.on("click", (e) => { // submit feedback form
+            s.elm.support.send.on("click", (e) => { // submit feedback form
                 e.preventDefault();
                 sendFeedback();
             });
@@ -381,8 +384,8 @@
          * @param {Array} files
          */
         const handleFileUpload = (files) => {
-            if (files.length + s.elm.feedback.uploadedFiles.children("li").length() > 3) { // too many files -> cancel and show error message
-                window.alert(s.helper.i18n.get("settings_feedback_screenshot_error_amount", [3]));
+            if (files.length + s.elm.support.uploadedFiles.children("li").length() > 3) { // too many files -> cancel and show error message
+                window.alert(s.helper.i18n.get("settings_support_feedback_screenshot_error_amount", [3]));
                 return;
             }
 
@@ -395,7 +398,7 @@
                 const filesize = ((file.size / 1024)).toFixed(4); // KB
 
                 if (filesize > 1024) { // filesize is too big -> show error message
-                    window.alert(s.helper.i18n.get("settings_feedback_screenshot_error_filesize", [file.name]));
+                    window.alert(s.helper.i18n.get("settings_support_feedback_screenshot_error_filesize", [file.name]));
                 } else {
                     reader.onload = (e) => {
                         try {
@@ -403,7 +406,7 @@
                                 .append("<img src='" + e.target.result + "' />")
                                 .append("<span>" + file.name + "</span>")
                                 .append("<a class='" + $.cl.close + "' />")
-                                .appendTo(s.elm.feedback.uploadedFiles);
+                                .appendTo(s.elm.support.uploadedFiles);
                         } catch (e) {
                             //
                         }
@@ -413,7 +416,7 @@
                 }
             }
 
-            s.elm.feedback.uploadField[0].value = "";
+            s.elm.support.uploadField[0].value = "";
         };
 
 
@@ -424,7 +427,7 @@
             const messageText = s.elm.textarea.feedbackMsg[0].value;
             const emailText = s.elm.field.feedbackEmail[0].value;
 
-            const isEmailValid = emailText.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
+            const isEmailValid = emailText.length === 0 || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText);
             const isMessageValid = messageText.length > 0;
 
             if (isEmailValid && isMessageValid) { // email is valid and the message is not empty
@@ -435,7 +438,7 @@
                 let infos = null;
                 const screenshots = [];
 
-                s.elm.feedback.uploadedFiles.find("> li > img").forEach((screenshot) => {
+                s.elm.support.uploadedFiles.find("> li > img").forEach((screenshot) => {
                     screenshots.push($(screenshot).attr("src"));
                 });
 
@@ -477,12 +480,12 @@
 
                         s.elm.textarea.feedbackMsg[0].value = "";
                         s.elm.field.feedbackEmail[0].value = "";
-                        s.elm.feedback.uploadedFiles.html("");
+                        s.elm.support.uploadedFiles.html("");
 
-                        s.showSuccessMessage("feedback_sent_message");
+                        s.showSuccessMessage("support_feedback_sent_message");
                     } else { // not submitted -> raise error
                         $.delay().then(() => {
-                            alert(s.helper.i18n.get("settings_feedback_send_failed"));
+                            alert(s.helper.i18n.get("settings_support_feedback_send_failed"));
                         });
                     }
                 });

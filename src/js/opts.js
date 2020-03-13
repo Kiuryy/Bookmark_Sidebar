@@ -188,7 +188,7 @@
                         fullHeight: "blockbyte-bs-fullHeight"
                     }
                 },
-                feedback: {
+                support: {
                     onlySuggestions: "onlySuggestions",
                     answer: "answer",
                     noHeight: "noHeight",

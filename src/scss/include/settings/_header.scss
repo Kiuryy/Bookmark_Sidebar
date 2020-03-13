@@ -118,7 +118,7 @@ body > header {
     -webkit-mask-size: 22px;
   }
 
-  &[data-type='feedback'] > h1::before {
+  &[data-type='support'] > h1::before {
     @include maskImage('settings/icon-feedback');
     -webkit-mask-size: 18px;
   }

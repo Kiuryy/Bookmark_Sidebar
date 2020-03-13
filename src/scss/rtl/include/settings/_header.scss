@@ -45,7 +45,7 @@ html[dir='rtl'] {
 
     }
 
-    &[data-type='newtab'] > h1::before, &[data-type='feedback'] > h1::before {
+    &[data-type='newtab'] > h1::before, &[data-type='support'] > h1::before {
       transform: scaleX(-1);
       -webkit-mask-position-x: calc(#{$settingsMenuWidth} + 15px) !important;
     }

@@ -28,7 +28,7 @@ html[dir='rtl'] {
               right: 15px;
             }
 
-            &[data-name='newtab'] > a::before, &[data-name='feedback'] > a::before {
+            &[data-name='newtab'] > a::before, &[data-name='support'] > a::before {
               transform: scaleX(-1);
               -webkit-mask-position-x: left !important;
             }

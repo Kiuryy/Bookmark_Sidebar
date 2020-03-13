@@ -43,7 +43,7 @@ body > section#wrapper {
             @include mask('settings/icon-newtab', $textColorLight, 16px);
           }
 
-          &[data-name='feedback'] > a {
+          &[data-name='support'] > a {
             @include mask('settings/icon-feedback', $textColorLight, 16px);
           }
 

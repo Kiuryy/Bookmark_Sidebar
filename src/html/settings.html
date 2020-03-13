@@ -497,36 +497,43 @@
         <!--
          #
          #
-         # FEEDBACK
+         # SUPPORT
          #
          #
          -->
-        <div class="tab" data-name="feedback">
+        <div class="tab" data-name="support">
+            <div class="contentBox faq">
+                <h2 data-i18n="settings_support_faq_headline"></h2>
+            </div>
+
             <div class="boxWrapper">
                 <div class="box feedbackWrapper">
-                    <h2 data-i18n="settings_menu_feedback"></h2>
-                    <p data-i18n="settings_feedback_desc"></p>
-                    <p class="notice" data-i18n="settings_feedback_notice"></p>
+                    <h2 data-i18n="settings_support_feedback_headline"></h2>
+                    <p data-i18n="settings_support_feedback_desc"></p>
+                    <p class="notice" data-i18n="settings_support_feedback_notice"></p>
 
                     <section class="form">
-                        <div class="formElement" data-type="email" data-name="feedbackEmail" data-placeholder="your@email-address.com"></div>
-                        <div class="upload">
-                            <span data-i18n="settings_feedback_screenshot"></span><input type="file" accept="image/*" multiple />
-                        </div>
                         <div class="formElement" data-type="textarea" data-name="feedbackMsg"></div>
+
+                        <div class="mailWrapper">
+                            <div class="formElement" data-type="email" data-name="feedbackEmail" data-i18n="settings_support_feedback_email"></div>
+                        </div>
+
+                        <div class="upload">
+                            <span data-i18n="settings_support_feedback_screenshot"></span><input type="file" accept="image/*" multiple />
+                        </div>
+
                         <ul class="uploadedFiles"></ul>
-                        <button type="submit" data-i18n="settings_feedback_send"></button>
+
+                        <hr />
+                        <button type="submit" data-i18n="settings_support_feedback_send"></button>
                     </section>
                 </div>
 
                 <div class="box suggestedAnswers">
                     <span class="icon"></span>
-                    <a data-i18n="settings_menu_feedback"></a>
+                    <a data-i18n="settings_support_feedback_headline"></a>
                 </div>
-            </div>
-
-            <div class="contentBox faq">
-                <h2 data-i18n="settings_feedback_faq_headline"></h2>
             </div>
         </div>
 
@@ -773,7 +780,7 @@
 <script src='/js/settings/sidebar.js'></script>
 <script src='/js/settings/newtab.js'></script>
 <script src='/js/settings/appearance.js'></script>
-<script src='/js/settings/feedback.js'></script>
+<script src='/js/settings/support.js'></script>
 <script src='/js/settings/infos.js'></script>
 <script src='/js/settings/premium.js'></script>
 <script src='/js/settings/translation.js'></script>

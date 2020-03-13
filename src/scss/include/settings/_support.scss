@@ -1,5 +1,5 @@
 
-div.tab[data-name='feedback'] {
+div.tab[data-name='support'] {
 
   p {
     line-height: 150%;
@@ -40,10 +40,31 @@ div.tab[data-name='feedback'] {
       }
     }
 
-    input[type='email'] {
-      vertical-align: top;
-      width: 180px;
+    div.mailWrapper {
+      display: grid;
+      align-items: center;
+      grid-template-columns: auto 1fr;
+      grid-gap: 10px;
+      font-size: 90%;
+
+      > label {
+        display: block;
+        font-weight: $__fontWeightNormal;
+        font-style: italic;
+
+        &::after {
+          content: ":";
+        }
+      }
+
+      input[type='email'] {
+        margin: 0;
+        font-size: 90%;
+        height: 24px;
+        width: 180px;
+      }
     }
+
 
     button[type="submit"] {
       @extend %highlightButton;
@@ -57,8 +78,7 @@ div.tab[data-name='feedback'] {
 
     div.upload {
       @extend %button;
-      margin: 7px 0 0 0;
-      float: right;
+      margin: 20px 0;
 
       > span {
         @include mask('settings/icon-screenshot', $textColorInverted, 20px);
@@ -86,7 +106,7 @@ div.tab[data-name='feedback'] {
     > li {
       position: relative;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
 
       > img {
         display: inline-block;
@@ -367,4 +387,4 @@ div.tab[data-name='feedback'] {
   }
 }
 
-@import "../../rtl/include/settings/feedback";
+@import "../../rtl/include/settings/support";

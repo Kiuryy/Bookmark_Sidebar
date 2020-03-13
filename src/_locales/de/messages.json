@@ -539,8 +539,8 @@
     "settings_menu_language_translate": {
         "message": "\u00dcbersetzen"
     },
-    "settings_menu_feedback": {
-        "message": "Feedback"
+    "settings_menu_support": {
+        "message": "Support"
     },
     "settings_menu_infos": {
         "message": "Informationen"
@@ -1079,35 +1079,38 @@
     "settings_translation_required_category": {
         "message": "Erforderlich"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "H\u00e4ufig gestellte Fragen"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
         "message": "Du hast Verbesserungsvorschl\u00e4ge, Fragen, vermisst Einstellungsm\u00f6glichkeiten oder hast einen Fehler gefunden? Um die Erweiterung zu verbessern bin ich f\u00fcr jedes Feedback dankbar."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Du kannst die Nachricht gerne auf Deutsch schreiben."
     },
-    "settings_feedback_email": {
-        "message": "Deine E-Mail Adresse"
+    "settings_support_feedback_email": {
+        "message": "E-Mail Adresse (optional)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Screenshots anh\u00e4ngen"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Die Datei {1} ist zu gro\u00df (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Es k\u00f6nnen maximal {1} Screenshots hochgeladen werden"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Feedback abschicken"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Vielen Dank f\u00fcr dein Feedback"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Deine Nachricht konnte nicht abgeschickt werden. Bitte versuche es erneut."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Das k\u00f6nnte dich auch interessieren"
     },
     "settings_permissions_desc": {
         "message": "Um eine ausklappbare Sidebar im {browserName} zu realisieren, werden folgende Berechtigungen ben\u00f6tigt und angefragt:"

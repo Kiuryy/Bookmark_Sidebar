@@ -1,12 +1,12 @@
-body > header > menu > li > button.save::before, body > div.dialog, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='feedback'] div.faq.loading, div.tab[data-name='feedback'] div.faq > div.suggestion.hidden, div.tab[data-name='feedback'] div.faq > div.suggestion > p, div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='feedback'] div.suggestedAnswers, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
+body > header > menu > li > button.save::before, body > div.dialog, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='support'] div.faq.loading, div.tab[data-name='support'] div.faq > div.suggestion.hidden, div.tab[data-name='support'] div.faq > div.suggestion > p, div.tab[data-name='support'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='support'] div.suggestedAnswers, div.tab[data-name='support'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > div.dialog.visible, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='feedback'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > div.dialog.visible, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='support'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='support'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
-body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons > a.save, div.tab[data-name='feedback'] section.form button[type="submit"], div.tab[data-name='premium'] > section[data-type='intro'] > a[data-type="premium"], body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > a, div.tab[data-name='feedback'] section.form div.upload, div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export, main button[type='submit'], a.button {
+body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons > a.save, div.tab[data-name='support'] section.form button[type="submit"], div.tab[data-name='premium'] > section[data-type='intro'] > a[data-type="premium"], body[data-type^='appearance'] > section#wrapper > main div.themeList > ul > li > div.caption > a, div.tab[data-name='support'] section.form div.upload, div.tab[data-name='export'] a.import, div.tab[data-name='export'] a.export, main button[type='submit'], a.button {
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -21,7 +21,7 @@ body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons 
   font-size: 100%;
   border-radius: 20px; }
 
-body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons > a.save, div.tab[data-name='feedback'] section.form button[type="submit"], div.tab[data-name='premium'] > section[data-type='intro'] > a[data-type="premium"] {
+body > header > menu > li > button.save, body > div.toggleAreaModal > p.buttons > a.save, div.tab[data-name='support'] section.form button[type="submit"], div.tab[data-name='premium'] > section[data-type='intro'] > a[data-type="premium"] {
   background: #6494f4;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
 
@@ -337,7 +337,7 @@ body > header {
   body > header[data-type='language'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-translate.svg);
     -webkit-mask-size: 22px; }
-  body > header[data-type='feedback'] > h1::before {
+  body > header[data-type='support'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
     -webkit-mask-size: 18px; }
   body > header[data-type='infos'] > h1::before {
@@ -501,7 +501,7 @@ html[dir='rtl'] body > header > h1 {
     right: calc(250px - 10px);
     transform: rotateZ(45deg); }
 
-html[dir='rtl'] body > header[data-type='newtab'] > h1::before, html[dir='rtl'] body > header[data-type='feedback'] > h1::before {
+html[dir='rtl'] body > header[data-type='newtab'] > h1::before, html[dir='rtl'] body > header[data-type='support'] > h1::before {
   transform: scaleX(-1);
   -webkit-mask-position-x: calc(250px + 15px) !important; }
 
@@ -1439,26 +1439,26 @@ html[dir='rtl'] iframe[data-appearance] {
   right: unset;
   left: 0; }
 
-div.tab[data-name='feedback'] p {
+div.tab[data-name='support'] p {
   line-height: 150%; }
 
-div.tab[data-name='feedback'] p.notice {
+div.tab[data-name='support'] p.notice {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 15px;
   margin: 15px 0; }
 
-div.tab[data-name='feedback'] section.form {
+div.tab[data-name='support'] section.form {
   position: relative; }
-  div.tab[data-name='feedback'] section.form.hidden {
+  div.tab[data-name='support'] section.form.hidden {
     display: none; }
-    div.tab[data-name='feedback'] section.form.hidden + p.error {
+    div.tab[data-name='support'] section.form.hidden + p.error {
       position: relative;
       text-align: center;
       background: #f2f2f2;
       line-height: 150%;
       padding: 90px 30px 30px;
       margin: 0 0 10px 0; }
-      div.tab[data-name='feedback'] section.form.hidden + p.error::before {
+      div.tab[data-name='support'] section.form.hidden + p.error::before {
         content: "";
         position: absolute;
         top: 0;
@@ -1468,28 +1468,41 @@ div.tab[data-name='feedback'] section.form {
         -webkit-mask: no-repeat center/48px;
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
         background-color: #f5c525; }
-      div.tab[data-name='feedback'] section.form.hidden + p.error::before {
+      div.tab[data-name='support'] section.form.hidden + p.error::before {
         pointer-events: none;
         -webkit-mask-position-y: 20px; }
-      div.tab[data-name='feedback'] section.form.hidden + p.error > a {
+      div.tab[data-name='support'] section.form.hidden + p.error > a {
         display: inline-block;
         margin: 10px 0 0 0;
         font-weight: "%fontWeightBold";
         color: #6494f4; }
-  div.tab[data-name='feedback'] section.form input[type='email'] {
-    vertical-align: top;
-    width: 180px; }
-  div.tab[data-name='feedback'] section.form textarea {
+  div.tab[data-name='support'] section.form div.mailWrapper {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+    font-size: 90%; }
+    div.tab[data-name='support'] section.form div.mailWrapper > label {
+      display: block;
+      font-weight: "%fontWeightNormal";
+      font-style: italic; }
+      div.tab[data-name='support'] section.form div.mailWrapper > label::after {
+        content: ":"; }
+    div.tab[data-name='support'] section.form div.mailWrapper input[type='email'] {
+      margin: 0;
+      font-size: 90%;
+      height: 24px;
+      width: 180px; }
+  div.tab[data-name='support'] section.form textarea {
     resize: vertical;
     height: 200px;
     min-height: 200px; }
-  div.tab[data-name='feedback'] section.form div.upload {
-    margin: 7px 0 0 0;
-    float: right; }
-    div.tab[data-name='feedback'] section.form div.upload > span {
+  div.tab[data-name='support'] section.form div.upload {
+    margin: 20px 0; }
+    div.tab[data-name='support'] section.form div.upload > span {
       position: relative;
       padding: 0 3px 0 28px; }
-      div.tab[data-name='feedback'] section.form div.upload > span::before {
+      div.tab[data-name='support'] section.form div.upload > span::before {
         content: "";
         position: absolute;
         top: 0;
@@ -1499,9 +1512,9 @@ div.tab[data-name='feedback'] section.form {
         -webkit-mask: no-repeat center/20px;
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-screenshot.svg);
         background-color: #fff; }
-      div.tab[data-name='feedback'] section.form div.upload > span::before {
+      div.tab[data-name='support'] section.form div.upload > span::before {
         -webkit-mask-position-x: 0; }
-    div.tab[data-name='feedback'] section.form div.upload > input[type='file'] {
+    div.tab[data-name='support'] section.form div.upload > input[type='file'] {
       position: absolute;
       top: 0;
       left: -900%;
@@ -1509,22 +1522,22 @@ div.tab[data-name='feedback'] section.form {
       height: 100%;
       cursor: pointer; }
 
-div.tab[data-name='feedback'] ul.uploadedFiles > li {
+div.tab[data-name='support'] ul.uploadedFiles > li {
   position: relative;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-  div.tab[data-name='feedback'] ul.uploadedFiles > li > img {
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  div.tab[data-name='support'] ul.uploadedFiles > li > img {
     display: inline-block;
     vertical-align: middle;
     width: 80px; }
-  div.tab[data-name='feedback'] ul.uploadedFiles > li > span {
+  div.tab[data-name='support'] ul.uploadedFiles > li > span {
     display: inline-block;
     margin: 0 0 0 10px;
     width: calc(100% - 80px - 10px - 24px);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden; }
-  div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close {
+  div.tab[data-name='support'] ul.uploadedFiles > li > a.close {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -1536,7 +1549,7 @@ div.tab[data-name='feedback'] ul.uploadedFiles > li {
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s; }
-    div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close::before {
+    div.tab[data-name='support'] ul.uploadedFiles > li > a.close::before {
       content: "";
       position: absolute;
       top: 0;
@@ -1546,44 +1559,44 @@ div.tab[data-name='feedback'] ul.uploadedFiles > li {
       -webkit-mask: no-repeat center/16px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-close.svg);
       background-color: #666; }
-    div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close:hover {
+    div.tab[data-name='support'] ul.uploadedFiles > li > a.close:hover {
       background-color: rgba(0, 0, 0, 0.1); }
 
-div.tab[data-name='feedback'] div.faq {
+div.tab[data-name='support'] div.faq {
   transition: opacity 0.5s; }
-  div.tab[data-name='feedback'] div.faq.hidden {
+  div.tab[data-name='support'] div.faq.hidden {
     display: none; }
-  div.tab[data-name='feedback'] div.faq.loading {
+  div.tab[data-name='support'] div.faq.loading {
     transition: none; }
-  div.tab[data-name='feedback'] div.faq > h2 {
+  div.tab[data-name='support'] div.faq > h2 {
     margin-bottom: 30px; }
-  div.tab[data-name='feedback'] div.faq > div.suggestion {
+  div.tab[data-name='support'] div.faq > div.suggestion {
     position: relative;
     width: 100%;
     user-select: text;
     transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion.noHeight {
+    div.tab[data-name='support'] div.faq > div.suggestion.noHeight {
       height: 0 !important;
       padding-top: 0;
       padding-bottom: 0;
       margin: 0; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion + div.suggestion {
+    div.tab[data-name='support'] div.faq > div.suggestion + div.suggestion {
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       margin-top: 15px;
       padding-top: 15px; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > strong {
+    div.tab[data-name='support'] div.faq > div.suggestion > strong {
       display: inline-block;
       font-size: 120%;
       font-weight: "%fontWeightNormal";
       line-height: 150%;
       padding: 5px 0;
       cursor: pointer; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > p {
+    div.tab[data-name='support'] div.faq > div.suggestion > p {
       font-size: 90%;
       background: #f2f2f2;
       border-radius: 0 0 10px 10px;
       transition: opacity 0.3s, margin 0.5s, padding 0.5s; }
-      div.tab[data-name='feedback'] div.faq > div.suggestion > p > a {
+      div.tab[data-name='support'] div.faq > div.suggestion > p > a {
         display: inline-block;
         padding: 2px 7px;
         font-weight: "%fontWeightMedium";
@@ -1592,13 +1605,13 @@ div.tab[data-name='feedback'] div.faq {
         margin: 0 4px;
         cursor: pointer;
         transition: background 0.5s; }
-        div.tab[data-name='feedback'] div.faq > div.suggestion > p > a:hover {
+        div.tab[data-name='support'] div.faq > div.suggestion > p > a:hover {
           background: rgba(100, 148, 244, 0.2); }
-      div.tab[data-name='feedback'] div.faq > div.suggestion > p[data-type='answer'] {
+      div.tab[data-name='support'] div.faq > div.suggestion > p[data-type='answer'] {
         margin-bottom: 15px;
         padding: 3px 0 7px;
         transition: opacity 0.3s 0.3s, margin 0.5s, padding 0.5s; }
-    div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer {
+    div.tab[data-name='support'] div.faq > div.suggestion > div.answer {
       position: relative;
       margin-top: 2px;
       background: #f2f2f2;
@@ -1607,22 +1620,22 @@ div.tab[data-name='feedback'] div.faq {
       transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0; }
-      div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer::before {
+      div.tab[data-name='support'] div.faq > div.suggestion > div.answer::before {
         content: "";
         position: absolute;
         top: -14px;
         left: 30px;
         border: 7px solid transparent;
         border-bottom-color: #f2f2f2; }
-      div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer p + p {
+      div.tab[data-name='support'] div.faq > div.suggestion > div.answer p + p {
         margin-top: 10px; }
-      div.tab[data-name='feedback'] div.faq > div.suggestion > div.answer.noHeight {
+      div.tab[data-name='support'] div.faq > div.suggestion > div.answer.noHeight {
         height: 0 !important;
         padding-top: 0;
         padding-bottom: 0;
         margin: 0; }
 
-div.tab[data-name='feedback'] div.suggestedAnswers {
+div.tab[data-name='support'] div.suggestedAnswers {
   background: none !important;
   box-shadow: none !important;
   padding: 10px 10px 80px 10px !important;
@@ -1633,10 +1646,10 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
   align-items: flex-end;
   transform: translate3d(0, 20px, 0);
   transition: opacity 0.3s, transform 0.3s; }
-  div.tab[data-name='feedback'] div.suggestedAnswers.visible {
+  div.tab[data-name='support'] div.suggestedAnswers.visible {
     transform: translate3d(0, 0, 0); }
   @media (min-width: 901px) {
-    div.tab[data-name='feedback'] div.suggestedAnswers::before {
+    div.tab[data-name='support'] div.suggestedAnswers::before {
       content: "";
       position: absolute;
       display: block;
@@ -1647,7 +1660,7 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
       pointer-events: none;
       background: linear-gradient(to bottom, #f2f2f2 0%, transparent 100%);
       z-index: 2; } }
-  div.tab[data-name='feedback'] div.suggestedAnswers > span.icon {
+  div.tab[data-name='support'] div.suggestedAnswers > span.icon {
     position: absolute;
     bottom: 10px;
     right: 12px;
@@ -1656,7 +1669,7 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
     border-radius: 50%;
     background: linear-gradient(45deg, #6494f4 0%, #00e5fd 100%);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); }
-    div.tab[data-name='feedback'] div.suggestedAnswers > span.icon::before {
+    div.tab[data-name='support'] div.suggestedAnswers > span.icon::before {
       content: "";
       position: absolute;
       top: 0;
@@ -1666,7 +1679,7 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
       -webkit-mask: no-repeat center/36px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/support.svg);
       background-color: #fff; }
-  div.tab[data-name='feedback'] div.suggestedAnswers > a {
+  div.tab[data-name='support'] div.suggestedAnswers > a {
     position: absolute;
     bottom: 32px;
     left: 17px;
@@ -1674,7 +1687,7 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
     padding-left: 22px;
     cursor: pointer;
     display: none; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > a::before {
+    div.tab[data-name='support'] div.suggestedAnswers > a::before {
       content: "";
       position: absolute;
       top: 0;
@@ -1684,9 +1697,9 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
       -webkit-mask: no-repeat center/14px;
       -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
       background-color: #666; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > a::before {
+    div.tab[data-name='support'] div.suggestedAnswers > a::before {
       -webkit-mask-position: left center; }
-  div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion {
+  div.tab[data-name='support'] div.suggestedAnswers > div.suggestion {
     position: relative;
     width: 100%;
     background: #fff;
@@ -1696,31 +1709,31 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
     padding: 10px 15px;
     user-select: text;
     transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.noHeight {
+    div.tab[data-name='support'] div.suggestedAnswers > div.suggestion.noHeight {
       height: 0 !important;
       padding-top: 0;
       padding-bottom: 0;
       margin: 0; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion:last-of-type::before {
+    div.tab[data-name='support'] div.suggestedAnswers > div.suggestion:last-of-type::before {
       content: "";
       position: absolute;
       bottom: -32px;
       right: 20px;
       border: 16px solid transparent;
       border-top-color: #fff; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion.absolute {
+    div.tab[data-name='support'] div.suggestedAnswers > div.suggestion.absolute {
       position: absolute;
       bottom: -9999px;
       width: calc(100% - 20px); }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > strong {
+    div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > strong {
       font-size: 120%;
       font-weight: "%fontWeightNormal";
       line-height: 150%; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p {
+    div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > p {
       margin: 15px 0 5px;
       text-align: right;
       font-size: 120%; }
-      div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p > a {
+      div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > p > a {
         display: inline-block;
         padding: 2px 7px;
         font-weight: "%fontWeightMedium";
@@ -1728,77 +1741,76 @@ div.tab[data-name='feedback'] div.suggestedAnswers {
         margin: 0 3px;
         cursor: pointer;
         transition: background 0.5s; }
-        div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p > a:hover {
+        div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > p > a:hover {
           background: rgba(0, 0, 0, 0.05); }
-        div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p > a[href] {
+        div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > p > a[href] {
           float: left; }
-    div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer {
+    div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > div.answer {
       margin-top: 20px;
       transition: opacity 0.2s, height 0.3s, padding 0.3s, margin 0.3s; }
-      div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer.noHeight {
+      div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > div.answer.noHeight {
         height: 0 !important;
         padding-top: 0;
         padding-bottom: 0;
         margin: 0; }
-      div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > div.answer p + p {
+      div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > div.answer p + p {
         margin-top: 10px; }
 
-div.tab[data-name='feedback'].onlySuggestions div.feedbackWrapper {
+div.tab[data-name='support'].onlySuggestions div.feedbackWrapper {
   display: none; }
 
-div.tab[data-name='feedback'].onlySuggestions div.faq {
+div.tab[data-name='support'].onlySuggestions div.faq {
   display: none; }
 
-div.tab[data-name='feedback'].onlySuggestions div.suggestedAnswers {
+div.tab[data-name='support'].onlySuggestions div.suggestedAnswers {
   max-height: none !important; }
-  div.tab[data-name='feedback'].onlySuggestions div.suggestedAnswers::before {
+  div.tab[data-name='support'].onlySuggestions div.suggestedAnswers::before {
     display: none; }
-  div.tab[data-name='feedback'].onlySuggestions div.suggestedAnswers > a {
+  div.tab[data-name='support'].onlySuggestions div.suggestedAnswers > a {
     display: block; }
 
-html[dir='rtl'] div.tab[data-name='feedback'] div.upload {
-  float: left; }
-  html[dir='rtl'] div.tab[data-name='feedback'] div.upload > span {
-    padding-right: 28px;
-    padding-left: 3px; }
-    html[dir='rtl'] div.tab[data-name='feedback'] div.upload > span::before {
-      transform: scaleX(-1); }
-  html[dir='rtl'] div.tab[data-name='feedback'] div.upload > input[type='file'] {
-    left: unset;
-    right: -900%; }
+html[dir='rtl'] div.tab[data-name='support'] div.upload > span {
+  padding-right: 28px;
+  padding-left: 3px; }
+  html[dir='rtl'] div.tab[data-name='support'] div.upload > span::before {
+    transform: scaleX(-1); }
 
-html[dir='rtl'] div.tab[data-name='feedback'] ul.uploadedFiles > li > span {
+html[dir='rtl'] div.tab[data-name='support'] div.upload > input[type='file'] {
+  left: unset;
+  right: -900%; }
+
+html[dir='rtl'] div.tab[data-name='support'] ul.uploadedFiles > li > span {
   margin-right: 10px;
   margin-left: 0; }
 
-html[dir='rtl'] div.tab[data-name='feedback'] ul.uploadedFiles > li > a.close {
+html[dir='rtl'] div.tab[data-name='support'] ul.uploadedFiles > li > a.close {
   left: 0;
   right: unset; }
 
-html[dir='rtl'] div.tab[data-name='feedback'] div.faq {
+html[dir='rtl'] div.tab[data-name='support'] div.faq {
   direction: ltr; }
 
-html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > span.icon {
+html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > span.icon {
   left: 12px;
   right: unset;
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2); }
 
-html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > a {
+html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > a {
   right: 17px;
   left: unset;
   padding-right: 22px;
   padding-left: 0; }
-  html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > a::before {
+  html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > a::before {
     transform: scaleX(-1); }
 
-html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion {
+html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > div.suggestion {
   direction: ltr; }
-  html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion:last-of-type::before {
+  html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > div.suggestion:last-of-type::before {
     left: 20px;
     right: unset; }
-  html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p {
+  html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > p {
     text-align: left; }
-    html[dir='rtl'] div.tab[data-name='feedback'] div.suggestedAnswers > div.suggestion > p > a[href] {
+    html[dir='rtl'] div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > p > a[href] {
       float: right; }
 
 div.tab[data-name='premium'] p {
@@ -2829,7 +2841,7 @@ body > section#wrapper > aside {
         -webkit-mask: no-repeat center/16px;
         -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-newtab.svg);
         background-color: #aaa; }
-      body > section#wrapper > aside > nav > ul > li[data-name='feedback'] > a::before {
+      body > section#wrapper > aside > nav > ul > li[data-name='support'] > a::before {
         content: "";
         position: absolute;
         top: 0;
@@ -3000,7 +3012,7 @@ html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='premiu
   left: unset;
   right: 15px; }
 
-html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='newtab'] > a::before, html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='feedback'] > a::before {
+html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='newtab'] > a::before, html[dir='rtl'] body > section#wrapper > aside > nav > ul > li[data-name='support'] > a::before {
   transform: scaleX(-1);
   -webkit-mask-position-x: left !important; }
 

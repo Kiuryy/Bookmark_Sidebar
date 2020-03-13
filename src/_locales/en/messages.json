@@ -542,8 +542,8 @@
     "settings_menu_language_translate": {
         "message": "Translate"
     },
-    "settings_menu_feedback": {
-        "message": "Feedback"
+    "settings_menu_support": {
+        "message": "Support"
     },
     "settings_menu_infos": {
         "message": "Information"
@@ -1130,35 +1130,38 @@
     "settings_translation_thanks_close": {
         "message": "No thanks"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "Frequently Asked Questions"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
         "message": "Have any suggestions for improvements, questions, notice missing configuration options, or found a bug? To help improve experiences with this extension I would be very grateful for any and all feedback given or you might have."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Please compose your feedback in English, otherwise It will be difficult to understand and answer your message."
     },
-    "settings_feedback_email": {
-        "message": "Your email address"
+    "settings_support_feedback_email": {
+        "message": "email address (optional)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Attach screenshots"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "The file size of {1} is too big (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "You can only upload a maximum of {1} screenshots"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Send feedback"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Thank you for the feedback"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Your message could not be sent. Please try again."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "This may be of interest to you"
     },
     "settings_about_me_desc": {
         "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. At that time I couldn't imagine how many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."

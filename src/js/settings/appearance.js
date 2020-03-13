@@ -500,12 +500,10 @@
                 const caption = elmObj.children("div");
                 const availableTheme = elmObj.attr($.attr.name);
 
-                if (displayThemes) {
-                    if (theme === availableTheme) {
-                        $("<span />").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
-                    } else {
-                        $("<a />").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
-                    }
+                if (theme === availableTheme) {
+                    $("<span />").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
+                } else if (displayThemes) {
+                    $("<a />").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
                 }
             });
 

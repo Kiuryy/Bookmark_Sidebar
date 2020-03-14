@@ -176,6 +176,11 @@
                     let menu = list.children("li[" + $.attr.name + "='" + path[0] + "']");
                     let page = s.elm.content.children("div." + $.cl.settings.tabs.content + "[" + $.attr.name + "='" + path[0] + "']");
 
+                    if (page.length() === 0) { // invalid page -> redirect to startpage of the settings
+                        location.href = location.protocol + "//" + location.host + location.pathname;
+                        return;
+                    }
+
                     if (pathLen === 1 && page.find("> div[" + $.attr.name + "]").length() > 0) {
 
                         if (menu.hasClass($.cl.settings.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete

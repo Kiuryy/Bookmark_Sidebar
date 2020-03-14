@@ -44,7 +44,7 @@ body > section#wrapper {
           }
 
           &[data-name='support'] > a {
-            @include mask('settings/icon-feedback', $textColorLight, 16px);
+            @include mask('settings/icon-support', $textColorLight, 22px);
           }
 
           &[data-name='premium'] {

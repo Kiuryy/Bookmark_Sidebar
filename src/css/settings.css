@@ -338,8 +338,8 @@ body > header {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-translate.svg);
     -webkit-mask-size: 22px; }
   body > header[data-type='support'] > h1::before {
-    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
-    -webkit-mask-size: 18px; }
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-support.svg);
+    -webkit-mask-size: 24px; }
   body > header[data-type='infos'] > h1::before {
     -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg);
     -webkit-mask-size: 22px; }
@@ -2848,8 +2848,8 @@ body > section#wrapper > aside {
         left: 0;
         width: 100%;
         height: 100%;
-        -webkit-mask: no-repeat center/16px;
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-feedback.svg);
+        -webkit-mask: no-repeat center/22px;
+        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-support.svg);
         background-color: #aaa; }
       body > section#wrapper > aside > nav > ul > li[data-name='premium'] > a::before {
         content: "";

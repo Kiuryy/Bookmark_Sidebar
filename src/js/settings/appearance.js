@@ -450,19 +450,13 @@
                 const appearance = conf.appearance || {};
                 appearance.styles = appearance.styles || {};
                 appearance.theme = theme;
+                appearance.darkMode = false;
 
                 Object.keys(appearance.styles).forEach((key) => {
-                    if (!key.startsWith("indicator") && !key.startsWith("icon") && key !== "colorScheme") { // remove all styles, but keep some (indicator, color scheme, icon, ...)
+                    if (!key.startsWith("indicator") && !key.startsWith("icon")) { // remove all styles, but keep some (indicator, icon, ...)
                         delete appearance.styles[key];
                     }
                 });
-
-                const defaultColors = s.helper.model.getDefaultColors(theme);
-                const surface = appearance.darkMode ? "dark" : "light";
-                Object.entries(defaultColors).forEach(([key, val]) => { // apply the default colors for the selected theme
-                    appearance.styles[key] = val[surface];
-                });
-                appearance.styles.bookmarksDirColor = appearance.styles.textColor;
 
                 if (themeDefaultStyles[theme]) {
                     Object.entries(themeDefaultStyles[theme]).forEach(([key, val]) => {

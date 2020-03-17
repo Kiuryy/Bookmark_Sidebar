@@ -458,6 +458,11 @@
                     }
                 });
 
+                const defaultColors = s.helper.model.getDefaultColors(theme);
+                Object.entries(defaultColors).forEach(([key, val]) => { // apply the default colors for the selected theme
+                    appearance.styles[key] = val.light;
+                });
+
                 if (themeDefaultStyles[theme]) {
                     Object.entries(themeDefaultStyles[theme]).forEach(([key, val]) => {
                         appearance.styles[key] = val;

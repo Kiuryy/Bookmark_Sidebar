@@ -392,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zamyka boczn\u0105 list\u0119 zak\u0142adek, menu kontekstowe lub inny otwarty element"
     },
-    "contribute_headline": {
-        "message": "Potrzebuj\u0119 Twojej pomocy"
-    },
     "contribute_intro": {
         "message": "W celu udoskonalenia tego dodatku chcia\u0142bym dok\u0142adniej dowiedzie\u0107 si\u0119 w jaki spos\u00f3b u\u017cytkownicy korzystaj\u0105 z panelu bocznego oraz jakich u\u017cywaj\u0105 konfiguracji."
     },
+    "contribute_notice": {
+        "message": "Mo\u017cesz pom\u00f3c mi udost\u0119pniaj\u0105c swoj\u0105 konfiguracj\u0119."
+    },
     "contribute_outro": {
         "message": "Je\u015bli masz pytania lub w\u0105tpliwo\u015bci zwi\u0105zane z udost\u0119pnianiem informacji, wy\u015blij do mnie prosz\u0119 wiadomo\u015b\u0107 z komentarzem."
-    },
-    "contribute_dismiss": {
-        "message": "Odrzu\u0107"
     },
     "contribute_share_config_label": {
         "message": "Udost\u0119pnij konfiguracj\u0119"
@@ -541,9 +538,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Przet\u0142umacz"
-    },
-    "settings_menu_feedback": {
-        "message": "Opinie"
     },
     "settings_menu_infos": {
         "message": "Informacje"
@@ -848,6 +842,9 @@
     "settings_import_failed": {
         "message": "Nie uda\u0142o si\u0119 zaimportowa\u0107 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
     },
+    "settings_theme_changed": {
+        "message": "Pomy\u015blnie zmieniono motyw"
+    },
     "settings_presets": {
         "message": "Ustaw relatywne rozmiary"
     },
@@ -917,6 +914,12 @@
     "settings_sidebar_mask_color": {
         "message": "Kolor t\u0142a"
     },
+    "settings_background_transparency": {
+        "message": "Przezroczysto\u015b\u0107 t\u0142a"
+    },
+    "settings_background_blur": {
+        "message": "Efekt rozmycia t\u0142a"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona folderu"
     },
@@ -958,6 +961,18 @@
     },
     "settings_custom_css_desc": {
         "message": "Mo\u017cesz zdefiniowa\u0107 w\u0142asny arkusz styl\u00f3w nadpisuj\u0105cy domy\u015bln\u0105 stylizacj\u0119. Opcja przeznaczona dla u\u017cytkownik\u00f3w znaj\u0105cych j\u0119zyk CSS."
+    },
+    "settings_theme": {
+        "message": "Motyw"
+    },
+    "settings_available_themes": {
+        "message": "Dost\u0119pne motywy."
+    },
+    "settings_show_themes": {
+        "message": "Zobacz dost\u0119pne motywy."
+    },
+    "settings_theme_default": {
+        "message": "Standardowy motyw."
     },
     "settings_newtab_desc": {
         "message": "Niestety Google usun\u0105\u0142 mo\u017cliwo\u015b\u0107 \u0142adowania rozszerze\u0144 na domy\u015blnej stronie nowej karty. Z tego powodu doda\u0142em kilka opcji, kt\u00f3re pozwalaj\u0105 uzyska\u0107 w inny spos\u00f3b dost\u0119p do twoich zak\u0142adek, kiedy otwierasz now\u0105 kart\u0119."
@@ -1043,35 +1058,32 @@
     "settings_translation_required_category": {
         "message": "Wymagane"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Opinie"
+    },
+    "settings_support_feedback_desc": {
         "message": "Masz sugestie dotycz\u0105ce ulepsze\u0144, pytania, brakuje ci jakich\u015b ustawie\u0144 albo znalaz\u0142e\u015b b\u0142\u0105d? Aby poprawi\u0107 do\u015bwiadczenia zwi\u0105zane z u\u017cytkowaniem tego rozszerzenia, jestem got\u00f3w na ka\u017cd\u0105 opini\u0119, kt\u00f3r\u0105 chcesz mi przekaza\u0107."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Prosz\u0119, napisz swoj\u0105 wiadomo\u015b\u0107 po angielsku, bo inaczej b\u0119d\u0119 mia\u0142 problemy ze zrozumieniem jej i odpowiedzeniem na ni\u0105."
     },
-    "settings_feedback_email": {
-        "message": "Tw\u00f3j adres email"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Do\u0142\u0105cz zrzut ekranu"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Rozmiar pliku jest za du\u017cy (>1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Mo\u017cesz maksymalnie za\u0142\u0105czy\u0107 {1} zrzut\u00f3w"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Wy\u015blij opini\u0119"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Dzi\u0119kuj\u0119 za twoj\u0105 opini\u0119."
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Twoja wiadomo\u015b\u0107 nie mog\u0142a zosta\u0107 wys\u0142ana. Prosz\u0119, spr\u00f3buj ponownie"
-    },
-    "settings_feedback_faq_headline": {
-        "message": "To mo\u017ce Ci\u0119 zainteresowa\u0107"
     },
     "settings_permissions_desc": {
         "message": "Aby w {browserName} mo\u017cliwe by\u0142o stosowanie prze\u0142\u0105czanego paska bocznego, wymagane s\u0105 nast\u0119puj\u0105ce pozwolenia wymagane przez rozszerzenie:"

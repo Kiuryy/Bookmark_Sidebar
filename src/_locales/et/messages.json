@@ -392,17 +392,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Sulgeb k\u00fclgriba, avatud katte v\u00f5i kontekstmen\u00fc\u00fc"
     },
-    "contribute_headline": {
-        "message": "Ma vajan sinu abi"
-    },
     "contribute_intro": {
         "message": "Laienduse parandamiseks soovin t\u00e4psemalt teada, kuidas ja millise seadistusega kasutajad k\u00fclgriba kasutavad."
     },
     "contribute_outro": {
         "message": "Kui sul on k\u00fcsimusi v\u00f5i kahtlusi info jagamise suhtes, saada mulle tagasiside s\u00f5num."
-    },
-    "contribute_dismiss": {
-        "message": "Keeldu"
     },
     "contribute_share_config_label": {
         "message": "Jaga seadistust"
@@ -541,9 +535,6 @@
     },
     "settings_menu_language_translate": {
         "message": "T\u00f5lgi"
-    },
-    "settings_menu_feedback": {
-        "message": "Tagasiside"
     },
     "settings_menu_infos": {
         "message": "Info"
@@ -1043,35 +1034,32 @@
     "settings_translation_required_category": {
         "message": "N\u00f5utav"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Tagasiside"
+    },
+    "settings_support_feedback_desc": {
         "message": "Kas on parandusettepanekuid, k\u00fcsimusi, m\u00e4rkasid puuduvaid seadistuste valikuid v\u00f5i leidsid vea? Laienduse parandamiseks olen v\u00e4ga t\u00e4nulik iga tagasiside eest, mis sul v\u00f5iks olla."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Palun saada tagasiside inglise keeles, muidu on s\u00f5numist raske aru saada ja sellele vastata."
     },
-    "settings_feedback_email": {
-        "message": "Sinu e-posti aadress"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Lisa kuvat\u00f5mmis"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Fail {1} on liiga suur (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "\u00dcles v\u00f5ib laadida maksimaalselt {1} kuvat\u00f5mmist"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Saada tagasisidet"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "T\u00e4nan tagasiside eest"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "S\u00f5numi saatmine nurjus. Palun proovi uuesti."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "See v\u00f5ib sulle huvi pakkuda"
     },
     "settings_permissions_desc": {
         "message": "K\u00fclgriba kasutamiseks {browserName} brauseris tuleb anda j\u00e4rgmised \u00f5igused:"

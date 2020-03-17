@@ -380,17 +380,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zapre stransko vrstico, odprt overlay ali kontekstni meni"
     },
-    "contribute_headline": {
-        "message": "Potrebujem va\u0161o pomo\u010d"
-    },
     "contribute_intro": {
         "message": "Za izbolj\u0161anje raz\u0161iritve, bi \u017eelel vedeti ve\u010d kako uporabniki uporabljajo stransko vrstico in kak\u0161ne nastavitve uporabljajo."
     },
     "contribute_outro": {
         "message": "\u010ce imate vpra\u0161anja ali skrbi v zvezi z deljenjem informacij, prosimo po\u0161ljite sporo\u010dilo s povratno informacijo."
-    },
-    "contribute_dismiss": {
-        "message": "Opusti"
     },
     "contribute_share_config_label": {
         "message": "Deli nastavitve"
@@ -529,9 +523,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Prevedi"
-    },
-    "settings_menu_feedback": {
-        "message": "Povratne infrmacije"
     },
     "settings_menu_infos": {
         "message": "Informacija"
@@ -1022,35 +1013,32 @@
     "settings_translation_required_category": {
         "message": "Potrebovano"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Povratne infrmacije"
+    },
+    "settings_support_feedback_desc": {
         "message": "Imate kak\u0161ne predloge za izbolj\u0161anje, vpra\u0161anja, opazite manjkajo\u010de nastavitve, ali ste na\u0161li hro\u0161\u010da? Za pomo\u010d pri izbolj\u0161anju izku\u0161nje z raz\u0161iritvijo bom zelo hvale\u017een za kakr\u0161nekoli in vse povratne informacije, ki jih imate."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Prosim sestavite va\u0161o povratno informacijo v angle\u0161kem jeziku, druga\u010de bo te\u017eko razumeti va\u0161e sporo\u010dilo in vam odgovoriti."
     },
-    "settings_feedback_email": {
-        "message": "Va\u0161 e-po\u0161tni naslov"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei sliko ekrana"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Velikost datoteke od {1} je prevelika (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Nalo\u017eite lahko najve\u010d {1} slik ekrana"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Po\u0161lji povratno informacijo"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Hvala za va\u0161o povratno informacijo"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Va\u0161e sporo\u010dilo ni bilo poslano. Prosim poskusite ponovno."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "To bi vas lahko zanimalo"
     },
     "settings_permissions_desc": {
         "message": "Da je toggeable stranska vrstica mo\u017ena v {browserName}-u, so potrebna in zahtevana slede\u010da dovoljenja raz\u0161iritve:"

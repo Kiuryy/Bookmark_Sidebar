@@ -392,17 +392,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Lukker sidebaren, det \u00e5bne overl\u00e6g eller den \u00e5bne kontekstmenu"
     },
-    "contribute_headline": {
-        "message": "Jeg har brug for din hj\u00e6lp"
-    },
     "contribute_intro": {
         "message": "For at g\u00f8re denne udvidelse bedre \u00f8nsker jeg at opn\u00e5 kendskab til hvordan brugere benytter sidebaren, samt hvilke ops\u00e6tning de bruger."
     },
     "contribute_outro": {
         "message": "Hvis du har sp\u00f8rgsm\u00e5l eller bekymringer om at dele denne information, send mig gerne din feedback."
-    },
-    "contribute_dismiss": {
-        "message": "Afvis"
     },
     "contribute_share_config_label": {
         "message": "Del ops\u00e6tning"
@@ -541,9 +535,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Overs\u00e6t"
-    },
-    "settings_menu_feedback": {
-        "message": "Feedback"
     },
     "settings_menu_infos": {
         "message": "Information"
@@ -1043,35 +1034,32 @@
     "settings_translation_required_category": {
         "message": "N\u00f8dvendig"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
         "message": "Har du forslag til forbedringer, sp\u00f8rgsm\u00e5l, bem\u00e6rkning manglende konfigurationsindstillinger eller fundet en fejl? For at hj\u00e6lpe med at forbedre erfaringerne med denne udvidelse, ville jeg v\u00e6re meget taknemmelig for alle de tilbagemeldinger, du har f\u00e5et, eller du m\u00e5tte have."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Skriv venligst din feedback p\u00e5 engelsk, ellers Det vil v\u00e6re sv\u00e6rt at forst\u00e5 og svare p\u00e5 din besked."
     },
-    "settings_feedback_email": {
-        "message": "Din email adresse"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Vedh\u00e6ft sk\u00e6rmbilleder"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Filst\u00f8rrelsen p\u00e5 {1} er for stor (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Du kan kun uploade maksimalt {1} sk\u00e6rmbilleder"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Send feedback"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Tak for tilbagemeldingen"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Din besked kunne ikke sendes. Pr\u00f8v igen."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Dette kan v\u00e6re af interesse for dig"
     },
     "settings_permissions_desc": {
         "message": "For at g\u00f8re det muligt at lave en sidebar der kan vises\/skjules i {browserName}, har udvidelsen brug for f\u00f8lgende tilladelser:"

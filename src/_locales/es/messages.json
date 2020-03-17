@@ -279,7 +279,7 @@
         "message": "Mostrar iconos de sitios web"
     },
     "newtab_search_placeholder": {
-        "message": "Busca {1} o escribe la URL"
+        "message": "Busca {1} o escriba la URL"
     },
     "newtab_search_field_show": {
         "message": "Mostrar campo de b\u00fasqueda"
@@ -288,7 +288,7 @@
         "message": "Ocultar campo de b\u00fasqueda"
     },
     "newtab_speech_search_listening": {
-        "message": "Hable Ahora"
+        "message": "Hable ahora"
     },
     "newtab_speech_search_error": {
         "message": "Para habilitar la b\u00fasqueda de voz, debe permitir el acceso al micr\u00f3fono."
@@ -300,13 +300,13 @@
         "message": "Definido por el usuario"
     },
     "newtab_search_engine_custom_title": {
-        "message": "Titulo"
+        "message": "T\u00edtulo"
     },
     "newtab_search_engine_custom_url_homepage": {
-        "message": "URL de la pagina de inicio"
+        "message": "URL de la p\u00e1gina de inicio"
     },
     "newtab_search_engine_custom_url_results": {
-        "message": "URL de los resultados de busqueda"
+        "message": "URL de los resultados de b\u00fasqueda"
     },
     "newtab_upload_background": {
         "message": "Subir imagen de fondo"
@@ -392,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Cierra la barra lateral, la superposici\u00f3n abierta o el men\u00fa contextual"
     },
-    "contribute_headline": {
-        "message": "Necesito tu ayuda"
-    },
     "contribute_intro": {
         "message": "Para mejorar la extensi\u00f3n, me gustar\u00eda saber mejor c\u00f3mo los usuarios usan la barra lateral y qu\u00e9 configuraci\u00f3n usan."
     },
+    "contribute_notice": {
+        "message": "Puedes ayudarme compartiendo tu configuraci\u00f3n"
+    },
     "contribute_outro": {
         "message": "Si tiene preguntas o inquietudes sobre el intercambio de informaci\u00f3n, env\u00edeme un mensaje de comentarios."
-    },
-    "contribute_dismiss": {
-        "message": "Despedir"
     },
     "contribute_share_config_label": {
         "message": "Compartir configuraci\u00f3n"
@@ -542,8 +539,8 @@
     "settings_menu_language_translate": {
         "message": "Traducci\u00f3n"
     },
-    "settings_menu_feedback": {
-        "message": "Retroalimentaci\u00f3n"
+    "settings_menu_support": {
+        "message": "Soporte"
     },
     "settings_menu_infos": {
         "message": "Mostrar informaci\u00f3n"
@@ -848,6 +845,9 @@
     "settings_import_failed": {
         "message": "Error al importar la configuraci\u00f3n. Por favor elija un archivo v\u00e1lido."
     },
+    "settings_theme_changed": {
+        "message": "Tema actualizado correctamente"
+    },
     "settings_presets": {
         "message": "Establecer tama\u00f1os relativos"
     },
@@ -917,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Color de la m\u00e1scara"
     },
+    "settings_background_transparency": {
+        "message": "Transparencia del fondo"
+    },
+    "settings_background_blur": {
+        "message": "Efecto de desenfoque del fondo"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Icono del directorio"
     },
@@ -958,6 +964,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Puede definir su propia hoja de estilo para anular el estilo predeterminado. Utilice esta opci\u00f3n solo si est\u00e1 familiarizado con CSS y sabe lo que est\u00e1 haciendo."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Puedes elegir el dise\u00f1o b\u00e1sico de la barra lateral. El tema seleccionado puede ser personalizado a trav\u00e9s de los controles y selectores de color disponibles."
+    },
+    "settings_available_themes": {
+        "message": "Temas disponibles"
+    },
+    "settings_show_themes": {
+        "message": "Mostrar temas disponibles"
+    },
+    "settings_theme_default": {
+        "message": "Tema por defecto"
+    },
+    "settings_theme_default_desc": {
+        "message": "Este tema le permite acceder a sus marcadores de una manera limpia y moderna. Muchos elementos se colorean en un esquema de color configurable."
+    },
+    "settings_theme_glass": {
+        "message": "Tema de cristal"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Este tema hace que el fondo de la barra lateral sea semitransparente y le agrega un efecto de cristal borroso. Puede ajustar este efecto y la transparencia de la barra lateral."
+    },
+    "settings_install_theme": {
+        "message": "Instalar tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Actualmente instalado"
     },
     "settings_newtab_desc": {
         "message": "Desafortunadamente Google elimin\u00f3 la posibilidad de cargar extensiones en la nueva pesta\u00f1a predeterminada. Debido a esto he a\u00f1adido algunas opciones que le permiten acceder a sus marcadores al abrir una nueva pesta\u00f1a de otra manera."
@@ -1043,35 +1079,38 @@
     "settings_translation_required_category": {
         "message": "Obligatorio"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "Preguntas Frecuentes"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Retroalimentaci\u00f3n"
+    },
+    "settings_support_feedback_desc": {
         "message": "\u00bfTiene alguna sugerencia de mejoras, preguntas, aviso de opciones de configuraci\u00f3n que faltan, o encontr\u00f3 un error? Para ayudar a mejorar las experiencias con esta extensi\u00f3n, estar\u00eda muy agradecido por todos y cada uno de los comentarios recibidos o que pueda tener."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Por favor, redacte sus comentarios en Ingl\u00e9s, de lo contrario ser\u00e1 dif\u00edcil de entender y responder a su mensaje."
     },
-    "settings_feedback_email": {
-        "message": "Direcci\u00f3n e-mail"
+    "settings_support_feedback_email": {
+        "message": "Correo electr\u00f3nico (opcional)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Adjuntar capturas de pantalla"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "El tama\u00f1o de {1} es demasiado grande (> 1MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Solo puedes subir un m\u00e1ximo de {1} capturas de pantalla"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Enviar su comentario"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Gracias por su comentario"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Su mensaje no pudo ser enviado. Por favor intente de nuevo."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Esto puede ser de tu inter\u00e9s"
     },
     "settings_permissions_desc": {
         "message": "Para hacer una barra lateral activable\/desactivable en {browserName}, los siguientes permisos son necesarios para la extensi\u00f3n:"
@@ -1150,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Puedes hacer clic con el bot\u00f3n derecho en cualquier directorio de la barra lateral y realizar una comprobaci\u00f3n. La p\u00e1gina de resultados mostrar\u00e1 todas las URL actualizadas, los marcadores que ya no funcionan y los marcadores con la misma URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Cambie el tema de su barra lateral"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Al instalar otro tema, usted puede cambiar el dise\u00f1o de su barra lateral con un click. La barra lateral puede ser personalizada con los controles deslizantes y opciones de color disponibles."
     },
     "premium_pay_select_payment_method": {
         "message": "Seleccione un m\u00e9todo de pago"

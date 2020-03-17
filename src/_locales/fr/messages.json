@@ -392,17 +392,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Fermeture de la barre lat\u00e9rale, de l'\u00e9l\u00e9ment ou du menu contextuel"
     },
-    "contribute_headline": {
-        "message": "Aidez-moi"
-    },
     "contribute_intro": {
         "message": "Pour am\u00e9liorer l'extension il faudrait que j'en sache plus sur l'utilisation et le param\u00e9trage des diff\u00e9rents utilisateurs."
     },
     "contribute_outro": {
         "message": "Si vous vous interrogez ou avez des questions sur le partage d'information, faites-moi un retour d'exp\u00e9rience par message."
-    },
-    "contribute_dismiss": {
-        "message": "Ne plus afficher"
     },
     "contribute_share_config_label": {
         "message": "Param\u00e8tres de partage"
@@ -541,9 +535,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Traduction"
-    },
-    "settings_menu_feedback": {
-        "message": "Retour d'exp\u00e9rience"
     },
     "settings_menu_infos": {
         "message": "Propi\u00e9t\u00e9s"
@@ -1043,35 +1034,32 @@
     "settings_translation_required_category": {
         "message": "Obligatoire"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Retour d'exp\u00e9rience"
+    },
+    "settings_support_feedback_desc": {
         "message": "Des suggestions d'am\u00e9lioration, des questions, des options de param\u00e9trage manquantes ou un dysfonctionnement ? Afin d'am\u00e9liorer l'exp\u00e9rience utilisateur de cette extension, je vous suis tr\u00e8s reconnaissant de tous vos retours d'exp\u00e9rience."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Ecrivez-moi en anglais s'il vous pla\u00eet, autrement je risque d'avoir des probl\u00e8mes pour comprendre votre message et y r\u00e9pondre."
     },
-    "settings_feedback_email": {
-        "message": "Votre courriel"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Joignez des captures d'\u00e9cran"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "La taille de fichier de {1} est trop grande (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Vous pouvez seulement t\u00e9l\u00e9charger un maximum de {1} des captures d'\u00e9cran"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Envoyer mon retour d'exp\u00e9rience"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Merci pour votre retour d'exp\u00e9rience"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Votre message n'a pas pu \u00eatre envoy\u00e9. Veuillez r\u00e9essayer s'il vous pla\u00eet."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Ceci pourrait peut-\u00eatre vous int\u00e9resser"
     },
     "settings_permissions_desc": {
         "message": "Afin de rendre possible une barre lat\u00e9rale basculable dans {browserName}, les autorisations suivantes sont requises et demand\u00e9es par l'extension :"

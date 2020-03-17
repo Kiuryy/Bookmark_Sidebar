@@ -383,17 +383,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "\u00cenchide bara lateral\u0103, selec\u021bia deschis\u0103 sau meniul contextual"
     },
-    "contribute_headline": {
-        "message": "Am nevoie de ajutorul dvs"
-    },
     "contribute_intro": {
         "message": "Pentru a \u00eembun\u0103t\u0103\u021bi extensia a\u0219 dori s\u0103 \u0219tiu mai bine cum folosesc utilizatorii bara lateral\u0103 \u0219i ce configura\u021bii folosesc."
     },
     "contribute_outro": {
         "message": "Dac\u0103 ave\u021bi \u00eentreb\u0103ri sau \u00eengrijor\u0103ri despre partajarea informa\u021biilor, v\u0103 rog s\u0103 \u00eemi trimite\u021bi un mesaj de feedback."
-    },
-    "contribute_dismiss": {
-        "message": "Anuleaz\u0103"
     },
     "contribute_share_config_label": {
         "message": "Partajeaz\u0103 configura\u021bia"
@@ -532,9 +526,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Traducere"
-    },
-    "settings_menu_feedback": {
-        "message": "Feedback"
     },
     "settings_menu_infos": {
         "message": "informa\u021bii"
@@ -1028,35 +1019,32 @@
     "settings_translation_required_category": {
         "message": "Obligatoriu"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
         "message": "Ave\u021bi sugestii pentru \u00eembun\u0103t\u0103\u021biri, \u00eentreb\u0103ri, observa\u021bi op\u021biuni de configurare care lipsesc sau a\u021bi g\u0103sit un bug? Pentru a contribui la \u00eembun\u0103t\u0103\u021birea experien\u021belor cu aceast\u0103 extensie, a\u0219 fi foarte recunosc\u0103tor pentru orice feedback primit sau posibil."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "V\u0103 rug\u0103m s\u0103 scrie\u021bi feedback-ul dvs. \u00een limba englez\u0103, altfel va fi dificil de \u00een\u021beles \u0219i de r\u0103spuns la mesajul dumneavoastr\u0103."
     },
-    "settings_feedback_email": {
-        "message": "Adresa dvs. de email"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Ataseaza Screenshot"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Dimensiunea fi\u0219ierului {1} este prea mare (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Pute\u021bi \u00eenc\u0103rca un num\u0103r maxim de {1} imagini"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Trimite\u021bi feedback"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Multumim pentru feedback"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Mesajul dvs. nu a putut fi trimis. V\u0103 rug\u0103m s\u0103 re\u00eencerca\u021bi."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Aceasta iti poate fii de ajutor"
     },
     "settings_permissions_desc": {
         "message": "Pentru a face posibil comutabil\u0103 bar\u0103 lateral\u0103 \u00een {browserName}, sunt necesare \u0219i solicitate de c\u0103tre extensie, urm\u0103toarele permisiuni:"

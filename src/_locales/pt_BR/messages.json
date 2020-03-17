@@ -392,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Fecha a barra lateral, a sobreposi\u00e7\u00e3o aberta ou o menu de contexto"
     },
-    "contribute_headline": {
-        "message": "Eu preciso da sua ajuda"
-    },
     "contribute_intro": {
         "message": "Para aperfei\u00e7oar a extens\u00e3o, eu gostaria de saber mais sobre como os usu\u00e1rios est\u00e3o usando a barra lateral e que configura\u00e7\u00f5es usam."
     },
+    "contribute_notice": {
+        "message": "Voc\u00ea pode me ajudar compartilhando sua configura\u00e7\u00e3o"
+    },
     "contribute_outro": {
         "message": "Se voc\u00ea tiver questionamentos ou preocupa\u00e7\u00f5es sobre o compartilhamento de informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
-    },
-    "contribute_dismiss": {
-        "message": "Remover"
     },
     "contribute_share_config_label": {
         "message": "Compartilhar configura\u00e7\u00e3o"
@@ -542,8 +539,8 @@
     "settings_menu_language_translate": {
         "message": "Tradu\u00e7\u00e3o"
     },
-    "settings_menu_feedback": {
-        "message": "Coment\u00e1rios"
+    "settings_menu_support": {
+        "message": "Suporte"
     },
     "settings_menu_infos": {
         "message": "Informa\u00e7\u00e3o"
@@ -848,6 +845,9 @@
     "settings_import_failed": {
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
+    "settings_theme_changed": {
+        "message": "Tema alterado com sucesso"
+    },
     "settings_presets": {
         "message": "Definir tamanhos relativos"
     },
@@ -917,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Cor da m\u00e1scara"
     },
+    "settings_background_transparency": {
+        "message": "Transpar\u00eancia do plano de fundo"
+    },
+    "settings_background_blur": {
+        "message": "Efeito blur no plano de fundo"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "\u00cdcone da pasta"
     },
@@ -958,6 +964,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Voc\u00ea pode definir sua pr\u00f3pria folha de estilo para substituir o estilo padr\u00e3o. Por favor, somente use esta op\u00e7\u00e3o se voc\u00ea estiver familiarizado com CSS e sabe o que est\u00e1 fazendo."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Voc\u00ea pode escolher o design b\u00e1sico da barra lateral. O tema selecionado pode ser customizado com os controles dispon\u00edveis e com as op\u00e7\u00f5es de cor."
+    },
+    "settings_available_themes": {
+        "message": "Temas Dispon\u00edveis"
+    },
+    "settings_show_themes": {
+        "message": "Mostras temas dispon\u00edveis"
+    },
+    "settings_theme_default": {
+        "message": "Tema padr\u00e3o"
+    },
+    "settings_theme_default_desc": {
+        "message": "Este tema lhe proporciona o acesso aos seus favoritos de uma forma moderna e clean. Muitos elementos s\u00e3o coloridos em um esquema de cor configuravel."
+    },
+    "settings_theme_glass": {
+        "message": "Tema envidra\u00e7ado"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Este tema deixa o plano de fundo da barra lateral semi-transparente e adiciona um efeito de distor\u00e7\u00e3o por vidro. voc\u00ea pode ajustar este efeito e a transpar\u00eancia da barra lateral."
+    },
+    "settings_install_theme": {
+        "message": "Instalar tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Atualmente instalado"
     },
     "settings_newtab_desc": {
         "message": "Infelizmente, a Google removeu a possibilidade de carregar extens\u00f5es na p\u00e1gina nova guia padr\u00e3o. Por isso, adicionei algumas op\u00e7\u00f5es que lhe permitem acessar seus favoritos ao abrir uma nova guia de outra maneira."
@@ -1043,35 +1079,35 @@
     "settings_translation_required_category": {
         "message": "Obrigat\u00f3rio"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "Perguntas frequentes"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Coment\u00e1rios"
+    },
+    "settings_support_feedback_desc": {
         "message": "Voc\u00ea tem alguma sugest\u00e3o de melhoria, d\u00favidas, percebeu a aus\u00eancia de op\u00e7\u00f5es de configura\u00e7\u00e3o ou encontrou um erro? Para ajudar a aprimorar a experi\u00eancia de uso desta extens\u00e3o, eu ficaria muito grato por todo e qualquer coment\u00e1rio dado ou que voc\u00ea tiver."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Por favor, escreva seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder sua mensagem."
     },
-    "settings_feedback_email": {
-        "message": "Seu endere\u00e7o de email"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Anexar capturas de tela"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "O tamanho do arquivo de {1} \u00e9 muito grande (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Voc\u00ea s\u00f3 pode enviar no m\u00e1ximo {1} capturas de tela"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Enviar coment\u00e1rio"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Obrigado pelo seu coment\u00e1rio"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Isto pode ser de seu interesse"
     },
     "settings_permissions_desc": {
         "message": "A fim de se tornar poss\u00edvel que a barra lateral seja ativada e desativada no {browserName}, as seguintes permiss\u00f5es s\u00e3o requeridas e solicitadas pela extens\u00e3o:"
@@ -1150,6 +1186,9 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer pasta da sua barra lateral para iniciar a verifica\u00e7\u00e3o. A p\u00e1gina de resultado apresentar\u00e1 todos os URLs atualizados, favoritos que n\u00e3o est\u00e3o mais funcionando e favoritos com o mesmo URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Alterar o tema da sua barra lateral"
     },
     "premium_pay_select_payment_method": {
         "message": "Selecionar um m\u00e9todo de pagamento"

@@ -281,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "Cerca su {1} o inserisci indirizzo"
     },
+    "newtab_search_field_show": {
+        "message": "Mostra campo ricerca"
+    },
+    "newtab_search_field_hide": {
+        "message": "Nascondi campo ricerca"
+    },
     "newtab_speech_search_listening": {
         "message": "Parla adesso"
     },
@@ -386,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Chiude la barra laterale, la finestra aperta o il men\u00f9 contestuale."
     },
-    "contribute_headline": {
-        "message": "Ho bisogno del tuo aiuto"
-    },
     "contribute_intro": {
         "message": "Per migliorare la estensione vorrei sapere meglio come gli utenti usano la barra laterale e che configurazione usano."
     },
+    "contribute_notice": {
+        "message": "Puoi aiutarmi condividendo la tua configurazione"
+    },
     "contribute_outro": {
         "message": "Se hai domande o preoccupazioni riguardo la condivisione dei dati, ti prego di inviarmi al riguardo."
-    },
-    "contribute_dismiss": {
-        "message": "Ignora"
     },
     "contribute_share_config_label": {
         "message": "Condividi configurazione."
@@ -535,9 +538,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Traduci"
-    },
-    "settings_menu_feedback": {
-        "message": "Feedback"
     },
     "settings_menu_infos": {
         "message": "Informazioni"
@@ -842,6 +842,9 @@
     "settings_import_failed": {
         "message": "Impossibile importare le impostazioni. Seleziona un file valido."
     },
+    "settings_theme_changed": {
+        "message": "Tema modificato con successo"
+    },
     "settings_presets": {
         "message": "Imposta dimensioni relative"
     },
@@ -867,7 +870,7 @@
         "message": "Font"
     },
     "settings_font_family_default": {
-        "message": "Default"
+        "message": "Predefinito"
     },
     "settings_font_family_desc": {
         "message": "Il font della barra laterale e delle sovrapposizioni"
@@ -911,6 +914,12 @@
     "settings_sidebar_mask_color": {
         "message": "Colore maschera"
     },
+    "settings_background_transparency": {
+        "message": "Trasparenza dello sfondo"
+    },
+    "settings_background_blur": {
+        "message": "effetto sfocatura dello sfondo"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Icona delle cartelle"
     },
@@ -952,6 +961,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Puoi impostare il tuo file di stile in modo da sostituire quello di default. Usa questa opzione solo se hai esperienza con il CSS e sai cosa stai facendo."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Puoi scegliere il design base del barra laterale. Il tema selezionato pu\u00f2 essere personalizzato con i cursori disponibili e le opzioni cromatiche."
+    },
+    "settings_available_themes": {
+        "message": "Temi disponibili"
+    },
+    "settings_show_themes": {
+        "message": "Mostra temi disponibili"
+    },
+    "settings_theme_default": {
+        "message": "Tema predefinito"
+    },
+    "settings_theme_default_desc": {
+        "message": "Questo tema ti consente di accedere ai tuoi preferiti in una maniera pulita e moderna. Molti elementi sono colorati con schema cromatico configurabile."
+    },
+    "settings_theme_glass": {
+        "message": "Tema vetro"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Questo tema rende lo sfondo della barra laterale semi-trasparente e aggiunge un efetto vetro sfocato. Puoi regolare questo effetto e l'intensit\u00e0 della trasparenza della barra laterale."
+    },
+    "settings_install_theme": {
+        "message": "Installa tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Attualmente installato"
     },
     "settings_newtab_desc": {
         "message": "Sfortunatamente Google ha rimosso la possibilit\u00e0 di caricare le estensioni nella pagina di default \"Nuova scheda\". Per questo motivo ho aggiunto, in maniera alternativa, delle opzioni che ti permettono di accedere ai tuoi preferiti quando apri una nuova scheda."
@@ -1037,35 +1076,32 @@
     "settings_translation_required_category": {
         "message": "Necessario"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
         "message": "Hai qualche suggerimento su come o cosa migliorare? Hai domande o desideri segnalare impostazioni mancanti, oppure hai trovato un bug? Sono a disposizione per qualsiasi feedback atto a migliorare l'esperienza generale dell'estensione e ti ringrazio per l'aiuto."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Ti prego di scrivere il tuo messaggio in Inglese, altrimenti mi sarebbe molto difficile da comprendere e non sarei in grado di risponderti."
     },
-    "settings_feedback_email": {
-        "message": "Il tuo indirizzo email"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Aggiungi screenshots"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Le dimensioni di {1} sono troppo grandi (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Puoi aggiungere un massimo di {1} screenshots"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Invia il feedback"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Grazie per il tuo feedback"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Il tuo messaggio non \u00e8 stato inviato. Riprova."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Potrebbe interessarti"
     },
     "settings_permissions_desc": {
         "message": "Per rendere possibile una barra laterale selezionabile in {browserName}, le seguenti autorizzazioni sono richieste e richieste dall'estensione:"

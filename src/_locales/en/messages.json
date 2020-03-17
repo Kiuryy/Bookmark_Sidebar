@@ -822,7 +822,7 @@
         "message": "Position"
     },
     "settings_sidebar_position_desc": {
-        "message": "Allows you to set whether the sidebar should open on the left or the right edge of the browser window."
+        "message": "Define whether the sidebar should open on the left or the right side of the browser window."
     },
     "settings_sidebar_position_left": {
         "message": "Left"

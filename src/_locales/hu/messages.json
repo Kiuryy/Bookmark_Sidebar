@@ -392,17 +392,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Oldals\u00e1v, r\u00e9teg vagy helyi men\u00fc bez\u00e1r\u00e1sa"
     },
-    "contribute_headline": {
-        "message": "Seg\u00edts\u00e9gre van sz\u00fcks\u00e9gem"
-    },
     "contribute_intro": {
         "message": "A b\u0151v\u00edtm\u00e9ny hat\u00e9konyabb m\u0171k\u00f6d\u00e9s\u00e9hez sz\u00fcks\u00e9g lenne a haszn\u00e1lati szok\u00e1sok \u00e9s a konfigur\u00e1ci\u00f3k ismeret\u00e9re"
     },
     "contribute_outro": {
         "message": "Ha k\u00e9rd\u00e9se vagy fenntart\u00e1sai vannak az adatok megoszt\u00e1s\u00e1t illet\u0151en, akkor k\u00e9rem k\u00fcldj\u00f6n \u00fczenetet."
-    },
-    "contribute_dismiss": {
-        "message": "Elvet\u00e9s"
     },
     "contribute_share_config_label": {
         "message": "Konfigur\u00e1ci\u00f3 megoszt\u00e1sa"
@@ -541,9 +535,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Nyelvi ford\u00edt\u00e1s"
-    },
-    "settings_menu_feedback": {
-        "message": "Visszajelz\u00e9s"
     },
     "settings_menu_infos": {
         "message": "Inform\u00e1ci\u00f3"
@@ -1043,35 +1034,32 @@
     "settings_translation_required_category": {
         "message": "Sz\u00fcks\u00e9ges"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Visszajelz\u00e9s"
+    },
+    "settings_support_feedback_desc": {
         "message": "Van javaslata a fejleszt\u00e9ssel kapcsolatban, esetleg k\u00e9rd\u00e9se van, hi\u00e1nyz\u00f3 be\u00e1ll\u00edt\u00e1si lehet\u0151s\u00e9get tal\u00e1lt vagy hib\u00e1ba \u00fctk\u00f6z\u00f6tt ? A b\u0151v\u00edtm\u00e9ny fejleszt\u00e9se \u00e9rdek\u00e9ben h\u00e1l\u00e1sak vagyunk minden visszajelz\u00e9ssel kapcsolatban."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "K\u00e9rem a visszajelz\u00e9s\u00e9t angolul fogalmazza meg, k\u00fcl\u00f6nben neh\u00e9zs\u00e9gekbe \u00fctk\u00f6zhet a meg\u00e9rt\u00e9se \u00e9s \u00edgy a v\u00e1lasz is."
     },
-    "settings_feedback_email": {
-        "message": "Az \u00d6n email c\u00edme"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Csatolja a k\u00e9perny\u0151k\u00e9peket"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "A f\u00e1jl {1} m\u00e9rete t\u00fal nagy (>1MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Maximum csak {1} darab k\u00e9perny\u0151k\u00e9pet t\u00f6lthet fel"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Visszajelz\u00e9s k\u00fcld\u00e9se"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "K\u00f6sz\u00f6nj\u00fck a visszajelz\u00e9s\u00e9t"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Az \u00fczenet\u00e9t nem tudjuk elk\u00fcldeni. K\u00e9rj\u00fck pr\u00f3b\u00e1lja meg k\u00e9s\u0151bb."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Ez \u00e9rdekelhet T\u00e9ged"
     },
     "settings_permissions_desc": {
         "message": "Annak \u00e9rdek\u00e9ben, hogy egy \u00e1tkapcsolhat\u00f3 oldals\u00e1v legyen lehets\u00e9ges a {browserName}-ban, a kiterjeszt\u00e9shez a k\u00f6vetkez\u0151 enged\u00e9lyek sz\u00fcks\u00e9gesek:"

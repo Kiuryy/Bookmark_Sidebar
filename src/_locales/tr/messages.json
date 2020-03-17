@@ -392,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "\u00dczerine gelinen girdiyi kapat\u0131r"
     },
-    "contribute_headline": {
-        "message": "Yard\u0131ma ihtiyac\u0131m var"
-    },
     "contribute_intro": {
         "message": "Bu uzant\u0131y\u0131 geli\u015ftirmek ad\u0131na di\u011fer kullan\u0131c\u0131lar\u0131n kenar \u00e7ubu\u011funu nas\u0131l kulland\u0131klar\u0131n\u0131 ve hangi ayarlar\u0131 kulland\u0131klar\u0131n\u0131 bilmek isterim."
     },
+    "contribute_notice": {
+        "message": "Ayarlar\u0131n\u0131z\u0131 payla\u015farak bana yard\u0131mc\u0131 olabilirsiniz"
+    },
     "contribute_outro": {
         "message": "Sorular\u0131n\u0131z yada bilgi payla\u015f\u0131m\u0131 ile ilgili endi\u015feleriniz var ise l\u00fctfen benimle ileti\u015fime ge\u00e7in."
-    },
-    "contribute_dismiss": {
-        "message": "Reddet"
     },
     "contribute_share_config_label": {
         "message": "Ayarlar\u0131 payla\u015f"
@@ -541,9 +538,6 @@
     },
     "settings_menu_language_translate": {
         "message": "\u00c7eviri"
-    },
-    "settings_menu_feedback": {
-        "message": "Geri Bildirim"
     },
     "settings_menu_infos": {
         "message": "Bilgi"
@@ -848,6 +842,9 @@
     "settings_import_failed": {
         "message": "Yap\u0131land\u0131rma al\u0131namad\u0131. L\u00fctfen ge\u00e7erli bir dosya se\u00e7in."
     },
+    "settings_theme_changed": {
+        "message": "Tema de\u011fi\u015fiklikleri ba\u015far\u0131l\u0131"
+    },
     "settings_presets": {
         "message": "G\u00f6receli boyutlar\u0131 ayarla"
     },
@@ -917,6 +914,12 @@
     "settings_sidebar_mask_color": {
         "message": "Maske rengi"
     },
+    "settings_background_transparency": {
+        "message": "Arka plan \u015feffafl\u0131\u011f\u0131"
+    },
+    "settings_background_blur": {
+        "message": "Arka plan bulan\u0131kl\u0131l\u0131\u011f\u0131"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "S\u00f6zl\u00fck simgesi"
     },
@@ -958,6 +961,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Kendi CSS kodunuzu kullanarak varsay\u0131lan stili de\u011fi\u015ftirebilirsiniz. Bu se\u00e7ene\u011fi sadece ne yapt\u0131\u011f\u0131n\u0131z\u0131 biliyorsan\u0131z ve CSS bilginiz varsa kullan\u0131n."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Kenar \u00e7ubu\u011funun temel tasar\u0131m\u0131n\u0131 se\u00e7ebilirsiniz. Se\u00e7ilen tema mevcut kayd\u0131r\u0131c\u0131 ve renk se\u00e7enekleriyle \u00f6zelle\u015ftirilebilir."
+    },
+    "settings_available_themes": {
+        "message": "Kullan\u0131labilir temalar"
+    },
+    "settings_show_themes": {
+        "message": "Kullan\u0131labilir temalar\u0131 g\u00f6ster"
+    },
+    "settings_theme_default": {
+        "message": "Varsay\u0131lan tema"
+    },
+    "settings_theme_default_desc": {
+        "message": "Bu tema, yer i\u015faretlerinize basit ve modern bir \u015fekilde eri\u015fmenizi sa\u011flar. Bir\u00e7ok \u00f6\u011fe yap\u0131land\u0131r\u0131labilir bir renk \u015femas\u0131nda renklendirilir."
+    },
+    "settings_theme_glass": {
+        "message": "Cam Temas\u0131"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Bu tema, kenar \u00e7ubu\u011funun arka plan\u0131n\u0131 yar\u0131 saydam hale getirir ve ona bulan\u0131k bir cam efekti ekler. Bu efekti ve kenar \u00e7ubu\u011funun \u015feffafl\u0131\u011f\u0131n\u0131 ayarlayabilirsiniz"
+    },
+    "settings_install_theme": {
+        "message": "Temay\u0131 kur"
+    },
+    "settings_installed_theme_info": {
+        "message": "\u015eu anda y\u00fckl\u00fc olan"
     },
     "settings_newtab_desc": {
         "message": "Maalesef Google, varsay\u0131lan yeni sekme sayfas\u0131nda uzant\u0131lar\u0131 y\u00fckleme olas\u0131l\u0131\u011f\u0131n\u0131 kald\u0131rd\u0131. Bu nedenle, ba\u015fka bir \u015fekilde yeni bir sekme a\u00e7arken yer imlerine eri\u015fmenize izin veren baz\u0131 se\u00e7enekler ekledim."
@@ -1043,35 +1076,32 @@
     "settings_translation_required_category": {
         "message": "Gerekli"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Geri Bildirim"
+    },
+    "settings_support_feedback_desc": {
         "message": "\u0130yile\u015ftirmeler, sorular, eksik yap\u0131land\u0131rma se\u00e7enekleri ile ilgili herhangi bir \u00f6neriniz var m\u0131, yoksa bir hata m\u0131 buldunuz? Bu uzant\u0131daki deneyimleri geli\u015ftirmeye yard\u0131mc\u0131 olmak i\u00e7in, verdi\u011finiz her t\u00fcrl\u00fc geri bildirime veya sahip oldu\u011funuza \u00e7ok minnettar olaca\u011f\u0131m."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "L\u00fctfen geri bildiriminizi \u0130ngilizce olarak yaz\u0131n\u0131z, aksi halde mesaj\u0131n\u0131z\u0131 anlamak ve cevaplamak zor olacakt\u0131r."
     },
-    "settings_feedback_email": {
-        "message": "E-Mail adresiniz"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Ekran g\u00f6r\u00fcnt\u00fcleri ekle"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "{1} dosyas\u0131n\u0131n boyutu \u00e7ok b\u00fcy\u00fck (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "En fazla {1} ekran g\u00f6r\u00fcnt\u00fcs\u00fc y\u00fckleyebilirsiniz."
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Geri bildirim Yolla"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Geri bildirim i\u00e7in te\u015fekk\u00fcrler"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Mesaj\u0131n\u0131z g\u00f6nderilemedi. L\u00fctfen tekrar deneyin."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Bu ilginizi \u00e7ekebilir"
     },
     "settings_permissions_desc": {
         "message": "{browserName}'da de\u011fi\u015ftirilebilen bir kenar \u00e7ubu\u011funu m\u00fcmk\u00fcn k\u0131lmak i\u00e7in, a\u015fa\u011f\u0131daki izinler gerekli olup eklenti:"

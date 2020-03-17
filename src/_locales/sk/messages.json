@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Otvori\u0165 na novej karte"
     },
+    "contextmenu_current_tab": {
+        "message": "Otvori\u0165 v s\u00fa\u010dasnej karte"
+    },
     "contextmenu_new_window": {
         "message": "Otvori\u0165 v novom okne"
     },
@@ -278,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "H\u013eada\u0165 {1} alebo zada\u0165 URL"
     },
+    "newtab_search_field_show": {
+        "message": "Zobrazi\u0165 vyh\u013ead\u00e1vacie pole"
+    },
+    "newtab_search_field_hide": {
+        "message": "Skry\u0165 vyh\u013ead\u00e1vacie pole"
+    },
     "newtab_speech_search_listening": {
         "message": "Hovorte teraz"
     },
@@ -365,6 +374,9 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Escape"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Umiestni \u010fal\u0161iu alebo predch\u00e1dzaj\u00facu polo\u017eku na postrann\u00fd panel"
+    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Potvrd\u00ed aktu\u00e1lne zvolen\u00fa polo\u017eku"
     },
@@ -380,17 +392,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zatvor\u00ed bo\u010dn\u00fd panel, otvoren\u00fa vrstvu alebo kontextov\u00e9 menu"
     },
-    "contribute_headline": {
-        "message": "Potrebujem tvoju pomoc"
-    },
     "contribute_intro": {
         "message": "Aby som mohol roz\u0161\u00edrenie vylep\u0161ova\u0165, r\u00e1d by som vedel viac o u\u017e\u00edvate\u013eoch panela a nastaveniach, ktor\u00e9 pou\u017e\u00edvaj\u00fa."
     },
     "contribute_outro": {
         "message": "Ak m\u00e1te ot\u00e1zky alebo obavy zo zdie\u013eania inform\u00e1ci\u00ed, pros\u00edm po\u0161lite mi sp\u00e4tn\u00fa v\u00e4zbu."
-    },
-    "contribute_dismiss": {
-        "message": "Zamietnu\u0165"
     },
     "contribute_share_config_label": {
         "message": "Zdie\u013ea\u0165 konfigur\u00e1ciu"
@@ -529,9 +535,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Prelo\u017ei\u0165"
-    },
-    "settings_menu_feedback": {
-        "message": "Sp\u00e4tn\u00e1 vazba"
     },
     "settings_menu_infos": {
         "message": "Inform\u00e1cie"
@@ -818,6 +821,9 @@
     "settings_filter_rules": {
         "message": "URL vzor"
     },
+    "settings_import_export_notice": {
+        "message": "Nastavenia roz\u0161\u00edrenia sa automaticky synchronizuj\u00fa medzi va\u0161imi zariadeniami, ak ste prihl\u00e1sen\u00ed do \u00fa\u010dtu {browserName} pomocou svojho \u00fa\u010dtu. Ak sa nechcete prihl\u00e1si\u0165 alebo nechcete zdie\u013ea\u0165 svoje nastavenia s in\u00fdmi \u013eu\u010fmi, m\u00f4\u017eete pou\u017ei\u0165 t\u00fato mo\u017enos\u0165 importu \/ exportu."
+    },
     "settings_import_export_desc": {
         "message": "M\u00f4\u017eete exportova\u0165 svoje nastavenia a ulo\u017ei\u0165 si ich lok\u00e1lne vo va\u0161om po\u010d\u00edta\u010di. M\u00f4\u017eete importova\u0165 tieto nastavenia na akomko\u013evek po\u010d\u00edta\u010di, kde je roz\u0161\u00edrenie nain\u0161talovan\u00e9."
     },
@@ -959,6 +965,12 @@
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Nastavi\u0165 \u010di by mal by\u0165 panel automaticky otvoren\u00fd pri otvoren\u00ed novej karty."
     },
+    "settings_newtab_focus_omnibox": {
+        "message": "Zamera\u0165 adresn\u00fa li\u0161tu"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Ak je povolen\u00e1, pri otvoren\u00ed novej karty bude panel s adresou zameran\u00fd. Ak nie, namiesto toho sa zameria na vyh\u013ead\u00e1vacie pole na webovej str\u00e1nke."
+    },
     "settings_newtab_website": {
         "message": "Na\u010d\u00edta\u0165 webov\u00fa str\u00e1nku."
     },
@@ -1022,35 +1034,32 @@
     "settings_translation_required_category": {
         "message": "Povinn\u00e9"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Sp\u00e4tn\u00e1 vazba"
+    },
+    "settings_support_feedback_desc": {
         "message": "M\u00e1te nejak\u00e9 n\u00e1vrhy na zlep\u0161enie alebo ot\u00e1zky? V\u0161imli ste si ch\u00fdbaj\u00face mo\u017enosti nastavenia alebo na\u0161li chybu? Budem v\u010fa\u010dn\u00fd za ka\u017ed\u00fa sp\u00e4tn\u00fa v\u00e4zbu, ktor\u00fa m\u00e1te."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Pros\u00edm, po\u0161lite mi svoj dotaz v angli\u010dtnie, inak bude pre m\u0148a ve\u013emi n\u00e1ro\u010dn\u00e9 porozumie\u0165 va\u0161ej spr\u00e1ve."
     },
-    "settings_feedback_email": {
-        "message": "Va\u0161a e-mailov\u00e1 adresa"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei\u0165 screenshot"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Ve\u013ekos\u0165 s\u00faboru {1} je pr\u00edli\u0161 ve\u013ek\u00e1 (> 1MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "M\u00f4\u017eete prilo\u017ei\u0165 maxim\u00e1lne {1} screenshotov."
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Odosla\u0165 spr\u00e1vu"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "\u010eakujem v\u00e1m za sp\u00e4tn\u00fa v\u00e4zbu."
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Va\u0161a spr\u00e1va nemohla by\u0165 odoslan\u00e1. Sk\u00faste to znova."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "To V\u00e1s m\u00f4\u017ee zauj\u00edma\u0165"
     },
     "settings_permissions_desc": {
         "message": "Ak chcete v prehliada\u010di {browserName} umo\u017eni\u0165 prep\u00ednate\u013en\u00fd bo\u010dn\u00fd panel, nasleduj\u00face povolenia s\u00fa povinn\u00e9 a vy\u017eiadan\u00e9 roz\u0161\u00edren\u00edm:"

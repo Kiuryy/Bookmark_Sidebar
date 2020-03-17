@@ -392,17 +392,11 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zav\u0159e postrann\u00ed panel nebo kontextov\u00e9 menu"
     },
-    "contribute_headline": {
-        "message": "Pot\u0159ebuji tvou pomoc"
-    },
     "contribute_intro": {
         "message": "Pro zlep\u0161en\u00ed roz\u0161\u00ed\u0159en\u00ed pot\u0159ebujeme l\u00e9pe zn\u00e1t, jak u\u017eivatel\u00e9 pou\u017e\u00edvaj\u00ed postrann\u00ed panel a jeho konfiguraci."
     },
     "contribute_outro": {
         "message": "M\u00e1te-li dotazy nebo obavy t\u00fdkaj\u00edc\u00ed se sd\u00edlen\u00ed informac\u00ed, za\u0161lete mi pros\u00edm zpr\u00e1vu."
-    },
-    "contribute_dismiss": {
-        "message": "Zam\u00edtnout"
     },
     "contribute_share_config_label": {
         "message": "Sd\u00edlen\u00ed konfigurace"
@@ -541,9 +535,6 @@
     },
     "settings_menu_language_translate": {
         "message": "P\u0159eklad"
-    },
-    "settings_menu_feedback": {
-        "message": "Zp\u011btn\u00e1 vazba"
     },
     "settings_menu_infos": {
         "message": "Informace"
@@ -1043,35 +1034,32 @@
     "settings_translation_required_category": {
         "message": "Povinn\u00fd"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Zp\u011btn\u00e1 vazba"
+    },
+    "settings_support_feedback_desc": {
         "message": "M\u00e1te n\u00e1vrhy na vylep\u0161en\u00ed, dotazy, chyb\u011bj\u00edc\u00ed mo\u017enosti konfigurace nebo v\u00edte o chyb\u011b? Chcete-li zlep\u0161it roz\u0161\u00ed\u0159en\u00ed, jsem velmi r\u00e1d, kdy\u017e mi poskytnete ka\u017edou zp\u011btnou vazbu."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Napi\u0161te pros\u00edm svou zpr\u00e1vu v angli\u010dtin\u011b, jinak budu m\u00edt probl\u00e9my s pochopen\u00edm a odpov\u011bd\u00ed na va\u0161i zpr\u00e1vu."
     },
-    "settings_feedback_email": {
-        "message": "Va\u0161e emailov\u00e1 adresa"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "P\u0159ipojit screenshot"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Velikost souboru je p\u0159\u00edli\u0161 velk\u00e1 {1} (>1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Je mo\u017en\u00e9 nahr\u00e1t maxim\u00e1ln\u011b {1} screenshot\u016f"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Odeslat zp\u011btnou vazbu"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "D\u011bkuji za odesl\u00e1n\u00ed zp\u011btn\u00e9 vazby"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Va\u0161e zpr\u00e1va nemohla b\u00fdt odesl\u00e1na. Pros\u00edm zkuste to znovu."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Toto V\u00e1s m\u016f\u017ee zaj\u00edmat"
     },
     "settings_permissions_desc": {
         "message": "K umo\u017en\u011bn\u00ed p\u0159ep\u00edn\u00e1n\u00ed postrann\u00edho panelu jsou vy\u017eadov\u00e1na n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed:"

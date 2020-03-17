@@ -1,27 +1,27 @@
 {
     "extension_name": {
-        "message": "Bo\u010dna traka Markera"
+        "message": "Bo\u010dna traka obele\u017eiva\u010da"
     },
     "extension_desc": {
-        "message": "Dodaje promenljivu bo\u010dnu traku sa svim va\u0161im markerima na ivici prozora va\u0161eg internet pretra\u017eiva\u010da."
+        "message": "Dodaje promenljivu bo\u010dnu traku sa svim va\u0161im obele\u017eiva\u010dima na ivici prozora va\u0161eg internet pretra\u017eiva\u010da."
     },
     "header_bookmarks": {
-        "message": "Markeri"
+        "message": "Obele\u017eiva\u010di"
     },
     "header_bookmarks_single": {
-        "message": "Marker"
+        "message": "Obele\u017eiva\u010d"
     },
     "sidebar_dir_children": {
         "message": "Elementi"
     },
     "sidebar_search_placeholder": {
-        "message": "Pretraga markera"
+        "message": "Pretraga obele\u017eiva\u010da"
     },
     "sidebar_search_no_results": {
-        "message": "Nije prona\u0111en marker koji odgovara unetim vrednostima pretrage"
+        "message": "Nije prona\u0111en obele\u017eiva\u010d koji odgovara unetim vrednostima pretrage"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "URL je kopiran"
+        "message": "Link je kopiran"
     },
     "sidebar_deleted": {
         "message": "Uklonjeno"
@@ -33,7 +33,7 @@
         "message": "Saznaj vi\u0161e"
     },
     "contextmenu_edit_bookmark": {
-        "message": "Uredi Marker"
+        "message": "Uredi obele\u017eiva\u010d"
     },
     "contextmenu_edit_dir": {
         "message": "Uredi direktorijum"
@@ -42,7 +42,7 @@
         "message": "Uredi Separator"
     },
     "contextmenu_delete_bookmark": {
-        "message": "Obri\u0161i Marker"
+        "message": "Obri\u0161i obele\u017eiva\u010d"
     },
     "contextmenu_delete_dir": {
         "message": "Obri\u0161i direktorijum"
@@ -54,7 +54,7 @@
         "message": "Informacije"
     },
     "contextmenu_new_tab": {
-        "message": "Otvoru u novom tabu"
+        "message": "Otvoru u novoj kartici."
     },
     "contextmenu_current_tab": {
         "message": "Otvori u trenutnom prozoru"
@@ -63,16 +63,16 @@
         "message": "Otvori u novom prozoru"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Otvori u anonimnom prozoru"
+        "message": "Otvori u prozoru bez arhiviranja"
     },
     "contextmenu_add_bookmark": {
-        "message": "Dodaj marker"
+        "message": "Dodaj obele\u017eiva\u010d"
     },
     "contextmenu_add": {
         "message": "Dodaj unos"
     },
     "contextmenu_check_bookmarks": {
-        "message": "Proveri markeri"
+        "message": "Proveri obele\u017eiva\u010d"
     },
     "contextmenu_toggle_hidden": {
         "message": "Prika\u017ei sakrivene unose"
@@ -84,7 +84,7 @@
         "message": "U\u010ditaj ponovo (osve\u017ei) bo\u010dnu traku"
     },
     "contextmenu_open_children": {
-        "message": "Otvori markere"
+        "message": "Otvori obele\u017eiva\u010de"
     },
     "contextmenu_hide_from_sidebar": {
         "message": "Sakrij iz bo\u010dne trake"
@@ -102,7 +102,7 @@
         "message": "Ukloni sa vrha"
     },
     "contextmenu_bookmark_manager": {
-        "message": "Menad\u017eer Markera"
+        "message": "Menad\u017eer obele\u017eiva\u010da"
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Skra\u0107enice sa tastaturom"
@@ -156,25 +156,25 @@
         "message": "Otvori sve"
     },
     "overlay_confirm_open_children": {
-        "message": "Da li stvarno \u017eelite da otvorie svih {1} podre\u0111enih markera?"
+        "message": "Da li stvarno \u017eelite da otvorie svih {1} podre\u0111enih obele\u017eiva\u010da?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Sakrij sa bo\u010dne trake"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Da li stvarno \u017eelite da sakrijete ovaj marker sa bo\u010dne trake?"
+        "message": "Da li stvarno \u017eelite da sakrijete ovaj obele\u017eiva\u010d sa bo\u010dne trake?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Da li starno \u017eelite da sakrijete ovaj direktorijum sa bo\u010dne trake? Svi podre\u0111eni marke \u0107e biti sakriveni tako\u0111e."
+        "message": "Da li starno \u017eelite da sakrijete ovaj direktorijum sa bo\u010dne trake? Svi podre\u0111eni obele\u017eiva\u010di \u0107e biti sakriveni tako\u0111e."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Da li stvarno \u017eelite da obri\u0161ete ovaj marker?"
+        "message": "Da li stvarno \u017eelite da obri\u0161ete ovaj obele\u017eiva\u010d?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Da li stvarno \u017eelite da obri\u0161ete ovaj direktorijum? Svi podre\u0111eni markeri \u0107e biti obrisani tako\u0111e."
+        "message": "Da li stvarno \u017eelite da obri\u0161ete ovaj direktorijum? Svi podre\u0111eni obele\u017eiva\u010di \u0107e biti obrisani tako\u0111e."
     },
     "overlay_label_bookmark": {
-        "message": "Marker"
+        "message": "Obele\u017eiva\u010d"
     },
     "overlay_label_dir": {
         "message": "Direktorijum"
@@ -192,7 +192,7 @@
         "message": "Dodaj u direktorijum"
     },
     "overlay_separator_title_desc": {
-        "message": "Mo\u017eete opciono uneti naslov. On \u0107e biti prikazan na vrhu linije separatora i mo\u017ee pomo\u0107i organizaciji va\u0161e liste markera."
+        "message": "Mo\u017eete opciono uneti naslov. On \u0107e biti prikazan na vrhu linije separatora i mo\u017ee pomo\u0107i organizaciji va\u0161e liste obele\u017eiva\u010da."
     },
     "overlay_bookmark_views": {
         "message": "Pregleda"
@@ -213,16 +213,16 @@
         "message": "Elementi"
     },
     "overlay_dir_children_bookmarks": {
-        "message": "Markeri"
+        "message": "Obele\u017eiva\u010di"
     },
     "overlay_dir_children_dirs": {
         "message": "Direktorijumi"
     },
     "overlay_check_bookmarks_menu_changed": {
-        "message": "Izmenjeni URL-ovi"
+        "message": "Izmenjeni"
     },
     "overlay_check_bookmarks_menu_broken": {
-        "message": "Neaktivni URL-ovi"
+        "message": "Neaktivni"
     },
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikati"
@@ -231,7 +231,7 @@
         "message": "Prazni direktorijumi"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Proveravanje URL markera"
+        "message": "Proveravanje linkova obele\u017eiva\u010da"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "A\u017euriraj odabrane"
@@ -240,19 +240,19 @@
         "message": "Ukloni odabrane"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Svi URL markera su u redu"
+        "message": "Svi linkovi obele\u017eiva\u010da su u redu"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Nema izmenjenih URL-ova markera."
+        "message": "Nema izmenjenih linkova obele\u017eiva\u010da"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "Nisu prona\u0111eni neaktivni URL markera"
+        "message": "Nisu prona\u0111eni neaktivni linkovi obele\u017eiva\u010da"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Nisu prona\u0111eni duplikati URL markera"
+        "message": "Nisu prona\u0111eni duplikati linkova obele\u017eiva\u010da"
     },
     "overlay_check_bookmarks_no_results_empty": {
-        "message": "Nisu prona\u0111eni direktorijumi bez markera"
+        "message": "Nisu prona\u0111eni direktorijumi bez obele\u017eiva\u010da"
     },
     "newtab_title": {
         "message": "Novi tab"
@@ -261,25 +261,31 @@
         "message": "Top stranice"
     },
     "newtab_top_pages_recently_used": {
-        "message": "Nedavno kori\u0161\u0107eni markeri"
+        "message": "Nedavno kori\u0161\u0107eni obele\u017eiva\u010di"
     },
     "newtab_top_pages_most_used": {
-        "message": "Naj\u010de\u0161\u0107e kori\u0161\u0107eni markeri"
+        "message": "Naj\u010de\u0161\u0107e kori\u0161\u0107eni obele\u017eiva\u010di"
     },
     "newtab_top_pages_pinned_entries": {
-        "message": "Pri\u010dvr\u0161\u0107eni markeri"
+        "message": "Pri\u010dvr\u0161\u0107eni obele\u017eiva\u010di"
     },
     "newtab_top_pages_hidden": {
         "message": "Ne prikazuj stranice"
     },
     "newtab_top_pages_appearance_thumbnail": {
-        "message": "Prika\u017ei preglede web lokacija"
+        "message": "Prika\u017ei preglede sajtova"
     },
     "newtab_top_pages_appearance_favicon": {
-        "message": "Prika\u017ei ikone veb lokacija"
+        "message": "Prika\u017ei ikonice sajtova"
     },
     "newtab_search_placeholder": {
         "message": "Pretra\u017ei {1} ili upi\u0161i URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Prika\u017ei mesto za pretra\u017eivanje"
+    },
+    "newtab_search_field_hide": {
+        "message": "Sakrij mesto za pretra\u017eivanje"
     },
     "newtab_speech_search_listening": {
         "message": "Govori sada"
@@ -333,7 +339,7 @@
         "message": "Servis nije dostupan"
     },
     "status_check_bookmarks_unavailable_desc": {
-        "message": "Servis koji proverava URL-ove nije dostupan u ovom trenutku. Poku\u0161ajte kasnije."
+        "message": "Servis koji proverava linkove nije dostupan u ovom trenutku. Poku\u0161ajte kasnije."
     },
     "status_feedback_unavailable_desc": {
         "message": "Servis za povratne informacije je trenutno nedostupan. Ako \u017eelite da pru\u017eite povrate informacije, molimo vas po\u0161aljite email."
@@ -345,7 +351,7 @@
         "message": "Osve\u017ei sada"
     },
     "status_background_disconnected_reload_desc": {
-        "message": "Zbog a\u017euriranja pro\u0161irenja (ekstenzije) ova stranica mora da se u\u010dita ponovo."
+        "message": "Zbog a\u017euriranja dodatka ova stranica mora da se u\u010dita ponovo."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -386,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zatvara bo\u010dnu traku, otvoreni prikaz ili sadrzajni meni."
     },
-    "contribute_headline": {
-        "message": "Potrebna mi je va\u0161a pomo\u0107"
-    },
     "contribute_intro": {
         "message": "Da bih unapredio pro\u0161irenje (ekstenziju) voleo bih da znam vi\u0161e o na\u010dinu kako korisnici koriste bo\u010dnu traku i koju konfiguraciju koriste."
     },
+    "contribute_notice": {
+        "message": "Mo\u017eete mi pomo\u0107i deljenjem podesavanja koje koristite"
+    },
     "contribute_outro": {
         "message": "Ako imate pitanja ili brige o tome kako se dele informacije, molim vas po\u0161aljite mi poruku sa povratnim informacijama."
-    },
-    "contribute_dismiss": {
-        "message": "Otka\u017ei"
     },
     "contribute_share_config_label": {
         "message": "Podeli konfiguraciju"
@@ -408,7 +411,7 @@
         "message": "Podeli aktivnost"
     },
     "contribute_share_activity_desc1": {
-        "message": "Mo\u017eete podeliti va\u0161u aktivnost unutar bo\u010dne trake anonimno, \u0161to mi poma\u017ee da razumem kako korisnici koriste bo\u010dnu traku uop\u0161teno. Informacije o va\u0161im markerima ili pose\u0107enim veb lokacijama [b]ne\u0107e[\/b] biti merene ili zapam\u0107ene."
+        "message": "Mo\u017eete podeliti va\u0161u aktivnost unutar bo\u010dne trake anonimno, \u0161to mi poma\u017ee da razumem kako korisnici koriste bo\u010dnu traku uop\u0161teno. Informacije o va\u0161im obele\u017eiva\u010dima ili pose\u0107enim veb lokacijama [b]ne\u0107e[\/b] biti merene ili zapam\u0107ene."
     },
     "contribute_share_activity_desc2": {
         "message": "Ova informacija je veoma korisna da bih prepoznao probleme u kori\u0161\u0107enju ili opcije koje se na primer ne koriste previ\u0161e \u010desto."
@@ -417,7 +420,7 @@
         "message": "Podaci koji su podeljeni su na primer:"
     },
     "contribute_share_activity_example_1": {
-        "message": "Koliko markera korisnici imaju u proseku?"
+        "message": "Koliko obele\u017eiva\u010da korisnici imaju u proseku?"
     },
     "contribute_share_activity_example_2": {
         "message": "Koju platformu korisnici koriste (Windows, Mac, Linux...)?"
@@ -426,7 +429,7 @@
         "message": "Da li korisnici koriste pretragu?"
     },
     "contribute_share_activity_example_4": {
-        "message": "Da li korisnici menjaju sortiranje markera?"
+        "message": "Da li korisnici menjaju sortiranje obele\u017eiva\u010da?"
     },
     "contribute_share_activity_example_5": {
         "message": "Koliko \u010desto korisnici re-aran\u017eiraju ili menjaju unose?"
@@ -536,8 +539,8 @@
     "settings_menu_language_translate": {
         "message": "Prevo\u0111enje"
     },
-    "settings_menu_feedback": {
-        "message": "Povratne informacije"
+    "settings_menu_support": {
+        "message": "Podr\u0161ka"
     },
     "settings_menu_infos": {
         "message": "Informacije"
@@ -608,6 +611,9 @@
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku."
     },
+    "settings_open_action_desc": {
+        "message": "Otvorite bo\u010dnu traku levim ili desnim klikom ili prelaskom mi\u0161a preko ivice prozora pretra\u017eiva\u010da. Tako\u0111e ga mo\u017eete promeniti da se otvara samo ako je pritisnuta ikonica ekstenzije."
+    },
     "settings_open_action_leftclick": {
         "message": "Levi klik"
     },
@@ -645,10 +651,10 @@
         "message": "Podesi skra\u0107enicu tastaturom"
     },
     "settings_link_action": {
-        "message": "Otvori markere"
+        "message": "Otvori obele\u017eiva\u010de"
     },
     "settings_link_action_desc": {
-        "message": "Levi klik na marker \u0107e ga otvoriti ili u trenutnoj kartici ili u novoj kartici."
+        "message": "Levi klik na obele\u017eiva\u010d \u0107e ga otvoriti ili u trenutnoj kartici ili u novoj kartici."
     },
     "settings_link_action_current_tab": {
         "message": "Trenutna kartica (tab)"
@@ -681,7 +687,7 @@
         "message": "Pozicija skrola na stranici i otvorenih direktorijuma"
     },
     "settings_remember_state_all": {
-        "message": "Skrol pozicija, otvoreni direktorijumi i poslednji otvoreni marker"
+        "message": "Skrol pozicija, otvoreni direktorijumi i poslednji otvoreni obele\u017eiva\u010d"
     },
     "settings_remember_state_open_states": {
         "message": "Otvoreni direktorijumi."
@@ -696,13 +702,13 @@
         "message": "Zapamti otvorene pod-direktorijume"
     },
     "settings_remember_desc": {
-        "message": "Odaberite \u0161ta da se zapamati kroz izmene stranica. Ako odaberete da se zapamti poslednji otvoreni marker, bi\u0107e ozna\u010den kada se ponovo otvori bo\u010dna traka."
+        "message": "Odaberite \u0161ta da se zapamati kroz izmene stranica. Ako odaberete da se zapamti poslednji otvoreni obele\u017eiva\u010d, bi\u0107e ozna\u010den kada se ponovo otvori bo\u010dna traka."
     },
     "settings_new_tab": {
         "message": "Nova kartica"
     },
     "settings_new_tab_desc": {
-        "message": "Otvori markere u novoj kartici ispred ili u pozadini"
+        "message": "Otvori obele\u017eiva\u010d u novoj kartici ispred ili u pozadini"
     },
     "settings_new_tab_foreground": {
         "message": "Otvori ispred"
@@ -736,6 +742,111 @@
     },
     "settings_scroll_bar_hide_desc": {
         "message": "Istek vremena u sekundama nakon \u0161to \u0107e skrol bar biti saktiven. Skrolovanje \u0107e ponovo prikazati skrol bar."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Nikad ne sakrivaj"
+    },
+    "settings_reopen_sidebar": {
+        "message": "Ponovno otvori bo\u010dnu traku"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Automatski ponovo otvori bo\u010dnu traku, nakon otvaranja obele\u017eiva\u010da kroz bo\u010dnu traku."
+    },
+    "settings_prevent_windowed": {
+        "message": "Onemogu\u0107i bo\u010dnu traku u prozornom(Windowed) re\u017eimu."
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Smanjuje \u0161anse da otvorite bo\u010dnu traku klikom ili prelaskom preko ivice pretra\u017eiva\u010da kada je pretra\u017eiva\u010d u re\u017eimu prozora."
+    },
+    "settings_tooltip_delay": {
+        "message": "Ka\u0161njenje opisa"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Ka\u0161njenje pre nego se opis obele\u017eiva\u010da prika\u017ee kada kursor predje preko"
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Nikad ne prikazuj opis"
+    },
+    "settings_tooltip_desc": {
+        "message": "Odaberi koje informacije ce opis prikazivati."
+    },
+    "settings_tooltip_content": {
+        "message": "Sadr\u017eaj opisa"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Naslov i URL(link)"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Samo naslov"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Samo URL(link)"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Dodatne informacije"
+    },
+    "settings_sidebar_position": {
+        "message": "Pozicija"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Defini\u0161e da li bi bo\u010dna traka trebala da se otvori na levoj ili na desnoj strani prozora pretra\u017eiva\u010da."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Levo"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Desno"
+    },
+    "settings_filter_intro": {
+        "message": "Ako ne \u017eelite da se bo\u010dni meni u\u010ditava na svakoj stranici, mo\u017eete namestiti gde \u017eelite da se ekstenzija u\u010ditava (Odobrena lista) ili gde ne \u017eelite (Ne odobrena lista)"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Dodaj samo jedan \u0161ablon URL(link) po liniji"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Koristite * kako bi ste spojili sve podstranice ( npr. example.com\/* spaja sve stranice ispod example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Ako ne uklju\u010dite nijednu * u pravilu, samo ta\u010dan URL \u0107e odgovarati (npr \"example.com\" ne\u0107e odgovarati za URL \"example.com\/about.html\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Ne morate dodavati protokole (npr. http:\/\/) u pravilima."
+    },
+    "settings_filter_visibility": {
+        "message": "U\u010ditaj bo\u010dnu traku"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Na svakoj stranici"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Na svakoj stranici sem izuzetaka"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Isklju\u010divo na specifi\u010dnim stranicama"
+    },
+    "settings_filter_rules": {
+        "message": "\u0160ablon URL(link)"
+    },
+    "settings_import_export_notice": {
+        "message": "Pode\u0161avanja ekstenzija su sinhronizovana automatski izme\u0111u va\u0161ih uredjaja, ako ste prijavljeni na (ime pretraziva\u010da) sa svojim nalogom. Ako ne \u017eelite da se ulogujete ili da podelite va\u0161a pode\u0161avanja sa drugim ljudima, mo\u017eete koristiti Ubaciti\/Izvesti opciju."
+    },
+    "settings_import_export_desc": {
+        "message": "Mo\u017eete izvesti va\u0161a pode\u0161avanja ekstenzije i sa\u010duvati ih lokalno na va\u0161 ra\u010dunar. Mo\u017eete ubaciti prethodno izvedene fajlove na bilo koji ra\u010dunar, gde je ekstenzija instalirana."
+    },
+    "settings_export": {
+        "message": "Izvezi pode\u0161avanja"
+    },
+    "settings_import": {
+        "message": "Ubaci pode\u0161avanja"
+    },
+    "settings_import_saved": {
+        "message": "Pode\u0161avanja su uspe\u0161no uba\u010dena"
+    },
+    "settings_import_failed": {
+        "message": "Neuspe\u0161no ubacivanje pode\u0161avanja. Odaberite ispravan fajl."
+    },
+    "settings_theme_changed": {
+        "message": "Tema uspe\u0161no promenjena"
     },
     "settings_presets": {
         "message": "Odredi relativnu velicinu"
@@ -806,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Boja maske"
     },
+    "settings_background_transparency": {
+        "message": "Providnost pozadine"
+    },
+    "settings_background_blur": {
+        "message": "Efekat zamu\u0107enosti pozadine"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Ikonica foldera"
     },
@@ -848,6 +965,36 @@
     "settings_custom_css_desc": {
         "message": "Mozete postaviti Vasu stilsku listu kako bi promenili osnovnu. Molimo koristite ovu opciju samo ukoliko ste upoznati sa CSS i znate sta radite."
     },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Mo\u017eete odabrati standardan dizajn bo\u010dne trake. Odabrana tema mo\u017ee biti prilago\u0111ena sa dostupnim opcijama kliza\u010da i boje."
+    },
+    "settings_available_themes": {
+        "message": "Dostupne teme"
+    },
+    "settings_show_themes": {
+        "message": "Prika\u017ei dostupne teme"
+    },
+    "settings_theme_default": {
+        "message": "Standardna tema"
+    },
+    "settings_theme_default_desc": {
+        "message": "Ova tema omogu\u0107ava pristup Va\u0161im obele\u017eiva\u010dima kroz prost, moderan dizajn. Ve\u0107ina elemenata su ofarbana promenljivom \u0161emom boja."
+    },
+    "settings_theme_glass": {
+        "message": "Staklena tema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Ova tema \u010dini bo\u010dnu traku polovi\u010dno providnom i dodaje efekat staklene zamu\u0107enosti. Mo\u017eete je podesiti efekat i providnost bo\u010dne trake."
+    },
+    "settings_install_theme": {
+        "message": "Instaliraj temu"
+    },
+    "settings_installed_theme_info": {
+        "message": "Trenutno instalirana"
+    },
     "settings_newtab_desc": {
         "message": "Na\u017ealost, Google je uklonio moguc\u0301nost u\u010ditavanje dodatka na novoj kartici. Zbog toga su dodate neke opcije koje omoguc\u0301avaju da pristupite obele\u017eiva\u010dima na drugi na\u010din."
     },
@@ -875,35 +1022,116 @@
     "settings_newtab_website_desc": {
         "message": "Umesto otvaranja zamenske nove kartice, mo\u017eete podesiti sajt koji \u0107e se u\u010ditati umesto nje."
     },
-    "settings_feedback_desc": {
+    "settings_language": {
+        "message": "Jezik"
+    },
+    "settings_language_default": {
+        "message": "Jezik pretra\u017eiva\u010da"
+    },
+    "settings_language_desc": {
+        "message": "Jezik korisni\u010dkog interfejsa"
+    },
+    "settings_translation_link": {
+        "message": "Pregled prevoda"
+    },
+    "settings_translation_desc": {
+        "message": "Mo\u017eete pomo\u0107i prevo\u0111enju dodatka na Va\u0161 jezik ili unapredite trenutni."
+    },
+    "settings_translation_add_language": {
+        "message": "Dodaj jezik"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Nazad na pregled"
+    },
+    "settings_translation_info": {
+        "message": "Mo\u017eete promeniti trenutni prevod ili dodati neki koji nedostaje. Ukoliko podnesete zahtev sa promenama, nakon odobrenja \u0107u ga pregledati i primeniti."
+    },
+    "settings_translation_notice1": {
+        "message": "\u010cim se sve kategorije koje su ozna\u010dene obaveznim prevedu, prevod \u0107e biti objavljen."
+    },
+    "settings_translation_notice2": {
+        "message": "Nezavr\u0161ene kategorije ne\u0107e biti objavljene, da bi spre\u010dili ne dovr\u0161en prevod."
+    },
+    "settings_translation_help": {
+        "message": "Za svaki unos mo\u017eete videti engleski prevod, koji treba da se prevede na va\u0161 jezik. Da bi vam pomogli da identifikujete odakle se koristi tekst i za \u0161ta slu\u017ei, svaki unos ima svoj naziv (na primer {1}),\u0161to ne bi trebalo da se prevede. Molimo vas ne zaboravite da podnesete va\u0161 prevod klikom na dugme u gornjem desnom uglu."
+    },
+    "settings_translation_reminder_desc": {
+        "message": "\u017delim da budem obave\u0161ten kada je nova verzija jezika dodata ekstenziji"
+    },
+    "settings_translation_submit": {
+        "message": "Podnesi"
+    },
+    "settings_translation_submit_message": {
+        "message": "Va\u0161 zahtev sa prevodom je uspe\u0161no poslat"
+    },
+    "settings_translation_status_released": {
+        "message": "Predvod je dostupan"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "Prevod je dostupan, ali neke kategorije su nedovr\u0161ene"
+    },
+    "settings_translation_status_draft": {
+        "message": "Prevod je nedovr\u0161en ili mu treba pregled koji nije dostupan korisnicima"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Negde prevod nedostaje"
+    },
+    "settings_translation_required_category": {
+        "message": "Obavezno"
+    },
+    "settings_support_faq_headline": {
+        "message": "\u010cesto postavljana pitanja"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Povratne informacije"
+    },
+    "settings_support_feedback_desc": {
         "message": "Imate bilo kakve sugestije za pobolj\u0161anja, pitanja, uo\u010dili ste nedostajuc\u0301e opcije za konfiguraciju ili prona\u0161li gre\u0161ku? U cilju pobolj\u0161anja iskustva sa ovim pro\u0161irenjem (ekstenzijom), bio bih vam veoma zahvalan za bilo koju i svaku povratnu informaciju ili predlog koji mo\u017eda imate."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Molim vas da va\u0161e povratne informacije pi\u0161ete na engleskom jeziku, kako bi lak\u0161e razumeo i odgovorio na va\u0161u poruku."
     },
-    "settings_feedback_email": {
-        "message": "Va\u0161a email adresa"
+    "settings_support_feedback_email": {
+        "message": "Email adresa (opciono)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Prilo\u017eite snimke ekrana"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Veli\u010dina datoteke {1} je prevelika (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Ne mo\u017eete otpremiti vi\u0161e od {1} snimaka ekrana"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Po\u0161alji povratne informacije"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Hvala vam na povratnim informacijama"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Va\u0161a poruka nije mogla biti poslata. Molim vas, poku\u0161ajte ponovo."
     },
-    "settings_feedback_faq_headline": {
-        "message": "Ovo mo\u017ee biti od va\u017enosti za vas"
+    "settings_permissions_desc": {
+        "message": "Da bi ste napravili promenljivu bo\u010dnu traku u {browserName}, potrebne su slede\u0107e permisije i zahtevi od ekstenzije:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Na\u017ealost {browserName} nema mehanizam da prika\u017ee kontent u pretra\u017eiva\u010du bez interakcije sa stranicom koju trenutno pose\u0107ujete."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Po\u0161to se bo\u010dna traka prikazuje u gornjem delu trenutnog sajta, ovo odobrenje je obavezno. Pored ovog tehni\u010dkog razloga, odobrenje nije kori\u0161\u0107eno za druge svrhe."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "U koliko ste zabrinuti \u0161ta radimo sa ovom dozvolom, mo\u017eete pogledati izvorni kod na ekstenziji na Github-u. To je otvoreni izvor i vidljiv je svima."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Ekstenzija prikazuje va\u0161e obele\u017eiva\u010de u bo\u010dnoj traci, dakle treba mu ova permisija da dobije pristup. Ova permisija mu tako\u0111e dozvoljava da ekstenzija doda, izmeni ili obri\u0161e obele\u017eiva\u010de."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Deli informacije"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Va\u0161a pode\u0161avanja su uspe\u0161no sa\u010duvana"
     },
     "premium_popup_text": {
         "message": "Jeste li probali Premijum?"
@@ -961,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Mozete kliknuti desni klik na bilo koji folder na bocnoj traci da pokrenete proveru. Rezultat ce pokazati sve azurirane URL(linkove), obelezivaci koji vise nisu u funkciji i duplikate"
+    },
+    "premium_feature_themes_headline": {
+        "message": "Promenite temu bo\u010dne trake"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Mo\u017eete zameniti ceo dizajn bo\u010dne trake jednim klikom instaliranjem druge teme. One tako\u0111e mogu biti prilago\u0111ivane sa dostupnim opcijama za kliza\u010de i boje."
     },
     "premium_pay_select_payment_method": {
         "message": "Odaberite nacin placanja"

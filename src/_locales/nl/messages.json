@@ -392,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Sluit de zijbalk, het geopende hulpvenster of contextuele menu"
     },
-    "contribute_headline": {
-        "message": "Ik heb je hulp nodig"
-    },
     "contribute_intro": {
         "message": "Om de extensie te verbeteren, wil ik begrijpen hoe en met welke configuratie de gebruikers de zijbalk hanteren en welke configuratie ze instellen."
     },
+    "contribute_notice": {
+        "message": "Je kan me helpen door uw instellingen met mij te delen"
+    },
     "contribute_outro": {
         "message": "Als je vragen of twijfels hebt over het delen van informatie, stuur me dan een feedback bericht."
-    },
-    "contribute_dismiss": {
-        "message": "Verbergen"
     },
     "contribute_share_config_label": {
         "message": "Deel configuratie"
@@ -542,8 +539,8 @@
     "settings_menu_language_translate": {
         "message": "Vertalen"
     },
-    "settings_menu_feedback": {
-        "message": "Feedback"
+    "settings_menu_support": {
+        "message": "Support"
     },
     "settings_menu_infos": {
         "message": "Informatie"
@@ -848,6 +845,9 @@
     "settings_import_failed": {
         "message": "Het importeren van de configuratie is mislukt. Gelieve een geldig bestand te kiezen."
     },
+    "settings_theme_changed": {
+        "message": "Thema succesvol gewijzigd"
+    },
     "settings_presets": {
         "message": "Stel de relatieve grootte in"
     },
@@ -917,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Maskerkleur"
     },
+    "settings_background_transparency": {
+        "message": "Achtergrond transparantie"
+    },
+    "settings_background_blur": {
+        "message": "Achtergrond wazig effect"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Mapicoon"
     },
@@ -958,6 +964,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Je kan je eigen stijlblad defini\u00ebren welke het standaard stijlblad overschrijft. Gebruik deze optie alles als je vertrouwd bent met CSS en weet wat je aan het doen bent."
+    },
+    "settings_theme": {
+        "message": "Thema"
+    },
+    "settings_themes_notice": {
+        "message": "U kunt het basisontwerp van de zijbalk kiezen. Het geselecteerde thema kan worden aangepast met de beschikbare schuifregelaars en kleuropties."
+    },
+    "settings_available_themes": {
+        "message": "Beschikbare thema's"
+    },
+    "settings_show_themes": {
+        "message": "Laat beschikbare thema's zien"
+    },
+    "settings_theme_default": {
+        "message": "Standaard thema"
+    },
+    "settings_theme_default_desc": {
+        "message": "Met dit thema hebt u op een schone, moderne manier toegang tot uw bladwijzers. Veel elementen zijn gekleurd in een configureerbaar kleurenschema."
+    },
+    "settings_theme_glass": {
+        "message": "Glas thema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Dit thema maakt de achtergrond van de zijbalk semi-transparant en voegt er een wazig glaseffect aan toe. U kunt dit effect en de transparantie van de zijbalk aanpassen."
+    },
+    "settings_install_theme": {
+        "message": "Installeer thema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Ge\u00efnstalleerde thema"
     },
     "settings_newtab_desc": {
         "message": "Helaas heeft Google de functie om extensies te laden op een nieuw tabblad verwijderd. Om die reden heb ik enkele andere opties toegevoegd om bij je bladwijzers te komen."
@@ -1043,35 +1079,38 @@
     "settings_translation_required_category": {
         "message": "Vereist"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "Vaak gestelde vragen"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
         "message": "Heb je suggesties voor verbeteringen, vragen of een probleem gevonden? Help ons dan door feedback achter te laten."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Stuur a.u.b. je feedback in het Engels, anders is het lastig om het bericht te begrijpen en te beantwoorden."
     },
-    "settings_feedback_email": {
-        "message": "Je emailadres"
+    "settings_support_feedback_email": {
+        "message": "e-mailadres (optioneel)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Schermafbeeldingen toevoegen"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Het bestand {1} is te groot (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Je kunt maximaal {1} schermafbeeldingen toevoegen"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Verstuur feedback"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Bedankt voor de feedback"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Je bericht kon niet verzonden worden. Probeer het opnieuw."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Misschien interessant voor jou"
     },
     "settings_permissions_desc": {
         "message": "Om een inschakelbare zijbalk in {browserName} mogelijk te maken, zijn de volgende machtigingen vereist en aangevraagd door de extensie:"
@@ -1151,11 +1190,17 @@
     "premium_feature_linkchecker_desc": {
         "message": "Met een rechtermuisklik kan je elke map in de zijbalk een controle laten uitvoeren. Je krijgt een rapport met alle bijgewerkte URL's, bladwijzers die niet langer functioneren en bladwijzers met dezelfde URL."
     },
+    "premium_feature_themes_headline": {
+        "message": "Verander het thema van je zijbalk"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Je kunt het hele ontwerp van de zijbalk met \u00e9\u00e9n klik verwisselen door een ander thema te installeren. Ze kunnen ook worden aangepast met de beschikbare schuifregelaars en kleuropties."
+    },
     "premium_pay_select_payment_method": {
         "message": "Kies een betaalmethode"
     },
     "premium_pay_what_you_want": {
-        "message": "Betaal wat jijzelf wil"
+        "message": "Betaal wat jijzelf wilt"
     },
     "premium_pay_creditcard": {
         "message": "Credit- of debetkaart"

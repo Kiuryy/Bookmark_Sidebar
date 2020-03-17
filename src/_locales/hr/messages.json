@@ -392,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Zatvara bo\u010dnu traku oznaka, prekrivanje ili kontekstni izbornik"
     },
-    "contribute_headline": {
-        "message": "Trebam tvoju pomo\u0107"
-    },
     "contribute_intro": {
         "message": "Da bih pobolj\u0161ao pro\u0161irenje, \u017eelio bih bolje znati kako korisnici koriste bo\u010dnu traku oznaka i koju konfiguraciju koriste."
     },
+    "contribute_notice": {
+        "message": "Mo\u017eete mi pomo\u0107i dijeljenjem va\u0161e konfiguracije"
+    },
     "contribute_outro": {
         "message": "Ako imate pitanja ili nedoumice u vezi dijeljenja informacija, po\u0161aljite mi povratnu poruku."
-    },
-    "contribute_dismiss": {
-        "message": "Odbaci"
     },
     "contribute_share_config_label": {
         "message": "Podjeli konfiguraciju"
@@ -541,9 +538,6 @@
     },
     "settings_menu_language_translate": {
         "message": "Prevedi"
-    },
-    "settings_menu_feedback": {
-        "message": "Povratna informacija"
     },
     "settings_menu_infos": {
         "message": "Informacije"
@@ -848,6 +842,9 @@
     "settings_import_failed": {
         "message": "Uvoz konfiguracije nije uspio. Odaberite valjanu datoteku."
     },
+    "settings_theme_changed": {
+        "message": "Tema je uspje\u0161no promijenjena"
+    },
     "settings_presets": {
         "message": "Postavi relativne veli\u010dine"
     },
@@ -917,6 +914,12 @@
     "settings_sidebar_mask_color": {
         "message": "Boja maske"
     },
+    "settings_background_transparency": {
+        "message": "Providnost pozadine"
+    },
+    "settings_background_blur": {
+        "message": "Efekt zamagljivanja pozadine"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona mape spremanja"
     },
@@ -958,6 +961,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Mo\u017eete definirati svoj vlastitu tablicu stilova koji \u0107e poni\u0161titi zadani stil. Koristite ovu opciju samo ako ste upoznati s CSS-om i znate \u0161to radite."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Mo\u017eete odabrati osnovni dizajn bo\u010dne trake. Odabrana tema mo\u017ee se prilagoditi dostupnim kliza\u010dima i mogu\u0107nostima boja."
+    },
+    "settings_available_themes": {
+        "message": "Dostupne teme"
+    },
+    "settings_show_themes": {
+        "message": "Prika\u017ei dostupne teme"
+    },
+    "settings_theme_default": {
+        "message": "Zadana tema"
+    },
+    "settings_theme_default_desc": {
+        "message": "Ova tema omogu\u0107uje vam pristup oznakama na \u010dist, moderan na\u010din. Mnogi su elementi obojeni u prilagodljivoj shemi boja"
+    },
+    "settings_theme_glass": {
+        "message": "Staklena tema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Ova tema \u010dini pozadinu bo\u010dne trake oznaka poluprovidnom i dodaje joj efekt zamagljenog stakla. Mo\u017eete prilagoditi ovaj efekt i providnost bo\u010dne trake oznaka."
+    },
+    "settings_install_theme": {
+        "message": "Instalirajte temu"
+    },
+    "settings_installed_theme_info": {
+        "message": "Trenutno instalirana"
     },
     "settings_newtab_desc": {
         "message": "Preglednici na temelju Chrome ne u\u010ditavaju pro\u0161irenja na zadanoj novoj kartici. Zbog toga bo\u010dna traka oznaka tamo ne radi. Kako bih se suo\u010dio sa problemom, dodao sam neke mogu\u0107nosti koje omogu\u0107uju pristup oznakama prilikom otvaranja nove kartice na drugi na\u010din."
@@ -1043,35 +1076,32 @@
     "settings_translation_required_category": {
         "message": "Potreban"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Povratna informacija"
+    },
+    "settings_support_feedback_desc": {
         "message": "Imate li prijedloga za pobolj\u0161anja ili pitanja, da li ste primijetili nedostaju\u0107e mogu\u0107nosti konfiguracije ili ste prona\u0161li gre\u0161ku? Kako bi pobolj\u0161ao iskustva s ovim pro\u0161irenjem bio bih vam zahvalan na bilo kakvim i svim povratnim informacijama koje imate ili biste imali."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Sastavite va\u0161u povratnu informaciju na engleskom jeziku, jer \u0107e u protivnom biti te\u0161ko razumjeti i odgovoriti na va\u0161u poruku."
     },
-    "settings_feedback_email": {
-        "message": "Va\u0161a e-mail adresa"
-    },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei snimke zaslona"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Veli\u010dina datoteke {1} je prevelika (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Mo\u017eete prenijeti najvi\u0161e {1} snimku\/e zaslona"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Po\u0161alji povratnu informaciju"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Hvala na povratnoj informaciji"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Va\u0161a poruka nije mogla biti poslana. Poku\u0161ajte ponovo."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Ovo bi vas moglo zanimati"
     },
     "settings_permissions_desc": {
         "message": "Kako biste omogu\u0107ili preklopnu bo\u010dnu traku oznaka u {browserName}, potrebna su sljede\u0107a dopu\u0161tenja i zatra\u017eena od pro\u0161irenja:"

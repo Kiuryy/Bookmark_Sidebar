@@ -77,8 +77,8 @@
     const css = () => {
         return Func.measureTime((resolve) => {
             Func.minify([ // parse scss files
-                path.src + "scss/*.scss"
-            ], path.dist + "css/").then(() => {
+                path.src + "scss/**/*.scss"
+            ], path.dist, false).then(() => {
                 resolve();
             });
         }, "Moved css files to dist directory");
@@ -301,7 +301,7 @@
 
 
             });
-        }, "Updated minimum chrome version");
+        }, "Updated minimum chromium version");
     };
 
     /**

@@ -93,6 +93,9 @@
 
                     if (info && info.success) { // activated successfully -> show success message
                         s.showSuccessMessage("premium_activated");
+                        $.delay(1500).then(() => {
+                            location.reload(true);
+                        });
                     } else { // invalid license key or error storing the key
                         $.delay(100).then(() => {
                             alert(info.message || s.helper.i18n.get("settings_premium_invalid_key"));

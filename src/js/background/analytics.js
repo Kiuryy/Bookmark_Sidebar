@@ -67,6 +67,7 @@
                     addToStack("system", navigator.userAgent);
                     addToStack("language", b.helper.language.getLanguage());
                     addToStack("shareInfo", shareState);
+                    addToStack("runtimeId", $.api.runtime.id);
                     addToStack("userType", (await b.helper.model.getUserType()).userType);
 
                     const installationDate = b.helper.model.getData("installationDate");

@@ -264,7 +264,7 @@
                 $("div[data-name='blockbyte-extension']").removeAttr("data-name");
 
                 ext.helper.model.call("openLink", {
-                    href: $.api.extension.getURL("html/settings.html#feedback"),
+                    href: $.api.extension.getURL("html/settings.html#support"),
                     newTab: false
                 });
             });

@@ -276,7 +276,7 @@
             const link = elm.children("a");
             let ret = null;
 
-            if (link.hasClass($.cl.sidebar.dirOpened) && link.next("ul").length() > 0) { // one layer deeper
+            if (link.hasClass($.cl.sidebar.dirOpened) && link.next("ul").length() > 0 && link.next("ul").children("li").length() > 0) { // one layer deeper
                 ret = link.next("ul").find("> li:first-child > a");
             } else if (elm.next("li").length() > 0) { // next element
                 ret = elm.next("li").children("a");
@@ -315,7 +315,7 @@
             if (elm.prev("li").length() > 0) { // prev element
                 let prev = elm.prev("li").children("a");
 
-                while (prev.hasClass($.cl.sidebar.dirOpened) && prev.next("ul").length() > 0) {
+                while (prev.hasClass($.cl.sidebar.dirOpened) && prev.next("ul").length() > 0 && prev.next("ul").children("li").length() > 0) {
                     prev = prev.next("ul").find("> li:last-child > a");
                 }
 
@@ -394,7 +394,7 @@
                             hoveredElm = link;
                         }
 
-                        if (hoveredElm) {
+                        if (hoveredElm && hoveredElm[0]) {
                             box.find("ul > li > a." + $.cl.hover).removeClass($.cl.hover);
                             box.find("ul > li > a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
                             hoveredElm.addClass([$.cl.hover, $.cl.sidebar.lastHover]);

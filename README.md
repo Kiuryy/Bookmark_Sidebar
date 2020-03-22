@@ -10,7 +10,10 @@
 Bookmark Sidebar is a browser extension, which adds a toggleable sidebar with all your bookmarks on the left or right side of your screen. You can sort, edit, delete or rearrange your bookmarks easily from within the sidebar. There are many configuration options and the appearance is fully customizable. 
 
 <a href="https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh" target="_blank">
-<img src="https://extensions.blockbyte.de/img/chromeWebStore_border.png" width="200" />
+<img src="https://extensions.blockbyte.de/img/github_download_chrome.png" width="160" />
+</a>&nbsp;
+<a href="https://microsoftedge.microsoft.com/addons/detail/lmjefbghkfeppnpofmbfmhgodpclipbl" target="_blank">
+<img src="https://extensions.blockbyte.de/img/github_download_edge.png" width="160" />
 </a>
 
 The extension should work with all Chromium-based browsers, while officially only Chrome and Edge are fully supported.

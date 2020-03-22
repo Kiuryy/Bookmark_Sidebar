@@ -19,7 +19,7 @@
     "create-file": "^1.0.1",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "glob-concat": "^1.0.1",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",

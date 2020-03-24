@@ -1041,7 +1041,6 @@ section#sidebar {
     section#sidebar > div.scrollBox.active {
       display: block; }
     section#sidebar > div.scrollBox > p {
-      background: #fff;
       font-size: 120%;
       padding: 30px 20px;
       font-style: italic;
@@ -1658,8 +1657,6 @@ body.dark section#sidebar {
     background-color: rgba(255, 255, 255, 0.1); }
     body.dark section#sidebar > div.scrollBox > ul a > span.drag:hover::before {
       background-color: #eee; }
-  body.dark section#sidebar > div.scrollBox > p {
-    background: #3d3d3d; }
   body.dark section#sidebar ~ a.dragHelper {
     background: #3d3d3d !important; }
     body.dark section#sidebar ~ a.dragHelper.separator > span.label::after {

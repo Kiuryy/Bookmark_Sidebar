@@ -112,6 +112,23 @@
         };
 
         /**
+         * Focus the search field of the website, or the search of the sidebar
+         */
+        this.focusSearch = () => {
+            if (n.elm.search.wrapper.hasClass($.cl.hidden) === false) { // Search field is visible
+                if (searchAlreadyFocussed === false) { // first time the search field get's focussed -> prefill with already typed keyboard inputs
+                    searchAlreadyFocussed = true;
+                    n.elm.search.field[0].value = (window.cachedKeys || []).join("");
+                }
+
+                n.elm.search.field[0].focus();
+            } else if (n.elm.sidebar && n.elm.sidebar.iframe && n.helper.model.getData("n/autoOpen")) { // Search field is hidden -> focus sidebar search instead
+                $(document).trigger($.opts.events.openSidebar);
+                n.elm.sidebar.iframe[0].focus();
+            }
+        };
+
+        /**
          *
          * @returns {string}
          */
@@ -446,17 +463,7 @@
             $(document).on("click", () => {
                 $("ul." + $.cl.newtab.suggestions).remove();
                 if (n.helper.edit.isEditMode() === false) {
-                    if (n.elm.search.wrapper.hasClass($.cl.hidden) === false) { // Search field is visible
-                        if (searchAlreadyFocussed === false) { // first time the search field get's focussed -> prefill with already typed keyboard inputs
-                            searchAlreadyFocussed = true;
-                            n.elm.search.field[0].value = (window.cachedKeys || []).join("");
-                        }
-
-                        n.elm.search.field[0].focus();
-                    } else if (n.elm.sidebar && n.elm.sidebar.iframe) { // Search field is hidden -> focus sidebar search instead
-                        $(document).trigger($.opts.events.openSidebar);
-                        n.elm.sidebar.iframe[0].focus();
-                    }
+                    this.focusSearch();
                 }
             });
 

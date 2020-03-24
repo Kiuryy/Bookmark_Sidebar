@@ -58,20 +58,27 @@
                 this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
                 this.helper.i18n.parseHtml(document);
 
-                this.helper.topPages.init();
-                this.helper.search.init();
-                this.helper.shortcuts.init();
-                this.helper.fallback.init();
-                this.helper.edit.init();
-
-                initEvents();
-
-                return Promise.all([this.getBackground(), $.delay(500)]);
+                return Promise.all(
+                    [
+                        this.getBackground(),
+                        this.helper.topPages.init(),
+                        this.helper.search.init(),
+                        this.helper.shortcuts.init(),
+                        this.helper.fallback.init(),
+                        this.helper.edit.init(),
+                        initEvents(),
+                        $.delay(500),
+                    ]
+                );
             }).then(([background]) => {
                 loader.remove();
                 this.setBackground(background);
                 this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
                 $(window).trigger("resize");
+
+                if (!this.helper.model.getData("n/autoOpen") && this.elm.search.wrapper.hasClass($.cl.hidden) === false) {
+                    this.helper.search.focusSearch();
+                }
             });
         };
 
@@ -175,7 +182,7 @@
 
                         this.helper.topPages.handleWindowResize();
                     }
-                });
+                }, {passive: true});
             }
         };
 

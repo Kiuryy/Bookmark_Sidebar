@@ -24,10 +24,10 @@
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.13.1",
-    "npm-check-updates": "^4.0.5",
+    "npm-check-updates": "^4.1.1",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^4.6.7",
+    "terser": "^4.6.10",
     "zip-dir": "^1.0.2"
   }
 }

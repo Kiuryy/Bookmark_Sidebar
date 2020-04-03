@@ -193,7 +193,7 @@
                     }
 
                     if (pathLen >= 2 && path[0] === "sidebar" && path[1] === "toggle" && path[2] === "area") { // open the modal for configuring the toggle area
-                        s.elm.buttons.toggleAreaOpen.trigger("click");
+                        s.elm.buttons.toggleAreaOpen.eq(0).trigger("click");
                     }
 
                     const hash = path.join("_");

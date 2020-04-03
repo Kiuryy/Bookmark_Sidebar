@@ -24,7 +24,7 @@
                 save: $("body > header > menu > li > button.save"),
                 restore: $("body > header > menu > li > button.restore"),
                 keyboardShortcut: $("div.tab[data-name='sidebar'] a.keyboardShortcut"),
-                toggleAreaOpen: $("div.tab[data-name='sidebar'] div.toggleAreaDesc > a.button"),
+                toggleAreaOpen: $("div.toggleAreaDesc > a.button"),
                 toggleAreaSave: $("div.toggleAreaModal a.save"),
                 toggleAreaCancel: $("div.toggleAreaModal a.cancel"),
                 "import": $("body a.import"),

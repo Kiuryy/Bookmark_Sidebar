@@ -43,7 +43,7 @@
 
             const path = s.helper.menu.getPath();
             if (path.length >= 2 && path[0] === "sidebar" && path[1] === "toggle" && path[2] === "area") { // initially open the modal for configuring the toggle area (will be called from the finish slide of the onboarding page)
-                s.elm.buttons.toggleAreaOpen.trigger("click");
+                s.elm.buttons.toggleAreaOpen.eq(0).trigger("click");
             }
         };
 
@@ -212,6 +212,7 @@
                 e.preventDefault();
                 s.elm.buttons.save.trigger("click");
                 s.elm.body.trigger("click");
+                s.elm.range.indicatorWidth.trigger("change");
             });
 
             s.elm.buttons.toggleAreaCancel.on("click", (e) => { // close modal

@@ -403,6 +403,7 @@
                 }
             });
 
+            this.elm.buttons.restore.attr("title", this.helper.i18n.get("settings_restore"));
             this.elm.buttons.restore.on("click", (e) => { // restore button
                 e.preventDefault();
                 const path = this.helper.menu.getPath();

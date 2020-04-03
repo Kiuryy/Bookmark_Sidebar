@@ -172,6 +172,16 @@ main button[type='submit'], a.button {
   margin: 10px 0;
 }
 
+// Image
+img[loading='lazy'] {
+  transition: opacity 0.5s;
+  opacity: 0;
+
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
+
 // Premium Text
 p.premium {
   @include mask('icon-premium', $__textColor, 32px);

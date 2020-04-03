@@ -57,13 +57,6 @@ body > section#wrapper {
         > img {
           display: block;
           width: 100%;
-
-          transition: opacity 0.5s;
-          @extend %hidden;
-
-          &.visible {
-            @extend %visible;
-          }
         }
 
         > a {

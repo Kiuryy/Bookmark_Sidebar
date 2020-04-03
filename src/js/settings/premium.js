@@ -19,10 +19,6 @@
          * Initialises the links and info texts in the intro slide
          */
         const initLayout = () => {
-            if (s.elm.premium.wrapper.hasClass($.cl.active)) {
-                s.loadImages(s.elm.premium.wrapper);
-            }
-
             const introSlide = s.elm.premium.wrapper.children("section[" + $.attr.type + "='intro']");
 
             if (s.helper.model.getUserType() === "premium") { // user has already premium -> show text and the license key
@@ -56,12 +52,6 @@
          * Initialises the eventhandler for the premium tab
          */
         const initEvents = () => {
-            $(document).on($.opts.events.pageChanged, (e) => {
-                if (e.detail.path && e.detail.path[0] === "premium") {
-                    s.loadImages(s.elm.premium.wrapper);
-                }
-            });
-
             elm.linkPremium && elm.linkPremium.on("click", (e) => {
                 e.preventDefault();
                 $.api.tabs.create({url: $.opts.website.premium.checkout + "?lang=" + s.helper.i18n.getLanguage()});

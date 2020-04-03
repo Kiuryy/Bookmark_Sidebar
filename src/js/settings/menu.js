@@ -181,6 +181,13 @@
                         return;
                     }
 
+                    page.find("img[" + $.attr.src + "]").forEach((_self) => { // load images of the visible page
+                        const img = $(_self);
+                        const src = img.attr($.attr.src);
+                        img.removeAttr($.attr.src);
+                        img.attr("src", src);
+                    });
+
                     if (pathLen === 1 && page.find("> div[" + $.attr.name + "]").length() > 0) {
 
                         if (menu.hasClass($.cl.settings.incomplete) && path[0] === "language") { // open translation overview instead of the first sub page, if the current translation is incomplete

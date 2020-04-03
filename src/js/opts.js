@@ -198,6 +198,7 @@
                 revert: "revert",
                 highlight: "highlight",
                 showModal: "showModal",
+                lazyloaded: "lazyloaded",
                 sub: "sub",
                 desc: "desc",
                 box: "box",

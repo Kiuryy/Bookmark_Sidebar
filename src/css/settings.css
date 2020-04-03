@@ -1,8 +1,8 @@
-body > header > menu > li > button.save::before, body > div.dialog, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='support'] div.faq.loading, div.tab[data-name='support'] div.faq > div.suggestion.hidden, div.tab[data-name='support'] div.faq > div.suggestion > p, div.tab[data-name='support'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='support'] div.suggestedAnswers, div.tab[data-name='support'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img, body::before, body::after {
+body > header > menu > li > button.save::before, body > div.dialog, body > div.toggleAreaModal, body > div.toggleAreaModal > div.preview > span, div.tab[data-name='support'] div.faq.loading, div.tab[data-name='support'] div.faq > div.suggestion.hidden, div.tab[data-name='support'] div.faq > div.suggestion > p, div.tab[data-name='support'] div.faq > div.suggestion > div.answer.hidden, div.tab[data-name='support'] div.suggestedAnswers, div.tab[data-name='support'] div.suggestedAnswers > div.suggestion.hidden, div.tab[data-name='support'] div.suggestedAnswers > div.suggestion > div.answer.hidden, div.tab[data-name='premium'] > section[data-type='intro'] > div[data-type='licenseKey'], body::before, body::after {
   opacity: 0;
   pointer-events: none; }
 
-body > div.dialog.visible, body > section#wrapper div[data-name="aboutme"] > div > div.preview > img.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='support'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='support'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], div.tab[data-name='premium'] > section:not([data-type='intro']) > img.visible, body.success::before, body.success::after, body.initLoading::before, body.loading::before {
+body > div.dialog.visible, body > div.toggleAreaModal > div.preview > div:not(.fullHeight) ~ span, body.showModal > div.toggleAreaModal, div.tab[data-name='support'] div.faq > div.suggestion > p[data-type='answer'], div.tab[data-name='support'] div.suggestedAnswers.visible, div.tab[data-name='premium'] > section[data-type='intro'] > div.visible[data-type='licenseKey'], body.success::before, body.success::after, body.initLoading::before, body.loading::before {
   opacity: 1;
   pointer-events: auto; }
 
@@ -758,8 +758,7 @@ body > section#wrapper div[data-name="aboutme"] > div {
     overflow: hidden; }
     body > section#wrapper div[data-name="aboutme"] > div > div.preview > img {
       display: block;
-      width: 100%;
-      transition: opacity 0.5s; }
+      width: 100%; }
     body > section#wrapper div[data-name="aboutme"] > div > div.preview > a {
       position: absolute;
       bottom: 10px;
@@ -1925,8 +1924,7 @@ div.tab[data-name='premium'] > section {
       bottom: 0;
       margin: auto;
       left: 0;
-      width: 100%;
-      transition: opacity 0.5s; }
+      width: 100%; }
       @media (max-width: 1150px) {
         div.tab[data-name='premium'] > section:not([data-type='intro']) > img {
           position: relative; } }
@@ -3373,6 +3371,12 @@ hr {
 
 main button[type='submit'], a.button {
   margin: 10px 0; }
+
+img[loading='lazy'] {
+  transition: opacity 0.5s;
+  opacity: 0; }
+  img[loading='lazy'].lazyloaded {
+    opacity: 1; }
 
 p.premium {
   position: relative;

@@ -160,24 +160,6 @@
         };
 
         /**
-         * Loads the images of the given wrapper by replacing the data-src attribute with src attributes
-         *
-         * @param wrapper
-         */
-        this.loadImages = (wrapper) => {
-            wrapper.find("img[" + $.attr.src + "]").forEach((_self) => {
-                const img = $(_self);
-                const src = img.attr($.attr.src);
-                img.removeAttr($.attr.src);
-                img.attr("src", src);
-
-                $.delay().then(() => {
-                    img.addClass($.cl.visible);
-                });
-            });
-        };
-
-        /**
          * Adds a box with a info that the feature is only available with premium to the given element
          *
          * @param {jsu} elm
@@ -265,6 +247,15 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
+            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
+                if (message && message.action && message.action === "reinitialize" && message.type === "premiumActivated") { // premium has been activated -> reload settings
+                    $.delay(2000).then(() => {
+                        unsavedChanges = false;
+                        location.reload(true);
+                    });
+                }
+            });
+
             $(window).on("beforeunload", (e) => { // Show confirm dialog when trying to exit the settings without saving the changes
                 if (unsavedChanges) {
                     const confirmationMessage = "Do you really want to leave without saving your changes?";
@@ -273,12 +264,11 @@
                 }
             });
 
-            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
-                if (message && message.action && message.action === "reinitialize" && message.type === "premiumActivated") { // premium has been activated -> reload settings
-                    $.delay(2000).then(() => {
-                        unsavedChanges = false;
-                        location.reload(true);
-                    });
+            $("img[loading='lazy']").on("load", (e) => { // add class for lazyloaded images
+                $(e.currentTarget).addClass($.cl.settings.lazyloaded);
+            }).forEach((img) => { // add the class for all already loaded images as well
+                if (img.complete && img.naturalHeight !== 0) {
+                    $(img).addClass($.cl.settings.lazyloaded);
                 }
             });
 

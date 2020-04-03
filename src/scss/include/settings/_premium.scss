@@ -135,12 +135,6 @@ div.tab[data-name='premium'] {
         margin: auto;
         left: 0;
         width: 100%;
-        transition: opacity 0.5s;
-        @extend %hidden;
-
-        &.visible {
-          @extend %visible;
-        }
 
         @media (max-width: 1150px) {
           position: relative;

@@ -483,10 +483,6 @@
          * Initializes the theme selector
          */
         const initThemeSelector = () => {
-            if (s.elm.appearance.content.hasClass($.cl.active)) {
-                s.loadImages(s.elm.appearance.content);
-            }
-
             const displayThemes = s.helper.model.getUserType() === "premium";
             if (displayThemes === false) {
                 s.addNoPremiumText(s.elm.appearance.themeListWrapper.children("div"));
@@ -705,7 +701,6 @@
             $(document).on($.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "appearance") {
                     updatePreviewStyle(e.detail.path[1]);
-                    s.loadImages(s.elm.appearance.content);
                 }
             });
         };

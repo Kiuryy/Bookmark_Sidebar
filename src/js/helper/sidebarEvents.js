@@ -306,6 +306,13 @@
 
                 infoBox.removeClass($.cl.visible);
 
+                if (type === "shareInfo") { // don't track anything as default value -> this method call will result in the infobox never showing up again
+                    ext.helper.model.call("updateShareInfo", {
+                        config: false,
+                        activity: false
+                    });
+                }
+
                 if ($(e.currentTarget).hasClass($.cl.info)) {
                     let href = null;
 
@@ -330,11 +337,6 @@
                             newTab: true
                         });
                     }
-                } else if ($(e.currentTarget).hasClass($.cl.close) && type === "shareInfo") {
-                    ext.helper.model.call("updateShareInfo", {
-                        config: false,
-                        activity: false
-                    });
                 }
             });
         };

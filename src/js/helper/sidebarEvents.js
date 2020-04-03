@@ -301,10 +301,12 @@
 
             ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.infoBox + " a", (e) => { // click on a link in the info box
                 e.preventDefault();
-                ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.infoBox).removeClass($.cl.visible);
+                const infoBox = ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.infoBox);
+                const type = ext.elm.iframeBody.find("#" + $.opts.ids.sidebar.infoBox).attr($.attr.type);
+
+                infoBox.removeClass($.cl.visible);
 
                 if ($(e.currentTarget).hasClass($.cl.info)) {
-                    const type = $(e.currentTarget).attr($.attr.type);
                     let href = null;
 
                     switch (type) {
@@ -328,6 +330,11 @@
                             newTab: true
                         });
                     }
+                } else if ($(e.currentTarget).hasClass($.cl.close) && type === "shareInfo") {
+                    ext.helper.model.call("updateShareInfo", {
+                        config: false,
+                        activity: false
+                    });
                 }
             });
         };

@@ -245,7 +245,10 @@
          */
         this.addInfoBox = (type) => {
             this.elm.sidebar.find("#" + $.opts.ids.sidebar.infoBox).remove();
-            const infoBox = $("<div />").attr("id", $.opts.ids.sidebar.infoBox).prependTo(this.elm.sidebar);
+            const infoBox = $("<div />")
+                .attr("id", $.opts.ids.sidebar.infoBox)
+                .attr($.attr.type, type)
+                .prependTo(this.elm.sidebar);
 
             if (type === "premium") {
                 $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
@@ -255,7 +258,7 @@
                 $("<p />").text(this.helper.i18n.get("contribute_notice")).appendTo(infoBox);
             }
 
-            $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).attr($.attr.type, type).appendTo(infoBox);
+            $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
             $("<a />").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
 
             $.delay(500).then(() => {

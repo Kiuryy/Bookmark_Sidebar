@@ -2,13 +2,32 @@
     "use strict";
 
     $.AnalyticsHelper = function (b) {
+        /**
+         *
+         * @type {boolean}
+         */
         let trackUserDataRunning = false;
+
+        /**
+         *
+         * @type {Array}
+         */
         let stack = [];
 
+        /**
+         *
+         * @type {Array}
+         */
         const restrictedTypes = {
             config: ["configuration"],
             activity: ["bookmarks", "action"]
         };
+
+        /**
+         *
+         * @type {Array}
+         */
+        const configCategories = ["behaviour", "appearance", "newtab", "language"];
 
         /**
          * @returns {Promise}
@@ -18,7 +37,7 @@
                 if (stack.length > 0) {
                     sendStackToServer();
                 }
-            }, 30000);
+            }, 60000);
         };
 
         /**
@@ -40,10 +59,10 @@
          * @returns {Promise}
          */
         this.trackUserData = async () => {
-            const lastTrackDate = b.helper.model.getData("lastTrackDate");
+            const lastTrackDate = +b.helper.model.getData("lastTrackDate");
             const today = +new Date().setHours(0, 0, 0, 0);
 
-            if (trackUserDataRunning === false && lastTrackDate !== today) { // no configuration/userdata tracked today
+            if (trackUserDataRunning === false && today > lastTrackDate) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
                 await b.helper.model.setData("lastTrackDate", today);
@@ -84,7 +103,6 @@
                     }
                 }
 
-                // eslint-disable-next-line require-atomic-updates
                 trackUserDataRunning = false;
             }
         };
@@ -118,8 +136,6 @@
          * Tracks the configuration
          */
         const trackConfiguration = () => {
-            const categories = ["behaviour", "appearance", "newtab", "language"];
-
             const proceedConfig = (baseName, obj) => {
                 Object.entries(obj).forEach(([attr, val]) => {
                     if (baseName === "newtab_searchEngineCustom") { // don't track information about the custom search engine
@@ -158,8 +174,8 @@
             };
 
             new Promise((resolve) => {
-                $.api.storage.sync.get(categories, (obj) => {
-                    categories.forEach((category) => {
+                $.api.storage.sync.get(configCategories, (obj) => {
+                    configCategories.forEach((category) => {
                         if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
                             if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
                                 obj[category] = {
@@ -265,8 +281,8 @@
                         resolve({success: false});
                     }
                 }, () => {
-                    if (retry.count < 100) {
-                        $.delay((retry.count + 1) * 15000).then(() => { // could not send request -> try again later
+                    if (retry.count < 50) {
+                        $.delay((retry.count + 1) * 30000).then(() => { // could not send request -> try again later
                             retry.count++;
                             return sendStackToServer(retry);
                         }).then(resolve);

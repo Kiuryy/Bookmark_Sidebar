@@ -46,9 +46,9 @@
                 if (port.name && port.name === "background") {
                     port.onMessage.addListener((message, info) => {
                         if (mapping[message.type]) { // function for message type exists
-                            if (c === 70) { // check whether the userdata should be shared for today from time to time
+                            if (c === 100) { // check whether the userdata should be shared for today from time to time
                                 b.helper.analytics.trackUserData();
-                                c %= 70;
+                                c %= 100;
                             }
                             message.tabInfo = info.sender.tab;
 

@@ -3,7 +3,7 @@
         "message": "Barra lateral de marcadores"
     },
     "extension_desc": {
-        "message": "Adiciona uma barra lateral, que pode ser alternada, contendo todos os seus marcadores na margem da janela do explorador."
+        "message": "Adiciona uma barra lateral, que pode ser ligada e desligada, contendo todos os seus marcadores na margem da janela do explorador."
     },
     "header_bookmarks": {
         "message": "Marcadores"
@@ -57,7 +57,7 @@
         "message": "Abrir num novo separador"
     },
     "contextmenu_current_tab": {
-        "message": "Abrir na aba atual"
+        "message": "Abrir no separador atual"
     },
     "contextmenu_new_window": {
         "message": "Abrir numa nova janela"
@@ -255,7 +255,7 @@
         "message": "N\u00e3o h\u00e1 direct\u00f3rios sem marcadores"
     },
     "newtab_title": {
-        "message": "Nova guia"
+        "message": "Novo separador"
     },
     "newtab_top_pages_default": {
         "message": "P\u00e1ginas mais visitadas"
@@ -270,31 +270,31 @@
         "message": "Favoritos afixados"
     },
     "newtab_top_pages_hidden": {
-        "message": "N\u00e3o exibir p\u00e1ginas"
+        "message": "N\u00e3o mostrar p\u00e1ginas"
     },
     "newtab_top_pages_appearance_thumbnail": {
-        "message": "Mostra pr\u00e9-visualiza\u00e7\u00f5es do Website"
+        "message": "Mostrar pr\u00e9-visualiza\u00e7\u00f5es da p\u00e1gina web"
     },
     "newtab_top_pages_appearance_favicon": {
-        "message": "Mostrar \u00edcones do Website"
+        "message": "Mostrar \u00edcones da p\u00e1gina web"
     },
     "newtab_search_placeholder": {
-        "message": "Pesquisar no {1} ou escreva o URL"
+        "message": "Procurar {1} ou escreva o URL"
     },
     "newtab_search_field_show": {
-        "message": "Mostrar barra de pesquisa"
+        "message": "Mostrar campo de busca"
     },
     "newtab_search_field_hide": {
-        "message": "Esconder barra de pesquisa"
+        "message": "Esconder campo de busca"
     },
     "newtab_speech_search_listening": {
         "message": "Fale agora"
     },
     "newtab_speech_search_error": {
-        "message": "Para permitir a pesquisa de voz, o acesso ao microfone tem de ser autorizado."
+        "message": "Para permitir a procura por voz, o acesso ao microfone tem de ser autorizado."
     },
     "newtab_search_engine_headline": {
-        "message": "Motor de pesquisa"
+        "message": "Motor de busca"
     },
     "newtab_search_engine_custom": {
         "message": "Definido pelo utilizador"
@@ -303,7 +303,7 @@
         "message": "T\u00edtulo"
     },
     "newtab_search_engine_custom_url_homepage": {
-        "message": "URL da P\u00e1gina inicial"
+        "message": "URL da p\u00e1gina inicial"
     },
     "newtab_search_engine_custom_url_results": {
         "message": "URL dos resultados da pesquisa"
@@ -321,13 +321,13 @@
         "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas de extens\u00e3o"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina nova guia padr\u00e3o"
+        "message": "A barra lateral n\u00e3o pode ser usada na p\u00e1gina padr\u00e3o de Novo Separador"
     },
     "newtab_fallback_headline_system": {
         "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "Uma das regras de endere\u00e7os desativou a barra lateral"
+        "message": "Uma das regras do URL desativou a barra lateral"
     },
     "newtab_fallback_desc": {
         "message": "Abrimos um novo separador com a barra lateral."
@@ -402,28 +402,28 @@
         "message": "Se tiver d\u00favidas ou estiver preocupado com compartilhar informa\u00e7\u00f5es, por favor, envie-me uma mensagem com coment\u00e1rios."
     },
     "contribute_share_config_label": {
-        "message": "Compartilhar configura\u00e7\u00e3o"
+        "message": "Partilhar configura\u00e7\u00e3o"
     },
     "contribute_share_config_desc": {
         "message": "A sua configura\u00e7\u00e3o \u00e9 compartilhada anonimamente, o que me ajuda a identificar configura\u00e7\u00f5es populares e descobrir o que melhorar ou mudar em vers\u00f5es futuras."
     },
     "contribute_share_activity_label": {
-        "message": "Compartilhar atividade"
+        "message": "Partilhar atividade"
     },
     "contribute_share_activity_desc1": {
-        "message": "Pode compartilhar a sua actividade dentro da barra lateral anonimamente, o que me ajuda a saber como os utilizadores est\u00e3o a usar a barra lateral de forma geral. As informa\u00e7\u00f5es sobre os seus favoritos ou os seus sites visitados [b]n\u00e3o ser\u00e3o[\/ b] anotados."
+        "message": "Pode partilhar a sua actividade dentro da barra lateral anonimamente, o que me ajuda a saber como os utilizadores est\u00e3o a usar a barra lateral de forma geral. As informa\u00e7\u00f5es sobre os seus favoritos ou os seus sites visitados [b]n\u00e3o ser\u00e3o[\/b] anotados."
     },
     "contribute_share_activity_desc2": {
         "message": "Esta informa\u00e7\u00e3o \u00e9 muito \u00fatil para identificar problemas na usabilidade ou caracter\u00edsticas que, por exemplo, n\u00e3o s\u00e3o usadas frequentemente."
     },
     "contribute_share_activity_examples_intro": {
-        "message": "Os dados compartilhados s\u00e3o, por exemplo:"
+        "message": "Os dados partilhados s\u00e3o, por exemplo:"
     },
     "contribute_share_activity_example_1": {
-        "message": "Quantos marcadores os utilizadores t\u00eam em m\u00e9dia?"
+        "message": "Quantos marcadores t\u00eam os utilizadores em m\u00e9dia?"
     },
     "contribute_share_activity_example_2": {
-        "message": "Em qual plataforma os utilizadores est\u00e3o (Windows, Mac, Linux,...)?"
+        "message": "Em qual plataforma est\u00e3o os utilizadores (Windows, Mac, Linux,...)?"
     },
     "contribute_share_activity_example_3": {
         "message": "Os utilizadores t\u00eam utilizado a pesquisa?"
@@ -539,6 +539,9 @@
     "settings_menu_language_translate": {
         "message": "Tradu\u00e7\u00e3o"
     },
+    "settings_menu_support": {
+        "message": "Ajuda"
+    },
     "settings_menu_infos": {
         "message": "Informa\u00e7\u00e3o"
     },
@@ -555,7 +558,7 @@
         "message": "Contacto"
     },
     "settings_menu_infos_changelog": {
-        "message": "Registro de altera\u00e7\u00f5es"
+        "message": "Registo de altera\u00e7\u00f5es"
     },
     "settings_menu_premium": {
         "message": "Premium"
@@ -564,7 +567,7 @@
         "message": "Importar\/Exportar"
     },
     "settings_menu_expert": {
-        "message": "Defini\u00e7\u00f5es de Perito"
+        "message": "Configura\u00e7\u00f5es avan\u00e7adas"
     },
     "settings_save": {
         "message": "Guardar altera\u00e7\u00f5es"
@@ -699,13 +702,13 @@
         "message": "Lembrar as subdiretorias abertas"
     },
     "settings_remember_desc": {
-        "message": "Selecione o que manter em todas as mudan\u00e7as na p\u00e1gina. Se escolher lembrar o \u00faltimo marcador aberto, esse ser\u00e1 marcado ao abrir a barra lateral novamente."
+        "message": "Selecione o que manter em todas as mudan\u00e7as na p\u00e1gina. Se escolher lembrar o \u00faltimo marcador aberto, esse estar\u00e1 indicado ao abrir a barra lateral novamente."
     },
     "settings_new_tab": {
         "message": "Novo Separador"
     },
     "settings_new_tab_desc": {
-        "message": "Abrir marcadores numa nova guia em primeiro ou segundo plano"
+        "message": "Abrir marcadores num novo separador em primeiro ou segundo plano"
     },
     "settings_new_tab_foreground": {
         "message": "Abrir em primeiro plano"
@@ -726,13 +729,13 @@
         "message": "Antes do primeiro separador"
     },
     "settings_close_timeout": {
-        "message": "Tempo limite de Encerramento"
+        "message": "Tempo limite de encerramento"
     },
     "settings_close_timeout_desc": {
-        "message": "Tempo limite em segundos at\u00e9 que a barra lateral seja encerrada. A contagem ser\u00e1 iniciada logo ap\u00f3s o cursor do rato sair da barra lateral e ser\u00e1 interrompida quando o cursor for posicionado sobre a mesma novamente."
+        "message": "Tempo limite em segundos at\u00e9 que a barra lateral seja fechada. A contagem ser\u00e1 iniciada logo ap\u00f3s o cursor do rato sair da barra lateral e ser\u00e1 interrompida quando o cursor for posicionado sobre a mesma novamente."
     },
     "settings_close_timeout_infinity": {
-        "message": "N\u00e3o encerrar automaticamente"
+        "message": "N\u00e3o fechar automaticamente"
     },
     "settings_scroll_bar_hide": {
         "message": "Ocultar barra de deslocamento"
@@ -786,7 +789,7 @@
         "message": "Posi\u00e7\u00e3o"
     },
     "settings_sidebar_position_desc": {
-        "message": "Permite que defina se a barra lateral deve abrir na margem esquerda ou direita da tela."
+        "message": "Defina se a barra lateral deve abrir na margem esquerda ou direita do ecr\u00e3."
     },
     "settings_sidebar_position_left": {
         "message": "Esquerda"
@@ -798,7 +801,7 @@
         "message": "Se n\u00e3o quiser carregar a barra lateral em cada p\u00e1gina, pode configurar a lista de endere\u00e7os onde \u00e9 apresentada (whitelist) e onde n\u00e3o \u00e9 (blacklist)."
     },
     "settings_filter_explanation_1": {
-        "message": "Adicione apenas um endere\u00e7o por linha"
+        "message": "Adicione apenas um endere\u00e7o (URL) por linha"
     },
     "settings_filter_explanation_2": {
         "message": "Use * para ter correspond\u00eancia com qualquer car\u00e1cter (por exemplo: exemplo.com\/* corresponde a todas as p\u00e1ginas relacionadas a exemplo.com)"
@@ -828,7 +831,7 @@
         "message": "As configura\u00e7\u00f5es da extens\u00e3o s\u00e3o sincronizadas automaticamente entre os seus dispositivos se tiver a sua sess\u00e3o iniciada no {browserName}, atrav\u00e9s da sua conta Google. Se n\u00e3o quiser iniciar a sua sess\u00e3o ou quiser partilhar as suas configura\u00e7\u00f5es com outras pessoas, pode utilizar esta op\u00e7\u00e3o de importa\u00e7\u00e3o\/exporta\u00e7\u00e3o."
     },
     "settings_import_export_desc": {
-        "message": "Pode exportar as suas configura\u00e7\u00f5es da extens\u00e3o e salv\u00e1-las localmente no seu computador. Pode importar o arquivo previamente exportado para qualquer computador onde essa extens\u00e3o esteja instalada."
+        "message": "Pode exportar as suas configura\u00e7\u00f5es da extens\u00e3o e guarda-las localmente no seu computador. Pode importar o arquivo previamente exportado para qualquer computador onde essa extens\u00e3o esteja instalada."
     },
     "settings_export": {
         "message": "Exportar Configura\u00e7\u00f5es"
@@ -843,7 +846,7 @@
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
     },
     "settings_theme_changed": {
-        "message": "Tema mudado com sucesso"
+        "message": "Tema mudado correctamente"
     },
     "settings_presets": {
         "message": "Definir tamanho relativo"
@@ -1076,14 +1079,20 @@
     "settings_translation_required_category": {
         "message": "Obrigat\u00f3rio"
     },
+    "settings_support_faq_headline": {
+        "message": "Perguntas Frequentes"
+    },
     "settings_support_feedback_headline": {
         "message": "Enviar feedback"
     },
     "settings_support_feedback_desc": {
-        "message": "Voc\u00ea tem alguma sugest\u00e3o de melhoria, d\u00favidas, percebeu a aus\u00eancia de op\u00e7\u00f5es de configura\u00e7\u00e3o ou encontrou um erro? Para ajudar a aprimorar a experi\u00eancia de uso desta extens\u00e3o, eu ficaria muito grato por todo e qualquer coment\u00e1rio dado ou que voc\u00ea tiver."
+        "message": "Tem alguma sugest\u00e3o de melhoria, d\u00favidas, descobriu aus\u00eancia de op\u00e7\u00f5es de configura\u00e7\u00e3o ou encontrou um erro? Para ajudar a melhorar a experi\u00eancia de uso desta extens\u00e3o, agrade\u00e7o qualquer coment\u00e1rio."
     },
     "settings_support_feedback_notice": {
-        "message": "Por favor, escreva seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder sua mensagem."
+        "message": "Por favor, escreva o seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder \u00e0 sua mensagem."
+    },
+    "settings_support_feedback_email": {
+        "message": "Endere\u00e7o de email (opcional)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Anexar imagens do ecr\u00e3"
@@ -1092,7 +1101,7 @@
         "message": "O tamanho do ficheiro de {1} \u00e9 demasiado grande (> 1 MB)"
     },
     "settings_support_feedback_screenshot_error_amount": {
-        "message": "Apenas pode anexar no m\u00e1ximo {1} ficheiro."
+        "message": "Apenas pode anexar {1} ficheiro no m\u00e1ximo."
     },
     "settings_support_feedback_send": {
         "message": "Enviar coment\u00e1rio"
@@ -1101,7 +1110,7 @@
         "message": "Obrigado pelo seu coment\u00e1rio"
     },
     "settings_support_feedback_send_failed": {
-        "message": "Sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
+        "message": "A sua mensagem n\u00e3o p\u00f4de ser enviada. Por favor, tente novamente."
     },
     "settings_permissions_desc": {
         "message": "Para possibilitar uma barra lateral acion\u00e1vel no {browserName}, as seguintes permiss\u00f5es s\u00e3o necess\u00e1rias e solicitadas pela extens\u00e3o:"
@@ -1152,7 +1161,7 @@
         "message": "C\u00f3digo de Licen\u00e7a"
     },
     "premium_feature_early_access_headline": {
-        "message": "Se o primeiro a testar novas funcionalidades experimentais"
+        "message": "Seja o primeiro a testar novas funcionalidades experimentais"
     },
     "premium_feature_early_access_desc": {
         "message": "Com o Premium, voc\u00ea tem acesso a recursos n\u00e3o lan\u00e7ados, que est\u00e3o atualmente em desenvolvimento ou passando por testes."
@@ -1161,31 +1170,31 @@
         "message": "Altere a largura da sua barra lateral a qualquer momento."
     },
     "premium_feature_import_export_headline": {
-        "message": "Importar e exportar as tuas configura\u00e7\u00f5es"
+        "message": "Importar e exportar as suas configura\u00e7\u00f5es"
     },
     "premium_feature_custom_background_headline": {
-        "message": "Customize your New Tab page."
+        "message": "Personalize a p\u00e1gina de Novo Separador"
     },
     "premium_feature_custom_background_desc": {
-        "message": "Se voc\u00ea estiver usando a p\u00e1gina Nova guia dessa extens\u00e3o, poder\u00e1 definir sua pr\u00f3pria imagem de plano de fundo para torn\u00e1-la ainda melhor."
+        "message": "Se estiver a usar a p\u00e1gina Novo Separador desta extens\u00e3o, poder\u00e1 escolher a sua pr\u00f3pria imagem de fundo para melhora-la."
     },
     "premium_feature_custom_css_headline": {
         "message": "Personalize tudo com sua pr\u00f3pria folha de estilo."
     },
     "premium_feature_custom_css_desc": {
-        "message": "Se voc\u00ea estiver familiarizado com CSS, poder\u00e1 alterar a apar\u00eancia completa da barra lateral adicionando suas pr\u00f3prias defini\u00e7\u00f5es de estilo. Isso permite que voc\u00ea personalize absolutamente tudo."
+        "message": "Se estiver familiarizado com CSS, poder\u00e1 alterar a apar\u00eancia completa da barra lateral adicionando as suas pr\u00f3prias defini\u00e7\u00f5es de estilo. Isso permite que personalize absolutamente tudo."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "Verifique seus marcadores quanto a links quebrados ou duplicados."
+        "message": "Verifique os seus marcadores quanto a links inv\u00e1lidos ou duplicados."
     },
     "premium_feature_linkchecker_desc": {
-        "message": "Voc\u00ea pode clicar com o bot\u00e3o direito do mouse em qualquer diret\u00f3rio da barra lateral e realizar uma verifica\u00e7\u00e3o. A p\u00e1gina de resultados mostrar\u00e1 todos os URLs atualizados, marcadores que n\u00e3o est\u00e3o mais funcionando e marcadores com o mesmo URL."
+        "message": "Pode clicar com o bot\u00e3o direito do rato em qualquer pasta da barra lateral e realizar uma verifica\u00e7\u00e3o. A p\u00e1gina de resultados mostrar\u00e1 todos os URLs atualizados, marcadores que n\u00e3o funcionam e marcadores com URLs repetidos."
     },
     "premium_feature_themes_headline": {
         "message": "Mude o tema da sua barra lateral"
     },
     "premium_feature_themes_desc": {
-        "message": "Pode mudar o desenho inteiro da sua barra lateral com apenas um clique quando instala outro tema. Eles podem ser costumizados com os controlos de deslizamento e op\u00e7\u00f5es de cores."
+        "message": "Pode mudar o desenho inteiro da sua barra lateral com apenas um clique quando instala outro tema. Estes podem ser personalizados com os controlos de deslizamento e op\u00e7\u00f5es de cores."
     },
     "premium_pay_select_payment_method": {
         "message": "Selecione um m\u00e9todo de pagamento"
@@ -1200,19 +1209,19 @@
         "message": "Digitalize este c\u00f3digo QR no WeChat para prosseguir."
     },
     "premium_pay_contact": {
-        "message": "Se voc\u00ea tiver algum problema com seu pagamento ou tiver alguma d\u00favida, entre em contato comigo em {1}."
+        "message": "Se voc\u00ea tiver algum problema com o seu pagamento ou se tiver alguma d\u00favida, entre em contato comigo em {1}."
     },
     "premium_pay_price_total": {
         "message": "Total"
     },
     "premium_pay_price_info": {
-        "message": "Esta \u00e9 uma cobran\u00e7a \u00fanica e inclui todos os futuros recursos premium tamb\u00e9m."
+        "message": "Esta \u00e9 uma cobran\u00e7a \u00fanica e tamb\u00e9m inclui todos os futuros recursos premium."
     },
     "premium_pay_eula": {
-        "message": "Contrato de Licen\u00e7a do Usu\u00e1rio Final"
+        "message": "Contrato de Licen\u00e7a de Utilizador Final"
     },
     "premium_pay_eula_desc": {
-        "message": "Eu li e aceito o [a]Contrato de Licen\u00e7a do Usu\u00e1rio Final[\/a]"
+        "message": "Li e aceito o [a]Contrato de Licen\u00e7a de Utilizador Final[\/a]"
     },
     "premium_pay_cancellation_policy": {
         "message": "Pol\u00edtica de cancelamento"
@@ -1224,7 +1233,7 @@
         "message": "Compre Premium"
     },
     "premium_pay_verifying": {
-        "message": "Verificando transa\u00e7\u00e3o"
+        "message": "Verificando a transa\u00e7\u00e3o"
     },
     "premium_pay_purchase_id": {
         "message": "ID de compra"
@@ -1233,25 +1242,25 @@
         "message": "Obrigado pela sua compra."
     },
     "premium_pay_success_info": {
-        "message": "{1} foi ativado automaticamente para este dispositivo. Voc\u00ea n\u00e3o precisa fazer mais nada."
+        "message": "{1} foi automaticamente ativado para este dispositivo. N\u00e3o precisa de fazer mais nada."
     },
     "premium_pay_license_key_desc": {
-        "message": "Se voc\u00ea quiser ativar {1} em outro dispositivo ou depois de reinstalar a extens\u00e3o, insira a seguinte chave nas configura\u00e7\u00f5es da extens\u00e3o:"
+        "message": "Se quiser ativar {1} noutro dispositivo ou depois de reinstalar a extens\u00e3o, insira a seguinte chave nas configura\u00e7\u00f5es da extens\u00e3o:"
     },
     "premium_pay_info_email": {
         "message": "E-Mail"
     },
     "premium_pay_info_email_desc": {
-        "message": "Por favor, digite seu endere\u00e7o de e-mail para receber a chave de licen\u00e7a."
+        "message": "Por favor, digite o seu endere\u00e7o de e-mail para receber a chave da licen\u00e7a."
     },
     "premium_pay_info_name": {
         "message": "Nome"
     },
     "premium_pay_info_zipcode": {
-        "message": "Zip Code"
+        "message": "C\u00f3digo postal"
     },
     "premium_pay_info_payment_method": {
-        "message": "M\u00e9todo de Pagamento"
+        "message": "M\u00e9todo de pagamento"
     },
     "premium_pay_info_card_number": {
         "message": "N\u00famero de cart\u00e3o"

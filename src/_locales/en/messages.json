@@ -1053,7 +1053,7 @@
         "message": "Focus address bar"
     },
     "settings_newtab_focus_omnibox_desc": {
-        "message": "If enabled, your the address bar will be focused when opening a new tab. If not, the search box of the website will be focused instead."
+        "message": "If enabled, the address bar will be focused when opening a new tab. If not, the search box of the website will be focused instead."
     },
     "settings_newtab_website": {
         "message": "Load website"

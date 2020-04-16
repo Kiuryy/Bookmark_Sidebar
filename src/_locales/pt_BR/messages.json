@@ -1091,6 +1091,9 @@
     "settings_support_feedback_notice": {
         "message": "Por favor, escreva seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder sua mensagem."
     },
+    "settings_support_feedback_email": {
+        "message": "Endere\u00e7o de email (opcional)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Anexar capturas de tela"
     },
@@ -1189,6 +1192,9 @@
     },
     "premium_feature_themes_headline": {
         "message": "Alterar o tema da sua barra lateral"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Voc\u00ea pode trocar todo o design da barra lateral com um clique instalando outro tema. Eles tamb\u00e9m podem ser personalizados com os controles deslizantes e as op\u00e7\u00f5es de cores dispon\u00edveis."
     },
     "premium_pay_select_payment_method": {
         "message": "Selecionar um m\u00e9todo de pagamento"

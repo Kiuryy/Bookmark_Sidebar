@@ -395,6 +395,9 @@
     "contribute_intro": {
         "message": "Pro zlep\u0161en\u00ed roz\u0161\u00ed\u0159en\u00ed pot\u0159ebujeme l\u00e9pe zn\u00e1t, jak u\u017eivatel\u00e9 pou\u017e\u00edvaj\u00ed postrann\u00ed panel a jeho konfiguraci."
     },
+    "contribute_notice": {
+        "message": "M\u016f\u017eete mi pomoci sd\u00edlen\u00edm va\u0161\u00ed konfigurace"
+    },
     "contribute_outro": {
         "message": "M\u00e1te-li dotazy nebo obavy t\u00fdkaj\u00edc\u00ed se sd\u00edlen\u00ed informac\u00ed, za\u0161lete mi pros\u00edm zpr\u00e1vu."
     },
@@ -535,6 +538,9 @@
     },
     "settings_menu_language_translate": {
         "message": "P\u0159eklad"
+    },
+    "settings_menu_support": {
+        "message": "Podpora"
     },
     "settings_menu_infos": {
         "message": "Informace"
@@ -839,6 +845,9 @@
     "settings_import_failed": {
         "message": "Import konfigurace se nepoda\u0159ilo. Zvolte pros\u00edm platn\u00fd soubor."
     },
+    "settings_theme_changed": {
+        "message": "Motiv byl \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bn"
+    },
     "settings_presets": {
         "message": "Nastavit relativn\u00ed velikost"
     },
@@ -907,6 +916,12 @@
     },
     "settings_sidebar_mask_color": {
         "message": "Barva masky"
+    },
+    "settings_background_transparency": {
+        "message": "Pr\u016fhlednost pozad\u00ed"
+    },
+    "settings_background_blur": {
+        "message": "Efekt rozost\u0159en\u00ed pozad\u00ed"
     },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona adres\u00e1\u0159e"

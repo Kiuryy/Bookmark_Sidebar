@@ -56,6 +56,9 @@
     "contextmenu_new_tab": {
         "message": "Odpri v novem zavihku"
     },
+    "contextmenu_current_tab": {
+        "message": "odpri v tem zavihku"
+    },
     "contextmenu_new_window": {
         "message": "Odpri v novem oknu"
     },
@@ -278,6 +281,12 @@
     "newtab_search_placeholder": {
         "message": "Iskanje {1} ali vnesi URL"
     },
+    "newtab_search_field_show": {
+        "message": "Poka\u017ei polje za iskanje"
+    },
+    "newtab_search_field_hide": {
+        "message": "Skrij polje za iskanje"
+    },
     "newtab_speech_search_listening": {
         "message": "Govori zdaj"
     },
@@ -365,6 +374,9 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Lebdi nad naslednjim ali prej\u0161njim vnosom v stranski vrstici"
+    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Izvede klik na trenutni prehod vnosa"
     },
@@ -382,6 +394,9 @@
     },
     "contribute_intro": {
         "message": "Za izbolj\u0161anje raz\u0161iritve, bi \u017eelel vedeti ve\u010d kako uporabniki uporabljajo stransko vrstico in kak\u0161ne nastavitve uporabljajo."
+    },
+    "contribute_notice": {
+        "message": "Lahko nam pomagate, z deljenjem va\u0161ih nastavitev"
     },
     "contribute_outro": {
         "message": "\u010ce imate vpra\u0161anja ali skrbi v zvezi z deljenjem informacij, prosimo po\u0161ljite sporo\u010dilo s povratno informacijo."
@@ -523,6 +538,9 @@
     },
     "settings_menu_language_translate": {
         "message": "Prevedi"
+    },
+    "settings_menu_support": {
+        "message": "Podpora"
     },
     "settings_menu_infos": {
         "message": "Informacija"
@@ -809,6 +827,9 @@
     "settings_filter_rules": {
         "message": "Vzorci URL-jev"
     },
+    "settings_import_export_notice": {
+        "message": "Nastavitve raz\u0161iritve so samodejno sinhronizirane med va\u0161imi napravami, \u010de ste prijavljeni z va\u0161im ra\u010dunom. \u010ce se no\u010dete prijaviti ali \u017eelite va\u0161e nastavitve deliti z ostalimi ljudmi, lahko uporabite to uvozi\/izvozi mo\u017enost"
+    },
     "settings_import_export_desc": {
         "message": "Va\u0161e nastavitve raz\u0161iritve lahko izvozite in shranite lokalno na va\u0161 ra\u010dunalnik. Prej izvo\u017eeno datoteko lahko uvozite na katerekoli ra\u010dunalnik, kjer je name\u0161\u010dena raz\u0161iritev."
     },
@@ -823,6 +844,9 @@
     },
     "settings_import_failed": {
         "message": "Konfiguracijski uvoz. Prosim izberite veljavno datoteko."
+    },
+    "settings_theme_changed": {
+        "message": "Tema uspe\u0161no spremenjena"
     },
     "settings_presets": {
         "message": "Nastavi relativne velikosti"
@@ -893,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Barva maske"
     },
+    "settings_background_transparency": {
+        "message": "Prosojnost ozadja"
+    },
+    "settings_background_blur": {
+        "message": "Zamegljenost ozadja"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona mape"
     },
@@ -935,6 +965,36 @@
     "settings_custom_css_desc": {
         "message": "Nastavite lahko lasten stil, da preglasite privzet stil. To mo\u017enost uporabite samo, \u010de vam je CSS poznan in veste kaj po\u010dnete."
     },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Izberete lahko osnovno obliko stranske vrstice. Izbrano temo je lahko uredite po meri z drsniki in barvami"
+    },
+    "settings_available_themes": {
+        "message": "Razpolo\u017eljive teme"
+    },
+    "settings_show_themes": {
+        "message": "Poka\u017ei razpolo\u017eljive teme"
+    },
+    "settings_theme_default": {
+        "message": "Privzeta tema"
+    },
+    "settings_theme_default_desc": {
+        "message": "Ta tema Vam dovoli moderen in \u010dist dostop do zaznamkov. Nekateri elementi so obarvani z nastavljivo barvno shemo"
+    },
+    "settings_theme_glass": {
+        "message": "Steklena tema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Ta tema naredi ozadje opravilne vrstice prosojno in mu doda u\u010dinek zamegljenega stekla. Ta u\u010dinek in prosojnost lahko prilagodite"
+    },
+    "settings_install_theme": {
+        "message": "Namesti temo"
+    },
+    "settings_installed_theme_info": {
+        "message": "Trenutno name\u0161\u010deno"
+    },
     "settings_newtab_desc": {
         "message": "Na \u017ealost je Google odstranil mo\u017enost nalaganja raz\u0161iritev na privzeti strani za nov zavihek. Zaradi tega sem dodal nekaj opcij, ki pri odpiranju novega zavihka omogo\u010dajo dostop do zaznamkov na druge na\u010dine."
     },
@@ -949,6 +1009,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Nastavi, \u010de se stranska vrstica odpre samodejno ob odpiranju novega zavihka."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Izpostavljena naslovno vrstico"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "\u010ce omogo\u010dena, bo naslovna vrstica izpostavljena, ko odprete nov zavihek. \u010ce ne, bo namesto nje izpostavljeno iskalno polje"
     },
     "settings_newtab_website": {
         "message": "Nalo\u017ei spletno stran"
@@ -1012,6 +1078,9 @@
     },
     "settings_translation_required_category": {
         "message": "Potrebovano"
+    },
+    "settings_support_faq_headline": {
+        "message": "Pogosta vpra\u0161anja"
     },
     "settings_support_feedback_headline": {
         "message": "Povratne infrmacije"
@@ -1117,6 +1186,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Na vsako mapo va\u0161e stranske vrstice lahko kliknete z desno mi\u0161kino tipko da izberete preverjanje. Stran z rezultati vam bo pokazala vse posodobljene URL-je, zaznamke, ki niso ve\u010d delujo\u010di in zaznamke z enakim URL-jem."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Spremenite temo stranske vrstice"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Zamenjajte cel izgled stranske vrstice z enim klikom z namestitvijo druge teme. Te so tudi lahko prilagojene z drsniki in izborom barv."
     },
     "premium_pay_select_payment_method": {
         "message": "Izberite na\u010din pla\u010dila"

@@ -27,7 +27,7 @@
         "message": "Rimosso"
     },
     "sidebar_undo_deletion": {
-        "message": "Disfare"
+        "message": "Annulla"
     },
     "more_link": {
         "message": "Per saperne di pi\u00f9"
@@ -538,6 +538,9 @@
     },
     "settings_menu_language_translate": {
         "message": "Traduci"
+    },
+    "settings_menu_support": {
+        "message": "Supporto"
     },
     "settings_menu_infos": {
         "message": "Informazioni"
@@ -1076,6 +1079,9 @@
     "settings_translation_required_category": {
         "message": "Necessario"
     },
+    "settings_support_faq_headline": {
+        "message": "Domande Frequenti"
+    },
     "settings_support_feedback_headline": {
         "message": "Feedback"
     },
@@ -1084,6 +1090,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Ti prego di scrivere il tuo messaggio in Inglese, altrimenti mi sarebbe molto difficile da comprendere e non sarei in grado di risponderti."
+    },
+    "settings_support_feedback_email": {
+        "message": "indirizzo email (opzionale)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Aggiungi screenshots"
@@ -1180,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Puoi cliccare con il tasto destro del mouse su ogni cartella della tua barra laterale e fare un controllo. La pagina dei risultati mostrer\u00e0 tutti gli URL aggiornati, i preferiti che non funzionano pi\u00f9 e quelli con lo stesso URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Cambia il tema della sidebar"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Puoi scambiare l'intero design della barra laterale con un clic installando un altro tema. Possono anche essere personalizzati con i cursori disponibili e le opzioni di colore."
     },
     "premium_pay_select_payment_method": {
         "message": "Seleziona il metodo di pagamento"

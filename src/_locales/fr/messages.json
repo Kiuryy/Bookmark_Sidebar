@@ -395,6 +395,9 @@
     "contribute_intro": {
         "message": "Pour am\u00e9liorer l'extension il faudrait que j'en sache plus sur l'utilisation et le param\u00e9trage des diff\u00e9rents utilisateurs."
     },
+    "contribute_notice": {
+        "message": "Vous pouvez m'aider en m'indiquant vos param\u00e8tres"
+    },
     "contribute_outro": {
         "message": "Si vous vous interrogez ou avez des questions sur le partage d'information, faites-moi un retour d'exp\u00e9rience par message."
     },
@@ -535,6 +538,9 @@
     },
     "settings_menu_language_translate": {
         "message": "Traduction"
+    },
+    "settings_menu_support": {
+        "message": "Aide"
     },
     "settings_menu_infos": {
         "message": "Propi\u00e9t\u00e9s"
@@ -839,6 +845,9 @@
     "settings_import_failed": {
         "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
     },
+    "settings_theme_changed": {
+        "message": "Changement de th\u00e8me correctement effectu\u00e9"
+    },
     "settings_presets": {
         "message": "Param\u00e9trer les tailles par d\u00e9faut"
     },
@@ -908,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Couleur du masque"
     },
+    "settings_background_transparency": {
+        "message": "Transparence du fond"
+    },
+    "settings_background_blur": {
+        "message": "Effet de flou sur le fond"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Ic\u00f4ne des dossiers"
     },
@@ -949,6 +964,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Vous pouvez surcharger le style par d\u00e9faut avec votre propre feuille de style. N'utilisez cette option que si vous connaissez le CSS et savez ce que vous faites."
+    },
+    "settings_theme": {
+        "message": "Th\u00e8me"
+    },
+    "settings_themes_notice": {
+        "message": "Vous pouvez choisir le design de base de la barre lat\u00e9rale. Le th\u00e8me s\u00e9lectionn\u00e9 peut \u00eatre configur\u00e9 gr\u00e2ce aux curseurs et options disponibles."
+    },
+    "settings_available_themes": {
+        "message": "Th\u00e8mes disponibles"
+    },
+    "settings_show_themes": {
+        "message": "Montrer les th\u00e8mes disponibles"
+    },
+    "settings_theme_default": {
+        "message": "Th\u00e8me par d\u00e9faut"
+    },
+    "settings_theme_default_desc": {
+        "message": "Ce th\u00e8me vous permets d'acc\u00e9der \u00e0 vos favoris de fa\u00e7on claire et moderne. De nombreux \u00e9l\u00e9ments peuvent color\u00e9s avec un th\u00e8me color\u00e9 configurable."
+    },
+    "settings_theme_glass": {
+        "message": "Th\u00e8me transparent"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Ce th\u00e8me rend le fond de la barre lat\u00e9rale semi-transparent, et ajoute un effet de flou. Le degr\u00e9 de transparence peut \u00eatre ajust\u00e9."
+    },
+    "settings_install_theme": {
+        "message": "Installer le th\u00e8me"
+    },
+    "settings_installed_theme_info": {
+        "message": "Actuellement instal\u00e9"
     },
     "settings_newtab_desc": {
         "message": "Google a malheureusement retir\u00e9 la possibilit\u00e9 de charger des extensions sur la page nouvel onglet par d\u00e9faut. De fait, j'ai ajout\u00e9 quelques options pour vous permettre d'acc\u00e9der de fa\u00e7on diff\u00e9rente \u00e0 vos favoris \u00e0 l'ouverture d'un nouvel onglet."
@@ -1034,6 +1079,9 @@
     "settings_translation_required_category": {
         "message": "Obligatoire"
     },
+    "settings_support_faq_headline": {
+        "message": "Questions fr\u00e9quemment pos\u00e9es"
+    },
     "settings_support_feedback_headline": {
         "message": "Retour d'exp\u00e9rience"
     },
@@ -1042,6 +1090,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Ecrivez-moi en anglais s'il vous pla\u00eet, autrement je risque d'avoir des probl\u00e8mes pour comprendre votre message et y r\u00e9pondre."
+    },
+    "settings_support_feedback_email": {
+        "message": "Courriel (optionnel)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Joignez des captures d'\u00e9cran"
@@ -1138,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Vous pouvez lancer une v\u00e9rification en faisant un clic droit sur n'importe quel dossier de votre barre lat\u00e9rale. La page des r\u00e9sultats affichera toutes les URLs mises \u00e0 jour, les favoris ne fonctionnant plus et ceux pointant vers la m\u00eame URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Modifier le th\u00e8me de la barre lat\u00e9rale"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Le th\u00e8me de la barre lat\u00e9rale peut \u00eatre chang\u00e9 en un clic. Il peut \u00e9galement \u00eatre configur\u00e9 gr\u00e2ce aux curseurs et options de couleurs."
     },
     "premium_pay_select_payment_method": {
         "message": "S\u00e9lectionnez un moyen de paiement"

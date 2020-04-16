@@ -539,6 +539,9 @@
     "settings_menu_language_translate": {
         "message": "Przet\u0142umacz"
     },
+    "settings_menu_support": {
+        "message": "Pomoc"
+    },
     "settings_menu_infos": {
         "message": "Informacje"
     },

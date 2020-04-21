@@ -318,7 +318,7 @@
 
                 rules.some((rule) => {
                     rule = rule.replace(/^https?:\/\//i, "");
-                    rule = rule.replace(/\./g, "\\.");
+                    rule = rule.replace(/([.?&])/g, "\\$1");
                     rule = rule.replace(/\*/g, ".*");
 
                     const regex = new RegExp(rule);

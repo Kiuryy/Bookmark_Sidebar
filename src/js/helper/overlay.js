@@ -407,7 +407,8 @@
                     list.append("<li><label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label><input type='text' name='url' value='" + urlValue.replace(/'/g, "&#x27;") + "'  /></li>");
                 }
 
-                if (!data.values || typeof data.values.index === "undefined") { // only show positioning option when there is not already a given index (like when dragging an url into the sidebar)
+                const sort = ext.helper.model.getData("u/sort");
+                if (sort.name === "custom" && (!data.values || typeof data.values.index === "undefined")) { // only show positioning option when there is not already a given index (like when dragging an url into the sidebar)
                     list.append("<li>" +
                         "<label>" + ext.helper.i18n.get("overlay_add_position") + "</label>" +
                         "<select name='position'>" +
@@ -551,7 +552,7 @@
                 values: {
                     title: titleInput[0].value.trim(),
                     url: isDir ? null : urlInput[0].value.trim(),
-                    position: positionSelect.length() > 0 ? (positionSelect[0].value || null) : null,
+                    position: positionSelect.length() > 0 ? positionSelect[0].value : ext.helper.model.getData("b/newEntryPosition"),
                     additionalInfo: infoField.length() > 0 ? (infoField[0].value || null) : null
                 }
             };

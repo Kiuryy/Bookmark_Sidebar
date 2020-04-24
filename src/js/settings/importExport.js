@@ -100,7 +100,7 @@
 
                     ["customCss", "newtabBackground"].forEach((field) => {
                         let val = "";
-                        if (s.helper.model.getUserType() !== "default" && config.utility && config.utility[field]) { // only import custom css and new tab background when the user has premium
+                        if (config.utility && config.utility[field]) {
                             val = config.utility[field];
                         }
                         currentConfig.utility[field] = val;

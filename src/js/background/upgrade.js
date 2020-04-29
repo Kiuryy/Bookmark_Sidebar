@@ -53,7 +53,8 @@
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
-            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
+            // @deprecated (05-2020) explicitly call the upgrade script when installing v1.18.1 due to changed at the configuration
+            if ((newVersion.startsWith("1.18.1") && !details.previousVersion.startsWith("1.18.1")) || versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 updateOptions("upgrade").then(() => {
                     b.reinitialize();
                 });
@@ -144,6 +145,11 @@
                 delete obj.appearance.sidebarPosition;
                 delete obj.appearance.addVisual;
                 delete obj.newtab.initialOpen;
+
+                if (typeof obj.appearance.indicatorWidth === "undefined") { // @deprecated (05-2020) the new default width of the indicator is smaller than before -> upgrade all existing users to the old default values, if they didn't explicitly configured something different
+                    obj.appearance.indicatorWidth = "40px";
+                    obj.appearance.indicatorIconSize = "32px";
+                }
             } catch (e) {
                 //
             }

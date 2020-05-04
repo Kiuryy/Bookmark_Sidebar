@@ -517,7 +517,11 @@
          * Forces the sidebar to reload
          */
         clickFuncs.reload = () => {
-            ext.helper.model.call("reload", {type: "Force"});
+            ext.helper.model.setData({
+                "u/openStates": {}
+            }).then(() => {
+                ext.helper.model.call("reload", {type: "Force"});
+            });
         };
 
         /**

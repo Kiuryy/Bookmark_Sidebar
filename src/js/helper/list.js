@@ -665,11 +665,7 @@
                         elm.addClass($.cl.sidebar.dirOpened);
                         if (ext.helper.model.getData("b/dirAccordion") && ext.refreshRun === false) {
                             const visibleBox = ext.helper.search.isResultsVisible() ? "search" : "all";
-
-                            const scrollPos = ext.helper.scroll.getScrollPos(ext.elm.bookmarkBox[visibleBox]);
-                            if (scrollPos > elm[0].offsetTop) { // the currently opened directory is not visible correctly -> correct scroll position
-                                ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox[visibleBox], elm[0].offsetTop, 300);
-                            }
+                            ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox[visibleBox], elm[0].offsetTop, 200); // scroll the directory to the top of the sidebar
                         }
                     }
                     list.css("height", "");

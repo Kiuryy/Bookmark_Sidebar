@@ -968,14 +968,32 @@
     "settings_theme": {
         "message": "Motyw"
     },
+    "settings_themes_notice": {
+        "message": "Mo\u017cesz wybra\u0107 domy\u015blny wygl\u0105d panelu bocznego. Wybrany motyw mo\u017ce by\u0107 dostosowany dost\u0119pnymi suwakami i kolorami."
+    },
     "settings_available_themes": {
-        "message": "Dost\u0119pne motywy."
+        "message": "Dost\u0119pne motywy"
     },
     "settings_show_themes": {
-        "message": "Zobacz dost\u0119pne motywy."
+        "message": "Zobacz dost\u0119pne motywy"
     },
     "settings_theme_default": {
-        "message": "Standardowy motyw."
+        "message": "Standardowy motyw"
+    },
+    "settings_theme_default_desc": {
+        "message": "Ten motyw pozwala na dost\u0119p do zak\u0142adek w czysty, nowoczesny spos\u00f3b. Wiele element\u00f3w posiada kolor u\u0142atwiaj\u0105cy rozmieszczanie"
+    },
+    "settings_theme_glass": {
+        "message": "Motyw szk\u0142a"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Ten motyw sprawia wygl\u0105d p\u00f3\u0142przezroczystego, zamglonego efektu. Mo\u017cesz dostosowa\u0107 poziom przezroczysto\u015bci panelu bocznego."
+    },
+    "settings_install_theme": {
+        "message": "Zainstaluj motyw"
+    },
+    "settings_installed_theme_info": {
+        "message": "Zainstalowany\/e"
     },
     "settings_newtab_desc": {
         "message": "Niestety Google usun\u0105\u0142 mo\u017cliwo\u015b\u0107 \u0142adowania rozszerze\u0144 na domy\u015blnej stronie nowej karty. Z tego powodu doda\u0142em kilka opcji, kt\u00f3re pozwalaj\u0105 uzyska\u0107 w inny spos\u00f3b dost\u0119p do twoich zak\u0142adek, kiedy otwierasz now\u0105 kart\u0119."
@@ -1061,6 +1079,9 @@
     "settings_translation_required_category": {
         "message": "Wymagane"
     },
+    "settings_support_faq_headline": {
+        "message": "Najcz\u0119\u015bciej zadawane pytania"
+    },
     "settings_support_feedback_headline": {
         "message": "Opinie"
     },
@@ -1069,6 +1090,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Prosz\u0119, napisz swoj\u0105 wiadomo\u015b\u0107 po angielsku, bo inaczej b\u0119d\u0119 mia\u0142 problemy ze zrozumieniem jej i odpowiedzeniem na ni\u0105."
+    },
+    "settings_support_feedback_email": {
+        "message": "adres e-mail (opcjonalny)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Do\u0142\u0105cz zrzut ekranu"
@@ -1165,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Mo\u017cesz klikn\u0105\u0107 prawym przyciskiem myszy dowolny katalog na pasku bocznym i wykona\u0107 kontrol\u0119. Strona z wynikami wy\u015bwietli wszystkie zaktualizowane adresy URL, zak\u0142adki, kt\u00f3re ju\u017c nie dzia\u0142aj\u0105, i zak\u0142adki z tym samym adresem URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Zmie\u0144 motyw panelu bocznego"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Mo\u017cesz zmieni\u0107 ca\u0142kowity design panelu bocznego jednym klikni\u0119ciem poprzez instalacj\u0119 innego motywu. Mo\u017cna je tak\u017ce zmieni\u0107 poprzez przesuwanie suwak\u00f3w oraz wyb\u00f3r opcji kolorystycznych."
     },
     "premium_pay_select_payment_method": {
         "message": "Wybierz metod\u0119 p\u0142atno\u015bci"

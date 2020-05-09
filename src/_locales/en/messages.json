@@ -21,7 +21,7 @@
         "message": "Search bookmark"
     },
     "sidebar_search_no_results": {
-        "message": "No bookmarks matching your search value"
+        "message": "No bookmarks match your search value"
     },
     "sidebar_copied_to_clipboard": {
         "message": "URL copied"
@@ -39,7 +39,7 @@
         "message": "Edit Bookmark"
     },
     "contextmenu_edit_dir": {
-        "message": "Edit Directory"
+        "message": "Edit Folder"
     },
     "contextmenu_edit_separator": {
         "message": "Edit Separator"
@@ -48,7 +48,7 @@
         "message": "Delete Bookmark"
     },
     "contextmenu_delete_dir": {
-        "message": "Delete Directory"
+        "message": "Delete Folder"
     },
     "contextmenu_delete_separator": {
         "message": "Delete Separator"
@@ -57,16 +57,16 @@
         "message": "Information"
     },
     "contextmenu_new_tab": {
-        "message": "Open in new tab"
+        "message": "Open in a new tab"
     },
     "contextmenu_current_tab": {
         "message": "Open in current tab"
     },
     "contextmenu_new_window": {
-        "message": "Open in new window"
+        "message": "Open in a new window"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Open in incognito window"
+        "message": "Open in an incognito window"
     },
     "contextmenu_add_bookmark": {
         "message": "Add bookmark"
@@ -81,10 +81,10 @@
         "message": "Show hidden entries"
     },
     "contextmenu_close_all_directories": {
-        "message": "Close all directories"
+        "message": "Close all folders"
     },
     "contextmenu_reload_sidebar": {
-        "message": "Reload sidebar"
+        "message": "Refresh sidebar"
     },
     "contextmenu_open_children": {
         "message": "Open bookmarks"
@@ -96,7 +96,7 @@
         "message": "Show in sidebar"
     },
     "contextmenu_show_in_dir": {
-        "message": "Show in directory"
+        "message": "Show in folder"
     },
     "contextmenu_pin": {
         "message": "Pin to top"
@@ -126,7 +126,7 @@
         "message": "Recently added"
     },
     "sort_view_as_tree": {
-        "message": "Show directories"
+        "message": "Show folders"
     },
     "sort_most_used_per_month": {
         "message": "Per month"
@@ -168,19 +168,19 @@
         "message": "Do you really want to hide this bookmark from the sidebar?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Do you really want to hide this directory from the sidebar? All subordinate bookmarks will be hidden too."
+        "message": "Do you really want to hide this folder from the sidebar? All sub-folder bookmarks will be hidden too."
     },
     "overlay_delete_bookmark_confirm": {
         "message": "Do you really want to delete this bookmark?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Do you really want to delete this directory? All subordinate bookmarks will be removed too."
+        "message": "Do you really want to delete this folder? All sub-folder bookmarks will also be deleted."
     },
     "overlay_label_bookmark": {
         "message": "Bookmark"
     },
     "overlay_label_dir": {
-        "message": "Directory"
+        "message": "Folder"
     },
     "overlay_label_separator": {
         "message": "Separator"
@@ -189,10 +189,10 @@
         "message": "Position"
     },
     "overlay_add_position_prepend": {
-        "message": "Prepend to directory"
+        "message": "Add to start of folder"
     },
     "overlay_add_position_append": {
-        "message": "Append to directory"
+        "message": "Add to end of folder"
     },
     "overlay_separator_title_desc": {
         "message": "You can optionally enter a title. It will be displayed on top of the separator line and can help you organising your bookmark list."
@@ -219,7 +219,7 @@
         "message": "Bookmarks"
     },
     "overlay_dir_children_dirs": {
-        "message": "Directories"
+        "message": "Folders"
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Changed"
@@ -243,7 +243,7 @@
         "message": "Remove selected"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "All bookmark URLs are fine"
+        "message": "All bookmark URLs are valid"
     },
     "overlay_check_bookmarks_no_results_changed": {
         "message": "There are no changed bookmark URLs"
@@ -255,7 +255,7 @@
         "message": "There are no duplicate bookmark URLs"
     },
     "overlay_check_bookmarks_no_results_empty": {
-        "message": "There are no directories without bookmarks"
+        "message": "There are no folders without bookmarks"
     },
     "newtab_title": {
         "message": "New Tab"
@@ -330,7 +330,7 @@
         "message": "The sidebar cannot be used on {browserName} system pages"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "One of your URL rules disallowed the sidebar to open"
+        "message": "One of your URL rules did not allow the sidebar to open"
     },
     "newtab_fallback_desc": {
         "message": "We have opened a new tab with the sidebar for you instead."
@@ -384,7 +384,7 @@
         "message": "Performs a click on the currently hovered entry"
     },
     "keyboard_shortcuts_shift_enter_desc": {
-        "message": "Opens the contextmenu for the currently hovered entry"
+        "message": "Opens the context menu for the currently hovered entry"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
         "message": "Copies the URL of the currently hovered entry"
@@ -393,7 +393,7 @@
         "message": "Removes the currently hovered entry"
     },
     "keyboard_shortcuts_esc_desc": {
-        "message": "Closes the sidebar, the opened overlay or contextmenu"
+        "message": "Closes the sidebar, the opened overlay or context menu"
     },
     "contribute_intro": {
         "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
@@ -450,7 +450,7 @@
         "message": "Skip setup"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "Where do you want to have your sidebar?"
+        "message": "Where do you want to have your sidebar to appear?"
     },
     "onboarding_sidebar_open_action_desc": {
         "message": "How do you want to open your sidebar?"
@@ -486,7 +486,7 @@
         "message": "Have fun with your sidebar."
     },
     "onboarding_finish_notice": {
-        "message": "If you are frequently clicking things on the {1} side of the browser window, you may want to change where the sidebar can be opened vertically to avoid opening it accidentally."
+        "message": "If you are frequently clicking things on the {1} side of the browser window, you may want to change where the sidebar is positioned vertically when opened to avoid opening it accidentally."
     },
     "onboarding_goto_settings": {
         "message": "More settings"
@@ -606,7 +606,7 @@
         "message": "With the expert settings, you can change every configuration flag of the extension, even those you cannot change using the regular checkboxes or sliders of the settings page."
     },
     "settings_expert_settings_notice": {
-        "message": "Please do only change the values here, if you know what you are doing. Faulty configurations can cause unexpected behaviour of the extension. If something breaks, you can revert to the default configuration."
+        "message": "Please do only change the values here, if you know what you are doing. Faulty configurations can cause unexpected behaviour of the extension. If something does not work properly you can revert to the default configuration."
     },
     "settings_expert_save_error": {
         "message": "Could not save settings. Please correct your input."
@@ -615,7 +615,7 @@
         "message": "Open sidebar"
     },
     "settings_open_action_desc": {
-        "message": "Open the sidebar by left or right clicking or mouseover on the edge of the browser window. Alternatively you can change it to only open, if the extension icon is clicked."
+        "message": "Open the sidebar by clicking or moving the mouse pointer over the left or right edge of the browser window. Alternatively you can change it to only open if the extension icon is clicked."
     },
     "settings_open_action_leftclick": {
         "message": "Left click"
@@ -633,7 +633,7 @@
         "message": "Configure area"
     },
     "settings_toggle_area_desc": {
-        "message": "Per default, the whole edge of your browser window can be hovered to open the sidebar. You can change this and configure where to open the sidebar exactly."
+        "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can change this and also configure exactly where to open the sidebar."
     },
     "settings_toggle_area_width": {
         "message": "Width"
@@ -645,7 +645,7 @@
         "message": "Height"
     },
     "settings_toggle_area_height_desc": {
-        "message": "You can reduce the height of the area, so the sidebar will only open when you move your cursor into that location of the edge of your browser window."
+        "message": "You can reduce the height of the active area so the sidebar will only open when you move your cursor into that area at the edge of your browser window."
     },
     "settings_toggle_area_drag_desc": {
         "message": "Drag to move"
@@ -669,7 +669,7 @@
         "message": "Open delay"
     },
     "settings_open_delay_desc": {
-        "message": "Prevents, that the sidebar will open immediately when hovering or clicking the activation area."
+        "message": "Prevents the sidebar from opening immediately when hovering or clicking on the activation area at the edge of the browser window."
     },
     "settings_prevent_pagescroll": {
         "message": "Prevent page scrolling"
@@ -678,25 +678,25 @@
         "message": "Prevents scrolling of the current website while the sidebar is open."
     },
     "settings_dir_accordion": {
-        "message": "Show only current directory"
+        "message": "Show only current folder"
     },
     "settings_dir_accordion_desc": {
-        "message": "Closes all directories except the currently active one."
+        "message": "Closes all folder except the currently active one."
     },
     "settings_remember_state": {
         "message": "Remember"
     },
     "settings_remember_state_open_states_and_scroll": {
-        "message": "Scroll position and opened directories"
+        "message": "Scroll position and currently opened folders"
     },
     "settings_remember_state_all": {
-        "message": "Scroll position, opened directories and last opened bookmark"
+        "message": "Scroll position, currently opened folders and last opened bookmark"
     },
     "settings_remember_state_open_states": {
-        "message": "Opened directories"
+        "message": "Opened folders"
     },
     "settings_remember_state_open_states_root": {
-        "message": "Opened top level directories"
+        "message": "Opened top level folders"
     },
     "settings_remember_state_nothing": {
         "message": "Nothing"
@@ -720,13 +720,13 @@
         "message": "The preselected position when adding new entries to the sidebar."
     },
     "settings_open_children_warn_limit": {
-        "message": "Open all children (Warn limit)"
+        "message": "Open all sub-folder bookmarks (Warning limit)"
     },
     "settings_open_children_warn_limit_desc": {
-        "message": "Amount of bookmarks at which a warning appears, when trying to open all children of a directory at once."
+        "message": "Amount of bookmarks at which a warning appears, when trying to open all bookmarks within a folder and its sub-folders at once."
     },
     "settings_dir_open_duration": {
-        "message": "Directory open duration"
+        "message": "Folder open duration"
     },
     "settings_dir_open_duration_desc": {
         "message": "Duration of the open and close animation of directories"
@@ -759,7 +759,7 @@
         "message": "Close timeout"
     },
     "settings_close_timeout_desc": {
-        "message": "Timeout in seconds after the sidebar will be closed. It will count as soon the mouse leaves the sidebar and stops when hovering it again."
+        "message": "Timeout in seconds after the sidebar will be closed. Time will start as soon the mouse leaves the sidebar and stops when hovering over it again."
     },
     "settings_close_timeout_infinity": {
         "message": "Don't close automatically"
@@ -774,10 +774,10 @@
         "message": "Never hide"
     },
     "settings_dnd_open_dir_delay": {
-        "message": "Drag&Drop Open directory delay"
+        "message": "Drag&Drop Open folder delay"
     },
     "settings_dnd_open_dir_delay_desc": {
-        "message": "Delay before opening a hovered directory when dragging an element over it."
+        "message": "Delay before opening a hovered folder when dragging an element over it."
     },
     "settings_reopen_sidebar": {
         "message": "Reopen sidebar"
@@ -789,7 +789,7 @@
         "message": "Disable sidebar in window mode"
     },
     "settings_prevent_windowed_desc": {
-        "message": "Disables the possibility to open the sidebar by clicking or hovering the edge of the browser content when the browser is in window mode."
+        "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser is in window mode."
     },
     "settings_tooltip_delay": {
         "message": "Tooltip delay"
@@ -822,7 +822,7 @@
         "message": "Position"
     },
     "settings_sidebar_position_desc": {
-        "message": "Define whether the sidebar should open on the left or the right side of the browser window."
+        "message": "Define whether the sidebar should open on the left or right side of the browser window."
     },
     "settings_sidebar_position_left": {
         "message": "Left"
@@ -834,10 +834,10 @@
         "message": "Enable animations"
     },
     "settings_animations_desc": {
-        "message": "Allows you to disable the entire animations of the sidebar. This can be useful if the animations are not running smooth on your system."
+        "message": "Allows you to disable all sidebar animations. This can be useful if the animations are not running smoothly on your system."
     },
     "settings_filter_intro": {
-        "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to (blacklist)."
+        "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
     },
     "settings_filter_explanation_1": {
         "message": "Only add one URL pattern per line"
@@ -846,7 +846,7 @@
         "message": "Use * to match any character (e.g. example.com\/* matches all pages under example.com)"
     },
     "settings_filter_explanation_3": {
-        "message": "If you don't include any * in a rule, only the exact URL will match (e.g. \"example.com\" won't match for the URL \"example.com\/about.html\")"
+        "message": "If you don't include any * in a rule, only exact URL's will match (e.g. \"example.com\/about.html\" won't be matched for the URL \"example.com\")"
     },
     "settings_filter_explanation_4": {
         "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"
@@ -858,7 +858,7 @@
         "message": "On every page"
     },
     "settings_filter_visibility_blacklist": {
-        "message": "On every page except specific pages"
+        "message": "On every page except specified pages"
     },
     "settings_filter_visibility_whitelist": {
         "message": "Only on specific pages"
@@ -867,10 +867,10 @@
         "message": "URL patterns"
     },
     "settings_import_export_notice": {
-        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people, you can use this import\/export option."
+        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
     },
     "settings_import_export_desc": {
-        "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any computer, where the extension is installed."
+        "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any device where the extension is installed."
     },
     "settings_export": {
         "message": "Export Settings"
@@ -933,7 +933,7 @@
         "message": "The icon color will be set automatically to match color scheme of your system (light or dark). You can also define your own custom color for the icon."
     },
     "settings_icon_color_desc_2": {
-        "message": "Please note that the automatic color is not working, when using a custom {browserName} theme."
+        "message": "Please note that the automatic color will not work when using a custom {browserName} theme."
     },
     "settings_indicator_width": {
         "message": "Width"
@@ -963,10 +963,10 @@
         "message": "Background blur effect"
     },
     "settings_bookmarks_dir_icon": {
-        "message": "Directory icon"
+        "message": "Folder icon"
     },
     "settings_bookmarks_dir_color": {
-        "message": "Directory icon color"
+        "message": "Folder icon color"
     },
     "settings_bookmarks_font_size": {
         "message": "Bookmarks font size"
@@ -975,10 +975,10 @@
         "message": "Bookmarks icon size"
     },
     "settings_directories_icon_size": {
-        "message": "Directories icon size"
+        "message": "Folders icon size"
     },
     "settings_directory_arrows": {
-        "message": "Directory arrows"
+        "message": "Folder arrows"
     },
     "settings_bookmarks_line_height": {
         "message": "Bookmarks line height"
@@ -987,7 +987,7 @@
         "message": "Bookmarks horizontal padding"
     },
     "settings_bookmarks_dir_indentation": {
-        "message": "Directory indentation"
+        "message": "Folder indentation"
     },
     "settings_tooltip_font_size": {
         "message": "Tooltip font size"
@@ -1020,7 +1020,7 @@
         "message": "Default theme"
     },
     "settings_theme_default_desc": {
-        "message": "This theme lets you access your bookmarks in a clean, modern way. Many elements are colored in a configurable color scheme."
+        "message": "This theme lets you access your bookmarks in a clean, modern way. The color of many of the elements can be changed by modifying the color scheme."
     },
     "settings_theme_glass": {
         "message": "Glass theme"
@@ -1035,7 +1035,7 @@
         "message": "Currently installed"
     },
     "settings_newtab_desc": {
-        "message": "Chromium-based browsers do not allow loading extensions on the default new tab page. Because of this, the sidebar feature is not working there. To circumvent this problem, some options were added allowing you to access your bookmarks when opening a new tab in another way."
+        "message": "Chromium based browsers do not allow loading extensions on the default new tab page. Because of this, the sidebar feature will not work there. To circumvent this problem, some options were added allowing you to access your bookmarks when opening a new tab in another way."
     },
     "settings_newtab_override": {
         "message": "Override new tab page"
@@ -1059,7 +1059,7 @@
         "message": "Load website"
     },
     "settings_newtab_website_desc": {
-        "message": "Instead of opening the new tab replacement, you can set a website which is loaded instead."
+        "message": "Instead of opening the new tab replacement, you can specify an alternative website to load."
     },
     "settings_language": {
         "message": "Language"
@@ -1071,10 +1071,10 @@
         "message": "The language of the user interface"
     },
     "settings_translation_link": {
-        "message": "Goto translation overview"
+        "message": "Go to translation overview"
     },
     "settings_translation_desc": {
-        "message": "You can help translating the extension in your language or improve the existing one."
+        "message": "You can help translating the extension into your language or improve the existing one."
     },
     "settings_translation_add_language": {
         "message": "Add language"
@@ -1164,7 +1164,7 @@
         "message": "Your message could not be sent. Please try again."
     },
     "settings_about_me_desc": {
-        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. At that time I couldn't imagine how many people will use my extension, send me feedback, ideas or report issues. That's why the extension got many new features, improvements and translations in other languages over the time."
+        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b] and I'm a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management of Chrome, so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. At that time I couldn't imagine how many people would use my extension, send me feedback, ideas or report issues. That's why the extension has so many new features, improvements and translations in other languages developed over the time. This has only been possible with your help!"
     },
     "settings_about_me_sub_text": {
         "message": "Thank you for your support."
@@ -1176,10 +1176,10 @@
         "message": "Unfortunately {browserName} has no mechanism to display content in the browser window without interacting with the currently visiting page."
     },
     "settings_permissions_contentscript_desc_2": {
-        "message": "Since the sidebar is being displayed on top of the current website, this permission is required. Besides this technical reason, the permission is not used for other purposes."
+        "message": "Since the sidebar is being displayed on top of the current website, this permission is required. The permission is not used for any other purpose."
     },
     "settings_permissions_contentscript_desc_3": {
-        "message": "If you have concerns regarding what I'm doing with the permission, you can view the source code of the extension on Github. It's Open Source and visible for everyone."
+        "message": "If you have concerns regarding what I'm doing with the permission, you can view the source code of the extension on Github. It's Open Source and is visible for everyone.to view."
     },
     "settings_permissions_bookmarks_desc": {
         "message": "The extension is displaying your bookmarks in the sidebar and therefore needs this permission to get access. The permission also allows the extension to add, edit and remove bookmarks."
@@ -1245,7 +1245,7 @@
         "message": "Check your bookmarks for broken links or duplicates"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "You can right-click any directory in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
+        "message": "You can right-click any folder in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
     },
     "premium_feature_themes_headline": {
         "message": "Change the theme of your sidebar"

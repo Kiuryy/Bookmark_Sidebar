@@ -539,6 +539,9 @@
     "settings_menu_language_translate": {
         "message": "Prevedi"
     },
+    "settings_menu_support": {
+        "message": "Podr\u0161ka"
+    },
     "settings_menu_infos": {
         "message": "Informacije"
     },
@@ -1076,6 +1079,9 @@
     "settings_translation_required_category": {
         "message": "Potreban"
     },
+    "settings_support_faq_headline": {
+        "message": "\u010cesto postavljana pitanja"
+    },
     "settings_support_feedback_headline": {
         "message": "Povratna informacija"
     },
@@ -1084,6 +1090,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Sastavite va\u0161u povratnu informaciju na engleskom jeziku, jer \u0107e u protivnom biti te\u0161ko razumjeti i odgovoriti na va\u0161u poruku."
+    },
+    "settings_support_feedback_email": {
+        "message": "e-mail adresa (izborno)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei snimke zaslona"
@@ -1180,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Desnim klikom mo\u017eete kliknuti na bilo koju mapu spremanja na bo\u010dnoj traci oznaka i izvr\u0161iti provjeru. Stranica rezultata prikazat \u0107e sve a\u017eurirane URL-ove, oznake koje vi\u0161e ne rade i oznake s istim URL-om."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Promijenite temu va\u0161e bo\u010dne trake oznaka"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Mo\u017eete zamijeniti cijeli dizajn bo\u010dne trake oznaka jednim klikom instaliranjem druge teme. Mogu se prilagoditi i dostupnim kliza\u010dima i opcijama boja."
     },
     "premium_pay_select_payment_method": {
         "message": "Odaberi na\u010din pla\u0107anja"

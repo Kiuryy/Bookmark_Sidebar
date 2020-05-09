@@ -1091,6 +1091,9 @@
     "settings_support_feedback_notice": {
         "message": "Prosim sestavite va\u0161o povratno informacijo v angle\u0161kem jeziku, druga\u010de bo te\u017eko razumeti va\u0161e sporo\u010dilo in vam odgovoriti."
     },
+    "settings_support_feedback_email": {
+        "message": "e-po\u0161tni naslov (neobvezno)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei sliko ekrana"
     },

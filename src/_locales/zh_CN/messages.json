@@ -441,16 +441,16 @@
         "message": "\u611f\u8c22\u60a8\u5b89\u88c5\u6b64\u63d2\u4ef6"
     },
     "onboarding_setup": {
-        "message": "\u9a6c\u4e0a\u521d\u59cb\u5316"
+        "message": "\u7acb\u523b\u521d\u59cb\u5316"
     },
     "onboarding_skip": {
         "message": "\u8df3\u8fc7\u521d\u59cb\u5316"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "\u4f60\u60f3\u5728\u54ea\u4e2a\u4f4d\u7f6e\u653e\u7f6e\u4fa7\u8fb9\u680f?"
+        "message": "\u4f60\u60f3\u5c06\u4fa7\u8fb9\u680f\u653e\u7f6e\u5728\u54ea\u8fb9?"
     },
     "onboarding_sidebar_open_action_desc": {
-        "message": "\u4f60\u60f3\u5982\u4f55\u6253\u5f00\u4fa7\u8fb9\u680f\uff1f"
+        "message": "\u4f60\u60f3\u600e\u6837\u6253\u5f00\u4fa7\u8fb9\u680f\uff1f"
     },
     "onboarding_sidebar_surface_desc": {
         "message": "\u4f60\u504f\u597d\u54ea\u79cd\u98ce\u683c\uff1f"

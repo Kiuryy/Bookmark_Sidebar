@@ -160,10 +160,10 @@
          */
         const appendAdditionalInfo = (data) => {
             if (data.additionalInfo && data.additionalInfo.desc) {
-                const container = $("<div />").addClass($.cl.info).appendTo(elements.modal);
+                const container = $("<div></div>").addClass($.cl.info).appendTo(elements.modal);
 
-                $("<h3 />").text(ext.helper.i18n.get("overlay_bookmark_additional_info")).appendTo(container);
-                $("<p />").text(data.additionalInfo.desc).appendTo(container);
+                $("<h3></h3>").text(ext.helper.i18n.get("overlay_bookmark_additional_info")).appendTo(container);
+                $("<p></p>").text(data.additionalInfo.desc).appendTo(container);
             }
         };
 
@@ -174,16 +174,16 @@
          * @param {boolean} addUrl
          */
         const appendPreviewLink = (data, addUrl) => {
-            const preview = $("<" + (data.isDir ? "span" : "a") + " />")
+            const preview = $("<" + (data.isDir ? "span" : "a") + "></" + (data.isDir ? "span" : "a") + ">")
                 .attr("title", data.title)
                 .addClass($.cl.overlay.preview)
                 .text(data.title)
                 .appendTo(elements.modal);
 
             if (data.isDir) {
-                preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "' />");
+                preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "'></span>");
             } else if ($.opts.demoMode) {
-                preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                preview.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "'></span>");
             } else {
                 ext.helper.model.call("favicon", {url: data.url}).then((response) => { // retrieve favicon of url
                     if (response.img) { // favicon found -> add to entry
@@ -193,7 +193,7 @@
             }
 
             if (addUrl && addUrl === true && data.isDir !== true) {
-                $("<a />")
+                $("<a></a>")
                     .addClass($.cl.overlay.previewUrl)
                     .attr("title", data.url)
                     .text(data.url)
@@ -205,13 +205,13 @@
          * Extends the overlay html for the list of available keyboard shortcuts
          */
         const handleKeyboardShortcutsDescHtml = () => {
-            const scrollBox = $("<div />").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
+            const scrollBox = $("<div></div>").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
 
-            const wrapper = $("<div />")
+            const wrapper = $("<div></div>")
                 .append("<h3>" + ext.helper.i18n.get("settings_open_action") + "</h3>")
                 .appendTo(scrollBox);
 
-            const setupLink = $("<a />").text(ext.helper.i18n.get("settings_keyboard_shortcut_button")).appendTo(wrapper);
+            const setupLink = $("<a></a>").text(ext.helper.i18n.get("settings_keyboard_shortcut_button")).appendTo(wrapper);
             setupLink.on("click", (e) => {
                 e.preventDefault();
                 ext.helper.model.call("openLink", {
@@ -221,7 +221,7 @@
                 });
             });
 
-            const list = $("<ul />").appendTo(wrapper);
+            const list = $("<ul></ul>").appendTo(wrapper);
             const shortcutList = {
                 tab: [["&#8593;"], ["&#8595;"], ["tab"]],
                 enter: [["enter"]],
@@ -246,7 +246,7 @@
                     shortcutHtmlArr.push("<strong>" + keys.join("+") + "</strong>");
                 });
 
-                $("<li />")
+                $("<li></li>")
                     .html(shortcutHtmlArr.join(", "))
                     .append("<span>" + ext.helper.i18n.get("keyboard_shortcuts_" + name + "_desc") + "</span>")
                     .appendTo(list);
@@ -261,10 +261,10 @@
          * @param {object} data
          */
         const handleDeleteHtml = (data) => {
-            $("<p />").text(ext.helper.i18n.get("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            $("<p></p>").text(ext.helper.i18n.get("overlay_delete_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
             appendAdditionalInfo(data);
-            $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -273,16 +273,16 @@
          * @param {object} data
          */
         const handleEditSeparatorHtml = (data) => {
-            const list = $("<ul />").appendTo(elements.modal);
+            const list = $("<ul></ul>").appendTo(elements.modal);
             const title = data.title.replace(/'/g, "&#x27;").replace(/(^[-_]+|[-_]+$)/g, "").trim();
 
-            $("<li />").html("<span>" + ext.helper.i18n.get("overlay_separator_title_desc") + "</span>").appendTo(list);
-            $("<li />")
+            $("<li></li>").html("<span>" + ext.helper.i18n.get("overlay_separator_title_desc") + "</span>").appendTo(list);
+            $("<li></li>")
                 .append("<label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label>")
                 .append("<input type='text' name='title' value='" + title + "' />")
                 .appendTo(list);
 
-            $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -292,26 +292,26 @@
          */
         const handleEditHtml = (data) => {
             appendPreviewLink(data);
-            const list = $("<ul />").appendTo(elements.modal);
+            const list = $("<ul></ul>").appendTo(elements.modal);
 
-            $("<li />")
+            $("<li></li>")
                 .append("<label>" + ext.helper.i18n.get("overlay_bookmark_title") + "</label>")
                 .append("<input type='text' name='title' value='" + data.title.replace(/'/g, "&#x27;") + "' />")
                 .appendTo(list);
 
             if (!data.isDir) {
-                $("<li />")
+                $("<li></li>")
                     .append("<label>" + ext.helper.i18n.get("overlay_bookmark_url") + "</label>")
                     .append("<input type='text' name='url' value='" + data.url.replace(/'/g, "&#x27;") + "' />")
                     .appendTo(list);
             }
 
-            const infoEntry = $("<li />")
+            const infoEntry = $("<li></li>")
                 .addClass($.cl.info)
                 .append("<label>" + ext.helper.i18n.get("overlay_bookmark_additional_info") + "</label>")
                 .appendTo(list);
 
-            const infoField = $("<textarea name='info' />").appendTo(infoEntry);
+            const infoField = $("<textarea name='info'></textarea>").appendTo(infoEntry);
             infoField[0].value = (data.additionalInfo ? (data.additionalInfo.desc || "") : "");
 
             infoEntry.append("<span>" + ext.helper.i18n.get("settings_not_synced") + "</span>");
@@ -322,7 +322,7 @@
                 infoEntry.removeClass($.cl.active);
             });
 
-            $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -334,9 +334,9 @@
             const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
             const text = ext.helper.i18n.get("overlay_confirm_open_children", [bookmarks.length]);
 
-            $("<p />").text(text).appendTo(elements.modal);
+            $("<p></p>").text(text).appendTo(elements.modal);
             appendPreviewLink(data);
-            $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -345,10 +345,10 @@
          * @param {object} data
          */
         const handleHideHtml = (data) => {
-            $("<p />").text(ext.helper.i18n.get("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
+            $("<p></p>").text(ext.helper.i18n.get("overlay_hide_" + (data.isDir ? "dir" : "bookmark") + "_confirm")).appendTo(elements.modal);
             appendPreviewLink(data);
             appendAdditionalInfo(data);
-            $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_hide_from_sidebar")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -357,13 +357,13 @@
          * @param {object} data
          */
         const handleAddHtml = (data) => {
-            const submit = $("<a />").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
-            const menu = $("<menu />").attr($.attr.name, "select").appendTo(elements.modal);
+            const submit = $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+            const menu = $("<menu></menu>").attr($.attr.name, "select").appendTo(elements.modal);
 
             const links = {
-                bookmark: $("<a />").attr($.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu),
-                dir: $("<a />").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu),
-                separator: $("<a />").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu)
+                bookmark: $("<a></a>").attr($.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu),
+                dir: $("<a></a>").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu),
+                separator: $("<a></a>").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu)
             };
 
             menu.on("mouseleave", (e) => {
@@ -378,7 +378,7 @@
             }).on("click", (e) => {
                 e.preventDefault();
                 const type = $(e.currentTarget).attr($.attr.type);
-                const list = $("<ul />").attr($.attr.type, type).appendTo(elements.modal);
+                const list = $("<ul></ul>").attr($.attr.type, type).appendTo(elements.modal);
 
                 let titleValue = "";
                 let urlValue = "";
@@ -451,40 +451,40 @@
             const parentInfos = ext.helper.entry.getParentsById(data.id);
 
             if (parentInfos.length > 0) {
-                const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(elements.modal);
+                const breadcrumb = $("<ul></ul>").addClass($.cl.sidebar.breadcrumb).appendTo(elements.modal);
                 parentInfos.forEach((parentInfo) => {
-                    $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                    $("<li></li>").text(parentInfo.title).prependTo(breadcrumb);
                 });
             }
 
             appendAdditionalInfo(data);
 
-            const list = $("<ul />").appendTo(elements.modal);
+            const list = $("<ul></ul>").appendTo(elements.modal);
             const createdDate = new Date(data.dateAdded);
 
-            $("<li />").html(ext.helper.i18n.get("overlay_bookmark_created_date") + " " + ext.helper.i18n.getLocaleDate(createdDate)).appendTo(list);
+            $("<li></li>").html(ext.helper.i18n.get("overlay_bookmark_created_date") + " " + ext.helper.i18n.getLocaleDate(createdDate)).appendTo(list);
 
             if (data.isDir) {
-                const childrenEntry = $("<li />")
+                const childrenEntry = $("<li></li>")
                     .addClass($.cl.tooltip.wrapper)
                     .append("<span>" + data.childrenAmount.total + "</span>")
                     .append(" " + ext.helper.i18n.get("overlay_dir_children"), false)
                     .appendTo(list);
 
-                $("<ul />")
+                $("<ul></ul>")
                     .append("<li>" + data.childrenAmount.bookmarks + " " + ext.helper.i18n.get("overlay_dir_children_bookmarks") + "</li>")
                     .append("<li>" + data.childrenAmount.directories + " " + ext.helper.i18n.get("overlay_dir_children_dirs") + "</li>")
                     .appendTo(childrenEntry);
             }
 
-            const viewsEntry = $("<li />")
+            const viewsEntry = $("<li></li>")
                 .addClass($.cl.tooltip.wrapper)
                 .append("<span>" + data.views.total + "</span>")
                 .append(" " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.total === 1 ? "_single" : "")), false)
                 .appendTo(list);
 
             const startDate = new Date(data.views.startDate);
-            $("<ul />")
+            $("<ul></ul>")
                 .append("<li>" + ext.helper.i18n.get("overlay_bookmark_views_since") + " " + ext.helper.i18n.getLocaleDate(startDate) + "</li>")
                 .append("<li>" + data.views.perMonth + " " + ext.helper.i18n.get("overlay_bookmark_views" + (data.views.perMonth === 1 ? "_single" : "")) + " " + ext.helper.i18n.get("overlay_bookmark_views_per_month") + "</li>")
                 .appendTo(viewsEntry);

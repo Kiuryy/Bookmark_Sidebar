@@ -410,10 +410,10 @@
                         $("ul." + $.cl.newtab.suggestions).remove();
 
                         if (suggestions.length > 0) {
-                            const list = $("<ul />").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
+                            const list = $("<ul></ul>").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
 
                             suggestions.some((suggestion, i) => {
-                                const elm = $("<li />")
+                                const elm = $("<li></li>")
                                     .attr($.attr.type, suggestion.type)
                                     .text(suggestion.label)
                                     .appendTo(list);

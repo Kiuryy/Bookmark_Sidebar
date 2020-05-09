@@ -231,11 +231,11 @@
          */
         this.addReloadMask = () => {
             this.elm.sidebar.text("");
-            const reloadMask = $("<div />").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elm.sidebar);
-            const contentBox = $("<div />").prependTo(reloadMask);
+            const reloadMask = $("<div></div>").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elm.sidebar);
+            const contentBox = $("<div></div>").prependTo(reloadMask);
 
-            $("<p />").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
-            $("<a />").text(this.helper.i18n.get("status_background_disconnected_reload_action")).appendTo(contentBox);
+            $("<p></p>").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
+            $("<a></a>").text(this.helper.i18n.get("status_background_disconnected_reload_action")).appendTo(contentBox);
         };
 
         /**
@@ -245,21 +245,21 @@
          */
         this.addInfoBox = (type) => {
             this.elm.sidebar.find("#" + $.opts.ids.sidebar.infoBox).remove();
-            const infoBox = $("<div />")
+            const infoBox = $("<div></div>")
                 .attr("id", $.opts.ids.sidebar.infoBox)
                 .attr($.attr.type, type)
                 .prependTo(this.elm.sidebar);
 
             if (type === "premium") {
-                $("<p />").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
+                $("<p></p>").text(this.helper.i18n.get("premium_popup_text")).appendTo(infoBox);
             } else if (type === "translation") {
-                $("<p />").text(this.helper.i18n.get("settings_translation_incomplete_info")).appendTo(infoBox);
+                $("<p></p>").text(this.helper.i18n.get("settings_translation_incomplete_info")).appendTo(infoBox);
             } else if (type === "shareInfo") {
-                $("<p />").text(this.helper.i18n.get("contribute_notice")).appendTo(infoBox);
+                $("<p></p>").text(this.helper.i18n.get("contribute_notice")).appendTo(infoBox);
             }
 
-            $("<a />").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
-            $("<a />").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
+            $("<a></a>").text(this.helper.i18n.get("more_link")).addClass($.cl.info).appendTo(infoBox);
+            $("<a></a>").text(this.helper.i18n.get("overlay_close")).addClass($.cl.close).appendTo(infoBox);
 
             $.delay(500).then(() => {
                 infoBox.addClass($.cl.visible);
@@ -405,31 +405,31 @@
          */
         const initSidebarMarkup = async () => {
             const config = this.helper.model.getData(["a/theme", "a/darkMode", "a/highContrast"]);
-            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\" />")
+            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
                 .appendTo("body");
 
             this.elm.iframeBody = this.elm.iframe.find("body");
             this.elm.iframeBody.attr($.attr.theme, config.theme);
 
-            this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\" />").appendTo(this.elm.iframeBody);
+            this.elm.sidebar = $("<section id=\"" + $.opts.ids.sidebar.sidebar + "\"></section>").appendTo(this.elm.iframeBody);
             this.elm.bookmarkBox = {};
 
             ["all", "search"].forEach((val) => {
-                this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul />").appendTo(this.elm.sidebar));
+                this.elm.bookmarkBox[val] = this.helper.scroll.add($.opts.ids.sidebar.bookmarkBox[val], $("<ul></ul>").appendTo(this.elm.sidebar));
             });
 
-            this.elm.widthDrag = $("<span />").addClass($.cl.drag.trigger);
+            this.elm.widthDrag = $("<span></span>").addClass($.cl.drag.trigger);
 
             if (this.helper.model.getUserType() === "premium") {
                 this.elm.widthDrag = this.elm.widthDrag.appendTo(this.elm.sidebar);
             }
 
-            this.elm.filterBox = $("<div />").addClass([$.cl.sidebar.filterBox, $.cl.hidden]).appendTo(this.elm.sidebar);
-            this.elm.pinnedBox = $("<div />").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
-            this.elm.lockPinned = $("<a />").addClass($.cl.sidebar.lockPinned).html("<span />").appendTo(this.elm.sidebar);
+            this.elm.filterBox = $("<div></div>").addClass([$.cl.sidebar.filterBox, $.cl.hidden]).appendTo(this.elm.sidebar);
+            this.elm.pinnedBox = $("<div></div>").addClass($.cl.sidebar.entryPinned).prependTo(this.elm.bookmarkBox.all);
+            this.elm.lockPinned = $("<a></a>").addClass($.cl.sidebar.lockPinned).html("<span></span>").appendTo(this.elm.sidebar);
 
-            this.elm.header = $("<header />").prependTo(this.elm.sidebar);
+            this.elm.header = $("<header></header>").prependTo(this.elm.sidebar);
 
             if (config.darkMode === true) {
                 this.elm.iframeBody.addClass($.cl.page.darkMode);

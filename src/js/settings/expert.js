@@ -241,7 +241,7 @@
             Object.entries(config).forEach(([key, value]) => {
                 let _val = JSON.parse(JSON.stringify(value));
 
-                const entry = $("<li />")
+                const entry = $("<li></li>")
                     .attr($.attr.name, key)
                     .append("<label>" + key + "</label>")
                     .appendTo(list);
@@ -252,7 +252,7 @@
                 const info = getInfoTextByPath(path);
 
                 if (info) { // info text is available -> show as tooltip when hovering
-                    $("<div />")
+                    $("<div></div>")
                         .addClass($.cl.info)
                         .html("<span>" + info + "</span>")
                         .appendTo(entry.children("label"));
@@ -265,7 +265,7 @@
                 const isArray = Array.isArray(_val);
 
                 if (typeof _val === "object" && isArray === false) { // configuration is nested -> recursive call of the function with the child configuration
-                    const childList = $("<ul />").appendTo(entry);
+                    const childList = $("<ul></ul>").appendTo(entry);
                     fillList(childList, value, configValues[key] || null);
                 } else {
                     const input = $("<input />").attr("type", "text").appendTo(entry);

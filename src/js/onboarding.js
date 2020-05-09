@@ -301,14 +301,14 @@
 
             // change description how to open the sidebar based on sidebar position and configurated openAction
             if (config.openAction === "icon") {
-                $("<p />").text(this.helper.i18n.get("onboarding_handson_icon_desc")).appendTo(slide);
+                $("<p></p>").text(this.helper.i18n.get("onboarding_handson_icon_desc")).appendTo(slide);
             } else {
                 const position = this.helper.i18n.get("onboarding_" + config.sidebarPosition);
-                $("<p />").text(this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position])).appendTo(slide);
+                $("<p></p>").text(this.helper.i18n.get("onboarding_handson_mouse_desc_1", [position])).appendTo(slide);
 
                 if (config.openAction !== "mousemove") {
                     const mouseButton = this.helper.i18n.get("onboarding_" + (config.openAction === "contextmenu" ? "right" : "left"));
-                    $("<p />").text(this.helper.i18n.get("onboarding_handson_mouse_desc_2", [mouseButton])).appendTo(slide);
+                    $("<p></p>").text(this.helper.i18n.get("onboarding_handson_mouse_desc_2", [mouseButton])).appendTo(slide);
                 }
             }
 

@@ -107,7 +107,7 @@
                         }
 
                         if (hasResults === false) { // no results
-                            $("<p />").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elm.bookmarkBox.search);
+                            $("<p></p>").text(ext.helper.i18n.get("sidebar_search_no_results")).appendTo(ext.elm.bookmarkBox.search);
                         }
 
                         ext.endLoading(100);

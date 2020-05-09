@@ -10,7 +10,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.body);
+            $("<a></a>").addClass($.cl.newtab.edit).appendTo(n.elm.body);
 
             initGeneralEvents();
 
@@ -183,21 +183,21 @@
             editMode = true;
             history.pushState({}, null, location.href.replace(/#edit/g, "") + "#edit");
 
-            const menu = $("<menu />")
+            const menu = $("<menu></menu>")
                 .addClass($.cl.newtab.infoBar)
                 .append("<a class='" + $.cl.newtab.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
                 .appendTo(n.elm.body);
 
-            const uploadWrapper = $("<div />").addClass($.cl.newtab.upload).appendTo(menu);
+            const uploadWrapper = $("<div></div>").addClass($.cl.newtab.upload).appendTo(menu);
 
             if (n.helper.model.getUserType() === "premium") {
-                $("<a />").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
-                $("<div />").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
+                $("<a></a>").addClass($.cl.newtab.remove).appendTo(uploadWrapper);
+                $("<div></div>").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span><input type=\"file\" accept=\"image/*\" />").appendTo(uploadWrapper);
             } else {
                 uploadWrapper.attr("title", n.helper.i18n.get("premium_restricted_text"));
-                $("<span />").text(n.helper.i18n.get("settings_menu_premium")).addClass($.cl.premium).appendTo(uploadWrapper);
-                $("<div />").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span>").appendTo(uploadWrapper);
+                $("<span></span>").text(n.helper.i18n.get("settings_menu_premium")).addClass($.cl.premium).appendTo(uploadWrapper);
+                $("<div></div>").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span>").appendTo(uploadWrapper);
             }
 
             initMenuEvents();
@@ -222,29 +222,29 @@
          * Initialises the buttons to edit/remove the shortcuts in the top/right corner
          */
         const initShortcutsConfig = () => {
-            const buttons = ["<a class='" + $.cl.newtab.edit + "' />", "<a class='" + $.cl.newtab.remove + "' />", "<a " + $.attr.position + "='left' />", "<a " + $.attr.position + "='right' />"];
+            const buttons = ["<a class='" + $.cl.newtab.edit + "'></a>", "<a class='" + $.cl.newtab.remove + "'></a>", "<a " + $.attr.position + "='left'></a>", "<a " + $.attr.position + "='right'></a>"];
             n.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
             });
 
             const currentPos = n.helper.model.getData("n/shortcutsPosition");
-            const select = $("<select />").addClass($.cl.newtab.edit).appendTo(n.elm.topNav);
+            const select = $("<select></select>").addClass($.cl.newtab.edit).appendTo(n.elm.topNav);
             ["left", "right"].forEach((pos) => {
-                $("<option value='" + pos + "' " + (currentPos === pos ? "selected" : "") + " />").text(n.helper.i18n.get("settings_sidebar_position_" + pos)).appendTo(select);
+                $("<option value='" + pos + "' " + (currentPos === pos ? "selected" : "") + "></option>").text(n.helper.i18n.get("settings_sidebar_position_" + pos)).appendTo(select);
             });
 
             select.on("input change", (e) => {
                 n.elm.topNav.attr($.attr.position, e.currentTarget.value);
             });
 
-            $("<a class='" + $.cl.newtab.add + "' />").prependTo(n.elm.topNav);
+            $("<a class='" + $.cl.newtab.add + "'></a>").prependTo(n.elm.topNav);
 
             n.elm.topNav.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
                 e.stopPropagation();
                 const entry = $(e.currentTarget).parent("li");
                 showShortcutEditTooltip(entry);
             }).on("click.edit", "a." + $.cl.newtab.add, () => {  // add
-                const entry = $("<li />")
+                const entry = $("<li></li>")
                     .append("<a class='" + $.cl.newtab.link + "'>&nbsp;</a>")
                     .append(buttons)
                     .prependTo(n.elm.topNav.children("ul"));
@@ -294,7 +294,7 @@
             const link = elm.children("a." + $.cl.newtab.link).eq(0);
             const href = (link.data("href") || "").trim();
 
-            const tooltip = $("<div />")
+            const tooltip = $("<div></div>")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
                 .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
@@ -333,7 +333,7 @@
          * Initialises the dropdown for the top pages types
          */
         const initTopPagesTypeConfig = () => {
-            const select = $("<select />")
+            const select = $("<select></select>")
                 .addClass($.cl.newtab.edit)
                 .attr($.attr.type, "type")
                 .prependTo(n.elm.topPages);
@@ -343,7 +343,7 @@
 
             Object.keys(types).forEach((name) => {
                 const label = n.helper.i18n.get("newtab_top_pages_" + types[name]);
-                $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + " />").text(label).appendTo(select);
+                $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });
 
             select.on("input change", (e) => {
@@ -355,7 +355,7 @@
          * Initialises the dropdown for the top pages appearances
          */
         const initTopPagesAppearanceConfig = () => {
-            const select = $("<select />")
+            const select = $("<select></select>")
                 .addClass($.cl.newtab.edit)
                 .attr($.attr.type, "appearance")
                 .prependTo(n.elm.topPages);
@@ -364,7 +364,7 @@
 
             n.helper.topPages.getAllAppearances().forEach((name) => {
                 const label = n.helper.i18n.get("newtab_top_pages_appearance_" + name);
-                $("<option value='" + name + "' " + (currentAppearance === name ? "selected" : "") + " />").text(label).appendTo(select);
+                $("<option value='" + name + "' " + (currentAppearance === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });
 
             select.on("input change", (e) => {
@@ -376,7 +376,7 @@
          * Initialises the edit button for the search engine and the dropdown to show/hide the search field
          */
         const initSearchConfig = () => {
-            const select = $("<select />")
+            const select = $("<select></select>")
                 .addClass($.cl.newtab.edit)
                 .attr($.attr.type, "searchField")
                 .prependTo(n.elm.search.wrapper);
@@ -385,7 +385,7 @@
 
             ["show", "hide"].forEach((name) => {
                 const label = n.helper.i18n.get("newtab_search_field_" + name);
-                $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + " />").text(label).appendTo(select);
+                $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });
 
             select.on("input change", (e) => {
@@ -393,7 +393,7 @@
             });
 
 
-            const edit = $("<a />").addClass($.cl.newtab.edit).appendTo(n.elm.search.wrapper);
+            const edit = $("<a></a>").addClass($.cl.newtab.edit).appendTo(n.elm.search.wrapper);
             edit.on("click", (e) => {
                 e.preventDefault();
                 n.helper.overlay.create("searchEngine", n.helper.i18n.get("newtab_search_engine_headline"));

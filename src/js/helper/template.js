@@ -30,7 +30,7 @@
             const ret = {};
             const config = ext.helper.model.getData(["a/theme", "b/animations", "a/darkMode", "a/highContrast"]);
 
-            ret.overlay = $("<iframe />")
+            ret.overlay = $("<iframe></iframe>")
                 .attr("id", $.opts.ids.page.overlay)
                 .addClass("notranslate") // 'notranslate' prevents Google translator from translating the content of the overlay
                 .appendTo("body");
@@ -41,7 +41,7 @@
             iframeBody.attr($.attr.theme, config.theme);
             iframeBody.parent("html").attr("dir", ext.helper.i18n.isRtl() ? "rtl" : "ltr");
 
-            ret.modal = $("<div />")
+            ret.modal = $("<div></div>")
                 .attr($.attr.type, type)
                 .addClass($.cl.overlay.modal)
                 .appendTo(iframeBody);
@@ -56,12 +56,12 @@
                 iframeBody.addClass($.cl.page.highContrast);
             }
 
-            const header = $("<header />").appendTo(ret.modal);
-            $("<h1 />").text(title).appendTo(header);
-            $("<a />").addClass($.cl.close).appendTo(header);
+            const header = $("<header></header>").appendTo(ret.modal);
+            $("<h1></h1>").text(title).appendTo(header);
+            $("<a></a>").addClass($.cl.close).appendTo(header);
 
-            ret.buttonWrapper = $("<menu />").addClass($.cl.overlay.buttonWrapper).appendTo(ret.modal);
-            $("<a />")
+            ret.buttonWrapper = $("<menu></menu>").addClass($.cl.overlay.buttonWrapper).appendTo(ret.modal);
+            $("<a></a>")
                 .addClass($.cl.close)
                 .appendTo(ret.buttonWrapper);
 

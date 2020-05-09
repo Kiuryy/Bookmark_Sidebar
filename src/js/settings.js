@@ -165,12 +165,12 @@
          * @param {jsu} elm
          */
         this.addNoPremiumText = (elm) => {
-            const desc = $("<p />")
+            const desc = $("<p></p>")
                 .addClass($.cl.premium)
                 .html("<span>" + this.helper.i18n.get("premium_restricted_text") + "</span>")
                 .appendTo(elm);
 
-            const link = $("<a />").text(this.helper.i18n.get("more_link")).appendTo(desc);
+            const link = $("<a></a>").text(this.helper.i18n.get("more_link")).appendTo(desc);
 
             link.on("click", (e) => { // show info page
                 e.preventDefault();
@@ -407,7 +407,7 @@
                     $("div." + $.cl.settings.dialog).remove();
                     const rect = e.currentTarget.getBoundingClientRect();
 
-                    const dialog = $("<div />")
+                    const dialog = $("<div></div>")
                         .attr($.attr.type, type)
                         .addClass($.cl.settings.dialog)
                         .append("<p>" + this.helper.i18n.get("settings_restore_confirm") + "</p>")

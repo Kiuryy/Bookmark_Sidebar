@@ -19,7 +19,7 @@
          * @returns {jsu}
          */
         this.get = (body, attrList, type = "checkbox", style = "default") => {
-            const container = $("<div />")
+            const container = $("<div></div>")
                 .html("<input type='checkbox' />")
                 .data("uid", Math.random().toString(36).substr(2, 12))
                 .attr($.attr.type, type)

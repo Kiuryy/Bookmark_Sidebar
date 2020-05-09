@@ -30,12 +30,12 @@
          *
          */
         const initNoPremiumText = () => {
-            const desc = $("<p />")
+            const desc = $("<p></p>")
                 .addClass($.cl.premium)
                 .html("<span>" + ext.helper.i18n.get("premium_restricted_text") + "</span>")
                 .appendTo(elements.modal);
 
-            const link = $("<a />").text(ext.helper.i18n.get("more_link")).appendTo(desc);
+            const link = $("<a></a>").text(ext.helper.i18n.get("more_link")).appendTo(desc);
 
             link.on("click", (e) => {
                 e.preventDefault();
@@ -55,13 +55,13 @@
         const initOverlay = (entries) => {
             elements.buttonWrapper = elements.modal.find("menu." + $.cl.overlay.buttonWrapper);
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
-            elements.desc = $("<p />").text(ext.helper.i18n.get("overlay_check_bookmarks_loading")).appendTo(elements.modal);
+            elements.desc = $("<p></p>").text(ext.helper.i18n.get("overlay_check_bookmarks_loading")).appendTo(elements.modal);
 
             ext.helper.model.call("websiteStatus").then((opts) => {
                 if (opts.status === "available") {
                     const entryObj = getFlatEntryList(entries);
-                    elements.progressBar = $("<div />").addClass($.cl.overlay.progressBar).html("<div />").appendTo(elements.modal);
-                    elements.progressLabel = $("<span />").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + entryObj.bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
+                    elements.progressBar = $("<div></div>").addClass($.cl.overlay.progressBar).html("<div></div>").appendTo(elements.modal);
+                    elements.progressLabel = $("<span></span>").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + entryObj.bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
 
                     $.delay(200).then(() => {
                         elements.modal.addClass($.cl.overlay.urlCheckLoading);
@@ -97,7 +97,7 @@
             elements.loader.remove();
             elements.desc.remove();
 
-            $("<div />").addClass($.cl.error)
+            $("<div></div>").addClass($.cl.error)
                 .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
                 .append("<p>" + ext.helper.i18n.get("status_check_bookmarks_unavailable_desc") + "</p>")
                 .appendTo(elements.modal);
@@ -134,14 +134,14 @@
                 if (hasResults === false) {
                     showAllResolvedMessage();
                 } else {
-                    elements.menu = $("<menu />").addClass($.cl.overlay.urlCheckCategories).appendTo(elements.modal);
+                    elements.menu = $("<menu></menu>").addClass($.cl.overlay.urlCheckCategories).appendTo(elements.modal);
                     elements.results = {};
                     elements.actions = {};
 
                     let initialOpenedMenuEntry = null;
 
                     Object.entries(results).forEach(([key, result]) => { // create a menu entry and result list for each type (broken, changed, duplicate)
-                        const menuEntry = $("<li />")
+                        const menuEntry = $("<li></li>")
                             .html("<a>" + ext.helper.i18n.get("overlay_check_bookmarks_menu_" + key) + "<span></span></a>")
                             .attr($.attr.name, key)
                             .appendTo(elements.menu);
@@ -156,17 +156,17 @@
                                 langVarPrefix = "overlay_check_bookmarks_remove";
                             }
 
-                            elements.actions[key] = $("<a />")
+                            elements.actions[key] = $("<a></a>")
                                 .addClass($.cl.overlay.urlCheckAction)
                                 .attr($.attr.name, key)
                                 .text(ext.helper.i18n.get(langVarPrefix + "_selected"))
                                 .appendTo(elements.buttonWrapper);
                         }
 
-                        elements.results[key] = ext.helper.scroll.add($.opts.ids.overlay.urlCheckResult + "_" + key, $("<ul />").appendTo(elements.modal));
+                        elements.results[key] = ext.helper.scroll.add($.opts.ids.overlay.urlCheckResult + "_" + key, $("<ul></ul>").appendTo(elements.modal));
 
                         result.forEach((entry) => { // fill result list
-                            const resultEntry = $("<li />").data("entry", entry).appendTo(elements.results[key].children("ul"));
+                            const resultEntry = $("<li></li>").data("entry", entry).appendTo(elements.results[key].children("ul"));
 
                             switch (key) {
                                 case "broken":
@@ -208,18 +208,18 @@
             if (parentInfos.length > 0) {
                 ext.helper.checkbox.get(elements.body, {checked: "checked"}).appendTo(resultEntry);
 
-                const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(resultEntry);
+                const breadcrumb = $("<ul></ul>").addClass($.cl.sidebar.breadcrumb).appendTo(resultEntry);
 
                 parentInfos.forEach((parentInfo) => {
-                    $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                    $("<li></li>").text(parentInfo.title).prependTo(breadcrumb);
                 });
 
-                $("<li />").text(entry.title).appendTo(breadcrumb);
+                $("<li></li>").text(entry.title).appendTo(breadcrumb);
             } else {
                 resultEntry.remove();
             }
 
-            $("<a />").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
+            $("<a></a>").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
         };
 
         /**
@@ -229,28 +229,28 @@
          * @param {jsu} resultEntry
          */
         const displayDuplicateUrls = (entry, resultEntry) => {
-            const title = $("<a />").addClass($.cl.info).attr({
+            const title = $("<a></a>").addClass($.cl.info).attr({
                 href: entry.url,
                 title: entry.label,
                 target: "_blank"
             }).html(entry.label).appendTo(resultEntry);
-            const list = $("<ul />").attr($.attr.type, "duplicates").appendTo(resultEntry);
+            const list = $("<ul></ul>").attr($.attr.type, "duplicates").appendTo(resultEntry);
 
             entry.duplicates.forEach((duplicate) => {
                 duplicate.duplicate = true;
-                const elm = $("<li />").data("entry", duplicate).appendTo(list);
-                $("<strong />").html(duplicate.title).appendTo(elm);
+                const elm = $("<li></li>").data("entry", duplicate).appendTo(list);
+                $("<strong></strong>").html(duplicate.title).appendTo(elm);
 
                 const parentInfos = ext.helper.entry.getParentsById(duplicate.id);
 
                 if (parentInfos.length > 0) {
-                    const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(elm);
+                    const breadcrumb = $("<ul></ul>").addClass($.cl.sidebar.breadcrumb).appendTo(elm);
                     parentInfos.forEach((parentInfo) => {
-                        $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                        $("<li></li>").text(parentInfo.title).prependTo(breadcrumb);
                     });
                 }
 
-                $("<a />").addClass($.cl.overlay.urlCheckAction).appendTo(elm);
+                $("<a></a>").addClass($.cl.overlay.urlCheckAction).appendTo(elm);
             });
 
             ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
@@ -269,13 +269,13 @@
         const displayChangedOrBrokenUrl = (entry, resultEntry) => {
             ext.helper.checkbox.get(elements.body, {checked: "checked"}).appendTo(resultEntry);
 
-            $("<strong />").text(entry.title).appendTo(resultEntry);
-            const list = $("<ul />").attr($.attr.type, "urls").appendTo(resultEntry);
+            $("<strong></strong>").text(entry.title).appendTo(resultEntry);
+            const list = $("<ul></ul>").attr($.attr.type, "urls").appendTo(resultEntry);
 
             ["url", "newUrl"].forEach((attr) => {
                 if (entry[attr]) {
-                    const elm = $("<li />").appendTo(list);
-                    $("<a />").attr({
+                    const elm = $("<li></li>").appendTo(list);
+                    $("<a></a>").attr({
                         href: entry[attr],
                         title: entry[attr],
                         target: "_blank"
@@ -283,7 +283,7 @@
                 }
             });
 
-            $("<a />").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
+            $("<a></a>").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
 
             ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
                 if (response.img) { // favicon found -> add to entry
@@ -441,7 +441,7 @@
 
                 if (count === 0) { // tab is empty -> show info text
                     elm.children("ul,p").remove();
-                    $("<p />").html("<span>" + ext.helper.i18n.get("overlay_check_bookmarks_no_results_" + key) + "</span>").appendTo(elm);
+                    $("<p></p>").html("<span>" + ext.helper.i18n.get("overlay_check_bookmarks_no_results_" + key) + "</span>").appendTo(elm);
 
                     if (elements.actions && elements.actions[key]) {
                         elements.actions[key].remove();
@@ -475,7 +475,7 @@
                     }
                 });
 
-                $("<p />").addClass($.cl.success).text(ext.helper.i18n.get("overlay_check_bookmarks_no_results")).appendTo(elements.modal);
+                $("<p></p>").addClass($.cl.success).text(ext.helper.i18n.get("overlay_check_bookmarks_no_results")).appendTo(elements.modal);
 
                 return $.delay(500);
             }).then(() => {

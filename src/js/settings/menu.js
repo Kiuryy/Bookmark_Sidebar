@@ -13,7 +13,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
-                list = $("<ul />").appendTo(s.elm.aside.children("nav"));
+                list = $("<ul></ul>").appendTo(s.elm.aside.children("nav"));
                 let menuParsing = s.elm.content.children("div." + $.cl.settings.tabs.content).length();
 
                 const menupointLoaded = () => {
@@ -27,17 +27,17 @@
 
                 s.elm.content.children("div." + $.cl.settings.tabs.content).forEach((elm) => {
                     const name = $(elm).attr($.attr.name);
-                    const entry = $("<li />").attr($.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
+                    const entry = $("<li></li>").attr($.attr.name, name).html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name) + "</a>").appendTo(list);
                     const subTabs = $(elm).children("div[" + $.attr.name + "]");
 
                     if (subTabs.length() > 0) {
-                        const subList = $("<ul />").appendTo(entry);
+                        const subList = $("<ul></ul>").appendTo(entry);
 
                         subTabs.forEach((subElm) => {
                             const subName = $(subElm).attr($.attr.name);
                             const src = $(subElm).attr($.attr.src);
 
-                            const subEntry = $("<li />")
+                            const subEntry = $("<li></li>")
                                 .attr($.attr.name, subName)
                                 .html("<a href='#'>" + s.helper.i18n.get("settings_menu_" + name + "_" + subName) + "</a>")
                                 .appendTo(subList);

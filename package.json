@@ -18,16 +18,16 @@
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
     "del": "^5.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "fs-extra": "^9.0.0",
     "glob-concat": "^1.0.1",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
-    "node-sass": "^4.14.0",
-    "npm-check-updates": "^4.1.2",
+    "node-sass": "^4.14.1",
+    "npm-check-updates": "^5.0.0",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^4.6.12",
+    "terser": "^4.6.13",
     "zip-dir": "^1.0.2"
   }
 }

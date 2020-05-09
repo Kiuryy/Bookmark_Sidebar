@@ -114,7 +114,7 @@
                                 const html = e.dataTransfer.getData("text/html");
 
                                 if (html && html.length > 0) {
-                                    title = $("<div />").html(html).text();
+                                    title = $("<div></div>").html(html).text();
                                 } else {
                                     title = "";
                                 }
@@ -362,7 +362,7 @@
                 }
                 oldTopVal = topVal;
                 ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).remove();
-                bookmarkElm = $("<li />").html("<a>&nbsp;</a>").addClass($.cl.drag.isDragged);
+                bookmarkElm = $("<li></li>").html("<a>&nbsp;</a>").addClass($.cl.drag.isDragged);
             } else { // dragging bookmark or directory
                 draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
                 const startPos = draggedElm.data("startPos");
@@ -451,7 +451,7 @@
                         }
                     } else if (newAboveLink.next("ul").length() === 0) { // empty directory
                         newAboveLink.addClass($.cl.sidebar.dirOpened);
-                        $("<ul />").insertAfter(newAboveLink);
+                        $("<ul></ul>").insertAfter(newAboveLink);
                     }
                 } else { // drag position is below a bookmark
                     clearDirOpenTimeout();

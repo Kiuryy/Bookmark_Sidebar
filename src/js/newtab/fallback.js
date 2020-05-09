@@ -49,9 +49,9 @@
          * Initialises the switch for setting the new tab page as default
          */
         const initSetAsDefaultSwitch = () => {
-            const wrapper = $("<div />").appendTo(n.elm.fallbackInfo);
+            const wrapper = $("<div></div>").appendTo(n.elm.fallbackInfo);
             const checkbox = n.helper.checkbox.get(n.elm.body, {}, "checkbox", "switch").appendTo(wrapper);
-            $("<span />").html(n.helper.i18n.get("newtab_fallback_set_as_new_tab")).insertAfter(checkbox);
+            $("<span></span>").html(n.helper.i18n.get("newtab_fallback_set_as_new_tab")).insertAfter(checkbox);
 
             checkbox.children("input[type='checkbox']").on("change", (e) => {
                 if (e.currentTarget.checked) {
@@ -111,9 +111,9 @@
                     break;
             }
 
-            $("<h2 />").text(n.helper.i18n.get(texts.headline)).appendTo(n.elm.fallbackInfo);
-            $("<p />").text(n.helper.i18n.get(texts.desc)).appendTo(n.elm.fallbackInfo);
-            $("<a />").text(n.helper.i18n.get(texts.link)).appendTo(n.elm.fallbackInfo);
+            $("<h2></h2>").text(n.helper.i18n.get(texts.headline)).appendTo(n.elm.fallbackInfo);
+            $("<p></p>").text(n.helper.i18n.get(texts.desc)).appendTo(n.elm.fallbackInfo);
+            $("<a></a>").text(n.helper.i18n.get(texts.link)).appendTo(n.elm.fallbackInfo);
         };
 
     };

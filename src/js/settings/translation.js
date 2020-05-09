@@ -198,7 +198,7 @@
                                         status = infos.varsAmount > lang.varsAmount ? "incomplete" : "released";
                                     }
 
-                                    const elm = $("<div />")
+                                    const elm = $("<div></div>")
                                         .data("lang", lang.name)
                                         .addClass($.cl.settings.box)
                                         .attr($.attr.settings.translation.releaseStatus, status)
@@ -212,7 +212,7 @@
                                         if (hasImcompleteCategories(lang.categories, infos.categories)) { // translation is incomplete -> show icon in menu
                                             s.elm.aside.find("li[" + $.attr.name + "='language']").addClass($.cl.settings.incomplete);
 
-                                            $("<span />")
+                                            $("<span></span>")
                                                 .attr("title", s.helper.i18n.get("settings_translation_incomplete_info"))
                                                 .appendTo(s.elm.aside.find("li[" + $.attr.name + "='language'] > a"));
                                         }
@@ -332,17 +332,17 @@
          * @param {object} langs
          */
         const addSelectForMissingLangs = (langs) => {
-            const box = $("<div />")
+            const box = $("<div></div>")
                 .addClass($.cl.settings.box)
                 .appendTo(s.elm.translation.overview.children("div." + $.cl.settings.boxWrapper));
 
-            const select = $("<select class='" + $.cl.settings.translation.select + "' />").appendTo(box);
-            $("<option value='' />").text(s.helper.i18n.get("settings_translation_add_language")).appendTo(select);
+            const select = $("<select class='" + $.cl.settings.translation.select + "'></select>").appendTo(box);
+            $("<option value=''></option>").text(s.helper.i18n.get("settings_translation_add_language")).appendTo(select);
 
             const optionList = [];
             Object.keys(langs).forEach((lang) => {
                 optionList.push({
-                    elm: $("<option value='" + lang + "' />").text(languages[lang].label),
+                    elm: $("<option value='" + lang + "'></option>").text(languages[lang].label),
                     label: languages[lang].label
                 });
             });
@@ -478,23 +478,23 @@
                 const key = lang + "_" + name;
                 const defaultLang = s.helper.i18n.getDefaultLanguage();
 
-                elm = $("<div />")
+                elm = $("<div></div>")
                     .attr($.attr.name, name)
                     .attr($.attr.settings.translation.language, lang)
                     .addClass($.cl.settings.translation.category)
                     .appendTo(s.elm.translation.wrapper);
 
-                const header = $("<header />").appendTo(elm);
-                const list = $("<ul />").appendTo(elm);
+                const header = $("<header></header>").appendTo(elm);
+                const list = $("<ul></ul>").appendTo(elm);
 
                 info.category.vars.forEach((field, i) => {
                     if (field.translatable === false && lang !== defaultLang) { // skip non-translatable variables for all languages except the default
                         return;
                     }
 
-                    const entry = $("<li />")
-                        .append("<div />")
-                        .append("<div />")
+                    const entry = $("<li></li>")
+                        .append("<div></div>")
+                        .append("<div></div>")
                         .appendTo(list);
 
                     let originalText = "";
@@ -504,22 +504,22 @@
                         originalText = info.defaults.vars[i].value || "";
                     }
 
-                    $("<span />")
+                    $("<span></span>")
                         .html(originalText)
                         .appendTo(entry.children("div").eq(0));
 
-                    const variableName = $("<footer />")
+                    const variableName = $("<footer></footer>")
                         .addClass($.cl.sidebar.breadcrumb)
                         .data("name", field.label)
-                        .html("<label>" + s.helper.i18n.get("settings_translation_variable_name") + ":</label><div />")
+                        .html("<label>" + s.helper.i18n.get("settings_translation_variable_name") + ":</label><div></div>")
                         .appendTo(entry.children("div").eq(0));
 
                     field.label.split(" - ").forEach((variablePart) => {
-                        $("<span />").text(variablePart).appendTo(variableName.children("div"));
+                        $("<span></span>").text(variablePart).appendTo(variableName.children("div"));
                     });
 
                     const val = field.value || "";
-                    $("<textarea />").data({
+                    $("<textarea></textarea>").data({
                         initial: val,
                         name: field.name
                     }).text(val).appendTo(entry.children("div").eq(1));
@@ -531,14 +531,14 @@
 
                 initTextareaEvents(elm);
 
-                $("<a />").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass($.cl.settings.translation.back).appendTo(header);
+                $("<a></a>").text(s.helper.i18n.get("settings_translation_back_to_overview")).addClass($.cl.settings.translation.back).appendTo(header);
 
                 if (varsAmount[key].total !== varsAmount[key].filled) { // there are empty fields -> show navigation buttons
-                    $("<a />").addClass($.cl.settings.translation["goto"]).attr($.attr.value, "down").appendTo(header);
-                    $("<a />").addClass($.cl.settings.translation["goto"]).attr($.attr.value, "up").appendTo(header);
+                    $("<a></a>").addClass($.cl.settings.translation["goto"]).attr($.attr.value, "down").appendTo(header);
+                    $("<a></a>").addClass($.cl.settings.translation["goto"]).attr($.attr.value, "up").appendTo(header);
                 }
 
-                $("<span />").addClass($.cl.settings.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
+                $("<span></span>").addClass($.cl.settings.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(header);
 
                 header.css("top", "-35px");
             }
@@ -610,7 +610,7 @@
                 activeEntry.addClass($.cl.settings.translation.mark);
                 const label = activeEntry.find("footer." + $.cl.sidebar.breadcrumb).data("name");
 
-                $("<span />")
+                $("<span></span>")
                     .addClass($.cl.settings.desc)
                     .html(s.helper.i18n.get("settings_translation_help", ["<strong>" + label + "</strong>"]))
                     .prependTo(activeEntry);
@@ -717,7 +717,7 @@
                     const infos = obj[lang];
 
                     Object.keys(infos).forEach((category) => { // list all langvar categories
-                        const elm = $("<div />")
+                        const elm = $("<div></div>")
                             .addClass($.cl.settings.box)
                             .data("lang", lang)
                             .data("info", {
@@ -747,10 +747,10 @@
                         }
 
                         if (infos[category].required) {
-                            $("<span />").addClass($.cl.settings.translation.requiredInfo).text("(" + s.helper.i18n.get("settings_translation_required_category") + ")").appendTo(elm);
+                            $("<span></span>").addClass($.cl.settings.translation.requiredInfo).text("(" + s.helper.i18n.get("settings_translation_required_category") + ")").appendTo(elm);
                         }
 
-                        $("<span />").addClass($.cl.settings.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(elm);
+                        $("<span></span>").addClass($.cl.settings.translation.amountInfo).html("<span>" + varsAmount[key].filled + "</span>&thinsp;/&thinsp;" + varsAmount[key].total).appendTo(elm);
 
                         if (varsAmount[key].total > varsAmount[key].filled) { // incomplete notice for already released translations
                             elm.addClass($.cl.settings.incomplete);

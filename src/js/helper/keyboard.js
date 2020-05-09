@@ -449,7 +449,7 @@
                         const data = ext.helper.entry.getDataById(elm.attr($.attr.id));
                         if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
                             $(elm).children("span." + $.cl.sidebar.copied).remove();
-                            const copiedNotice = $("<span />").addClass($.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
+                            const copiedNotice = $("<span></span>").addClass($.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
                             $.delay(100).then(() => {
                                 $(elm).addClass($.cl.sidebar.copied);

@@ -44,7 +44,7 @@
                 } else {
                     s.elm.support.form.addClass($.cl.hidden);
 
-                    $("<p />")
+                    $("<p></p>")
                         .addClass($.cl.error)
                         .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
                         .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
@@ -151,14 +151,14 @@
                     always: true
                 });
 
-                const suggestion = $("<div />")
+                const suggestion = $("<div></div>")
                     .addClass([$.cl.settings.suggestion, $.cl.hidden, $.cl.settings.support.absolute])
                     .attr($.attr.type, key)
                     .append("<strong>" + obj.question.message + "</strong>")
                     .append("<div class='" + $.cl.settings.support.answer + "'>" + obj.answer.message + "</div>")
                     .appendTo(s.elm.support.suggestions);
 
-                $("<p />")
+                $("<p></p>")
                     .append("<a " + $.attr.value + "='1'>" + data.controls.yes.message + "</a>")
                     .append("<a " + $.attr.value + "='0'>" + data.controls.no.message + "</a>")
                     .appendTo(suggestion);
@@ -215,14 +215,14 @@
                     href = $.opts.urlAliases[$.browserName][href];
                 }
 
-                $("<a />")
+                $("<a></a>")
                     .attr("href", href)
                     .text(link.message)
                     .appendTo(controlWrapper);
             });
 
             if (suggestion.parent()[0] !== s.elm.support.faq[0]) {
-                $("<a />")
+                $("<a></a>")
                     .attr($.attr.value, "0")
                     .text(data.controls.close.message)
                     .appendTo(controlWrapper);
@@ -275,12 +275,12 @@
 
                 Object.entries(data.suggestions).some(([key, obj]) => {
                     if (obj.question && obj.question.faq) {
-                        const suggestion = $("<div />")
+                        const suggestion = $("<div></div>")
                             .addClass($.cl.settings.suggestion)
                             .attr($.attr.type, key)
                             .append("<strong>" + obj.question.faq + "</strong>")
                             .append("<div class='" + $.cl.settings.support.answer + "'>" + obj.answer.message + "</div>")
-                            .append("<p />")
+                            .append("<p></p>")
                             .appendTo(s.elm.support.faq);
 
                         suggestion.data("links", obj.answer.links || []);
@@ -402,10 +402,10 @@
                 } else {
                     reader.onload = (e) => {
                         try {
-                            $("<li />")
+                            $("<li></li>")
                                 .append("<img src='" + e.target.result + "' />")
                                 .append("<span>" + file.name + "</span>")
-                                .append("<a class='" + $.cl.close + "' />")
+                                .append("<a class='" + $.cl.close + "'></a>")
                                 .appendTo(s.elm.support.uploadedFiles);
                         } catch (e) {
                             //

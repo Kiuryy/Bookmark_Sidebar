@@ -21,12 +21,12 @@
 
             n.elm.topNav.attr($.attr.position, position);
             n.elm.topNav.children("ul").remove();
-            const list = $("<ul />").appendTo(n.elm.topNav);
+            const list = $("<ul></ul>").appendTo(n.elm.topNav);
 
             if (entries && entries.length > 0) {
                 entries.forEach((entry) => {
-                    const elm = $("<li />").appendTo(list);
-                    const link = $("<a />").addClass($.cl.newtab.link).text(entry.label).appendTo(elm);
+                    const elm = $("<li></li>").appendTo(list);
+                    const link = $("<a></a>").addClass($.cl.newtab.link).text(entry.label).appendTo(elm);
                     link.data("href", entry.url).attr("href", entry.url);
                 });
             }

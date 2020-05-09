@@ -37,7 +37,7 @@
                 this.close(); // close other contextmenus
                 elm.addClass($.cl.active);
 
-                const contextmenu = $("<div />")
+                const contextmenu = $("<div></div>")
                     .addClass($.cl.contextmenu.wrapper)
                     .html("<ul class='" + $.cl.contextmenu.list + "'></ul><ul class='" + $.cl.contextmenu.icons + "'></ul>")
                     .attr($.attr.type, type)
@@ -131,7 +131,7 @@
 
             Object.keys(sortList).forEach((value) => {
                 const langName = value.replace(/([A-Z])/g, "_$1").toLowerCase();
-                $("<li />")
+                $("<li></li>")
                     .append(ext.helper.checkbox.get(ext.elm.iframeBody, {
                         [$.attr.name]: "sort",
                         [$.attr.value]: value
@@ -154,7 +154,7 @@
             const list = contextmenu.children("ul." + $.cl.contextmenu.list);
             const iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
 
-            $("<li />")
+            $("<li></li>")
                 .append(ext.helper.checkbox.get(ext.elm.iframeBody, {[$.attr.name]: "toggleHidden"}))
                 .append("<a " + $.attr.name + "='toggleHidden'>" + ext.helper.i18n.get("contextmenu_toggle_hidden") + "</a>")
                 .appendTo(list);
@@ -163,7 +163,7 @@
                 contextmenu.find("input[" + $.attr.name + "='toggleHidden']").parent("div." + $.cl.checkbox.box).trigger("click");
             }
 
-            $("<li />")
+            $("<li></li>")
                 .append("<a " + $.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
                 .appendTo(list);
 
@@ -179,7 +179,7 @@
             });
 
             if (hasOpenedDirectories) { // show option to close all opened directories when at least one is opened
-                $("<li />")
+                $("<li></li>")
                     .append("<a " + $.attr.name + "='closeAll'>" + ext.helper.i18n.get("contextmenu_close_all_directories") + "</a>")
                     .appendTo(list);
             }
@@ -263,9 +263,9 @@
                 }
 
                 if (data.isDir) {
-                    const listEntry = $("<li />").html("<a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add", null, true) + "'></a>").appendTo(iconWrapper);
+                    const listEntry = $("<li></li>").html("<a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add", null, true) + "'></a>").appendTo(iconWrapper);
 
-                    $("<ul />")
+                    $("<ul></ul>")
                         .attr($.attr.name, "add")
                         .append("<li><a " + $.attr.type + "='bookmark' title='" + ext.helper.i18n.get("overlay_label_bookmark", null, true) + "'></a></li>")
                         .append("<li><a " + $.attr.type + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")

@@ -212,7 +212,7 @@
                     if (!childrenLoaded) { // not yet loaded -> load and expand afterwards
                         ext.helper.model.call("bookmarks", {id: dirId}).then((response) => {
                             if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) {
-                                childrenList = $("<ul />").insertAfter(elm);
+                                childrenList = $("<ul></ul>").insertAfter(elm);
                                 this.addBookmarkDir(response.bookmarks[0].children, childrenList);
                                 expandCollapseDir(elm, childrenList, true, instant).then(preResolve);
                             }
@@ -285,18 +285,18 @@
             ext.elm.header.text("");
             const bookmarkAmount = ext.helper.entry.getAmount("bookmarks");
 
-            $("<h1 />")
+            $("<h1></h1>")
                 .html("<strong>" + bookmarkAmount + "</strong> <span>" + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : "")) + "</span>")
                 .attr("title", bookmarkAmount + " " + ext.helper.i18n.get("header_bookmarks" + (bookmarkAmount === 1 ? "_single" : ""), null, true))
                 .appendTo(ext.elm.header);
 
-            $("<a />").addClass($.cl.sidebar.search).appendTo(ext.elm.header);
-            $("<a />").addClass($.cl.sidebar.sort).appendTo(ext.elm.header);
-            $("<a />").addClass($.cl.sidebar.menu).appendTo(ext.elm.header);
+            $("<a></a>").addClass($.cl.sidebar.search).appendTo(ext.elm.header);
+            $("<a></a>").addClass($.cl.sidebar.sort).appendTo(ext.elm.header);
+            $("<a></a>").addClass($.cl.sidebar.menu).appendTo(ext.elm.header);
 
             this.handleSidebarWidthChange();
 
-            $("<div />")
+            $("<div></div>")
                 .addClass($.cl.sidebar.searchBox)
                 .append("<input type='text' value='" + searchVal.replace(/'/g, "&#x27;") + "' placeholder='" + ext.helper.i18n.get("sidebar_search_placeholder", null, true) + "' />")
                 .append("<a class='" + $.cl.sidebar.searchClose + "'></a>")
@@ -359,11 +359,11 @@
                 const config = ext.helper.model.getData(["u/viewAsTree", "u/mostViewedPerMonth"]);
 
                 const langName = sort.name.replace(/([A-Z])/g, "_$1").toLowerCase();
-                $("<a />").attr($.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elm.filterBox);
-                const checkList = $("<ul />").appendTo(ext.elm.filterBox);
+                $("<a></a>").attr($.attr.direction, sort.dir).text(ext.helper.i18n.get("sort_label_" + langName)).appendTo(ext.elm.filterBox);
+                const checkList = $("<ul></ul>").appendTo(ext.elm.filterBox);
 
                 if (ext.helper.search.isResultsVisible() === false) { // show bookmarks as tree or one dimensional list
-                    $("<li />")
+                    $("<li></li>")
                         .append(ext.helper.checkbox.get(ext.elm.iframeBody, {
                             [$.attr.name]: "viewAsTree",
                             checked: config.viewAsTree ? "checked" : ""
@@ -373,7 +373,7 @@
                 }
 
                 if (sort.name === "mostUsed") { // sort most used based on total clicks or clicks per month
-                    $("<li />")
+                    $("<li></li>")
                         .append(ext.helper.checkbox.get(ext.elm.iframeBody, {
                             [$.attr.name]: "mostViewedPerMonth",
                             checked: config.mostViewedPerMonth ? "checked" : ""
@@ -480,7 +480,7 @@
                 ext.elm.pinnedBox.addClass($.cl.hidden);
             } else {
                 ext.helper.utility.sortEntries(pinnedEntries, sort);
-                const list = $("<ul />").appendTo(ext.elm.pinnedBox);
+                const list = $("<ul></ul>").appendTo(ext.elm.pinnedBox);
 
                 if (ext.helper.model.getData("u/lockPinned")) {
                     ext.elm.lockPinned.addClass($.cl.sidebar.fixed);
@@ -521,12 +521,12 @@
          * @returns {jsu}
          */
         const addEntryToList = (bookmark, list, opts) => {
-            const entry = $("<li />").appendTo(list);
+            const entry = $("<li></li>").appendTo(list);
             const label = bookmark.title && bookmark.title.trim().length ? bookmark.title : "";
-            const entryContent = $("<a />").appendTo(entry);
+            const entryContent = $("<a></a>").appendTo(entry);
 
-            const labelElm = $("<span />").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
-            $("<span />").addClass($.cl.drag.trigger).appendTo(entryContent);
+            const labelElm = $("<span></span>").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
+            $("<span></span>").addClass($.cl.drag.trigger).appendTo(entryContent);
 
             if (bookmark.id) {
                 entryContent.attr($.attr.id, bookmark.id);
@@ -547,7 +547,7 @@
                 entryContent.addClass($.cl.sidebar.bookmarkDir);
 
                 if (opts.config.showDirectoryIcons) {
-                    entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' />");
+                    entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "'></span>");
                 }
 
                 if (opts.config.directoryArrows) {
@@ -558,7 +558,7 @@
 
                 if (opts.config.showBookmarkIcons) {
                     if ($.opts.demoMode) {
-                        entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "' />");
+                        entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "' data-color='" + (Math.floor(Math.random() * 10) + 1) + "'></span>");
                     } else {
                         addFavicon(entryContent, bookmark.url);
                     }
@@ -718,7 +718,7 @@
 
                 if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                     list.addClass($.cl.sidebar.hideRoot);
-                    $("<a />").attr($.attr.name, "add").insertAfter(list);
+                    $("<a></a>").attr($.attr.name, "add").insertAfter(list);
                 }
 
                 $.delay(100).then(() => {
@@ -758,7 +758,7 @@
 
                         if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
                             list.addClass($.cl.sidebar.hideRoot);
-                            $("<a />").attr($.attr.name, "add").insertAfter(list);
+                            $("<a></a>").attr($.attr.name, "add").insertAfter(list);
                             this.toggleBookmarkDir(list.find("> li > a." + $.cl.sidebar.bookmarkDir).eq(0));
                         } else {
                             this.restoreOpenStates(list, true);

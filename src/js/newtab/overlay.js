@@ -58,14 +58,14 @@
          * Extends the overlay html for the search engine selection
          */
         const handleSearchEngineHtml = () => {
-            const scrollBox = $("<div />").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
+            const scrollBox = $("<div></div>").addClass($.cl.scrollBox.wrapper).appendTo(elements.modal);
 
-            const list = $("<ul />").appendTo(scrollBox);
+            const list = $("<ul></ul>").appendTo(scrollBox);
             const searchEngines = n.helper.search.getSearchEngineList();
             const currentSearchEngine = n.helper.search.getCurrentSearchEngine();
 
             Object.entries(searchEngines).forEach(([value, info]) => {
-                const entry = $("<li />")
+                const entry = $("<li></li>")
                     .append(n.helper.checkbox.get(elements.overlay.find("body"), {
                         [$.attr.name]: "searchEngine",
                         [$.attr.value]: value
@@ -82,26 +82,26 @@
                 }
             });
 
-            const customWrapper = $("<ul />").attr($.attr.type, "custom").appendTo(scrollBox);
+            const customWrapper = $("<ul></ul>").attr($.attr.type, "custom").appendTo(scrollBox);
 
             if (currentSearchEngine.name === "custom") {
                 customWrapper.addClass($.cl.visible);
             }
 
-            $("<li />")
+            $("<li></li>")
                 .append("<label>" + n.helper.i18n.get("newtab_search_engine_custom_title") + "</label>")
                 .append("<input type='text' name='title' value='" + currentSearchEngine.title.replace(/'/g, "&#x27;") + "' />")
                 .appendTo(customWrapper);
-            $("<li />")
+            $("<li></li>")
                 .append("<label>" + n.helper.i18n.get("newtab_search_engine_custom_url_homepage") + "</label>")
                 .append("<input type='text' name='homepage' value='" + currentSearchEngine.homepage.replace(/'/g, "&#x27;") + "' placeholder='https://example.com' />")
                 .appendTo(customWrapper);
-            $("<li />")
+            $("<li></li>")
                 .append("<label>" + n.helper.i18n.get("newtab_search_engine_custom_url_results") + "</label>")
                 .append("<input type='text' name='queryUrl' value='" + currentSearchEngine.queryUrl.replace(/'/g, "&#x27;") + "' placeholder='https://example.com/?q={1}' />")
                 .appendTo(customWrapper);
 
-            $("<a />").addClass($.cl.overlay.action).text(n.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
+            $("<a></a>").addClass($.cl.overlay.action).text(n.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
         };
 
         /**

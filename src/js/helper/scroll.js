@@ -29,7 +29,7 @@
          * @param {jsu} elm
          */
         this.add = (id, elm) => {
-            const scrollBox = $("<div id='" + id + "' class='" + $.cl.scrollBox.wrapper + "' tabindex='0' />").insertBefore(elm);
+            const scrollBox = $("<div id='" + id + "' class='" + $.cl.scrollBox.wrapper + "' tabindex='0'></div>").insertBefore(elm);
             elm = elm.appendTo(scrollBox);
 
             scrollBox.data({

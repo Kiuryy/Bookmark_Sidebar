@@ -496,9 +496,9 @@
                 const availableTheme = elmObj.attr($.attr.name);
 
                 if (theme === availableTheme) {
-                    $("<span />").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
+                    $("<span></span>").addClass($.cl.active).text(s.helper.i18n.get("settings_installed_theme_info")).appendTo(caption);
                 } else if (displayThemes) {
-                    $("<a />").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
+                    $("<a></a>").text(s.helper.i18n.get("settings_install_theme")).appendTo(caption);
                 }
             });
 
@@ -556,7 +556,7 @@
                 Object.keys(previews).forEach((key) => {
                     previews[key].css = "";
 
-                    s.elm.preview[key] = $("<iframe />")
+                    s.elm.preview[key] = $("<iframe></iframe>")
                         .attr($.attr.settings.appearance, key)
                         .appendTo(s.elm.body);
 
@@ -666,7 +666,7 @@
                     const box = $(e.currentTarget).parents("div." + $.cl.settings.box).eq(0);
                     if (val !== initialVal) {
                         if (box.children("a." + $.cl.settings.revert).length() === 0) {
-                            $("<a href='#' />").addClass($.cl.settings.revert).data("elm", box).appendTo(box);
+                            $("<a href='#'></a>").addClass($.cl.settings.revert).data("elm", box).appendTo(box);
                         }
                     } else {
                         box.children("a." + $.cl.settings.revert).remove();

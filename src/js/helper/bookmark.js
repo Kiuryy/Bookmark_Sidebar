@@ -23,7 +23,7 @@
                             const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
                             entry.data("restore", data);
 
-                            const mask = $("<span />")
+                            const mask = $("<span></span>")
                                 .addClass($.cl.sidebar.removeMask)
                                 .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
                                 .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")

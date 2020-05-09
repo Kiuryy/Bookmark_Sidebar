@@ -44,7 +44,7 @@
                     const data = ext.helper.entry.getDataById(id);
 
                     if (data) {
-                        const tooltip = $("<div />")
+                        const tooltip = $("<div></div>")
                             .addClass($.cl.tooltip.wrapper)
                             .attr($.attr.id, id)
                             .appendTo(ext.elm.iframeBody);
@@ -84,29 +84,29 @@
          */
         const addContent = (tooltip, data) => {
             if (config.tooltipContent === "all" || config.tooltipContent === "title") {
-                $("<h3 />").text(data.title).appendTo(tooltip);
+                $("<h3></h3>").text(data.title).appendTo(tooltip);
             }
 
             if (data.isDir) {
-                $("<span />").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
+                $("<span></span>").text(data.children.length + " " + ext.helper.i18n.get("sidebar_dir_children")).appendTo(tooltip);
             } else if (config.tooltipContent === "all" || config.tooltipContent === "url") {
-                $("<span />").text(data.url).appendTo(tooltip);
+                $("<span></span>").text(data.url).appendTo(tooltip);
             }
 
             if (ext.helper.search.isResultsVisible()) {
                 const parentInfos = ext.helper.entry.getParentsById(data.id);
 
                 if (parentInfos.length > 0) {
-                    const breadcrumb = $("<ul />").addClass($.cl.sidebar.breadcrumb).appendTo(tooltip);
+                    const breadcrumb = $("<ul></ul>").addClass($.cl.sidebar.breadcrumb).appendTo(tooltip);
                     parentInfos.forEach((parentInfo) => {
-                        $("<li />").text(parentInfo.title).prependTo(breadcrumb);
+                        $("<li></li>").text(parentInfo.title).prependTo(breadcrumb);
                     });
                 }
             }
 
             if (config.tooltipAdditionalInfo && data.additionalInfo && data.additionalInfo.desc) {
                 const additionalInfo = data.additionalInfo.desc.replace(/\n/g, "<br />");
-                $("<p />").html(additionalInfo).appendTo(tooltip);
+                $("<p></p>").html(additionalInfo).appendTo(tooltip);
             }
         };
 

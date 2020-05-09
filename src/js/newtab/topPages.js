@@ -24,7 +24,7 @@
          */
         this.init = async () => {
             initEvents();
-            n.elm.topPages.html("<ul />");
+            n.elm.topPages.html("<ul></ul>");
             type = n.helper.model.getData("n/topPagesType");
             appearance = n.helper.model.getData("n/topPagesAppearance");
 
@@ -160,9 +160,9 @@
                         .attr($.attr.newtab.perRow, amount.total / amount.rows);
 
                     pages.forEach((page) => {
-                        const entry = $("<li />").appendTo(topPagesWrapper);
-                        const entryLink = $("<a />").attr({href: page.url, title: page.title}).appendTo(entry);
-                        const entryLabel = $("<span />").text(page.title).appendTo(entryLink);
+                        const entry = $("<li></li>").appendTo(topPagesWrapper);
+                        const entryLink = $("<a></a>").attr({href: page.url, title: page.title}).appendTo(entry);
+                        const entryLabel = $("<span></span>").text(page.title).appendTo(entryLink);
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
@@ -171,7 +171,7 @@
                                 if (appearance === "thumbnail") {
                                     favicon.prependTo(entryLabel);
                                 } else {
-                                    $("<div />").append(favicon).prependTo(entryLink);
+                                    $("<div></div>").append(favicon).prependTo(entryLink);
                                 }
                             }
                         });

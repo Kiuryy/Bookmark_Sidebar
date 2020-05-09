@@ -27,7 +27,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            ext.elm.indicator = $("<div />").attr("id", $.opts.ids.page.indicator).appendTo("body");
+            ext.elm.indicator = $("<div></div>").attr("id", $.opts.ids.page.indicator).appendTo("body");
 
             if (ext.helper.model.getData("b/animations") === false) {
                 ext.elm.indicator.addClass($.cl.page.noAnimations);
@@ -71,10 +71,10 @@
             }
 
             if (data.showIndicator && data.openAction !== "icon" && data.openAction !== "mousemove") { // show indicator
-                ext.elm.indicator.html("<div />").attr($.attr.position, sidebarPos);
+                ext.elm.indicator.html("<div></div>").attr($.attr.position, sidebarPos);
 
                 if (data.showIndicatorIcon) { // show indicator icon
-                    $("<span />").appendTo(ext.elm.indicator.children("div"));
+                    $("<span></span>").appendTo(ext.elm.indicator.children("div"));
                 }
 
                 $.delay(50).then(() => { // delay to prevent indicator beeing visible initial

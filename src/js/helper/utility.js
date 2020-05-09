@@ -110,7 +110,7 @@
          * @returns {boolean}
          */
         this.copyToClipboard = (text) => {
-            const textarea = $("<textarea />").text(text).appendTo(ext.elm.iframeBody);
+            const textarea = $("<textarea></textarea>").text(text).appendTo(ext.elm.iframeBody);
             textarea[0].select();
 
             let success = false;

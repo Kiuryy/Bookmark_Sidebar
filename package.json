@@ -20,7 +20,7 @@
     "del": "^5.1.0",
     "eslint": "^7.0.0",
     "fs-extra": "^9.0.0",
-    "glob-concat": "^1.0.1",
+    "glob-concat": "^1.0.2",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.14.1",

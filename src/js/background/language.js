@@ -14,6 +14,7 @@
             de: "German",
             el: "Greek",
             en: "English",
+            en_US: "English (US)",
             es: "Spanish",
             //es_419: "Spanish (Latin America and Caribbean)",
             et: "Estonian",

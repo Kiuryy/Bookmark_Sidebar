@@ -5,9 +5,6 @@
     "extension_desc": {
         "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
     },
-    "extension_author": {
-        "message": "Philipp K\u00f6nig"
-    },
     "header_bookmarks": {
         "message": "Bookmarks"
     },
@@ -707,30 +704,6 @@
     "settings_remember_desc": {
         "message": "Select what to remember across page changes. If you choose to remember the last opened bookmark, it will be marked when opening the sidebar again."
     },
-    "settings_dnd_creation_dialog": {
-        "message": "Show creation dialog"
-    },
-    "settings_dnd_creation_dialog_desc": {
-        "message": "Show the creation dialog before adding a new bookmark when drag&drop into the sidebar."
-    },
-    "settings_new_entry_position": {
-        "message": "Position of new entries"
-    },
-    "settings_new_entry_position_desc": {
-        "message": "The preselected position when adding new entries to the sidebar."
-    },
-    "settings_open_children_warn_limit": {
-        "message": "Open all sub-folder bookmarks (Warning limit)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Amount of bookmarks at which a warning appears, when trying to open all bookmarks within a folder and its sub-folders at once."
-    },
-    "settings_dir_open_duration": {
-        "message": "Folder open duration"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Duration of the open and close animation of directories"
-    },
     "settings_new_tab": {
         "message": "New Tab"
     },
@@ -772,12 +745,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Never hide"
-    },
-    "settings_dnd_open_dir_delay": {
-        "message": "Drag&Drop Open folder delay"
-    },
-    "settings_dnd_open_dir_delay_desc": {
-        "message": "Delay before opening a hovered folder when dragging an element over it."
     },
     "settings_reopen_sidebar": {
         "message": "Reopen sidebar"
@@ -829,12 +796,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "Right"
-    },
-    "settings_animations": {
-        "message": "Enable animations"
-    },
-    "settings_animations_desc": {
-        "message": "Allows you to disable all sidebar animations. This can be useful if the animations are not running smoothly on your system."
     },
     "settings_filter_intro": {
         "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
@@ -894,19 +855,19 @@
         "message": "You can select predefined sizes for the sidebar. This will change the sliders on this page which will adjust the sidebar width, line heights, icon sizes and many other visual options."
     },
     "settings_color_scheme": {
-        "message": "Colour scheme"
+        "message": "Color scheme"
     },
     "settings_dark_mode": {
         "message": "Surface"
     },
     "settings_color_scheme_desc": {
-        "message": "The colour of the sidebar header, checkboxes, etc."
+        "message": "The color of the sidebar header, checkboxes, etc."
     },
     "settings_text_color": {
-        "message": "Text colour"
+        "message": "Text color"
     },
     "settings_hover_color": {
-        "message": "Mouseover colour"
+        "message": "Mouseover color"
     },
     "settings_font_family": {
         "message": "Typeface"
@@ -921,7 +882,7 @@
         "message": "Scrollbar width"
     },
     "settings_icon_color": {
-        "message": "Colour"
+        "message": "Color"
     },
     "settings_icon_color_auto": {
         "message": "Automatically"
@@ -930,22 +891,22 @@
         "message": "Custom"
     },
     "settings_icon_color_desc_1": {
-        "message": "The icon colour will be set automatically to match colour scheme of your system (light or dark). You can also define your own custom colour for the icon."
+        "message": "The icon color will be set automatically to match color scheme of your system (light or dark). You can also define your own custom color for the icon."
     },
     "settings_icon_color_desc_2": {
-        "message": "Please note that the automatic colour will not work when using a custom {browserName} theme."
+        "message": "Please note that the automatic color will not work when using a custom {browserName} theme."
     },
     "settings_indicator_width": {
         "message": "Width"
     },
     "settings_indicator_color": {
-        "message": "Colour"
+        "message": "Color"
     },
     "settings_indicator_icon_size": {
         "message": "Icon size"
     },
     "settings_indicator_icon_color": {
-        "message": "Icon colour"
+        "message": "Icon color"
     },
     "settings_sidebar_width": {
         "message": "Width"
@@ -954,7 +915,7 @@
         "message": "Header height"
     },
     "settings_sidebar_mask_color": {
-        "message": "Mask colour"
+        "message": "Mask color"
     },
     "settings_background_transparency": {
         "message": "Background transparency"
@@ -966,7 +927,7 @@
         "message": "Folder icon"
     },
     "settings_bookmarks_dir_color": {
-        "message": "Folder icon colour"
+        "message": "Folder icon color"
     },
     "settings_bookmarks_font_size": {
         "message": "Bookmarks font size"
@@ -993,7 +954,7 @@
         "message": "Tooltip font size"
     },
     "settings_overlay_mask_color": {
-        "message": "Mask colour"
+        "message": "Mask color"
     },
     "settings_icon_shape": {
         "message": "Shape"
@@ -1008,7 +969,7 @@
         "message": "Theme"
     },
     "settings_themes_notice": {
-        "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and colour options."
+        "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and color options."
     },
     "settings_available_themes": {
         "message": "Available Themes"
@@ -1020,7 +981,7 @@
         "message": "Default theme"
     },
     "settings_theme_default_desc": {
-        "message": "This theme lets you access your bookmarks in a clean, modern way. The colour of many of the elements can be changed by modifying the colour scheme."
+        "message": "This theme lets you access your bookmarks in a clean, modern way. The color of many of the elements can be changed by modifying the color scheme."
     },
     "settings_theme_glass": {
         "message": "Glass theme"
@@ -1118,18 +1079,6 @@
     "settings_translation_required_category": {
         "message": "Required"
     },
-    "settings_translation_variable_name": {
-        "message": "Variable name"
-    },
-    "settings_translation_thanks_headline": {
-        "message": "Thank you for your translation."
-    },
-    "settings_translation_thanks_desc": {
-        "message": "I really appreciate your support by translating the extension's text. I would like to thank you by sending you a [b]free license key[\/b], which you can use to activate the Premium features. If you leave your email address I will get back to you."
-    },
-    "settings_translation_thanks_close": {
-        "message": "No thanks"
-    },
     "settings_support_faq_headline": {
         "message": "Frequently Asked Questions"
     },
@@ -1162,12 +1111,6 @@
     },
     "settings_support_feedback_send_failed": {
         "message": "Your message could not be sent. Please try again."
-    },
-    "settings_about_me_desc": {
-        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b]. I am a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management in Chrome so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. Back then I could never have imagined how many people would use my extension, send me feedback, ideas or report issues. That's why the extension has so many new features, improvements and translations into other languages. All this has only been possible with your help!"
-    },
-    "settings_about_me_sub_text": {
-        "message": "Thank you for your support."
     },
     "settings_permissions_desc": {
         "message": "In order to make a togglable sidebar possible in {browserName}, the following permissions are required and requested by the extension:"
@@ -1206,7 +1149,7 @@
         "message": "Get Premium now"
     },
     "premium_show_license_input": {
-        "message": "I already have a Premium licence key"
+        "message": "I already have a Premium license key"
     },
     "premium_already_activated": {
         "message": "You are already using Premium"
@@ -1215,7 +1158,7 @@
         "message": "Activate Premium"
     },
     "premium_license_key": {
-        "message": "Licence Key"
+        "message": "License Key"
     },
     "premium_feature_early_access_headline": {
         "message": "Be first to try out new experimental features"
@@ -1251,7 +1194,7 @@
         "message": "Change the theme of your sidebar"
     },
     "premium_feature_themes_desc": {
-        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and colour options."
+        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and color options."
     },
     "premium_pay_select_payment_method": {
         "message": "Select a payment method"
@@ -1275,10 +1218,10 @@
         "message": "This is a one-time charge and includes all future Premium features as well."
     },
     "premium_pay_eula": {
-        "message": "End-User Licence Agreement"
+        "message": "End-User License Agreement"
     },
     "premium_pay_eula_desc": {
-        "message": "I read and accept the [a]End-User Licence Agreement[\/a]"
+        "message": "I read and accept the [a]End-User License Agreement[\/a]"
     },
     "premium_pay_cancellation_policy": {
         "message": "Cancellation Policy"
@@ -1308,7 +1251,7 @@
         "message": "E-Mail"
     },
     "premium_pay_info_email_desc": {
-        "message": "Please enter your mail address to receive the licence key."
+        "message": "Please enter your mail address to receive the license key."
     },
     "premium_pay_info_name": {
         "message": "Name"

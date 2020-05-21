@@ -395,6 +395,9 @@
     "contribute_intro": {
         "message": "For at g\u00f8re denne udvidelse bedre \u00f8nsker jeg at opn\u00e5 kendskab til hvordan brugere benytter sidebaren, samt hvilke ops\u00e6tning de bruger."
     },
+    "contribute_notice": {
+        "message": "Du kan hj\u00e6lpe mig ved at dele din ops\u00e6tning."
+    },
     "contribute_outro": {
         "message": "Hvis du har sp\u00f8rgsm\u00e5l eller bekymringer om at dele denne information, send mig gerne din feedback."
     },
@@ -535,6 +538,9 @@
     },
     "settings_menu_language_translate": {
         "message": "Overs\u00e6t"
+    },
+    "settings_menu_support": {
+        "message": "Support"
     },
     "settings_menu_infos": {
         "message": "Information"
@@ -839,6 +845,9 @@
     "settings_import_failed": {
         "message": "Kunne ikke importere konfigurationen. V\u00e6lg venligst en gyldig fil."
     },
+    "settings_theme_changed": {
+        "message": "\u00c6ndret tema succesfuldt"
+    },
     "settings_presets": {
         "message": "Indstil relative st\u00f8rrelser"
     },
@@ -908,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Maske farve"
     },
+    "settings_background_transparency": {
+        "message": "Baggrund gennemsigtighed"
+    },
+    "settings_background_blur": {
+        "message": "Baggrundssl\u00f8r"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Vejviser ikon"
     },
@@ -949,6 +964,21 @@
     },
     "settings_custom_css_desc": {
         "message": "Du kan definere dit typografiark for at tilsides\u00e6tte standard styling. Brug kun denne mulighed, hvis du er bekendt med CSS og ved, hvad du laver."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Du kan v\u00e6lge det grundl\u00e6ggende design af sidebj\u00e6lken. Det valgte tema kan tilpasses med de tilg\u00e6ngelige skyder og farveindstillinger."
+    },
+    "settings_available_themes": {
+        "message": "Tilg\u00e6ngelige temaer"
+    },
+    "settings_show_themes": {
+        "message": "Vis tilg\u00e6ngelige temaer"
+    },
+    "settings_theme_default": {
+        "message": "Standard tema"
     },
     "settings_newtab_desc": {
         "message": "Desv\u00e6rre har Google fjernet muligheden for at loade udvidelser p\u00e5 standard-siden for et nyt faneblad. Grundet dette har jeg tilf\u00f8jet nogle muligheder der tillader dig at tilg\u00e5 dine bogm\u00e6rker, n\u00e5r et nyt faneblad \u00e5bnes, p\u00e5 en anden facon."

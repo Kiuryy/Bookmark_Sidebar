@@ -18,7 +18,7 @@
         "message": "Buscar Marcador"
     },
     "sidebar_search_no_results": {
-        "message": "No hay marcadores que coincidan con tu valor de b\u00fasqueda"
+        "message": "No hay marcadores que coincidan con tu b\u00fasqueda"
     },
     "sidebar_copied_to_clipboard": {
         "message": "URL copiada al portapapeles"
@@ -63,10 +63,10 @@
         "message": "Abrir en una nueva ventana"
     },
     "contextmenu_new_tab_incognito": {
-        "message": "Abrir en ventana de inc\u00f3gnito"
+        "message": "Abrir en una ventana de inc\u00f3gnito"
     },
     "contextmenu_add_bookmark": {
-        "message": "Adicionar Marcador"
+        "message": "Agregar Marcador"
     },
     "contextmenu_add": {
         "message": "Agregar entrada"
@@ -96,16 +96,16 @@
         "message": "Buscar - Mostrar en carpeta"
     },
     "contextmenu_pin": {
-        "message": "Fijar en la parte superior"
+        "message": "Anclar en la parte superior"
     },
     "contextmenu_unpin": {
-        "message": "Anular fijaci\u00f3n de la parte superior"
+        "message": "Desanclar de la parte superior"
     },
     "contextmenu_bookmark_manager": {
-        "message": "Administrar Marcador"
+        "message": "Administrador de Marcador"
     },
     "contextmenu_keyboard_shortcuts": {
-        "message": "Accesos directos de teclado"
+        "message": "Atajos de teclado"
     },
     "sort_label_custom": {
         "message": "Definido por el usuario"
@@ -168,7 +168,7 @@
         "message": "\u00bfRealmente desea ocultar este directorio de la barra lateral? Todos los marcadores subordinados se ocultar\u00e1n tambi\u00e9n."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Realmente desea eliminar este marcador?"
+        "message": "\u00bfRealmente desea eliminar este marcador?"
     },
     "overlay_delete_dir_confirm": {
         "message": "\u00bfRealmente desea eliminar este directorio? Todos los marcadores subordinados se eliminar\u00e1n tambi\u00e9n."
@@ -195,10 +195,10 @@
         "message": "Opcionalmente puede ingresar un t\u00edtulo para el separador. Se mostrar\u00e1 en la parte superior de la l\u00ednea de separaci\u00f3n y puede ayudarlo a organizar su lista de marcadores."
     },
     "overlay_bookmark_views": {
-        "message": "Punto de vista"
+        "message": "Vistas"
     },
     "overlay_bookmark_views_single": {
-        "message": "Vistas"
+        "message": "Vista"
     },
     "overlay_bookmark_views_since": {
         "message": "Grabado desde"
@@ -234,7 +234,7 @@
         "message": "Comprobar las URL de los marcadores"
     },
     "overlay_check_bookmarks_update_selected": {
-        "message": "Selecci\u00f3n actualizada"
+        "message": "Actualizar seleccionado"
     },
     "overlay_check_bookmarks_remove_selected": {
         "message": "Eliminar seleccionado"
@@ -363,7 +363,7 @@
         "message": "Enter"
     },
     "keyboard_shortcuts_key_ctrl": {
-        "message": "Control"
+        "message": "Ctrl"
     },
     "keyboard_shortcuts_key_cmd": {
         "message": "Comando"
@@ -372,7 +372,7 @@
         "message": "Suprimir"
     },
     "keyboard_shortcuts_key_esc": {
-        "message": "Escape"
+        "message": "Esc"
     },
     "keyboard_shortcuts_tab_desc": {
         "message": "Pone el cursor sobre la entrada siguiente o anterior en la barra lateral."
@@ -384,7 +384,7 @@
         "message": "Abre el men\u00fa contextual para la entrada actualmente suspendida"
     },
     "keyboard_shortcuts_ctrl_c_desc": {
-        "message": "Copia la url de la entrada actualmente suspendida"
+        "message": "Copia la URL de la entrada actualmente suspendida"
     },
     "keyboard_shortcuts_del_desc": {
         "message": "Elimina la entrada actualmente suspendida"
@@ -420,19 +420,19 @@
         "message": "Los datos que se comparten son, por ejemplo:"
     },
     "contribute_share_activity_example_1": {
-        "message": "Cu\u00e1ntos marcadores tienen los usuarios en promedio?"
+        "message": "\u00bfCu\u00e1ntos marcadores tienen los usuarios en promedio?"
     },
     "contribute_share_activity_example_2": {
-        "message": "En qu\u00e9 plataforma est\u00e1n los usuarios (Windows, Mac, Linux, ...)?"
+        "message": "\u00bfEn qu\u00e9 plataforma est\u00e1n los usuarios (Windows, Mac, Linux, ...)?"
     },
     "contribute_share_activity_example_3": {
-        "message": "Los usuarios usan la b\u00fasqueda?"
+        "message": "\u00bfLos usuarios usan la b\u00fasqueda?"
     },
     "contribute_share_activity_example_4": {
-        "message": "Los usuarios cambian la clasificaci\u00f3n de los marcadores?"
+        "message": "\u00bfLos usuarios cambian la clasificaci\u00f3n de los marcadores?"
     },
     "contribute_share_activity_example_5": {
-        "message": "Con qu\u00e9 frecuencia los usuarios reorganizan o editan las entradas?"
+        "message": "\u00bfCon qu\u00e9 frecuencia los usuarios reorganizan o editan las entradas?"
     },
     "onboarding_title": {
         "message": "Configuraci\u00f3n"
@@ -573,7 +573,7 @@
         "message": "Grabar cambios"
     },
     "settings_saved_message": {
-        "message": "Cambios grabados correctamente"
+        "message": "Cambios guardados correctamente"
     },
     "settings_restore": {
         "message": "Restaurar predeterminados"
@@ -1023,7 +1023,7 @@
         "message": "En lugar de abrir el reemplazo de nueva pesta\u00f1a, puede establecer un sitio web que se cargue en su lugar."
     },
     "settings_language": {
-        "message": "Lenguaje"
+        "message": "Idioma"
     },
     "settings_language_default": {
         "message": "Navegador predeterminado"
@@ -1038,10 +1038,10 @@
         "message": "Tu puedes ayudar a traducir la extensi\u00f3n a tu idioma o mejorar las existentes."
     },
     "settings_translation_add_language": {
-        "message": "Agregar lenguaje"
+        "message": "Agregar idioma"
     },
     "settings_translation_back_to_overview": {
-        "message": "Regresar al resumen"
+        "message": "Regresar a general"
     },
     "settings_translation_info": {
         "message": "Puedes editar las traducciones existentes o agregar las que faltan. Si env\u00eda sus cambios, revisar\u00e9 tu opini\u00f3n y la aprobar\u00e9."

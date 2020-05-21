@@ -1049,6 +1049,9 @@
     "settings_translation_required_category": {
         "message": "Povinn\u00fd"
     },
+    "settings_support_faq_headline": {
+        "message": "\u010casto kladen\u00e9 ot\u00e1zky"
+    },
     "settings_support_feedback_headline": {
         "message": "Zp\u011btn\u00e1 vazba"
     },
@@ -1057,6 +1060,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Napi\u0161te pros\u00edm svou zpr\u00e1vu v angli\u010dtin\u011b, jinak budu m\u00edt probl\u00e9my s pochopen\u00edm a odpov\u011bd\u00ed na va\u0161i zpr\u00e1vu."
+    },
+    "settings_support_feedback_email": {
+        "message": "Emailov\u00e1 adresa (voliteln\u00e9)"
     },
     "settings_support_feedback_screenshot": {
         "message": "P\u0159ipojit screenshot"
@@ -1153,6 +1159,9 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "M\u016f\u017eete kliknout na adres\u00e1\u0159 v postrann\u00edm panelu k proveden\u00ed kontroly. V\u00fdsledek uk\u00e1\u017ee aktualizovan\u00e9 url, z\u00e1lo\u017eky, kter\u00e9 ji\u017e nepracuj\u00ed, a z\u00e1lo\u017eky s toto\u017enou url."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Zm\u011b\u0148te motiv postrann\u00edho panelu"
     },
     "premium_pay_select_payment_method": {
         "message": "Zvolte platebn\u00ed metodu"

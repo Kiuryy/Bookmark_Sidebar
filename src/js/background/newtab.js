@@ -60,7 +60,7 @@
         const initEvents = async () => {
             $.api.tabs.onCreated.addListener((tab) => {
                 const url = tab.url || tab.pendingUrl;
-                if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || b.helper.utility.getParsedUrl(url === "chrome://startpage/"))) {
+                if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || url === b.helper.utility.getParsedUrl("chrome://startpage/"))) {
                     if (typeof config.override !== "undefined" && config.override === true) {
                         let url = $.api.extension.getURL("html/newtab.html");
                         if (config.website && config.website.length > 0) {

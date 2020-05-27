@@ -146,9 +146,12 @@
                 delete obj.appearance.addVisual;
                 delete obj.newtab.initialOpen;
 
-                if (typeof obj.appearance.indicatorWidth === "undefined") { // @deprecated (05-2020) the new default width of the indicator is smaller than before -> upgrade all existing users to the old default values, if they didn't explicitly configured something different
-                    obj.appearance.indicatorWidth = "40px";
-                    obj.appearance.indicatorIconSize = "32px";
+                if (typeof obj.appearance.styles === "undefined") { // @deprecated (06-2020) the new default width of the indicator is smaller than before -> upgrade all existing users to the old default values, if they didn't explicitly configured something different
+                    obj.appearance.styles = {};
+                }
+                if (typeof obj.appearance.styles.indicatorWidth === "undefined") { // @deprecated (06-2020) the new default width of the indicator is smaller than before -> upgrade all existing users to the old default values, if they didn't explicitly configured something different
+                    obj.appearance.styles.indicatorWidth = "40px";
+                    obj.appearance.styles.indicatorIconSize = "32px";
                 }
             } catch (e) {
                 //

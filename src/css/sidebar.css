@@ -803,6 +803,7 @@ section#sidebar {
   height: 100%;
   display: flex;
   float: left;
+  speak: none;
   flex-direction: column;
   user-select: none;
   transition: background 0.3s;

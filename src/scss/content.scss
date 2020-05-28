@@ -83,6 +83,7 @@ body > iframe#blockbyte-bs-sidebar {
   height: 0;
   z-index: #{2147483647 - 1};
   background-color: $__sidebarMaskColor !important;
+  speak: none;
   border: none;
   display: block !important;
   transform: translate3d(-$__sidebarWidth, 0, 0);
@@ -118,6 +119,7 @@ body > iframe#blockbyte-bs-overlay {
   height: 100%;
   z-index: 2147483647;
   border: none;
+  speak: none;
   background: $__overlayMaskColor !important;
   transition: opacity 0.3s;
 

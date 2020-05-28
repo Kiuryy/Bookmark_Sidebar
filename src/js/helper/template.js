@@ -33,12 +33,17 @@
             ret.overlay = $("<iframe></iframe>")
                 .attr("id", $.opts.ids.page.overlay)
                 .addClass("notranslate") // 'notranslate' prevents Google translator from translating the content of the overlay
+                .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
                 .appendTo("body");
 
             ext.helper.stylesheet.addStylesheets(["overlay"], ret.overlay);
 
             const iframeBody = ret.overlay.find("body");
-            iframeBody.attr($.attr.theme, config.theme);
+
+            iframeBody
+                .attr($.attr.theme, config.theme)
+                .attr("aria-hidden", "true");
+
             iframeBody.parent("html").attr("dir", ext.helper.i18n.isRtl() ? "rtl" : "ltr");
 
             ret.modal = $("<div></div>")

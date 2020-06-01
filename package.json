@@ -10,7 +10,7 @@
     "url": "https://github.com/Kiuryy/Bookmark_Sidebar"
   },
   "scripts": {
-    "init": "npm install --only=dev",
+    "init": "npm install --only=dev && npm install -g npm-check-updates",
     "release": "ncu -u --packageFile package.json && npm install --only=dev && node build.js",
     "scss": "node-sass -o src/css src/scss"
   },

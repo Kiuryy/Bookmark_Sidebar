@@ -1,9 +1,9 @@
 {
     "extension_name": {
-        "message": "Bookmark Sidebar"
+        "message": "Barre lat\u00e9rale de favoris"
     },
     "extension_desc": {
-        "message": "Vous permet de regrouper tous vos favoris dans une barre lat\u00e9rale \u00e0 gauche de l'\u00e9cran."
+        "message": "Ajoute une barre lat\u00e9rale commutable regroupant tous vos favoris sur le bord de la fen\u00eatre de votre navigateur."
     },
     "header_bookmarks": {
         "message": "Favoris"

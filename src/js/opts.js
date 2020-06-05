@@ -224,8 +224,7 @@
             i18n: "data-i18n",
             i18nReplaces: "data-i18nReplaces",
             newtab: {
-                appearance: "data-appearance",
-                perRow: "data-perRow",
+                appearance: "data-appearance"
             },
             onboarding: {
                 openType: "data-openType",

@@ -166,6 +166,8 @@
                 },
                 topPagesType: "topPages",
                 topPagesAppearance: "favicon",
+                topPagesMaxCols: 4,
+                topPagesMaxRows: 2,
                 shortcuts: [{label: "Google", url: "https://google.com"}],
                 website: ""
             }

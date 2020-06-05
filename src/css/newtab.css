@@ -202,18 +202,13 @@ div#topPages {
   div#topPages.hidden {
     display: none; }
   div#topPages > ul {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: left;
     transition: opacity 0.2s; }
     div#topPages > ul > li {
       display: block;
       font-size: 90%; }
-    div#topPages > ul[data-perRow='3'] {
-      max-width: 477px; }
-    div#topPages > ul[data-perRow='2'] {
-      max-width: 318px; }
     div#topPages > ul[data-appearance='thumbnail'] > li {
       padding: 8px 7px; }
       div#topPages > ul[data-appearance='thumbnail'] > li > a {
@@ -250,7 +245,7 @@ div#topPages {
             opacity: 1; }
     div#topPages > ul[data-appearance='favicon'] > li {
       font-weight: "%fontWeightMedium";
-      padding: 16px 0; }
+      padding: 17px 0; }
       div#topPages > ul[data-appearance='favicon'] > li > a {
         display: block;
         margin: 0 auto;
@@ -384,6 +379,7 @@ div#search {
   display: block;
   margin: 0 auto;
   width: 100%;
+  max-width: 650px;
   padding: 0 10px;
   height: 54px; }
   div#search.hidden {
@@ -640,6 +636,36 @@ body.dark div#fallbackInfo > a {
 body.dark.customBackground div#fallbackInfo {
   background: rgba(61, 61, 61, 0.7); }
 
+menu.infoBar > div.upload > span.premium, body.edit div#topPages > div[data-type='gridsize'] > span.premium {
+  position: relative;
+  display: inline-block;
+  font-size: 90%;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 4px 0 22px;
+  vertical-align: top;
+  color: #fff;
+  background: "%textColor"; }
+  menu.infoBar > div.upload > span.premium::before, body.edit div#topPages > div[data-type='gridsize'] > span.premium::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/14px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
+    background-color: #fff; }
+  menu.infoBar > div.upload > span.premium::after, body.edit div#topPages > div[data-type='gridsize'] > span.premium::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: -16px;
+    border: 8px solid transparent;
+    border-left-color: "%textColor"; }
+  menu.infoBar > div.upload > span.premium::before, body.edit div#topPages > div[data-type='gridsize'] > span.premium::before {
+    -webkit-mask-position-x: 4px; }
+
 body > a.edit {
   position: absolute;
   bottom: 20px;
@@ -752,35 +778,7 @@ menu.infoBar {
         cursor: pointer;
         outline: none; }
     menu.infoBar > div.upload > span.premium {
-      position: relative;
-      display: inline-block;
-      font-size: 90%;
-      height: 26px;
-      line-height: 26px;
-      padding: 0 4px 0 22px;
-      margin: 2px 0 0 10px;
-      vertical-align: top;
-      color: #fff;
-      background: "%textColor"; }
-      menu.infoBar > div.upload > span.premium::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-mask: no-repeat center/14px;
-        -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-premium.svg);
-        background-color: #fff; }
-      menu.infoBar > div.upload > span.premium::after {
-        content: "";
-        position: absolute;
-        top: 5px;
-        right: -16px;
-        border: 8px solid transparent;
-        border-left-color: "%textColor"; }
-      menu.infoBar > div.upload > span.premium::before {
-        -webkit-mask-position-x: 4px; }
+      margin: 2px 0 0 10px; }
 
 body[data-pos='right'] > a.edit {
   right: auto;
@@ -1025,6 +1023,32 @@ body.edit div#topPages {
   body.edit div#topPages > select.edit {
     display: inline-block;
     margin: 0 7px; }
+  body.edit div#topPages > div[data-type='gridsize'] {
+    display: inline-block;
+    margin: 0 10px; }
+    body.edit div#topPages > div[data-type='gridsize'] > strong {
+      font-weight: "%fontWeightNormal";
+      margin: 0 5px 0 0; }
+    body.edit div#topPages > div[data-type='gridsize'] > span {
+      margin: 0 3px; }
+    body.edit div#topPages > div[data-type='gridsize'] > select.edit {
+      display: inline-block;
+      padding: 0;
+      height: 22px;
+      font-size: 90%; }
+    body.edit div#topPages > div[data-type='gridsize'] > span.premium {
+      margin: -2px 0 0 14px; }
+      body.edit div#topPages > div[data-type='gridsize'] > span.premium::after {
+        transform: scale(-1);
+        left: -16px;
+        right: unset; }
+    body.edit div#topPages > div[data-type='gridsize'].premium > select.edit {
+      color: #aaa;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+      opacity: 0.7;
+      cursor: not-allowed; }
+      body.edit div#topPages > div[data-type='gridsize'].premium > select.edit > option {
+        display: none; }
 
 body.edit.customBackground select.edit {
   background: rgba(255, 255, 255, 0.8); }
@@ -1077,6 +1101,18 @@ html[dir='rtl'] body.edit div#search > select {
 html[dir='rtl'] body.edit div#search > a.edit {
   left: 20px;
   right: unset; }
+
+html[dir='rtl'] body.edit div#topPages > div[data-type='gridsize'] > strong {
+  margin-left: 5px;
+  margin-right: 0; }
+
+html[dir='rtl'] body.edit div#topPages > div[data-type='gridsize'] > span.premium {
+  margin-left: 0;
+  margin-right: 14px; }
+  html[dir='rtl'] body.edit div#topPages > div[data-type='gridsize'] > span.premium::after {
+    transform: none;
+    left: unset;
+    right: -16px; }
 
 html[dir='rtl'] body.edit select.edit {
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1); }
@@ -1132,8 +1168,13 @@ body.dark.edit div#search > select {
 body.dark.edit div#search > a.edit:hover {
   background: #5a5a5a; }
 
-body.dark.edit div#topPages > select {
+body.dark.edit div#topPages select {
   background: #5a5a5a; }
+
+body.dark.edit div#topPages > div[data-type='gridsize'] > span.premium {
+  background: #4d4d4d; }
+  body.dark.edit div#topPages > div[data-type='gridsize'] > span.premium::after {
+    border-left-color: #4d4d4d; }
 
 body.dark.customBackground > a.edit {
   background-color: rgba(61, 61, 61, 0.7); }
@@ -1190,7 +1231,6 @@ section#content {
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 650px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

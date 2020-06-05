@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Seiten-Icons anzeigen"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Rastergr\u00f6\u00dfe"
+    },
     "newtab_search_placeholder": {
         "message": "Bei {1} suchen oder URL eingeben"
     },

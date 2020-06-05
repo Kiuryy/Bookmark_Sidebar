@@ -10,9 +10,8 @@ div#topPages {
   }
 
   > ul {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: left;
     transition: opacity 0.2s;
     @extend %hidden;
@@ -24,18 +23,6 @@ div#topPages {
     > li {
       display: block;
       font-size: 90%;
-
-      > a {
-
-      }
-    }
-
-    &[data-perRow='3'] {
-      max-width: ($entryWidth + 14) * 3;
-    }
-
-    &[data-perRow='2'] {
-      max-width: ($entryWidth + 14) * 2;
     }
 
     &[data-appearance='thumbnail'] > li {
@@ -88,7 +75,7 @@ div#topPages {
 
     &[data-appearance='favicon'] > li {
       font-weight: $__fontWeightMedium;
-      padding: 16px 0;
+      padding: 17px 0;
 
       > a {
         display: block;

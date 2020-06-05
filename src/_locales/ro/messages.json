@@ -275,8 +275,17 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Afi\u0219eaz\u0103 icoane sit-uri web"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Dimensiunile tabelei"
+    },
     "newtab_search_placeholder": {
         "message": "Caut\u0103 {1} sau tasteaz\u0103 URL-ul"
+    },
+    "newtab_search_field_show": {
+        "message": "Arat\u0103 campul de c\u0103utare"
+    },
+    "newtab_search_field_hide": {
+        "message": "Ascunde campul de c\u0103utare"
     },
     "newtab_speech_search_listening": {
         "message": "Spune acum"

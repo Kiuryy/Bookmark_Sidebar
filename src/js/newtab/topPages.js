@@ -5,10 +5,15 @@
 
         const entryHelperInited = false;
         let type = null;
+        let maxCols = 0;
+        let maxRows = 0;
         let appearance = null;
         let updateRunning = false;
 
-        const appearances = ["thumbnail", "favicon"];
+        const appearances = {
+            thumbnail: {colWidth: 159, rowHeight: 132},
+            favicon: {colWidth: 145, rowHeight: 121},
+        };
 
         const types = {
             topPages: "default",
@@ -27,6 +32,8 @@
             n.elm.topPages.html("<ul></ul>");
             type = n.helper.model.getData("n/topPagesType");
             appearance = n.helper.model.getData("n/topPagesAppearance");
+            maxCols = n.helper.model.getData("n/topPagesMaxCols");
+            maxRows = n.helper.model.getData("n/topPagesMaxRows");
 
             updateEntries();
 
@@ -64,6 +71,28 @@
          *
          * @param {string} val
          */
+        this.setMaxCols = (val) => {
+            if (maxCols !== val) { // don't unneccessary reload the top pages if the amount of cols is still the same
+                maxCols = val;
+                updateEntries();
+            }
+        };
+
+        /**
+         *
+         * @param {string} val
+         */
+        this.setMaxRows = (val) => {
+            if (maxRows !== val) { // don't unneccessary reload the top pages if the amount of rows is still the same
+                maxRows = val;
+                updateEntries();
+            }
+        };
+
+        /**
+         *
+         * @param {string} val
+         */
         this.setAppearance = (val) => {
             if (appearance !== val) { // don't unneccessary reload the top pages if the appearance is still the same
                 appearance = val;
@@ -93,43 +122,30 @@
         };
 
         /**
-         * Returns info about how much entries should be visible and how many rows should be displayed
+         * Returns info about how much columns and rows should be displayed, based on how much space is on the screen
          *
          * @returns {object}
          */
         const getAmount = () => {
             const ret = {
-                total: 8,
-                rows: 2
+                cols: maxCols,
+                rows: maxRows
             };
 
             const dim = {
                 w: n.elm.content[0].offsetWidth || window.innerWidth,
-                h: n.elm.content[0].offsetHeight || window.innerHeight
+                h: (n.elm.content[0].offsetHeight || window.innerHeight) - n.elm.search.wrapper[0].offsetHeight - 150
             };
 
-            const editInfoBar = $("menu." + $.cl.newtab.infoBar);
-            if (editInfoBar.length() > 0) {
-                dim.h -= editInfoBar[0].offsetHeight;
+            while (appearances[appearance].colWidth * ret.cols > dim.w && ret.cols > 0) { // adjust column amount to fit the grid on the page
+                ret.cols--;
             }
 
-            if (dim.w > 650) {
-                ret.total = 8;
-            } else if (dim.w > 490) {
-                ret.total = 6;
-            } else if (dim.w > 340) {
-                ret.total = 4;
-            } else {
-                ret.total = 0;
+            while (appearances[appearance].rowHeight * ret.rows > dim.h && ret.rows > 0) { // adjust row amount to fit the grid on the page
+                ret.rows--;
             }
 
-            if (dim.h < 330) {
-                ret.total = 0;
-            } else if (dim.h < 470) {
-                ret.total /= 2;
-                ret.rows = 1;
-            }
-
+            ret.total = ret.cols * ret.rows;
             return ret;
         };
 
@@ -156,8 +172,8 @@
                     topPagesWrapper
                         .html("")
                         .data("total", amount.total)
-                        .attr($.attr.newtab.appearance, appearance)
-                        .attr($.attr.newtab.perRow, amount.total / amount.rows);
+                        .css("grid-template-columns", "1fr ".repeat(amount.cols).trim())
+                        .attr($.attr.newtab.appearance, appearance);
 
                     pages.forEach((page) => {
                         const entry = $("<li></li>").appendTo(topPagesWrapper);

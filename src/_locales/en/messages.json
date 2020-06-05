@@ -281,6 +281,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Display website icons"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Grid size"
+    },
     "newtab_search_placeholder": {
         "message": "Search {1} or type URL"
     },
@@ -417,7 +420,7 @@
         "message": "You can share your activity within the sidebar anonymously which helps me to better understand how the sidebar is being used in the field. Information about your bookmarks or your visited websites [b]will not[\/b] be measured."
     },
     "contribute_share_activity_desc2": {
-        "message": "This information is very useful to identify problems in usability or features which are ,for example, not being used very often."
+        "message": "This information is very useful to identify problems in usability or features which are, for example, not being used very often."
     },
     "contribute_share_activity_examples_intro": {
         "message": "Examples of shared data:"

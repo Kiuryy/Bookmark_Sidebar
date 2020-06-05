@@ -122,8 +122,13 @@
                     "n/shortcuts": shortcuts
                 };
 
-                if (n.helper.model.getUserType() === "premium" && n.elm.topPages.children("select[" + $.attr.type + "='appearance']").length() > 0) {
-                    data["n/topPagesAppearance"] = n.elm.topPages.children("select[" + $.attr.type + "='appearance']")[0].value;
+                if (n.helper.model.getUserType() === "premium") {
+                    data["n/topPagesMaxCols"] = +n.elm.topPages.find("select[" + $.attr.type + "='cols']")[0].value;
+                    data["n/topPagesMaxRows"] = +n.elm.topPages.find("select[" + $.attr.type + "='rows']")[0].value;
+
+                    if (n.elm.topPages.children("select[" + $.attr.type + "='appearance']").length() > 0) {
+                        data["n/topPagesAppearance"] = n.elm.topPages.children("select[" + $.attr.type + "='appearance']")[0].value;
+                    }
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -158,6 +163,8 @@
             n.elm.search.wrapper.children("a." + $.cl.newtab.edit).remove();
             n.elm.search.wrapper.children("select").remove();
             n.elm.topPages.children("select").remove();
+            n.elm.topPages.children("div[" + $.attr.type + "='gridsize']").remove();
+
             n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
 
@@ -165,6 +172,8 @@
             n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
             n.helper.topPages.setAppearance(n.helper.model.getData("n/topPagesAppearance"));
+            n.helper.topPages.setMaxCols(n.helper.model.getData("n/topPagesMaxCols"));
+            n.helper.topPages.setMaxRows(n.helper.model.getData("n/topPagesMaxRows"));
             n.helper.shortcuts.refreshEntries();
 
             n.getBackground().then((background) => {
@@ -205,6 +214,7 @@
             $.delay().then(() => {
                 n.elm.body.addClass($.cl.newtab.edit);
                 initSearchConfig();
+                initTopPagesGridSize();
                 initTopPagesTypeConfig();
                 initShortcutsConfig();
 
@@ -354,6 +364,46 @@
         /**
          * Initialises the dropdown for the top pages appearances
          */
+        const initTopPagesGridSize = () => {
+            const wrapper = $("<div></div>")
+                .attr($.attr.type, "gridsize")
+                .html("<strong>" + n.helper.i18n.get("newtab_top_pages_grid_size") + "</strong>")
+                .prependTo(n.elm.topPages);
+
+            ["Cols", "Rows"].forEach((type) => {
+                const currentValue = n.helper.model.getData("n/topPagesMax" + type);
+                const s = $("<select></select>")
+                    .addClass($.cl.newtab.edit)
+                    .attr($.attr.type, type.toLowerCase())
+                    .appendTo(wrapper);
+
+                for (let i = 1; i < 10; i++) {
+                    $("<option value='" + i + "' " + (currentValue === i ? "selected" : "") + "></option>").text(i).appendTo(s);
+                }
+
+                s.on("input change", (e) => {
+                    n.helper.topPages["setMax" + type](e.currentTarget.value);
+                });
+            });
+            $("<span></span>").text("x").insertAfter(wrapper.children("select").eq(0));
+
+            if (n.helper.model.getUserType() !== "premium") {
+                wrapper.addClass($.cl.premium).attr("title", n.helper.i18n.get("premium_restricted_text"));
+                wrapper.find("select").attr("disabled", "disabled");
+                $("<span></span>").text(n.helper.i18n.get("settings_menu_premium")).addClass($.cl.premium).appendTo(wrapper);
+
+                wrapper.on("click", () => {
+                    n.helper.model.call("openLink", {
+                        href: $.api.extension.getURL("html/settings.html#premium"),
+                        newTab: true
+                    });
+                });
+            }
+        };
+
+        /**
+         * Initialises the dropdown for the top pages appearances
+         */
         const initTopPagesAppearanceConfig = () => {
             const select = $("<select></select>")
                 .addClass($.cl.newtab.edit)
@@ -361,8 +411,9 @@
                 .prependTo(n.elm.topPages);
 
             const currentAppearance = n.helper.model.getData("n/topPagesAppearance");
+            const allAppearances = n.helper.topPages.getAllAppearances();
 
-            n.helper.topPages.getAllAppearances().forEach((name) => {
+            Object.keys(allAppearances).forEach((name) => {
                 const label = n.helper.i18n.get("newtab_top_pages_appearance_" + name);
                 $("<option value='" + name + "' " + (currentAppearance === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });

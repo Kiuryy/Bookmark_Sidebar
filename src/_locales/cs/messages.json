@@ -965,6 +965,36 @@
     "settings_custom_css_desc": {
         "message": "M\u016f\u017eete definovat sv\u016fj vlastn\u00ed styl tak, aby p\u0159epsal v\u00fdchoz\u00ed styl. Pou\u017eijte tuto mo\u017enost pouze tehdy, pokud jste obezn\u00e1meni s CSS a v\u00edte, co d\u011bl\u00e1te."
     },
+    "settings_theme": {
+        "message": "T\u00e9ma"
+    },
+    "settings_themes_notice": {
+        "message": "M\u016f\u017eete si vybrat z\u00e1kladn\u00ed design postrann\u00edho panelu. Vybran\u00e9 t\u00e9ma lze p\u0159izp\u016fsobit pomoc\u00ed dostupn\u00fdch posuvn\u00edk\u016f a mo\u017enost\u00ed barev."
+    },
+    "settings_available_themes": {
+        "message": "Dostupn\u00e9 motivy"
+    },
+    "settings_show_themes": {
+        "message": "Zobrazit dostupn\u00e1 t\u00e9mata"
+    },
+    "settings_theme_default": {
+        "message": "V\u00fdchoz\u00ed motiv"
+    },
+    "settings_theme_default_desc": {
+        "message": "Toto t\u00e9ma v\u00e1m umo\u017e\u0148uje p\u0159\u00edstup ke sv\u00fdm z\u00e1lo\u017ek\u00e1m \u010dist\u00fdm a modern\u00edm zp\u016fsobem. Barva mnoha prvk\u016f lze zm\u011bnit \u00fapravou barevn\u00e9ho sch\u00e9matu."
+    },
+    "settings_theme_glass": {
+        "message": "Sklen\u011bn\u00e9 t\u00e9ma"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Toto t\u00e9ma zp\u016fsob\u00ed, \u017ee pozad\u00ed postrann\u00edho panelu bude pr\u016fhledn\u00e9 a p\u0159id\u00e1 do n\u011bj efekt rozmazan\u00e9ho skla. Tento efekt a pr\u016fhlednost postrann\u00edho panelu m\u016f\u017eete upravit."
+    },
+    "settings_install_theme": {
+        "message": "Nainstalovat motiv"
+    },
+    "settings_installed_theme_info": {
+        "message": "Aktu\u00e1ln\u011b nainstalov\u00e1n"
+    },
     "settings_newtab_desc": {
         "message": "Bohu\u017eel Google odstranil mo\u017enost na\u010d\u00edst roz\u0161\u00ed\u0159en\u00ed na v\u00fdchoz\u00ed str\u00e1nce nov\u00e9 karty. Z tohoto d\u016fvodu jsem p\u0159idal n\u011bkolik mo\u017enost\u00ed, kter\u00e9 v\u00e1m umo\u017e\u0148uj\u00ed p\u0159\u00edstup k va\u0161im z\u00e1lo\u017ek\u00e1m p\u0159i otev\u0159en\u00ed nov\u00e9 karty jin\u00fdm zp\u016fsobem."
     },
@@ -1162,6 +1192,9 @@
     },
     "premium_feature_themes_headline": {
         "message": "Zm\u011b\u0148te motiv postrann\u00edho panelu"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Cel\u00fd design postrann\u00edho panelu m\u016f\u017eete zam\u011bnit jedn\u00edm kliknut\u00edm nainstalov\u00e1n\u00edm jin\u00e9ho motivu. Lze je tak\u00e9 p\u0159izp\u016fsobit pomoc\u00ed dostupn\u00fdch posuvn\u00edk\u016f a barevn\u00fdch mo\u017enost\u00ed."
     },
     "premium_pay_select_payment_method": {
         "message": "Zvolte platebn\u00ed metodu"

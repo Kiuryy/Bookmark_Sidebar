@@ -13,6 +13,8 @@ div#topPages {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     text-align: left;
+    width: min-content;
+    margin: auto;
     transition: opacity 0.2s;
     @extend %hidden;
 

@@ -91,6 +91,10 @@ body.dark {
 
       > select {
         background: lighten($darkContentBackground2, 5%);
+
+        &.edit {
+          background: rgba($darkContentBackground, 0.7);
+        }
       }
 
       > a.edit:hover {
@@ -127,6 +131,10 @@ body.dark {
     div#topPages {
 
       > select {
+        background: rgba($darkContentBackground, 0.7);
+      }
+
+      > div[data-type='gridsize'] {
         background: rgba($darkContentBackground, 0.7);
       }
     }

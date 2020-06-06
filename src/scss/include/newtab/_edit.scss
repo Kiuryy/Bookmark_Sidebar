@@ -520,6 +520,13 @@ body.edit {
     select.edit {
       background: rgba($contentBackground, 0.8);
     }
+
+    div#topPages > div[data-type='gridsize'] {
+      background: rgba($contentBackground, 0.8);
+      border-radius: 10px;
+      padding: 2px 8px 1px 10px;
+      margin: 0 7px;
+    }
   }
 }
 

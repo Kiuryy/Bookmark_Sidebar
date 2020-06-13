@@ -236,7 +236,7 @@
                 });
             }
 
-            if (allowed === true && b.isDev === false) { // the current type may be tracked
+            if (allowed === true && $.isDev === false) { // the current type may be tracked
                 const obj = {type: type};
 
                 if (typeof value === "object") {

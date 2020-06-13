@@ -16,7 +16,6 @@
          */
         this.initialized = null;
         this.refreshRun = true;
-        this.isDev = false;
         this.elm = {};
         this.needsReload = false;
         this.state = null;
@@ -27,7 +26,6 @@
         this.run = () => {
             $("html").attr($.attr.uid, uid);
 
-            this.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
             const removedOldInstance = destroyOldInstance();
             initHelpers();
 
@@ -121,7 +119,7 @@
          * @param {*} msg
          */
         this.log = (msg) => {
-            if (this.isDev) {
+            if ($.isDev) {
                 const styles = [
                     "padding: 0 0 5px 0",
                     "font-size:90%",

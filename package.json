@@ -24,7 +24,7 @@
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.14.1",
-    "npm-check-updates": "^6.0.1",
+    "npm-check-updates": "^7.0.1",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
     "terser": "^4.7.0",

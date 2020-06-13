@@ -313,6 +313,8 @@
         demoMode: false
     };
 
+    $.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
+
     $.browserName = "Chrome";
     if (/EDG\//i.test(navigator.userAgent)) {
         $.browserName = "Edge";

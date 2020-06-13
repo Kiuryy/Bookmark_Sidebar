@@ -40,6 +40,22 @@
         };
 
         /**
+         * Removes the premium state for the current account
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.removePremiumState = (opts) => {
+            return new Promise((resolve) => {
+                b.helper.model.setLicenseKey(null).then(() => {
+                    return b.reinitialize({type: "premiumDeactivated"});
+                }).then(() => {
+                    resolve();
+                });
+            });
+        };
+
+        /**
          * Activates premium by checking the given license key and storing the license key in the sync storage
          *
          * @param {object} opts
@@ -110,7 +126,7 @@
                     method: "POST",
                     responseType: "json",
                     data: {
-                        version: b.isDev ? "9.9.9" : $.opts.manifest.version
+                        version: $.isDev ? "9.9.9" : $.opts.manifest.version
                     }
                 }).then((xhr) => {
                     if (xhr.response && xhr.response.available) {

@@ -70,6 +70,17 @@ div.tab[data-name='premium'] {
           font-family: Consolas, sans-serif;
           user-select: text;
         }
+
+        > a {
+          @include mask("icon-close", $colorError, 20px);
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          vertical-align: top;
+          cursor: pointer;
+          margin-top: -3px;
+        }
       }
 
       > div[data-type='licenseKey'] {

@@ -26,6 +26,7 @@
                 openLink: b.helper.utility.openLink,
                 userType: b.helper.model.getUserType,
                 activatePremium: b.helper.utility.activatePremium,
+                deactivatePremium: b.helper.utility.removePremiumState,
                 licenseKey: b.helper.model.getLicenseKey,
                 getCache: b.helper.cache.get,
                 setCache: b.helper.cache.set,

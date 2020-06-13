@@ -4,7 +4,6 @@
     const background = function () {
         this.importRunning = false;
         this.preventReload = false;
-        this.isDev = false;
         this.reinitialized = null;
 
         /**
@@ -192,7 +191,6 @@
          */
         this.run = () => {
             const start = +new Date();
-            this.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
 
             $.api.runtime.onInstalled.addListener((details) => {
                 callOnInstalledCallback(details);
@@ -236,7 +234,7 @@
                 }
 
                 /* eslint-disable no-console */
-                if (this.isDev && console && console.info) {
+                if ($.isDev && console && console.info) {
                     console.info("Finished loading background script", +new Date() - start);
                 }
             });

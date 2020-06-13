@@ -31,7 +31,7 @@
                         color: info.color
                     });
 
-                    if (b.isDev && info.devModeIconBadge) { // add badge for the dev version
+                    if ($.isDev && info.devModeIconBadge) { // add badge for the dev version
                         $.api.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
                         $.api.browserAction.setBadgeText({text: " "});
                     } else {

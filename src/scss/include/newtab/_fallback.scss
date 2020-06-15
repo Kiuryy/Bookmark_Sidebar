@@ -3,6 +3,7 @@ div#fallbackInfo {
   @include mask('icon-info', $textColorLight, 24px);
   position: relative;
   width: 100%;
+  max-width: 650px;
   padding: 15px 40px;
   margin: 25px 0 20px 0;
   display: none;

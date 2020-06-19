@@ -23,6 +23,7 @@
       }
     ],
     "prefer-const": "error",
+    "no-var": "error",
     "no-useless-escape": "off",
     "no-unused-vars": "off",
     "no-console": "error",

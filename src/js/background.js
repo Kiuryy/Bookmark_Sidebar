@@ -196,7 +196,7 @@
                 callOnInstalledCallback(details);
             });
 
-            $.api.runtime.setUninstallURL($.opts.website.info[this.isDev ? "landing" : "uninstall"]);
+            $.api.runtime.setUninstallURL($.opts.website.info[$.isDev ? "landing" : "uninstall"]);
 
             initHelpers();
 

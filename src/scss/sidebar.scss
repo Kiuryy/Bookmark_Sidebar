@@ -301,10 +301,8 @@ section#sidebar {
     display: flex;
     align-content: flex-start;
     top: $__sidebarHeaderHeight;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: calc(100% - #{$filterMargin * 2});
+    left: 11px;
+    width: calc(100% - 11px - #{$__scrollBarWidth});
     background: $contentBackground2;
     padding: 10px $__bookmarksHorizontalPadding 5px;
     border-radius: 0 0 5px 5px;

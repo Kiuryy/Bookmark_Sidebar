@@ -48,6 +48,8 @@ html[dir='rtl'] {
     }
 
     > div.filter {
+      left: unset;
+      right: 11px;
 
       > a[data-direction] {
         margin-left: 10px;

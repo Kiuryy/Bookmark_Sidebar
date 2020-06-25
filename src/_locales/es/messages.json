@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Mostrar iconos de sitios web"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Tama\u00f1o de Grilla"
+    },
     "newtab_search_placeholder": {
         "message": "Busca {1} o escriba la URL"
     },

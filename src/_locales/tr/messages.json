@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Site simgelerini g\u00f6ster"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Cerceve boyutu"
+    },
     "newtab_search_placeholder": {
         "message": "{1} ara veya URL gir"
     },

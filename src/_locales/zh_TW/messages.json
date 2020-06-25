@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "\u986f\u793a\u7db2\u9801\u5716\u793a"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "\u7db2\u683c\u5c3a\u5bf8"
+    },
     "newtab_search_placeholder": {
         "message": "\u641c\u5c0b{1}\u6216\u8f38\u5165\u7db2\u5740"
     },

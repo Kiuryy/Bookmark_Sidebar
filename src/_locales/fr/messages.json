@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Afficher les ic\u00f4nes des sites web"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Taille de la grille"
+    },
     "newtab_search_placeholder": {
         "message": "Rechercher {1} ou saisir l'URL"
     },

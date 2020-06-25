@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Mostrar \u00edcone do site"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Tamanho da grade"
+    },
     "newtab_search_placeholder": {
         "message": "Pesquise no {1} ou digite um URL"
     },

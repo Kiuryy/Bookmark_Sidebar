@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Wy\u015bwietl ikony witryny"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Rozmiar siatki"
+    },
     "newtab_search_placeholder": {
         "message": "Wyszukaj {1} lub wprowad\u017a URL"
     },

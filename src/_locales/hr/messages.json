@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Prika\u017ei ikone web stranice"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Veli\u010dina mre\u017ee"
+    },
     "newtab_search_placeholder": {
         "message": "Pretra\u017ei {1} ili unesi URL"
     },

@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306e\u30a2\u30a4\u30b3\u30f3\u3092\u8868\u793a"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "\u30b0\u30ea\u30c3\u30c9\u30b5\u30a4\u30ba"
+    },
     "newtab_search_placeholder": {
         "message": "\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u691c\u7d22\u3082\u3057\u304f\u306f URL \u3092\u5165\u529b"
     },

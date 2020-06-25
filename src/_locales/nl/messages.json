@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Toon website iconen"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Rastergrootte"
+    },
     "newtab_search_placeholder": {
         "message": "Zoek {1} of typ de URL"
     },
@@ -318,7 +321,7 @@
         "message": "De zijbalk kan niet worden gebruikt op de {browserName} Webstore"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina van {browserName}"
+        "message": "De zijbalk kan niet worden gebruikt op de Extensies-pagina"
     },
     "newtab_fallback_headline_new_tab": {
         "message": "De zijbalk kan niet worden gebruikt op het standaard nieuwe tabblad"

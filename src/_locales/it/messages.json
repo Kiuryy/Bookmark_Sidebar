@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Mostra le icone dei siti"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Dimensioni griglia"
+    },
     "newtab_search_placeholder": {
         "message": "Cerca su {1} o inserisci indirizzo"
     },

@@ -762,7 +762,7 @@ div.modal[data-type='checkBookmarks'] > div.progressBar {
   background: rgba(0, 0, 0, 0.07);
   height: 9px;
   border-radius: 20px;
-  margin: 80px auto 0;
+  margin: 60px auto 0;
   max-width: 300px;
   overflow: hidden; }
   div.modal[data-type='checkBookmarks'] > div.progressBar > div {

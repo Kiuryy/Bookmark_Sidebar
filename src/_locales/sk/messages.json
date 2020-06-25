@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Zobrazi\u0165 ikony web str\u00e1nky"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Ve\u013ekos\u0165 mrie\u017eky"
+    },
     "newtab_search_placeholder": {
         "message": "H\u013eada\u0165 {1} alebo zada\u0165 URL"
     },
@@ -394,6 +397,9 @@
     },
     "contribute_intro": {
         "message": "Aby som mohol roz\u0161\u00edrenie vylep\u0161ova\u0165, r\u00e1d by som vedel viac o u\u017e\u00edvate\u013eoch panela a nastaveniach, ktor\u00e9 pou\u017e\u00edvaj\u00fa."
+    },
+    "contribute_notice": {
+        "message": "Pom\u00f4\u017ete mi zdie\u013ean\u00edm va\u0161ej konfigur\u00e1cie"
     },
     "contribute_outro": {
         "message": "Ak m\u00e1te ot\u00e1zky alebo obavy zo zdie\u013eania inform\u00e1ci\u00ed, pros\u00edm po\u0161lite mi sp\u00e4tn\u00fa v\u00e4zbu."
@@ -535,6 +541,9 @@
     },
     "settings_menu_language_translate": {
         "message": "Prelo\u017ei\u0165"
+    },
+    "settings_menu_support": {
+        "message": "Podpora"
     },
     "settings_menu_infos": {
         "message": "Inform\u00e1cie"
@@ -839,6 +848,9 @@
     "settings_import_failed": {
         "message": "Nepodarilo sa importova\u0165 nastavenia. Pros\u00edm, pou\u017eite spr\u00e1vny s\u00fabor."
     },
+    "settings_theme_changed": {
+        "message": "T\u00e9ma bola \u00faspe\u0161ne zmenen\u00e1"
+    },
     "settings_presets": {
         "message": "Nastavi\u0165 relat\u00edvne ve\u013ekosti"
     },
@@ -908,6 +920,12 @@
     "settings_sidebar_mask_color": {
         "message": "Farba masky"
     },
+    "settings_background_transparency": {
+        "message": "Prieh\u013eadnos\u0165 pozadia"
+    },
+    "settings_background_blur": {
+        "message": "Efekt rozostrenie pozadia"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Ikona prie\u010dinka"
     },
@@ -949,6 +967,36 @@
     },
     "settings_custom_css_desc": {
         "message": "M\u00f4\u017eete si definova\u0165 vlastn\u00e9 CSS pravidl\u00e1, ktor\u00e9 nahradia v\u00fdchodzie \u0161t\u00fdly. Pros\u00edme, pou\u017eite t\u00fato mo\u017enos\u0165 iba ak viete nar\u00e1ba\u0165 s technol\u00f3giou CSS a viete \u010do rob\u00edte."
+    },
+    "settings_theme": {
+        "message": "T\u00e9ma"
+    },
+    "settings_themes_notice": {
+        "message": "M\u00f4\u017eete si vybra\u0165 z\u00e1kladn\u00fd vzh\u013ead bo\u010dn\u00e9ho panela. Vybrat\u00fa t\u00e9mu je mo\u017en\u00e9 prisp\u00f4sobi\u0165 pomocou dostupn\u00fdch posuvn\u00edkov a farieb."
+    },
+    "settings_available_themes": {
+        "message": "Dostupn\u00e9 t\u00e9my"
+    },
+    "settings_show_themes": {
+        "message": "Zobrazi\u0165 dostupn\u00e9 t\u00e9my"
+    },
+    "settings_theme_default": {
+        "message": "Predvolen\u00e1 t\u00e9ma"
+    },
+    "settings_theme_default_desc": {
+        "message": "T\u00e1to t\u00e9ma v\u00e1m umo\u017e\u0148uje pristupova\u0165 k z\u00e1lo\u017ek\u00e1m \u010dist\u00fdm a modern\u00fdm sp\u00f4sobom. Farba mnoh\u00fdch prvkov sa d\u00e1 zmeni\u0165 \u00fapravou farebnej sch\u00e9my."
+    },
+    "settings_theme_glass": {
+        "message": "Sklenen\u00fd efekt"
+    },
+    "settings_theme_glass_desc": {
+        "message": "T\u00e1to t\u00e9ma zobrazuje pozadie bo\u010dn\u00e9ho panela ako prieh\u013eadn\u00e9 a dod\u00e1va mu rozmazan\u00fd sklenen\u00fd efekt. Tento efekt a prieh\u013eadnos\u0165 bo\u010dn\u00e9ho panela m\u00f4\u017eete upravi\u0165."
+    },
+    "settings_install_theme": {
+        "message": "In\u0161talova\u0165 t\u00e9mu"
+    },
+    "settings_installed_theme_info": {
+        "message": "Aktu\u00e1lne in\u0161talovan\u00e1"
     },
     "settings_newtab_desc": {
         "message": "Bohu\u017eia\u013e, Google odstr\u00e1nil mo\u017enos\u0165 na\u010d\u00edta\u0165 roz\u0161\u00edrenia na str\u00e1nke novej karty. Preto som pridal mo\u017enosti dovo\u013euj\u00face spr\u00edstupni\u0165 va\u0161e z\u00e1lo\u017eky na novej karte inou cestou."
@@ -1034,6 +1082,9 @@
     "settings_translation_required_category": {
         "message": "Povinn\u00e9"
     },
+    "settings_support_faq_headline": {
+        "message": "\u010casto kladen\u00e9 ot\u00e1zky"
+    },
     "settings_support_feedback_headline": {
         "message": "Sp\u00e4tn\u00e1 vazba"
     },
@@ -1042,6 +1093,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Pros\u00edm, po\u0161lite mi svoj dotaz v angli\u010dtnie, inak bude pre m\u0148a ve\u013emi n\u00e1ro\u010dn\u00e9 porozumie\u0165 va\u0161ej spr\u00e1ve."
+    },
+    "settings_support_feedback_email": {
+        "message": "email (volite\u013en\u00e9)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei\u0165 screenshot"
@@ -1138,6 +1192,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "M\u00f4\u017eete klikn\u00fa\u0165 prav\u00fdm tla\u010didlom my\u0161i na \u013eubovo\u013en\u00fd adres\u00e1r na bo\u010dnom paneli a vykona\u0165 kontrolu. Na str\u00e1nke s v\u00fdsledkami sa zobrazia v\u0161etky aktualizovan\u00e9 adresy URL, z\u00e1lo\u017eky, ktor\u00e9 u\u017e nefunguj\u00fa, a z\u00e1lo\u017eky s rovnakou adresou URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Zme\u0148te mot\u00edv svojho bo\u010dn\u00e9ho panela"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Cel\u00fd vzh\u013ead bo\u010dn\u00e9ho panela m\u00f4\u017eete vymeni\u0165 jedn\u00fdm kliknut\u00edm nain\u0161talovan\u00edm inej t\u00e9my. T\u00e9my m\u00f4\u017eu by\u0165 tie\u017e prisp\u00f4soben\u00e9 pomocou dostupn\u00fdch jazdcov a farebn\u00fdch mo\u017enost\u00ed."
     },
     "premium_pay_select_payment_method": {
         "message": "Vyberte sp\u00f4sob platby"

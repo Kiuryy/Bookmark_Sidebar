@@ -160,6 +160,7 @@
                 icon: new $.IconHelper(this),
                 browserAction: new $.BrowserActionHelper(this),
                 utility: new $.UtilityHelper(this),
+                linkchecker: new $.Linkchecker(this),
                 cache: new $.CacheHelper(this),
                 analytics: new $.AnalyticsHelper(this)
             };

@@ -7,7 +7,7 @@
             let c = 0;
 
             const mapping = {
-                checkUrls: b.helper.utility.checkUrls,
+                checkUrl: b.helper.linkchecker.check,
                 bookmarks: b.helper.bookmarks.getById,
                 searchBookmarks: b.helper.bookmarks.getBySearchVal,
                 moveBookmark: b.helper.bookmarks.move,

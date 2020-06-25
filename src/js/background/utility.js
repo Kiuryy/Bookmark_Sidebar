@@ -141,41 +141,6 @@
         };
 
         /**
-         * Determines the real url for the given url via ajax call,
-         * if abort parameter is specified, all pending ajax calls will be aborted
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        this.checkUrls = (opts) => {
-            return new Promise((resolve) => {
-                if (opts.abort && opts.abort === true) {
-                    $.cancelXhr($.opts.website.api.checkStatus);
-                } else {
-                    Promise.all([
-                        $.xhr($.opts.website.api.checkUrls, {
-                            method: "POST",
-                            data: {
-                                urlList: opts.urls,
-                                ua: navigator.userAgent,
-                                lang: b.helper.language.getUILanguage()
-                            }
-                        }),
-                        getDuplicateInfo(opts.urls)
-                    ]).then(([xhr, duplicates]) => {
-                        const response = JSON.parse(xhr.responseText);
-                        resolve({
-                            xhr: response,
-                            duplicates: duplicates
-                        });
-                    }, () => {
-                        resolve({error: true});
-                    });
-                }
-            });
-        };
-
-        /**
          * treat some Chrome specific urls differently to make them work in Edge, Opera, ...
          *
          * @param url
@@ -265,70 +230,6 @@
                     });
                 }
             });
-        };
-
-        /**
-         * Checks whether the given urls are used by multiple bookmarks and returns information about all duplicate bookmarks for the given url list
-         *
-         * @param {object} urls
-         * @returns {Promise}
-         */
-        const getDuplicateInfo = async (urls) => {
-            const ret = {};
-            const urlList = Object.values(urls);
-
-            const getFilteredUrl = (url) => { // filters the given url -> e.g. https://www.google.com/?q=123#top -> google.com
-                let urlObj = null;
-                try {
-                    urlObj = new URL(url);
-                } catch (e) {
-                    //
-                }
-
-                url = url.split("?")[0];
-                url = url.split("#")[0];
-                url = url.replace(/^https?:\/\//, "");
-                url = url.replace(/^www\./, "");
-
-                const hostname = url.split("/")[0];
-
-                if (urlObj && importantURLParameters[hostname]) { // keep important parameters of known urls -> e.g. https://www.youtube.com/?v=abcdefg&list=xyz -> youtube.com/?v=abcdefg
-                    const params = [];
-                    importantURLParameters[hostname].forEach((param) => {
-                        const val = urlObj.searchParams.get(param);
-                        if (val) {
-                            params.push(param + "=" + val);
-                        }
-                    });
-                    url += "?" + params.join("&");
-                }
-
-                return url;
-            };
-
-            for (const url of urlList) {
-                const filteredUrl = getFilteredUrl(url);
-                const result = await b.helper.bookmarks.api.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
-
-                if (result.length > 1) {
-                    const realResults = [];
-
-                    result.forEach((bookmark) => { // filter the result array and only add real duplicates to the final result list
-                        if (getFilteredUrl(bookmark.url) === filteredUrl) {
-                            realResults.push(bookmark);
-                        }
-                    });
-
-                    if (realResults.length > 1) { // there are real duplicates -> add to object
-                        ret[filteredUrl] = {
-                            url: url,
-                            duplicates: realResults
-                        };
-                    }
-                }
-            }
-
-            return ret;
         };
     };
 

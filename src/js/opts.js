@@ -290,7 +290,6 @@
                 submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
             },
             api: {
-                checkUrls: "https://api.blockbyte.de/v1/urlcheck",
                 thumbnail: "https://api.blockbyte.de/v1/thumbnail",
                 checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
                 evaluate: "https://api.blockbyte.de/v3/evaluate/extension/bs",

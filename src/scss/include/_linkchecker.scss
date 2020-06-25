@@ -22,38 +22,23 @@ div.modal[data-type='checkBookmarks'] {
     }
   }
 
-  > div.error {
-    @include mask('icon-info', $colorNotice, 48px);
-    position: relative;
-    text-align: center;
-    margin-top: 50px;
-    line-height: 150%;
-    padding: 70px 30px 0;
-
-    &::before {
-      -webkit-mask-position-y: top;
-    }
-
-    > h3 {
-      font-size: 160%;
-      font-weight: $__fontWeightNormal;
-      margin-bottom: 25px;
-    }
-  }
-
   > div.progressBar {
     position: relative;
-    background: rgba(0, 0, 0, 0.1);
-    height: 3px;
-    margin: 40px 30px 0;
+    background: rgba(0, 0, 0, 0.07);
+    height: 9px;
+    border-radius: 20px;
+    margin: 60px auto 0;
+    max-width: 300px;
+    overflow: hidden;
 
     > div {
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
+      border-radius: 0 20px 20px 0;
       background: $__colorScheme;
-      transition: width 0.1s linear;
+      transition: width 0.2s linear;
     }
   }
 

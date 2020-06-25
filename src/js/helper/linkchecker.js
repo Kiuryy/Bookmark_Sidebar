@@ -7,7 +7,23 @@
      */
     $.Linkchecker = function (ext) {
 
+        /**
+         * Amount of bookmarks to check in parallel. A too high number will cause more faulty requests, so we keep that a bit lower, but still more than 1 after 1
+         *
+         * @type {number}
+         */
+        const CHUNK_SIZE = 5;
+
+        /**
+         *
+         * @type {Object}
+         */
         const elements = {};
+
+        /**
+         *
+         * @type {boolean}
+         */
         let updated = false;
 
         /**
@@ -57,52 +73,30 @@
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
             elements.desc = $("<p></p>").text(ext.helper.i18n.get("overlay_check_bookmarks_loading")).appendTo(elements.modal);
 
-            ext.helper.model.call("websiteStatus").then((opts) => {
-                if (opts.status === "available") {
-                    const entryObj = getFlatEntryList(entries);
-                    elements.progressBar = $("<div></div>").addClass($.cl.overlay.progressBar).html("<div></div>").appendTo(elements.modal);
-                    elements.progressLabel = $("<span></span>").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + entryObj.bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
+            const entryObj = getFlatEntryList(entries);
+            elements.progressBar = $("<div></div>").addClass($.cl.overlay.progressBar).html("<div></div>").appendTo(elements.modal);
+            elements.progressLabel = $("<span></span>").addClass($.cl.overlay.checkUrlProgressLabel).html("<span>0</span>/<span>" + entryObj.bookmarks.length.toLocaleString() + "</span>").appendTo(elements.modal);
 
-                    $.delay(200).then(() => {
-                        elements.modal.addClass($.cl.overlay.urlCheckLoading);
-                    });
-
-                    initGeneralEvents();
-
-                    const results = {
-                        count: 0,
-                        changed: [],
-                        broken: [],
-                        duplicate: [],
-                        empty: []
-                    };
-
-                    checkDirectories(entryObj.directories, results).then(() => {
-                        return checkBookmarks(entryObj.bookmarks, results);
-                    }).then(() => {
-                        displayResultPage(results);
-                    });
-                } else { // website not available -> show message
-                    displayErrorMessage();
-                }
+            $.delay(200).then(() => {
+                elements.modal.addClass($.cl.overlay.urlCheckLoading);
             });
-        };
 
-        /**
-         * Displayes an error message telling the user, the service is not available
-         */
-        const displayErrorMessage = () => {
-            elements.progressBar.remove();
-            elements.progressLabel.remove();
-            elements.loader.remove();
-            elements.desc.remove();
+            initGeneralEvents();
 
-            $("<div></div>").addClass($.cl.error)
-                .append("<h3>" + ext.helper.i18n.get("status_service_unavailable_headline") + "</h3>")
-                .append("<p>" + ext.helper.i18n.get("status_check_bookmarks_unavailable_desc") + "</p>")
-                .appendTo(elements.modal);
+            const results = {
+                count: 0,
+                changed: [],
+                broken: [],
+                duplicate: [],
+                empty: []
+            };
 
-            ext.helper.overlay.setCloseButtonLabel("close");
+            checkDirectories(entryObj.directories, results).then(() => {
+                return checkListOfBookmarks(entryObj.bookmarks, results);
+            }).then(() => {
+                displayResultPage(results);
+            });
+
         };
 
         /**
@@ -111,10 +105,6 @@
          * @param {object} results
          */
         const displayResultPage = (results) => {
-            if (elements.modal.children("div." + $.cl.error).length() > 0) { // if there is an error message -> don't show results
-                return;
-            }
-
             const hasResults = results.count > 0;
             delete results.count;
 
@@ -296,9 +286,7 @@
          * Initialises the general eventhandlers
          */
         const initGeneralEvents = () => {
-            $(document).on($.opts.events.overlayClosed, () => { // abort running check url ajax calls and reload sidebar if the overlay is getting closed
-                ext.helper.model.call("checkUrls", {abort: true});
-
+            $(document).on($.opts.events.overlayClosed, () => { // reload sidebar if the overlay is getting closed and URLs got changed
                 if (updated) {
                     updated = false;
                     ext.helper.model.call("reload", {type: "Update"});
@@ -397,7 +385,7 @@
             return new Promise((resolve) => {
                 updated = true;
 
-                if (entry.statusCode === 404 || entry.duplicate || (entry.children && entry.children.length === 0)) {
+                if (entry.broken || entry.duplicate || (entry.children && entry.children.length === 0)) {
                     ext.helper.bookmark.performDeletion(entry, true).then(resolve);
                 } else if (entry.url !== entry.newUrl) {
                     const additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
@@ -506,80 +494,73 @@
          * @param {object} results
          * @returns {Promise}
          */
-        const checkBookmarks = (bookmarks, results) => {
+        const checkListOfBookmarks = (bookmarks, results) => {
             return new Promise((resolve) => {
                 let finished = 0;
-                const info = {};
                 const duplicateLabels = [];
+                const totalBookmarks = bookmarks.length;
 
-                const checkChunk = (urls) => {
+                const checkChunk = (bookmarks) => {
                     return new Promise((rslv) => {
-                        ext.helper.model.call("checkUrls", {urls: urls}).then((response) => {
-                            if (response.error) {
-                                rslv({success: false});
-                            } else {
-                                let x = -1;
-
-                                Object.entries(response.duplicates).forEach(([label, entries]) => { // duplicate url
-                                    if (duplicateLabels.indexOf(label) === -1) { // prevent multiple entries of the same url
+                        let resolved = 0;
+                        for (const bookmark of bookmarks) {
+                            ext.helper.model.call("checkUrl", {url: bookmark.url}).then((response) => {
+                                if (response.duplicateInfo.duplicates.length > 0) {
+                                    if (duplicateLabels.indexOf(response.duplicateInfo.label) === -1) { // prevent multiple entries of the same url
                                         results.duplicate.push({
-                                            label: label,
-                                            url: entries.url,
-                                            duplicates: entries.duplicates
+                                            label: response.duplicateInfo.label,
+                                            url: bookmark.url,
+                                            duplicates: response.duplicateInfo.duplicates
                                         });
-                                        duplicateLabels.push(label);
+                                        duplicateLabels.push(response.duplicateInfo.label);
                                         results.count++;
                                     }
-                                });
+                                }
 
-                                Object.entries(response.xhr).forEach(([id, data]) => {
-                                    info[id].statusCode = +data.code;
-                                    info[id].checkTimeout = data.timeout;
-
-                                    if (info[id].statusCode === 404 || data.timeout) { // broken url
-                                        results.broken.push(info[id]);
-                                        results.count++;
-                                    } else if (info[id].url !== data.url && info[id].statusCode !== 302) { // changed url
-                                        info[id].newUrl = data.url;
-                                        results.changed.push(info[id]);
-                                        results.count++;
-                                    }
-
-                                    $.delay(++x * 50).then(() => { // smoothing the progress bar
-                                        finished++;
-                                        elements.progressBar.children("div").css("width", (finished / bookmarks.length * 100) + "%");
-                                        elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
+                                if (response.httpInfo.success === false) { // broken url
+                                    results.broken.push({
+                                        id: bookmark.id,
+                                        title: bookmark.title,
+                                        url: bookmark.url,
+                                        broken: true
                                     });
-                                });
+                                    results.count++;
+                                } else if (response.httpInfo.url !== bookmark.url) { // URL is different -> it changed and needs to be updated
+                                    results.changed.push({
+                                        id: bookmark.id,
+                                        title: bookmark.title,
+                                        url: bookmark.url,
+                                        newUrl: response.httpInfo.url,
+                                        additionalInfo: bookmark.additionalInfo
+                                    });
+                                    results.count++;
+                                }
+                            })["finally"](() => {
+                                finished++;
+                                resolved++;
 
-                                $.delay(Object.keys(response.xhr).length * 50).then(() => {
-                                    rslv({success: true});
-                                });
-                            }
-                        });
+                                elements.progressBar.children("div").css("width", (finished / totalBookmarks * 100) + "%");
+                                elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
+
+                                if (resolved >= bookmarks.length) {
+                                    rslv();
+                                }
+                            });
+                        }
                     });
                 };
 
+
                 (async () => {
                     let i = 0;
-                    let chunk = {};
+                    let chunk = [];
                     for (const bookmark of bookmarks) {
                         i++;
-                        chunk[bookmark.id] = bookmark.url;
-                        info[bookmark.id] = bookmark;
+                        chunk.push(bookmark);
 
-                        if (Object.keys(chunk).length >= 15 || i === bookmarks.length) { // check multiple urls at once
-                            const obj = await checkChunk(chunk);
-                            chunk = {};
-
-                            if (obj.success === false) { // a request failed
-
-                                if (finished === 0) { // not even parsed a single bookmark url -> show error message
-                                    displayErrorMessage();
-                                }
-
-                                break;
-                            }
+                        if (Object.keys(chunk).length >= CHUNK_SIZE || i === bookmarks.length) { // check multiple urls at once
+                            await checkChunk(chunk);
+                            chunk = [];
                         }
                     }
 

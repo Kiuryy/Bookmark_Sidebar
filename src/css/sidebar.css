@@ -978,10 +978,8 @@ section#sidebar {
     display: flex;
     align-content: flex-start;
     top: "%sidebarHeaderHeight";
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: calc(100% - 22px);
+    left: 11px;
+    width: calc(100% - 11px - %scrollBarWidth);
     background: #f5f5f5;
     padding: 10px "%bookmarksHorizontalPadding" 5px;
     border-radius: 0 0 5px 5px;
@@ -1544,21 +1542,23 @@ html[dir='rtl'] section#sidebar > header.searchVisible > h1 {
 html[dir='rtl'] section#sidebar > a.lockPinned > span::before {
   transform: scaleX(-1); }
 
-html[dir='rtl'] section#sidebar > div.filter > a[data-direction] {
-  margin-left: 10px;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 18px; }
-  html[dir='rtl'] section#sidebar > div.filter > a[data-direction]::before {
+html[dir='rtl'] section#sidebar > div.filter {
+  left: unset;
+  right: 11px; }
+  html[dir='rtl'] section#sidebar > div.filter > a[data-direction] {
+    margin-left: 10px;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 18px; }
+    html[dir='rtl'] section#sidebar > div.filter > a[data-direction]::before {
+      left: unset;
+      right: 0; }
+  html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox {
     left: unset;
     right: 0; }
-
-html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox {
-  left: unset;
-  right: 0; }
-  html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox + a {
-    padding-left: unset;
-    padding-right: 22px; }
+    html[dir='rtl'] section#sidebar > div.filter > ul > li > div.checkbox + a {
+      padding-left: unset;
+      padding-right: 22px; }
 
 html[dir='rtl'] section#sidebar > div.scrollBox > ul a.dir.has-arrow, html[dir='rtl'] section#sidebar > div.scrollBox > div.pinned > ul a.dir.has-arrow {
   padding-left: "%bookmarksHorizontalPadding";

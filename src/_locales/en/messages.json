@@ -344,9 +344,6 @@
     "status_service_unavailable_headline": {
         "message": "Service unavailable"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "The service which checks the URLs is not available at the moment. Please try again later."
-    },
     "status_feedback_unavailable_desc": {
         "message": "The feedback service is currently unavailable. If you want to give feedback, please send me an email."
     },

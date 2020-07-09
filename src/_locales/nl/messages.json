@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Dienst niet beschikbaar"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "De dienst die de URL's controleert is momenteel niet beschikbaar. Probeer het later nog eens."
-    },
     "status_feedback_unavailable_desc": {
         "message": "De feedbackdienst is momenteel niet beschikbaar. Als je feedback wil geven, stuur dan alsjeblieft een e-mail."
     },

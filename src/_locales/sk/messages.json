@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Slu\u017eba, ktor\u00e1 kontroluje URL aresy nie je moment\u00e1lne k dispoz\u00edcii. Pros\u00edm, sk\u00faste to nesk\u00f4r."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Slu\u017eba sp\u00e4tnej v\u00e4zby je moment\u00e1lne nedostupn\u00e1. Ak chcete odosla\u0165 sp\u00e4tn\u00fa v\u00e4zbu, pros\u00edm, po\u0161lite n\u00e1m e-mail."
     },

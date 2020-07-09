@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "D\u1ecbch v\u1ee5 hi\u1ec7n kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "D\u1ecbch v\u1ee5 ki\u1ec3m tra URL hi\u1ec7n kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng. Vui l\u00f2ng th\u1eed l\u1ea1i sau."
-    },
     "status_feedback_unavailable_desc": {
         "message": "D\u1ecbch v\u1ee5 ph\u1ea3n h\u1ed3i t\u1ea1m th\u1eddi kh\u00f4ng ho\u1ea1t \u0111\u1ed9ng. N\u1ebfu b\u1ea1n mu\u1ed1n \u0111\u1ec3 l\u1ea1i ph\u1ea3n h\u1ed3i, xin h\u00e3y g\u1eedi email cho t\u00f4i."
     },

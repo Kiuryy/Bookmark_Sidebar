@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Usluga je nedostupna"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Usluga koja provjerava URLove trenutno nije dostupna. Poku\u0161ajte ponovo kasnije."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Usluga povratnih informacija trenutno nije dostupna. Ako \u017eelite dati povratne informacije, po\u0161aljite mi e-mail."
     },

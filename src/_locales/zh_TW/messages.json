@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "\u670d\u52d9\u7121\u6cd5\u4f7f\u7528"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "\u6aa2\u67e5\u7db2\u5740\u670d\u52d9\u73fe\u5728\u7121\u6cd5\u4f7f\u7528\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
-    },
     "status_feedback_unavailable_desc": {
         "message": "\u56de\u994b\u670d\u52d9\u76ee\u524d\u7121\u6cd5\u4f7f\u7528\u3002\u5982\u679c\u60a8\u60f3\u8981\u63d0\u4f9b\u56de\u994b\uff0c\u53ef\u4ee5\u5bc4\u96fb\u5b50\u90f5\u4ef6\u7d66\u6211\u3002"
     },

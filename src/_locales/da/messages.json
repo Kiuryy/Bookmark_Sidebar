@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Tjeneste ikke tilg\u00e6ngelig"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Tjenesten som tjekker URLs er ikke tilg\u00e6ngelig i \u00f8jeblikket. Pr\u00f8v venligst senere."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Tjenesten til indsamling af feedback er i \u00f8jeblikket ikke tilg\u00e6ngelig. Hvis du \u00f8nsker at give din feedback, send mig venligst en email i stedet."
     },

@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "\uc11c\ube44\uc2a4 \uc774\uc6a9\ubd88\uac00"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "\ud604\uc7ac \uc8fc\uc18c \uac31\uc2e0 \uae30\ub2a5 \uc774\uc6a9\uc774 \ubd88\uac00\ud569\ub2c8\ub2e4. \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694."
-    },
     "status_feedback_unavailable_desc": {
         "message": "\ud604\uc7ac \ud53c\ub4dc\ubc31 \uae30\ub2a5 \uc774\uc6a9\uc774 \ubd88\uac00\ud569\ub2c8\ub2e4. \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574\uc8fc\uc138\uc694."
     },

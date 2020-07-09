@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Servi\u00e7o indispon\u00edvel"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "O servi\u00e7o que verifica URLs n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
-    },
     "status_feedback_unavailable_desc": {
         "message": "O servi\u00e7o de coment\u00e1rios n\u00e3o est\u00e1 dispon\u00edvel no momento. Se quiser enviar coment\u00e1rios, por favor envie-me um e-mail."
     },

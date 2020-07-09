@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Service indisponible"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Le service de v\u00e9rification des URL n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Le retour d'exp\u00e9rience n'est pas disponible actuellement. Si vous voulez faire un retour d'exp\u00e9rience, envoyez-moi un courriel s'il vous pla\u00eet."
     },

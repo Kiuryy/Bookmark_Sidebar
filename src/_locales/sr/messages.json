@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Prika\u017ei ikonice sajtova"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Veli\u010dina mre\u017ee"
+    },
     "newtab_search_placeholder": {
         "message": "Pretra\u017ei {1} ili upi\u0161i URL"
     },
@@ -337,9 +340,6 @@
     },
     "status_service_unavailable_headline": {
         "message": "Servis nije dostupan"
-    },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Servis koji proverava linkove nije dostupan u ovom trenutku. Poku\u0161ajte kasnije."
     },
     "status_feedback_unavailable_desc": {
         "message": "Servis za povratne informacije je trenutno nedostupan. Ako \u017eelite da pru\u017eite povrate informacije, molimo vas po\u0161aljite email."

@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Hizmet kullan\u0131lam\u0131yor"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "URL'leri kontrol eden servis \u015fu an kullan\u0131lam\u0131yor. L\u00fctfen daha sonra tekrar deneyin."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Geri Bildirim servisi \u015fu an kullan\u0131lam\u0131yor. Geri bildirim b\u0131rakmak isterseniz, l\u00fctfen bana e-posta yollay\u0131n."
     },

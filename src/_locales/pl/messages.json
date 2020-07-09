@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Us\u0142uga niedost\u0119pna"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Us\u0142uga sprawdzaj\u0105ca URL jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Us\u0142uga opinii jest teraz niedost\u0119pna. Je\u015bli chcesz wys\u0142a\u0107 opini\u0119, prosz\u0119 wy\u015blij mi e-mail."
     },

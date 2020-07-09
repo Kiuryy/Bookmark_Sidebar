@@ -338,9 +338,6 @@
     "status_service_unavailable_headline": {
         "message": "Slu\u017eba je nedostupn\u00e1"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Slu\u017eba, kter\u00e1 kontroluje adresy URL, moment\u00e1ln\u011b nen\u00ed k dispozici. Pros\u00edm zkuste to znovu pozd\u011bji."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Slu\u017eba zp\u011btn\u00e9 vazby je moment\u00e1ln\u011b nedostupn\u00e1. Pokud chcete poskytnout zp\u011btnou vazbu, po\u0161lete mi pros\u00edm e-mail."
     },

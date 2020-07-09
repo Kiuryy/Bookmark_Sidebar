@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Visa ikoner f\u00f6r sajt"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "N\u00e4tstorlek"
+    },
     "newtab_search_placeholder": {
         "message": "S\u00f6k {1} eller skriv in URL"
     },
@@ -337,9 +340,6 @@
     },
     "status_service_unavailable_headline": {
         "message": "Tj\u00e4nst otillg\u00e4nglig"
-    },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Tj\u00e4nsten som kollar urel'er \u00e4r f\u00f6r tillf\u00e4llet inte tillg\u00e4ngligt. V\u00e4nligen f\u00f6rs\u00f6k senare"
     },
     "status_feedback_unavailable_desc": {
         "message": "\u00c5terkopplingstj\u00e4nsten \u00e4r f\u00f6r tillf\u00e4llet inte tillg\u00e4ngligt. Vill du \u00e5terkoppla, v\u00e4nligen skicka mig ett mejl."

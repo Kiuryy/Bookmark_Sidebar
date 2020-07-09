@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Servicio no disponible"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "El servicio que comprueba las URL no est\u00e1 disponible en este momento. Por favor, int\u00e9ntelo de nuevo m\u00e1s tarde."
-    },
     "status_feedback_unavailable_desc": {
         "message": "El servicio de retroalimentaci\u00f3n no est\u00e1 disponible actualmente. Si desea dar su opini\u00f3n, por favor env\u00edeme un correo electr\u00f3nico."
     },

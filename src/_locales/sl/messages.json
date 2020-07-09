@@ -341,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Storitev ni dostopna"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Storitev, ki preverja URL-je trenutno ni dostopna. Prosimo poskusite kasneje."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Storitev povratnih informacij trenutno ni dostopna. \u010ce \u017eelite pustiti povratno informacijo, prosimo po\u0161ljite e-po\u0161to."
     },

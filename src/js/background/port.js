@@ -21,6 +21,7 @@
                 infoToDisplay: b.helper.model.getInfoToDisplay,
                 languageInfos: b.helper.language.getAvailableLanguages,
                 langvars: b.helper.language.getLangVars,
+                rtlLangs: b.helper.language.getRtlLanguages,
                 favicon: b.helper.image.getFavicon,
                 thumbnail: b.helper.image.getThumbnail,
                 openLink: b.helper.utility.openLink,

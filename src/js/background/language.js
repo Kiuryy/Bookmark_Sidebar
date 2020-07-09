@@ -129,6 +129,12 @@
         this.getLanguage = () => language;
 
         /**
+         *
+         * @returns {Promise}
+         */
+        this.getRtlLanguages = async () => rtlLangs;
+
+        /**
          * Returns the name and the language variables of the user language
          *
          * @returns {Promise}

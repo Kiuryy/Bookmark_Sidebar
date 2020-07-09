@@ -522,7 +522,7 @@
                     $("<textarea></textarea>").data({
                         initial: val,
                         name: field.name
-                    }).text(val).appendTo(entry.children("div").eq(1));
+                    }).text(val).attr("dir", info.dir).appendTo(entry.children("div").eq(1));
 
                     if (val.length === 0) { // mark empty fields
                         entry.addClass($.cl.settings.translation.empty);
@@ -712,7 +712,10 @@
                 s.elm.checkbox.translationInfo.trigger("click");
             }
 
-            getLanguageInfos(lang).then((obj) => {
+            Promise.all([
+                getLanguageInfos(lang),
+                s.helper.model.call("rtlLangs"),
+            ]).then(([obj, rtlLangs]) => {
                 if (obj) {
                     const infos = obj[lang];
 
@@ -721,6 +724,7 @@
                             .addClass($.cl.settings.box)
                             .data("lang", lang)
                             .data("info", {
+                                dir: rtlLangs.indexOf(lang) > -1 ? "rtl" : "ltr",
                                 category: infos[category],
                                 defaults: obj["default"] ? obj["default"][category] : null
                             })

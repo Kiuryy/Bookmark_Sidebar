@@ -494,11 +494,11 @@
          * @param {object} results
          * @returns {Promise}
          */
-        const checkListOfBookmarks = (bookmarks, results) => {
+        const checkListOfBookmarks = (allBookmarks, results) => {
             return new Promise((resolve) => {
                 let finished = 0;
                 const duplicateLabels = [];
-                const totalBookmarks = bookmarks.length;
+                const totalBookmarks = allBookmarks.length;
 
                 const checkChunk = (bookmarks) => {
                     return new Promise((rslv) => {
@@ -554,11 +554,11 @@
                 (async () => {
                     let i = 0;
                     let chunk = [];
-                    for (const bookmark of bookmarks) {
+                    for (const bookmark of allBookmarks) {
                         i++;
                         chunk.push(bookmark);
 
-                        if (Object.keys(chunk).length >= CHUNK_SIZE || i === bookmarks.length) { // check multiple urls at once
+                        if (Object.keys(chunk).length >= CHUNK_SIZE || i === allBookmarks.length) { // check multiple urls at once
                             await checkChunk(chunk);
                             chunk = [];
                         }

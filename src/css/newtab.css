@@ -333,7 +333,8 @@ body.dark.customBackground div#topPages > ul[data-appearance='favicon'] > li > a
 section#content > nav {
   position: absolute;
   top: 10px;
-  right: 20px; }
+  right: 20px;
+  padding-left: 32px; }
   section#content > nav > ul {
     display: flex;
     flex-flow: row wrap; }
@@ -355,7 +356,9 @@ section#content > nav {
           background: #e5e5e5; }
   section#content > nav[data-pos='left'] {
     left: 20px;
-    right: unset; }
+    right: unset;
+    padding-left: 0;
+    padding-right: 32px; }
     section#content > nav[data-pos='left'] > ul {
       flex-direction: row-reverse; }
 
@@ -856,7 +859,7 @@ body.edit section#content {
     width: 30px;
     height: 30px;
     top: 0;
-    left: -35px;
+    left: 0;
     background: #f2f2f2; }
     body.edit section#content > nav > a.add::before {
       content: "";
@@ -972,7 +975,7 @@ body.edit section#content {
         float: right;
         margin-top: 3px; }
   body.edit section#content > nav[data-pos='left'] > a.add {
-    right: -35px;
+    right: 0;
     left: unset; }
   body.edit section#content > nav[data-pos='left'] > ul > li > a[data-pos='left'] {
     right: 0;

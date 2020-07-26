@@ -265,7 +265,7 @@ body.edit {
         width: 30px;
         height: 30px;
         top: 0;
-        left: -35px;
+        left: 0;
         background: $bodyBackground;
       }
 
@@ -391,7 +391,7 @@ body.edit {
       &[data-pos='left'] {
 
         > a.add {
-          right: -35px;
+          right: 0;
           left: unset;
         }
 

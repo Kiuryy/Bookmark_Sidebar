@@ -330,8 +330,9 @@
             $(document).on("visibilitychange.bs", () => { // tab changed -> if current tab is hidden and no overlay opened hide the sidebar
                 if (document.hidden && ext.helper.overlay.isOpened() === false) {
                     ext.elm.indicator.removeClass($.cl.page.hover);
+                    const close = ext.helper.model.getData("b/closeOnTabChange");
 
-                    if (ext.elm.iframe.hasClass($.cl.page.visible)) {
+                    if (close && ext.elm.iframe.hasClass($.cl.page.visible)) {
                         this.closeSidebar();
                     }
                 }

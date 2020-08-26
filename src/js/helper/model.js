@@ -103,6 +103,7 @@
                 tooltipContent: "all",
                 tooltipAdditionalInfo: true,
                 dndCreationDialog: false,
+                closeOnTabChange: true,
                 openChildrenWarnLimit: 10,
                 dirOpenDuration: 0.4,
                 scrollBarHide: 1.5,

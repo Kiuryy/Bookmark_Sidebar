@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Essa \u00e9 uma mudan\u00e7a que s\u00f3 acontece uma vez e tamb\u00e9m inclui todas as futuras funcionalidades premium."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Voc\u00ea pode pagar o valor que achar v\u00e1lido para a extens\u00e3o, meu objetivo \u00e9 que voc\u00ea ganhe acesso aos recursos premium. Voc\u00ea sempre receber\u00e1 todos os recursos independentemente do valor que escolher pagar."
+    },
     "premium_pay_eula": {
         "message": "Acordo de Licen\u00e7a de Usu\u00e1rio Final"
     },

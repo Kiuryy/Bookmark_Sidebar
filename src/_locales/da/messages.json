@@ -992,6 +992,9 @@
     "settings_install_theme": {
         "message": "Installer tema"
     },
+    "settings_installed_theme_info": {
+        "message": "Aktuelt installeret"
+    },
     "settings_newtab_desc": {
         "message": "Desv\u00e6rre har Google fjernet muligheden for at loade udvidelser p\u00e5 standard-siden for et nyt faneblad. Grundet dette har jeg tilf\u00f8jet nogle muligheder der tillader dig at tilg\u00e5 dine bogm\u00e6rker, n\u00e5r et nyt faneblad \u00e5bnes, p\u00e5 en anden facon."
     },
@@ -1213,6 +1216,9 @@
     },
     "premium_pay_price_info": {
         "message": "Dette er en engangsafgift og omfatter ogs\u00e5 alle fremtidige premium-funktioner."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Du kan betale det bel\u00f8b, du synes passende for mit arbejde og udvidelsen, det vil give adgang til premium-funktionerne. Du vil altid modtage alle premium funktioner, uanset hvor meget du er villig til at betale."
     },
     "premium_pay_eula": {
         "message": "Slutbrugeraftale"

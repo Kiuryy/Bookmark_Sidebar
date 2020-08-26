@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Dit is een eenmalig bedrag en bevat ook alle toekomstige premiumfuncties."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "U kunt betalen wat u denkt dat de extensie en mijn werk u waard is om toegang te krijgen tot de premiumfuncties. U ontvangt altijd alle premiumfuncties, ongeacht hoeveel u bereid bent te betalen."
+    },
     "premium_pay_eula": {
         "message": "Licentie-overeenkomst eindgebruiker"
     },

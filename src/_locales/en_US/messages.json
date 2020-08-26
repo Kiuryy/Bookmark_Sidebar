@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "This is a one-time charge and includes all future Premium features as well."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "You can pay what you think the extension and my work is worth to you to gain access to the premium features. You will always receive all premium features, regardless of how much you are willing to pay."
+    },
     "premium_pay_eula": {
         "message": "End-User License Agreement"
     },

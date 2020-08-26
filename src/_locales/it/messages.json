@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Questa e una ricarica una tantum e include tutte le funzionalit\u00e0 premium future."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Puoi pagare quello che pensi che l'estensione e il mio lavoro valgano per te per avere accesso alle funzionalit\u00e0 premium. Riceverai sempre tutte le funzionalit\u00e0 premium, indipendentemente da quanto sei disposto a pagare."
+    },
     "premium_pay_eula": {
         "message": "Accordo della Licenza per l'Utente"
     },

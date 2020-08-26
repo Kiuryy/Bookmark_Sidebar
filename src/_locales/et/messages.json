@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Kuva veebilehtede ikoonid"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "V\u00f5rgu suurus"
+    },
     "newtab_search_placeholder": {
         "message": "Otsi {1} v\u00f5i sisesta URL"
     },
@@ -338,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Teenus pole saadaval"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "URL-i kontrolliv teenus pole hetkel saadaval. Palun proovi hiljem uuesti."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Tagasiside teenus pole hetkel saadaval. Kasuta selleks e-posti."
     },
@@ -394,6 +394,9 @@
     },
     "contribute_intro": {
         "message": "Laienduse parandamiseks soovin t\u00e4psemalt teada, kuidas ja millise seadistusega kasutajad k\u00fclgriba kasutavad."
+    },
+    "contribute_notice": {
+        "message": "V\u00f5id mind aidata, jagades oma konfiguratsiooni"
     },
     "contribute_outro": {
         "message": "Kui sul on k\u00fcsimusi v\u00f5i kahtlusi info jagamise suhtes, saada mulle tagasiside s\u00f5num."
@@ -535,6 +538,9 @@
     },
     "settings_menu_language_translate": {
         "message": "T\u00f5lgi"
+    },
+    "settings_menu_support": {
+        "message": "Tugi"
     },
     "settings_menu_infos": {
         "message": "Info"
@@ -825,7 +831,7 @@
         "message": "Kui oled oma kontoga {browserName} brauserisse sisse loginud, s\u00fcnkroonitakse laienduse seaded automaatselt teiste seadmete vahel. Kui sa ei soovi sisse logida v\u00f5i tahad oma seadeid teiste inimestega jagada, v\u00f5ib kasutada seda impordi\/ekspordi valikut."
     },
     "settings_import_export_desc": {
-        "message": "Saad eksportida laienduse s\u00e4tted ja salvestada need arvutisse. Eelnevalt eksporditud faili saab importida mis tahes arvutisse, kus laiendus on paigaldatud."
+        "message": "V\u00f5id eksportida laienduse s\u00e4tted ja salvestada need arvutisse. Eelnevalt eksporditud faili saab importida mis tahes arvutisse, kus laiendus on paigaldatud."
     },
     "settings_export": {
         "message": "Ekspordi s\u00e4tted"
@@ -838,6 +844,9 @@
     },
     "settings_import_failed": {
         "message": "Seadistuse import nurjus. Vali kehtiv fail."
+    },
+    "settings_theme_changed": {
+        "message": "Teema on edukalt muudetud"
     },
     "settings_presets": {
         "message": "M\u00e4\u00e4ra suhtelised suurused"
@@ -908,6 +917,12 @@
     "settings_sidebar_mask_color": {
         "message": "Maski v\u00e4rv"
     },
+    "settings_background_transparency": {
+        "message": "Tausta l\u00e4bipaistvus"
+    },
+    "settings_background_blur": {
+        "message": "Tausta h\u00e4gustamine"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Kataloogi ikoon"
     },
@@ -949,6 +964,36 @@
     },
     "settings_custom_css_desc": {
         "message": "V\u00f5id m\u00e4\u00e4rata oma stiililehe, mis kaalub \u00fcle vaikestiili. Palun kasuta seda v\u00f5imalust ainult juhul, kui tunned CSS koodi ja tead mida teed."
+    },
+    "settings_theme": {
+        "message": "Teema"
+    },
+    "settings_themes_notice": {
+        "message": "Saad valida k\u00fclgriba p\u00f5hikujunduse. Valitud teemat saab kohandada liugurite ja v\u00e4rvivalikute abil."
+    },
+    "settings_available_themes": {
+        "message": "Saadaval olevad teemad"
+    },
+    "settings_show_themes": {
+        "message": "Kuva saadaval olevad teemad"
+    },
+    "settings_theme_default": {
+        "message": "Vaiketeema"
+    },
+    "settings_theme_default_desc": {
+        "message": "See teema v\u00f5imaldab j\u00e4rjehoidjatele juurde p\u00e4\u00e4seda puhtal ja kaasaegsel viisil. Paljude elementide v\u00e4rvi saab v\u00e4rvilahendust muutes muuta."
+    },
+    "settings_theme_glass": {
+        "message": "Klaasjas teema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "See teema muudab k\u00fclgriba tausta pooll\u00e4bipaistvaks ja lisab sellele uduse klaasiefekti. Seda efekti ja k\u00fclgriba l\u00e4bipaistvust saab kohandada."
+    },
+    "settings_install_theme": {
+        "message": "Paigalda teema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Hetkel kasutuses"
     },
     "settings_newtab_desc": {
         "message": "Kahjuks eemaldas Google v\u00f5imaluse laienduste laadimiseks uuel vaikekaardilehel. Sellep\u00e4rast lisasin m\u00f5ningaid valikuid, mis v\u00f5imaldavad uue vahekaardi avamisel m\u00f5nel muul viisil oma j\u00e4rjehoidjate juurde p\u00e4\u00e4seda."
@@ -1034,6 +1079,9 @@
     "settings_translation_required_category": {
         "message": "N\u00f5utav"
     },
+    "settings_support_faq_headline": {
+        "message": "Korduma kippuvad k\u00fcsimused"
+    },
     "settings_support_feedback_headline": {
         "message": "Tagasiside"
     },
@@ -1042,6 +1090,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Palun saada tagasiside inglise keeles, muidu on s\u00f5numist raske aru saada ja sellele vastata."
+    },
+    "settings_support_feedback_email": {
+        "message": "e-posti aadress (valikuline)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Lisa kuvat\u00f5mmis"
@@ -1138,6 +1189,12 @@
     },
     "premium_feature_linkchecker_desc": {
         "message": "Otsinguks v\u00f5id k\u00fclgribal paremkl\u00f5psata igat kataloogi. Vastuste leht kuvab k\u00f5ik uuendatud URL-id, j\u00e4rjehoidjad, mis enam ei t\u00f6\u00f6ta ja sama URL-iga j\u00e4rjehoidjad."
+    },
+    "premium_feature_themes_headline": {
+        "message": "K\u00fclgriba teema muutmine"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Kogu k\u00fclgriba kujunduse saab muuta \u00fche hiirekl\u00f5psuga paigaldades teise teema. Neid saab kohandada ka liugurite ja v\u00e4rvivalikute abil."
     },
     "premium_pay_select_payment_method": {
         "message": "Vali makseviis"

@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Zobrazit ikony webov\u00fdch str\u00e1nek"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Velikost m\u0159\u00ed\u017eky"
+    },
     "newtab_search_placeholder": {
         "message": "Vyhledat {1} nebo typ URL"
     },
@@ -1213,6 +1216,9 @@
     },
     "premium_pay_price_info": {
         "message": "Toto je jednor\u00e1zov\u00e1 zm\u011bna a zahrnuje rovn\u011b\u017e budouc\u00ed funkce Premium."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Pro z\u00edsk\u00e1n\u00ed pr\u00e9miov\u00fdch funkc\u00ed m\u016f\u017eete zaplatit \u010d\u00e1stku dle sv\u00e9ho uv\u00e1\u017een\u00ed. Obdr\u017e\u00edte v\u017edy v\u0161echny pr\u00e9miov\u00e9 funkce, bez ohledu na to kolik jste zaplatil(a)."
     },
     "premium_pay_eula": {
         "message": "Licen\u010dn\u00ed smlouva koncov\u00e9ho u\u017eivatele"

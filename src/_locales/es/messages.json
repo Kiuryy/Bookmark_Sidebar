@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Este es un cargo por \u00fanica vez e incluye todas las funciones premium futuras tambi\u00e9n."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Puede pagar lo que crea que vale la extensi\u00f3n y mi trabajo para obtener acceso a las funciones premium. Siempre recibir\u00e1 todas las funciones premium, independientemente de cu\u00e1nto est\u00e9 dispuesto a pagar."
+    },
     "premium_pay_eula": {
         "message": "Acuerdo de licencia de usuario final"
     },

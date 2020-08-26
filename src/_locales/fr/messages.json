@@ -1134,13 +1134,13 @@
         "message": "Votre choix a bien \u00e9t\u00e9 pris en compte"
     },
     "premium_popup_text": {
-        "message": "Avez-vous d\u00e9j\u00e0 essay\u00e9 notre compte Premium ?"
+        "message": "Avez-vous d\u00e9j\u00e0 essay\u00e9 le mode Premium ?"
     },
     "premium_restricted_text": {
-        "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec un compte Premium"
+        "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec le mode Premium"
     },
     "premium_desc_1": {
-        "message": "En souscrivant \u00e0 un compte Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s additionnelles et m'aiderez \u00e0 maintenir cette extension."
+        "message": "En mode Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s additionnelles et m'aiderez \u00e0 maintenir cette extension."
     },
     "premium_desc_2": {
         "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payez le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension, et de mon travail."
@@ -1149,13 +1149,13 @@
         "message": "Souscrire un compte Premium"
     },
     "premium_show_license_input": {
-        "message": "Je poss\u00e8de d\u00e9j\u00e0 un compte Premium"
+        "message": "Je poss\u00e8de d\u00e9j\u00e0 d'un compte Premium"
     },
     "premium_already_activated": {
         "message": "Vous utilisez d\u00e9j\u00e0 un compte Premium"
     },
     "premium_activate": {
-        "message": "Activez le compte Premium"
+        "message": "Activez le mode Premium"
     },
     "premium_license_key": {
         "message": "Cl\u00e9 de licence"
@@ -1216,6 +1216,9 @@
     },
     "premium_pay_price_info": {
         "message": "Ceci est un paiement unique et inclue toutes les prochaines fonctionnalit\u00e9s premium."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Vous pouvez payer ce que vous pensez que l'extension et mon travail valent pour vous pour acc\u00e9der aux fonctionnalit\u00e9s premium. Vous recevrez toujours toutes les fonctionnalit\u00e9s premium, quel que soit le montant que vous \u00eates pr\u00eat \u00e0 payer."
     },
     "premium_pay_eula": {
         "message": "Conditions g\u00e9n\u00e9rale d'utilisation"

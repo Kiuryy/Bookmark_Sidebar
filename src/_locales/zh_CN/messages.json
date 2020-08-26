@@ -342,13 +342,13 @@
         "message": "\u670d\u52a1\u4e0d\u53ef\u7528"
     },
     "status_feedback_unavailable_desc": {
-        "message": "\u53cd\u9988\u529f\u80fd\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u5982\u679c\u60a8\u60f3\u7ed9\u6211\u4eec\u53cd\u9988\u7684\u8bdd\uff0c\u8bf7\u7528\u7535\u5b50\u90ae\u4ef6\u7684\u5f62\u5f0f\u8fdb\u884c\u3002"
+        "message": "\u53cd\u9988\u529f\u80fd\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u5982\u679c\u60a8\u60f3\u7ed9\u6211\u4eec\u53cd\u9988\u7684\u8bdd\uff0c\u8bf7\u53d1\u90ae\u4ef6\u7ed9\u6211\u3002"
     },
     "status_translation_unavailable_desc": {
         "message": "\u7ffb\u8bd1\u529f\u80fd\u73b0\u5728\u4e0d\u53ef\u7528\u3002\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002"
     },
     "status_background_disconnected_reload_action": {
-        "message": "\u7acb\u523b\u91cd\u65b0\u52a0\u8f7d"
+        "message": "\u73b0\u5728\u91cd\u65b0\u52a0\u8f7d"
     },
     "status_background_disconnected_reload_desc": {
         "message": "\u7531\u4e8e\u6269\u5c55\u7a0b\u5e8f\u66f4\u65b0\uff0c\u9700\u8981\u91cd\u65b0\u52a0\u8f7d\u8be5\u9875\u9762\u3002"
@@ -648,7 +648,7 @@
         "message": "\u62d6\u52a8"
     },
     "settings_keyboard_shortcut_button": {
-        "message": "\u8bbe\u7f6e\u952e\u76d8\u5feb\u6377"
+        "message": "\u8bbe\u7f6e\u952e\u76d8\u5feb\u6377\u952e"
     },
     "settings_link_action": {
         "message": "\u6253\u5f00\u4e66\u7b7e"
@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "\u4e00\u6b21\u6027\u4ea4\u8d39\uff0c\u5305\u62ec\u89e3\u9501\u6240\u6709\u672a\u6765\u7684\u9ad8\u7ea7\u529f\u80fd\u3002"
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "\u5982\u679c\u6b64\u6269\u5c55\u7a0b\u5e8f\u5bf9\u60a8\u6709\u5e2e\u52a9\uff0c\u60a8\u53ef\u4ee5\u4ed8\u6b3e\u652f\u6301\u6211\uff0c\u5e76\u83b7\u5f97\u9ad8\u7ea7\u529f\u80fd\u7684\u4f7f\u7528\u3002 \u65e0\u8bba\u60a8\u613f\u610f\u652f\u4ed8\u591a\u5c11\uff0c\u60a8\u90fd\u5c06\u59cb\u7ec8\u83b7\u5f97\u6240\u6709\u9ad8\u7ea7\u529f\u80fd\u3002"
+    },
     "premium_pay_eula": {
         "message": "\u6700\u7ec8\u7528\u6237\u8bb8\u53ef\u534f\u8bae"
     },
@@ -1233,7 +1236,7 @@
         "message": "\u8d2d\u4e70\u9ad8\u7ea7\u8d26\u53f7"
     },
     "premium_pay_verifying": {
-        "message": "\u6b63\u5728\u4ea4\u6613"
+        "message": "\u786e\u8ba4\u4ea4\u6613"
     },
     "premium_pay_purchase_id": {
         "message": "\u8d2d\u4e70ID"

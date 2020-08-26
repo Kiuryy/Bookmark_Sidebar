@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "To je enkratno pla\u010dilo in vklju\u010duje tudi vse prihodnje premijske funkcije."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Lahko pla\u010date toliko kolikor mislite, da je vam raz\u0161iritev in moje delo vredno, \u010de \u017eelite dobiti dostop do premium funkcij. Vedno boste prejeli vse premium funkcije, ne glede na to, koliko ste pripravljeni pla\u010dati."
+    },
     "premium_pay_eula": {
         "message": "End-User License Agreement"
     },

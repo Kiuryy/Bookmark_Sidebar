@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Dies ist eine einmalige Zahlung und beinhaltet alle zuk\u00fcnftigen Premium-Funktionen."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Du kannst soviel bezahlen wie dir die Erweiterung und meine Arbeit wert ist, um Zugriff auf die Premium-Funktionen zu erhalten. Du erh\u00e4ltst alle Premium-Funktionen, egal wie viel du bereit bist auszugeben."
+    },
     "premium_pay_eula": {
         "message": "Endbenutzer-Lizenzvereinbarung"
     },

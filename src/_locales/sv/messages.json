@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Detta \u00e4r en eng\u00e5ngsavgift och inkluderar ocks\u00e5 alla framtida premiumfunktioner."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Du kan betala vad du tycker till\u00e4gget och mitt arbete \u00e4r v\u00e4rt f\u00f6r dig f\u00f6r att f\u00e5 tillg\u00e5ng till premiumfunktionerna. Du f\u00e5r alltid alla premiumfunktioner, oavsett hur mycket du \u00e4r villig att betala."
+    },
     "premium_pay_eula": {
         "message": "Slutanv\u00e4ndarlicensavtalet"
     },

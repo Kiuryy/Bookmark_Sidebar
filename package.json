@@ -1,7 +1,7 @@
 {
   "name": "bookmark_sidebar",
-  "version": "1.18.2",
-  "versionName": "1.18.2",
+  "version": "1.18.3",
+  "versionName": "1.18.3",
   "license": "GPL-3.0",
   "author": "Philipp König",
   "homepage": "https://extensions.blockbyte.de/",
@@ -18,16 +18,16 @@
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
     "del": "^5.1.0",
-    "eslint": "^7.7.0",
+    "eslint": "^7.8.1",
     "fs-extra": "^9.0.1",
     "glob-concat": "^1.0.2",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^4.14.1",
-    "npm-check-updates": "^7.1.1",
+    "npm-check-updates": "^8.1.0",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^5.2.1",
+    "terser": "^5.3.0",
     "zip-dir": "^1.0.2"
   }
 }

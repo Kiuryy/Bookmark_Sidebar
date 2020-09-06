@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Ovo je jednokratna naknada i uklju\u010duje sve budu\u0107e Premium zna\u010dajke."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Mo\u017eete platiti onoliko koliko mislite da vam ovo pro\u0161irenje i moj rad vrijede da biste pristupili premium zna\u010dajkama. Uvijek \u0107ete dobiti sve premium zna\u010dajke, bez obzira koliko ste spremni platiti."
+    },
     "premium_pay_eula": {
         "message": "Ugovor o licenci za krajnjeg korisnika"
     },

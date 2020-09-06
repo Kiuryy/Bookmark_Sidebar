@@ -504,7 +504,29 @@
                     return new Promise((rslv) => {
                         let resolved = 0;
                         for (const bookmark of bookmarks) {
+                            let done = false;
+                            const callback = () => {
+                                if(done){
+                                    return;
+                                }
+
+                                done= true;
+                                finished++;
+                                resolved++;
+
+                                elements.progressBar.children("div").css("width", (finished / totalBookmarks * 100) + "%");
+                                elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
+
+                                if (resolved >= bookmarks.length) {
+                                    rslv();
+                                }
+                            };
+
+                            const waitTimeout = setTimeout(callback, 10000); // call the callback function after 10s, regardless of whether the backend call is still pending (it seem to got stuck, if it cannot respond in these 10s)
+
                             ext.helper.model.call("checkUrl", {url: bookmark.url}).then((response) => {
+                                clearTimeout(waitTimeout);
+
                                 if (response.duplicateInfo.duplicates.length > 0) {
                                     if (duplicateLabels.indexOf(response.duplicateInfo.label) === -1) { // prevent multiple entries of the same url
                                         results.duplicate.push({
@@ -535,17 +557,7 @@
                                     });
                                     results.count++;
                                 }
-                            })["finally"](() => {
-                                finished++;
-                                resolved++;
-
-                                elements.progressBar.children("div").css("width", (finished / totalBookmarks * 100) + "%");
-                                elements.progressLabel.children("span").eq(0).text(finished.toLocaleString());
-
-                                if (resolved >= bookmarks.length) {
-                                    rslv();
-                                }
-                            });
+                            })["finally"](callback);
                         }
                     });
                 };

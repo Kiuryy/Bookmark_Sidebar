@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Toto je jednorazov\u00fd poplatok a zah\u0155\u0148a v\u0161etky bud\u00face pr\u00e9miov\u00e9 funkcie."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "M\u00f4\u017ee\u0165e zaplati\u0165 ak\u00fako\u013eek sumu, ktor\u00e1 pod\u013ea V\u00e1s odpoved\u00e1 tomuto roz\u0161\u00edreniu a z\u00edska\u0165 tak pr\u00edstup k pr\u00e9miov\u00fdm funkcionalit\u00e1m. Po zaplaten\u00ed akejko\u013evek \u010diastky sa V\u00e1m odomkn\u00fa v\u0161etky pr\u00e9miov\u00e9 funkcie."
+    },
     "premium_pay_eula": {
         "message": "Licen\u010dn\u00e1 zmluva s koncov\u00fdm pou\u017e\u00edvate\u013eom"
     },

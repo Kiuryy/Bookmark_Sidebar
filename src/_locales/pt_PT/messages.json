@@ -278,6 +278,9 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Mostrar \u00edcones da p\u00e1gina web"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Tamanho da grelha"
+    },
     "newtab_search_placeholder": {
         "message": "Procurar {1} ou escreva o URL"
     },
@@ -1214,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Esta \u00e9 uma cobran\u00e7a \u00fanica e tamb\u00e9m inclui todos os futuros recursos premium."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Pode pagar o que considerar melhor pela extens\u00e3o e o meu trabalho valer\u00e1 para si o ter acesso aos recursos premium. Receber\u00e1 sempre todos os recursos premium, independentemente da quantia que est\u00e1 disposto a pagar."
+    },
     "premium_pay_eula": {
         "message": "Contrato de Licen\u00e7a de Utilizador Final"
     },
@@ -1263,6 +1269,6 @@
         "message": "N\u00famero de cart\u00e3o"
     },
     "premium_pay_info_card_expires": {
-        "message": "Cart\u00e3o expirado"
+        "message": "Cart\u00e3o expira"
     }
 }

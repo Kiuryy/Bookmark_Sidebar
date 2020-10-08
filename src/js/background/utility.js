@@ -189,11 +189,13 @@
                     }
                 }
 
+                const url = this.getParsedUrl(opts.href) + params;
+
                 if (opts.newTab && opts.newTab === true) { // new tab
                     const createTab = (idx = null) => {
                         $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
                             $.api.tabs.create({
-                                url: this.getParsedUrl(opts.href) + params,
+                                url: url,
                                 active: typeof opts.active === "undefined" ? true : !!(opts.active),
                                 index: idx === null ? tabs[0].index + 1 : idx,
                                 openerTabId: tabs[0].id
@@ -217,14 +219,14 @@
                         createTab();
                     }
                 } else if (opts.newWindow && opts.newWindow === true) { // new normal window
-                    $.api.windows.create({url: opts.href + params, state: "maximized"});
+                    $.api.windows.create({url: url, state: "maximized"});
                     resolve();
                 } else if (opts.incognito && opts.incognito === true) { // incognito window
-                    $.api.windows.create({url: opts.href + params, state: "maximized", incognito: true});
+                    $.api.windows.create({url: url, state: "maximized", incognito: true});
                     resolve();
                 } else { // current tab
                     $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                        $.api.tabs.update(tabs[0].id, {url: opts.href + params}, (tab) => {
+                        $.api.tabs.update(tabs[0].id, {url: url}, (tab) => {
                             b.helper.model.setData("openedByExtension", tab.id).then(resolve);
                         });
                     });

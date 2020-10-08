@@ -567,7 +567,7 @@
                 ret.errors = true;
             }
 
-            if (ret.values.url !== null && ret.values.url.search(/^\w+\:/) !== 0) { // prepend http if no protocol specified
+            if (ret.values.url !== null && ret.values.url.search(/^[\w-]+\:/) !== 0) { // prepend http if no protocol specified
                 ret.values.url = "http://" + ret.values.url;
             }
 

@@ -7,14 +7,14 @@
 
 ---
 
-Bookmark Sidebar is a browser extension, which adds a toggleable sidebar with all your bookmarks on the left or right side of your screen. You can sort, edit, delete or rearrange your bookmarks easily from within the sidebar. There are many configuration options and the appearance is fully customizable. 
+Bookmark Sidebar is a browser extension, which adds a toggleable sidebar with all your bookmarks on the left or right side of your screen. You can sort, edit, delete or rearrange your bookmarks easily from within the sidebar. There are many configuration options, and the appearance is fully customizable. 
 
-<a href="https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh" target="_blank"><img src="https://extensions.blockbyte.de/img/github_download_chrome.png" width="160" /></a>&ensp;
-<a href="https://microsoftedge.microsoft.com/addons/detail/lmjefbghkfeppnpofmbfmhgodpclipbl" target="_blank"><img src="https://extensions.blockbyte.de/img/github_download_edge.png" width="160" /></a>
+<a href="https://chrome.google.com/webstore/detail/bookmark-sidebar/jdbnofccmhefkmjbkkdkfiicjkgofkdh" target="_blank"><img src="https://extensions.redeviation.com/img/github_download_chrome.png" width="160" /></a>&ensp;
+<a href="https://microsoftedge.microsoft.com/addons/detail/lmjefbghkfeppnpofmbfmhgodpclipbl" target="_blank"><img src="https://extensions.redeviation.com/img/github_download_edge.png" width="160" /></a>
 
 The extension should work with all Chromium-based browsers, while officially only Chrome and Edge are fully supported.
 
-If you want to help translating the extension, feel free to contribute by submitting some translations. Currently 37 different languages are available.
+If you want to help to translate the extension, feel free to contribute by submitting some translations. Currently, 37 different languages are available.
 
 ## Release History
 See the [Release History](https://github.com/Kiuryy/Bookmark_Sidebar/releases) for an overview about all versions.
@@ -25,4 +25,4 @@ This project is licensed under the GNU General Public License v3.0 - see the [li
 
 ## Contact
 
-If you have questions, problems or ideas, please do not hesitate to submit the feedback form of the extension, open an issue here on GitHub or directly contact me at <a href="mailto:p.koenig@blockbyte.de">p.koenig@blockbyte.de</a>.
+If you have questions, problems or ideas, please do not hesitate to submit the feedback form of the extension, open an issue here on GitHub or directly contact me at <a href="mailto:philipp.koenig@redeviation.com">philipp.koenig@redeviation.com</a>.

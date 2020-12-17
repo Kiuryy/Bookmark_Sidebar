@@ -6,8 +6,8 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "81",
-  "homepage_url": "https://extensions.blockbyte.de/",
+  "minimum_chrome_version": "82",
+  "homepage_url": "https://extensions.redeviation.com/",
   "background": {
     "scripts": [
       "js/lib/jsu.js",

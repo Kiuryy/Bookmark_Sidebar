@@ -7,9 +7,9 @@
     $.opts = {
         ids: {
             page: {
-                iframe: "blockbyte-bs-sidebar",
-                overlay: "blockbyte-bs-overlay",
-                indicator: "blockbyte-bs-indicator"
+                iframe: "redeviation-bs-sidebar",
+                overlay: "redeviation-bs-overlay",
+                indicator: "redeviation-bs-indicator"
             },
             sidebar: {
                 sidebar: "sidebar",
@@ -38,13 +38,13 @@
             building: "building",
             initLoading: "initLoading",
             page: {
-                visible: "blockbyte-bs-visible",
-                hideMask: "blockbyte-bs-hideMask",
-                hover: "blockbyte-bs-hover",
-                noscroll: "blockbyte-bs-noscroll",
-                hasLeftsideBack: "blockbyte-bs-has-lsb",
-                style: "blockbyte-bs-style",
-                fullHeight: "blockbyte-bs-fullHeight",
+                visible: "redeviation-bs-visible",
+                hideMask: "redeviation-bs-hideMask",
+                hover: "redeviation-bs-hover",
+                noscroll: "redeviation-bs-noscroll",
+                hasLeftsideBack: "redeviation-bs-has-lsb",
+                style: "redeviation-bs-style",
+                fullHeight: "redeviation-bs-fullHeight",
                 noAnimations: "noAnimations",
                 darkMode: "dark",
                 highContrast: "highContrast"
@@ -185,7 +185,7 @@
                 },
                 appearance: {
                     preview: {
-                        fullHeight: "blockbyte-bs-fullHeight"
+                        fullHeight: "redeviation-bs-fullHeight"
                     }
                 },
                 support: {
@@ -210,7 +210,7 @@
             }
         },
         attr: {
-            uid: "data-blockbyte-bs-uid",
+            uid: "data-redeviation-bs-uid",
             src: "data-src",
             position: "data-pos",
             type: "data-type",
@@ -257,42 +257,42 @@
             }
         },
         events: {
-            loaded: "blockbyte-bs-loaded",
-            elementsCreated: "blockbyte-bs-created",
-            openSidebar: "blockbyte-bs-sidebar-open",
-            sidebarOpened: "blockbyte-bs-sidebar-opened",
-            overlayClosed: "blockbyte-bs-overlay-closed",
-            checkboxChanged: "blockbyte-bs-checkbox-changed",
-            scrollBoxLastPart: "blockbyte-bs-scrollbox-lastpart",
-            premiumPurchased: "blockbyte-bs-premiumPurchased",
-            showFeedbackForm: "blockbyte-bs-feedback",
-            lsbLoaded: "blockbyte-lsb-loaded",
-            pageChanged: "blockbyte-bs-pageChanged"
+            loaded: "redeviation-bs-loaded",
+            elementsCreated: "redeviation-bs-created",
+            openSidebar: "redeviation-bs-sidebar-open",
+            sidebarOpened: "redeviation-bs-sidebar-opened",
+            overlayClosed: "redeviation-bs-overlay-closed",
+            checkboxChanged: "redeviation-bs-checkbox-changed",
+            scrollBoxLastPart: "redeviation-bs-scrollbox-lastpart",
+            premiumPurchased: "redeviation-bs-premiumPurchased",
+            showFeedbackForm: "redeviation-bs-feedback",
+            lsbLoaded: "redeviation-lsb-loaded",
+            pageChanged: "redeviation-bs-pageChanged"
         },
         website: {
             info: {
-                landing: "https://extensions.blockbyte.de/",
-                privacyPolicy: "https://extensions.blockbyte.de/privacy/bs",
-                changelog: "https://extensions.blockbyte.de/changelog/bs",
-                uninstall: "https://extensions.blockbyte.de/uninstall/bs",
+                landing: "https://extensions.redeviation.com/",
+                privacyPolicy: "https://extensions.redeviation.com/privacy/bs",
+                changelog: "https://extensions.redeviation.com/changelog/bs",
+                uninstall: "https://extensions.redeviation.com/uninstall/bs",
             },
             premium: {
-                checkout: "https://extensions.blockbyte.de/premium/bs/checkout",
-                checkLicenseKey: "https://extensions.blockbyte.de/ajax/premium/bs/check",
+                checkout: "https://extensions.redeviation.com/premium/bs/checkout",
+                checkLicenseKey: "https://extensions.redeviation.com/ajax/premium/bs/check",
             },
             feedback: {
-                form: "https://extensions.blockbyte.de/ajax/feedback",
-                suggestions: "https://extensions.blockbyte.de/ajax/feedback/suggestions"
+                form: "https://extensions.redeviation.com/ajax/feedback",
+                suggestions: "https://extensions.redeviation.com/ajax/feedback/suggestions"
             },
             translation: {
-                info: "https://extensions.blockbyte.de/ajax/translation/bs/info",
-                langvars: "https://extensions.blockbyte.de/ajax/translation/bs/langvars",
-                submit: "https://extensions.blockbyte.de/ajax/translation/bs/submit"
+                info: "https://extensions.redeviation.com/ajax/translation/bs/info",
+                langvars: "https://extensions.redeviation.com/ajax/translation/bs/langvars",
+                submit: "https://extensions.redeviation.com/ajax/translation/bs/submit"
             },
             api: {
-                thumbnail: "https://api.blockbyte.de/v1/thumbnail",
-                checkStatus: "https://extensions.blockbyte.de/ajax/status/bs",
-                evaluate: "https://api.blockbyte.de/v3/evaluate/extension/bs",
+                thumbnail: "https://api.blockbyte.de/v1/thumbnail", // @deprecated (01/2021)
+                checkStatus: "https://extensions.redeviation.com/ajax/status/bs",
+                evaluate: "https://extensions.redeviation.com/api/evaluate/log",
             }
         },
         urlAliases: {
@@ -307,7 +307,7 @@
                 "chrome://extensions/shortcuts": "opera://settings/keyboardShortcuts"
             }
         },
-        leftsideBackSelector: "div#blockbyte-lsb-indicator.blockbyte-lsb-visible",
+        leftsideBackSelector: "div#redeviation-lsb-indicator.redeviation-lsb-visible",
         manifest: $.api.runtime.getManifest(),
         demoMode: false
     };

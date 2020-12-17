@@ -1,8 +1,8 @@
-body > iframe#blockbyte-bs-sidebar, body > iframe#blockbyte-bs-overlay {
+body > iframe#redeviation-bs-sidebar, body > iframe#redeviation-bs-overlay {
   opacity: 0;
   pointer-events: none; }
 
-body > div#blockbyte-bs-indicator {
+body > div#redeviation-bs-indicator {
   display: none;
   position: fixed;
   top: 0;
@@ -12,31 +12,31 @@ body > div#blockbyte-bs-indicator {
   margin: 0;
   padding: 0;
   z-index: 2147483645; }
-  body > div#blockbyte-bs-indicator.blockbyte-bs-visible {
+  body > div#redeviation-bs-indicator.redeviation-bs-visible {
     display: block; }
 
-body > iframe#blockbyte-bs-sidebar {
+body > iframe#redeviation-bs-sidebar {
   position: fixed;
   top: 0;
   left: 0; }
 
-body > iframe#blockbyte-bs-overlay {
+body > iframe#redeviation-bs-overlay {
   position: fixed;
   top: 0;
   left: 0;
   display: block; }
 
-body > div#blockbyte-bs-indicator.noAnimations, body > div#blockbyte-bs-indicator.noAnimations::before, body > div#blockbyte-bs-indicator.noAnimations::after, body > div#blockbyte-bs-indicator.noAnimations > *,
-body > iframe#blockbyte-bs-sidebar.noAnimations,
-body > iframe#blockbyte-bs-sidebar.noAnimations::before,
-body > iframe#blockbyte-bs-sidebar.noAnimations::after,
-body > iframe#blockbyte-bs-sidebar.noAnimations > *,
-body > iframe#blockbyte-bs-overlay.noAnimations,
-body > iframe#blockbyte-bs-overlay.noAnimations::before,
-body > iframe#blockbyte-bs-overlay.noAnimations::after,
-body > iframe#blockbyte-bs-overlay.noAnimations > * {
+body > div#redeviation-bs-indicator.noAnimations, body > div#redeviation-bs-indicator.noAnimations::before, body > div#redeviation-bs-indicator.noAnimations::after, body > div#redeviation-bs-indicator.noAnimations > *,
+body > iframe#redeviation-bs-sidebar.noAnimations,
+body > iframe#redeviation-bs-sidebar.noAnimations::before,
+body > iframe#redeviation-bs-sidebar.noAnimations::after,
+body > iframe#redeviation-bs-sidebar.noAnimations > *,
+body > iframe#redeviation-bs-overlay.noAnimations,
+body > iframe#redeviation-bs-overlay.noAnimations::before,
+body > iframe#redeviation-bs-overlay.noAnimations::after,
+body > iframe#redeviation-bs-overlay.noAnimations > * {
   transition: none !important; }
 
 @media print {
-  [id^='blockbyte-bs-'] {
+  [id^='redeviation-bs-'] {
     display: none !important; } }

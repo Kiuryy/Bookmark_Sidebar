@@ -47,7 +47,7 @@
                     $("<p></p>")
                         .addClass($.cl.error)
                         .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
-                        .append("<a href='mailto:feedback@blockbyte.de'>feedback@blockbyte.de</a>")
+                        .append("<a href='mailto:feedback@redeviation.com'>feedback@redeviation.com</a>")
                         .insertAfter(s.elm.support.form);
 
                     resolve();

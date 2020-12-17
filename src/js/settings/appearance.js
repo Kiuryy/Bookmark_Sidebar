@@ -262,7 +262,7 @@
          * @param {jsu} preview
          */
         const updatePreviewIndicator = (preview) => {
-            const indicator = preview.find("div#blockbyte-bs-indicator");
+            const indicator = preview.find("div#redeviation-bs-indicator");
 
             if (indicator.length() > 0) {
                 const height = +s.elm.range.toggleArea_height[0].value;

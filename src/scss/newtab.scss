@@ -70,7 +70,7 @@ section#content {
     width: calc(100vw - #{$__sidebarWidth});
     margin-left: $__sidebarWidth;
 
-    ~ iframe#blockbyte-bs-sidebar:not(.blockbyte-bs-hover) {
+    ~ iframe#redeviation-bs-sidebar:not(.redeviation-bs-hover) {
       width: $__sidebarWidth;
     }
   }

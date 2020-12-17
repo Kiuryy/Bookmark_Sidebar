@@ -1246,7 +1246,7 @@ section#content {
   section#content.small {
     width: calc(100vw - %sidebarWidth);
     margin-left: "%sidebarWidth"; }
-    section#content.small ~ iframe#blockbyte-bs-sidebar:not(.blockbyte-bs-hover) {
+    section#content.small ~ iframe#redeviation-bs-sidebar:not(.redeviation-bs-hover) {
       width: "%sidebarWidth"; }
   section#content > section.mid {
     position: relative;

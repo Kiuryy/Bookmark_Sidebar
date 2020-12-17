@@ -2,7 +2,7 @@
 @import "include/mixins";
 
 // Indicator
-body > div#blockbyte-bs-indicator {
+body > div#redeviation-bs-indicator {
   display: none;
   position: fixed;
   top: 0;
@@ -13,13 +13,13 @@ body > div#blockbyte-bs-indicator {
   padding: 0;
   z-index: #{2147483647 - 2};
 
-  &.blockbyte-bs-visible {
+  &.redeviation-bs-visible {
     display: block;
   }
 }
 
 // Sidebar
-body > iframe#blockbyte-bs-sidebar {
+body > iframe#redeviation-bs-sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@ body > iframe#blockbyte-bs-sidebar {
 }
 
 // Overlay
-body > iframe#blockbyte-bs-overlay {
+body > iframe#redeviation-bs-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -36,9 +36,9 @@ body > iframe#blockbyte-bs-overlay {
 }
 
 // No Animations
-body > div#blockbyte-bs-indicator.noAnimations,
-body > iframe#blockbyte-bs-sidebar.noAnimations,
-body > iframe#blockbyte-bs-overlay.noAnimations {
+body > div#redeviation-bs-indicator.noAnimations,
+body > iframe#redeviation-bs-sidebar.noAnimations,
+body > iframe#redeviation-bs-overlay.noAnimations {
 
   &, &::before, &::after, > * {
     transition: none !important;
@@ -47,7 +47,7 @@ body > iframe#blockbyte-bs-overlay.noAnimations {
 
 // Print
 @media print {
-  [id^='blockbyte-bs-'] {
+  [id^='redeviation-bs-'] {
     display: none !important;
   }
 }

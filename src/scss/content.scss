@@ -2,12 +2,12 @@
 @import "include/mixins";
 
 // Scroll prevention
-body.blockbyte-bs-noscroll {
+body.redeviation-bs-noscroll {
   overflow: hidden !important;
 }
 
 // Indicator
-body > div#blockbyte-bs-indicator {
+body > div#redeviation-bs-indicator {
 
   > div {
     position: absolute;
@@ -47,14 +47,14 @@ body > div#blockbyte-bs-indicator {
     }
   }
 
-  &.blockbyte-bs-fullHeight {
+  &.redeviation-bs-fullHeight {
 
     > div {
       border-radius: 0;
     }
   }
 
-  &.blockbyte-bs-hover {
+  &.redeviation-bs-hover {
 
     > div {
       transform: translate3d(0, 0, 0);
@@ -62,7 +62,7 @@ body > div#blockbyte-bs-indicator {
     }
   }
 
-  &[data-pos='left'].blockbyte-bs-has-lsb {
+  &[data-pos='left'].redeviation-bs-has-lsb {
     height: 100% !important;
     top: 0 !important;
 
@@ -77,7 +77,7 @@ body > div#blockbyte-bs-indicator {
 }
 
 // Sidebar
-body > iframe#blockbyte-bs-sidebar {
+body > iframe#redeviation-bs-sidebar {
   width: $__sidebarWidth;
   max-width: none;
   height: 0;
@@ -95,7 +95,7 @@ body > iframe#blockbyte-bs-sidebar {
     transform: translate3d($__sidebarWidth, 0, 0);
   }
 
-  &.blockbyte-bs-visible {
+  &.redeviation-bs-visible {
     @extend %visible;
     width: calc(100% + #{$__sidebarWidth});
     height: 100%;
@@ -103,17 +103,17 @@ body > iframe#blockbyte-bs-sidebar {
     transition: opacity 0.3s, transform 0.3s;
   }
 
-  &.blockbyte-bs-hideMask {
+  &.redeviation-bs-hideMask {
     background: none !important;
 
-    &:not(.blockbyte-bs-hover) {
+    &:not(.redeviation-bs-hover) {
       width: calc(#{$__sidebarWidth} + 50px);
     }
   }
 }
 
 // Overlay
-body > iframe#blockbyte-bs-overlay {
+body > iframe#redeviation-bs-overlay {
   width: 100%;
   max-width: none;
   height: 100%;
@@ -123,7 +123,7 @@ body > iframe#blockbyte-bs-overlay {
   background: $__overlayMaskColor !important;
   transition: opacity 0.3s;
 
-  &.blockbyte-bs-visible {
+  &.redeviation-bs-visible {
     @extend %visible;
   }
 }

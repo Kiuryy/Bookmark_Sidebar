@@ -261,7 +261,7 @@
                     ext.helper.model.call("activatePremium", {licenseKey: e.detail.licenseKey});
                 }
             }).on($.opts.events.showFeedbackForm, () => { // user accessed the feedback page from the webstore -> open the feedback form of the extension
-                $("div[data-name='blockbyte-extension']").removeAttr("data-name");
+                $("div[data-name='redeviation-extension']").removeAttr("data-name");
 
                 ext.helper.model.call("openLink", {
                     href: $.api.extension.getURL("html/settings.html#support"),

@@ -271,10 +271,14 @@
                         .append("<li><a " + $.attr.type + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")
                         .append("<li><a " + $.attr.type + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>")
                         .appendTo(listEntry);
-                } else if (data.pinned) {
-                    iconWrapper.append("<li><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin", null, true) + "'></a></li>");
                 } else {
-                    iconWrapper.append("<li><a " + $.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin", null, true) + "'></a></li>");
+                    iconWrapper.append("<li><a " + $.attr.name + "='copyToClipboard' title='" + ext.helper.i18n.get("contextmenu_copy", null, true) + "'></a></li>");
+
+                    if (data.pinned) {
+                        iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='unpin' title='" + ext.helper.i18n.get("contextmenu_unpin", null, true) + "'></a></li>");
+                    } else {
+                        iconWrapper.append("<li class='" + $.cl.contextmenu.right + "'><a " + $.attr.name + "='pin' title='" + ext.helper.i18n.get("contextmenu_pin", null, true) + "'></a></li>");
+                    }
                 }
 
                 if (ext.helper.entry.isVisible(elmId)) {
@@ -477,6 +481,37 @@
             ext.helper.bookmark.unpinEntry(opts.data).then(() => {
                 ext.helper.model.call("reload", {type: "Unpin"});
             });
+        };
+
+        /**
+         * Copies the URL of the given bookmark to the clipboard
+         *
+         * @param {object} opts
+         */
+        clickFuncs.copyToClipboard = (opts) => {
+            const data = ext.helper.entry.getDataById(opts.id);
+
+            if (data && data.url &&  ext.helper.utility.copyToClipboard(data.url)) {
+
+                Object.values(ext.elm.bookmarkBox).some((box) => {
+                    if (box.hasClass($.cl.active)) {
+                        const elm = box.find("a[" + $.attr.id + "='" + data.id + "']");
+
+                        $(elm).children("span." + $.cl.sidebar.copied).remove();
+                        const copiedNotice = $("<span></span>").addClass($.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
+
+                        $.delay(100).then(() => {
+                            $(elm).addClass($.cl.sidebar.copied);
+                            return $.delay(1500);
+                        }).then(() => {
+                            $(elm).removeClass($.cl.sidebar.copied);
+                            return $.delay(500);
+                        }).then(() => {
+                            copiedNotice.remove();
+                        });
+                    }
+                });
+            }
         };
 
         /**

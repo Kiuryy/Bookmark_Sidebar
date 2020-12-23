@@ -79,7 +79,7 @@ div.contextmenu {
   div.contextmenu[data-type='list'], div.contextmenu[data-type='separator'] {
     left: -99999px;
     margin: 0 0 0 10px;
-    min-width: 260px; }
+    min-width: 270px; }
   div.contextmenu[data-type='menu'] {
     right: -93px;
     margin-top: -2px; }
@@ -127,6 +127,9 @@ div.contextmenu {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-info.svg); }
         div.contextmenu > ul.icons > li > a[data-name='add']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-add.svg); }
+        div.contextmenu > ul.icons > li > a[data-name='copyToClipboard']::before {
+          -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-copy.svg);
+          -webkit-mask-size: 18px; }
         div.contextmenu > ul.icons > li > a[data-name='pin']::before {
           -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/icon-pin.svg);
           -webkit-mask-size: 15px; }

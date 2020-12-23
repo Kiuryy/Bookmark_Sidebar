@@ -2,7 +2,7 @@
  * jsu - Javascript Utilities
  *
  * Philipp König
- * https://blockbyte.de/
+ * https://redeviation.com/
  */
 (() => {
     "use strict";

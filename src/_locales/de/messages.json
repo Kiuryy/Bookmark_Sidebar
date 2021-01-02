@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "In Inkognito-Fenster \u00f6ffnen"
     },
+    "contextmenu_copy": {
+        "message": "URL in Zwischenablage kopieren"
+    },
     "contextmenu_add_bookmark": {
         "message": "Lesezeichen hinzuf\u00fcgen"
     },

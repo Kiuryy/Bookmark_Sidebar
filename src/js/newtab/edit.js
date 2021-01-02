@@ -125,10 +125,6 @@
                 if (n.helper.model.getUserType() === "premium") {
                     data["n/topPagesMaxCols"] = +n.elm.topPages.find("select[" + $.attr.type + "='cols']")[0].value;
                     data["n/topPagesMaxRows"] = +n.elm.topPages.find("select[" + $.attr.type + "='rows']")[0].value;
-
-                    if (n.elm.topPages.children("select[" + $.attr.type + "='appearance']").length() > 0) {
-                        data["n/topPagesAppearance"] = n.elm.topPages.children("select[" + $.attr.type + "='appearance']")[0].value;
-                    }
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -171,7 +167,6 @@
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
             n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
-            n.helper.topPages.setAppearance(n.helper.model.getData("n/topPagesAppearance"));
             n.helper.topPages.setMaxCols(n.helper.model.getData("n/topPagesMaxCols"));
             n.helper.topPages.setMaxRows(n.helper.model.getData("n/topPagesMaxRows"));
             n.helper.shortcuts.refreshEntries();
@@ -217,10 +212,6 @@
                 initTopPagesGridSize();
                 initTopPagesTypeConfig();
                 initShortcutsConfig();
-
-                if (n.helper.model.getUserType() === "premium") {
-                    initTopPagesAppearanceConfig();
-                }
 
                 $.delay(500).then(() => {
                     $(window).trigger("resize");
@@ -399,28 +390,6 @@
                     });
                 });
             }
-        };
-
-        /**
-         * Initialises the dropdown for the top pages appearances
-         */
-        const initTopPagesAppearanceConfig = () => {
-            const select = $("<select></select>")
-                .addClass($.cl.newtab.edit)
-                .attr($.attr.type, "appearance")
-                .prependTo(n.elm.topPages);
-
-            const currentAppearance = n.helper.model.getData("n/topPagesAppearance");
-            const allAppearances = n.helper.topPages.getAllAppearances();
-
-            Object.keys(allAppearances).forEach((name) => {
-                const label = n.helper.i18n.get("newtab_top_pages_appearance_" + name);
-                $("<option value='" + name + "' " + (currentAppearance === name ? "selected" : "") + "></option>").text(label).appendTo(select);
-            });
-
-            select.on("input change", (e) => {
-                n.helper.topPages.setAppearance(e.currentTarget.value);
-            });
         };
 
         /**

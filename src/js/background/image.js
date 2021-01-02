@@ -20,47 +20,6 @@
         };
 
         /**
-         *
-         *
-         * @param {object} opts
-         * @returns {Promise}
-         */
-        this.getThumbnail = (opts) => {
-            return new Promise((resolve) => {
-                if (typeof opts.url === "undefined") {
-                    resolve({img: null});
-                } else {
-                    const cachedValue = getCachedValue("thumb", opts.url);
-
-                    if (cachedValue) {
-                        resolve({img: cachedValue});
-                    } else {
-                        $.xhr($.opts.website.api.thumbnail, {
-                            method: "POST",
-                            timeout: 10000,
-                            data: {
-                                url: opts.url,
-                                lang: b.helper.language.getUILanguage(),
-                                ua: navigator.userAgent
-                            }
-                        }).then((xhr) => {
-                            const dataUrl = xhr.responseText;
-
-                            if (dataUrl && dataUrl.length > 0) {
-                                updateImageCache("thumb", opts.url, dataUrl);
-                                resolve({img: dataUrl});
-                            } else {
-                                resolve({img: null});
-                            }
-                        }, () => {
-                            resolve({img: null});
-                        });
-                    }
-                }
-            });
-        };
-
-        /**
          * Returns the data url of the favicon of the given url
          *
          * @param {object} opts

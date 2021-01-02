@@ -4,10 +4,6 @@ html[dir='rtl'] {
 
     > ul {
       text-align: right;
-
-      &[data-appearance='thumbnail'] > li > a > span > img {
-        margin: 0 0 0 5px;
-      }
     }
   }
 }

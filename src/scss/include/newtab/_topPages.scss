@@ -25,57 +25,6 @@ div#topPages {
     > li {
       display: block;
       font-size: 90%;
-    }
-
-    &[data-appearance='thumbnail'] > li {
-      padding: 8px 7px;
-
-      > a {
-        display: block;
-        margin: 0 auto;
-        background: $contentBackground;
-        width: $entryWidth;
-        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 3px;
-        transition: border-color 0.3s, box-shadow 0.3s;
-
-        &:hover {
-          border-color: rgba(0, 0, 0, 0.2);
-          box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        > span {
-          display: block;
-          padding: 5px 7px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-
-          > img {
-            display: inline-block;
-            width: 14px;
-            margin: 0 5px 0 0;
-            vertical-align: top;
-          }
-        }
-
-        > img {
-          display: block;
-          width: $imageWidth;
-          height: $imageWidth * 0.625;
-          opacity: 0;
-          background: $contentBackground;
-          transition: opacity 0.5s;
-
-          &.visible {
-            opacity: 1;
-          }
-        }
-      }
-    }
-
-    &[data-appearance='favicon'] > li {
       font-weight: $__fontWeightMedium;
       padding: 17px 0;
 
@@ -131,26 +80,19 @@ div#search.hidden ~ div#topPages {
 
 body.customBackground div#topPages {
 
-  > ul[data-appearance='thumbnail'] > li > a {
-    background: rgba($contentBackground, 0.8);
-  }
+  > ul > li > a {
 
-  > ul[data-appearance='favicon'] > li {
+    &:hover {
+      background: rgba($contentBackground, 0.3);
+    }
 
-    > a {
+    > div {
+      background: rgba($contentBackground, 0.8);
+    }
 
-      &:hover {
-        background: rgba($contentBackground, 0.3);
-      }
-
-      > div {
-        background: rgba($contentBackground, 0.8);
-      }
-
-      > span {
-        color: $textColorInverted;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-      }
+    > span {
+      color: $textColorInverted;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     }
   }
 }

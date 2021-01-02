@@ -23,7 +23,6 @@
                 langvars: b.helper.language.getLangVars,
                 rtlLangs: b.helper.language.getRtlLanguages,
                 favicon: b.helper.image.getFavicon,
-                thumbnail: b.helper.image.getThumbnail,
                 openLink: b.helper.utility.openLink,
                 userType: b.helper.model.getUserType,
                 activatePremium: b.helper.utility.activatePremium,

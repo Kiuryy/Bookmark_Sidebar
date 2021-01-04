@@ -14,7 +14,7 @@ div.contextmenu {
   &[data-type='list'], &[data-type='separator'] {
     left: -99999px;
     margin: 0 0 0 10px;
-    min-width: 260px;
+    min-width: 270px;
   }
 
   &[data-type='menu'] {
@@ -78,6 +78,11 @@ div.contextmenu {
 
         &[data-name='add']::before {
           @include maskImage('icon-add');
+        }
+
+        &[data-name='copyToClipboard']::before {
+          @include maskImage('icon-copy');
+          -webkit-mask-size: 18px;
         }
 
         &[data-name='pin']::before {

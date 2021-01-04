@@ -7,13 +7,10 @@
         let type = null;
         let maxCols = 0;
         let maxRows = 0;
-        let appearance = null;
         let updateRunning = false;
 
-        const appearances = {
-            thumbnail: {colWidth: 159, rowHeight: 132},
-            favicon: {colWidth: 145, rowHeight: 121},
-        };
+        const colWidth = 145;
+        const rowHeight = 121;
 
         const types = {
             topPages: "default",
@@ -31,7 +28,6 @@
             initEvents();
             n.elm.topPages.html("<ul></ul>");
             type = n.helper.model.getData("n/topPagesType");
-            appearance = n.helper.model.getData("n/topPagesAppearance");
             maxCols = n.helper.model.getData("n/topPagesMaxCols");
             maxRows = n.helper.model.getData("n/topPagesMaxRows");
 
@@ -49,12 +45,6 @@
          * @returns {object}
          */
         this.getAllTypes = () => types;
-
-        /**
-         *
-         * @returns {Array}
-         */
-        this.getAllAppearances = () => appearances;
 
         /**
          *
@@ -85,17 +75,6 @@
         this.setMaxRows = (val) => {
             if (maxRows !== val) { // don't unneccessary reload the top pages if the amount of rows is still the same
                 maxRows = val;
-                updateEntries();
-            }
-        };
-
-        /**
-         *
-         * @param {string} val
-         */
-        this.setAppearance = (val) => {
-            if (appearance !== val) { // don't unneccessary reload the top pages if the appearance is still the same
-                appearance = val;
                 updateEntries();
             }
         };
@@ -137,11 +116,11 @@
                 h: (n.elm.content[0].offsetHeight || window.innerHeight) - n.elm.search.wrapper[0].offsetHeight - 150
             };
 
-            while (appearances[appearance].colWidth * ret.cols > dim.w && ret.cols > 0) { // adjust column amount to fit the grid on the page
+            while (colWidth * ret.cols > dim.w && ret.cols > 0) { // adjust column amount to fit the grid on the page
                 ret.cols--;
             }
 
-            while (appearances[appearance].rowHeight * ret.rows > dim.h && ret.rows > 0) { // adjust row amount to fit the grid on the page
+            while (rowHeight * ret.rows > dim.h && ret.rows > 0) { // adjust row amount to fit the grid on the page
                 ret.rows--;
             }
 
@@ -172,37 +151,20 @@
                     topPagesWrapper
                         .html("")
                         .data("total", amount.total)
-                        .css("grid-template-columns", "1fr ".repeat(amount.cols).trim())
-                        .attr($.attr.newtab.appearance, appearance);
+                        .css("grid-template-columns", "1fr ".repeat(amount.cols).trim());
 
                     pages.forEach((page) => {
                         const entry = $("<li></li>").appendTo(topPagesWrapper);
                         const entryLink = $("<a></a>").attr({href: page.url, title: page.title}).appendTo(entry);
-                        const entryLabel = $("<span></span>").text(page.title).appendTo(entryLink);
+                        $("<span></span>").text(page.title).appendTo(entryLink);
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
                             if (response.img) { // favicon found -> add to entry
                                 const favicon = $("<img />").attr("src", response.img);
-
-                                if (appearance === "thumbnail") {
-                                    favicon.prependTo(entryLabel);
-                                } else {
-                                    $("<div></div>").append(favicon).prependTo(entryLink);
-                                }
+                                $("<div></div>").append(favicon).prependTo(entryLink);
                             }
                         });
 
-                        if (appearance === "thumbnail") {
-                            const thumb = $("<img />").appendTo(entryLink);
-
-                            if (n.helper.utility.isUrlOnBlacklist(page.url) === false) {
-                                n.helper.model.call("thumbnail", {url: page.url}).then((response) => { //
-                                    if (response.img) { //
-                                        thumb.attr("src", response.img).addClass($.cl.visible);
-                                    }
-                                });
-                            }
-                        }
                     });
 
                     return $.delay(100);

@@ -223,9 +223,6 @@
             id: "data-id",
             i18n: "data-i18n",
             i18nReplaces: "data-i18nReplaces",
-            newtab: {
-                appearance: "data-appearance"
-            },
             onboarding: {
                 openType: "data-openType",
                 surface: "data-surface"
@@ -290,7 +287,6 @@
                 submit: "https://extensions.redeviation.com/ajax/translation/bs/submit"
             },
             api: {
-                thumbnail: "https://api.blockbyte.de/v1/thumbnail", // @deprecated (01/2021)
                 checkStatus: "https://extensions.redeviation.com/ajax/status/bs",
                 evaluate: "https://extensions.redeviation.com/api/evaluate/log",
             }

@@ -68,6 +68,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Open in an incognito window"
     },
+    "contextmenu_copy": {
+        "message": "Copy URL to clipboard"
+    },
     "contextmenu_add_bookmark": {
         "message": "Add bookmark"
     },

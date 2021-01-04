@@ -109,7 +109,7 @@
                             let title = e.dataTransfer.getData("text/plain");
 
                             if (location.href === url) {
-                                title = document.title;
+                                title = document.title || "";
                             } else if (title === url) {
                                 const html = e.dataTransfer.getData("text/html");
 

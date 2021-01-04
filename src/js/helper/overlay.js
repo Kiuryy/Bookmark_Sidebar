@@ -384,9 +384,7 @@
                 let urlValue = "";
 
                 if (type === "bookmark") { // default bookmark values -> current page information
-                    if ($(document).find("head > title").length() > 0) {
-                        titleValue = $(document).find("head > title").eq(0).text().trim();
-                    }
+                    titleValue = document.title || "";
                     urlValue = location.href;
                 }
 

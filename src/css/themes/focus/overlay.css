@@ -30,3 +30,6 @@
     transition: none; }
   [data-theme='focus'] div.modal[data-type='add'] > ul {
     transition: none; }
+
+.dark[data-theme='focus'] div.modal > header {
+  border-bottom-color: rgba(255, 255, 255, 0.15); }

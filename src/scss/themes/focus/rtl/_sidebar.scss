@@ -1,0 +1,31 @@
+html[dir='rtl'] [data-theme='focus'] section#sidebar {
+
+  > header {
+    right: unset;
+    left: 20px;
+
+    > div.searchBox {
+      left: unset;
+      right: 0;
+      border-radius: 0 0 3px 0;
+
+      > input[type='text'] {
+        padding: 0 7px 0 5px;
+      }
+    }
+  }
+
+  > div.scrollBox {
+
+    > ul a, > div.pinned > ul a {
+
+      > span.label {
+        margin-left: 0;
+        margin-right: -5px;
+      }
+    }
+  }
+}
+
+
+

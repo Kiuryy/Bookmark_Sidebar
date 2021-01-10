@@ -89,4 +89,22 @@
   [data-theme='focus'] div.contextmenu[data-type='menu'] {
     margin-right: 10px; }
   [data-theme='focus'] div.contextmenu > ul.list > li > a, [data-theme='focus'] div.contextmenu > ul.icons > li > a {
-    transition: none; }
+    transition: none !important; }
+
+html[dir='rtl'] [data-theme='focus'] section#sidebar > header {
+  right: unset;
+  left: 20px; }
+  html[dir='rtl'] [data-theme='focus'] section#sidebar > header > div.searchBox {
+    left: unset;
+    right: 0;
+    border-radius: 0 0 3px 0; }
+    html[dir='rtl'] [data-theme='focus'] section#sidebar > header > div.searchBox > input[type='text'] {
+      padding: 0 7px 0 5px; }
+
+html[dir='rtl'] [data-theme='focus'] section#sidebar > div.scrollBox > ul a > span.label, html[dir='rtl'] [data-theme='focus'] section#sidebar > div.scrollBox > div.pinned > ul a > span.label {
+  margin-left: 0;
+  margin-right: -5px; }
+
+.dark[data-theme='focus'] div.contextmenu {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1); }

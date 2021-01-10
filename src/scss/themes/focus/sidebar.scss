@@ -143,10 +143,10 @@
     }
 
     > ul.list > li > a, > ul.icons > li > a {
-      transition: none;
+      transition: none !important;
     }
   }
 }
 
-//@import "rtl/sidebar";
-//@import "dark/sidebar";
+@import "rtl/sidebar";
+@import "dark/sidebar";

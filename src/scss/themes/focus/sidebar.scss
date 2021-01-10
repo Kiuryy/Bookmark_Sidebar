@@ -1,0 +1,152 @@
+@import "../../include/vars";
+@import "../../include/mixins";
+
+[data-theme='focus'] {
+
+  section#sidebar {
+    box-shadow: none;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-color: rgba(0, 0, 0, 0.15);
+
+    > header {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      width: 72px;
+      height: auto;
+      padding: 0;
+      border-radius: 0 0 3px 3px;
+      overflow: initial;
+      box-shadow: 0 4px 6px -3px rgba(0, 0, 0, 0.2);
+      transform: translate3d(0, -16px, 0);
+      transition: transform 0.1s;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 20px);
+        z-index: -1;
+      }
+
+      > div.searchBox {
+        left: 0;
+        width: calc(100% - 48px);
+        height: 24px;
+        border-radius: 0 0 0 3px;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 0.1s;
+
+        > input[type='text'] {
+          width: calc(100% - 24px);
+          padding: 0 5px 0 7px;
+          font-size: 90%;
+        }
+
+        > a.searchClose {
+          width: 24px;
+          height: 24px;
+          background: none !important;
+
+          &::before {
+            -webkit-mask-size: 14px !important;
+          }
+        }
+      }
+
+      > h1 {
+        display: none;
+      }
+
+      > a {
+        pointer-events: none;
+        transition: opacity 0.1s, background-color 0.1s;
+        opacity: 0;
+        border-radius: 0;
+        width: 24px;
+        height: 24px;
+
+        &::before {
+          -webkit-mask-size: 18px;
+        }
+      }
+
+      &:hover, &.searchVisible {
+        transform: translate3d(0, 0, 0);
+
+        > a {
+          pointer-events: initial;
+          opacity: 1;
+        }
+      }
+
+      &.searchVisible {
+        width: calc(100% - 14px);
+        max-width: 180px;
+
+        > a.search {
+          opacity: 0;
+        }
+
+        > div.searchBox {
+          transition: opacity 0.1s;
+        }
+      }
+    }
+
+    > a.lockPinned {
+      top: 0;
+      border-radius: 3px;
+      transition: transform 0.1s, opacity 0.1s;
+    }
+
+    > div.filter {
+      top: 0;
+      padding: 8px 10px 4px;
+      border-radius: 0 0 3px 3px;
+    }
+
+    > div.scrollBox {
+
+      > div.pinned {
+        padding-top: 4px;
+      }
+
+      > ul a, > div.pinned > ul a {
+        transition: none;
+
+        > span.label {
+          margin-left: -5px;
+        }
+
+        > span.drag {
+          transition: none;
+        }
+      }
+
+      > a[data-name='add'] {
+        transition: none;
+      }
+    }
+  }
+
+  div.contextmenu {
+    transition: none;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    &[data-type='menu'] {
+      margin-right: 10px;
+    }
+
+    > ul.list > li > a, > ul.icons > li > a {
+      transition: none;
+    }
+  }
+}
+
+//@import "rtl/sidebar";
+//@import "dark/sidebar";

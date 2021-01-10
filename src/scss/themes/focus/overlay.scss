@@ -1,0 +1,69 @@
+@import "../../include/vars";
+@import "../../include/mixins";
+
+[data-theme='focus'] {
+
+  div.modal {
+    transition: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    > header {
+      color: $__textColor;
+      box-shadow: none;
+      background: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+      &::before {
+        background: $__textColor;
+      }
+
+      > h1 {
+        font-size: 140%;
+      }
+
+      > a.close {
+        transition: none;
+
+        &::before {
+          background: $__textColor;
+        }
+
+        &:hover {
+          background-color: $__hoverColor;
+        }
+      }
+    }
+
+    > a.preview, > span.preview {
+      transition: none;
+      margin: 20px 30px 10px 30px;
+      padding: 10px 12px;
+
+      + a.previewUrl {
+        margin-top: -6px;
+      }
+    }
+
+    > menu.buttons > a::before {
+      transition: none;
+    }
+
+    &[data-type='edit'] > ul > li.info > span {
+      transition: none;
+    }
+
+    &[data-type='add'] {
+      > menu[data-name='select'] {
+        transition: none;
+      }
+
+      > ul {
+        transition: none;
+      }
+    }
+  }
+}
+
+
+//@import "rtl/overlay";
+//@import "dark/overlay";

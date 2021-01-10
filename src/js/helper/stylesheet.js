@@ -7,7 +7,7 @@
      */
     $.StylesheetHelper = function (ext) {
 
-        const themeableFiles = ["overlay", "sidebar"];
+        const themeableFiles = ["overlay", "sidebar", "content"];
         let styles = {};
         let customCss = "";
         let theme = "";

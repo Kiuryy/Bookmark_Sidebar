@@ -34,6 +34,7 @@
                 .attr("id", $.opts.ids.page.overlay)
                 .addClass("notranslate") // 'notranslate' prevents Google translator from translating the content of the overlay
                 .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
+                .attr($.attr.theme, config.theme)
                 .appendTo("body");
 
             ext.helper.stylesheet.addStylesheets(["overlay"], ret.overlay);

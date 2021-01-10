@@ -198,6 +198,7 @@ body[data-type^='appearance'] {
     }
 
     div.themeList {
+      @include mask('settings/icon-theme', rgba(255, 255, 255, 0.2), 120px);
       background: rgba($mainColor2, 0.5);
       padding-bottom: 30px;
       transform: translate3d(0, -10px, 0);
@@ -211,6 +212,16 @@ body[data-type^='appearance'] {
       }
 
       &::before {
+        top: unset;
+        left: unset;
+        right: 32px;
+        bottom: 35px;
+        width: 120px;
+        height: 120px;
+        pointer-events: none;
+      }
+
+      &::after {
         content: "";
         position: absolute;
         top: -30px;

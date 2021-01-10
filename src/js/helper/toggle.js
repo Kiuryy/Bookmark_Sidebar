@@ -27,7 +27,12 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            ext.elm.indicator = $("<div></div>").attr("id", $.opts.ids.page.indicator).appendTo("body");
+            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "n/autoOpen", "u/performReopening"]);
+
+            ext.elm.indicator = $("<div></div>")
+                .attr("id", $.opts.ids.page.indicator)
+                .attr($.attr.theme, data.theme)
+                .appendTo("body");
 
             if (ext.helper.model.getData("b/animations") === false) {
                 ext.elm.indicator.addClass($.cl.page.noAnimations);
@@ -36,8 +41,6 @@
             if (document.activeElement) {
                 lastFocussed = document.activeElement;
             }
-
-            const data = ext.helper.model.getData(["b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "n/autoOpen", "u/performReopening"]);
 
             Object.entries(data.toggleArea).forEach(([key, val]) => {
                 toggleArea[key] = +val;

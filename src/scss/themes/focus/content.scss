@@ -1,0 +1,21 @@
+@import "../../include/vars";
+@import "../../include/mixins";
+
+
+// Indicator
+body > div#redeviation-bs-indicator[data-theme='focus'] {
+
+  > div {
+    transition: opacity 0.1s, transform 0.1s;
+  }
+}
+
+// Sidebar
+body > iframe#redeviation-bs-sidebar[data-theme='focus'] {
+  transition: none;
+}
+
+// Overlay
+body > iframe#redeviation-bs-overlay[data-theme='focus'] {
+  transition: none;
+}

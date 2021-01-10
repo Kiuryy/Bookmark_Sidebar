@@ -992,6 +992,12 @@
     "settings_theme_glass_desc": {
         "message": "Dieses Design macht den Hintergrund der Sidebar halbtransparent und f\u00fcgt einen Milchglas-Effekt hinzu. Dieser Effekt, sowie die Transparenz kann angepasst werden."
     },
+    "settings_theme_focus": {
+        "message": "Fokus-Design"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Dieses Design reduziert die Animationen und r\u00fcckt die Elemente n\u00e4her zusammen, um die Produktivit\u00e4t und Performance zu verbessern."
+    },
     "settings_install_theme": {
         "message": "Design installieren"
     },

@@ -1,0 +1,32 @@
+[data-theme='focus'] div.modal {
+  transition: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+  [data-theme='focus'] div.modal > header {
+    color: "%textColor";
+    box-shadow: none;
+    background: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+    [data-theme='focus'] div.modal > header::before {
+      background: "%textColor"; }
+    [data-theme='focus'] div.modal > header > h1 {
+      font-size: 140%; }
+    [data-theme='focus'] div.modal > header > a.close {
+      transition: none; }
+      [data-theme='focus'] div.modal > header > a.close::before {
+        background: "%textColor"; }
+      [data-theme='focus'] div.modal > header > a.close:hover {
+        background-color: "%hoverColor"; }
+  [data-theme='focus'] div.modal > a.preview, [data-theme='focus'] div.modal > span.preview {
+    transition: none;
+    margin: 20px 30px 10px 30px;
+    padding: 10px 12px; }
+    [data-theme='focus'] div.modal > a.preview + a.previewUrl, [data-theme='focus'] div.modal > span.preview + a.previewUrl {
+      margin-top: -6px; }
+  [data-theme='focus'] div.modal > menu.buttons > a::before {
+    transition: none; }
+  [data-theme='focus'] div.modal[data-type='edit'] > ul > li.info > span {
+    transition: none; }
+  [data-theme='focus'] div.modal[data-type='add'] > menu[data-name='select'] {
+    transition: none; }
+  [data-theme='focus'] div.modal[data-type='add'] > ul {
+    transition: none; }

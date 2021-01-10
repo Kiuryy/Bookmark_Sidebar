@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Open in an incognito window"
     },
+    "contextmenu_copy": {
+        "message": "Copy URL to clipboard"
+    },
     "contextmenu_add_bookmark": {
         "message": "Add bookmark"
     },
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "This theme makes the background of the sidebar semi-transparent and adds a blurry glass effect to it. You can adjust this effect and the transparency of the sidebar."
+    },
+    "settings_theme_focus": {
+        "message": "Focus theme"
+    },
+    "settings_theme_focus_desc": {
+        "message": "This theme reduces the animations and arranges the elements more dense for improved productivity and performance."
     },
     "settings_install_theme": {
         "message": "Install theme"

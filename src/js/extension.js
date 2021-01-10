@@ -406,6 +406,7 @@
             this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
                 .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
+                .attr($.attr.theme, config.theme)
                 .appendTo("body");
 
             this.elm.iframeBody = this.elm.iframe.find("body");

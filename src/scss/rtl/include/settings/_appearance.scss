@@ -58,6 +58,7 @@ html[dir='rtl'] {
 
         &::before {
           left: unset;
+          transform: scaleX(-1);
         }
 
         &:hover {
@@ -82,6 +83,12 @@ html[dir='rtl'] {
       div.themeList {
 
         &::before {
+          right: unset;
+          left: 32px;
+          transform: scaleX(-1);
+        }
+
+        &::after {
           left: unset;
           right: 35px;
         }

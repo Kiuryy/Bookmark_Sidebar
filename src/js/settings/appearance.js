@@ -10,10 +10,31 @@
             indicator: {template: "indicator", styles: ["contentBase", "content"]}
         };
 
-        const themeDefaultStyles = {
+        const themeDefaults = {
             glass: {
-                sidebarHeaderHeight: "60px",
-                overlayHeaderHeight: "60px"
+                appearance: {
+                    styles: {
+                        sidebarHeaderHeight: "60px",
+                        overlayHeaderHeight: "60px"
+                    }
+                }
+            },
+            focus: {
+                behaviour: {
+                    dirOpenDuration: 0,
+                },
+                appearance: {
+                    styles: {
+                        sidebarWidth: "300px",
+                        sidebarHeaderHeight: "0px",
+                        bookmarksFontSize: "12px",
+                        directoriesIconSize: "14px",
+                        bookmarksIconSize: "14px",
+                        bookmarksLineHeight: "26px",
+                        bookmarksDirIndentation: "20px",
+                        bookmarksHorizontalPadding: "10px"
+                    }
+                }
             }
         };
 
@@ -32,6 +53,9 @@
             },
             glass: {
                 sidebarHeaderHeight: {xs: 32, s: 40, m: 60, l: 80}
+            },
+            focus: {
+                bookmarksDirIndentation: {xs: 18, s: 20, m: 24, l: 28}
             }
         };
 
@@ -138,6 +162,10 @@
 
                 $.api.storage.sync.get(["appearance"], (conf) => {
                     conf.appearance = conf.appearance || {};
+
+                    if (!conf.appearance.theme && s.helper.model.getUserType() === "premium") { // explicitly save the theme for the premium users, since in the analytics only the users how switch back from a theme to the default one will be listed
+                        conf.appearance.theme = "default";
+                    }
 
                     Object.entries(newConfig.appearance).forEach(([key, val]) => {
                         conf.appearance[key] = val;
@@ -440,36 +468,48 @@
 
         /**
          * Applies the given theme,
-         * resets the current style settings and sets the default styles for the given theme,
+         * resets the current style settings and sets the default configuration for the given theme,
          * will perform a browser refresh afterwards to update the previews, options, etc...
          *
          * @param {string} theme
          */
         const changeTheme = (theme) => {
-            $.api.storage.sync.get(["appearance"], (conf) => {
-                const appearance = conf.appearance || {};
-                appearance.styles = appearance.styles || {};
-                appearance.theme = theme;
-                appearance.darkMode = false;
+            $.api.storage.sync.get(["behaviour", "appearance"], (conf) => {
+                conf.behaviour = conf.behaviour || {};
+                conf.appearance = conf.appearance || {};
+                conf.appearance.styles = conf.appearance.styles || {};
+                conf.appearance.theme = theme;
+                conf.appearance.darkMode = false;
 
-                Object.keys(appearance.styles).forEach((key) => {
+                delete conf.behaviour.dirOpenDuration; // remove dirOpenDuration property, since all themes except "focus" use the default value
+
+                Object.keys(conf.appearance.styles).forEach((key) => {
                     if (!key.startsWith("indicator") && !key.startsWith("icon")) { // remove all styles, but keep some (indicator, icon, ...)
-                        delete appearance.styles[key];
+                        delete conf.appearance.styles[key];
                     }
                 });
 
                 const defaultColors = s.helper.model.getDefaultColors(theme);
                 Object.entries(defaultColors).forEach(([key, val]) => { // apply the default colors for the selected theme
-                    appearance.styles[key] = val.light;
+                    conf.appearance.styles[key] = val.light;
                 });
 
-                if (themeDefaultStyles[theme]) {
-                    Object.entries(themeDefaultStyles[theme]).forEach(([key, val]) => {
-                        appearance.styles[key] = val;
+
+                if (themeDefaults[theme]) {
+                    Object.entries(themeDefaults[theme]).forEach(([category, values]) => {
+                        Object.entries(values).forEach(([key, value]) => {
+                            if (typeof value === "object") {
+                                Object.entries(value).forEach(([k, v]) => {
+                                    conf[category][key][k] = v;
+                                });
+                            } else {
+                                conf[category][key] = value;
+                            }
+                        });
                     });
                 }
 
-                $.api.storage.sync.set({appearance: appearance}, () => {
+                $.api.storage.sync.set({appearance: conf.appearance, behaviour: conf.behaviour}, () => {
                     s.helper.model.call("reinitialize");
                     s.showSuccessMessage("theme_changed");
                     $.delay(1500).then(() => {

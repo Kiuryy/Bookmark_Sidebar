@@ -1232,10 +1232,28 @@ body[data-type^='appearance'] > section#wrapper > main div.themeList {
   opacity: 0;
   margin-top: 20px;
   transition: opacity 0.3s, transform 0.3s; }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask: no-repeat center/120px;
+    -webkit-mask-image: url(chrome-extension://__MSG_@@extension_id__/img/settings/icon-theme.svg);
+    background-color: rgba(255, 255, 255, 0.2); }
   body[data-type^='appearance'] > section#wrapper > main div.themeList.visible {
     opacity: 1;
     transform: translate3d(0, 0, 0); }
   body[data-type^='appearance'] > section#wrapper > main div.themeList::before {
+    top: unset;
+    left: unset;
+    right: 32px;
+    bottom: 35px;
+    width: 120px;
+    height: 120px;
+    pointer-events: none; }
+  body[data-type^='appearance'] > section#wrapper > main div.themeList::after {
     content: "";
     position: absolute;
     top: -30px;
@@ -1402,7 +1420,8 @@ html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selec
   right: -5px; }
 
 html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selectedTheme::before {
-  left: unset; }
+  left: unset;
+  transform: scaleX(-1); }
 
 html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.selectedTheme:hover > span {
   padding-right: 14px;
@@ -1416,6 +1435,11 @@ html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main a.showThe
     -webkit-mask-position-x: right; }
 
 html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.themeList::before {
+  right: unset;
+  left: 32px;
+  transform: scaleX(-1); }
+
+html[dir='rtl'] body[data-type^='appearance'] > section#wrapper > main div.themeList::after {
   left: unset;
   right: 35px; }
 

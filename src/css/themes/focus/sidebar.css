@@ -1,0 +1,92 @@
+[data-theme='focus'] section#sidebar {
+  box-shadow: none;
+  border-style: solid;
+  border-width: 0 1px 0 0;
+  border-color: rgba(0, 0, 0, 0.15); }
+  [data-theme='focus'] section#sidebar > header {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 72px;
+    height: auto;
+    padding: 0;
+    border-radius: 0 0 3px 3px;
+    overflow: initial;
+    box-shadow: 0 4px 6px -3px rgba(0, 0, 0, 0.2);
+    transform: translate3d(0, -16px, 0);
+    transition: transform 0.1s; }
+    [data-theme='focus'] section#sidebar > header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 20px);
+      z-index: -1; }
+    [data-theme='focus'] section#sidebar > header > div.searchBox {
+      left: 0;
+      width: calc(100% - 48px);
+      height: 24px;
+      border-radius: 0 0 0 3px;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.1s; }
+      [data-theme='focus'] section#sidebar > header > div.searchBox > input[type='text'] {
+        width: calc(100% - 24px);
+        padding: 0 5px 0 7px;
+        font-size: 90%; }
+      [data-theme='focus'] section#sidebar > header > div.searchBox > a.searchClose {
+        width: 24px;
+        height: 24px;
+        background: none !important; }
+        [data-theme='focus'] section#sidebar > header > div.searchBox > a.searchClose::before {
+          -webkit-mask-size: 14px !important; }
+    [data-theme='focus'] section#sidebar > header > h1 {
+      display: none; }
+    [data-theme='focus'] section#sidebar > header > a {
+      pointer-events: none;
+      transition: opacity 0.1s, background-color 0.1s;
+      opacity: 0;
+      border-radius: 0;
+      width: 24px;
+      height: 24px; }
+      [data-theme='focus'] section#sidebar > header > a::before {
+        -webkit-mask-size: 18px; }
+    [data-theme='focus'] section#sidebar > header:hover, [data-theme='focus'] section#sidebar > header.searchVisible {
+      transform: translate3d(0, 0, 0); }
+      [data-theme='focus'] section#sidebar > header:hover > a, [data-theme='focus'] section#sidebar > header.searchVisible > a {
+        pointer-events: initial;
+        opacity: 1; }
+    [data-theme='focus'] section#sidebar > header.searchVisible {
+      width: calc(100% - 14px);
+      max-width: 180px; }
+      [data-theme='focus'] section#sidebar > header.searchVisible > a.search {
+        opacity: 0; }
+      [data-theme='focus'] section#sidebar > header.searchVisible > div.searchBox {
+        transition: opacity 0.1s; }
+  [data-theme='focus'] section#sidebar > a.lockPinned {
+    top: 0;
+    border-radius: 3px;
+    transition: transform 0.1s, opacity 0.1s; }
+  [data-theme='focus'] section#sidebar > div.filter {
+    top: 0;
+    padding: 8px 10px 4px;
+    border-radius: 0 0 3px 3px; }
+  [data-theme='focus'] section#sidebar > div.scrollBox > div.pinned {
+    padding-top: 4px; }
+  [data-theme='focus'] section#sidebar > div.scrollBox > ul a, [data-theme='focus'] section#sidebar > div.scrollBox > div.pinned > ul a {
+    transition: none; }
+    [data-theme='focus'] section#sidebar > div.scrollBox > ul a > span.label, [data-theme='focus'] section#sidebar > div.scrollBox > div.pinned > ul a > span.label {
+      margin-left: -5px; }
+    [data-theme='focus'] section#sidebar > div.scrollBox > ul a > span.drag, [data-theme='focus'] section#sidebar > div.scrollBox > div.pinned > ul a > span.drag {
+      transition: none; }
+  [data-theme='focus'] section#sidebar > div.scrollBox > a[data-name='add'] {
+    transition: none; }
+
+[data-theme='focus'] div.contextmenu {
+  transition: none;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.15); }
+  [data-theme='focus'] div.contextmenu[data-type='menu'] {
+    margin-right: 10px; }
+  [data-theme='focus'] div.contextmenu > ul.list > li > a, [data-theme='focus'] div.contextmenu > ul.icons > li > a {
+    transition: none; }

@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "See on \u00fchekordne tasu ja sisaldab ka k\u00f5iki tulevasi Premium funktsioone."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "V\u00f5id maksta summa, mis on sinu arvates v\u00e4\u00e4rikas tasu t\u00f6\u00f6 eest laienduse arendamisel. Ligip\u00e4\u00e4su k\u00f5igile lisav\u00f5imalustele saad alatiseks olenemata summast, mida oled valmis maksma."
+    },
     "premium_pay_eula": {
         "message": "L\u00f5ppkasutaja litsentsileping"
     },

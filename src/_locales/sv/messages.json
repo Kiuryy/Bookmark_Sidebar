@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "\u00d6ppna i nytt inkognito f\u00f6nster"
     },
+    "contextmenu_copy": {
+        "message": "Kopiera URL till klippbord"
+    },
     "contextmenu_add_bookmark": {
         "message": "L\u00e4gg till bokm\u00e4rke"
     },
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Detta tema g\u00f6r bakgrunden till sidof\u00e4ltet halvtransparent och l\u00e4gger till en oskarp glaseffekt. Du kan justera denna effekt och transparensen i sidof\u00e4ltet."
+    },
+    "settings_theme_focus": {
+        "message": "Fokus tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Detta tema reducerar animationer och ordnar elementen t\u00e4tare f\u00f6r f\u00f6rb\u00e4ttrad produktivitet och prestanda."
     },
     "settings_install_theme": {
         "message": "Installera tema"

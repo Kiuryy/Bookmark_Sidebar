@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Apri in una finestra in incognito"
     },
+    "contextmenu_copy": {
+        "message": "Copia URL negli appunti"
+    },
     "contextmenu_add_bookmark": {
         "message": "Aggiungi segnalibro"
     },
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Questo tema rende lo sfondo della barra laterale semi-trasparente e aggiunge un efetto vetro sfocato. Puoi regolare questo effetto e l'intensit\u00e0 della trasparenza della barra laterale."
+    },
+    "settings_theme_focus": {
+        "message": "Focus tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Questo tema riduce le animazioni e dispone gli elementi pi\u00f9 densi per migliorare la produttivit\u00e0 e le prestazioni."
     },
     "settings_install_theme": {
         "message": "Installa tema"

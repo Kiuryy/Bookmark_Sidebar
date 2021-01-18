@@ -278,8 +278,17 @@
     "newtab_top_pages_appearance_favicon": {
         "message": "Tampilkan ikon situs web"
     },
+    "newtab_top_pages_grid_size": {
+        "message": "Ukuran kotak"
+    },
     "newtab_search_placeholder": {
         "message": "Cari {1} atau ketik URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Tampilkan bidang pencarian"
+    },
+    "newtab_search_field_hide": {
+        "message": "Sembunyikan bidang pencarian"
     },
     "newtab_speech_search_listening": {
         "message": "Bicara sekarang"
@@ -332,9 +341,6 @@
     "status_service_unavailable_headline": {
         "message": "Layanan tidak tersedia"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Layanan yang mengecek URL sedand tidak tersedia sekarang. Tolong untuk mencoba lagi nanti."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Feedback sedang tidak tersedia sekarang. Jika anda ingin mengirim feedback, tolong untuk mengirim saya sebuah email."
     },
@@ -386,17 +392,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Menutup sidebar, overyang sudah dibuka"
     },
-    "contribute_headline": {
-        "message": "Saya butuh bantuan anda"
-    },
     "contribute_intro": {
         "message": "Untuk meningkatkan kualitas extension ini saya ingin lebih tau tentang bagaimana cara pengguna menggunakan sidebar dan konfigurasi apa yang mereka lakukan."
     },
+    "contribute_notice": {
+        "message": "Anda dapat membantu saya dengan membagikan konfigurasi Anda"
+    },
     "contribute_outro": {
         "message": "Jika anda mempunyai pertanya atau kekhawatiran tentang membagi informasi, tolong mengirimkan saya sebuah feedback."
-    },
-    "contribute_dismiss": {
-        "message": "Medismiskan"
     },
     "contribute_share_config_label": {
         "message": "Konfigurasi pembagian"
@@ -536,8 +539,8 @@
     "settings_menu_language_translate": {
         "message": "Terjemahkan"
     },
-    "settings_menu_feedback": {
-        "message": "Saran"
+    "settings_menu_support": {
+        "message": "Dukungan"
     },
     "settings_menu_infos": {
         "message": "Informasi"
@@ -546,7 +549,7 @@
         "message": "Tentang saya"
     },
     "settings_menu_infos_permissions": {
-        "message": "Izin"
+        "message": "Perizinan"
     },
     "settings_menu_infos_privacy": {
         "message": "Privasi"
@@ -626,6 +629,9 @@
     "settings_toggle_area": {
         "message": "Konfigurasi area"
     },
+    "settings_toggle_area_desc": {
+        "message": "Secara default, seluruh tepi jendela browser Anda dapat diletakkan di atas untuk membuka bilah samping. Anda dapat mengubah ini dan juga mengkonfigurasi di mana tepatnya untuk membuka sidebar."
+    },
     "settings_toggle_area_width": {
         "message": "Lebar"
     },
@@ -659,17 +665,59 @@
     "settings_open_delay": {
         "message": "Buka penundaan"
     },
+    "settings_open_delay_desc": {
+        "message": "Mencegah bilah samping agar tidak segera dibuka saat melayang atau mengklik area aktivasi di tepi jendela browser."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Cegah pengguliran halaman"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Mencegah pengguliran situs web saat ini saat bar samping terbuka."
+    },
+    "settings_dir_accordion": {
+        "message": "Perlihatkan hanya folder saat ini"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Menutup semua map kecuali yang saat ini aktif."
+    },
     "settings_remember_state": {
         "message": "Ingat"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Posisi gulir dan folder yang saat ini dibuka"
+    },
+    "settings_remember_state_all": {
+        "message": "Posisi gulir, folder yang saat ini dibuka dan bookmark terakhir dibuka"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Folder yang dibuka"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Membuka folder tingkat atas"
     },
     "settings_remember_state_nothing": {
         "message": "Tidak ada"
     },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Ingat sub direktori yang dibuka"
+    },
+    "settings_remember_desc": {
+        "message": "Pilih apa yang harus diingat di seluruh perubahan halaman. Jika Anda memilih untuk mengingat bookmark yang terakhir dibuka, bookmark tersebut akan ditandai saat membuka bar samping lagi."
+    },
     "settings_new_tab": {
         "message": "Tab Baru"
     },
+    "settings_new_tab_desc": {
+        "message": "Membuka bookmark di tab baru di latar depan atau latar belakang"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Buka di latar depan"
+    },
     "settings_new_tab_background": {
         "message": "Buka pada latar belakang"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Membuka tab baru setelah tab terakhir atau saat ini"
     },
     "settings_new_tab_position_after_last": {
         "message": "Setelah tab terakhir"
@@ -680,14 +728,50 @@
     "settings_new_tab_position_before_first": {
         "message": "Sebelum tab pertama"
     },
+    "settings_close_timeout": {
+        "message": "Tutup waktu habis"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Waktu habis dalam hitungan detik setelah bar samping akan ditutup. Waktu akan dimulai segera setelah mouse meninggalkan bar samping dan berhenti ketika melayang di atasnya lagi."
+    },
     "settings_close_timeout_infinity": {
         "message": "Jangan tutup secara otomatis"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Sembunyikan bilah gulir"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Waktu habis dalam detik setelah bilah gulir akan disembunyikan. Menggulir akan menampilkan bilah gulir lagi."
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Jangan sembunyikan"
     },
     "settings_reopen_sidebar": {
         "message": "Buka ulang sidebar"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Buka bar samping secara otomatis lagi, setelah membuka bookmark dari dalam bar samping."
+    },
+    "settings_prevent_windowed": {
+        "message": "Menonaktifkan bar samping dalam mode jendela"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Menonaktifkan kemampuan untuk membuka bar samping dengan mengklik atau mengarahkan kursor ke tepi browser saat browser dalam mode jendela."
+    },
+    "settings_tooltip_delay": {
+        "message": "Penundaan tooltip"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Penundaan sebelum tooltip untuk bookmark akan ditampilkan saat melayang dengan mouse."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Jangan pernah memperlihatkan tips alat"
+    },
+    "settings_tooltip_desc": {
+        "message": "pilih informasi apa yang harus dikandung tooltip."
+    },
+    "settings_tooltip_content": {
+        "message": "Konten tooltip"
     },
     "settings_tooltip_content_all": {
         "message": "Judul dan URL"
@@ -704,14 +788,29 @@
     "settings_sidebar_position": {
         "message": "Posisi"
     },
+    "settings_sidebar_position_desc": {
+        "message": "Tentukan apakah bar samping harus terbuka di sisi kiri atau kanan jendela browser."
+    },
     "settings_sidebar_position_left": {
         "message": "Kiri"
     },
     "settings_sidebar_position_right": {
         "message": "Kanan"
     },
+    "settings_filter_intro": {
+        "message": "Jika Anda tidak ingin bar samping dimuat di setiap halaman, Anda dapat mengonfigurasi tempat memuat ekstensi (daftar putih) atau di mana tidak memuatnya (daftar hitam)."
+    },
     "settings_filter_explanation_1": {
         "message": "Hanya tambahkan satu pola URL tiap baris"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Gunakan * untuk mencocokkan karakter apa pun (misalnya example.com\/* cocok dengan semua halaman di bawah example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Jika Anda tidak menyertakan * dalam aturan, hanya URL yang tepat yang akan cocok (misalnya \"example.com\/about.html\" tidak akan cocok untuk URL \"example.com\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Anda tidak perlu menambahkan protokol (misalnya http:\/\/) dalam aturan"
     },
     "settings_filter_visibility": {
         "message": "Muat sidebar"
@@ -728,6 +827,12 @@
     "settings_filter_rules": {
         "message": "Pola URL"
     },
+    "settings_import_export_notice": {
+        "message": "Pengaturan ekstensi disinkronkan secara otomatis antara perangkat Anda, jika Anda masuk ke {browserName} dengan akun Anda. Jika Anda tidak ingin masuk atau ingin berbagi pengaturan dengan orang atau perangkat lain, Anda bisa menggunakan opsi impor\/ekspor ini."
+    },
+    "settings_import_export_desc": {
+        "message": "Anda bisa mengekspor setelan ekstensi dan menyimpannya secara lokal pada komputer Anda. Anda dapat mengimpor file yang diekspor sebelumnya di perangkat apa pun tempat ekstensi diinstal."
+    },
     "settings_export": {
         "message": "Ekspor pengaturan"
     },
@@ -739,6 +844,9 @@
     },
     "settings_import_failed": {
         "message": "Gagal mengimpor konfigurasi. Mohon pilih file yang sesuai."
+    },
+    "settings_theme_changed": {
+        "message": "Tema yang berhasil diubah"
     },
     "settings_presets": {
         "message": "Atur ukuran relatif"
@@ -758,6 +866,9 @@
     "settings_text_color": {
         "message": "Warna tek"
     },
+    "settings_hover_color": {
+        "message": "Warna mouseover"
+    },
     "settings_font_family": {
         "message": "Jenis huruf"
     },
@@ -772,6 +883,18 @@
     },
     "settings_icon_color": {
         "message": "Warna"
+    },
+    "settings_icon_color_auto": {
+        "message": "Secara otomatis"
+    },
+    "settings_icon_color_custom": {
+        "message": "Adat"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "Warna ikon akan diatur secara otomatis untuk mencocokkan skema warna sistem Anda (terang atau gelap). Anda juga dapat menentukan warna kustom Anda sendiri untuk ikon tersebut."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Harap perhatikan bahwa warna otomatis tidak akan berfungsi saat menggunakan tema {browserName} khusus."
     },
     "settings_indicator_width": {
         "message": "Lebar"
@@ -793,6 +916,12 @@
     },
     "settings_sidebar_mask_color": {
         "message": "Warna topeng"
+    },
+    "settings_background_transparency": {
+        "message": "Transparansi latar belakang"
+    },
+    "settings_background_blur": {
+        "message": "Efek blur latar belakang"
     },
     "settings_bookmarks_dir_icon": {
         "message": "Ikon direktori"
@@ -836,6 +965,36 @@
     "settings_custom_css_desc": {
         "message": "Anda dapat menentukan stylesheet Anda sendiri untuk mengganti style default. Harap hanya gunakan opsi ini, jika Anda terbiasa dengan CSS dan tahu apa yang Anda lakukan."
     },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Anda dapat memilih desain dasar bilah samping. Tema yang dipilih dapat disesuaikan dengan slider dan opsi warna yang tersedia."
+    },
+    "settings_available_themes": {
+        "message": "Tema yang tersedia"
+    },
+    "settings_show_themes": {
+        "message": "Tampilkan tema yang tersedia"
+    },
+    "settings_theme_default": {
+        "message": "Tema default"
+    },
+    "settings_theme_default_desc": {
+        "message": "Tema ini memungkinkan Anda mengakses bookmark Anda dengan cara yang bersih dan modern. Warna banyak elemen dapat diubah dengan memodifikasi skema warna."
+    },
+    "settings_theme_glass": {
+        "message": "Tema kaca"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Tema ini membuat latar sidebar semi-transparan dan menambahkan efek kaca buram ke dalamnya. Anda dapat menyesuaikan efek ini dan transparansi bilah sisi."
+    },
+    "settings_install_theme": {
+        "message": "Instal tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Saat ini diinstal"
+    },
     "settings_newtab_desc": {
         "message": "Sayangnya Google menghapus kemungkinan memuat ekstensi pada halaman tab baru default. Karena itu, saya menambahkan beberapa opsi yang memungkinkan Anda mengakses bookmark ketika membuka tab baru dengan cara lain."
     },
@@ -850,6 +1009,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Konfigurasikan apakah bilah samping harus dibuka secara otomatis saat membuka tab baru."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Fokus bilah alamat"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Jika diaktifkan, bilah alamat akan difokuskan saat membuka jendela baru. Jika tidak diaktifkan, kotak pencarian situs akan difokuskan sebagai gantinya."
     },
     "settings_newtab_website": {
         "message": "Memuat situs web"
@@ -914,41 +1079,53 @@
     "settings_translation_required_category": {
         "message": "Wajib"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "Pertanyaan yang Sering Diajukan"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Saran"
+    },
+    "settings_support_feedback_desc": {
         "message": "Apakah Anda memiliki saran untuk peningkatan ke depan, pertanyaan, mendapati pilihan konfigurasi yang hilang, atau menemukan bug? Untuk membantu kami meningkatkan pengalaman dengan ekstensi ini, kritik dan masukan dari Anda akan kami terima."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Harap tuliskan masukan Anda dalam Bahasa Inggris, karena pesan Anda akan sulit dimengerti dan dibalas."
     },
-    "settings_feedback_email": {
-        "message": "Alamat email Anda"
+    "settings_support_feedback_email": {
+        "message": "alamat email (pilihan)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Lampirkan screenshot"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Ukuran file {1} terlalu besar (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Anda hanya dapat mengunggah maksimal {1} screenshot"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Kirim masukan"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Terima kasih atas masukan Anda"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Pesan Anda tidak dapat dikirim. Silahkan coba lagi."
-    },
-    "settings_feedback_faq_headline": {
-        "message": "Mungkin ini menarik bagi Anda"
     },
     "settings_permissions_desc": {
         "message": "Untuk memungkinkan bilah samping yang dapat diubah ke {browserName}, izin berikut diperlukan dan diminta oleh ekstensi:"
     },
     "settings_permissions_contentscript_desc_1": {
         "message": "Sayang sekali, {browserName} tidak memiliki mekanisme untuk menampilkan konten pada jendela peramban tanpa berinteraksi dengan halaman yang sedang dikunjungi saat ini."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Karena bilah sisi sedang ditampilkan di atas halaman web saat ini, izin ini diperlukan. Izin tidak digunakan untuk tujuan lain apa pun."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Jika Anda khawatir tentang apa yang saya lakukan dengan izin ini, Anda dapat melihat kode sumber ekstensi di Github. Ini Sumber Terbuka dan dapat dilihat oleh semua orang."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "Ekstensi ini menampilkan bookmark Anda di bilah sisi dan karenanya memerlukan izin ini untuk mendapatkan akses. Izin juga memungkinkan ekstensi untuk menambah, mengedit, dan menghapus bookmark."
     },
     "settings_headline_share_userdata": {
         "message": "Membagi informasi"
@@ -1010,6 +1187,15 @@
     "premium_feature_linkchecker_headline": {
         "message": "Periksa bookmark Anda untuk mendeteksi tautan yang rusak atau duplikat"
     },
+    "premium_feature_linkchecker_desc": {
+        "message": "Anda dapat mengklik kanan folder apa pun di bar samping Anda dan melakukan pemeriksaan. Halaman hasil akan menampilkan semua URL yang diperbarui, bookmark yang tidak lagi berfungsi dan bookmark dengan URL yang sama."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Mengubah tema bar samping Anda"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Anda dapat menukar seluruh desain bar samping dengan satu klik dengan menginstal tema lain. Mereka juga dapat disesuaikan dengan slider dan opsi warna yang tersedia."
+    },
     "premium_pay_select_payment_method": {
         "message": "Pilih metode pembayaran"
     },
@@ -1028,11 +1214,20 @@
     "premium_pay_price_total": {
         "message": "Total"
     },
+    "premium_pay_price_info": {
+        "message": "Ini adalah biaya satu kali dan mencakup semua fitur Premium di masa depan juga."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Anda dapat membayar apa yang Anda pikirkan ekstensi dan pekerjaan saya layak bagi Anda untuk mendapatkan akses ke fitur premium. Anda akan selalu menerima semua fitur premium, terlepas dari berapa banyak Anda bersedia membayar."
+    },
     "premium_pay_eula": {
         "message": "Perjanjian Lisensi Pengguna Akhir"
     },
     "premium_pay_eula_desc": {
         "message": "Saya telah membaca dan menyetujui [a]Perjanjian Lisensi Pengguna Akhir[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Kebijakan Pembatalan"
     },
     "premium_pay_confirm_headline": {
         "message": "Konfirmasi pembelian"

@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Open in incognitovenster"
     },
+    "contextmenu_copy": {
+        "message": "Kopieer URL naar klembord"
+    },
     "contextmenu_add_bookmark": {
         "message": "Nieuwe bladwijzer toevoegen"
     },
@@ -988,6 +991,9 @@
     },
     "settings_theme_glass_desc": {
         "message": "Dit thema maakt de achtergrond van de zijbalk semi-transparant en voegt er een wazig glaseffect aan toe. U kunt dit effect en de transparantie van de zijbalk aanpassen."
+    },
+    "settings_theme_focus": {
+        "message": "Focus thema"
     },
     "settings_install_theme": {
         "message": "Installeer thema"

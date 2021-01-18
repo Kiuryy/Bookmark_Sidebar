@@ -1,0 +1,851 @@
+{
+    "extension_name": {
+        "message": "Nuorod\u0173 \u0161onin\u0117 juosta"
+    },
+    "extension_desc": {
+        "message": "Nar\u0161ykl\u0117s lango pakra\u0161tyje pridedama perjungiama \u0161onin\u0117 juosta su visomis \u017eym\u0117mis."
+    },
+    "header_bookmarks": {
+        "message": "\u017dym\u0117s"
+    },
+    "header_bookmarks_single": {
+        "message": "\u017dym\u0117"
+    },
+    "sidebar_dir_children": {
+        "message": "Elementai"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Ie\u0161koti konkre\u010dios \u017eym\u0117s"
+    },
+    "sidebar_search_no_results": {
+        "message": "Nerasta nurodyt\u0173 \u017eymi\u0173"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "Nuoroda nukopijuota"
+    },
+    "sidebar_deleted": {
+        "message": "I\u0161trinta"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Atsukti i\u0161trinim\u0105"
+    },
+    "more_link": {
+        "message": "Daugiau info"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Redaguoti \u017eym\u0119"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Redaguoti katalog\u0105"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Redaguoti skirtuk\u0105"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "I\u0161trinti \u017eym\u0119"
+    },
+    "contextmenu_delete_dir": {
+        "message": "I\u0161trinti katalog\u0105"
+    },
+    "contextmenu_delete_separator": {
+        "message": "I\u0161trinti skirtuk\u0105"
+    },
+    "contextmenu_infos": {
+        "message": "Daugiau informacijos"
+    },
+    "contextmenu_new_tab": {
+        "message": "Atidaryti atskiroje kortel\u0117je"
+    },
+    "contextmenu_current_tab": {
+        "message": "Atidaryti dabartiniame skirtuke"
+    },
+    "contextmenu_new_window": {
+        "message": "Atidaryti atskirame nar\u0161ykl\u0117s lange"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Atidarykite inkognito lang\u0105"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Prid\u0117ti nauj\u0105 \u017eym\u0119"
+    },
+    "contextmenu_add": {
+        "message": "Prid\u0117ti \u012fra\u0161\u0105"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Patikrinti j\u016bs\u0173 \u017eymes"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Parodyti u\u017esleptus \u012fra\u0161us"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "U\u017edaryti visus katalogus"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Perkrauti \u0161onin\u0119 juost\u0105"
+    },
+    "contextmenu_open_children": {
+        "message": "Atidarykite visas \u017eymes"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Sl\u0117pti i\u0161 \u0161onin\u0117je juostoje"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Matyti \u0161onin\u0117je juostoje"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Rodyti savam kataloge"
+    },
+    "contextmenu_pin": {
+        "message": "Prisegti vir\u0161uje"
+    },
+    "contextmenu_unpin": {
+        "message": "Nebesegti vir\u0161uje"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "\u017dymi\u0173 valdytojas"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "klaviat\u016bros greitieji klavi\u0161ai"
+    },
+    "sort_label_custom": {
+        "message": "Vartotojo apibr\u0117\u017eta"
+    },
+    "sort_label_alphabetical": {
+        "message": "Ab\u0117c\u0117l\u0117s tvarka"
+    },
+    "sort_label_most_used": {
+        "message": "Da\u017eniausiai naudojami"
+    },
+    "sort_label_recently_used": {
+        "message": "Neseniai naudoti"
+    },
+    "sort_label_recently_added": {
+        "message": "Neseniai prid\u0117ti"
+    },
+    "sort_view_as_tree": {
+        "message": "Parodyti katalogus"
+    },
+    "sort_most_used_per_month": {
+        "message": "Per m\u0117nes\u012f"
+    },
+    "overlay_bookmark_title": {
+        "message": "Pavadinimas"
+    },
+    "overlay_bookmark_url": {
+        "message": "Adresas"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Papildoma informacija"
+    },
+    "overlay_cancel": {
+        "message": "Atsisakyti"
+    },
+    "overlay_close": {
+        "message": "U\u017edaryti"
+    },
+    "overlay_save": {
+        "message": "I\u0161saugoti"
+    },
+    "overlay_delete": {
+        "message": "I\u0161trinti"
+    },
+    "overlay_update": {
+        "message": "Atnaujinti"
+    },
+    "overlay_open_children": {
+        "message": "Atidaryti visus"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Ar tikrai norite atidaryti visas pakatalogi\u0173 {1} \u017eymes?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Sl\u0117pti nuo \u0161onin\u0117s juostos"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Ar tikrai norite pasl\u0117pti \u0161i\u0105 \u017eym\u0119 nuo \u0161onin\u0117s juostos?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Ar tikrai norite pasl\u0117pti \u0161\u012f aplank\u0105 i\u0161 \u0161onin\u0117s juostos? Visos pakatalogi\u0173 \u017eym\u0117s taip pat bus pasl\u0117ptos."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Ar tikrai norite i\u0161trinti \u0161i\u0105 \u017eym\u0119?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Ar tikrai norite i\u0161trinti \u0161\u012f katalog\u0105? Taip pat bus i\u0161trintos visos pakatalogio \u017eym\u0117s."
+    },
+    "overlay_label_bookmark": {
+        "message": "Nuoroda"
+    },
+    "overlay_label_dir": {
+        "message": "Katalogas"
+    },
+    "overlay_label_separator": {
+        "message": "Skirtukas"
+    },
+    "overlay_add_position": {
+        "message": "Pad\u0117tis"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Prid\u0117ti prie aplanko prad\u017eios"
+    },
+    "overlay_add_position_append": {
+        "message": "Prid\u0117ti prie aplanko pabaigos"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Galite pasirinktinai \u012fvesti pavadinim\u0105. Jis bus rodomas skiriamosios eilut\u0117s vir\u0161uje ir gali pad\u0117ti tvarkyti nuorod\u0173 s\u0105ra\u0161\u0105."
+    },
+    "overlay_bookmark_views": {
+        "message": "Per\u017ei\u016bros"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Per\u017ei\u016bra"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "\u012era\u0161yta nuo"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "Per m\u0117nes\u012f"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Sukurta"
+    },
+    "overlay_dir_children": {
+        "message": "\u012era\u0161ai"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Nuorodos"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Katalogai"
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Pakeista"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Neveikia"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Kartojasi"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Tu\u0161ti katalogai"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Nuorod\u0173 adres\u0173 tikrinimas"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Atnaujinti pa\u017eym\u0117tus"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Pa\u0161alinti pa\u017eym\u0117tus"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Vis\u0173 nuorod\u0173 adresai yra teisingi"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "N\u0117ra pakeist\u0173 nuorod\u0173 adres\u0173"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "N\u0117ra neveikian\u010di\u0173 nuorod\u0173 adres\u0173"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "N\u0117ra pasikartojan\u010di\u0173 nuorod\u0173 adres\u0173."
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "N\u0117ra katalog\u0173 be \u017eym\u0173."
+    },
+    "newtab_title": {
+        "message": "Nauja kortel\u0117"
+    },
+    "newtab_top_pages_default": {
+        "message": "Top puslapiai"
+    },
+    "newtab_top_pages_recently_used": {
+        "message": "Nesenai aplankytos \u017eym\u0117s"
+    },
+    "newtab_top_pages_most_used": {
+        "message": "Da\u017eniausiai lankomos \u017eym\u0117s"
+    },
+    "newtab_top_pages_pinned_entries": {
+        "message": "Prisegtos \u017eym\u0117s"
+    },
+    "newtab_top_pages_hidden": {
+        "message": "Neberodyti puslapi\u0173"
+    },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "Rodyti svetain\u0117s per\u017ei\u016bras"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "Rodyti svetain\u0117s piktogramas"
+    },
+    "newtab_top_pages_grid_size": {
+        "message": "Tinklelio dydis"
+    },
+    "newtab_search_placeholder": {
+        "message": "Ie\u0161kokite {1} arba \u012fveskite adres\u0105"
+    },
+    "newtab_search_field_show": {
+        "message": "Rodyti paie\u0161kos lauk\u0105"
+    },
+    "newtab_search_field_hide": {
+        "message": "U\u017edaryti paie\u0161kos lauk\u0105"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Kalb\u0117kite dabar"
+    },
+    "newtab_speech_search_error": {
+        "message": "Nor\u0117dami \u012fjungti paie\u0161k\u0105 balsu, turite leisti pasiekti mikrofon\u0105."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Pai\u0161kos variklis"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Vartotojo apibr\u0117\u017eta"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Pavadinimas"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Pagrindinio puslapio nuoroda"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Paie\u0161kos rezultat\u0173 nuorodos"
+    },
+    "newtab_upload_background": {
+        "message": "\u012ekelti fono vaizd\u0105"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Ka\u017ekas blokuoja \u0161onin\u0119 juost\u0105"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "\u0160onin\u0117s juostos negalima naudoti {nar\u0161ykl\u0117s pavadinimas} internetin\u0117je parduotuv\u0117je"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "\u0160onin\u0117s juostos negalima naudoti pl\u0117tini\u0173 puslapiuose"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "\u0160onin\u0117s juostos negalima naudoti numatytame naujo skirtuko puslapyje"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "\u0160onin\u0117s juostos negalima naudoti {nar\u0161ykl\u0117s pavadinimas} sistemos puslapiuose"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Viena i\u0161 j\u016bs\u0173 adreso taisykli\u0173 neleido atidaryti \u0161onin\u0117s juostos"
+    },
+    "newtab_fallback_desc": {
+        "message": "Vietoj to jums atidar\u0117me nauj\u0105 skirtuk\u0105 su \u0161onine juosta."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Atidarydami nauj\u0105 skirtuk\u0105 visada rodykite \u0161\u012f puslap\u012f"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Paslauga nepasiekiama"
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Atsiliepimo palikti \u0161iuo metu negalima. Jei norite palikti atsiliepim\u0105, para\u0161ykite el. pa\u0161to adresu."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Vertimo paslauga \u0161iuo metu negalima. Pabandykite v\u0117liau."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Perkraukite dabar"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "D\u0117l pl\u0117tinio atnaujinimo \u0161\u012f puslap\u012f reikia i\u0161 naujo \u012fkelti."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Cmd"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Parodo sekant\u012f arba prie\u0161 tai buvus\u012f \u012fra\u0161\u0105 \u0161onin\u0117je juostoje"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Paspaud\u017eia ant dabar rodomo \u012fra\u0161o"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Atidaro \u0161iuo metu rodomo \u012fra\u0161o kontekstin\u012f meniu"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Nukopijuoja \u0161iuo metu rodomo \u012fra\u0161o adres\u0105"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "I\u0161trina \u0161iuo metu rodom\u0105 \u012fra\u0161\u0105."
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "U\u017edaro \u0161onin\u0119 juost\u0105, atidaryt\u0105 lang\u0105 arba kontekstin\u012f meniu"
+    },
+    "contribute_intro": {
+        "message": "Nor\u0117damas patobulinti pl\u0117tin\u012f, nor\u0117\u010diau geriau su\u017einoti, kaip vartotojai naudoja \u0161onin\u0119 juost\u0105 ir koki\u0105 konfig\u016bracij\u0105 naudoja."
+    },
+    "contribute_notice": {
+        "message": "J\u016bs galite man pad\u0117ti, pasidalindami savo konfig\u016bracija"
+    },
+    "contribute_outro": {
+        "message": "Jei turite klausim\u0173 ar pasi\u016blym\u0173 d\u0117l dalijimosi informacija, atsi\u0173skite man atsiliepim\u0105."
+    },
+    "contribute_share_config_label": {
+        "message": "Pasidalinti konfig\u016bracija"
+    },
+    "contribute_share_config_desc": {
+        "message": "J\u016bs anonimi\u0161kai pasidalinate savo konfig\u016bracija, kuri man padeda nustatyti populiarius nustatymus ir padedate nustatyti k\u0105 patobulinti ar pakeisti b\u016bsimuose leidimuose."
+    },
+    "contribute_share_activity_label": {
+        "message": "Pasidalinti veikla"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "\u0160onin\u0117je juostoje galite anonimi\u0161kai pasidalinti savo veikla, kuri man pad\u0117s geriau suprasti, kaip naudojama \u0161onin\u0117 juosta. Informacija apie j\u016bs\u0173 \u017eymes ar aplankytas svetaines [b] nebus vertinama [\/ b]."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "\u0160i informacija yra labai naudinga nustatant naudojimo problemas ar ypatybes, kurios, pavyzd\u017eiui, n\u0117ra da\u017enai naudojamos."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Pasidalinimo duomen\u0173 pavyzdys"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Vidutinis vartotojo nuorod\u0173 skai\u010dius"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Kuri\u0105 platform\u0105 naudoja vartotojai (\u201eWindows\u201c, \u201eMac\u201c, \u201eLinux\u201c ir kt.)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Ar naudojama paie\u0161ka?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Ar vartotojai kei\u010dia \u017eymi\u0173 r\u016b\u0161iavimo tvark\u0105?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Kaip da\u017enai vartotojai kei\u010dia ar redaguoja \u012fra\u0161us?"
+    },
+    "onboarding_title": {
+        "message": "Instaliavimas"
+    },
+    "onboarding_headline": {
+        "message": "D\u0117kojame, kad \u012fdieg\u0117te \u0161\u012f pl\u0117tin\u012f."
+    },
+    "onboarding_setup": {
+        "message": "\u012ediegti dabar"
+    },
+    "onboarding_skip": {
+        "message": "Praleisti \u012fdiegim\u0105"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Kur norite, kad b\u016bt\u0173 rodoma \u0161onin\u0117 juosta?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Kaip norite atidaryti \u0161onin\u0119 juost\u0105?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Kuris stilius jums labiau patinka?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "\u0160viesus"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Tamsus"
+    },
+    "onboarding_handson_desc": {
+        "message": "Dabar galite patys i\u0161bandyti \u0161onin\u0119 juost\u0105."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Perkelkite \u017eymekl\u012f \u012f lango kra\u0161t\u0105 {1}."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Tada {1} spustel\u0117kite pele, kad atidarytum\u0117te \u0161onin\u0119 juost\u0105."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Spustel\u0117kite pl\u0117tinio piktogram\u0105 nar\u0161ykl\u0117s vir\u0161uje, kad atidarytum\u0117te \u0161onin\u0119 juost\u0105."
+    },
+    "onboarding_left": {
+        "message": "kair\u0117"
+    },
+    "onboarding_right": {
+        "message": "de\u0161n\u0117"
+    },
+    "onboarding_finish_desc": {
+        "message": "S\u0117kmingo \u0161onin\u0117s juosto naudojimo"
+    },
+    "onboarding_finish_notice": {
+        "message": "Jei da\u017enai spaud\u017eiate nar\u0161ykl\u0117s lango {1} pus\u0117je esan\u010dius elementus, galb\u016bt nor\u0117site pakeisti, kur atsidariusi \u0161onin\u0117 juosta yra vertikalia kryptimi, kad nety\u010dia jos neatidarytum\u0117te."
+    },
+    "onboarding_goto_settings": {
+        "message": "Daugiau nustatym\u0173"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Konfig\u016bruoti rodym\u0105"
+    },
+    "settings_title": {
+        "message": "Nustatymai"
+    },
+    "settings_menu_sidebar": {
+        "message": "\u0160onin\u0117 juosta"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Pagrindiniai nustatymai"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Perjungti"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Patarimai"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtras"
+    },
+    "settings_menu_appearance": {
+        "message": "Atvaizdavimas"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Pagrindinis"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "\u0160onin\u0117 juosta"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Rodiklis"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikona"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Persidengimas"
+    },
+    "settings_menu_newtab": {
+        "message": "Naujas skirtukas"
+    },
+    "settings_menu_language": {
+        "message": "Kalba"
+    },
+    "settings_menu_language_general": {
+        "message": "Pagrindinis"
+    },
+    "settings_menu_language_translate": {
+        "message": "Vertimas"
+    },
+    "settings_menu_support": {
+        "message": "Palaikymas"
+    },
+    "settings_menu_infos": {
+        "message": "Informacija"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Apie mane"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Leidimai"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privatumas"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontaktas"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Pasikeitim\u0173 \u017eurnalas"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
+    "settings_menu_export": {
+        "message": "Importavimas\/Eksportavimas"
+    },
+    "settings_menu_expert": {
+        "message": "Ekspert\u0173 nustatymai"
+    },
+    "settings_save": {
+        "message": "I\u0161saugoti pakeitimus"
+    },
+    "settings_saved_message": {
+        "message": "Pakeitimai i\u0161saugoti s\u0117kmingai"
+    },
+    "settings_restore": {
+        "message": "Atkurti numatytuosius nustatymus"
+    },
+    "settings_restore_confirm": {
+        "message": "Ar tikrai norite atkurti numatyt\u0105j\u0105 konfig\u016bracij\u0105?"
+    },
+    "settings_restored_message": {
+        "message": "Konfig\u016bracija s\u0117kmingai atkurta"
+    },
+    "settings_advanced": {
+        "message": "Papildomi nustatymai"
+    },
+    "settings_not_synced": {
+        "message": "Nebus sinchronizuojama j\u016bs\u0173 \u012frenginiuose."
+    },
+    "settings_premium_activated": {
+        "message": "\u201ePremium\u201c buvo s\u0117kmingai suaktyvinta"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nepavyko suaktyvinti \u201ePremium\u201c. \u012eveskite galiojant\u012f licencijos rakt\u0105."
+    },
+    "settings_search_placeholder": {
+        "message": "Konfig\u016bracijos paie\u0161ka"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Naudodamiesi eksperto nustatymais, galite pakeisti visas pl\u0117tinio konfig\u016bracijos \u017eymas, net ir tas, kuri\u0173 negalite pakeisti naudodami \u012fprastus \u017eym\u0117s langelius ar slankiklius nustatym\u0173 puslapyje."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Pakeiskite \u010dia esan\u010dias vertes tik tada, jei visi\u0161kai suprantate, k\u0105 darote! Neteisinga konfig\u016bracija gali sukelti netik\u0117t\u0105 pl\u0117tinio veikim\u0105. Ta\u010diau jei ka\u017ekas neveikia tinkamai, galite gr\u012f\u017eti \u012f numatyt\u0105j\u0105 konfig\u016bracij\u0105."
+    },
+    "settings_expert_save_error": {
+        "message": "Nepavyko i\u0161saugoti nustatym\u0173. I\u0161taisykite klaidas."
+    },
+    "settings_open_action": {
+        "message": "Atidaryti \u0161onin\u0119 juost\u0105"
+    },
+    "settings_open_action_desc": {
+        "message": "Atidarykite \u0161onin\u0119 juost\u0105 spustel\u0117dami arba perkeldami pel\u0117s \u017eymekl\u012f vir\u0161 kair\u0117s arba de\u0161in\u0117s nar\u0161ykl\u0117s lango kra\u0161to. Arba galite pakeisti, kad jis b\u016bt\u0173 atidarytas tik spustel\u0117jus pl\u0117tinio piktogram\u0105."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Kairysis spustel\u0117jimas"
+    },
+    "settings_open_action_rightclick": {
+        "message": "De\u0161nysis spustel\u0117jimas"
+    },
+    "settings_open_action_mouseover": {
+        "message": "U\u017eveskite pelyt\u0119"
+    },
+    "settings_open_action_icon": {
+        "message": "Paspausti ant ikonos"
+    },
+    "settings_toggle_area": {
+        "message": "Konfig\u016bruoti srit\u012f"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Pagal numatytuosius nustatymus, norint atidaryti \u0161onin\u0119 juost\u0105, turite u\u017evesti pelyt\u0119 \u0161alia viso nar\u0161ykl\u0117s lango kra\u0161to. Galite tai pakeisti ir tiksliai sukonfig\u016bruoti, kur atidaryti \u0161onin\u0119 juost\u0105."
+    },
+    "settings_toggle_area_width": {
+        "message": "Plotis"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Plotis (lange)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Auk\u0161tis"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Galite suma\u017einti aktyvios srities auk\u0161t\u012f, kad \u0161onin\u0117 juosta atsidaryt\u0173 tik perk\u0117lus \u017eymekl\u012f tik \u012f t\u0105 srit\u012f j\u016bs\u0173 nar\u0161ykl\u0117s lango pakra\u0161tyje."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Paspauskite ir tempkite"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Nustatyti spart\u0173 klavi\u0161\u0105"
+    },
+    "settings_link_action": {
+        "message": "Atidaryti nuorodas"
+    },
+    "settings_link_action_desc": {
+        "message": "Spustel\u0117jus kair\u012fj\u012f \u017eym\u0119, jos bus atidarytos dabartiniame arba naujame skirtuke."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Dabartinis langas"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Naujas langas"
+    },
+    "settings_open_delay": {
+        "message": "Atidarymo u\u017elaikymas"
+    },
+    "settings_open_delay_desc": {
+        "message": "Neleid\u017eia \u0161onin\u0117s juostos i\u0161kart atsidaryti, kai u\u017evedate pel\u0117s \u017eymekl\u012f arba spustel\u0117jate aktyvinimo srit\u012f nar\u0161ykl\u0117s lango pakra\u0161tyje."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Neleiskite puslapi\u0173 traukimo"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Neleid\u017eia slinkti dabartin\u0117s svetain\u0117s lango, kol \u0161onin\u0117 juosta yra atidaryta."
+    },
+    "settings_dir_accordion": {
+        "message": "Rodyti tik dabartin\u012f katalog\u0105"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "U\u017edaro visus aplankus, i\u0161skyrus \u0161iuo metu aktyvius katalogus."
+    },
+    "settings_remember_state": {
+        "message": "Prisiminti"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Slinkties pad\u0117tis ir \u0161iuo metu atidarytus katalogus"
+    },
+    "settings_remember_state_all": {
+        "message": "Slinkties pad\u0117tis, \u0161iuo metu atidaryti katalogai ir paskutin\u012f kart\u0105 atidaryta nuoroda"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Atdaryti katalogai"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Atidaryti pagrindiniai katalogai"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Nieko"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Prisiminkite atidaryti pakatalogius"
+    },
+    "settings_remember_desc": {
+        "message": "Pasirinkite, k\u0105 reik\u0117t\u0173 prisiminti atlikus puslapio pakeitimus. Jei pasirinksite prisiminti paskutin\u012f kart\u0105 atidaryt\u0105 \u017eym\u0119, ji bus pa\u017eym\u0117ta dar kart\u0105 atidarant \u0161onin\u0119 juost\u0105."
+    },
+    "settings_new_tab": {
+        "message": "Naujas langas"
+    },
+    "settings_new_tab_desc": {
+        "message": "Atidarykite \u017eymes naujame skirtuke priekiniame plane arba fone"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Atidarykite priekiniame plane"
+    },
+    "settings_new_tab_background": {
+        "message": "Atidarykite fone"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Atidarykite naujus skirtukus po paskutinio arba dabartinio skirtuko"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "U\u017e paskutinio skirtuko"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "U\u017e dabartinio skirtuko"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Prie\u0161 pirm\u0105j\u012f skirtuk\u0105"
+    },
+    "settings_close_timeout": {
+        "message": "U\u017edarymo laikas"
+    },
+    "settings_close_timeout_desc": {
+        "message": "\u0160onin\u0117s juostos u\u017edarymo laikas. Laikas bus prad\u0117tas skai\u010diuoti i\u0161kart, kai pel\u0117 pasitrauks nuo \u0161onin\u0117s juostos ir sustos, kai v\u0117l u\u017evesite."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Neu\u017edarykite automati\u0161kai"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Sl\u0117pti slinkties juost\u0105"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Laiko tarpas, kai slinkties juosta bus pasl\u0117pta. Slinkimas v\u0117l parodys slinkties juost\u0105."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Niekada nepasl\u0117pti"
+    },
+    "settings_reopen_sidebar": {
+        "message": "Pakartotinai atidaryti \u0161onin\u0119 juost\u0105"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Automati\u0161kai dar kart\u0105 atidaryti \u0161onin\u0119 juost\u0105, po nuorodos atidarymo i\u0161 \u0161onin\u0117s juostos."
+    },
+    "settings_prevent_windowed": {
+        "message": "I\u0161junkite \u0161onin\u0119 juost\u0105 lango re\u017eimui"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Neleid\u017eia atidaryti \u0161onin\u0117s juostos spustel\u0117jus arba u\u017evedus pel\u0117s \u017eymekl\u012f vir\u0161 nar\u0161ykl\u0117s kra\u0161to, kai nar\u0161ykl\u0117 veikia lango re\u017eimu."
+    },
+    "settings_tooltip_delay": {
+        "message": "Patarimo rodymo atid\u0117jimas"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Patarimo lango atsiv\u0117rimo u\u017edelsimas u\u017evedus \u017eymekl\u012f"
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Niekada nerodyti patarimo"
+    },
+    "settings_tooltip_desc": {
+        "message": "Pasirinkite, koki\u0105 informacij\u0105 tur\u0117t\u0173 tur\u0117ti patarimas."
+    },
+    "settings_tooltip_content": {
+        "message": "Patarimo lango turinys"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Pavadinimas ir adresas"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Tik pavadinimas"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Tik nuoroda"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Papildoma informacija"
+    },
+    "settings_sidebar_position": {
+        "message": "Pad\u0117tis"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Nurodykite, ar \u0161onin\u0117 juosta tur\u0117t\u0173 atsidaryti kair\u0117je ar de\u0161in\u0117je nar\u0161ykl\u0117s lango pus\u0117je."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Kair\u0117je"
+    },
+    "settings_sidebar_position_right": {
+        "message": "De\u0161n\u0117je"
+    },
+    "settings_filter_intro": {
+        "message": "Jei nenorite, kad \u0161onin\u0117 juosta b\u016bt\u0173 \u012fkelta \u012f kiekvien\u0105 puslap\u012f, galite sukonfig\u016bruoti, kur \u012fkelti pl\u0117tin\u012f (balt\u0105j\u012f s\u0105ra\u0161\u0105), o kur ne - juod\u0105j\u012f s\u0105ra\u0161\u0105."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Vienoje eilut\u0117je prid\u0117kite tik vien\u0105 adres\u0105"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Naudokite *, kad atitikt\u0173 bet kur\u012f simbol\u012f (pvz., example.com\/* atitinka visus puslapius, esan\u010dius pavyzdys.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Jei taisykl\u0117je ne\u012ftrauksite n\u0117 vieno *, atitiks tik tiksl\u016bs adresai (pvz., \u201eexample.com\/apie.html\u201c neatitiks adreso \u201eexample.com\u201c)"
+    },
+    "settings_filter_explanation_4": {
+        "message": "Taisykl\u0117se nereikia prid\u0117ti protokolo (pvz., http:\/\/)"
+    },
+    "settings_filter_visibility": {
+        "message": "\u012ekelti \u0161onin\u0119 juost\u0105"
+    },
+    "settings_filter_visibility_always": {
+        "message": "Kiekviename puslapyje"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "Kiekviename puslapyje, i\u0161skyrus nurodytus puslapius"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Tik konkre\u010diuose puslapiuose"
+    },
+    "settings_filter_rules": {
+        "message": "Adreso \u0161ablonai"
+    },
+    "settings_import_export_notice": {
+        "message": "Pl\u0117tinio nustatymai automati\u0161kai sinchronizuojami tarp j\u016bs\u0173 \u012frengini\u0173, jei esate prisijung\u0119 prie \u201e{browserName}\u201c su savo paskyra. Jei nenorite prisijungti arba norite bendrinti nustatymus su kitais \u017emon\u0117mis ar \u012frenginiais, galite naudoti \u0161ias importavimo \/ eksportavimo parinktis."
+    },
+    "settings_import_export_desc": {
+        "message": "Galite eksportuoti pl\u0117tinio nustatymus ir i\u0161saugoti juos savo kompiuteryje. Anks\u010diau eksportuot\u0105 fail\u0105 galite importuoti \u012f bet kur\u012f \u012frengin\u012f, kuriame \u012fdiegtas pl\u0117tinys."
+    },
+    "settings_export": {
+        "message": "Eksporto nustatymai"
+    },
+    "settings_import": {
+        "message": "Importo nustatymai"
+    },
+    "settings_import_saved": {
+        "message": "Konfig\u016bracija s\u0117kmingai importuota"
+    },
+    "settings_import_failed": {
+        "message": "Nepavyko importuoti konfig\u016bracijos. Pasirinkite tinkam\u0105 fail\u0105."
+    },
+    "settings_theme_changed": {
+        "message": "S\u0117kmingai pakeista tema"
+    }
+}

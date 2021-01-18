@@ -38,6 +38,9 @@
     "contextmenu_edit_dir": {
         "message": "Muokkaa Kansiota"
     },
+    "contextmenu_edit_separator": {
+        "message": "Muokkaa Separaattoria"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Poista Kirjanmerkki"
     },
@@ -53,11 +56,17 @@
     "contextmenu_new_tab": {
         "message": "Avaa uudessa v\u00e4lilehdess\u00e4"
     },
+    "contextmenu_current_tab": {
+        "message": "Avaa nykyisess\u00e4 v\u00e4lilehdess\u00e4"
+    },
     "contextmenu_new_window": {
         "message": "Avaa uudessa ikkunassa"
     },
     "contextmenu_new_tab_incognito": {
         "message": "Avaa incognito-ikkunassa"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Lis\u00e4\u00e4 kirjanmerkki"
     },
     "contextmenu_add": {
         "message": "Lis\u00e4\u00e4"
@@ -173,6 +182,18 @@
     "overlay_label_separator": {
         "message": "Erotin"
     },
+    "overlay_add_position": {
+        "message": "Sijainti"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Lis\u00e4\u00e4 kansion alkuun"
+    },
+    "overlay_add_position_append": {
+        "message": "Lis\u00e4\u00e4 kansion loppuun"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Voit halutessasi kirjoittaa otsikon. Se n\u00e4kyy erotinrivin p\u00e4\u00e4ll\u00e4 ja voi auttaa sinua j\u00e4rjest\u00e4m\u00e4\u00e4n kirjanmerkkiluettelosi."
+    },
     "overlay_bookmark_views": {
         "message": "N\u00e4kym\u00e4t"
     },
@@ -206,6 +227,9 @@
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikaatit"
     },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Tyhj\u00e4 kansiot"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Tarkistetaan kirjanmerkkien linkkej\u00e4"
     },
@@ -227,6 +251,9 @@
     "overlay_check_bookmarks_no_results_duplicate": {
         "message": "Ei ole duplikaatteja kirjanmerkkien URL:ja."
     },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Ei kansioita ilman kirjanmerkkej\u00e4"
+    },
     "newtab_title": {
         "message": "Uusi v\u00e4lilehti"
     },
@@ -245,14 +272,47 @@
     "newtab_top_pages_hidden": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
     },
+    "newtab_top_pages_appearance_thumbnail": {
+        "message": "N\u00e4yt\u00e4 verkkosivuston esikatselut"
+    },
+    "newtab_top_pages_appearance_favicon": {
+        "message": "N\u00e4yt\u00e4 verkkosivuston kuvakkeet"
+    },
+    "newtab_top_pages_grid_size": {
+        "message": "Ristikon koko"
+    },
     "newtab_search_placeholder": {
         "message": "Etsi {1} tai kirjoita linkki"
+    },
+    "newtab_search_field_show": {
+        "message": "N\u00e4yt\u00e4 hakukentt\u00e4"
+    },
+    "newtab_search_field_hide": {
+        "message": "Piilota hakukentt\u00e4"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Puhu nyt"
+    },
+    "newtab_speech_search_error": {
+        "message": "Ota puhehaku k\u00e4ytt\u00f6\u00f6n antamalla mikrofonin k\u00e4ytt\u00f6oikeus."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Hakukone"
     },
     "newtab_search_engine_custom": {
         "message": "K\u00e4ytt\u00e4j\u00e4n m\u00e4\u00e4rittelem\u00e4"
     },
     "newtab_search_engine_custom_title": {
         "message": "Otsikko"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "Kotisivun URL-osoite"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Hakutulosten URL-osoite"
+    },
+    "newtab_upload_background": {
+        "message": "L\u00e4het\u00e4 taustakuva"
     },
     "newtab_fallback_headline_general": {
         "message": "Jokin esti sivupalkin avautumisen."
@@ -280,9 +340,6 @@
     },
     "status_service_unavailable_headline": {
         "message": "Palvelu ei saatavilla"
-    },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Linkkej\u00e4 tarkastava palvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
     },
     "status_feedback_unavailable_desc": {
         "message": "Palutepalvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
@@ -317,23 +374,32 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Vie hiiren seuraavan tai edellisen sivupalkin merkinn\u00e4n"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Napsauttaa parhaillaan viet\u00e4v\u00e4\u00e4 merkint\u00e4\u00e4"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Avaa nykyisen hiiren merkinn\u00e4n pikavalikon"
+    },
     "keyboard_shortcuts_ctrl_c_desc": {
         "message": "Kopioi valitun osoitteen"
     },
     "keyboard_shortcuts_del_desc": {
         "message": "Poistaa valitun kohteen"
     },
-    "contribute_headline": {
-        "message": "Tarvitsen apuasi"
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Sulkee sivupalkin, avatun peittokuvan tai pikavalikon"
     },
     "contribute_intro": {
         "message": "Laajenuksen parantamiseksi haluaisin tiet\u00e4\u00e4 enemm\u00e4n k\u00e4ytt\u00e4jien asetuksista ja miten sivupalkkia k\u00e4ytet\u00e4\u00e4n"
     },
+    "contribute_notice": {
+        "message": "Voit auttaa minua jakamalla kokoonpanosi"
+    },
     "contribute_outro": {
         "message": "Jos olet huolissasi tai sinulla on kysytt\u00e4v\u00e4\u00e4 henkil\u00f6kotaisten tietojen jakamisesta l\u00e4het\u00e4 palautetta minulle."
-    },
-    "contribute_dismiss": {
-        "message": "Hylk\u00e4\u00e4"
     },
     "contribute_share_config_label": {
         "message": "Jaa asetukset"
@@ -473,17 +539,35 @@
     "settings_menu_language_translate": {
         "message": "K\u00e4\u00e4nn\u00e4"
     },
-    "settings_menu_feedback": {
-        "message": "Palaute"
+    "settings_menu_support": {
+        "message": "Tuki"
     },
     "settings_menu_infos": {
         "message": "Tietoja"
     },
+    "settings_menu_infos_aboutme": {
+        "message": "Minusta"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Oikeudet"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Yksityisyys"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Yhteistideot"
+    },
     "settings_menu_infos_changelog": {
-        "message": "Muutos loki"
+        "message": "Muutosloki"
+    },
+    "settings_menu_premium": {
+        "message": "Premium Lis\u00e4maksu"
     },
     "settings_menu_export": {
         "message": "Tuo\/Vie"
+    },
+    "settings_menu_expert": {
+        "message": "Asiantuntija-asetukset"
     },
     "settings_save": {
         "message": "Tallenna muutokset"
@@ -505,6 +589,24 @@
     },
     "settings_not_synced": {
         "message": "Ei synkronoida laitteittesi v\u00e4lill\u00e4."
+    },
+    "settings_premium_activated": {
+        "message": "Premium on aktivoitu onnistuneesti"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Premiumia ei voitu aktivoida. Anna kelvollinen lisenssiavain"
+    },
+    "settings_search_placeholder": {
+        "message": "Etsi kokoonpano"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Asiantuntija-asetusten avulla voit muuttaa kaikkia laajennuksen m\u00e4\u00e4rityslippuja, my\u00f6s niit\u00e4, joita et voi muuttaa, k\u00e4ytt\u00e4m\u00e4ll\u00e4 asetussivun tavallisia valintaruutuja tai liukus\u00e4\u00e4timi\u00e4."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Muuta arvoja t\u00e4ss\u00e4 vain, jos ymm\u00e4rr\u00e4t t\u00e4ysin, mit\u00e4 olet tekem\u00e4ss\u00e4! V\u00e4\u00e4r\u00e4t kokoonpanot voivat aiheuttaa laajennuksen odottamattoman toiminnan. Jos jokin ei kuitenkaan toimi oikein, voit palata oletusasetuksiin."
+    },
+    "settings_expert_save_error": {
+        "message": "Asetuksia ei voitu tallentaa. Korjaa sy\u00f6tteesi."
     },
     "settings_open_action": {
         "message": "Avaa sivupalkki"
@@ -542,11 +644,17 @@
     "settings_toggle_area_height_desc": {
         "message": "Voit pienent\u00e4\u00e4 alueen korkeutta jossa sivupalkki aukaistaan. Vain kun hiiri siirret\u00e4\u00e4n t\u00e4lle alueelle, sivupalkki aukeaa."
     },
+    "settings_toggle_area_drag_desc": {
+        "message": "Raahaa liikuttaaksesi"
+    },
     "settings_keyboard_shortcut_button": {
         "message": "M\u00e4\u00e4rit\u00e4 pikan\u00e4pp\u00e4imet"
     },
     "settings_link_action": {
         "message": "Avaa kirjanmerkit"
+    },
+    "settings_link_action_desc": {
+        "message": "Kirjanmerkki napsauttamalla hiiren vasemmalla painikkeella avaa ne joko nykyisess\u00e4 v\u00e4lilehdess\u00e4 tai uudessa v\u00e4lilehdess\u00e4."
     },
     "settings_link_action_current_tab": {
         "message": "Nykyinen v\u00e4lilehti"
@@ -556,6 +664,9 @@
     },
     "settings_open_delay": {
         "message": "Avaamisen viive"
+    },
+    "settings_open_delay_desc": {
+        "message": "Est\u00e4\u00e4 sivupalkin avautumisen heti, kun viet hiiren osoittimen p\u00e4\u00e4lle tai napsautat selainikkunan reunassa olevaa aktivointialuetta."
     },
     "settings_prevent_pagescroll": {
         "message": "Est\u00e4 sivun vieritys"
@@ -586,6 +697,12 @@
     },
     "settings_remember_state_nothing": {
         "message": "Ei mit\u00e4\u00e4n"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Muista avatut alihakemistot"
+    },
+    "settings_remember_desc": {
+        "message": "Valitse mit\u00e4 muistaa sivun muutosten yhteydess\u00e4. Jos haluat muistaa viimeksi avatun kirjanmerkin, se merkit\u00e4\u00e4n, kun sivupalkki avataan uudelleen."
     },
     "settings_new_tab": {
         "message": "Uusi v\u00e4lilehti"
@@ -635,6 +752,12 @@
     "settings_reopen_sidebar_desc": {
         "message": "Avaa sivupalkki automaattisesti uudelleen sen j\u00e4lkeen kun linkki on avattu."
     },
+    "settings_prevent_windowed": {
+        "message": "Poista sivupalkki k\u00e4yt\u00f6st\u00e4 ikkunatilassa"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Poistaa mahdollisuuden avata sivupalkki napsauttamalla tai viem\u00e4ll\u00e4 hiiri selaimen reunaan, kun selain on ikkunatilassa."
+    },
     "settings_tooltip_delay": {
         "message": "Ty\u00f6kaluvinkin viive"
     },
@@ -674,8 +797,17 @@
     "settings_sidebar_position_right": {
         "message": "Oikea"
     },
+    "settings_filter_intro": {
+        "message": "Jos et halua sivupalkin latautuvan jokaiselle sivulle, voit m\u00e4\u00e4ritt\u00e4\u00e4, mihin laajennus ladataan (sallittujen luettelo) tai mihin ei (musta lista)."
+    },
     "settings_filter_explanation_1": {
         "message": "Lis\u00e4\u00e4 vain yksi URL sy\u00f6te yhdelle riville"
+    },
+    "settings_filter_explanation_2": {
+        "message": "K\u00e4yt\u00e4 * vastaamaan mit\u00e4 tahansa merkki\u00e4 (esim. Example.com\/* vastaa kaikkia esimerkin.com alla olevia sivuja)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Jos et sis\u00e4llyt\u00e4 s\u00e4\u00e4nt\u00f6\u00f6n mit\u00e4\u00e4n *, vain tarkat URL-osoitteet vastaavat (esim. \"Esimerkki.com\/tietoja.html\" ei t\u00e4sm\u00e4\u00e4 URL-osoitteen esimerkki.com kanssa)"
     },
     "settings_filter_explanation_4": {
         "message": "Protokollaa (e.g. http:\/\/) ei tarvitse lis\u00e4t\u00e4 s\u00e4\u00e4nt\u00f6ihin."
@@ -692,6 +824,12 @@
     "settings_filter_visibility_whitelist": {
         "message": "Vain m\u00e4\u00e4ritellyill\u00e4 sivuilla"
     },
+    "settings_filter_rules": {
+        "message": "URL-mallit"
+    },
+    "settings_import_export_notice": {
+        "message": "Laajennuksen asetukset synkronoidaan automaattisesti laitteidesi v\u00e4lill\u00e4, jos olet kirjautunut tilillesi {browserName} -palveluun. Jos et halua kirjautua sis\u00e4\u00e4n tai haluat jakaa asetuksesi muiden ihmisten tai laitteiden kanssa, voit k\u00e4ytt\u00e4\u00e4 n\u00e4it\u00e4 tuonti- ja vientiasetuksia."
+    },
     "settings_import_export_desc": {
         "message": "Voit tallentaa laajennuksen asetukset tietokoneellesi. Voit palauttaa tallentamasi asetukset mille tietokoneelle tahansa jossa laajennus on asennettuna."
     },
@@ -706,6 +844,12 @@
     },
     "settings_import_failed": {
         "message": "Asetusten tuonti ep\u00e4onnistui. Ole hyv\u00e4 ja valitse kelvollinen tiedosto."
+    },
+    "settings_theme_changed": {
+        "message": "Teema vaihdettu onnistuneesti"
+    },
+    "settings_presets": {
+        "message": "Aseta suhteelliset koot"
     },
     "settings_color_scheme": {
         "message": "V\u00e4ri teema"
@@ -737,6 +881,12 @@
     "settings_icon_color": {
         "message": "V\u00e4ri"
     },
+    "settings_icon_color_auto": {
+        "message": "Automaattisesti"
+    },
+    "settings_icon_color_custom": {
+        "message": "Mukautettu"
+    },
     "settings_indicator_width": {
         "message": "Leveys"
     },
@@ -758,6 +908,12 @@
     "settings_sidebar_mask_color": {
         "message": "P\u00e4\u00e4llysv\u00e4ri"
     },
+    "settings_background_transparency": {
+        "message": "Taustan l\u00e4pin\u00e4kyvyys"
+    },
+    "settings_background_blur": {
+        "message": "Taustan sumennustehoste"
+    },
     "settings_bookmarks_dir_icon": {
         "message": "Kansion kuvake"
     },
@@ -773,6 +929,9 @@
     "settings_directories_icon_size": {
         "message": "Kansioiden kuvakkeiden koko"
     },
+    "settings_directory_arrows": {
+        "message": "Kansioiden nuolet"
+    },
     "settings_bookmarks_line_height": {
         "message": "Kirjanmerkkien rivi korkeus"
     },
@@ -786,7 +945,7 @@
         "message": "Ty\u00f6kaluvinkkien fonttikoko"
     },
     "settings_overlay_mask_color": {
-        "message": "P\u00e4\u00e4llys v\u00e4ri"
+        "message": "P\u00e4\u00e4llysv\u00e4ri"
     },
     "settings_icon_shape": {
         "message": "Muoto"
@@ -796,6 +955,36 @@
     },
     "settings_custom_css_desc": {
         "message": "Voit m\u00e4\u00e4ritt\u00e4\u00e4 oman tyylitietosi ohittaaksesi oletustyylin. K\u00e4yt\u00e4 t\u00e4t\u00e4 vaihtoehtoa vain, jos olet perehtynyt CSS: \u00e4\u00e4n ja tied\u00e4 mit\u00e4 olet tekem\u00e4ss\u00e4."
+    },
+    "settings_theme": {
+        "message": "Teema"
+    },
+    "settings_themes_notice": {
+        "message": "Voit valita sivupalkin perusmallin. Valittua teemaa voidaan mukauttaa k\u00e4ytett\u00e4viss\u00e4 olevilla liukus\u00e4\u00e4timill\u00e4 ja v\u00e4rivaihtoehdoilla."
+    },
+    "settings_available_themes": {
+        "message": "Saatavilla olevat teemat"
+    },
+    "settings_show_themes": {
+        "message": "N\u00e4yt\u00e4 saatavilla olevat teemat"
+    },
+    "settings_theme_default": {
+        "message": "Oletusteema"
+    },
+    "settings_theme_default_desc": {
+        "message": "T\u00e4m\u00e4n teeman avulla voit k\u00e4ytt\u00e4\u00e4 kirjanmerkkej\u00e4si puhtaalla ja modernilla tavalla. Monien elementtien v\u00e4ri\u00e4 voidaan muuttaa muuttamalla v\u00e4rimaailmaa."
+    },
+    "settings_theme_glass": {
+        "message": "Lasiteema"
+    },
+    "settings_theme_glass_desc": {
+        "message": "T\u00e4m\u00e4 teema tekee sivupalkin taustasta puolil\u00e4pin\u00e4kyv\u00e4n ja lis\u00e4\u00e4 siihen ep\u00e4selv\u00e4n lasitehosteen. Voit s\u00e4\u00e4t\u00e4\u00e4 t\u00e4t\u00e4 vaikutusta ja sivupalkin l\u00e4pin\u00e4kyvyytt\u00e4."
+    },
+    "settings_install_theme": {
+        "message": "Asenna teema"
+    },
+    "settings_installed_theme_info": {
+        "message": "T\u00e4ll\u00e4 hetkell\u00e4 asennettu"
     },
     "settings_newtab_desc": {
         "message": "Google on ik\u00e4v\u00e4 kyll\u00e4 poistanut mahdollisuuden ladata lis\u00e4osia, \"uusi v\u00e4lilehti\" oletussivulle. T\u00e4m\u00e4n takia lis\u00e4sin mahdollisuuden avata kirjanmerkit uudessa v\u00e4lilehdess\u00e4 toisella tavalla."
@@ -811,6 +1000,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Aseta n\u00e4kyyk\u00f6 sivupaneeli automaattisesti, kun avaat uuden v\u00e4lilehden."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Kohdista osoiterivi"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Jos t\u00e4m\u00e4 on k\u00e4yt\u00f6ss\u00e4, osoitepalkki keskittyy uutta v\u00e4lilehte\u00e4 avattaessa. Jos se ei ole k\u00e4yt\u00f6ss\u00e4, verkkosivuston hakukentt\u00e4 kohdistetaan sen sijaan."
     },
     "settings_newtab_website": {
         "message": "Lataa sivu"
@@ -851,6 +1046,9 @@
     "settings_translation_help": {
         "message": "Jokaisessa osiossa n\u00e4et englannin kielisen tekstin, joka pit\u00e4isi k\u00e4\u00e4nt\u00e4\u00e4 omalle kielellesi. Ymm\u00e4rt\u00e4\u00e4ksesi miss\u00e4 ja mihin tarkoitukseen teksti\u00e4 k\u00e4ytet\u00e4\u00e4n, jokainen kohde on nimetty (e.g. {1}), jota ei k\u00e4\u00e4nnet\u00e4. \u00c4l\u00e4 unohda l\u00e4hett\u00e4\u00e4 k\u00e4\u00e4nn\u00f6st\u00e4 painamalla oikean yl\u00e4kulman nappia!"
     },
+    "settings_translation_reminder_desc": {
+        "message": "Haluan ilmoituksen, kun laajennukseen lis\u00e4t\u00e4\u00e4n uusia kielimuuttujia"
+    },
     "settings_translation_submit": {
         "message": "L\u00e4het\u00e4"
     },
@@ -872,31 +1070,37 @@
     "settings_translation_required_category": {
         "message": "Vaaditaan"
     },
-    "settings_feedback_desc": {
+    "settings_support_faq_headline": {
+        "message": "Usein kysytyt kysymykset"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Palaute"
+    },
+    "settings_support_feedback_desc": {
         "message": "Parannus ehdotuksia, kysymyksi\u00e4, l\u00f6ysitk\u00f6 puuttuvan asetuksen tai bugin? Auttaaksesi lis\u00e4osan k\u00e4ytt\u00f6kokemuksen parantamisessa olisin eritt\u00e4in kiitollinen kaikesta mahdollisesta palautteestasi."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "L\u00e4het\u00e4 palautteesi enlanniksi, ettei ymm\u00e4rt\u00e4minen ja vastaaminen viestiisi olisi vaikeaa."
     },
-    "settings_feedback_email": {
-        "message": "S\u00e4hk\u00f6posti osoitteesi"
+    "settings_support_feedback_email": {
+        "message": "s\u00e4hk\u00f6postiosoite (vapaaehtoinen)"
     },
-    "settings_feedback_screenshot": {
+    "settings_support_feedback_screenshot": {
         "message": "Liit\u00e4 ruutukaappaus"
     },
-    "settings_feedback_screenshot_error_filesize": {
+    "settings_support_feedback_screenshot_error_filesize": {
         "message": "Tiedostonkoko {1} on liian iso (> 1 MB)"
     },
-    "settings_feedback_screenshot_error_amount": {
+    "settings_support_feedback_screenshot_error_amount": {
         "message": "Voit l\u00e4hett\u00e4\u00e4 maksimissaan {1} ruutukaappausta"
     },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "L\u00e4het\u00e4 palautetta"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Kiitos palautteestasi"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Viesti\u00e4si ei voitu l\u00e4hett\u00e4\u00e4. Yrit\u00e4 uudelleen."
     }
 }

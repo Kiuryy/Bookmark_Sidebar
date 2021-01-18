@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otev\u0159\u00edt v anonymn\u00edm okn\u011b"
     },
+    "contextmenu_copy": {
+        "message": "Kop\u00edrovat adresu do schr\u00e1nky"
+    },
     "contextmenu_add_bookmark": {
         "message": "P\u0159idat z\u00e1lo\u017eku"
     },
@@ -564,7 +567,7 @@
         "message": "Premium"
     },
     "settings_menu_export": {
-        "message": "Importu\/Exportu"
+        "message": "Import\/Export"
     },
     "settings_menu_expert": {
         "message": "Expertn\u00ed nastaven\u00ed"
@@ -828,16 +831,16 @@
         "message": "Vzory URL"
     },
     "settings_import_export_notice": {
-        "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed je automaticky synchronizovan\u00e9 mezi va\u0161imi za\u0159\u00edzen\u00edmi, jestli\u017ee jste p\u0159ihl\u00e1\u0161eni v Chromu va\u0161\u00edm Google u\u010dtem. Pokud nechcete b\u00fdt p\u0159ihl\u00e1\u0161eni, nebo chcete sd\u00edlet va\u0161e nastaven\u00ed s jin\u00fdmi u\u017eivateli, m\u016f\u017eete pou\u017e\u00edt funkci import\/export."
+        "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed je automaticky synchronizovan\u00e9 mezi va\u0161imi za\u0159\u00edzen\u00edmi, jestli\u017ee jste p\u0159ihl\u00e1\u0161eni v {browserName} va\u0161\u00edm Google u\u010dtem. Pokud nechcete b\u00fdt p\u0159ihl\u00e1\u0161eni, nebo chcete sd\u00edlet va\u0161e nastaven\u00ed s jin\u00fdmi u\u017eivateli, m\u016f\u017eete pou\u017e\u00edt funkci import\/export."
     },
     "settings_import_export_desc": {
-        "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed m\u016f\u017eete exportovat a ulo\u017eit je m\u00edstn\u011b do po\u010d\u00edta\u010de. P\u0159edt\u00edm exportovan\u00fd soubor m\u016f\u017eete importovat do libovoln\u00e9ho po\u010d\u00edta\u010de, ve kter\u00e9m je nainstalov\u00e1na roz\u0161\u00ed\u0159en\u00ed."
+        "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed lze exportovat a lok\u00e1ln\u011b ulo\u017eit do va\u0161eho po\u010d\u00edta\u010de. Exportovan\u00fd soubor m\u016f\u017eete importovat do libovoln\u00e9ho za\u0159\u00edzen\u00ed, na kter\u00e9m je roz\u0161\u00ed\u0159en\u00ed nainstalov\u00e1no."
     },
     "settings_export": {
-        "message": "Nastaven\u00ed exportu"
+        "message": "Exportovat nastaven\u00ed"
     },
     "settings_import": {
-        "message": "Nastaven\u00ed importu"
+        "message": "Importovat nastaven\u00ed"
     },
     "settings_import_saved": {
         "message": "Konfigurace byla importov\u00e1na \u00fasp\u011b\u0161n\u011b"
@@ -988,6 +991,9 @@
     },
     "settings_theme_glass_desc": {
         "message": "Toto t\u00e9ma zp\u016fsob\u00ed, \u017ee pozad\u00ed postrann\u00edho panelu bude pr\u016fhledn\u00e9 a p\u0159id\u00e1 do n\u011bj efekt rozmazan\u00e9ho skla. Tento efekt a pr\u016fhlednost postrann\u00edho panelu m\u016f\u017eete upravit."
+    },
+    "settings_theme_focus": {
+        "message": "Motiv soust\u0159ed\u011bn\u00ed"
     },
     "settings_install_theme": {
         "message": "Nainstalovat motiv"

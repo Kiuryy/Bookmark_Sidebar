@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Odpri v oknu brez bele\u017eenja zgodovine"
     },
+    "contextmenu_copy": {
+        "message": "Kopiraj URL v odlo\u017ei\u0161\u010de"
+    },
     "contextmenu_add_bookmark": {
         "message": "Dodaj zaznamek"
     },

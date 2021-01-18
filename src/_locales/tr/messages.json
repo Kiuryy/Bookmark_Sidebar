@@ -1217,6 +1217,9 @@
     "premium_pay_price_info": {
         "message": "Bu bir kerelik \u00fccrettir ve gelecekteki t\u00fcm premium \u00f6zellikleri de i\u00e7erir."
     },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Premium \u00f6zelliklere eri\u015fmek i\u00e7in eklentinin ve \u00e7al\u0131\u015fmalar\u0131m\u0131n sizin i\u00e7in oldu\u011funu d\u00fc\u015f\u00fcnd\u00fc\u011f\u00fcn\u00fcz de\u011fer kadar \u00f6deyebilirsiniz. Ne kadar \u00f6demeye istekli olursan\u0131z olun, her zaman t\u00fcm premium \u00f6zellikleri alacaks\u0131n\u0131z."
+    },
     "premium_pay_eula": {
         "message": "Son Kullan\u0131c\u0131 Lisans S\u00f6zle\u015fmesi"
     },

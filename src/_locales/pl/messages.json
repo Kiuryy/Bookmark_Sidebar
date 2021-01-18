@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otw\u00f3rz w oknie incognito"
     },
+    "contextmenu_copy": {
+        "message": "Kopiuj URL do schowka"
+    },
     "contextmenu_add_bookmark": {
         "message": "Dodaj zak\u0142adk\u0119"
     },
@@ -1216,6 +1219,9 @@
     },
     "premium_pay_price_info": {
         "message": "To jest jednorazowa op\u0142ata zawieraj\u0105ca wszystkie funkcje premium."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Mo\u017cesz zap\u0142aci\u0107 za aby uzyska\u0107 dost\u0119p do funkcji premium, tyle ile moja praca jest dla Ciebie warta. Zawsze b\u0119dziesz otrzymywa\u0107 wszystkie funkcje premium, niezale\u017cnie od tego, ile chcesz zap\u0142aci\u0107."
     },
     "premium_pay_eula": {
         "message": "Umowa licencyjna"

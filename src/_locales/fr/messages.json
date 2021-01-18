@@ -12,7 +12,7 @@
         "message": "Favori"
     },
     "sidebar_dir_children": {
-        "message": "Elements"
+        "message": "\u00c9l\u00e9ments"
     },
     "sidebar_search_placeholder": {
         "message": "Rechercher un favori"
@@ -21,7 +21,7 @@
         "message": "Aucun favori ne correspond \u00e0 votre recherche"
     },
     "sidebar_copied_to_clipboard": {
-        "message": "Url copi\u00e9e"
+        "message": "URL copi\u00e9e"
     },
     "sidebar_deleted": {
         "message": "Retir\u00e9"
@@ -64,6 +64,9 @@
     },
     "contextmenu_new_tab_incognito": {
         "message": "Ouvrir dans une nouvelle fen\u00eatre priv\u00e9e"
+    },
+    "contextmenu_copy": {
+        "message": "Copier l'URL dans le presse-papier"
     },
     "contextmenu_add_bookmark": {
         "message": "Ajouter le favori"
@@ -117,7 +120,7 @@
         "message": "Les plus visit\u00e9s"
     },
     "sort_label_recently_used": {
-        "message": "derni\u00e8re visit\u00e9s"
+        "message": "R\u00e9cemment visit\u00e9"
     },
     "sort_label_recently_added": {
         "message": "Ajout\u00e9s r\u00e9cemment"
@@ -156,22 +159,22 @@
         "message": "Ouvrir tous les favoris"
     },
     "overlay_confirm_open_children": {
-        "message": "Voulez vous vraiment ouvrir tous les favoris ?"
+        "message": "Voulez-vous vraiment ouvrir tous les favoris ?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Masquer dans la barre lat\u00e9rale"
     },
     "overlay_hide_bookmark_confirm": {
-        "message": "Voulez vous vraiment masquer ce favori dans la barre lat\u00e9rale ?"
+        "message": "Voulez-vous vraiment masquer ce favori dans la barre lat\u00e9rale ?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Voulez vous vraiment masquer ce dossier dans la barre lat\u00e9rale ? Tous les favoris qu'il contient seront \u00e9galement masqu\u00e9s."
+        "message": "Voulez-vous vraiment masquer ce dossier dans la barre lat\u00e9rale ? Tous les favoris qu'il contient seront \u00e9galement masqu\u00e9s."
     },
     "overlay_delete_bookmark_confirm": {
-        "message": "Voulez vous vraiment supprimer ce favori ?"
+        "message": "Voulez-vous vraiment supprimer ce favori ?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Voulez vous vraiment supprimer ce dossier ? Tous les favoris qu'il contient seront \u00e9galement supprim\u00e9s."
+        "message": "Voulez-vous vraiment supprimer ce dossier ? Tous les favoris qu'il contient seront \u00e9galement supprim\u00e9s."
     },
     "overlay_label_bookmark": {
         "message": "Favori"
@@ -225,7 +228,7 @@
         "message": "Invalide"
     },
     "overlay_check_bookmarks_menu_duplicate": {
-        "message": "Double"
+        "message": "Doublons"
     },
     "overlay_check_bookmarks_menu_empty": {
         "message": "R\u00e9pertoires vides"
@@ -234,7 +237,7 @@
         "message": "V\u00e9rification de l'URL des favoris"
     },
     "overlay_check_bookmarks_update_selected": {
-        "message": "Mettre \u00e0 jour s\u00e9l\u00e9ctionn\u00e9s"
+        "message": "Mettre \u00e0 jour s\u00e9lectionn\u00e9s"
     },
     "overlay_check_bookmarks_remove_selected": {
         "message": "Supprimer s\u00e9l\u00e9ctionn\u00e9s"
@@ -243,7 +246,7 @@
         "message": "Toutes les URL des favoris sont correctes"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Il n'y a pas d'URL de favoris modifi\u00e9"
+        "message": "Il n'y a pas d'URL de favoris modifi\u00e9e"
     },
     "overlay_check_bookmarks_no_results_broken": {
         "message": "Il n'y a pas d'URL de favoris invalide"
@@ -372,13 +375,13 @@
         "message": "Suppr"
     },
     "keyboard_shortcuts_key_esc": {
-        "message": "Echap"
+        "message": "\u00c9chap"
     },
     "keyboard_shortcuts_tab_desc": {
         "message": "Survolez l\u2019\u00e9l\u00e9ment suivant ou pr\u00e9c\u00e9dent dans la barre lat\u00e9rale"
     },
     "keyboard_shortcuts_enter_desc": {
-        "message": "Clic sur l'\u00e9l\u00e9ment en surbrillance"
+        "message": "Clique sur l'\u00e9l\u00e9ment en surbrillance"
     },
     "keyboard_shortcuts_shift_enter_desc": {
         "message": "Ouverture du menu contextuel de l'\u00e9l\u00e9ment en surbrillance"
@@ -417,22 +420,22 @@
         "message": "Ces informations sont tr\u00e8s utiles pour identifier les probl\u00e8mes d'ergonomie ou les fonctionnalit\u00e9s qui sont, par exemple, utilis\u00e9es peu souvent."
     },
     "contribute_share_activity_examples_intro": {
-        "message": "Les donn\u00e9es qui sont partag\u00e9es sont par exemple:"
+        "message": "Les donn\u00e9es qui sont partag\u00e9es sont par exemple :"
     },
     "contribute_share_activity_example_1": {
-        "message": "Combien de favoris ont en moyenne les utilisateurs?"
+        "message": "Combien de favoris ont en moyenne les utilisateurs ?"
     },
     "contribute_share_activity_example_2": {
-        "message": "Quel est l'environnement des utilisateurs (Windows, Mac, Linux, ...)?"
+        "message": "Quel est l'environnement des utilisateurs (Windows, Mac, Linux, ...) ?"
     },
     "contribute_share_activity_example_3": {
-        "message": "Les utilisateurs utilisent ils la fonction recherche?"
+        "message": "Les utilisateurs utilisent-ils la fonction recherche ?"
     },
     "contribute_share_activity_example_4": {
-        "message": "Les utilisateurs changent ils le classement des favoris?"
+        "message": "Les utilisateurs changent-ils le classement des favoris ?"
     },
     "contribute_share_activity_example_5": {
-        "message": "Tous les combiens les utilisateurs r\u00e9organisent ils ou modifient ils les favoris?"
+        "message": "Tous les combiens les utilisateurs r\u00e9organisent-ils ou modifient-ils les favoris?"
     },
     "onboarding_title": {
         "message": "Configuration"
@@ -447,13 +450,13 @@
         "message": "Ignorer la configuration"
     },
     "onboarding_sidebar_position_desc": {
-        "message": "O\u00f9 souhaitez vous afficher la barre lat\u00e9rale?"
+        "message": "O\u00f9 souhaitez-vous afficher la barre lat\u00e9rale ?"
     },
     "onboarding_sidebar_open_action_desc": {
-        "message": "Comment voulez-vous ouvrir la barre lat\u00e9rale?"
+        "message": "Comment voulez-vous ouvrir la barre lat\u00e9rale ?"
     },
     "onboarding_sidebar_surface_desc": {
-        "message": "Quel aspect pr\u00e9f\u00e9rez-vous?"
+        "message": "Quel aspect pr\u00e9f\u00e9rez-vous ?"
     },
     "onboarding_sidebar_surface_light": {
         "message": "Clair"
@@ -462,7 +465,7 @@
         "message": "Sombre"
     },
     "onboarding_handson_desc": {
-        "message": "Vous pouvez maintenant essayer par vous m\u00eame."
+        "message": "Vous pouvez maintenant essayer par vous-m\u00eame."
     },
     "onboarding_handson_mouse_desc_1": {
         "message": "D\u00e9placez le curseur vers le bord {1} de votre fen\u00eatre."
@@ -480,10 +483,10 @@
         "message": "droite"
     },
     "onboarding_finish_desc": {
-        "message": "A vous de jouer !"
+        "message": "\u00c0 vous de jouer."
     },
     "onboarding_finish_notice": {
-        "message": "Si vous cliquez fr\u00e9quemment sur le {1} c\u00f4t\u00e9 de la fen\u00eatre du navigateur, vous pourriez changer o\u00f9 la barre lat\u00e9rale peut \u00eatre ouverte verticalement \u00e0 fin de ne pas l'ouvrir accidentellement."
+        "message": "Si vous cliquez fr\u00e9quemment sur le {1} c\u00f4t\u00e9 de la fen\u00eatre du navigateur, vous pourriez vouloir changer o\u00f9 la barre lat\u00e9rale peut \u00eatre ouverte verticalement \u00e0 fin de ne pas l'ouvrir accidentellement."
     },
     "onboarding_goto_settings": {
         "message": "Param\u00e8tres suppl\u00e9mentaires"
@@ -522,7 +525,7 @@
         "message": "Repr\u00e9sentation"
     },
     "settings_menu_appearance_icon": {
-        "message": "Icone"
+        "message": "Ic\u00f4ne"
     },
     "settings_menu_appearance_overlay": {
         "message": "Fen\u00eatre d'info"
@@ -543,10 +546,10 @@
         "message": "Aide"
     },
     "settings_menu_infos": {
-        "message": "Propi\u00e9t\u00e9s"
+        "message": "Propri\u00e9t\u00e9s"
     },
     "settings_menu_infos_aboutme": {
-        "message": "A propos"
+        "message": "\u00c0 propos"
     },
     "settings_menu_infos_permissions": {
         "message": "Autorisations"
@@ -579,7 +582,7 @@
         "message": "R\u00e9tablir les param\u00e8tres par d\u00e9faut"
     },
     "settings_restore_confirm": {
-        "message": "Voulez-vous vraiment r\u00e9tablir la configuration par d\u00e9faut?"
+        "message": "Voulez-vous vraiment r\u00e9tablir la configuration par d\u00e9faut ?"
     },
     "settings_restored_message": {
         "message": "Les param\u00e8tres par d\u00e9faut ont \u00e9t\u00e9 r\u00e9tablis"
@@ -606,13 +609,13 @@
         "message": "Ne changez que les valeurs ici, si vous savez ce que vous faites. Une mauvaise configuration peut causer des comportements inattendus de l'extension. Si quelque chose ne fonctionne plus, vous pouvez revenir \u00e0 la configuration par d\u00e9faut."
     },
     "settings_expert_save_error": {
-        "message": "N'a pas pu sauvegard\u00e9 les param\u00e8tres. V\u00e9rifiez ce que vous avez entr\u00e9"
+        "message": "N'a pas pu sauvegarder les param\u00e8tres. V\u00e9rifiez ce que vous avez entr\u00e9."
     },
     "settings_open_action": {
         "message": "Affichage de la barre"
     },
     "settings_open_action_desc": {
-        "message": "Modes d'affichage de la barre lat\u00e9rale: clic gauche, clic droit ou survol de la souris sur le c\u00f4t\u00e9 de la fen\u00eatre. A la place, vous pouvez choisir d'afficher la barre lat\u00e9rale apr\u00e8s un clic sur l'ic\u00f4ne du menu."
+        "message": "Modes d'affichage de la barre lat\u00e9rale : clic gauche, clic droit ou survol de la souris sur le c\u00f4t\u00e9 de la fen\u00eatre. \u00c0 la place, vous pouvez choisir d'afficher la barre lat\u00e9rale apr\u00e8s un clic sur l'ic\u00f4ne du menu."
     },
     "settings_open_action_leftclick": {
         "message": "Clic gauche"
@@ -630,7 +633,7 @@
         "message": "Configurer la zone de bordure"
     },
     "settings_toggle_area_desc": {
-        "message": "Par d\u00e9faut, vous pouvez passer votre souris sur toute la bordure du navigateur pour ouvrir la barre lat\u00e9rale. Vous pouvez le changer et configurer pr\u00e9cis\u00e9ment la zone pour ouvrir la barre lat\u00e9rale."
+        "message": "Par d\u00e9faut, vous pouvez passer votre souris sur toute la bordure du navigateur pour ouvrir la barre lat\u00e9rale. Vous pouvez modifier et configurer pr\u00e9cis\u00e9ment la zone pour ouvrir la barre lat\u00e9rale."
     },
     "settings_toggle_area_width": {
         "message": "Largeur"
@@ -654,7 +657,7 @@
         "message": "Ouverture des favoris"
     },
     "settings_link_action_desc": {
-        "message": "Un clic sur le favori provoque son ouverture dans l'onglet actuel ou dans un nouvel onglet."
+        "message": "Un clic sur le favori l'ouvre dans l'onglet actuel ou dans un nouvel onglet."
     },
     "settings_link_action_current_tab": {
         "message": "Onglet actuel"
@@ -666,13 +669,13 @@
         "message": "D\u00e9lai avant affichage"
     },
     "settings_open_delay_desc": {
-        "message": "Emp\u00eache que la barre ne soit instantan\u00e9ment affich\u00e9e au survol de la souris ou clic si un d\u00e9lai d'affichage a \u00e9t\u00e9 d\u00e9fini"
+        "message": "Emp\u00eache l'ouverture imm\u00e9diate de la barre lat\u00e9rale lors du survol ou du clic sur la zone d'activation au bord de la fen\u00eatre du navigateur."
     },
     "settings_prevent_pagescroll": {
         "message": "Emp\u00eacher le d\u00e9filement"
     },
     "settings_prevent_pagescroll_desc": {
-        "message": "Emp\u00eache de faire d\u00e9filer le site web tant que la barre lat\u00e9rale est affich\u00e9e."
+        "message": "Emp\u00eache le d\u00e9filement du site web actuel lorsque la barre lat\u00e9rale est ouverte."
     },
     "settings_dir_accordion": {
         "message": "Afficher seulement le dossier courant"
@@ -708,13 +711,13 @@
         "message": "Nouvel onglet"
     },
     "settings_new_tab_desc": {
-        "message": "Mode d'ouverture d'un nouvel onglet : ouverture directe ou en arri\u00e8re plan"
+        "message": "Mode d'ouverture d'un nouvel onglet : ouverture directe ou en arri\u00e8re-plan"
     },
     "settings_new_tab_foreground": {
         "message": "Ouvrir directement"
     },
     "settings_new_tab_background": {
-        "message": "Ouvrir en arri\u00e8re plan"
+        "message": "Ouvrir en arri\u00e8re-plan"
     },
     "settings_new_tab_position_desc": {
         "message": "Ouvrir les nouveaux onglets apr\u00e8s le dernier onglet ou apr\u00e8s l'onglet en cours"
@@ -732,7 +735,7 @@
         "message": "D\u00e9lai avant fermeture"
     },
     "settings_close_timeout_desc": {
-        "message": "D\u00e9lai en secondes avant que la barre lat\u00e9rale disparaisse. Le d\u00e9compte commence d\u00e8s que la souris ne survole plus la barre lat\u00e9rale et s'arr\u00eate si la souris survole de nouveau la barre."
+        "message": "D\u00e9lai d'attente en secondes apr\u00e8s la fermeture de la barre lat\u00e9rale. Le d\u00e9compte commence d\u00e8s que la souris quitte la barre lat\u00e9rale et s'arr\u00eate lorsqu'elle la survole \u00e0 nouveau."
     },
     "settings_close_timeout_infinity": {
         "message": "Ne pas fermer automatiquement"
@@ -741,7 +744,7 @@
         "message": "Cacher la barre de d\u00e9filement"
     },
     "settings_scroll_bar_hide_desc": {
-        "message": "D\u00e9lai, en secondes, au bout lequel la barre de d\u00e9filement est cach\u00e9e. Faire d\u00e9filer r\u00e9active l'affichage de la barre."
+        "message": "D\u00e9lai en secondes au bout duquel la barre de d\u00e9filement sera cach\u00e9e. Faire d\u00e9filer r\u00e9activera l'affichage de la barre de d\u00e9filement."
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Ne jamais cacher"
@@ -834,10 +837,10 @@
         "message": "Vous pouvez exporter les param\u00e8tres de l'extension dans un fichier et l'enregistrer sur votre ordinateur. Vous pourrez ensuite importer ce fichier sur n'importe quel ordinateur o\u00f9 l'extension est install\u00e9e."
     },
     "settings_export": {
-        "message": "Exporter la configuration"
+        "message": "Exporter configuration"
     },
     "settings_import": {
-        "message": "Importer une configuration"
+        "message": "Importer configuration"
     },
     "settings_import_saved": {
         "message": "Configuration import\u00e9e avec succ\u00e8s"
@@ -852,13 +855,13 @@
         "message": "Param\u00e9trer les tailles par d\u00e9faut"
     },
     "settings_presets_desc": {
-        "message": "Vous pouvez r\u00e9gler les tailles par d\u00e9faut du panneau lat\u00e9ral. Cela affectera les curseurs de cette page pour ajuster la largeur du panneau lat\u00e9ral, la hauteur des lignes, la taille des ic\u00f4nes etc."
+        "message": "Vous pouvez r\u00e9gler les tailles par d\u00e9faut du panneau lat\u00e9ral. Cela affectera les curseurs de cette page pour ajuster la largeur du panneau lat\u00e9ral, la hauteur des lignes, la taille des ic\u00f4nes, etc."
     },
     "settings_color_scheme": {
-        "message": "Couleur"
+        "message": "Palette de couleurs"
     },
     "settings_dark_mode": {
-        "message": "Arri\u00e8re plan"
+        "message": "Arri\u00e8re-plan"
     },
     "settings_color_scheme_desc": {
         "message": "Couleur de la zone de titre de la fen\u00eatre d'info, du nombre de favoris, etc."
@@ -981,19 +984,22 @@
         "message": "Th\u00e8me par d\u00e9faut"
     },
     "settings_theme_default_desc": {
-        "message": "Ce th\u00e8me vous permets d'acc\u00e9der \u00e0 vos favoris de fa\u00e7on claire et moderne. De nombreux \u00e9l\u00e9ments peuvent color\u00e9s avec un th\u00e8me color\u00e9 configurable."
+        "message": "Ce th\u00e8me vous permet d'acc\u00e9der \u00e0 vos favoris de fa\u00e7on claire et moderne. La couleur de nombreux \u00e9l\u00e9ments peut \u00eatre chang\u00e9e en modifiant la palette de couleurs."
     },
     "settings_theme_glass": {
         "message": "Th\u00e8me transparent"
     },
     "settings_theme_glass_desc": {
-        "message": "Ce th\u00e8me rend le fond de la barre lat\u00e9rale semi-transparent, et ajoute un effet de flou. Le degr\u00e9 de transparence peut \u00eatre ajust\u00e9."
+        "message": "Ce th\u00e8me rend l'arri\u00e8re-plan de la barre lat\u00e9rale semi-transparent, et ajoute un effet de flou. Le degr\u00e9 de transparence peut \u00eatre ajust\u00e9."
+    },
+    "settings_theme_focus_desc": {
+        "message": "Ce th\u00e8me r\u00e9duit les animations et arrange les \u00e9l\u00e9ments plus denses pour que l'efficacit\u00e9 et la performance de l'extension."
     },
     "settings_install_theme": {
         "message": "Installer le th\u00e8me"
     },
     "settings_installed_theme_info": {
-        "message": "Actuellement instal\u00e9"
+        "message": "Actuellement install\u00e9"
     },
     "settings_newtab_desc": {
         "message": "Google a malheureusement retir\u00e9 la possibilit\u00e9 de charger des extensions sur la page nouvel onglet par d\u00e9faut. De fait, j'ai ajout\u00e9 quelques options pour vous permettre d'acc\u00e9der de fa\u00e7on diff\u00e9rente \u00e0 vos favoris \u00e0 l'ouverture d'un nouvel onglet."
@@ -1140,10 +1146,10 @@
         "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec le mode Premium"
     },
     "premium_desc_1": {
-        "message": "En mode Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s additionnelles et m'aiderez \u00e0 maintenir cette extension."
+        "message": "En mode Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s et m'aiderez \u00e0 maintenir l'extension."
     },
     "premium_desc_2": {
-        "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payez le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension, et de mon travail."
+        "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payer le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension, et de mon travail."
     },
     "premium_get_now": {
         "message": "Souscrire un compte Premium"
@@ -1176,7 +1182,7 @@
         "message": "Personnalisez votre page Nouvel Onglet"
     },
     "premium_feature_custom_background_desc": {
-        "message": "Si vous utilisez la page Nouvel Onglet de cet extension, vous pouvez y ajouter votre propre image d'arri\u00e8re-plan et la rendre encore plus agr\u00e9able"
+        "message": "Si vous utilisez la page Nouvel Onglet de cette extension, vous pouvez y ajouter votre propre image d'arri\u00e8re-plan et la rendre encore plus jolie"
     },
     "premium_feature_custom_css_headline": {
         "message": "Personnalisez tout avec votre propre feuille de style"
@@ -1185,10 +1191,10 @@
         "message": "Si vous \u00eates familier avec le CSS, vous pouvez compl\u00e8tement changer l'apparence de la barre lat\u00e9rale en ajoutant vos propres d\u00e9finitions de styles. Ceci vous permet d'absolument tout personnaliser."
     },
     "premium_feature_linkchecker_headline": {
-        "message": "V\u00e9rifiez les liens cass\u00e9s ou les duplications dans vos favoris"
+        "message": "V\u00e9rifiez les liens cass\u00e9s ou les doublons dans vos favoris"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "Vous pouvez lancer une v\u00e9rification en faisant un clic droit sur n'importe quel dossier de votre barre lat\u00e9rale. La page des r\u00e9sultats affichera toutes les URLs mises \u00e0 jour, les favoris ne fonctionnant plus et ceux pointant vers la m\u00eame URL."
+        "message": "Vous pouvez lancer une v\u00e9rification en faisant un clic droit sur n'importe quel dossier de votre barre lat\u00e9rale. La page des r\u00e9sultats affichera toutes les URL mises \u00e0 jour, les favoris ne fonctionnant plus et ceux pointant vers la m\u00eame URL."
     },
     "premium_feature_themes_headline": {
         "message": "Modifier le th\u00e8me de la barre lat\u00e9rale"
@@ -1215,19 +1221,19 @@
         "message": "Total"
     },
     "premium_pay_price_info": {
-        "message": "Ceci est un paiement unique et inclue toutes les prochaines fonctionnalit\u00e9s premium."
+        "message": "Ceci est un paiement unique et inclut toutes les prochaines fonctionnalit\u00e9s Premium."
     },
     "premium_pay_price_pay_what_you_want": {
-        "message": "Vous pouvez payer ce que vous pensez que l'extension et mon travail valent pour vous pour acc\u00e9der aux fonctionnalit\u00e9s premium. Vous recevrez toujours toutes les fonctionnalit\u00e9s premium, quel que soit le montant que vous \u00eates pr\u00eat \u00e0 payer."
+        "message": "Vous pouvez payer ce que vous pensez que l'extension et mon travail valent pour vous pour acc\u00e9der aux fonctionnalit\u00e9s Premium. Vous recevrez toujours toutes les fonctionnalit\u00e9s Premium, quel que soit le montant que vous \u00eates pr\u00eat \u00e0 payer."
     },
     "premium_pay_eula": {
-        "message": "Conditions g\u00e9n\u00e9rale d'utilisation"
+        "message": "Conditions g\u00e9n\u00e9rales d'utilisation"
     },
     "premium_pay_eula_desc": {
         "message": "J'ai lu et j'accepte les [a]conditions g\u00e9n\u00e9rales d'utilisation[\/a]"
     },
     "premium_pay_cancellation_policy": {
-        "message": "Informations sur le droit de r\u00e9traction"
+        "message": "Informations sur le droit de r\u00e9tractation"
     },
     "premium_pay_confirm_headline": {
         "message": "Confirmer l'achat"
@@ -1245,13 +1251,13 @@
         "message": "Merci de votre achat"
     },
     "premium_pay_success_info": {
-        "message": "{1} a \u00e9t\u00e9 activ\u00e9 automatiquement pour cet appareil. Vous n'avez pas d'\u00e9tapes suppl\u00e9mentaires \u00e0 effectuer."
+        "message": "{1} a \u00e9t\u00e9 activ\u00e9 automatiquement pour ce dispositif. Vous n'avez pas besoin de faire quoi que ce soit d'autre."
     },
     "premium_pay_license_key_desc": {
-        "message": "Si vous souhaitez activer {1} sur un autre appareil ou apr\u00e8s avoir r\u00e9installer l'extension, entrez la cl\u00e9 suivante dans les param\u00e8tres de l'extension :"
+        "message": "Si vous souhaitez activer {1} sur un autre appareil ou apr\u00e8s avoir r\u00e9install\u00e9 l'extension, entrez la cl\u00e9 suivante dans les param\u00e8tres de l'extension :"
     },
     "premium_pay_info_email": {
-        "message": "Adresse email"
+        "message": "Adresse mail"
     },
     "premium_pay_info_email_desc": {
         "message": "Veuillez entrer votre adresse mail pour recevoir la cl\u00e9 de licence."

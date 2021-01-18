@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "\u5728\u65b0\u7a97\u53e3\u6253\u5f00"
     },
+    "contextmenu_copy": {
+        "message": "\u5c06\u7f51\u5740\u590d\u5236\u5230\u526a\u8d34\u677f"
+    },
     "contextmenu_add_bookmark": {
         "message": "\u6dfb\u52a0\u4e66\u7b7e"
     },
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "\u6b64\u4e3b\u9898\u4f7f\u4fa7\u8fb9\u680f\u7684\u80cc\u666f\u534a\u900f\u660e\uff0c\u5e76\u4e3a\u5176\u6dfb\u52a0\u6a21\u7cca\u7684\u73bb\u7483\u6548\u679c\u3002\u4f60\u53ef\u4ee5\u8c03\u6574\u8fd9\u4e2a\u6548\u679c\u548c\u4fa7\u8fb9\u680f\u7684\u900f\u660e\u5ea6\u3002"
+    },
+    "settings_theme_focus": {
+        "message": "\u7126\u70b9\u4e3b\u9898"
+    },
+    "settings_theme_focus_desc": {
+        "message": "\u8be5\u4e3b\u9898\u51cf\u5c11\u4e86\u52a8\u753b\uff0c\u5e76\u5c06\u5143\u7d20\u6392\u5217\u5f97\u66f4\u52a0\u5bc6\u96c6\uff0c\u63d0\u9ad8\u4e86\u5de5\u4f5c\u6548\u7387\u548c\u6027\u80fd\u3002"
     },
     "settings_install_theme": {
         "message": "\u5b89\u88c5\u4e3b\u9898"

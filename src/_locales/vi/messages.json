@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "M\u1edf trong c\u1eeda s\u1ed5 \u1ea9n danh"
     },
+    "contextmenu_copy": {
+        "message": "Sao ch\u00e9p URL v\u00e0o clipboard"
+    },
     "contextmenu_add_bookmark": {
         "message": "Th\u00eam d\u1ea5u trang"
     },

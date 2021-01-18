@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Abrir em uma janela an\u00f4nima"
     },
+    "contextmenu_copy": {
+        "message": "Copiar URL para a prancheta"
+    },
     "contextmenu_add_bookmark": {
         "message": "Adicionar favorito"
     },
@@ -117,10 +120,10 @@
         "message": "Mais usados"
     },
     "sort_label_recently_used": {
-        "message": "Usados recentemente"
+        "message": "Usado recentemente"
     },
     "sort_label_recently_added": {
-        "message": "Adicionados recentemente"
+        "message": "Adicionado recentemente"
     },
     "sort_view_as_tree": {
         "message": "Mostrar pastas"
@@ -189,7 +192,7 @@
         "message": "Acrescentar ao in\u00edcio da pasta"
     },
     "overlay_add_position_append": {
-        "message": "Acrescentar \u00e0 pasta"
+        "message": "Acrescentar ao fim da pasta"
     },
     "overlay_separator_title_desc": {
         "message": "Voc\u00ea tem a op\u00e7\u00e3o de digitar um t\u00edtulo para o separador. Ele ser\u00e1 exibido na parte superior da linha separadora e pode ajud\u00e1-lo a organizar sua lista de favoritos."
@@ -288,7 +291,7 @@
         "message": "Exibir campo de busca"
     },
     "newtab_search_field_hide": {
-        "message": "Ocultar campo de busca"
+        "message": "Ocultar campo de pesquisa"
     },
     "newtab_speech_search_listening": {
         "message": "Fale agora"
@@ -297,7 +300,7 @@
         "message": "Para habilitar a pesquisa por voz, voc\u00ea precisa permitir o acesso ao microfone."
     },
     "newtab_search_engine_headline": {
-        "message": "Motor de busca"
+        "message": "Ferramenta de pesquisa"
     },
     "newtab_search_engine_custom": {
         "message": "Definido pelo usu\u00e1rio"
@@ -330,7 +333,7 @@
         "message": "A barra lateral n\u00e3o pode ser usada em p\u00e1ginas do sistema do {browserName}"
     },
     "newtab_fallback_headline_url_filter": {
-        "message": "Uma de suas regras de URL impediu a barra lateral de ser aberta"
+        "message": "Uma de suas regras de URL impediu a abertura da barra lateral"
     },
     "newtab_fallback_desc": {
         "message": "Abrimos uma nova guia com a barra lateral para voc\u00ea."
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Este tema deixa o plano de fundo da barra lateral semi-transparente e adiciona um efeito de distor\u00e7\u00e3o por vidro. voc\u00ea pode ajustar este efeito e a transpar\u00eancia da barra lateral."
+    },
+    "settings_theme_focus": {
+        "message": "Tema Focus"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Este tema reduz as anima\u00e7\u00f5es e organiza os elementos de forma mais densa para uma melhor produtividade e desempenho."
     },
     "settings_install_theme": {
         "message": "Instalar tema"

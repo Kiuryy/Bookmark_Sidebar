@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "\uc2dc\ud06c\ub9bf \ucc3d\uc5d0\uc11c \ub9c1\ud06c \uc5f4\uae30"
     },
+    "contextmenu_copy": {
+        "message": "URL\uc744 \ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac"
+    },
     "contextmenu_add_bookmark": {
         "message": "\ubd81\ub9c8\ud06c \ucd94\uac00"
     },

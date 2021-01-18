@@ -1215,19 +1215,22 @@
         "message": "Ukupno"
     },
     "premium_pay_price_info": {
-        "message": "Ovo je jednokratna nadoknada i ukljucuje sve buduce Premijum opcije i funkcije"
+        "message": "Ovo je jednokratna nadoknada i uklju\u010duje sve budu\u0107e Premijum opcije i funkcije"
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Mo\u017eete platiti ono \u0161to mislite da je produ\u017eetak i moj rad vredan da dobijete pristup vrhunskim funkcijama. Uvek \u0107ete dobijati sve premijum funkcije, bez obzira na to koliko ste spremni da platite."
     },
     "premium_pay_eula": {
-        "message": "Uslovi koriscenja"
+        "message": "Uslovi kori\u0161\u0107enja"
     },
     "premium_pay_eula_desc": {
-        "message": "Procitao sam i slazem se sa [a]Uslovima koriscenja[\/a]"
+        "message": "Pro\u010ditao sam i sla\u017eem se sa [a]Uslovima kori\u0161\u0107enja[\/a]"
     },
     "premium_pay_cancellation_policy": {
         "message": "Prava otkazivanja"
     },
     "premium_pay_confirm_headline": {
-        "message": "Potvrdi porudzbenicu"
+        "message": "Potvrdi porud\u017ebenicu"
     },
     "premium_pay_buy": {
         "message": "Kupi Premijum"
@@ -1236,36 +1239,36 @@
         "message": "Provera transakcije"
     },
     "premium_pay_purchase_id": {
-        "message": "Broj porudzbenice"
+        "message": "Broj porud\u017ebenice"
     },
     "premium_pay_success_headline": {
         "message": "Hvala Vam na kupovini"
     },
     "premium_pay_success_info": {
-        "message": "{1} je aktiviran automatski na ovom uredjaju. Vise ne morate uraditi nijedan korak."
+        "message": "{1} je aktiviran automatski na ovom uredjaju. Vise ne morate napraviti nijedan korak."
     },
     "premium_pay_license_key_desc": {
-        "message": "Ukoliko zelite da aktivirate {1} na drugom uredjaju ili nakon reinstalacije dodatka, mozete upisati sledeci broj u podesavanja dodatka."
+        "message": "Ukoliko \u017eelite da aktivirate {1} na drugom ure\u0111aju ili nakon reinstalacije dodatka, mo\u017eete upisati slede\u0107i broj u pode\u0161avanja dodatka."
     },
     "premium_pay_info_email": {
-        "message": "Emajl"
+        "message": "E-po\u0161ta"
     },
     "premium_pay_info_email_desc": {
-        "message": "Molim Vas unesite emajl adresu na kojoj cete primiti broj licence."
+        "message": "Molim Vas unesite emajl adresu na kojoj \u0107ete primiti broj licence."
     },
     "premium_pay_info_name": {
         "message": "Ime"
     },
     "premium_pay_info_zipcode": {
-        "message": "Postanski broj"
+        "message": "Po\u0161tanski broj"
     },
     "premium_pay_info_payment_method": {
-        "message": "Nacin placanja"
+        "message": "Na\u010din pla\u0107anja"
     },
     "premium_pay_info_card_number": {
         "message": "Broj kartice"
     },
     "premium_pay_info_card_expires": {
-        "message": "Kartica istice"
+        "message": "Kartica isti\u010de"
     }
 }

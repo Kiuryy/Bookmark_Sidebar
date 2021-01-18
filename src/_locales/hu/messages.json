@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Megnyit\u00e1s \u00faj inkognit\u00f3 ablakban"
     },
+    "contextmenu_copy": {
+        "message": "URL v\u00e1g\u00f3lapra m\u00e1sol\u00e1sa"
+    },
     "contextmenu_add_bookmark": {
         "message": "K\u00f6nyvjelz\u0151 hozz\u00e1ad\u00e1sa"
     },

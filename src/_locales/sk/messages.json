@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otvori\u0165 v inkognito okne"
     },
+    "contextmenu_copy": {
+        "message": "Kop\u00edrova\u0165 adresu URL do schr\u00e1nky"
+    },
     "contextmenu_add_bookmark": {
         "message": "Prida\u0165 z\u00e1lo\u017eku"
     },
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "T\u00e1to t\u00e9ma zobrazuje pozadie bo\u010dn\u00e9ho panela ako prieh\u013eadn\u00e9 a dod\u00e1va mu rozmazan\u00fd sklenen\u00fd efekt. Tento efekt a prieh\u013eadnos\u0165 bo\u010dn\u00e9ho panela m\u00f4\u017eete upravi\u0165."
+    },
+    "settings_theme_focus": {
+        "message": "S\u00fastreden\u00e1 t\u00e9ma"
+    },
+    "settings_theme_focus_desc": {
+        "message": "T\u00e1to t\u00e9ma zobrazuje menej anim\u00e1cii a ovl\u00e1dacie prvky umiest\u0148uje hustej\u0161ie, pre zlep\u0161enie produktivity a v\u00fdkonu."
     },
     "settings_install_theme": {
         "message": "In\u0161talova\u0165 t\u00e9mu"

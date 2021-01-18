@@ -56,11 +56,17 @@
     "contextmenu_new_tab": {
         "message": "Deschide un tab nou"
     },
+    "contextmenu_current_tab": {
+        "message": "Deschide in fila curenta"
+    },
     "contextmenu_new_window": {
         "message": "Deschide \u00eentr-o fereastr\u0103 nou\u0103"
     },
     "contextmenu_new_tab_incognito": {
         "message": "Deschide \u00eentr-o fereastr\u0103 incognito nou\u0103"
+    },
+    "contextmenu_copy": {
+        "message": "Copiaz\u0103 URL din clipboard"
     },
     "contextmenu_add_bookmark": {
         "message": "Adaug\u0103 semn carte"
@@ -338,9 +344,6 @@
     "status_service_unavailable_headline": {
         "message": "Serviciu indisponibil"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Serviciul care verific\u0103 URL-urile nu este valabil momentan. V\u0103 rug\u0103m \u00eencerca\u021bi mai t\u00e2rziu."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Serviciul de feedback este momentan indisponibil. Dac\u0103 dori\u021bi s\u0103 oferi\u021bi feedback, v\u0103 rug\u0103m s\u0103-mi trimite\u021bi un e-mail."
     },
@@ -394,6 +397,9 @@
     },
     "contribute_intro": {
         "message": "Pentru a \u00eembun\u0103t\u0103\u021bi extensia a\u0219 dori s\u0103 \u0219tiu mai bine cum folosesc utilizatorii bara lateral\u0103 \u0219i ce configura\u021bii folosesc."
+    },
+    "contribute_notice": {
+        "message": "Po\u021bi s\u0103 m\u0103 aju\u021bi prin distribuirea configura\u021biei tale"
     },
     "contribute_outro": {
         "message": "Dac\u0103 ave\u021bi \u00eentreb\u0103ri sau \u00eengrijor\u0103ri despre partajarea informa\u021biilor, v\u0103 rog s\u0103 \u00eemi trimite\u021bi un mesaj de feedback."
@@ -535,6 +541,9 @@
     },
     "settings_menu_language_translate": {
         "message": "Traducere"
+    },
+    "settings_menu_support": {
+        "message": "Sus\u021bine"
     },
     "settings_menu_infos": {
         "message": "informa\u021bii"
@@ -839,6 +848,9 @@
     "settings_import_failed": {
         "message": "Nu s-au putut importa set\u0103rile. V\u0103 rug\u0103m s\u0103 selecta\u021bi un fi\u0219ier valid."
     },
+    "settings_theme_changed": {
+        "message": "Tema schimbat\u0103 cu succes"
+    },
     "settings_presets": {
         "message": "Seteaz\u0103 dimensiuni corespunz\u0103toare"
     },
@@ -906,7 +918,13 @@
         "message": "\u00cen\u0103l\u021bimea antetului"
     },
     "settings_sidebar_mask_color": {
-        "message": "Culoarea m\u0103stii"
+        "message": "Culoarea m\u0103\u0219tii"
+    },
+    "settings_background_transparency": {
+        "message": "Transparen\u021ba fundalului"
+    },
+    "settings_background_blur": {
+        "message": "Efectul de umbrare a fundalului"
     },
     "settings_bookmarks_dir_icon": {
         "message": "Iconi\u021ba directorului"
@@ -950,6 +968,36 @@
     "settings_custom_css_desc": {
         "message": "Pute\u021bi defini propria foaie de stil pentru a suprascrie stilul implicit. Utiliza\u021bi aceast\u0103 op\u021biune numai dac\u0103 sunte\u021bi familiarizat cu CSS \u0219i \u0219ti\u021bi ce face\u021bi."
     },
+    "settings_theme": {
+        "message": "Tem\u0103"
+    },
+    "settings_themes_notice": {
+        "message": "Po\u021bi s\u0103 alegi proiec\u021bia de baz\u0103 a barei laterale. Tema selectat\u0103 poate fi personalizat\u0103 cu sliders-urile \u0219i op\u021biunile de culori disponibile."
+    },
+    "settings_available_themes": {
+        "message": "Teme disponibile"
+    },
+    "settings_show_themes": {
+        "message": "Arat\u0103 teme disponibile"
+    },
+    "settings_theme_default": {
+        "message": "Tema implicit\u0103"
+    },
+    "settings_theme_default_desc": {
+        "message": "Aceast\u0103 tem\u0103 \u00ee\u021bi permite acces la marcajele tale \u00eentr-un mod curat \u0219i modern. Culoarea a multor elemente pot fi schimbate prin modificarea schemei culorii."
+    },
+    "settings_theme_glass": {
+        "message": "Tem\u0103 geam"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Aceast\u0103 tem\u0103 face fundalului barei laterale semitransparent \u0219i adaug\u0103 un efect de sticl\u0103 neclar\u0103. Po\u021bi s\u0103 reglezi acest efect \u0219i transparitatea barei laterale."
+    },
+    "settings_install_theme": {
+        "message": "Instaleaz\u0103 tem\u0103"
+    },
+    "settings_installed_theme_info": {
+        "message": "Instalat \u00een prezent"
+    },
     "settings_newtab_desc": {
         "message": "Din p\u0103cate, Google a eliminat posibilitatea de a \u00eenc\u0103rca extensii \u00een pagina implicit\u0103 a unui tab nou . Din acest motiv am ad\u0103ugat c\u00e2teva op\u021biuni care v\u0103 permit s\u0103 accesa\u021bi marcajele dvs. atunci c\u00e2nd deschide\u021bi o fil\u0103 nou\u0103 \u00eentr-un alt mod."
     },
@@ -964,6 +1012,12 @@
     },
     "settings_newtab_sidebar_auto_open_desc": {
         "message": "Configura\u021bi dac\u0103 bara lateral\u0103 trebuie deschis\u0103 automat c\u00e2nd deschide\u021bi o fil\u0103 nou\u0103."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Bara de adrese de focalizare"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Dac\u0103 autorizat, bara de adrese o s\u0103 fie focusat\u0103 c\u00e2nd deschide\u021bi o fil\u0103 nou\u0103. Dac\u0103 neautorizat, cutia de c\u0103ut\u0103ri a site-ului web o s\u0103 fie focusat\u0103 \u00een schimb."
     },
     "settings_newtab_website": {
         "message": "\u00cencarc\u0103 site-ul"
@@ -1028,6 +1082,9 @@
     "settings_translation_required_category": {
         "message": "Obligatoriu"
     },
+    "settings_support_faq_headline": {
+        "message": "\u00centreb\u0103ri adresate frecvent"
+    },
     "settings_support_feedback_headline": {
         "message": "Feedback"
     },
@@ -1036,6 +1093,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "V\u0103 rug\u0103m s\u0103 scrie\u021bi feedback-ul dvs. \u00een limba englez\u0103, altfel va fi dificil de \u00een\u021beles \u0219i de r\u0103spuns la mesajul dumneavoastr\u0103."
+    },
+    "settings_support_feedback_email": {
+        "message": "Adresa de email (op\u021bional)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Ataseaza Screenshot"
@@ -1133,6 +1193,12 @@
     "premium_feature_linkchecker_desc": {
         "message": "Pute\u021bi face clic dreapta pe orice dosar \u00een bara lateral\u0103 pentru a efectua o verificare. Pagina cu rezultatul va afi\u0219a toate URL-urile actualizate, marcajele care nu mai func\u021bioneaz\u0103 \u0219i marcajele cu acela\u0219i URL."
     },
+    "premium_feature_themes_headline": {
+        "message": "Schimb\u0103 tema barei tale laterale"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Po\u021bi s\u0103 schimbi toat\u0103 schi\u021ba a barei laterale cu un singur clic pentru a instala \u00eenc\u0103 o tem\u0103. Acestea pot fi personalizate cu sliderds-urile \u0219i op\u021biunile de culori disponibile."
+    },
     "premium_pay_select_payment_method": {
         "message": "Alege\u021bi o metod\u0103 de plat\u0103"
     },
@@ -1153,6 +1219,9 @@
     },
     "premium_pay_price_info": {
         "message": "Aceasta este o plat\u0103 unic\u0103 \u0219i include deasemenea toate func\u021biile viitoare premium."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Po\u021bi s\u0103 pl\u0103te\u0219ti c\u00e2t tu crezi c\u0103 extensia \u0219i munca mea merit\u0103 pentru tine pentru a primi acces la caracteristicile premium. O s\u0103 prime\u0219ti toate caracteristicile premium indiferent de c\u00e2t de mult dore\u0219ti s\u0103 pl\u0103te\u0219ti."
     },
     "premium_pay_eula": {
         "message": "Acord final de licen\u021b\u0103 utilizator"

@@ -995,6 +995,9 @@
     "settings_theme_focus": {
         "message": "Focus thema"
     },
+    "settings_theme_focus_desc": {
+        "message": "Dit thema vermindert de animaties en rangschikt de elementen dichter voor verbeterde productiviteit en prestaties."
+    },
     "settings_install_theme": {
         "message": "Installeer thema"
     },

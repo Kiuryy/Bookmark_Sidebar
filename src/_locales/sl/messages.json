@@ -992,6 +992,12 @@
     "settings_theme_glass_desc": {
         "message": "Ta tema naredi ozadje opravilne vrstice prosojno in mu doda u\u010dinek zamegljenega stekla. Ta u\u010dinek in prosojnost lahko prilagodite"
     },
+    "settings_theme_focus": {
+        "message": "Focus tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Ta tema zmanj\u0161uje animacije in gosteje razporeja elemente za ve\u010djo produktivnost in zmogljivost."
+    },
     "settings_install_theme": {
         "message": "Namesti temo"
     },

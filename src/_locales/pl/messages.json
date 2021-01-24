@@ -992,6 +992,12 @@
     "settings_theme_glass_desc": {
         "message": "Ten motyw sprawia wygl\u0105d p\u00f3\u0142przezroczystego, zamglonego efektu. Mo\u017cesz dostosowa\u0107 poziom przezroczysto\u015bci panelu bocznego."
     },
+    "settings_theme_focus": {
+        "message": "Motyw skupienia"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Ten motyw ogranicza animacje i uk\u0142ada elementy cia\u015bniej dla polepszenia produktywno\u015bci i osi\u0105g\u00f3w"
+    },
     "settings_install_theme": {
         "message": "Zainstaluj motyw"
     },

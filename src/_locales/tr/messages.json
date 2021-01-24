@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Yeni gizli sayfada a\u00e7"
     },
+    "contextmenu_copy": {
+        "message": "Linki panoya kopyala"
+    },
     "contextmenu_add_bookmark": {
         "message": "Yer imi ekle"
     },

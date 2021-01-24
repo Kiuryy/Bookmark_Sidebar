@@ -2,6 +2,7 @@
 __tmp/
 __dist/
 node_modules/
+src/css/
 package-lock.json
 .DS_Store
 *.zip

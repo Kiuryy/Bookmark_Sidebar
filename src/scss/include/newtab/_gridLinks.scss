@@ -1,4 +1,4 @@
-div#topPages {
+div#gridLinks {
   margin: 50px auto 0;
   text-align: center;
 
@@ -78,11 +78,11 @@ div#topPages {
   }
 }
 
-div#search.hidden ~ div#topPages {
+div#search.hidden ~ div#gridLinks {
   margin-top: 0;
 }
 
-body.customBackground div#topPages {
+body.customBackground div#gridLinks {
 
   > ul > li > a {
 
@@ -101,5 +101,5 @@ body.customBackground div#topPages {
   }
 }
 
-@import "../../rtl/include/newtab/topPages";
-@import "../../dark/include/newtab/topPages";
+@import "../../rtl/include/newtab/gridLinks";
+@import "../../dark/include/newtab/gridLinks";

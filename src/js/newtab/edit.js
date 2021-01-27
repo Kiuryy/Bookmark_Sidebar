@@ -113,36 +113,36 @@
                 const searchEngineName = searchEngineObj.name;
                 delete searchEngineObj.name;
 
-                const topPagesType = n.elm.topPages.children("select[" + $.attr.type + "='type']")[0].value;
+                const gridType = n.elm.gridLinks.children("select[" + $.attr.type + "='type']")[0].value;
 
                 const data = {
                     "n/searchField": n.elm.search.wrapper.children("select[" + $.attr.type + "='searchField']")[0].value,
                     "n/searchEngine": searchEngineName,
                     "n/searchEngineCustom": searchEngineObj,
-                    "n/topPagesType": topPagesType,
+                    "n/gridType": gridType,
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts
                 };
 
                 if (n.helper.model.getUserType() === "premium") {
-                    data["n/topPagesMaxCols"] = +n.elm.topPages.find("select[" + $.attr.type + "='cols']")[0].value;
-                    data["n/topPagesMaxRows"] = +n.elm.topPages.find("select[" + $.attr.type + "='rows']")[0].value;
+                    data["n/gridMaxCols"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='cols']")[0].value;
+                    data["n/gridMaxRows"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='rows']")[0].value;
                 }
 
-                if (topPagesType === "custom") {
-                    const customTopPages = [];
-                    n.elm.topPages.find("> ul > li > a").forEach((elm) => {
+                if (gridType === "custom") {
+                    const customGridLinks = [];
+                    n.elm.gridLinks.find("> ul > li > a").forEach((elm) => {
                         const label = $(elm).text().trim();
                         const url = ($(elm).data("href") || "").trim();
 
                         if (label && label.length > 0 && url && url.length > 0) {
-                            customTopPages.push({
+                            customGridLinks.push({
                                 title: label,
                                 url: url
                             });
                         }
                     });
-                    data["n/customTopPages"] = customTopPages;
+                    data["n/customGridLinks"] = customGridLinks;
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -176,18 +176,18 @@
 
             n.elm.search.wrapper.children("a." + $.cl.newtab.edit).remove();
             n.elm.search.wrapper.children("select").remove();
-            n.elm.topPages.children("select").remove();
-            n.elm.topPages.children("div[" + $.attr.type + "='gridsize']").remove();
-            n.elm.topPages.off("click.edit");
+            n.elm.gridLinks.children("select").remove();
+            n.elm.gridLinks.children("div[" + $.attr.type + "='gridsize']").remove();
+            n.elm.gridLinks.off("click.edit");
 
             n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
-            n.helper.topPages.setType(n.helper.model.getData("n/topPagesType"));
-            n.helper.topPages.setMaxCols(n.helper.model.getData("n/topPagesMaxCols"));
-            n.helper.topPages.setMaxRows(n.helper.model.getData("n/topPagesMaxRows"));
+            n.helper.gridLinks.setType(n.helper.model.getData("n/gridType"));
+            n.helper.gridLinks.setMaxCols(n.helper.model.getData("n/gridMaxCols"));
+            n.helper.gridLinks.setMaxRows(n.helper.model.getData("n/gridMaxRows"));
             n.helper.shortcuts.refreshEntries();
 
             n.getBackground().then((background) => {
@@ -228,10 +228,10 @@
             $.delay().then(() => {
                 n.elm.body.addClass($.cl.newtab.edit);
                 initSearchConfig();
-                initTopPagesGridSize();
-                initTopPagesTypeConfig();
-                initTopPagesCustom();
-                initShortcutsConfig();
+                initGridSize();
+                initGridType();
+                initCustomGrid();
+                initTopLinks();
 
                 $(document).off("click.edit").on("click.edit", () => {
                     $("div." + $.cl.newtab.editLinkTooltip).remove();
@@ -246,7 +246,7 @@
         /**
          * Initialises the buttons to edit/remove the shortcuts in the top/right corner
          */
-        const initShortcutsConfig = () => {
+        const initTopLinks = () => {
             const buttons = ["<a class='" + $.cl.newtab.edit + "'></a>", "<a class='" + $.cl.newtab.remove + "'></a>", "<a " + $.attr.position + "='left'></a>", "<a " + $.attr.position + "='right'></a>"];
             n.elm.topNav.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
@@ -324,8 +324,8 @@
                 .append("<button type='submit' " + $.attr.type + "='close'>" + n.helper.i18n.get("overlay_close") + "</button>")
                 .appendTo(wrapper);
 
-            if(deleteButton){
-                tooltip.children("button["+$.attr.type+"='close']").before("<button type='submit' " + $.attr.type + "='delete'>" + n.helper.i18n.get("overlay_delete") + "</button>")
+            if (deleteButton) {
+                tooltip.children("button[" + $.attr.type + "='close']").before("<button type='submit' " + $.attr.type + "='delete'>" + n.helper.i18n.get("overlay_delete") + "</button>");
             }
 
             tooltip.on("click", (e) => {
@@ -369,14 +369,14 @@
         /**
          * Initialises the dropdown for the top pages types
          */
-        const initTopPagesTypeConfig = () => {
+        const initGridType = () => {
             const select = $("<select></select>")
                 .addClass($.cl.newtab.edit)
                 .attr($.attr.type, "type")
-                .prependTo(n.elm.topPages);
+                .prependTo(n.elm.gridLinks);
 
-            const types = n.helper.topPages.getAllTypes();
-            const currentType = n.helper.model.getData("n/topPagesType");
+            const types = n.helper.gridLinks.getAllTypes();
+            const currentType = n.helper.model.getData("n/gridType");
 
             Object.keys(types).forEach((name) => {
                 const label = n.helper.i18n.get("newtab_top_pages_" + types[name]);
@@ -384,22 +384,22 @@
             });
 
             select.on("input change", (e) => {
-                n.helper.topPages.setType(e.currentTarget.value);
+                n.helper.gridLinks.setType(e.currentTarget.value);
             });
         };
 
         /**
          * Initialises the options for the grid with user defined urls
          */
-        const initTopPagesCustom = () => {
-            n.elm.topPages.off("click.edit").on("click.edit", "> ul > li > a", (e) => { // edit
-                if (n.elm.topPages.attr($.attr.type) === "custom") {
+        const initCustomGrid = () => {
+            n.elm.gridLinks.off("click.edit").on("click.edit", "> ul > li > a", (e) => { // edit
+                if (n.elm.gridLinks.attr($.attr.type) === "custom") {
                     e.stopPropagation();
                     e.preventDefault();
                     const entry = $(e.currentTarget);
                     const wrapper = entry.parent("li");
                     const label = entry.children("span").eq(0);
-                    showLinkEditTooltip(wrapper, entry, label,true);
+                    showLinkEditTooltip(wrapper, entry, label, true);
                 }
             });
         };
@@ -407,14 +407,14 @@
         /**
          * Initialises the dropdown for the top pages appearances
          */
-        const initTopPagesGridSize = () => {
+        const initGridSize = () => {
             const wrapper = $("<div></div>")
                 .attr($.attr.type, "gridsize")
                 .html("<strong>" + n.helper.i18n.get("newtab_top_pages_grid_size") + "</strong>")
-                .prependTo(n.elm.topPages);
+                .prependTo(n.elm.gridLinks);
 
             ["Cols", "Rows"].forEach((type) => {
-                const currentValue = n.helper.model.getData("n/topPagesMax" + type);
+                const currentValue = n.helper.model.getData("n/gridMax" + type);
                 const s = $("<select></select>")
                     .addClass($.cl.newtab.edit)
                     .attr($.attr.type, type.toLowerCase())
@@ -425,7 +425,7 @@
                 }
 
                 s.on("input change", (e) => {
-                    n.helper.topPages["setMax" + type](e.currentTarget.value);
+                    n.helper.gridLinks["setMax" + type](e.currentTarget.value);
                 });
             });
             $("<span></span>").text("x").insertAfter(wrapper.children("select").eq(0));

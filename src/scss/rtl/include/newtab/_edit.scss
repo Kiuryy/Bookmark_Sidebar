@@ -108,7 +108,7 @@ html[dir='rtl'] {
       }
     }
 
-    div#topPages {
+    div#gridLinks {
 
       > div[data-type='gridsize'] {
 
@@ -136,7 +136,7 @@ html[dir='rtl'] {
 
     &.customBackground {
 
-      div#topPages > div[data-type='gridsize'] {
+      div#gridLinks > div[data-type='gridsize'] {
         padding-right: 10px;
         padding-left: 8px;
       }

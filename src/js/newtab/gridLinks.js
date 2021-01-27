@@ -1,7 +1,7 @@
 ($ => {
     "use strict";
 
-    $.TopPagesHelper = function (n) {
+    $.GridLinksHelper = function (n) {
 
         const entryHelperInited = false;
         let type = null;
@@ -27,10 +27,10 @@
          */
         this.init = async () => {
             initEvents();
-            n.elm.topPages.html("<ul></ul>");
-            type = n.helper.model.getData("n/topPagesType");
-            maxCols = n.helper.model.getData("n/topPagesMaxCols");
-            maxRows = n.helper.model.getData("n/topPagesMaxRows");
+            n.elm.gridLinks.html("<ul></ul>");
+            type = n.helper.model.getData("n/gridType");
+            maxCols = n.helper.model.getData("n/gridMaxCols");
+            maxRows = n.helper.model.getData("n/gridMaxRows");
 
             updateEntries();
 
@@ -83,7 +83,7 @@
          */
         this.handleWindowResize = () => {
             const amount = getAmount();
-            const currentTotal = n.elm.topPages.children("ul").data("total");
+            const currentTotal = n.elm.gridLinks.children("ul").data("total");
 
             if (amount.total !== currentTotal) {
                 updateEntries();
@@ -94,13 +94,13 @@
          * Initialises the eventhandlers
          */
         const initEvents = () => {
-            $(window).on("resize.topPages", () => {
+            $(window).on("resize.gridLinks", () => {
                 this.handleWindowResize();
             }, {passive: true});
 
-            n.elm.topPages.on("click auxclick", "> ul > li > a", (e) => { // handle chrome urls -> regular clicking will be blocked
+            n.elm.gridLinks.on("click auxclick", "> ul > li > a", (e) => { // handle chrome urls -> regular clicking will be blocked
 
-                if (n.elm.topPages.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) { // disable event for custom grid in edit mode
+                if (n.elm.gridLinks.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) { // disable event for custom grid in edit mode
                     return;
                 }
 
@@ -148,13 +148,13 @@
          * Updates the entries which are displayed as top pages
          */
         const updateEntries = () => {
-            n.elm.topPages.attr($.attr.type, type);
-            const topPagesWrapper = n.elm.topPages.children("ul");
-            topPagesWrapper.removeClass($.cl.visible);
+            n.elm.gridLinks.attr($.attr.type, type);
+            const gridWrapper = n.elm.gridLinks.children("ul");
+            gridWrapper.removeClass($.cl.visible);
 
             if (type === "hidden") {
                 if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
-                    topPagesWrapper.data("total", 0).html("");
+                    gridWrapper.data("total", 0).html("");
                 }
             } else if (updateRunning === false) {
                 updateRunning = true;
@@ -165,13 +165,13 @@
                 ]).then(([pages]) => {
                     const amount = getAmount();
 
-                    topPagesWrapper
+                    gridWrapper
                         .html("")
                         .data("total", amount.total)
                         .css("grid-template-columns", "1fr ".repeat(amount.cols).trim());
 
                     pages.forEach((page) => {
-                        const entry = $("<li></li>").appendTo(topPagesWrapper);
+                        const entry = $("<li></li>").appendTo(gridWrapper);
                         const entryLink = $("<a></a>")
                             .attr({
                                 href: page.url,
@@ -194,7 +194,7 @@
 
                     return $.delay(100);
                 }).then(() => {
-                    topPagesWrapper.addClass($.cl.visible);
+                    gridWrapper.addClass($.cl.visible);
                     updateRunning = false;
                 });
             }
@@ -280,7 +280,7 @@
         const getCustomEntries = () => {
             const list = [];
             const amount = getAmount();
-            const pages = n.helper.model.getData("n/customTopPages");
+            const pages = n.helper.model.getData("n/customGridLinks");
 
             for (let i = 0; i < amount.total; i++) {
                 if (pages[i]) {

@@ -21,7 +21,7 @@
                 speechSearch: $("div#search > a.speechSearch")
             },
             fallbackInfo: $("div#fallbackInfo"),
-            topPages: $("div#topPages")
+            gridLinks: $("div#gridLinks")
         };
 
         this.sidebarHelper = {};
@@ -61,7 +61,7 @@
                 return Promise.all(
                     [
                         this.getBackground(),
-                        this.helper.topPages.init(),
+                        this.helper.gridLinks.init(),
                         this.helper.search.init(),
                         this.helper.shortcuts.init(),
                         this.helper.fallback.init(),
@@ -139,7 +139,7 @@
                 overlay: new $.OverlayHelper(this),
                 entry: new $.EntryHelper(this),
                 shortcuts: new $.ShortcutsHelper(this),
-                topPages: new $.TopPagesHelper(this),
+                gridLinks: new $.GridLinksHelper(this),
                 fallback: new $.FallbackHelper(this),
                 edit: new $.EditHelper(this)
             };
@@ -180,7 +180,7 @@
                             this.elm.content.removeClass($.cl.newtab.smallContent);
                         }
 
-                        this.helper.topPages.handleWindowResize();
+                        this.helper.gridLinks.handleWindowResize();
                     }
                 }, {passive: true});
             }

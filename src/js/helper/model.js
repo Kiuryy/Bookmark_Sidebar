@@ -165,10 +165,10 @@
                     homepage: "",
                     queryUrl: ""
                 },
-                topPagesType: "topPages",
-                topPagesMaxCols: 4,
-                topPagesMaxRows: 2,
-                customTopPages: [{title: "Google", url: "https://google.com"}],
+                gridType: "topPages",
+                gridMaxCols: 4,
+                gridMaxRows: 2,
+                customGridLinks: [{title: "Google", url: "https://google.com"}],
                 shortcuts: [{label: "Google", url: "https://google.com"}],
                 website: ""
             }

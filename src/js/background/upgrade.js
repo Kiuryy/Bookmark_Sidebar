@@ -53,7 +53,8 @@
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
-            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
+            if (newVersion === "1.19.1" || (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1])) { // @deprecated 02/2021 -> upgrade newtab option names
+                //if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 updateOptions("upgrade").then(() => {
                     b.reinitialize();
                 });
@@ -128,6 +129,21 @@
          */
         const updateOptionsAfterUpgrade = (obj) => {
             try {
+                if (obj.newtab) { // @deprecated 02/2021 -> upgrade newtab option names
+                    if (obj.newtab.topPagesType) {
+                        obj.newtab.gridType = obj.newtab.topPagesType;
+                    }
+
+                    if (obj.newtab.topPagesMaxCols) {
+                        obj.newtab.gridMaxCols = obj.newtab.topPagesMaxCols;
+                    }
+
+                    if (obj.newtab.topPagesMaxRows) {
+                        obj.newtab.gridMaxRows = obj.newtab.topPagesMaxRows;
+                    }
+                }
+
+
                 delete obj.behaviour.contextmenu;
                 delete obj.behaviour.dndOpen;
                 delete obj.behaviour.initialOpenOnNewTab;

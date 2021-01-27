@@ -108,7 +108,7 @@
                     "n/searchEngineCustom": searchEngineObj,
                     "n/gridType": gridType,
                     "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
-                    "n/topLinks": getLinkInformation(     n.elm.topLinks.find("a." + $.cl.newtab.link))
+                    "n/topLinks": getLinkInformation(n.elm.topLinks.find("a." + $.cl.newtab.link))
                 };
 
                 if (n.helper.model.getUserType() === "premium") {
@@ -117,7 +117,7 @@
                 }
 
                 if (gridType === "custom") {
-                    data["n/customGridLinks"] = getLinkInformation(   n.elm.gridLinks.find("> ul > li > a"));
+                    data["n/customGridLinks"] = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"));
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -422,7 +422,21 @@
                 }
 
                 s.on("input change", (e) => {
-                    n.helper.gridLinks["setMax" + type](e.currentTarget.value);
+                    const linkList = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"));
+
+                    n.helper.gridLinks["setMax" + type](e.currentTarget.value).then(() => { // recover the (maybe changed) links, since changing the grid layout will reset all unsaved changes
+                        n.elm.gridLinks.find("> ul > li > a").forEach((elm, i) => {
+                            if (linkList[i]) {
+                                $(elm)
+                                    .data("href", linkList[i].url)
+                                    .attr("href", linkList[i].url)
+                                    .attr($.attr.value, "url");
+                                $(elm).children("span").eq(0).text(linkList[i].title);
+                            } else {
+                                return false;
+                            }
+                        });
+                    });
                 });
             });
             $("<span></span>").text("x").insertAfter(wrapper.children("select").eq(0));

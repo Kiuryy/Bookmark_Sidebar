@@ -51,19 +51,19 @@
          *
          * @param {string} val
          */
-        this.setType = (val) => {
+        this.setType = async (val) => {
             type = val;
-            updateEntries();
+            await updateEntries();
         };
 
         /**
          *
          * @param {string} val
          */
-        this.setMaxCols = (val) => {
+        this.setMaxCols = async (val) => {
             if (maxCols !== val) { // don't unneccessary reload the top pages if the amount of cols is still the same
                 maxCols = val;
-                updateEntries();
+                await updateEntries();
             }
         };
 
@@ -71,22 +71,22 @@
          *
          * @param {string} val
          */
-        this.setMaxRows = (val) => {
+        this.setMaxRows = async (val) => {
             if (maxRows !== val) { // don't unneccessary reload the top pages if the amount of rows is still the same
                 maxRows = val;
-                updateEntries();
+                await updateEntries();
             }
         };
 
         /**
          * Updates the entries if the amount of visible elements has changes because of a different window size
          */
-        this.handleWindowResize = () => {
+        this.handleWindowResize = async () => {
             const amount = getAmount();
             const currentTotal = n.elm.gridLinks.children("ul").data("total");
 
             if (amount.total !== currentTotal) {
-                updateEntries();
+                await updateEntries();
             }
         };
 
@@ -146,58 +146,64 @@
 
         /**
          * Updates the entries which are displayed as top pages
+         *
+         * @returns {Promise}
          */
         const updateEntries = () => {
-            n.elm.gridLinks.attr($.attr.type, type);
-            const gridWrapper = n.elm.gridLinks.children("ul");
-            gridWrapper.removeClass($.cl.visible);
+            return new Promise((resolve) => {
+                n.elm.gridLinks.attr($.attr.type, type);
+                const gridWrapper = n.elm.gridLinks.children("ul");
+                gridWrapper.removeClass($.cl.visible);
 
-            if (type === "hidden") {
-                if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
-                    gridWrapper.data("total", 0).html("");
-                }
-            } else if (updateRunning === false) {
-                updateRunning = true;
+                if (type === "hidden") {
+                    if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
+                        gridWrapper.data("total", 0).html("");
+                    }
+                    resolve();
+                } else if (updateRunning === false) {
+                    updateRunning = true;
 
-                Promise.all([
-                    getEntryData(),
-                    $.delay(200) // allows smooth fading between switching of types
-                ]).then(([pages]) => {
-                    const amount = getAmount();
+                    Promise.all([
+                        getEntryData(),
+                        $.delay(200) // allows smooth fading between switching of types
+                    ]).then(([pages]) => {
+                        const amount = getAmount();
 
-                    gridWrapper
-                        .html("")
-                        .data("total", amount.total)
-                        .css("grid-template-columns", "1fr ".repeat(amount.cols).trim());
+                        gridWrapper
+                            .html("")
+                            .data("total", amount.total)
+                            .css("grid-template-columns", "1fr ".repeat(amount.cols).trim());
 
-                    pages.forEach((page) => {
-                        const entry = $("<li></li>").appendTo(gridWrapper);
-                        const entryLink = $("<a></a>")
-                            .attr({
-                                href: page.url,
-                                title: page.title,
-                                [$.attr.value]: page.url.length === 0 ? "empty" : "url"
-                            })
-                            .data("href", page.url)
-                            .appendTo(entry);
+                        pages.forEach((page) => {
+                            const entry = $("<li></li>").appendTo(gridWrapper);
+                            const entryLink = $("<a></a>")
+                                .attr({
+                                    href: page.url,
+                                    title: page.title,
+                                    [$.attr.value]: page.url.length === 0 ? "empty" : "url"
+                                })
+                                .data("href", page.url)
+                                .appendTo(entry);
 
-                        $("<span></span>").text(page.title).appendTo(entryLink);
+                            $("<span></span>").text(page.title).appendTo(entryLink);
 
-                        n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
-                            if (response.img) { // favicon found -> add to entry
-                                const favicon = $("<img />").attr("src", response.img);
-                                $("<div></div>").append(favicon).prependTo(entryLink);
-                            }
+                            n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
+                                if (response.img) { // favicon found -> add to entry
+                                    const favicon = $("<img />").attr("src", response.img);
+                                    $("<div></div>").append(favicon).prependTo(entryLink);
+                                }
+                            });
                         });
 
-                    });
+                        return $.delay(100);
+                    }).then(() => {
+                        gridWrapper.addClass($.cl.visible);
+                        updateRunning = false;
 
-                    return $.delay(100);
-                }).then(() => {
-                    gridWrapper.addClass($.cl.visible);
-                    updateRunning = false;
-                });
-            }
+                        resolve();
+                    });
+                }
+            });
         };
 
         /**

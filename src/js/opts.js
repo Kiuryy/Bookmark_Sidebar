@@ -131,6 +131,7 @@
                 edit: "edit",
                 add: "add",
                 link: "link",
+                editLinkTooltip: "editLinkTooltip",
                 permanentSidebar: "permanentSidebar",
                 listening: "listening",
                 remove: "remove",

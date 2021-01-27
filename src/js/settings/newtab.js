@@ -56,7 +56,7 @@
                         config[field] = s.elm.field[field][0].value.trim();
                     });
 
-                    if (config.website && config.website.length && config.website.search(/^\w+\:\/\//) !== 0) { // prepend http if no protocol specified
+                    if (config.website && config.website.length && config.website.search(/^[\w-]+:\/\//) !== 0) { // prepend http if no protocol specified
                         config.website = "http://" + config.website;
                     }
 

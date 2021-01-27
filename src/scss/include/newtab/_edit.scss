@@ -137,6 +137,65 @@ menu.infoBar {
   }
 }
 
+div.editLinkTooltip {
+  position: absolute;
+  text-align: left;
+  background: $contentBackground;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+  padding: 10px;
+  bottom: -170px;
+  right: -10px;
+  height: 160px;
+  width: 250px;
+  border-radius: 3px;
+  z-index: 9;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    width: 0;
+    border: 10px solid transparent;
+    border-bottom-color: $contentBackground;
+  }
+
+  > label {
+    font-weight: $__fontWeightMedium;
+    display: block;
+  }
+
+  > input[type='text'] {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: transparent;
+    display: block;
+    width: 100%;
+    margin: 3px 0 10px;
+    padding: 5px;
+
+    &:focus {
+      border-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  > button[type='submit'] {
+    border: none;
+    outline: none;
+    background: none;
+    color: $__colorScheme;
+    font-weight: $__fontWeightMedium;
+    cursor: pointer;
+    float: right;
+    margin-top: 3px;
+
+    &[data-type="delete"] {
+      float: left;
+      color: $textColorLight;
+    }
+  }
+}
+
 body[data-pos='right'] {
 
   > a.edit {
@@ -333,59 +392,6 @@ body.edit {
         &:first-child > a[data-pos='left'] {
           display: none;
         }
-
-        > div {
-          position: absolute;
-          text-align: left;
-          background: $contentBackground;
-          filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
-          padding: 10px;
-          bottom: -170px;
-          right: -10px;
-          height: 160px;
-          width: 250px;
-          border-radius: 3px;
-          z-index: 9;
-
-          &::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            right: 20px;
-            border: 10px solid transparent;
-            border-bottom-color: $contentBackground;
-          }
-
-          > label {
-            font-weight: $__fontWeightMedium;
-            display: block;
-          }
-
-          > input[type='text'] {
-            outline: none;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: transparent;
-            display: block;
-            width: 100%;
-            margin: 3px 0 10px;
-            padding: 5px;
-
-            &:focus {
-              border-color: rgba(0, 0, 0, 0.25);
-            }
-          }
-
-          > button[type='submit'] {
-            border: none;
-            outline: none;
-            background: none;
-            color: $__colorScheme;
-            font-weight: $__fontWeightMedium;
-            cursor: pointer;
-            float: right;
-            margin-top: 3px;
-          }
-        }
       }
 
       &[data-pos='left'] {
@@ -415,7 +421,7 @@ body.edit {
             }
           }
 
-          > div {
+          div.editLinkTooltip {
             left: -10px;
             right: unset;
 
@@ -512,6 +518,52 @@ body.edit {
           }
         }
       }
+    }
+
+    &[data-type="custom"] {
+
+      > ul > li {
+
+        div.editLinkTooltip {
+          bottom: -125px;
+          left: -52px;
+          right: unset;
+
+          &::before {
+            left: 0;
+            right: 0;
+            margin: auto;
+          }
+        }
+
+        > a {
+          pointer-events: none;
+          visibility: visible;
+
+          > div {
+            @include mask('icon-edit', $__textColor, 18px);
+            box-shadow: none;
+            border: 2px dashed $__textColor;
+            background: transparent;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: background 0.3s;
+
+            &:hover {
+              background: rgba(0, 0, 0, 0.1);
+            }
+
+            > img {
+              visibility: hidden;
+            }
+          }
+
+          &[data-value='empty'] > div::before {
+            @include maskImage('icon-add');
+          }
+        }
+      }
+
     }
   }
 

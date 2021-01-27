@@ -168,6 +168,7 @@
                 topPagesType: "topPages",
                 topPagesMaxCols: 4,
                 topPagesMaxRows: 2,
+                customTopPages: [{title: "Google", url: "https://google.com"}],
                 shortcuts: [{label: "Google", url: "https://google.com"}],
                 website: ""
             }

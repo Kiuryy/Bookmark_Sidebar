@@ -16,6 +16,7 @@
             topPages: "default",
             mostUsed: "most_used",
             recentlyUsed: "recently_used",
+            custom: "custom",
             pinnedEntries: "pinned_entries",
             hidden: "hidden"
         };
@@ -33,7 +34,7 @@
 
             updateEntries();
 
-            setInterval(() => { // refresh the entries every 2 minutes
+            setInterval(() => { // refresh the entries every 3 minutes
                 if (document.hidden) {
                     updateEntries();
                 }
@@ -51,10 +52,8 @@
          * @param {string} val
          */
         this.setType = (val) => {
-            if (type !== val || type === "hidden") { // don't unneccessary reload the top pages if the type is still the same
-                type = val;
-                updateEntries();
-            }
+            type = val;
+            updateEntries();
         };
 
         /**
@@ -98,6 +97,23 @@
             $(window).on("resize.topPages", () => {
                 this.handleWindowResize();
             }, {passive: true});
+
+            n.elm.topPages.on("click auxclick", "> ul > li > a", (e) => { // handle chrome urls -> regular clicking will be blocked
+
+                if (n.elm.topPages.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) { // disable event for custom grid in edit mode
+                    return;
+                }
+
+                e.preventDefault();
+                if (e.button === 0 || e.button === 1) {
+                    n.helper.model.call("openLink", {
+                        href: $(e.currentTarget).data("href"),
+                        newTab: e.type === "auxclick",
+                        position: n.helper.model.getData("b/newTabPosition"),
+                        active: e.type !== "auxclick"
+                    });
+                }
+            });
         };
 
         /**
@@ -132,6 +148,7 @@
          * Updates the entries which are displayed as top pages
          */
         const updateEntries = () => {
+            n.elm.topPages.attr($.attr.type, type);
             const topPagesWrapper = n.elm.topPages.children("ul");
             topPagesWrapper.removeClass($.cl.visible);
 
@@ -155,7 +172,15 @@
 
                     pages.forEach((page) => {
                         const entry = $("<li></li>").appendTo(topPagesWrapper);
-                        const entryLink = $("<a></a>").attr({href: page.url, title: page.title}).appendTo(entry);
+                        const entryLink = $("<a></a>")
+                            .attr({
+                                href: page.url,
+                                title: page.title,
+                                [$.attr.value]: page.url.length === 0 ? "empty" : "url"
+                            })
+                            .data("href", page.url)
+                            .appendTo(entry);
+
                         $("<span></span>").text(page.title).appendTo(entryLink);
 
                         n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
@@ -219,6 +244,11 @@
                             });
                             break;
                         }
+                        case "custom": {
+                            const list = getCustomEntries();
+                            resolve(list);
+                            break;
+                        }
                         case "topPages":
                         default: {
                             if ($.api.topSites && $.api.topSites.get) { // topSites may not be available -> requires topSites permission
@@ -240,6 +270,27 @@
                     resolve([]);
                 }
             });
+        };
+
+        /**
+         * Returns the user defined entries
+         *
+         * @returns {Array}
+         */
+        const getCustomEntries = () => {
+            const list = [];
+            const amount = getAmount();
+            const pages = n.helper.model.getData("n/customTopPages");
+
+            for (let i = 0; i < amount.total; i++) {
+                if (pages[i]) {
+                    list.push(pages[i]);
+                } else {
+                    list.push({title: "", url: ""});
+                }
+            }
+
+            return list;
         };
 
         /**

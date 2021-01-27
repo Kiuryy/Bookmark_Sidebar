@@ -43,7 +43,7 @@
                         href: $(e.currentTarget).data("href"),
                         newTab: e.type === "auxclick",
                         position: n.helper.model.getData("b/newTabPosition"),
-                        active: e.type === "auxclick"
+                        active: e.type !== "auxclick"
                     });
                 }
             });

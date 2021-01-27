@@ -95,7 +95,7 @@
                 const shortcuts = [];
                 n.elm.topNav.find("a." + $.cl.newtab.link).forEach((elm) => {
                     const label = $(elm).text().trim();
-                    const url = $(elm).data("href").trim();
+                    const url = ($(elm).data("href") || "").trim();
 
                     if (label && label.length > 0 && url && url.length > 0) {
                         shortcuts.push({
@@ -113,11 +113,13 @@
                 const searchEngineName = searchEngineObj.name;
                 delete searchEngineObj.name;
 
+                const topPagesType = n.elm.topPages.children("select[" + $.attr.type + "='type']")[0].value;
+
                 const data = {
                     "n/searchField": n.elm.search.wrapper.children("select[" + $.attr.type + "='searchField']")[0].value,
                     "n/searchEngine": searchEngineName,
                     "n/searchEngineCustom": searchEngineObj,
-                    "n/topPagesType": n.elm.topPages.children("select[" + $.attr.type + "='type']")[0].value,
+                    "n/topPagesType": topPagesType,
                     "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
                     "n/shortcuts": shortcuts
                 };
@@ -125,6 +127,22 @@
                 if (n.helper.model.getUserType() === "premium") {
                     data["n/topPagesMaxCols"] = +n.elm.topPages.find("select[" + $.attr.type + "='cols']")[0].value;
                     data["n/topPagesMaxRows"] = +n.elm.topPages.find("select[" + $.attr.type + "='rows']")[0].value;
+                }
+
+                if (topPagesType === "custom") {
+                    const customTopPages = [];
+                    n.elm.topPages.find("> ul > li > a").forEach((elm) => {
+                        const label = $(elm).text().trim();
+                        const url = ($(elm).data("href") || "").trim();
+
+                        if (label && label.length > 0 && url && url.length > 0) {
+                            customTopPages.push({
+                                title: label,
+                                url: url
+                            });
+                        }
+                    });
+                    data["n/customTopPages"] = customTopPages;
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -160,6 +178,7 @@
             n.elm.search.wrapper.children("select").remove();
             n.elm.topPages.children("select").remove();
             n.elm.topPages.children("div[" + $.attr.type + "='gridsize']").remove();
+            n.elm.topPages.off("click.edit");
 
             n.elm.topNav.children("select").remove();
             n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
@@ -211,7 +230,12 @@
                 initSearchConfig();
                 initTopPagesGridSize();
                 initTopPagesTypeConfig();
+                initTopPagesCustom();
                 initShortcutsConfig();
+
+                $(document).off("click.edit").on("click.edit", () => {
+                    $("div." + $.cl.newtab.editLinkTooltip).remove();
+                });
 
                 $.delay(500).then(() => {
                     $(window).trigger("resize");
@@ -243,7 +267,8 @@
             n.elm.topNav.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
                 e.stopPropagation();
                 const entry = $(e.currentTarget).parent("li");
-                showShortcutEditTooltip(entry);
+                const link = entry.children("a." + $.cl.newtab.link).eq(0);
+                showLinkEditTooltip(entry, link, link);
             }).on("click.edit", "a." + $.cl.newtab.add, () => {  // add
                 const entry = $("<li></li>")
                     .append("<a class='" + $.cl.newtab.link + "'>&nbsp;</a>")
@@ -251,7 +276,8 @@
                     .prependTo(n.elm.topNav.children("ul"));
 
                 $.delay().then(() => {
-                    showShortcutEditTooltip(entry);
+                    const link = entry.children("a." + $.cl.newtab.link).eq(0);
+                    showLinkEditTooltip(entry, link, link);
                 });
             }).on("click.edit", "a." + $.cl.newtab.remove, (e) => {  // remove
                 $(e.currentTarget).parent("li").remove();
@@ -273,35 +299,43 @@
                         break;
                     }
                 }
-            }).on("click.edit", "> ul > li > div", (e) => { // prevent closing when clicking inside the tooltip (except when clicking the close button)
-                if (e.target.tagName !== "BUTTON") {
-                    e.stopPropagation();
-                }
-            });
-
-            $(document).off("click.edit").on("click.edit", () => {
-                n.elm.topNav.find("> ul > li > div").remove();
             });
         };
 
         /**
          * Shows the edit tooltip for the given element
          *
-         * @param {jsu} elm
+         * @param {jsu} wrapper
+         * @param {jsu} link
+         * @param {jsu} label
+         * @param {boolean} deleteButton
          */
-        const showShortcutEditTooltip = (elm) => {
-            n.elm.topNav.find("> ul > li > div").remove();
+        const showLinkEditTooltip = (wrapper, link, label, deleteButton = false) => {
+            $("div." + $.cl.newtab.editLinkTooltip).remove();
 
-            const link = elm.children("a." + $.cl.newtab.link).eq(0);
             const href = (link.data("href") || "").trim();
 
             const tooltip = $("<div></div>")
+                .addClass($.cl.newtab.editLinkTooltip)
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_title") + "</label>")
-                .append("<input type='text' value='" + link.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
+                .append("<input type='text' value='" + label.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
                 .append("<input type='text' value='" + href.replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
-                .append("<button type='submit'>" + n.helper.i18n.get("overlay_close") + "</button>")
-                .appendTo(elm);
+                .append("<button type='submit' " + $.attr.type + "='close'>" + n.helper.i18n.get("overlay_close") + "</button>")
+                .appendTo(wrapper);
+
+            if(deleteButton){
+                tooltip.children("button["+$.attr.type+"='close']").before("<button type='submit' " + $.attr.type + "='delete'>" + n.helper.i18n.get("overlay_delete") + "</button>")
+            }
+
+            tooltip.on("click", (e) => {
+                if (e.target.tagName !== "BUTTON") {
+                    e.stopPropagation();
+                } else if ($(e.target).attr($.attr.type) === "delete") {
+                    link.removeAttr("href").removeData("href").attr($.attr.value, "empty");
+                    label.html("&nbsp;");
+                }
+            });
 
             tooltip.find("input[type='text']").on("change input", (e) => {
                 let val = e.currentTarget.value.trim();
@@ -314,15 +348,17 @@
                             if (val.search(/^[\w-]+:\/\//) !== 0) { // prepend http if no protocol specified
                                 val = "http://" + val;
                             }
-                            link.data("href", val);
+                            link.data("href", val).attr($.attr.value, "url");
+                        } else {
+                            link.attr($.attr.value, "empty");
                         }
                         break;
                     }
                     case "label": {
                         if (val && val.length > 0) {
-                            link.text(val.trim());
+                            label.text(val.trim());
                         } else {
-                            link.html("&nbsp;");
+                            label.html("&nbsp;");
                         }
                         break;
                     }
@@ -349,6 +385,22 @@
 
             select.on("input change", (e) => {
                 n.helper.topPages.setType(e.currentTarget.value);
+            });
+        };
+
+        /**
+         * Initialises the options for the grid with user defined urls
+         */
+        const initTopPagesCustom = () => {
+            n.elm.topPages.off("click.edit").on("click.edit", "> ul > li > a", (e) => { // edit
+                if (n.elm.topPages.attr($.attr.type) === "custom") {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const entry = $(e.currentTarget);
+                    const wrapper = entry.parent("li");
+                    const label = entry.children("span").eq(0);
+                    showLinkEditTooltip(wrapper, entry, label,true);
+                }
             });
         };
 

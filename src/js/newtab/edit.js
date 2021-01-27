@@ -41,7 +41,7 @@
         /**
          * Initialises the menu eventhandlers
          */
-        const initMenuEvents = () => {
+        const initBottomMenuEvents = () => {
             $("menu." + $.cl.newtab.infoBar + " > a").on("click", (e) => { // save changes or leave edit mode
                 e.preventDefault();
                 const elm = $(e.currentTarget);
@@ -92,19 +92,6 @@
          */
         const saveChanges = () => {
             return new Promise((resolve) => {
-                const topLinks = [];
-                n.elm.topLinks.find("a." + $.cl.newtab.link).forEach((elm) => {
-                    const label = $(elm).text().trim();
-                    const url = ($(elm).data("href") || "").trim();
-
-                    if (label && label.length > 0 && url && url.length > 0) {
-                        topLinks.push({
-                            title: label,
-                            url: url
-                        });
-                    }
-                });
-
                 const loadStartTime = +new Date();
                 const loader = n.helper.template.loading().appendTo(n.elm.body);
                 n.elm.body.addClass($.cl.loading);
@@ -121,7 +108,7 @@
                     "n/searchEngineCustom": searchEngineObj,
                     "n/gridType": gridType,
                     "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
-                    "n/topLinks": topLinks
+                    "n/topLinks": getLinkInformation(     n.elm.topLinks.find("a." + $.cl.newtab.link))
                 };
 
                 if (n.helper.model.getUserType() === "premium") {
@@ -130,19 +117,7 @@
                 }
 
                 if (gridType === "custom") {
-                    const customGridLinks = [];
-                    n.elm.gridLinks.find("> ul > li > a").forEach((elm) => {
-                        const label = $(elm).text().trim();
-                        const url = ($(elm).data("href") || "").trim();
-
-                        if (label && label.length > 0 && url && url.length > 0) {
-                            customGridLinks.push({
-                                title: label,
-                                url: url
-                            });
-                        }
-                    });
-                    data["n/customGridLinks"] = customGridLinks;
+                    data["n/customGridLinks"] = getLinkInformation(   n.elm.gridLinks.find("> ul > li > a"));
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -164,6 +139,28 @@
                     resolve();
                 });
             });
+        };
+
+        /**
+         * Returns a list of links with title and url by extracting these data from the given list of <a> elements
+         *
+         * @param elmList
+         * @returns {[]}
+         */
+        const getLinkInformation = (elmList) => {
+            const ret = [];
+            elmList.forEach((elm) => {
+                const label = $(elm).text().trim();
+                const url = ($(elm).data("href") || "").trim();
+
+                if (label && label.length > 0 && url && url.length > 0) {
+                    ret.push({
+                        title: label,
+                        url: url
+                    });
+                }
+            });
+            return ret;
         };
 
         /**
@@ -223,7 +220,7 @@
                 $("<div></div>").html("<span>" + n.helper.i18n.get("newtab_upload_background") + "</span>").appendTo(uploadWrapper);
             }
 
-            initMenuEvents();
+            initBottomMenuEvents();
 
             $.delay().then(() => {
                 n.elm.body.addClass($.cl.newtab.edit);

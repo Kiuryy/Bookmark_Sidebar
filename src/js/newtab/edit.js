@@ -92,14 +92,14 @@
          */
         const saveChanges = () => {
             return new Promise((resolve) => {
-                const shortcuts = [];
-                n.elm.topNav.find("a." + $.cl.newtab.link).forEach((elm) => {
+                const topLinks = [];
+                n.elm.topLinks.find("a." + $.cl.newtab.link).forEach((elm) => {
                     const label = $(elm).text().trim();
                     const url = ($(elm).data("href") || "").trim();
 
                     if (label && label.length > 0 && url && url.length > 0) {
-                        shortcuts.push({
-                            label: label,
+                        topLinks.push({
+                            title: label,
                             url: url
                         });
                     }
@@ -120,8 +120,8 @@
                     "n/searchEngine": searchEngineName,
                     "n/searchEngineCustom": searchEngineObj,
                     "n/gridType": gridType,
-                    "n/shortcutsPosition": n.elm.topNav.children("select")[0].value,
-                    "n/shortcuts": shortcuts
+                    "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
+                    "n/topLinks": topLinks
                 };
 
                 if (n.helper.model.getUserType() === "premium") {
@@ -180,15 +180,15 @@
             n.elm.gridLinks.children("div[" + $.attr.type + "='gridsize']").remove();
             n.elm.gridLinks.off("click.edit");
 
-            n.elm.topNav.children("select").remove();
-            n.elm.topNav.find("a:not(." + $.cl.newtab.link + ")").remove();
+            n.elm.topLinks.children("select").remove();
+            n.elm.topLinks.find("a:not(." + $.cl.newtab.link + ")").remove();
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
             n.helper.gridLinks.setType(n.helper.model.getData("n/gridType"));
             n.helper.gridLinks.setMaxCols(n.helper.model.getData("n/gridMaxCols"));
             n.helper.gridLinks.setMaxRows(n.helper.model.getData("n/gridMaxRows"));
-            n.helper.shortcuts.refreshEntries();
+            n.helper.topLinks.refreshEntries();
 
             n.getBackground().then((background) => {
                 n.setBackground(background);
@@ -248,23 +248,23 @@
          */
         const initTopLinks = () => {
             const buttons = ["<a class='" + $.cl.newtab.edit + "'></a>", "<a class='" + $.cl.newtab.remove + "'></a>", "<a " + $.attr.position + "='left'></a>", "<a " + $.attr.position + "='right'></a>"];
-            n.elm.topNav.find("> ul > li").forEach((elm) => {
+            n.elm.topLinks.find("> ul > li").forEach((elm) => {
                 $(elm).append(buttons);
             });
 
-            const currentPos = n.helper.model.getData("n/shortcutsPosition");
-            const select = $("<select></select>").addClass($.cl.newtab.edit).appendTo(n.elm.topNav);
+            const currentPos = n.helper.model.getData("n/topLinksPosition");
+            const select = $("<select></select>").addClass($.cl.newtab.edit).appendTo(n.elm.topLinks);
             ["left", "right"].forEach((pos) => {
                 $("<option value='" + pos + "' " + (currentPos === pos ? "selected" : "") + "></option>").text(n.helper.i18n.get("settings_sidebar_position_" + pos)).appendTo(select);
             });
 
             select.on("input change", (e) => {
-                n.elm.topNav.attr($.attr.position, e.currentTarget.value);
+                n.elm.topLinks.attr($.attr.position, e.currentTarget.value);
             });
 
-            $("<a class='" + $.cl.newtab.add + "'></a>").prependTo(n.elm.topNav);
+            $("<a class='" + $.cl.newtab.add + "'></a>").prependTo(n.elm.topLinks);
 
-            n.elm.topNav.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
+            n.elm.topLinks.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
                 e.stopPropagation();
                 const entry = $(e.currentTarget).parent("li");
                 const link = entry.children("a." + $.cl.newtab.link).eq(0);
@@ -273,7 +273,7 @@
                 const entry = $("<li></li>")
                     .append("<a class='" + $.cl.newtab.link + "'>&nbsp;</a>")
                     .append(buttons)
-                    .prependTo(n.elm.topNav.children("ul"));
+                    .prependTo(n.elm.topLinks.children("ul"));
 
                 $.delay().then(() => {
                     const link = entry.children("a." + $.cl.newtab.link).eq(0);

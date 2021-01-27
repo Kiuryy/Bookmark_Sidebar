@@ -157,7 +157,6 @@
                 override: false,
                 autoOpen: true,
                 focusOmnibox: false,
-                shortcutsPosition: "right",
                 searchField: "show",
                 searchEngine: "google",
                 searchEngineCustom: {
@@ -169,7 +168,8 @@
                 gridMaxCols: 4,
                 gridMaxRows: 2,
                 customGridLinks: [{title: "Google", url: "https://google.com"}],
-                shortcuts: [{label: "Google", url: "https://google.com"}],
+                topLinks: [{title: "Google", url: "https://google.com"}],
+                topLinksPosition: "right",
                 website: ""
             }
         };

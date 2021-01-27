@@ -13,7 +13,7 @@
             body: $("body"),
             title: $("head > title"),
             content: $("section#content"),
-            topNav: $("section#content > nav"),
+            topLinks: $("section#content > nav"),
             search: {
                 wrapper: $("div#search"),
                 field: $("div#search > input[type='text']"),
@@ -62,8 +62,8 @@
                     [
                         this.getBackground(),
                         this.helper.gridLinks.init(),
+                        this.helper.topLinks.init(),
                         this.helper.search.init(),
-                        this.helper.shortcuts.init(),
                         this.helper.fallback.init(),
                         this.helper.edit.init(),
                         initEvents(),
@@ -138,7 +138,7 @@
                 search: new $.SearchHelper(this),
                 overlay: new $.OverlayHelper(this),
                 entry: new $.EntryHelper(this),
-                shortcuts: new $.ShortcutsHelper(this),
+                topLinks: new $.TopLinksHelper(this),
                 gridLinks: new $.GridLinksHelper(this),
                 fallback: new $.FallbackHelper(this),
                 edit: new $.EditHelper(this)

@@ -140,8 +140,10 @@
                 Object.entries(obj).forEach(([attr, val]) => {
                     if (baseName === "newtab_searchEngineCustom") { // don't track information about the custom search engine
                         return;
-                    } else if (baseName === "newtab" && attr === "shortcuts") { // don't track the exact websites, just the amount
+                    } else if (baseName === "newtab" && attr === "topLinks") { // don't track the exact websites, just the amount
                         val = val.length;
+                    } else if (baseName === "newtab" && attr === "customGridLinks") { // don't track information about the amount of links in the custom grid
+                        return;
                     } else if (baseName === "utility" && attr === "pinnedEntries" && typeof val === "object") { // only track the amount of pinned entries
                         val = Object.keys(val).length;
                     } else if (baseName === "behaviour" && (attr === "blacklist" || attr === "whitelist")) { // only track the amount of url rules

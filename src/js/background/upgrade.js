@@ -118,7 +118,7 @@
         const updateOptionsAfterInstall = (obj) => {
             if (b.helper.language.getUILanguage() === "zh_CN") {
                 obj.newtab.searchEngine = "baidu";
-                obj.newtab.shortcuts = [{label: "百度", url: "https://www.baidu.com/"}];
+                obj.newtab.topLinks = [{title: "百度", url: "https://www.baidu.com/"}];
             }
         };
 
@@ -140,6 +140,19 @@
 
                     if (obj.newtab.topPagesMaxRows) {
                         obj.newtab.gridMaxRows = obj.newtab.topPagesMaxRows;
+                    }
+
+                    if (obj.newtab.shortcutsPosition) {
+                        obj.newtab.topLinksPosition = obj.newtab.shortcutsPosition;
+                    }
+
+                    if (obj.newtab.shortcuts && obj.newtab.shortcuts.length > 0) {
+                        const topLinks = [];
+                        obj.newtab.shortcuts.forEach((entry) => {
+                            topLinks.push({title: entry.label, url: entry.url});
+                        });
+
+                        obj.newtab.topLinks = topLinks;
                     }
                 }
 

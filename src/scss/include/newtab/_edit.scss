@@ -537,8 +537,12 @@ body.edit {
         }
 
         > a {
-          pointer-events: none;
           visibility: visible;
+          border: 2px solid transparent;
+
+          > * {
+            pointer-events: none;
+          }
 
           > div {
             @include mask('icon-edit', $__textColor, 18px);
@@ -546,15 +550,22 @@ body.edit {
             border: 2px dashed $__textColor;
             background: transparent;
             cursor: pointer;
-            pointer-events: auto;
             transition: background 0.3s;
-
-            &:hover {
-              background: rgba(0, 0, 0, 0.1);
-            }
 
             > img {
               visibility: hidden;
+            }
+          }
+
+          &:hover > div {
+            background: rgba(0, 0, 0, 0.1);
+          }
+
+          &.dragHover {
+            border: 2px dashed $textColorLight;
+
+            > * {
+              opacity: 0.3;
             }
           }
 
@@ -563,7 +574,6 @@ body.edit {
           }
         }
       }
-
     }
   }
 

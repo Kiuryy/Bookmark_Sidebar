@@ -193,6 +193,10 @@
                                     $("<div></div>").append(favicon).prependTo(entryLink);
                                 }
                             });
+
+                            if (n.elm.gridLinks.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) {
+                                entryLink.attr("draggable","draggable");
+                            }
                         });
 
                         return $.delay(100);

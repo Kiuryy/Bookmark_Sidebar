@@ -399,6 +399,51 @@
                     showLinkEditTooltip(wrapper, entry, label, true);
                 }
             });
+
+            let draggedElm = null;
+
+            n.elm.gridLinks.find("> ul > li > a").attr("draggable", "draggable");
+            n.elm.gridLinks.off("dragstart.edit").on("dragstart.edit", "> ul > li > a", (e) => {
+                draggedElm = e.currentTarget;
+            });
+
+            n.elm.gridLinks.off("dragenter.edit").on("dragenter.edit", "> ul > li > a", (e) => {
+                $(e.currentTarget).addClass($.cl.drag.dragHover);
+            });
+
+            n.elm.gridLinks.off("dragover.edit").on("dragover.edit", "> ul > li > a", (e) => { // allow dropping
+                e.preventDefault();
+            });
+
+            n.elm.gridLinks.off("dragleave.edit").on("dragleave.edit", "> ul > li > a", (e) => {
+                $(e.currentTarget).removeClass($.cl.drag.dragHover);
+            });
+
+            n.elm.gridLinks.off("dragend.edit").on("dragend.edit", "> ul > li > a", () => {
+                n.elm.gridLinks.find("> ul > li > a").removeClass($.cl.drag.dragHover);
+                $.delay().then(() => {
+                    draggedElm = null;
+                });
+            });
+
+            n.elm.gridLinks.off("drop.edit").on("drop.edit", "> ul > li > a", (e) => {
+                e.preventDefault();
+                n.elm.gridLinks.find("> ul > li > a").removeClass($.cl.drag.dragHover);
+
+                if (draggedElm === e.currentTarget) {
+                    return;
+                }
+
+                const afterNode2 = e.currentTarget.nextElementSibling;
+                const parent = e.currentTarget.parentNode;
+
+                if (draggedElm === afterNode2) {
+                    parent.insertBefore(draggedElm, e.currentTarget);
+                } else {
+                    draggedElm.replaceWith(e.currentTarget);
+                    parent.insertBefore(draggedElm, afterNode2);
+                }
+            });
         };
 
         /**

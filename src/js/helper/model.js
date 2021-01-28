@@ -167,8 +167,8 @@
                 gridType: "topPages",
                 gridMaxCols: 4,
                 gridMaxRows: 2,
-                customGridLinks: [{title: "Google", url: "https://google.com"}],
-                topLinks: [{title: "Google", url: "https://google.com"}],
+                customGridLinks: [],
+                topLinks: [],
                 topLinksPosition: "right",
                 website: ""
             }

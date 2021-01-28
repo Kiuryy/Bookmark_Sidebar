@@ -119,6 +119,8 @@
             if (b.helper.language.getUILanguage() === "zh_CN") {
                 obj.newtab.searchEngine = "baidu";
                 obj.newtab.topLinks = [{title: "百度", url: "https://www.baidu.com/"}];
+            } else {
+                obj.newtab.topLinks = [{title: "Google", url: "https://google.com"}];
             }
         };
 

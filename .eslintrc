@@ -32,21 +32,19 @@
     "space-infix-ops": "warn",
     "arrow-spacing": "warn",
     "func-call-spacing": "error",
+    "space-in-parens": "warn",
+    "array-bracket-spacing": "warn",
+    "object-curly-spacing": "warn",
+    "computed-property-spacing": "warn",
     "keyword-spacing": "warn",
     "comma-spacing": "warn",
+    "quotes": "warn",
+    "semi": "warn",
     "dot-notation": [
       "error",
       {
         "allowKeywords": false
       }
-    ],
-    "semi": [
-      "warn",
-      "always"
-    ],
-    "quotes": [
-      "warn",
-      "double"
     ]
   }
 }

@@ -175,7 +175,15 @@
             n.elm.search.wrapper.children("select").remove();
             n.elm.gridLinks.children("select").remove();
             n.elm.gridLinks.children("div[" + $.attr.type + "='gridsize']").remove();
+
+            n.elm.gridLinks.find("> ul > li > a").removeAttr("draggable");
             n.elm.gridLinks.off("click.edit");
+            n.elm.gridLinks.off("dragstart.edit");
+            n.elm.gridLinks.off("dragenter.edit");
+            n.elm.gridLinks.off("dragover.edit");
+            n.elm.gridLinks.off("dragleave.edit");
+            n.elm.gridLinks.off("dragend.edit");
+            n.elm.gridLinks.off("drop.edit");
 
             n.elm.topLinks.children("select").remove();
             n.elm.topLinks.find("a:not(." + $.cl.newtab.link + ")").remove();

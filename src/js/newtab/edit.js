@@ -350,6 +350,7 @@
                 $.delay().then(() => {
                     const link = entry.children("a").eq(0);
                     showLinkEditTooltip(entry, link, link, "delete");
+                    initDraggableLinks(n.elm.topLinks, "> ul > li > a");
                 });
             });
 
@@ -394,6 +395,7 @@
             wrapper.find(linkSelector).attr("draggable", "draggable");
             wrapper.off("dragstart.edit").on("dragstart.edit", linkSelector, (e) => {
                 draggedElm = e.currentTarget;
+                $("div." + $.cl.newtab.editLinkTooltip).remove();
             });
 
             wrapper.off("dragenter.edit").on("dragenter.edit", linkSelector, (e) => {

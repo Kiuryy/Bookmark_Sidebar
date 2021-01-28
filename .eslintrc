@@ -23,20 +23,17 @@
       }
     ],
     "prefer-const": "error",
+    "prefer-arrow-callback": "error",
     "no-var": "error",
     "no-multi-spaces": "warn",
     "no-useless-escape": "off",
     "no-unused-vars": "off",
     "no-console": "error",
-    "func-call-spacing": ["error", "never"],
-    "keyword-spacing": ["warn", { "before": true }],
-    "comma-spacing": [
-      "warn",
-      {
-        "before": false,
-        "after": true
-      }
-    ],
+    "space-infix-ops": "warn",
+    "arrow-spacing": "warn",
+    "func-call-spacing": "error",
+    "keyword-spacing": "warn",
+    "comma-spacing": "warn",
     "dot-notation": [
       "error",
       {

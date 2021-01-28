@@ -506,11 +506,11 @@
                         for (const bookmark of bookmarks) {
                             let done = false;
                             const callback = () => {
-                                if(done){
+                                if (done){
                                     return;
                                 }
 
-                                done= true;
+                                done = true;
                                 finished++;
                                 resolved++;
 

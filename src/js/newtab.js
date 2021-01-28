@@ -35,7 +35,7 @@
             initHelpers();
 
             const loader = this.helper.template.loading().appendTo(this.elm.body);
-            this.elm.body.addClass($.cl.initLoading);
+            this.elm.body.addClass($.cl.initLoading).attr("id", $.opts.ids.page.newtab);
 
             this.helper.model.init().then(() => {
                 const config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);

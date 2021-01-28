@@ -25,7 +25,7 @@
                     }, (results) => {
                         const searchValFiltered = opts.searchVal.toLowerCase();
 
-                        results.sort(function (a, b) { // sort the history entry to prefer entries where the search value is part of the label and the url, as well as pages, which were visited more often
+                        results.sort((a, b) => { // sort the history entry to prefer entries where the search value is part of the label and the url, as well as pages, which were visited more often
                             const aScore = (a.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (a.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + a.visitCount + a.typedCount;
                             const bScore = (b.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (b.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + b.visitCount + b.typedCount;
                             return aScore - bScore;

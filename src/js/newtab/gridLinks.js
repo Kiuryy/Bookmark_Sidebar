@@ -195,7 +195,7 @@
                             });
 
                             if (n.elm.gridLinks.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) {
-                                entryLink.attr("draggable","draggable");
+                                entryLink.attr("draggable", "draggable");
                             }
                         });
 

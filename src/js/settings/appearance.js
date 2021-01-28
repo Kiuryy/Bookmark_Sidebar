@@ -163,7 +163,7 @@
                 $.api.storage.sync.get(["appearance"], (conf) => {
                     conf.appearance = conf.appearance || {};
 
-                    if (!conf.appearance.theme && s.helper.model.getUserType() === "premium") { // explicitly save the theme for the premium users, since in the analytics only the users how switch back from a theme to the default one will be listed
+                    if (!conf.appearance.theme && s.helper.model.getUserType() === "premium") { // explicitly save the theme for the premium users, since in the analytics only the users who switch back to the default theme will be listed
                         conf.appearance.theme = "default";
                     }
 

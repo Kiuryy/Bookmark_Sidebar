@@ -24,9 +24,19 @@
     ],
     "prefer-const": "error",
     "no-var": "error",
+    "no-multi-spaces": "warn",
     "no-useless-escape": "off",
     "no-unused-vars": "off",
     "no-console": "error",
+    "func-call-spacing": ["error", "never"],
+    "keyword-spacing": ["warn", { "before": true }],
+    "comma-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
     "dot-notation": [
       "error",
       {
@@ -34,11 +44,11 @@
       }
     ],
     "semi": [
-      "error",
+      "warn",
       "always"
     ],
     "quotes": [
-      "error",
+      "warn",
       "double"
     ]
   }

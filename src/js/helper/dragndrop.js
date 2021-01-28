@@ -87,6 +87,11 @@
          */
         const initExternalDragDropEvents = async () => {
             ext.elm.iframeBody.on("dragenter", () => {
+                const body = $("body");
+                if (body.attr("id") === $.opts.ids.page.newtab && body.hasClass($.cl.newtab.edit)) { // disable drag&drop when in edit mode of the new tab page
+                    return;
+                }
+
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
                 ext.elm.iframeBody.addClass($.cl.drag.isDragged);

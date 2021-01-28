@@ -9,6 +9,7 @@
             page: {
                 iframe: "redeviation-bs-sidebar",
                 overlay: "redeviation-bs-overlay",
+                newtab: "redeviation-bs-newtab",
                 indicator: "redeviation-bs-indicator"
             },
             sidebar: {

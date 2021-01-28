@@ -491,7 +491,7 @@
         clickFuncs.copyToClipboard = (opts) => {
             const data = ext.helper.entry.getDataById(opts.id);
 
-            if (data && data.url &&  ext.helper.utility.copyToClipboard(data.url)) {
+            if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
 
                 Object.values(ext.elm.bookmarkBox).some((box) => {
                     if (box.hasClass($.cl.active)) {

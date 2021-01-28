@@ -17,7 +17,7 @@ section#content {
         text-align: center;
         margin-bottom: 5px;
 
-        > a.link {
+        > a {
           position: relative;
           color: $__textColor;
           display: block;
@@ -58,5 +58,5 @@ body.customBackground section#content > nav {
   }
 }
 
-@import "../../rtl/include/newtab/shortcuts";
-@import "../../dark/include/newtab/shortcuts";
+@import "../../rtl/include/newtab/topLinks";
+@import "../../dark/include/newtab/topLinks";

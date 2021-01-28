@@ -161,8 +161,8 @@
 
                         if (
                             (baseName === "newtab" && attr === "website") || // don't track the exact website, just true or false
-                            (baseName === "utility" && attr === "customCss") ||  // only track whether the user uses a custom css or not
-                            (baseName === "utility" && attr === "newtabBackground")  // only track whether the user set a wallpaper as new tab background or not
+                            (baseName === "utility" && attr === "customCss") || // only track whether the user uses a custom css or not
+                            (baseName === "utility" && attr === "newtabBackground") // only track whether the user set a wallpaper as new tab background or not
                         ) {
                             val = val && val.length > 0 ? "true" : "false";
                         }

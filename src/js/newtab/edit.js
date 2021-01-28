@@ -108,7 +108,7 @@
                     "n/searchEngineCustom": searchEngineObj,
                     "n/gridType": gridType,
                     "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
-                    "n/topLinks": getLinkInformation(n.elm.topLinks.find("a." + $.cl.newtab.link))
+                    "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
                 };
 
                 if (n.helper.model.getUserType() === "premium") {
@@ -173,20 +173,12 @@
 
             n.elm.search.wrapper.children("a." + $.cl.newtab.edit).remove();
             n.elm.search.wrapper.children("select").remove();
+            n.elm.topLinks.children("select").remove();
             n.elm.gridLinks.children("select").remove();
             n.elm.gridLinks.children("div[" + $.attr.type + "='gridsize']").remove();
 
-            n.elm.gridLinks.find("> ul > li > a").removeAttr("draggable");
-            n.elm.gridLinks.off("click.edit");
-            n.elm.gridLinks.off("dragstart.edit");
-            n.elm.gridLinks.off("dragenter.edit");
-            n.elm.gridLinks.off("dragover.edit");
-            n.elm.gridLinks.off("dragleave.edit");
-            n.elm.gridLinks.off("dragend.edit");
-            n.elm.gridLinks.off("drop.edit");
-
-            n.elm.topLinks.children("select").remove();
-            n.elm.topLinks.find("a:not(." + $.cl.newtab.link + ")").remove();
+            unloadDraggableLinks(n.elm.gridLinks, "> ul > li > a");
+            unloadDraggableLinks(n.elm.topLinks, "> ul > li > a");
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
@@ -249,73 +241,13 @@
         };
 
         /**
-         * Initialises the buttons to edit/remove the shortcuts in the top/right corner
-         */
-        const initTopLinks = () => {
-            const buttons = ["<a class='" + $.cl.newtab.edit + "'></a>", "<a class='" + $.cl.newtab.remove + "'></a>", "<a " + $.attr.position + "='left'></a>", "<a " + $.attr.position + "='right'></a>"];
-            n.elm.topLinks.find("> ul > li").forEach((elm) => {
-                $(elm).append(buttons);
-            });
-
-            const currentPos = n.helper.model.getData("n/topLinksPosition");
-            const select = $("<select></select>").addClass($.cl.newtab.edit).appendTo(n.elm.topLinks);
-            ["left", "right"].forEach((pos) => {
-                $("<option value='" + pos + "' " + (currentPos === pos ? "selected" : "") + "></option>").text(n.helper.i18n.get("settings_sidebar_position_" + pos)).appendTo(select);
-            });
-
-            select.on("input change", (e) => {
-                n.elm.topLinks.attr($.attr.position, e.currentTarget.value);
-            });
-
-            $("<a class='" + $.cl.newtab.add + "'></a>").prependTo(n.elm.topLinks);
-
-            n.elm.topLinks.off("click.edit").on("click.edit", "a." + $.cl.newtab.edit, (e) => { // edit
-                e.stopPropagation();
-                const entry = $(e.currentTarget).parent("li");
-                const link = entry.children("a." + $.cl.newtab.link).eq(0);
-                showLinkEditTooltip(entry, link, link);
-            }).on("click.edit", "a." + $.cl.newtab.add, () => {  // add
-                const entry = $("<li></li>")
-                    .append("<a class='" + $.cl.newtab.link + "'>&nbsp;</a>")
-                    .append(buttons)
-                    .prependTo(n.elm.topLinks.children("ul"));
-
-                $.delay().then(() => {
-                    const link = entry.children("a." + $.cl.newtab.link).eq(0);
-                    showLinkEditTooltip(entry, link, link);
-                });
-            }).on("click.edit", "a." + $.cl.newtab.remove, (e) => {  // remove
-                $(e.currentTarget).parent("li").remove();
-            }).on("click.edit", "a[" + $.attr.position + "]", (e) => { // move
-                const pos = $(e.currentTarget).attr($.attr.position);
-                const entry = $(e.currentTarget).parent("li");
-
-                switch (pos) {
-                    case "left": {
-                        if (entry.prev("li").length() > 0) {
-                            entry.insertBefore(entry.prev("li"));
-                        }
-                        break;
-                    }
-                    case "right": {
-                        if (entry.next("li").length() > 0) {
-                            entry.insertAfter(entry.next("li"));
-                        }
-                        break;
-                    }
-                }
-            });
-        };
-
-        /**
          * Shows the edit tooltip for the given element
          *
          * @param {jsu} wrapper
          * @param {jsu} link
          * @param {jsu} label
-         * @param {boolean} deleteButton
          */
-        const showLinkEditTooltip = (wrapper, link, label, deleteButton = false) => {
+        const showLinkEditTooltip = (wrapper, link, label, deleteBehaviour = "empty") => {
             $("div." + $.cl.newtab.editLinkTooltip).remove();
 
             const href = (link.data("href") || "").trim();
@@ -326,19 +258,21 @@
                 .append("<input type='text' value='" + label.text().trim().replace(/'/g, "&#x27;") + "' " + $.attr.type + "='label' />")
                 .append("<label>" + n.helper.i18n.get("overlay_bookmark_url") + "</label>")
                 .append("<input type='text' value='" + href.replace(/'/g, "&#x27;") + "' " + $.attr.type + "='url' />")
+                .append("<button type='submit' " + $.attr.type + "='delete'>" + n.helper.i18n.get("overlay_delete") + "</button>")
                 .append("<button type='submit' " + $.attr.type + "='close'>" + n.helper.i18n.get("overlay_close") + "</button>")
                 .appendTo(wrapper);
-
-            if (deleteButton) {
-                tooltip.children("button[" + $.attr.type + "='close']").before("<button type='submit' " + $.attr.type + "='delete'>" + n.helper.i18n.get("overlay_delete") + "</button>");
-            }
 
             tooltip.on("click", (e) => {
                 if (e.target.tagName !== "BUTTON") {
                     e.stopPropagation();
                 } else if ($(e.target).attr($.attr.type) === "delete") {
-                    link.removeAttr("href").removeData("href").attr($.attr.value, "empty");
-                    label.html("&nbsp;");
+                    if (deleteBehaviour === "empty") {
+                        link.removeAttr("href").removeData("href").attr($.attr.value, "empty");
+                        label.html("&nbsp;");
+                    } else if (deleteBehaviour === "delete") {
+                        label.remove();
+                        link.remove();
+                    }
                 }
             });
 
@@ -394,6 +328,43 @@
         };
 
         /**
+         * Initialises the buttons to edit/remove the shortcuts in the top/right corner
+         */
+        const initTopLinks = () => {
+            const currentPos = n.helper.model.getData("n/topLinksPosition");
+            const select = $("<select></select>").addClass($.cl.newtab.edit).appendTo(n.elm.topLinks);
+            ["left", "right"].forEach((pos) => {
+                $("<option value='" + pos + "' " + (currentPos === pos ? "selected" : "") + "></option>").text(n.helper.i18n.get("settings_sidebar_position_" + pos)).appendTo(select);
+            });
+
+            select.on("input change", (e) => {
+                n.elm.topLinks.attr($.attr.position, e.currentTarget.value);
+            });
+
+            const addButton = $("<a class='" + $.cl.newtab.add + "'></a>").prependTo(n.elm.topLinks);
+            addButton.on("click", () => { // add
+                const entry = $("<li></li>")
+                    .append("<a>&nbsp;</a>")
+                    .prependTo(n.elm.topLinks.children("ul"));
+
+                $.delay().then(() => {
+                    const link = entry.children("a").eq(0);
+                    showLinkEditTooltip(entry, link, link, "delete");
+                });
+            });
+
+            n.elm.topLinks.off("click.edit").on("click.edit", "> ul > li > a", (e) => { // edit
+                e.stopPropagation();
+                e.preventDefault();
+                const entry = $(e.currentTarget);
+                const wrapper = entry.parent("li");
+                showLinkEditTooltip(wrapper, entry, entry, "delete");
+            });
+
+            initDraggableLinks(n.elm.topLinks, "> ul > li > a");
+        };
+
+        /**
          * Initialises the options for the grid with user defined urls
          */
         const initCustomGrid = () => {
@@ -404,39 +375,49 @@
                     const entry = $(e.currentTarget);
                     const wrapper = entry.parent("li");
                     const label = entry.children("span").eq(0);
-                    showLinkEditTooltip(wrapper, entry, label, true);
+                    showLinkEditTooltip(wrapper, entry, label);
                 }
             });
 
+            initDraggableLinks(n.elm.gridLinks, "> ul > li > a");
+        };
+
+        /**
+         * Initialises the drag&drop functionality for the given link list
+         *
+         * @param wrapper
+         * @param linkSelector
+         */
+        const initDraggableLinks = (wrapper, linkSelector) => {
             let draggedElm = null;
 
-            n.elm.gridLinks.find("> ul > li > a").attr("draggable", "draggable");
-            n.elm.gridLinks.off("dragstart.edit").on("dragstart.edit", "> ul > li > a", (e) => {
+            wrapper.find(linkSelector).attr("draggable", "draggable");
+            wrapper.off("dragstart.edit").on("dragstart.edit", linkSelector, (e) => {
                 draggedElm = e.currentTarget;
             });
 
-            n.elm.gridLinks.off("dragenter.edit").on("dragenter.edit", "> ul > li > a", (e) => {
+            wrapper.off("dragenter.edit").on("dragenter.edit", linkSelector, (e) => {
                 $(e.currentTarget).addClass($.cl.drag.dragHover);
             });
 
-            n.elm.gridLinks.off("dragover.edit").on("dragover.edit", "> ul > li > a", (e) => { // allow dropping
+            wrapper.off("dragover.edit").on("dragover.edit", linkSelector, (e) => { // allow dropping
                 e.preventDefault();
             });
 
-            n.elm.gridLinks.off("dragleave.edit").on("dragleave.edit", "> ul > li > a", (e) => {
+            wrapper.off("dragleave.edit").on("dragleave.edit", linkSelector, (e) => {
                 $(e.currentTarget).removeClass($.cl.drag.dragHover);
             });
 
-            n.elm.gridLinks.off("dragend.edit").on("dragend.edit", "> ul > li > a", () => {
-                n.elm.gridLinks.find("> ul > li > a").removeClass($.cl.drag.dragHover);
+            wrapper.off("dragend.edit").on("dragend.edit", linkSelector, () => {
+                wrapper.find(linkSelector).removeClass($.cl.drag.dragHover);
                 $.delay().then(() => {
                     draggedElm = null;
                 });
             });
 
-            n.elm.gridLinks.off("drop.edit").on("drop.edit", "> ul > li > a", (e) => {
+            wrapper.off("drop.edit").on("drop.edit", linkSelector, (e) => {
                 e.preventDefault();
-                n.elm.gridLinks.find("> ul > li > a").removeClass($.cl.drag.dragHover);
+                wrapper.find(linkSelector).removeClass($.cl.drag.dragHover);
 
                 if (draggedElm === e.currentTarget) {
                     return;
@@ -452,6 +433,23 @@
                     parent.insertBefore(draggedElm, afterNode2);
                 }
             });
+        };
+
+        /**
+         * Unloads the events which enabled the drag&drop functionality
+         *
+         * @param wrapper
+         * @param linkSelector
+         */
+        const unloadDraggableLinks = (wrapper, linkSelector) => {
+            wrapper.find(linkSelector).removeAttr("draggable");
+            wrapper.off("click.edit");
+            wrapper.off("dragstart.edit");
+            wrapper.off("dragenter.edit");
+            wrapper.off("dragover.edit");
+            wrapper.off("dragleave.edit");
+            wrapper.off("dragend.edit");
+            wrapper.off("drop.edit");
         };
 
         /**

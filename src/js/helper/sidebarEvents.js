@@ -50,7 +50,7 @@
             const config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
             const middleClick = opts.which === 2 || opts.ctrlKey || opts.metaKey;
 
-            if (data.isDir && !elm.hasClass($.cl.sidebar.dirAnimated)) {  // Click on dir
+            if (data.isDir && !elm.hasClass($.cl.sidebar.dirAnimated)) { // Click on dir
                 if (middleClick) { // middle click -> open all children
                     const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
                     if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
@@ -272,7 +272,7 @@
             $(ext.elm.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {
                 const name = e.detail.checkbox.attr($.attr.name);
 
-                if (name === "viewAsTree" || name === "mostViewedPerMonth") {  // set sort specific config and reload list
+                if (name === "viewAsTree" || name === "mostViewedPerMonth") { // set sort specific config and reload list
                     ext.helper.model.setData({
                         ["u/" + name]: e.detail.checked
                     }).then(() => {

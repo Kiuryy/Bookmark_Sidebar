@@ -318,7 +318,7 @@
             const currentType = n.helper.model.getData("n/gridType");
 
             Object.keys(types).forEach((name) => {
-                const label = n.helper.i18n.get("newtab_top_pages_" + types[name]);
+                const label = n.helper.i18n.get("newtab_grid_links_" + types[name]);
                 $("<option value='" + name + "' " + (currentType === name ? "selected" : "") + "></option>").text(label).appendTo(select);
             });
 
@@ -460,7 +460,7 @@
         const initGridSize = () => {
             const wrapper = $("<div></div>")
                 .attr($.attr.type, "gridsize")
-                .html("<strong>" + n.helper.i18n.get("newtab_top_pages_grid_size") + "</strong>")
+                .html("<strong>" + n.helper.i18n.get("newtab_grid_links_grid_size") + "</strong>")
                 .prependTo(n.elm.gridLinks);
 
             ["Cols", "Rows"].forEach((type) => {

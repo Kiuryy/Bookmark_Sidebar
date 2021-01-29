@@ -17,7 +17,6 @@
             mostUsed: "most_used",
             recentlyUsed: "recently_used",
             custom: "custom",
-            pinnedEntries: "pinned_entries",
             hidden: "hidden"
         };
 
@@ -247,13 +246,6 @@
                             });
                             break;
                         }
-                        case "pinnedEntries": {
-                            initEntryHelper().then(() => {
-                                const list = getPinnedEntries();
-                                resolve(list);
-                            });
-                            break;
-                        }
                         case "custom": {
                             const list = getCustomEntries();
                             resolve(list);
@@ -299,32 +291,6 @@
                     list.push({title: "", url: ""});
                 }
             }
-
-            return list;
-        };
-
-        /**
-         * Returns the pinned bookmarks
-         *
-         * @returns {Array}
-         */
-        const getPinnedEntries = () => {
-            const sortObj = n.helper.model.getData("u/sort");
-            const pinnedEntries = n.helper.entry.getAllDataByType("pinned");
-            const showHidden = n.helper.model.getData("u/showHidden");
-            const amount = getAmount();
-
-            n.helper.utility.sortEntries(pinnedEntries, sortObj); // sort pinned entries the same way they are arranged in the sidebar
-            const list = [];
-
-            pinnedEntries.some((bookmark) => {
-                if ((showHidden || n.helper.entry.isVisible(bookmark.id)) && n.helper.entry.isSeparator(bookmark.id) === false) {
-                    list.push(bookmark);
-                    if (list.length >= amount.total) {
-                        return true;
-                    }
-                }
-            });
 
             return list;
         };

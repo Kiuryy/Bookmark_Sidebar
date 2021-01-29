@@ -53,7 +53,7 @@
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
-            if (newVersion === "1.19.1" || (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1])) { // @deprecated 02/2021 -> upgrade newtab option names
+            if (newVersion === "1.19.1" || (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1])) { // @deprecated 02/2021 -> upgrade newtab options
                 //if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 updateOptions("upgrade").then(() => {
                     b.reinitialize();
@@ -131,8 +131,8 @@
          */
         const updateOptionsAfterUpgrade = (obj) => {
             try {
-                if (obj.newtab) { // @deprecated 02/2021 -> upgrade newtab option names
-                    if (obj.newtab.topPagesType) {
+                if (obj.newtab) { // @deprecated 02/2021 -> upgrade newtab option
+                    if (obj.newtab.topPagesType && obj.newtab.topPagesType !== "pinnedEntries") {
                         obj.newtab.gridType = obj.newtab.topPagesType;
                     }
 
@@ -156,8 +156,50 @@
 
                         obj.newtab.topLinks = topLinks;
                     }
-                }
 
+                    obj.newtab.topPagesType = obj.newtab.gridType;
+
+                    if (obj.newtab.topPagesType && obj.newtab.topPagesType === "pinnedEntries") { // replace "pinnedEntries" with "custom" by determining all pinned bookmarks and adding them to a list
+                        const customGridLinks = [];
+
+                        $.api.storage.local.get(["utility"], (c) => {
+                            if (c.utility && c.utility.pinnedEntries) {
+                                const bookmarks = [];
+                                Object.entries(c.utility.pinnedEntries).forEach(([k, v]) => {
+                                    if (v.index >= 0) {
+                                        bookmarks[v.index] = k;
+                                    }
+                                });
+
+                                const bookmarksFiltered = bookmarks.filter(b => b && ("" + b).length > 0);
+
+                                b.helper.bookmarks.api.get(bookmarksFiltered).then((results) => {
+                                    results.forEach((b) => {
+                                        customGridLinks.push({
+                                            title: b.title,
+                                            url: b.url
+                                        });
+                                    });
+
+                                    $.delay(5000).then(() => {
+                                        $.api.storage.sync.get(["newtab"], (obj) => {
+                                            if (typeof obj.newtab === "undefined") {
+                                                obj.newtab = {};
+                                            }
+
+                                            obj.newtab.gridType = "custom";
+                                            obj.newtab.customGridLinks = customGridLinks;
+
+                                            $.api.storage.sync.set({newtab: obj.newtab}, () => {
+                                                b.reinitialize();
+                                            });
+                                        });
+                                    });
+                                });
+                            }
+                        });
+                    }
+                }
 
                 delete obj.behaviour.contextmenu;
                 delete obj.behaviour.dndOpen;
@@ -177,6 +219,11 @@
                 delete obj.appearance.indicatorWidth;
                 delete obj.appearance.indicatorIconSize;
                 delete obj.newtab.initialOpen;
+                delete obj.newtab.topPagesType;
+                delete obj.newtab.topPagesMaxCols;
+                delete obj.newtab.topPagesMaxRows;
+                delete obj.newtab.shortcutsPosition;
+                delete obj.newtab.shortcuts;
             } catch (e) {
                 //
             }

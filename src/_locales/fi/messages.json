@@ -257,28 +257,28 @@
     "newtab_title": {
         "message": "Uusi v\u00e4lilehti"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Parhaat verkkosivustot"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Viimeksi k\u00e4ytetyt kirjanmerkit"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Eniten k\u00e4ytetyt kirjanmerkit"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Kiinnitetyt kirjanmerkit"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "N\u00e4yt\u00e4 verkkosivuston esikatselut"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "N\u00e4yt\u00e4 verkkosivuston kuvakkeet"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Ristikon koko"
     },
     "newtab_search_placeholder": {

@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "\u65b0\u3057\u3044\u30bf\u30d6"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "\u30c8\u30c3\u30d7\u30da\u30fc\u30b8"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "\u6700\u8fd1\u5229\u7528\u3057\u305f\u30d6\u30c3\u30af\u30de\u30fc\u30af"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "\u6700\u3082\u5229\u7528\u3057\u305f\u30d6\u30c3\u30af\u30de\u30fc\u30af"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "\u30d4\u30f3\u6b62\u3081\u3057\u305f\u30d6\u30c3\u30af\u30de\u30fc\u30af"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "\u3053\u306e\u30d6\u30c3\u30af\u30de\u30fc\u30af\u3092\u96a0\u3059"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306e\u30d7\u30ec\u30d3\u30e5\u30fc\u3092\u8868\u793a"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306e\u30a2\u30a4\u30b3\u30f3\u3092\u8868\u793a"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "\u30b0\u30ea\u30c3\u30c9\u30b5\u30a4\u30ba"
     },
     "newtab_search_placeholder": {

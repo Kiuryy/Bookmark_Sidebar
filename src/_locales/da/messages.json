@@ -257,28 +257,28 @@
     "newtab_title": {
         "message": "Ny fane"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Mest viste"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Senest brugte bogm\u00e6rker"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Mest brugte bogm\u00e6rker"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Fastgjorte bogm\u00e6rker"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Vis ikke sider"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Vis forh\u00e5ndsvisning af hjemmesider"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Vis hjemmeside ikoner"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Gitter st\u00f8rrelse"
     },
     "newtab_search_placeholder": {

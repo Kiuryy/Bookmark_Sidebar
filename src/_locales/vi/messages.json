@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Tab m\u1edbi"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Nh\u1eefng trang h\u00e0ng \u0111\u1ea7u"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "D\u1ea5u trang s\u1eed d\u1ee5ng g\u1ea7n \u0111\u00e2y"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "D\u1ea5u trang th\u01b0\u1eddng d\u00f9ng"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "D\u1ea5u trang \u0111\u00e3 ghim"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Kh\u00f4ng hi\u1ec7n c\u00e1c trang"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Hi\u1ec3n th\u1ecb b\u1ea3n xem tr\u01b0\u1edbc c\u1ee7a trang web"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Hi\u1ec3n th\u1ecb bi\u1ec3u t\u01b0\u1ee3ng trang web"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "K\u00edch c\u1ee1 l\u01b0\u1edbi"
     },
     "newtab_search_placeholder": {

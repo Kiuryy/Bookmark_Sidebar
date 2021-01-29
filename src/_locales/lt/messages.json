@@ -257,28 +257,28 @@
     "newtab_title": {
         "message": "Nauja kortel\u0117"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Top puslapiai"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Nesenai aplankytos \u017eym\u0117s"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Da\u017eniausiai lankomos \u017eym\u0117s"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Prisegtos \u017eym\u0117s"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Neberodyti puslapi\u0173"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Rodyti svetain\u0117s per\u017ei\u016bras"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Rodyti svetain\u0117s piktogramas"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Tinklelio dydis"
     },
     "newtab_search_placeholder": {

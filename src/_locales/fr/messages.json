@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Nouvel onglet"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Top pages"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Favoris visit\u00e9s r\u00e9cemment"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Favoris les plus visit\u00e9s"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Favoris \u00e9pingl\u00e9s"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Ne rien afficher"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Afficher les aper\u00e7us des sites web"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Afficher les ic\u00f4nes des sites web"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Taille de la grille"
     },
     "newtab_search_placeholder": {

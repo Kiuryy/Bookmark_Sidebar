@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Nov\u00e1 karta"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Najnav\u0161tevovanej\u0161ie str\u00e1nky"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Naposledy pou\u017eit\u00e9 z\u00e1lo\u017eky"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Naj\u010dastej\u0161ie pou\u017e\u00edvan\u00e9 z\u00e1lo\u017eky"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Pripnut\u00e9 z\u00e1lo\u017eky"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Nezobrazova\u0165 str\u00e1nky"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Zobrazi\u0165 uk\u00e1\u017eky web str\u00e1nky"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Zobrazi\u0165 ikony web str\u00e1nky"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Ve\u013ekos\u0165 mrie\u017eky"
     },
     "newtab_search_placeholder": {

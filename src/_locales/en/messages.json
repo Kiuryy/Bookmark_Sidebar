@@ -263,28 +263,31 @@
     "newtab_title": {
         "message": "New Tab"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Top pages"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Recently used bookmarks"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Most used bookmarks"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_custom": {
+        "message": "User defined entries"
+    },
+    "newtab_grid_links_pinned_entries": {
         "message": "Pinned bookmarks"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Don't show pages"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Display website previews"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Display website icons"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Grid size"
     },
     "newtab_search_placeholder": {

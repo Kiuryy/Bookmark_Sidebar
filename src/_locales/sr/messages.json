@@ -257,28 +257,28 @@
     "newtab_title": {
         "message": "Novi tab"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Top stranice"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Nedavno kori\u0161\u0107eni obele\u017eiva\u010di"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Naj\u010de\u0161\u0107e kori\u0161\u0107eni obele\u017eiva\u010di"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Pri\u010dvr\u0161\u0107eni obele\u017eiva\u010di"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Ne prikazuj stranice"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Prika\u017ei preglede sajtova"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Prika\u017ei ikonice sajtova"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Veli\u010dina mre\u017ee"
     },
     "newtab_search_placeholder": {

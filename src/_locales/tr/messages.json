@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Yeni sekme"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "En iyi sayfalar"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Yak\u0131n zamanda kullan\u0131lan yer imleri"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "En \u00e7ok kullan\u0131lan yer imleri"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Sabitlenen yer imleri"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Sayfalar\u0131 g\u00f6sterme"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Site \u00f6nizlemesini g\u00f6ster"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Site simgelerini g\u00f6ster"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Cerceve boyutu"
     },
     "newtab_search_placeholder": {

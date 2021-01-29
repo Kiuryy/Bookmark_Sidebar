@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Nova guia"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "P\u00e1ginas mais visitadas"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Favoritos usados recentemente"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Favoritos mais usados"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Favoritos fixados"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Mostrar pr\u00e9via do site"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Mostrar \u00edcone do site"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Tamanho da grade"
     },
     "newtab_search_placeholder": {

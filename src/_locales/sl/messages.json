@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Nov zavihek"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Top strani"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Nedavno uporabljeni zaznamki"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Najve\u010dkrat uporabljeni zaznamki"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Pripeti zaznamki"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Ne poka\u017ei strani"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Prika\u017ei predoglede spletnih strani"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Prika\u017ei ikone spletnih strani"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Velikost mre\u017ee"
     },
     "newtab_search_placeholder": {

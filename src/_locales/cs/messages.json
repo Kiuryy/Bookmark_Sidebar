@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Nov\u00e1 karta"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Nejnav\u0161t\u011bvovan\u011bj\u0161\u00ed str\u00e1nky"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Posledn\u011b pou\u017eit\u00e9 z\u00e1lo\u017eky"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Nejpou\u017e\u00edvan\u011bj\u0161\u00ed z\u00e1lo\u017eky"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "P\u0159ipnut\u00e9 z\u00e1lo\u017eky"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Nezobrazovat str\u00e1nky"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Zobrazit n\u00e1hledy webov\u00fdch str\u00e1nek"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Zobrazit ikony webov\u00fdch str\u00e1nek"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Velikost m\u0159\u00ed\u017eky"
     },
     "newtab_search_placeholder": {

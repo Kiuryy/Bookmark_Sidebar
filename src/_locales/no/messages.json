@@ -206,19 +206,19 @@
     "newtab_search_placeholder": {
         "message": "S\u00f8k {1} eller tast inn url"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "F\u00f8rste side"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Nylig brukte bokmerker"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Mest brukte bokmerker"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Festede bokmerker"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Ikke vis sider"
     },
     "newtab_fallback_headline_general": {

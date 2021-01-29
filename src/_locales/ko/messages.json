@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "\uc0c8 \ud0ed"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "\uae30\ubcf8 \uc2dc\uc791 \ud398\uc774\uc9c0"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "\ucd5c\uadfc\uc5d0 \ubc29\ubb38\ud55c \uc0ac\uc774\ud2b8"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "\uc790\uc8fc \ubc29\ubb38\ud55c \uc0ac\uc774\ud2b8"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "\uace0\uc815\ub41c \ubd81\ub9c8\ud06c"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "\uc2dc\uc791 \ud398\uc774\uc9c0 \uc228\uae40"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "\uc0ac\uc774\ud2b8 \ud504\ub9ac\ubdf0 \ubcf4\uae30"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "\uc0ac\uc774\ud2b8 \uc544\uc774\ucf58 \ubcf4\uae30"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "\uadf8\ub9ac\ub4dc \ud06c\uae30"
     },
     "newtab_search_placeholder": {

@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "Nueva pesta\u00f1a"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "P\u00e1ginas de arriba"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Marcadores usados recientemente"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Marcadores m\u00e1s usados"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Marcadores fijados"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "No mostrar p\u00e1ginas"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Mostrar vista previa de sitios web"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Mostrar iconos de sitios web"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "Tama\u00f1o de Grilla"
     },
     "newtab_search_placeholder": {

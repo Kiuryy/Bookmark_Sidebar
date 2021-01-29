@@ -260,28 +260,28 @@
     "newtab_title": {
         "message": "\u00daj f\u00fcl"
     },
-    "newtab_top_pages_default": {
+    "newtab_grid_links_default": {
         "message": "Fontosabb lapok"
     },
-    "newtab_top_pages_recently_used": {
+    "newtab_grid_links_recently_used": {
         "message": "Nemr\u00e9g haszn\u00e1lt k\u00f6nyvjelz\u0151k"
     },
-    "newtab_top_pages_most_used": {
+    "newtab_grid_links_most_used": {
         "message": "Legt\u00f6bbet haszn\u00e1lt k\u00f6nyvjelz\u0151k"
     },
-    "newtab_top_pages_pinned_entries": {
+    "newtab_grid_links_pinned_entries": {
         "message": "Kit\u0171z\u00f6tt k\u00f6nyvjelz\u0151k"
     },
-    "newtab_top_pages_hidden": {
+    "newtab_grid_links_hidden": {
         "message": "Ne mutassa a lapokat"
     },
-    "newtab_top_pages_appearance_thumbnail": {
+    "newtab_grid_links_appearance_thumbnail": {
         "message": "Weboldal el\u0151n\u00e9zet"
     },
-    "newtab_top_pages_appearance_favicon": {
+    "newtab_grid_links_appearance_favicon": {
         "message": "Weboldal icon megjelen\u00edt\u00e9se"
     },
-    "newtab_top_pages_grid_size": {
+    "newtab_grid_links_grid_size": {
         "message": "R\u00e1cs m\u00e9rete"
     },
     "newtab_search_placeholder": {

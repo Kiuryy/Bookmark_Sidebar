@@ -49,6 +49,18 @@ html[dir='rtl'] {
     }
   }
 
+  div.editLinkTooltip {
+    text-align: right;
+
+    > button[type='submit'] {
+      float: left;
+
+      &[data-type="delete"] {
+        float: right;
+      }
+    }
+  }
+
   body[data-pos='right'] {
 
     menu.infoBar {
@@ -79,16 +91,6 @@ html[dir='rtl'] {
   }
 
   body.edit {
-
-    section#content {
-
-      > nav {
-
-        > ul > li > div {
-          text-align: right;
-        }
-      }
-    }
 
     div#search {
 

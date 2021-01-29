@@ -525,11 +525,67 @@ body.edit {
       background: rgba($contentBackground, 0.8);
     }
 
-    div#gridLinks > div[data-type='gridsize'] {
-      background: rgba($contentBackground, 0.8);
-      border-radius: 10px;
-      padding: 2px 8px 1px 10px;
-      margin: 0 7px;
+    &.edit {
+
+      div#gridLinks {
+
+        > div[data-type='gridsize'] {
+          background: rgba($contentBackground, 0.8);
+          border-radius: 10px;
+          padding: 2px 8px 1px 10px;
+          margin: 0 7px;
+        }
+
+        &[data-type="custom"] > ul > li > a {
+
+          > div {
+            background: rgba($contentBackground, 0.8);
+            box-shadow: 0 0 0 3px rgba($contentBackground, 0.8);
+            border-color: $__textColor;
+
+            &::before {
+              background: $__textColor;
+            }
+          }
+
+          &:hover > div {
+            background: rgba($contentBackground, 0.9);
+          }
+
+          &.dragHover {
+            border-color: $contentBackground;
+
+            > * {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+
+      section#content > nav {
+
+        > a.add::before {
+          background: $__textColor;
+        }
+
+        > ul > li > a {
+          background: rgba($contentBackground, 0.8);
+          box-shadow: 0 0 0 3px rgba($contentBackground, 0.8);
+          border-color: $__textColor;
+
+          &::before {
+            background: $__textColor;
+          }
+
+          &:hover {
+            background: rgba($contentBackground, 0.9);
+          }
+
+          &.dragHover {
+            opacity: 0.5;
+          }
+        }
+      }
     }
   }
 }

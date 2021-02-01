@@ -3,12 +3,6 @@
 
     $.UtilityHelper = function (b) {
 
-        const importantURLParameters = {
-            "youtube.com": ["v"],
-            "google.com": ["q"],
-            "google.de": ["q"],
-        };
-
         /**
          * Returns all history entries where the title or url are matching the given search value
          *

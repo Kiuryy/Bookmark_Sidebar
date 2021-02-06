@@ -208,4 +208,17 @@ p.premium {
   }
 }
 
+// External link
+a.externalLink {
+  display: inline-block;
+  font-weight: $__fontWeightMedium;
+  color: $mainColor2;
+  font-size: 90%;
+  margin-top: 15px;
+
+  &::before {
+    content: attr(href);
+  }
+}
+
 @import "rtl/settings";

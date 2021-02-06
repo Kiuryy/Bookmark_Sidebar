@@ -272,9 +272,6 @@
     "newtab_grid_links_custom": {
         "message": "User defined entries"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Pinned bookmarks"
-    },
     "newtab_grid_links_hidden": {
         "message": "Don't show pages"
     },
@@ -833,6 +830,9 @@
     "settings_filter_rules": {
         "message": "URL patterns"
     },
+    "settings_import_export_headline": {
+        "message": "Import\/Export Settings"
+    },
     "settings_import_export_notice": {
         "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
     },
@@ -850,6 +850,12 @@
     },
     "settings_import_failed": {
         "message": "Failed to import the configuration. Please choose a valid file."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Import\/Export Bookmarks"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "This is a browser feature and not part of the extension. Read more about how to import and export bookmarks in {browserName}."
     },
     "settings_theme_changed": {
         "message": "Changed theme successfully"

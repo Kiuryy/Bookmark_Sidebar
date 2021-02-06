@@ -272,9 +272,6 @@
     "newtab_grid_links_custom": {
         "message": "Benutzerdefinierte Eintr\u00e4ge"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Oben fixierte Lesezeichen"
-    },
     "newtab_grid_links_hidden": {
         "message": "Keine Seiten anzeigen"
     },
@@ -833,6 +830,9 @@
     "settings_filter_rules": {
         "message": "URL-Regeln"
     },
+    "settings_import_export_headline": {
+        "message": "Import\/Export Einstellungen"
+    },
     "settings_import_export_notice": {
         "message": "Die Einstellungen werden automatisch mit deinen anderen Ger\u00e4ten synchronisiert, wenn du in {browserName} mit deinem Account angemeldet bist. Wenn du dich nicht anmelden willst, oder die Einstellungen mit anderen Personen teilen m\u00f6chtest, kannst du diese Import\/Export-Funktionen nutzen."
     },
@@ -850,6 +850,12 @@
     },
     "settings_import_failed": {
         "message": "Die Konfiguration konnte nicht importiert werden. Bitte w\u00e4hle eine g\u00fcltige Datei aus."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Import\/Export Lesezeichen"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Dies ist eine Browserfunktion und nicht Teil der Erweiterung. Erfahre mehr dar\u00fcber, wie du Lesezeichen im {browserName} importieren und exportieren kannst."
     },
     "settings_theme_changed": {
         "message": "Das Design wurde erfolgreich ge\u00e4ndert"

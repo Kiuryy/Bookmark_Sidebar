@@ -727,13 +727,25 @@
         #
         -->
         <div class="tab" data-name="export">
-            <div class="contentBox noticeBox">
-                <p data-i18n="settings_import_export_notice"></p>
-            </div>
             <div class="contentBox">
+                <h2 data-i18n="settings_import_export_headline"></h2>
                 <p data-i18n="settings_import_export_desc"></p>
+
+                <div class="toggleAreaDesc">
+                    <hr />
+                    <p data-i18n="settings_import_export_notice"></p>
+                    <hr />
+                </div>
+
                 <a class="export button" data-i18n="settings_export"></a>
                 <a class="import button"><input type='file' accept=".bookmark_sidebar,text/json" /><span data-i18n="settings_import"></span></a>
+            </div>
+
+            <div class="contentBox">
+                <h2 data-i18n="settings_import_export_bookmarks"></h2>
+                <p data-i18n="settings_import_export_bookmarks_desc"></p>
+
+                <a class="externalLink" target="_blank" rel="noopener noreferrer" href="https://support.google.com/chrome/answer/96816"></a>
             </div>
         </div>
 

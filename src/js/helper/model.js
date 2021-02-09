@@ -80,7 +80,7 @@
                 animations: true,
                 preventPageScroll: false,
                 toggleArea: {
-                    width: 1,
+                    width: 2,
                     widthWindowed: 20,
                     height: 100,
                     top: 0

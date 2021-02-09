@@ -358,7 +358,8 @@
                 const htmlUid = $("html").attr($.attr.uid);
 
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
-                    if ($("iframe#" + $.opts.ids.page.iframe).length() === 0) {
+                    const iframe = $("iframe#" + $.opts.ids.page.iframe);
+                    if (iframe.length() === 0 || !iframe[0].contentDocument || !iframe[0].contentDocument.body || iframe[0].contentDocument.body.childElementCount === 0) {
                         this.log("Detected: Sidebar missing from DOM");
                         destroyOldInstance();
                         init(true);

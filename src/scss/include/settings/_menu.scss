@@ -31,6 +31,10 @@ body > section#wrapper {
 
         > li {
 
+          &[data-name='dashboard'] > a {
+            @include mask('settings/icon-dashboard', $textColorLight, 20px);
+          }
+
           &[data-name='sidebar'] > a {
             @include mask('icon-settings', $textColorLight, 20px);
           }

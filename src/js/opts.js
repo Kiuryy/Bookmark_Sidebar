@@ -297,7 +297,8 @@
             Edge: {
                 "chrome://newtab/": "edge://newtab/",
                 "chrome://bookmarks": "edge://favorites",
-                "chrome://extensions/shortcuts": "edge://extensions/shortcuts"
+                "chrome://extensions/shortcuts": "edge://extensions/shortcuts",
+                "chrome://settings/syncSetup": "edge://settings/profiles/sync"
             },
             Opera: {
                 "chrome://newtab/": "chrome://startpage/",
@@ -307,7 +308,7 @@
         },
         leftsideBackSelector: "div#redeviation-lsb-indicator.redeviation-lsb-visible",
         manifest: $.api.runtime.getManifest(),
-        demoMode: false
+        demoMode: true
     };
 
     $.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);

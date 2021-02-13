@@ -497,6 +497,9 @@
     "settings_title": {
         "message": "Settings"
     },
+    "settings_menu_dashboard": {
+        "message": "Overview"
+    },
     "settings_menu_sidebar": {
         "message": "Sidebar"
     },
@@ -610,6 +613,9 @@
     },
     "settings_expert_save_error": {
         "message": "Could not save settings. Please correct your input."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Did you know?"
     },
     "settings_open_action": {
         "message": "Open sidebar"

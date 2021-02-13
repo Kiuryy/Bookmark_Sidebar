@@ -240,7 +240,7 @@
         const initEvents = () => {
             s.elm.translation["goto"].on("click", (e) => {
                 e.preventDefault();
-                s.elm.aside.find("li[" + $.attr.name + "='translate'] > a").trigger("click");
+                location.hash = "language_translate";
             });
 
             s.elm.checkbox.translationInfo.children("input").on("change input", (e) => { // add/remove language to/from reminder list

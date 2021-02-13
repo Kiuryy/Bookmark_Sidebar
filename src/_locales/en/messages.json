@@ -500,6 +500,9 @@
     "settings_title": {
         "message": "Settings"
     },
+    "settings_menu_dashboard": {
+        "message": "Overview"
+    },
     "settings_menu_sidebar": {
         "message": "Sidebar"
     },
@@ -613,6 +616,90 @@
     },
     "settings_expert_save_error": {
         "message": "Could not save settings. Please correct your input."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Did you know?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Next tip"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Quick search"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "If you open the sidebar, you can search for bookmarks by just starting to type. No need to click on the search icon in the header of the sidebar first."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Activation area"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can make the activation area smaller by only allowing the sidebar to open at a portion of the browser height. For example, you can change the sidebar to only show up, when you click the activation area in the lower left corner of the browser window. This can be helpful to prevent the sidebar from showing up unintendedly when clicking links of the website."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Quick bookmarking"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "You can drag any URL right into the sidebar and drop it at the desired position. You can even mark and drag the current URL of a browser tab in this way. You can also drag the {1} symbol left of the address bar into the sidebar to bookmark the current page without marking the whole address bar first."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separators"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "A bookmark entry with the URL {1} and a title {2} or {3} will be displayed as separator in the sidebar. You can add separators by right clicking any folder in the sidebar and then click on the {4} button."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Quick URL copy"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "To copy the URL of a bookmark in the sidebar to your clipboard, you can press {1} when hovering an entry."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Open all bookmarks"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "To open all bookmarks in a folder, you can middle click on the folder. Alternatively you can press {1} while clicking on a folder with your left mouse button."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Hide entries"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "You can hide individual bookmarks or even folders from the sidebar. You can right click on any entry in the sidebar and then click on the {1} button in the contextmenu. To display hidden entries again, you can click on the menu icon in the header of the sidebar and enable the according checkbox there."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Expand all subfolders"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "To quickly open a folder with all its subfolders opened, too, you can double click on a folder."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Keyboard shortcuts"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "The sidebar can be controlled using keyboard shortcuts. You can have a look at a list of shortcuts by clicking the menu icon in the header of the sidebar and then click on the {1} button."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronization"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "All your settings of the sidebar will be synchronized between your devices, if you enable the sync options of your browser in the settings. Even without Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Look up your sync settings"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "The extension is available in {1} different languages. You can help translate the extension yourself by contributing."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "This extension is a one man project, which started as a hobby project for personal use."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "The first version of this extension was released in November 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Right click"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "You can right click on any bookmark or folder in the sidebar to reveal additional options. For example you can edit existing bookmarks or pin entries to the top of the sidebar. When you right click a folder, you can start a bookmark check to identify broken or updated bookmark URLs."
     },
     "settings_open_action": {
         "message": "Open sidebar"

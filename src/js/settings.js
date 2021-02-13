@@ -30,6 +30,9 @@
                 "import": $("body a.import"),
                 "export": $("body a.export")
             },
+            dashboard: {
+                tipsTricks: $("div.tab[data-name='dashboard'] div.tipsTricks")
+            },
             sidebar: {
                 filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),
                 filterExplanation: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patternExplanation"),
@@ -132,6 +135,7 @@
                 return this.helper.menu.init();
             }).then(() => {
                 return Promise.all([
+                    this.helper.dashboard.init(),
                     this.helper.sidebar.init(),
                     this.helper.appearance.init(),
                     this.helper.newtab.init(),
@@ -230,6 +234,7 @@
                 translation: new $.TranslationHelper(this),
                 menu: new $.MenuHelper(this),
                 form: new $.FormHelper(this),
+                dashboard: new $.DashboardHelper(this),
                 sidebar: new $.SidebarHelper(this),
                 newtab: new $.NewtabHelper(this),
                 appearance: new $.AppearanceHelper(this),

@@ -1,0 +1,170 @@
+($ => {
+    "use strict";
+
+    $.DashboardHelper = function (s) {
+
+
+        /**
+         *
+         * @returns {Promise}
+         */
+        this.init = async () => {
+            await initTipsAndTricks();
+        };
+
+        const initTipsAndTricks = async () => {
+            const ctrlKeyLabel = navigator.platform.indexOf("Mac") > -1 ? "cmd" : "ctrl";
+
+            const tipsTricks = {
+                synchronization: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/synchronization.png",
+                    action: {label: "settings_tips_tricks_synchronization_action", dest: "chrome://settings/syncSetup"}
+                },
+                activation_area: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/activation_area.png",
+                    action: {label: "settings_toggle_area", dest: "#sidebar_toggle_area"}
+                },
+                i18n: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/i18n.png",
+                    action: {label: "more_link", dest: "#language_translate"},
+                    i18nReplaces: [await getLanguageAmount()]
+                },
+                separators: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/separators.png",
+                    i18nReplaces: ["<i>about:blank</i>", "<i>------</i>", "<i>--- Example ---</i>", "<span></span>"]
+                },
+                about: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/about.png",
+                    action: {label: "more_link", dest: "#infos_aboutme"}
+                },
+                right_click: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/right_click.png"
+                },
+                quick_bookmarking: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/quick_bookmarking.png",
+                    i18nReplaces: ["<span></span>"]
+                },
+                hide_entries: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/hide_entries.png",
+                    i18nReplaces: ["<span></span>"]
+                },
+                quick_url_copy: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/quick_url_copy.png",
+                    i18nReplaces: ["<i>" + s.helper.i18n.get("keyboard_shortcuts_key_" + ctrlKeyLabel) + "</i>+<i>c</i>"]
+                },
+                open_all_bookmarks: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/open_all_bookmarks.png",
+                    i18nReplaces: ["<i>" + s.helper.i18n.get("keyboard_shortcuts_key_" + ctrlKeyLabel) + "</i>"]
+                },
+                version: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/version.png",
+                    headline: "settings_tips_tricks_facts"
+                },
+                keyboard_shortcuts: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/keyboard_shortcuts.png",
+                    i18nReplaces: ["<span></span>"]
+                },
+                expand_all_subfolders: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/expand_all_subfolders.png",
+                },
+                quick_search: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/quick_search.png",
+                },
+            };
+
+            let idx = 0;
+            const randomListOfTipsTricks = getRandomListOfTipsTricks(tipsTricks);
+            displayTipTrick(randomListOfTipsTricks[idx], tipsTricks[randomListOfTipsTricks[idx]]);
+
+            s.elm.dashboard.tipsTricks.children("button").on("click", (e) => { // show the next tip/trick from the shuffled list
+                e.preventDefault();
+                idx = (idx + 1) % randomListOfTipsTricks.length;
+                const uid = randomListOfTipsTricks[idx];
+                displayTipTrick(uid, tipsTricks[uid]);
+            });
+        };
+
+        const displayTipTrick = (uid, obj) => {
+            s.elm.dashboard.tipsTricks.addClass($.cl.loading);
+
+            $.delay(300).then(() => {
+                return new Promise((resolve) => {
+                    s.elm.dashboard.tipsTricks.children("div." + $.cl.info).remove();
+                    s.elm.dashboard.tipsTricks.children("img").remove();
+
+                    if (obj.img) {
+                        const img = $("<img/>").prependTo(s.elm.dashboard.tipsTricks);
+                        img.on("load", () => {
+                            resolve();
+                        });
+                        img.attr("src", obj.img);
+                    } else {
+                        $.delay(50).then(resolve);
+                    }
+
+                    const infoBox = $("<div></div>").addClass($.cl.info).prependTo(s.elm.dashboard.tipsTricks);
+
+                    let headline = s.helper.i18n.get("settings_tips_tricks_facts");
+                    let subHeadline = s.helper.i18n.get("settings_tips_tricks_" + uid);
+                    if (subHeadline) {
+                        headline += "&ensp;<span>... " + subHeadline + "</span>";
+                    }
+                    $("<h2></h2>").html(headline).appendTo(infoBox);
+
+                    const desc = $("<p></p>").html(s.helper.i18n.get("settings_tips_tricks_" + uid + "_desc", obj.i18nReplaces || [])).appendTo(infoBox);
+
+                    if (obj.action && obj.action.label && obj.action.dest) { // add an action link to the entry
+                        const action = $("<a></a>").text(s.helper.i18n.get(obj.action.label)).insertAfter(desc);
+                        action.on("click", (e) => {
+                            e.preventDefault();
+                            if (obj.action.dest.startsWith("#")) {
+                                location.hash = obj.action.dest.substr(1);
+                            } else {
+                                s.helper.model.call("openLink", {
+                                    href: obj.action.dest,
+                                    newTab: true,
+                                    active: true
+                                });
+                            }
+                        });
+                    }
+
+                });
+            }).then(() => {
+                s.elm.dashboard.tipsTricks
+                    .attr($.attr.type, uid)
+                    .removeClass($.cl.loading);
+            });
+        };
+
+        /**
+         * Returns the keys of the tipsTricks object in randomized order
+         *
+         * @param tipsTricks
+         * @returns {string[]}
+         */
+        const getRandomListOfTipsTricks = (tipsTricks) => {
+            let arr = Object.keys(tipsTricks);
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        };
+
+        /**
+         * Returns the number of languages the extension is available for
+         *
+         * @returns {Promise<number>}
+         */
+        const getLanguageAmount = async () => {
+            const obj = await s.helper.model.call("languageInfos");
+            if (obj && obj.infos) {
+                return Object.values(obj.infos).filter((o) => o.available).length;
+            }
+            return -1;
+        };
+
+    };
+
+})(jsu);

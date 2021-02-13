@@ -103,6 +103,11 @@ body > header {
     }
   }
 
+  &[data-type='dashboard'] > h1::before {
+    @include maskImage('settings/icon-dashboard');
+    -webkit-mask-size: 22px;
+  }
+
   &[data-type='appearance'] > h1::before {
     @include maskImage('settings/icon-appearance');
     -webkit-mask-size: 22px;

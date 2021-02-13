@@ -209,7 +209,7 @@
                                         .appendTo(s.elm.translation.overview.children("div." + $.cl.settings.boxWrapper));
 
                                     if (language === lang.name) {
-                                        if (hasImcompleteCategories(lang.categories, infos.categories)) { // translation is incomplete -> show icon in menu
+                                        if (hasIncompleteCategories(lang.categories, infos.categories)) { // translation is incomplete -> show icon in menu
                                             s.elm.aside.find("li[" + $.attr.name + "='language']").addClass($.cl.settings.incomplete);
 
                                             $("<span></span>")
@@ -313,11 +313,11 @@
          * @param {object} allCategories
          * @returns {boolean}
          */
-        const hasImcompleteCategories = (langCategories, allCategories) => {
+        const hasIncompleteCategories = (langCategories, allCategories) => {
             let ret = false;
 
             Object.keys(langCategories).some((name) => {
-                if (allCategories[name].total > langCategories[name]) {
+                if (!allCategories[name] || (allCategories[name].total > langCategories[name])) {
                     ret = true;
                     return true;
                 }

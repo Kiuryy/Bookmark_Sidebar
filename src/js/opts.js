@@ -308,10 +308,11 @@
         },
         leftsideBackSelector: "div#redeviation-lsb-indicator.redeviation-lsb-visible",
         manifest: $.api.runtime.getManifest(),
-        demoMode: true
+        demoMode: false
     };
 
     $.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);
+    $.copyrightDate = 2016;
 
     $.browserName = "Chrome";
     if (/EDG\//i.test(navigator.userAgent)) {

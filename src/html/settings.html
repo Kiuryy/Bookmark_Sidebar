@@ -46,22 +46,46 @@
                     <button data-i18n="settings_tips_tricks_next"></button>
                 </div>
 
-                <div class="box small">
-                    Support
-                    Privacy
-                    Permissions
+                <div class="box small links">
+                    <ul>
+                        <li>
+                            <a href="#support" data-i18n="settings_menu_support" data-name="support"></a>
+                        </li>
+                        <li>
+                            <a href="#" data-src="privacyPolicy" data-i18n="settings_menu_infos_privacy" data-name="privacy"></a>
+                        </li>
+                        <li>
+                            <a href="#infos_permissions" data-i18n="settings_menu_infos_permissions" data-name="permissions"></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
             <div class="boxWrapper">
-                <div class="box">
-                    Behaviour
+                <div class="box info">
+                    <a href="#sidebar_general">
+                        <h2 data-i18n="settings_dashboard_sidebar_options"></h2>
+                        <img loading="lazy" data-src="https://extensions.redeviation.com/img/illustration/sidebar-settings.png" alt="Sidebar" />
+                        <p data-i18n="settings_dashboard_sidebar_options_desc"></p>
+                    </a>
                 </div>
 
-                <div class="box">
-                    Appearance
+                <div class="box info">
+                    <a href="#appearance_general">
+                        <h2 data-i18n="settings_dashboard_appearance_options"></h2>
+                        <img loading="lazy" data-src="https://extensions.redeviation.com/img/illustration/appearance-settings.png" alt="Appearance" />
+                        <p data-i18n="settings_dashboard_appearance_options_desc"></p>
+                    </a>
                 </div>
             </div>
+
+            <footer>
+                <div>
+                    <a class="version" href="#"></a>
+                    <span class="lastUpdate"></span>
+                </div>
+                <div class="copyright"></div>
+            </footer>
         </div>
 
         <!--
@@ -592,7 +616,7 @@
          #
          #
          -->
-        <div class="tab" data-name="infos" data-links="privacy">
+        <div class="tab" data-name="infos">
             <div data-name="aboutme">
                 <div>
                     <div class="desc">

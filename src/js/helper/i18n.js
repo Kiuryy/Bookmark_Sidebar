@@ -79,6 +79,10 @@
          * @returns {string}
          */
         this.getLocaleDate = (dateObj) => {
+            if (typeof dateObj === "number") {
+                dateObj = new Date(dateObj);
+            }
+            
             return dateObj.toLocaleDateString([this.getUILanguage(), this.getDefaultLanguage()], {
                 year: "numeric",
                 month: "2-digit",

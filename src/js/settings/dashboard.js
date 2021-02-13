@@ -10,6 +10,8 @@
          */
         this.init = async () => {
             await initTipsAndTricks();
+            await initFooter();
+            initLinks();
         };
 
         const initTipsAndTricks = async () => {
@@ -84,8 +86,15 @@
             });
         };
 
+        /**
+         * Displays the given tip/trick by hiding the currently displayed first and then render the new one
+         *
+         * @param uid
+         * @param obj
+         */
         const displayTipTrick = (uid, obj) => {
             s.elm.dashboard.tipsTricks.addClass($.cl.loading);
+            const loader = s.helper.template.loading().appendTo(s.elm.dashboard.tipsTricks);
 
             $.delay(300).then(() => {
                 return new Promise((resolve) => {
@@ -131,9 +140,13 @@
 
                 });
             }).then(() => {
+                return $.delay(100);
+            }).then(() => {
                 s.elm.dashboard.tipsTricks
                     .attr($.attr.type, uid)
                     .removeClass($.cl.loading);
+
+                loader.remove();
             });
         };
 
@@ -163,6 +176,53 @@
                 return Object.values(obj.infos).filter((o) => o.available).length;
             }
             return -1;
+        };
+
+        /**
+         * Initialises the eventhandler for the links on the dashboard
+         */
+        const initLinks = () => {
+            $(s.elm.dashboard.links).on("click", (e) => { // check if the link has a data-src attribute (=named website) and open a new tab to this URL if clicked
+                const src = $(e.currentTarget).attr($.attr.src);
+
+                if (src) {
+                    e.preventDefault();
+                    s.helper.model.call("openLink", {
+                        hrefName: src,
+                        newTab: true,
+                        params: {lang: s.helper.i18n.getLanguage()}
+                    });
+                }
+            });
+        };
+
+        /**
+         * Initialises the footer of the dashboard
+         *
+         * @returns {Promise<void>}
+         */
+        const initFooter = async () => {
+            $.opts.manifest.version_name = "1.20.0";
+
+            // Version
+            s.elm.dashboard.footerVersion
+                .html(s.helper.i18n.get("extension_version") + " " + "<span>" + $.opts.manifest.version_name + "</span>")
+                .on("click", (e) => {
+                    e.preventDefault();
+                    s.helper.model.call("openLink", {
+                        hrefName: "changelog",
+                        newTab: true,
+                        params: {lang: s.helper.i18n.getLanguage()}
+                    });
+                });
+
+            // Last updated on ...
+            const lastUpdateDate = await s.helper.model.call("lastUpdateDate");
+            s.elm.dashboard.footerLastUpdate.html(s.helper.i18n.get("extension_last_update", [s.helper.i18n.getLocaleDate(lastUpdateDate)]));
+
+
+            // Copyright
+            s.elm.dashboard.footerCopyright.html("&copy; " + $.copyrightDate + " - " + (new Date().getFullYear()) + " <span>" + s.helper.i18n.get("extension_author") + "</span>");
         };
 
     };

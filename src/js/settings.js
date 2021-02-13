@@ -31,7 +31,11 @@
                 "export": $("body a.export")
             },
             dashboard: {
-                tipsTricks: $("div.tab[data-name='dashboard'] div.tipsTricks")
+                tipsTricks: $("div.tab[data-name='dashboard'] div.tipsTricks"),
+                links: $("div.tab[data-name='dashboard'] div.links > ul > li > a"),
+                footerVersion: $("div.tab[data-name='dashboard'] footer a.version"),
+                footerLastUpdate: $("div.tab[data-name='dashboard'] footer span.lastUpdate"),
+                footerCopyright: $("div.tab[data-name='dashboard'] footer div.copyright")
             },
             sidebar: {
                 filterPatters: $("div.tab[data-name='sidebar'] div[data-name='filter'] div.patterns"),

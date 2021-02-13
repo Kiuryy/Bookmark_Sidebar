@@ -18,15 +18,26 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
     > div.tipsTricks {
       display: grid;
       grid-template-columns: 1fr auto;
+      grid-template-rows: 1fr auto;
       grid-gap: 20px;
+      min-height: 350px;
       padding: 0;
       overflow: hidden;
+
+      > svg.loading {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
 
       > * {
         transition: opacity 0.3s, transform 0.3s;
       }
 
-      &.loading > * {
+      &.loading > *:not(svg.loading) {
         opacity: 0;
         transform: translate3d(0, -10px, 0);
         pointer-events: none;
@@ -89,7 +100,7 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
         width: fit-content;
         padding-left: 25px;
         padding-right: 34px;
-        margin: 20px auto;
+        margin: 0 auto 20px;
         grid-column: 2;
 
         &::before {
@@ -140,6 +151,116 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
         margin: 30px 50px 0;
       }
     }
+
+    > div.links {
+
+      > ul {
+
+        > li {
+
+          + li {
+            margin-top: 7px;
+          }
+
+          > a {
+            @include mask(null, $textColor, 28px);
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 10px 10px 10px 50px;
+            font-size: 120%;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            &::before {
+              width: 28px;
+              left: 10px;
+            }
+
+            &[data-name="support"]::before {
+              @include maskImage("settings/icon-support");
+            }
+
+            &[data-name="privacy"]::before {
+              @include maskImage("settings/icon-privacy");
+            }
+
+            &[data-name="permissions"]::before {
+              @include maskImage("icon-unlock");
+            }
+          }
+        }
+      }
+    }
+
+    > div.info {
+      background: rgba($mainColor2, 0.5);
+      transition: transform 0.2s, background-color 0.3s;
+      padding: 0;
+
+      &:hover {
+        transform: scale(1.02);
+        background: rgba($mainColor2, 0.7);
+      }
+
+      > a {
+        display: block;
+        padding: 20px 24px 26px;
+
+        > h2 {
+          font-size: 160%;
+          color: $textColorInverted;
+          margin: 0;
+        }
+
+        > img {
+          width: 100%;
+          padding: 10px;
+        }
+
+        > p {
+          color: $textColorInverted;
+          font-size: 110%;
+          line-height: 150%;
+        }
+      }
+    }
   }
 
+  > footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    max-width: 1280px;
+    padding: 10px 10px 0;
+    font-size: 90%;
+
+    > div {
+
+      > a.version {
+
+        > span {
+          color: $mainColor2;
+          font-weight: $__fontWeightMedium;
+        }
+      }
+
+      > span.lastUpdate {
+        display: inline-block;
+        font-size: 90%;
+        margin-left: 5px;
+        color: $textColorLight;
+      }
+
+      &.copyright {
+
+        > span {
+          font-weight: $__fontWeightMedium;
+        }
+      }
+    }
+  }
 }

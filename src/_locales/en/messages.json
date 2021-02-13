@@ -8,6 +8,12 @@
     "extension_author": {
         "message": "Philipp K\u00f6nig"
     },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_last_update": {
+        "message": "Last updated on {1}"
+    },
     "header_bookmarks": {
         "message": "Bookmarks"
     },
@@ -617,6 +623,18 @@
     "settings_expert_save_error": {
         "message": "Could not save settings. Please correct your input."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configure the behaviour of your sidebar"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "There are various options you can change to control the extension. For example, you can change how the sidebar should slide in or how your bookmarks should be opened. If you don't want the sidebar to be loaded on every page, you can configure this, too, using appropriate rules."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Change the appearance of your sidebar"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "You can change the look of the sidebar entirely to fit your needs. There are various options to change the font size, line spacing, colors, icons and many more. You can also pick from pre-defined designs and preset options to quickly make the sidebar look like you want."
+    },
     "settings_tips_tricks_facts": {
         "message": "Did you know?"
     },
@@ -687,7 +705,7 @@
         "message": "Look up your sync settings"
     },
     "settings_tips_tricks_i18n_desc": {
-        "message": "The extension is available in {1} different languages. You can help translate the extension yourself by contributing."
+        "message": "The extension is available in {1} different languages. The translations are community-made and everyone can help to contribute by translating the texts of the extension in other languages. Translations will be approved and then added to the extension with the next update."
     },
     "settings_tips_tricks_about_desc": {
         "message": "This extension is a one man project, which started as a hobby project for personal use."

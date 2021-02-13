@@ -48,13 +48,13 @@
          */
         this.onUpdated = (details) => {
             $.api.storage.local.remove(["languageInfos"]);
+            b.helper.model.setData("lastUpdateDate", +new Date());
             const newVersion = $.opts.manifest.version;
 
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
-            if (newVersion === "1.19.1" || (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1])) { // @deprecated 02/2021 -> upgrade newtab options
-                //if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
+            if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
                 updateOptions("upgrade").then(() => {
                     b.reinitialize();
                 });

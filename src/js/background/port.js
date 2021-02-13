@@ -40,7 +40,8 @@
                 setNotWorkingReason: b.helper.browserAction.setReason,
                 addViewAmount: b.helper.viewAmount.addByUrl,
                 viewAmounts: b.helper.viewAmount.getAll,
-                searchHistory: b.helper.utility.getHistoryBySearchVal
+                searchHistory: b.helper.utility.getHistoryBySearchVal,
+                lastUpdateDate: async () => b.helper.model.getData("lastUpdateDate")
             };
 
             $.api.runtime.onConnect.addListener((port) => {

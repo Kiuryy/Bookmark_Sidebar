@@ -34,6 +34,10 @@
                         data.installationDate = +new Date();
                     }
 
+                    if (typeof data.lastUpdateDate === "undefined") { // no date yet -> save a start date in storage
+                        data.lastUpdateDate = +new Date();
+                    }
+
                     if (typeof data.premiumInfo === "undefined") { // no premium teaser displayed yet -> initialise with null
                         data.premiumInfo = null;
                     }

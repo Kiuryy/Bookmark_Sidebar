@@ -267,10 +267,10 @@
         "message": "Recent gebruikte bladwijzers"
     },
     "newtab_grid_links_most_used": {
-        "message": "Meest gebruikte bladwijzers"
+        "message": "Meest bladwijzers"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Vastgezette bladwijzers"
+    "newtab_grid_links_custom": {
+        "message": "Gebruiker bepaald toegang"
     },
     "newtab_grid_links_hidden": {
         "message": "Verberg pagina's"

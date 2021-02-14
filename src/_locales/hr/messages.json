@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otvori u anonimnom prozoru"
     },
+    "contextmenu_copy": {
+        "message": "Kopiraj URL u me\u0111uspremnik"
+    },
     "contextmenu_add_bookmark": {
         "message": "Dodaj oznaku"
     },
@@ -266,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Najvi\u0161e kori\u0161tene oznake"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Prikva\u010dene oznake"
+    "newtab_grid_links_custom": {
+        "message": "Korisni\u010dki definirani unosi"
     },
     "newtab_grid_links_hidden": {
         "message": "Ne prikazuj stranice"
@@ -988,6 +991,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Ova tema \u010dini pozadinu bo\u010dne trake oznaka poluprovidnom i dodaje joj efekt zamagljenog stakla. Mo\u017eete prilagoditi ovaj efekt i providnost bo\u010dne trake oznaka."
+    },
+    "settings_theme_focus": {
+        "message": "Fokus tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Ova tema smanjuje animacije i raspore\u0111uje elemente gu\u0161\u0107e radi ve\u0107e produktivnosti i performansi."
     },
     "settings_install_theme": {
         "message": "Instalirajte temu"

@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Favoris les plus visit\u00e9s"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Favoris \u00e9pingl\u00e9s"
+    "newtab_grid_links_custom": {
+        "message": "Entr\u00e9es d\u00e9finies par l'utilisateur"
     },
     "newtab_grid_links_hidden": {
         "message": "Ne rien afficher"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Param\u00e8tres"
+    },
+    "settings_menu_dashboard": {
+        "message": "Aper\u00e7u"
     },
     "settings_menu_sidebar": {
         "message": "Barre lat\u00e9rale"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "Masque d'URL"
     },
+    "settings_import_export_headline": {
+        "message": "Importer\/Exporter les param\u00e8tres"
+    },
     "settings_import_export_notice": {
         "message": "Les param\u00e8tres de l'extension sont automatiquement synchronis\u00e9s entre vos appareils si vous \u00eates connect\u00e9 \u00e0 {browserName} avec votre compte Google. Si vous ne souhaitez pas connecter votre compte ou partager vos param\u00e8tres avec d'autres personnes, vous pouvez utiliser l'option d'importation \/ exportation."
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Impossible d'importer la configuration. Choisissez un fichier valide."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importer\/Exporter les favoris"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "C'est une fonctionnalit\u00e9 du navigateur et non pas une partie de l'extension. Lisez en plus sur comment importer\/exporter des favoris sur {browserName}"
     },
     "settings_theme_changed": {
         "message": "Changement de th\u00e8me correctement effectu\u00e9"
@@ -987,10 +999,13 @@
         "message": "Ce th\u00e8me vous permet d'acc\u00e9der \u00e0 vos favoris de fa\u00e7on claire et moderne. La couleur de nombreux \u00e9l\u00e9ments peut \u00eatre chang\u00e9e en modifiant la palette de couleurs."
     },
     "settings_theme_glass": {
-        "message": "Th\u00e8me transparent"
+        "message": "Th\u00e8me Transparent"
     },
     "settings_theme_glass_desc": {
         "message": "Ce th\u00e8me rend l'arri\u00e8re-plan de la barre lat\u00e9rale semi-transparent, et ajoute un effet de flou. Le degr\u00e9 de transparence peut \u00eatre ajust\u00e9."
+    },
+    "settings_theme_focus": {
+        "message": "Th\u00e8me Focus"
     },
     "settings_theme_focus_desc": {
         "message": "Ce th\u00e8me r\u00e9duit les animations et arrange les \u00e9l\u00e9ments plus denses pour que l'efficacit\u00e9 et la performance de l'extension."

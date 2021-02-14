@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Mest anv\u00e4nda bokm\u00e4rken"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Fastn\u00e5lade bokm\u00e4rken"
+    "newtab_grid_links_custom": {
+        "message": "Anv\u00e4ndardefinierade poster"
     },
     "newtab_grid_links_hidden": {
         "message": "Visa inte sidor"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Inst\u00e4llningar"
+    },
+    "settings_menu_dashboard": {
+        "message": "\u00d6versikt"
     },
     "settings_menu_sidebar": {
         "message": "Sidof\u00e4lt"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "URL-m\u00f6nster"
     },
+    "settings_import_export_headline": {
+        "message": "Importera\/Exportera inst\u00e4llningar"
+    },
     "settings_import_export_notice": {
         "message": "Till\u00e4ggsinst\u00e4llningarna synkroniseras automatiskt mellan dina enheter om du \u00e4r inloggad p\u00e5 {browserName} med ditt konto. Om du inte vill logga in eller vill dela dina inst\u00e4llningar med andra kan du anv\u00e4nda detta import \/ exportalternativ."
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Misslyckades att importera konfiguration. V\u00e4nligen v\u00e4lj giltlig fil."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importera\/Exportera bokm\u00e4rken"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Detta \u00e4r en webbl\u00e4sarfunktion och ing\u00e5r inte i till\u00e4gget. L\u00e4s mer om hur du importerar och exporterar bokm\u00e4rken i {browserName}."
     },
     "settings_theme_changed": {
         "message": "\u00c4ndrat tema framg\u00e5ngsrikt"

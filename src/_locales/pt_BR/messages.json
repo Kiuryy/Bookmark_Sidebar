@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Favoritos mais usados"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Favoritos fixados"
+    "newtab_grid_links_custom": {
+        "message": "Entradas definidas pelo usu\u00e1rio"
     },
     "newtab_grid_links_hidden": {
         "message": "N\u00e3o exibir p\u00e1ginas"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Configura\u00e7\u00f5es"
+    },
+    "settings_menu_dashboard": {
+        "message": "Vis\u00e3o geral"
     },
     "settings_menu_sidebar": {
         "message": "Barra Lateral"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "Padr\u00f5es de URL"
     },
+    "settings_import_export_headline": {
+        "message": "Configura\u00e7\u00f5es de importa\u00e7\u00e3o\/exporta\u00e7\u00e3o"
+    },
     "settings_import_export_notice": {
         "message": "As configura\u00e7\u00f5es da extens\u00e3o s\u00e3o sincronizadas automaticamente entre seus dispositivos, se sua conta do Google estiver conectada no {browserName} . Se voc\u00ea n\u00e3o quiser que sua conta esteja conectada ou quiser compartilhar suas configura\u00e7\u00f5es com outras pessoas, pode usar esta op\u00e7\u00e3o de importar\/exportar."
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Favoritos de importa\u00e7\u00e3o\/exporta\u00e7\u00e3o"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Esta \u00e9 uma caracter\u00edstica do navegador e n\u00e3o faz parte da extens\u00e3o. Leia mais sobre como importar e exportar bookmarks em {browserName}."
     },
     "settings_theme_changed": {
         "message": "Tema alterado com sucesso"

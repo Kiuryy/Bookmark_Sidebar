@@ -261,7 +261,7 @@
         "message": "Nov\u00e1 karta"
     },
     "newtab_grid_links_default": {
-        "message": "Nejnav\u0161t\u011bvovan\u011bj\u0161\u00ed str\u00e1nky"
+        "message": "Nejobl\u00edben\u011bj\u0161\u00ed str\u00e1nky"
     },
     "newtab_grid_links_recently_used": {
         "message": "Posledn\u011b pou\u017eit\u00e9 z\u00e1lo\u017eky"
@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Nejpou\u017e\u00edvan\u011bj\u0161\u00ed z\u00e1lo\u017eky"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "P\u0159ipnut\u00e9 z\u00e1lo\u017eky"
+    "newtab_grid_links_custom": {
+        "message": "U\u017eivatelem definovan\u00e9 polo\u017eky"
     },
     "newtab_grid_links_hidden": {
         "message": "Nezobrazovat str\u00e1nky"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Nastaven\u00ed"
+    },
+    "settings_menu_dashboard": {
+        "message": "P\u0159ehled"
     },
     "settings_menu_sidebar": {
         "message": "Bo\u010dn\u00ed li\u0161ta"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "Vzory URL"
     },
+    "settings_import_export_headline": {
+        "message": "Nastaven\u00ed importu \/ exportu"
+    },
     "settings_import_export_notice": {
         "message": "Nastaven\u00ed roz\u0161\u00ed\u0159en\u00ed je automaticky synchronizovan\u00e9 mezi va\u0161imi za\u0159\u00edzen\u00edmi, jestli\u017ee jste p\u0159ihl\u00e1\u0161eni v {browserName} va\u0161\u00edm Google u\u010dtem. Pokud nechcete b\u00fdt p\u0159ihl\u00e1\u0161eni, nebo chcete sd\u00edlet va\u0161e nastaven\u00ed s jin\u00fdmi u\u017eivateli, m\u016f\u017eete pou\u017e\u00edt funkci import\/export."
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Import konfigurace se nepoda\u0159ilo. Zvolte pros\u00edm platn\u00fd soubor."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importovat \/ exportovat z\u00e1lo\u017eky"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Toto je funkce prohl\u00ed\u017ee\u010de a nen\u00ed sou\u010d\u00e1st\u00ed roz\u0161\u00ed\u0159en\u00ed. P\u0159e\u010dt\u011bte si v\u00edce o tom, jak importovat a exportovat z\u00e1lo\u017eky v prohl\u00ed\u017ee\u010di {browserName}."
     },
     "settings_theme_changed": {
         "message": "Motiv byl \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bn"
@@ -994,6 +1006,9 @@
     },
     "settings_theme_focus": {
         "message": "Motiv soust\u0159ed\u011bn\u00ed"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Toto t\u00e9ma redukuje animace a uspo\u0159\u00e1d\u00e1 prvky hust\u011bji pro lep\u0161\u00ed produktivitu a v\u00fdkon."
     },
     "settings_install_theme": {
         "message": "Nainstalovat motiv"

@@ -65,6 +65,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Abrir numa janela an\u00f3nima"
     },
+    "contextmenu_copy": {
+        "message": "Copiar URL para prancheta"
+    },
     "contextmenu_add_bookmark": {
         "message": "Adicionar marcador"
     },
@@ -266,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Favoritos mais usados"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Favoritos afixados"
+    "newtab_grid_links_custom": {
+        "message": "Entradas definidas pelo utilizador"
     },
     "newtab_grid_links_hidden": {
         "message": "N\u00e3o mostrar p\u00e1ginas"
@@ -493,6 +496,9 @@
     },
     "settings_title": {
         "message": "Configura\u00e7\u00f5es"
+    },
+    "settings_menu_dashboard": {
+        "message": "Vis\u00e3o geral"
     },
     "settings_menu_sidebar": {
         "message": "Barra Lateral"
@@ -827,6 +833,9 @@
     "settings_filter_rules": {
         "message": "Padr\u00f5es de URL"
     },
+    "settings_import_export_headline": {
+        "message": "Configura\u00e7\u00f5es de Importa\u00e7\u00e3o\/Exporta\u00e7\u00e3o"
+    },
     "settings_import_export_notice": {
         "message": "As configura\u00e7\u00f5es da extens\u00e3o s\u00e3o sincronizadas automaticamente entre os seus dispositivos se tiver a sua sess\u00e3o iniciada no {browserName}, atrav\u00e9s da sua conta Google. Se n\u00e3o quiser iniciar a sua sess\u00e3o ou quiser partilhar as suas configura\u00e7\u00f5es com outras pessoas, pode utilizar esta op\u00e7\u00e3o de importa\u00e7\u00e3o\/exporta\u00e7\u00e3o."
     },
@@ -844,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Falha ao importar a configura\u00e7\u00e3o. Por favor, escolha um arquivo v\u00e1lido."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Marcadores de Importa\u00e7\u00e3o\/Exporta\u00e7\u00e3o"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Esta \u00e9 uma caracter\u00edstica do navegador e n\u00e3o faz parte da extens\u00e3o. Leia mais sobre como importar e exportar favoritos em {browserName}."
     },
     "settings_theme_changed": {
         "message": "Tema mudado correctamente"
@@ -988,6 +1003,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Este tema faz com que o fundo da barra lateral seja meio transparente e adiciona um efeito de vidro com desfoque. Pode ajustar este efeito e tranpar\u00eancia da sua barra lateral."
+    },
+    "settings_theme_focus": {
+        "message": "Tema principal"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Este tema reduz as anima\u00e7\u00f5es e organiza os elementos mais densos para uma melhor produtividade e desempenho."
     },
     "settings_install_theme": {
         "message": "Instalar tema"

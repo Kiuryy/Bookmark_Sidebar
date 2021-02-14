@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "F\u00fcgt eine ausklappbare Sidebar mit all deinen Lesezeichen auf der Bildschirmseite hinzu."
     },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_last_update": {
+        "message": "Zuletzt aktualisiert am {1}"
+    },
     "header_bookmarks": {
         "message": "Lesezeichen"
     },
@@ -614,8 +620,101 @@
     "settings_expert_save_error": {
         "message": "Einstellungen konnten nicht gespeichert werden. Bitte \u00fcberpr\u00fcfe deine Eingabe."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Stelle das Verhalten deiner Sidebar ein"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Es existiert eine Vielzahl an Auswahlm\u00f6glichkeiten, die du \u00e4ndern kannst, um die Erweiterung einzustellen. Du kannst zum Beispiel einstellen, wie die Sidebar eingeblendet wird, oder wie deine Lesezeichen ge\u00f6ffnet werden sollen. Wenn die Sidebar nicht auf jeder Seite geladen werden soll, kannst du das ebenfalls \u00fcber entsprechende Regeln einrichten."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "\u00c4ndere das Aussehen deiner Sidebar"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Du kannst das Aussehen der Sidebar komplett anpassen und auf deine Anforderungen zuschneiden. Es existiert eine Vielzahl an Einstellungen zum \u00c4ndern der Schriftgr\u00f6\u00dfen, Zeilenabst\u00e4nden, Farben, Symbolen und vielem mehr. Du kannst aus vordefinierten Designs und Voreinstellungen ausw\u00e4hlen, um der Sidebar schnell eine neue Optik zu verpassen."
+    },
     "settings_tips_tricks_facts": {
         "message": "Wusstest du schon?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "N\u00e4chster Tipp"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Schnelle Suche"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Wenn du die Sidebar ge\u00f6ffnet hast, kannst du direkt losschreiben um bestimmte Lesezeichen zu suchen. Du musst nicht erst auf das Such-Symbol in der Kopfzeile der Sidebar klicken."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktivierungsbereich"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Standardm\u00e4ssig aktiviert die gesamte Seite des Browserfensters die Sidebar. Du kannst diesen Aktivierungsbereich vertikal verkleinern, um die Sidebar nur an einem kleinen Bereich des Seitenrands zu aktivieren. So l\u00e4sst sich beispielsweise definieren, dass die Sidebar nur im unteren linken Rand des Browserfensters aktiviert werden kann. Das kann hilfreich sein, um ungewolltes \u00d6ffnen der Sidebar beim Anklicken von Links auf der Webseite zu verhindern."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Lesezeichen anlegen"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Du kannst jede URL direkt in die Sidebar ziehen und dort an die gew\u00fcnschte Stelle ziehen. So kannst du sogar die aktuelle URL des Browsertabs  markieren und in die Sidebar ziehen. Alternativ kannst du auch das {1} Symbol links der Adressleiste ziehen um die aktuelle URL als Lesezeichen anzulegen, ohne die gesamte Adressleiste zun\u00e4chst markieren zu m\u00fcssen."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Trennlinien"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Ein Lesezeicheneintrag mit der URL {1} und einem Titel {2} oder {3} wird in der Sidebar als Trennlinie angezeigt. Du kannst Trennlinien hinzuf\u00fcgen, indem du einen Ordner in der Sidebar mit der rechten Maustaste anklickst und dann das ensprechende {4} symbol ausw\u00e4hlst."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "URL schnell kopieren"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Um die URL eines Lesezeichens in deine Zwischenablage zu kopieren, kannst du {1} dr\u00fccken, w\u00e4hrend du mit der Maus \u00fcber einen Eintrag in der Sidebar f\u00e4hrst."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Alle Lesezeichen \u00f6ffnen"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Um alle Lesezeichen eines Ordners zu \u00f6ffnen, kannst du den entsprechenden Ordner mit der mittleren Maustaste anklicken. Alternativ kannst du auch {1} gedr\u00fcckt halten und einen Ordner mit der linken Maustaste anklicken."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Eintr\u00e4ge verstecken"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Du kannst einzelne Lesezeichen und sogar Ordner in der Sidebar ausblenden. Du kannst jeden Eintrag in der Sidebar mit der rechten Maustaste anklicken und dann das {1} Symbol ausw\u00e4hlen. Um ausgeblendete Eintr\u00e4ge wieder sichtbar zu machen, kannst du auf das Men\u00fc-Symbol in der Kopfzeile der Sidebar klicken und dort die entsprechende Auswahlbox aktivieren."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Alle Unterorder ausklappen"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Um schnell einen Ordner samt allen Unterordnern auszuklappen, kannst du einen Ordner in der Sidebar mit einem Doppelklick ausw\u00e4hlen."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Tastenkombinationen"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Die Sidebar kann \u00fcber Tastenkombinationen gesteuert werden. Du kannst einen Blick auf die \u00dcbersicht der verf\u00fcgbaren Tastenkombination werfen, in dem du auf das Men\u00fc-Symbol in der Kopfzeile der Sidebar klickst und dort das {1} symbol ausw\u00e4hlst."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronisierung"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "All eine Einstellungen der Sidebar werden zwischen deinen Ger\u00e4ten synchronisiert, wenn du dies in den Einstellungen deines Browsers aktiviert hast. Auch ohne Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Sychronisierungseinstellungen"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Die Erweiterung is in {1} verschiedenen Sprachen verf\u00fcgbar. Alle \u00dcbersetzungen kommen aus der Community und jeder kann durch das \u00dcbersetzen der Texte der Erweiterung helfen. \u00dcbersetzungen werden gepr\u00fcft und anschlie\u00dfend mit dem jeweils n\u00e4chsten Update der Erweiterung hinzugef\u00fcgt."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Diese Erweiterung is ein Ein-Mann-Projekt, das als Hobbyprojekt f\u00fcr den eigenen Gebrauch gestartet ist."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Die erste Version der Erweiterung wurde im November 2016 ver\u00f6ffentlicht."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Rechtsklick"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Du kannst alle Lesezeichen oder Ordner in der Sidebar mit der rechten Maustaste anklicken, um weitere Optionen einzublenden. Beispielsweise kannst du so Lesezeichen bearbeiten oder oben an die Sidebar fixieren. Wenn du einen Ordner mit der rechten Maustaste anklickst, kannst du eine \u00dcberpr\u00fcfung deiner Lesezeichen starten, um defekte oder aktualisierte Lesezeichen-URLs zu finden."
     },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"

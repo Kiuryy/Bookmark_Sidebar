@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "\u6700\u5e38\u4f7f\u7528\u7684\u66f8\u7c64"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "\u91d8\u9078\u7684\u66f8\u7c64"
+    "newtab_grid_links_custom": {
+        "message": "\u4f7f\u7528\u8005\u81ea\u8a02\u9805\u76ee"
     },
     "newtab_grid_links_hidden": {
         "message": "\u4e0d\u986f\u793a\u9801\u9762"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "\u8a2d\u5b9a"
+    },
+    "settings_menu_dashboard": {
+        "message": "\u6982\u89bd"
     },
     "settings_menu_sidebar": {
         "message": "\u5074\u908a\u6b04"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "Url \u6a21\u5f0f"
     },
+    "settings_import_export_headline": {
+        "message": "\u532f\u5165\uff0f\u532f\u51fa\u8a2d\u5b9a"
+    },
     "settings_import_export_notice": {
         "message": "\u5982\u679c\u60a8\u4ee5 Google \u5e33\u865f\u767b\u5165 {browserName}\uff0c\u64f4\u5145\u529f\u80fd\u5c31\u6703\u5728\u60a8\u7684\u88dd\u7f6e\u4e4b\u9593\u81ea\u52d5\u540c\u6b65\u8a2d\u5b9a\u3002\u5982\u679c\u60a8\u4e0d\u60f3\u767b\u5165\uff0c\u6216\u8005\u4e0d\u60f3\u5c07\u8a2d\u5b9a\u5206\u4eab\u7d66\u5225\u4eba\u6216\u5176\u4ed6\u88dd\u7f6e\uff0c\u60a8\u53ef\u4ee5\u4f7f\u7528\u6b64\u532f\u5165 \/ \u532f\u51fa\u9078\u9805\u3002"
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "\u532f\u5165\u8a2d\u5b9a\u5931\u6557\u3002\u8acb\u9078\u64c7\u6709\u6548\u7684\u6a94\u6848\u3002"
+    },
+    "settings_import_export_bookmarks": {
+        "message": "\u532f\u5165\uff0f\u532f\u51fa\u66f8\u7c64"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "\u6b64\u70ba\u700f\u89bd\u5668\u7279\u6027\uff0c\u4e26\u975e\u64f4\u5145\u529f\u80fd\u7684\u4e00\u90e8\u5206\u3002\u77ad\u89e3\u66f4\u591a\u95dc\u65bc\u5982\u4f55\u5728 {browserName} \u532f\u5165\u8207\u532f\u51fa\u66f8\u7c64\u3002"
     },
     "settings_theme_changed": {
         "message": "\u6210\u529f\u8b8a\u66f4\u4e3b\u984c"

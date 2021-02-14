@@ -1,9 +1,9 @@
 {
     "extension_name": {
-        "message": "Bookmark Sidebar"
+        "message": "Barra Segnalibri"
     },
     "extension_desc": {
-        "message": "Aggiunge una barra laterale selezionabile con tutti i tuoi preferiti sul lato sinistro dello schermo."
+        "message": "Aggiunge una barra laterale selezionabile con tutti i tuoi Segnalibri sul lato sinistro dello schermo."
     },
     "header_bookmarks": {
         "message": "Preferiti"
@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Preferiti pi\u00f9 usati"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Preferiti evidenziati"
+    "newtab_grid_links_custom": {
+        "message": "Definito dall'utente"
     },
     "newtab_grid_links_hidden": {
         "message": "Non mostrare le pagine"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Impostazioni"
+    },
+    "settings_menu_dashboard": {
+        "message": "Panoramica"
     },
     "settings_menu_sidebar": {
         "message": "Barra laterale"
@@ -847,6 +850,12 @@
     },
     "settings_import_failed": {
         "message": "Impossibile importare le impostazioni. Seleziona un file valido."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importazione\/esportazione di segnalibri"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Questa \u00e8 una caratteristica del browser e non fa parte dell'estensione. Leggi di pi\u00f9 su come importare ed esportare i segnalibri in {browserName}."
     },
     "settings_theme_changed": {
         "message": "Tema modificato con successo"

@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Legt\u00f6bbet haszn\u00e1lt k\u00f6nyvjelz\u0151k"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Kit\u0171z\u00f6tt k\u00f6nyvjelz\u0151k"
+    "newtab_grid_links_custom": {
+        "message": "Egyedi r\u00e1csok"
     },
     "newtab_grid_links_hidden": {
         "message": "Ne mutassa a lapokat"
@@ -279,7 +279,7 @@
         "message": "Weboldal el\u0151n\u00e9zet"
     },
     "newtab_grid_links_appearance_favicon": {
-        "message": "Weboldal icon megjelen\u00edt\u00e9se"
+        "message": "Weboldal ikon megjelen\u00edt\u00e9se"
     },
     "newtab_grid_links_grid_size": {
         "message": "R\u00e1cs m\u00e9rete"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Be\u00e1ll\u00edt\u00e1sok"
+    },
+    "settings_menu_dashboard": {
+        "message": "\u00c1ttekint\u00e9s"
     },
     "settings_menu_sidebar": {
         "message": "Oldals\u00e1v"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "Webc\u00edm maszkok"
     },
+    "settings_import_export_headline": {
+        "message": "Be\u00e1ll\u00edt\u00e1sok import\/exportja"
+    },
     "settings_import_export_notice": {
         "message": "Ha be van jelentkezve a Google fi\u00f3kj\u00e1val, a b\u0151v\u00edtm\u00e9ny be\u00e1ll\u00edt\u00e1sai automatikusan szinkroniz\u00e1l\u00f3dnak az eszk\u00f6zei k\u00f6z\u00f6tt,. Ha nem akar bejelentkezni vagy meg akarja osztani a be\u00e1ll\u00edt\u00e1sait m\u00e1sokkal, akkor az import\/export lehet\u0151s\u00e9get tudja haszn\u00e1lni."
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Az import\u00e1l\u00e1s sikertelen. \u00c9rv\u00e9nyes f\u00e1jlt adjon meg."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "K\u00f6nyvjelz\u0151k import\/exportja"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Ezt a feladatot a b\u00f6ng\u00e9sz\u0151 v\u00e9gzi \u00e9s nem r\u00e9sze ennek a b\u0151v\u00edtm\u00e9nynek. A {browserName}.b\u00f6ng\u00e9sz\u0151ben val\u00f3 haszn\u00e1lat\u00e1hoz itt t\u00e1j\u00e9koz\u00f3dhat."
     },
     "settings_theme_changed": {
         "message": "T\u00e9ma sikeresen megv\u00e1ltoztatva"
@@ -991,6 +1003,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Ezzel a t\u00e9m\u00e1val az oldals\u00e1v h\u00e1ttere f\u00e9lig \u00e1tl\u00e1tsz\u00f3 lesz \u00e9s elmos\u00f3dott hat\u00e1st kelt. Az \u00e1tl\u00e1tsz\u00f3s\u00e1g \u00e9s az elmos\u00f3d\u00e1s szabadon v\u00e1ltoztathat\u00f3."
+    },
+    "settings_theme_focus": {
+        "message": "Koncentr\u00e1l\u00f3 t\u00e9ma"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Ez a t\u00e9ma m\u00e9rs\u00e9kli az anim\u00e1ci\u00f3kat \u00e9s t\u00f6m\u00f6rebb\u00e9 teszi az elrendez\u00e9st \u00edgy n\u00f6vekszik a hat\u00e9konys\u00e1g \u00e9s a teljes\u00edtm\u00e9ny."
     },
     "settings_install_theme": {
         "message": "T\u00e9ma telep\u00edt\u00e9se"

@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Naj\u010dastej\u0161ie pou\u017e\u00edvan\u00e9 z\u00e1lo\u017eky"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Pripnut\u00e9 z\u00e1lo\u017eky"
+    "newtab_grid_links_custom": {
+        "message": "Polo\u017eky definovan\u00e9 u\u017e\u00edvate\u013eom"
     },
     "newtab_grid_links_hidden": {
         "message": "Nezobrazova\u0165 str\u00e1nky"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Nastavenie"
+    },
+    "settings_menu_dashboard": {
+        "message": "Preh\u013ead"
     },
     "settings_menu_sidebar": {
         "message": "Bo\u010dn\u00fd panel"
@@ -830,6 +833,9 @@
     "settings_filter_rules": {
         "message": "URL vzor"
     },
+    "settings_import_export_headline": {
+        "message": "Importuj\/Exportuj Nastavenia"
+    },
     "settings_import_export_notice": {
         "message": "Nastavenia roz\u0161\u00edrenia sa automaticky synchronizuj\u00fa medzi va\u0161imi zariadeniami, ak ste prihl\u00e1sen\u00ed do \u00fa\u010dtu {browserName} pomocou svojho \u00fa\u010dtu. Ak sa nechcete prihl\u00e1si\u0165 alebo nechcete zdie\u013ea\u0165 svoje nastavenia s in\u00fdmi \u013eu\u010fmi, m\u00f4\u017eete pou\u017ei\u0165 t\u00fato mo\u017enos\u0165 importu \/ exportu."
     },
@@ -847,6 +853,12 @@
     },
     "settings_import_failed": {
         "message": "Nepodarilo sa importova\u0165 nastavenia. Pros\u00edm, pou\u017eite spr\u00e1vny s\u00fabor."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importuj\/Exportuj Z\u00e1lo\u017eky"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Toto je s\u00fa\u010das\u0165 prehliada\u010da a nie roz\u0161\u00edrenia. Pre\u010d\u00edtajte si viac inform\u00e1ci\u00ed o tom, ako importova\u0165 a exportova\u0165 z\u00e1lo\u017eky v {browserName}."
     },
     "settings_theme_changed": {
         "message": "T\u00e9ma bola \u00faspe\u0161ne zmenen\u00e1"

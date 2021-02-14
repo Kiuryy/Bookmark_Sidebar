@@ -269,8 +269,8 @@
     "newtab_grid_links_most_used": {
         "message": "Najcz\u0119\u015bciej u\u017cywane zak\u0142adki"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Przypi\u0119te zak\u0142adki"
+    "newtab_grid_links_custom": {
+        "message": "Wpisy u\u017cytkownika"
     },
     "newtab_grid_links_hidden": {
         "message": "Nie pokazuj stron"
@@ -496,6 +496,9 @@
     },
     "settings_title": {
         "message": "Ustawienia"
+    },
+    "settings_menu_dashboard": {
+        "message": "Przegl\u0105d"
     },
     "settings_menu_sidebar": {
         "message": "Boczna lista"

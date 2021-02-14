@@ -114,7 +114,7 @@
                     const infoBox = $("<div></div>").addClass($.cl.info).prependTo(s.elm.dashboard.tipsTricks);
 
                     let headline = s.helper.i18n.get("settings_tips_tricks_facts");
-                    let subHeadline = s.helper.i18n.get("settings_tips_tricks_" + uid);
+                    const subHeadline = s.helper.i18n.get("settings_tips_tricks_" + uid);
                     if (subHeadline) {
                         headline += "&ensp;<span>... " + subHeadline + "</span>";
                     }
@@ -157,7 +157,7 @@
          * @returns {string[]}
          */
         const getRandomListOfTipsTricks = (tipsTricks) => {
-            let arr = Object.keys(tipsTricks);
+            const arr = Object.keys(tipsTricks);
             for (let i = arr.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -202,8 +202,6 @@
          * @returns {Promise<void>}
          */
         const initFooter = async () => {
-            $.opts.manifest.version_name = "1.20.0";
-
             // Version
             s.elm.dashboard.footerVersion
                 .html(s.helper.i18n.get("extension_version") + " " + "<span>" + $.opts.manifest.version_name + "</span>")

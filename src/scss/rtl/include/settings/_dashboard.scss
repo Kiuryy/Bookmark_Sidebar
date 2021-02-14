@@ -1,0 +1,62 @@
+html[dir='rtl'] body > section#wrapper > main div.tab[data-name='dashboard'] {
+
+  > div.boxWrapper {
+
+    > div.tipsTricks {
+
+      > button {
+        padding-right: 25px;
+        padding-left: 34px;
+
+        &::before {
+          left: 14px;
+          right: unset;
+          border-left-color: transparent;
+          border-right-color: $textColorInverted;
+        }
+      }
+    }
+
+    > div.links {
+
+      > ul {
+
+        > li {
+
+          @media (max-width: 1600px) {
+
+            + li {
+              margin-left: 0;
+              margin-right: 10px;
+            }
+          }
+
+          > a {
+            padding-right: 50px;
+            padding-left: 10px;
+
+            &::before {
+              left: unset;
+              right: 10px;
+            }
+
+            &[data-name="support"]::before {
+              transform: scaleX(-1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > footer {
+
+    > div {
+
+      > span.lastUpdate {
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+}

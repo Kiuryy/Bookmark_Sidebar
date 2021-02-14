@@ -7,11 +7,11 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
       max-width: none;
 
       &.wide {
-        width: calc(80% - 10px);
+        width: calc(75% - 10px);
       }
 
       &.small {
-        width: calc(20% - 10px);
+        width: calc(25% - 10px);
       }
     }
 
@@ -23,6 +23,14 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
       min-height: 350px;
       padding: 0;
       overflow: hidden;
+
+      @media (max-width: 1600px) {
+        width: 100% !important;
+      }
+
+      @media (max-width: 1200px) {
+        display: block;
+      }
 
       > svg.loading {
         position: absolute;
@@ -91,17 +99,27 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
       }
 
       > img {
+        display: block;
         width: 360px;
+
+        @media (max-width: 1200px) {
+          margin: 20px auto;
+        }
       }
 
 
       > button {
         @extend %highlightButton;
+        display: block;
         width: fit-content;
         padding-left: 25px;
         padding-right: 34px;
         margin: 0 auto 20px;
         grid-column: 2;
+
+        @media (max-width: 1200px) {
+          margin: 20px auto;
+        }
 
         &::before {
           content: "";
@@ -154,12 +172,25 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
 
     > div.links {
 
+      @media (max-width: 1600px) {
+        width: 100% !important;
+      }
+
       > ul {
 
         > li {
 
           + li {
             margin-top: 7px;
+          }
+
+          @media (max-width: 1600px) {
+            display: inline-block;
+
+            + li {
+              margin-top: 0;
+              margin-left: 10px;
+            }
           }
 
           > a {

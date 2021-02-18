@@ -23,24 +23,32 @@
                 ]).then(([info, lang]) => {
                     cachedSvg = {};
                     currentIcon = null;
-
-                    $.api.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
-
-                    this.set({
-                        name: info.name,
-                        color: info.color
-                    });
-
-                    if ($.isDev && info.devModeIconBadge) { // add badge for the dev version
-                        $.api.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
-                        $.api.browserAction.setBadgeText({text: " "});
-                    } else {
-                        $.api.browserAction.setBadgeText({text: ""});
-                    }
-
+                    initExtensionIcon(info, lang);
                     resolve();
                 });
             });
+        };
+
+        /**
+         * Initialises the extension icon, which is displayed right of the address bar (or in the extension menu)
+         *
+         * @param info
+         * @param lang
+         */
+        const initExtensionIcon = (info, lang) => {
+            this.setExtensionIcon({
+                name: info.name,
+                color: info.color
+            });
+
+            $.api.browserAction.setTitle({title: lang.vars.header_bookmarks.message});
+
+            if ($.isDev && info.devModeIconBadge) { // add badge for the dev version
+                $.api.browserAction.setBadgeBackgroundColor({color: [48, 191, 169, 255]});
+                $.api.browserAction.setBadgeText({text: " "});
+            } else {
+                $.api.browserAction.setBadgeText({text: ""});
+            }
         };
 
         /**
@@ -110,6 +118,46 @@
             });
         };
 
+        /**
+         * Returns the icon image data of the extension icon with the given shape and given color
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.getImageData = (opts) => {
+            return new Promise((resolve) => {
+                const canvas = document.createElement("canvas");
+                const size = 128;
+                canvas.width = size;
+                canvas.height = size;
+
+                const ctx = canvas.getContext("2d");
+                if (opts.background) {
+                    ctx.beginPath();
+                    ctx.fillStyle = opts.background;
+                    ctx.arc(size / 2, size / 2, size / 2, 0, 2 * Math.PI, false);
+                    ctx.fill();
+                }
+
+                getSvgImage(opts.name, opts.color).then((svg) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const pad = opts.padding || 0;
+                        ctx.drawImage(img, pad, pad, size - (pad * 2), size - (pad * 2));
+                        let imageData = null;
+
+                        if (opts.asDataURL) { // return the image data as base64 encoded string
+                            imageData = canvas.toDataURL("image/x-icon");
+                        } else { // return an ImageData object
+                            imageData = ctx.getImageData(0, 0, size, size);
+                        }
+
+                        resolve(imageData);
+                    };
+                    img.src = svg;
+                });
+            });
+        };
 
         /**
          * Sets the extension icon to the given shape with the given color
@@ -117,35 +165,22 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.set = (opts) => {
+        this.setExtensionIcon = (opts) => {
             return new Promise((resolve) => {
                 const onlyCurrentTab = opts.onlyCurrentTab || false;
 
                 if (currentIcon && !onlyCurrentTab && currentIcon === opts.name + "_" + opts.color) { // icon is the same -> do nothing
                     resolve();
                 } else { // icon is different
-                    const canvas = document.createElement("canvas");
-                    const size = 128;
-                    canvas.width = size;
-                    canvas.height = size;
-                    const ctx = canvas.getContext("2d");
+                    this.getImageData(opts).then((imageData) => {
+                        $.api.browserAction.setIcon({
+                            imageData: imageData,
+                            tabId: onlyCurrentTab && opts.tabInfo ? opts.tabInfo.id : null
+                        });
 
-                    getSvgImage(opts.name, opts.color).then((svg) => {
-                        const img = new Image();
-                        img.onload = () => {
-                            ctx.drawImage(img, 0, 0, size, size);
-
-                            $.api.browserAction.setIcon({
-                                imageData: ctx.getImageData(0, 0, size, size),
-                                tabId: onlyCurrentTab && opts.tabInfo ? opts.tabInfo.id : null
-                            });
-
-                            if (!onlyCurrentTab) {
-                                currentIcon = opts.name + "_" + opts.color;
-                            }
-                            resolve();
-                        };
-                        img.src = svg;
+                        if (!onlyCurrentTab) {
+                            currentIcon = opts.name + "_" + opts.color;
+                        }
                     });
                 }
             });

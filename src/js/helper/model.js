@@ -96,6 +96,7 @@
                 dirAccordion: false,
                 reopenSidebar: false,
                 preventWindowed: false,
+                preventWebapp: true,
                 rememberState: "openStatesAndPos",
                 rememberOpenStatesSubDirectories: true,
                 newEntryPosition: "append",

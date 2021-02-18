@@ -15,6 +15,7 @@
         let sidebarPos = null;
         let preventPageScroll = null;
         let preventWindowed = null;
+        let preventWebapp = null;
         let indicatorWidth = null;
         let sidebarWidth = null;
         let inPixelToleranceTime = null;
@@ -27,7 +28,7 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "n/autoOpen", "u/performReopening"]);
+            const data = ext.helper.model.getData(["a/theme", "b/toggleArea", "b/preventPageScroll", "a/showIndicator", "a/showIndicatorIcon", "a/styles", "b/sidebarPosition", "b/openDelay", "b/openAction", "b/preventWindowed", "b/preventWebapp", "n/autoOpen", "u/performReopening"]);
 
             ext.elm.indicator = $("<div></div>")
                 .attr("id", $.opts.ids.page.indicator)
@@ -50,6 +51,7 @@
             sidebarPos = data.sidebarPosition;
             preventPageScroll = data.preventPageScroll;
             preventWindowed = data.preventWindowed;
+            preventWebapp = data.preventWebapp;
 
             ext.elm.indicator.css({
                 width: getToggleAreaWidth() + "px",
@@ -244,7 +246,9 @@
          * @returns {int}
          */
         const getToggleAreaWidth = () => {
-            if (ext.helper.utility.isWindowed()) {
+            if (preventWebapp && ext.helper.utility.isWebapp()) { // sidebar should not be toggleable in PWA
+                return 0;
+            } else if (ext.helper.utility.isWindowed()) { // return different values for the toggle area width in window mode
                 return preventWindowed ? 0 : toggleArea.widthWindowed;
             } else {
                 return toggleArea.width;
@@ -456,8 +460,10 @@
         const isMousePosInPixelTolerance = (clientX, clientY) => {
             let ret = false;
 
-            if (preventWindowed && ext.helper.utility.isWindowed()) {
-                // prevent opening the sidebar in window mode with the according setting set to true
+            if (preventWebapp && ext.helper.utility.isWebapp()) {
+                // prevent opening the sidebar in a PWA with the according option set to true
+            } else if (preventWindowed && ext.helper.utility.isWindowed()) {
+                // prevent opening the sidebar in window mode with the according option set to true
             } else if (document.fullscreen || document.webkitIsFullScreen) {
                 // don't open the sidebar when the website requested fullscreen (will be false when a user browses with F11 fullscreen)
             } else if (keypressed !== null && +new Date() - keypressed < 500) {

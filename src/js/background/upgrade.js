@@ -131,6 +131,10 @@
          */
         const updateOptionsAfterUpgrade = (obj) => {
             try {
+                if (obj.behaviour && typeof obj.behaviour.preventWebapp === "undefined") { // @deprecated 03/2021 -> since v1.20.0 the sidebar will not open in PWA per default anymore -> for all existing users this will still work as before
+                    obj.behaviour.preventWebapp = false;
+                }
+
                 if (obj.newtab) { // @deprecated 02/2021 -> upgrade newtab option
                     if (obj.newtab.topPagesType && obj.newtab.topPagesType !== "pinnedEntries") {
                         obj.newtab.gridType = obj.newtab.topPagesType;

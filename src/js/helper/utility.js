@@ -275,6 +275,15 @@
                 Math.abs(window.screen.availWidth - window.innerWidth) > limitY ||
                 (window.navigator && window.navigator && window.navigator.userAgent && window.navigator.userAgent && window.navigator.userAgent.search(/[/\s-_]mobile[/\s-_]/i) > -1);
         };
+
+        /**
+         * Returns whether the current tab is running in the browser or as webapp
+         *
+         * @returns {boolean}
+         */
+        this.isWebapp = () => {
+            return window.matchMedia("(display-mode: browser)").matches !== true;
+        };
     };
 
 })(jsu);

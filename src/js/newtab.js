@@ -194,14 +194,14 @@
          * @returns {Promise<void>}
          */
         const initIcon = async () => {
-            const opts = this.helper.model.getData(["n/faviconShape", "n/faviconColor", "n/faviconBackground"]);
+            const opts = this.helper.model.getData(["n/faviconShape", "n/faviconColor", "n/faviconBackground", "n/faviconPadding"]);
 
             const imageData = await this.helper.model.call("iconImageData", {
                 name: opts.faviconShape,
                 color: opts.faviconColor,
-                asDataURL: true,
-                padding: 18,
-                background: opts.faviconBackground
+                padding: opts.faviconPadding,
+                background: opts.faviconBackground,
+                asDataURL: true
             });
 
             $("<link />").attr({

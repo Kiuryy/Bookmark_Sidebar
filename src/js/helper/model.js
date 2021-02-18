@@ -159,6 +159,7 @@
                 faviconShape: "bookmark",
                 faviconColor: "#ffffff",
                 faviconBackground: defaultColors["default"].colorScheme.light,
+                faviconPadding: 18,
                 autoOpen: true,
                 focusOmnibox: false,
                 searchField: "show",

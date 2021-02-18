@@ -69,6 +69,7 @@
                         const colorValue = s.helper.form.getColorValue(field, s.elm.color[field][0].value);
                         config[field] = colorValue.color;
                     });
+                    config.faviconPadding = config.faviconBackground === "transparent" ? 10 : 18; // more padding, if the favicon is on a colored background
 
                     ["faviconShape"].forEach((field) => {
                         config[field] = s.elm.radio[field][0].value;

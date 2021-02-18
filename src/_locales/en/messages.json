@@ -899,6 +899,12 @@
     "settings_prevent_windowed_desc": {
         "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser is in window mode."
     },
+    "settings_prevent_webapp": {
+        "message": "Disable sidebar in PWA"
+    },
+    "settings_prevent_webapp_desc": {
+        "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser window is displaying a Progressive Web App (PWA)."
+    },
     "settings_tooltip_delay": {
         "message": "Tooltip delay"
     },
@@ -1042,6 +1048,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Scrollbar width"
+    },
+    "settings_icon_background_color": {
+        "message": "Background Colour"
     },
     "settings_icon_color": {
         "message": "Colour"

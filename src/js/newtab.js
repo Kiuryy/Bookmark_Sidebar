@@ -38,6 +38,8 @@
             this.elm.body.addClass($.cl.initLoading).attr("id", $.opts.ids.page.newtab);
 
             this.helper.model.init().then(() => {
+                initIcon();
+
                 const config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
                 if (config.darkMode === true) {
                     this.elm.body.addClass($.cl.page.darkMode);
@@ -184,6 +186,28 @@
                     }
                 }, {passive: true});
             }
+        };
+
+        /**
+         * Initialises the favicon of the page
+         *
+         * @returns {Promise<void>}
+         */
+        const initIcon = async () => {
+            const opts = this.helper.model.getData(["n/faviconShape", "n/faviconColor", "n/faviconBackground"]);
+
+            const imageData = await this.helper.model.call("iconImageData", {
+                name: opts.faviconShape,
+                color: opts.faviconColor,
+                asDataURL: true,
+                padding: 18,
+                background: opts.faviconBackground
+            });
+
+            $("<link />").attr({
+                rel: "icon",
+                href: imageData
+            }).appendTo(document.head);
         };
 
         /**

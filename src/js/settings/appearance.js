@@ -122,7 +122,7 @@
                                 s.elm.select.iconColorType[0].value = "auto";
                             }
 
-                            changeColorValue(s.elm.color[key], value);
+                            s.helper.form.changeColorValue(s.elm.color[key], value);
                             s.elm.color[key].data("initial", s.elm.color[key][0].value);
                         } else if (s.elm.select[key]) {
                             if (key === "fontFamily") {
@@ -183,19 +183,6 @@
                     });
                 });
             });
-        };
-
-        /**
-         * Changes the value of the color picker
-         *
-         * @param elm
-         * @param value
-         */
-        const changeColorValue = (elm, value) => {
-            const picker = elm.data("picker");
-            if (picker) {
-                picker.setColor(value);
-            }
         };
 
         /**
@@ -400,7 +387,7 @@
                     const unit = s.elm.range[key].attr($.attr.settings.range.unit) || "";
                     ret.appearance.styles[key] = s.elm.range[key][0].value + unit;
                 } else if (s.elm.color[key]) {
-                    const colorValue = getColorValue(key, s.elm.color[key][0].value);
+                    const colorValue = s.helper.form.getColorValue(key, s.elm.color[key][0].value);
                     ret.appearance.styles[key] = colorValue.color;
 
                     if (key === "colorScheme") {
@@ -438,32 +425,6 @@
             }
 
             return ret;
-        };
-
-        /**
-         * Returns information about the color of the given field
-         *
-         * @param {string} field
-         * @param {string} val
-         * @returns {object}
-         */
-        const getColorValue = (field, val) => {
-            let luminance = null;
-            const elm = s.elm.color[field];
-            const picker = elm.data("picker");
-
-            if (picker) {
-                const colorObj = picker.getColorObj();
-                if (colorObj.a === 0) {
-                    val = "transparent";
-                }
-                luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
-            }
-
-            return {
-                color: val,
-                luminance: luminance
-            };
         };
 
         /**
@@ -691,13 +652,13 @@
 
                             const defaultColors = s.helper.model.getDefaultColors(theme);
                             const textColor = defaultColors.textColor[scheme["new"]];
-                            changeColorValue(s.elm.color.textColor, textColor);
-                            changeColorValue(s.elm.color.bookmarksDirColor, textColor);
+                            s.helper.form.changeColorValue(s.elm.color.textColor, textColor);
+                            s.helper.form.changeColorValue(s.elm.color.bookmarksDirColor, textColor);
 
                             ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
                                 if (colorName === "hoverColor" || s.elm.color[colorName][0].value === defaultColors[colorName][scheme.old]) { // only change, if it was the default color before
                                     const color = defaultColors[colorName][scheme["new"]];
-                                    changeColorValue(s.elm.color[colorName], color);
+                                    s.helper.form.changeColorValue(s.elm.color[colorName], color);
                                 }
                             });
                         }
@@ -724,7 +685,7 @@
                     const value = elmObj.data("initial");
 
                     if (elmObj.data("picker")) {
-                        changeColorValue(elmObj, value);
+                        s.helper.form.changeColorValue(elmObj, value);
                     } else if (typeof value !== "undefined") {
                         if (elmObj.attr("type") === "checkbox" && typeof value === "boolean") { // revert checkbox
                             if (elm.checked !== value) { // trigger click if value has changed

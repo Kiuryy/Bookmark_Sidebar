@@ -998,6 +998,9 @@
     "settings_scroll_bar_width": {
         "message": "Scrollbar width"
     },
+    "settings_icon_background_color": {
+        "message": "Background Color"
+    },
     "settings_icon_color": {
         "message": "Color"
     },

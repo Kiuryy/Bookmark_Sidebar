@@ -17,6 +17,46 @@
         };
 
         /**
+         * Changes the value of the color picker
+         *
+         * @param elm
+         * @param value
+         */
+        this.changeColorValue = (elm, value) => {
+            const picker = elm.data("picker");
+            if (picker) {
+                picker.setColor(value);
+            }
+        };
+
+        /**
+         * Returns information about the color of the given field
+         *
+         * @param {string} field
+         * @param {string} val
+         * @returns {object}
+         */
+        this.getColorValue = (field, val) => {
+            let luminance = null;
+            const elm = s.elm.color[field];
+            const picker = elm.data("picker");
+
+            if (picker) {
+                const colorObj = picker.getColorObj();
+                if (colorObj.a === 0) {
+                    val = "transparent";
+                }
+                luminance = 0.299 * colorObj.r + 0.587 * colorObj.g + 0.114 * colorObj.b; // based on https://www.w3.org/TR/AERT#color-contrast
+            }
+
+            return {
+                color: val,
+                luminance: luminance
+            };
+        };
+
+
+        /**
          * Initialises the eventhandlers
          */
         const initEvents = () => {

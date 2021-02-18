@@ -83,46 +83,6 @@ body[data-type^='appearance'] {
             }
           }
         }
-
-        ul.radioWrapper {
-          margin-top: 20px;
-
-          span[class^='icon-'] {
-            @include mask(null, $textColorInverted, 20px);
-            position: relative;
-            display: inline-block;
-            margin: -10px 0 5px 3px;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: $textColor;
-          }
-
-          span.icon-bookmark::before {
-            @include maskImage("icon/action/icon-bookmark");
-          }
-
-          span.icon-bookmark-filled::before {
-            @include maskImage("icon/action/icon-bookmark-filled");
-          }
-
-          span.icon-star::before {
-            @include maskImage("icon/action/icon-star");
-          }
-
-          span.icon-dir-1::before {
-            @include maskImage("icon-dir-1");
-          }
-
-          span.icon-dir-2::before {
-            @include maskImage("icon-dir-2");
-            -webkit-mask-size: 18px;
-          }
-
-          span.icon-star-filled::before {
-            @include maskImage("icon/action/icon-star-filled");
-          }
-        }
       }
     }
 

@@ -654,7 +654,7 @@
         "message": "Lesezeichen anlegen"
     },
     "settings_tips_tricks_quick_bookmarking_desc": {
-        "message": "Du kannst jede URL direkt in die Sidebar ziehen und dort an die gew\u00fcnschte Stelle ziehen. So kannst du sogar die aktuelle URL des Browsertabs  markieren und in die Sidebar ziehen. Alternativ kannst du auch das {1} Symbol links der Adressleiste ziehen um die aktuelle URL als Lesezeichen anzulegen, ohne die gesamte Adressleiste zun\u00e4chst markieren zu m\u00fcssen."
+        "message": "Du kannst jede URL direkt in die Sidebar ziehen und dort an die gew\u00fcnschte Stelle ziehen. So kannst du sogar die aktuelle URL des Browsertabs markieren und in die Sidebar ziehen. Alternativ kannst du auch das {1} Symbol links der Adressleiste ziehen um die aktuelle URL als Lesezeichen anzulegen, ohne die gesamte Adressleiste zun\u00e4chst markieren zu m\u00fcssen."
     },
     "settings_tips_tricks_separators": {
         "message": "Trennlinien"
@@ -997,6 +997,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Scrollbalken-Breite"
+    },
+    "settings_icon_background_color": {
+        "message": "Hintergrundfarbe"
     },
     "settings_icon_color": {
         "message": "Farbe"

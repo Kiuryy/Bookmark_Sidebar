@@ -156,6 +156,9 @@
             },
             n: { // new tab -> synced across devices
                 override: false,
+                faviconShape: "bookmark",
+                faviconColor: "#ffffff",
+                faviconBackground: defaultColors["default"].colorScheme.light,
                 autoOpen: true,
                 focusOmnibox: false,
                 searchField: "show",

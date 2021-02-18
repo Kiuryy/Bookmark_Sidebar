@@ -33,6 +33,19 @@
                 }
             });
 
+            ["faviconBackground", "faviconColor"].forEach((field) => {
+                const value = s.helper.model.getData("n/" + field);
+                s.helper.form.changeColorValue(s.elm.color[field], value);
+                s.elm.color[field].data("initial", s.elm.color[field][0].value);
+            });
+
+            ["faviconShape"].forEach((field) => {
+                const value = s.helper.model.getData("n/" + field);
+                s.elm.radio[field][0].value = value;
+                s.elm.radio[field].trigger("change");
+                s.elm.radio[field].data("initial", value);
+            });
+
             ["website"].forEach((field) => {
                 s.elm.field[field][0].value = s.helper.model.getData("n/" + field);
             });
@@ -50,6 +63,15 @@
 
                     ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
                         config[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
+                    });
+
+                    ["faviconBackground", "faviconColor"].forEach((field) => {
+                        const colorValue = s.helper.form.getColorValue(field, s.elm.color[field][0].value);
+                        config[field] = colorValue.color;
+                    });
+
+                    ["faviconShape"].forEach((field) => {
+                        config[field] = s.elm.radio[field][0].value;
                     });
 
                     ["website"].forEach((field) => {

@@ -51,7 +51,8 @@
                 iconColorWrapper: $("div.tab[data-name='appearance'] div.iconColorWrapper"),
             },
             newtab: {
-                content: $("div.tab[data-name='newtab']")
+                content: $("div.tab[data-name='newtab']"),
+                faviconPreview: $("div.faviconOptions > aside > canvas")
             },
             importExport: {
                 content: $("div.tab[data-name='export']")

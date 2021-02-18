@@ -11,7 +11,6 @@
 
         this.elm = {
             body: $("body"),
-            title: $("head > title"),
             content: $("section#content"),
             topLinks: $("section#content > nav"),
             search: {
@@ -38,8 +37,6 @@
             this.elm.body.addClass($.cl.initLoading).attr("id", $.opts.ids.page.newtab);
 
             this.helper.model.init().then(() => {
-                initIcon();
-
                 const config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
                 if (config.darkMode === true) {
                     this.elm.body.addClass($.cl.page.darkMode);
@@ -53,6 +50,7 @@
                 this.helper.stylesheet.init();
 
                 return Promise.all([
+                    initIcon(),
                     this.helper.i18n.init(),
                     this.helper.stylesheet.addStylesheets(["newtab"], $(document))
                 ]);

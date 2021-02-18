@@ -1,0 +1,20 @@
+
+html[dir='rtl'] {
+
+  body[data-type^='newtab'] {
+
+    > section#wrapper > main {
+
+      div.faviconOptions {
+
+        > aside {
+          justify-self: left;
+
+          @media (max-width: 1280px) {
+            justify-self: right;
+          }
+        }
+      }
+    }
+  }
+}

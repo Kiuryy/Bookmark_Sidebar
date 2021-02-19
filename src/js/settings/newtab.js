@@ -6,6 +6,7 @@
         let overrideCheckboxInited = false;
         const faviconInputs = [];
         const faviconPadding = {regular: 18, transparent: 10};
+        const updateFaviconPreviewState = {running: false, awaitUpdate: false};
 
         /**
          * Initialises the behaviour settings
@@ -122,28 +123,47 @@
                 }
             });
 
-            const faviconPreviewCtx = s.elm.newtab.faviconPreview[0].getContext("2d");
-            const previewImage = new Image();
-            previewImage.onload = () => {
-                faviconPreviewCtx.clearRect(0, 0, s.elm.newtab.faviconPreview[0].width, s.elm.newtab.faviconPreview[0].height);
-                faviconPreviewCtx.drawImage(previewImage, 0, 0);
-            };
-
             s.elm.newtab.content.find("input").on("change input", (e) => {
                 if (faviconInputs.indexOf(e.currentTarget)) { // updated one of the favicon options -> update preview as well
-                    const bgColor = s.helper.form.getColorValue("faviconBackground", s.elm.color.faviconBackground[0].value).color;
-
-                    s.helper.model.call("iconImageData", {
-                        name: s.elm.radio.faviconShape[0].value,
-                        color: s.helper.form.getColorValue("faviconColor", s.elm.color.faviconColor[0].value).color,
-                        background: bgColor,
-                        padding: faviconPadding[bgColor === "transparent" ? "transparent" : "regular"],
-                        asDataURL: true
-                    }).then((imageData) => {
-                        previewImage.src = imageData;
-                    });
+                    updateFaviconPreview();
                 }
             });
+        };
+
+        /**
+         * Updates the favicon preview,
+         * this method does need a bit to finish. If you call the method while a previous call is still running, it will terminate immediately, but set updateFaviconPreviewState.awaitUpdate=true, so the method will call itself after finishing the first run
+         */
+        const updateFaviconPreview = () => {
+            if (updateFaviconPreviewState.running) { // already running -> tell the method it should run again, after the current execution is ready
+                updateFaviconPreviewState.awaitUpdate = true;
+            } else {
+                updateFaviconPreviewState.awaitUpdate = false;
+                updateFaviconPreviewState.running = true;
+
+                const bgColor = s.helper.form.getColorValue("faviconBackground", s.elm.color.faviconBackground[0].value).color;
+                const faviconPreviewCtx = s.elm.newtab.faviconPreview[0].getContext("2d");
+                const previewImage = new Image();
+                previewImage.onload = () => {
+                    faviconPreviewCtx.clearRect(0, 0, s.elm.newtab.faviconPreview[0].width, s.elm.newtab.faviconPreview[0].height);
+                    faviconPreviewCtx.drawImage(previewImage, 0, 0);
+
+                    updateFaviconPreviewState.running = false;
+                    if (updateFaviconPreviewState.awaitUpdate) { // can this method again, if there was a call to this method will the current run was not ready yet
+                        updateFaviconPreview();
+                    }
+                };
+
+                s.helper.model.call("iconImageData", {
+                    name: s.elm.radio.faviconShape[0].value,
+                    color: s.helper.form.getColorValue("faviconColor", s.elm.color.faviconColor[0].value).color,
+                    background: bgColor,
+                    padding: faviconPadding[bgColor === "transparent" ? "transparent" : "regular"],
+                    asDataURL: true
+                }).then((imageData) => {
+                    previewImage.src = imageData;
+                });
+            }
         };
     };
 

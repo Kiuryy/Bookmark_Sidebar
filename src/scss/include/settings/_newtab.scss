@@ -11,6 +11,10 @@ body[data-type^='newtab'] {
         grid-template-columns: 1fr;
       }
 
+      &.hidden {
+        display: none;
+      }
+
       > h2 {
         grid-column: 1/-1;
       }

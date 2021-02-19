@@ -157,9 +157,9 @@
             n: { // new tab -> synced across devices
                 override: false,
                 faviconShape: "new-1",
-                faviconColor: "transparent",
-                faviconBackground: defaultColors["default"].colorScheme.light,
-                faviconPadding: 18,
+                faviconColor: "#646464",
+                faviconBackground: "transparent",
+                faviconPadding: 10,
                 autoOpen: true,
                 focusOmnibox: false,
                 searchField: "show",

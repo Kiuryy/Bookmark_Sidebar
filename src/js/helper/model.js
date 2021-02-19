@@ -156,8 +156,8 @@
             },
             n: { // new tab -> synced across devices
                 override: false,
-                faviconShape: "bookmark",
-                faviconColor: "#ffffff",
+                faviconShape: "new-1",
+                faviconColor: "transparent",
                 faviconBackground: defaultColors["default"].colorScheme.light,
                 faviconPadding: 18,
                 autoOpen: true,

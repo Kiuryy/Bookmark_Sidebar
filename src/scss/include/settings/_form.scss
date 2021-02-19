@@ -160,6 +160,14 @@ div.iconShapeWrapper ul.radioWrapper {
     @include maskImage("icon/action/icon-star");
   }
 
+  span.icon-new-1::before {
+    @include maskImage("icon/action/icon-new-1");
+  }
+
+  span.icon-new-2::before {
+    @include maskImage("icon/action/icon-new-2");
+  }
+
   span.icon-dir-1::before {
     @include maskImage("icon-dir-1");
   }

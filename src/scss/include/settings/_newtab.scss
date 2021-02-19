@@ -17,10 +17,12 @@ body[data-type^='newtab'] {
 
       > div {
 
-        > div {
+        > div.iconShapeWrapper {
 
-          + div {
-            margin-top: 15px;
+          > ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px 20px;
           }
         }
       }

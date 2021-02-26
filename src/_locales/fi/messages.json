@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Lis\u00e4\u00e4 napin painalluksella vaihdettavan sivupalkin n\u00e4yt\u00f6n reunaan, joka sis\u00e4lt\u00e4\u00e4 kaikki kirjanmerkkisi."
     },
+    "extension_version": {
+        "message": "Versio"
+    },
+    "extension_last_update": {
+        "message": "Viimeksi p\u00e4ivitetty {1}"
+    },
     "header_bookmarks": {
         "message": "Kirjanmerkki\u00e4"
     },
@@ -64,6 +70,9 @@
     },
     "contextmenu_new_tab_incognito": {
         "message": "Avaa incognito-ikkunassa"
+    },
+    "contextmenu_copy": {
+        "message": "Kopioi URL leikep\u00f6yd\u00e4lle"
     },
     "contextmenu_add_bookmark": {
         "message": "Lis\u00e4\u00e4 kirjanmerkki"
@@ -266,8 +275,8 @@
     "newtab_grid_links_most_used": {
         "message": "Eniten k\u00e4ytetyt kirjanmerkit"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Kiinnitetyt kirjanmerkit"
+    "newtab_grid_links_custom": {
+        "message": "K\u00e4ytt\u00e4j\u00e4n m\u00e4\u00e4rittelem\u00e4t merkinn\u00e4t"
     },
     "newtab_grid_links_hidden": {
         "message": "\u00c4l\u00e4 n\u00e4yt\u00e4 sivuja"
@@ -897,7 +906,7 @@
         "message": "Kuvakkeen koko"
     },
     "settings_indicator_icon_color": {
-        "message": "kuvakkeen v\u00e4ri"
+        "message": "Kuvakkeen v\u00e4ri"
     },
     "settings_sidebar_width": {
         "message": "Leveys"

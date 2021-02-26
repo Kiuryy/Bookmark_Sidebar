@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Voegt een zijbalk toe aan je browser voor snelle en makkelijke toegang tot al je bladwijzers."
     },
+    "extension_version": {
+        "message": "Versie"
+    },
+    "extension_last_update": {
+        "message": "Bijgewerkt op {1}"
+    },
     "header_bookmarks": {
         "message": "Bladwijzers"
     },
@@ -497,6 +503,9 @@
     "settings_title": {
         "message": "Instellingen"
     },
+    "settings_menu_dashboard": {
+        "message": "Overzicht"
+    },
     "settings_menu_sidebar": {
         "message": "Zijbalk"
     },
@@ -610,6 +619,102 @@
     },
     "settings_expert_save_error": {
         "message": "Kon instellingen niet opslaan. Corrigeer uw invoer."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configureer het gedrag van je zijbalk"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Er zijn verschillende opties die je kan wijzigen om de extensie te regelen. Zo kan je bijvoorbeeld instellen hoe de zijbalk moet worden ingeschoven of hoe je bladwijzers moeten worden geopend. Als je niet wil dat de zijbalk op elke pagina wordt geladen, kan je dit ook configureren met behulp van de juiste regels."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Verander het uiterlijk van je zijbalk"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Je kan het uiterlijk van de zijbalk volledig aan je wensen aanpassen. Er zijn verschillende opties om de lettergrootte, regelafstand, kleuren, pictogrammen en nog veel meer te veranderen. Je kan ook kiezen uit voorgedefinieerde ontwerpen en vooraf ingestelde opties om de zijbalk er snel uit te laten zien zoals jij dat wil."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Wist je dat?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Volgende tip"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Snel zoeken"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Als je de zijbalk opent, kan je naar bladwijzers zoeken door gewoon te beginnen typen. Je hoeft niet eerst op het zoekicoontje in de kop van de zijbalk te klikken."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Activeringsgebied"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Standaard kan met de muis over de hele rand van het browservenster worden bewogen om de zijbalk te openen. Je kan het activeringsgebied kleiner maken door de zijbalk alleen te laten openen op een deel van de browserhoogte. Je kan bijvoorbeeld de zijbalk zo instellen dat hij alleen verschijnt als je op het activeringsgebied in de linkerbenedenhoek van het browservenster klikt. Dit kan handig zijn om te voorkomen dat de zijbalk onbedoeld verschijnt wanneer je op links van de website klikt."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Snel bladwijzers maken"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Je kan elke URL direct naar de zijbalk slepen en op de gewenste plaats neerzetten. Je kan zelfs de huidige URL van een browsertabblad markeren en zo verslepen. Je kan ook het {1} symbool links van de adresbalk naar de zijbalk slepen om de huidige pagina te bookmarken zonder eerst de hele adresbalk te markeren."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Scheidingstekens"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Een bladwijzervermelding met de URL {1} en een titel {2} of {3} zal als scheidingsteken in de zijbalk worden weergegeven. Je kan scheidingstekens toevoegen door rechts te klikken op een map in de zijbalk en dan op de {4} knop te klikken."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Snel URL kopi\u00ebren"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Om de URL van een bladwijzer in de zijbalk naar je klembord te kopi\u00ebren, kan je op {1} drukken wanneer je met de muis over een item gaat."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Alle bladwijzers openen"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Om alle bladwijzers in een map te openen, kan je in het midden op de map klikken. Als alternatief kan je op {1} drukken terwijl je met de linker muisknop op een map klikt."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Invoer verbergen"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Je kan individuele bladwijzers of zelfs mappen verbergen uit de zijbalk. Klik met de rechtermuisknop op een item in de zijbalk en klik dan op de {1} knop in het contextmenu. Om verborgen items opnieuw te tonen, kan je op het menu-icoon in de koptekst van de zijbalk klikken en daar het betreffende selectievakje inschakelen."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Alle submappen uitvouwen"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Om snel een map te openen, alsook al zijn submappen, kan je dubbelklikken op een map in de zijbalk."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Toetsenbord snelkoppelingen"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "De zijbalk kan met sneltoetsen bediend worden. Je kan een lijst van sneltoetsen bekijken door op het menu-icoon in de kop van de zijbalk te klikken en dan op de {1} knop te klikken."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronisatie"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Al je instellingen van de zijbalk zullen gesynchroniseerd worden tussen uw apparaten, als je de synchronisatie opties van uw browser aanzet in de instellingen. Zelfs zonder Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Synchronisatie-instellingen bekijken"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "De extensie is beschikbaar in {1} verschillende talen. De vertalingen worden door de gemeenschap gemaakt en iedereen kan een bijdrage leveren door de teksten van de extensie in andere talen te vertalen. Vertalingen zullen worden goedgekeurd en vervolgens bij de volgende update aan de extensie worden toegevoegd."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Deze extensie is een eenmansproject, dat begon als een hobbyproject voor persoonlijk gebruik."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "De eerste versie van deze extensie werd in november 2016uitgebracht."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Klik met de rechtermuisknop"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Je kan met de rechtermuisknop klikken op een bladwijzer of map in de zijbalk om extra opties weer te geven. Je kan bijvoorbeeld bestaande bladwijzers bewerken of items boven aan de zijbalk vastpinnen. Als je met de rechtermuisknop op een map klikt, kan je een bladwijzercontrole starten om gebroken of bijgewerkte bladwijzer-URL's te identificeren."
     },
     "settings_open_action": {
         "message": "Open de zijbalk"
@@ -830,6 +935,9 @@
     "settings_filter_rules": {
         "message": "URL parameters"
     },
+    "settings_import_export_headline": {
+        "message": "Import\/Export Instellingen"
+    },
     "settings_import_export_notice": {
         "message": "De instellingen van de uitbreiding worden automatisch gesynchroniseerd tussen je apparaten als je in {browserName} bent ingelogd met je account. Als je niet wil inloggen of je instellingen wil delen met anderen, dan kan je deze import\/export functie daarvoor gebruiken."
     },
@@ -847,6 +955,12 @@
     },
     "settings_import_failed": {
         "message": "Het importeren van de configuratie is mislukt. Gelieve een geldig bestand te kiezen."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importeer\/Exporteer Bladwijzers"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Dit is een browser functie en geen onderdeel van de extensie. Lees meer over hoe bladwijzers te importeren en exporteren in {browserName}."
     },
     "settings_theme_changed": {
         "message": "Thema succesvol gewijzigd"
@@ -883,6 +997,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Schuifbalk breedte"
+    },
+    "settings_icon_background_color": {
+        "message": "Achtergrond Kleur"
     },
     "settings_icon_color": {
         "message": "Kleur"

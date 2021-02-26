@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Dodaje isko\u010dnu bo\u010dnu traku oznaka sa svim tvojim oznakama na rub preglednika."
     },
+    "extension_version": {
+        "message": "Verzija"
+    },
+    "extension_last_update": {
+        "message": "Posljednje a\u017euriranje {1}"
+    },
     "header_bookmarks": {
         "message": "Oznake"
     },
@@ -497,6 +503,9 @@
     "settings_title": {
         "message": "Postavke"
     },
+    "settings_menu_dashboard": {
+        "message": "Pregled"
+    },
     "settings_menu_sidebar": {
         "message": "Bo\u010dna traka oznaka"
     },
@@ -654,7 +663,7 @@
         "message": "Postavi pre\u010dac tipkovnicom"
     },
     "settings_link_action": {
-        "message": "Otvori oznaku"
+        "message": "Otvori oznake"
     },
     "settings_link_action_desc": {
         "message": "Lijevim klikom oznaka \u0107e se otvoriti u trenutnoj kartici ili u novoj kartici."
@@ -830,6 +839,9 @@
     "settings_filter_rules": {
         "message": "URL obrasci"
     },
+    "settings_import_export_headline": {
+        "message": "Postavke uvoza \/ izvoza"
+    },
     "settings_import_export_notice": {
         "message": "Postavke pro\u0161irenja automatski se sinkroniziraju izme\u0111u va\u0161ih ure\u0111aja, ako ste prijavljeni na {browserName} sa svojim ra\u010dunom. Ako se ne \u017eelite prijaviti ili \u017eelite podijeliti svoje postavke s drugim ljudima, mo\u017eete upotrijebiti ovu mogu\u0107nost uvoza\/izvoza."
     },
@@ -847,6 +859,12 @@
     },
     "settings_import_failed": {
         "message": "Uvoz konfiguracije nije uspio. Odaberite valjanu datoteku."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Uvoz \/ izvoz oznaka"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Ovo je zna\u010dajka preglednika i nije dio pro\u0161irenja. Pro\u010ditajte vi\u0161e kako uvesti i izvesti oznake u {browserName}."
     },
     "settings_theme_changed": {
         "message": "Tema je uspje\u0161no promijenjena"

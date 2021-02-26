@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Adiciona uma barra lateral que pode ser exibida e ocultada, com todos os seus favoritos, \u00e0 borda da janela do seu navegador."
     },
+    "extension_version": {
+        "message": "Vers\u00e3o"
+    },
+    "extension_last_update": {
+        "message": "\u00daltima atualiza\u00e7\u00e3o {1}"
+    },
     "header_bookmarks": {
         "message": "Favoritos"
     },
@@ -614,6 +620,102 @@
     "settings_expert_save_error": {
         "message": "N\u00e3o foi poss\u00edvel salvar as configura\u00e7\u00f5es. Por favor, corrija suas entradas."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configure o comportamento da sua barra lateral"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Existem v\u00e1rias op\u00e7\u00f5es que voc\u00ea pode alterar para controlar a extens\u00e3o. Por exemplo, voc\u00ea pode alterar como a barra lateral deve deslizar ou como seus favoritos devem ser abertos. Se voc\u00ea n\u00e3o quiser que a barra lateral seja carregada em todas as p\u00e1ginas, voc\u00ea pode configurar isso tamb\u00e9m, usando as regras apropriadas."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Mude a apar\u00eancia da sua barra lateral"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Voc\u00ea pode alterar a apar\u00eancia da barra lateral inteiramente para atender \u00e0s suas necessidades. Existem v\u00e1rias op\u00e7\u00f5es para alterar o tamanho da fonte, espa\u00e7amento entre linhas, cores, \u00edcones e muito mais. Voc\u00ea tamb\u00e9m pode escolher designs predefinidos e op\u00e7\u00f5es predefinidas para fazer com que a barra lateral tenha a apar\u00eancia desejada."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Voc\u00ea sabia?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Pr\u00f3xima dica"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Pesquisa r\u00e1pida"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Se voc\u00ea abrir a barra lateral, poder\u00e1 pesquisar por favoritos apenas come\u00e7ando a digitar. N\u00e3o h\u00e1 necessidade de clicar primeiro no \u00edcone de pesquisa no cabe\u00e7alho da barra lateral."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "\u00c1rea de ativa\u00e7\u00e3o"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Por padr\u00e3o, toda a borda da janela do navegador pode ser passada para abrir a barra lateral. Voc\u00ea pode diminuir a \u00e1rea de ativa\u00e7\u00e3o permitindo que a barra lateral abra apenas em uma parte da altura do navegador. Por exemplo, voc\u00ea pode alterar a barra lateral para que apare\u00e7a apenas quando voc\u00ea clica na \u00e1rea de ativa\u00e7\u00e3o no canto inferior esquerdo da janela do navegador. Isso pode ser \u00fatil para evitar que a barra lateral apare\u00e7a acidentalmente ao clicar em links do site."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Marca\u00e7\u00e3o r\u00e1pida de favoritos"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Voc\u00ea pode arrastar qualquer URL diretamente para a barra lateral e solt\u00e1-lo na posi\u00e7\u00e3o desejada. Voc\u00ea pode at\u00e9 marcar e arrastar o URL atual de uma guia do navegador dessa forma. Voc\u00ea tamb\u00e9m pode arrastar o s\u00edmbolo {1} \u00e0 esquerda da barra de endere\u00e7o na barra lateral para marcar a p\u00e1gina atual sem marcar toda a barra de endere\u00e7o primeiro."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separadores"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Uma entrada de marcador com o URL {1} e um t\u00edtulo {2} ou {3} ser\u00e1 exibida como separador na barra lateral. Voc\u00ea pode adicionar separadores clicando com o bot\u00e3o direito em qualquer pasta na barra lateral e, a seguir, clicando no bot\u00e3o {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "C\u00f3pia r\u00e1pida de URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Para copiar o URL de um favorito da barra lateral para a \u00e1rea de transfer\u00eancia, voc\u00ea pode pressionar {1} ao passar o mouse sobre uma entrada."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Abrir todos os favoritos"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Para abrir todos os favoritos em uma pasta, voc\u00ea pode clicar com o bot\u00e3o do meio na pasta. Como alternativa, voc\u00ea pode pressionar {1} enquanto clica em uma pasta com o bot\u00e3o esquerdo do mouse."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Ocultar entradas"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Voc\u00ea pode ocultar favoritos individuais ou at\u00e9 pastas da barra lateral. Voc\u00ea pode clicar com o bot\u00e3o direito do mouse em qualquer entrada da barra lateral e clicar no bot\u00e3o {1} no menu de contexto. Para exibir as entradas ocultas novamente, voc\u00ea pode clicar no \u00edcone do menu no cabe\u00e7alho da barra lateral e habilitar a caixa de sele\u00e7\u00e3o correspondente. Nome da vari\u00e1vel: dicas"
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Expanda todas as subpastas"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Para abrir rapidamente uma pasta com todas as suas subpastas abertas, voc\u00ea tamb\u00e9m pode clicar duas vezes em uma pasta na barra lateral."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Atalhos do teclado"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "A barra lateral pode ser controlada usando atalhos de teclado. Voc\u00ea pode ver uma lista de atalhos clicando no \u00edcone do menu no cabe\u00e7alho da barra lateral e, em seguida, clicando no bot\u00e3o {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sincroniza\u00e7\u00e3o"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Todas as suas configura\u00e7\u00f5es da barra lateral ser\u00e3o sincronizadas entre os seus dispositivos, se voc\u00ea habilitar as op\u00e7\u00f5es de sincroniza\u00e7\u00e3o do seu navegador nas configura\u00e7\u00f5es. Mesmo sem Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Procure suas configura\u00e7\u00f5es de sincroniza\u00e7\u00e3o"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "A extens\u00e3o est\u00e1 dispon\u00edvel em {1} diferentes idiomas. As tradu\u00e7\u00f5es s\u00e3o feitas pela comunidade e todos podem ajudar a contribuir, traduzindo os textos da extens\u00e3o em outras l\u00ednguas. As tradu\u00e7\u00f5es ser\u00e3o aprovadas e adicionadas \u00e0 extens\u00e3o na pr\u00f3xima atualiza\u00e7\u00e3o."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Esta extens\u00e3o \u00e9 um projeto de um homem, que come\u00e7ou como um projeto de hobby para uso pessoal."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "A primeira vers\u00e3o desta extens\u00e3o foi lan\u00e7ada em novembro de 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Clique com o bot\u00e3o direito"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer favorito ou pasta na barra lateral para revelar op\u00e7\u00f5es adicionais. Por exemplo, voc\u00ea pode editar os favoritos existentes ou fixar entradas na parte superior da barra lateral. Quando voc\u00ea clica com o bot\u00e3o direito em uma pasta, pode iniciar uma verifica\u00e7\u00e3o de favoritos para identificar URLs de favoritos quebrados ou atualizados."
+    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },
@@ -895,6 +997,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Largura da barra de rolagem"
+    },
+    "settings_icon_background_color": {
+        "message": "Cor de Fundo"
     },
     "settings_icon_color": {
         "message": "Cor"

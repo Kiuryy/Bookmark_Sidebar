@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "\u5728\u700f\u89bd\u5668\u8996\u7a97\u908a\u7de3\u589e\u52a0\u4e00\u500b\u53ef\u5207\u63db\u7684\u5074\u908a\u6b04\uff0c\u7528\u65bc\u7ba1\u7406\u4f60\u7684\u6240\u6709\u66f8\u7c64\u3002"
     },
+    "extension_version": {
+        "message": "\u7248\u672c"
+    },
+    "extension_last_update": {
+        "message": "\u6700\u8fd1\u66f4\u65b0\u65bc{1}"
+    },
     "header_bookmarks": {
         "message": "\u66f8\u7c64"
     },
@@ -895,6 +901,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "\u6372\u8ef8\u5bec\u5ea6"
+    },
+    "settings_icon_background_color": {
+        "message": "\u80cc\u666f\u8272\u5f69"
     },
     "settings_icon_color": {
         "message": "\u8272\u5f69"

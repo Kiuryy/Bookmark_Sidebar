@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Ajoute une barre lat\u00e9rale commutable regroupant tous vos favoris sur le bord de la fen\u00eatre de votre navigateur."
     },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_last_update": {
+        "message": "Derni\u00e8re mise \u00e0 jour le {1}"
+    },
     "header_bookmarks": {
         "message": "Favoris"
     },
@@ -614,6 +620,99 @@
     "settings_expert_save_error": {
         "message": "N'a pas pu sauvegarder les param\u00e8tres. V\u00e9rifiez ce que vous avez entr\u00e9."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configurez le comportement de votre barre lat\u00e9rale"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Il existe plusieurs options qui permettent de modifier le comportement de l'extension. Par exemple, il est possible de modifier la fa\u00e7on dont la barre lat\u00e9rale s'ouvre. Il est aussi possible de d'\u00e9viter que la barre lat\u00e9rale s'affiche automatiquement avec l'utilisation de r\u00e8gles appropri\u00e9es."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Changez l'apparence de la barre lat\u00e9rale"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Vous pouvez modifier enti\u00e8rement l'aspect de la barre lat\u00e9rale pour l'adapter \u00e0 vos besoins. Il existe diff\u00e9rentes options pour modifier la taille des caract\u00e8res, l'interligne, les couleurs, les ic\u00f4nes et bien d'autres choses encore. Vous pouvez \u00e9galement choisir parmi des mod\u00e8les pr\u00e9d\u00e9finis et des options pr\u00e9d\u00e9finies pour donner rapidement \u00e0 la barre lat\u00e9rale l'aspect que vous souhaitez."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Est ce que vous saviez ?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Astuce suivante"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Recherche rapide"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Si vous ouvrez la barre lat\u00e9rale, vous pouvez chercher des signets en tapant les premiers caract\u00e8res. Nul besoin de cliquer dans la barre lat\u00e9rale afin de d\u00e9buter une nouvelle recherche."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Zone d'activation"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Par d\u00e9faut, tout le bord de la fen\u00eatre de votre navigateur peut \u00eatre survol\u00e9 pour ouvrir la barre lat\u00e9rale. Vous pouvez r\u00e9duire la zone d'activation en n'autorisant l'ouverture de la barre lat\u00e9rale que sur une partie de la hauteur du navigateur. Par exemple, vous pouvez modifier la barre lat\u00e9rale pour qu'elle n'apparaisse que lorsque vous cliquez sur la zone d'activation dans le coin inf\u00e9rieur gauche de la fen\u00eatre du navigateur. Cela peut \u00eatre utile pour \u00e9viter que la barre lat\u00e9rale ne s'affiche involontairement lorsque vous cliquez sur les liens du site web."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Favori rapide"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Vous pouvez faire glisser n'importe quelle URL directement dans la barre lat\u00e9rale et la d\u00e9poser \u00e0 l'endroit souhait\u00e9. Vous pouvez m\u00eame marquer et faire glisser l'URL actuelle d'un onglet du navigateur de cette fa\u00e7on. Vous pouvez \u00e9galement faire glisser le symbole {1} \u00e0 gauche de la barre d'adresse dans la barre lat\u00e9rale pour marquer la page en cours sans marquer d'abord toute la barre d'adresse."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "S\u00e9parateurs"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Une entr\u00e9e de signet avec l'URL {1} et un titre {2} ou {3} sera affich\u00e9e comme s\u00e9parateur dans la barre lat\u00e9rale. Vous pouvez ajouter des s\u00e9parateurs en cliquant avec le bouton droit de la souris sur n'importe quel dossier de la barre lat\u00e9rale, puis en cliquant sur le bouton {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Copie rapide d'adresse"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Pour copier l'URL d'un signet dans la barre lat\u00e9rale vers votre presse-papiers, vous pouvez appuyer sur {1} lorsque vous passez le curseur sur une entr\u00e9e."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Ouvrir tous les favoris"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Pour ouvrir tous les signets d'un dossier, vous pouvez cliquer au milieu sur le dossier. Vous pouvez \u00e9galement appuyer sur {1} tout en cliquant sur un dossier avec le bouton gauche de la souris."
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Vous pouvez cacher des signets individuels ou m\u00eame des dossiers dans la barre lat\u00e9rale. Vous pouvez cliquer avec le bouton droit sur n'importe quelle entr\u00e9e de la barre lat\u00e9rale et ensuite cliquer sur le bouton {1} dans le menu contextuel. Pour afficher \u00e0 nouveau les entr\u00e9es cach\u00e9es, vous pouvez cliquer sur l'ic\u00f4ne du menu dans l'en-t\u00eate de la barre lat\u00e9rale et activer la case \u00e0 cocher correspondante."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "\u00c9tendre tous les sous-dossiers"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Pour ouvrir rapidement un dossier avec tous ses sous-dossiers ouverts \u00e9galement, vous pouvez double-cliquer sur un dossier dans la barre lat\u00e9rale."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Raccourcis clavier"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "La barre lat\u00e9rale peut \u00eatre contr\u00f4l\u00e9e \u00e0 l'aide de raccourcis clavier. Vous pouvez consulter une liste de raccourcis en cliquant sur l'ic\u00f4ne du menu dans l'en-t\u00eate de la barre lat\u00e9rale, puis en cliquant sur le bouton {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronisation"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Tous vos param\u00e8tres de la barre lat\u00e9rale seront synchronis\u00e9s entre vos appareils, si vous activez les options de synchronisation de votre navigateur dans les param\u00e8tres. M\u00eame sans Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Voir vos r\u00e9glages de synchronisation"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "L'extension est disponible en {1} langues diff\u00e9rentes. Les traductions sont r\u00e9alis\u00e9es par la communaut\u00e9 et chacun peut contribuer en traduisant les textes de l'extension dans d'autres langues. Les traductions seront approuv\u00e9es puis ajout\u00e9es \u00e0 l'extension lors de la prochaine mise \u00e0 jour."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Cette extension est un projet d'un seul homme, qui a commenc\u00e9 comme un projet de hobby pour un usage personnel."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "La premi\u00e8re version de cette extension date de novembre 2016"
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Clic droit"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Vous pouvez cliquer avec le bouton droit de la souris sur n'importe quel signet ou dossier dans la barre lat\u00e9rale pour faire appara\u00eetre des options suppl\u00e9mentaires. Par exemple, vous pouvez modifier les signets existants ou \u00e9pingler des entr\u00e9es en haut de la barre lat\u00e9rale. Lorsque vous faites un clic droit sur un dossier, vous pouvez lancer une v\u00e9rification des signets pour identifier les URL de signets cass\u00e9s ou mis \u00e0 jour."
+    },
     "settings_open_action": {
         "message": "Affichage de la barre"
     },
@@ -895,6 +994,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Largeur de la barre de d\u00e9filement"
+    },
+    "settings_icon_background_color": {
+        "message": "Couleur d'arri\u00e8re plan"
     },
     "settings_icon_color": {
         "message": "Couleur"

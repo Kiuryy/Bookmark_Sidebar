@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "L\u00e4gger till en poppuppsidof\u00e4lt i webbl\u00e4sarens f\u00f6nster med alla dina bokm\u00e4rken"
     },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_last_update": {
+        "message": "Senast uppdaterad {1}"
+    },
     "header_bookmarks": {
         "message": "Bokm\u00e4rken"
     },
@@ -613,6 +619,102 @@
     },
     "settings_expert_save_error": {
         "message": "Kunde ej spara inst\u00e4llningarna. Kontrollera om n\u00e5got blev fel."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Konfigurera sidof\u00e4ltets beteende"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Det finns olika alternativ du kan \u00e4ndra f\u00f6r att styra till\u00e4gget. Du kan till exempel \u00e4ndra hur sidof\u00e4ltet ska glida in eller hur dina bokm\u00e4rken ska \u00f6ppnas. Om du inte vill att sidof\u00e4ltet ska laddas p\u00e5 varje sida kan du ocks\u00e5 konfigurera detta med l\u00e4mpliga regler."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "\u00c4ndra utseendet p\u00e5 sidof\u00e4ltet"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Du kan \u00e4ndra utseendet p\u00e5 sidof\u00e4ltet helt f\u00f6r att passa dina behov. Det finns olika alternativ f\u00f6r att \u00e4ndra teckensnittsstorlek, linjeavst\u00e5nd, f\u00e4rger, ikoner och m\u00e5nga fler. Du kan ocks\u00e5 v\u00e4lja fr\u00e5n f\u00f6rdefinierade m\u00f6nster och f\u00f6rinst\u00e4llda alternativ f\u00f6r att snabbt f\u00e5 sidof\u00e4ltet att se ut som du vill."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Visste du?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "N\u00e4sta tips"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Snabbs\u00f6kning"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Om du \u00f6ppnar sidof\u00e4ltet kan du s\u00f6ka efter bokm\u00e4rken genom att bara b\u00f6rja skriva. Du beh\u00f6ver inte klicka p\u00e5 s\u00f6kikonen i sidof\u00e4ltets rubrik f\u00f6rst."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktiveringsomr\u00e5de"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Som standard kan hela kanten av webbl\u00e4sarf\u00f6nstret h\u00e5llas \u00f6ver f\u00f6r att \u00f6ppna sidof\u00e4ltet. Du kan g\u00f6ra aktiveringsomr\u00e5det mindre genom att bara l\u00e5ta sidof\u00e4ltet \u00f6ppna i en del av webbl\u00e4sarens h\u00f6jd. Du kan till exempel \u00e4ndra sidof\u00e4ltet s\u00e5 att det bara visas n\u00e4r du klickar p\u00e5 aktiveringsomr\u00e5det i det nedre v\u00e4nstra h\u00f6rnet av webbl\u00e4sarf\u00f6nstret. Detta kan vara till hj\u00e4lp f\u00f6r att f\u00f6rhindra att sidof\u00e4ltet visas oavsiktligt n\u00e4r du klickar p\u00e5 l\u00e4nkar p\u00e5 webbplatsen."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Snabb bokm\u00e4rkning"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Du kan dra vilken webbadress som helst direkt i sidof\u00e4ltet och sl\u00e4ppa den p\u00e5 \u00f6nskad position. Du kan till och med markera och dra den aktuella webbadressen till en webbl\u00e4sarflik p\u00e5 detta s\u00e4tt. Du kan ocks\u00e5 dra symbolen {1} till v\u00e4nster om adressf\u00e4ltet i sidof\u00e4ltet f\u00f6r att l\u00e4gga till bokm\u00e4rke f\u00f6r den aktuella sidan utan att markera hela adressf\u00e4ltet f\u00f6rst."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Avgr\u00e4nsare"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "En bokm\u00e4rkespost med webbadressen {1} och en titel {2} eller {3} visas som avgr\u00e4nsare i sidof\u00e4ltet. Du kan l\u00e4gga till separatorer genom att h\u00f6gerklicka p\u00e5 valfri mapp i sidof\u00e4ltet och sedan klicka p\u00e5 knappen {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Snabb URL-kopia"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Om du vill kopiera webbadressen till ett bokm\u00e4rke i sidof\u00e4ltet till Urklipp kan du trycka p\u00e5 {1} n\u00e4r du sv\u00e4var \u00f6ver en post."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "\u00d6ppna alla bokm\u00e4rken"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "F\u00f6r att \u00f6ppna alla bokm\u00e4rken i en mapp kan du klicka i mitten p\u00e5 mappen. Alternativt kan du trycka p\u00e5 {1} medan du klickar p\u00e5 en mapp med v\u00e4nster musknapp."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "D\u00f6lj poster"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Du kan d\u00f6lja enskilda bokm\u00e4rken eller till och med mappar fr\u00e5n sidof\u00e4ltet. Du kan h\u00f6gerklicka p\u00e5 valfri post i sidof\u00e4ltet och sedan klicka p\u00e5 knappen {1} i snabbmenyn. F\u00f6r att visa dolda poster igen kan du klicka p\u00e5 menyikonen i sidof\u00e4ltets sidhuvud och aktivera kryssrutan d\u00e4r."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Ut\u00f6ka alla undermappar"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "F\u00f6r att snabbt \u00f6ppna en mapp med alla dess undermappar \u00f6ppna kan du ocks\u00e5 dubbelklicka p\u00e5 en mapp i sidof\u00e4ltet."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Tangentbordsgenv\u00e4gar"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Sidof\u00e4ltet kan styras med kortkommandon. Du kan titta p\u00e5 en lista med genv\u00e4gar genom att klicka p\u00e5 menyikonen i sidof\u00e4ltets rubrik och sedan klicka p\u00e5 knappen {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synkronisering"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Alla dina inst\u00e4llningar i sidof\u00e4ltet synkroniseras mellan dina enheter om du aktiverar synkroniseringsalternativen i din webbl\u00e4sare i inst\u00e4llningarna. \u00c4ven utan Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Leta upp dina synkroniseringsinst\u00e4llningar"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Till\u00e4gget finns p\u00e5 {1} olika spr\u00e5k. \u00d6vers\u00e4ttningarna \u00e4r skapade p\u00e5 gemenskapsniv\u00e5 och alla kan hj\u00e4lpa till att bidra genom att \u00f6vers\u00e4tta texterna till till\u00e4gget p\u00e5 andra spr\u00e5k. \u00d6vers\u00e4ttningar godk\u00e4nns och l\u00e4ggs sedan till i till\u00e4gget med n\u00e4sta uppdatering."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Denna f\u00f6rl\u00e4ngning \u00e4r ett enmansprojekt som startade som ett hobbyprojekt f\u00f6r personligt bruk."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Den f\u00f6rsta versionen av detta till\u00e4gg sl\u00e4pptes i november 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "H\u00f6gerklick"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Du kan h\u00f6gerklicka p\u00e5 valfritt bokm\u00e4rke eller mapp i sidof\u00e4ltet f\u00f6r att avsl\u00f6ja ytterligare alternativ. Du kan till exempel redigera befintliga bokm\u00e4rken eller f\u00e4sta poster till toppen av sidof\u00e4ltet. N\u00e4r du h\u00f6gerklickar p\u00e5 en mapp kan du starta en bokm\u00e4rkeskontroll f\u00f6r att identifiera trasiga eller uppdaterade webbadresser f\u00f6r bokm\u00e4rken."
     },
     "settings_open_action": {
         "message": "\u00d6ppna sidof\u00e4ltet"

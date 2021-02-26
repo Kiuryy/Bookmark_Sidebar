@@ -1,9 +1,15 @@
 {
     "extension_name": {
-        "message": "Bo\u010dn\u00ed li\u0161ta z\u00e1lo\u017eek"
+        "message": "Bo\u010dn\u00ed li\u0161ta z\u00e1lloh"
     },
     "extension_desc": {
         "message": "P\u0159idejte p\u0159ep\u00ednateln\u00fd panel kde naleznete v\u0161echny Va\u0161e z\u00e1lo\u017eky na lev\u00e9 stran\u011b obrazovky."
+    },
+    "extension_version": {
+        "message": "Verze"
+    },
+    "extension_last_update": {
+        "message": "Posledn\u00ed aktualizace {1}"
     },
     "header_bookmarks": {
         "message": "Z\u00e1lo\u017eky"
@@ -895,6 +901,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "\u0160\u00ed\u0159ka posuvn\u00edku"
+    },
+    "settings_icon_background_color": {
+        "message": "Barva pozad\u00ed"
     },
     "settings_icon_color": {
         "message": "Barva"

@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "A\u00f1ade una barra lateral con todos tus marcadores en la parte izquierda de tu pantalla."
     },
+    "extension_version": {
+        "message": "Versi\u00f3n"
+    },
+    "extension_last_update": {
+        "message": "\u00daltima actualizaci\u00f3n el {1}"
+    },
     "header_bookmarks": {
         "message": "Marcadores"
     },
@@ -269,6 +275,9 @@
     "newtab_grid_links_most_used": {
         "message": "Marcadores m\u00e1s usados"
     },
+    "newtab_grid_links_custom": {
+        "message": "Entradas definidas por el usuario"
+    },
     "newtab_grid_links_hidden": {
         "message": "No mostrar p\u00e1ginas"
     },
@@ -494,6 +503,9 @@
     "settings_title": {
         "message": "Ajustes"
     },
+    "settings_menu_dashboard": {
+        "message": "Visi\u00f3n general"
+    },
     "settings_menu_sidebar": {
         "message": "Barra lateral"
     },
@@ -607,6 +619,102 @@
     },
     "settings_expert_save_error": {
         "message": "No se pudo guardar la configuraci\u00f3n. Por favor, corrija su entrada."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configura el comportamiento de tu barra lateral"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Hay varias opciones que puede cambiar para controlar la extensi\u00f3n. Por ejemplo, puede cambiar c\u00f3mo se debe deslizar la barra lateral hacia adentro o c\u00f3mo se deben abrir sus marcadores. Si no desea que la barra lateral se cargue en todas las p\u00e1ginas, tambi\u00e9n puede configurar esto utilizando las reglas adecuadas."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Cambia la apariencia de tu barra lateral"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Puede cambiar el aspecto de la barra lateral por completo para que se ajuste a sus necesidades. Hay varias opciones para cambiar el tama\u00f1o de fuente, interlineado, colores, iconos y muchos m\u00e1s. Tambi\u00e9n puede elegir entre dise\u00f1os predefinidos y opciones predefinidas para hacer que la barra lateral se vea r\u00e1pidamente como desea."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "\u00bfSab\u00edas?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Siguiente consejo"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "B\u00fasqueda r\u00e1pida"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Si abre la barra lateral, puede buscar marcadores simplemente comenzando a escribir. No es necesario hacer clic en el icono de b\u00fasqueda en el encabezado de la barra lateral primero."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "\u00c1rea de activaci\u00f3n"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "De forma predeterminada, se puede colocar el cursor sobre todo el borde de la ventana del navegador para abrir la barra lateral. Puede hacer que el \u00e1rea de activaci\u00f3n sea m\u00e1s peque\u00f1a si solo permite que la barra lateral se abra en una parte de la altura del navegador. Por ejemplo, puede cambiar la barra lateral para que solo aparezca cuando haga clic en el \u00e1rea de activaci\u00f3n en la esquina inferior izquierda de la ventana del navegador. Esto puede ser \u00fatil para evitar que la barra lateral aparezca involuntariamente al hacer clic en enlaces del sitio web."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Marcado r\u00e1pido"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Puede arrastrar cualquier URL directamente a la barra lateral y soltarla en la posici\u00f3n deseada. Incluso puede marcar y arrastrar la URL actual de una pesta\u00f1a del navegador de esta manera. Tambi\u00e9n puede arrastrar el s\u00edmbolo {1} a la izquierda de la barra de direcciones en la barra lateral para marcar la p\u00e1gina actual sin marcar primero toda la barra de direcciones."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separadores"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Se mostrar\u00e1 una entrada de marcador con la URL {1} y un t\u00edtulo {2} o {3} como separador en la barra lateral. Puede agregar separadores haciendo clic con el bot\u00f3n derecho en cualquier carpeta de la barra lateral y luego haciendo clic en el bot\u00f3n {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Copia r\u00e1pida de URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Para copiar la URL de un marcador en la barra lateral a su portapapeles, puede presionar {1} al colocar el cursor sobre una entrada."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Abrir todos los marcadores"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Para abrir todos los marcadores de una carpeta, puede hacer clic con el bot\u00f3n central en la carpeta. Alternativamente, puede presionar {1} mientras hace clic en una carpeta con el bot\u00f3n izquierdo del rat\u00f3n."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Ocultar entradas"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Puede ocultar marcadores individuales o incluso carpetas de la barra lateral. Puede hacer clic derecho en cualquier entrada de la barra lateral y luego hacer clic en el bot\u00f3n {1} en el men\u00fa contextual. Para volver a mostrar las entradas ocultas, puede hacer clic en el icono de men\u00fa en el encabezado de la barra lateral y habilitar la casilla correspondiente all\u00ed."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Expandir todas las subcarpetas"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Para abrir r\u00e1pidamente una carpeta con todas sus subcarpetas abiertas, tambi\u00e9n puede hacer doble clic en una carpeta en la barra lateral."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Atajos de teclado"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "La barra lateral se puede controlar mediante atajos de teclado. Puede ver una lista de accesos directos haciendo clic en el icono de men\u00fa en el encabezado de la barra lateral y luego en el bot\u00f3n {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sincronizaci\u00f3n"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Todas sus configuraciones de la barra lateral se sincronizar\u00e1n entre sus dispositivos, si habilita las opciones de sincronizaci\u00f3n de su navegador en la configuraci\u00f3n. Incluso sin Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Busque su configuraci\u00f3n de sincronizaci\u00f3n"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "La extensi\u00f3n est\u00e1 disponible en {1} idiomas diferentes. Las traducciones son hechas por la comunidad y todos pueden contribuir traduciendo los textos de la extensi\u00f3n en otros idiomas. Las traducciones se aprobar\u00e1n y luego se agregar\u00e1n a la extensi\u00f3n con la pr\u00f3xima actualizaci\u00f3n."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Esta extensi\u00f3n es un proyecto de un solo hombre, que comenz\u00f3 como un proyecto de hobby para uso personal."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "La primera versi\u00f3n de esta extensi\u00f3n se lanz\u00f3 en noviembre de 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Bot\u00f3n derecho del rat\u00f3n"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Puede hacer clic derecho en cualquier marcador o carpeta en la barra lateral para revelar opciones adicionales. Por ejemplo, puede editar marcadores existentes o anclar entradas en la parte superior de la barra lateral. Cuando hace clic con el bot\u00f3n derecho en una carpeta, puede iniciar una comprobaci\u00f3n de marcadores para identificar URL de marcadores rotas o actualizadas."
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"
@@ -827,6 +935,9 @@
     "settings_filter_rules": {
         "message": "Patrones URL"
     },
+    "settings_import_export_headline": {
+        "message": "Configuraci\u00f3n de importaci\u00f3n\/exportaci\u00f3n"
+    },
     "settings_import_export_notice": {
         "message": "La configuraci\u00f3n de la extensi\u00f3n se sincroniza autom\u00e1ticamente entre los dispositivos si has iniciado sesi\u00f3n en {browserName} con tu cuenta. Si no desea iniciar sesi\u00f3n o desea compartir su configuraci\u00f3n con otras personas, puede utilizar esta opci\u00f3n de importaci\u00f3n\/exportaci\u00f3n."
     },
@@ -844,6 +955,12 @@
     },
     "settings_import_failed": {
         "message": "Error al importar la configuraci\u00f3n. Por favor elija un archivo v\u00e1lido."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importar\/Exportar marcadores"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Esta es una funci\u00f3n del navegador y no forma parte de la extensi\u00f3n. Obt\u00e9n m\u00e1s informaci\u00f3n sobre c\u00f3mo importar y exportar marcadores en {browserName}."
     },
     "settings_theme_changed": {
         "message": "Tema actualizado correctamente"
@@ -880,6 +997,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Ancho de la barra de desplazamiento"
+    },
+    "settings_icon_background_color": {
+        "message": "Colores de fondo"
     },
     "settings_icon_color": {
         "message": "Color"

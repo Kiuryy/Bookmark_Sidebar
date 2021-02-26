@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Dodaje wysuwan\u0105 boczn\u0105 list\u0119 ze wszystkimi twoimi zak\u0142adkami po lewej stronie ekranu."
     },
+    "extension_version": {
+        "message": "Wersja"
+    },
+    "extension_last_update": {
+        "message": "Ostatnia aktualizacja {1}"
+    },
     "header_bookmarks": {
         "message": "Zak\u0142adki"
     },
@@ -765,19 +771,19 @@
         "message": "Wy\u0142\u0105cza mo\u017cliwo\u015b\u0107 otwarcia paska bocznego, klikaj\u0105c lub unosz\u0105c kraw\u0119d\u017a zawarto\u015bci przegl\u0105darki, gdy przegl\u0105darka jest w trybie okna."
     },
     "settings_tooltip_delay": {
-        "message": "Op\u00f3\u017anienie etykiety"
+        "message": "Op\u00f3\u017anienie podpowiedzi"
     },
     "settings_tooltip_delay_desc": {
-        "message": "Op\u00f3\u017anienie po jakim etykiety zak\u0142adek zostan\u0105 pokazane, po najechaniu na nie myszk\u0105."
+        "message": "Op\u00f3\u017anienie po jakim podpowiedzi do zak\u0142adek zostan\u0105 pokazane, po najechaniu na nie myszk\u0105."
     },
     "settings_tooltip_delay_infinity": {
-        "message": "Nigdy nie pokazuj etykiet"
+        "message": "Nigdy nie pokazuj podpowiedzi"
     },
     "settings_tooltip_desc": {
-        "message": "Wybierz jakie informacje ma zawiera\u0107 etykieta."
+        "message": "Wybierz jakie informacje powinna zawiera\u0107 podpowied\u017a."
     },
     "settings_tooltip_content": {
-        "message": "Zawarto\u015b\u0107 etykiety"
+        "message": "Zawarto\u015b\u0107 podpowiedzi"
     },
     "settings_tooltip_content_all": {
         "message": "Tytu\u0142 i URL"
@@ -833,6 +839,9 @@
     "settings_filter_rules": {
         "message": "Wzory URL"
     },
+    "settings_import_export_headline": {
+        "message": "Importuj\/eksportuj ustawienia"
+    },
     "settings_import_export_notice": {
         "message": "Ustawienia rozszerzenia s\u0105 automatycznie synchronizowane pomi\u0119dzy twoimi urz\u0105dzeniami, je\u015bli jeste\u015b zalogowany do swojego konta Google w przegl\u0105darce {browserName}. Je\u015bli nie chcesz zapisywa\u0107 lub dzieli\u0107 si\u0119 swoimi ustawieniami z innymi lud\u017ami, mo\u017cesz u\u017cy\u0107 tej opcji importu\/eksportu."
     },
@@ -850,6 +859,12 @@
     },
     "settings_import_failed": {
         "message": "Nie uda\u0142o si\u0119 zaimportowa\u0107 konfiguracji. Prosz\u0119 wybra\u0107 w\u0142a\u015bciwy plik."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importuj\/eksportuj zak\u0142adki"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Funkcja przegl\u0105darki a nie rozszerzenia. O imporcie i eksporcie mo\u017cesz przeczyta\u0107 wi\u0119cej w {browserName}."
     },
     "settings_theme_changed": {
         "message": "Pomy\u015blnie zmieniono motyw"
@@ -886,6 +901,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Szeroko\u015b\u0107 paska przewijania."
+    },
+    "settings_icon_background_color": {
+        "message": "Kolor t\u0142a"
     },
     "settings_icon_color": {
         "message": "Kolor"

@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Taray\u0131c\u0131n\u0131z\u0131n kenarlar\u0131na yer i\u015faretleriniz i\u00e7in a\u00e7\u0131l\u0131p kapanabilen bir \u00e7ubuk ekler."
     },
+    "extension_version": {
+        "message": "S\u00fcr\u00fcm"
+    },
+    "extension_last_update": {
+        "message": "Son g\u00fcncelle\u015ftirme {1}"
+    },
     "header_bookmarks": {
         "message": "Yer i\u015faretleri"
     },
@@ -827,6 +833,9 @@
     "settings_filter_rules": {
         "message": "URL desenleri"
     },
+    "settings_import_export_headline": {
+        "message": "\u0130\u00e7e aktarma \/ D\u0131\u015fa aktarma ayarlar\u0131"
+    },
     "settings_import_export_notice": {
         "message": "Google hesab\u0131n\u0131zla {browserName}'da oturum a\u00e7t\u0131ysan\u0131z, uzant\u0131 ayarlar\u0131 cihazlar\u0131n\u0131z aras\u0131nda otomatik olarak senkronize edilir. Giri\u015f yapmak istemiyorsan\u0131z veya ayarlar\u0131n\u0131z\u0131 ba\u015fkalar\u0131yla payla\u015fmak istiyorsan\u0131z, bu i\u00e7e \/ d\u0131\u015fa aktarma se\u00e7ene\u011fini kullanabilirsiniz."
     },
@@ -844,6 +853,9 @@
     },
     "settings_import_failed": {
         "message": "Yap\u0131land\u0131rma al\u0131namad\u0131. L\u00fctfen ge\u00e7erli bir dosya se\u00e7in."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "\u0130\u00e7e aktarma \/ D\u0131\u015fa aktarma yer imleri"
     },
     "settings_theme_changed": {
         "message": "Tema de\u011fi\u015fiklikleri ba\u015far\u0131l\u0131"

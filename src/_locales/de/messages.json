@@ -660,7 +660,7 @@
         "message": "Trennlinien"
     },
     "settings_tips_tricks_separators_desc": {
-        "message": "Ein Lesezeicheneintrag mit der URL {1} und einem Titel {2} oder {3} wird in der Sidebar als Trennlinie angezeigt. Du kannst Trennlinien hinzuf\u00fcgen, indem du einen Ordner in der Sidebar mit der rechten Maustaste anklickst und dann das ensprechende {4} symbol ausw\u00e4hlst."
+        "message": "Ein Lesezeicheneintrag mit der URL {1} und einem Titel {2} oder {3} wird in der Sidebar als Trennlinie angezeigt. Du kannst Trennlinien hinzuf\u00fcgen, indem du einen Ordner in der Sidebar mit der rechten Maustaste anklickst und dann das ensprechende {4} Symbol ausw\u00e4hlst."
     },
     "settings_tips_tricks_quick_url_copy": {
         "message": "URL schnell kopieren"
@@ -690,7 +690,7 @@
         "message": "Tastenkombinationen"
     },
     "settings_tips_tricks_keyboard_shortcuts_desc": {
-        "message": "Die Sidebar kann \u00fcber Tastenkombinationen gesteuert werden. Du kannst einen Blick auf die \u00dcbersicht der verf\u00fcgbaren Tastenkombination werfen, in dem du auf das Men\u00fc-Symbol in der Kopfzeile der Sidebar klickst und dort das {1} symbol ausw\u00e4hlst."
+        "message": "Die Sidebar kann \u00fcber Tastenkombinationen gesteuert werden. Du kannst einen Blick auf die \u00dcbersicht der verf\u00fcgbaren Tastenkombination werfen, in dem du auf das Men\u00fc-Symbol in der Kopfzeile der Sidebar klickst und dort das {1} Symbol ausw\u00e4hlst."
     },
     "settings_tips_tricks_synchronization": {
         "message": "Synchronisierung"

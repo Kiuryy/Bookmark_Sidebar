@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Aggiunge una barra laterale selezionabile con tutti i tuoi Segnalibri sul lato sinistro dello schermo."
     },
+    "extension_version": {
+        "message": "Versione"
+    },
+    "extension_last_update": {
+        "message": "Ultimo aggiornamento {1}"
+    },
     "header_bookmarks": {
         "message": "Preferiti"
     },
@@ -832,6 +838,9 @@
     },
     "settings_filter_rules": {
         "message": "Pattern degli indirizzi"
+    },
+    "settings_import_export_headline": {
+        "message": "Importa\/Esporta impostazioni"
     },
     "settings_import_export_notice": {
         "message": "I settaggi dell'estensione sono sincronizzati automaticamente tra i tuoi dispositivi, se sei loggato con la tua utenza Google.Se non vuoi loggarti o vuoi condividere le tue impostazioni con altre persone, puoi usare questa opzione di impostazione\/esportazione."

@@ -18,7 +18,7 @@
             config = ext.helper.model.getData(["b/tooltipContent", "b/tooltipAdditionalInfo", "b/tooltipDelay", "b/sidebarPosition"]);
 
             const styles = ext.helper.model.getData("a/styles");
-            config.scrollBarWidth = +styles.scrollBarWidth.replace("px", "");
+            config.scrollBarWidth = +(styles.scrollBarWidth.toString()).replace("px", "");
         };
 
         /**

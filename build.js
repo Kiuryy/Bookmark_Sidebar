@@ -62,6 +62,11 @@
      * ################################
      */
 
+    /**
+     * Read the package.json of the project and parse its JSON content into an object
+     *
+     * @returns {*}
+     */
     const loadPackageJson = () => {
         return Func.measureTime((resolve) => {
             const fs = require("fs");

@@ -76,6 +76,7 @@
 
             if (parsedData) {
                 packageJson = parsedData;
+                packageJson.preamble = `(c) ${packageJson.author} under ${packageJson.license}`;
                 resolve();
             } else {
                 console.error("Could not load package.json");
@@ -106,7 +107,7 @@
         return Func.measureTime((resolve) => {
             Func.minify([ // parse scss files
                 path.src + "scss/**/*.scss"
-            ], path.dist, false).then(() => {
+            ], path.dist, false, packageJson.preamble).then(() => {
                 resolve();
             });
         }, "Moved css files to dist directory");
@@ -173,7 +174,7 @@
                     path.tmp + "newtab.js",
                     path.src + "js/opts.js",
                     path.src + "js/onboarding.js"
-                ], path.dist + "js/");
+                ], path.dist + "js/", true, packageJson.preamble);
             }).then(() => {
                 return Func.minify([
                     path.src + "js/lib/jsu.js",
@@ -184,7 +185,7 @@
                     path.src + "js/helper/template.js",
                     path.src + "js/helper/stylesheet.js",
                     path.src + "js/helper/font.js"
-                ], path.dist + "js/lib/");
+                ], path.dist + "js/lib/", true, packageJson.preamble);
             }).then(() => {
                 resolve();
             });

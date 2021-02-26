@@ -54,7 +54,6 @@
             preventWebapp = data.preventWebapp;
 
             ext.elm.indicator.css({
-                width: getToggleAreaWidth() + "px",
                 height: toggleArea.height + "%",
                 top: toggleArea.top + "%"
             });
@@ -241,21 +240,6 @@
         };
 
         /**
-         * Return the amount of pixel in which range the sidebar will open if the user clicks
-         *
-         * @returns {int}
-         */
-        const getToggleAreaWidth = () => {
-            if (preventWebapp && ext.helper.utility.isWebapp()) { // sidebar should not be toggleable in PWA
-                return 0;
-            } else if (ext.helper.utility.isWindowed()) { // return different values for the toggle area width in window mode
-                return preventWindowed ? 0 : toggleArea.widthWindowed;
-            } else {
-                return toggleArea.width;
-            }
-        };
-
-        /**
          * Initializes the events to show and hide the bookmark sidebar
          *
          * @returns {Promise}
@@ -264,10 +248,6 @@
             $(document).on("focus", "input,textarea", (e) => { // save the last focussed form element of the website -> will be restored when closing the sidebar
                 lastFocussed = e.target;
             }, {capture: true});
-
-            $(window).on("resize.bs", () => {
-                ext.elm.indicator.css("width", getToggleAreaWidth() + "px");
-            });
 
             ext.elm.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
                 if (e.clientX) {
@@ -476,8 +456,16 @@
                         clientX = window.innerWidth - clientX - 1;
                     }
 
+                    let w = toggleArea.width;
+
+                    if (preventWebapp && ext.helper.utility.isWebapp()) { // sidebar should not be toggleable in PWA
+                        w = 0;
+                    } else if (ext.helper.utility.isWindowed()) { // return different values for the toggle area width in window mode
+                        w = preventWindowed ? 0 : toggleArea.widthWindowed;
+                    }
+
                     const area = {
-                        w: getToggleAreaWidth(),
+                        w: w,
                         h: clientY / window.innerHeight * 100
                     };
 

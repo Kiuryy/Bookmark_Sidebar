@@ -11,7 +11,9 @@
   },
   "scripts": {
     "init": "npm install --only=dev && npm install -g npm-check-updates && npm rebuild node-sass",
-    "release": "ncu -u --packageFile package.json && npm install --only=dev && node build.js",
+    "update": "ncu -u --packageFile package.json && npm install --only=dev",
+    "release": "node build.js",
+    "updateAndRelease": "npm run update && npm run release",
     "scss": "node-sass -o src/css src/scss"
   },
   "devDependencies": {

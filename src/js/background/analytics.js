@@ -142,6 +142,8 @@
                         return;
                     } else if (baseName === "newtab" && attr === "topLinks") { // don't track the exact websites, just the amount
                         val = val.length;
+                    } else if (baseName === "newtab" && attr === "shortcuts") { // @deprecated 03/2021 the attribute is now called 'topLinks'
+                        val = val.length;
                     } else if (baseName === "newtab" && attr === "customGridLinks") { // don't track information about the amount of links in the custom grid
                         return;
                     } else if (baseName === "utility" && attr === "pinnedEntries" && typeof val === "object") { // only track the amount of pinned entries

@@ -30,7 +30,12 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: '*.zip'
-            emailext subject: '$DEFAULT_SUBJECT', body: '$DEFAULT_CONTENT', to: 'admin@redeviation.com'
+            emailext subject: '$DEFAULT_SUBJECT',
+                    body: '''${SCRIPT, template="groovy_html.template"}''',
+                    from: 'jenkins@redeviation.com',
+                    to: '$DEFAULT_RECIPIENTS',
+                    attachLog: true,
+                    attachmentsPattern: '*.zip'
         }
     }
 }

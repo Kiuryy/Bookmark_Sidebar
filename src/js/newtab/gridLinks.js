@@ -285,7 +285,7 @@
             const pages = n.helper.model.getData("n/customGridLinks");
 
             for (let i = 0; i < amount.total; i++) {
-                if (pages[i]) {
+                if (pages[i] && pages[i].title && pages[i].url) {
                     list.push(pages[i]);
                 } else {
                     list.push({title: "", url: ""});

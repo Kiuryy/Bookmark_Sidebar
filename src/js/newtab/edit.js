@@ -117,7 +117,7 @@
                 }
 
                 if (gridType === "custom") {
-                    data["n/customGridLinks"] = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"));
+                    data["n/customGridLinks"] = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"), true);
                 }
 
                 n.helper.model.setData(data).then(() => {
@@ -145,9 +145,10 @@
          * Returns a list of links with title and url by extracting these data from the given list of <a> elements
          *
          * @param elmList
+         * @param allowEmpty
          * @returns {[]}
          */
-        const getLinkInformation = (elmList) => {
+        const getLinkInformation = (elmList, allowEmpty = false) => {
             const ret = [];
             elmList.forEach((elm) => {
                 const label = $(elm).text().trim();
@@ -157,6 +158,11 @@
                     ret.push({
                         title: label,
                         url: url
+                    });
+                } else if (allowEmpty) {
+                    ret.push({
+                        title: "",
+                        url: ""
                     });
                 }
             });
@@ -475,7 +481,7 @@
                 }
 
                 s.on("input change", (e) => {
-                    const linkList = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"));
+                    const linkList = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"), true);
 
                     n.helper.gridLinks["setMax" + type](e.currentTarget.value).then(() => { // recover the (maybe changed) links, since changing the grid layout will reset all unsaved changes
                         n.elm.gridLinks.find("> ul > li > a").forEach((elm, i) => {

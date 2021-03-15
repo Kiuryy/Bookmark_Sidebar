@@ -30,7 +30,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: '*.zip'
-            emailext body: "${DEFAULT_CONTENT}", subject: "${DEFAULT_SUBJECT}", to: "admin@redeviation.com"
+            emailext subject: '$DEFAULT_SUBJECT', body: '$DEFAULT_CONTENT', to: 'admin@redeviation.com'
         }
     }
 }

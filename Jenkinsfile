@@ -33,8 +33,7 @@ pipeline {
             emailext subject: '$DEFAULT_SUBJECT',
                     body: '''${SCRIPT, template="report.template"}''',
                     from: 'jenkins@redeviation.com',
-                    to: '$DEFAULT_RECIPIENTS',
-                    attachLog: true
+                    to: '$DEFAULT_RECIPIENTS'
         }
     }
 }

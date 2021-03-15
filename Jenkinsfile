@@ -31,11 +31,10 @@ pipeline {
         always {
             archiveArtifacts artifacts: '*.zip'
             emailext subject: '$DEFAULT_SUBJECT',
-                    body: '''${SCRIPT, template="groovy_html.template"}''',
+                    body: '''${SCRIPT, template="report.template"}''',
                     from: 'jenkins@redeviation.com',
                     to: '$DEFAULT_RECIPIENTS',
-                    attachLog: true,
-                    attachmentsPattern: '*.zip'
+                    attachLog: true
         }
     }
 }

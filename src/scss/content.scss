@@ -83,6 +83,7 @@ body > iframe#redeviation-bs-sidebar {
   height: 0;
   z-index: #{2147483647 - 1};
   background-color: $__sidebarMaskColor !important;
+  color-scheme: normal !important;
   speak: none;
   border: none;
   display: block !important;

@@ -10,12 +10,14 @@ pipeline {
             steps {
                 echo sh(returnStdout: true, script: 'env')
                 sh 'node -v'
+                sh 'npm --version'
+                sh 'git log --reverse -1'
             }
         }
         stage('Init') {
             steps {
-                sh 'git log --reverse -1'
-                sh 'npm --version'
+                sh 'rm -f package-lock.json'
+                sh 'rm -rf node_modules/'
                 sh 'npm run init'
             }
         }

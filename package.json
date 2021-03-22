@@ -20,16 +20,16 @@
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
     "del": "^6.0.0",
-    "eslint": "^7.20.0",
+    "eslint": "^7.22.0",
     "fs-extra": "^9.1.0",
     "glob-concat": "^1.0.2",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.1",
     "node-sass": "^5.0.0",
-    "npm-check-updates": "^11.1.9",
+    "npm-check-updates": "^11.3.0",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^5.6.0",
+    "terser": "^5.6.1",
     "zip-dir": "^2.0.0"
   }
 }

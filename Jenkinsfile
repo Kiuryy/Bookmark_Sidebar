@@ -37,5 +37,8 @@ pipeline {
                     from: 'jenkins@redeviation.com',
                     to: '$DEFAULT_RECIPIENTS'
         }
+        cleanup {
+            cleanWs()
+        }
     }
 }

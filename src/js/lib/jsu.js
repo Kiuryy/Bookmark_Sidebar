@@ -690,7 +690,9 @@
 
             this.forEach((node) => {
                 cl.forEach((c) => {
-                    node.classList.add(c);
+                    if (!node.classList.contains(c)) {
+                        node.classList.add(c);
+                    }
                 });
             });
             return this;
@@ -710,7 +712,9 @@
 
             this.forEach((node) => {
                 cl.forEach((c) => {
-                    node.classList.remove(c);
+                    if (node.classList.contains(c)) {
+                        node.classList.remove(c);
+                    }
                 });
             });
             return this;

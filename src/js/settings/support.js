@@ -272,6 +272,7 @@
 
             if (data && data.suggestions && data.controls) {
                 s.elm.support.faq.addClass($.cl.loading);
+                s.elm.support.feedback.addClass($.cl.hidden);
 
                 Object.entries(data.suggestions).some(([key, obj]) => {
                     if (obj.question && obj.question.faq) {
@@ -298,6 +299,10 @@
                                 .removeClass($.cl.hidden);
 
                             s.elm.support.faq.removeClass($.cl.loading);
+
+                            return $.delay(120);
+                        }).then(() => {
+                            s.elm.support.feedback.removeClass($.cl.hidden);
                         });
                     }
                 });

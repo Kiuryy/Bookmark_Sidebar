@@ -423,7 +423,7 @@
         /**
          * Checks the content of the feedback fields and sends the content via ajax if they are filled properly
          */
-        const sendFeedback = () => {
+        const sendFeedback = async () => {
             const messageText = s.elm.textarea.feedbackMsg[0].value;
             const emailText = s.elm.field.feedbackEmail[0].value;
 
@@ -454,6 +454,7 @@
                         email: emailText,
                         msg: messageText,
                         version: $.opts.manifest.version_name,
+                        lastUpdate: await s.helper.model.call("lastUpdateDate"),
                         ua: navigator.userAgent,
                         lang: s.helper.i18n.getLanguage(),
                         userType: s.helper.model.getUserType(),

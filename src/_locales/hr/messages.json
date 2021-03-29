@@ -620,6 +620,102 @@
     "settings_expert_save_error": {
         "message": "Postavke nije mogu\u0107e spremiti. Ispravite svoj unos."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Prilagodite pona\u0161anje va\u0161e bo\u010dne trake"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Postoje razne opcije koje mo\u017eete promijeniti za upravljanje ovim pro\u0161irenjem. Na primjer, mo\u017eete promijeniti na\u010din na koji bi se bo\u010dna traka trebala povu\u0107i ili kako bi se trebale otvarati va\u0161e oznake. Ako ne \u017eelite da se bo\u010dna traka u\u010ditava na svakoj stranici, to mo\u017eete konfigurirati i pomo\u0107u odgovaraju\u0107ih postavki."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Prilagodite izgled va\u0161e bo\u010dne trake"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Izgled bo\u010dne trake mo\u017eete u potpunosti promijeniti prema svojim potrebama. Postoje razne mogu\u0107nosti za promjenu veli\u010dine slova, razmaka, boja, ikona i mnogih drugih. Tako\u0111er mo\u017eete birati izme\u0111u unaprijed definiranih postavki kako biste brzo u\u010dinili da bo\u010dna traka izgleda upravo onako kako \u017eelite."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Dali znate?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Sljede\u0107i savjet"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Brzo pretra\u017eivanje"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Ako otvorite bo\u010dnu traku, oznake mo\u017eete po\u010deti tra\u017eiti tako \u0161to \u0107ete po\u010deti tipkati. Nije potrebno prvo kliknuti ikonu pretra\u017eivanja u zaglavlju bo\u010dne trake."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Zona aktivacije"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Prema zadanim postavkama, mo\u017eete pre\u0107i kursorom preko \u010ditavog ruba prozora preglednika. Aktivacijsko podru\u010dje mo\u017eete smanjiti tako da dopustite otvaranje bo\u010dne trake samo na dijelu visine preglednika. Na primjer, bo\u010dnu traku mo\u017eete promijeniti da se prika\u017ee samo kada kliknete podru\u010dje za aktiviranje u donjem lijevom kutu prozora preglednika. To mo\u017ee biti korisno da se sprije\u010di da se bo\u010dna traka nenamjerno prika\u017ee klikom na veze na otvorenoj stranici."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Brzo ozna\u010divanje"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Bilo koji URL mo\u017eete povu\u0107i u bo\u010dnu traku i ispustiti ga na \u017eeljeno mjesto. Na taj na\u010din mo\u017eete ozna\u010diti i povu\u0107i trenutni URL kartice preglednika. Tako\u0111er mo\u017eete povu\u0107i simbol {1} lijevo od adresne trake na bo\u010dnu traku da biste ozna\u010dili trenutnu stranicu bez prethodnog ozna\u010davanja cijele adresne trake."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Razdvaja\u010de"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Unos oznake s URL-om {1} i naslovom {2} ili {3} prikazat \u0107e se kao razdjelnik na bo\u010dnoj traci. Razdvaja\u010de mo\u017eete dodati desnim klikom na bilo koju mapu na bo\u010dnoj traci, a zatim na gumb {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Brzo kopiranje URL-a"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Da biste kopirali URL oznake na bo\u010dnoj traci u me\u0111uspremnik, mo\u017eete pritisnuti {1} prilikom prelaska kursorom preko unosa."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Otvori sve oznake"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Da biste otvorili sve oznake u mapi, napravite srednji klik na mapu. Tako\u0111er mo\u017eete i pritisnuti {1} dok klikate mapu lijevom tipkom mi\u0161a."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Sakrij unose"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "S bo\u010dne trake mo\u017eete sakriti pojedina\u010dne oznake ili \u010dak mape. Mo\u017eete desnom tipkom mi\u0161a kliknuti bilo koji unos na bo\u010dnoj traci, a zatim kliknuti dugme {1} u kontekstnom izborniku. Da biste ponovno prikazali skrivene unose, mo\u017eete kliknuti ikonu izbornika u zaglavlju bo\u010dne trake i tamo ozna\u010diti odgovaraju\u0107i potvrdni okvir."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Otvorite sve podmape"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Da biste brzo otvorili mapu sa svim otvorenim podmapama, dvaput kliknite mapu na bo\u010dnoj traci."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Tipkovni\u010dki pre\u010daci"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Bo\u010dnom trakom mo\u017eete upravljati pomo\u0107u tipkovni\u010dkih pre\u010daca. Popis pre\u010daca mo\u017eete pogledati klikom na ikonu izbornika u zaglavlju bo\u010dne trake, a zatim na gumb {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sinkronizacija"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Sve va\u0161e postavke bo\u010dne trake sinkronizirat \u0107e se izme\u0111u va\u0161ih ure\u0111aja ako u postavkama omogu\u0107ite opcije sinkronizacije va\u0161eg preglednika. \u010cak i bez Premium opcije."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Potra\u017eite va\u0161e postavke sinkronizacije"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Pro\u0161irenje je dostupno na {1} razli\u010ditim jezicima. Prijevodi su napravljeni u zajednici i svi mogu pomo\u0107i i doprinijeti prevo\u0111enjem teksta ovog pro\u0161irenja na druge jezike. Prijevodi \u0107e biti odobreni i zatim dodani u pro\u0161irenje sa sljede\u0107im a\u017euriranjem."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Ovo pro\u0161irenje je projekt za jednog \u010dovjeka koji je zapo\u010deo kao hobi projekt za osobnu upotrebu."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Prva verzija ovog pro\u0161irenja je objavljena u studenom 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Desni klik"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Desnom tipkom mi\u0161a mo\u017eete kliknuti bilo koju oznaku ili mapu na bo\u010dnoj traci da biste otkrili dodatne mogu\u0107nosti. Na primjer, mo\u017eete ure\u0111ivati postoje\u0107e oznake na vrhu bo\u010dne trake. Kada desnom tipkom mi\u0161a kliknete mapu, mo\u017eete zapo\u010deti provjeru oznaka kako biste na\u0161li neaktivne poveznice ili a\u017eurirane URL-ove oznaka."
+    },
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku"
     },
@@ -902,6 +998,9 @@
     "settings_scroll_bar_width": {
         "message": "\u0160irina trake za pomicanje"
     },
+    "settings_icon_background_color": {
+        "message": "Boja Pozadine"
+    },
     "settings_icon_color": {
         "message": "Boja"
     },
@@ -912,7 +1011,7 @@
         "message": "Prilago\u0111eno"
     },
     "settings_icon_color_desc_1": {
-        "message": "Boja ikone automatski \u0107e se postaviti prema shemi boja va\u0161eg sustava (svijetla ili tamna). Mo\u017eete i odrediti vlastitu prilago\u0111enu boju ikone."
+        "message": "Boja ikone automatski \u0107e se postaviti prema prilago\u0111enim bojama va\u0161eg sustava (svijetla ili tamna). Mo\u017eete i odrediti vlastitu prilago\u0111enu boju ikone."
     },
     "settings_icon_color_desc_2": {
         "message": "Imajte na umu da automatska boja ne radi ako koristite prilago\u0111enu temu {browserName}."
@@ -945,10 +1044,10 @@
         "message": "Efekt zamagljivanja pozadine"
     },
     "settings_bookmarks_dir_icon": {
-        "message": "Ikona mape spremanja"
+        "message": "Ikona mape"
     },
     "settings_bookmarks_dir_color": {
-        "message": "Boja ikone mape spremanja"
+        "message": "Boja ikone mape"
     },
     "settings_bookmarks_font_size": {
         "message": "Veli\u010dina fonta oznaka"
@@ -957,7 +1056,7 @@
         "message": "Veli\u010dina ikone oznaka"
     },
     "settings_directories_icon_size": {
-        "message": "Veli\u010dina ikone mapa spremanja"
+        "message": "Veli\u010dina ikone mapa"
     },
     "settings_directory_arrows": {
         "message": "Strelice mape spremanja"

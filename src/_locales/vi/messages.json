@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Th\u00eam m\u1ed9t thanh b\u00ean ch\u1ee9a nh\u1eefng d\u1ea5u trang \u1edf c\u1ea1nh tr\u00ecnh duy\u1ec7t."
     },
+    "extension_version": {
+        "message": "Phi\u00ean b\u1ea3n"
+    },
+    "extension_last_update": {
+        "message": "L\u1ea7n cu\u1ed1i c\u1eadp nh\u1eadp v\u00e0o {1}"
+    },
     "header_bookmarks": {
         "message": "C\u00e1c d\u1ea5u trang"
     },

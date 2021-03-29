@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Tilf\u00f8jer en skiftebar sidebj\u00e6lke med alle dine bogm\u00e6rker i kanten af dit browservindue."
     },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_last_update": {
+        "message": "Senest opdateret den (1)"
+    },
     "header_bookmarks": {
         "message": "Bogm\u00e6rker"
     },
@@ -64,6 +70,9 @@
     },
     "contextmenu_new_tab_incognito": {
         "message": "\u00c5bn i Inkognito vindue"
+    },
+    "contextmenu_copy": {
+        "message": "Kopier URL til udklipsholder"
     },
     "contextmenu_add_bookmark": {
         "message": "Tilf\u00f8j bogm\u00e6rke"
@@ -265,6 +274,9 @@
     },
     "newtab_grid_links_most_used": {
         "message": "Mest brugte bogm\u00e6rker"
+    },
+    "newtab_grid_links_custom": {
+        "message": "Brugerdefinerede poster"
     },
     "newtab_grid_links_hidden": {
         "message": "Vis ikke sider"
@@ -490,6 +502,9 @@
     },
     "settings_title": {
         "message": "Indstillinger"
+    },
+    "settings_menu_dashboard": {
+        "message": "Overblik"
     },
     "settings_menu_sidebar": {
         "message": "Sidebar"
@@ -824,6 +839,9 @@
     "settings_filter_rules": {
         "message": "URL-m\u00f8nstre"
     },
+    "settings_import_export_headline": {
+        "message": "Importer\/Eksporter Indstillinger"
+    },
     "settings_import_export_notice": {
         "message": "Sidebarens ops\u00e6tning synkroniseres automatisk mellem dine enheder, hvis du er logget ind med din {browserName} konto. Hvis du ikke \u00f8nsker at logge ind eller at dele din ops\u00e6tning, kan du istedet benytte import\/eksport funktionen."
     },
@@ -831,16 +849,22 @@
         "message": "Du kan eksportere dine udvidelsesindstillinger og gemme dem lokalt p\u00e5 din computer. Du kan importere den tidligere eksporterede fil p\u00e5 en hvilken som helst computer, hvor udvidelsen er installeret."
     },
     "settings_export": {
-        "message": "Eksportindstillinger"
+        "message": "Eksporter Indstillinger"
     },
     "settings_import": {
-        "message": "Importindstillinger"
+        "message": "Importer Indstillinger"
     },
     "settings_import_saved": {
         "message": "Konfigurationen importeret med succes"
     },
     "settings_import_failed": {
         "message": "Kunne ikke importere konfigurationen. V\u00e6lg venligst en gyldig fil."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importer\/Eksport'er Bogm\u00e6rker"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Dette er en browser funktion og ikke en del af udvidedelsen. L\u00e6s mere om hvordan der importeres\/eksporteres bogm\u00e6rker i {browserName}."
     },
     "settings_theme_changed": {
         "message": "\u00c6ndret tema succesfuldt"
@@ -877,6 +901,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Rullebar bredde"
+    },
+    "settings_icon_background_color": {
+        "message": "Baggrundsfarve"
     },
     "settings_icon_color": {
         "message": "Farve"
@@ -985,6 +1012,12 @@
     },
     "settings_theme_glass_desc": {
         "message": "Det her tema g\u00f8r din bagground p\u00e5 sidebarren halv-gennemsigtig og giver en bl\u00f8rret effekt. du kan justerer den her effekt og gemmensigtigheden af sidebarren"
+    },
+    "settings_theme_focus": {
+        "message": "Fokus tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Dette tema reducerer brugen af animationer og benytter et t\u00e6t pakket layout af elementer for at forbedre produktivitet og ydelse."
     },
     "settings_install_theme": {
         "message": "Installer tema"

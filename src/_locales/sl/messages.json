@@ -620,6 +620,102 @@
     "settings_expert_save_error": {
         "message": "Nastavitev ni bilo mogo\u010de shraniti. Prosimo, popravite vnos."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Nastavite obna\u0161anje stranske vrstice"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Za nadzor raz\u0161iritve lahko spremenite razli\u010dne mo\u017enosti. Lahko na primer spremenite, kako naj stranska vrstica drsi ali kako se odpirajo va\u0161i zaznamki. \u010ce ne \u017eelite, da se stranska vrstica nalaga na vsaki strani, lahko to nastavite tudi z uporabo ustreznih pravil."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Spremenite videz stranske vrstice"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Videz stranske vrstice lahko v celoti spremenite tako, da ustreza va\u0161im potrebam. Obstajajo razli\u010dne mo\u017enosti za spreminjanje velikosti pisave, razmika med vrsticami, barv, ikon in \u0161e veliko ve\u010d. Izbirate lahko tudi med vnaprej dolo\u010denimi modeli in prednastavljenimi mo\u017enostmi, da bo stranska vrstica hitro videti, kot \u017eelite."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Ali ste vedeli?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Naslednji namig"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Hitro iskanje"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "\u010ce odprete stransko vrstico, lahko zaznamke i\u0161\u010dete tako, da za\u010dnete tipkati. Najprej ni treba klikniti ikone za iskanje v glavi stranske vrstice."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktivacijsko obmo\u010dje"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "\u010ce \u017eelite odpreti stransko vrstico, lahko privzeto premaknete celoten rob okna brskalnika. Aktivacijsko obmo\u010dje lahko zmanj\u0161ate, \u010de dovolite, da se stranska vrstica odpre le na delu vi\u0161ine brskalnika. Stransko vrstico lahko na primer spremenite tako, da se prika\u017ee samo, ko kliknete obmo\u010dje za aktiviranje v spodnjem levem kotu okna brskalnika. To je lahko koristno, da prepre\u010dite nenamerno prikazovanje stranske vrstice, ko kliknete povezave na spletnem mestu."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Hitri zaznamki"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Vsak URL lahko povle\u010dete naravnost v stransko vrstico in ga spustite na \u017eeleno mesto. Na ta na\u010din lahko celo ozna\u010dite in povle\u010dete trenutni URL zavihka brskalnika. Simbol {1} lahko povle\u010dete tudi levo od naslovne vrstice v stransko vrstico, \u010de \u017eelite trenutno stran dodati med zaznamke, ne da bi prej ozna\u010dili celotno naslovno vrstico."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Lo\u010dila"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Vnos zaznamka z URL-jem {1} in naslovom {2} ali {3} bo prikazan kot lo\u010dilo v stranski vrstici. Lo\u010dila lahko dodate tako, da z desno mi\u0161kino tipko kliknete katero koli mapo v stranski vrstici in nato kliknete gumb {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Hitra kopija URL-ja"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "\u010ce \u017eelite kopirati URL zaznamka v stranski vrstici v odlo\u017ei\u0161\u010de, lahko med premikanjem vnosa pritisnete {1}."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Odprite vse zaznamke"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "\u010ce \u017eelite odpreti vse zaznamke v mapi, lahko srednjo mapo kliknete. Lahko pa pritisnete {1}, medtem ko z levim gumbom mi\u0161ke kliknete mapo."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Skrij vnose"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "V stranski vrstici lahko skrijete posamezne zaznamke ali celo mape. Z desno mi\u0161kino tipko lahko kliknete kateri koli vnos v stranski vrstici in nato v kontekstnem meniju kliknete gumb {1}. \u010ce \u017eelite znova prikazati skrite vnose, lahko v glavi stranske vrstice kliknete ikono menija in tam omogo\u010dite ustrezno potrditveno polje."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Raz\u0161irite vse podmape"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "\u010ce \u017eelite hitro odpreti tudi mapo z vsemi odprtimi podmapami, lahko dvokliknete mapo v stranski vrstici."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Bli\u017enjice na tipkovnici"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Stransko vrstico lahko nadzorujete z bli\u017enjicami na tipkovnici. Seznam bli\u017enjic si lahko ogledate tako, da v glavi stranske vrstice kliknete ikono menija in nato kliknete gumb {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sinhronizacija"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Vse nastavitve stranske vrstice bodo sinhronizirane med va\u0161imi napravami, \u010de v nastavitvah omogo\u010dite mo\u017enosti sinhronizacije brskalnika. Tudi brez Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Poi\u0161\u010dite nastavitve sinhronizacije"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Raz\u0161iritev je na voljo v {1} razli\u010dnih jezikih. Prevodi so narejeni v skupnosti in vsak lahko prispeva s prevajanjem besedil raz\u0161iritve v druge jezike. Prevodi bodo odobreni in nato dodani v raz\u0161iritev z naslednjo posodobitvijo."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Ta raz\u0161iritev je projekt enega \u010dloveka, ki se je za\u010del kot hobi projekt za osebno uporabo."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Prva razli\u010dica te raz\u0161iritve je bila izdana novembra 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Desni klik"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "\u010ce \u017eelite razkriti dodatne mo\u017enosti, lahko z desno mi\u0161kino tipko kliknete kateri koli zaznamek ali mapo v stranski vrstici. Na primer, na vrhu stranske vrstice lahko uredite obstoje\u010de zaznamke ali zaznamke. Ko z desno mi\u0161kino tipko kliknete mapo, lahko za\u010dnete preverjati zaznamke, da prepoznate nepravilne ali posodobljene URL-je zaznamkov."
+    },
     "settings_open_action": {
         "message": "Odpri vrstico z zaznamki"
     },

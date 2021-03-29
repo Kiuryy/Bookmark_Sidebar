@@ -998,6 +998,9 @@
     "settings_scroll_bar_width": {
         "message": "Rullningslistbredd"
     },
+    "settings_icon_background_color": {
+        "message": "Bakgrundsf\u00e4rg"
+    },
     "settings_icon_color": {
         "message": "F\u00e4rg"
     },

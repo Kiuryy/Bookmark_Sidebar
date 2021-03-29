@@ -620,6 +620,102 @@
     "settings_expert_save_error": {
         "message": "Nelze ulo\u017eit nastaven\u00ed. Opravte svoje nastaven\u00ed."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Konfigurace chov\u00e1n\u00ed postrann\u00edho panelu"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "K ovl\u00e1d\u00e1n\u00ed roz\u0161\u00ed\u0159en\u00ed m\u016f\u017eete zm\u011bnit r\u016fzn\u00e9 mo\u017enosti. M\u016f\u017eete nap\u0159\u00edklad zm\u011bnit zp\u016fsob zasunut\u00ed postrann\u00edho panelu nebo zp\u016fsob otev\u00edr\u00e1n\u00ed z\u00e1lo\u017eek. Pokud nechcete, aby se postrann\u00ed panel na\u010d\u00edtal na ka\u017edou str\u00e1nku, m\u016f\u017eete jej tak\u00e9 nakonfigurovat pomoc\u00ed p\u0159\u00edslu\u0161n\u00fdch pravidel."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Zm\u011bnit vzhled postrann\u00edho panelu"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Vzhled postrann\u00edho panelu m\u016f\u017eete zcela zm\u011bnit podle sv\u00fdch pot\u0159eb. Existuje mnoho mo\u017enost\u00ed, jak zm\u011bnit velikost p\u00edsma, \u0159\u00e1dkov\u00e1n\u00ed, barvy, ikony a mnoho dal\u0161\u00edho. M\u016f\u017eete si tak\u00e9 vybrat z p\u0159eddefinovan\u00fdch n\u00e1vrh\u016f a p\u0159ednastaven\u00fdch mo\u017enost\u00ed, aby postrann\u00ed panel rychle vypadal, jak chcete."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "V\u011bd\u011bl jsi?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Dal\u0161\u00ed tip"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Rychl\u00e9 hled\u00e1n\u00ed"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Pokud otev\u0159ete postrann\u00ed panel, m\u016f\u017eete z\u00e1lo\u017eky vyhled\u00e1vat pouh\u00fdm za\u010d\u00e1tkem psan\u00ed. Nen\u00ed t\u0159eba nejprve klikat na ikonu vyhled\u00e1v\u00e1n\u00ed v z\u00e1hlav\u00ed postrann\u00edho panelu."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktiva\u010dn\u00ed oblast"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Ve v\u00fdchoz\u00edm nastaven\u00ed lze p\u0159esunout cel\u00fd okraj okna prohl\u00ed\u017ee\u010de a otev\u0159\u00edt postrann\u00ed panel. Aktiva\u010dn\u00ed oblast m\u016f\u017eete zmen\u0161it tak, \u017ee postrann\u00ed panel nech\u00e1te otev\u0159\u00edt pouze v \u010d\u00e1sti v\u00fd\u0161ky prohl\u00ed\u017ee\u010de. Nap\u0159\u00edklad m\u016f\u017eete zm\u011bnit postrann\u00ed panel tak, aby se zobrazoval pouze po kliknut\u00ed na aktiva\u010dn\u00ed oblast v lev\u00e9m doln\u00edm rohu okna prohl\u00ed\u017ee\u010de. To m\u016f\u017ee b\u00fdt u\u017eite\u010dn\u00e9, abyste zabr\u00e1nili necht\u011bn\u00e9mu zobrazen\u00ed postrann\u00edho panelu p\u0159i klepnut\u00ed na odkazy na webu."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Rychl\u00e9 z\u00e1lo\u017eky"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Libovolnou adresu URL m\u016f\u017eete p\u0159et\u00e1hnout p\u0159\u00edmo do postrann\u00edho panelu a p\u0159et\u00e1hnout ji na po\u017eadovan\u00e9 m\u00edsto. T\u00edmto zp\u016fsobem m\u016f\u017eete dokonce ozna\u010dit a p\u0159et\u00e1hnout aktu\u00e1ln\u00ed adresu URL karty prohl\u00ed\u017ee\u010de. M\u016f\u017eete tak\u00e9 p\u0159et\u00e1hnout symbol {1} vlevo od adresn\u00edho \u0159\u00e1dku do postrann\u00edho panelu a ozna\u010dit aktu\u00e1ln\u00ed str\u00e1nku jako z\u00e1lo\u017eku, ani\u017e byste nejprve ozna\u010dili cel\u00fd adresn\u00ed \u0159\u00e1dek."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Odd\u011blova\u010de"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Polo\u017eka z\u00e1lo\u017eky s adresou URL {1} a nadpisem {2} nebo {3} se zobraz\u00ed jako odd\u011blova\u010d v postrann\u00edm panelu. Odd\u011blova\u010de m\u016f\u017eete p\u0159idat kliknut\u00edm prav\u00fdm tla\u010d\u00edtkem na libovolnou slo\u017eku v postrann\u00edm panelu a n\u00e1sledn\u00fdm kliknut\u00edm na tla\u010d\u00edtko {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Rychl\u00e9 kop\u00edrov\u00e1n\u00ed URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Chcete-li zkop\u00edrovat adresu URL z\u00e1lo\u017eky v postrann\u00edm panelu do schr\u00e1nky, m\u016f\u017eete p\u0159i um\u00edst\u011bn\u00ed kurzoru stisknout {1}."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Otev\u0159\u00edt v\u0161echny z\u00e1lo\u017eky"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Chcete-li otev\u0159\u00edt v\u0161echny z\u00e1lo\u017eky ve slo\u017ece, klikn\u011bte na slo\u017eku prost\u0159edn\u00edm tla\u010d\u00edtkem. P\u0159\u00edpadn\u011b m\u016f\u017eete stisknout tla\u010d\u00edtko {1} a kliknout na slo\u017eku lev\u00fdm tla\u010d\u00edtkem my\u0161i."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Skr\u00fdt polo\u017eky"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Na bo\u010dn\u00edm panelu m\u016f\u017eete skr\u00fdt jednotliv\u00e9 z\u00e1lo\u017eky nebo dokonce slo\u017eky. M\u016f\u017eete kliknout prav\u00fdm tla\u010d\u00edtkem na libovoln\u00fd z\u00e1znam v postrann\u00edm panelu a pot\u00e9 kliknout na tla\u010d\u00edtko {1} v kontextov\u00e9 nab\u00eddce. Chcete-li znovu zobrazit skryt\u00e9 polo\u017eky, m\u016f\u017eete kliknout na ikonu nab\u00eddky v z\u00e1hlav\u00ed postrann\u00edho panelu a za\u0161krtnout p\u0159\u00edslu\u0161n\u00e9 za\u0161krt\u00e1vac\u00ed pol\u00ed\u010dko."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Rozbalit v\u0161echny podslo\u017eky"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Chce\u0161-li rychle otev\u0159\u00edt slo\u017eku se v\u0161emi jej\u00edmi podslo\u017ekami, m\u016f\u017ee\u0161 tak\u00e9 dvakr\u00e1t kliknout na slo\u017eku v postrann\u00edm panelu."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Kl\u00e1vesov\u00e9 zkratky"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Postrann\u00ed panel lze ovl\u00e1dat pomoc\u00ed kl\u00e1vesov\u00fdch zkratek. Seznam zkratek si m\u016f\u017eete prohl\u00e9dnout kliknut\u00edm na ikonu nab\u00eddky v z\u00e1hlav\u00ed postrann\u00edho panelu a kliknut\u00edm na tla\u010d\u00edtko {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronizace"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "V\u0161echna va\u0161e nastaven\u00ed postrann\u00edho panelu budou synchronizov\u00e1na mezi va\u0161imi za\u0159\u00edzen\u00edmi, pokud v nastaven\u00ed povol\u00edte mo\u017enosti synchronizace va\u0161eho prohl\u00ed\u017ee\u010de. I bez Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Vyhledejte nastaven\u00ed synchronizace"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Roz\u0161\u00ed\u0159en\u00ed je k dispozici v {1} r\u016fzn\u00fdch jazyc\u00edch. P\u0159eklady jsou vytvo\u0159eny komunitou a ka\u017ed\u00fd m\u016f\u017ee pomoci p\u0159isp\u011bt p\u0159ekladem text\u016f roz\u0161\u00ed\u0159en\u00ed do jin\u00fdch jazyk\u016f. P\u0159eklady budou schv\u00e1leny a pot\u00e9 p\u0159id\u00e1ny do roz\u0161\u00ed\u0159en\u00ed s dal\u0161\u00ed aktualizac\u00ed."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Toto roz\u0161\u00ed\u0159en\u00ed je projekt jednoho \u010dlov\u011bka, kter\u00fd za\u010dal jako hobby projekt pro osobn\u00ed pou\u017eit\u00ed."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Prvn\u00ed verze tohoto roz\u0161\u00ed\u0159en\u00ed byla vyd\u00e1na v listopadu 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Klikni prav\u00fdm tla\u010d\u00edtkem my\u0161i"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Kliknut\u00edm prav\u00fdm tla\u010d\u00edtkem na libovolnou z\u00e1lo\u017eku nebo slo\u017eku v postrann\u00edm panelu zobraz\u00edte dal\u0161\u00ed mo\u017enosti. M\u016f\u017eete nap\u0159\u00edklad upravit existuj\u00edc\u00ed z\u00e1lo\u017eky nebo p\u0159ipnout polo\u017eky do horn\u00ed \u010d\u00e1sti postrann\u00edho panelu. Kdy\u017e kliknete prav\u00fdm tla\u010d\u00edtkem na slo\u017eku, m\u016f\u017eete spustit kontrolu z\u00e1lo\u017eek a identifikovat po\u0161kozen\u00e9 nebo aktualizovan\u00e9 adresy URL z\u00e1lo\u017eek."
+    },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },

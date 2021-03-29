@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Menambahkan sebuah sidebar yang dapat di toggle dengan semua bookmark di samping layar kamu."
     },
+    "extension_version": {
+        "message": "Versi"
+    },
+    "extension_last_update": {
+        "message": "Terakhir diperbarui {1}"
+    },
     "header_bookmarks": {
         "message": "Bookmarks"
     },
@@ -64,6 +70,9 @@
     },
     "contextmenu_new_tab_incognito": {
         "message": "Buka di jendela penyamaran"
+    },
+    "contextmenu_copy": {
+        "message": "Copy URL ke clipboard"
     },
     "contextmenu_add_bookmark": {
         "message": "Tambahkan bookmark"
@@ -823,6 +832,9 @@
     },
     "settings_filter_rules": {
         "message": "Pola URL"
+    },
+    "settings_import_export_headline": {
+        "message": "Setting Impor\/Expor"
     },
     "settings_import_export_notice": {
         "message": "Pengaturan ekstensi disinkronkan secara otomatis antara perangkat Anda, jika Anda masuk ke {browserName} dengan akun Anda. Jika Anda tidak ingin masuk atau ingin berbagi pengaturan dengan orang atau perangkat lain, Anda bisa menggunakan opsi impor\/ekspor ini."

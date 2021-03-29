@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Prid\u00e1 prep\u00ednate\u013en\u00fd panel s va\u0161imi z\u00e1lo\u017ekami na okraj obrazovky prehliada\u010da."
     },
+    "extension_version": {
+        "message": "Verzia"
+    },
+    "extension_last_update": {
+        "message": "Naposledy aktualizovan\u00e9 d\u0148a {1}"
+    },
     "header_bookmarks": {
         "message": "Z\u00e1lo\u017eky"
     },
@@ -614,6 +620,102 @@
     "settings_expert_save_error": {
         "message": "Nastavenia sa nepodarilo ulo\u017ei\u0165. Opravte svoje zadania."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Nastavte spr\u00e1vanie bo\u010dn\u00e9ho panela."
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Existuje mnoho mo\u017enost\u00ed, pre zmenu ovl\u00e1dania roz\u0161\u00edrenia. M\u00f4\u017eete napr\u00edklad zmeni\u0165 sp\u00f4sob zas\u00favania bo\u010dn\u00e9ho panela alebo otv\u00e1rania z\u00e1lo\u017eiek. Ak nechcete, aby sa bo\u010dn\u00fd panel otv\u00e1ral na ka\u017edej str\u00e1nke, m\u00f4\u017eete to tie\u017e nakonfigurova\u0165 pomocou vhodn\u00fdch pravidiel."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Zme\u0148te vzh\u013ead bo\u010dn\u00e9ho panela"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Vzh\u013ead bo\u010dn\u00e9ho panela m\u00f4\u017eete \u00faplne zmeni\u0165 tak, aby vyhovoval va\u0161im potreb\u00e1m. K dispoz\u00edcii s\u00fa r\u00f4zne mo\u017enosti zmeny ve\u013ekosti p\u00edsma, riadkovania, farieb, ikon a mnoho \u010fal\u0161\u00edch. M\u00f4\u017eete si tie\u017e vybra\u0165 z preddefinovan\u00fdch dizajnov a prednastaven\u00fdch mo\u017enost\u00ed, v\u010faka ktor\u00fdm bude bo\u010dn\u00fd panel r\u00fdchlo vyzera\u0165 tak, ako chcete."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Vedeli ste ?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "\u010eal\u0161\u00ed tip"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "R\u00fdchle vyh\u013ead\u00e1vanie"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Ak otvor\u00edte bo\u010dn\u00fd panel, m\u00f4\u017eete z\u00e1lo\u017eky vyh\u013ead\u00e1va\u0165 tak, \u017ee sta\u010d\u00ed za\u010da\u0165 iba p\u00edsa\u0165. Nie je potrebn\u00e9 najsk\u00f4r klikn\u00fa\u0165 na ikonu vyh\u013ead\u00e1vania v hlavi\u010dke bo\u010dn\u00e9ho panela."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Oblas\u0165 aktiv\u00e1cie"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "V predvolenom nastaven\u00ed, pri prejden\u00ed my\u0161ou cez okraj, cel\u00fd okraj prehliada\u010da sl\u00fa\u017ei na aktivovanie bo\u010dn\u00e9ho panela. Oblas\u0165 aktiv\u00e1cie m\u00f4\u017eete zmen\u0161i\u0165 tak, \u017ee povol\u00edte otvorenie bo\u010dn\u00e9ho panela iba v \u010dasti v\u00fd\u0161ky prehliada\u010da. M\u00f4\u017eete napr\u00edklad zmeni\u0165 bo\u010dn\u00fd panel tak, aby sa zobrazoval iba po kliknut\u00ed na oblas\u0165 aktiv\u00e1cie v \u013eavom dolnom rohu okna prehliada\u010da. To m\u00f4\u017ee by\u0165 u\u017eito\u010dn\u00e9, ak chcete zabr\u00e1ni\u0165 tomu, aby sa bo\u010dn\u00fd panel ne\u00famyselne zobrazoval po kliknut\u00ed na odkazy na webov\u00fdch str\u00e1nkach."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "R\u00fdchle z\u00e1lo\u017ekovanie"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Ktor\u00fako\u013evek adresu URL m\u00f4\u017eete presun\u00fa\u0165 priamo do bo\u010dn\u00e9ho panela a umiestni\u0165 ju na po\u017eadovan\u00e9 miesto. T\u00fdmto sp\u00f4sobom m\u00f4\u017eete dokonca ozna\u010di\u0165 a pretiahnu\u0165 aktu\u00e1lnu adresu URL karty preh\u013ead\u00e1va\u010da. M\u00f4\u017eete tie\u017e presun\u00fa\u0165 symbol {1} v\u013eavo od panela s adresou do bo\u010dn\u00e9ho panela, aby ste ozna\u010dili aktu\u00e1lnu str\u00e1nku ako z\u00e1lo\u017eku, bez toho, aby ste najsk\u00f4r ozna\u010dili cel\u00fd panel s adresou."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Odde\u013eova\u010de"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Polo\u017eka z\u00e1lo\u017eky s adresou URL {1} a nadpisom {2} alebo {3} sa zobraz\u00ed ako odde\u013eova\u010d na bo\u010dnom paneli. Odde\u013eova\u010de m\u00f4\u017eete prida\u0165 kliknut\u00edm prav\u00fdm tla\u010didlom my\u0161i na \u013eubovo\u013en\u00fd prie\u010dinok na bo\u010dnom paneli a n\u00e1sledn\u00fdm kliknut\u00edm na tla\u010didlo {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "R\u00fdchle kop\u00edrovanie URL adresy"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Ak chcete skop\u00edrova\u0165 adresu URL z\u00e1lo\u017eky na bo\u010dnom paneli do schr\u00e1nky, m\u00f4\u017eete pri umiestnen\u00ed kurzora my\u0161i stla\u010di\u0165 kl\u00e1ves {1}."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Otvori\u0165 v\u0161etky z\u00e1lo\u017eky"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Ak chcete otvori\u0165 v\u0161etky z\u00e1lo\u017eky v prie\u010dinku, kliknite na prie\u010dinok prostredn\u00fdm tla\u010didlom. M\u00f4\u017eete tie\u017e stla\u010di\u0165 kl\u00e1ves {1} po\u010das klikania na prie\u010dinok \u013eav\u00fdm tla\u010didlom my\u0161i."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Skry\u0165 polo\u017eky"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Na bo\u010dnom paneli m\u00f4\u017eete skry\u0165 jednotliv\u00e9 z\u00e1lo\u017eky alebo dokonca prie\u010dinky. M\u00f4\u017eete klikn\u00fa\u0165 prav\u00fdm tla\u010didlom my\u0161i na \u013eubovo\u013en\u00fa polo\u017eku v bo\u010dnom paneli a potom klikn\u00fa\u0165 na tla\u010didlo {1} v kontextovej ponuke. Ak chcete znova zobrazi\u0165 skryt\u00e9 z\u00e1znamy, kliknite na ikonu ponuky v hlavi\u010dke bo\u010dn\u00e9ho panela a zakliknite pr\u00edslu\u0161n\u00e9 za\u0161krt\u00e1vacie pol\u00ed\u010dko."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "roztvori\u0165 v\u0161etky podprie\u010dinky"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Ak chcete r\u00fdchlo otvori\u0165 prie\u010dinok aj so v\u0161etk\u00fdmi jeho podprie\u010dinkami, dvakr\u00e1t kliknite na prie\u010dinok v bo\u010dnom paneli."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Kl\u00e1vesov\u00e9 skratky"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Bo\u010dn\u00fd panel je mo\u017en\u00e9 ovl\u00e1da\u0165 pomocou kl\u00e1vesov\u00fdch skratiek. Zoznam kl\u00e1vesov\u00fdch skratiek si m\u00f4\u017eete pozrie\u0165 kliknut\u00edm na ikonu ponuky v hlavi\u010dke bo\u010dn\u00e9ho panela a n\u00e1sledn\u00fdm kliknut\u00edm na tla\u010didlo {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchroniz\u00e1cia"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "V\u0161etky va\u0161e nastavenia bo\u010dn\u00e9ho panela sa bud\u00fa synchronizova\u0165 medzi va\u0161imi zariadeniami, ak v nastaveniach povol\u00edte mo\u017enosti synchroniz\u00e1cie preh\u013ead\u00e1va\u010da. Aj bez pr\u00e9miovej verzie."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Vyh\u013eadajte nastavenia synchroniz\u00e1cie"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Roz\u0161\u00edrenie je k dispoz\u00edcii v {1} r\u00f4znych jazykoch. Preklady poch\u00e1dzaj\u00fa z komunity a ka\u017ed\u00fd m\u00f4\u017ee prispie\u0165 prekladom textov roz\u0161\u00edrenia do in\u00fdch jazykov. Preklady bud\u00fa schv\u00e1len\u00e9 a do nasleduj\u00facej aktualiz\u00e1cie pridan\u00e9 do roz\u0161\u00edrenia."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Toto roz\u0161\u00edrenie je projektom jedn\u00e9ho \u010dloveka, ktor\u00e9 za\u010dalo ako hobby pre osobn\u00fa potrebu."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Prv\u00e1 verzia tohto roz\u0161\u00edrenia bola vydan\u00e1 v novembri 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Kliknutie prav\u00e9ho tla\u010didla"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Kliknut\u00edm prav\u00fdm tla\u010didlom my\u0161i na \u013eubovo\u013en\u00fa z\u00e1lo\u017eku alebo prie\u010dinok v bo\u010dnom paneli zobraz\u00edte \u010fal\u0161ie mo\u017enosti. M\u00f4\u017eete napr\u00edklad upravi\u0165 existuj\u00face z\u00e1lo\u017eky alebo pripn\u00fa\u0165 polo\u017eky do hornej \u010dasti bo\u010dn\u00e9ho panela. Po kliknut\u00ed prav\u00fdm tla\u010didlom my\u0161i na prie\u010dinok m\u00f4\u017eete spusti\u0165 kontrolu z\u00e1lo\u017eiek, aby ste zistili nefunk\u010dn\u00e9 alebo aktualizovan\u00e9 adresy URL z\u00e1lo\u017eiek."
+    },
     "settings_open_action": {
         "message": "Otvorenie bo\u010dnej li\u0161ty"
     },
@@ -895,6 +997,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "\u0160\u00edrka posuvn\u00e9ho jazdca"
+    },
+    "settings_icon_background_color": {
+        "message": "Farba pozadia"
     },
     "settings_icon_color": {
         "message": "Farba"

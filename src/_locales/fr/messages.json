@@ -674,6 +674,9 @@
     "settings_tips_tricks_open_all_bookmarks_desc": {
         "message": "Pour ouvrir tous les signets d'un dossier, vous pouvez cliquer au milieu sur le dossier. Vous pouvez \u00e9galement appuyer sur {1} tout en cliquant sur un dossier avec le bouton gauche de la souris."
     },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Entr\u00e9s cach\u00e9es"
+    },
     "settings_tips_tricks_hide_entries_desc": {
         "message": "Vous pouvez cacher des signets individuels ou m\u00eame des dossiers dans la barre lat\u00e9rale. Vous pouvez cliquer avec le bouton droit sur n'importe quelle entr\u00e9e de la barre lat\u00e9rale et ensuite cliquer sur le bouton {1} dans le menu contextuel. Pour afficher \u00e0 nouveau les entr\u00e9es cach\u00e9es, vous pouvez cliquer sur l'ic\u00f4ne du menu dans l'en-t\u00eate de la barre lat\u00e9rale et activer la case \u00e0 cocher correspondante."
     },

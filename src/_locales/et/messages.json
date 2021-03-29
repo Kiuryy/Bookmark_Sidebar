@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Lisab brauseriakna serva k\u00f5iki j\u00e4rjehoidjaid sisaldava l\u00fclitatava k\u00fclgriba."
     },
+    "extension_version": {
+        "message": "Versioon"
+    },
+    "extension_last_update": {
+        "message": "Viimati uuendatud {1}"
+    },
     "header_bookmarks": {
         "message": "j\u00e4rjehoidjat"
     },
@@ -490,6 +496,9 @@
     },
     "settings_title": {
         "message": "S\u00e4tted"
+    },
+    "settings_menu_dashboard": {
+        "message": "\u00dclevaade"
     },
     "settings_menu_sidebar": {
         "message": "K\u00fclgriba"

@@ -276,10 +276,10 @@
         "message": "\u5e38\u7528\u4e66\u7b7e"
     },
     "newtab_grid_links_custom": {
-        "message": "\u7528\u6237\u81ea\u5b9a\u4e49"
+        "message": "\u81ea\u5b9a\u4e49"
     },
     "newtab_grid_links_hidden": {
-        "message": "\u4e0d\u663e\u793a\u9875\u9762"
+        "message": "\u9690\u85cf"
     },
     "newtab_grid_links_appearance_thumbnail": {
         "message": "\u663e\u793a\u7f51\u7ad9\u9884\u89c8"

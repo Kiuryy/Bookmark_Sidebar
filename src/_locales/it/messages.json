@@ -902,6 +902,9 @@
     "settings_scroll_bar_width": {
         "message": "Larghezza barra di scorrimento"
     },
+    "settings_icon_background_color": {
+        "message": "Colore di Sfondo"
+    },
     "settings_icon_color": {
         "message": "Colore"
     },

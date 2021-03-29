@@ -47,7 +47,7 @@
          *
          */
         const initNoPremium = () => {
-            s.addNoPremiumText(s.elm.importExport.content.children("div:last-child"));
+            s.addNoPremiumText(s.elm.importExport.content.find("div[" + $.attr.value + "='exportSettings']"));
 
             ["import", "export"].forEach((field) => {
                 s.elm.buttons[field].addClass($.cl.settings.inactive);

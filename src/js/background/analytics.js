@@ -253,6 +253,26 @@
         };
 
         /**
+         * Generates a numeric hash from the given data
+         *
+         * @param data
+         * @returns {number}
+         */
+        const generateHash = (data) => {
+            const dataStr = (JSON.stringify(data) || "").replace(/[\s\n\r\t]/g, "");
+            let hash = 0;
+            if (dataStr.length === 0) {
+                return hash;
+            }
+            for (let i = 0; i < dataStr.length; i++) {
+                const chr = dataStr.charCodeAt(i);
+                hash = ((hash << 5) - hash) + chr;
+                hash |= 0;
+            }
+            return Math.abs(hash);
+        };
+
+        /**
          * Sends the stack to the server and flushes its stored values
          *
          * @param {object} retry
@@ -276,6 +296,7 @@
                     timeout: 30000,
                     data: {
                         stack: data,
+                        uid: generateHash(data),
                         tz: new Date().getTimezoneOffset()
                     }
                 }).then((xhr) => {

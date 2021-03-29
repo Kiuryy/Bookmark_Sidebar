@@ -28,6 +28,10 @@ body[data-type^='newtab'] {
             grid-template-columns: 1fr 1fr;
             grid-gap: 10px 20px;
           }
+
+          ~ div {
+            margin-top: 12px;
+          }
         }
       }
 

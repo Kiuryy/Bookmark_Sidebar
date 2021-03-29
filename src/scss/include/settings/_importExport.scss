@@ -27,6 +27,25 @@ div.tab[data-name='export'] {
     opacity: 0;
     z-index: 2;
   }
+
+  [data-value='exportBookmarks'] > a {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 10px 20px 10px 42px;
+    margin-top: 24px;
+
+    > span {
+      @include mask('settings/icon-help', $textColorLight, 24px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 7px;
+      margin: auto;
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
 
 @import "../../rtl/include/settings/importExport";

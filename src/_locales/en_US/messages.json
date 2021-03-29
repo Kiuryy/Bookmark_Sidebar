@@ -1215,7 +1215,7 @@
         "message": "Have any suggestions for improvements, questions, noticed missing configuration options, or found a bug? To help improve this extension I would be very grateful for any and all feedback you can give me."
     },
     "settings_support_feedback_notice": {
-        "message": "Please compose your feedback in English otherwise it will be difficult for me to understand and answer your message."
+        "message": "Please compose your feedback in English language. Otherwise it will be difficult for me to understand and answer your message."
     },
     "settings_support_feedback_email": {
         "message": "email address (optional)"

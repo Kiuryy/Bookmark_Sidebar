@@ -6,7 +6,7 @@
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "84",
+  "minimum_chrome_version": "85",
   "homepage_url": "https://extensions.redeviation.com/",
   "background": {
     "scripts": [

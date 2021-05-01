@@ -1322,6 +1322,9 @@
     "premium_feature_themes_desc": {
         "message": "Al instalar otro tema, usted puede cambiar el dise\u00f1o de su barra lateral con un click. La barra lateral puede ser personalizada con los controles deslizantes y opciones de color disponibles."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "Seleccione un m\u00e9todo de pago a continuaci\u00f3n y elija la cantidad que desea pagar en el siguiente paso."
+    },
     "premium_pay_select_payment_method": {
         "message": "Seleccione un m\u00e9todo de pago"
     },

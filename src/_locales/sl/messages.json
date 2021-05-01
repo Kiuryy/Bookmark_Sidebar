@@ -1322,6 +1322,9 @@
     "premium_feature_themes_desc": {
         "message": "Zamenjajte cel izgled stranske vrstice z enim klikom z namestitvijo druge teme. Te so tudi lahko prilagojene z drsniki in izborom barv."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "Spodaj izberite na\u010din pla\u010dila in v naslednjem koraku izberite \u017eeleni znesek, ki ga \u017eelite pla\u010dati."
+    },
     "premium_pay_select_payment_method": {
         "message": "Izberite na\u010din pla\u010dila"
     },

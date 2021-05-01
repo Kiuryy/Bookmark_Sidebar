@@ -1322,6 +1322,9 @@
     "premium_feature_themes_desc": {
         "message": "Du kannst das gesamte Aussehen der Sidebar mit einem Klick \u00e4ndern, in dem du ein anderes Design installierst. Die Designs k\u00f6nnen auch mit den vorhandenen Reglern und Farboptionen angepasst werden."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "Klicke unten eine Zahlungsart an und w\u00e4hle den Betrag, den du bezahlen m\u00f6chtest, im n\u00e4chsten Schritt aus."
+    },
     "premium_pay_select_payment_method": {
         "message": "W\u00e4hle eine Zahlungsart aus"
     },

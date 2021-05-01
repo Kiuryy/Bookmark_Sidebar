@@ -1391,6 +1391,9 @@
     "premium_feature_themes_desc": {
         "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and colour options."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "Select a payment method below and choose the desired amount you want to pay in the next step."
+    },
     "premium_pay_select_payment_method": {
         "message": "Select a payment method"
     },

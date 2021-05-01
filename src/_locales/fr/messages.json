@@ -219,7 +219,7 @@
         "message": "Cr\u00e9\u00e9 le"
     },
     "overlay_dir_children": {
-        "message": "El\u00e9ments"
+        "message": "\u00c9l\u00e9ments"
     },
     "overlay_dir_children_bookmarks": {
         "message": "Favoris"
@@ -1263,19 +1263,19 @@
         "message": "Avez-vous d\u00e9j\u00e0 essay\u00e9 le mode Premium ?"
     },
     "premium_restricted_text": {
-        "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec le mode Premium"
+        "message": "Cette fonctionnalit\u00e9 n'est disponible qu'avec le mode Premium."
     },
     "premium_desc_1": {
         "message": "En mode Premium, vous aurez acc\u00e8s \u00e0 plus de fonctionnalit\u00e9s et m'aiderez \u00e0 maintenir l'extension."
     },
     "premium_desc_2": {
-        "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payer le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension, et de mon travail."
+        "message": "D\u00e9couvrez ci-dessous les fonctionnalit\u00e9s disponibles gr\u00e2ce au compte Premium. Toutes les fonctionnalit\u00e9s principales de l'extension sont accessibles gratuitement et ne n\u00e9cessitent pas de compte Premium. Pour acc\u00e9der aux fonctionnalit\u00e9s suppl\u00e9mentaires, vous pouvez payer le montant qui vous semble adapt\u00e9 \u00e0 la valeur de l'extension et de mon travail."
     },
     "premium_get_now": {
-        "message": "Souscrire un compte Premium"
+        "message": "Souscrire un compte Premium."
     },
     "premium_show_license_input": {
-        "message": "Je poss\u00e8de d\u00e9j\u00e0 d'un compte Premium"
+        "message": "Je poss\u00e8de d\u00e9j\u00e0 un compte Premium"
     },
     "premium_already_activated": {
         "message": "Vous utilisez d\u00e9j\u00e0 un compte Premium"
@@ -1302,7 +1302,7 @@
         "message": "Personnalisez votre page Nouvel Onglet"
     },
     "premium_feature_custom_background_desc": {
-        "message": "Si vous utilisez la page Nouvel Onglet de cette extension, vous pouvez y ajouter votre propre image d'arri\u00e8re-plan et la rendre encore plus jolie"
+        "message": "Si vous utilisez la page Nouvel Onglet de cette extension, vous pouvez y ajouter votre propre image d'arri\u00e8re-plan et la rendre encore plus jolie."
     },
     "premium_feature_custom_css_headline": {
         "message": "Personnalisez tout avec votre propre feuille de style"
@@ -1321,6 +1321,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Le th\u00e8me de la barre lat\u00e9rale peut \u00eatre chang\u00e9 en un clic. Il peut \u00e9galement \u00eatre configur\u00e9 gr\u00e2ce aux curseurs et options de couleurs."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "S\u00e9lectionnez un moyen de paiement ci-dessous et choisissez le montant que vous d\u00e9sirez payer \u00e0 l'\u00e9tape suivante."
     },
     "premium_pay_select_payment_method": {
         "message": "S\u00e9lectionnez un moyen de paiement"
@@ -1344,7 +1347,7 @@
         "message": "Ceci est un paiement unique et inclut toutes les prochaines fonctionnalit\u00e9s Premium."
     },
     "premium_pay_price_pay_what_you_want": {
-        "message": "Vous pouvez payer ce que vous pensez que l'extension et mon travail valent pour vous pour acc\u00e9der aux fonctionnalit\u00e9s Premium. Vous recevrez toujours toutes les fonctionnalit\u00e9s Premium, quel que soit le montant que vous \u00eates pr\u00eat \u00e0 payer."
+        "message": "Vous pouvez payer ce que vous pensez que l'extension et mon travail valent pour vous afin d'acc\u00e9der aux fonctionnalit\u00e9s Premium. Vous recevrez toujours toutes les fonctionnalit\u00e9s Premium, quel que soit le montant que vous \u00eates pr\u00eat \u00e0 payer."
     },
     "premium_pay_eula": {
         "message": "Conditions g\u00e9n\u00e9rales d'utilisation"

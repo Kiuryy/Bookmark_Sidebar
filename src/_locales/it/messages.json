@@ -1226,6 +1226,9 @@
     "premium_feature_themes_desc": {
         "message": "Puoi scambiare l'intero design della barra laterale con un clic installando un altro tema. Possono anche essere personalizzati con i cursori disponibili e le opzioni di colore."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "Seleziona il metodo di pagamento qui sotto e l'importo desiderato che vuoi pagare nel prossimo passaggio."
+    },
     "premium_pay_select_payment_method": {
         "message": "Seleziona il metodo di pagamento"
     },

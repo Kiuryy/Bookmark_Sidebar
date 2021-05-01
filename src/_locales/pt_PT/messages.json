@@ -5,6 +5,12 @@
     "extension_desc": {
         "message": "Adiciona uma barra lateral, que pode ser ligada e desligada, contendo todos os seus favoritos na margem da janela do navegador."
     },
+    "extension_version": {
+        "message": "Vers\u00e3o"
+    },
+    "extension_last_update": {
+        "message": "\u00daltima atualiza\u00e7\u00e3o em {1}"
+    },
     "header_bookmarks": {
         "message": "Marcadores"
     },
@@ -895,6 +901,9 @@
     },
     "settings_scroll_bar_width": {
         "message": "Largura da barra de rolagem"
+    },
+    "settings_icon_background_color": {
+        "message": "Cor de Fundo"
     },
     "settings_icon_color": {
         "message": "Cor"

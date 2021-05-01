@@ -275,6 +275,9 @@
     "newtab_grid_links_most_used": {
         "message": "D\u1ea5u trang th\u01b0\u1eddng d\u00f9ng"
     },
+    "newtab_grid_links_custom": {
+        "message": "Ch\u1ec9 m\u1ee5c do ng\u01b0\u1eddi d\u00f9ng \u0111\u1ecbnh ngh\u0129a"
+    },
     "newtab_grid_links_hidden": {
         "message": "Kh\u00f4ng hi\u1ec7n c\u00e1c trang"
     },

@@ -177,11 +177,14 @@
                 });
             };
 
+            let isOverrideNewtab = false;
             new Promise((resolve) => {
                 $.api.storage.sync.get(configCategories, (obj) => {
                     configCategories.forEach((category) => {
                         if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
-                            if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === false) {
+                            if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === true) {
+                                isOverrideNewtab = true;
+                            } else {
                                 obj[category] = {
                                     override: false
                                 };
@@ -206,8 +209,8 @@
                                 }
                             });
 
-                            if (obj.newtabBackground_1) {
-                                config.newtabBackground = obj.newtabBackground_1;
+                            if (isOverrideNewtab) { // track if a custom newtab background is being used (only if isOverrideNewtab=true)
+                                config.newtabBackground = obj.newtabBackground_1 || "";
                             }
 
                             proceedConfig("utility", config);

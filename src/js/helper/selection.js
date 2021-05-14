@@ -20,7 +20,9 @@
          */
         this.leave = () => {
             ext.elm.sidebar.removeClass($.cl.sidebar.selectionMode);
-            this.reset();
+            selectedElements = [];
+            updateMarkup();
+            ext.helper.list.updateSidebarHeader();
         };
 
         /**
@@ -80,6 +82,8 @@
                 .appendTo(ext.elm.header);
 
             $("<a></a>").addClass($.cl.sidebar.removeSelected).appendTo(ext.elm.header);
+            $("<a></a>").addClass($.cl.cancel).text(ext.helper.i18n.get("overlay_cancel")).appendTo(ext.elm.header);
+
         };
 
         /**

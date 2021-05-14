@@ -46,7 +46,7 @@
                 e.preventDefault();
                 const elm = $(e.currentTarget);
 
-                if (elm.hasClass($.cl.newtab.cancel)) {
+                if (elm.hasClass($.cl.cancel)) {
                     leaveEditMode();
                 } else if (elm.hasClass($.cl.newtab.save)) {
                     saveChanges().then(() => {
@@ -211,7 +211,7 @@
 
             const menu = $("<menu></menu>")
                 .addClass($.cl.newtab.infoBar)
-                .append("<a class='" + $.cl.newtab.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
+                .append("<a class='" + $.cl.cancel + "'>" + n.helper.i18n.get("overlay_cancel") + "</a>")
                 .append("<a class='" + $.cl.newtab.save + "'>" + n.helper.i18n.get("settings_save") + "</a>")
                 .appendTo(n.elm.body);
 

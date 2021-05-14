@@ -309,6 +309,18 @@
                     e.stopPropagation();
                     ext.helper.contextmenu.create(type, $(e.currentTarget));
                 });
+
+                ext.elm.header.on("click contextmenu", "a." + $.cl.sidebar.removeSelected, (e) => { // Remove selected entries
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log("REMOVE SELECTED OVERLAY");
+                });
+
+                ext.elm.header.on("click contextmenu", "a." + $.cl.cancel, (e) => { // Cancel selection of entries
+                    e.preventDefault();
+                    e.stopPropagation();
+                    ext.helper.selection.leave();
+                });
             });
 
             ext.elm.iframeBody.on("click", "#" + $.opts.ids.sidebar.reloadInfo + " a", (e) => { // reload info

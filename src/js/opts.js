@@ -34,6 +34,7 @@
             premium: "premium",
             error: "error",
             info: "info",
+            cancel: "cancel",
             close: "close",
             hover: "hover",
             loading: "loading",
@@ -141,8 +142,7 @@
                 remove: "remove",
                 infoBar: "infoBar",
                 upload: "upload",
-                save: "save",
-                cancel: "cancel"
+                save: "save"
             },
             onboarding: {
                 slide: "slide",

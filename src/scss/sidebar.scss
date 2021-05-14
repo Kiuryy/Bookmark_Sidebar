@@ -535,6 +535,10 @@ section#sidebar {
           @include maskImage('icon-search');
         }
 
+        &.removeSelected::before {
+          @include maskImage('icon-delete');
+        }
+
         &.sort::before {
           @include maskImage('icon-sort');
         }
@@ -575,6 +579,32 @@ section#sidebar {
 
       > ul > li > a > span.drag {
         display: none !important;
+      }
+    }
+  }
+
+  &.selectionMode {
+
+    > div#bookmarkBox {
+
+      a {
+
+        > img, > span.icon {
+          width: 12px;
+          height: 12px;
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: calc(#{$__bookmarksHorizontalPadding} + 11px);
+        }
+
+        &.dir > span.icon {
+          display: none;
+        }
+
+        > div.checkbox {
+          display: block;
+        }
       }
     }
   }

@@ -41,6 +41,7 @@
         "js/helper/model.js",
         "js/helper/toggle.js",
         "js/helper/entry.js",
+        "js/helper/selection.js",
         "js/helper/list.js",
         "js/helper/scroll.js",
         "js/helper/template.js",

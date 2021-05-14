@@ -69,9 +69,26 @@
                     ext.helper.utility.openUrl(data, "newTab", active); // open in foreground when a normal click opens the tab in new tab in the background or while pressing 'shift' always in the foreground
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
+                } else if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // sidebar is in selection mode -> select/deselect the entry instead of opening the url/folder
+                    selectOrDeselectEntry(elm);
                 } else { // current tab
                     ext.helper.utility.openUrl(data, "default", true);
                 }
+            }
+        };
+
+        /**
+         * Selects/Deselects the given entry
+         *
+         * @param elm
+         */
+        const selectOrDeselectEntry = (elm) => {
+            const id = elm.attr($.attr.id);
+
+            if (elm.hasClass($.cl.selected)) {
+                ext.helper.selection.deselect(id);
+            } else {
+                ext.helper.selection.select(id);
             }
         };
 
@@ -118,18 +135,16 @@
                     }
                 }).on("dblclick", "> ul a", (e) => { // double click on a directory will open the directory + all sub directories
                     const _self = $(e.currentTarget);
-
-                    const openChildren = (elm) => {
-                        $.delay().then(() => {
-                            elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir + ":not(." + $.cl.sidebar.dirOpened + ")").forEach((childDir) => {
-                                ext.helper.list.toggleBookmarkDir($(childDir), false, false).then(() => {
-                                    openChildren($(childDir));
+                    if (_self.hasClass($.cl.sidebar.bookmarkDir) && !_self.hasClass($.cl.sidebar.dirOpened)) {
+                        const openChildren = (elm) => {
+                            $.delay().then(() => {
+                                elm.next("ul").find("> li > a." + $.cl.sidebar.bookmarkDir + ":not(." + $.cl.sidebar.dirOpened + ")").forEach((childDir) => {
+                                    ext.helper.list.toggleBookmarkDir($(childDir), false, false).then(() => {
+                                        openChildren($(childDir));
+                                    });
                                 });
                             });
-                        });
-                    };
-
-                    if (_self.hasClass($.cl.sidebar.bookmarkDir) && !_self.hasClass($.cl.sidebar.dirOpened)) {
+                        };
                         openChildren(_self);
                     }
                 }).on("mouseover", "> ul a", (e) => { // add class to currently hovered element
@@ -279,6 +294,8 @@
                         ext.startLoading();
                         ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                     });
+                } else if (name === "select") {
+                    selectOrDeselectEntry($(e.detail.container).parent());
                 }
             });
 

@@ -256,6 +256,11 @@ div.contextmenu {
           @include maskImage('icon-newTab');
         }
 
+        &[data-name='select']::before, &[data-name='deselect']::before {
+          @include maskImage('icon-select');
+          -webkit-mask-size: 24px;
+        }
+
         &[data-name='currentTab']::before {
           @include maskImage('icon-currentTab');
         }

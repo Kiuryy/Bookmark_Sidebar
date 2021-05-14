@@ -108,6 +108,7 @@
                 }).then(() => {
                     return this.helper.list.updateBookmarkBox();
                 }).then(() => {
+                    this.helper.selection.reset();
                     this.helper.search.update();
                 });
             }
@@ -278,6 +279,7 @@
                 model: new $.ModelHelper(this),
                 toggle: new $.ToggleHelper(this),
                 entry: new $.EntryHelper(this),
+                selection: new $.SelectionHelper(this),
                 list: new $.ListHelper(this),
                 scroll: new $.ScrollHelper(this),
                 template: new $.TemplateHelper(this),

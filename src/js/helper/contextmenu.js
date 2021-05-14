@@ -254,6 +254,12 @@
                     }
                 }
 
+                if (elm.hasClass($.cl.selected)) {
+                    list.append("<li><a " + $.attr.name + "='deselect'>" + ext.helper.i18n.get("contextmenu_deselect_" + (data.isDir ? "dir" : "bookmark")) + "</a></li>");
+                } else {
+                    list.append("<li><a " + $.attr.name + "='select'>" + ext.helper.i18n.get("contextmenu_select_" + (data.isDir ? "dir" : "bookmark")) + "</a></li>");
+                }
+
                 iconWrapper.append("<li><a " + $.attr.name + "='infos' title='" + ext.helper.i18n.get("contextmenu_infos", null, true) + "'></a></li>");
 
                 if (data.parents.length > 0) { // root level can not be edited or deleted
@@ -546,6 +552,20 @@
 
                 openParent(0);
             }
+        };
+
+        /**
+         * Selects the given entry
+         */
+        clickFuncs.select = (opts) => {
+            ext.helper.selection.select(opts.id);
+        };
+
+        /**
+         * Removes the selection of the given entry
+         */
+        clickFuncs.deselect = (opts) => {
+            ext.helper.selection.deselect(opts.id);
         };
 
         /**

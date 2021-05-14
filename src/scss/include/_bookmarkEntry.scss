@@ -29,6 +29,10 @@
     font-weight: $__fontWeightBold;
   }
 
+  &.selected {
+    background: #00ffff33;
+  }
+
   &.separator {
     height: $__bookmarksLineHeight;
     cursor: default;
@@ -138,6 +142,12 @@
     margin: 0 $__bookmarksHorizontalPadding 0 0;
     pointer-events: none;
     flex-shrink: 0;
+  }
+
+  > div.checkbox {
+    margin: 0 $__bookmarksHorizontalPadding 0 0;
+    flex-shrink: 0;
+    display: none;
   }
 
   > img {

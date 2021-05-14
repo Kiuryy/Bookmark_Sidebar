@@ -30,6 +30,7 @@
             visible: "visible",
             hidden: "hidden",
             success: "success",
+            selected: "selected",
             premium: "premium",
             error: "error",
             info: "info",
@@ -52,6 +53,7 @@
             },
             sidebar: {
                 extLoaded: "loaded",
+                selectionMode: "selectionMode",
                 openedOnce: "openedOnce",
                 permanent: "permanent",
                 cached: "cached",
@@ -78,6 +80,7 @@
                 searchClose: "searchClose",
                 searchVisible: "searchVisible",
                 breadcrumb: "breadcrumb",
+                removeSelected: "removeSelected",
                 removeMask: "removeMask",
                 removed: "removed",
                 restored: "restored"

@@ -37,8 +37,27 @@
                 container.addClass($.cl.active);
             }
 
-            initEvents(container, body);
+            this.initEvents(container, body);
             return container;
+        };
+
+        /**
+         * Initializes the events for the checkbox
+         */
+        this.initEvents = (container, body) => {
+            container.on("mousedown", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                $(e.currentTarget).addClass($.cl.checkbox.focus);
+            }).on("click", (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleChecked($(e.currentTarget), body);
+            });
+
+            body.on("click", () => {
+                container.removeClass($.cl.checkbox.focus);
+            });
         };
 
         /**
@@ -117,25 +136,6 @@
             clickedTimeout[uid] = setTimeout(() => {
                 container.removeClass($.cl.checkbox.clicked);
             }, 300);
-        };
-
-        /**
-         * Initializes the events for the checkbox
-         */
-        const initEvents = (container, body) => {
-            container.on("mousedown", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                $(e.currentTarget).addClass($.cl.checkbox.focus);
-            }).on("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleChecked($(e.currentTarget), body);
-            });
-
-            body.on("click", () => {
-                container.removeClass($.cl.checkbox.focus);
-            });
         };
     };
 

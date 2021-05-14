@@ -98,10 +98,9 @@
                 ext.elm.bookmarkBox.all.children("a[" + $.attr.name + "='add']").remove();
 
                 const list = ext.elm.bookmarkBox.all.children("ul");
-                let promiseObj = null;
-
                 ext.updateBookmarkBoxStart = +new Date();
 
+                let promiseObj;
                 if (ext.helper.model.getData("u/viewAsTree") || sort.name === "custom") {
                     promiseObj = Promise.all([
                         ext.helper.model.call("getCache", {name: "htmlList"}),
@@ -275,6 +274,12 @@
          * Updates the html for the sidebar header
          */
         this.updateSidebarHeader = () => {
+            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // sidebar is in selection mode -> we have another header here
+                ext.helper.selection.updateSidebarHeader();
+                this.handleSidebarWidthChange();
+                return;
+            }
+
             const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
             let searchVal = "";
 
@@ -506,6 +511,7 @@
         const cleanCachedHtml = (elm) => {
             elm.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
             elm.find("a." + $.cl.hover).removeClass($.cl.hover);
+            elm.find("a." + $.cl.selected).removeClass($.cl.selected);
             elm.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
             elm.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
             elm.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);
@@ -564,6 +570,8 @@
                     }
                 }
             }
+
+            ext.helper.checkbox.get(ext.elm.iframeBody, {[$.attr.name]: "select"}).prependTo(entryContent);
 
             return entry;
         };
@@ -711,7 +719,12 @@
             return new Promise((resolve) => {
                 ext.log("Load html from cache");
                 list.html(cachedHtml);
+
                 cleanCachedHtml(list);
+
+                list.find("div." + $.cl.checkbox.box).forEach((checkboxWrapper) => { // reinitialize event handlers for the checkboxes
+                    ext.helper.checkbox.initEvents($(checkboxWrapper), ext.elm.iframeBody);
+                });
 
                 loadMissingFavicons(list, true);
                 ext.elm.bookmarkBox.all.addClass($.cl.sidebar.cached);

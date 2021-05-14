@@ -261,7 +261,7 @@
          * @returns {Promise}
          */
         const initGeneralEvents = async () => {
-            window.matchMedia("(prefers-color-scheme: dark)").addListener(() => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
                 ext.helper.model.call("reloadIcon");
             });
 

@@ -13,6 +13,7 @@
          */
         this.start = () => {
             ext.elm.sidebar.addClass($.cl.sidebar.selectionMode);
+            ext.elm.header.addClass($.cl.sidebar.selectionMode);
             this.updateSidebarHeader();
             updateMarkup();
         };
@@ -22,6 +23,7 @@
          */
         this.leave = () => {
             ext.elm.sidebar.removeClass($.cl.sidebar.selectionMode);
+            ext.elm.header.removeClass($.cl.sidebar.selectionMode);
             selectedElements = [];
             updateMarkup();
             ext.helper.list.updateSidebarHeader();

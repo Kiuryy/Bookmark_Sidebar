@@ -200,7 +200,7 @@ section#sidebar {
       }
     }
 
-    &.searchVisible {
+    &.searchVisible:not(.selectionMode) {
 
       > h1 {
         transform: translate3d(-200%, 0, 0);
@@ -615,7 +615,7 @@ section#sidebar {
 
   &.selectionMode {
 
-    > div#bookmarkBox {
+    > div.scrollBox {
 
       a {
 

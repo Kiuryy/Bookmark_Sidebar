@@ -106,6 +106,10 @@
                         } else { // close sidebar
                             ext.helper.toggle.closeSidebar();
                         }
+                    } else if (e.key === "Delete" && ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // remove the selected entries
+                        e.preventDefault();
+                        removeHoveredEntry();
+                        ext.helper.selection.deleteSelected();
                     } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) { // remove the currently hovered entry
                         e.preventDefault();
                         removeHoveredEntry();

@@ -36,6 +36,7 @@
                         }
                     });
 
+                    ext.helper.selection.deselect(data.id);
                     this.performDeletion(data.id, true).then(resolve);
                 } else { // open overlay to confirm deletion
                     ext.helper.overlay.create("delete", ext.helper.i18n.get("contextmenu_delete_dir"), data);

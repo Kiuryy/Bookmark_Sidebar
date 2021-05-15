@@ -60,16 +60,21 @@
         this.update = (val = null) => {
             return new Promise((resolve) => {
                 const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
-                if (val === null) {
-                    val = searchField[0].value;
-                } else {
-                    searchField[0].value = val;
-                }
 
-                if (val && val.length > 0) { // search field is not empty
-                    handleSearch(searchField, val).then(resolve);
-                } else { // empty search field -> reset list
-                    reset(searchField).then(resolve);
+                if (searchField && searchField.length() > 0) { // search field may be missing when the sidebar is in selection mode
+                    if (val === null) {
+                        val = searchField[0].value;
+                    } else {
+                        searchField[0].value = val;
+                    }
+
+                    if (val && val.length > 0) { // search field is not empty
+                        handleSearch(searchField, val).then(resolve);
+                    } else { // empty search field -> reset list
+                        reset(searchField).then(resolve);
+                    }
+                } else {
+                    resolve();
                 }
             });
         };

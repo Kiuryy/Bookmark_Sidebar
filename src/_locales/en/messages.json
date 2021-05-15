@@ -19,6 +19,13 @@
     "message": "Deselect folder"
   },
 
+  "overlay_delete_selected": {
+    "message": "Delete selected entries"
+  },
+  "overlay_delete_selected_confirm": {
+    "message": "Do you really want to delete the selected entries? All sub-folder bookmarks of the selected folders will also be deleted."
+  },
+
 
   "extension_name": {
     "message": "Bookmark Sidebar"

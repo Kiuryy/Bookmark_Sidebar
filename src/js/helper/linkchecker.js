@@ -386,7 +386,7 @@
                 updated = true;
 
                 if (entry.broken || entry.duplicate || (entry.children && entry.children.length === 0)) {
-                    ext.helper.bookmark.performDeletion(entry, true).then(resolve);
+                    ext.helper.bookmark.performDeletion(entry.id, true).then(resolve);
                 } else if (entry.url !== entry.newUrl) {
                     const additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
 

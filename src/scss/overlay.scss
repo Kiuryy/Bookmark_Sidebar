@@ -274,7 +274,7 @@ div.modal {
     }
   }
 
-  &[data-type='delete'], &[data-type='hide'], &[data-type='openChildren'] {
+  &[data-type='delete'], &[data-type='deleteSelected'], &[data-type='hide'], &[data-type='openChildren'] {
 
     > p {
       padding: 30px 30px 5px 30px;
@@ -283,7 +283,8 @@ div.modal {
     }
   }
 
-  &[data-type='delete'] > header::before {
+  &[data-type='delete'] > header::before,
+  &[data-type='deleteSelected'] > header::before {
     @include maskImage('icon-delete');
   }
 
@@ -295,14 +296,41 @@ div.modal {
     @include maskImage('icon-newTab');
   }
 
+  &[data-type='deleteSelected'] {
+
+    > p.selected {
+      position: relative;
+      margin-top: 30px;
+      margin-left: 7px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: calc(100% - 60px);
+        height: 1px;
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      > strong {
+        font-size: 160%;
+        color: $__colorScheme;
+      }
+
+      > span {
+        font-size: 120%;
+      }
+    }
+  }
+
   &[data-type='infos'] {
 
     > header::before {
       @include maskImage('icon-info');
     }
-  }
-
-  &[data-type='infos'] {
 
     > ul.breadcrumb {
       font-size: 80%;

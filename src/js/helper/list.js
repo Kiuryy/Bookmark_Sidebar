@@ -244,6 +244,22 @@
         };
 
         /**
+         * Returns the active bookmark box
+         *
+         * @returns {elm}
+         */
+        this.getActiveBookmarkBox = () => {
+            let bookmarkBox = null;
+            Object.values(ext.elm.bookmarkBox).some((box) => {
+                if (box.hasClass($.cl.active)) {
+                    bookmarkBox = box;
+                    return true;
+                }
+            });
+            return bookmarkBox;
+        };
+
+        /**
          * Hides the headline label or the entire headline when the sidebar is to small to display them inline with the icons
          */
         this.handleSidebarWidthChange = () => {
@@ -509,6 +525,7 @@
          * @param {jsu} elm
          */
         const cleanCachedHtml = (elm) => {
+            elm.find("div." + $.cl.checkbox.box).removeClass($.cl.active);
             elm.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
             elm.find("a." + $.cl.hover).removeClass($.cl.hover);
             elm.find("a." + $.cl.selected).removeClass($.cl.selected);

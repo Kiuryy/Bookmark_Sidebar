@@ -29,8 +29,8 @@
     font-weight: $__fontWeightBold;
   }
 
-  &.selected {
-    background: #00ffff33;
+  &.selected:not(.separator) {
+    background: $__hoverColor;
   }
 
   &.separator {

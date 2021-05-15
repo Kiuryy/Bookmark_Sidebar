@@ -44,6 +44,10 @@
                     handleDeleteHtml(data);
                     break;
                 }
+                case "deleteSelected": {
+                    handleDeleteSelectedHtml(data);
+                    break;
+                }
                 case "edit": {
                     if (ext.helper.entry.isSeparator(data.id)) {
                         handleEditSeparatorHtml(data);
@@ -94,7 +98,11 @@
 
             switch (elements.modal.attr($.attr.type)) {
                 case "delete": {
-                    deleteBookmark(data);
+                    deleteEntry(data);
+                    break;
+                }
+                case "deleteSelected": {
+                    deleteSelectedEntries(data);
                     break;
                 }
                 case "hide": {
@@ -253,6 +261,22 @@
             });
 
             this.setCloseButtonLabel("close");
+        };
+
+        /**
+         * Extends the overlay html for the delete operation of the selected entries
+         *
+         * @param selectedElements
+         */
+        const handleDeleteSelectedHtml = (selectedElements) => {
+            $("<p></p>").text(ext.helper.i18n.get("overlay_delete_selected_confirm")).appendTo(elements.modal);
+
+            $("<p></p>")
+                .addClass($.cl.selected)
+                .html("<strong>" + selectedElements.length + "</strong> <span>" + ext.helper.i18n.get("header_selected_entries") + "</span>")
+                .appendTo(elements.modal);
+
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_delete")).appendTo(elements.buttonWrapper);
         };
 
         /**
@@ -522,14 +546,30 @@
         };
 
         /**
-         * Deletes the given bookmark or directory recursively
+         * Deletes the given bookmarks or directories
+         *
+         * @param data
+         */
+        const deleteSelectedEntries = async (selectedEntries) => {
+            ext.startLoading();
+            for (const entry of selectedEntries) {
+                ext.elm.bookmarkBox.all.find("a[" + $.attr.id + "='" + entry.id + "']").parent("li").remove();
+                await ext.helper.bookmark.performDeletion(entry.id, true);
+            }
+
+            ext.helper.model.call("reload", {type: "Hide"});
+            this.closeOverlay();
+        };
+
+        /**
+         * Deletes the given bookmark or directory
          *
          * @param {object} data
          */
-        const deleteBookmark = (data) => {
+        const deleteEntry = (data) => {
             this.closeOverlay();
             ext.elm.bookmarkBox.all.find("a[" + $.attr.id + "='" + data.id + "']").parent("li").remove();
-            ext.helper.bookmark.performDeletion(data);
+            ext.helper.bookmark.performDeletion(data.id);
         };
 
         /**

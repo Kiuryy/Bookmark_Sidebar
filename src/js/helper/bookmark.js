@@ -41,7 +41,7 @@
                         }
                     });
 
-                    this.performDeletion(data).then(resolve);
+                    this.performDeletion(data.id, true).then(resolve);
                 } else { // open overlay to confirm deletion
                     ext.helper.overlay.create("delete", ext.helper.i18n.get("contextmenu_delete_dir"), data);
                     resolve();
@@ -115,14 +115,14 @@
         /**
          * Deletes the given entry
          *
-         * @param {object} data
+         * @param {number} id
          * @param {boolean} preventReload
          * @returns {Promise}
          */
-        this.performDeletion = (data, preventReload = false) => {
+        this.performDeletion = (id, preventReload = false) => {
             return new Promise((resolve) => {
                 ext.helper.model.call("deleteBookmark", {
-                    id: data.id,
+                    id: id,
                     preventReload: preventReload
                 }).then(() => {
                     resolve();

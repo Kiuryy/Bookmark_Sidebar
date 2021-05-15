@@ -13,6 +13,8 @@
          */
         this.start = () => {
             ext.elm.sidebar.addClass($.cl.sidebar.selectionMode);
+            this.updateSidebarHeader();
+            updateMarkup();
         };
 
         /**

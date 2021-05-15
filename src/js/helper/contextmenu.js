@@ -164,6 +164,10 @@
             }
 
             $("<li></li>")
+                .append("<a " + $.attr.name + "='select'>" + ext.helper.i18n.get("header_select_entries") + "</a>")
+                .appendTo(list);
+
+            $("<li></li>")
                 .append("<a " + $.attr.name + "='reload'>" + ext.helper.i18n.get("contextmenu_reload_sidebar") + "</a>")
                 .appendTo(list);
 
@@ -558,7 +562,11 @@
          * Selects the given entry
          */
         clickFuncs.select = (opts) => {
-            ext.helper.selection.select(opts.id);
+            if (opts.id) {
+                ext.helper.selection.select(opts.id);
+            } else {
+                ext.helper.selection.start();
+            }
         };
 
         /**

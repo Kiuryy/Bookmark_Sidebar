@@ -1,20 +1,22 @@
 {
+  "header_select_entries": {
+    "message": "Select multiple entries"
+  },
+  "header_selected_entries": {
+    "message": "selected"
+  },
+
   "contextmenu_select_bookmark": {
     "message": "Select bookmark"
   },
   "contextmenu_select_dir": {
     "message": "Select folder"
   },
-
   "contextmenu_deselect_bookmark": {
     "message": "Deselect bookmark"
   },
   "contextmenu_deselect_dir": {
     "message": "Deselect folder"
-  },
-
-  "header_selected_entries": {
-    "message": "selected"
   },
 
 

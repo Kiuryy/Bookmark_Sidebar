@@ -449,14 +449,10 @@
                     let performReload = true;
 
                     if (message.type === "Removed" || (message.type === "Created" && isRestoring === true)) { // removed or created from undo -> prevent reload when it was performed on this browser tab
-                        Object.values(ext.elm.bookmarkBox).some((box) => {
-                            if (box.hasClass($.cl.active)) {
-                                if (box.find("a." + $.cl.sidebar.restored).length() > 0 || box.find("span." + $.cl.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
-                                    performReload = false;
-                                }
-                                return true;
-                            }
-                        });
+                        const box = ext.helper.list.getActiveBookmarkBox();
+                        if (box.find("a." + $.cl.sidebar.restored).length() > 0 || box.find("span." + $.cl.sidebar.removeMask).length() > 0) { // prevent reloading the sidebar on the tab where the entry got removed or restored
+                            performReload = false;
+                        }
                     }
 
                     if (performReload) {

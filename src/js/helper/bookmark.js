@@ -18,26 +18,21 @@
                 const data = ext.helper.entry.getDataById(id);
 
                 if (data && data.url) { // delete without confirm dialog, but offer a undo option
-                    Object.values(ext.elm.bookmarkBox).some((box) => {
-                        if (box.hasClass($.cl.active)) {
-                            const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
-                            entry.data("restore", data);
+                    const box = ext.helper.list.getActiveBookmarkBox();
+                    const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
+                    entry.data("restore", data);
 
-                            const mask = $("<span></span>")
-                                .addClass($.cl.sidebar.removeMask)
-                                .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
-                                .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
-                                .appendTo(entry);
+                    const mask = $("<span></span>")
+                        .addClass($.cl.sidebar.removeMask)
+                        .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
+                        .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
+                        .appendTo(entry);
 
-                            $.delay(100).then(() => {
-                                entry.addClass($.cl.sidebar.removed);
+                    $.delay(100).then(() => {
+                        entry.addClass($.cl.sidebar.removed);
 
-                                if (mask.children("span")[0].offsetTop > 0) { // undo button doesn't fit in one line -> remove the label
-                                    mask.children("em").remove();
-                                }
-                            });
-
-                            return true;
+                        if (mask.children("span")[0].offsetTop > 0) { // undo button doesn't fit in one line -> remove the label
+                            mask.children("em").remove();
                         }
                     });
 

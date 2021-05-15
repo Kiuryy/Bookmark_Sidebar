@@ -502,24 +502,20 @@
             const data = ext.helper.entry.getDataById(opts.id);
 
             if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
+                const box = ext.helper.list.getActiveBookmarkBox();
+                const elm = box.find("a[" + $.attr.id + "='" + data.id + "']");
 
-                Object.values(ext.elm.bookmarkBox).some((box) => {
-                    if (box.hasClass($.cl.active)) {
-                        const elm = box.find("a[" + $.attr.id + "='" + data.id + "']");
+                $(elm).children("span." + $.cl.sidebar.copied).remove();
+                const copiedNotice = $("<span></span>").addClass($.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
-                        $(elm).children("span." + $.cl.sidebar.copied).remove();
-                        const copiedNotice = $("<span></span>").addClass($.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
-
-                        $.delay(100).then(() => {
-                            $(elm).addClass($.cl.sidebar.copied);
-                            return $.delay(1500);
-                        }).then(() => {
-                            $(elm).removeClass($.cl.sidebar.copied);
-                            return $.delay(500);
-                        }).then(() => {
-                            copiedNotice.remove();
-                        });
-                    }
+                $.delay(100).then(() => {
+                    $(elm).addClass($.cl.sidebar.copied);
+                    return $.delay(1500);
+                }).then(() => {
+                    $(elm).removeClass($.cl.sidebar.copied);
+                    return $.delay(500);
+                }).then(() => {
+                    copiedNotice.remove();
                 });
             }
         };

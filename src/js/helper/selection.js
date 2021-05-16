@@ -30,6 +30,13 @@
         };
 
         /**
+         * Returns whether the selection mode is enabled or not
+         *
+         * @returns {boolean}
+         */
+        this.isEnabled = () => ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode);
+
+        /**
          * Returns the list of selected entries
          */
         this.getSelectedAmount = () => {
@@ -41,7 +48,7 @@
          */
         this.reset = () => {
             selectedElements = [];
-            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) {
+            if (this.isEnabled()) {
                 this.updateSidebarHeader();
                 updateMarkup();
             }

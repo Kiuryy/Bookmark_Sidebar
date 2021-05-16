@@ -290,7 +290,7 @@
          * Updates the html for the sidebar header
          */
         this.updateSidebarHeader = () => {
-            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // sidebar is in selection mode -> we have another header here
+            if (ext.helper.selection.isEnabled()) { // sidebar is in selection mode -> we have another header here
                 ext.helper.selection.updateSidebarHeader();
                 this.handleSidebarWidthChange();
                 return;

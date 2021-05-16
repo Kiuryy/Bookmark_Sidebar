@@ -203,7 +203,7 @@
                 return false;
             }
 
-            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // select dragged entry when in selection mode (may already be selected by the user)
+            if (ext.helper.selection.isEnabled()) { // select dragged entry when in selection mode (may already be selected by the user)
                 ext.helper.selection.select(id);
             }
 
@@ -214,7 +214,7 @@
             elmParent.clone().addClass($.cl.drag.dragInitial).insertAfter(elmParent);
 
             const helper = elm.clone().appendTo(ext.elm.iframeBody);
-            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // select dragged entry when in selection mode (may already be selected by the user)
+            if (ext.helper.selection.isEnabled()) { // select dragged entry when in selection mode (may already be selected by the user)
                 $("<span></span>")
                     .addClass($.cl.selected)
                     .text(ext.helper.selection.getSelectedAmount())
@@ -323,7 +323,7 @@
                         index: index
                     });
 
-                    if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // handle multi drag&drop
+                    if (ext.helper.selection.isEnabled()) { // handle multi drag&drop
                         ext.helper.selection.moveSelection(parentId, index, entryElm);
                     }
                 }

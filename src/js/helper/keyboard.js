@@ -106,7 +106,7 @@
                         } else { // close sidebar
                             ext.helper.toggle.closeSidebar();
                         }
-                    } else if (e.key === "Delete" && ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // remove the selected entries
+                    } else if (e.key === "Delete" && ext.helper.selection.isEnabled()) { // remove the selected entries
                         e.preventDefault();
                         removeHoveredEntry();
                         ext.helper.selection.deleteSelected();

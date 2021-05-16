@@ -52,6 +52,18 @@ a.dragHelper {
     cursor: grabbing;
   }
 
+  > span.selected {
+    position: absolute;
+    bottom: -8px;
+    left: -7px;
+    background: $__colorScheme;
+    color: $__foregroundColor;
+    font-weight: $__fontWeightMedium;
+    line-height: 100%;
+    padding: 3px 5px;
+    border-radius: 5px;
+  }
+
   &.snap {
     transition: 0.2s;
     box-shadow: none;

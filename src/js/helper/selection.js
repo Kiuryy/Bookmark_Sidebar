@@ -32,8 +32,8 @@
         /**
          * Returns the list of selected entries
          */
-        this.getSelected = () => {
-            return selectedElements;
+        this.getSelectedAmount = () => {
+            return Object.keys(selectedElements).length;
         };
 
         /**
@@ -70,6 +70,41 @@
                 delete selectedElements[id];
                 this.updateSidebarHeader();
                 updateMarkup();
+            }
+        };
+
+        /**
+         * Moves all selected entries to the given location
+         *
+         * @param parentId
+         * @param index
+         * @param initiator
+         * @returns {Promise<void>}
+         */
+        this.moveSelection = async (parentId, index, initiator) => {
+            const entries = getSortedSelectedEntries();
+            const entriesReversed = entries.reverse();
+            const initiatorId = initiator.children("a").attr($.attr.id);
+
+            for (const entry of entriesReversed) {
+                if (entry.id === initiatorId) { // the initiator is already moved
+                    continue;
+                }
+                entry.elm.parent("li").insertAfter(initiator);
+            }
+
+            for (const entry of entries) {
+                if (entry.id === initiatorId) { // the initiator is already moved
+                    continue;
+                }
+
+                await ext.helper.model.call("moveBookmark", {
+                    id: entry.id,
+                    parentId: parentId,
+                    index: index + 1
+                });
+
+                index++;
             }
         };
 
@@ -120,14 +155,12 @@
 
             Object.entries(selectedElements).forEach(([id, data]) => {
                 const entry = box.find("> ul a[" + $.attr.id + "='" + id + "']");
-
                 ret.push({
                     elm: entry,
                     id: id,
                     dir: !!data.isDir,
                     offsetTop: entry[0].offsetTop
                 });
-
             });
 
             ret.sort((a, b) => {
@@ -165,8 +198,6 @@
 
                 entry.addClass($.cl.selected);
             });
-
-            box.find("a[" + $.attr.id + "] div." + $.cl.checkbox.box);
         };
     };
 

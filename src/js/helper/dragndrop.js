@@ -105,54 +105,57 @@
                 e.stopPropagation();
                 edgeScroll.posY = null;
 
-                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // something has been dragged
-                    if (!isDraggedElementOutside(e.pageX) && ext.helper.search.isResultsVisible() === false) { // only proceed if mouse position is in the sidebar and the active view are not the search results
-                        const entryPlaceholder = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).eq(0);
+                if (!ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // nothing has been dragged
+                    return;
+                }
 
-                        if (entryPlaceholder && entryPlaceholder.length() > 0) {
-                            const url = e.dataTransfer.getData("URL");
-                            let title = e.dataTransfer.getData("text/plain");
+                if (!isDraggedElementOutside(e.pageX) && ext.helper.search.isResultsVisible() === false) { // only proceed if mouse position is in the sidebar and the active view are not the search results
+                    const entryPlaceholder = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.isDragged).eq(0);
 
-                            if (location.href === url) {
-                                title = document.title || "";
-                            } else if (title === url) {
-                                const html = e.dataTransfer.getData("text/html");
+                    if (entryPlaceholder && entryPlaceholder.length() > 0) {
+                        const url = e.dataTransfer.getData("URL");
+                        let title = e.dataTransfer.getData("text/plain");
 
-                                if (html && html.length > 0) {
-                                    title = $("<div></div>").html(html).text();
-                                } else {
-                                    title = "";
-                                }
-                            }
+                        if (location.href === url) {
+                            title = document.title || "";
+                        } else if (title === url) {
+                            const html = e.dataTransfer.getData("text/html");
 
-                            const bookmarkObj = {
-                                index: entryPlaceholder.prevAll("li").length(),
-                                parentId: entryPlaceholder.parent("ul").prev("a").attr($.attr.id),
-                                title: title.trim(),
-                                url: url
-                            };
-
-                            const showOverlay = () => {
-                                ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
-                                    values: bookmarkObj
-                                });
-                            };
-
-                            if (showCreationDialog === false && bookmarkObj.title && bookmarkObj.url) { // title and url could be determined from the dragged element -> create bookmark directly
-                                ext.helper.model.call("createBookmark", bookmarkObj).then((result) => {
-                                    if (result.error) {
-                                        showOverlay();
-                                    }
-                                });
-                            } else { // title or url is unknown -> open overlay with dialog
-                                showOverlay();
+                            if (html && html.length > 0) {
+                                title = $("<div></div>").html(html).text();
+                            } else {
+                                title = "";
                             }
                         }
-                    }
 
-                    ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
-                    ext.helper.toggle.removeSidebarHoverClass();
+                        const bookmarkObj = {
+                            index: entryPlaceholder.prevAll("li").length(),
+                            parentId: entryPlaceholder.parent("ul").prev("a").attr($.attr.id),
+                            title: title.trim(),
+                            url: url
+                        };
+
+                        const showOverlay = () => {
+                            ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), {
+                                values: bookmarkObj
+                            });
+                        };
+
+                        if (showCreationDialog === false && bookmarkObj.title && bookmarkObj.url) { // title and url could be determined from the dragged element -> create bookmark directly
+                            ext.helper.model.call("createBookmark", bookmarkObj).then((result) => {
+                                if (result.error) {
+                                    showOverlay();
+                                }
+                            });
+                        } else { // title or url is unknown -> open overlay with dialog
+                            showOverlay();
+                        }
+                    }
                 }
+
+                ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
+                ext.helper.toggle.removeSidebarHoverClass();
+
             });
         };
 
@@ -193,10 +196,15 @@
             ext.helper.tooltip.close();
 
             const elm = $(node).parent("a").removeClass($.cl.sidebar.dirOpened);
-            const data = ext.helper.entry.getDataById(elm.attr($.attr.id));
+            const id = elm.attr($.attr.id);
+            const data = ext.helper.entry.getDataById(id);
 
             if (data === null) {
                 return false;
+            }
+
+            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // select dragged entry when in selection mode (may already be selected by the user)
+                ext.helper.selection.select(id);
             }
 
             const elmParent = elm.parent("li");
@@ -206,8 +214,14 @@
             elmParent.clone().addClass($.cl.drag.dragInitial).insertAfter(elmParent);
 
             const helper = elm.clone().appendTo(ext.elm.iframeBody);
-            const boundClientRect = elm[0].getBoundingClientRect();
+            if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // select dragged entry when in selection mode (may already be selected by the user)
+                $("<span></span>")
+                    .addClass($.cl.selected)
+                    .text(ext.helper.selection.getSelectedAmount())
+                    .appendTo(helper);
+            }
 
+            const boundClientRect = elm[0].getBoundingClientRect();
 
             let index = 0;
             elmParent.prevAll("li").forEach((entry) => {
@@ -274,7 +288,7 @@
         /**
          * Stop dragging an element (bookmark or directory)
          */
-        const dragend = () => {
+        const dragend = async () => {
             clearDirOpenTimeout();
 
             const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
@@ -303,11 +317,15 @@
                         prevId: entryElm.prev("li").children("a").attr($.attr.id)
                     });
                 } else { // save bookmark/directory position
-                    ext.helper.model.call("moveBookmark", {
+                    await ext.helper.model.call("moveBookmark", {
                         id: entryElm.children("a").attr($.attr.id),
                         parentId: parentId,
                         index: index
                     });
+
+                    if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // handle multi drag&drop
+                        ext.helper.selection.moveSelection(parentId, index, entryElm);
+                    }
                 }
 
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
@@ -390,9 +408,9 @@
                 ext.elm.iframeBody.removeClass($.cl.drag.cancel);
             }
 
-            let newAboveElm = {elm: null};
             const type = getDragType(bookmarkElm.children("a"));
-            let elmLists = null;
+            let newAboveElm = {elm: null};
+            let elmLists;
 
             if (type === "pinned") {
                 elmLists = [ext.elm.pinnedBox.find("> ul > li")];

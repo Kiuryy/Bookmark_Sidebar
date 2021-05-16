@@ -268,7 +268,7 @@
 
             $(window).on("beforeunload", (e) => { // Show confirm dialog when trying to exit the settings without saving the changes
                 if (unsavedChanges) {
-                    const confirmationMessage = "Do you really want to leave without saving your changes?";
+                    const confirmationMessage = "Do you really want to leave without saving your changes?"; // cannot call i18n helper here, since Chrome won't execute this in the beforeunload event
                     e.returnValue = confirmationMessage;
                     return confirmationMessage;
                 }

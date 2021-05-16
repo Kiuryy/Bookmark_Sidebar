@@ -25,6 +25,15 @@
         &:hover, &.active {
           background-color: $__hoverColor;
         }
+
+        &.cancel {
+          color: $__textColor;
+
+          &::after {
+            background: $__textColor;
+            opacity: 0.4;
+          }
+        }
       }
 
       &.searchVisible > div.searchBox {

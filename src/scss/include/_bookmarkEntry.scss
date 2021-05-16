@@ -232,7 +232,7 @@
     max-width: 24px;
     max-height: 22px;
     border-radius: 3px;
-    cursor: pointer;
+    cursor: grab;
     background-color: rgba(0, 0, 0, 0.05);
     transition: background-color 0.5s, opacity 0.5s;
     @extend %hidden;

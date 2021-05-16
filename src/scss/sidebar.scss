@@ -597,7 +597,6 @@ section#sidebar {
 
     > div.scrollBox a > span.drag {
       @include mask('icon-reorder', $reorderIconColor, 18px);
-      cursor: grab;
 
       &:hover::before {
         background-color: $reorderIconColorActive;

@@ -164,7 +164,7 @@
             }
 
             $("<li></li>")
-                .append("<a " + $.attr.name + "='select'>" + ext.helper.i18n.get("header_select_entries") + "</a>")
+                .append("<a " + $.attr.name + "='select'>" + ext.helper.i18n.get("contextmenu_select_entries") + "</a>")
                 .appendTo(list);
 
             $("<li></li>")

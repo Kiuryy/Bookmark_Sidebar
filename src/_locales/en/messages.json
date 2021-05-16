@@ -1,1500 +1,1496 @@
 {
-  "header_select_entries": {
-    "message": "Select multiple entries"
-  },
-  "header_selected_entries": {
-    "message": "selected"
-  },
-
-  "contextmenu_select_bookmark": {
-    "message": "Select bookmark"
-  },
-  "contextmenu_select_dir": {
-    "message": "Select folder"
-  },
-  "contextmenu_deselect_bookmark": {
-    "message": "Deselect bookmark"
-  },
-  "contextmenu_deselect_dir": {
-    "message": "Deselect folder"
-  },
-
-  "overlay_delete_selected": {
-    "message": "Delete selected entries"
-  },
-  "overlay_delete_selected_confirm": {
-    "message": "Do you really want to delete the selected entries? All sub-folder bookmarks of the selected folders will also be deleted."
-  },
-
-
-  "extension_name": {
-    "message": "Bookmark Sidebar"
-  },
-  "extension_desc": {
-    "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
-  },
-  "extension_author": {
-    "message": "Philipp K\u00f6nig"
-  },
-  "extension_version": {
-    "message": "Version"
-  },
-  "extension_last_update": {
-    "message": "Last updated on {1}"
-  },
-  "header_bookmarks": {
-    "message": "Bookmarks"
-  },
-  "header_bookmarks_single": {
-    "message": "Bookmark"
-  },
-  "sidebar_dir_children": {
-    "message": "Elements"
-  },
-  "sidebar_search_placeholder": {
-    "message": "Search bookmark"
-  },
-  "sidebar_search_no_results": {
-    "message": "No bookmarks match your search criteria"
-  },
-  "sidebar_copied_to_clipboard": {
-    "message": "URL copied"
-  },
-  "sidebar_deleted": {
-    "message": "Removed"
-  },
-  "sidebar_undo_deletion": {
-    "message": "Undo"
-  },
-  "more_link": {
-    "message": "Learn more"
-  },
-  "contextmenu_edit_bookmark": {
-    "message": "Edit Bookmark"
-  },
-  "contextmenu_edit_dir": {
-    "message": "Edit Folder"
-  },
-  "contextmenu_edit_separator": {
-    "message": "Edit Separator"
-  },
-  "contextmenu_delete_bookmark": {
-    "message": "Delete Bookmark"
-  },
-  "contextmenu_delete_dir": {
-    "message": "Delete Folder"
-  },
-  "contextmenu_delete_separator": {
-    "message": "Delete Separator"
-  },
-  "contextmenu_infos": {
-    "message": "Information"
-  },
-  "contextmenu_new_tab": {
-    "message": "Open in a new tab"
-  },
-  "contextmenu_current_tab": {
-    "message": "Open in current tab"
-  },
-  "contextmenu_new_window": {
-    "message": "Open in a new window"
-  },
-  "contextmenu_new_tab_incognito": {
-    "message": "Open in an incognito window"
-  },
-  "contextmenu_copy": {
-    "message": "Copy URL to clipboard"
-  },
-  "contextmenu_add_bookmark": {
-    "message": "Add bookmark"
-  },
-  "contextmenu_add": {
-    "message": "Add entry"
-  },
-  "contextmenu_check_bookmarks": {
-    "message": "Check bookmarks"
-  },
-  "contextmenu_toggle_hidden": {
-    "message": "Show hidden entries"
-  },
-  "contextmenu_close_all_directories": {
-    "message": "Collapse all folders"
-  },
-  "contextmenu_reload_sidebar": {
-    "message": "Refresh sidebar"
-  },
-  "contextmenu_open_children": {
-    "message": "Open bookmarks"
-  },
-  "contextmenu_hide_from_sidebar": {
-    "message": "Hide from sidebar"
-  },
-  "contextmenu_show_in_sidebar": {
-    "message": "Show in sidebar"
-  },
-  "contextmenu_show_in_dir": {
-    "message": "Show in folder"
-  },
-  "contextmenu_pin": {
-    "message": "Pin to top"
-  },
-  "contextmenu_unpin": {
-    "message": "Unpin from top"
-  },
-  "contextmenu_bookmark_manager": {
-    "message": "Bookmark Manager"
-  },
-  "contextmenu_keyboard_shortcuts": {
-    "message": "Keyboard shortcuts"
-  },
-  "sort_label_custom": {
-    "message": "User-defined"
-  },
-  "sort_label_alphabetical": {
-    "message": "Alphabetical"
-  },
-  "sort_label_most_used": {
-    "message": "Most used"
-  },
-  "sort_label_recently_used": {
-    "message": "Recently used"
-  },
-  "sort_label_recently_added": {
-    "message": "Recently added"
-  },
-  "sort_view_as_tree": {
-    "message": "Show folders"
-  },
-  "sort_most_used_per_month": {
-    "message": "Per month"
-  },
-  "overlay_bookmark_title": {
-    "message": "Title"
-  },
-  "overlay_bookmark_url": {
-    "message": "URL"
-  },
-  "overlay_bookmark_additional_info": {
-    "message": "Additional info"
-  },
-  "overlay_cancel": {
-    "message": "Cancel"
-  },
-  "overlay_close": {
-    "message": "Close"
-  },
-  "overlay_save": {
-    "message": "Save"
-  },
-  "overlay_delete": {
-    "message": "Delete"
-  },
-  "overlay_update": {
-    "message": "Update"
-  },
-  "overlay_open_children": {
-    "message": "Open all"
-  },
-  "overlay_confirm_open_children": {
-    "message": "Do you really want to open all {1} sub-folder bookmarks?"
-  },
-  "overlay_hide_from_sidebar": {
-    "message": "Hide from sidebar"
-  },
-  "overlay_hide_bookmark_confirm": {
-    "message": "Do you really want to hide this bookmark from the sidebar?"
-  },
-  "overlay_hide_dir_confirm": {
-    "message": "Do you really want to hide this folder from the sidebar? All sub-folder bookmarks will also be hidden."
-  },
-  "overlay_delete_bookmark_confirm": {
-    "message": "Do you really want to delete this bookmark?"
-  },
-  "overlay_delete_dir_confirm": {
-    "message": "Do you really want to delete this folder? All sub-folder bookmarks will also be deleted."
-  },
-  "overlay_label_bookmark": {
-    "message": "Bookmark"
-  },
-  "overlay_label_dir": {
-    "message": "Folder"
-  },
-  "overlay_label_separator": {
-    "message": "Separator"
-  },
-  "overlay_add_position": {
-    "message": "Position"
-  },
-  "overlay_add_position_prepend": {
-    "message": "Add to start of folder"
-  },
-  "overlay_add_position_append": {
-    "message": "Add to end of folder"
-  },
-  "overlay_separator_title_desc": {
-    "message": "You can optionally enter a title. It will be displayed on top of the separator line and can help you organising your bookmark list."
-  },
-  "overlay_bookmark_views": {
-    "message": "Views"
-  },
-  "overlay_bookmark_views_single": {
-    "message": "View"
-  },
-  "overlay_bookmark_views_since": {
-    "message": "Recorded since"
-  },
-  "overlay_bookmark_views_per_month": {
-    "message": "per month"
-  },
-  "overlay_bookmark_created_date": {
-    "message": "Created on"
-  },
-  "overlay_dir_children": {
-    "message": "Elements"
-  },
-  "overlay_dir_children_bookmarks": {
-    "message": "Bookmarks"
-  },
-  "overlay_dir_children_dirs": {
-    "message": "Folders"
-  },
-  "overlay_check_bookmarks_menu_changed": {
-    "message": "Changed"
-  },
-  "overlay_check_bookmarks_menu_broken": {
-    "message": "Broken"
-  },
-  "overlay_check_bookmarks_menu_duplicate": {
-    "message": "Duplicates"
-  },
-  "overlay_check_bookmarks_menu_empty": {
-    "message": "Empty folders"
-  },
-  "overlay_check_bookmarks_loading": {
-    "message": "Checking the bookmark URLs"
-  },
-  "overlay_check_bookmarks_update_selected": {
-    "message": "Update selected"
-  },
-  "overlay_check_bookmarks_remove_selected": {
-    "message": "Remove selected"
-  },
-  "overlay_check_bookmarks_no_results": {
-    "message": "All bookmark URLs are valid"
-  },
-  "overlay_check_bookmarks_no_results_changed": {
-    "message": "There are no changed bookmark URLs"
-  },
-  "overlay_check_bookmarks_no_results_broken": {
-    "message": "There are no broken bookmark URLs"
-  },
-  "overlay_check_bookmarks_no_results_duplicate": {
-    "message": "There are no duplicate bookmark URLs"
-  },
-  "overlay_check_bookmarks_no_results_empty": {
-    "message": "There are no folders without bookmarks"
-  },
-  "newtab_title": {
-    "message": "New Tab"
-  },
-  "newtab_grid_links_default": {
-    "message": "Top pages"
-  },
-  "newtab_grid_links_recently_used": {
-    "message": "Recently used bookmarks"
-  },
-  "newtab_grid_links_most_used": {
-    "message": "Most used bookmarks"
-  },
-  "newtab_grid_links_custom": {
-    "message": "User defined entries"
-  },
-  "newtab_grid_links_hidden": {
-    "message": "Don't show pages"
-  },
-  "newtab_grid_links_appearance_thumbnail": {
-    "message": "Display website previews"
-  },
-  "newtab_grid_links_appearance_favicon": {
-    "message": "Display website icons"
-  },
-  "newtab_grid_links_grid_size": {
-    "message": "Grid size"
-  },
-  "newtab_search_placeholder": {
-    "message": "Search {1} or type URL"
-  },
-  "newtab_search_field_show": {
-    "message": "Show search field"
-  },
-  "newtab_search_field_hide": {
-    "message": "Hide search field"
-  },
-  "newtab_speech_search_listening": {
-    "message": "Speak now"
-  },
-  "newtab_speech_search_error": {
-    "message": "To enable the speech search you must allow microphone access."
-  },
-  "newtab_search_engine_headline": {
-    "message": "Search engine"
-  },
-  "newtab_search_engine_custom": {
-    "message": "User-defined"
-  },
-  "newtab_search_engine_custom_title": {
-    "message": "Title"
-  },
-  "newtab_search_engine_custom_url_homepage": {
-    "message": "URL of homepage"
-  },
-  "newtab_search_engine_custom_url_results": {
-    "message": "URL of search results"
-  },
-  "newtab_upload_background": {
-    "message": "Upload background image"
-  },
-  "newtab_fallback_headline_general": {
-    "message": "Something has blocked the sidebar"
-  },
-  "newtab_fallback_headline_webstore": {
-    "message": "The sidebar cannot be used on the {browserName} Webstore"
-  },
-  "newtab_fallback_headline_extension_page": {
-    "message": "The sidebar cannot be used on extension pages"
-  },
-  "newtab_fallback_headline_new_tab": {
-    "message": "The sidebar cannot be used on the default new tab page"
-  },
-  "newtab_fallback_headline_system": {
-    "message": "The sidebar cannot be used on {browserName} system pages"
-  },
-  "newtab_fallback_headline_url_filter": {
-    "message": "One of your URL rules did not allow the sidebar to open"
-  },
-  "newtab_fallback_desc": {
-    "message": "We have opened a new tab with the sidebar for you instead."
-  },
-  "newtab_fallback_set_as_new_tab": {
-    "message": "Always show this page when opening a new tab"
-  },
-  "status_service_unavailable_headline": {
-    "message": "Service unavailable"
-  },
-  "status_feedback_unavailable_desc": {
-    "message": "The feedback service is currently unavailable. If you want to give feedback, please send me an email."
-  },
-  "status_translation_unavailable_desc": {
-    "message": "The translation service is not available at the moment. Please try again later."
-  },
-  "status_background_disconnected_reload_action": {
-    "message": "Reload now"
-  },
-  "status_background_disconnected_reload_desc": {
-    "message": "Due to an update of the extension this page needs to be reloaded."
-  },
-  "keyboard_shortcuts_key_tab": {
-    "message": "Tab"
-  },
-  "keyboard_shortcuts_key_shift": {
-    "message": "Shift"
-  },
-  "keyboard_shortcuts_key_enter": {
-    "message": "Enter"
-  },
-  "keyboard_shortcuts_key_ctrl": {
-    "message": "Ctrl"
-  },
-  "keyboard_shortcuts_key_cmd": {
-    "message": "Cmd"
-  },
-  "keyboard_shortcuts_key_del": {
-    "message": "Delete"
-  },
-  "keyboard_shortcuts_key_esc": {
-    "message": "Esc"
-  },
-  "keyboard_shortcuts_tab_desc": {
-    "message": "Hovers the next or previous entry in the sidebar"
-  },
-  "keyboard_shortcuts_enter_desc": {
-    "message": "Performs a click on the currently hovered entry"
-  },
-  "keyboard_shortcuts_shift_enter_desc": {
-    "message": "Opens the context menu for the currently hovered entry"
-  },
-  "keyboard_shortcuts_ctrl_c_desc": {
-    "message": "Copies the URL of the currently hovered entry"
-  },
-  "keyboard_shortcuts_del_desc": {
-    "message": "Removes the currently hovered entry"
-  },
-  "keyboard_shortcuts_esc_desc": {
-    "message": "Closes the sidebar, opened overlay or context menu"
-  },
-  "contribute_intro": {
-    "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
-  },
-  "contribute_notice": {
-    "message": "You can help me by sharing your configuration"
-  },
-  "contribute_outro": {
-    "message": "If you have questions or concerns about the sharing of information then please send me a feedback message."
-  },
-  "contribute_share_config_label": {
-    "message": "Share configuration"
-  },
-  "contribute_share_config_desc": {
-    "message": "You share your configuration anonymously which helps me to identify popular settings and to identify what to improve or change in future releases."
-  },
-  "contribute_share_activity_label": {
-    "message": "Share activity"
-  },
-  "contribute_share_activity_desc1": {
-    "message": "You can share your activity within the sidebar anonymously which helps me to better understand how the sidebar is being used in the field. Information about your bookmarks or your visited websites [b]will not[\/b] be measured."
-  },
-  "contribute_share_activity_desc2": {
-    "message": "This information is very useful to identify problems in usability or features which are, for example, not being used very often."
-  },
-  "contribute_share_activity_examples_intro": {
-    "message": "Examples of shared data:"
-  },
-  "contribute_share_activity_example_1": {
-    "message": "Average number of bookmarks per user?"
-  },
-  "contribute_share_activity_example_2": {
-    "message": "Which platform are users on (Windows, Mac, Linux, ...)?"
-  },
-  "contribute_share_activity_example_3": {
-    "message": "Is the search facility being used?"
-  },
-  "contribute_share_activity_example_4": {
-    "message": "Do users change the sorting order of the bookmarks?"
-  },
-  "contribute_share_activity_example_5": {
-    "message": "How often are users rearranging or editing entries?"
-  },
-  "onboarding_title": {
-    "message": "Setup"
-  },
-  "onboarding_headline": {
-    "message": "Thank you for installing this extension."
-  },
-  "onboarding_setup": {
-    "message": "Setup now"
-  },
-  "onboarding_skip": {
-    "message": "Skip setup"
-  },
-  "onboarding_sidebar_position_desc": {
-    "message": "Where do you want to have your sidebar to appear?"
-  },
-  "onboarding_sidebar_open_action_desc": {
-    "message": "How do you want to open your sidebar?"
-  },
-  "onboarding_sidebar_surface_desc": {
-    "message": "Which style do you prefer?"
-  },
-  "onboarding_sidebar_surface_light": {
-    "message": "Light"
-  },
-  "onboarding_sidebar_surface_dark": {
-    "message": "Dark"
-  },
-  "onboarding_handson_desc": {
-    "message": "Now you can try out the sidebar for yourself."
-  },
-  "onboarding_handson_mouse_desc_1": {
-    "message": "Move your cursor to the {1} edge of your window."
-  },
-  "onboarding_handson_mouse_desc_2": {
-    "message": "Then {1} click with your mouse to open the sidebar."
-  },
-  "onboarding_handson_icon_desc": {
-    "message": "Click on the extension icon at the top of your browser to open the sidebar."
-  },
-  "onboarding_left": {
-    "message": "left"
-  },
-  "onboarding_right": {
-    "message": "right"
-  },
-  "onboarding_finish_desc": {
-    "message": "Have fun with your sidebar."
-  },
-  "onboarding_finish_notice": {
-    "message": "If you frequently need to click things on the {1} side of the browser window, you may want to change where the sidebar is positioned vertically when it opens to avoid opening it accidentally."
-  },
-  "onboarding_goto_settings": {
-    "message": "More settings"
-  },
-  "onboarding_goto_appearance": {
-    "message": "Configure appearance"
-  },
-  "settings_title": {
-    "message": "Settings"
-  },
-  "settings_menu_dashboard": {
-    "message": "Overview"
-  },
-  "settings_menu_sidebar": {
-    "message": "Sidebar"
-  },
-  "settings_menu_sidebar_general": {
-    "message": "General"
-  },
-  "settings_menu_sidebar_toggle": {
-    "message": "Toggle"
-  },
-  "settings_menu_sidebar_tooltip": {
-    "message": "Tooltips"
-  },
-  "settings_menu_sidebar_filter": {
-    "message": "Filter"
-  },
-  "settings_menu_appearance": {
-    "message": "Appearance"
-  },
-  "settings_menu_appearance_general": {
-    "message": "General"
-  },
-  "settings_menu_appearance_sidebar": {
-    "message": "Sidebar"
-  },
-  "settings_menu_appearance_indicator": {
-    "message": "Indicator"
-  },
-  "settings_menu_appearance_icon": {
-    "message": "Icon"
-  },
-  "settings_menu_appearance_overlay": {
-    "message": "Overlay"
-  },
-  "settings_menu_newtab": {
-    "message": "New Tab"
-  },
-  "settings_menu_language": {
-    "message": "Language"
-  },
-  "settings_menu_language_general": {
-    "message": "General"
-  },
-  "settings_menu_language_translate": {
-    "message": "Translate"
-  },
-  "settings_menu_support": {
-    "message": "Support"
-  },
-  "settings_menu_infos": {
-    "message": "Information"
-  },
-  "settings_menu_infos_aboutme": {
-    "message": "About me"
-  },
-  "settings_menu_infos_permissions": {
-    "message": "Permissions"
-  },
-  "settings_menu_infos_privacy": {
-    "message": "Privacy"
-  },
-  "settings_menu_infos_contact": {
-    "message": "Contact"
-  },
-  "settings_menu_infos_changelog": {
-    "message": "Changelog"
-  },
-  "settings_menu_premium": {
-    "message": "Premium"
-  },
-  "settings_menu_export": {
-    "message": "Import\/Export"
-  },
-  "settings_menu_expert": {
-    "message": "Expert settings"
-  },
-  "settings_save": {
-    "message": "Save Changes"
-  },
-  "settings_saved_message": {
-    "message": "Changes saved successfully"
-  },
-  "settings_restore": {
-    "message": "Restore default"
-  },
-  "settings_restore_confirm": {
-    "message": "Do you really want to restore the default configuration?"
-  },
-  "settings_restored_message": {
-    "message": "Configuration restored successfully"
-  },
-  "settings_advanced": {
-    "message": "Advanced settings"
-  },
-  "settings_not_synced": {
-    "message": "Will not be synchronized across your devices."
-  },
-  "settings_premium_activated": {
-    "message": "Premium has been activated successfully"
-  },
-  "settings_premium_invalid_key": {
-    "message": "Could not activate Premium. Please enter a valid license key"
-  },
-  "settings_search_placeholder": {
-    "message": "Search for configuration"
-  },
-  "settings_expert_settings_desc": {
-    "message": "With the expert settings you can change all the configuration flags of the extension, even those you cannot change using the regular checkboxes or sliders on the settings page."
-  },
-  "settings_expert_settings_notice": {
-    "message": "Please only change the values here if you fully understand what you are doing! Faulty configurations can cause unexpected behaviour of the extension. If something does not work properly however, you can revert to the default configuration."
-  },
-  "settings_expert_save_error": {
-    "message": "Could not save settings. Please correct your input."
-  },
-  "settings_dashboard_sidebar_options": {
-    "message": "Configure the behaviour of your sidebar"
-  },
-  "settings_dashboard_sidebar_options_desc": {
-    "message": "There are various options you can change to control the extension. For example, you can change how the sidebar should slide in or how your bookmarks should be opened. If you don't want the sidebar to be loaded on every page, you can configure this, too, using appropriate rules."
-  },
-  "settings_dashboard_appearance_options": {
-    "message": "Change the appearance of your sidebar"
-  },
-  "settings_dashboard_appearance_options_desc": {
-    "message": "You can change the look of the sidebar entirely to fit your needs. There are various options to change the font size, line spacing, colors, icons and many more. You can also pick from pre-defined designs and preset options to quickly make the sidebar look like you want."
-  },
-  "settings_tips_tricks_facts": {
-    "message": "Did you know?"
-  },
-  "settings_tips_tricks_next": {
-    "message": "Next tip"
-  },
-  "settings_tips_tricks_quick_search": {
-    "message": "Quick search"
-  },
-  "settings_tips_tricks_quick_search_desc": {
-    "message": "If you open the sidebar, you can search for bookmarks by just starting to type. No need to click on the search icon in the header of the sidebar first."
-  },
-  "settings_tips_tricks_activation_area": {
-    "message": "Activation area"
-  },
-  "settings_tips_tricks_activation_area_desc": {
-    "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can make the activation area smaller by only allowing the sidebar to open at a portion of the browser height. For example, you can change the sidebar to only show up, when you click the activation area in the lower left corner of the browser window. This can be helpful to prevent the sidebar from showing up unintendedly when clicking links of the website."
-  },
-  "settings_tips_tricks_quick_bookmarking": {
-    "message": "Quick bookmarking"
-  },
-  "settings_tips_tricks_quick_bookmarking_desc": {
-    "message": "You can drag any URL right into the sidebar and drop it at the desired position. You can even mark and drag the current URL of a browser tab in this way. You can also drag the {1} symbol left of the address bar into the sidebar to bookmark the current page without marking the whole address bar first."
-  },
-  "settings_tips_tricks_separators": {
-    "message": "Separators"
-  },
-  "settings_tips_tricks_separators_desc": {
-    "message": "A bookmark entry with the URL {1} and a title {2} or {3} will be displayed as separator in the sidebar. You can add separators by right clicking any folder in the sidebar and then click on the {4} button."
-  },
-  "settings_tips_tricks_quick_url_copy": {
-    "message": "Quick URL copy"
-  },
-  "settings_tips_tricks_quick_url_copy_desc": {
-    "message": "To copy the URL of a bookmark in the sidebar to your clipboard, you can press {1} when hovering an entry."
-  },
-  "settings_tips_tricks_open_all_bookmarks": {
-    "message": "Open all bookmarks"
-  },
-  "settings_tips_tricks_open_all_bookmarks_desc": {
-    "message": "To open all bookmarks in a folder, you can middle click on the folder. Alternatively you can press {1} while clicking on a folder with your left mouse button."
-  },
-  "settings_tips_tricks_hide_entries": {
-    "message": "Hide entries"
-  },
-  "settings_tips_tricks_hide_entries_desc": {
-    "message": "You can hide individual bookmarks or even folders from the sidebar. You can right click on any entry in the sidebar and then click on the {1} button in the contextmenu. To display hidden entries again, you can click on the menu icon in the header of the sidebar and enable the according checkbox there."
-  },
-  "settings_tips_tricks_expand_all_subfolders": {
-    "message": "Expand all subfolders"
-  },
-  "settings_tips_tricks_expand_all_subfolders_desc": {
-    "message": "To quickly open a folder with all its subfolders opened, too, you can double click on a folder in the sidebar."
-  },
-  "settings_tips_tricks_keyboard_shortcuts": {
-    "message": "Keyboard shortcuts"
-  },
-  "settings_tips_tricks_keyboard_shortcuts_desc": {
-    "message": "The sidebar can be controlled using keyboard shortcuts. You can have a look at a list of shortcuts by clicking the menu icon in the header of the sidebar and then click on the {1} button."
-  },
-  "settings_tips_tricks_synchronization": {
-    "message": "Synchronization"
-  },
-  "settings_tips_tricks_synchronization_desc": {
-    "message": "All your settings of the sidebar will be synchronized between your devices, if you enable the sync options of your browser in the settings. Even without Premium."
-  },
-  "settings_tips_tricks_synchronization_action": {
-    "message": "Look up your sync settings"
-  },
-  "settings_tips_tricks_i18n_desc": {
-    "message": "The extension is available in {1} different languages. The translations are community-made and everyone can help to contribute by translating the texts of the extension in other languages. Translations will be approved and then added to the extension with the next update."
-  },
-  "settings_tips_tricks_about_desc": {
-    "message": "This extension is a one man project, which started as a hobby project for personal use."
-  },
-  "settings_tips_tricks_version_desc": {
-    "message": "The first version of this extension was released in November 2016."
-  },
-  "settings_tips_tricks_right_click": {
-    "message": "Right click"
-  },
-  "settings_tips_tricks_right_click_desc": {
-    "message": "You can right click on any bookmark or folder in the sidebar to reveal additional options. For example you can edit existing bookmarks or pin entries to the top of the sidebar. When you right click a folder, you can start a bookmark check to identify broken or updated bookmark URLs."
-  },
-  "settings_open_action": {
-    "message": "Open sidebar"
-  },
-  "settings_open_action_desc": {
-    "message": "Open the sidebar by clicking or moving the mouse pointer over the left or right edge of the browser window. Alternatively you can change it to only open if the extension icon is clicked."
-  },
-  "settings_open_action_leftclick": {
-    "message": "Left click"
-  },
-  "settings_open_action_rightclick": {
-    "message": "Right click"
-  },
-  "settings_open_action_mouseover": {
-    "message": "Mouseover"
-  },
-  "settings_open_action_icon": {
-    "message": "Click on icon"
-  },
-  "settings_toggle_area": {
-    "message": "Configure area"
-  },
-  "settings_toggle_area_desc": {
-    "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can change this and also configure exactly where to open the sidebar."
-  },
-  "settings_toggle_area_width": {
-    "message": "Width"
-  },
-  "settings_toggle_area_width_windowed": {
-    "message": "Width (Windowed)"
-  },
-  "settings_toggle_area_height": {
-    "message": "Height"
-  },
-  "settings_toggle_area_height_desc": {
-    "message": "You can reduce the height of the active area so the sidebar will only open when you move your cursor into that area at the edge of your browser window."
-  },
-  "settings_toggle_area_drag_desc": {
-    "message": "Drag to move"
-  },
-  "settings_keyboard_shortcut_button": {
-    "message": "Set keyboard shortcut"
-  },
-  "settings_link_action": {
-    "message": "Open bookmarks"
-  },
-  "settings_link_action_desc": {
-    "message": "Left click a bookmark will open them either in the current tab or in a new tab."
-  },
-  "settings_link_action_current_tab": {
-    "message": "Current tab"
-  },
-  "settings_link_action_new_tab": {
-    "message": "New tab"
-  },
-  "settings_open_delay": {
-    "message": "Open delay"
-  },
-  "settings_open_delay_desc": {
-    "message": "Prevents the sidebar from opening immediately when hovering or clicking on the activation area at the edge of the browser window."
-  },
-  "settings_prevent_pagescroll": {
-    "message": "Prevent page scrolling"
-  },
-  "settings_prevent_pagescroll_desc": {
-    "message": "Prevents scrolling of the current website while the sidebar is open."
-  },
-  "settings_dir_accordion": {
-    "message": "Show only current folder"
-  },
-  "settings_dir_accordion_desc": {
-    "message": "Closes all folder except the currently active one."
-  },
-  "settings_remember_state": {
-    "message": "Remember"
-  },
-  "settings_remember_state_open_states_and_scroll": {
-    "message": "Scroll position and currently opened folders"
-  },
-  "settings_remember_state_all": {
-    "message": "Scroll position, currently opened folders and last opened bookmark"
-  },
-  "settings_remember_state_open_states": {
-    "message": "Opened folders"
-  },
-  "settings_remember_state_open_states_root": {
-    "message": "Opened top level folders"
-  },
-  "settings_remember_state_nothing": {
-    "message": "Nothing"
-  },
-  "settings_remember_open_states_sub_directories": {
-    "message": "Remember opened sub directories"
-  },
-  "settings_remember_desc": {
-    "message": "Select what to remember across page changes. If you choose to remember the last opened bookmark, it will be marked when opening the sidebar again."
-  },
-  "settings_dnd_creation_dialog": {
-    "message": "Show creation dialog"
-  },
-  "settings_dnd_creation_dialog_desc": {
-    "message": "Show the creation dialog before adding a new bookmark when drag&drop into the sidebar."
-  },
-  "settings_new_entry_position": {
-    "message": "Position of new entries"
-  },
-  "settings_new_entry_position_desc": {
-    "message": "The preselected position when adding new entries to the sidebar."
-  },
-  "settings_open_children_warn_limit": {
-    "message": "Open all sub-folder bookmarks (Warning limit)"
-  },
-  "settings_open_children_warn_limit_desc": {
-    "message": "Amount of bookmarks at which a warning appears, when trying to open all bookmarks within a folder and its sub-folders at once."
-  },
-  "settings_dir_open_duration": {
-    "message": "Folder open duration"
-  },
-  "settings_dir_open_duration_desc": {
-    "message": "Duration of the open and close animation of directories"
-  },
-  "settings_new_tab": {
-    "message": "New Tab"
-  },
-  "settings_new_tab_desc": {
-    "message": "Open bookmarks in new tab in the foreground or the background"
-  },
-  "settings_new_tab_foreground": {
-    "message": "Open in foreground"
-  },
-  "settings_new_tab_background": {
-    "message": "Open in background"
-  },
-  "settings_new_tab_position_desc": {
-    "message": "Open new tabs after the last or the current tab"
-  },
-  "settings_new_tab_position_after_last": {
-    "message": "After the last tab"
-  },
-  "settings_new_tab_position_after_current": {
-    "message": "After the current tab"
-  },
-  "settings_new_tab_position_before_first": {
-    "message": "Before the first tab"
-  },
-  "settings_close_timeout": {
-    "message": "Close timeout"
-  },
-  "settings_close_timeout_desc": {
-    "message": "Timeout in seconds after the sidebar will be closed. Time will start as soon the mouse leaves the sidebar and stops when hovering over it again."
-  },
-  "settings_close_timeout_infinity": {
-    "message": "Don't close automatically"
-  },
-  "settings_scroll_bar_hide": {
-    "message": "Hide scrollbar"
-  },
-  "settings_scroll_bar_hide_desc": {
-    "message": "Timeout in seconds after the scrollbar will be hidden. Scrolling will show the scrollbar again."
-  },
-  "settings_scroll_bar_hide_infinity": {
-    "message": "Never hide"
-  },
-  "settings_dnd_open_dir_delay": {
-    "message": "Drag&Drop Open folder delay"
-  },
-  "settings_dnd_open_dir_delay_desc": {
-    "message": "Delay before opening a hovered folder when dragging an element over it."
-  },
-  "settings_reopen_sidebar": {
-    "message": "Reopen sidebar"
-  },
-  "settings_reopen_sidebar_desc": {
-    "message": "Automatically open the sidebar again, after opening a bookmark from within the sidebar."
-  },
-  "settings_prevent_windowed": {
-    "message": "Disable sidebar in window mode"
-  },
-  "settings_prevent_windowed_desc": {
-    "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser is in window mode."
-  },
-  "settings_prevent_webapp": {
-    "message": "Disable sidebar in PWA"
-  },
-  "settings_prevent_webapp_desc": {
-    "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser window is displaying a Progressive Web App (PWA)."
-  },
-  "settings_tooltip_delay": {
-    "message": "Tooltip delay"
-  },
-  "settings_tooltip_delay_desc": {
-    "message": "Delay before the tooltips for the bookmarks will be displayed when hovering with the mouse."
-  },
-  "settings_tooltip_delay_infinity": {
-    "message": "Never show tooltips"
-  },
-  "settings_tooltip_desc": {
-    "message": "Select what information the tooltip should contain."
-  },
-  "settings_tooltip_content": {
-    "message": "Tooltip content"
-  },
-  "settings_tooltip_content_all": {
-    "message": "Title and URL"
-  },
-  "settings_tooltip_content_title": {
-    "message": "Only title"
-  },
-  "settings_tooltip_content_url": {
-    "message": "Only URL"
-  },
-  "settings_tooltip_content_additional_info": {
-    "message": "Additional info"
-  },
-  "settings_sidebar_position": {
-    "message": "Position"
-  },
-  "settings_sidebar_position_desc": {
-    "message": "Define whether the sidebar should open on the left or right side of the browser window."
-  },
-  "settings_sidebar_position_left": {
-    "message": "Left"
-  },
-  "settings_sidebar_position_right": {
-    "message": "Right"
-  },
-  "settings_animations": {
-    "message": "Enable animations"
-  },
-  "settings_animations_desc": {
-    "message": "Allows you to disable all sidebar animations. This can be useful if the animations are not running smoothly on your system."
-  },
-  "settings_filter_intro": {
-    "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
-  },
-  "settings_filter_explanation_1": {
-    "message": "Only add one URL pattern per line"
-  },
-  "settings_filter_explanation_2": {
-    "message": "Use * to match any character (e.g. example.com\/* matches all pages under example.com)"
-  },
-  "settings_filter_explanation_3": {
-    "message": "If you don't include any * in a rule, only exact URL's will match (e.g. \"example.com\/about.html\" won't be matched for the URL \"example.com\")"
-  },
-  "settings_filter_explanation_4": {
-    "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"
-  },
-  "settings_filter_visibility": {
-    "message": "Load sidebar"
-  },
-  "settings_filter_visibility_always": {
-    "message": "On every page"
-  },
-  "settings_filter_visibility_blacklist": {
-    "message": "On every page except specified pages"
-  },
-  "settings_filter_visibility_whitelist": {
-    "message": "Only on specific pages"
-  },
-  "settings_filter_rules": {
-    "message": "URL patterns"
-  },
-  "settings_import_export_headline": {
-    "message": "Import\/Export Settings"
-  },
-  "settings_import_export_notice": {
-    "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
-  },
-  "settings_import_export_desc": {
-    "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any device where the extension is installed."
-  },
-  "settings_export": {
-    "message": "Export Settings"
-  },
-  "settings_import": {
-    "message": "Import Settings"
-  },
-  "settings_import_saved": {
-    "message": "Configuration imported successfully"
-  },
-  "settings_import_failed": {
-    "message": "Failed to import the configuration. Please choose a valid file."
-  },
-  "settings_import_export_bookmarks": {
-    "message": "Import\/Export Bookmarks"
-  },
-  "settings_import_export_bookmarks_desc": {
-    "message": "This is a browser feature and not part of the extension. Read more about how to import and export bookmarks in {browserName}."
-  },
-  "settings_theme_changed": {
-    "message": "Changed theme successfully"
-  },
-  "settings_close_on_tab_change": {
-    "message": "Close on tab change"
-  },
-  "settings_close_on_tab_change_desc": {
-    "message": "Close the sidebar when clicking on another browser tab"
-  },
-  "settings_presets": {
-    "message": "Set relative sizes"
-  },
-  "settings_presets_desc": {
-    "message": "You can select predefined sizes for the sidebar. This will change the sliders on this page which will adjust the sidebar width, line heights, icon sizes and many other visual options."
-  },
-  "settings_color_scheme": {
-    "message": "Colour scheme"
-  },
-  "settings_dark_mode": {
-    "message": "Surface"
-  },
-  "settings_color_scheme_desc": {
-    "message": "The colour of the sidebar header, checkboxes, etc."
-  },
-  "settings_text_color": {
-    "message": "Text colour"
-  },
-  "settings_hover_color": {
-    "message": "Mouseover colour"
-  },
-  "settings_font_family": {
-    "message": "Typeface"
-  },
-  "settings_font_family_default": {
-    "message": "Default"
-  },
-  "settings_font_family_desc": {
-    "message": "The typeface of the sidebar and the overlays"
-  },
-  "settings_scroll_bar_width": {
-    "message": "Scrollbar width"
-  },
-  "settings_icon_background_color": {
-    "message": "Background Colour"
-  },
-  "settings_icon_color": {
-    "message": "Colour"
-  },
-  "settings_icon_color_auto": {
-    "message": "Automatically"
-  },
-  "settings_icon_color_custom": {
-    "message": "Custom"
-  },
-  "settings_icon_color_desc_1": {
-    "message": "The icon colour will be set automatically to match colour scheme of your system (light or dark). You can also define your own custom colour for the icon."
-  },
-  "settings_icon_color_desc_2": {
-    "message": "Please note that the automatic colour will not work when using a custom {browserName} theme."
-  },
-  "settings_indicator_width": {
-    "message": "Width"
-  },
-  "settings_indicator_color": {
-    "message": "Colour"
-  },
-  "settings_indicator_icon_size": {
-    "message": "Icon size"
-  },
-  "settings_indicator_icon_color": {
-    "message": "Icon colour"
-  },
-  "settings_sidebar_width": {
-    "message": "Width"
-  },
-  "settings_header_height": {
-    "message": "Header height"
-  },
-  "settings_sidebar_mask_color": {
-    "message": "Mask colour"
-  },
-  "settings_background_transparency": {
-    "message": "Background transparency"
-  },
-  "settings_background_blur": {
-    "message": "Background blur effect"
-  },
-  "settings_bookmarks_dir_icon": {
-    "message": "Folder icon"
-  },
-  "settings_bookmarks_dir_color": {
-    "message": "Folder icon colour"
-  },
-  "settings_bookmarks_font_size": {
-    "message": "Bookmarks font size"
-  },
-  "settings_bookmarks_icon_size": {
-    "message": "Bookmarks icon size"
-  },
-  "settings_directories_icon_size": {
-    "message": "Folders icon size"
-  },
-  "settings_directory_arrows": {
-    "message": "Folder arrows"
-  },
-  "settings_bookmarks_line_height": {
-    "message": "Bookmarks line height"
-  },
-  "settings_bookmarks_horizontal_padding": {
-    "message": "Bookmarks horizontal padding"
-  },
-  "settings_bookmarks_dir_indentation": {
-    "message": "Folder indentation"
-  },
-  "settings_tooltip_font_size": {
-    "message": "Tooltip font size"
-  },
-  "settings_overlay_mask_color": {
-    "message": "Mask colour"
-  },
-  "settings_icon_shape": {
-    "message": "Shape"
-  },
-  "settings_custom_css": {
-    "message": "Custom stylesheet"
-  },
-  "settings_custom_css_desc": {
-    "message": "You can define your own stylesheet to override the default styling. Please only use this option if you are familiar with CSS and fully understand how to use them."
-  },
-  "settings_theme": {
-    "message": "Theme"
-  },
-  "settings_themes_notice": {
-    "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and colour options."
-  },
-  "settings_available_themes": {
-    "message": "Available Themes"
-  },
-  "settings_show_themes": {
-    "message": "Show available themes"
-  },
-  "settings_theme_default": {
-    "message": "Default theme"
-  },
-  "settings_theme_default_desc": {
-    "message": "This theme lets you access your bookmarks in a clean, modern way. The colour of many of the elements can be changed by modifying the colour scheme."
-  },
-  "settings_theme_glass": {
-    "message": "Glass theme"
-  },
-  "settings_theme_glass_desc": {
-    "message": "This theme makes the background of the sidebar semi-transparent and adds a blurry glass effect to it. You can adjust this effect and the transparency of the sidebar."
-  },
-  "settings_theme_focus": {
-    "message": "Focus theme"
-  },
-  "settings_theme_focus_desc": {
-    "message": "This theme reduces the animations and arranges the elements more dense for improved productivity and performance."
-  },
-  "settings_install_theme": {
-    "message": "Install theme"
-  },
-  "settings_installed_theme_info": {
-    "message": "Currently installed"
-  },
-  "settings_newtab_desc": {
-    "message": "Chromium based browsers do not allow loading extensions on the default new tab page. Because of this the sidebar feature will not work there. To circumvent this problem options have been added allowing you to access your bookmarks when opening a new tab."
-  },
-  "settings_newtab_override": {
-    "message": "Override new tab page"
-  },
-  "settings_newtab_override_desc": {
-    "message": "Should the extension override your current new tab page with either 1) a custom made page or 2) a website page which should be loaded when opening a new tab?"
-  },
-  "settings_newtab_sidebar_auto_open": {
-    "message": "Open sidebar automatically"
-  },
-  "settings_newtab_sidebar_auto_open_desc": {
-    "message": "Configure whether the sidebar should be opened automatically when opening a new tab."
-  },
-  "settings_newtab_focus_omnibox": {
-    "message": "Focus address bar"
-  },
-  "settings_newtab_focus_omnibox_desc": {
-    "message": "If enabled, the address bar will be focused when opening a new tab. If not enabled, the search box of the website will be focused instead."
-  },
-  "settings_newtab_website": {
-    "message": "Load website"
-  },
-  "settings_newtab_website_desc": {
-    "message": "Instead of opening the new tab replacement, you can specify an alternative website page to load."
-  },
-  "settings_language": {
-    "message": "Language"
-  },
-  "settings_language_default": {
-    "message": "Browser default"
-  },
-  "settings_language_desc": {
-    "message": "The language of the user interface"
-  },
-  "settings_translation_link": {
-    "message": "Go to translation overview"
-  },
-  "settings_translation_desc": {
-    "message": "You can help translating the extension into your language or improve the existing one."
-  },
-  "settings_translation_add_language": {
-    "message": "Add language"
-  },
-  "settings_translation_back_to_overview": {
-    "message": "Back to overview"
-  },
-  "settings_translation_info": {
-    "message": "You can edit existing translations or add missing ones. If you submit your changes I will review your input and approve it."
-  },
-  "settings_translation_notice1": {
-    "message": "When all categories which are marked as \"Required\" are translated the translation will be released."
-  },
-  "settings_translation_notice2": {
-    "message": "Incomplete categories will not be released to prevent partially translated texts."
-  },
-  "settings_translation_help": {
-    "message": "For each entry you can see the English translation which needs to be translated in your language. To help you to identify where the text is used, and what it is for, each entry has a name (e.g. {1}), which should not be translated. Please don't forget to submit your translation by pressing the \"Submit\" button at the top of the page."
-  },
-  "settings_translation_reminder_desc": {
-    "message": "I want to be notified when new language variables are being added to the extension"
-  },
-  "settings_translation_submit": {
-    "message": "Submit"
-  },
-  "settings_translation_submit_message": {
-    "message": "Your translation has been submitted successfully"
-  },
-  "settings_translation_status_released": {
-    "message": "Translation is available"
-  },
-  "settings_translation_status_incomplete": {
-    "message": "Translation is available but some categories are incomplete"
-  },
-  "settings_translation_status_draft": {
-    "message": "Translation is incomplete or needs a review and is not available to users"
-  },
-  "settings_translation_incomplete_info": {
-    "message": "Some translations are missing"
-  },
-  "settings_translation_required_category": {
-    "message": "Required"
-  },
-  "settings_translation_variable_name": {
-    "message": "Variable name"
-  },
-  "settings_translation_thanks_headline": {
-    "message": "Thank you for your translation."
-  },
-  "settings_translation_thanks_desc": {
-    "message": "I really appreciate your support by translating the extension's text. I would like to thank you by sending you a [b]free license key[\/b], which you can use to activate the Premium features. If you leave your email address I will get back to you."
-  },
-  "settings_translation_thanks_close": {
-    "message": "No thanks"
-  },
-  "settings_support_faq_headline": {
-    "message": "Frequently Asked Questions"
-  },
-  "settings_support_feedback_headline": {
-    "message": "Feedback"
-  },
-  "settings_support_feedback_desc": {
-    "message": "Have any suggestions for improvements, questions, noticed missing configuration options, or found a bug? To help improve this extension I would be very grateful for any and all feedback you can give me."
-  },
-  "settings_support_feedback_notice": {
-    "message": "Please compose your feedback in English language. Otherwise it will be difficult for me to understand and answer your message."
-  },
-  "settings_support_feedback_email": {
-    "message": "email address (optional)"
-  },
-  "settings_support_feedback_screenshot": {
-    "message": "Attach screenshots"
-  },
-  "settings_support_feedback_screenshot_error_filesize": {
-    "message": "The file size of {1} is too big (> 1 MB)"
-  },
-  "settings_support_feedback_screenshot_error_amount": {
-    "message": "You can only upload a maximum of {1} screenshots"
-  },
-  "settings_support_feedback_send": {
-    "message": "Send feedback"
-  },
-  "settings_support_feedback_sent_message": {
-    "message": "Thank you for the feedback"
-  },
-  "settings_support_feedback_send_failed": {
-    "message": "Your message could not be sent. Please try again."
-  },
-  "settings_about_me_desc": {
-    "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b]. I am a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management in Chrome so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. Back then I could never have imagined how many people would use my extension, send me feedback, ideas or report issues. That's why the extension has so many new features, improvements and translations into other languages. All this has only been possible with your help!"
-  },
-  "settings_about_me_sub_text": {
-    "message": "Thank you for your support."
-  },
-  "settings_permissions_desc": {
-    "message": "In order to make a togglable sidebar possible in {browserName}, the following permissions are required and requested by the extension:"
-  },
-  "settings_permissions_contentscript_desc_1": {
-    "message": "Unfortunately {browserName} has no mechanism to display content in the browser window without interacting with the current webpage."
-  },
-  "settings_permissions_contentscript_desc_2": {
-    "message": "Because the sidebar is being displayed on top of the current web page this permission is required. The permission is not used for any other purpose."
-  },
-  "settings_permissions_contentscript_desc_3": {
-    "message": "If you have concerns regarding what I'm doing with these permissions you can view the source code of the extension on Github. It's Open Source and is visible for everyone.to view."
-  },
-  "settings_permissions_bookmarks_desc": {
-    "message": "The extension is displaying your bookmarks in the sidebar and therefore needs this permission to gain access. The permission also allows the extension to add, edit and remove bookmarks."
-  },
-  "settings_headline_share_userdata": {
-    "message": "Share information"
-  },
-  "settings_saved_share_userdata": {
-    "message": "Your preference has been saved successfully"
-  },
-  "premium_popup_text": {
-    "message": "Have you checked out Premium yet?"
-  },
-  "premium_restricted_text": {
-    "message": "This feature is only available with Premium"
-  },
-  "premium_desc_1": {
-    "message": "With Premium you will get access to additional features and help me maintaining the extension."
-  },
-  "premium_desc_2": {
-    "message": "You can check out the features included in Premium below. All key features of the extensions are free to use and won't require Premium access. You can pay what you think the extension and my work is worth to you to gain access to these features."
-  },
-  "premium_get_now": {
-    "message": "Get Premium now"
-  },
-  "premium_show_license_input": {
-    "message": "I already have a Premium licence key"
-  },
-  "premium_already_activated": {
-    "message": "You are already using Premium"
-  },
-  "premium_activate": {
-    "message": "Activate Premium"
-  },
-  "premium_license_key": {
-    "message": "Licence Key"
-  },
-  "premium_feature_early_access_headline": {
-    "message": "Be first to try out new experimental features"
-  },
-  "premium_feature_early_access_desc": {
-    "message": "With Premium you get access to unreleased features, which are currently under development or undergoing testing."
-  },
-  "premium_feature_sidebar_width_headline": {
-    "message": "Change the width of your sidebar at any time"
-  },
-  "premium_feature_import_export_headline": {
-    "message": "Import and export your settings"
-  },
-  "premium_feature_custom_background_headline": {
-    "message": "Customize your New Tab page"
-  },
-  "premium_feature_custom_background_desc": {
-    "message": "If you are using the New Tab page of this extension you can set your own background image to make it look even nicer."
-  },
-  "premium_feature_custom_css_headline": {
-    "message": "Customize everything with your own Stylesheet"
-  },
-  "premium_feature_custom_css_desc": {
-    "message": "If you are familiar with CSS, you can change the complete appearance of the sidebar by adding your own style definitions. This allows you to customize absolutely anything."
-  },
-  "premium_feature_linkchecker_headline": {
-    "message": "Check your bookmarks for broken links or duplicates"
-  },
-  "premium_feature_linkchecker_desc": {
-    "message": "You can right-click any folder in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
-  },
-  "premium_feature_themes_headline": {
-    "message": "Change the theme of your sidebar"
-  },
-  "premium_feature_themes_desc": {
-    "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and colour options."
-  },
-  "premium_pay_intro_payment_method": {
-    "message": "Select a payment method below and choose the desired amount you want to pay in the next step."
-  },
-  "premium_pay_select_payment_method": {
-    "message": "Select a payment method"
-  },
-  "premium_pay_what_you_want": {
-    "message": "Pay what you want"
-  },
-  "premium_pay_creditcard": {
-    "message": "Credit or debit card"
-  },
-  "premium_pay_wechat_desc": {
-    "message": "Scan this QR code on WeChat to proceed."
-  },
-  "premium_pay_contact": {
-    "message": "If you are encountering any issues with your payment or have any questions, please contact me at {1}."
-  },
-  "premium_pay_price_total": {
-    "message": "Total"
-  },
-  "premium_pay_price_info": {
-    "message": "This is a one-time charge and includes all future Premium features as well."
-  },
-  "premium_pay_price_pay_what_you_want": {
-    "message": "You can pay what you think the extension and my work is worth to you to gain access to the premium features. You will always receive all premium features, regardless of how much you are willing to pay."
-  },
-  "premium_pay_eula": {
-    "message": "End-User Licence Agreement"
-  },
-  "premium_pay_eula_desc": {
-    "message": "I read and accept the [a]End-User Licence Agreement[\/a]"
-  },
-  "premium_pay_cancellation_policy": {
-    "message": "Cancellation Policy"
-  },
-  "premium_pay_confirm_headline": {
-    "message": "Confirm purchase"
-  },
-  "premium_pay_buy": {
-    "message": "Buy Premium"
-  },
-  "premium_pay_verifying": {
-    "message": "Verifiying transaction"
-  },
-  "premium_pay_purchase_id": {
-    "message": "Purchase ID"
-  },
-  "premium_pay_success_headline": {
-    "message": "Thank you for your purchase"
-  },
-  "premium_pay_success_info": {
-    "message": "{1} has been activated automatically for this device. You don't need to do anything else."
-  },
-  "premium_pay_license_key_desc": {
-    "message": "If you want to activate {1} on another device or after reinstalling the extension, you can enter the following key in the Premium settings in the extension:"
-  },
-  "premium_pay_info_email": {
-    "message": "E-Mail"
-  },
-  "premium_pay_info_email_desc": {
-    "message": "Please enter your mail address to receive the licence key."
-  },
-  "premium_pay_info_name": {
-    "message": "Name"
-  },
-  "premium_pay_info_zipcode": {
-    "message": "Zip code"
-  },
-  "premium_pay_info_payment_method": {
-    "message": "Payment method"
-  },
-  "premium_pay_info_card_number": {
-    "message": "Card number"
-  },
-  "premium_pay_info_card_expires": {
-    "message": "Card expires"
-  }
+    "extension_name": {
+        "message": "Bookmark Sidebar"
+    },
+    "extension_desc": {
+        "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
+    },
+    "extension_author": {
+        "message": "Philipp K\u00f6nig"
+    },
+    "extension_version": {
+        "message": "Version"
+    },
+    "extension_last_update": {
+        "message": "Last updated on {1}"
+    },
+    "header_bookmarks": {
+        "message": "Bookmarks"
+    },
+    "header_bookmarks_single": {
+        "message": "Bookmark"
+    },
+    "header_selected_entries": {
+        "message": "selected"
+    },
+    "sidebar_dir_children": {
+        "message": "Elements"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Search bookmark"
+    },
+    "sidebar_search_no_results": {
+        "message": "No bookmarks match your search criteria"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "URL copied"
+    },
+    "sidebar_deleted": {
+        "message": "Removed"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Undo"
+    },
+    "more_link": {
+        "message": "Learn more"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Edit Bookmark"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Edit Folder"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Edit Separator"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Delete Bookmark"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Delete Folder"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Delete Separator"
+    },
+    "contextmenu_infos": {
+        "message": "Information"
+    },
+    "contextmenu_new_tab": {
+        "message": "Open in a new tab"
+    },
+    "contextmenu_current_tab": {
+        "message": "Open in current tab"
+    },
+    "contextmenu_new_window": {
+        "message": "Open in a new window"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Open in an incognito window"
+    },
+    "contextmenu_copy": {
+        "message": "Copy URL to clipboard"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Add bookmark"
+    },
+    "contextmenu_add": {
+        "message": "Add entry"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Check bookmarks"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Show hidden entries"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Collapse all folders"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Refresh sidebar"
+    },
+    "contextmenu_open_children": {
+        "message": "Open bookmarks"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Hide from sidebar"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Show in sidebar"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Show in folder"
+    },
+    "contextmenu_pin": {
+        "message": "Pin to top"
+    },
+    "contextmenu_unpin": {
+        "message": "Unpin from top"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Bookmark Manager"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Keyboard shortcuts"
+    },
+    "contextmenu_select_entries": {
+        "message": "Select multiple entries"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Select bookmark"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Deselect bookmark"
+    },
+    "contextmenu_select_dir": {
+        "message": "Select folder"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deselect folder"
+    },
+    "sort_label_custom": {
+        "message": "User-defined"
+    },
+    "sort_label_alphabetical": {
+        "message": "Alphabetical"
+    },
+    "sort_label_most_used": {
+        "message": "Most used"
+    },
+    "sort_label_recently_used": {
+        "message": "Recently used"
+    },
+    "sort_label_recently_added": {
+        "message": "Recently added"
+    },
+    "sort_view_as_tree": {
+        "message": "Show folders"
+    },
+    "sort_most_used_per_month": {
+        "message": "Per month"
+    },
+    "overlay_bookmark_title": {
+        "message": "Title"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Additional info"
+    },
+    "overlay_cancel": {
+        "message": "Cancel"
+    },
+    "overlay_close": {
+        "message": "Close"
+    },
+    "overlay_save": {
+        "message": "Save"
+    },
+    "overlay_delete": {
+        "message": "Delete"
+    },
+    "overlay_update": {
+        "message": "Update"
+    },
+    "overlay_open_children": {
+        "message": "Open all"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Do you really want to open all {1} sub-folder bookmarks?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Hide from sidebar"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Do you really want to hide this bookmark from the sidebar?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Do you really want to hide this folder from the sidebar? All sub-folder bookmarks will also be hidden."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Do you really want to delete this bookmark?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Do you really want to delete this folder? All sub-folder bookmarks will also be deleted."
+    },
+    "overlay_label_bookmark": {
+        "message": "Bookmark"
+    },
+    "overlay_label_dir": {
+        "message": "Folder"
+    },
+    "overlay_label_separator": {
+        "message": "Separator"
+    },
+    "overlay_add_position": {
+        "message": "Position"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Add to start of folder"
+    },
+    "overlay_add_position_append": {
+        "message": "Add to end of folder"
+    },
+    "overlay_separator_title_desc": {
+        "message": "You can optionally enter a title. It will be displayed on top of the separator line and can help you organising your bookmark list."
+    },
+    "overlay_bookmark_views": {
+        "message": "Views"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "View"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Recorded since"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "per month"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Created on"
+    },
+    "overlay_dir_children": {
+        "message": "Elements"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Bookmarks"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Folders"
+    },
+    "overlay_delete_selected": {
+        "message": "Delete selected entries"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Do you really want to delete the selected entries? All sub-folder bookmarks of the selected folders will also be deleted."
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Changed"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Broken"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicates"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Empty folders"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Checking the bookmark URLs"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Update selected"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Remove selected"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "All bookmark URLs are valid"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "There are no changed bookmark URLs"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "There are no broken bookmark URLs"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "There are no duplicate bookmark URLs"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "There are no folders without bookmarks"
+    },
+    "newtab_title": {
+        "message": "New Tab"
+    },
+    "newtab_grid_links_default": {
+        "message": "Top pages"
+    },
+    "newtab_grid_links_recently_used": {
+        "message": "Recently used bookmarks"
+    },
+    "newtab_grid_links_most_used": {
+        "message": "Most used bookmarks"
+    },
+    "newtab_grid_links_custom": {
+        "message": "User defined entries"
+    },
+    "newtab_grid_links_hidden": {
+        "message": "Don't show pages"
+    },
+    "newtab_grid_links_appearance_thumbnail": {
+        "message": "Display website previews"
+    },
+    "newtab_grid_links_appearance_favicon": {
+        "message": "Display website icons"
+    },
+    "newtab_grid_links_grid_size": {
+        "message": "Grid size"
+    },
+    "newtab_search_placeholder": {
+        "message": "Search {1} or type URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Show search field"
+    },
+    "newtab_search_field_hide": {
+        "message": "Hide search field"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Speak now"
+    },
+    "newtab_speech_search_error": {
+        "message": "To enable the speech search you must allow microphone access."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Search engine"
+    },
+    "newtab_search_engine_custom": {
+        "message": "User-defined"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Title"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL of homepage"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL of search results"
+    },
+    "newtab_upload_background": {
+        "message": "Upload background image"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Something has blocked the sidebar"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "The sidebar cannot be used on the {browserName} Webstore"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "The sidebar cannot be used on extension pages"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "The sidebar cannot be used on the default new tab page"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "The sidebar cannot be used on {browserName} system pages"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "One of your URL rules did not allow the sidebar to open"
+    },
+    "newtab_fallback_desc": {
+        "message": "We have opened a new tab with the sidebar for you instead."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Always show this page when opening a new tab"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Service unavailable"
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "The feedback service is currently unavailable. If you want to give feedback, please send me an email."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "The translation service is not available at the moment. Please try again later."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Reload now"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Due to an update of the extension this page needs to be reloaded."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Cmd"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Hovers the next or previous entry in the sidebar"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Performs a click on the currently hovered entry"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Opens the context menu for the currently hovered entry"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copies the URL of the currently hovered entry"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Removes the currently hovered entry"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Closes the sidebar, opened overlay or context menu"
+    },
+    "contribute_intro": {
+        "message": "To improve the extension I would like to know better about how users are using the sidebar and what configuration they use."
+    },
+    "contribute_notice": {
+        "message": "You can help me by sharing your configuration"
+    },
+    "contribute_outro": {
+        "message": "If you have questions or concerns about the sharing of information then please send me a feedback message."
+    },
+    "contribute_share_config_label": {
+        "message": "Share configuration"
+    },
+    "contribute_share_config_desc": {
+        "message": "You share your configuration anonymously which helps me to identify popular settings and to identify what to improve or change in future releases."
+    },
+    "contribute_share_activity_label": {
+        "message": "Share activity"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "You can share your activity within the sidebar anonymously which helps me to better understand how the sidebar is being used in the field. Information about your bookmarks or your visited websites [b]will not[\/b] be measured."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "This information is very useful to identify problems in usability or features which are, for example, not being used very often."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Examples of shared data:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Average number of bookmarks per user?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Which platform are users on (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Is the search facility being used?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Do users change the sorting order of the bookmarks?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "How often are users rearranging or editing entries?"
+    },
+    "onboarding_title": {
+        "message": "Setup"
+    },
+    "onboarding_headline": {
+        "message": "Thank you for installing this extension."
+    },
+    "onboarding_setup": {
+        "message": "Setup now"
+    },
+    "onboarding_skip": {
+        "message": "Skip setup"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Where do you want to have your sidebar to appear?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "How do you want to open your sidebar?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Which style do you prefer?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Light"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Dark"
+    },
+    "onboarding_handson_desc": {
+        "message": "Now you can try out the sidebar for yourself."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Move your cursor to the {1} edge of your window."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Then {1} click with your mouse to open the sidebar."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Click on the extension icon at the top of your browser to open the sidebar."
+    },
+    "onboarding_left": {
+        "message": "left"
+    },
+    "onboarding_right": {
+        "message": "right"
+    },
+    "onboarding_finish_desc": {
+        "message": "Have fun with your sidebar."
+    },
+    "onboarding_finish_notice": {
+        "message": "If you frequently need to click things on the {1} side of the browser window, you may want to change where the sidebar is positioned vertically when it opens to avoid opening it accidentally."
+    },
+    "onboarding_goto_settings": {
+        "message": "More settings"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Configure appearance"
+    },
+    "settings_title": {
+        "message": "Settings"
+    },
+    "settings_menu_dashboard": {
+        "message": "Overview"
+    },
+    "settings_menu_sidebar": {
+        "message": "Sidebar"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "General"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Toggle"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Tooltips"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filter"
+    },
+    "settings_menu_appearance": {
+        "message": "Appearance"
+    },
+    "settings_menu_appearance_general": {
+        "message": "General"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Sidebar"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indicator"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Icon"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Overlay"
+    },
+    "settings_menu_newtab": {
+        "message": "New Tab"
+    },
+    "settings_menu_language": {
+        "message": "Language"
+    },
+    "settings_menu_language_general": {
+        "message": "General"
+    },
+    "settings_menu_language_translate": {
+        "message": "Translate"
+    },
+    "settings_menu_support": {
+        "message": "Support"
+    },
+    "settings_menu_infos": {
+        "message": "Information"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "About me"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permissions"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacy"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Contact"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Changelog"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
+    "settings_menu_export": {
+        "message": "Import\/Export"
+    },
+    "settings_menu_expert": {
+        "message": "Expert settings"
+    },
+    "settings_save": {
+        "message": "Save Changes"
+    },
+    "settings_saved_message": {
+        "message": "Changes saved successfully"
+    },
+    "settings_restore": {
+        "message": "Restore default"
+    },
+    "settings_restore_confirm": {
+        "message": "Do you really want to restore the default configuration?"
+    },
+    "settings_restored_message": {
+        "message": "Configuration restored successfully"
+    },
+    "settings_advanced": {
+        "message": "Advanced settings"
+    },
+    "settings_not_synced": {
+        "message": "Will not be synchronized across your devices."
+    },
+    "settings_premium_activated": {
+        "message": "Premium has been activated successfully"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Could not activate Premium. Please enter a valid license key"
+    },
+    "settings_search_placeholder": {
+        "message": "Search for configuration"
+    },
+    "settings_expert_settings_desc": {
+        "message": "With the expert settings you can change all the configuration flags of the extension, even those you cannot change using the regular checkboxes or sliders on the settings page."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Please only change the values here if you fully understand what you are doing! Faulty configurations can cause unexpected behaviour of the extension. If something does not work properly however, you can revert to the default configuration."
+    },
+    "settings_expert_save_error": {
+        "message": "Could not save settings. Please correct your input."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configure the behaviour of your sidebar"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "There are various options you can change to control the extension. For example, you can change how the sidebar should slide in or how your bookmarks should be opened. If you don't want the sidebar to be loaded on every page, you can configure this, too, using appropriate rules."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Change the appearance of your sidebar"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "You can change the look of the sidebar entirely to fit your needs. There are various options to change the font size, line spacing, colors, icons and many more. You can also pick from pre-defined designs and preset options to quickly make the sidebar look like you want."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Did you know?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Next tip"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Quick search"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "If you open the sidebar, you can search for bookmarks by just starting to type. No need to click on the search icon in the header of the sidebar first."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Activation area"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can make the activation area smaller by only allowing the sidebar to open at a portion of the browser height. For example, you can change the sidebar to only show up, when you click the activation area in the lower left corner of the browser window. This can be helpful to prevent the sidebar from showing up unintendedly when clicking links of the website."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Quick bookmarking"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "You can drag any URL right into the sidebar and drop it at the desired position. You can even mark and drag the current URL of a browser tab in this way. You can also drag the {1} symbol left of the address bar into the sidebar to bookmark the current page without marking the whole address bar first."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separators"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "A bookmark entry with the URL {1} and a title {2} or {3} will be displayed as separator in the sidebar. You can add separators by right clicking any folder in the sidebar and then click on the {4} button."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Quick URL copy"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "To copy the URL of a bookmark in the sidebar to your clipboard, you can press {1} when hovering an entry."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Open all bookmarks"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "To open all bookmarks in a folder, you can middle click on the folder. Alternatively you can press {1} while clicking on a folder with your left mouse button."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Hide entries"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "You can hide individual bookmarks or even folders from the sidebar. You can right click on any entry in the sidebar and then click on the {1} button in the contextmenu. To display hidden entries again, you can click on the menu icon in the header of the sidebar and enable the according checkbox there."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Expand all subfolders"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "To quickly open a folder with all its subfolders opened, too, you can double click on a folder in the sidebar."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Keyboard shortcuts"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "The sidebar can be controlled using keyboard shortcuts. You can have a look at a list of shortcuts by clicking the menu icon in the header of the sidebar and then click on the {1} button."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronization"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "All your settings of the sidebar will be synchronized between your devices, if you enable the sync options of your browser in the settings. Even without Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Look up your sync settings"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "The extension is available in {1} different languages. The translations are community-made and everyone can help to contribute by translating the texts of the extension in other languages. Translations will be approved and then added to the extension with the next update."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "This extension is a one man project, which started as a hobby project for personal use."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "The first version of this extension was released in November 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Right click"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "You can right click on any bookmark or folder in the sidebar to reveal additional options. For example you can edit existing bookmarks or pin entries to the top of the sidebar. When you right click a folder, you can start a bookmark check to identify broken or updated bookmark URLs."
+    },
+    "settings_open_action": {
+        "message": "Open sidebar"
+    },
+    "settings_open_action_desc": {
+        "message": "Open the sidebar by clicking or moving the mouse pointer over the left or right edge of the browser window. Alternatively you can change it to only open if the extension icon is clicked."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Left click"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Right click"
+    },
+    "settings_open_action_mouseover": {
+        "message": "Mouseover"
+    },
+    "settings_open_action_icon": {
+        "message": "Click on icon"
+    },
+    "settings_toggle_area": {
+        "message": "Configure area"
+    },
+    "settings_toggle_area_desc": {
+        "message": "By default, the whole edge of your browser window can be hovered over to open the sidebar. You can change this and also configure exactly where to open the sidebar."
+    },
+    "settings_toggle_area_width": {
+        "message": "Width"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Width (Windowed)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Height"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "You can reduce the height of the active area so the sidebar will only open when you move your cursor into that area at the edge of your browser window."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Drag to move"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Set keyboard shortcut"
+    },
+    "settings_link_action": {
+        "message": "Open bookmarks"
+    },
+    "settings_link_action_desc": {
+        "message": "Left click a bookmark will open them either in the current tab or in a new tab."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Current tab"
+    },
+    "settings_link_action_new_tab": {
+        "message": "New tab"
+    },
+    "settings_open_delay": {
+        "message": "Open delay"
+    },
+    "settings_open_delay_desc": {
+        "message": "Prevents the sidebar from opening immediately when hovering or clicking on the activation area at the edge of the browser window."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Prevent page scrolling"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Prevents scrolling of the current website while the sidebar is open."
+    },
+    "settings_dir_accordion": {
+        "message": "Show only current folder"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Closes all folder except the currently active one."
+    },
+    "settings_remember_state": {
+        "message": "Remember"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Scroll position and currently opened folders"
+    },
+    "settings_remember_state_all": {
+        "message": "Scroll position, currently opened folders and last opened bookmark"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Opened folders"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Opened top level folders"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Nothing"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Remember opened sub directories"
+    },
+    "settings_remember_desc": {
+        "message": "Select what to remember across page changes. If you choose to remember the last opened bookmark, it will be marked when opening the sidebar again."
+    },
+    "settings_dnd_creation_dialog": {
+        "message": "Show creation dialog"
+    },
+    "settings_dnd_creation_dialog_desc": {
+        "message": "Show the creation dialog before adding a new bookmark when drag&drop into the sidebar."
+    },
+    "settings_new_entry_position": {
+        "message": "Position of new entries"
+    },
+    "settings_new_entry_position_desc": {
+        "message": "The preselected position when adding new entries to the sidebar."
+    },
+    "settings_open_children_warn_limit": {
+        "message": "Open all sub-folder bookmarks (Warning limit)"
+    },
+    "settings_open_children_warn_limit_desc": {
+        "message": "Amount of bookmarks at which a warning appears, when trying to open all bookmarks within a folder and its sub-folders at once."
+    },
+    "settings_dir_open_duration": {
+        "message": "Folder open duration"
+    },
+    "settings_dir_open_duration_desc": {
+        "message": "Duration of the open and close animation of directories"
+    },
+    "settings_new_tab": {
+        "message": "New Tab"
+    },
+    "settings_new_tab_desc": {
+        "message": "Open bookmarks in new tab in the foreground or the background"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Open in foreground"
+    },
+    "settings_new_tab_background": {
+        "message": "Open in background"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Open new tabs after the last or the current tab"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "After the last tab"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "After the current tab"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Before the first tab"
+    },
+    "settings_close_timeout": {
+        "message": "Close timeout"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Timeout in seconds after the sidebar will be closed. Time will start as soon the mouse leaves the sidebar and stops when hovering over it again."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "Don't close automatically"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Hide scrollbar"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Timeout in seconds after the scrollbar will be hidden. Scrolling will show the scrollbar again."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Never hide"
+    },
+    "settings_dnd_open_dir_delay": {
+        "message": "Drag&Drop Open folder delay"
+    },
+    "settings_dnd_open_dir_delay_desc": {
+        "message": "Delay before opening a hovered folder when dragging an element over it."
+    },
+    "settings_reopen_sidebar": {
+        "message": "Reopen sidebar"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Automatically open the sidebar again, after opening a bookmark from within the sidebar."
+    },
+    "settings_prevent_windowed": {
+        "message": "Disable sidebar in window mode"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser is in window mode."
+    },
+    "settings_prevent_webapp": {
+        "message": "Disable sidebar in PWA"
+    },
+    "settings_prevent_webapp_desc": {
+        "message": "Disables the ability to open the sidebar by clicking on or hovering over the edge of the browser when the browser window is displaying a Progressive Web App (PWA)."
+    },
+    "settings_tooltip_delay": {
+        "message": "Tooltip delay"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Delay before the tooltips for the bookmarks will be displayed when hovering with the mouse."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Never show tooltips"
+    },
+    "settings_tooltip_desc": {
+        "message": "Select what information the tooltip should contain."
+    },
+    "settings_tooltip_content": {
+        "message": "Tooltip content"
+    },
+    "settings_tooltip_content_all": {
+        "message": "Title and URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Only title"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Only URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Additional info"
+    },
+    "settings_sidebar_position": {
+        "message": "Position"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Define whether the sidebar should open on the left or right side of the browser window."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Left"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Right"
+    },
+    "settings_animations": {
+        "message": "Enable animations"
+    },
+    "settings_animations_desc": {
+        "message": "Allows you to disable all sidebar animations. This can be useful if the animations are not running smoothly on your system."
+    },
+    "settings_filter_intro": {
+        "message": "If you don't want the sidebar to be loaded on every page, you can configure where to load the extension (whitelist) or where not to load it (blacklist)."
+    },
+    "settings_filter_explanation_1": {
+        "message": "Only add one URL pattern per line"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Use * to match any character (e.g. example.com\/* matches all pages under example.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "If you don't include any * in a rule, only exact URL's will match (e.g. \"example.com\/about.html\" won't be matched for the URL \"example.com\")"
+    },
+    "settings_filter_explanation_4": {
+        "message": "You don't need to add the protocol (e.g. http:\/\/) in the rules"
+    },
+    "settings_filter_visibility": {
+        "message": "Load sidebar"
+    },
+    "settings_filter_visibility_always": {
+        "message": "On every page"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "On every page except specified pages"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Only on specific pages"
+    },
+    "settings_filter_rules": {
+        "message": "URL patterns"
+    },
+    "settings_import_export_headline": {
+        "message": "Import\/Export Settings"
+    },
+    "settings_import_export_notice": {
+        "message": "The extension settings are synchronized automatically between your devices, if you are logged in to {browserName} with your account. If you don't want to login or want to share your settings with other people or devices you can use this import\/export options."
+    },
+    "settings_import_export_desc": {
+        "message": "You can export your extension settings and save them locally on your computer. You can import the previously exported file on any device where the extension is installed."
+    },
+    "settings_export": {
+        "message": "Export Settings"
+    },
+    "settings_import": {
+        "message": "Import Settings"
+    },
+    "settings_import_saved": {
+        "message": "Configuration imported successfully"
+    },
+    "settings_import_failed": {
+        "message": "Failed to import the configuration. Please choose a valid file."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Import\/Export Bookmarks"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "This is a browser feature and not part of the extension. Read more about how to import and export bookmarks in {browserName}."
+    },
+    "settings_theme_changed": {
+        "message": "Changed theme successfully"
+    },
+    "settings_close_on_tab_change": {
+        "message": "Close on tab change"
+    },
+    "settings_close_on_tab_change_desc": {
+        "message": "Close the sidebar when clicking on another browser tab"
+    },
+    "settings_presets": {
+        "message": "Set relative sizes"
+    },
+    "settings_presets_desc": {
+        "message": "You can select predefined sizes for the sidebar. This will change the sliders on this page which will adjust the sidebar width, line heights, icon sizes and many other visual options."
+    },
+    "settings_color_scheme": {
+        "message": "Colour scheme"
+    },
+    "settings_dark_mode": {
+        "message": "Surface"
+    },
+    "settings_color_scheme_desc": {
+        "message": "The colour of the sidebar header, checkboxes, etc."
+    },
+    "settings_text_color": {
+        "message": "Text colour"
+    },
+    "settings_hover_color": {
+        "message": "Mouseover colour"
+    },
+    "settings_font_family": {
+        "message": "Typeface"
+    },
+    "settings_font_family_default": {
+        "message": "Default"
+    },
+    "settings_font_family_desc": {
+        "message": "The typeface of the sidebar and the overlays"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Scrollbar width"
+    },
+    "settings_icon_background_color": {
+        "message": "Background Colour"
+    },
+    "settings_icon_color": {
+        "message": "Colour"
+    },
+    "settings_icon_color_auto": {
+        "message": "Automatically"
+    },
+    "settings_icon_color_custom": {
+        "message": "Custom"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "The icon colour will be set automatically to match colour scheme of your system (light or dark). You can also define your own custom colour for the icon."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Please note that the automatic colour will not work when using a custom {browserName} theme."
+    },
+    "settings_indicator_width": {
+        "message": "Width"
+    },
+    "settings_indicator_color": {
+        "message": "Colour"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Icon size"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Icon colour"
+    },
+    "settings_sidebar_width": {
+        "message": "Width"
+    },
+    "settings_header_height": {
+        "message": "Header height"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Mask colour"
+    },
+    "settings_background_transparency": {
+        "message": "Background transparency"
+    },
+    "settings_background_blur": {
+        "message": "Background blur effect"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Folder icon"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Folder icon colour"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Bookmarks font size"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Bookmarks icon size"
+    },
+    "settings_directories_icon_size": {
+        "message": "Folders icon size"
+    },
+    "settings_directory_arrows": {
+        "message": "Folder arrows"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Bookmarks line height"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Bookmarks horizontal padding"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Folder indentation"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Tooltip font size"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Mask colour"
+    },
+    "settings_icon_shape": {
+        "message": "Shape"
+    },
+    "settings_custom_css": {
+        "message": "Custom stylesheet"
+    },
+    "settings_custom_css_desc": {
+        "message": "You can define your own stylesheet to override the default styling. Please only use this option if you are familiar with CSS and fully understand how to use them."
+    },
+    "settings_theme": {
+        "message": "Theme"
+    },
+    "settings_themes_notice": {
+        "message": "You can choose the basic design of the sidebar. The selected theme can be customized with the available sliders and colour options."
+    },
+    "settings_available_themes": {
+        "message": "Available Themes"
+    },
+    "settings_show_themes": {
+        "message": "Show available themes"
+    },
+    "settings_theme_default": {
+        "message": "Default theme"
+    },
+    "settings_theme_default_desc": {
+        "message": "This theme lets you access your bookmarks in a clean, modern way. The colour of many of the elements can be changed by modifying the colour scheme."
+    },
+    "settings_theme_glass": {
+        "message": "Glass theme"
+    },
+    "settings_theme_glass_desc": {
+        "message": "This theme makes the background of the sidebar semi-transparent and adds a blurry glass effect to it. You can adjust this effect and the transparency of the sidebar."
+    },
+    "settings_theme_focus": {
+        "message": "Focus theme"
+    },
+    "settings_theme_focus_desc": {
+        "message": "This theme reduces the animations and arranges the elements more dense for improved productivity and performance."
+    },
+    "settings_install_theme": {
+        "message": "Install theme"
+    },
+    "settings_installed_theme_info": {
+        "message": "Currently installed"
+    },
+    "settings_newtab_desc": {
+        "message": "Chromium based browsers do not allow loading extensions on the default new tab page. Because of this the sidebar feature will not work there. To circumvent this problem options have been added allowing you to access your bookmarks when opening a new tab."
+    },
+    "settings_newtab_override": {
+        "message": "Override new tab page"
+    },
+    "settings_newtab_override_desc": {
+        "message": "Should the extension override your current new tab page with either 1) a custom made page or 2) a website page which should be loaded when opening a new tab?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Open sidebar automatically"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Configure whether the sidebar should be opened automatically when opening a new tab."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Focus address bar"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "If enabled, the address bar will be focused when opening a new tab. If not enabled, the search box of the website will be focused instead."
+    },
+    "settings_newtab_website": {
+        "message": "Load website"
+    },
+    "settings_newtab_website_desc": {
+        "message": "Instead of opening the new tab replacement, you can specify an alternative website page to load."
+    },
+    "settings_language": {
+        "message": "Language"
+    },
+    "settings_language_default": {
+        "message": "Browser default"
+    },
+    "settings_language_desc": {
+        "message": "The language of the user interface"
+    },
+    "settings_translation_link": {
+        "message": "Go to translation overview"
+    },
+    "settings_translation_desc": {
+        "message": "You can help translating the extension into your language or improve the existing one."
+    },
+    "settings_translation_add_language": {
+        "message": "Add language"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Back to overview"
+    },
+    "settings_translation_info": {
+        "message": "You can edit existing translations or add missing ones. If you submit your changes I will review your input and approve it."
+    },
+    "settings_translation_notice1": {
+        "message": "When all categories which are marked as \"Required\" are translated the translation will be released."
+    },
+    "settings_translation_notice2": {
+        "message": "Incomplete categories will not be released to prevent partially translated texts."
+    },
+    "settings_translation_help": {
+        "message": "For each entry you can see the English translation which needs to be translated in your language. To help you to identify where the text is used, and what it is for, each entry has a name (e.g. {1}), which should not be translated. Please don't forget to submit your translation by pressing the \"Submit\" button at the top of the page."
+    },
+    "settings_translation_reminder_desc": {
+        "message": "I want to be notified when new language variables are being added to the extension"
+    },
+    "settings_translation_submit": {
+        "message": "Submit"
+    },
+    "settings_translation_submit_message": {
+        "message": "Your translation has been submitted successfully"
+    },
+    "settings_translation_status_released": {
+        "message": "Translation is available"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "Translation is available but some categories are incomplete"
+    },
+    "settings_translation_status_draft": {
+        "message": "Translation is incomplete or needs a review and is not available to users"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Some translations are missing"
+    },
+    "settings_translation_required_category": {
+        "message": "Required"
+    },
+    "settings_translation_variable_name": {
+        "message": "Variable name"
+    },
+    "settings_translation_thanks_headline": {
+        "message": "Thank you for your translation."
+    },
+    "settings_translation_thanks_desc": {
+        "message": "I really appreciate your support by translating the extension's text. I would like to thank you by sending you a [b]free license key[\/b], which you can use to activate the Premium features. If you leave your email address I will get back to you."
+    },
+    "settings_translation_thanks_close": {
+        "message": "No thanks"
+    },
+    "settings_support_faq_headline": {
+        "message": "Frequently Asked Questions"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Feedback"
+    },
+    "settings_support_feedback_desc": {
+        "message": "Have any suggestions for improvements, questions, noticed missing configuration options, or found a bug? To help improve this extension I would be very grateful for any and all feedback you can give me."
+    },
+    "settings_support_feedback_notice": {
+        "message": "Please compose your feedback in English language. Otherwise it will be difficult for me to understand and answer your message."
+    },
+    "settings_support_feedback_email": {
+        "message": "email address (optional)"
+    },
+    "settings_support_feedback_screenshot": {
+        "message": "Attach screenshots"
+    },
+    "settings_support_feedback_screenshot_error_filesize": {
+        "message": "The file size of {1} is too big (> 1 MB)"
+    },
+    "settings_support_feedback_screenshot_error_amount": {
+        "message": "You can only upload a maximum of {1} screenshots"
+    },
+    "settings_support_feedback_send": {
+        "message": "Send feedback"
+    },
+    "settings_support_feedback_sent_message": {
+        "message": "Thank you for the feedback"
+    },
+    "settings_support_feedback_send_failed": {
+        "message": "Your message could not be sent. Please try again."
+    },
+    "settings_about_me_desc": {
+        "message": "Hello world... My name is [b]Philipp K\u00f6nig[\/b]. I am a Software Developer from Stuttgart, Germany. I didn't like the default bookmark management in Chrome so I started making this extension back in 2016 and uploaded it to the Chrome Webstore. Back then I could never have imagined how many people would use my extension, send me feedback, ideas or report issues. That's why the extension has so many new features, improvements and translations into other languages. All this has only been possible with your help!"
+    },
+    "settings_about_me_sub_text": {
+        "message": "Thank you for your support."
+    },
+    "settings_permissions_desc": {
+        "message": "In order to make a togglable sidebar possible in {browserName}, the following permissions are required and requested by the extension:"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Unfortunately {browserName} has no mechanism to display content in the browser window without interacting with the current webpage."
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Because the sidebar is being displayed on top of the current web page this permission is required. The permission is not used for any other purpose."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "If you have concerns regarding what I'm doing with these permissions you can view the source code of the extension on Github. It's Open Source and is visible for everyone.to view."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "The extension is displaying your bookmarks in the sidebar and therefore needs this permission to gain access. The permission also allows the extension to add, edit and remove bookmarks."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Share information"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Your preference has been saved successfully"
+    },
+    "premium_popup_text": {
+        "message": "Have you checked out Premium yet?"
+    },
+    "premium_restricted_text": {
+        "message": "This feature is only available with Premium"
+    },
+    "premium_desc_1": {
+        "message": "With Premium you will get access to additional features and help me maintaining the extension."
+    },
+    "premium_desc_2": {
+        "message": "You can check out the features included in Premium below. All key features of the extensions are free to use and won't require Premium access. You can pay what you think the extension and my work is worth to you to gain access to these features."
+    },
+    "premium_get_now": {
+        "message": "Get Premium now"
+    },
+    "premium_show_license_input": {
+        "message": "I already have a Premium licence key"
+    },
+    "premium_already_activated": {
+        "message": "You are already using Premium"
+    },
+    "premium_activate": {
+        "message": "Activate Premium"
+    },
+    "premium_license_key": {
+        "message": "Licence Key"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Be first to try out new experimental features"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "With Premium you get access to unreleased features, which are currently under development or undergoing testing."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Change the width of your sidebar at any time"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Import and export your settings"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Customize your New Tab page"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "If you are using the New Tab page of this extension you can set your own background image to make it look even nicer."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Customize everything with your own Stylesheet"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "If you are familiar with CSS, you can change the complete appearance of the sidebar by adding your own style definitions. This allows you to customize absolutely anything."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Check your bookmarks for broken links or duplicates"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "You can right-click any folder in your sidebar and perform a check. The result page will show all updated URLs, bookmarks which are no longer working and bookmarks with the same URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Change the theme of your sidebar"
+    },
+    "premium_feature_themes_desc": {
+        "message": "You can swap the whole design of the sidebar with one click by installing another theme. They can also be customized with the available sliders and colour options."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Select a payment method below and choose the desired amount you want to pay in the next step."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Select a payment method"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Pay what you want"
+    },
+    "premium_pay_creditcard": {
+        "message": "Credit or debit card"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Scan this QR code on WeChat to proceed."
+    },
+    "premium_pay_contact": {
+        "message": "If you are encountering any issues with your payment or have any questions, please contact me at {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "This is a one-time charge and includes all future Premium features as well."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "You can pay what you think the extension and my work is worth to you to gain access to the premium features. You will always receive all premium features, regardless of how much you are willing to pay."
+    },
+    "premium_pay_eula": {
+        "message": "End-User Licence Agreement"
+    },
+    "premium_pay_eula_desc": {
+        "message": "I read and accept the [a]End-User Licence Agreement[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Cancellation Policy"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirm purchase"
+    },
+    "premium_pay_buy": {
+        "message": "Buy Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verifiying transaction"
+    },
+    "premium_pay_purchase_id": {
+        "message": "Purchase ID"
+    },
+    "premium_pay_success_headline": {
+        "message": "Thank you for your purchase"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} has been activated automatically for this device. You don't need to do anything else."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "If you want to activate {1} on another device or after reinstalling the extension, you can enter the following key in the Premium settings in the extension:"
+    },
+    "premium_pay_info_email": {
+        "message": "E-Mail"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Please enter your mail address to receive the licence key."
+    },
+    "premium_pay_info_name": {
+        "message": "Name"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Zip code"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "Payment method"
+    },
+    "premium_pay_info_card_number": {
+        "message": "Card number"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "Card expires"
+    }
 }

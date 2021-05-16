@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Bookmark"
     },
+    "header_selected_entries": {
+        "message": "selected"
+    },
     "sidebar_dir_children": {
         "message": "Elements"
     },
@@ -115,6 +118,21 @@
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Keyboard shortcuts"
+    },
+    "contextmenu_select_entries": {
+        "message": "Select multiple entries"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Select bookmark"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Deselect bookmark"
+    },
+    "contextmenu_select_dir": {
+        "message": "Select folder"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deselect folder"
     },
     "sort_label_custom": {
         "message": "User-defined"
@@ -226,6 +244,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Folders"
+    },
+    "overlay_delete_selected": {
+        "message": "Delete selected entries"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Do you really want to delete the selected entries? All sub-folder bookmarks of the selected folders will also be deleted."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Changed"

@@ -1260,7 +1260,7 @@
         "message": "A be\u00e1ll\u00edt\u00e1sok ment\u00e9sre ker\u00fcltek"
     },
     "premium_popup_text": {
-        "message": "Kifizetted a pr\u00e9mium el\u0151fizet\u00e9st?"
+        "message": "Megn\u00e9zte m\u00e1r a pr\u00e9mium m\u00f3d el\u0151nyeit?"
     },
     "premium_restricted_text": {
         "message": "Ez a funkci\u00f3 csak pr\u00e9mium felhaszn\u00e1l\u00f3knak \u00e9rhet\u0151 el."
@@ -1278,7 +1278,7 @@
         "message": "M\u00e1r van pr\u00e9mium el\u0151fizet\u00e9sem"
     },
     "premium_already_activated": {
-        "message": "M\u00e1r pr\u00e9mium el\u0151fizet\u00e9st haszn\u00e1lsz"
+        "message": "M\u00e1r pr\u00e9mium el\u0151fizet\u00e9st haszn\u00e1l"
     },
     "premium_activate": {
         "message": "Pr\u00e9mium el\u0151fizet\u00e9s aktiv\u00e1l\u00e1sa"
@@ -1296,7 +1296,7 @@
         "message": "B\u00e1rmikor megv\u00e1ltoztathatja az oldals\u00e1v sz\u00e9less\u00e9g\u00e9t"
     },
     "premium_feature_import_export_headline": {
-        "message": "Import\u00e1ld \u00e9s export\u00e1ld a be\u00e1ll\u00edt\u00e1saidat"
+        "message": "Import\u00e1lja \u00e9s export\u00e1lja a be\u00e1ll\u00edt\u00e1sait"
     },
     "premium_feature_custom_background_headline": {
         "message": "Az \u00daj lap testreszab\u00e1sa"
@@ -1308,13 +1308,13 @@
         "message": "Testre szabhat mindent a saj\u00e1t st\u00edluslapj\u00e1val."
     },
     "premium_feature_custom_css_desc": {
-        "message": "Ha ismered a CSS-t, megv\u00e1ltoztathatod az oldals\u00e1v teljes megjelen\u00e9s\u00e9t a saj\u00e1t st\u00edlusmeghat\u00e1roz\u00e1said hozz\u00e1ad\u00e1s\u00e1val. Ez lehet\u0151v\u00e9 teszi, hogy mindent testreszabj\u00e1l."
+        "message": "Ha ismeri a CSS-t, megv\u00e1ltoztathatja az oldals\u00e1v teljes megjelen\u00e9s\u00e9t a saj\u00e1t st\u00edlusmeghat\u00e1roz\u00e1sai hozz\u00e1ad\u00e1s\u00e1val. Ez lehet\u0151v\u00e9 teszi, hogy mindent testreszabjon."
     },
     "premium_feature_linkchecker_headline": {
         "message": "Ellen\u0151rizze a k\u00f6nyvjelz\u0151ket hib\u00e1s linkek vagy m\u00e1solatok eset\u00e9n"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "A jobb oldali eg\u00e9rgombbal kattints b\u00e1rmelyik k\u00f6nyvt\u00e1rra az oldals\u00e1von, \u00e9s ellen\u0151rizheted. Az eredm\u00e9nyoldal az \u00f6sszes friss\u00edtett URL-t, a m\u00e1r nem m\u0171k\u00f6d\u0151 k\u00f6nyvjelz\u0151ket \u00e9s az azonos URL-c\u00edmmel rendelkez\u0151 k\u00f6nyvjelz\u0151ket jelen\u00edti meg."
+        "message": "A jobb oldali eg\u00e9rgombbal kattintson b\u00e1rmelyik k\u00f6nyvt\u00e1rra az oldals\u00e1von, \u00e9s ellen\u0151rizheti azt. Az eredm\u00e9nyoldal az \u00f6sszes friss\u00edtett URL-t, a m\u00e1r nem m\u0171k\u00f6d\u0151 k\u00f6nyvjelz\u0151ket \u00e9s az azonos URL-c\u00edmmel rendelkez\u0151 k\u00f6nyvjelz\u0151ket jelen\u00edti meg."
     },
     "premium_feature_themes_headline": {
         "message": "V\u00e1ltoztassa meg az oldals\u00e1v kin\u00e9zet\u00e9t"
@@ -1322,11 +1322,14 @@
     "premium_feature_themes_desc": {
         "message": "Egyetlen kattint\u00e1ssal megv\u00e1ltoztathatja az oldals\u00e1v t\u00e9m\u00e1j\u00e1t ha egy \u00fajat telep\u00edt. \u00c9s azok is szem\u00e9lyre szabhat\u00f3ak a rendelkez\u00e9sre \u00e1ll\u00f3 cs\u00faszk\u00e1kkal \u00e9s sz\u00ednv\u00e1laszt\u00f3kkal."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "V\u00e1lassza ki a fizet\u00e9si m\u00f3dot al\u00e1bb \u00e9s a k\u00f6vetkez\u0151 l\u00e9p\u00e9sben \u00edrja be a fizetni k\u00edv\u00e1nt \u00f6sszeget."
+    },
     "premium_pay_select_payment_method": {
         "message": "V\u00e1lasszon fizet\u00e9si m\u00f3dot"
     },
     "premium_pay_what_you_want": {
-        "message": "Fizess ami\u00e9rt akarsz"
+        "message": "Fizessen amennyit akar"
     },
     "premium_pay_creditcard": {
         "message": "Hitel vagy bet\u00e9ti k\u00e1rty\u00e1val"

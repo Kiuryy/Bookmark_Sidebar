@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Lesezeichen"
     },
+    "header_selected_entries": {
+        "message": "ausgew\u00e4hlt"
+    },
     "sidebar_dir_children": {
         "message": "Elemente"
     },
@@ -115,6 +118,21 @@
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Tastenk\u00fcrzel"
+    },
+    "contextmenu_select_entries": {
+        "message": "Mehrere Elemente ausw\u00e4hlen"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Lesezeichen ausw\u00e4hlen"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Lesezeichen nicht mehr ausw\u00e4hlen"
+    },
+    "contextmenu_select_dir": {
+        "message": "Ordner ausw\u00e4hlen"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Ordner nicht mehr ausw\u00e4hlen"
     },
     "sort_label_custom": {
         "message": "Benutzerdefiniert"
@@ -226,6 +244,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Verzeichnisse"
+    },
+    "overlay_delete_selected": {
+        "message": "Ausgew\u00e4hlte Eintr\u00e4ge l\u00f6schen"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "M\u00f6chtest du die ausgew\u00e4hlten Eintr\u00e4ge wirklich l\u00f6schen? Alle untergeordneten Lesezeichen der ausgew\u00e4hlten Ordner werden ebenfalls gel\u00f6scht."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Ge\u00e4ndert"

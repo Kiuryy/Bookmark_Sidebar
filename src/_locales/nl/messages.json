@@ -1322,6 +1322,9 @@
     "premium_feature_themes_desc": {
         "message": "Je kunt het hele ontwerp van de zijbalk met \u00e9\u00e9n klik verwisselen door een ander thema te installeren. Ze kunnen ook worden aangepast met de beschikbare schuifregelaars en kleuropties."
     },
+    "premium_pay_intro_payment_method": {
+        "message": "Selecteer hieronder een betaalmethode en kies in de volgende stap het gewenste bedrag dat je wilt betalen."
+    },
     "premium_pay_select_payment_method": {
         "message": "Kies een betaalmethode"
     },

@@ -48,7 +48,8 @@ html[dir='rtl'] {
             right: 0;
           }
 
-          &[data-name='reload']::before {
+          &[data-name='reload']::before,
+          &[data-name='select']::before {
             transform: scaleX(1);
           }
         }

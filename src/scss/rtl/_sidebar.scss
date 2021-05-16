@@ -1,11 +1,15 @@
 
 html[dir='rtl'] {
 
-  // Sidebar
   a.dragHelper {
     @include bookmarkEntryRtl;
     padding-right: $__bookmarksHorizontalPadding;
     padding-left: 46px;
+
+    > span.selected {
+      left: unset;
+      right: -7px;
+    }
   }
 
   //
@@ -18,8 +22,20 @@ html[dir='rtl'] {
         margin-right: unset;
       }
 
-      > a:not(.search)::before {
-        transform: scaleX(-1);
+      > a {
+
+        &:not(.search)::before {
+          transform: scaleX(-1);
+        }
+
+        &.cancel {
+          margin: 0 20px 0 5px;
+
+          &::after {
+            left: unset;
+            right: -10px;
+          }
+        }
       }
 
       > div.searchBox {
@@ -114,6 +130,14 @@ html[dir='rtl'] {
           padding-right: $__bookmarksHorizontalPadding;
           padding-left: 46px;
         }
+      }
+    }
+
+    &.selectionMode {
+
+      > div.scrollBox > ul a > img, > span.icon {
+        left: unset;
+        right: calc(#{$__bookmarksHorizontalPadding} + 11px);
       }
     }
   }

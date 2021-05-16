@@ -69,7 +69,7 @@
                     ext.helper.utility.openUrl(data, "newTab", active); // open in foreground when a normal click opens the tab in new tab in the background or while pressing 'shift' always in the foreground
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
-                } else if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode)) { // sidebar is in selection mode -> select/deselect the entry instead of opening the url/folder
+                } else if (ext.elm.sidebar.hasClass($.cl.sidebar.selectionMode) && elm.parents("div." + $.cl.sidebar.entryPinned).length() === 0) { // sidebar is in selection mode -> select/deselect the entry instead of opening the url/folder
                     selectOrDeselectEntry(elm);
                 } else { // current tab
                     ext.helper.utility.openUrl(data, "default", true);

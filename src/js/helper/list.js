@@ -512,7 +512,8 @@
                     if (config.showHidden || ext.helper.entry.isVisible(entry.id)) {
                         addEntryToList(entry, list, {
                             config: config,
-                            asTree: false
+                            asTree: false,
+                            pinnedBox: true
                         });
                     }
                 });
@@ -588,7 +589,9 @@
                 }
             }
 
-            ext.helper.checkbox.get(ext.elm.iframeBody, {[$.attr.name]: "select"}).prependTo(entryContent);
+            if (!opts.pinnedBox) {
+                ext.helper.checkbox.get(ext.elm.iframeBody, {[$.attr.name]: "select"}).prependTo(entryContent);
+            }
 
             return entry;
         };

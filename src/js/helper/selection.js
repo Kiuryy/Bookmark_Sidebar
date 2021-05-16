@@ -119,7 +119,7 @@
             const box = ext.helper.list.getActiveBookmarkBox();
 
             Object.entries(selectedElements).forEach(([id, data]) => {
-                const entry = box.find("a[" + $.attr.id + "='" + id + "']");
+                const entry = box.find("> ul a[" + $.attr.id + "='" + id + "']");
 
                 ret.push({
                     elm: entry,
@@ -146,7 +146,7 @@
         const updateMarkup = () => {
             const box = ext.helper.list.getActiveBookmarkBox();
 
-            box.find("a[" + $.attr.id + "]." + $.cl.selected).forEach((elm) => { // remove selection for all entries which are not in the list of selected entries
+            box.find("> ul a[" + $.attr.id + "]." + $.cl.selected).forEach((elm) => { // remove selection for all entries which are not in the list of selected entries
                 const elmObj = $(elm);
                 const id = $(elmObj).attr($.attr.id);
                 if (ext.helper.checkbox.isChecked(elmObj) && !selectedElements[id]) {
@@ -157,7 +157,7 @@
 
             Object.keys(selectedElements).forEach((id) => { // highlight the selected entries
                 const data = ext.helper.entry.getDataById(id);
-                const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
+                const entry = box.find("> ul a[" + $.attr.id + "='" + data.id + "']");
 
                 if (!ext.helper.checkbox.isChecked($(entry))) {
                     $(entry).find("div." + $.cl.checkbox.box).trigger("click");

@@ -8,6 +8,7 @@
     $.SearchHelper = function (ext) {
 
         let searchTimeout = null;
+        this.searchVal = "";
 
         /**
          * Initializes the helper
@@ -93,6 +94,8 @@
                 ext.helper.scroll.focus();
                 ext.helper.list.updateSortFilter();
 
+                this.searchVal = val;
+
                 if (val !== searchField.data("lastVal")) { // search value is not the same
                     ext.startLoading();
                     searchField.data("lastVal", val);
@@ -177,6 +180,7 @@
         const reset = (searchField) => {
             return new Promise((resolve) => {
                 searchField.removeData("lastVal");
+                this.searchVal = "";
 
                 if (this.isResultsVisible()) {
                     ext.startLoading();

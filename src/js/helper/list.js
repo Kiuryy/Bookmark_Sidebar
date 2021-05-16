@@ -296,9 +296,8 @@
                 return;
             }
 
-            const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
             let searchVal = "";
-
+            const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
             if (searchField.length() > 0 && searchField[0] && searchField[0].value) { // restore the search value before reinitializing the header content
                 searchVal = searchField[0].value;
             }

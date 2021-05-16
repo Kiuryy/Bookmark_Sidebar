@@ -27,6 +27,10 @@
             selectedElements = [];
             updateMarkup();
             ext.helper.list.updateSidebarHeader();
+
+            if (ext.helper.search.searchVal) { // restore the previous search when leaving selection mode
+                ext.helper.search.update(ext.helper.search.searchVal);
+            }
         };
 
         /**

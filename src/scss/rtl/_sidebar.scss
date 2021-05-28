@@ -28,7 +28,7 @@ html[dir='rtl'] {
           transform: scaleX(-1);
         }
 
-        &.cancel {
+        &.cancel:not([data-type='compact']) {
           margin: 0 20px 0 5px;
 
           &::after {

@@ -165,32 +165,37 @@ section#sidebar {
       }
 
       &.cancel {
-        position: relative;
-        display: inline-block;
-        width: auto;
-        height: auto;
-        padding: 4px 6px 3px;
-        margin: 0 5px 0 20px;
-        font-size: 90%;
-        color: $__foregroundColor;
-        font-weight: $__fontWeightBold;
-        text-transform: uppercase;
-        border-radius: 3px;
-        cursor: pointer;
+        font-size: 0;
+        color: transparent;
 
-        &::before {
-          display: none;
-        }
+        &:not([data-type='compact']) {
+          position: relative;
+          display: inline-block;
+          width: auto;
+          height: auto;
+          padding: 4px 6px 3px;
+          margin: 0 5px 0 20px;
+          font-size: 90%;
+          color: $__foregroundColor;
+          font-weight: $__fontWeightBold;
+          text-transform: uppercase;
+          border-radius: 3px;
+          cursor: pointer;
 
-        &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: -10px;
-          height: 100%;
-          width: 2px;
-          background: $__foregroundColor;
-          opacity: 0.4;
+          &::before {
+            display: none;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            height: 100%;
+            width: 2px;
+            background: $__foregroundColor;
+            opacity: 0.4;
+          }
         }
       }
     }
@@ -579,6 +584,10 @@ section#sidebar {
 
         &.removeSelected::before {
           @include maskImage('icon-delete');
+        }
+
+        &.cancel[data-type='compact']::before {
+          @include maskImage('icon-close');
         }
 
         &.sort::before {

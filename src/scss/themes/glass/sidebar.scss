@@ -26,7 +26,7 @@
           background-color: $__hoverColor;
         }
 
-        &.cancel {
+        &.cancel:not([data-type='compact']) {
           color: $__textColor;
 
           &::after {

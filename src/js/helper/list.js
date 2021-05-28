@@ -274,7 +274,7 @@
                 headerIcons.forEach((icon) => {
                     if (lastOffset === null) {
                         lastOffset = icon.offsetTop;
-                    } else if (lastOffset !== icon.offsetTop || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
+                    } else if (icon.offsetTop > lastOffset * 2 || headline[0].offsetTop === 0) { // header elements are not in one line anymore -> header to small -> remove some markup
                         if (type === "label") {
                             headline.children("span").addClass($.cl.hidden);
                         } else if (type === "amount") {
@@ -284,6 +284,10 @@
                     }
                 });
             });
+
+            if (ext.helper.selection.isEnabled()) { // sidebar is in selection mode -> do additional checks
+                ext.helper.selection.handleSidebarWidthChange();
+            }
         };
 
         /**
@@ -292,7 +296,6 @@
         this.updateSidebarHeader = () => {
             if (ext.helper.selection.isEnabled()) { // sidebar is in selection mode -> we have another header here
                 ext.helper.selection.updateSidebarHeader();
-                this.handleSidebarWidthChange();
                 return;
             }
 

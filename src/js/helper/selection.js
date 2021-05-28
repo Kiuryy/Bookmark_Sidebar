@@ -139,6 +139,21 @@
         };
 
         /**
+         * Makes the "cancel" button smaller, if the sidebar width is too narrow to display all buttons in one line
+         */
+        this.handleSidebarWidthChange = () => {
+            const cancelLink = ext.elm.header.children("a." + $.cl.cancel);
+            const removeSelectedLink = ext.elm.header.children("a." + $.cl.sidebar.removeSelected);
+            if (!cancelLink[0] || !removeSelectedLink[0]) {
+                return;
+            }
+
+            if (cancelLink[0].offsetTop > removeSelectedLink[0].offsetTop * 2) {
+                cancelLink.attr($.attr.type, "compact");
+            }
+        };
+
+        /**
          * Updates the sidebar header to display the accurate amount of selected entries
          */
         this.updateSidebarHeader = () => {
@@ -152,6 +167,9 @@
 
             $("<a></a>").addClass($.cl.sidebar.removeSelected).appendTo(ext.elm.header);
             $("<a></a>").addClass($.cl.cancel).text(ext.helper.i18n.get("overlay_cancel")).appendTo(ext.elm.header);
+
+            ext.helper.list.handleSidebarWidthChange();
+            this.handleSidebarWidthChange();
         };
 
         /**

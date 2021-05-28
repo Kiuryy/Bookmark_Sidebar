@@ -72,6 +72,10 @@
                     handleOpenChildrenHtml(data);
                     break;
                 }
+                case "openSelected": {
+                    handleOpenSelectedHtml(data);
+                    break;
+                }
                 case "checkBookmarks": {
                     ext.helper.linkchecker.run(elements.modal, data.children);
                     break;
@@ -111,6 +115,10 @@
                 }
                 case "openChildren": {
                     openChildren(data);
+                    break;
+                }
+                case "openSelected": {
+                    openSelected(data);
                     break;
                 }
                 case "edit": {
@@ -350,7 +358,7 @@
         };
 
         /**
-         * Extends the overlay html for showing the confirm dialog for opening all the bookmarks below the clicked directory
+         * Extends the overlay html for showing the confirm dialog for opening all the subfolder bookmarks of the clicked directory
          *
          * @param {object} data
          */
@@ -360,6 +368,18 @@
 
             $("<p></p>").text(text).appendTo(elements.modal);
             appendPreviewLink(data);
+            $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
+        };
+
+        /**
+         * Extends the overlay html for showing the confirm dialog for opening all of the selected bookmarks (and subfolder bookmarks of the selected directories)
+         *
+         * @param {object} data
+         */
+        const handleOpenSelectedHtml = (bookmarks) => {
+            const text = ext.helper.i18n.get("overlay_confirm_open_selected", [bookmarks.length]);
+
+            $("<p></p>").text(text).appendTo(elements.modal);
             $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_open_children")).appendTo(elements.buttonWrapper);
         };
 
@@ -513,13 +533,23 @@
         };
 
         /**
-         * Opens all the given bookmarks in new tab
+         * Opens all the subfolder bookmarks in new tab
          *
          * @param {object} data
          */
         const openChildren = (data) => {
             this.closeOverlay();
             const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
+            ext.helper.utility.openAllBookmarks(bookmarks);
+        };
+
+        /**
+         * Opens all the given bookmarks in new tab
+         *
+         * @param {object} data
+         */
+        const openSelected = (bookmarks) => {
+            this.closeOverlay();
             ext.helper.utility.openAllBookmarks(bookmarks);
         };
 

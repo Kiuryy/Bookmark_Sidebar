@@ -586,6 +586,11 @@ section#sidebar {
           @include maskImage('icon-delete');
         }
 
+        &.openSelected::before {
+          @include maskImage('icon-newtab');
+          -webkit-mask-size: 20px;
+        }
+
         &.cancel[data-type='compact']::before {
           @include maskImage('icon-close');
         }

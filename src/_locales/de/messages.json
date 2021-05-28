@@ -179,6 +179,9 @@
     "overlay_update": {
         "message": "Aktualisieren"
     },
+    "overlay_confirm_open_selected": {
+        "message": "M\u00f6chtest du wirklich alle {1} Lesezeichen, inklusive der untergeordneten Lesezeichen der ausgew\u00e4hlten Ordner, \u00f6ffnen?"
+    },
     "overlay_open_children": {
         "message": "Alle \u00f6ffnen"
     },

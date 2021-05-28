@@ -24,8 +24,11 @@ html[dir='rtl'] {
       }
     }
 
-    &[data-type='openChildren'] > header::before {
-      transform: scaleX(-1);
+    &[data-type='openChildren'], &[data-type='openSelected'] {
+
+      > header::before, {
+        transform: scaleX(-1);
+      }
     }
 
     &[data-type='infos'] {

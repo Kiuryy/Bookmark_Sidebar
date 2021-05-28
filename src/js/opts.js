@@ -82,6 +82,7 @@
                 searchVisible: "searchVisible",
                 breadcrumb: "breadcrumb",
                 removeSelected: "removeSelected",
+                openSelected: "openSelected",
                 removeMask: "removeMask",
                 removed: "removed",
                 restored: "restored"

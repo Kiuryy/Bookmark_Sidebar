@@ -120,6 +120,36 @@
         };
 
         /**
+         * Opens all selected entries in a new tab in the order, they are displayed in the sidebar list
+         */
+        this.openSelected = async () => {
+            const entries = getSortedSelectedEntries();
+            const bookmarks = [];
+            let folderSelected = false;
+
+            for (const entry of entries) {
+                const data = selectedElements[entry.id];
+
+                if (data.children) { // add the subfolder bookmarks of the selected folder to the list
+                    folderSelected = true;
+                    for (const child of data.children) {
+                        if (child.url && child.url !== "about:blank") {
+                            bookmarks.push(child);
+                        }
+                    }
+                } else { // add selected bookmark to the list
+                    bookmarks.push(data);
+                }
+            }
+
+            if (folderSelected && bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks and at least one folder selected -> show confirm dialog
+                ext.helper.overlay.create("openSelected", ext.helper.i18n.get("contextmenu_open_children"), bookmarks);
+            } else {
+                ext.helper.utility.openAllBookmarks(bookmarks);
+            }
+        };
+
+        /**
          * Removes all selected entries
          */
         this.deleteSelected = async () => {
@@ -165,6 +195,7 @@
                 .attr("title", selectedAmount + " " + ext.helper.i18n.get("header_selected_entries", null, true))
                 .appendTo(ext.elm.header);
 
+            $("<a></a>").addClass($.cl.sidebar.openSelected).appendTo(ext.elm.header);
             $("<a></a>").addClass($.cl.sidebar.removeSelected).appendTo(ext.elm.header);
             $("<a></a>").addClass($.cl.cancel).text(ext.helper.i18n.get("overlay_cancel")).appendTo(ext.elm.header);
 

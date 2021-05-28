@@ -274,7 +274,7 @@ div.modal {
     }
   }
 
-  &[data-type='delete'], &[data-type='deleteSelected'], &[data-type='hide'], &[data-type='openChildren'] {
+  &[data-type='delete'], &[data-type='deleteSelected'], &[data-type='hide'], &[data-type='openChildren'], &[data-type='openSelected'] {
 
     > p {
       padding: 30px 30px 5px 30px;
@@ -292,8 +292,11 @@ div.modal {
     @include maskImage('icon-hide');
   }
 
-  &[data-type='openChildren'] > header::before {
-    @include maskImage('icon-newTab');
+  &[data-type='openChildren'], &[data-type='openSelected'] {
+
+    > header::before, {
+      @include maskImage('icon-newTab');
+    }
   }
 
   &[data-type='deleteSelected'] {

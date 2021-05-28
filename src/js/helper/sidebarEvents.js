@@ -317,6 +317,13 @@
                 ext.helper.selection.deleteSelected();
             });
 
+            ext.elm.header.on("click contextmenu", "a." + $.cl.sidebar.openSelected, (e) => { // Open selected entries in new tabs
+                e.preventDefault();
+                e.stopPropagation();
+                ext.helper.selection.openSelected();
+            });
+
+
             ext.elm.header.on("click contextmenu", "a." + $.cl.cancel, (e) => { // Cancel selection of entries
                 e.preventDefault();
                 e.stopPropagation();

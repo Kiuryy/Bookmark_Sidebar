@@ -407,34 +407,40 @@
                     n.elm.search.field.data("typedVal", val);
 
                     getSearchSuggestions(val).then((suggestions) => {
+                        if (n.elm.search.field.data("typedVal") !== val) { // the search string changed in the meantime (e.g. when the user types fast) -> suggestions are outdated, so not display them
+                            return;
+                        }
+
                         $("ul." + $.cl.newtab.suggestions).remove();
 
-                        if (suggestions.length > 0) {
-                            const list = $("<ul></ul>").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
-
-                            suggestions.some((suggestion, i) => {
-                                const elm = $("<li></li>")
-                                    .attr($.attr.type, suggestion.type)
-                                    .text(suggestion.label)
-                                    .appendTo(list);
-
-                                if (suggestion.url) {
-                                    elm.attr({
-                                        "title": suggestion.url,
-                                        [$.attr.src]: suggestion.url
-                                    }).append("<span>" + suggestion.url + "</span>");
-                                }
-
-                                if (i > 5) {
-                                    return true;
-                                }
-                            });
-
-                            list.css({
-                                top: n.elm.search.field[0].offsetTop + "px",
-                                left: n.elm.search.field[0].offsetLeft + "px"
-                            });
+                        if (suggestions.length === 0) { // no suggestions -> don't display any box below the search field
+                            return;
                         }
+
+                        const list = $("<ul></ul>").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
+
+                        suggestions.some((suggestion, i) => {
+                            const elm = $("<li></li>")
+                                .attr($.attr.type, suggestion.type)
+                                .text(suggestion.label)
+                                .appendTo(list);
+
+                            if (suggestion.url) {
+                                elm.attr({
+                                    "title": suggestion.url,
+                                    [$.attr.src]: suggestion.url
+                                }).append("<span>" + suggestion.url + "</span>");
+                            }
+
+                            if (i > 5) {
+                                return true;
+                            }
+                        });
+
+                        list.css({
+                            top: n.elm.search.field[0].offsetTop + "px",
+                            left: n.elm.search.field[0].offsetLeft + "px"
+                        });
                     });
                 }
             });

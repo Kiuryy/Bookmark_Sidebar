@@ -312,7 +312,7 @@
         },
         leftsideBackSelector: "div#redeviation-lsb-indicator.redeviation-lsb-visible",
         manifest: $.api.runtime.getManifest(),
-        demoMode: false
+        demoMode: true
     };
 
     $.isDev = $.opts.manifest.version_name === "Dev" || !("update_url" in $.opts.manifest);

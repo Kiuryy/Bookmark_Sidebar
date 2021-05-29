@@ -743,6 +743,30 @@
     "settings_tips_tricks_right_click_desc": {
         "message": "Du kannst alle Lesezeichen oder Ordner in der Sidebar mit der rechten Maustaste anklicken, um weitere Optionen einzublenden. Beispielsweise kannst du so Lesezeichen bearbeiten oder oben an die Sidebar fixieren. Wenn du einen Ordner mit der rechten Maustaste anklickst, kannst du eine \u00dcberpr\u00fcfung deiner Lesezeichen starten, um defekte oder aktualisierte Lesezeichen-URLs zu finden."
     },
+    "settings_tips_tricks_share_data": {
+        "message": "Informationen teilen"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Du kannst deine Einstellungen anonym \u00fcbermitteln. Dies hilft mir um popul\u00e4re Einstellungen zu identifizieren und herauszufinden, was ich in Zukunft verbessern oder \u00e4ndern muss.\r\n\r\nDie Erweiterung sammelt keinerlei pers\u00f6nliche Daten und liest auch keine Lesezeichen. Ohne explizite Einwilligung wird keine deiner Einstellungen geteilt."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Mehrere Elemente ausw\u00e4hlen"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Du kannst mehrere Lesezeichen oder Ordner in der Sidebar ausw\u00e4hlen, um sie dann zu \u00f6ffnen, zu l\u00f6schen, oder aber auch zu verschieben."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Neuer Tab"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Du kannst die Darstellung der New-Tab-Seite direkt auf der Seite anpassen, indem du auf das {1} Symbol in der unteren Ecke klickst. Anschlie\u00dfend lassen sich die Gitter-Elemente, die Suchmaschine, das Hintergrundbilder und die Links oben bearbeiten."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Datenschutz"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Die Lesezeichen, die in der Sidebar dargestellt werden, werden von {browserName} synchronisiert und verwaltet. Die Erweiterung speichert diese Lesezeichen nicht gesondert und analysiert diese auch nicht, sondern stellt diese lediglich in der Sidebar dar."
+    },
     "settings_open_action": {
         "message": "Sidebar \u00f6ffnen"
     },

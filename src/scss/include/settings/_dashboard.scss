@@ -151,6 +151,17 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
         @include maskImage("icon-keyboard");
       }
 
+      &[data-type='newtab'] {
+
+        > img {
+          width: 500px;
+        }
+
+        > div.info > p > span::before {
+          @include maskImage("icon-edit");
+        }
+      }
+
       &[data-type='version'] > img {
         width: 250px;
         margin: 10px 30px 0;
@@ -161,6 +172,15 @@ body > section#wrapper > main div.tab[data-name='dashboard'] {
       }
 
       &[data-type='i18n'] > img {
+        margin: 20px 20px 0;
+      }
+
+      &[data-type='share_data'] > img {
+        margin: 20px 20px 0;
+      }
+
+      &[data-type='privacy'] > img {
+        width: 250px;
         margin: 20px 20px 0;
       }
 

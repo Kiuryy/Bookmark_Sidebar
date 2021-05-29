@@ -3,7 +3,6 @@
 
     $.DashboardHelper = function (s) {
 
-
         /**
          *
          * @returns {Promise}
@@ -72,6 +71,23 @@
                 quick_search: {
                     img: "https://extensions.redeviation.com/img/tips-tricks/quick_search.png",
                 },
+                share_data: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/share_data.png",
+                    action: {label: "more_link", dest: "#infos_permissions"}
+                },
+                multiselect: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/multiselect.png"
+                },
+                newtab: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/newtab.png",
+                    action: {label: "newtab_title", dest: $.api.extension.getURL("html/newtab.html")},
+                    condition: s.helper.model.getData("n/override"),
+                    i18nReplaces: ["<span></span>"]
+                },
+                privacy: {
+                    img: "https://extensions.redeviation.com/img/tips-tricks/privacy.png",
+                    action: {label: "more_link", dest: $.opts.website.info.privacyPolicy}
+                },
             };
 
             let idx = 0;
@@ -103,10 +119,10 @@
 
                     if (obj.img) {
                         const img = $("<img/>").prependTo(s.elm.dashboard.tipsTricks);
-                        img.on("load", () => {
-                            resolve();
-                        });
-                        img.attr("src", obj.img);
+                        img
+                            .on("load", resolve)
+                            .on("error", resolve)
+                            .attr("src", obj.img);
                     } else {
                         $.delay(50).then(resolve);
                     }
@@ -157,7 +173,14 @@
          * @returns {string[]}
          */
         const getRandomListOfTipsTricks = (tipsTricks) => {
-            const arr = Object.keys(tipsTricks);
+            const arr = [];
+
+            for (const key in tipsTricks) {
+                if (typeof tipsTricks[key].condition === "undefined" || tipsTricks[key].condition === true) { // ignore the tips/tricks which condition is not fulfilled
+                    arr.push(key);
+                }
+            }
+
             for (let i = arr.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [arr[i], arr[j]] = [arr[j], arr[i]];

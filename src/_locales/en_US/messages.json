@@ -743,6 +743,30 @@
     "settings_tips_tricks_right_click_desc": {
         "message": "You can right click on any bookmark or folder in the sidebar to reveal additional options. For example you can edit existing bookmarks or pin entries to the top of the sidebar. When you right click a folder, you can start a bookmark check to identify broken or updated bookmark URLs."
     },
+    "settings_tips_tricks_share_data": {
+        "message": "Share information"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "You can share your configuration anonymously which helps me to identify popular settings and to identify what to improve or change in future releases.\r\n\r\nThe extension is not collecting any personal data or reading bookmarks. Without explicit permission, the extension is also not sharing any configuration."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Select multiple entries"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "You can select multiple bookmarks or folders in the sidebar to open, delete or even move them with drag & drop at once."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "New Tab"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "You can configure the appearance of the New Tab Page directly on the page by clicking the {1} button in the lower corner. Then you can change the grid items, search engine, background image or the links on the top."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacy"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "The bookmarks displayed in your sidebar are synchronized and managed by {browserName}. The extension does not store or analyse these bookmarks, and only display the ones of your browser in the sidebar."
+    },
     "settings_open_action": {
         "message": "Open sidebar"
     },

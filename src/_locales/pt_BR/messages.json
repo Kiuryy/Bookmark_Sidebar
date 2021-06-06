@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Favorito"
     },
+    "header_selected_entries": {
+        "message": "selecionado"
+    },
     "sidebar_dir_children": {
         "message": "Elementos"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Atalhos do teclado"
     },
+    "contextmenu_select_entries": {
+        "message": "Selecione m\u00faltiplas entradas"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Selecione favorito"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Desmarque favorito"
+    },
+    "contextmenu_select_dir": {
+        "message": "Selecione pasta"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Desmarque pasta"
+    },
     "sort_label_custom": {
         "message": "Definido pelo usu\u00e1rio"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Atualizar"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Voc\u00ea realmente deseja abrir todos {1} favoritos, incluindo favoritos em subpastas das pastas selecionadas?"
     },
     "overlay_open_children": {
         "message": "Abrir todos"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Pastas"
+    },
+    "overlay_delete_selected": {
+        "message": "Delete entradas selecionadas"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Tem certeza de que deseja excluir as entradas selecionadas? Todos os favoritos de subpasta das pastas selecionadas tamb\u00e9m ser\u00e3o exclu\u00eddos."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Alterado"
@@ -715,6 +742,27 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Voc\u00ea pode clicar com o bot\u00e3o direito em qualquer favorito ou pasta na barra lateral para revelar op\u00e7\u00f5es adicionais. Por exemplo, voc\u00ea pode editar os favoritos existentes ou fixar entradas na parte superior da barra lateral. Quando voc\u00ea clica com o bot\u00e3o direito em uma pasta, pode iniciar uma verifica\u00e7\u00e3o de favoritos para identificar URLs de favoritos quebrados ou atualizados."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Compartilhar informa\u00e7\u00f5es"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Voc\u00ea pode compartilhar anonimamente suas configura\u00e7\u00f5es assim podendo ajudar a identificar configura\u00e7\u00f5es populares e na identifica\u00e7\u00e3o sobre mudan\u00e7as e melhoramentos futuros. Essa extens\u00e3o n\u00e3o coleta nenhum dado pessoal ou l\u00ea seus favoritos. Sem uma permiss\u00e3o expressa, essa extens\u00e3o tamb\u00e9m n\u00e3o compartilha nenhuma configura\u00e7\u00e3o."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Selecione m\u00faltiplas entradas"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Voc\u00ea pode selecionar m\u00faltiplos favoritos ou pastas na barra lateral para abrir, deletar, al\u00e9m de mover segurando e arrastando."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nova guia"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Voc\u00ea pode configurar a apar\u00eancia da nova p\u00e1gina de abas diretamente na p\u00e1gina, clicando no bot\u00e3o {1} no canto inferior. Voc\u00ea pode ent\u00e3o alterar os elementos da grade, o mecanismo de busca, a imagem de fundo ou os links na parte superior da p\u00e1gina."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacidade"
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"

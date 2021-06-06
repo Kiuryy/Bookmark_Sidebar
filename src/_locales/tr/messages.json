@@ -716,6 +716,15 @@
     "settings_tips_tricks_right_click_desc": {
         "message": "Ek se\u00e7enekleri ortaya \u00e7\u0131karmak i\u00e7in kenar \u00e7ubu\u011fundaki herhangi bir yer imine veya klas\u00f6re sa\u011f t\u0131klayabilirsiniz. \u00d6rne\u011fin, mevcut yer imlerini d\u00fczenleyebilir veya giri\u015fleri kenar \u00e7ubu\u011funun \u00fcst\u00fcne sabitleyebilirsiniz. Bir klas\u00f6re sa\u011f t\u0131klad\u0131\u011f\u0131n\u0131zda, bozuk veya g\u00fcncellenmi\u015f yer imi URL'lerini tan\u0131mlamak i\u00e7in bir yer imi kontrol\u00fc ba\u015flatabilirsiniz."
     },
+    "settings_tips_tricks_share_data": {
+        "message": "Bilgi payla\u015f"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Yeni sekme"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Gizlilik"
+    },
     "settings_open_action": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7"
     },

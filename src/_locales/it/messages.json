@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Preferito"
     },
+    "header_selected_entries": {
+        "message": "selezionato"
+    },
     "sidebar_dir_children": {
         "message": "Elementi"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Scorciatoie di tastiera"
     },
+    "contextmenu_select_entries": {
+        "message": "Seleziona pi\u00f9 voci"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Seleziona preferito"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Deseleziona preferito"
+    },
+    "contextmenu_select_dir": {
+        "message": "Seleziona cartella"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deseleziona cartella"
+    },
     "sort_label_custom": {
         "message": "Manuale"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Aggiorna"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Vuoi davvero aprire tutti i {1} segnalibri, inclusi i segnalibri delle sottocartelle delle cartelle selezionate?"
     },
     "overlay_open_children": {
         "message": "Apri tutti"
@@ -227,6 +248,12 @@
     "overlay_dir_children_dirs": {
         "message": "Cartelle"
     },
+    "overlay_delete_selected": {
+        "message": "Cancella le voci selezionate"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Vuoi davvero eliminare le voci selezionate? Verranno eliminati anche tutti i segnalibri delle sottocartelle nelle cartelle selezionate."
+    },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Cambiati"
     },
@@ -237,10 +264,10 @@
         "message": "Duplicati"
     },
     "overlay_check_bookmarks_menu_empty": {
-        "message": "Cartelle Vuote"
+        "message": "Cartelle vuote"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Controllando gli indirizzi dei preferiti"
+        "message": "Sto controllando gli indirizzi dei preferiti"
     },
     "overlay_check_bookmarks_update_selected": {
         "message": "Aggiorna selezionati"
@@ -615,10 +642,130 @@
         "message": "Le impostazioni avanzate ti consentono di configurare tutti i flag di configurazione dell'estensione, anche quelli che non puoi modificare utilizzando le normali caselle di controllo o slider della pagina delle impostazioni."
     },
     "settings_expert_settings_notice": {
-        "message": "Si prega di fare cambiare i valori solo qui, se sai cosa stai facendo. Le configurazioni errate possono causare un comportamento imprevisto dell'estensione. Se qualcosa si rompe, \u00e8 possibile ripristinare la configurazione predefinita."
+        "message": "Si prega di cambiare i valori qui solo se sai cosa stai facendo! Le configurazioni errate possono causare un comportamento imprevisto dell'estensione. Se qualcosa non funziona in modo corretto, \u00e8 possibile ripristinare la configurazione predefinita."
     },
     "settings_expert_save_error": {
-        "message": "Impossibile salvare le impostazioni. Per favore correggi il tuo contributo."
+        "message": "Impossibile salvare le impostazioni. Per favore correggi il tuo inserimento."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configurare il comportamento della barra laterale"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Ci sono varie opzioni che puoi cambiare per controllare l'estensione. Per esempio, puoi cambiare il modo in cui la barra laterale dovrebbe scorrere o come i segnalibri dovrebbero essere aperti. Se non vuoi che la barra laterale sia caricata per ogni pagina, puoi configurare anche questo usando le giuste regole."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Cambia la barra laterale"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Puoi cambiare l'aspetto della barra laterale nella sua totalit\u00e0 per adattarla alle tue esigenze. Ci sono molte opzioni per cambiare le dimensioni del carattere, gli spazi tra le linee, i colori, le icone e molti altri aspetti. Puoi anche selezionare da combinazioni predefinite per rendere velocemente la barra laterale come la vorresti."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Lo sapevi?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Prossimo suggerimento"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Ricerca veloce"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Se apri la barra laterale, puoi cercare i segnalibri semplicemente digitando il testo ricercato. Non \u00e8 necessario selezionare l'icona della ricerca prima di iniziare a digitare ci\u00f2 che si vuole cercare."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Area di attivazione"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Come impostazione predefinita, puoi passare sull'intera area del bordo del browser per aprire la barra laterale. Puoi rendere l'area di attivazione pi\u00f9 piccola facendo in modo che la barra laterale si apra solo passando su una porzione dell'altezza del browser. Per esempio, puoi cambiare facendo in modo che la barra laterale si mostri quando fai click sull'area di attivazione nell'angolo in basso a sinistra della finestra del browser. Questo pu\u00f2 essere utile per prevenire che la barra laterale si mostri inavvertitamente quando selezioni dei collegamenti in un sito web."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Segnalibri veloci"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Puoi trascinare qualsiasi URL direttamente nella barra laterale e rilasciarlo nella posizione desiderata. Puoi anche contrassegnare e trascinare l'URL corrente di una scheda del browser in questo modo. Puoi anche trascinare il simbolo {1} a sinistra della barra degli indirizzi nella barra laterale per aggiungere la pagina corrente ai preferiti senza contrassegnare prima l'intera barra degli indirizzi."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separatori"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Una voce dei preferiti con l'URL {1} e un titolo {2} o {3} verr\u00e0 visualizzata come separatore nella barra laterale. \u00c8 possibile aggiungere separatori clickando con il pulsante destro del mouse su qualsiasi cartella nella barra laterale e quindi clickando sul pulsante {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Copia rapida dell'URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Per copiare l'URL di un preferito nella barra laterale negli appunti, puoi premere {1} quando passi il mouse su una voce."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Apri tutti i preferiti"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Per aprire tutti i preferiti in una cartella, puoi clickare con il pulsante centrale sulla cartella. In alternativa puoi premere {1} mentre clicki su una cartella con il pulsante sinistro del mouse."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Nascondi elementi"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Puoi nascondere singoli segnalibri o persino cartelle dalla barra laterale. Puoi clickare con il pulsante destro del mouse su qualsiasi voce nella barra laterale e quindi clickare sul pulsante {1} nel menu contestuale. Per visualizzare nuovamente le voci nascoste, puoi clickare sull'icona del menu nell'intestazione della barra laterale e abilitare l\u00ec la casella di controllo corrispondente."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Espandi tutte le sottocartelle"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Per aprire rapidamente una cartella con tutte le sue sottocartelle aperte, puoi fare doppio click su una cartella nella barra laterale."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Scorciatoie da tastiera"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "La barra laterale pu\u00f2 essere controllata utilizzando le scorciatoie da tastiera. Puoi dare un'occhiata a un elenco di scorciatoie clickando sull'icona del menu nell'intestazione della barra laterale e quindi sul pulsante {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sincronizzazione"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Tutte le impostazioni della barra laterale verranno sincronizzate tra i tuoi dispositivi, se abiliti le opzioni di sincronizzazione del tuo browser nelle impostazioni. Anche senza Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Consulta le tue impostazioni di sincronizzazione"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "L'estensione \u00e8 disponibile in {1} lingue diverse. Le traduzioni sono fatte dalla comunit\u00e0 e tutti possono contribuire traducendo i testi dell'estensione in altre lingue. Le traduzioni verranno approvate e quindi aggiunte all'estensione con il prossimo aggiornamento."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Questa estensione \u00e8 un progetto individuale, iniziato come un hobby per uso personale."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "La prima versione di questa estensione \u00e8 stata rilasciata nel Novembre 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Tasto destro"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Puoi clickare con il tasto destro su qualsiasi segnalibro o cartella nella barra laterale per rivelare opzioni aggiuntive. Ad esempio, puoi modificare i segnalibri esistenti o appuntare le voci nella parte superiore della barra laterale. Quando si clicka con il pulsante destro del mouse su una cartella, \u00e8 possibile avviare un controllo dei segnalibri per identificare gli URL dei segnalibri danneggiati o aggiornati."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Condividi informazioni"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Puoi condividere la tua configurazione in modo anonimo, il che mi aiuta a identificare le impostazioni pi\u00f9 comuni e a identificare cosa migliorare o modificare nelle versioni future. L'estensione non raccoglie dati personali o legge i segnalibri. Senza un'autorizzazione esplicita, l'estensione non condivide alcuna configurazione."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Seleziona pi\u00f9 voci"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Puoi selezionare pi\u00f9 segnalibri o cartelle nella barra laterale per aprirli, eliminarli o persino spostarli con il trascinamento della selezione contemporaneamente."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nuova scheda"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "\u00c8 possibile configurare l'aspetto della pagina Nuova scheda direttamente sulla pagina facendo clic sul pulsante {1} nell'angolo inferiore. Quindi puoi modificare gli elementi della griglia, il motore di ricerca, l'immagine di sfondo o i collegamenti in alto."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacy"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "I segnalibri visualizzati nella barra laterale sono sincronizzati e gestiti da {browserName}. L'estensione non memorizza o analizza questi segnalibri e mostra solo quelli del tuo browser nella barra laterale."
     },
     "settings_open_action": {
         "message": "Apri la barra laterale"

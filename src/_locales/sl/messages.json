@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Zaznamek"
     },
+    "header_selected_entries": {
+        "message": "izbrano"
+    },
     "sidebar_dir_children": {
         "message": "Elementi"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Bli\u017enjice na tipkovnici"
     },
+    "contextmenu_select_entries": {
+        "message": "Izberite ve\u010d vnosov"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Izberite zaznamek"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Prekli\u010di izbiro zaznamka"
+    },
+    "contextmenu_select_dir": {
+        "message": "Izberite mapo"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Prekli\u010di izbor mape"
+    },
     "sort_label_custom": {
         "message": "Dolo\u010den s strani uporabnika"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Posodobi"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Ali res \u017eelite odpreti vseh{1} zaznamkov, vklju\u010dno z zaznamki v podmapah v izbranih mapah?"
     },
     "overlay_open_children": {
         "message": "Odpri vse"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Mape"
+    },
+    "overlay_delete_selected": {
+        "message": "Izbri\u0161i izbrane vnose"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Ali res \u017eelite izbrisati izbrane vnose? Izbrisani bodo tudi vsi zaznamki v podmapah izbranih map."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Spremenjeno"
@@ -715,6 +742,30 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "\u010ce \u017eelite razkriti dodatne mo\u017enosti, lahko z desno mi\u0161kino tipko kliknete kateri koli zaznamek ali mapo v stranski vrstici. Na primer, na vrhu stranske vrstice lahko uredite obstoje\u010de zaznamke ali zaznamke. Ko z desno mi\u0161kino tipko kliknete mapo, lahko za\u010dnete preverjati zaznamke, da prepoznate nepravilne ali posodobljene URL-je zaznamkov."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Deli informacijo"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Konfiguracijo lahko delite anonimno, kar mi pomaga prepoznati priljubljene nastavitve in ugotoviti, kaj izbolj\u0161ati ali spremeniti v prihodnjih izdajah. Raz\u0161iritev ne zbira osebnih podatkov ali bere zaznamkov. Brez izrecnega dovoljenja raz\u0161iritev tudi ne deli nobene konfiguracije."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Izberite ve\u010d vnosov"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "V stranski vrstici lahko izberete ve\u010d zaznamkov ali map, da jih hkrati povle\u010dete in spustite tako, da jih odprete, izbri\u0161ete ali celo premaknete."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nov zaznamek"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Videz strani novega zavihka lahko konfigurirate neposredno na strani, tako da kliknete gumb {1} v spodnjem kotu. Nato lahko spremenite elemente mre\u017ee, iskalnik, sliko ozadja ali povezave na vrhu."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Zasebnost"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Zaznamke, prikazane v stranski vrstici, sinhronizira in upravlja {browserName}. Raz\u0161iritev teh zaznamkov ne shranjuje ali analizira in v stranski vrstici prika\u017ee samo tiste iz va\u0161ega brskalnika."
     },
     "settings_open_action": {
         "message": "Odpri vrstico z zaznamki"

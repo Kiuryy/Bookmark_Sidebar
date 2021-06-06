@@ -116,6 +116,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Tangentbordsgenv\u00e4gar"
     },
+    "contextmenu_select_entries": {
+        "message": "V\u00e4lj flera poster"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Markera bokm\u00e4rke"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Avmarkera bokm\u00e4rke"
+    },
+    "contextmenu_select_dir": {
+        "message": "Markera mapp"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Avmarkera mapp"
+    },
     "sort_label_custom": {
         "message": "Anv\u00e4ndardefinierad"
     },
@@ -715,6 +730,18 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Du kan h\u00f6gerklicka p\u00e5 valfritt bokm\u00e4rke eller mapp i sidof\u00e4ltet f\u00f6r att avsl\u00f6ja ytterligare alternativ. Du kan till exempel redigera befintliga bokm\u00e4rken eller f\u00e4sta poster till toppen av sidof\u00e4ltet. N\u00e4r du h\u00f6gerklickar p\u00e5 en mapp kan du starta en bokm\u00e4rkeskontroll f\u00f6r att identifiera trasiga eller uppdaterade webbadresser f\u00f6r bokm\u00e4rken."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Dela information"
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "V\u00e4lj flera poster"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Ny flik"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Sekretess"
     },
     "settings_open_action": {
         "message": "\u00d6ppna sidof\u00e4ltet"

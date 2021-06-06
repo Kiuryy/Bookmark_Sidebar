@@ -716,6 +716,15 @@
     "settings_tips_tricks_right_click_desc": {
         "message": "Desnom tipkom mi\u0161a mo\u017eete kliknuti bilo koju oznaku ili mapu na bo\u010dnoj traci da biste otkrili dodatne mogu\u0107nosti. Na primjer, mo\u017eete ure\u0111ivati postoje\u0107e oznake na vrhu bo\u010dne trake. Kada desnom tipkom mi\u0161a kliknete mapu, mo\u017eete zapo\u010deti provjeru oznaka kako biste na\u0161li neaktivne poveznice ili a\u017eurirane URL-ove oznaka."
     },
+    "settings_tips_tricks_share_data": {
+        "message": "Podijeli informacije"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nova kartica"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privatnost"
+    },
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku"
     },

@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Zalo\u017eka"
     },
+    "header_selected_entries": {
+        "message": "vybr\u00e1no"
+    },
     "sidebar_dir_children": {
         "message": "Prvky"
     },
@@ -115,6 +118,21 @@
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Kl\u00e1vesov\u00e9 zkratky"
+    },
+    "contextmenu_select_entries": {
+        "message": "Vyber v\u00edcero vstup\u016f"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Vyber z\u00e1lo\u017eku"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Zru\u0161 v\u00fdb\u011br z\u00e1lo\u017eky"
+    },
+    "contextmenu_select_dir": {
+        "message": "Vyber adres\u00e1\u0159"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Zru\u0161 v\u00fdb\u011br adres\u00e1\u0159e"
     },
     "sort_label_custom": {
         "message": "Definov\u00e1no u\u017eivatelem"
@@ -226,6 +244,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Adres\u00e1\u0159e"
+    },
+    "overlay_delete_selected": {
+        "message": "Vyma\u017e vybran\u00e9 vstupy"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Opravdu chcete vymazat vybran\u00e9 vstupy? V\u0161echny vno\u0159en\u00e9 podadres\u00e1\u0159e vybran\u00e9ho adres\u00e1\u0159e budou tak\u00e9 smaz\u00e1ny."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Zm\u011bn\u011bno"
@@ -715,6 +739,18 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Kliknut\u00edm prav\u00fdm tla\u010d\u00edtkem na libovolnou z\u00e1lo\u017eku nebo slo\u017eku v postrann\u00edm panelu zobraz\u00edte dal\u0161\u00ed mo\u017enosti. M\u016f\u017eete nap\u0159\u00edklad upravit existuj\u00edc\u00ed z\u00e1lo\u017eky nebo p\u0159ipnout polo\u017eky do horn\u00ed \u010d\u00e1sti postrann\u00edho panelu. Kdy\u017e kliknete prav\u00fdm tla\u010d\u00edtkem na slo\u017eku, m\u016f\u017eete spustit kontrolu z\u00e1lo\u017eek a identifikovat po\u0161kozen\u00e9 nebo aktualizovan\u00e9 adresy URL z\u00e1lo\u017eek."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Sd\u00edlen\u00ed informac\u00ed"
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Vyber v\u00edcero vstup\u016f"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Soukrom\u00ed"
     },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
@@ -1321,6 +1357,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Cel\u00fd design postrann\u00edho panelu m\u016f\u017eete zam\u011bnit jedn\u00edm kliknut\u00edm nainstalov\u00e1n\u00edm jin\u00e9ho motivu. Lze je tak\u00e9 p\u0159izp\u016fsobit pomoc\u00ed dostupn\u00fdch posuvn\u00edk\u016f a barevn\u00fdch mo\u017enost\u00ed."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Vyber metodu pro placen\u00ed a d\u00e1le vyber po\u017eadovan\u00e9 mno\u017estv\u00ed, kter\u00e9 chce\u0161 zaplatit v dal\u0161\u00edm kroku."
     },
     "premium_pay_select_payment_method": {
         "message": "Zvolte platebn\u00ed metodu"

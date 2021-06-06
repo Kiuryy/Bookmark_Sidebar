@@ -116,6 +116,9 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Ph\u00edm t\u1eaft b\u00e0n ph\u00edm"
     },
+    "contextmenu_select_bookmark": {
+        "message": "Ch\u1ecdn d\u1ea5u trang"
+    },
     "sort_label_custom": {
         "message": "X\u1ebfp theo c\u00e1ch c\u1ee7a b\u1ea1n"
     },

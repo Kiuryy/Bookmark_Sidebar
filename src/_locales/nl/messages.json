@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Bladwijzer"
     },
+    "header_selected_entries": {
+        "message": "geselecteerd"
+    },
     "sidebar_dir_children": {
         "message": "Elementen"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Sneltoetsen"
     },
+    "contextmenu_select_entries": {
+        "message": "Selecteer meerdere vermeldingen"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Selecteer bladwijzer"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Deselecteer bladwijzer"
+    },
+    "contextmenu_select_dir": {
+        "message": "Selecteer map"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deselecteer map"
+    },
     "sort_label_custom": {
         "message": "Gedefinieerd door gebruiker"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Bijwerken"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Wilt u echt alle {1} bladwijzers openen, inclusief de bladwijzers in de submap van de geselecteerde mappen?"
     },
     "overlay_open_children": {
         "message": "Alles openen"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Mappen"
+    },
+    "overlay_delete_selected": {
+        "message": "Verwijder geselecteerde vermeldingen"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Wilt u de geselecteerde vermeldingen echt verwijderen? Alle submapbladwijzers van de geselecteerde mappen worden ook verwijderd."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Gewijzigd"
@@ -715,6 +742,30 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Je kan met de rechtermuisknop klikken op een bladwijzer of map in de zijbalk om extra opties weer te geven. Je kan bijvoorbeeld bestaande bladwijzers bewerken of items boven aan de zijbalk vastpinnen. Als je met de rechtermuisknop op een map klikt, kan je een bladwijzercontrole starten om gebroken of bijgewerkte bladwijzer-URL's te identificeren."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Deel informatie"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "U kunt uw configuratie anoniem delen, wat mij helpt populaire instellingen te identificeren en te bepalen wat ik in toekomstige releases kan verbeteren of wijzigen. De extensie verzamelt geen persoonlijke gegevens of leest geen bladwijzers. Zonder expliciete toestemming deelt de extensie ook geen enkele configuratie."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Selecteer meerdere vermeldingen"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "U kunt meerdere bladwijzers of mappen in de zijbalk selecteren om ze tegelijk te openen, te verwijderen of zelfs te verplaatsen met slepen en neerzetten."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nieuw tabblad"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "U kunt het uiterlijk van de pagina 'Nieuw tabblad' rechtstreeks op de pagina configureren door op de knop {1} in de benedenhoek te klikken. Vervolgens kunt u de rasteritems, zoekmachine, achtergrondafbeelding of de links bovenaan wijzigen."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacy"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "De bladwijzers die in uw zijbalk worden weergegeven, worden gesynchroniseerd en beheerd door {browserName}. De extensie bewaart of analyseert deze bladwijzers niet en geeft alleen die van uw browser weer in de zijbalk."
     },
     "settings_open_action": {
         "message": "Open de zijbalk"

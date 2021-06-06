@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Marcador"
     },
+    "header_selected_entries": {
+        "message": "seleccionado"
+    },
     "sidebar_dir_children": {
         "message": "Elementos"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Atajos de teclado"
     },
+    "contextmenu_select_entries": {
+        "message": "Selecciona m\u00faltiples entradas"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Seleccionar marcador"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Deseleccionar marcador"
+    },
+    "contextmenu_select_dir": {
+        "message": "Seleccionar carpeta"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deseleccionar carpeta"
+    },
     "sort_label_custom": {
         "message": "Definido por el usuario"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Actualizar"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "\u00bfRealmente deseas abrir todos los {1} marcadores, incluyendo los marcadores de sub-carpetas de las carpetas seleccionadas?"
     },
     "overlay_open_children": {
         "message": "Abrir todo"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Directorios"
+    },
+    "overlay_delete_selected": {
+        "message": "Eliminar entradas seleccionadas"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "\u00bfDe verdad quieres eliminar las entradas seleccionadas? Todos los marcadores de las subcarpetas pertenecientes a las carpetas seleccionadas se eliminar\u00e1n tambi\u00e9n."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Cambiado"
@@ -715,6 +742,30 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Puede hacer clic derecho en cualquier marcador o carpeta en la barra lateral para revelar opciones adicionales. Por ejemplo, puede editar marcadores existentes o anclar entradas en la parte superior de la barra lateral. Cuando hace clic con el bot\u00f3n derecho en una carpeta, puede iniciar una comprobaci\u00f3n de marcadores para identificar URL de marcadores rotas o actualizadas."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Compartir informaci\u00f3n"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Puede compartir su configuraci\u00f3n de forma an\u00f3nima lo que me ayuda a identificar el ajuste m\u00e1s popular e identificar qu\u00e9 mejorar o cambiar en futuras versiones. La extensi\u00f3n no recopila datos personales ni lee marcadores. Sin permiso expl\u00edcito, la extensi\u00f3n tampoco comparte ninguna configuraci\u00f3n."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Selecciona m\u00faltiples entradas"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Puede seleccionar varios marcadores o carpetas en la barra lateral para abrirlos, eliminarlos o incluso moverlos con arrastrar y soltar a la vez."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nueva Pesta\u00f1a"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Puede configurar la apariencia de la p\u00e1gina Nueva pesta\u00f1a directamente en la p\u00e1gina haciendo clic en el bot\u00f3n {1} en la esquina inferior. Luego, puede cambiar los elementos de la cuadr\u00edcula, el motor de b\u00fasqueda, la imagen de fondo o los enlaces en la parte superior."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacidad"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Los marcadores que se muestran en la barra lateral est\u00e1n sincronizados y administrados por {browserName}. La extensi\u00f3n no almacena ni analiza estos marcadores, y solo muestra los de su navegador en la barra lateral. M\u00e1s sobre el texto fuente se requiere el texto fuente para obtener informaci\u00f3n adicional sobre la traducci\u00f3n"
     },
     "settings_open_action": {
         "message": "Abrir barra lateral"

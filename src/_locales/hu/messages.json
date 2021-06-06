@@ -716,6 +716,15 @@
     "settings_tips_tricks_right_click_desc": {
         "message": "B\u00e1rmely k\u00f6nyvjelz\u0151n nyomhat jobb klikket, hogy tov\u00e1bbi be\u00e1ll\u00edt\u00e1sokhoz jusson. P\u00e9ld\u00e1ul szerkesztheti \u0151ket vagy kit\u0171zheti az oldals\u00e1v tetej\u00e9re. Ha egy mapp\u00e1n jobbklikkel, ellen\u0151rizheti a benne szerepl\u0151 k\u00f6nyvjelz\u0151ket, hogy felder\u00edtse a m\u00e1r nem \u00e9l\u0151 vagy megv\u00e1ltozott bejegyz\u00e9seket."
     },
+    "settings_tips_tricks_share_data": {
+        "message": "Inform\u00e1ci\u00f3 megoszt\u00e1sa"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "\u00daj f\u00fcl"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Biztons\u00e0g"
+    },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
     },

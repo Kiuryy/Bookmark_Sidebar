@@ -1,0 +1,1142 @@
+{
+    "extension_name": {
+        "message": "Barra lateral d'adreces d'inter\u00e8s"
+    },
+    "extension_desc": {
+        "message": "Afegeix una barra lateral amb totes les teves adreces d'inter\u00e8s al marge de la finestra del navegador."
+    },
+    "extension_version": {
+        "message": "Versi\u00f3"
+    },
+    "extension_last_update": {
+        "message": "Ultima actualitzaci\u00f3 en {1}"
+    },
+    "header_bookmarks": {
+        "message": "Marcadors"
+    },
+    "header_bookmarks_single": {
+        "message": "Marcador"
+    },
+    "header_selected_entries": {
+        "message": "seleccionat"
+    },
+    "sidebar_dir_children": {
+        "message": "Elements"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Cercar marcador"
+    },
+    "sidebar_search_no_results": {
+        "message": "No hi ha cap marcador que coincideixi amb la vostra cerca"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "S'ha copiat la URL"
+    },
+    "sidebar_deleted": {
+        "message": "Eliminat"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Desfer"
+    },
+    "more_link": {
+        "message": "Per saber-ne m\u00e9s"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Editar l'adre\u00e7a d'inter\u00e8s"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Editar el directori"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Editar el separador"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Esborrar l'adre\u00e7a d'inter\u00e8s"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Esborrar el directori"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Esborrar el separador"
+    },
+    "contextmenu_infos": {
+        "message": "Informaci\u00f3"
+    },
+    "contextmenu_new_tab": {
+        "message": "Obrir en una pestanya nova"
+    },
+    "contextmenu_current_tab": {
+        "message": "Obrir a la pestanya actual"
+    },
+    "contextmenu_new_window": {
+        "message": "Obrir en una finestra nova"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Obrir en la finestra d'inc\u00f2gnit"
+    },
+    "contextmenu_copy": {
+        "message": "Copiar URL a porta-retalls"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Afegir l'adre\u00e7a d'inter\u00e8s"
+    },
+    "contextmenu_add": {
+        "message": "Afegir l'entrada"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Consultar les adreces d'inter\u00e8s"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Mostrar les entrades ocultes"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Caure tots els directoris"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "Actualitzar la barra lateral"
+    },
+    "contextmenu_open_children": {
+        "message": "Obrir les adreces d'inter\u00e8s"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Ocultar-se de la barra lateral"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Mostrar a la barra lateral"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Mostrar al directori"
+    },
+    "contextmenu_pin": {
+        "message": "Fixar a la part superior"
+    },
+    "contextmenu_unpin": {
+        "message": "Tornar a dalt des de dalt"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Gestor de l'adre\u00e7a d'inter\u00e8s"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Dreceres de teclat"
+    },
+    "contextmenu_select_entries": {
+        "message": "Selecciona m\u00faltiples entradas"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Seleccionar marcador"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Deseleccionar marcador"
+    },
+    "contextmenu_select_dir": {
+        "message": "Seleccionar carpeta"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deseleccionar carpeta"
+    },
+    "sort_label_custom": {
+        "message": "Definit per l'usuari"
+    },
+    "sort_label_alphabetical": {
+        "message": "Alfab\u00e8tic"
+    },
+    "sort_label_most_used": {
+        "message": "Els m\u00e9s usats"
+    },
+    "sort_label_recently_used": {
+        "message": "Utilitzats recentment"
+    },
+    "sort_label_recently_added": {
+        "message": "Afegits recentment"
+    },
+    "sort_view_as_tree": {
+        "message": "Mostrar directoris"
+    },
+    "sort_most_used_per_month": {
+        "message": "Per mes"
+    },
+    "overlay_bookmark_title": {
+        "message": "T\u00edtol"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Informaci\u00f3 addicional"
+    },
+    "overlay_cancel": {
+        "message": "Cancel.lar"
+    },
+    "overlay_close": {
+        "message": "Tanca"
+    },
+    "overlay_save": {
+        "message": "Desa"
+    },
+    "overlay_delete": {
+        "message": "Suprimeix"
+    },
+    "overlay_update": {
+        "message": "Actualitza"
+    },
+    "overlay_open_children": {
+        "message": "Obre tot"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Realment voleu obrir totes les {1} adreces d'inter\u00e8s subordinades?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Amagar-se de la barra lateral"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Voleu amagar aquest marcador a la barra lateral?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Vols amagar aquest directori a la barra lateral? Totes les adreces d'inter\u00e8s subordinades tamb\u00e9 estaran ocultes."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Vols suprimir aquest marcador?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Vols suprimir aquest directori? Tamb\u00e9 s\u2019eliminaran totes les adreces d'inter\u00e8s subordinades."
+    },
+    "overlay_label_bookmark": {
+        "message": "Marcador"
+    },
+    "overlay_label_dir": {
+        "message": "Directori"
+    },
+    "overlay_label_separator": {
+        "message": "Separador"
+    },
+    "overlay_add_position": {
+        "message": "Posici\u00f3"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Anteposar al directori"
+    },
+    "overlay_add_position_append": {
+        "message": "Afegir al directori"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Opcionalment, podeu introduir un t\u00edtol. Es mostrar\u00e0 a la part superior de la l\u00ednia de separaci\u00f3 i us pot ajudar a organitzar la vostra llista de punts."
+    },
+    "overlay_bookmark_views": {
+        "message": "Vistes"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Vista"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "S'ha enregistrat des de llavors"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "per mes"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Creat el"
+    },
+    "overlay_dir_children": {
+        "message": "Elements"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Favorits"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Directoris"
+    },
+    "overlay_delete_selected": {
+        "message": "Eliminar entrades seleccionades"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "De veritat vols eliminar les entrades seleccionades? Tots els marcadors de les subcarpetes pertanyents a les carpetes seleccionades s'eliminaran tamb\u00e9."
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Canviat"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Trencat"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplicats"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Directori buit"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "Comprovaci\u00f3 dels URL de les adreces d'inter\u00e8s"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "S'ha seleccionat l'actualitzaci\u00f3"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Elimina la selecci\u00f3"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Tots els URL de les adreces d'inter\u00e8s estan b\u00e9"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "No hi ha cap URL de marcador canviat"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "No hi ha cap URL de marcador trencat"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "No hi ha URL de marcador duplicats"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "No hi ha directoris sense punts d'inter\u00e8s"
+    },
+    "newtab_title": {
+        "message": "Nova Pestanya"
+    },
+    "newtab_grid_links_default": {
+        "message": "P\u00e0gines de dalt"
+    },
+    "newtab_grid_links_recently_used": {
+        "message": "Marcadors usats recentment"
+    },
+    "newtab_grid_links_most_used": {
+        "message": "Marcadors m\u00e9s usats"
+    },
+    "newtab_grid_links_custom": {
+        "message": "Entrades definides per l'usuari"
+    },
+    "newtab_grid_links_hidden": {
+        "message": "No mostrar p\u00e0gines"
+    },
+    "newtab_grid_links_appearance_thumbnail": {
+        "message": "Mostrar vista pr\u00e8via de llocs web"
+    },
+    "newtab_grid_links_appearance_favicon": {
+        "message": "Mostrar icones de llocs web"
+    },
+    "newtab_grid_links_grid_size": {
+        "message": "Mida de la quadr\u00edcula"
+    },
+    "newtab_search_placeholder": {
+        "message": "Cerca {1} o escrigui la URL"
+    },
+    "newtab_search_field_show": {
+        "message": "Mostrar camp de cerca"
+    },
+    "newtab_search_field_hide": {
+        "message": "Ocultar camp de cerca"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Parli ara"
+    },
+    "newtab_speech_search_error": {
+        "message": "Per a habilitar la cerca de veu, ha de permetre l'acc\u00e9s al micr\u00f2fon."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Cercador"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Definit per l'usuari"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "T\u00edtol"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL de la p\u00e0gina d'inici"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL dels resultats de cerca"
+    },
+    "newtab_upload_background": {
+        "message": "Pujar imatge de fons"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Alguna cosa ha bloquejat la barra lateral"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "La barra lateral no es pot usar en la {browserName} Webstore"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "La barra lateral no es pot usar en les p\u00e0gines de les extensions"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "La barra lateral no es pot usar en la p\u00e0gina de nova pestanya"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "La barra lateral no es pot usar en les p\u00e0gines de sistema de {browserName}"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Una de les regles de la seva URL no permet que la barra lateral s'obri"
+    },
+    "newtab_fallback_desc": {
+        "message": "Hem obert una nova pestanya amb la barra lateral per a vost\u00e8"
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Mostrar sempre aquesta p\u00e0gina en obrir una pestanya nova"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Servei no disponible"
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Actualment el servei de comentaris no est\u00e0 disponible. Si voleu fer comentaris, envieu-me un correu electr\u00f2nic."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "El servei de traducci\u00f3 no est\u00e0 disponible de moment. Siusplau, intenta-ho m\u00e9s tard."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Torna a carregar-la"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "A causa d\u2019una actualitzaci\u00f3 de l\u2019extensi\u00f3 s\u2019ha de tornar a carregar aquesta p\u00e0gina."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Comandament"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Suprimeix"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Exprimeix la entrada seg\u00fcent o anterior de la barra lateral"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Realitza un clic sobre l'entrada actualment penjada"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Obre el men\u00fa contextual per a l'entrada actualment penjada"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Copia l'URL de l'entrada actualment penjada"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "Elimina l'entrada actualment penjada"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Tanca la barra lateral, la superposici\u00f3 oberta o el men\u00fa contextual"
+    },
+    "contribute_intro": {
+        "message": "Per millorar l'extensi\u00f3 m'agradaria con\u00e8ixer millor com utilitzen els usuaris la barra lateral i quina configuraci\u00f3 utilitzen."
+    },
+    "contribute_notice": {
+        "message": "Pots ajudar-me compartint la teua configuraci\u00f3."
+    },
+    "contribute_outro": {
+        "message": "Si tens preguntes o inquietuds respecte a compartir informaci\u00f3, per favor, envia'm un missatge."
+    },
+    "contribute_share_config_label": {
+        "message": "Compartir configuraci\u00f3."
+    },
+    "contribute_share_config_desc": {
+        "message": "Comparteixes la teua configuraci\u00f3 de forma an\u00f2nima, la qual cosa m'ajuda a identificar configuracions habituals i identificar quines coses millorar o modificar en futures versions."
+    },
+    "contribute_share_activity_label": {
+        "message": "Compartir activitat"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Pots compartir la teua activitat a la barra lateral de forma an\u00f2nima, la qual cosa m'ajuda a saber com els usuaris utilitzen la barra lateral en general. La informaci\u00f3 sobre les teues adreces d'inter\u00e9s o webs visitades [b]no[\/b] es mesuraran."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "Aquesta informaci\u00f3 \u00e9s molt \u00fatil per identificar problemes d'usabilitat o caracter\u00edstiques que, per exemple, no s'utilitzen gaire."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Dades que es comparteixen son, per exemple:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Quantes adreces d'inter\u00e9s tenen els usuaris de mitjana?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Amb quina plataforma treballen els usuaris (Windows, Mac, Linux, ...)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Els usuaris utilitzen la cerca?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Canvien els usuaris l'ordre de les adreces d'inter\u00e9s?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Amb quina freq\u00fc\u00e8ncia reordenen o editen les entrades els usuaris?"
+    },
+    "onboarding_title": {
+        "message": "Configuraci\u00f3"
+    },
+    "onboarding_headline": {
+        "message": "Gr\u00e0cies per instal\u00b7lar aquesta extensi\u00f3."
+    },
+    "onboarding_setup": {
+        "message": "Configurar ara"
+    },
+    "onboarding_skip": {
+        "message": "Saltar configuraci\u00f3"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "On vols tenir la teva barra lateral?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "Com desitges obrir la teva barra lateral?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Quin estil prefereixes?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Clar"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Fosc"
+    },
+    "onboarding_handson_desc": {
+        "message": "Ara pots provar-ho."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "Mou el teu cursor al costat {1} de la teva finestra."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "Llavors {1} faci clic amb el ratol\u00ed per a obrir la barra lateral."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Faci clic en la icona de l'extensi\u00f3 per a obrir la barra lateral."
+    },
+    "onboarding_left": {
+        "message": "esquerra"
+    },
+    "onboarding_right": {
+        "message": "dreta"
+    },
+    "onboarding_finish_desc": {
+        "message": "Diverteix-te amb la teva barra lateral."
+    },
+    "onboarding_finish_notice": {
+        "message": "Si aquestes clicant coses en el {1} costat de la finestra del navegador, pots canviar el lloc on apareix la barra lateral verticalment per a evitar obrir-la accidentalment."
+    },
+    "onboarding_goto_settings": {
+        "message": "M\u00e9s propietats"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Configurar aparen\u00e7a"
+    },
+    "settings_title": {
+        "message": "Ajustos"
+    },
+    "settings_menu_dashboard": {
+        "message": "Resum"
+    },
+    "settings_menu_sidebar": {
+        "message": "Barra lateral"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "General"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Interruptor"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "Suggeriments"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtre"
+    },
+    "settings_menu_appearance": {
+        "message": "Aparen\u00e7a"
+    },
+    "settings_menu_appearance_general": {
+        "message": "General"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "Barra lateral"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indicador"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Icona"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "Superposici\u00f3"
+    },
+    "settings_menu_newtab": {
+        "message": "Nova pestanya"
+    },
+    "settings_menu_language": {
+        "message": "Llenguatge"
+    },
+    "settings_menu_language_general": {
+        "message": "General"
+    },
+    "settings_menu_language_translate": {
+        "message": "Traduir"
+    },
+    "settings_menu_support": {
+        "message": "Suport"
+    },
+    "settings_menu_infos": {
+        "message": "Informaci\u00f3"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Sobre mi"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Permisos"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Privacitat"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Contacte"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Registre de canvis"
+    },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
+    "settings_menu_export": {
+        "message": "Importar\/Exportar"
+    },
+    "settings_menu_expert": {
+        "message": "Configuracions avan\u00e7ades"
+    },
+    "settings_save": {
+        "message": "Guardar els canvis"
+    },
+    "settings_saved_message": {
+        "message": "Canvis guardats correctament"
+    },
+    "settings_restore": {
+        "message": "Restaurar predeterminats"
+    },
+    "settings_restore_confirm": {
+        "message": "Segur que desitges restaurar la configuraci\u00f3 predeterminada?"
+    },
+    "settings_restored_message": {
+        "message": "Configuraci\u00f3 restaurada correctament"
+    },
+    "settings_advanced": {
+        "message": "Configuraci\u00f3 avan\u00e7ada"
+    },
+    "settings_not_synced": {
+        "message": "No se sincronitzar\u00e0 en els seus dispositius."
+    },
+    "settings_premium_activated": {
+        "message": "Premium activat correctament"
+    },
+    "settings_premium_invalid_key": {
+        "message": "No s'ha pogut activar Premium. Introdueix una clau de llic\u00e8ncia v\u00e0lida, si us plau."
+    },
+    "settings_search_placeholder": {
+        "message": "Buscar configuraci\u00f3"
+    },
+    "settings_expert_settings_desc": {
+        "message": "La configuraci\u00f3 experta li permet configurar cada marca de configuraci\u00f3 de l'extensi\u00f3, fins i tot aquelles que no pot canviar utilitzant les caselles de verificaci\u00f3 o els controls lliscants de la p\u00e0gina de configuraci\u00f3."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Si us plau, nom\u00e9s canvi\u00ef els valors aqu\u00ed, si sap el que est\u00e0 fent. Les configuracions defectuoses poden causar un comportament inesperat de l'extensi\u00f3. Si alguna cosa es trenca, pot tornar a la configuraci\u00f3 predeterminada."
+    },
+    "settings_expert_save_error": {
+        "message": "No es va poder guardar la configuraci\u00f3. Si us plau, corregeixi la seva entrada."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Configura el comportament de la teva barra lateral"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Hi ha diverses opcions que pot canviar per a controlar l'extensi\u00f3. Per exemple, pot canviar com s'ha de lliscar la barra lateral cap a dintre o com s'han d'obrir els seus marcadors. Si no desitja que la barra lateral es carregui en totes les p\u00e0gines, tamb\u00e9 pot configurar aix\u00f2 utilitzant les regles adequades."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Canvia l'aparen\u00e7a de la teva barra lateral"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Pot canviar l'aspecte de la barra lateral per complet perqu\u00e8 s'ajusti a les seves necessitats. Hi ha diverses opcions per a canviar la grand\u00e0ria de font, interlineat, colors, icones i molts m\u00e9s. Tamb\u00e9 pot triar entre dissenys predefinits i opcions predefinides per a fer que la barra lateral es vegi r\u00e0pidament com desitja."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Sabies?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Seg\u00fcent consell"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Cerca r\u00e0pida"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Si obre la barra lateral, pot buscar marcadors simplement comen\u00e7ant a escriure. No \u00e9s necessari fer clic en la icona de cerca en l'encap\u00e7alat de la barra lateral primer."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "\u00c0rea d'activaci\u00f3"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "De manera predeterminada, es pot col\u00b7locar el cursor sobretot la vora de la finestra del navegador per a obrir la barra lateral. Pot fer que l'\u00e0rea d'activaci\u00f3 sigui m\u00e9s petita si nom\u00e9s permet que la barra lateral s'obri en una part de l'altura del navegador. Per exemple, pot canviar la barra lateral perqu\u00e8 nom\u00e9s aparegui quan faci clic en l'\u00e0rea d'activaci\u00f3 a la cantonada inferior esquerra de la finestra del navegador. Aix\u00f2 pot ser \u00fatil per a evitar que la barra lateral aparegui involunt\u00e0riament en fer clic en enlla\u00e7os del lloc web."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Marcat r\u00e0pid"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Pot arrossegar qualsevol URL directament a la barra lateral i deixar-la anar en la posici\u00f3 desitjada. Fins i tot pot marcar i arrossegar la URL actual d'una pestanya del navegador d'aquesta manera. Tamb\u00e9 pot arrossegar el s\u00edmbol {1} a l'esquerra de la barra de direccions en la barra lateral per a marcar la p\u00e0gina actual sense marcar primer tota la barra de direccions."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separadors"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Es mostrar\u00e0 una entrada de marcador amb la URL {1} i un t\u00edtol {2} o {3} com a separador en la barra lateral. Pot agregar separadors fent clic amb el bot\u00f3 dret en qualsevol carpeta de la barra lateral i despr\u00e9s fent clic en el bot\u00f3 {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "C\u00f2pia r\u00e0pida d'URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Per a copiar la URL d'un marcador en la barra lateral al seu portapapers, pot pressionar {1} en col\u00b7locar el cursor sobre una entrada."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Obrir tots els marcadors"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Per a obrir tots els marcadors d'una carpeta, pot fer clic amb el bot\u00f3 central en la carpeta. Alternativament, pot pressionar {1} mentre fa clic en una carpeta amb el bot\u00f3 esquerre del ratol\u00ed."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Ocultar entrades"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Pot ocultar marcadors individuals o fins i tot carpetes de la barra lateral. Pot fer clic dret en qualsevol entrada de la barra lateral i despr\u00e9s fer clic en el bot\u00f3 {1} en el men\u00fa contextual. Per a tornar a mostrar les entrades ocultes, pot fer clic en la icona de men\u00fa en l'encap\u00e7alat de la barra lateral i habilitar la casella corresponent all\u00ed."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Expandir totes les subcarpetes"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Per a obrir r\u00e0pidament una carpeta amb totes les seves subcarpetes obertes, tamb\u00e9 pot fer doble clic en una carpeta en la barra lateral."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Dreceres de teclat"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "La barra lateral es pot controlar mitjan\u00e7ant dreceres de teclat. Pot veure una llista d'accessos directes fent clic en la icona de men\u00fa en l'encap\u00e7alat de la barra lateral i despr\u00e9s en el bot\u00f3 {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sincronitzaci\u00f3"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Totes les seves configuracions de la barra lateral se sincronitzaran entre els seus dispositius, si habilita les opcions de sincronitzaci\u00f3 del seu navegador en la configuraci\u00f3. Fins i tot sense Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Busqui la seva configuraci\u00f3 de sincronitzaci\u00f3"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "L'extensi\u00f3 est\u00e0 disponible en {1} idiomes diferents. Les traduccions s\u00f3n fetes per la comunitat i tots poden contribuir traduint els textos de l'extensi\u00f3 en altres idiomes. Les traduccions s'aprovaran i despr\u00e9s s'agregaran a l'extensi\u00f3 amb la pr\u00f2xima actualitzaci\u00f3."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Aquesta extensi\u00f3 \u00e9s un projecte d'un sol home, que va comen\u00e7ar com un projecte d'hobby per a \u00fas personal."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "La primera versi\u00f3 d'aquesta extensi\u00f3 es va llan\u00e7ar al novembre de 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Bot\u00f3 dret del ratol\u00ed"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Pot fer clic dret en qualsevol marcador o carpeta en la barra lateral per a revelar opcions addicionals. Per exemple, pot editar marcadors existents o ancorar entrades en la part superior de la barra lateral. Quan fa clic amb el bot\u00f3 dret en una carpeta, pot iniciar una comprovaci\u00f3 de marcadors per a identificar URL de marcadors trencades o actualitzades."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Compartir informaci\u00f3"
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Selecciona m\u00faltiples entradas"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nova Pestanya"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privacitat"
+    },
+    "settings_open_action": {
+        "message": "Obrir barra lateral"
+    },
+    "settings_open_action_desc": {
+        "message": "Obre la barra lateral amb el bot\u00f3 esquerre o dret o fes clic amb el mouse sobre la vora de la finestra del navegador. Alternativament, pot canviar-ho perqu\u00e8 s'obri nom\u00e9s si es fa clic en la icona del men\u00fa de {browserName}."
+    },
+    "settings_open_action_leftclick": {
+        "message": "Clic Esquerre"
+    },
+    "settings_open_action_rightclick": {
+        "message": "Clic Dret"
+    },
+    "settings_open_action_mouseover": {
+        "message": "En passar el ratol\u00ed"
+    },
+    "settings_open_action_icon": {
+        "message": "Clic a la icona"
+    },
+    "settings_toggle_area": {
+        "message": "Configuri l'\u00e0rea"
+    },
+    "settings_toggle_area_desc": {
+        "message": "Pot reduir l'altura de l'\u00e0rea aix\u00ed que la barra lateral nom\u00e9s s'obrir\u00e0 quan es mou el cursor en l'aquesta ubicaci\u00f3 de la vora."
+    },
+    "settings_toggle_area_width": {
+        "message": "Ample"
+    },
+    "settings_toggle_area_width_windowed": {
+        "message": "Ample (Manera Finestra)"
+    },
+    "settings_toggle_area_height": {
+        "message": "Altura"
+    },
+    "settings_toggle_area_height_desc": {
+        "message": "Pot reduir l'altura de l'\u00e0rea, per la qual cosa la barra lateral nom\u00e9s s'obrir\u00e0 quan mogui el cursor a aquesta ubicaci\u00f3 de la vora de la finestra del seu navegador."
+    },
+    "settings_toggle_area_drag_desc": {
+        "message": "Arrossega per a moure"
+    },
+    "settings_keyboard_shortcut_button": {
+        "message": "Establir drecera de teclat"
+    },
+    "settings_link_action": {
+        "message": "Obrir marcadors"
+    },
+    "settings_link_action_desc": {
+        "message": "En fer clic amb el bot\u00f3 esquerre del ratol\u00ed en un marcador aquest s'obrir\u00e0 en la pestanya actual o en una pestanya nova."
+    },
+    "settings_link_action_current_tab": {
+        "message": "Pestanya actual"
+    },
+    "settings_link_action_new_tab": {
+        "message": "Nova pestanya"
+    },
+    "settings_open_delay": {
+        "message": "Demora en l'obertura"
+    },
+    "settings_open_delay_desc": {
+        "message": "Evita l'obertura immediata de la barra lateral en passar el ratol\u00ed o fent clic amb un retard."
+    },
+    "settings_prevent_pagescroll": {
+        "message": "Evitar el despla\u00e7ament de la p\u00e0gina"
+    },
+    "settings_prevent_pagescroll_desc": {
+        "message": "Evita el despla\u00e7ament del lloc web actual mentre la barra lateral est\u00e0 oberta."
+    },
+    "settings_dir_accordion": {
+        "message": "Mostrar nom\u00e9s el directori actual"
+    },
+    "settings_dir_accordion_desc": {
+        "message": "Tanca tots els directoris excepte l'actiu actualment."
+    },
+    "settings_remember_state": {
+        "message": "Recordar"
+    },
+    "settings_remember_state_open_states_and_scroll": {
+        "message": "Posici\u00f3 de despla\u00e7ament i directoris oberts"
+    },
+    "settings_remember_state_all": {
+        "message": "Posici\u00f3 de despla\u00e7ament, directoris oberts i \u00faltim marcador obert"
+    },
+    "settings_remember_state_open_states": {
+        "message": "Directoris oberts"
+    },
+    "settings_remember_state_open_states_root": {
+        "message": "Directori de nivell superior oberts"
+    },
+    "settings_remember_state_nothing": {
+        "message": "Res"
+    },
+    "settings_remember_open_states_sub_directories": {
+        "message": "Recordeu els subdirectoris oberts"
+    },
+    "settings_remember_desc": {
+        "message": "Tria qu\u00e8 recordar en els canvis de p\u00e0gina. Si tria recordar l'\u00faltim marcador obert, es marcar\u00e0 en obrir novament la barra lateral."
+    },
+    "settings_new_tab": {
+        "message": "Nova Pestanya"
+    },
+    "settings_new_tab_desc": {
+        "message": "Obrir marcadors en una pestanya nova en primer pla o en segon pla"
+    },
+    "settings_new_tab_foreground": {
+        "message": "Obrir en primer pla"
+    },
+    "settings_new_tab_background": {
+        "message": "Obrir en segon pla"
+    },
+    "settings_new_tab_position_desc": {
+        "message": "Obrir pestanyes noves despr\u00e9s de l'\u00faltima pestanya o de l'actual pestanya"
+    },
+    "settings_new_tab_position_after_last": {
+        "message": "Despr\u00e9s de l'\u00faltima pestanya"
+    },
+    "settings_new_tab_position_after_current": {
+        "message": "Despr\u00e9s de l'actual pestanya"
+    },
+    "settings_new_tab_position_before_first": {
+        "message": "Abans de la primera pestanya"
+    },
+    "settings_close_timeout": {
+        "message": "Temps d'espera per a tancar"
+    },
+    "settings_close_timeout_desc": {
+        "message": "Temps d'espera en segons perqu\u00e8 es tanqui la barra lateral. Comptar\u00e0 tan aviat com el ratol\u00ed abandoni la barra lateral i es detindr\u00e0 en passar-lo de nou."
+    },
+    "settings_close_timeout_infinity": {
+        "message": "No tancar autom\u00e0ticament"
+    },
+    "settings_scroll_bar_hide": {
+        "message": "Amagar la barra de despla\u00e7ament"
+    },
+    "settings_scroll_bar_hide_desc": {
+        "message": "Temps d'espera en segons perqu\u00e8 s'oculti la barra de despla\u00e7ament. En despla\u00e7ar es mostrar\u00e0 la barra de despla\u00e7ament de nou."
+    },
+    "settings_scroll_bar_hide_infinity": {
+        "message": "Mai ocultar"
+    },
+    "settings_reopen_sidebar": {
+        "message": "Reobrir la barra lateral"
+    },
+    "settings_reopen_sidebar_desc": {
+        "message": "Obre autom\u00e0ticament la barra lateral novament despr\u00e9s d'obrir un marcador des de la barra lateral."
+    },
+    "settings_prevent_windowed": {
+        "message": "Desactiva la barra lateral en la manera finestra"
+    },
+    "settings_prevent_windowed_desc": {
+        "message": "Desactiva la possibilitat d'obrir la barra lateral en fer clic o en passar la vora del contingut del navegador quan el navegador est\u00e0 en manera finestra."
+    },
+    "settings_tooltip_delay": {
+        "message": "Temps d'espera per a mostrar el tooltip"
+    },
+    "settings_tooltip_delay_desc": {
+        "message": "Retard abans que la informaci\u00f3 per als marcadors es mostri en passar el ratol\u00ed."
+    },
+    "settings_tooltip_delay_infinity": {
+        "message": "Mai mostrar el tooltip"
+    },
+    "settings_tooltip_desc": {
+        "message": "Seleccioni quina informaci\u00f3 ha de contenir el tooltip"
+    },
+    "settings_tooltip_content": {
+        "message": "Contingut del tooltip"
+    },
+    "settings_tooltip_content_all": {
+        "message": "T\u00edtol i URL"
+    },
+    "settings_tooltip_content_title": {
+        "message": "Nom\u00e9s t\u00edtol"
+    },
+    "settings_tooltip_content_url": {
+        "message": "Nom\u00e9s URL"
+    },
+    "settings_tooltip_content_additional_info": {
+        "message": "Informaci\u00f3 addicional"
+    },
+    "settings_sidebar_position": {
+        "message": "Posici\u00f3"
+    },
+    "settings_sidebar_position_desc": {
+        "message": "Li permet establir si la barra lateral ha d'obrir-se en el costat esquerre o dret de la pantalla."
+    },
+    "settings_sidebar_position_left": {
+        "message": "Esquerra"
+    },
+    "settings_sidebar_position_right": {
+        "message": "Dreta"
+    },
+    "settings_filter_intro": {
+        "message": "Si no vols que la barra lateral es carregui en cada p\u00e0gina, pots configurar on carregar l'extensi\u00f3 (Llista blanca) i on no (Llista negra)"
+    },
+    "settings_filter_explanation_1": {
+        "message": "Nom\u00e9s afegir un URL per l\u00ednia"
+    },
+    "settings_filter_explanation_2": {
+        "message": "Usar asterisc: * per a incloure directori de la p\u00e0gina i no sols la p\u00e0gina seleccionada (Ex: example.com\/* Inclou totes les sub-p\u00e0gines de pagina-d-exemple.com)"
+    },
+    "settings_filter_explanation_3": {
+        "message": "Si no inclous cap asterisc en una regla, solament l'URL exacte coincidir\u00e0. (Ex: pagina-d-exemple.com no inclou amb l'URL example.com\/about.html"
+    },
+    "settings_filter_explanation_4": {
+        "message": "No \u00e9s necessari afegir el protocol: (Ex: http:\/\/) en les regles"
+    },
+    "settings_filter_visibility": {
+        "message": "Carregar barra lateral"
+    },
+    "settings_filter_visibility_always": {
+        "message": "En tota p\u00e0gina"
+    },
+    "settings_filter_visibility_blacklist": {
+        "message": "En tota p\u00e0gina excepte p\u00e0gines espec\u00edfiques"
+    },
+    "settings_filter_visibility_whitelist": {
+        "message": "Nom\u00e9s en p\u00e0gines espec\u00edfiques"
+    },
+    "settings_filter_rules": {
+        "message": "Patrons d'URL"
+    },
+    "settings_import_export_headline": {
+        "message": "Configuraci\u00f3 d'importaci\u00f3\/exportaci\u00f3"
+    },
+    "settings_import_export_notice": {
+        "message": "La configuraci\u00f3 de l'extensi\u00f3 se sincronitza autom\u00e0ticament entre els dispositius si has iniciat sessi\u00f3 en {browserName} amb el teu compte. Si no desitja iniciar sessi\u00f3 o desitja compartir la seva configuraci\u00f3 amb altres persones, pot utilitzar aquesta opci\u00f3 d'importaci\u00f3\/exportaci\u00f3."
+    },
+    "settings_import_export_desc": {
+        "message": "Pot exportar la configuraci\u00f3 de la seva extensi\u00f3 i guardar-la de manera local en la seva computadora. Pot importar l'arxiu exportat pr\u00e8viament en qualsevol computadora, on est\u00e0 instal\u00b7lada l'extensi\u00f3."
+    },
+    "settings_export": {
+        "message": "Exportar els ajustos"
+    },
+    "settings_import": {
+        "message": "Importar els ajustos"
+    },
+    "settings_import_saved": {
+        "message": "Configuraci\u00f3 importada amb \u00e8xit"
+    },
+    "settings_import_failed": {
+        "message": "Error en importar la configuraci\u00f3. Si us plau tri\u00ef un arxiu v\u00e0lid."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Importar\/Exportar marcadors"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Aquesta \u00e9s una funci\u00f3 del navegador i no forma part de l'extensi\u00f3. Obtingues m\u00e9s informaci\u00f3 sobre com importar i exportar marcadors en {browserName}."
+    },
+    "settings_theme_changed": {
+        "message": "Tema actualitzat correctament"
+    },
+    "settings_newtab_desc": {
+        "message": "Els navegadors basats en crom no permeten carregar extensions a la p\u00e0gina de pestanya nova per defecte. Per aix\u00f2, la caracter\u00edstica de la barra lateral no funciona. Per evitar aquest problema, es van afegir algunes opcions que us permetran accedir a les vostres adreces d'inter\u00e8s en obrir una pestanya nova d'una altra manera."
+    },
+    "settings_newtab_override": {
+        "message": "Substitueix la p\u00e0gina de la pestanya nova"
+    },
+    "settings_newtab_override_desc": {
+        "message": "L'extensi\u00f3 hauria de substituir la vostra p\u00e0gina de pestanyes actual, ja sigui amb una mida o amb un lloc web que s'hauria de carregar en obrir una fitxa nova?"
+    },
+    "settings_newtab_sidebar_auto_open": {
+        "message": "Obre la barra lateral autom\u00e0ticament"
+    },
+    "settings_newtab_sidebar_auto_open_desc": {
+        "message": "Configura si s\u2019ha d\u2019obrir autom\u00e0ticament la barra lateral en obrir una pestanya nova."
+    },
+    "settings_newtab_focus_omnibox": {
+        "message": "Barra d\u2019adreces d\u2019enfocament"
+    },
+    "settings_newtab_focus_omnibox_desc": {
+        "message": "Si est\u00e0 activat, la vostra barra d\u2019adreces estar\u00e0 centrada en obrir una pestanya nova. En cas contrari, es centrar\u00e0 el quadre de cerca del lloc web."
+    },
+    "settings_newtab_website": {
+        "message": "Carrega el lloc web"
+    },
+    "settings_newtab_website_desc": {
+        "message": "En lloc d'obrir la nova substituci\u00f3 de pestanyes, podeu configurar un lloc web que es carrega en lloc."
+    },
+    "settings_language": {
+        "message": "Idioma"
+    },
+    "settings_language_default": {
+        "message": "Navegador predeterminat"
+    },
+    "settings_language_desc": {
+        "message": "L'idioma de la interf\u00edcie d'usuari"
+    },
+    "settings_translation_link": {
+        "message": "Anar a la traducci\u00f3 principal"
+    },
+    "settings_translation_desc": {
+        "message": "Pots ajudar a traduir l'extensi\u00f3 al teu idioma o millorar les existents."
+    },
+    "settings_translation_add_language": {
+        "message": "Agregar idioma"
+    },
+    "settings_translation_back_to_overview": {
+        "message": "Tornar a general"
+    },
+    "settings_translation_info": {
+        "message": "Pots editar les traduccions existents o agregar les que falten. Si envia els seus canvis, revisar\u00e9 la teva opini\u00f3 i l'aprovar\u00e9."
+    },
+    "settings_translation_notice1": {
+        "message": "Tan aviat com s'hagin tradu\u00eft totes les categories marcades com a necess\u00e0ries, les traduccions seran llan\u00e7ades."
+    },
+    "settings_translation_notice2": {
+        "message": "No es publicaran les categories incompletes, per a prevenir els textos incomplets."
+    },
+    "settings_translation_help": {
+        "message": "Per a cada entrada, pot veure la traducci\u00f3 a l'angl\u00e8s, que ha de traduir-se en el seu idioma. Per a ajudar-lo a identificar on s'usa el text i per a qu\u00e8 serveix, cada entrada t\u00e9 un nom (per exemple, {1}), que no ha de traduir-se. No oblidi enviar la seva traducci\u00f3 prement el bot\u00f3 a la cantonada superior dreta!"
+    },
+    "settings_translation_reminder_desc": {
+        "message": "Vull ser notificat quan una nova frase del meu llenguatge hagi estat agregada a l'extensi\u00f3"
+    },
+    "settings_translation_submit": {
+        "message": "Enviar"
+    },
+    "settings_translation_submit_message": {
+        "message": "La teva traducci\u00f3 s'ha enviat correctament"
+    },
+    "settings_translation_status_released": {
+        "message": "La traducci\u00f3 est\u00e0 disponible"
+    },
+    "settings_translation_status_incomplete": {
+        "message": "La traducci\u00f3 est\u00e0 disponible, per\u00f2 algunes categories estan incompletes"
+    },
+    "settings_translation_status_draft": {
+        "message": "La traducci\u00f3 aquesta incompleta o necessita una revisi\u00f3 i no aquesta disponible per als usuaris"
+    },
+    "settings_translation_incomplete_info": {
+        "message": "Algunes traduccions estan incompletes"
+    },
+    "settings_translation_required_category": {
+        "message": "Obligatori"
+    },
+    "settings_support_faq_headline": {
+        "message": "Preguntes Habituals"
+    },
+    "settings_support_feedback_headline": {
+        "message": "Comentaris"
+    },
+    "settings_support_feedback_desc": {
+        "message": "Tens algun suggeriment per a millores, preguntes, trobes a faltar opcions de configuraci\u00f3 o has trobat algun error? Per ajudar a millorar les experi\u00e8ncies d'aquesta extensi\u00f3, estar\u00e9 molt agra\u00eft de qualsevol comentari que pugues tindre."
+    },
+    "settings_support_feedback_notice": {
+        "message": "Escriviu els vostres comentaris en angl\u00e8s, en cas contrari ser\u00e0 dif\u00edcil entendre i respondre el vostre missatge."
+    },
+    "settings_support_feedback_email": {
+        "message": "correu electr\u00f2nic (opcional)"
+    },
+    "settings_support_feedback_screenshot": {
+        "message": "Adjunta captures de pantalla"
+    },
+    "settings_support_feedback_screenshot_error_filesize": {
+        "message": "La mida del fitxer de {1} \u00e9s massa gran (> 1 MB)"
+    },
+    "settings_support_feedback_screenshot_error_amount": {
+        "message": "Nom\u00e9s podeu penjar un m\u00e0xim de {1} captures de pantalla"
+    },
+    "settings_support_feedback_send": {
+        "message": "Enviar comentaris"
+    },
+    "settings_support_feedback_sent_message": {
+        "message": "Gr\u00e0cies pel comentari"
+    },
+    "settings_support_feedback_send_failed": {
+        "message": "No s'ha pogut enviar el vostre missatge. Si us plau torna-ho a provar."
+    },
+    "settings_permissions_desc": {
+        "message": "Per tal de fer possible una barra lateral inclosa a {browserName}, l'extensi\u00f3 demana els seg\u00fcents permisos :"
+    },
+    "settings_permissions_contentscript_desc_1": {
+        "message": "Malauradament, {browserName} no t\u00e9 cap mecanisme per mostrar continguts a la finestra del navegador sense interactuar amb la p\u00e0gina que est\u00e0 visitant"
+    },
+    "settings_permissions_contentscript_desc_2": {
+        "message": "Es requereix aquest perm\u00eds at\u00e8s que la barra lateral es mostra a la part superior del lloc web actual. A banda d\u2019aquest motiu t\u00e8cnic, el perm\u00eds no s\u2019utilitza per a cap altra finalitat."
+    },
+    "settings_permissions_contentscript_desc_3": {
+        "message": "Si teniu dubtes sobre el que estic fent amb el perm\u00eds, podeu veure el codi font de l\u2019extensi\u00f3 a Github. \u00c9s Open Source i \u00e9s visible per a tothom."
+    },
+    "settings_permissions_bookmarks_desc": {
+        "message": "L\u2019extensi\u00f3 mostra els vostres marcadors a la barra lateral i per tant necessita aquest perm\u00eds per accedir-hi. El perm\u00eds tamb\u00e9 permet a l\u2019extensi\u00f3 afegir, editar i eliminar marcadors."
+    },
+    "settings_headline_share_userdata": {
+        "message": "Compartir informaci\u00f3"
+    },
+    "settings_saved_share_userdata": {
+        "message": "Les vostres prefer\u00e8ncies s'han desat correctament"
+    }
+}

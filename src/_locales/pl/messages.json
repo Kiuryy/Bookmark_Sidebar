@@ -17,11 +17,14 @@
     "header_bookmarks_single": {
         "message": "Zak\u0142adka"
     },
+    "header_selected_entries": {
+        "message": "zaznaczone"
+    },
     "sidebar_dir_children": {
         "message": "Element\u00f3w"
     },
     "sidebar_search_placeholder": {
-        "message": "Wyszukaj zak\u0142adk\u0119"
+        "message": "Znajd\u017a zak\u0142adk\u0119"
     },
     "sidebar_search_no_results": {
         "message": "Brak zak\u0142adek pasuj\u0105cych do twojego wyszukiwania"
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Skr\u00f3ty klawiaturowe"
     },
+    "contextmenu_select_entries": {
+        "message": "Zaznacz wiele wpis\u00f3w"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Zaznacz zak\u0142adki"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Odznacz zak\u0142adki"
+    },
+    "contextmenu_select_dir": {
+        "message": "Zaznacz katalog"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Odznacz katalog"
+    },
     "sort_label_custom": {
         "message": "Ustawienie u\u017cytkownika"
     },
@@ -186,7 +204,7 @@
         "message": "Zak\u0142adka"
     },
     "overlay_label_dir": {
-        "message": "Folder"
+        "message": "Katalog"
     },
     "overlay_label_separator": {
         "message": "Separator"
@@ -195,7 +213,7 @@
         "message": "Pozycja"
     },
     "overlay_add_position_prepend": {
-        "message": "Do\u0142\u00f3\u017c do katalogu"
+        "message": "Dodaj do katalogu"
     },
     "overlay_add_position_append": {
         "message": "Dodaj do katalogu"
@@ -213,7 +231,7 @@
         "message": "Zarejestrowane od"
     },
     "overlay_bookmark_views_per_month": {
-        "message": "na miesi\u0105c"
+        "message": "miesi\u0119cznie"
     },
     "overlay_bookmark_created_date": {
         "message": "Utworzono"
@@ -225,7 +243,13 @@
         "message": "Zak\u0142adek"
     },
     "overlay_dir_children_dirs": {
-        "message": "Folder\u00f3w"
+        "message": "Katalog\u00f3w"
+    },
+    "overlay_delete_selected": {
+        "message": "Usu\u0144 zaznaczone"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Czy naprawd\u0119 chcesz usun\u0105\u0107 zaznaczone wpisy? Wszystkie zak\u0142adki z podrz\u0119dnych folder\u00f3w (katalog\u00f3w) zostan\u0105 r\u00f3wnie\u017c usuni\u0119te."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Zmienione"
@@ -234,22 +258,22 @@
         "message": "Uszkodzone"
     },
     "overlay_check_bookmarks_menu_duplicate": {
-        "message": "Podwojone"
+        "message": "Zduplikowane"
     },
     "overlay_check_bookmarks_menu_empty": {
         "message": "Puste katalogi"
     },
     "overlay_check_bookmarks_loading": {
-        "message": "Sprawdzanie URL zak\u0142adek"
+        "message": "Sprawdzanie zak\u0142adek URL"
     },
     "overlay_check_bookmarks_update_selected": {
-        "message": "Zaktualizuj wybrane"
+        "message": "Aktualizuj wybrane"
     },
     "overlay_check_bookmarks_remove_selected": {
         "message": "Usu\u0144 wybrane"
     },
     "overlay_check_bookmarks_no_results": {
-        "message": "Wszystkie URL zak\u0142adek s\u0105 w porz\u0105dku"
+        "message": "Wszystkie URL zak\u0142adek dzia\u0142aj\u0105 poprawnie"
     },
     "overlay_check_bookmarks_no_results_changed": {
         "message": "Brak zmienionych link\u00f3w"
@@ -258,7 +282,7 @@
         "message": "Brak uszkodzonych link\u00f3w"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Brak podwojonych link\u00f3w"
+        "message": "Brak zduplikowanych link\u00f3w"
     },
     "overlay_check_bookmarks_no_results_empty": {
         "message": "Brak pustych katalog\u00f3w"

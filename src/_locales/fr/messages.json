@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Favori"
     },
+    "header_selected_entries": {
+        "message": "s\u00e9lectionn\u00e9"
+    },
     "sidebar_dir_children": {
         "message": "\u00c9l\u00e9ments"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Raccourcis clavier"
     },
+    "contextmenu_select_entries": {
+        "message": "S\u00e9lectionner entr\u00e9es multiples"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "S\u00e9lectionner favori"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "D\u00e9s\u00e9lectionner favori"
+    },
+    "contextmenu_select_dir": {
+        "message": "S\u00e9lectionner dossier"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "D\u00e9s\u00e9lectionner dossier"
+    },
     "sort_label_custom": {
         "message": "R\u00e9glages utilisateur"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Mettre \u00e0 jour"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Voulez-vous vraiment ouvrir tous les {1} favoris, y compris les favoris des sous-dossiers des dossiers s\u00e9lectionn\u00e9s ?"
     },
     "overlay_open_children": {
         "message": "Ouvrir tous les favoris"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Dossiers"
+    },
+    "overlay_delete_selected": {
+        "message": "Supprimer les entr\u00e9es s\u00e9lectionn\u00e9es"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Voulez-vous vraiment supprimer les entr\u00e9es s\u00e9lectionn\u00e9s ? Tous les sous-dossiers de favoris des dossiers d\u00e9s\u00e9lectionn\u00e9s seront \u00e9galement supprimer."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Modifi\u00e9"
@@ -715,6 +742,30 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Vous pouvez cliquer avec le bouton droit de la souris sur n'importe quel signet ou dossier dans la barre lat\u00e9rale pour faire appara\u00eetre des options suppl\u00e9mentaires. Par exemple, vous pouvez modifier les signets existants ou \u00e9pingler des entr\u00e9es en haut de la barre lat\u00e9rale. Lorsque vous faites un clic droit sur un dossier, vous pouvez lancer une v\u00e9rification des signets pour identifier les URL de signets cass\u00e9s ou mis \u00e0 jour."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Partager mes infos"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Vous pouvez partager votre configuration de mani\u00e8re anonyme, ce qui m'aide \u00e0 identifier les param\u00e8tres les plus populaires et \u00e0 d\u00e9terminer ce qu'il faut am\u00e9liorer ou modifier dans les prochaines versions. L'extension ne collecte aucune donn\u00e9e personnelle ni aucun signet de lecture. Sans permission explicite, l'extension ne partage pas non plus de configuration."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "S\u00e9lectionner entr\u00e9es multiples"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Vous pouvez s\u00e9lectionner plusieurs favoris ou dossiers dans la barre lat\u00e9rale, pour les ouvrir, les effacer ou les d\u00e9placer d'un coup avec un glisser\/d\u00e9poser."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nouvel onglet"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Vous pouvez configurer l'apparence de la page des nouveaux onglets directement sur la page en cliquant sur le bouton {1} dans le coin inf\u00e9rieur. Vous pouvez alors modifier les \u00e9l\u00e9ments de la grille, le moteur de recherche, l'image de fond ou les liens en haut de la page."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Priv\u00e9"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Les signets affich\u00e9s dans votre barre lat\u00e9rale sont synchronis\u00e9s et g\u00e9r\u00e9s par {browserName}. L'extension ne stocke ni n'analyse ces signets, et affiche uniquement ceux de votre navigateur dans la barre lat\u00e9rale."
     },
     "settings_open_action": {
         "message": "Affichage de la barre"

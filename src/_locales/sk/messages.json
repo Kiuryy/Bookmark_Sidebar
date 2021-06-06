@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Z\u00e1lo\u017eka"
     },
+    "header_selected_entries": {
+        "message": "vybran\u00e9"
+    },
     "sidebar_dir_children": {
         "message": "Prvky"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Kl\u00e1vesov\u00e9 skratky"
     },
+    "contextmenu_select_entries": {
+        "message": "Vyberte viac polo\u017eiek"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Vyberte z\u00e1lo\u017eku"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Zru\u0161i\u0165 v\u00fdber z\u00e1lo\u017eky"
+    },
+    "contextmenu_select_dir": {
+        "message": "Vyberte prie\u010dinok"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Zru\u0161i\u0165 v\u00fdber prie\u010dinka"
+    },
     "sort_label_custom": {
         "message": "Predvolen\u00e9 u\u017e\u00edvate\u013eom"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Aktualizova\u0165"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Naozaj chcete otvori\u0165 v\u0161etky z\u00e1lo\u017eky ({1}), vr\u00e1tane z\u00e1lo\u017eiek podadres\u00e1rov vybrat\u00fdch prie\u010dinkov?"
     },
     "overlay_open_children": {
         "message": "Otvori\u0165 v\u0161etko"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Prie\u010dinky"
+    },
+    "overlay_delete_selected": {
+        "message": "Odstr\u00e1ni\u0165 vybran\u00e9 polo\u017eky"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Naozaj chcete odstr\u00e1ni\u0165 vybrat\u00e9 polo\u017eky? Bud\u00fa taktie\u017e odstr\u00e1nen\u00e9 v\u0161etky z\u00e1lo\u017eky podadres\u00e1rov vybran\u00fdch prie\u010dinkov."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Zmenen\u00e9"
@@ -715,6 +742,30 @@
     },
     "settings_tips_tricks_right_click_desc": {
         "message": "Kliknut\u00edm prav\u00fdm tla\u010didlom my\u0161i na \u013eubovo\u013en\u00fa z\u00e1lo\u017eku alebo prie\u010dinok v bo\u010dnom paneli zobraz\u00edte \u010fal\u0161ie mo\u017enosti. M\u00f4\u017eete napr\u00edklad upravi\u0165 existuj\u00face z\u00e1lo\u017eky alebo pripn\u00fa\u0165 polo\u017eky do hornej \u010dasti bo\u010dn\u00e9ho panela. Po kliknut\u00ed prav\u00fdm tla\u010didlom my\u0161i na prie\u010dinok m\u00f4\u017eete spusti\u0165 kontrolu z\u00e1lo\u017eiek, aby ste zistili nefunk\u010dn\u00e9 alebo aktualizovan\u00e9 adresy URL z\u00e1lo\u017eiek."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Zdie\u013ea\u0165 inform\u00e1cie"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Svoju konfigur\u00e1ciu m\u00f4\u017eete zdie\u013ea\u0165 anonymne, \u010do mi pom\u00e1ha identifikova\u0165 popul\u00e1rne nastavenia a identifikova\u0165, \u010do by sa malo v bud\u00facich vydaniach vylep\u0161i\u0165 alebo zmeni\u0165. Toto roz\u0161\u00edrenie nezhroma\u017e\u010fuje \u017eiadne osobn\u00e9 \u00fadaje ani ne\u010d\u00edta z\u00e1lo\u017eky. Bez v\u00fdslovn\u00e9ho s\u00fahlasu roz\u0161\u00edrenie tie\u017e nezdie\u013ea \u017eiadnu konfigur\u00e1ciu."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Vyberte viacero polo\u017eiek"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Na bo\u010dnom paneli m\u00f4\u017eete vybra\u0165 viac z\u00e1lo\u017eiek alebo prie\u010dinkov, ktor\u00e9 chcete otvori\u0165, odstr\u00e1ni\u0165 alebo dokonca presun\u00fa\u0165 pomocou funkcie drag & drop."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nov\u00e1 karta"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Vzh\u013ead str\u00e1nky na novej karte m\u00f4\u017eete nakonfigurova\u0165 priamo na str\u00e1nke kliknut\u00edm na tla\u010didlo {1} v dolnom rohu. Potom m\u00f4\u017eete zmeni\u0165 polo\u017eky mrie\u017eky, vyh\u013ead\u00e1vac\u00ed modul, pozadie alebo odkazy na vrchu."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "S\u00fakromie"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Z\u00e1lo\u017eky zobrazen\u00e9 na bo\u010dnom paneli s\u00fa synchronizovan\u00e9 a spravovan\u00e9 prehliada\u010dom {browserName}. Toto roz\u0161\u00edrenie tieto z\u00e1lo\u017eky neuklad\u00e1 ani neanalyzuje, na bo\u010dnom paneli zobrazuje iba tie, ktor\u00e9 pou\u017e\u00edva v\u00e1\u0161 prehliada\u010d."
     },
     "settings_open_action": {
         "message": "Otvorenie bo\u010dnej li\u0161ty"
@@ -1321,6 +1372,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Cel\u00fd vzh\u013ead bo\u010dn\u00e9ho panela m\u00f4\u017eete vymeni\u0165 jedn\u00fdm kliknut\u00edm nain\u0161talovan\u00edm inej t\u00e9my. T\u00e9my m\u00f4\u017eu by\u0165 tie\u017e prisp\u00f4soben\u00e9 pomocou dostupn\u00fdch jazdcov a farebn\u00fdch mo\u017enost\u00ed."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Vyberte sp\u00f4sob platby ni\u017e\u0161ie a v nasleduj\u00facom kroku vyberte po\u017eadovan\u00fa sumu, ktor\u00fa chcete zaplati\u0165."
     },
     "premium_pay_select_payment_method": {
         "message": "Vyberte sp\u00f4sob platby"

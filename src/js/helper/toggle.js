@@ -457,11 +457,8 @@
                     }
 
                     let w = toggleArea.width;
-
-                    if (preventWebapp && ext.helper.utility.isWebapp()) { // sidebar should not be toggleable in PWA
-                        w = 0;
-                    } else if (ext.helper.utility.isWindowed()) { // return different values for the toggle area width in window mode
-                        w = preventWindowed ? 0 : toggleArea.widthWindowed;
+                    if (ext.helper.utility.isWindowed()) { // return different values for the toggle area width in window mode
+                        w = toggleArea.widthWindowed;
                     }
 
                     const area = {

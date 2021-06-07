@@ -282,7 +282,7 @@
          * @returns {boolean}
          */
         this.isWebapp = () => {
-            return window.matchMedia("(display-mode: browser)").matches !== true;
+            return window.matchMedia("(display-mode: standalone)").matches;
         };
     };
 

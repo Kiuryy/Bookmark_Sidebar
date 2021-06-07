@@ -747,7 +747,7 @@
         "message": "Informationen teilen"
     },
     "settings_tips_tricks_share_data_desc": {
-        "message": "Du kannst deine Einstellungen anonym \u00fcbermitteln. Dies hilft mir um popul\u00e4re Einstellungen zu identifizieren und herauszufinden, was ich in Zukunft verbessern oder \u00e4ndern muss.\r\n\r\nDie Erweiterung sammelt keinerlei pers\u00f6nliche Daten und liest auch keine Lesezeichen. Ohne explizite Einwilligung wird keine deiner Einstellungen geteilt."
+        "message": "Du kannst deine Einstellungen anonym \u00fcbermitteln. Dies hilft mir um popul\u00e4re Einstellungen zu identifizieren und herauszufinden, was ich in Zukunft verbessern oder \u00e4ndern muss. Die Erweiterung sammelt keinerlei pers\u00f6nliche Daten und liest auch keine Lesezeichen. Ohne explizite Einwilligung wird keine deiner Einstellungen geteilt."
     },
     "settings_tips_tricks_multiselect": {
         "message": "Mehrere Elemente ausw\u00e4hlen"
@@ -1180,6 +1180,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "Soll die Erweiterung die aktuelle New-Tab-Seite mit entweder einer angepassten Seite, oder einer Webseite die geladen wird wenn ein neuer Tab ge\u00f6ffnet wird, \u00fcberschreiben?"
+    },
+    "settings_newtab_override_preview": {
+        "message": "Vorschau"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurieren"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Sidebar automatisch \u00f6ffnen"

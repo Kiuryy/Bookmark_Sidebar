@@ -764,6 +764,9 @@
     "settings_tips_tricks_privacy": {
         "message": "Privacidade"
     },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Os Favoritos mostrados em sua barra lateral s\u00e3o sincronizados e gerenciados por {browserName}. A extens\u00e3o n\u00e3o armazena ou analisa esses favoritos, somente mostra aquelas escolhidas no navegador em sua barra lateral."
+    },
     "settings_open_action": {
         "message": "Abrir barra lateral"
     },

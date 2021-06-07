@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Yer i\u015fareti"
     },
+    "header_selected_entries": {
+        "message": "se\u00e7ilmi\u015f"
+    },
     "sidebar_dir_children": {
         "message": "\u00d6\u011feler"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Klavye k\u0131sayollar\u0131"
     },
+    "contextmenu_select_entries": {
+        "message": "Birden \u00e7ok giri\u015f se\u00e7in"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Yer imi se\u00e7in"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Yer i\u015faretinin se\u00e7imini kald\u0131r"
+    },
+    "contextmenu_select_dir": {
+        "message": "Klas\u00f6r se\u00e7"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Klas\u00f6r se\u00e7imini kald\u0131r"
+    },
     "sort_label_custom": {
         "message": "Kullan\u0131c\u0131 tan\u0131ml\u0131"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "G\u00fcncelle"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Se\u00e7ilen klas\u00f6rlerin alt klas\u00f6r yer imleri de dahil olmak \u00fczere t\u00fcm {1} yer imlerini ger\u00e7ekten a\u00e7mak istiyor musunuz?"
     },
     "overlay_open_children": {
         "message": "Hepsini a\u00e7"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Dizinler"
+    },
+    "overlay_delete_selected": {
+        "message": "Se\u00e7ili giri\u015fleri sil"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Se\u00e7ilen giri\u015fleri ger\u00e7ekten silmek istiyor musunuz? Se\u00e7ilen klas\u00f6rlerin t\u00fcm alt klas\u00f6r yer imleri de silinecektir."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "De\u011fi\u015ftirildi"
@@ -719,11 +746,26 @@
     "settings_tips_tricks_share_data": {
         "message": "Bilgi payla\u015f"
     },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Yap\u0131land\u0131rman\u0131z\u0131 anonim olarak payla\u015fabilirsiniz; bu, pop\u00fcler ayarlar\u0131 belirlememe ve gelecekteki s\u00fcr\u00fcmlerde nelerin iyile\u015ftirilece\u011fini veya de\u011fi\u015ftirilece\u011fini belirlememe yard\u0131mc\u0131 olur. Uzant\u0131, herhangi bir ki\u015fisel veri toplamaz veya yer imlerini okumaz. A\u00e7\u0131k izin olmadan, uzant\u0131 herhangi bir yap\u0131land\u0131rmay\u0131 da payla\u015fmaz."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Birden \u00e7ok giri\u015f se\u00e7in"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Kenar \u00e7ubu\u011funda birden fazla yer imi veya klas\u00f6r\u00fc se\u00e7erek tek seferde s\u00fcr\u00fckleyip b\u0131rakarak a\u00e7abilir, silebilir ve hatta ta\u015f\u0131yabilirsiniz."
+    },
     "settings_tips_tricks_newtab": {
         "message": "Yeni sekme"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Alt k\u00f6\u015fedeki {1} d\u00fc\u011fmesini t\u0131klayarak Yeni Sekme Sayfas\u0131n\u0131n g\u00f6r\u00fcn\u00fcm\u00fcn\u00fc do\u011frudan sayfada yap\u0131land\u0131rabilirsiniz. Ard\u0131ndan \u0131zgara \u00f6\u011felerini, arama motorunu, arka plan resmini veya \u00fcstteki ba\u011flant\u0131lar\u0131 de\u011fi\u015ftirebilirsiniz."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Gizlilik"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Kenar \u00e7ubu\u011funuzda g\u00f6r\u00fcnt\u00fclenen yer i\u015faretleri, {browserName} taraf\u0131ndan senkronize edilir ve y\u00f6netilir. Uzant\u0131, bu yer imlerini saklamaz veya analiz etmez ve yaln\u0131zca taray\u0131c\u0131n\u0131z\u0131n kenar \u00e7ubu\u011fundakilerini g\u00f6r\u00fcnt\u00fcler."
     },
     "settings_open_action": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7"
@@ -1330,6 +1372,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Ba\u015fka bir tema y\u00fckleyerek kenar \u00e7ubu\u011funun t\u00fcm tasar\u0131m\u0131n\u0131 tek bir t\u0131klamayla de\u011fi\u015ftirebilirsiniz. Ayr\u0131ca tasar\u0131mlar, mevcut kayd\u0131r\u0131c\u0131lar ve renk se\u00e7enekleri ile \u00f6zelle\u015ftirilebilir."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "A\u015fa\u011f\u0131dan bir \u00f6deme y\u00f6ntemi se\u00e7in ve bir sonraki ad\u0131mda \u00f6demek istedi\u011finiz tutar\u0131 se\u00e7in."
     },
     "premium_pay_select_payment_method": {
         "message": "\u00d6deme Y\u00f6ntemini Se\u00e7in"

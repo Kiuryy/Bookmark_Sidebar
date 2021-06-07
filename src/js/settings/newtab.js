@@ -4,6 +4,7 @@
     $.NewtabHelper = function (s) {
 
         let overrideCheckboxInited = false;
+        let overrideWithWebsite = false;
         const faviconInputs = [];
         const faviconPadding = {regular: 18, transparent: 10};
         const updateFaviconPreviewState = {running: false, awaitUpdate: false};
@@ -16,6 +17,7 @@
         this.init = async () => {
             initEvents();
             s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.hidden);
+            s.elm.newtab.buttons.addClass($.cl.hidden);
 
             ["override", "autoOpen", "focusOmnibox"].forEach((field) => {
                 if (s.helper.model.getData("n/" + field) === true) {
@@ -51,6 +53,7 @@
 
             ["website"].forEach((field) => {
                 s.elm.field[field][0].value = s.helper.model.getData("n/" + field);
+                overrideWithWebsite = s.elm.field[field][0].value.length > 0;
             });
         };
 
@@ -111,23 +114,50 @@
 
                             if (override) {
                                 hideableBoxes.removeClass($.cl.hidden);
+                                showHideButtons();
                             } else {
                                 hideableBoxes.addClass($.cl.hidden);
+                                s.elm.newtab.buttons.addClass($.cl.hidden);
                             }
                         });
                     } else {
                         hideableBoxes.removeClass($.cl.hidden);
+                        showHideButtons();
                     }
                 } else {
                     hideableBoxes.addClass($.cl.hidden);
+                    s.elm.newtab.buttons.addClass($.cl.hidden);
                 }
             });
 
             s.elm.newtab.content.find("input").on("change input", (e) => {
-                if (faviconInputs.indexOf(e.currentTarget)) { // updated one of the favicon options -> update preview as well
+                if (faviconInputs.indexOf(e.currentTarget) > -1) { // updated one of the favicon options -> update preview as well
                     updateFaviconPreview();
+                } else if (s.elm.field.website[0] === e.currentTarget) {
+                    overrideWithWebsite = s.elm.field.website[0].value.length > 0;
+                    showHideButtons();
                 }
             });
+
+            s.elm.newtab.buttons.children("a").on("click", (e) => {
+                e.preventDefault();
+                s.helper.model.call("openLink", {
+                    href: $.api.extension.getURL("html/newtab.html") + ($(e.currentTarget).attr($.attr.name) === "styling" ? "#edit" : ""),
+                    newTab: true,
+                    active: true
+                });
+            });
+        };
+
+        /**
+         * Shows the buttons to open the preview or edit mode of the custom new tab page in case newtabOverride = true and the user did not enter an URL as new tab replacement
+         */
+        const showHideButtons = () => {
+            if (overrideWithWebsite) {
+                s.elm.newtab.buttons.addClass($.cl.hidden);
+            } else {
+                s.elm.newtab.buttons.removeClass($.cl.hidden);
+            }
         };
 
         /**

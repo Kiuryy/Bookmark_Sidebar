@@ -52,6 +52,7 @@
             },
             newtab: {
                 content: $("div.tab[data-name='newtab']"),
+                buttons: $("div.tab[data-name='newtab'] p.buttons"),
                 faviconPreview: $("div.faviconOptions > aside > canvas")
             },
             importExport: {

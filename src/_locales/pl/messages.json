@@ -644,6 +644,78 @@
     "settings_expert_save_error": {
         "message": "Nie uda\u0142o si\u0119 zapisa\u0107 ustawie\u0144. Upewnij si\u0119, \u017ce wprowadzone dane s\u0105 prawid\u0142owe."
     },
+    "settings_dashboard_sidebar_options": {
+        "message": "Skonfiguruj zachowanie paska bocznego"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Istnieje wiele opcji, kt\u00f3re mo\u017cesz zmieni\u0107, aby kontrolowa\u0107 ten dodatek. Na przyk\u0142ad mo\u017cesz zmieni\u0107 spos\u00f3b przesuwania paska bocznego lub spos\u00f3b otwierania zak\u0142adek. Je\u015bli nie chcesz, aby pasek boczny by\u0142 wczytywany na ka\u017cdej stronie, mo\u017cesz to r\u00f3wnie\u017c skonfigurowa\u0107, korzystaj\u0105c z odpowiednich regu\u0142."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Zmie\u0144 wygl\u0105d paska bocznego"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Mo\u017cesz ca\u0142kowicie zmieni\u0107 wygl\u0105d paska bocznego, aby dopasowa\u0107 go do swoich potrzeb. Istniej\u0105 r\u00f3\u017cne opcje zmiany rozmiaru czcionki, odst\u0119p\u00f3w mi\u0119dzy wierszami, kolor\u00f3w, ikon i wiele innych. Mo\u017cesz tak\u017ce wybiera\u0107 spo\u015br\u00f3d wst\u0119pnie zdefiniowanych projekt\u00f3w i gotowych opcji, aby szybko nada\u0107 bocznemu paskowi po\u017c\u0105dany wygl\u0105d."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Czy wiesz, \u017ce?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Nast\u0119pna porada"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Szybkie wyszukiwanie"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Je\u015bli otworzysz pasek boczny, mo\u017cesz wyszukiwa\u0107 zak\u0142adki po prostu zaczynaj\u0105c pisa\u0107. Nie musisz najpierw klika\u0107 ikony wyszukiwania w nag\u0142\u00f3wku paska bocznego."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Obszar aktywacji"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Domy\u015blnie ca\u0142\u0105 kraw\u0119d\u017a okna przegl\u0105darki mo\u017cna najecha\u0107 kursorem, aby otworzy\u0107 pasek boczny. Mo\u017cesz zmniejszy\u0107 obszar aktywacji, zezwalaj\u0105c na otwieranie paska bocznego tylko na cz\u0119\u015bci wysoko\u015bci okna przegl\u0105darki. Na przyk\u0142ad mo\u017cesz zmieni\u0107 pasek boczny, aby by\u0142 wy\u015bwietlany tylko po klikni\u0119ciu obszaru aktywacji w lewym dolnym rogu okna przegl\u0105darki. Mo\u017ce to by\u0107 pomocne, aby zapobiec niezamierzonemu wy\u015bwietlaniu paska bocznego podczas klikania link\u00f3w w witrynie."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Szybkie tworzenia zak\u0142adek"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Mo\u017cesz przeci\u0105gn\u0105\u0107 dowolny adres URL bezpo\u015brednio na pasek boczny i upu\u015bci\u0107 go w \u017c\u0105danym miejscu. Mo\u017cesz nawet zaznaczy\u0107 i przeci\u0105gn\u0105\u0107 w ten spos\u00f3b aktualny adres URL karty przegl\u0105darki. Mo\u017cesz tak\u017ce przeci\u0105gn\u0105\u0107 symbol {1} z lewej strony paska adresu na pasek boczny, aby doda\u0107 zak\u0142adk\u0119 do bie\u017c\u0105cej strony bez zaznaczania najpierw ca\u0142ego paska adresu."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separatory"
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Szybkie kopiowanie adresu URL"
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Otw\u00f3rz wszystkie zak\u0142adki"
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Ukryj wpisy"
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Otw\u00f3rz wszystkie podfoldery"
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Skr\u00f3ty klawiaturowe"
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Synchronizacja"
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Pierwsza wersja tego rozszerzenia zosta\u0142a wydana w listopadzie 2016."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Prawy przycisk"
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Udost\u0119pnianie informacji"
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nowa karta"
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Prywatno\u015b\u0107"
+    },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
     },

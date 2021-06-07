@@ -1232,6 +1232,12 @@
     "settings_newtab_override_desc": {
         "message": "Should the extension override your current new tab page with either 1) a custom made page or 2) a website page which should be loaded when opening a new tab?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Preview"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configure"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Open sidebar automatically"
     },

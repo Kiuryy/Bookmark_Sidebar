@@ -3,6 +3,41 @@ body[data-type^='newtab'] {
 
   > section#wrapper > main {
 
+    p.buttons {
+
+      &.hidden {
+        display: none;
+      }
+
+      > a.button {
+        background: $mainColor2;
+        padding: 10px 15px 10px 38px;
+        margin: 20px 0 0 0;
+
+        + a.button {
+          margin-left: 10px;
+        }
+
+        &[data-name='preview'] {
+          @include mask('icon-search', $textColorInverted, 22px);
+
+          &::before {
+            left: 2px;
+            width: 36px;
+          }
+        }
+
+        &[data-name='styling'] {
+          @include mask('settings/icon-theme', $textColorInverted, 18px);
+
+          &::before {
+            left: 5px;
+            width: 36px;
+          }
+        }
+      }
+    }
+
     div.faviconOptions {
       display: grid;
       grid-template-columns: auto 1fr;

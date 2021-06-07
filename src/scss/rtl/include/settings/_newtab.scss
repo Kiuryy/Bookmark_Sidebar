@@ -5,6 +5,30 @@ html[dir='rtl'] {
 
     > section#wrapper > main {
 
+      p.buttons {
+
+        > a.button {
+          padding-right: 38px;
+          padding-left: 15px;
+
+          + a.button {
+            margin-right: 10px;
+            margin-left: unset;
+          }
+
+          &[data-name='preview']::before {
+            right: 2px;
+            left: unset;
+          }
+
+          &[data-name='styling']::before {
+            right: 5px;
+            left: unset;
+            transform: scaleX(-1);
+          }
+        }
+      }
+
       div.faviconOptions {
 
         > aside {

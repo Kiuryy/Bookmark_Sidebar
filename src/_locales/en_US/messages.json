@@ -747,7 +747,7 @@
         "message": "Share information"
     },
     "settings_tips_tricks_share_data_desc": {
-        "message": "You can share your configuration anonymously which helps me to identify popular settings and to identify what to improve or change in future releases.\r\n\r\nThe extension is not collecting any personal data or reading bookmarks. Without explicit permission, the extension is also not sharing any configuration."
+        "message": "You can share your configuration anonymously which helps me to identify popular settings and to identify what to improve or change in future releases. The extension is not collecting any personal data or reading bookmarks. Without explicit permission, the extension is also not sharing any configuration."
     },
     "settings_tips_tricks_multiselect": {
         "message": "Select multiple entries"
@@ -1180,6 +1180,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "Should the extension override your current new tab page with either 1) a custom made page or 2) a website page which should be loaded when opening a new tab?"
+    },
+    "settings_newtab_override_preview": {
+        "message": "Preview"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configure"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Open sidebar automatically"

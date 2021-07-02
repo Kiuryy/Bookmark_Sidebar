@@ -179,6 +179,9 @@
     "overlay_update": {
         "message": "Actualitza"
     },
+    "overlay_confirm_open_selected": {
+        "message": "Realment voleu obrir tots els {1} marcadors, incloent els de les subcarpetes de les carpetes seleccionades?"
+    },
     "overlay_open_children": {
         "message": "Obre tot"
     },
@@ -743,14 +746,26 @@
     "settings_tips_tricks_share_data": {
         "message": "Compartir informaci\u00f3"
     },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Pots compartir la teva configuraci\u00f3 de forma an\u00f2nima, m'ajuda a identificar configuracions populars i qu\u00e8 millorar o canviar en pr\u00f2ximes versions. L'extensi\u00f3 no recopila cap dada personal ni llegeix els teus marcadors. Sense perm\u00eds expl\u00edcit, l'extensi\u00f3 no comparteix cap configuraci\u00f3."
+    },
     "settings_tips_tricks_multiselect": {
-        "message": "Selecciona m\u00faltiples entradas"
+        "message": "Selecciona m\u00faltiples entrades"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Pots seleccionar multiples marcadors o carpetes de la barra lateral per obrir-les, eliminar-les o moure-les arrossegant&deixant d'una vegada."
     },
     "settings_tips_tricks_newtab": {
         "message": "Nova Pestanya"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Pots configurar l'aparen\u00e7a de la P\u00e0gina Nova Pestanya directament a la p\u00e0gina fent click al {1} bot\u00f3 de la cantonada inferior."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Privacitat"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Els marcadors mostrats a la barra lateral estan sincronitzats i gestionats per {browserName}. L'Extensi\u00f3 no guarda ni analitza aquests marcadors, i nom\u00e9s mostra els marcadors del navegador a la barra lateral."
     },
     "settings_open_action": {
         "message": "Obrir barra lateral"

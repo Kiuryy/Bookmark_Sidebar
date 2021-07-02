@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "A extens\u00e3o deve substituir sua p\u00e1gina nova guia atual com uma p\u00e1gina personalizada ou um site que deve ser carregado ao abrir uma nova guia?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Preview"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configurar"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Abrir a barra lateral automaticamente"
     },

@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "Malo by roz\u0161\u00edrenie nahradi\u0165 aktu\u00e1lnu str\u00e1nku novej karty?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Predh\u013ead"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Nastavi\u0165"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Automaticky otvori\u0165 panel"
     },

@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "\u6269\u5c55\u662f\u5426\u4f1a\u5728\u6253\u5f00\u65b0\u6807\u7b7e\u65f6\u4f7f\u7528\u81ea\u5b9a\u4e49\u6216\u7f51\u7ad9\u52a0\u8f7d\u8986\u76d6\u60a8\u5f53\u524d\u7684\u65b0\u6807\u7b7e\u9875\uff1f"
     },
+    "settings_newtab_override_preview": {
+        "message": "\u9884\u89c8"
+    },
+    "settings_newtab_override_configure": {
+        "message": "\u8bbe\u7f6e"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "\u81ea\u52a8\u6253\u5f00\u4fa7\u8fb9\u680f"
     },

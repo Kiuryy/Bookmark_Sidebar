@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "\u017delite da raz\u0161iritev preglasi va\u0161o stran trenutnega novega zavihka z ali prilagojenim ali spletno stranjo, ki bo nalo\u017eena ob odpiranju novega zavihka?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Predogled"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurirajte"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Samodejno odpri stransko vrstico"
     },

@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "Court-circuiter la page nouvel onglet en affichant une page de substitution, ou un site web, \u00e0 l'ouverture d'un nouvel onglet ?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Aper\u00e7u"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configurer"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Afficher la barre lat\u00e9rale automatiquement"
     },

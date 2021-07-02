@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "Moet de extensie je nieuwe tabblad overschrijven met ofwel een blad op maat of een website die ingeladen wordt bij het openen van een nieuw tabblad?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Voorbeeld"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configureer"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Zijbalk automatisch openen"
     },

@@ -1181,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "\u00bfDeber\u00eda la extensi\u00f3n anular su actual p\u00e1gina nueva pesta\u00f1a con un dise\u00f1o personalizado o un sitio web que se debe cargar al abrir una nueva pesta\u00f1a?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Previsualizar"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configurar"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Abrir autom\u00e1ticamente la barra lateral"
     },

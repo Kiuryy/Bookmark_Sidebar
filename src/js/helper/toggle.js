@@ -116,7 +116,8 @@
 
                 ext.elm.iframe.removeClass($.cl.page.visible);
                 $("body").removeClass($.cl.page.noscroll);
-                $(document).trigger("mousemove.bs"); // hide indicator
+                clearSidebarTimeout("indicator");
+                ext.elm.indicator.removeClass($.cl.page.hover);
 
                 if (lastFocussed && typeof lastFocussed.focus === "function") { // try to restore the focus on the website
                     lastFocussed.focus({

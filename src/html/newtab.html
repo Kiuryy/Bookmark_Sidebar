@@ -13,6 +13,16 @@
         body.building > * {
             display: none !important;
         }
+
+        @media (prefers-color-scheme: dark) {
+            /*
+             * prevent white flashing when OS is set to dark and newtab page as well,
+             * at this stage, we don't know of the users configuration yet
+             */
+            body {
+                background-color: #3d3d3d;
+            }
+        }
     </style>
 </head>
 

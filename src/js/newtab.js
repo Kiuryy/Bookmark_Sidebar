@@ -37,6 +37,9 @@
             this.elm.body.addClass($.cl.initLoading).attr("id", $.opts.ids.page.newtab);
 
             this.helper.model.init().then(() => {
+                this.helper.font.init();
+                this.helper.stylesheet.init();
+
                 const config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
                 if (config.darkMode === true) {
                     this.elm.body.addClass($.cl.page.darkMode);
@@ -45,9 +48,6 @@
                 }
 
                 this.elm.body.attr($.attr.position, config.sidebarPosition);
-
-                this.helper.font.init();
-                this.helper.stylesheet.init();
 
                 return Promise.all([
                     initIcon(),

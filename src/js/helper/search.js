@@ -157,12 +157,13 @@
                     Object.entries(additionalInfoList).forEach(([id, info]) => {
                         if (info && info.desc && info.desc.toLocaleLowerCase().indexOf(valLC) > -1 && idList.indexOf(id) === -1) { // additional information is matching the search value
                             const data = ext.helper.entry.getDataById(id);
+                            if (data) {
+                                if (data.isDir) {
+                                    data.index = -1000 + data.index;
+                                }
 
-                            if (data.isDir) {
-                                data.index = -1000 + data.index;
+                                result.push(data);
                             }
-
-                            result.push(data);
                         }
                     });
 

@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "K\u00f6nyvjelz\u0151"
     },
+    "header_selected_entries": {
+        "message": "kiv\u00e1lasztott"
+    },
     "sidebar_dir_children": {
         "message": "Elemek"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Gyorsbillenty\u0171k"
     },
+    "contextmenu_select_entries": {
+        "message": "V\u00e1lasszon ki t\u00f6bb elemet"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "K\u00f6nyvjelz\u0151 kiv\u00e1laszt\u00e1sa"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "K\u00f6nyvjelz\u0151 kiv\u00e1laszt\u00e1s t\u00f6rl\u00e9se"
+    },
+    "contextmenu_select_dir": {
+        "message": "Mappa kiv\u00e1laszt\u00e1sa"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Mappa kiv\u00e1laszt\u00e1s t\u00f6rl\u00e9se"
+    },
     "sort_label_custom": {
         "message": "Felhaszn\u00e1l\u00f3 \u00e1ltal hozz\u00e1adott"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Friss\u00edt\u00e9s"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Biztosan meg akarja nyitni az \u00f6sszes kiv\u00e1lasztott {1} k\u00f6nyvjelz\u0151t, bele\u00e9rtve az almapp\u00e1kban tal\u00e1lhat\u00f3akat is?"
     },
     "overlay_open_children": {
         "message": "Mindegyik megnyit\u00e1sa"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Mapp\u00e1k"
+    },
+    "overlay_delete_selected": {
+        "message": "Kiv\u00e1lasztott elemek t\u00f6rl\u00e9se"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Biztosan t\u00f6r\u00f6lni akarja a kiv\u00e1lasztott elemeket? Minden alatt l\u00e9v\u0151 mapp\u00e1b\u00f3l is t\u00f6rl\u0151dni fognak a k\u00f6nyvjelz\u0151k."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Megv\u00e1ltozott"
@@ -719,11 +746,26 @@
     "settings_tips_tricks_share_data": {
         "message": "Inform\u00e1ci\u00f3 megoszt\u00e1sa"
     },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Megoszthatja a be\u00e1ll\u00edt\u00e1sait n\u00e9vtelen\u00fcl, ami seg\u00edt nek\u00fcnk a n\u00e9pszer\u0171 be\u00e1ll\u00edt\u00e1sok felder\u00edt\u00e9s\u00e9ben \u00e9s tov\u00e1bbfejleszt\u00e9s\u00e9ben. A b\u0151v\u00edtm\u00e9ny nem gy\u0171jt szem\u00e9lyes adatokat sem k\u00f6nyvjelz\u0151ket. Kifejezett enged\u00e9ly n\u00e9lk\u00fcl a b\u0151v\u00edtm\u00e9ny semmilyen be\u00e1ll\u00edt\u00e1st nem oszt meg m\u00e1sokkal."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "T\u00f6bb elem kiv\u00e1laszt\u00e1sa"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "T\u00f6bb k\u00f6nyvjelz\u0151t vagy mapp\u00e1t is kiv\u00e1laszthat egyszerre hogy megnyissa, t\u00f6r\u00f6lje vagy \u00e1thelyezze \u0151ket fogd \u00e9s vidd m\u0171velettel."
+    },
     "settings_tips_tricks_newtab": {
         "message": "\u00daj f\u00fcl"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Az \u00faj lap megjelen\u00e9s\u00e9t k\u00f6zvetlen\u00fcl be\u00e1ll\u00edthatja, ha az als\u00f3 sarokban l\u00e9v\u0151 {1} gombra kattint. Lehet\u0151s\u00e9ge van be\u00e1ll\u00edtani a r\u00e1csban l\u00e1that\u00f3 elemeket, a keres\u0151motort, a h\u00e1tt\u00e9rk\u00e9pet vagy a tetej\u00e9n l\u00e9v\u0151 linkeket."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Biztons\u00e0g"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Az oldals\u00e1vban l\u00e1that\u00f3 k\u00f6nyvjelz\u0151ket a {browserName} b\u00f6ng\u00e9sz\u0151 szinkroniz\u00e1lja \u00e9s kezeli. Az oldals\u00e1v nem t\u00e1rolja vagy elemzi \u0151ket, \u00e9s csak azokat jelen\u00edti meg, amelyeket a b\u00f6ng\u00e9sz\u0151je tartalmaz."
     },
     "settings_open_action": {
         "message": "Oldals\u00e1v megnyit\u00e1sa"
@@ -948,7 +990,7 @@
         "message": "Be\u00e1ll\u00edt\u00e1sok import\/exportja"
     },
     "settings_import_export_notice": {
-        "message": "Ha be van jelentkezve a Google fi\u00f3kj\u00e1val, a b\u0151v\u00edtm\u00e9ny be\u00e1ll\u00edt\u00e1sai automatikusan szinkroniz\u00e1l\u00f3dnak az eszk\u00f6zei k\u00f6z\u00f6tt,. Ha nem akar bejelentkezni vagy meg akarja osztani a be\u00e1ll\u00edt\u00e1sait m\u00e1sokkal, akkor az import\/export lehet\u0151s\u00e9get tudja haszn\u00e1lni."
+        "message": "Ha be van jelentkezve a {browserName} fi\u00f3kj\u00e1val, a b\u0151v\u00edtm\u00e9ny be\u00e1ll\u00edt\u00e1sai automatikusan szinkroniz\u00e1l\u00f3dnak az eszk\u00f6zei k\u00f6z\u00f6tt,. Ha nem akar bejelentkezni vagy meg akarja osztani a be\u00e1ll\u00edt\u00e1sait m\u00e1sokkal, akkor az import\/export lehet\u0151s\u00e9get tudja haszn\u00e1lni."
     },
     "settings_import_export_desc": {
         "message": "Export\u00e1lhatja a be\u00e1ll\u00edt\u00e1sait a helyi g\u00e9pre. Kor\u00e1bban export\u00e1lt be\u00e1ll\u00edt\u00e1sait import\u00e1lhatja b\u00e1rmely g\u00e9pen, amelyen telep\u00edtve van ez a b\u0151v\u00edtm\u00e9ny."
@@ -1138,6 +1180,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "A b\u0151v\u00edtm\u00e9ny haszn\u00e1lhat-e saj\u00e1t k\u00e9sz\u00edt\u00e9s\u0171 \u00faj lapot vagy bet\u00f6lthet-e helyette saj\u00e1t weboldalr\u00f3l ilyet ?"
+    },
+    "settings_newtab_override_preview": {
+        "message": "El\u0151n\u00e9zet"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Be\u00e1ll\u00edt\u00e1s"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Oldals\u00e1v automatikus megnyit\u00e1sa"

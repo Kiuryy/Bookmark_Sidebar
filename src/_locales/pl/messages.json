@@ -179,6 +179,9 @@
     "overlay_update": {
         "message": "Uaktualnij"
     },
+    "overlay_confirm_open_selected": {
+        "message": "Czy na pewno chcesz otworzy\u0107 wszystkie {1} zak\u0142adki, w tym zak\u0142adki podfolder\u00f3w wybranych folder\u00f3w?"
+    },
     "overlay_open_children": {
         "message": "Otw\u00f3rz wszystkie"
     },
@@ -683,23 +686,50 @@
     "settings_tips_tricks_separators": {
         "message": "Separatory"
     },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Wpis zak\u0142adki z adresem URL {1} i tytu\u0142em {2} lub {3} zostanie wy\u015bwietlony jako separator na pasku bocznym. Mo\u017cesz doda\u0107 separatory, klikaj\u0105c prawym przyciskiem myszy dowolny folder na pasku bocznym, a nast\u0119pnie klikaj\u0105c przycisk {4}."
+    },
     "settings_tips_tricks_quick_url_copy": {
         "message": "Szybkie kopiowanie adresu URL"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Aby skopiowa\u0107 adres URL zak\u0142adki na pasku bocznym do schowka, mo\u017cesz nacisn\u0105\u0107 {1} po najechaniu kursorem na wpis."
     },
     "settings_tips_tricks_open_all_bookmarks": {
         "message": "Otw\u00f3rz wszystkie zak\u0142adki"
     },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Aby otworzy\u0107 wszystkie zak\u0142adki w folderze, mo\u017cesz klikn\u0105\u0107 folder \u015brodkowym przyciskiem. Mo\u017cesz te\u017c nacisn\u0105\u0107 {1} podczas klikania folderu lewym przyciskiem myszy."
+    },
     "settings_tips_tricks_hide_entries": {
         "message": "Ukryj wpisy"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Mo\u017cesz ukry\u0107 pojedyncze zak\u0142adki, a nawet foldery na pasku bocznym. Mo\u017cesz klikn\u0105\u0107 prawym przyciskiem myszy dowolny wpis na pasku bocznym, a nast\u0119pnie klikn\u0105\u0107 przycisk {1} w menu kontekstowym. Aby ponownie wy\u015bwietli\u0107 ukryte wpisy, mo\u017cesz klikn\u0105\u0107 ikon\u0119 menu w nag\u0142\u00f3wku paska bocznego i zaznaczy\u0107 tam pole wyboru zgodnie z."
     },
     "settings_tips_tricks_expand_all_subfolders": {
         "message": "Otw\u00f3rz wszystkie podfoldery"
     },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Aby szybko otworzy\u0107 folder z otwartymi wszystkimi jego pod folderami, mo\u017cesz dwukrotnie klikn\u0105\u0107 folder na pasku bocznym."
+    },
     "settings_tips_tricks_keyboard_shortcuts": {
         "message": "Skr\u00f3ty klawiaturowe"
     },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Pasek boczny mo\u017cna kontrolowa\u0107 za pomoc\u0105 skr\u00f3t\u00f3w klawiaturowych. Mo\u017cesz przejrze\u0107 list\u0119 skr\u00f3t\u00f3w, klikaj\u0105c ikon\u0119 menu w nag\u0142\u00f3wku paska bocznego, a nast\u0119pnie klikaj\u0105c przycisk {1}."
+    },
     "settings_tips_tricks_synchronization": {
         "message": "Synchronizacja"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Wszystkie ustawienia paska bocznego b\u0119d\u0105 synchronizowane mi\u0119dzy urz\u0105dzeniami, je\u015bli w\u0142\u0105czysz opcje synchronizacji przegl\u0105darki w ustawieniach. Nawet bez Premium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Sprawd\u017a ustawienia synchronizacji"
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "To rozszerzenie jest projektem jednoosobowym, kt\u00f3ry rozpocz\u0105\u0142 si\u0119 jako projekt hobby do u\u017cytku osobistego."
     },
     "settings_tips_tricks_version_desc": {
         "message": "Pierwsza wersja tego rozszerzenia zosta\u0142a wydana w listopadzie 2016."
@@ -1222,9 +1252,6 @@
     },
     "settings_support_feedback_screenshot": {
         "message": "Do\u0142\u0105cz zrzut ekranu"
-    },
-    "settings_support_feedback_screenshot_error_filesize": {
-        "message": "Rozmiar pliku jest za du\u017cy (>1 MB)"
     },
     "settings_support_feedback_screenshot_error_amount": {
         "message": "Mo\u017cesz maksymalnie za\u0142\u0105czy\u0107 {1} zrzut\u00f3w"

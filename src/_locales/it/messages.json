@@ -990,7 +990,7 @@
         "message": "Importa\/Esporta impostazioni"
     },
     "settings_import_export_notice": {
-        "message": "I settaggi dell'estensione sono sincronizzati automaticamente tra i tuoi dispositivi, se sei loggato con la tua utenza Google.Se non vuoi loggarti o vuoi condividere le tue impostazioni con altre persone, puoi usare questa opzione di impostazione\/esportazione."
+        "message": "Le impostazioni dell'estensione vengono sincronizzate automaticamente tra i tuoi dispositivi, se hai effettuato l'accesso a {browserName} con il tuo account. Se non desideri accedere o desideri condividere le tue impostazioni con altre persone o dispositivi, puoi utilizzare queste opzioni di importazione\/esportazione."
     },
     "settings_import_export_desc": {
         "message": "Puoi esportare le impostazioni dell'estensione e salvare in locale sul tuo computer. Puoi importare i file esportati in precedenza in qualsiasi computer dove sia installata l'estensione."
@@ -1180,6 +1180,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "Permetti all'estensione di bypassare la pagina \"Nuova scheda\" con una personalizzata o con un sito a scelta che verr\u00e0 visualizzato quando si apre una nuova scheda."
+    },
+    "settings_newtab_override_preview": {
+        "message": "Anteprima"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configura"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Apri automaticamente la barra laterale"

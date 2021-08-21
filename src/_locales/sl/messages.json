@@ -990,7 +990,7 @@
         "message": "Uvozi\/Izvozi Nastavitve"
     },
     "settings_import_export_notice": {
-        "message": "Nastavitve raz\u0161iritve so samodejno sinhronizirane med va\u0161imi napravami, \u010de ste prijavljeni z va\u0161im ra\u010dunom. \u010ce se no\u010dete prijaviti ali \u017eelite va\u0161e nastavitve deliti z ostalimi ljudmi, lahko uporabite to uvozi\/izvozi mo\u017enost"
+        "message": "Nastavitve raz\u0161iritve so samodejno sinhronizirane med va\u0161imi napravami, \u010de ste prijavljeni z va\u0161im {browserName} ra\u010dunom. \u010ce se no\u010dete prijaviti ali \u017eelite va\u0161e nastavitve deliti z ostalimi ljudmi, lahko uporabite to uvozi\/izvozi mo\u017enost"
     },
     "settings_import_export_desc": {
         "message": "Va\u0161e nastavitve raz\u0161iritve lahko izvozite in shranite lokalno na va\u0161 ra\u010dunalnik. Prej izvo\u017eeno datoteko lahko uvozite na katerekoli ra\u010dunalnik, kjer je name\u0161\u010dena raz\u0161iritev."
@@ -1065,7 +1065,7 @@
         "message": "Barva ikone bo nastavljena avtomati\u010dno, ko izberete barvno shemo(svetlo ali temno). Lahko pa v nastavitvah sami dolo\u010dite barvo ikone."
     },
     "settings_icon_color_desc_2": {
-        "message": "Avtomati\u010dna barva ikon ni mo\u017ena kadar privzeto uporabljate temo iz Chroma."
+        "message": "Avtomati\u010dna barva ikon ni mo\u017ena kadar privzeto uporabljate temo iz {browserName}."
     },
     "settings_indicator_width": {
         "message": "\u0160irina"

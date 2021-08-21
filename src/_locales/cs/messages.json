@@ -503,9 +503,6 @@
     "onboarding_handson_mouse_desc_2": {
         "message": "{1} klikni pro otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },
-    "onboarding_handson_icon_desc": {
-        "message": "Pot\u00e9 {1} kliknut\u00edm my\u0161\u00ed otev\u0159ete postrann\u00ed panel."
-    },
     "onboarding_left": {
         "message": "vlevo"
     },
@@ -1273,9 +1270,6 @@
     },
     "settings_support_feedback_send_failed": {
         "message": "Va\u0161e zpr\u00e1va nemohla b\u00fdt odesl\u00e1na. Pros\u00edm zkuste to znovu."
-    },
-    "settings_permissions_desc": {
-        "message": "K umo\u017en\u011bn\u00ed p\u0159ep\u00edn\u00e1n\u00ed postrann\u00edho panelu jsou vy\u017eadov\u00e1na n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed:"
     },
     "settings_permissions_contentscript_desc_1": {
         "message": "{browserName} bohu\u017eel nem\u00e1 mechanizmus ke zobrazen\u00ed obsahu uvnit\u0159 okna prohl\u00ed\u017ee\u010de bez interakce s nyn\u00ed prohl\u00ed\u017eenou str\u00e1nkou."

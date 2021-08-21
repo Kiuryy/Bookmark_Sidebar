@@ -186,7 +186,7 @@
         "message": "Ouvrir tous les favoris"
     },
     "overlay_confirm_open_children": {
-        "message": "Voulez-vous vraiment ouvrir tous les favoris ?"
+        "message": "Voulez-vous vraiment ouvrir tous ({1}) les favoris ?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Masquer dans la barre lat\u00e9rale"

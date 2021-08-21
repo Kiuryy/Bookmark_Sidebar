@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Oznaka"
     },
+    "header_selected_entries": {
+        "message": "odabran"
+    },
     "sidebar_dir_children": {
         "message": "Elementi"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Tipkovni\u010dki pre\u010daci"
     },
+    "contextmenu_select_entries": {
+        "message": "Odaberite vi\u0161e unosa"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Odaberite oznaku"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Poni\u0161tite odabir oznake"
+    },
+    "contextmenu_select_dir": {
+        "message": "Odaberite mapu"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Poni\u0161tite odabir mape"
+    },
     "sort_label_custom": {
         "message": "Korisni\u010dki definirano"
     },
@@ -161,11 +179,14 @@
     "overlay_update": {
         "message": "A\u017euriraj"
     },
+    "overlay_confirm_open_selected": {
+        "message": "\u017delite li doista otvoriti sve {1} oznake, uklju\u010duju\u0107i oznake podmape odabranih mapa?"
+    },
     "overlay_open_children": {
         "message": "Otvori sve"
     },
     "overlay_confirm_open_children": {
-        "message": "\u017deli\u0161 li otvoriti sve podre\u0111ene oznake?"
+        "message": "\u017delite li doista otvoriti sve {1} oznake podmape?"
     },
     "overlay_hide_from_sidebar": {
         "message": "Sakrij s bo\u010dne trake oznaka"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Mape spremanja"
+    },
+    "overlay_delete_selected": {
+        "message": "Izbri\u0161i odabrane unose"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "\u017delite li zaista izbrisati odabrane unose? Sve oznake podmape odabranih mapa tako\u0111er \u0107e se izbrisati."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Promjenjeno"
@@ -331,9 +358,6 @@
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na stranicama pro\u0161irenja"
-    },
-    "newtab_fallback_headline_new_tab": {
-        "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na prvotno zadanoj novoj kartici {browserName}a"
     },
     "newtab_fallback_headline_system": {
         "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na sustavnim stranicama {browserName}a"
@@ -719,11 +743,26 @@
     "settings_tips_tricks_share_data": {
         "message": "Podijeli informacije"
     },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Svoju konfiguraciju mo\u017eete podijeliti anonimno, \u0161to mi poma\u017ee da prepoznam popularne postavke i utvrdim \u0161to pobolj\u0161ati ili promijeniti u budu\u0107im izdanjima. Pro\u0161irenje ne prikuplja nikakve osobne podatke ili \u010ditanje oznaka. Bez izri\u010ditog dopu\u0161tenja, pro\u0161irenje tako\u0111er ne dijeli nikakve konfiguracije."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Odaberite vi\u0161e unosa"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Na bo\u010dnoj traci oznaka mo\u017eete odabrati vi\u0161e oznaka ili mapa da biste ih odjednom otvorili, izbrisali ili \u010dak premjestili povla\u010denjem i ispu\u0161tanjem."
+    },
     "settings_tips_tricks_newtab": {
         "message": "Nova kartica"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Izgled stranice nove kartice mo\u017eete konfigurirati izravno na stranici klikom na {1} gumb u donjem kutu. Tada mo\u017eete promijeniti stavke mre\u017ee, tra\u017eilicu, pozadinsku sliku ili veze na vrhu."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Privatnost"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Oznake prikazane na va\u0161oj bo\u010dnoj traci oznaka sinkronizira i njima upravlja {browserName}. Pro\u0161irenje ne pohranjuje ili analizira ove oznake, a na bo\u010dnoj traci oznaka prikazuje samo one va\u0161eg preglednika."
     },
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku"
@@ -1139,6 +1178,12 @@
     "settings_newtab_override_desc": {
         "message": "Treba li pro\u0161irenje nadja\u010dati va\u0161u trenutnu stranicu nove kartice prema vlastitoj izradi ili web stranicu koja bi trebala biti u\u010ditana prilikom otvaranja nove kartice?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Pregled"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurirati"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Otvori bo\u010dnu traku oznaka automatski"
     },
@@ -1330,6 +1375,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Mo\u017eete zamijeniti cijeli dizajn bo\u010dne trake oznaka jednim klikom instaliranjem druge teme. Mogu se prilagoditi i dostupnim kliza\u010dima i opcijama boja."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "U nastavku odaberite na\u010din pla\u0107anja i u sljede\u0107em koraku odaberite \u017eeljeni iznos koji \u017eelite platiti."
     },
     "premium_pay_select_payment_method": {
         "message": "Odaberi na\u010din pla\u0107anja"

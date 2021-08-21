@@ -765,7 +765,7 @@
         "message": "Privacy"
     },
     "settings_tips_tricks_privacy_desc": {
-        "message": "The bookmarks displayed in your sidebar are synchronized and managed by {browserName}. The extension does not store or analyse these bookmarks, and only display the ones of your browser in the sidebar."
+        "message": "The bookmarks displayed in your sidebar are synchronized and managed by {browserName}. The extension does not store or analyse these bookmarks, and only displays the ones of your browser in the sidebar."
     },
     "settings_open_action": {
         "message": "Open sidebar"

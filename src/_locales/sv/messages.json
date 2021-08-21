@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Bokm\u00e4rke"
     },
+    "header_selected_entries": {
+        "message": "valda"
+    },
     "sidebar_dir_children": {
         "message": "Element"
     },
@@ -176,6 +179,9 @@
     "overlay_update": {
         "message": "Uppdatera"
     },
+    "overlay_confirm_open_selected": {
+        "message": "Vill du verkligen \u00f6ppna alla {1} bokm\u00e4rken, inklusive undermappens bokm\u00e4rken f\u00f6r de valda mapparna?"
+    },
     "overlay_open_children": {
         "message": "\u00d6ppna alla"
     },
@@ -241,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Mappar"
+    },
+    "overlay_delete_selected": {
+        "message": "Radera valda poster"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Vill du verkligen radera de valda posterna? Alla bokm\u00e4rken i de undermapparna f\u00f6r de valda mapparna raderas ocks\u00e5."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "\u00c4ndrad"
@@ -734,20 +746,32 @@
     "settings_tips_tricks_share_data": {
         "message": "Dela information"
     },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Du kan dela din konfiguration anonymt vilket hj\u00e4lper mig att identifiera popul\u00e4ra inst\u00e4llningar och att identifiera vad jag ska f\u00f6rb\u00e4ttra eller \u00e4ndra i framtida utg\u00e5vor. Till\u00e4gget samlar inte in n\u00e5gra personuppgifter eller l\u00e4ser bokm\u00e4rken. Utan uttryckligt tillst\u00e5nd delar inte heller till\u00e4gget n\u00e5gon konfiguration."
+    },
     "settings_tips_tricks_multiselect": {
         "message": "V\u00e4lj flera poster"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Du kan v\u00e4lja flera bokm\u00e4rken eller mappar i sidof\u00e4ltet f\u00f6r att \u00f6ppna, ta bort eller till och med flytta dem med dra och sl\u00e4pp p\u00e5 en g\u00e5ng."
     },
     "settings_tips_tricks_newtab": {
         "message": "Ny flik"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Du kan konfigurera utseendet p\u00e5 sidan Ny flik direkt p\u00e5 sidan genom att klicka p\u00e5 knappen {1} i det nedre h\u00f6rnet. Sedan kan du \u00e4ndra rutn\u00e4t, s\u00f6kmotor, bakgrundsbild eller l\u00e4nkarna p\u00e5 toppen."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Sekretess"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Bokm\u00e4rkena som visas i sidof\u00e4ltet synkroniseras och hanteras av {browserName}. Till\u00e4gget lagrar eller analyserar inte dessa bokm\u00e4rken och visar bara de i din webbl\u00e4sare i sidof\u00e4ltet."
     },
     "settings_open_action": {
         "message": "\u00d6ppna sidof\u00e4ltet"
     },
     "settings_open_action_desc": {
-        "message": "\u00d6ppna sidof\u00e4ltet genom att v\u00e4nsterklicka eller h\u00f6gerklicka eller mouseover p\u00e5 sidan av webbl\u00e4sarf\u00f6nstret. Alternativt kan du \u00e4ndra det f\u00f6r att endast \u00f6ppna om ikonen i {browserName}menyn \u00e4r klickad."
+        "message": "\u00d6ppna sidof\u00e4ltet genom att v\u00e4nsterklicka eller h\u00f6gerklicka eller mouseover p\u00e5 sidan av webbl\u00e4sarf\u00f6nstret. Alternativt kan du \u00e4ndra det f\u00f6r att endast \u00f6ppna om ikonen i {browserName} menyn \u00e4r klickad."
     },
     "settings_open_action_leftclick": {
         "message": "V\u00e4nsterklick"
@@ -1157,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "Ska utvidgningen ers\u00e4tta din nuvarande \"ny flik\"-sida med antingen en skr\u00e4ddarsydd \"ny flik\"-sida eller en webbsida som ska laddas n\u00e4r du \u00f6ppnar en ny flik?"
     },
+    "settings_newtab_override_preview": {
+        "message": "F\u00f6rhandsvisning"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurera"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "\u00d6ppna sidof\u00e4ltet automatiskt"
     },
@@ -1266,7 +1296,7 @@
         "message": "Ditt meddelande kunde inte skickas. V\u00e4nligen f\u00f6rs\u00f6k igen."
     },
     "settings_permissions_desc": {
-        "message": "F\u00f6r att m\u00f6jligg\u00f6ra ett v\u00e4xelbart sidof\u00e4lt i {webbl\u00e4sarnamn} kr\u00e4vs f\u00f6ljande tillst\u00e5nd av till\u00e4gget:"
+        "message": "F\u00f6r att m\u00f6jligg\u00f6ra ett v\u00e4xelbart sidof\u00e4lt i {browserName} kr\u00e4vs f\u00f6ljande tillst\u00e5nd av till\u00e4gget:"
     },
     "settings_permissions_contentscript_desc_1": {
         "message": "Tyv\u00e4rr har {browserName} ingen mekanism f\u00f6r att visa inneh\u00e5ll i webbl\u00e4sarf\u00f6nstret utan att interagera med den bes\u00f6kande sidan."
@@ -1348,6 +1378,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Du kan byta hela designen p\u00e5 sidof\u00e4ltet med ett klick genom att installera ett annat tema. De kan ocks\u00e5 anpassas med tillg\u00e4ngliga reglage och f\u00e4rgalternativ."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "V\u00e4lj en betalningsmetod nedan och v\u00e4lj \u00f6nskat belopp du vill betala i n\u00e4sta steg."
     },
     "premium_pay_select_payment_method": {
         "message": "V\u00e4lj en betalningsmetod"

@@ -447,7 +447,7 @@
         "message": "Aktiviteyi payla\u015f"
     },
     "contribute_share_activity_desc1": {
-        "message": "Kullan\u0131c\u0131lar\u0131n, bu ke nar \u00e7ubu\u011funu nas\u0131l kulland\u0131\u011f\u0131n\u0131 anlamam\u0131z i\u00e7in aktivititelerini payla\u015fabilirsin.Yer imlerin yada ziyaret etti\u011fin web sayfalar\u0131 izlenmeyecek."
+        "message": "Etkinli\u011finizi kenar \u00e7ubu\u011funda anonim olarak payla\u015fabilirsiniz, bu da kenar \u00e7ubu\u011funun nas\u0131l kullan\u0131ld\u0131\u011f\u0131n\u0131 daha iyi anlamama yard\u0131mc\u0131 olur. Yer imleriniz veya ziyaret etti\u011finiz web siteleri hakk\u0131ndaki bilgiler [b]\u00f6l\u00e7\u00fclmeyecektir[\/b]."
     },
     "contribute_share_activity_desc2": {
         "message": "Verdi\u011finiz bilgi problemi tan\u0131mlama\u0131zda yard\u0131mc\u0131 olacak, Bu bilgi, kullan\u0131labilirlik ve \u00e7ok az kullan\u0131lan \u00f6zelliklerin problemlerini anlamam\u0131za yard\u0131mc\u0131 olacak."
@@ -501,7 +501,7 @@
         "message": "Art\u0131k kendiniz deneyebilirsiniz"
     },
     "onboarding_handson_mouse_desc_1": {
-        "message": "Kenar \u00e7ubu\u011funu a\u00e7mak i\u00e7in \u00fczerine getir"
+        "message": "\u0130mlecinizi pencerenizin {1} kenar\u0131na getirin."
     },
     "onboarding_handson_mouse_desc_2": {
         "message": "Kenar \u00e7ubu\u011funu a\u00e7mak i\u00e7in {1} t\u0131kla"
@@ -519,7 +519,7 @@
         "message": "Kenar \u00e7ubu\u011fuyla iyi e\u011flenceler"
     },
     "onboarding_finish_notice": {
-        "message": "E\u011fer taray\u0131c\u0131 pencerisinin bu taraf\u0131na s\u0131kl\u0131kla t\u0131kl\u0131yorsan\u0131z, kenar \u00e7ubu\u011funun otomatik olarak a\u00e7\u0131lmas\u0131ndan ka\u00e7\u0131nmak i\u00e7in bu ayar\u0131 de\u011fi\u015ftirmek isteyebilirsiniz."
+        "message": "Taray\u0131c\u0131 penceresinin {1} taraf\u0131ndaki \u015feyleri s\u0131k s\u0131k t\u0131klaman\u0131z gerekiyorsa, yanl\u0131\u015fl\u0131kla a\u00e7\u0131lmas\u0131n\u0131 \u00f6nlemek i\u00e7in kenar \u00e7ubu\u011funun a\u00e7\u0131ld\u0131\u011f\u0131nda dikey olarak konumland\u0131r\u0131ld\u0131\u011f\u0131 yeri de\u011fi\u015ftirmek isteyebilirsiniz."
     },
     "onboarding_goto_settings": {
         "message": "Daha Fazla Ayarlama Yap"

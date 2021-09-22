@@ -523,13 +523,11 @@
 
             ext.elm.iframeBody.on("wheel", (e) => { // scroll the bookmark list
                 if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) {
-                    e.preventDefault();
                     e.stopPropagation();
-
                     const scrollPos = ext.elm.bookmarkBox.all[0].scrollTop;
                     ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, scrollPos - e.wheelDelta, 300);
                 }
-            });
+            }, {passive: true});
 
             ext.elm.iframeBody.on("mousemove dragover", (e) => { // drag move
                 if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged) && e.which === 1) {

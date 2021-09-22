@@ -74,6 +74,16 @@ html[dir='rtl'] {
               margin-right: 0;
             }
 
+            a.urlCheckAction {
+              left: 10px;
+              right: unset;
+            }
+
+            a.urlCheckHide {
+              left: 50px;
+              right: unset;
+            }
+
             > ul.breadcrumb {
 
               > li:not(:last-child) {
@@ -89,7 +99,7 @@ html[dir='rtl'] {
             }
 
             > ul[data-type='urls'] {
-              margin-left: 30px;
+              margin-left: 90px;
               margin-right: 65px;
             }
 
@@ -120,11 +130,11 @@ html[dir='rtl'] {
                   }
                 }
               }
-            }
 
-            a.urlCheckAction {
-              left: 10px;
-              right: unset;
+              ~ a.urlCheckHide {
+                left: 10px;
+                right: unset;
+              }
             }
           }
         }

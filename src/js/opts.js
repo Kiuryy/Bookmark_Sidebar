@@ -128,6 +128,7 @@
                 urlCheckLoading: "urlCheckLoading",
                 urlCheckCategories: "categories",
                 urlCheckAction: "urlCheckAction",
+                urlCheckHide: "urlCheckHide",
                 urlCheckResults: "urlCheckResults"
             },
             newtab: {

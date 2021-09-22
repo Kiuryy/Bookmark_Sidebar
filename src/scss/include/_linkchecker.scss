@@ -206,20 +206,18 @@ div.modal[data-type='checkBookmarks'] {
         > strong, > a.info {
           display: inline-block;
           font-weight: $__fontWeightBold;
-          width: calc(100% - 94px);
+          width: calc(100% - 155px);
           vertical-align: top;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
 
-        a.urlCheckAction {
-          @include mask('icon-delete', $__textColor, 18px);
+        a.urlCheckAction, a.urlCheckHide {
           position: absolute;
           top: 0;
           bottom: 0;
           margin: auto;
-          right: 10px;
           display: block;
           width: 32px;
           height: 32px;
@@ -231,6 +229,16 @@ div.modal[data-type='checkBookmarks'] {
           &:hover {
             background-color: $contentBackground2;
           }
+        }
+
+        a.urlCheckAction {
+          @include mask('icon-delete', $__textColor, 18px);
+          right: 10px;
+        }
+
+        a.urlCheckHide {
+          @include mask('icon-hide', $__textColor, 18px);
+          right: 50px;
         }
 
         > ul.breadcrumb {
@@ -263,7 +271,7 @@ div.modal[data-type='checkBookmarks'] {
         }
 
         > ul[data-type='urls'] {
-          margin: 0 30px 0 65px;
+          margin: 0 90px 0 65px;
 
           > li {
             position: relative;
@@ -345,6 +353,13 @@ div.modal[data-type='checkBookmarks'] {
                 }
               }
             }
+          }
+
+          ~ a.urlCheckHide {
+            @include mask('icon-hide', $__textColor, 18px);
+            right: 10px;
+            top: 12px;
+            bottom: unset;
           }
         }
       }

@@ -243,6 +243,8 @@
                 $("<a></a>").addClass($.cl.overlay.urlCheckAction).appendTo(elm);
             });
 
+            $("<a></a>").addClass($.cl.overlay.urlCheckHide).appendTo(resultEntry);
+
             ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
                 if (response.img) { // favicon found -> add to entry
                     $("<img src='" + response.img + "' />").insertBefore(title);
@@ -273,6 +275,7 @@
                 }
             });
 
+            $("<a></a>").addClass($.cl.overlay.urlCheckHide).appendTo(resultEntry);
             $("<a></a>").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
 
             ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
@@ -326,14 +329,30 @@
                 elm.find("a." + $.cl.overlay.urlCheckAction).on("click", (e) => { // click on specific action button next to an entry in the list -> update only this entry
                     e.preventDefault();
                     const entry = $(e.currentTarget).parent("li");
-                    const data = $(e.currentTarget).parent("li").data("entry");
-
+                    const data = entry.data("entry");
                     entry.css("height", entry[0].offsetHeight + "px");
 
                     $.delay().then(() => {
                         entry.addClass($.cl.hidden);
-                        updateEntry(data);
+                        return Promise.all([
+                            updateEntry(data),
+                            $.delay(500)
+                        ]);
+                    }).then(() => {
+                        entry.remove();
+                        updateResultPage();
+                    });
+                });
 
+                elm.find("a." + $.cl.overlay.urlCheckHide).on("click", (e) => { // hide result from the list to never show again
+                    e.preventDefault();
+                    const entry = $(e.currentTarget).parent("li");
+                    const data = entry.data("entry");
+                    entry.css("height", entry[0].offsetHeight + "px");
+
+                    $.delay().then(() => {
+                        entry.addClass($.cl.hidden);
+                        ignoreEntry(data);
                         return $.delay(500);
                     }).then(() => {
                         entry.remove();
@@ -373,6 +392,32 @@
             for (const entry of entries) {
                 await updateEntry(entry);
             }
+        };
+
+        /**
+         * Adds the given entry to the ignore list to not show it in any linkchecker results again
+         *
+         * @param {object} entry
+         */
+        const ignoreEntry = (entry) => {
+            const ignoreList = ext.helper.model.getData("u/linkcheckerIgnored");
+            let key = entry.id;
+            const data = {type: "unknown"};
+
+            if (entry.broken) {
+                key = entry.url;
+                data.type = "broken";
+            } else if (entry.duplicates) {
+                key = entry.label;
+                data.type = "duplicate";
+            } else if (entry.url !== entry.newUrl) {
+                key = entry.url;
+                data.type = "outdated";
+                data.newUrl = entry.newUrl;
+            }
+
+            ignoreList[key] = data;
+            ext.helper.model.setData({"u/linkcheckerIgnored": ignoreList});
         };
 
         /**
@@ -499,6 +544,7 @@
                 let finished = 0;
                 const duplicateLabels = [];
                 const totalBookmarks = allBookmarks.length;
+                const ignoreList = ext.helper.model.getData("u/linkcheckerIgnored");
 
                 const checkChunk = (bookmarks) => {
                     return new Promise((rslv) => {
@@ -506,7 +552,7 @@
                         for (const bookmark of bookmarks) {
                             let done = false;
                             const callback = () => {
-                                if (done){
+                                if (done) {
                                     return;
                                 }
 
@@ -529,33 +575,37 @@
 
                                 if (response.duplicateInfo.duplicates.length > 0) {
                                     if (duplicateLabels.indexOf(response.duplicateInfo.label) === -1) { // prevent multiple entries of the same url
-                                        results.duplicate.push({
-                                            label: response.duplicateInfo.label,
-                                            url: bookmark.url,
-                                            duplicates: response.duplicateInfo.duplicates
-                                        });
-                                        duplicateLabels.push(response.duplicateInfo.label);
-                                        results.count++;
+                                        if (!ignoreList[response.duplicateInfo.label]) {
+                                            results.duplicate.push({
+                                                label: response.duplicateInfo.label,
+                                                url: bookmark.url,
+                                                duplicates: response.duplicateInfo.duplicates
+                                            });
+                                            duplicateLabels.push(response.duplicateInfo.label);
+                                            results.count++;
+                                        }
                                     }
                                 }
 
-                                if (response.httpInfo.success === false) { // broken url
-                                    results.broken.push({
-                                        id: bookmark.id,
-                                        title: bookmark.title,
-                                        url: bookmark.url,
-                                        broken: true
-                                    });
-                                    results.count++;
-                                } else if (response.httpInfo.url !== bookmark.url) { // URL is different -> it changed and needs to be updated
-                                    results.changed.push({
-                                        id: bookmark.id,
-                                        title: bookmark.title,
-                                        url: bookmark.url,
-                                        newUrl: response.httpInfo.url,
-                                        additionalInfo: bookmark.additionalInfo
-                                    });
-                                    results.count++;
+                                if (!ignoreList[bookmark.url]) {
+                                    if (response.httpInfo.success === false) { // broken url
+                                        results.broken.push({
+                                            id: bookmark.id,
+                                            title: bookmark.title,
+                                            url: bookmark.url,
+                                            broken: true
+                                        });
+                                        results.count++;
+                                    } else if (response.httpInfo.url !== bookmark.url) { // URL is different -> it changed and needs to be updated
+                                        results.changed.push({
+                                            id: bookmark.id,
+                                            title: bookmark.title,
+                                            url: bookmark.url,
+                                            newUrl: response.httpInfo.url,
+                                            additionalInfo: bookmark.additionalInfo
+                                        });
+                                        results.count++;
+                                    }
                                 }
                             })["finally"](callback);
                         }

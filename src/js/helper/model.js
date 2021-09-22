@@ -68,6 +68,7 @@
                 translationThanked: false,
                 performReopening: false,
                 entryAmounts: {},
+                linkcheckerIgnored: {},
                 lastOpened: null,
                 sort: {
                     name: "custom",

@@ -273,7 +273,6 @@
                 updatePreviewSidebarHeader(s.elm.preview[key]);
                 updatePreviewIndicator(s.elm.preview[key]);
             } else if (key === "icon") {
-                console.log("UPDATE ICON");
                 s.helper.model.call("updateIcon", {
                     name: config.appearance.styles.iconShape,
                     color: s.elm.select.iconColorType[0].value === "auto" ? "auto" : config.appearance.styles.iconColor,

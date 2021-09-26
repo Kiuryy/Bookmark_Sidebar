@@ -9,6 +9,16 @@ html[dir='rtl'] {
       }
     }
 
+    &[data-name='surface'] {
+
+      p.wrap {
+
+        a[data-value="auto"]::before {
+          transform: skewX(20deg);
+        }
+      }
+    }
+
     &[data-name='finished'] {
 
       p.info {

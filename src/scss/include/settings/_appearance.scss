@@ -89,7 +89,7 @@ body[data-type^='appearance'] {
             width: 50px;
 
             &::before {
-              -webkit-mask-position-x: center;
+              -webkit-mask-position-x: center !important;
             }
 
             &::after {

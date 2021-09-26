@@ -41,6 +41,7 @@
             building: "building",
             initLoading: "initLoading",
             page: {
+                dark: "dark",
                 visible: "redeviation-bs-visible",
                 hideMask: "redeviation-bs-hideMask",
                 hover: "redeviation-bs-hover",
@@ -49,7 +50,6 @@
                 style: "redeviation-bs-style",
                 fullHeight: "redeviation-bs-fullHeight",
                 noAnimations: "noAnimations",
-                darkMode: "dark",
                 highContrast: "highContrast"
             },
             sidebar: {
@@ -266,6 +266,7 @@
             openSidebar: "redeviation-bs-sidebar-open",
             sidebarOpened: "redeviation-bs-sidebar-opened",
             overlayClosed: "redeviation-bs-overlay-closed",
+            systemColorChanged: "redeviation-bs-system-color-changed",
             checkboxChanged: "redeviation-bs-checkbox-changed",
             scrollBoxLastPart: "redeviation-bs-scrollbox-lastpart",
             premiumPurchased: "redeviation-bs-premiumPurchased",

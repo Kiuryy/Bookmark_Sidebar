@@ -138,7 +138,6 @@
                 return Func.concat( // concat settings javascripts
                     [
                         path.src + "js/lib/colorpicker.js",
-                        path.src + "js/opts.js",
                         path.src + "js/settings/*.js",
                         path.src + "js/settings.js"
                     ],

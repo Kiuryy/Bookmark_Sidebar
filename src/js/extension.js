@@ -405,7 +405,7 @@
          * @returns {Promise}
          */
         const initSidebarMarkup = async () => {
-            const config = this.helper.model.getData(["a/theme", "a/darkMode", "a/highContrast"]);
+            const config = this.helper.model.getData(["a/theme", "a/surface", "a/highContrast"]);
             this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
                 .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
@@ -437,8 +437,8 @@
 
             this.elm.header = $("<header></header>").prependTo(this.elm.sidebar);
 
-            if (config.darkMode === true) {
-                this.elm.iframeBody.addClass($.cl.page.darkMode);
+            if (config.surface === "dark" || (config.surface === "auto" && this.helper.stylesheet.getSystemSurface() === "dark")) {
+                this.elm.iframeBody.addClass($.cl.page.dark);
             } else if (config.highContrast === true) {
                 this.elm.iframeBody.addClass($.cl.page.highContrast);
             }

@@ -28,7 +28,7 @@
          */
         this.overlay = (type, title) => {
             const ret = {};
-            const config = ext.helper.model.getData(["a/theme", "b/animations", "a/darkMode", "a/highContrast"]);
+            const config = ext.helper.model.getData(["a/theme", "b/animations", "a/surface", "a/highContrast"]);
 
             ret.overlay = $("<iframe></iframe>")
                 .attr("id", $.opts.ids.page.overlay)
@@ -56,8 +56,8 @@
                 ret.overlay.addClass($.cl.page.noAnimations);
             }
 
-            if (config.darkMode) {
-                iframeBody.addClass($.cl.page.darkMode);
+            if (config.surface === "dark" || (config.surface === "auto" && ext.helper.stylesheet.getSystemSurface() === "dark")) {
+                iframeBody.addClass($.cl.page.dark);
             } else if (config.highContrast) {
                 iframeBody.addClass($.cl.page.highContrast);
             }

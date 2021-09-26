@@ -11,6 +11,7 @@
         let lockPinnedEntriesTimeout = null;
         let isRestoring = false;
         let sidebarPos = null;
+        let surface = null;
 
         const sidebarWidthRange = {min: 150, max: 1800};
 
@@ -21,6 +22,7 @@
          */
         this.init = async () => {
             sidebarPos = ext.helper.model.getData("b/sidebarPosition");
+            surface = ext.helper.model.getData("a/surface");
 
             initBookmarkEntriesEvents();
             initFilterEvents();
@@ -261,8 +263,15 @@
          * @returns {Promise}
          */
         const initGeneralEvents = async () => {
-            window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+            $(document).on($.opts.events.systemColorChanged, () => {
                 ext.helper.model.call("reloadIcon");
+                if (surface === "auto") {
+                    if (ext.helper.stylesheet.getSystemSurface() === "dark") {
+                        ext.elm.iframeBody.addClass($.cl.page.dark);
+                    } else {
+                        ext.elm.iframeBody.removeClass($.cl.page.dark);
+                    }
+                }
             });
 
             ext.elm.iframe.find("body").on("click", () => {
@@ -276,7 +285,7 @@
                     ext.helper.model.call("activatePremium", {licenseKey: e.detail.licenseKey});
                 }
             }).on($.opts.events.showFeedbackForm, () => { // user accessed the feedback page from the webstore -> open the feedback form of the extension
-                $("div[data-name='redeviation-extension']").removeAttr("data-name");
+                $("div[data-name='redeviation-extension']").removeAttr($.attr.name);
 
                 ext.helper.model.call("openLink", {
                     href: $.api.extension.getURL("html/settings.html#support"),

@@ -40,9 +40,9 @@
                 this.helper.font.init();
                 this.helper.stylesheet.init();
 
-                const config = this.helper.model.getData(["a/darkMode", "a/highContrast", "b/sidebarPosition"]);
-                if (config.darkMode === true) {
-                    this.elm.body.addClass($.cl.page.darkMode);
+                const config = this.helper.model.getData(["a/surface", "a/highContrast", "b/sidebarPosition"]);
+                if (config.surface === "dark" || (config.surface === "auto" && this.helper.stylesheet.getSystemSurface() === "dark")) {
+                    this.elm.body.addClass($.cl.page.dark);
                 } else if (config.highContrast === true) {
                     this.elm.body.addClass($.cl.page.highContrast);
                 }
@@ -154,6 +154,16 @@
                     location.reload(true);
                 }
             });
+
+            if (this.helper.model.getData("a/surface") === "auto") { // react on system color change
+                $(document).on($.opts.events.systemColorChanged, () => {
+                    if (this.helper.stylesheet.getSystemSurface() === "dark") {
+                        this.elm.body.addClass($.cl.page.dark);
+                    } else {
+                        this.elm.body.removeClass($.cl.page.dark);
+                    }
+                });
+            }
 
             $(document).on("keydown", (e) => {
                 if (e.key === "Tab" && this.elm.sidebar.sidebar.hasClass($.cl.sidebar.permanent)) { // "Tab" key will focus the sidebar, if it's permanently opened

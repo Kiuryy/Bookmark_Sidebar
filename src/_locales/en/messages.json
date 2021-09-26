@@ -1076,8 +1076,14 @@
     "settings_color_scheme": {
         "message": "Colour scheme"
     },
-    "settings_dark_mode": {
+    "settings_surface": {
         "message": "Surface"
+    },
+    "settings_surface_auto": {
+        "message": "Automatically"
+    },
+    "settings_surface_info": {
+        "message": "Adapt the surface of the sidebar automatically to match your system (light or dark) or choose it explicitly to allow further color customization."
     },
     "settings_color_scheme_desc": {
         "message": "The colour of the sidebar header, checkboxes, etc."

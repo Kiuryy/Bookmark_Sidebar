@@ -8,7 +8,7 @@
     $.StylesheetHelper = function (ext) {
 
         const themeableFiles = ["overlay", "sidebar", "content"];
-        let styles = {};
+        const addedStylesheets = [];
         let customCss = "";
         let theme = "";
         let defaultVal = false;
@@ -23,9 +23,30 @@
                 defaultVal = true;
             }
 
-            styles = ext.helper.model.getData("a/styles", defaultVal);
             theme = ext.helper.model.getData("a/theme");
             customCss = ext.helper.model.getData("u/customCss");
+            const surface = ext.helper.model.getData("a/surface");
+
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", async () => {
+                if (ext.helper.utility) {
+                    ext.helper.utility.triggerEvent("systemColorChanged", this.getSystemSurface());
+                }
+
+                if (surface === "auto") {
+                    for (const k of addedStylesheets) {
+                        await addParsedStylesheets(k.files, k.head, true);
+                    }
+                }
+            });
+        };
+
+        /**
+         * Returns the color scheme of the system (dark or light)
+         *
+         * @returns {string}
+         */
+        this.getSystemSurface = () => {
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         };
 
         /**
@@ -52,26 +73,35 @@
          * @param {Array} files
          * @param {jsu} context
          */
-        this.addStylesheets = (files, context = null) => {
-            return new Promise((resolve) => {
-                if (context === null) { // page context
-                    context = $(document);
-                } else { // extension context
-                    ext.helper.font.addStylesheet(context, defaultVal ? "default" : "config");
+        this.addStylesheets = async (files, context = null) => {
+            if (context === null) { // page context
+                context = $(document);
+            } else { // extension context
+                ext.helper.font.addStylesheet(context, defaultVal ? "default" : "config");
 
-                    if ($.cl && $.cl.page) {
-                        if (ext.helper.model.getData("b/animations") === false && $.cl.page.noAnimations) {
-                            context.find("body").addClass($.cl.page.noAnimations);
-                        }
+                if ($.cl && $.cl.page) {
+                    if (ext.helper.model.getData("b/animations") === false && $.cl.page.noAnimations) {
+                        context.find("body").addClass($.cl.page.noAnimations);
                     }
                 }
+            }
 
-                let head = null;
-                if (context.find("head").length() === 0) { // document does not have a head -> append styles to the body
-                    head = context.find("body");
-                } else {
-                    head = context.find("head");
+            let head = null;
+            if (context.find("head").length() === 0) { // document does not have a head -> append styles to the body
+                head = context.find("body");
+            } else {
+                head = context.find("head");
+            }
+
+            await addParsedStylesheets(files, head);
+        };
+
+        const addParsedStylesheets = (files, head, fromReload = false) => {
+            return new Promise((resolve) => {
+                if (fromReload === false) {
+                    addedStylesheets.push({files: files, head: head});
                 }
+                const styles = ext.helper.model.getData("a/styles", defaultVal);
 
                 let loaded = 0;
                 this.getStylesheetFilesWithThemes(files).forEach((file) => {

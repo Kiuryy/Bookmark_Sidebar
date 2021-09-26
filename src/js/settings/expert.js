@@ -264,7 +264,7 @@
 
                 const isArray = Array.isArray(_val);
 
-                if (typeof _val === "object" && isArray === false) { // configuration is nested -> recursive call of the function with the child configuration
+                if (typeof _val === "object" && _val !== null && isArray === false) { // configuration is nested -> recursive call of the function with the child configuration
                     const childList = $("<ul></ul>").appendTo(entry);
                     fillList(childList, value, configValues[key] || null);
                 } else {

@@ -767,8 +767,20 @@
          * Initializes the events for the currently displayed overlay
          */
         const initEvents = () => {
+            const overlayBody = elements.overlay.find("body");
+
+            if (ext.helper.model.getData("a/surface") === "auto") {
+                $(document).on($.opts.events.systemColorChanged, () => {
+                    if (ext.helper.stylesheet.getSystemSurface() === "dark") {
+                        overlayBody.addClass($.cl.page.dark);
+                    } else {
+                        overlayBody.removeClass($.cl.page.dark);
+                    }
+                });
+            }
+
             let clickstart = null;
-            elements.overlay.find("body").on("mousedown", (e) => {
+            overlayBody.on("mousedown", (e) => {
                 clickstart = e.target;
             }).on("click", (e) => { // close overlay when click outside the modal
                 if (e.target.tagName === "BODY" && clickstart.tagName === "BODY") {

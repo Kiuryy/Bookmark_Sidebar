@@ -39,14 +39,15 @@ body[data-type^='appearance'] {
           transform: rotateY(180deg);
         }
 
-        &.darkMode {
+        &.surface {
 
-          div.checkbox {
+          > div.checkbox {
             @include mask('settings/icon-light', $textColorInverted, 20px);
             border-radius: 15px;
             height: 30px;
             width: 60px;
             background: linear-gradient(to right, #fec171 0%, #ff6c69 100%);
+            transition: width 0.3s;
 
             &::before {
               -webkit-mask-position-x: 32px;
@@ -81,6 +82,23 @@ body[data-type^='appearance'] {
                 opacity: 0.9;
               }
             }
+          }
+
+          &[data-type='auto'] > div.checkbox {
+            pointer-events: none;
+            width: 50px;
+
+            &::before {
+              -webkit-mask-position-x: center;
+            }
+
+            &::after {
+              display: none;
+            }
+          }
+
+          > div.sub {
+            padding-top: 10px;
           }
         }
       }

@@ -13,9 +13,17 @@
                     light: "#646464",
                     dark: "#c8c8c8"
                 },
+                bookmarksDirColor: {
+                    light: "#646464",
+                    dark: "#c8c8c8"
+                },
                 sidebarMaskColor: {
                     light: "rgba(255, 255, 255, 0.8)",
                     dark: "rgba(0, 0, 0, 0.6)"
+                },
+                overlayMaskColor: {
+                    light: "rgba(0, 0, 0, 0.5)",
+                    dark: "rgba(0, 0, 0, 0.5)"
                 },
                 hoverColor: {
                     light: "#f5f5f5",
@@ -47,12 +55,25 @@
                     light: "#444444",
                     dark: "#dfdfdf"
                 },
+                bookmarksDirColor: {
+                    light: "#444444",
+                    dark: "#dfdfdf"
+                },
                 hoverColor: {
                     light: "rgba(0, 0, 0, 0.05)",
                     dark: "rgba(255, 255, 255, 0.1)"
                 }
             }
         };
+
+        const surfaceColorDependentStyles = [
+            "colorScheme",
+            "textColor",
+            "hoverColor",
+            "sidebarMaskColor",
+            "bookmarksDirColor",
+            "overlayMaskColor"
+        ];
 
         const defaults = {
             u: { // utility -> saved locally
@@ -97,7 +118,7 @@
                 dirAccordion: false,
                 reopenSidebar: false,
                 preventWindowed: false,
-                preventWebapp: true,
+                preventWebapp: false,
                 rememberState: "openStatesAndPos",
                 rememberOpenStatesSubDirectories: true,
                 newEntryPosition: "append",
@@ -117,17 +138,17 @@
                 theme: "default",
                 showIndicator: true,
                 showIndicatorIcon: true,
-                darkMode: false,
+                surface: "light",
                 highContrast: false,
                 directoryArrows: false,
                 showBookmarkIcons: true,
                 showDirectoryIcons: true,
                 devModeIconBadge: true,
                 styles: {
-                    colorScheme: defaultColors["default"].colorScheme.light,
+                    colorScheme: null,
                     foregroundColor: defaultColors["default"].foregroundColor.light,
-                    textColor: defaultColors["default"].textColor.light,
-                    hoverColor: defaultColors["default"].hoverColor.light,
+                    textColor: null,
+                    hoverColor: null,
                     indicatorWidth: "24px",
                     indicatorIconSize: "24px",
                     indicatorIconColor: "#ffffff",
@@ -136,18 +157,18 @@
                     iconColor: "auto",
                     sidebarWidth: "350px",
                     sidebarHeaderHeight: "50px",
-                    sidebarMaskColor: defaultColors["default"].sidebarMaskColor.light,
+                    sidebarMaskColor: null,
                     bookmarksFontSize: "14px",
                     directoriesIconSize: "16px",
                     bookmarksIconSize: "16px",
                     bookmarksLineHeight: "38px",
                     bookmarksDirIcon: "dir-1",
-                    bookmarksDirColor: defaultColors["default"].textColor.light,
+                    bookmarksDirColor: null,
                     bookmarksDirIndentation: "25px",
                     bookmarksHorizontalPadding: "16px",
                     scrollBarWidth: "11px",
                     tooltipFontSize: "9px",
-                    overlayMaskColor: "rgba(0,0,0,0.5)",
+                    overlayMaskColor: null,
                     overlayHeaderHeight: "50px",
                     fontFamily: "default",
                     // styles for glass theme
@@ -299,6 +320,13 @@
         this.getAllData = () => data;
 
         /**
+         * Returns all surface color dependent styles
+         *
+         * @returns {Array}
+         */
+        this.getSurfaceColorDependentStyles = () => surfaceColorDependentStyles;
+
+        /**
          * Returns the default configuration
          *
          * @returns {object}
@@ -351,18 +379,21 @@
                     }
                 }
 
-                const isSettingsPage = location.href.search(/chrome-extension:\/\//) > -1 && location.pathname.search(/settings\.html$/) > -1;
-                if (keyInfo === "b/toggleArea" && matchMedia("(min-resolution: 1.25dppx)").matches && isSettingsPage === false) { // hdpi monitor -> increase pixel tolerance by one -> Bugfix for right positioned sidebar
-                    value = Object.assign({}, value);
-                    Object.keys(value).forEach((k) => {
-                        if (k.startsWith("width")) {
-                            value[k]++;
-                        }
-                    });
-                }
-
                 if (keyInfo === "a/styles") {
+                    const surface = this.getData("a/surface");
+                    const colorScheme = surface === "auto" ? ext.helper.stylesheet.getSystemSurface() : surface;
+                    const theme = this.getData("a/theme");
                     value = Object.assign({}, defaults.a.styles, value);
+
+                    for (const k of surfaceColorDependentStyles) {
+                        if (value[k] === null || surface === "auto") {
+                            if (defaultColors[theme] && defaultColors[theme][k]) {
+                                value[k] = defaultColors[theme][k][colorScheme];
+                            } else {
+                                value[k] = defaultColors["default"][k][colorScheme];
+                            }
+                        }
+                    }
 
                     if (ext.helper.font && ext.helper.font.isLoaded()) { // FontHelper is available and loaded -> extend object with detailed font information
                         const fontInfo = ext.helper.font.getFontInfo(defaultVal ? "default" : "config");

@@ -1025,8 +1025,14 @@
     "settings_color_scheme": {
         "message": "Farbschema"
     },
-    "settings_dark_mode": {
+    "settings_surface": {
         "message": "Oberfl\u00e4che"
+    },
+    "settings_surface_auto": {
+        "message": "Automatisch"
+    },
+    "settings_surface_info": {
+        "message": "Passt die Oberfl\u00e4che der Sidebar automatisch passend zur Farbgebung deines Systems (hell oder dunkel) an. Alternativ kann explizit eine Farbgebung ausgew\u00e4hlt werden, was erweiterte Farbeinstellungen erm\u00f6glicht."
     },
     "settings_color_scheme_desc": {
         "message": "Die Farbe der Kopfleiste der Sidebar, Checkboxen, usw."

@@ -47,6 +47,7 @@
                 selectedTheme: $("div.tab[data-name='appearance'] div.selectedTheme"),
                 showThemes: $("div.tab[data-name='appearance'] a.showThemes"),
                 themeListWrapper: $("div.tab[data-name='appearance'] div.themeList"),
+                surfaceWrapper: $("div.tab[data-name='appearance'] div.surface"),
                 presetWrapper: $("div.tab[data-name='appearance'] div.presets"),
                 iconColorWrapper: $("div.tab[data-name='appearance'] div.iconColorWrapper"),
             },

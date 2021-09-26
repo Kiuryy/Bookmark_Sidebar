@@ -14,9 +14,9 @@ html[dir='rtl'] {
             right: unset;
           }
 
-          &.darkMode {
+          &.surface {
 
-            div.checkbox {
+            > div.checkbox {
               background: linear-gradient(to left, #fec171 0%, #ff6c69 100%);
 
               &::before {

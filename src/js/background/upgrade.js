@@ -131,80 +131,11 @@
          */
         const updateOptionsAfterUpgrade = (obj) => {
             try {
-                if (obj.behaviour && typeof obj.behaviour.preventWebapp === "undefined") { // @deprecated 03/2021 -> since v1.20.0 the sidebar will not open in PWA per default anymore -> for all existing users this will still work as before
-                    obj.behaviour.preventWebapp = false;
+                if (obj.appearance && typeof obj.appearance.darkMode !== "undefined") { // @deprecated 11/2021
+                    obj.appearance.surface = obj.appearance.darkMode ? "dark" : "light";
                 }
 
-                if (obj.newtab) { // @deprecated 02/2021 -> upgrade newtab option
-                    if (obj.newtab.topPagesType && obj.newtab.topPagesType !== "pinnedEntries") {
-                        obj.newtab.gridType = obj.newtab.topPagesType;
-                    }
-
-                    if (obj.newtab.topPagesMaxCols) {
-                        obj.newtab.gridMaxCols = obj.newtab.topPagesMaxCols;
-                    }
-
-                    if (obj.newtab.topPagesMaxRows) {
-                        obj.newtab.gridMaxRows = obj.newtab.topPagesMaxRows;
-                    }
-
-                    if (obj.newtab.shortcutsPosition) {
-                        obj.newtab.topLinksPosition = obj.newtab.shortcutsPosition;
-                    }
-
-                    if (obj.newtab.shortcuts && obj.newtab.shortcuts.length > 0) {
-                        const topLinks = [];
-                        obj.newtab.shortcuts.forEach((entry) => {
-                            topLinks.push({title: entry.label, url: entry.url});
-                        });
-
-                        obj.newtab.topLinks = topLinks;
-                    }
-
-                    obj.newtab.topPagesType = obj.newtab.gridType;
-
-                    if (obj.newtab.topPagesType && obj.newtab.topPagesType === "pinnedEntries") { // replace "pinnedEntries" with "custom" by determining all pinned bookmarks and adding them to a list
-                        const customGridLinks = [];
-
-                        $.api.storage.local.get(["utility"], (c) => {
-                            if (c.utility && c.utility.pinnedEntries) {
-                                const bookmarks = [];
-                                Object.entries(c.utility.pinnedEntries).forEach(([k, v]) => {
-                                    if (v.index >= 0) {
-                                        bookmarks[v.index] = k;
-                                    }
-                                });
-
-                                const bookmarksFiltered = bookmarks.filter(b => b && ("" + b).length > 0);
-
-                                b.helper.bookmarks.api.get(bookmarksFiltered).then((results) => {
-                                    results.forEach((b) => {
-                                        customGridLinks.push({
-                                            title: b.title,
-                                            url: b.url
-                                        });
-                                    });
-
-                                    $.delay(5000).then(() => {
-                                        $.api.storage.sync.get(["newtab"], (obj) => {
-                                            if (typeof obj.newtab === "undefined") {
-                                                obj.newtab = {};
-                                            }
-
-                                            obj.newtab.gridType = "custom";
-                                            obj.newtab.customGridLinks = customGridLinks;
-
-                                            $.api.storage.sync.set({newtab: obj.newtab}, () => {
-                                                b.reinitialize();
-                                            });
-                                        });
-                                    });
-                                });
-                            }
-                        });
-                    }
-                }
-
+                delete obj.appearance.darkMode;
                 delete obj.behaviour.contextmenu;
                 delete obj.behaviour.dndOpen;
                 delete obj.behaviour.initialOpenOnNewTab;

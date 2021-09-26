@@ -83,7 +83,7 @@
                         }
                     });
 
-                    ["darkMode", "directoryArrows"].forEach((field) => {
+                    ["directoryArrows"].forEach((field) => {
                         let checked = false;
                         if (s.helper.model.getData("a/" + field) === true) {
                             s.elm.checkbox[field].trigger("click");
@@ -91,6 +91,15 @@
                         }
                         s.elm.checkbox[field].children("input").data("initial", checked);
                     });
+
+                    const surface = s.helper.model.getData("a/surface");
+                    if (surface === "auto") {
+                        s.elm.checkbox.surfaceColorAuto.trigger("click");
+                    } else if (surface === "dark") {
+                        s.elm.checkbox.surface.trigger("click");
+                    }
+                    s.elm.checkbox.surfaceColorAuto.children("input").data("initial", surface === "auto");
+                    s.elm.checkbox.surface.children("input").data("initial", surface === "dark");
 
                     if (s.helper.model.getUserType() !== "default") {
                         const customCss = s.helper.model.getData("u/customCss");
@@ -145,6 +154,7 @@
 
                     $.delay(100).then(() => {
                         updateAllPreviewStyles();
+                        showHideSurfaceColorDependentOptions();
                         $(window).trigger("resize");
                         resolve();
                     });
@@ -247,10 +257,10 @@
 
                 s.elm.preview[key].find("head").append("<style>" + css + "</style>");
 
-                if (config.appearance.darkMode) {
-                    s.elm.preview[key].find("body").addClass($.cl.page.darkMode);
+                if (config.appearance.surface === "dark" || (config.appearance.surface === "auto" && s.helper.stylesheet.getSystemSurface() === "dark")) {
+                    s.elm.preview[key].find("body").addClass($.cl.page.dark);
                 } else {
-                    s.elm.preview[key].find("body").removeClass($.cl.page.darkMode);
+                    s.elm.preview[key].find("body").removeClass($.cl.page.dark);
                 }
 
                 if (config.appearance.directoryArrows) {
@@ -364,12 +374,18 @@
          * @returns object
          */
         const getCurrentConfig = () => {
+            const styles = s.helper.model.getData("a/styles");
+            let surface = s.helper.checkbox.isChecked(s.elm.checkbox.surface) ? "dark" : "light";
+            if (s.helper.checkbox.isChecked(s.elm.checkbox.surfaceColorAuto)) {
+                surface = "auto";
+            }
+
             const ret = {
                 utility: {
                     customCss: s.helper.model.getUserType() === "default" ? "" : s.elm.textarea.customCss[0].value.replace(/[\u200B-\u200D\uFEFF]/g, "").trim()
                 },
                 appearance: {
-                    darkMode: s.helper.checkbox.isChecked(s.elm.checkbox.darkMode),
+                    surface: surface,
                     directoryArrows: s.helper.checkbox.isChecked(s.elm.checkbox.directoryArrows),
                     highContrast: false,
                     showIndicator: true,
@@ -380,7 +396,6 @@
                 }
             };
 
-            const styles = s.helper.model.getData("a/styles");
 
             Object.keys(styles).forEach((key) => {
                 if (s.elm.range[key]) {
@@ -440,7 +455,10 @@
                 conf.appearance = conf.appearance || {};
                 conf.appearance.styles = conf.appearance.styles || {};
                 conf.appearance.theme = theme;
-                conf.appearance.darkMode = false;
+
+                if (conf.appearance.surface !== "auto") {
+                    conf.appearance.surface = "light";
+                }
 
                 delete conf.behaviour.dirOpenDuration; // remove dirOpenDuration property, since all themes except "focus" use the default value
 
@@ -593,6 +611,51 @@
         };
 
         /**
+         * Changes all color related options to match the selected surface color
+         */
+        const handleSurfaceChange = () => {
+            const config = getCurrentConfig();
+            const colorScheme = config.appearance.surface === "auto" ? s.helper.stylesheet.getSystemSurface() : config.appearance.surface;
+            const defaultColors = s.helper.model.getDefaultColors(theme);
+
+            ["textColor", "bookmarksDirColor", "sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
+                const color = defaultColors[colorName][colorScheme];
+                s.helper.form.changeColorValue(s.elm.color[colorName], color);
+            });
+
+            showHideSurfaceColorDependentOptions();
+        };
+
+        /**
+         * Hide all surface color dependent options for the user, if the surface of the extension should adapt the system surface settings
+         */
+        const showHideSurfaceColorDependentOptions = () => {
+            const styles = s.helper.model.getSurfaceColorDependentStyles();
+            const config = getCurrentConfig();
+            const isAuto = config.appearance.surface === "auto";
+            const systemSurface = s.helper.stylesheet.getSystemSurface();
+
+            if (isAuto && (
+                s.helper.checkbox.isChecked(s.elm.checkbox.surface) && systemSurface === "light" ||
+                !s.helper.checkbox.isChecked(s.elm.checkbox.surface) && systemSurface === "dark"
+            )) { // adapt surface slider to match the current system surface
+                s.elm.checkbox.surface.trigger("click");
+            }
+
+            s.elm.appearance.surfaceWrapper.attr($.attr.type, config.appearance.surface);
+
+            for (const style of styles) {
+                const box = s.elm.color[style].parents("div." + $.cl.settings.box);
+
+                if (isAuto) {
+                    box.addClass($.cl.hidden);
+                } else {
+                    box.removeClass($.cl.hidden);
+                }
+            }
+        };
+
+        /**
          * Initialises the eventhandlers
          */
         const initEvents = () => {
@@ -612,7 +675,7 @@
                 });
             });
 
-            s.elm.select.iconColorType.on("change, input", (e) => { //
+            s.elm.select.iconColorType.on("change input", (e) => { //
                 if (e.currentTarget.value === "auto") {
                     s.elm.appearance.iconColorWrapper.addClass($.cl.hidden);
                 } else {
@@ -622,8 +685,7 @@
                 updatePreviewStyle("icon");
             }).trigger("input");
 
-
-            s.elm.range.tooltipFontSize.on("change, input", () => { // show tooltip in preview for 2s when changing the font size
+            s.elm.range.tooltipFontSize.on("change input", () => { // show tooltip in preview for 2s when changing the font size
                 lastTooltipChange = +new Date();
                 if (tooltipTimeout) {
                     clearTimeout(tooltipTimeout);
@@ -644,23 +706,8 @@
                     if (elm.attr("type") === "checkbox") {
                         val = e.currentTarget.checked;
 
-                        if ($(elm).parent()[0] === s.elm.checkbox.darkMode[0]) { // darkmode checkbox -> change some other colors, too
-                            const scheme = {
-                                "new": val ? "dark" : "light",
-                                "old": val ? "light" : "dark"
-                            };
-
-                            const defaultColors = s.helper.model.getDefaultColors(theme);
-                            const textColor = defaultColors.textColor[scheme["new"]];
-                            s.helper.form.changeColorValue(s.elm.color.textColor, textColor);
-                            s.helper.form.changeColorValue(s.elm.color.bookmarksDirColor, textColor);
-
-                            ["sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
-                                if (colorName === "hoverColor" || s.elm.color[colorName][0].value === defaultColors[colorName][scheme.old]) { // only change, if it was the default color before
-                                    const color = defaultColors[colorName][scheme["new"]];
-                                    s.helper.form.changeColorValue(s.elm.color[colorName], color);
-                                }
-                            });
+                        if ($(elm).parents("div." + $.cl.settings.box)[0] === s.elm.appearance.surfaceWrapper[0]) { // surface checkbox -> change some other colors, too
+                            handleSurfaceChange();
                         }
                     }
 

@@ -79,6 +79,7 @@
                 font: new $.FontHelper(this),
                 stylesheet: new $.StylesheetHelper(this),
                 template: new $.TemplateHelper(this),
+                utility: new $.UtilityHelper(this),
                 model: new $.ModelHelper(this)
             };
         };
@@ -150,11 +151,16 @@
             $("section." + $.cl.onboarding.slide + "[" + $.attr.name + "='surface'] a").on("mouseenter click", (e) => {
                 e.preventDefault();
                 const value = $(e.currentTarget).attr($.attr.value);
-                const defaultColors = this.helper.model.getDefaultColors();
-                this.elm.body.attr($.attr.onboarding.surface, value);
+                let bodyAttr = value;
+                if (value === "auto") {
+                    bodyAttr = this.helper.stylesheet.getSystemSurface();
+                }
+                this.elm.body.attr($.attr.onboarding.surface, bodyAttr);
 
                 if (e.type === "click") {
                     const styles = this.helper.model.getData("a/styles");
+                    const defaultColors = this.helper.model.getDefaultColors();
+
                     styles.colorScheme = defaultColors.colorScheme[value];
                     styles.textColor = defaultColors.textColor[value];
                     styles.bookmarksDirColor = defaultColors.textColor[value];
@@ -166,7 +172,7 @@
                     });
 
                     this.helper.model.setData({
-                        "a/darkMode": value === "dark",
+                        "a/surface": value,
                         "a/styles": styles
                     }).then(() => {
                         configChanged = true;

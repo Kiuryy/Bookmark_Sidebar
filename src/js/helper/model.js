@@ -67,7 +67,6 @@
         };
 
         const surfaceColorDependentStyles = [
-            "colorScheme",
             "textColor",
             "hoverColor",
             "sidebarMaskColor",
@@ -145,7 +144,7 @@
                 showDirectoryIcons: true,
                 devModeIconBadge: true,
                 styles: {
-                    colorScheme: null,
+                    colorScheme: defaultColors["default"].colorScheme.light,
                     foregroundColor: defaultColors["default"].foregroundColor.light,
                     textColor: null,
                     hoverColor: null,
@@ -393,6 +392,13 @@
                                 value[k] = defaultColors["default"][k][colorScheme];
                             }
                         }
+                    }
+
+                    if (surface === "auto" && (
+                        value.colorScheme === defaultColors["default"].colorScheme.light ||
+                        value.colorScheme === defaultColors["default"].colorScheme.dark
+                    )) { // change color scheme according to the system color, when automatical switch is enabled and the color scheme is the default value
+                        value.colorScheme = defaultColors["default"].colorScheme[colorScheme];
                     }
 
                     if (ext.helper.font && ext.helper.font.isLoaded()) { // FontHelper is available and loaded -> extend object with detailed font information

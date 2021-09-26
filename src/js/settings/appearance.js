@@ -615,11 +615,18 @@
          */
         const handleSurfaceChange = () => {
             const config = getCurrentConfig();
-            const colorScheme = config.appearance.surface === "auto" ? s.helper.stylesheet.getSystemSurface() : config.appearance.surface;
+            const surface = config.appearance.surface === "auto" ? s.helper.stylesheet.getSystemSurface() : config.appearance.surface;
             const defaultColors = s.helper.model.getDefaultColors(theme);
 
             ["textColor", "bookmarksDirColor", "sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
-                const color = defaultColors[colorName][colorScheme];
+                if (colorName === "colorScheme" &&
+                    s.elm.color[colorName][0].value !== defaultColors[colorName].light &&
+                    s.elm.color[colorName][0].value !== defaultColors[colorName].light
+                ) { // only change, if it was the default color before
+                    return;
+                }
+
+                const color = defaultColors[colorName][surface];
                 s.helper.form.changeColorValue(s.elm.color[colorName], color);
             });
 

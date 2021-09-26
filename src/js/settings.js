@@ -247,6 +247,7 @@
                 appearance: new $.AppearanceHelper(this),
                 support: new $.SupportHelper(this),
                 premium: new $.PremiumHelper(this),
+                utility: new $.UtilityHelper(this),
                 importExport: new $.ImportExportHelper(this),
                 expert: new $.ExpertHelper(this),
                 infos: new $.InfosHelper(this)

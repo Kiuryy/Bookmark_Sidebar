@@ -273,6 +273,7 @@
                 updatePreviewSidebarHeader(s.elm.preview[key]);
                 updatePreviewIndicator(s.elm.preview[key]);
             } else if (key === "icon") {
+                console.log("UPDATE ICON");
                 s.helper.model.call("updateIcon", {
                     name: config.appearance.styles.iconShape,
                     color: s.elm.select.iconColorType[0].value === "auto" ? "auto" : config.appearance.styles.iconColor,
@@ -750,6 +751,12 @@
                 if (e.detail.path && e.detail.path[0] === "appearance") {
                     updatePreviewStyle(e.detail.path[1]);
                 }
+            });
+
+            $(document).on($.opts.events.systemColorChanged, () => {
+                showHideSurfaceColorDependentOptions();
+                updateAllPreviewStyles();
+                updatePreviewStyle("icon");
             });
         };
     };

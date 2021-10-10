@@ -52,6 +52,10 @@ a.dragHelper {
     cursor: grabbing;
   }
 
+  > span.add {
+    display: none;
+  }
+
   > span.selected {
     position: absolute;
     bottom: -8px;
@@ -609,11 +613,14 @@ section#sidebar {
       }
     }
 
-    > div.scrollBox a > span.drag {
-      @include mask('icon-reorder', $reorderIconColor, 18px);
+    > div.scrollBox a {
 
-      &:hover::before {
-        background-color: $reorderIconColorActive;
+      > span.drag {
+        @include mask('icon-reorder', $reorderIconColor, 18px);
+      }
+
+      > span.add {
+        @include mask('icon-add', $reorderIconColor, 18px);
       }
     }
   }

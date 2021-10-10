@@ -347,7 +347,7 @@
                 n.elm.topLinks.attr($.attr.position, e.currentTarget.value);
             });
 
-            const addButton = $("<a class='" + $.cl.newtab.add + "'></a>").prependTo(n.elm.topLinks);
+            const addButton = $("<a class='" + $.cl.add + "'></a>").prependTo(n.elm.topLinks);
             addButton.on("click", () => { // add
                 const entry = $("<li></li>")
                     .append("<a>&nbsp;</a>")

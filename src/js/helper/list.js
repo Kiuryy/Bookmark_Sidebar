@@ -552,7 +552,7 @@
             const entryContent = $("<a></a>").appendTo(entry);
 
             const labelElm = $("<span></span>").addClass($.cl.sidebar.bookmarkLabel).text(label.trim()).appendTo(entryContent);
-            $("<span></span>").addClass($.cl.drag.trigger).appendTo(entryContent);
+            const dragElm = $("<span></span>").addClass($.cl.drag.trigger).appendTo(entryContent);
 
             if (bookmark.id) {
                 entryContent.attr($.attr.id, bookmark.id);
@@ -571,6 +571,7 @@
                 labelElm.text("");
             } else if (bookmark.children) { // dir
                 entryContent.addClass($.cl.sidebar.bookmarkDir);
+                $("<span></span>").addClass($.cl.add).insertBefore(dragElm);
 
                 if (opts.config.showDirectoryIcons) {
                     entryContent.prepend("<span class='" + $.cl.sidebar.dirIcon + "'></span>");

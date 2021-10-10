@@ -10,8 +10,8 @@
     "url": "https://github.com/Kiuryy/Bookmark_Sidebar"
   },
   "scripts": {
-    "init": "npm install --only=dev && npm install -g npm-check-updates && npm rebuild node-sass",
-    "update": "ncu -u --packageFile package.json && npm install --only=dev",
+    "init": "npm install && npm install -g npm-check-updates && npm rebuild node-sass",
+    "update": "ncu -u --packageFile package.json && npm install",
     "release": "node build.js",
     "updateAndRelease": "npm run update && npm run release",
     "scss": "node-sass -o src/css src/scss"
@@ -20,7 +20,7 @@
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
     "del": "^6.0.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.0.0",
     "fs-extra": "^10.0.0",
     "glob-concat": "^1.0.2",
     "html-minifier": "^4.0.0",

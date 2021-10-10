@@ -133,7 +133,12 @@
                         !elm.parent().hasClass($.cl.sidebar.removeMask) &&
                         ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)
                     ) { // only left click
-                        this.handleEntryClick($(e.currentTarget), e);
+                        if (elm.hasClass($.cl.add)) {
+                            const id = elm.parent("a").attr($.attr.id);
+                            ext.helper.overlay.create("add", ext.helper.i18n.get("contextmenu_add"), ext.helper.entry.getDataById(id));
+                        } else {
+                            this.handleEntryClick($(e.currentTarget), e);
+                        }
                     }
                 }).on("dblclick", "> ul a", (e) => { // double click on a directory will open the directory + all sub directories
                     const _self = $(e.currentTarget);

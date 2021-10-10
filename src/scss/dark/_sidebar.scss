@@ -33,7 +33,7 @@ body.dark {
         }
       }
 
-      > ul {
+      > ul, > div.pinned > ul {
 
         li.isDragged {
           width: calc(100% - 5px);

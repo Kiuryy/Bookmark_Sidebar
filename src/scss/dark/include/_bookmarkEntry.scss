@@ -16,7 +16,7 @@
     background: $darkRemovedBackground;
   }
 
-  > span.drag {
+  > span.drag, > span.add {
     background-color: rgba(255, 255, 255, 0.1);
 
     &::before {

@@ -48,4 +48,9 @@
     right: unset;
     left: 15px;
   }
+
+  > span.add {
+    right: unset;
+    left: calc(#{$__bookmarksLineHeight} + 8px);
+  }
 }

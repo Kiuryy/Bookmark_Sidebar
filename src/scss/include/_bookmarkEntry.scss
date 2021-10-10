@@ -220,19 +220,16 @@
     }
   }
 
-  > span.drag {
-    display: none;
+  > span.drag, > span.add {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 15px;
     margin: auto;
     width: $__bookmarksLineHeight;
     height: $__bookmarksLineHeight;
     max-width: 24px;
     max-height: 22px;
     border-radius: 3px;
-    cursor: grab;
     background-color: rgba(0, 0, 0, 0.05);
     transition: background-color 0.5s, opacity 0.5s;
     @extend %hidden;
@@ -243,11 +240,28 @@
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.125);
+
+      &::before {
+        background-color: $reorderIconColorActive;
+      }
     }
   }
 
-  &:hover > span.drag {
-    @extend %visible;
+  > span.drag {
+    display: none;
+    right: 15px;
+    cursor: grab;
+  }
+
+  > span.add {
+    right: calc(#{$__bookmarksLineHeight} + 8px);
+  }
+
+  &:hover {
+
+    > span.drag, > span.add {
+      @extend %visible;
+    }
   }
 }
 

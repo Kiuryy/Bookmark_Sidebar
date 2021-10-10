@@ -621,7 +621,7 @@
             ["textColor", "bookmarksDirColor", "sidebarMaskColor", "colorScheme", "hoverColor"].forEach((colorName) => {
                 if (colorName === "colorScheme" &&
                     s.elm.color[colorName][0].value !== defaultColors[colorName].light &&
-                    s.elm.color[colorName][0].value !== defaultColors[colorName].light
+                    s.elm.color[colorName][0].value !== defaultColors[colorName].dark
                 ) { // only change, if it was the default color before
                     return;
                 }

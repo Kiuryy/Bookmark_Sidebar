@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Arri\u00e8re-plan"
     },
+    "settings_surface_auto": {
+        "message": "Automatique"
+    },
+    "settings_surface_info": {
+        "message": "Adaptez automatiquement la surface de la barre lat\u00e9rale \u00e0 faire correspondre votre syst\u00e8me ( clair ou sombre ) ou le choisir explicitement pour permettre une personnalisation suppl\u00e9mentaire des couleurs."
+    },
     "settings_color_scheme_desc": {
         "message": "Couleur de la zone de titre de la fen\u00eatre d'info, du nombre de favoris, etc."
     },

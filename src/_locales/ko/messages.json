@@ -12,7 +12,7 @@
         "message": "{1}\uc5d0 \ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc218\uc815\ub428"
     },
     "header_bookmarks": {
-        "message": "\ubd81\ub9c8\ud06c\ub4e4"
+        "message": "\ubd81\ub9c8\ud06c"
     },
     "header_bookmarks_single": {
         "message": "\ubd81\ub9c8\ud06c"
@@ -1027,6 +1027,12 @@
     },
     "settings_surface": {
         "message": "\uc2a4\ud0a8 \uc0c9\uc0c1"
+    },
+    "settings_surface_auto": {
+        "message": "\uc790\ub3d9"
+    },
+    "settings_surface_info": {
+        "message": "\uc0ac\uc774\ub4dc\ubc14\uc758 \ud45c\uba74\uc744 \uc2dc\uc2a4\ud15c(\ubc1d\uc74c \ub610\ub294 \uc5b4\ub450\uc6c0)\uc5d0 \ub9de\uac8c \uc790\ub3d9\uc73c\ub85c \uc870\uc815\ud558\uac70\ub098 \uba85\uc2dc\uc801\uc73c\ub85c \uc120\ud0dd\ud558\uc5ec \ucd94\uac00 \uc0c9\uc0c1 \uc0ac\uc6a9\uc790 \uc815\uc758\ub97c \ud5c8\uc6a9\ud569\ub2c8\ub2e4."
     },
     "settings_color_scheme_desc": {
         "message": "\uc0ac\uc774\ub4dc\ubc14 \ud5e4\ub354\uc640 \uccb4\ud06c\ubc15\uc2a4 \ub4f1\uc758 \uc0c9\uc0c1"

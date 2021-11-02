@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Oppervlak"
     },
+    "settings_surface_auto": {
+        "message": "Automatisch"
+    },
+    "settings_surface_info": {
+        "message": "Pas het oppervlak van de zijbalk automatisch aan uw systeem aan (licht of donker) of kies expliciet om de verdere kleuraanpassing mogelijk te maken."
+    },
     "settings_color_scheme_desc": {
         "message": "De kleur van de hoofding van de zijbalk, selectievakjes, etc."
     },

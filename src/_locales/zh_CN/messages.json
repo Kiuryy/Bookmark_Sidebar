@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "\u76ae\u80a4"
     },
+    "settings_surface_auto": {
+        "message": "\u81ea\u52a8"
+    },
+    "settings_surface_info": {
+        "message": "\u81ea\u52d5\u8abf\u6574\u5074\u908a\u6b04\u7684\u8868\u9762\u4ee5\u5339\u914d\u60a8\u7684\u7cfb\u7d71\uff08\u6dfa\u8272\u6216\u6df1\u8272\uff09\u6216\u660e\u78ba\u9078\u64c7\u5b83\u4ee5\u5141\u8a31\u9032\u4e00\u6b65\u7684\u984f\u8272\u81ea\u5b9a\u7fa9\u3002"
+    },
     "settings_color_scheme_desc": {
         "message": "\u8986\u76d6\u6807\u9898\u7684\u989c\u8272,\u4e66\u7b7e\u6570\u91cf\u7b49\u3002"
     },

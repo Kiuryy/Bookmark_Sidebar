@@ -1,9 +1,9 @@
 {
     "extension_name": {
-        "message": "Bookmark Sidebar"
+        "message": "Lesezeichenleiste"
     },
     "extension_desc": {
-        "message": "F\u00fcgt eine ausklappbare Sidebar mit all deinen Lesezeichen auf der Bildschirmseite hinzu."
+        "message": "F\u00fcgt eine ausklappbare Leiste mit all deinen Lesezeichen auf der Seite deines Browsers hinzu."
     },
     "extension_version": {
         "message": "Version"

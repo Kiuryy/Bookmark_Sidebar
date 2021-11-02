@@ -1080,7 +1080,7 @@
         "message": "Surface"
     },
     "settings_surface_auto": {
-        "message": "Automatically"
+        "message": "Automatical"
     },
     "settings_surface_info": {
         "message": "Adapt the surface of the sidebar automatically to match your system (light or dark) or choose it explicitly to allow further color customization."
@@ -1113,7 +1113,7 @@
         "message": "Colour"
     },
     "settings_icon_color_auto": {
-        "message": "Automatically"
+        "message": "Automatical"
     },
     "settings_icon_color_custom": {
         "message": "Custom"

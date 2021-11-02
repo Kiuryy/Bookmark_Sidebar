@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Povr\u0161ina"
     },
+    "settings_surface_auto": {
+        "message": "Samodejno"
+    },
+    "settings_surface_info": {
+        "message": "Povr\u0161ino stranske vrstice samodejno prilagodite sistemu (svetlo ali temno) ali jo izrecno izberite, da omogo\u010dite nadaljnjo prilagoditev barv."
+    },
     "settings_color_scheme_desc": {
         "message": "Barva glave stranske vrstice, checkboxov in podobno."
     },

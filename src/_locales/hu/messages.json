@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Fel\u00fclet"
     },
+    "settings_surface_auto": {
+        "message": "Automatikus"
+    },
+    "settings_surface_info": {
+        "message": "Az oldals\u00e1v fel\u00fclet\u00e9t automatikusan illessze a rendszerhez (vil\u00e1gos vagy s\u00f6t\u00e9t), vagy v\u00e1lassza ki kifejezetten a tov\u00e1bbi sz\u00ednek testreszab\u00e1s\u00e1hoz."
+    },
     "settings_color_scheme_desc": {
         "message": "Az oldals\u00e1v fejl\u00e9c\u00e9nek, jel\u00f6l\u0151n\u00e9gyzeteinek, stb. sz\u00edne"
     },

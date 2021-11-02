@@ -9,7 +9,7 @@
         "message": "Version"
     },
     "extension_last_update": {
-        "message": "Senest opdateret den (1)"
+        "message": "Senest opdateret den {1}"
     },
     "header_bookmarks": {
         "message": "Bogm\u00e6rker"
@@ -360,7 +360,7 @@
         "message": "Genindl\u00e6s nu"
     },
     "status_background_disconnected_reload_desc": {
-        "message": "Grundet en opdatering af denne {browserName} udvidelse, er der behov for at genindl\u00e6se denne side."
+        "message": "Grundet en opdatering af denne udvidelse, er der behov for at genindl\u00e6se denne side."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1254,7 +1254,7 @@
         "message": "Slutbrugeraftale"
     },
     "premium_pay_eula_desc": {
-        "message": "Jeg l\u00e6ser og accepterer [a] Slutbrugerlicensaftale [\/ a]"
+        "message": "Jeg l\u00e6ser og accepterer [a]Slutbrugerlicensaftale[\/a]"
     },
     "premium_pay_cancellation_policy": {
         "message": "Afbestillingspolitik"

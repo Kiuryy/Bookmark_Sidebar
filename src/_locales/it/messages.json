@@ -84,7 +84,7 @@
         "message": "Aggiungi nuova voce"
     },
     "contextmenu_check_bookmarks": {
-        "message": "Cerca tra i segnalibri"
+        "message": "Controlla i segnalibri"
     },
     "contextmenu_toggle_hidden": {
         "message": "Mostra voci nascoste"
@@ -1027,6 +1027,12 @@
     },
     "settings_surface": {
         "message": "Superficie"
+    },
+    "settings_surface_auto": {
+        "message": "Automatico"
+    },
+    "settings_surface_info": {
+        "message": "Adatta automaticamente la superficie della barra laterale al tuo sistema (chiaro o scuro) o sceglila esplicitamente per consentire un'ulteriore personalizzazione del colore."
     },
     "settings_color_scheme_desc": {
         "message": "Il colore dell'intestazione della barra laterale, riquadri di spunta, ecc."

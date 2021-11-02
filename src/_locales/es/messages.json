@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Superficie"
     },
+    "settings_surface_auto": {
+        "message": "Automatizaci\u00f3n"
+    },
+    "settings_surface_info": {
+        "message": "Adapte la superficie de la barra lateral autom\u00e1ticamente para que coincida con su sistema (claro u oscuro) o el\u00edjala expl\u00edcitamente para permitir una mayor personalizaci\u00f3n del color."
+    },
     "settings_color_scheme_desc": {
         "message": "El color de la barra lateral, encabezado, casillas de verificaci\u00f3n, etc."
     },

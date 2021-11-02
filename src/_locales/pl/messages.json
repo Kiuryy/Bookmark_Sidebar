@@ -728,6 +728,9 @@
     "settings_tips_tricks_synchronization_action": {
         "message": "Sprawd\u017a ustawienia synchronizacji"
     },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Rozszerzenie jest dost\u0119pne w {1} r\u00f3\u017cnych j\u0119zykach. T\u0142umaczenia s\u0105 tworzone przez spo\u0142eczno\u015b\u0107 i ka\u017cdy mo\u017ce pom\u00f3c, t\u0142umacz\u0105c teksty rozszerzenia na inne j\u0119zyki. T\u0142umaczenia zostan\u0105 zatwierdzone, a nast\u0119pnie dodane do rozszerzenia przy nast\u0119pnej aktualizacji."
+    },
     "settings_tips_tricks_about_desc": {
         "message": "To rozszerzenie jest projektem jednoosobowym, kt\u00f3ry rozpocz\u0105\u0142 si\u0119 jako projekt hobby do u\u017cytku osobistego."
     },
@@ -737,14 +740,32 @@
     "settings_tips_tricks_right_click": {
         "message": "Prawy przycisk"
     },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Mo\u017cesz klikn\u0105\u0107 prawym przyciskiem myszy dowoln\u0105 zak\u0142adk\u0119 lub folder na pasku bocznym, aby wy\u015bwietli\u0107 dodatkowe opcje. Na przyk\u0142ad mo\u017cesz edytowa\u0107 istniej\u0105ce zak\u0142adki lub przypina\u0107 wpisy na g\u00f3rze paska bocznego. Po klikni\u0119ciu folderu prawym przyciskiem myszy mo\u017cna rozpocz\u0105\u0107 sprawdzanie zak\u0142adek, aby zidentyfikowa\u0107 uszkodzone lub zaktualizowane adresy URL zak\u0142adek."
+    },
     "settings_tips_tricks_share_data": {
         "message": "Udost\u0119pnianie informacji"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Mo\u017cesz udost\u0119pnia\u0107 swoj\u0105 konfiguracj\u0119 anonimowo, co pomaga mi zidentyfikowa\u0107 popularne ustawienia i okre\u015bli\u0107, co nale\u017cy poprawi\u0107 lub zmieni\u0107 w przysz\u0142ych wydaniach. Rozszerzenie nie zbiera \u017cadnych danych osobowych ani nie odczytuje zak\u0142adek. Bez wyra\u017anej zgody rozszerzenie nie udost\u0119pnia r\u00f3wnie\u017c \u017cadnej konfiguracji."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Wybierz kilka opcji"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Mo\u017cesz wybra\u0107 wiele zak\u0142adek lub folder\u00f3w na pasku bocznym, aby je otwiera\u0107, usuwa\u0107, a nawet przenosi\u0107 za pomoc\u0105 funkcji przeci\u0105gania i upuszczania jednocze\u015bnie."
     },
     "settings_tips_tricks_newtab": {
         "message": "Nowa karta"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Mo\u017cesz skonfigurowa\u0107 wygl\u0105d strony Nowa karta bezpo\u015brednio na stronie, klikaj\u0105c przycisk {1} w dolnym rogu. Nast\u0119pnie mo\u017cesz zmieni\u0107 elementy siatki, wyszukiwark\u0119, obraz t\u0142a lub linki na g\u00f3rze."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Prywatno\u015b\u0107"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Zak\u0142adki wy\u015bwietlane na pasku bocznym s\u0105 synchronizowane i zarz\u0105dzane przez {browserName}. Rozszerzenie nie przechowuje ani nie analizuje tych zak\u0142adek, a na pasku bocznym wy\u015bwietla tylko te z Twojej przegl\u0105darki."
     },
     "settings_open_action": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 zak\u0142adek"
@@ -1007,6 +1028,12 @@
     "settings_surface": {
         "message": "Powierzchnia"
     },
+    "settings_surface_auto": {
+        "message": "Automatyczny"
+    },
+    "settings_surface_info": {
+        "message": "Automatycznie dostosuj powierzchni\u0119 paska bocznego do swojego systemu (jasny lub ciemny) lub wybierz go wyra\u017anie, aby umo\u017cliwi\u0107 dalsze dostosowywanie kolor\u00f3w."
+    },
     "settings_color_scheme_desc": {
         "message": "Kolor nag\u0142\u00f3wka bocznej listy, p\u00f3l wyboru itp."
     },
@@ -1160,6 +1187,12 @@
     "settings_newtab_override_desc": {
         "message": "Czy rozszerzenie powinno zast\u0105pi\u0107 obecn\u0105 stron\u0119 nowej karty swoj\u0105 w\u0142asn\u0105 zast\u0119pcz\u0105 stron\u0105, czy stron\u0105 internetow\u0105, kt\u00f3ra b\u0119dzie \u0142adowana po otwarciu nowej karty?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Podgl\u0105d"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfiguracja"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Otw\u00f3rz boczn\u0105 list\u0119 automatycznie"
     },
@@ -1252,6 +1285,9 @@
     },
     "settings_support_feedback_screenshot": {
         "message": "Do\u0142\u0105cz zrzut ekranu"
+    },
+    "settings_support_feedback_screenshot_error_filesize": {
+        "message": "Rozmiar pliku {1} jest zbyt du\u017cy (> 1 MB)"
     },
     "settings_support_feedback_screenshot_error_amount": {
         "message": "Mo\u017cesz maksymalnie za\u0142\u0105czy\u0107 {1} zrzut\u00f3w"
@@ -1348,6 +1384,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Mo\u017cesz zmieni\u0107 ca\u0142kowity design panelu bocznego jednym klikni\u0119ciem poprzez instalacj\u0119 innego motywu. Mo\u017cna je tak\u017ce zmieni\u0107 poprzez przesuwanie suwak\u00f3w oraz wyb\u00f3r opcji kolorystycznych."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Wybierz poni\u017cej metod\u0119 p\u0142atno\u015bci i wybierz \u017c\u0105dan\u0105 kwot\u0119, kt\u00f3r\u0105 chcesz zap\u0142aci\u0107 w nast\u0119pnym kroku."
     },
     "premium_pay_select_payment_method": {
         "message": "Wybierz metod\u0119 p\u0142atno\u015bci"

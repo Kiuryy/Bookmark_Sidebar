@@ -329,9 +329,6 @@
     "newtab_fallback_headline_new_tab": {
         "message": "Uue vahekaardi vaikelehel ei saa k\u00fclgriba kasutada"
     },
-    "newtab_fallback_headline_system": {
-        "message": "S\u00fcsteemilehtedel ei saa k\u00fclgriba kasutada"
-    },
     "newtab_fallback_headline_url_filter": {
         "message": "\u00dcks URL reeglitest ei lubanud k\u00fclgriba avada"
     },

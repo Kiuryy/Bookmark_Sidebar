@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "B\u1ec1 m\u1eb7t"
     },
+    "settings_surface_auto": {
+        "message": "T\u1ef1 \u0111\u1ed9ng"
+    },
+    "settings_surface_info": {
+        "message": "\u00c1p d\u1ee5ng b\u1ec1 m\u1eb7t c\u1ee7a thanh d\u1ea5u trang t\u1ef1 \u0111\u1ed9ng so v\u1edbi h\u1ec7 th\u1ed1ng (s\u00e1ng hay t\u1ed1i) ho\u1eb7c ch\u1ecdn m\u00e0u m\u1ed9t c\u00e1ch r\u00f5 r\u00e0ng \u0111\u1ec3 cho ph\u00e9p t\u00f9y ch\u1ec9nh m\u00e0u s\u1eafc h\u01a1n n\u1eefa."
+    },
     "settings_color_scheme_desc": {
         "message": "M\u00e0u s\u1eafc c\u1ee7a ti\u00eau \u0111\u1ec1 thanh trang, h\u1ed9p ki\u1ec3m, v.v ..."
     },

@@ -359,6 +359,9 @@
     "newtab_fallback_headline_extension_page": {
         "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na stranicama pro\u0161irenja"
     },
+    "newtab_fallback_headline_new_tab": {
+        "message": "Bo\u010dna traka se ne mo\u017ee koristiti na zadanoj stranici nove kartice"
+    },
     "newtab_fallback_headline_system": {
         "message": "Bo\u010dna traka oznaka ne mo\u017ee biti kori\u0161tena na sustavnim stranicama {browserName}a"
     },
@@ -1025,6 +1028,12 @@
     "settings_surface": {
         "message": "Povr\u0161ina"
     },
+    "settings_surface_auto": {
+        "message": "Automatski"
+    },
+    "settings_surface_info": {
+        "message": "Automatski prilagodite povr\u0161inu bo\u010dne trake kako bi odgovarala va\u0161em sustavu (svijetla ili tamna) ili je sami odaberite kako biste omogu\u0107ili daljnje prilago\u0111avanje boja."
+    },
     "settings_color_scheme_desc": {
         "message": "Boja zaglavlja bo\u010dne trake oznaka, potvrdni okviri itd."
     },
@@ -1107,7 +1116,7 @@
         "message": "Veli\u010dina ikone mapa"
     },
     "settings_directory_arrows": {
-        "message": "Strelice mape spremanja"
+        "message": "Strelice mape"
     },
     "settings_bookmarks_line_height": {
         "message": "Visina linije oznaka"

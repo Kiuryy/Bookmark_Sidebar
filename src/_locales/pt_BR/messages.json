@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Superf\u00edcie"
     },
+    "settings_surface_auto": {
+        "message": "Autom\u00e1tico"
+    },
+    "settings_surface_info": {
+        "message": "Adaptar automaticamente a superf\u00edcie da barra lateral para o padr\u00e3o do sistema (claro ou escuro) ou escolha entre elas para permitir customiza\u00e7\u00f5es posteriores."
+    },
     "settings_color_scheme_desc": {
         "message": "A cor do cabe\u00e7alho, caixas de sele\u00e7\u00e3o etc. da barra lateral."
     },

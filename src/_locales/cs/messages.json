@@ -179,6 +179,9 @@
     "overlay_update": {
         "message": "Aktualizovat"
     },
+    "overlay_confirm_open_selected": {
+        "message": "Opravdu chcete otev\u0159\u00edt v\u0161echny {1} z\u00e1lo\u017eky, v\u010detn\u011b z\u00e1lo\u017eek v podslo\u017ek\u00e1ch ve vybran\u00fdch slo\u017ek\u00e1ch?"
+    },
     "overlay_open_children": {
         "message": "Otev\u0159\u00edt v\u0161e"
     },
@@ -503,6 +506,9 @@
     "onboarding_handson_mouse_desc_2": {
         "message": "{1} klikni pro otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
     },
+    "onboarding_handson_icon_desc": {
+        "message": "Kliknut\u00edm na ikonu roz\u0161\u00ed\u0159en\u00ed v horn\u00ed \u010d\u00e1sti prohl\u00ed\u017ee\u010de otev\u0159ete postrann\u00ed panel."
+    },
     "onboarding_left": {
         "message": "vlevo"
     },
@@ -740,14 +746,26 @@
     "settings_tips_tricks_share_data": {
         "message": "Sd\u00edlen\u00ed informac\u00ed"
     },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Svou konfiguraci m\u016f\u017eete sd\u00edlet anonymn\u011b, co\u017e mi pom\u00e1h\u00e1 identifikovat obl\u00edben\u00e1 nastaven\u00ed a zjistit, co zlep\u0161it nebo zm\u011bnit v budouc\u00edch vyd\u00e1n\u00edch. Roz\u0161\u00ed\u0159en\u00ed neshroma\u017e\u010fuje \u017e\u00e1dn\u00e1 osobn\u00ed data ani ne\u010dte z\u00e1lo\u017eky. Bez v\u00fdslovn\u00e9ho povolen\u00ed toto roz\u0161\u00ed\u0159en\u00ed tak\u00e9 nesd\u00edl\u00ed \u017e\u00e1dnou konfiguraci."
+    },
     "settings_tips_tricks_multiselect": {
         "message": "Vyber v\u00edcero vstup\u016f"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Na bo\u010dn\u00edm panelu m\u016f\u017eete vybrat v\u00edce z\u00e1lo\u017eek nebo slo\u017eek, kter\u00e9 chcete otev\u0159\u00edt, odstranit nebo dokonce p\u0159esunout najednou p\u0159eta\u017een\u00edm."
     },
     "settings_tips_tricks_newtab": {
         "message": "Nov\u00e1 karta"
     },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Vzhled str\u00e1nky Nov\u00e1 karta m\u016f\u017eete konfigurovat p\u0159\u00edmo na str\u00e1nce kliknut\u00edm na tla\u010d\u00edtko {1} v doln\u00edm rohu. Pot\u00e9 m\u016f\u017eete zm\u011bnit polo\u017eky m\u0159\u00ed\u017eky, vyhled\u00e1va\u010d, obr\u00e1zek na pozad\u00ed nebo odkazy v horn\u00ed \u010d\u00e1sti."
+    },
     "settings_tips_tricks_privacy": {
         "message": "Soukrom\u00ed"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Z\u00e1lo\u017eky zobrazen\u00e9 na va\u0161em postrann\u00edm panelu jsou synchronizov\u00e1ny a spravov\u00e1ny pomoc\u00ed {browserName}. Roz\u0161\u00ed\u0159en\u00ed tyto z\u00e1lo\u017eky neukl\u00e1d\u00e1 ani neanalyzuje a na postrann\u00edm panelu zobrazuje pouze ty z va\u0161eho prohl\u00ed\u017ee\u010de."
     },
     "settings_open_action": {
         "message": "Otev\u0159en\u00ed bo\u010dn\u00ed li\u0161ty"
@@ -1163,6 +1181,12 @@
     "settings_newtab_override_desc": {
         "message": "M\u00e1te-li roz\u0161\u00ed\u0159en\u00ed p\u0159ekr\u00fdt svou aktu\u00e1ln\u00ed str\u00e1nku s nov\u00fdmi kartami bu\u010f s vlastn\u00edm proveden\u00edm, nebo s webovou str\u00e1nkou, kterou je t\u0159eba na\u010d\u00edst p\u0159i otev\u00edr\u00e1n\u00ed nov\u00e9 karty?"
     },
+    "settings_newtab_override_preview": {
+        "message": "N\u00e1hled"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurovat"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Otev\u0159ete postrann\u00ed panel automaticky"
     },
@@ -1173,7 +1197,7 @@
         "message": "P\u0159esu\u0148 fokus na adresn\u00ed \u0159\u00e1dek"
     },
     "settings_newtab_focus_omnibox_desc": {
-        "message": "Pokud je povoleno, fokus bude p\u0159esunut na adresn\u00ed \u0159\u00e1dek p\u0159i otev\u0159en\u00ed nov\u00e9 karty. Jestli\u017ee ne, bude fokus p\u0159esunut do vzhled\u00e1vac\u00edho pole."
+        "message": "Pokud je povoleno, fokus bude p\u0159esunut na adresn\u00ed \u0159\u00e1dek p\u0159i otev\u0159en\u00ed nov\u00e9 karty. Jestli\u017ee ne, bude fokus p\u0159esunut do vyhled\u00e1vac\u00edho pole."
     },
     "settings_newtab_website": {
         "message": "Na\u010d\u00edst webovou str\u00e1nku"
@@ -1270,6 +1294,9 @@
     },
     "settings_support_feedback_send_failed": {
         "message": "Va\u0161e zpr\u00e1va nemohla b\u00fdt odesl\u00e1na. Pros\u00edm zkuste to znovu."
+    },
+    "settings_permissions_desc": {
+        "message": "Aby bylo mo\u017en\u00e9 v aplikaci {browserName} povolit p\u0159ep\u00ednateln\u00fd postrann\u00ed panel, jsou v roz\u0161\u00ed\u0159en\u00ed vy\u017eadov\u00e1na a po\u017eadov\u00e1na n\u00e1sleduj\u00edc\u00ed opr\u00e1vn\u011bn\u00ed:"
     },
     "settings_permissions_contentscript_desc_1": {
         "message": "{browserName} bohu\u017eel nem\u00e1 mechanizmus ke zobrazen\u00ed obsahu uvnit\u0159 okna prohl\u00ed\u017ee\u010de bez interakce s nyn\u00ed prohl\u00ed\u017eenou str\u00e1nkou."

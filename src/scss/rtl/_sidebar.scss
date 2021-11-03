@@ -133,6 +133,12 @@ html[dir='rtl'] {
       }
     }
 
+    &[data-sort='custom'] > div#bookmarkBox > ul > li > a > span.add,
+    &:not([data-sort='custom']) > div#bookmarkBox ul > li > a > span.add {
+      right: unset;
+      left: 15px
+    }
+
     &.selectionMode {
 
       > div.scrollBox > ul a > img, > span.icon {

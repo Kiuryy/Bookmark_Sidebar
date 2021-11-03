@@ -645,6 +645,11 @@ section#sidebar {
     }
   }
 
+  &[data-sort='custom'] > div#bookmarkBox > ul > li > a > span.add,
+  &:not([data-sort='custom']) > div#bookmarkBox ul > li > a > span.add {
+    right: 15px
+  }
+
   &.selectionMode {
 
     > div.scrollBox > ul {

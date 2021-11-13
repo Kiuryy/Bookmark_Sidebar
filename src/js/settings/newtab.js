@@ -41,14 +41,14 @@
             ["faviconBackground", "faviconColor"].forEach((field) => {
                 const value = s.helper.model.getData("n/" + field);
                 s.helper.form.changeColorValue(s.elm.color[field], value);
-                faviconInputs.push(s.elm.color[field]);
+                faviconInputs.push(s.elm.color[field][0]);
             });
 
             ["faviconShape"].forEach((field) => {
                 const value = s.helper.model.getData("n/" + field);
                 s.elm.radio[field][0].value = value;
                 s.elm.radio[field].trigger("change");
-                faviconInputs.push(s.elm.radio[field]);
+                faviconInputs.push(s.elm.radio[field][0]);
             });
 
             ["website"].forEach((field) => {
@@ -130,7 +130,7 @@
                 }
             });
 
-            s.elm.newtab.content.find("input").on("change input", (e) => {
+            s.elm.newtab.content.find("input, select").on("change input", (e) => {
                 if (faviconInputs.indexOf(e.currentTarget) > -1) { // updated one of the favicon options -> update preview as well
                     updateFaviconPreview();
                 } else if (s.elm.field.website[0] === e.currentTarget) {
@@ -157,6 +157,7 @@
                 s.elm.newtab.buttons.addClass($.cl.hidden);
             } else {
                 s.elm.newtab.buttons.removeClass($.cl.hidden);
+                updateFaviconPreview();
             }
         };
 

@@ -626,7 +626,7 @@ div.modal {
         }
 
         &[data-type='dir']::before {
-          @include maskImage('icon-dir-1');
+          @include maskImage('icon-dir-3');
         }
 
         &[data-type='separator']::before {

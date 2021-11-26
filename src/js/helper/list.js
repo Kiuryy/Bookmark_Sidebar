@@ -94,7 +94,8 @@
             return new Promise((resolve) => {
                 ext.startLoading();
                 sort = ext.helper.model.getData("u/sort");
-                ext.elm.sidebar.attr($.attr.sort, sort.name);
+                const viewAsTree = ext.helper.model.getData("u/viewAsTree");
+                ext.elm.sidebar.attr($.attr.sort, sort.name + (viewAsTree || sort.name === "custom" ? "" : "-flat"));
                 ext.elm.bookmarkBox.all.children("a[" + $.attr.name + "='add']").remove();
 
                 const list = ext.elm.bookmarkBox.all.children("ul");
@@ -532,6 +533,7 @@
             elm.find("a." + $.cl.sidebar.mark).removeClass($.cl.sidebar.mark);
             elm.find("a." + $.cl.hover).removeClass($.cl.hover);
             elm.find("a." + $.cl.selected).removeClass($.cl.selected);
+            elm.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
             elm.find("a." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
             elm.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
             elm.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);

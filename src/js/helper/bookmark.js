@@ -162,6 +162,36 @@
         };
 
         /**
+         * Returns the Index the given bookmark would be placed at with the current sorting in the given folder
+         *
+         * @param bookmarkId
+         * @param dirId
+         * @returns {Promise<number>}
+         */
+        this.getBookmarkIndexInDirectory = async (bookmarkId, dirId) => {
+            const response = await ext.helper.model.call("bookmarks", {id: dirId});
+            if (response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children) { // children are existing
+                const sort = ext.helper.model.getData("u/sort");
+                const bookmarkData = ext.helper.entry.getDataById(bookmarkId);
+                const entries = response.bookmarks[0].children;
+
+                if (dirId !== bookmarkData.parentId) {
+                    entries.push(bookmarkData);
+                    bookmarkData.parentId = dirId;
+                }
+
+                ext.helper.utility.sortEntries(entries, sort);
+                const index = entries.findIndex((entry) => {
+                    return bookmarkId === entry.id;
+                });
+
+                return index;
+            } else {
+                return -1;
+            }
+        };
+
+        /**
          * Changes the index of the given entry,
          * iterates over the other entries and adapts their index if needed
          *

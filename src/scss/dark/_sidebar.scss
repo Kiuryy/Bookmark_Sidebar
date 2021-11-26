@@ -35,11 +35,6 @@ body.dark {
 
       > ul, > div.pinned > ul {
 
-        li.isDragged {
-          width: calc(100% - 5px);
-          border-color: rgba(255, 255, 255, 0.2);
-        }
-
         a {
           @include darkBookmarkEntry;
 
@@ -55,6 +50,21 @@ body.dark {
               &::before {
                 background-color: $darkReorderIconColorActive;
               }
+            }
+          }
+        }
+
+        li {
+
+          &.isDragged {
+            width: calc(100% - 5px);
+            border-color: rgba(255, 255, 255, 0.2);
+          }
+
+          &.dragHover {
+
+            &::before {
+              border-color: rgba(255, 255, 255, 0.2);
             }
           }
         }

@@ -93,15 +93,33 @@
          * @returns {Promise<void>}
          */
         this.moveSelection = async (parentId, index, initiator) => {
+            const sort = ext.helper.model.getData("u/sort");
             const entries = getSortedSelectedEntries();
             const entriesReversed = entries.reverse();
             const initiatorId = initiator.children("a").attr($.attr.id);
+            const parentList = initiator.parent("ul");
 
             for (const entry of entriesReversed) {
                 if (entry.id === initiatorId) { // the initiator is already moved
                     continue;
                 }
-                entry.elm.parent("li").insertAfter(initiator);
+
+                const li = entry.elm.parent("li");
+
+                if (sort.name === "custom") {
+                    li.insertAfter(initiator);
+                } else {
+                    const index = await ext.helper.bookmark.getBookmarkIndexInDirectory(entry.id, parentId);
+
+                    if (index === -1) {
+                        li.appendTo(parentList);
+                    } else if (index === 0) {
+                        li.prependTo(parentList);
+                    } else {
+                        const prevElm = parentList.children(`li:not(.${$.cl.drag.dragInitial})`).eq(index - 1);
+                        li.insertAfter(prevElm);
+                    }
+                }
             }
 
             for (const entry of entries) {

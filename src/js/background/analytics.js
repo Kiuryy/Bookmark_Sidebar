@@ -209,6 +209,11 @@
                                 }
                             });
 
+                            if (typeof obj.utility.sort !== "undefined") {
+                                config.sortType = obj.utility.sort.name;
+                                config.sortDetail = obj.utility.sort.name + "-" + obj.utility.sort.dir;
+                            }
+
                             if (isOverrideNewtab) { // track if a custom newtab background is being used (only if isOverrideNewtab=true)
                                 config.newtabBackground = obj.newtabBackground_1 || "";
                             }

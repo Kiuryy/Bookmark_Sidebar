@@ -512,6 +512,26 @@ section#sidebar {
         &.dragInitial {
           display: none;
         }
+
+        &.dragHover {
+          position: relative;
+
+          > a {
+            background-color: $__hoverColor;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 3px;
+            left: 3px;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            border: 3px dashed rgba(0, 0, 0, 0.2);
+            z-index: 2;
+          }
+        }
       }
 
       &.hideRoot {
@@ -625,11 +645,12 @@ section#sidebar {
     }
   }
 
-  &[data-sort='custom'] {
+  &:not([data-sort$='-flat']) {
 
     > div#bookmarkBox {
 
       a {
+
         &:hover {
           padding-right: 46px;
         }
@@ -639,15 +660,28 @@ section#sidebar {
         }
       }
 
-      > ul > li > a > span.drag {
-        display: none !important;
+      > ul > li > a {
+
+        > span.drag {
+          display: none !important;
+        }
+
+        > span.add {
+          right: 15px
+        }
       }
     }
   }
 
-  &[data-sort='custom'] > div#bookmarkBox > ul > li > a > span.add,
-  &:not([data-sort='custom']) > div#bookmarkBox ul > li > a > span.add {
-    right: 15px
+  &:not([data-sort='custom']) > div#bookmarkBox > div.pinned a {
+
+    &:hover {
+      padding-right: $__bookmarksHorizontalPadding;
+    }
+
+    > span.drag {
+      display: none !important;
+    }
   }
 
   &.selectionMode {
@@ -857,6 +891,13 @@ body {
     }
 
     section#sidebar > div.scrollBox ul li.isDragged {
+      display: none;
+    }
+  }
+
+  &.isDragged {
+
+    section#sidebar:not([data-sort='custom']) > div.scrollBox ul li.isDragged {
       display: none;
     }
   }

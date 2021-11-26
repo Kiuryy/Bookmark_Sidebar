@@ -12,6 +12,7 @@
         let oldAboveElm = null;
         let oldTopVal = 0;
         let dirOpenTimeout = null;
+        let sort = null;
 
         const edgeScroll = {
             running: false,
@@ -47,6 +48,7 @@
             dragInitialElm.remove();
             draggedElm.remove();
             ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
+            ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
 
             $.delay(500).then(() => {
                 ext.helper.toggle.removeSidebarHoverClass();
@@ -96,6 +98,7 @@
                 ext.helper.tooltip.close();
                 ext.elm.iframeBody.addClass($.cl.drag.isDragged);
                 ext.helper.toggle.addSidebarHoverClass();
+                sort = ext.helper.model.getData("u/sort");
 
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
@@ -104,6 +107,7 @@
                 e.preventDefault();
                 e.stopPropagation();
                 edgeScroll.posY = null;
+                ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
 
                 if (!ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // nothing has been dragged
                     return;
@@ -155,7 +159,6 @@
 
                 ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
                 ext.helper.toggle.removeSidebarHoverClass();
-
             });
         };
 
@@ -207,6 +210,7 @@
                 ext.helper.selection.select(id);
             }
 
+            sort = ext.helper.model.getData("u/sort");
             const elmParent = elm.parent("li");
             const parentTrigger = elmParent.parent("ul").prev("a");
 
@@ -290,35 +294,47 @@
          */
         const dragend = async () => {
             clearDirOpenTimeout();
-
             const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
-            const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
-            const entryElm = draggedElm.data("elm");
-            const elm = entryElm.children("a");
-            const type = getDragType(elm);
 
             if (isDraggedElementOutside(draggedElm)) {// cancel drop if mouse position is outside the sidebar
                 this.cancel();
             } else { // animate the helper back to the new position and save it
                 draggedElm.addClass($.cl.drag.snap);
 
-                const parentId = entryElm.parent("ul").prev("a").attr($.attr.id);
+                const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
+                let entryElm = draggedElm.data("elm");
+                const elm = entryElm.children("a");
+                const type = getDragType(elm);
+                const parentList = entryElm.parent("ul");
+                const parentId = parentList.prev("a").attr($.attr.id);
+                const elmId = elm.attr($.attr.id);
                 let index = 0;
 
-                entryElm.prevAll("li").forEach((el) => {
-                    if (el !== dragInitialElm) {
-                        index++;
+                if (sort.name === "custom") {
+                    entryElm.prevAll("li").forEach((el) => {
+                        if (el !== dragInitialElm) {
+                            index++;
+                        }
+                    });
+                } else {
+                    const index = await ext.helper.bookmark.getBookmarkIndexInDirectory(elmId, parentId);
+
+                    if (index === -1) {
+                        entryElm = entryElm.appendTo(parentList);
+                    } else {
+                        const prevElm = parentList.children(`li:not(.${$.cl.drag.dragInitial})`).eq(index);
+                        entryElm = entryElm.insertAfter(prevElm);
                     }
-                });
+                }
 
                 if (type === "pinned") { // save position of pinned entry
                     ext.helper.bookmark.reorderPinnedEntries({
-                        id: entryElm.children("a").attr($.attr.id),
+                        id: elmId,
                         prevId: entryElm.prev("li").children("a").attr($.attr.id)
                     });
                 } else { // save bookmark/directory position
                     await ext.helper.model.call("moveBookmark", {
-                        id: entryElm.children("a").attr($.attr.id),
+                        id: elmId,
                         parentId: parentId,
                         index: index
                     });
@@ -329,6 +345,7 @@
                 }
 
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
+                ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
 
                 $.delay().then(() => {
                     const boundClientRect = entryElm[0].getBoundingClientRect();
@@ -400,6 +417,8 @@
                 bookmarkElm = draggedElm.data("elm");
             }
 
+            ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
+
             if (isDraggedElementOutside(draggedElm || leftVal)) { // dragged outside the sidebar -> mouseup will cancel
                 clearDirOpenTimeout();
                 ext.elm.iframeBody.addClass($.cl.drag.cancel);
@@ -433,7 +452,13 @@
                         if (boundClientRect.top > topVal) {
                             return false;
                         } else if (newAboveElm.elm === null || newAboveElm.diff > diff) {
-                            newAboveElm = {elm: elmObj, height: elmObj[0].offsetHeight, diff: diff};
+                            const isDir = elmObj.children("a").eq(0).hasClass($.cl.sidebar.bookmarkDir);
+
+                            if (sort.name !== "custom" && !isDir) { // every other sorting than "custom" is only folder-based -> determine parent folder of the element
+                                newAboveElm = {elm: elmObj.parents("li").eq(0), height: elmObj[0].offsetHeight, diff: diff};
+                            } else {
+                                newAboveElm = {elm: elmObj, height: elmObj[0].offsetHeight, diff: diff};
+                            }
                         }
                     }
                 });
@@ -442,24 +467,20 @@
             if (newAboveElm.elm && newAboveElm.elm !== oldAboveElm) {
                 oldAboveElm = newAboveElm.elm;
                 const newAboveLink = newAboveElm.elm.children("a").eq(0);
+                const parentElm = newAboveElm.elm.parents("li").eq(0);
+                const isTopLevel = !parentElm || parentElm.length() === 0;
                 const aboveIsDir = newAboveLink.hasClass($.cl.sidebar.bookmarkDir);
                 const hoverPosPercentage = newAboveElm.diff / newAboveElm.height * 100;
 
                 clearDirOpenTimeout(newAboveLink);
 
                 if (newAboveElm.elm.nextAll("li:not(." + $.cl.drag.isDragged + ")").length() === 0 && hoverPosPercentage > 80) { // drag position is below the last element of a directory -> placeholder under the current directory
-                    const parentElm = newAboveElm.elm.parents("li").eq(0);
-
                     if (draggedElm && parentElm.parents("ul")[0] !== ext.elm.bookmarkBox.all.find("> ul")[0]) {
-                        const elm = bookmarkElm.insertAfter(parentElm);
-                        draggedElm.data("elm", elm);
+                        setDataElement(draggedElm, bookmarkElm.insertAfter(parentElm));
                     }
-                } else if (aboveIsDir && hoverPosPercentage < 60) { // directory is hovered
+                } else if (aboveIsDir && (hoverPosPercentage < 60 || sort.name !== "custom")) { // directory is hovered
                     if (newAboveLink.hasClass($.cl.sidebar.dirOpened)) { // opened directory
-                        const elm = bookmarkElm.prependTo(newAboveLink.next("ul"));
-                        if (draggedElm) {
-                            draggedElm.data("elm", elm);
-                        }
+                        setDataElement(draggedElm, bookmarkElm.prependTo(newAboveLink.next("ul")));
                     } else if (!newAboveLink.hasClass($.cl.sidebar.dirAnimated)) { // closed directory
                         if (dirOpenTimeout === null) {
                             dirOpenTimeout = {
@@ -476,19 +497,21 @@
                         newAboveLink.addClass($.cl.sidebar.dirOpened);
                         $("<ul></ul>").insertAfter(newAboveLink);
                     }
-                } else { // drag position is below a bookmark
+                } else if (!isTopLevel || type === "pinned") { // drag position is below a bookmark
                     clearDirOpenTimeout();
-
-                    const elm = bookmarkElm.insertAfter(newAboveElm.elm);
-                    if (draggedElm) {
-                        draggedElm.data("elm", elm);
-                    }
+                    setDataElement(draggedElm, bookmarkElm.insertAfter(newAboveElm.elm));
                 }
             } else if (type === "pinned") { // pinned entry -> no element above -> index = 0
-                const elm = bookmarkElm.prependTo(ext.elm.pinnedBox.children("ul"));
-                if (draggedElm) {
-                    draggedElm.data("elm", elm);
-                }
+                setDataElement(draggedElm, bookmarkElm.prependTo(ext.elm.pinnedBox.children("ul")));
+            }
+        };
+
+        const setDataElement = (draggedElm, dataElm) => {
+            if (draggedElm) {
+                draggedElm.data("elm", dataElm);
+            }
+            if (sort.name !== "custom") {
+                dataElm.parents("li").eq(0).addClass($.cl.drag.dragHover);
             }
         };
 

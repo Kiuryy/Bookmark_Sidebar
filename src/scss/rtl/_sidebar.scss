@@ -122,7 +122,7 @@ html[dir='rtl'] {
       }
     }
 
-    &[data-sort='custom'] {
+    &:not([data-sort$='-flat']) {
 
       > div#bookmarkBox {
 
@@ -130,13 +130,19 @@ html[dir='rtl'] {
           padding-right: $__bookmarksHorizontalPadding;
           padding-left: 46px;
         }
+
+        > ul > li > a > span.add {
+          right: unset;
+          left: 15px
+        }
       }
     }
 
-    &[data-sort='custom'] > div#bookmarkBox > ul > li > a > span.add,
-    &:not([data-sort='custom']) > div#bookmarkBox ul > li > a > span.add {
-      right: unset;
-      left: 15px
+    &:not([data-sort='custom']) > div#bookmarkBox > div.pinned a {
+
+      &:hover {
+        padding-left: $__bookmarksHorizontalPadding;
+      }
     }
 
     &.selectionMode {

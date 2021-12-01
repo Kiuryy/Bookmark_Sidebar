@@ -1,7 +1,7 @@
 
 body.dark {
 
-  div#search {
+  form#search {
 
     > input[type='text'] {
       background: $darkContentBackground2;
@@ -24,7 +24,7 @@ body.dark {
     }
   }
 
-  &.customBackground div#search {
+  &.customBackground form#search {
 
     > input[type='text'] {
       background: rgba($darkContentBackground, 0.7);

@@ -1,5 +1,5 @@
 
-div#search {
+form#search {
   position: relative;
   display: block;
   margin: 0 auto;
@@ -157,7 +157,7 @@ div#search {
   }
 }
 
-body.customBackground div#search {
+body.customBackground form#search {
 
   > input[type='text'] {
     background: rgba($contentBackground, 0.8);

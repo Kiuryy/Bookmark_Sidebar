@@ -81,7 +81,7 @@ body.dark {
       }
     }
 
-    div#search {
+    form#search {
 
       > select {
         background: lighten($darkContentBackground2, 5%);
@@ -124,7 +124,7 @@ body.dark {
 
     &.edit {
 
-      div#search > select.edit {
+      form#search > select.edit {
         background: rgba($darkContentBackground, 0.7);
       }
 

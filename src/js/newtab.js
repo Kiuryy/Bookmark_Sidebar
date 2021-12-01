@@ -14,10 +14,10 @@
             content: $("section#content"),
             topLinks: $("section#content > nav"),
             search: {
-                wrapper: $("div#search"),
-                field: $("div#search > input[type='text']"),
-                submit: $("div#search > button[type='submit']"),
-                speechSearch: $("div#search > a.speechSearch")
+                wrapper: $("form#search"),
+                field: $("form#search > input[type='text']"),
+                submit: $("form#search > button[type='submit']"),
+                speechSearch: $("form#search > a.speechSearch")
             },
             fallbackInfo: $("div#fallbackInfo"),
             gridLinks: $("div#gridLinks")

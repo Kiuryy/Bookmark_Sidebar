@@ -78,7 +78,7 @@ div#gridLinks {
   }
 }
 
-div#search.hidden ~ div#gridLinks {
+form#search.hidden ~ div#gridLinks {
   margin-top: 0;
 }
 

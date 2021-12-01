@@ -366,10 +366,10 @@
                 handleSpeechInput();
             });
 
-            n.elm.search.submit.on("click", (e) => {
+            n.elm.search.wrapper.on("submit", (e) => {
                 e.preventDefault();
-                e.stopPropagation();
-                const val = n.elm.search.field[0].value;
+                const val = n.elm.search.field[0].value.trim();
+
                 if (val && val.trim().length > 0) {
                     handleSearch(val);
                 } else if (searchEngineList[searchEngine.name]) {
@@ -393,17 +393,14 @@
             n.elm.search.field.on("keyup click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-
-                const val = e.currentTarget.value.trim();
                 const keyCode = event.which || event.keyCode;
 
-                if (keyCode === 13) {
-                    handleSearch(val);
-                } else if (keyCode === 40) {
+                if (keyCode === 40) {
                     selectSuggestion("next");
                 } else if (keyCode === 38) {
                     selectSuggestion("prev");
-                } else {
+                } else if (keyCode !== 13) {
+                    const val = e.currentTarget.value.trim();
                     n.elm.search.field.data("typedVal", val);
 
                     getSearchSuggestions(val).then((suggestions) => {

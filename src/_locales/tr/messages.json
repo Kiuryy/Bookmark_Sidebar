@@ -1028,6 +1028,9 @@
     "settings_surface": {
         "message": "Aray\u00fcz"
     },
+    "settings_surface_auto": {
+        "message": "Otomatik"
+    },
     "settings_color_scheme_desc": {
         "message": "Kenar \u00e7ubu\u011fu ba\u015fl\u0131k ve kutucuklar\u0131n rengi"
     },

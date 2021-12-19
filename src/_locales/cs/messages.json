@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Plocha"
     },
+    "settings_surface_auto": {
+        "message": "Automaticky"
+    },
+    "settings_surface_info": {
+        "message": "P\u0159izp\u016fsobte povrch postrann\u00edho panelu automaticky tak, aby odpov\u00eddal va\u0161emu syst\u00e9mu (sv\u011btl\u00fd nebo tmav\u00fd), nebo jej vyberte explicitn\u011b, abyste umo\u017enili dal\u0161\u00ed p\u0159izp\u016fsoben\u00ed barev."
+    },
     "settings_color_scheme_desc": {
         "message": "Barva hlavi\u010dky bo\u010dn\u00ed li\u0161ty, zatr\u017e\u00edtek, atd."
     },

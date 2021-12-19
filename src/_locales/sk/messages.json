@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Povrch"
     },
+    "settings_surface_auto": {
+        "message": "Automaticky"
+    },
+    "settings_surface_info": {
+        "message": "Automaticky prisp\u00f4sobi\u0165 povrch bo\u010dn\u00e9ho panela pod\u013ea nastavenia syst\u00e9mu alebo explicitn\u00fd v\u00fdber umo\u017e\u0148uj\u00faci \u010fal\u0161ie nastavenia farieb."
+    },
     "settings_color_scheme_desc": {
         "message": "Farba hlavi\u010dky panela, za\u0161krt\u00e1vac\u00edch pol\u00ed\u010dok at\u010f."
     },

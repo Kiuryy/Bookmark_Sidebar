@@ -64,7 +64,7 @@
                         this.checkLicenseKey(opts.licenseKey).then((response) => {
                             let returnData = {success: false};
 
-                            if (response.valid === true) { // valid license key -> reinitialize sidebar
+                            if (!!response.valid === true) { // valid license key -> reinitialize sidebar
                                 returnData.success = true;
 
                                 b.helper.model.setLicenseKey(opts.licenseKey).then((response) => {
@@ -99,11 +99,19 @@
                     }
                 }).then((xhr) => {
                     if (xhr.response && typeof xhr.response.valid !== "undefined") {
+                        if (!xhr.response.valid) {
+                            // eslint-disable-next-line no-console
+                            console.error("License key check: Invalid key", licenseKey, xhr);
+                        }
                         resolve({valid: xhr.response.valid});
                     } else {
+                        // eslint-disable-next-line no-console
+                        console.error("License key check: Invalid response", licenseKey, xhr);
                         resolve({valid: null});
                     }
-                }, () => {
+                }, (err) => {
+                    // eslint-disable-next-line no-console
+                    console.error("License key check: Request failed", licenseKey, err);
                     resolve({valid: null});
                 });
             });

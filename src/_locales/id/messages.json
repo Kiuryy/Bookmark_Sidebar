@@ -116,6 +116,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Jalan pintas keyboard"
     },
+    "contextmenu_select_entries": {
+        "message": "Pilih beberapa entri"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Pilih penanda"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Batal pilih penanda"
+    },
+    "contextmenu_select_dir": {
+        "message": "Pilih penanda"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Batal pilih penanda"
+    },
     "sort_label_custom": {
         "message": "Ditetapkan-pengguna"
     },

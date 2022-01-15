@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Bogm\u00e6rke"
     },
+    "header_selected_entries": {
+        "message": "valgt"
+    },
     "sidebar_dir_children": {
         "message": "Elementer"
     },
@@ -116,6 +119,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Tastatur genveje"
     },
+    "contextmenu_select_entries": {
+        "message": "V\u00e6lg flere poster"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "V\u00e6lg bogm\u00e6rke"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Frav\u00e6lg bogm\u00e6rke"
+    },
+    "contextmenu_select_dir": {
+        "message": "V\u00e6lg folder"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Frav\u00e6lg folder"
+    },
     "sort_label_custom": {
         "message": "Brugerdefineret"
     },
@@ -160,6 +178,9 @@
     },
     "overlay_update": {
         "message": "Opdat\u00e9r"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Vil du virkelig \u00e5bne alle {1} bogm\u00e6rker, inklusive undermappernes bogm\u00e6rker til de valgte mapper?"
     },
     "overlay_open_children": {
         "message": "\u00c5bn alle"
@@ -226,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Mapper"
+    },
+    "overlay_delete_selected": {
+        "message": "Slet valgte poster"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Vil du virkelig slette de valgte poster? Alle undermappers bogm\u00e6rker til de valgte mapper vil ogs\u00e5 blive slettet."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "\u00c6ndret"

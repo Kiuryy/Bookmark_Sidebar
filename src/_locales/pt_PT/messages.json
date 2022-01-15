@@ -17,6 +17,9 @@
     "header_bookmarks_single": {
         "message": "Marcador"
     },
+    "header_selected_entries": {
+        "message": "selecionado"
+    },
     "sidebar_dir_children": {
         "message": "Elementos"
     },
@@ -116,6 +119,9 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Teclas de atalho"
     },
+    "contextmenu_select_entries": {
+        "message": "Selecionar v\u00e1rias entradas"
+    },
     "sort_label_custom": {
         "message": "Definido pelo utilizador"
     },
@@ -160,6 +166,9 @@
     },
     "overlay_update": {
         "message": "Atualizar"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Quer mesmo abrir todos os marcadores {1}, incluindo as sub-pastas de marcadores das pastas selecionadas?"
     },
     "overlay_open_children": {
         "message": "Abrir todos"
@@ -1034,6 +1043,12 @@
     "settings_newtab_override_desc": {
         "message": "A extens\u00e3o deve substituir sua p\u00e1gina nova guia atual com uma p\u00e1gina personalizada ou um site que deve ser carregado ao abrir uma nova guia?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Pr\u00e9-visualizar"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configurar"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Abrir a barra lateral automaticamente"
     },
@@ -1225,6 +1240,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Pode mudar o desenho inteiro da sua barra lateral com apenas um clique quando instala outro tema. Estes podem ser personalizados com os controlos de deslizamento e op\u00e7\u00f5es de cores."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Selecione um m\u00e9todo de pagamento abaixo e escolha o montante desejado a pagar no pr\u00f3ximo passo."
     },
     "premium_pay_select_payment_method": {
         "message": "Selecione um m\u00e9todo de pagamento"

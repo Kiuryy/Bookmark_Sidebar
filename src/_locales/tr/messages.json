@@ -1031,6 +1031,9 @@
     "settings_surface_auto": {
         "message": "Otomatik"
     },
+    "settings_surface_info": {
+        "message": "Kenar \u00e7ubu\u011funun y\u00fczeyini sisteminize (a\u00e7\u0131k veya koyu) uyacak \u015fekilde otomatik olarak uyarlay\u0131n veya daha fazla renk \u00f6zelle\u015ftirmesine izin vermek i\u00e7in a\u00e7\u0131k\u00e7a se\u00e7in."
+    },
     "settings_color_scheme_desc": {
         "message": "Kenar \u00e7ubu\u011fu ba\u015fl\u0131k ve kutucuklar\u0131n rengi"
     },

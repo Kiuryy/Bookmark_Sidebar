@@ -1028,6 +1028,12 @@
     "settings_surface": {
         "message": "Yta"
     },
+    "settings_surface_auto": {
+        "message": "Automagiskt"
+    },
+    "settings_surface_info": {
+        "message": "Anpassa sidof\u00e4ltets yta automatiskt till att matcha systeminst\u00e4llningar (Ljust eller m\u00f6rkt), eller v\u00e4lj det uttryckligen f\u00f6r att ytterligare v\u00e4lja f\u00e4rginst\u00e4llningar."
+    },
     "settings_color_scheme_desc": {
         "message": "F\u00e4rgen p\u00e5 sidof\u00e4ltet, kryssrutor etc."
     },

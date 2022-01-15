@@ -1,0 +1,530 @@
+{
+    "extension_name": {
+        "message": "Gr\u0101matz\u012bmju s\u0101nu josla"
+    },
+    "extension_desc": {
+        "message": "P\u0101rl\u016bkprogrammas log\u0101 pievieno p\u0101rsl\u0113dzamu s\u0101na joslu ar vis\u0101m j\u016bsu gr\u0101matz\u012bm\u0113m."
+    },
+    "extension_version": {
+        "message": "Versija"
+    },
+    "extension_last_update": {
+        "message": "P\u0113d\u0113jo reizi atjainin\u0101ts {1}"
+    },
+    "header_bookmarks": {
+        "message": "Gr\u0101matz\u012bmes"
+    },
+    "header_bookmarks_single": {
+        "message": "Gr\u0101matz\u012bme"
+    },
+    "header_selected_entries": {
+        "message": "atlas\u012btie"
+    },
+    "sidebar_dir_children": {
+        "message": "Elementi"
+    },
+    "sidebar_search_placeholder": {
+        "message": "Mekl\u0113t gr\u0101matz\u012bmi"
+    },
+    "sidebar_search_no_results": {
+        "message": "Neviena gr\u0101matz\u012bme neatbilst j\u016bsu mekl\u0113\u0161anas krit\u0113rijam"
+    },
+    "sidebar_copied_to_clipboard": {
+        "message": "Saite nokop\u0113ta"
+    },
+    "sidebar_deleted": {
+        "message": "No\u0146emts"
+    },
+    "sidebar_undo_deletion": {
+        "message": "Atsaukt"
+    },
+    "more_link": {
+        "message": "Uzzin\u0101t vair\u0101k"
+    },
+    "contextmenu_edit_bookmark": {
+        "message": "Labot gr\u0101matz\u012bmi"
+    },
+    "contextmenu_edit_dir": {
+        "message": "Labot sada\u013cu"
+    },
+    "contextmenu_edit_separator": {
+        "message": "Labot Atdal\u012btaju"
+    },
+    "contextmenu_delete_bookmark": {
+        "message": "Izdz\u0113st gr\u0101matz\u012bmi"
+    },
+    "contextmenu_delete_dir": {
+        "message": "Izdz\u0113st sada\u013cu"
+    },
+    "contextmenu_delete_separator": {
+        "message": "Izdz\u0113st atdal\u012bt\u0101ju"
+    },
+    "contextmenu_infos": {
+        "message": "Inform\u0101cija"
+    },
+    "contextmenu_new_tab": {
+        "message": "Atv\u0113rt jaun\u0101 ciln\u0113"
+    },
+    "contextmenu_current_tab": {
+        "message": "Atv\u0113rt \u0161aj\u0101 ciln\u0113"
+    },
+    "contextmenu_new_window": {
+        "message": "Atv\u0113rt jaun\u0101 log\u0101"
+    },
+    "contextmenu_new_tab_incognito": {
+        "message": "Atv\u0113rt inkognito log\u0101"
+    },
+    "contextmenu_copy": {
+        "message": "Kop\u0113t URL starpliktuv\u0113"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Pievienot gr\u0101matz\u012bmi"
+    },
+    "contextmenu_add": {
+        "message": "Pievienot ierakstu"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "P\u0101rbaud\u012bt gr\u0101matz\u012bmes"
+    },
+    "contextmenu_toggle_hidden": {
+        "message": "Par\u0101d\u012bt apsl\u0113ptos ierakstus"
+    },
+    "contextmenu_close_all_directories": {
+        "message": "Aizv\u0113rt visas sada\u013cas"
+    },
+    "contextmenu_reload_sidebar": {
+        "message": "P\u0101rl\u0101d\u0113t s\u0101na joslu"
+    },
+    "contextmenu_open_children": {
+        "message": "Atv\u0113rt gr\u0101matz\u012bmes"
+    },
+    "contextmenu_hide_from_sidebar": {
+        "message": "Pasl\u0113pt no s\u0101na joslas"
+    },
+    "contextmenu_show_in_sidebar": {
+        "message": "Par\u0101d\u012bt s\u0101na josl\u0101"
+    },
+    "contextmenu_show_in_dir": {
+        "message": "Par\u0101d\u012bt sada\u013c\u0101"
+    },
+    "contextmenu_pin": {
+        "message": "Piespraust aug\u0161\u0101"
+    },
+    "contextmenu_unpin": {
+        "message": "No\u0146emt no aug\u0161as"
+    },
+    "contextmenu_bookmark_manager": {
+        "message": "Gr\u0101matz\u012bmju p\u0101rvaldnieks"
+    },
+    "contextmenu_keyboard_shortcuts": {
+        "message": "Tastat\u016bras \u012bsce\u013ci"
+    },
+    "contextmenu_select_entries": {
+        "message": "Atlas\u012bt vair\u0101kus ierakstus"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Atlas\u012bt gr\u0101matz\u012bmi"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Atcelt gr\u0101matz\u012bmes atlasi"
+    },
+    "contextmenu_select_dir": {
+        "message": "Atlas\u012bt mapi"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Atcelt mapes atlas\u012b\u0161anu"
+    },
+    "sort_label_custom": {
+        "message": "Lietot\u0101ja-izveidots"
+    },
+    "sort_label_alphabetical": {
+        "message": "Alfab\u0113ta sec\u012bb\u0101"
+    },
+    "sort_label_most_used": {
+        "message": "Bie\u017e\u0101k izmantotais"
+    },
+    "sort_label_recently_used": {
+        "message": "Nesen izmantots"
+    },
+    "sort_label_recently_added": {
+        "message": "Nesen pievienots"
+    },
+    "sort_view_as_tree": {
+        "message": "Par\u0101d\u012bt sada\u013cas"
+    },
+    "sort_most_used_per_month": {
+        "message": "M\u0113nes\u012b"
+    },
+    "overlay_bookmark_title": {
+        "message": "Virsraksts"
+    },
+    "overlay_bookmark_url": {
+        "message": "URL"
+    },
+    "overlay_bookmark_additional_info": {
+        "message": "Papildus inform\u0101cija"
+    },
+    "overlay_cancel": {
+        "message": "Atcelt"
+    },
+    "overlay_close": {
+        "message": "Aizv\u0113rt"
+    },
+    "overlay_save": {
+        "message": "Saglab\u0101t"
+    },
+    "overlay_delete": {
+        "message": "Izdz\u0113st"
+    },
+    "overlay_update": {
+        "message": "Atjainin\u0101t"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Vai tie\u0161\u0101m v\u0113laties atv\u0113rt visas {1} gr\u0101matz\u012bmes, tostarp atlas\u012bto apak\u0161mapju gr\u0101matz\u012bmes?"
+    },
+    "overlay_open_children": {
+        "message": "Atv\u0113rt visas"
+    },
+    "overlay_confirm_open_children": {
+        "message": "Vai j\u016bs tie\u0161\u0101m v\u0113laties atv\u0113rt visas {1} apak\u0161mapju gr\u0101matz\u012bmes?"
+    },
+    "overlay_hide_from_sidebar": {
+        "message": "Pasl\u0113pt no s\u0101njoslas"
+    },
+    "overlay_hide_bookmark_confirm": {
+        "message": "Vai j\u016bs tie\u0161\u0101m v\u0113laties pasl\u0113pt \u0161o gr\u0101matz\u012bmi no s\u0101njoslas?"
+    },
+    "overlay_hide_dir_confirm": {
+        "message": "Vai j\u016bs tie\u0161\u0101m v\u0113laties pasl\u0113pt \u0161o mapi no s\u0101njoslas? Visas apak\u0161mapju gr\u0101matz\u012bmes ar\u012b tiks pasl\u0113ptas."
+    },
+    "overlay_delete_bookmark_confirm": {
+        "message": "Vai j\u016bs tie\u0161\u0101m v\u0113laties dz\u0113st \u0161o gr\u0101matz\u012bmi?"
+    },
+    "overlay_delete_dir_confirm": {
+        "message": "Vai j\u016bs tie\u0161\u0101m v\u0113laties dz\u0113st \u0161o mapi? Visas apak\u0161mapju gr\u0101matz\u012bmes ar\u012b tiks dz\u0113stas."
+    },
+    "overlay_label_bookmark": {
+        "message": "Gr\u0101matz\u012bme"
+    },
+    "overlay_label_dir": {
+        "message": "Mape"
+    },
+    "overlay_label_separator": {
+        "message": "Atdal\u012bt\u0101js"
+    },
+    "overlay_add_position": {
+        "message": "Poz\u012bcija"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Pievienot mapes s\u0101kum\u0101"
+    },
+    "overlay_add_position_append": {
+        "message": "Pievienot mapes beig\u0101s"
+    },
+    "overlay_separator_title_desc": {
+        "message": "P\u0113c izv\u0113les varat ievad\u012bt nosaukumu. Tas tiks par\u0101d\u012bts atdal\u012b\u0161anas l\u012bnijas aug\u0161pus\u0113 un var pal\u012bdz\u0113t sak\u0101rtot gr\u0101matz\u012bmju sarakstu."
+    },
+    "overlay_bookmark_views": {
+        "message": "Skati"
+    },
+    "overlay_bookmark_views_single": {
+        "message": "Skats"
+    },
+    "overlay_bookmark_views_since": {
+        "message": "Ierakst\u012bts kop\u0161"
+    },
+    "overlay_bookmark_views_per_month": {
+        "message": "ik pa m\u0113nesi"
+    },
+    "overlay_bookmark_created_date": {
+        "message": "Izveidots"
+    },
+    "overlay_dir_children": {
+        "message": "Elementi"
+    },
+    "overlay_dir_children_bookmarks": {
+        "message": "Gr\u0101matz\u012bmes"
+    },
+    "overlay_dir_children_dirs": {
+        "message": "Mapes"
+    },
+    "overlay_delete_selected": {
+        "message": "Dz\u0113st atlas\u012btos ierakstus"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Vai tie\u0161\u0101m v\u0113laties dz\u0113st atlas\u012btos ierakstus? Tiks dz\u0113stas ar\u012b visas atlas\u012bt\u0101s apak\u0161mapju gr\u0101matz\u012bmes."
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Main\u012bts"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "Lauzts"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Duplik\u0101ti"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Tuk\u0161as mapes"
+    },
+    "overlay_check_bookmarks_loading": {
+        "message": "P\u0101rbauda gr\u0101matz\u012bmju URL"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Atjaunin\u0101jums atlas\u012bts"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "No\u0146emt atlas\u012btos"
+    },
+    "overlay_check_bookmarks_no_results": {
+        "message": "Visi gr\u0101matz\u012bmju URL ir der\u012bgim"
+    },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Nav main\u012btu gr\u0101matz\u012bmju URL"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Nav lauztu gr\u0101matz\u012bmju URL"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Nav gr\u0101matz\u012bmju URL duplik\u0101tu"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Nav mapju bez gr\u0101matz\u012bm\u0113m"
+    },
+    "newtab_title": {
+        "message": "Jauna cilne"
+    },
+    "newtab_grid_links_default": {
+        "message": "Popul\u0101r\u0101k\u0101s lapas"
+    },
+    "newtab_grid_links_recently_used": {
+        "message": "Nesen lietot\u0101s gr\u0101matz\u012bmes"
+    },
+    "newtab_grid_links_most_used": {
+        "message": "Bie\u017e\u0101k lietot\u0101s gr\u0101matz\u012bmes"
+    },
+    "newtab_grid_links_custom": {
+        "message": "Lietot\u0101ja defin\u0113tie ieraksti"
+    },
+    "newtab_grid_links_hidden": {
+        "message": "Ner\u0101d\u012bt \u0161\u012bs lapas"
+    },
+    "newtab_grid_links_appearance_thumbnail": {
+        "message": "R\u0101d\u012bt lapu priek\u0161skat\u012bjumus"
+    },
+    "newtab_grid_links_appearance_favicon": {
+        "message": "R\u0101d\u012bt lapu s\u012bkikonas"
+    },
+    "newtab_grid_links_grid_size": {
+        "message": "Re\u017e\u0123a izm\u0113rs"
+    },
+    "newtab_search_placeholder": {
+        "message": "Mekl\u0113t {1} vai rakst\u012bt URL adresi"
+    },
+    "newtab_search_field_show": {
+        "message": "R\u0101d\u012bt mekl\u0113\u0161anas lauku"
+    },
+    "newtab_search_field_hide": {
+        "message": "Sl\u0113pt mekl\u0113\u0161anas lauku"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Run\u0101 tagad"
+    },
+    "newtab_speech_search_error": {
+        "message": "Lai iesl\u0113gtu runas mekl\u0113\u0161anu, you j\u0101at\u013cauj dator\u0101 mikrofona pieeja."
+    },
+    "newtab_search_engine_headline": {
+        "message": "Mekl\u0113\u0161anas r\u012bks."
+    },
+    "newtab_search_engine_custom": {
+        "message": "Lietot\u0101ja-izveidots"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Virsraksts"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "M\u0101jaslapa URL adrese"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "Mekl\u0113jamo rezult\u0101tu URL adreses"
+    },
+    "newtab_upload_background": {
+        "message": "Iel\u0101d\u0113t fona bildi"
+    },
+    "newtab_fallback_headline_general": {
+        "message": "Kautkas blo\u0137\u0113jot nepie\u013cauj s\u0101nu r\u012bku"
+    },
+    "newtab_fallback_headline_webstore": {
+        "message": "S\u0101nu riks nevar tikt izmantots {browserName} r\u012bku veikal\u0101"
+    },
+    "newtab_fallback_headline_extension_page": {
+        "message": "S\u0101nu r\u012bks nevar tikt izmantots papildin\u0101jumu lap\u0101s"
+    },
+    "newtab_fallback_headline_new_tab": {
+        "message": "S\u0101nu r\u012bks nevar tikt izmantots noklusejuma jaunas cilnes lap\u0101"
+    },
+    "newtab_fallback_headline_system": {
+        "message": "S\u0101njoslu nevar izmantot {browserName} sist\u0113mas lap\u0101s"
+    },
+    "newtab_fallback_headline_url_filter": {
+        "message": "Viena no j\u016bsu URL noteikumiem neat\u013c\u0101va s\u0101nujoslai atv\u0113rties"
+    },
+    "newtab_fallback_desc": {
+        "message": "T\u0101 viet\u0101 esam atv\u0113ru\u0161i jaunu cilni ar s\u0101njoslu."
+    },
+    "newtab_fallback_set_as_new_tab": {
+        "message": "Vienm\u0113r r\u0101d\u012bt \u0161o lapu atverot jaunu cilni"
+    },
+    "status_service_unavailable_headline": {
+        "message": "Pakalpojums nav pieejams"
+    },
+    "status_feedback_unavailable_desc": {
+        "message": "Atsauksmju pakalpojums pa\u0161laik nav pieejams. Ja v\u0113laties sniegt atsauksmes, l\u016bdzu, nos\u016btiet man e-pastu."
+    },
+    "status_translation_unavailable_desc": {
+        "message": "Tulko\u0161anas pakalpojums \u0161obr\u012bd nav pieejams. L\u016bdzu, pam\u0113\u0123iniet v\u0113lreiz v\u0113l\u0101k."
+    },
+    "status_background_disconnected_reload_action": {
+        "message": "Tagad p\u0101rl\u0101d\u0113t"
+    },
+    "status_background_disconnected_reload_desc": {
+        "message": "Papla\u0161in\u0101juma atjaunin\u0101juma d\u0113\u013c \u0161\u012b lapa ir j\u0101iel\u0101d\u0113 atk\u0101rtoti."
+    },
+    "keyboard_shortcuts_key_tab": {
+        "message": "Tab"
+    },
+    "keyboard_shortcuts_key_shift": {
+        "message": "Shift"
+    },
+    "keyboard_shortcuts_key_enter": {
+        "message": "Enter"
+    },
+    "keyboard_shortcuts_key_ctrl": {
+        "message": "Ctrl"
+    },
+    "keyboard_shortcuts_key_cmd": {
+        "message": "Cmd"
+    },
+    "keyboard_shortcuts_key_del": {
+        "message": "Delete"
+    },
+    "keyboard_shortcuts_key_esc": {
+        "message": "Esc"
+    },
+    "keyboard_shortcuts_tab_desc": {
+        "message": "Novieto kursoru uz n\u0101kamo vai iepriek\u0161\u0113jo ierakstu s\u0101njosl\u0101"
+    },
+    "keyboard_shortcuts_enter_desc": {
+        "message": "Noklik\u0161\u0137ini uz iraksta uz kura novietots kursors"
+    },
+    "keyboard_shortcuts_shift_enter_desc": {
+        "message": "Atver konteksta izv\u0113lni ierakst\u0101 uz kura novietots kursors"
+    },
+    "keyboard_shortcuts_ctrl_c_desc": {
+        "message": "Kop\u0113s ieraksta - uz kura novietots kursors - URL"
+    },
+    "keyboard_shortcuts_del_desc": {
+        "message": "No\u0146ems ierakstu uz kura novietots kursors"
+    },
+    "keyboard_shortcuts_esc_desc": {
+        "message": "Aizver s\u0101njoslu, atverto p\u0101rkl\u0101jumu vai kontekstizv\u0113lni"
+    },
+    "contribute_intro": {
+        "message": "Lai uzlabotu papla\u0161in\u0101jumu, es v\u0113l\u0113tos uzzin\u0101t vair\u0101k par to, k\u0101 lietot\u0101ji izmanto s\u0101njoslu un k\u0101du konfigur\u0101ciju vi\u0146i izmanto."
+    },
+    "contribute_notice": {
+        "message": "J\u016bs varat man pal\u012bdz\u0113t, daloties ar savu konfigur\u0101ciju"
+    },
+    "contribute_outro": {
+        "message": "Ja jums ir jaut\u0101jumi vai neskaidr\u012bbas par inform\u0101cijas kop\u012bgo\u0161anu, l\u016bdzu, nos\u016btiet man atsauksmes zi\u0146ojumu."
+    },
+    "contribute_share_config_label": {
+        "message": "Dal\u012bties ar konfigur\u0101ciju"
+    },
+    "contribute_share_config_desc": {
+        "message": "Varat kop\u012bgot savu konfigur\u0101ciju anon\u012bmi, kas pal\u012bdz man noteikt popul\u0101ros iestat\u012bjumus un noteikt, kas j\u0101uzlabo vai j\u0101maina."
+    },
+    "contribute_share_activity_label": {
+        "message": "Dal\u012bties ar aktivit\u0101ti"
+    },
+    "contribute_share_activity_desc1": {
+        "message": "Varat anon\u012bmi dal\u012bties ar sav\u0101m darb\u012bb\u0101m s\u0101njosl\u0101, kas pal\u012bdz man lab\u0101k izprast, k\u0101 s\u0101njosla tiek izmantota lauk\u0101. Inform\u0101cija par j\u016bsu gr\u0101matz\u012bm\u0113m vai apmekl\u0113taj\u0101m vietn\u0113m [b]netiks[\/b] m\u0113r\u012bta."
+    },
+    "contribute_share_activity_desc2": {
+        "message": "\u0160\u012b inform\u0101cija ir \u013coti noder\u012bga, lai noteiktu lietojam\u012bbas probl\u0113mas vai funkcijas, kuras, piem\u0113ram, netiek izmantotas p\u0101r\u0101k bie\u017ei."
+    },
+    "contribute_share_activity_examples_intro": {
+        "message": "Kop\u012bgoto datu piem\u0113ri:"
+    },
+    "contribute_share_activity_example_1": {
+        "message": "Vid\u0113jais lietot\u0101ja gr\u0101matz\u012bmju skaits?"
+    },
+    "contribute_share_activity_example_2": {
+        "message": "Kuru platformu izmanto lietot\u0101ji (Windows, Mac, Linux utt.)?"
+    },
+    "contribute_share_activity_example_3": {
+        "message": "Vai tiek izmantota mekl\u0113\u0161anas iesp\u0113ja?"
+    },
+    "contribute_share_activity_example_4": {
+        "message": "Vai lietot\u0101ji maina gr\u0101matz\u012bmju k\u0101rto\u0161anas sec\u012bbu?"
+    },
+    "contribute_share_activity_example_5": {
+        "message": "Cik bie\u017ei lietot\u0101ji p\u0101rk\u0101rto vai redi\u0123\u0113 ierakstus?"
+    },
+    "onboarding_title": {
+        "message": "Uzst\u0101d\u012b\u0161ana"
+    },
+    "onboarding_headline": {
+        "message": "Paldies, ka instal\u0113j\u0101t \u0161o papla\u0161in\u0101jumu."
+    },
+    "onboarding_setup": {
+        "message": "Uzst\u0101d\u012bt tagad"
+    },
+    "onboarding_skip": {
+        "message": "Izlaist uzst\u0101d\u012b\u0161anu"
+    },
+    "onboarding_sidebar_position_desc": {
+        "message": "Kur v\u0113laties, lai s\u0101njosla tiktu r\u0101d\u012bta?"
+    },
+    "onboarding_sidebar_open_action_desc": {
+        "message": "K\u0101 v\u0113laties atv\u0113rt s\u0101njoslu?"
+    },
+    "onboarding_sidebar_surface_desc": {
+        "message": "Kuram stilam tu dod priek\u0161roku?"
+    },
+    "onboarding_sidebar_surface_light": {
+        "message": "Gai\u0161s"
+    },
+    "onboarding_sidebar_surface_dark": {
+        "message": "Tum\u0161s"
+    },
+    "onboarding_handson_desc": {
+        "message": "Tagad varat pats izm\u0113\u0123in\u0101t s\u0101njoslu."
+    },
+    "onboarding_handson_mouse_desc_1": {
+        "message": "P\u0101rvietojiet kursoru uz loga {1} malu."
+    },
+    "onboarding_handson_mouse_desc_2": {
+        "message": "P\u0113c tam {1} noklik\u0161\u0137iniet ar peli, lai atv\u0113rtu s\u0101njoslu."
+    },
+    "onboarding_handson_icon_desc": {
+        "message": "Noklik\u0161\u0137iniet uz papla\u0161in\u0101juma ikonas p\u0101rl\u016bkprogrammas aug\u0161da\u013c\u0101, lai atv\u0113rtu s\u0101njoslu."
+    },
+    "onboarding_left": {
+        "message": "Pa kreisi"
+    },
+    "onboarding_right": {
+        "message": "Pa labi"
+    },
+    "onboarding_finish_desc": {
+        "message": "Izbaudiet s\u0101njoslu."
+    },
+    "onboarding_finish_notice": {
+        "message": "Ja jums bie\u017ei ir j\u0101noklik\u0161\u0137ina uz liet\u0101m p\u0101rl\u016bkprogrammas loga {1} pus\u0113, iesp\u0113jams, v\u0113l\u0113sities main\u012bt s\u0101njoslas vertik\u0101lo novietojumu, kad t\u0101 tiek atv\u0113rta, lai izvair\u012btos no nejau\u0161as atv\u0113r\u0161anas."
+    },
+    "onboarding_goto_settings": {
+        "message": "V\u0113l iestat\u012bjumu"
+    },
+    "onboarding_goto_appearance": {
+        "message": "Konfigur\u0113t izskatu"
+    }
+}

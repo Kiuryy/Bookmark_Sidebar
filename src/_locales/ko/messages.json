@@ -9,7 +9,7 @@
         "message": "\ubc84\uc804"
     },
     "extension_last_update": {
-        "message": "{1}\uc5d0 \ub9c8\uc9c0\ub9c9\uc73c\ub85c \uc218\uc815\ub428"
+        "message": "\ucd5c\uadfc \uc218\uc815\uc77c : {1}"
     },
     "header_bookmarks": {
         "message": "\ubd81\ub9c8\ud06c"
@@ -48,7 +48,7 @@
         "message": "\ud3f4\ub354 \uc218\uc815"
     },
     "contextmenu_edit_separator": {
-        "message": "\uad6c\ubd84\uc120\uc218\uc815"
+        "message": "\uad6c\ubd84\uc120 \uc218\uc815"
     },
     "contextmenu_delete_bookmark": {
         "message": "\ubd81\ub9c8\ud06c \uc0ad\uc81c"

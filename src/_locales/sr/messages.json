@@ -5,11 +5,20 @@
     "extension_desc": {
         "message": "Dodaje promenljivu bo\u010dnu traku sa svim va\u0161im obele\u017eiva\u010dima na ivici prozora va\u0161eg internet pretra\u017eiva\u010da."
     },
+    "extension_version": {
+        "message": "Verzija"
+    },
+    "extension_last_update": {
+        "message": "Poslednji put a\u017eurirano {1}"
+    },
     "header_bookmarks": {
         "message": "Obele\u017eiva\u010di"
     },
     "header_bookmarks_single": {
         "message": "Obele\u017eiva\u010d"
+    },
+    "header_selected_entries": {
+        "message": "Izabrano"
     },
     "sidebar_dir_children": {
         "message": "Elementi"
@@ -65,6 +74,9 @@
     "contextmenu_new_tab_incognito": {
         "message": "Otvori u prozoru bez arhiviranja"
     },
+    "contextmenu_copy": {
+        "message": "Kopiraj URL"
+    },
     "contextmenu_add_bookmark": {
         "message": "Dodaj obele\u017eiva\u010d"
     },
@@ -106,6 +118,21 @@
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Skra\u0107enice sa tastaturom"
+    },
+    "contextmenu_select_entries": {
+        "message": "Izaberi vi\u0161e unosa"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Izaberi obele\u017eiva\u010d"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Poni\u0161ti izbor obele\u017eiva\u010da"
+    },
+    "contextmenu_select_dir": {
+        "message": "Izaberi direktorijum"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Poni\u0161ti izbor direktorijuma"
     },
     "sort_label_custom": {
         "message": "Korisni\u010dki definisano"
@@ -151,6 +178,9 @@
     },
     "overlay_update": {
         "message": "A\u017euriranje"
+    },
+    "overlay_confirm_open_selected": {
+        "message": "Da li \u017eelite da otvorite svih {1} obele\u017eiva\u010da, uklju\u010duju\u0107i obele\u017eiva\u010de u svim pod-direktorijumima odabranih direktorijuma?"
     },
     "overlay_open_children": {
         "message": "Otvori sve"
@@ -218,6 +248,12 @@
     "overlay_dir_children_dirs": {
         "message": "Direktorijumi"
     },
+    "overlay_delete_selected": {
+        "message": "Obri\u0161i izabrane objekte"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Da li \u017eelite da obri\u0161ete izabrane objekte? Svi obele\u017eiva\u010di u pod-direktorijumima \u0107e biti obrisani."
+    },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Izmenjeni"
     },
@@ -265,6 +301,9 @@
     },
     "newtab_grid_links_most_used": {
         "message": "Naj\u010de\u0161\u0107e kori\u0161\u0107eni obele\u017eiva\u010di"
+    },
+    "newtab_grid_links_custom": {
+        "message": "Objekti koje je korisnik definisao"
     },
     "newtab_grid_links_hidden": {
         "message": "Ne prikazuj stranice"
@@ -490,6 +529,9 @@
     },
     "settings_title": {
         "message": "Pode\u0161avanja"
+    },
+    "settings_menu_dashboard": {
+        "message": "Pregled"
     },
     "settings_menu_sidebar": {
         "message": "Bo\u010dna traka"
@@ -824,8 +866,11 @@
     "settings_filter_rules": {
         "message": "\u0160ablon URL(link)"
     },
+    "settings_import_export_headline": {
+        "message": "Uvezi\/Izvezi Pode\u0161avanja"
+    },
     "settings_import_export_notice": {
-        "message": "Pode\u0161avanja ekstenzija su sinhronizovana automatski izme\u0111u va\u0161ih uredjaja, ako ste prijavljeni na (ime pretraziva\u010da) sa svojim nalogom. Ako ne \u017eelite da se ulogujete ili da podelite va\u0161a pode\u0161avanja sa drugim ljudima, mo\u017eete koristiti Ubaciti\/Izvesti opciju."
+        "message": "Pode\u0161avanja ekstenzija su sinhronizovana automatski izme\u0111u va\u0161ih uredjaja, ako ste prijavljeni na {browserName} sa svojim nalogom. Ako ne \u017eelite da se ulogujete ili da podelite va\u0161a pode\u0161avanja sa drugim ljudima, mo\u017eete koristiti Uvezi\/Izvezi opciju"
     },
     "settings_import_export_desc": {
         "message": "Mo\u017eete izvesti va\u0161a pode\u0161avanja ekstenzije i sa\u010duvati ih lokalno na va\u0161 ra\u010dunar. Mo\u017eete ubaciti prethodno izvedene fajlove na bilo koji ra\u010dunar, gde je ekstenzija instalirana."
@@ -842,6 +887,12 @@
     "settings_import_failed": {
         "message": "Neuspe\u0161no ubacivanje pode\u0161avanja. Odaberite ispravan fajl."
     },
+    "settings_import_export_bookmarks": {
+        "message": "Uvezi\/Izvezi Obele\u017eiva\u010de"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "Ovo je funkcija pretra\u017eiva\u010da i nije deo dodatka. Pro\u010ditajte vi\u0161e o tome kako da uvezete i izvezete na {browserName}."
+    },
     "settings_theme_changed": {
         "message": "Tema uspe\u0161no promenjena"
     },
@@ -856,6 +907,12 @@
     },
     "settings_surface": {
         "message": "Povrsina"
+    },
+    "settings_surface_auto": {
+        "message": "Automatsko"
+    },
+    "settings_surface_info": {
+        "message": "Automatski prilagodite povr\u0161inu bo\u010dne trake tako da odgovara sistemu(svetlo ili tamno) ili je eksplicitno izaberite da biste omogu\u0107ili dalje prilago\u0111avanje boja."
     },
     "settings_color_scheme_desc": {
         "message": "Boja bocnog hedera, potvrdnih dugmica, itd."
@@ -878,6 +935,9 @@
     "settings_scroll_bar_width": {
         "message": "Sirina klizaca"
     },
+    "settings_icon_background_color": {
+        "message": "Boja pozadine"
+    },
     "settings_icon_color": {
         "message": "Boja"
     },
@@ -891,7 +951,7 @@
         "message": "Boja ikonice ce biti postavljena automatski kako bi se uklopila sa bojom sistema(svetla ili tamna). Takodje Vi mozete promeniti boju ikonice po Vasem izboru."
     },
     "settings_icon_color_desc_2": {
-        "message": "Izvinjavamo se, automatska boja ne radi kada koristite Vasu temu."
+        "message": "Automatska boja ne\u0107e raditi kada koristite prilago\u0111enu {browserName} temu."
     },
     "settings_indicator_width": {
         "message": "Sirina"
@@ -986,6 +1046,12 @@
     "settings_theme_glass_desc": {
         "message": "Ova tema \u010dini bo\u010dnu traku polovi\u010dno providnom i dodaje efekat staklene zamu\u0107enosti. Mo\u017eete je podesiti efekat i providnost bo\u010dne trake."
     },
+    "settings_theme_focus": {
+        "message": "Fokusna tema"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Ova tema smanjuje animacije i gu\u0161\u0107e raspore\u0111uje elemente radi pobolj\u0161anja produktivnosti i performansi."
+    },
     "settings_install_theme": {
         "message": "Instaliraj temu"
     },
@@ -1000,6 +1066,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "Da li dodatak moze da zameni trenutnu stranicu nove kartice sa prilago\u0111enom ili sajtom koju treba u\u010ditati prilikom otvaranja nove kartice?"
+    },
+    "settings_newtab_override_preview": {
+        "message": "Pregledaj"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfiguri\u0161i"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Otvori bo\u010dnu traku automatski"
@@ -1192,6 +1264,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Mo\u017eete zameniti ceo dizajn bo\u010dne trake jednim klikom instaliranjem druge teme. One tako\u0111e mogu biti prilago\u0111ivane sa dostupnim opcijama za kliza\u010de i boje."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Izaberite na\u010din pla\u0107anja i izaberite \u017eeljeni iznos koji \u017eelite da platite u slede\u0107em koraku."
     },
     "premium_pay_select_payment_method": {
         "message": "Odaberite nacin placanja"

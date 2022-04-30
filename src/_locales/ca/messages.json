@@ -1016,6 +1016,168 @@
     "settings_theme_changed": {
         "message": "Tema actualitzat correctament"
     },
+    "settings_presets": {
+        "message": "Estableix mides relatives"
+    },
+    "settings_presets_desc": {
+        "message": "Pot seleccionar mides predefinides per a la barra lateral. Aix\u00f2 canviar\u00e0 els controls lliscants en aquesta p\u00e0gina per a ajustar l'ample de la barra lateral, l'altura de les l\u00ednies, la mida de les icones i moltes m\u00e9s opcions."
+    },
+    "settings_color_scheme": {
+        "message": "Esquema de colors"
+    },
+    "settings_surface": {
+        "message": "Superf\u00edcie"
+    },
+    "settings_surface_auto": {
+        "message": "Automatitzaci\u00f3"
+    },
+    "settings_surface_info": {
+        "message": "Adapti la superf\u00edcie de la barra lateral autom\u00e0ticament perqu\u00e8 coincideixi amb el seu sistema (clar o fosc) o tri\u00ef-la expl\u00edcitament per a permetre una major personalitzaci\u00f3 del color."
+    },
+    "settings_color_scheme_desc": {
+        "message": "El color de la cap\u00e7alera de la barra lateral, caselles de selecci\u00f3, etc."
+    },
+    "settings_text_color": {
+        "message": "Color del text"
+    },
+    "settings_hover_color": {
+        "message": "Color quan passes el ratol\u00ed per sobre"
+    },
+    "settings_font_family": {
+        "message": "Tipografia"
+    },
+    "settings_font_family_default": {
+        "message": "Per defecte"
+    },
+    "settings_font_family_desc": {
+        "message": "La tipografia de la barra lateral i les superposicions"
+    },
+    "settings_scroll_bar_width": {
+        "message": "Amplada de la barra de despla\u00e7ament"
+    },
+    "settings_icon_background_color": {
+        "message": "Color del fons"
+    },
+    "settings_icon_color": {
+        "message": "Color"
+    },
+    "settings_icon_color_auto": {
+        "message": "Autom\u00e1ticament"
+    },
+    "settings_icon_color_custom": {
+        "message": "Personalitza"
+    },
+    "settings_icon_color_desc_1": {
+        "message": "El color de l'icona s'establir\u00e0 autom\u00e0ticament per combinar amb l'esquema de colors del teu sistema (clar o fosc). Tamb\u00e9 pots definir el teu propi color personalitzat per l'icona."
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Si us plau estigues al tanto que el color autom\u00e0tic no funcionar\u00e0 quan utilitzis un tema personalitzat a {browserName}."
+    },
+    "settings_indicator_width": {
+        "message": "Amplada"
+    },
+    "settings_indicator_color": {
+        "message": "Color"
+    },
+    "settings_indicator_icon_size": {
+        "message": "Mida de l'icona"
+    },
+    "settings_indicator_icon_color": {
+        "message": "Color de l'icona"
+    },
+    "settings_sidebar_width": {
+        "message": "Amplada"
+    },
+    "settings_header_height": {
+        "message": "Al\u00e7ada de la cap\u00e7alera"
+    },
+    "settings_sidebar_mask_color": {
+        "message": "Color de la m\u00e0scara"
+    },
+    "settings_background_transparency": {
+        "message": "Transpar\u00e8ncia del fons"
+    },
+    "settings_background_blur": {
+        "message": "Efecte de desenfocament del fons"
+    },
+    "settings_bookmarks_dir_icon": {
+        "message": "Icona de la carpeta"
+    },
+    "settings_bookmarks_dir_color": {
+        "message": "Color de l'icona de la carpeta"
+    },
+    "settings_bookmarks_font_size": {
+        "message": "Mida de la font dels marcadors"
+    },
+    "settings_bookmarks_icon_size": {
+        "message": "Mida dels icones dels marcadors"
+    },
+    "settings_directories_icon_size": {
+        "message": "Mida dels icones de les carpetes"
+    },
+    "settings_directory_arrows": {
+        "message": "Fletxes de les carpetes"
+    },
+    "settings_bookmarks_line_height": {
+        "message": "Altura de la l\u00ednia dels marcadors"
+    },
+    "settings_bookmarks_horizontal_padding": {
+        "message": "Espai interior horitzontal dels marcadors"
+    },
+    "settings_bookmarks_dir_indentation": {
+        "message": "Sagnat de la carpeta"
+    },
+    "settings_tooltip_font_size": {
+        "message": "Mida de font d'informaci\u00f3"
+    },
+    "settings_overlay_mask_color": {
+        "message": "Color de m\u00e0scara"
+    },
+    "settings_icon_shape": {
+        "message": "Aspecte"
+    },
+    "settings_custom_css": {
+        "message": "Estil de p\u00e0gina personalitzat"
+    },
+    "settings_custom_css_desc": {
+        "message": "Pot definir el seu propi full d'estil per a anul\u00b7lar l'estil predeterminat. Utilitzi aquesta opci\u00f3 nom\u00e9s si est\u00e0 familiaritzat amb CSS i sap el que est\u00e0 fent."
+    },
+    "settings_theme": {
+        "message": "Tema"
+    },
+    "settings_themes_notice": {
+        "message": "Pots triar el disseny b\u00e0sic de la barra lateral. El tema seleccionat pot ser personalitzat a trav\u00e9s dels controls i selectors de color disponibles."
+    },
+    "settings_available_themes": {
+        "message": "Temes disponibles"
+    },
+    "settings_show_themes": {
+        "message": "Mostrar temes disponibles"
+    },
+    "settings_theme_default": {
+        "message": "Tema per defecte"
+    },
+    "settings_theme_default_desc": {
+        "message": "Aquest tema li permet accedir als seus marcadors d'una manera neta i moderna. Molts elements s'acoloreixen en un esquema de color configurable."
+    },
+    "settings_theme_glass": {
+        "message": "Tema de vidre"
+    },
+    "settings_theme_glass_desc": {
+        "message": "Aquest tema fa que el fons de la barra lateral sigui semitransparent i li afegeix un efecte de vidre borr\u00f3s. Podeu ajustar aquest efecte i la transpar\u00e8ncia de la barra lateral."
+    },
+    "settings_theme_focus": {
+        "message": "Tema d'enfocament"
+    },
+    "settings_theme_focus_desc": {
+        "message": "Aquest tema redueix les animacions i organitza els elements m\u00e9s densos per a millorar la productivitat i el rendiment."
+    },
+    "settings_install_theme": {
+        "message": "Instal\u00b7lar tema"
+    },
+    "settings_installed_theme_info": {
+        "message": "Instal\u00b7lat actualment"
+    },
     "settings_newtab_desc": {
         "message": "Els navegadors basats en crom no permeten carregar extensions a la p\u00e0gina de pestanya nova per defecte. Per aix\u00f2, la caracter\u00edstica de la barra lateral no funciona. Per evitar aquest problema, es van afegir algunes opcions que us permetran accedir a les vostres adreces d'inter\u00e8s en obrir una pestanya nova d'una altra manera."
     },
@@ -1024,6 +1186,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "L'extensi\u00f3 hauria de substituir la vostra p\u00e0gina de pestanyes actual, ja sigui amb una mida o amb un lloc web que s'hauria de carregar en obrir una fitxa nova?"
+    },
+    "settings_newtab_override_preview": {
+        "message": "Previsualitzar"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Configurar"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "Obre la barra lateral autom\u00e0ticament"
@@ -1153,5 +1321,146 @@
     },
     "settings_saved_share_userdata": {
         "message": "Les vostres prefer\u00e8ncies s'han desat correctament"
+    },
+    "premium_popup_text": {
+        "message": "Ja has has provat Premium?"
+    },
+    "premium_restricted_text": {
+        "message": "Aquesta funci\u00f3 nom\u00e9s est\u00e0 disponible amb Premium"
+    },
+    "premium_desc_1": {
+        "message": "Amb Premium tindreu acc\u00e9s a funcions addicionals i m'ajudar\u00e0 a mantenir l'extensi\u00f3."
+    },
+    "premium_desc_2": {
+        "message": "Podeu consultar les funcions incloses a Premium a continuaci\u00f3. Totes les funcions clau de les extensions s\u00f3n gratu\u00eftes i no requereixen acc\u00e9s Premium. Podeu pagar el que creieu que val la pena l'extensi\u00f3 i el meu treball per accedir a aquestes funcions."
+    },
+    "premium_get_now": {
+        "message": "Fes-te Premium ara"
+    },
+    "premium_show_license_input": {
+        "message": "Ja tinc una clau de llic\u00e8ncia Premium"
+    },
+    "premium_already_activated": {
+        "message": "Ja est\u00e0 utilitzant Premium"
+    },
+    "premium_activate": {
+        "message": "Activa Premium"
+    },
+    "premium_license_key": {
+        "message": "Clau de llic\u00e8ncia"
+    },
+    "premium_feature_early_access_headline": {
+        "message": "Sigues el primer\/a en provar les noves caracter\u00edstiques addicionals"
+    },
+    "premium_feature_early_access_desc": {
+        "message": "Amb Premium tens acc\u00e9s a funcions in\u00e8dites, que actualment estan en desenvolupament o en prova."
+    },
+    "premium_feature_sidebar_width_headline": {
+        "message": "Canvieu l'amplada de la barra lateral en qualsevol moment"
+    },
+    "premium_feature_import_export_headline": {
+        "message": "Importa i exporta la teva configuraci\u00f3"
+    },
+    "premium_feature_custom_background_headline": {
+        "message": "Personalitza la teva p\u00e0gina de pestanya nova"
+    },
+    "premium_feature_custom_background_desc": {
+        "message": "Si utilitzeu la p\u00e0gina de pestanya nova d'aquesta extensi\u00f3, podeu configurar la vostra pr\u00f2pia imatge de fons perqu\u00e8 sembli encara m\u00e9s agradable."
+    },
+    "premium_feature_custom_css_headline": {
+        "message": "Personalitza-ho tot amb el teu propi full d'estil"
+    },
+    "premium_feature_custom_css_desc": {
+        "message": "Si esteu familiaritzat amb CSS, podeu canviar l'aspecte complet de la barra lateral afegint les vostres pr\u00f2pies definicions d'estil. Aix\u00f2 us permet personalitzar absolutament qualsevol cosa."
+    },
+    "premium_feature_linkchecker_headline": {
+        "message": "Comproveu les vostres adreces d'inter\u00e8s si hi ha enlla\u00e7os trencats o duplicats"
+    },
+    "premium_feature_linkchecker_desc": {
+        "message": "Podeu fer clic amb el bot\u00f3 dret a qualsevol carpeta de la barra lateral i fer una comprovaci\u00f3. La p\u00e0gina de resultats mostrar\u00e0 tots els URL actualitzats, els marcadors que ja no funcionen i els marcadors amb el mateix URL."
+    },
+    "premium_feature_themes_headline": {
+        "message": "Canvia el tema de la barra lateral"
+    },
+    "premium_feature_themes_desc": {
+        "message": "Podeu canviar tot el disseny de la barra lateral amb un sol clic instal\u00b7lant un altre tema. Tamb\u00e9 es poden personalitzar amb els controls lliscants i les opcions de color disponibles."
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "Seleccioneu un m\u00e8tode de pagament a continuaci\u00f3 i trieu l'import que voleu pagar al pas seg\u00fcent."
+    },
+    "premium_pay_select_payment_method": {
+        "message": "Seleccioneu una forma de pagament"
+    },
+    "premium_pay_what_you_want": {
+        "message": "Paga el que vulguis"
+    },
+    "premium_pay_creditcard": {
+        "message": "Targeta de cr\u00e8dit o d\u00e8bit"
+    },
+    "premium_pay_wechat_desc": {
+        "message": "Escaneja aquest codi QR a WeChat per continuar."
+    },
+    "premium_pay_contact": {
+        "message": "Si teniu cap problema amb el pagament o teniu cap pregunta, poseu-vos en contacte amb mi a {1}."
+    },
+    "premium_pay_price_total": {
+        "message": "Total"
+    },
+    "premium_pay_price_info": {
+        "message": "Es tracta d'un c\u00e0rrec \u00fanic i tamb\u00e9 inclou totes les funcions Premium futures."
+    },
+    "premium_pay_price_pay_what_you_want": {
+        "message": "Podeu pagar el que creieu que val la pena l'extensi\u00f3 i el meu treball per accedir a les funcions premium. Sempre rebr\u00e0s totes les funcions premium, independentment de quan estiguis disposat a pagar."
+    },
+    "premium_pay_eula": {
+        "message": "Acord de llic\u00e8ncia d'usuari final"
+    },
+    "premium_pay_eula_desc": {
+        "message": "He llegit i accepto l'[a]Acord de llic\u00e8ncia d'usuari final[\/a]"
+    },
+    "premium_pay_cancellation_policy": {
+        "message": "Pol\u00edtica de cancel\u00b7laci\u00f3"
+    },
+    "premium_pay_confirm_headline": {
+        "message": "Confirmeu la compra"
+    },
+    "premium_pay_buy": {
+        "message": "Compra Premium"
+    },
+    "premium_pay_verifying": {
+        "message": "Verificaci\u00f3 de la transacci\u00f3"
+    },
+    "premium_pay_purchase_id": {
+        "message": "ID de compra"
+    },
+    "premium_pay_success_headline": {
+        "message": "Gr\u00e0cies per la seva compra"
+    },
+    "premium_pay_success_info": {
+        "message": "{1} s'ha activat autom\u00e0ticament per a aquest dispositiu. No cal que facis res m\u00e9s."
+    },
+    "premium_pay_license_key_desc": {
+        "message": "Si voleu activar {1} en un altre dispositiu o despr\u00e9s de tornar a instal\u00b7lar l'extensi\u00f3, podeu introduir la clau seg\u00fcent a la configuraci\u00f3 Premium de l'extensi\u00f3:"
+    },
+    "premium_pay_info_email": {
+        "message": "Correu electr\u00f2nic"
+    },
+    "premium_pay_info_email_desc": {
+        "message": "Introdu\u00efu la vostra adre\u00e7a de correu electr\u00f2nic per rebre la clau de llic\u00e8ncia."
+    },
+    "premium_pay_info_name": {
+        "message": "Nom"
+    },
+    "premium_pay_info_zipcode": {
+        "message": "Codi postal"
+    },
+    "premium_pay_info_payment_method": {
+        "message": "M\u00e8tode de pagament"
+    },
+    "premium_pay_info_card_number": {
+        "message": "N\u00famero de targeta"
+    },
+    "premium_pay_info_card_expires": {
+        "message": "La targeta caduca"
     }
 }

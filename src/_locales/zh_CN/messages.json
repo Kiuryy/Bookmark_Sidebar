@@ -3,7 +3,7 @@
         "message": "\u4e66\u7b7e\u4fa7\u8fb9\u680f"
     },
     "extension_desc": {
-        "message": "\u5728\u6d4f\u89c8\u5668\u89c6\u56fe\u533a\u5de6\u4fa7\u6dfb\u52a0\u56fa\u5b9a\u5f0f\u7684, \u7ba1\u7406\u6240\u6709\u4e66\u7b7e\u7684\u4fa7\u8fb9\u680f."
+        "message": "\u5728\u6d4f\u89c8\u5668\u89c6\u56fe\u533a\u5de6\u4fa7\u6dfb\u52a0\u53ef\u8c03\u8282\u7684\u4fa7\u8fb9\u680f\u7ba1\u7406\u60a8\u7684\u4e66\u7b7e."
     },
     "extension_version": {
         "message": "\u7248\u672c"
@@ -81,7 +81,7 @@
         "message": "\u6dfb\u52a0\u4e66\u7b7e"
     },
     "contextmenu_add": {
-        "message": "\u6dfb\u52a0\u76ee\u5f55"
+        "message": "\u6dfb\u52a0\u9879\u76ee"
     },
     "contextmenu_check_bookmarks": {
         "message": "\u68c0\u67e5\u4e66\u7b7e"
@@ -129,10 +129,10 @@
         "message": "\u53cd\u5411\u9009\u62e9\u4e66\u7b7e"
     },
     "contextmenu_select_dir": {
-        "message": "\u9009\u62e9\u6587\u4ef6\u5939"
+        "message": "\u9009\u62e9\u76ee\u5f55"
     },
     "contextmenu_deselect_dir": {
-        "message": "\u53cd\u5411\u9009\u62e9\u6587\u4ef6\u5939"
+        "message": "\u53cd\u5411\u9009\u62e9\u76ee\u5f55"
     },
     "sort_label_custom": {
         "message": "\u81ea\u5b9a\u4e49"
@@ -327,7 +327,7 @@
         "message": "\u9690\u85cf\u641c\u7d22\u57df"
     },
     "newtab_speech_search_listening": {
-        "message": "\u73b0\u5728\u8bf7\u8bb2"
+        "message": "\u8bf7\u8bb2"
     },
     "newtab_speech_search_error": {
         "message": "\u60a8\u9700\u8981\u786e\u4fdd\u9ea6\u514b\u98ce\u53ef\u7528\u540e\u624d\u80fd\u8fdb\u884c\u8bed\u97f3\u641c\u7d22\u3002"
@@ -342,7 +342,7 @@
         "message": "\u6807\u9898"
     },
     "newtab_search_engine_custom_url_homepage": {
-        "message": "\u4e3b\u9875\u7684\u94fe\u63a5"
+        "message": "\u4e3b\u9875\u94fe\u63a5"
     },
     "newtab_search_engine_custom_url_results": {
         "message": "\u94fe\u63a5\u641c\u7d22\u7ed3\u679c"

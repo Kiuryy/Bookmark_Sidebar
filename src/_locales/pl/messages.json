@@ -45,7 +45,7 @@
         "message": "Edytuj zak\u0142adk\u0119"
     },
     "contextmenu_edit_dir": {
-        "message": "Edytuj pozycj\u0119"
+        "message": "Edytuj folder"
     },
     "contextmenu_edit_separator": {
         "message": "Edytuj separator"
@@ -66,7 +66,7 @@
         "message": "Otw\u00f3rz w nowej karcie"
     },
     "contextmenu_current_tab": {
-        "message": "Otw\u00f3rz w bie\u017c\u0105cym oknie"
+        "message": "Otw\u00f3rz w bie\u017c\u0105cej karcie"
     },
     "contextmenu_new_window": {
         "message": "Otw\u00f3rz w nowym oknie"
@@ -129,10 +129,10 @@
         "message": "Odznacz zak\u0142adki"
     },
     "contextmenu_select_dir": {
-        "message": "Zaznacz katalog"
+        "message": "Zaznacz folder"
     },
     "contextmenu_deselect_dir": {
-        "message": "Odznacz katalog"
+        "message": "Odznacz folder"
     },
     "sort_label_custom": {
         "message": "Ustawienie u\u017cytkownika"
@@ -1275,7 +1275,7 @@
         "message": "Opinie"
     },
     "settings_support_feedback_desc": {
-        "message": "Masz sugestie dotycz\u0105ce ulepsze\u0144, pytania, brakuje ci jakich\u015b ustawie\u0144 albo znalaz\u0142e\u015b b\u0142\u0105d? Aby poprawi\u0107 do\u015bwiadczenia zwi\u0105zane z u\u017cytkowaniem tego rozszerzenia, jestem got\u00f3w na ka\u017cd\u0105 opini\u0119, kt\u00f3r\u0105 chcesz mi przekaza\u0107."
+        "message": "Czy masz sugestie dotycz\u0105ce ulepsze\u0144, pytania, brakuje ci jakich\u015b ustawie\u0144 albo znalaz\u0142e\u015b b\u0142\u0105d? Aby poprawi\u0107 do\u015bwiadczenia zwi\u0105zane z u\u017cytkowaniem tego rozszerzenia, by\u0142bym bardzo wdzi\u0119czny za ka\u017cd\u0105 opini\u0119, kt\u00f3r\u0105 chcesz mi przekaza\u0107."
     },
     "settings_support_feedback_notice": {
         "message": "Prosz\u0119, napisz swoj\u0105 wiadomo\u015b\u0107 po angielsku, bo inaczej b\u0119d\u0119 mia\u0142 problemy ze zrozumieniem jej i odpowiedzeniem na ni\u0105."
@@ -1290,7 +1290,7 @@
         "message": "Rozmiar pliku {1} jest zbyt du\u017cy (> 1 MB)"
     },
     "settings_support_feedback_screenshot_error_amount": {
-        "message": "Mo\u017cesz maksymalnie za\u0142\u0105czy\u0107 {1} zrzut\u00f3w"
+        "message": "Mo\u017cesz maksymalnie za\u0142\u0105czy\u0107 {1} zrzut ekranu"
     },
     "settings_support_feedback_send": {
         "message": "Wy\u015blij opini\u0119"

@@ -714,7 +714,7 @@
         "message": "Expand all subfolders"
     },
     "settings_tips_tricks_expand_all_subfolders_desc": {
-        "message": "To quickly open a folder with all its subfolders opened, too, you can double click on a folder in the sidebar."
+        "message": "To quickly open a folder with all its subfolders opened, you can double click on a folder in the sidebar."
     },
     "settings_tips_tricks_keyboard_shortcuts": {
         "message": "Keyboard shortcuts"

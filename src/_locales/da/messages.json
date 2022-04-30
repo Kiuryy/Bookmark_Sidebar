@@ -36,7 +36,7 @@
         "message": "Fjernet"
     },
     "sidebar_undo_deletion": {
-        "message": "omg\u00f8r"
+        "message": "Fortryd"
     },
     "more_link": {
         "message": "L\u00e6r mere"
@@ -908,6 +908,12 @@
     "settings_surface": {
         "message": "Overflade"
     },
+    "settings_surface_auto": {
+        "message": "Automatisk"
+    },
+    "settings_surface_info": {
+        "message": "Tilpas sidebj\u00e6lkens farve automatisk til at matche farveskemaet p\u00e5 dit system (lys eller m\u00f8rk) eller v\u00e6lg en specifik farve."
+    },
     "settings_color_scheme_desc": {
         "message": "Farven p\u00e5 sidebj\u00e6lkehovedet, afkrydsningsfelterne osv."
     },
@@ -1060,6 +1066,12 @@
     },
     "settings_newtab_override_desc": {
         "message": "Skal udvidelsen omg\u00e5 din nuv\u00e6rende side for nye faneblade, med enten en hjemmestrikket side eller indl\u00e6sning af en hjemmeside af eget valg, n\u00e5r et nyt faneblad \u00e5bnes?"
+    },
+    "settings_newtab_override_preview": {
+        "message": "Forh\u00e5ndsvisning"
+    },
+    "settings_newtab_override_configure": {
+        "message": "Konfigurer"
     },
     "settings_newtab_sidebar_auto_open": {
         "message": "\u00c5bn sidebaren automatisk"
@@ -1252,6 +1264,9 @@
     },
     "premium_feature_themes_desc": {
         "message": "Du kan bytte rundt p\u00e5 hele sidebar designet p\u00e5 kun et klik ved at installere et andet tema. de can be tilpasset med tilg\u00e6nglige skydere og farver"
+    },
+    "premium_pay_intro_payment_method": {
+        "message": "V\u00e6lg en betalingsmetode nedenfor og v\u00e6lg det \u00f8nskede bel\u00f8b i n\u00e6ste trin."
     },
     "premium_pay_select_payment_method": {
         "message": "V\u00e6lg en betalingsmetode"

@@ -122,6 +122,18 @@
     "contextmenu_select_entries": {
         "message": "Selecionar v\u00e1rias entradas"
     },
+    "contextmenu_select_bookmark": {
+        "message": "Selecionar marcador"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Desselecionar marcador"
+    },
+    "contextmenu_select_dir": {
+        "message": "Selecionar pasta"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Desselecionar pasta"
+    },
     "sort_label_custom": {
         "message": "Definido pelo utilizador"
     },
@@ -235,6 +247,12 @@
     },
     "overlay_dir_children_dirs": {
         "message": "Pastas"
+    },
+    "overlay_delete_selected": {
+        "message": "Elimine as entradas selecionadas"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Deseja realmente eliminar as entradas selecionadas? Todos os marcadores de subpastas das pastas selecionadas tamb\u00e9m ser\u00e3o eliminados."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Modificado"

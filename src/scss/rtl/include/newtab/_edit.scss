@@ -99,9 +99,15 @@ html[dir='rtl'] {
         padding-left: 125px;
       }
 
-      > select {
-        left: 23px;
-        right: unset;
+      > div[data-name='searchSuggest'] {
+
+        > div.checkbox {
+
+          + span {
+            margin-right: 5px;
+            margin-left: 20px;
+          }
+        }
       }
 
       > a.edit {

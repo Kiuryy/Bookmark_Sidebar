@@ -100,12 +100,19 @@
                 const searchEngineName = searchEngineObj.name;
                 delete searchEngineObj.name;
 
+                const searchSuggestQueries = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestQueries']"));
+                const searchSuggestBookmarks = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestBookmarks']"));
+                const searchSuggestHistory = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestHistory']"));
+
                 const gridType = n.elm.gridLinks.children("select[" + $.attr.type + "='type']")[0].value;
 
                 const data = {
                     "n/searchField": n.elm.search.wrapper.children("select[" + $.attr.type + "='searchField']")[0].value,
                     "n/searchEngine": searchEngineName,
                     "n/searchEngineCustom": searchEngineObj,
+                    "n/searchSuggestQueries": searchSuggestQueries,
+                    "n/searchSuggestBookmarks": searchSuggestBookmarks,
+                    "n/searchSuggestHistory": searchSuggestHistory,
                     "n/gridType": gridType,
                     "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
                     "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
@@ -179,6 +186,7 @@
 
             n.elm.search.wrapper.children("a." + $.cl.newtab.edit).remove();
             n.elm.search.wrapper.children("select").remove();
+            n.elm.search.wrapper.children("[" + $.attr.name + "='searchSuggest']").remove();
             n.elm.topLinks.children("select").remove();
             n.elm.gridLinks.children("select").remove();
             n.elm.gridLinks.children("div[" + $.attr.type + "='gridsize']").remove();
@@ -188,6 +196,10 @@
 
             n.helper.search.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             n.helper.search.setVisibility(n.helper.model.getData("n/searchField"));
+            n.helper.search.setSearchSuggestion("queries", n.helper.model.getData("n/searchSuggestQueries"));
+            n.helper.search.setSearchSuggestion("bookmarks", n.helper.model.getData("n/searchSuggestBookmarks"));
+            n.helper.search.setSearchSuggestion("history", n.helper.model.getData("n/searchSuggestHistory"));
+
             n.helper.gridLinks.setType(n.helper.model.getData("n/gridType"));
             n.helper.gridLinks.setMaxCols(n.helper.model.getData("n/gridMaxCols"));
             n.helper.gridLinks.setMaxRows(n.helper.model.getData("n/gridMaxRows"));
@@ -534,6 +546,24 @@
                 n.helper.search.setVisibility(e.currentTarget.value);
             });
 
+            const searchSuggestionWrapper = $("<div></div>").attr($.attr.name, "searchSuggest").prependTo(n.elm.search.wrapper);
+
+            ["queries", "bookmarks", "history"].forEach((name) => {
+                const fieldName = "searchSuggest" + n.helper.utility.capitalizeFirstLetter(name);
+                const checkbox = n.helper.checkbox.get(n.elm.body, {
+                    [$.attr.name]: fieldName
+                }, "checkbox").appendTo(searchSuggestionWrapper);
+
+                $("<span></span>").html(n.helper.i18n.get("newtab_search_suggest_" + name)).insertAfter(checkbox);
+
+                if (n.helper.model.getData("n/" + fieldName)) {
+                    checkbox.trigger("click");
+                }
+
+                checkbox.children("input[type='checkbox']").on("change", (e) => {
+                    n.helper.search.setSearchSuggestion(name, e.currentTarget.checked);
+                });
+            });
 
             const edit = $("<a></a>").addClass($.cl.newtab.edit).appendTo(n.elm.search.wrapper);
             edit.on("click", (e) => {

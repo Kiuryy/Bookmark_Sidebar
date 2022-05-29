@@ -385,11 +385,38 @@ body.edit {
       > input[type='text'] {
         opacity: 0.5;
       }
+
+      > div[data-name='searchSuggest'] {
+        opacity: 0.5;
+      }
     }
 
     > select.edit {
-      margin-top: -40px;
-      margin-bottom: 15px;
+      margin-top: -56px;
+      margin-bottom: 31px;
+    }
+
+    > div[data-name='searchSuggest'] {
+      position: absolute;
+      top: -25px;
+      width: 100%;
+      text-align: center;
+
+      > div.checkbox {
+        display: inline-block;
+
+        &::before {
+          -webkit-mask-size: 18px;
+        }
+
+        + span {
+          font-size: 90%;
+          font-weight: $__fontWeightMedium;
+          vertical-align: top;
+          display: inline-block;
+          margin: 3px 20px 0 5px;
+        }
+      }
     }
 
     > input[type='text'] {

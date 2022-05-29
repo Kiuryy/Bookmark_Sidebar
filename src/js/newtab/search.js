@@ -3,10 +3,16 @@
 
     $.SearchHelper = function (n) {
 
-        const suggestionCache = {};
+        let suggestionCache = {};
         let searchEngine = {};
         let searchEngineList = {};
         let searchAlreadyFocussed = false;
+
+        const searchSuggestion = {
+            queries: true,
+            bookmarks: true,
+            history: true
+        };
 
         const searchEngineInfo = {
             google: {
@@ -77,6 +83,20 @@
 
             this.updateSearchEngine(n.helper.model.getData("n/searchEngine"), n.helper.model.getData("n/searchEngineCustom"));
             this.setVisibility(n.helper.model.getData("n/searchField"));
+
+            this.setSearchSuggestion("queries", n.helper.model.getData("n/searchSuggestQueries"));
+            this.setSearchSuggestion("bookmarks", n.helper.model.getData("n/searchSuggestBookmarks"));
+            this.setSearchSuggestion("history", n.helper.model.getData("n/searchSuggestHistory"));
+        };
+
+        /**
+         *
+         * @param type
+         * @param val
+         */
+        this.setSearchSuggestion = (type, val) => {
+            searchSuggestion[type] = val;
+            suggestionCache = {};
         };
 
         /**
@@ -280,49 +300,67 @@
                         resolve(obj);
                     };
 
-                    const promises = [
-                        $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"})
-                    ];
+                    const promises = new Array(3).fill({});
 
-                    if (val.length >= 2) {
-                        promises.push(n.helper.model.call("searchBookmarks", {searchVal: val}));
+                    if (searchSuggestion.queries) {
+                        promises[0] = $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"});
                     }
 
-                    if (val.length >= 3 && $.api.history) {
-                        promises.push(n.helper.model.call("searchHistory", {searchVal: val}));
+                    if (searchSuggestion.bookmarks && val.length >= 2) {
+                        promises[1] = n.helper.model.call("searchBookmarks", {searchVal: val});
+                    }
+
+                    if (searchSuggestion.history && val.length >= 3 && $.api.history) {
+                        promises[2] = n.helper.model.call("searchHistory", {searchVal: val});
                     }
 
                     Promise.all(promises).then(([xhr, searchResults, historyResults]) => {
-                        try {
-                            const urls = [];
-                            const words = [];
+                        const urls = [];
+                        const words = [];
 
+                        let historyBookmarkMaxSuggestions = 2;
+                        if (!searchSuggestion.queries) {
+                            historyBookmarkMaxSuggestions++;
+                        }
+                        if (!searchSuggestion.bookmarks || !searchSuggestion.history) {
+                            historyBookmarkMaxSuggestions++;
+                        }
+
+                        try {
                             if (searchResults && searchResults.bookmarks && searchResults.bookmarks.length > 0) { // add bookmarks to the suggestions
                                 let i = 0;
                                 searchResults.bookmarks.some((bookmark) => {
                                     if (bookmark.url) {
                                         urls.push({type: "bookmark", label: bookmark.title, url: bookmark.url});
                                         i++;
-                                        if (i >= 2) {
+                                        if (i >= historyBookmarkMaxSuggestions) {
                                             return true;
                                         }
                                     }
                                 });
                             }
+                        } catch (e) {
+                            //
+                        }
 
+                        try {
                             if (historyResults && historyResults.history && historyResults.history.length > 0) { // add history to the suggestions
                                 let i = 0;
                                 historyResults.history.some((history) => {
                                     if (history.url) {
                                         urls.push({type: "history", label: history.title, url: history.url});
                                         i++;
-                                        if (i >= 2) {
+                                        if (i >= historyBookmarkMaxSuggestions) {
                                             return true;
                                         }
                                     }
                                 });
                             }
+                        } catch (e) {
+                            //
+                        }
 
+                        try {
                             if (xhr.response && xhr.response.length > 1 && xhr.response[0] === val) { // there are suggestions of the google search api
                                 xhr.response[1].forEach((suggestion, i) => {
                                     let label = suggestion;
@@ -345,11 +383,11 @@
                                     }
                                 });
                             }
-
-                            finishObj(urls.concat(words)); // display urls first and then the words
                         } catch (e) {
-                            finishObj();
+                            //
                         }
+
+                        finishObj([...urls, ...words]); // display urls first and then the words
                     }, () => {
                         finishObj();
                     });

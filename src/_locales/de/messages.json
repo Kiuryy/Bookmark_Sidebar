@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "Suchfeld ausblenden"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Suchvorschl\u00e4ge"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Lesezeichen vorschlagen"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Besuchte Seiten vorschlagen"
+    },
     "newtab_speech_search_listening": {
         "message": "Jetzt sprechen"
     },

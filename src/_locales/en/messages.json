@@ -329,6 +329,15 @@
     "newtab_search_field_hide": {
         "message": "Hide search field"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Suggest queries"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Suggest bookmarks"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Suggest visited pages"
+    },
     "newtab_speech_search_listening": {
         "message": "Speak now"
     },
@@ -1113,7 +1122,7 @@
         "message": "Colour"
     },
     "settings_icon_color_auto": {
-        "message": "Automatical"
+        "message": "Automatic"
     },
     "settings_icon_color_custom": {
         "message": "Custom"

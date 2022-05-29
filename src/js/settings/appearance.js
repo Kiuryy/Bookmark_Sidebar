@@ -396,7 +396,6 @@
                 }
             };
 
-
             Object.keys(styles).forEach((key) => {
                 if (s.elm.range[key]) {
                     const unit = s.elm.range[key].attr($.attr.settings.range.unit) || "";

@@ -184,6 +184,16 @@
         };
 
         /**
+         * Capitalizes the first letter of a string
+         *
+         * @param {string} str
+         * @returns {string}
+         */
+        this.capitalizeFirstLetter = (str) => {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        };
+
+        /**
          * Sorts the given bookmarks by the given sorting
          *
          * @param {Array} bookmarks

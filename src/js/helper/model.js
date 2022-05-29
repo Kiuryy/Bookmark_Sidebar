@@ -183,6 +183,9 @@
                 faviconPadding: 10,
                 autoOpen: true,
                 focusOmnibox: false,
+                searchSuggestQueries: true,
+                searchSuggestBookmarks: true,
+                searchSuggestHistory: true,
                 searchField: "show",
                 searchEngine: "google",
                 searchEngineCustom: {

@@ -434,11 +434,7 @@
             const showSeparators = asTree && sort.name === "custom" && list.prev("a").length() > 0; // only show separators for custom sorting and in tree view
             const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "u/showHidden"]);
 
-            if (list.parents("li").length() === 0) {
-                if (ext.helper.search.isResultsVisible() === false) { // don't show in search results
-                    updatePinnedEntries(config);
-                }
-            } else {
+            if (list.parents("li").length() > 0) {
                 list.css("transition", "height " + dirOpenDuration + "ms");
             }
 
@@ -490,10 +486,10 @@
 
         /**
          * Updates the list with the pinned entries
-         *
-         * @param {object} config
          */
-        const updatePinnedEntries = (config) => {
+        const updatePinnedEntries = () => {
+            const config = ext.helper.model.getData(["a/directoryArrows", "a/showBookmarkIcons", "a/showDirectoryIcons", "u/showHidden"]);
+
             ext.elm.lockPinned.removeClass($.cl.sidebar.fixed);
             ext.elm.pinnedBox.removeClass([$.cl.hidden, $.cl.sidebar.fixed]);
 
@@ -793,6 +789,7 @@
                     return ext.helper.entry.init(entries);
                 }).then(() => {
                     this.updateSidebarHeader();
+                    updatePinnedEntries();
 
                     if (viewAsTree || sort.name === "custom") { // with directories
                         this.addBookmarkDir(entries, list, true);

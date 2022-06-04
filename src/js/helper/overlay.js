@@ -363,7 +363,7 @@
          * @param {object} data
          */
         const handleOpenChildrenHtml = (data) => {
-            const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
+            const bookmarks = data.children.filter(val => val.url && !val.url.startsWith("about:blank"));
             const text = ext.helper.i18n.get("overlay_confirm_open_children", [bookmarks.length]);
 
             $("<p></p>").text(text).appendTo(elements.modal);
@@ -539,7 +539,7 @@
          */
         const openChildren = (data) => {
             this.closeOverlay();
-            const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
+            const bookmarks = data.children.filter(val => val.url && !val.url.startsWith("about:blank"));
             ext.helper.utility.openAllBookmarks(bookmarks);
         };
 
@@ -578,7 +578,7 @@
         /**
          * Deletes the given bookmarks or directories
          *
-         * @param data
+         * @param selectedEntries
          */
         const deleteSelectedEntries = async (selectedEntries) => {
             ext.startLoading();
@@ -649,11 +649,12 @@
          */
         const editSeparator = (data) => {
             const title = elements.modal.find("input[name='title']")[0].value.trim();
+            const uid = Math.floor(Math.random() * 99999) + 10000;
 
             ext.helper.bookmark.editEntry({
                 id: data.id,
                 title: title.length > 0 ? "---- " + title + " ----" : "----------",
-                url: "about:blank",
+                url: "about:blank?" + uid
             }).then(() => {
                 ext.helper.model.call("reload", {type: "Edit"});
                 this.closeOverlay();
@@ -709,11 +710,12 @@
         const addSeparator = (data) => {
             const title = elements.modal.find("input[name='title']")[0].value.trim();
             const position = elements.modal.find("select[name='position'")[0].value;
+            const uid = Math.floor(Math.random() * 99999) + 10000;
             const parentId = data.id || null;
 
             ext.helper.model.call("createBookmark", {
                 title: title.length > 0 ? "---- " + title + " ----" : "----------",
-                url: "about:blank",
+                url: "about:blank?" + uid,
                 parentId: data.id || null,
                 index: getIndexOfNewEntry(parentId, position)
             }).then(() => {

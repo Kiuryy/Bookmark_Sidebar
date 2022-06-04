@@ -157,7 +157,7 @@
         this.isSeparator = (id) => {
             let ret = false;
             if (typeof entries.bookmarks[id] === "object") {
-                ret = entries.bookmarks[id].url === "about:blank" && /^[-_]{3,}/.test(entries.bookmarks[id].title) && /[-_]{3,}$/.test(entries.bookmarks[id].title);
+                ret = entries.bookmarks[id].url.startsWith("about:blank") && /^[-_]{3,}/.test(entries.bookmarks[id].title) && /[-_]{3,}$/.test(entries.bookmarks[id].title);
             }
             return ret;
         };

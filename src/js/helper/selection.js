@@ -151,7 +151,7 @@
                 if (data.children) { // add the subfolder bookmarks of the selected folder to the list
                     folderSelected = true;
                     for (const child of data.children) {
-                        if (child.url && child.url !== "about:blank") {
+                        if (child.url && !child.url.startsWith("about:blank")) {
                             bookmarks.push(child);
                         }
                     }

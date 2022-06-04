@@ -237,7 +237,7 @@
             }
 
             if (data.isDir) {
-                const bookmarks = data.children.filter(val => val.url && val.url !== "about:blank");
+                const bookmarks = data.children.filter(val => val.url && !val.url.startsWith("about:blank"));
 
                 list.append("<li><a " + $.attr.name + "='add' " + $.attr.type + "='bookmark'>" + ext.helper.i18n.get("contextmenu_add_bookmark") + "</a></li>");
 
@@ -467,7 +467,7 @@
          */
         clickFuncs.openChildren = (opts) => {
             if (opts.data) {
-                const bookmarks = opts.data.children.filter(val => val.url && val.url !== "about:blank");
+                const bookmarks = opts.data.children.filter(val => val.url && !val.url.startsWith("about:blank"));
                 if (bookmarks.length > ext.helper.model.getData("b/openChildrenWarnLimit")) { // more than x bookmarks -> show confirm dialog
                     ext.helper.overlay.create(opts.name, ext.helper.i18n.get("contextmenu_open_children"), opts.data);
                 } else { // open bookmarks directly without confirmation

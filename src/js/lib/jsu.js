@@ -183,18 +183,20 @@
                 }
 
                 s.forEach((entry) => {
-                    const eachCallback = (node) => {
-                        if (this[nodes].indexOf(node) === -1) {
-                            this[nodes].push(node);
-                        }
-                    };
+                    if (entry !== null) {
+                        const eachCallback = (node) => {
+                            if (this[nodes].indexOf(node) === -1) {
+                                this[nodes].push(node);
+                            }
+                        };
 
-                    if (entry instanceof jsuNode) {
-                        entry.forEach(eachCallback);
-                    } else if (Array.isArray(entry) || entry instanceof NodeList || entry instanceof HTMLCollection || /^\[object (HTMLCollection|NodeList|Object)\]$/.test(entry.toString())) {
-                        jsuNode._forEach(entry, eachCallback);
-                    } else {
-                        this[nodes].push(entry);
+                        if (entry instanceof jsuNode) {
+                            entry.forEach(eachCallback);
+                        } else if (Array.isArray(entry) || entry instanceof NodeList || entry instanceof HTMLCollection || /^\[object (HTMLCollection|NodeList|Object)\]$/.test(entry.toString())) {
+                            jsuNode._forEach(entry, eachCallback);
+                        } else {
+                            this[nodes].push(entry);
+                        }
                     }
                 });
 

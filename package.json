@@ -19,17 +19,16 @@
   "devDependencies": {
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
-    "del": "^6.1.1",
-    "eslint": "^8.17.0",
+    "eslint": "^8.20.0",
     "fs-extra": "^10.1.0",
     "glob-concat": "^1.0.2",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
     "node-sass": "^7.0.1",
-    "npm-check-updates": "^13.1.1",
+    "npm-check-updates": "^16.0.0",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^5.14.0",
+    "terser": "^5.14.2",
     "zip-dir": "^2.0.0"
   }
 }

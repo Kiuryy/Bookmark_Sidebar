@@ -122,6 +122,7 @@
         return Func.measureTime((resolve) => {
             Func.concat( // concat extension javascripts
                 [
+                    path.src + "js/webcomponents-bundle.js",
                     path.src + "js/helper/**/*.js",
                     path.src + "js/extension.js"
                 ],

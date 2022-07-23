@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "Arama alan\u0131n\u0131 gizle"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Sorgu \u00f6ner"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Yer imleri \u00f6ner"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Ziyaret edilen sayfalar\u0131 \u00f6ner"
+    },
     "newtab_speech_search_listening": {
         "message": "\u015eimdi konu\u015fun"
     },

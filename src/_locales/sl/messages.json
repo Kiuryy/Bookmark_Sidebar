@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "Skrij polje za iskanje"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Predlagajte poizvedbe"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Predlagaj zaznamke"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Predlagajte obiskane strani"
+    },
     "newtab_speech_search_listening": {
         "message": "Govori zdaj"
     },

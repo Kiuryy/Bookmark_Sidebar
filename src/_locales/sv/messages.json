@@ -39,7 +39,7 @@
         "message": "\u00c5ngra"
     },
     "more_link": {
-        "message": "L\u00e4r mer"
+        "message": "L\u00e4s mer"
     },
     "contextmenu_edit_bookmark": {
         "message": "\u00c4ndra bokm\u00e4rke"
@@ -325,6 +325,15 @@
     },
     "newtab_search_field_hide": {
         "message": "G\u00f6m s\u00f6kf\u00e4lt"
+    },
+    "newtab_search_suggest_queries": {
+        "message": "F\u00f6resl\u00e5 fr\u00e5gor"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "F\u00f6resl\u00e5 bokm\u00e4rken"
+    },
+    "newtab_search_suggest_history": {
+        "message": "F\u00f6resl\u00e5 bes\u00f6kta sidor"
     },
     "newtab_speech_search_listening": {
         "message": "Prata nu"

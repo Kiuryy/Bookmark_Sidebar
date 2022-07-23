@@ -45,7 +45,7 @@
         "message": "Upravit z\u00e1lo\u017eku"
     },
     "contextmenu_edit_dir": {
-        "message": "Upravit adres\u00e1\u0159"
+        "message": "Upravit slo\u017eku"
     },
     "contextmenu_edit_separator": {
         "message": "Upravit odd\u011blova\u010d"
@@ -54,7 +54,7 @@
         "message": "Odstranit z\u00e1lo\u017eku"
     },
     "contextmenu_delete_dir": {
-        "message": "Vymazat adres\u00e1\u0159"
+        "message": "Vymazat slo\u017eku"
     },
     "contextmenu_delete_separator": {
         "message": "Odstranit odd\u011blova\u010d"
@@ -90,7 +90,7 @@
         "message": "Zobrazit skryt\u00e9 polo\u017eky"
     },
     "contextmenu_close_all_directories": {
-        "message": "Zav\u0159ete v\u0161echny adres\u00e1\u0159e"
+        "message": "Zav\u0159ete v\u0161echny slo\u017eky"
     },
     "contextmenu_reload_sidebar": {
         "message": "Obnovit postrann\u00ed panel"
@@ -105,13 +105,13 @@
         "message": "Zobrazit v bo\u010dn\u00ed li\u0161t\u011b"
     },
     "contextmenu_show_in_dir": {
-        "message": "Zobrazit v adres\u00e1\u0159i"
+        "message": "Zobrazit ve slo\u017ece"
     },
     "contextmenu_pin": {
-        "message": "Kol\u00edk nahoru"
+        "message": "P\u0159ipnout nahoru"
     },
     "contextmenu_unpin": {
-        "message": "Odpojit od vrcholu"
+        "message": "Zru\u0161it p\u0159ipnut\u00ed"
     },
     "contextmenu_bookmark_manager": {
         "message": "Spr\u00e1vce z\u00e1lo\u017eek"
@@ -129,10 +129,10 @@
         "message": "Zru\u0161 v\u00fdb\u011br z\u00e1lo\u017eky"
     },
     "contextmenu_select_dir": {
-        "message": "Vyber adres\u00e1\u0159"
+        "message": "Vyber slo\u017eku"
     },
     "contextmenu_deselect_dir": {
-        "message": "Zru\u0161 v\u00fdb\u011br adres\u00e1\u0159e"
+        "message": "Zru\u0161 v\u00fdb\u011br slo\u017eky"
     },
     "sort_label_custom": {
         "message": "Definov\u00e1no u\u017eivatelem"
@@ -150,7 +150,7 @@
         "message": "Ned\u00e1vno p\u0159idan\u00e9"
     },
     "sort_view_as_tree": {
-        "message": "Zobrazit adres\u00e1\u0159e"
+        "message": "Zobrazit slo\u017eky"
     },
     "sort_most_used_per_month": {
         "message": "M\u011bs\u00ed\u010dn\u011b"
@@ -195,19 +195,19 @@
         "message": "Opravdu chcete schovat tyto z\u00e1lo\u017eky v bo\u010dn\u00ed li\u0161t\u011b?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Opravdu chcete skr\u00fdt tento adres\u00e1\u0159 v bo\u010dn\u00ed li\u0161t\u011b? V\u0161echny pod\u0159\u00edzen\u00e9 z\u00e1lo\u017eky budou tak\u00e9 skryt\u00e9."
+        "message": "Opravdu chcete skr\u00fdt tuto slo\u017eku v bo\u010dn\u00ed li\u0161t\u011b? V\u0161echny pod\u0159\u00edzen\u00e9 z\u00e1lo\u017eky budou tak\u00e9 skryt\u00e9."
     },
     "overlay_delete_bookmark_confirm": {
         "message": "Opravdu chcete smazat tyto z\u00e1lo\u017eky?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Opravdu chcete smazat tento adres\u00e1\u0159? V\u0161echny pod\u0159\u00edzen\u00e9 z\u00e1lo\u017eky budou tak\u00e9 smazan\u00e9."
+        "message": "Opravdu chcete smazat tuto slo\u017eku? V\u0161echny pod\u0159\u00edzen\u00e9 z\u00e1lo\u017eky budou tak\u00e9 smazan\u00e9."
     },
     "overlay_label_bookmark": {
-        "message": "Z\u00e1lo\u017eky"
+        "message": "Z\u00e1lo\u017eka"
     },
     "overlay_label_dir": {
-        "message": "Adres\u00e1\u0159"
+        "message": "Slo\u017eka"
     },
     "overlay_label_separator": {
         "message": "Odd\u011blova\u010d"
@@ -216,10 +216,10 @@
         "message": "Um\u00edst\u011bn\u00ed"
     },
     "overlay_add_position_prepend": {
-        "message": "Vlo\u017eit p\u0159ed adres\u00e1\u0159"
+        "message": "Vlo\u017eit p\u0159ed slo\u017eku"
     },
     "overlay_add_position_append": {
-        "message": "P\u0159ipojit za adres\u00e1\u0159"
+        "message": "P\u0159ipojit za slo\u017eku"
     },
     "overlay_separator_title_desc": {
         "message": "Voliteln\u011b lze vlo\u017eit n\u00e1zev. Bude zobrazen na linii odd\u011blova\u010de a m\u016f\u017ee pomoci t\u0159\u00eddit seznam z\u00e1lo\u017eek."
@@ -246,13 +246,13 @@
         "message": "Z\u00e1lo\u017eky"
     },
     "overlay_dir_children_dirs": {
-        "message": "Adres\u00e1\u0159e"
+        "message": "Slo\u017eky"
     },
     "overlay_delete_selected": {
         "message": "Vyma\u017e vybran\u00e9 vstupy"
     },
     "overlay_delete_selected_confirm": {
-        "message": "Opravdu chcete vymazat vybran\u00e9 vstupy? V\u0161echny vno\u0159en\u00e9 podadres\u00e1\u0159e vybran\u00e9ho adres\u00e1\u0159e budou tak\u00e9 smaz\u00e1ny."
+        "message": "Opravdu chcete vymazat vybran\u00e9 vstupy? V\u0161echny vno\u0159en\u00e9 podslo\u017eky vybran\u00e9 slo\u017eky budou tak\u00e9 smaz\u00e1ny."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Zm\u011bn\u011bno"
@@ -297,7 +297,7 @@
         "message": "Nejobl\u00edben\u011bj\u0161\u00ed str\u00e1nky"
     },
     "newtab_grid_links_recently_used": {
-        "message": "Posledn\u011b pou\u017eit\u00e9 z\u00e1lo\u017eky"
+        "message": "Naposled pou\u017eit\u00e9 z\u00e1lo\u017eky"
     },
     "newtab_grid_links_most_used": {
         "message": "Nejpou\u017e\u00edvan\u011bj\u0161\u00ed z\u00e1lo\u017eky"
@@ -325,6 +325,15 @@
     },
     "newtab_search_field_hide": {
         "message": "Schovat vyhled\u00e1vac\u00ed pole"
+    },
+    "newtab_search_suggest_queries": {
+        "message": "Navrhovat dotazy"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Navrhovat z\u00e1lo\u017eky"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Navrhovat nav\u0161t\u00edven\u00e9 str\u00e1nky"
     },
     "newtab_speech_search_listening": {
         "message": "Mluvte te\u010f"
@@ -834,31 +843,31 @@
         "message": "Zabra\u0148uje proch\u00e1zen\u00ed aktu\u00e1ln\u00edho webu p\u0159i otev\u0159en\u00e9m postrann\u00edm panelu."
     },
     "settings_dir_accordion": {
-        "message": "Zobraz jen aktu\u00e1ln\u00ed adres\u00e1\u0159"
+        "message": "Zobraz jen aktu\u00e1ln\u00ed slo\u017eku"
     },
     "settings_dir_accordion_desc": {
-        "message": "Uzav\u0159e v\u0161echny adres\u00e1\u0159e s v\u00fdjimkou aktu\u00e1ln\u00edho adres\u00e1\u0159e."
+        "message": "Uzav\u0159e v\u0161echny slo\u017eky s v\u00fdjimkou aktu\u00e1ln\u00ed slo\u017eky"
     },
     "settings_remember_state": {
         "message": "Zapamatov\u00e1n\u00ed"
     },
     "settings_remember_state_open_states_and_scroll": {
-        "message": "Pozice posuvu a otev\u0159en\u00e9 adres\u00e1\u0159e"
+        "message": "Posun pozice aktu\u00e1ln\u011b otev\u0159en\u00fdch slo\u017eek"
     },
     "settings_remember_state_all": {
-        "message": "Posunut\u00ed pozice, otev\u0159en\u00ed adres\u00e1\u0159\u016f a posledn\u00ed otev\u0159en\u00e1 z\u00e1lo\u017eka"
+        "message": "Posunut\u00ed pozice, aktu\u00e1ln\u011b otev\u0159en\u00fdch slo\u017eek a naposledy otev\u0159en\u00e1 z\u00e1lo\u017eka"
     },
     "settings_remember_state_open_states": {
-        "message": "Otev\u0159en\u00e9 adres\u00e1\u0159e"
+        "message": "Otev\u0159en\u00e9 \u0161lo\u017eky"
     },
     "settings_remember_state_open_states_root": {
-        "message": "Otev\u0159en\u00e9 adres\u00e1\u0159e nejvy\u0161\u0161\u00ed \u00farovn\u011b"
+        "message": "Otev\u0159en\u00e9 slo\u017eky nejvy\u0161\u0161\u00ed \u00farovn\u011b"
     },
     "settings_remember_state_nothing": {
         "message": "Nic"
     },
     "settings_remember_open_states_sub_directories": {
-        "message": "Zapamatovat otev\u0159en\u00e9 podadres\u00e1\u0159e"
+        "message": "Zapamatovat otev\u0159en\u00e9 podslo\u017eky"
     },
     "settings_remember_desc": {
         "message": "Vyberte, co si zapamatovat mezi zm\u011bnami str\u00e1nek. Pokud se rozhodnete zapamatovat posledn\u00ed otev\u0159enou z\u00e1lo\u017eku, bude p\u0159i otev\u0159en\u00ed postrann\u00edho panelu ozna\u010dena."
@@ -1101,10 +1110,10 @@
         "message": "Efekt rozost\u0159en\u00ed pozad\u00ed"
     },
     "settings_bookmarks_dir_icon": {
-        "message": "Ikona adres\u00e1\u0159e"
+        "message": "Ikona slo\u017eky"
     },
     "settings_bookmarks_dir_color": {
-        "message": "Barva ikony adres\u00e1\u0159e"
+        "message": "Barva ikony slo\u017eky"
     },
     "settings_bookmarks_font_size": {
         "message": "Velikost p\u00edsma z\u00e1lo\u017eek"
@@ -1113,10 +1122,10 @@
         "message": "Velikost ikon z\u00e1lo\u017eek"
     },
     "settings_directories_icon_size": {
-        "message": "Velikost ikon adres\u00e1\u0159\u016f"
+        "message": "Velikost ikon slo\u017eek"
     },
     "settings_directory_arrows": {
-        "message": "\u0160ipky adres\u00e1\u0159e"
+        "message": "\u0160ipky slo\u017eky"
     },
     "settings_bookmarks_line_height": {
         "message": "V\u00fd\u0161ka \u0159\u00e1dku z\u00e1lo\u017eek"
@@ -1125,7 +1134,7 @@
         "message": "Vodorovn\u00e9 odsazen\u00ed z\u00e1lo\u017eek"
     },
     "settings_bookmarks_dir_indentation": {
-        "message": "Zar\u00e1\u017eka adres\u00e1\u0159e"
+        "message": "Odsazen\u00ed slo\u017eky"
     },
     "settings_tooltip_font_size": {
         "message": "Velikost p\u00edsma popisku"
@@ -1239,7 +1248,7 @@
         "message": "Jakmile budou v\u0161echny po\u017eadovan\u00e9 kategorie p\u0159elo\u017eeny, p\u0159eklad bude uvoln\u011bn."
     },
     "settings_translation_notice2": {
-        "message": "Nedokon\u010den\u00e9 kategorie nebudou uvoln\u011bny, aby nedoch\u00e1zelo k p\u0159ekladu poloviny p\u0159elo\u017een\u00fdch text\u016f."
+        "message": "Nekompletn\u00ed p\u0159eklady kategori\u00ed nebudou uvoln\u011bny, aby se zabr\u00e1nilo zobrazen\u00ed \u010d\u00e1ste\u010dn\u011b p\u0159elo\u017een\u00fdch text\u016f."
     },
     "settings_translation_help": {
         "message": "U ka\u017ed\u00e9 polo\u017eky vid\u00edte anglick\u00fd p\u0159eklad, kter\u00fd je t\u0159eba p\u0159elo\u017eit. Pro lep\u0161\u00ed vyhled\u00e1n\u00ed a zasazen\u00ed do kontextu, m\u00e1 ka\u017ed\u00e1 polo\u017eka n\u00e1zev (nap\u0159. {1}), kter\u00fd se nep\u0159ekl\u00e1d\u00e1. Nezapome\u0148te pros\u00edm odeslat v\u00e1\u0161 p\u0159eklad pomoc\u00ed tla\u010d\u00edtka v horn\u00edm prav\u00e9m rohu!"
@@ -1377,7 +1386,7 @@
         "message": "Zkontrolujte sv\u00e9 z\u00e1lo\u017eky kv\u016fli po\u0161kozen\u00fdm link\u016fm nebo duplik\u00e1t\u016fm"
     },
     "premium_feature_linkchecker_desc": {
-        "message": "M\u016f\u017eete kliknout na adres\u00e1\u0159 v postrann\u00edm panelu k proveden\u00ed kontroly. V\u00fdsledek uk\u00e1\u017ee aktualizovan\u00e9 url, z\u00e1lo\u017eky, kter\u00e9 ji\u017e nepracuj\u00ed, a z\u00e1lo\u017eky s toto\u017enou url."
+        "message": "M\u016f\u017eete kliknout na slo\u017eku v postrann\u00edm panelu k proveden\u00ed kontroly. V\u00fdsledek uk\u00e1\u017ee aktualizovan\u00e9 url, z\u00e1lo\u017eky, kter\u00e9 ji\u017e nepracuj\u00ed, a z\u00e1lo\u017eky s toto\u017enou url."
     },
     "premium_feature_themes_headline": {
         "message": "Zm\u011b\u0148te motiv postrann\u00edho panelu"

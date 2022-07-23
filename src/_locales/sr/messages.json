@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "Sakrij mesto za pretra\u017eivanje"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Predlo\u017ei upite"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Predlo\u017ei obele\u017eiva\u010de"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Predlo\u017ei vi\u0111ene stranice"
+    },
     "newtab_speech_search_listening": {
         "message": "Govori sada"
     },
@@ -646,6 +655,126 @@
     },
     "settings_expert_save_error": {
         "message": "Neuspjesno pohranjivanje postavki. Molimo da ispravite unos."
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Konfiguri\u0161ite pona\u0161anje bo\u010dne trake"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Postoje razli\u010dite opcije koje mo\u017eete promeniti da biste kontrolisali pro\u0161irenje. Na primer, mo\u017eete da promenite kako bo\u010dna traka treba da se uvla\u010di ili kako treba da se otvaraju va\u0161i obele\u017eiva\u010di. Ako ne \u017eelite da se bo\u010dna traka u\u010ditava na svakoj stranici, mo\u017eete i ovo da konfiguri\u0161ete koristec\u0301i odgovarajuc\u0301a pravila."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Promenite izgled bo\u010dne trake"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Mo\u017eete promeniti izgled bo\u010dne trake u potpunosti da odgovara va\u0161im potrebama. Postoje razli\u010dite opcije za promenu veli\u010dine fonta, razmaka izme\u0111u redova, boja, ikona i jo\u0161 mnogo toga. Tako\u0111e mo\u017eete birati izme\u0111u unapred definisanih dizajna i unapred pode\u0161enih opcija da biste brzo u\u010dinili da bo\u010dna traka izgleda kako \u017eelite."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Da li ste znali?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "Slede\u0107i savet"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "Brza pretraga"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Ako otvorite bo\u010dnu traku, mo\u017eete pretra\u017eivati obele\u017eiva\u010de tako \u0161to c\u0301ete samo po\u010deti da kucate. Nema potrebe da prvo kliknete na ikonu za pretragu u zaglavlju bo\u010dne trake."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktivaciona zona"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Podrazumevano, preko cele ivice prozora pregleda\u010da mo\u017eete da pre\u0111ete kursorom da biste otvorili bo\u010dnu traku. Oblast za aktivaciju mo\u017eete da smanjite tako \u0161to c\u0301ete dozvoliti da se bo\u010dna traka otvori samo na delu visine pretra\u017eiva\u010da. Na primer, mo\u017eete da promenite bo\u010dnu traku da se prikazuje samo kada kliknete na oblast za aktivaciju u donjem levom uglu prozora pregleda\u010da. Ovo mo\u017ee biti od pomoc\u0301i da spre\u010dite da se bo\u010dna traka nenamerno prika\u017ee kada kliknete na veze na veb lokaciji."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "Brzo obele\u017eavanje"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Mo\u017eete prevuc\u0301i bilo koju URL adresu direktno na bo\u010dnu traku i spustiti je na \u017eeljenu poziciju. Na ovaj na\u010din mo\u017eete \u010dak i da ozna\u010dite i prevu\u010dete trenutni URL kartice pretra\u017eiva\u010da. Tako\u0111e mo\u017eete da prevu\u010dete simbol {1} levo od trake za adresu u bo\u010dnu traku da biste obele\u017eili trenutnu stranicu bez prethodnog obele\u017eavanja cele adresne trake."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Separatori"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Unos obele\u017eiva\u010da sa URL-om {1} i naslovom {2} ili {3} bic\u0301e prikazan kao separator na bo\u010dnoj traci. Mo\u017eete da dodate separatore tako \u0161to c\u0301ete kliknuti desnim tasterom mi\u0161a na bilo koju fasciklu na bo\u010dnoj traci, a zatim kliknuti na dugme {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "Brza kopija URL-a"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Da biste kopirali URL obele\u017eiva\u010da na bo\u010dnoj traci u me\u0111uspremnik, mo\u017eete da pritisnete {1} dok je kursor iznad unosa."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Otvori sve obeleziva\u010de"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Da biste otvorili sve obele\u017eiva\u010de u direktorijumu, mo\u017eete kliknuti srednji klik na direktorijum. Alternativno, mo\u017eete da pritisnete {1} dok klik\u0107ete na direktorijum levim klikom."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Sakrij unose"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "Mo\u017eete sakriti pojedina\u010dne obele\u017eiva\u010de ili \u010dak fascikle sa bo\u010dne trake. Mo\u017eete da kliknete desnim tasterom mi\u0161a na bilo koji unos na bo\u010dnoj traci, a zatim kliknete na dugme {1} u kontekstualnom meniju. Da biste ponovo prikazali skrivene unose, mo\u017eete kliknuti na ikonu menija u zaglavlju bo\u010dne trake i tamo omoguc\u0301iti odgovarajuc\u0301e polje za potvrdu."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Pro\u0161iri sve pod-direktorijume"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Da biste brzo otvorili direktorijum sa svim otvorenim pod-folderima, mo\u017eete kliknuti dva puta na direktorijum na bo\u010dnoj traci."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Pre\u010dice na tastaturi"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "Bo\u010dna traka se mo\u017ee kontrolisati pomoc\u0301u pre\u010dica na tastaturi. Mo\u017eete da pogledate listu pre\u010dica tako \u0161to c\u0301ete kliknuti na ikonu menija u zaglavlju bo\u010dne trake, a zatim kliknuti na dugme {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sinhronizacija"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Sva va\u0161a pode\u0161avanja bo\u010dne trake bic\u0301e sinhronizovana izme\u0111u va\u0161ih ure\u0111aja ako omoguc\u0301ite opciju sinhronizacije va\u0161eg pretra\u017eiva\u010da u pode\u0161avanjima. \u010cak i bez Premium-a."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Potra\u017eite pode\u0161avanja sinhronizacije"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Ekstenzija je dostupna na {1} razli\u010ditih jezika. Prevodi su napravljeni u zajednici i svako mo\u017ee pomoc\u0301i da doprinese prevo\u0111enjem tekstova pro\u0161irenja na druge jezike. Prevodi c\u0301e biti odobreni, a zatim dodati u ekstenziju sa sledec\u0301im a\u017euriranjem."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "Ovaj dodatak je projekat jednog \u010doveka, koji je zapo\u010deo kao hobi projekat za li\u010dnu upotrebu."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "Prva verzija ovog dodatka je objavljena u Novembru 2016. godine"
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Desni klik"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Mo\u017eete da kliknete desnim tasterom mi\u0161a na bilo koji obele\u017eiva\u010d ili fasciklu na bo\u010dnoj traci da biste otkrili dodatne opcije. Na primer, mo\u017eete urediti postojec\u0301e obele\u017eiva\u010de ili zaka\u010diti unose na vrh bo\u010dne trake. Kada kliknete desnim tasterom mi\u0161a na fasciklu, mo\u017eete da pokrenete proveru obele\u017eiva\u010da da biste identifikovali neispravne ili a\u017eurirane URL adrese obele\u017eiva\u010da."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Deli informacije"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Svoju konfiguraciju mo\u017eete da delite anonimno \u0161to mi poma\u017ee da identifikujem popularna pode\u0161avanja i da identifikujem \u0161ta da pobolj\u0161am ili promenim u buduc\u0301im izdanjima. Ekstenzija ne prikuplja nikakve li\u010dne podatke niti \u010dita obele\u017eiva\u010de. Bez izri\u010dite dozvole, pro\u0161irenje tako\u0111e ne deli nikakvu konfiguraciju."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Izaberite vi\u0161e unosa"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "Mo\u017eete da izaberete vi\u0161e obele\u017eiva\u010da ili direktorijuma na bo\u010dnoj traci, gde ih mo\u017eete otvoriti, izbrisati ili premestiti pomoc\u0301u prevla\u010denja i otpu\u0161tanja."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Nova kartica"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Mo\u017eete da konfiguri\u0161ete izgled stranice nove kartice direktno na stranici klikom na dugme {1} u donjem uglu. Zatim mo\u017eete promeniti stavke mre\u017ee, pretra\u017eiva\u010d, sliku u pozadini ili veze na vrhu."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Privatnost"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "Obele\u017eiva\u010di prikazani na va\u0161oj bo\u010dnoj traci su sinhronizovani i njima upravlja {browserName}. Ekstenzija ne \u010duva niti analizira ove obele\u017eiva\u010de, vec\u0301 samo prikazuje one iz va\u0161eg pretra\u017eiva\u010da na bo\u010dnoj traci."
     },
     "settings_open_action": {
         "message": "Otvori bo\u010dnu traku."

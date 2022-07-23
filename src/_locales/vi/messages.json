@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "\u1ea8n thanh t\u00ecm ki\u1ebfm"
     },
+    "newtab_search_suggest_queries": {
+        "message": "\u0110\u1ec1 xu\u1ea5t y\u00eau c\u1ea7u"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "\u0110\u1ec1 xu\u1ea5t l\u01b0u tr\u1eef"
+    },
+    "newtab_search_suggest_history": {
+        "message": "\u0110\u1ec1 xu\u1ea5t nh\u01b0ng trang \u0111\u00e3 gh\u00e9"
+    },
     "newtab_speech_search_listening": {
         "message": "\u0110\u1ecdc l\u00ean"
     },

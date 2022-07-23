@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "\u691c\u7d22\u6b04\u3092\u975e\u8868\u793a\u306b\u3057\u307e\u3059"
     },
+    "newtab_search_suggest_queries": {
+        "message": "\u30af\u30a8\u30ea\u3092\u63d0\u6848\u3059\u308b"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "\u30d6\u30c3\u30af\u30de\u30fc\u30af\u3092\u63d0\u6848\u3059\u308b"
+    },
+    "newtab_search_suggest_history": {
+        "message": "\u8a2a\u554f\u3057\u305f\u30da\u30fc\u30b8\u3092\u63d0\u6848\u3059\u308b"
+    },
     "newtab_speech_search_listening": {
         "message": "\u304a\u8a71\u3057\u304f\u3060\u3055\u3044"
     },

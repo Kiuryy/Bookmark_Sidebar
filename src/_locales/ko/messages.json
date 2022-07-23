@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "\uac80\uc0c9 \ud544\ub4dc \uc228\uae30\uae30"
     },
+    "newtab_search_suggest_queries": {
+        "message": "\ucd94\ucc9c \uac80\uc0c9\uc5b4"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "\ucd94\ucc9c \ubd81\ub9c8\ud06c"
+    },
+    "newtab_search_suggest_history": {
+        "message": "\ucd94\ucc9c \ubc29\ubb38\ud398\uc774\uc9c0"
+    },
     "newtab_speech_search_listening": {
         "message": "\uc9c0\uae08 \ub9d0\ud558\uc138\uc694"
     },

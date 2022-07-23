@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "Ocultar camp de cerca"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Suggerir consultes"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Suggerir marcadors"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Suggerir p\u00e0gines visitades"
+    },
     "newtab_speech_search_listening": {
         "message": "Parli ara"
     },

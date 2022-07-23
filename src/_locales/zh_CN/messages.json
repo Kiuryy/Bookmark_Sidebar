@@ -326,6 +326,15 @@
     "newtab_search_field_hide": {
         "message": "\u9690\u85cf\u641c\u7d22\u57df"
     },
+    "newtab_search_suggest_queries": {
+        "message": "\u67e5\u8be2\u5efa\u8bae"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "\u4e66\u7b7e\u5efa\u8bae"
+    },
+    "newtab_search_suggest_history": {
+        "message": "\u8bbf\u95ee\u8fc7\u7684\u9875\u9762\u5efa\u8bae"
+    },
     "newtab_speech_search_listening": {
         "message": "\u8bf7\u8bb2"
     },

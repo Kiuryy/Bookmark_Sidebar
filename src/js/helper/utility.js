@@ -111,7 +111,7 @@
 
             let success = false;
             try {
-                success = ext.elm.iframe[0].contentDocument.execCommand("copy");
+                success = ext.elm.iframeDocument[0].execCommand("copy");
             } catch (err) {
                 //
             }

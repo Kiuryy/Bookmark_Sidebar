@@ -250,7 +250,7 @@
                 lastFocussed = e.target;
             }, {capture: true});
 
-            ext.elm.iframe.find("body").on("click", (e) => { // click outside the sidebar -> close
+            ext.elm.iframeBody.on("click", (e) => { // click outside the sidebar -> close
                 if (e.clientX) {
                     let clientX = e.clientX;
                     const curSidebarWidth = ext.elm.sidebar.realWidth();

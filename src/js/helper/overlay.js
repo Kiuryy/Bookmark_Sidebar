@@ -166,7 +166,7 @@
          * @returns {boolean}
          */
         this.isOpened = () => {
-            return $("iframe#" + $.opts.ids.page.overlay).length() > 0;
+            return $("#" + $.opts.ids.page.overlay).length() > 0;
         };
 
         /**

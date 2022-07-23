@@ -60,7 +60,7 @@
          * Initializes the eventhandlers for the sidebar
          */
         const initSidebarEvents = () => {
-            $([document, ext.elm.iframe[0].contentDocument]).on("keydown.bs", (e) => {
+            $([document, ext.elm.iframeDocument]).on("keydown.bs", (e) => {
                 if (isSidebarFocussed()) { // sidebar is focussed
                     const scrollKeys = ["PageDown", "PageUp", "Home", "End", "Space"];
                     const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
@@ -110,7 +110,7 @@
                         e.preventDefault();
                         removeHoveredEntry();
                         ext.helper.selection.deleteSelected();
-                    } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) { // remove the currently hovered entry
+                    } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframeDocument[0].activeElement) { // remove the currently hovered entry
                         e.preventDefault();
                         removeHoveredEntry();
                     } else if (e.key === "f" && (e.ctrlKey || e.metaKey) && e.ctrlKey !== e.metaKey && !e.shiftKey) { // open the search field
@@ -119,7 +119,7 @@
                     } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
                         e.preventDefault();
                         copyHoveredEntryUrl();
-                    } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command" && searchField.length() > 0 && searchField[0] !== ext.elm.iframe[0].contentDocument.activeElement) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
+                    } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command" && searchField.length() > 0 && searchField[0] !== ext.elm.iframeDocument[0].activeElement) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
                         searchField[0].focus();
                     }
                 }

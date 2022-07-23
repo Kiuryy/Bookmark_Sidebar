@@ -19,7 +19,7 @@ body > div#redeviation-bs-indicator {
 }
 
 // Sidebar
-body > iframe#redeviation-bs-sidebar {
+body > #redeviation-bs-sidebar {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@ body > iframe#redeviation-bs-sidebar {
 }
 
 // Overlay
-body > iframe#redeviation-bs-overlay {
+body > #redeviation-bs-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,8 +37,8 @@ body > iframe#redeviation-bs-overlay {
 
 // No Animations
 body > div#redeviation-bs-indicator.noAnimations,
-body > iframe#redeviation-bs-sidebar.noAnimations,
-body > iframe#redeviation-bs-overlay.noAnimations {
+body > #redeviation-bs-sidebar.noAnimations,
+body > #redeviation-bs-overlay.noAnimations {
 
   &, &::before, &::after, > * {
     transition: none !important;

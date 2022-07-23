@@ -77,7 +77,7 @@ body > div#redeviation-bs-indicator {
 }
 
 // Sidebar
-body > iframe#redeviation-bs-sidebar {
+body > #redeviation-bs-sidebar {
   width: $__sidebarWidth;
   max-width: none;
   height: 0;
@@ -114,7 +114,7 @@ body > iframe#redeviation-bs-sidebar {
 }
 
 // Overlay
-body > iframe#redeviation-bs-overlay {
+body > #redeviation-bs-overlay {
   width: 100%;
   max-width: none;
   height: 100%;

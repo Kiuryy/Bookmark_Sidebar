@@ -279,7 +279,7 @@
                 }
             });
 
-            ext.elm.iframe.find("body").on("click", () => {
+            ext.elm.iframeBody.on("click", () => {
                 ext.helper.contextmenu.close();
                 ext.helper.tooltip.close();
             });
@@ -298,7 +298,7 @@
                 });
             });
 
-            $(ext.elm.iframe[0].contentDocument).on($.opts.events.checkboxChanged, (e) => {
+            $(ext.elm.iframeDocument).on($.opts.events.checkboxChanged, (e) => {
                 const name = e.detail.checkbox.attr($.attr.name);
 
                 if (name === "viewAsTree" || name === "mostViewedPerMonth") { // set sort specific config and reload list

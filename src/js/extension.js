@@ -61,7 +61,7 @@
                         }).then(() => {
                             return initSidebarMarkup();
                         }).then(() => {
-                            return this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframe);
+                            return this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframeDocument);
                         }).then(() => {
                             if (this.elm.iframe && this.elm.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
                                 this.elm.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
@@ -360,8 +360,8 @@
                 const htmlUid = $("html").attr($.attr.uid);
 
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
-                    const iframe = $("iframe#" + $.opts.ids.page.iframe);
-                    if (iframe.length() === 0 || !iframe[0].contentDocument || !iframe[0].contentDocument.body || iframe[0].contentDocument.body.childElementCount === 0) {
+                    const iframe = $("#" + $.opts.ids.page.iframe);
+                    if (iframe.length() === 0 || !this.elm.iframeDocument || !this.elm.iframeDocument[0].body || this.elm.iframeDocument[0].body.childElementCount === 0) {
                         this.log("Detected: Sidebar missing from DOM");
                         destroyOldInstance();
                         init(true);
@@ -381,7 +381,7 @@
             let ret = false;
             const elements = [];
 
-            ["iframe#" + $.opts.ids.page.iframe, "iframe#" + $.opts.ids.page.overlay, "div#" + $.opts.ids.page.indicator].forEach((elm) => {
+            ["#" + $.opts.ids.page.iframe, "#" + $.opts.ids.page.overlay, "div#" + $.opts.ids.page.indicator].forEach((elm) => {
                 elements.push($(elm));
             });
 
@@ -399,20 +399,43 @@
             return ret;
         };
 
+        const initAppFrame = () => {
+            if (document.createElement("app-frame-" + uid).constructor !== HTMLElement) {
+                return;
+            }
+            const self = this;
+
+            class AppFrame extends HTMLElement {
+                constructor() {
+                    super();
+                    this.content = this.attachShadow({mode: "closed"});
+                }
+
+                connectedCallback() {
+                    this.content.innerHTML = "<iframe style='margin:0;padding: 0;border: none;width: 100%;height: 100%;'></iframe>";
+                    self.elm.iframeDocument = $(this.content.querySelector("iframe").contentDocument);
+                }
+            }
+
+            customElements.define("app-frame-" + uid, AppFrame);
+        };
+
         /**
          * Creates the basic html markup for the sidebar
          *
          * @returns {Promise}
          */
         const initSidebarMarkup = async () => {
+            initAppFrame();
+
             const config = this.helper.model.getData(["a/theme", "a/surface", "a/highContrast"]);
-            this.elm.iframe = $("<iframe id=\"" + $.opts.ids.page.iframe + "\"></iframe>")
+            this.elm.iframe = $("<app-frame-" + uid + " id=\"" + $.opts.ids.page.iframe + "\"></app-frame->")
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
                 .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
                 .attr($.attr.theme, config.theme)
                 .appendTo("body");
 
-            this.elm.iframeBody = this.elm.iframe.find("body");
+            this.elm.iframeBody = this.elm.iframeDocument.find("body");
 
             this.elm.iframeBody
                 .attr($.attr.theme, config.theme)

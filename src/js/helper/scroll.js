@@ -47,9 +47,9 @@
          */
         this.focus = () => {
             if (ext.elm.iframe.hasClass($.cl.page.visible) &&
-                ext.elm.iframe[0].contentDocument !== null &&
+                ext.elm.iframeDocument !== null &&
                 ext.helper.toggle.sidebarHoveredOnce() &&
-                ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elm.iframe[0].contentDocument.activeElement) {
+                ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']")[0] !== ext.elm.iframeDocument[0].activeElement) {
                 scrollBoxes.forEach((scrollBox) => {
                     if (scrollBox.hasClass($.cl.active)) {
                         scrollBox[0].focus();

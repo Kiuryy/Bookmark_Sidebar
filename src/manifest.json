@@ -36,6 +36,7 @@
         "css/contentBase.css"
       ],
       "js": [
+        "js/webcomponents-bundle.js",
         "js/lib/jsu.js",
         "js/opts.js",
         "js/helper/model.js",

@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Lesezeichenleiste"
     },
+    "extension_name_short": {
+        "message": "Lesezeichen"
+    },
     "extension_desc": {
         "message": "F\u00fcgt eine ausklappbare Leiste mit all deinen Lesezeichen auf der Seite deines Browsers hinzu."
     },

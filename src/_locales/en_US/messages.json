@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bookmark Sidebar"
     },
+    "extension_name_short": {
+        "message": "Bookmarks"
+    },
     "extension_desc": {
         "message": "Adds a toggleable sidebar with all your bookmarks at the edge of your browser window."
     },

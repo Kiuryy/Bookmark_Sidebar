@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Barra Segnalibri"
     },
+    "extension_name_short": {
+        "message": "Preferiti"
+    },
     "extension_desc": {
         "message": "Aggiunge una barra laterale selezionabile con tutti i tuoi Segnalibri sul lato sinistro dello schermo."
     },

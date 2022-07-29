@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Barra lateral de marcadores"
     },
+    "extension_name_short": {
+        "message": "Marcadores"
+    },
     "extension_desc": {
         "message": "A\u00f1ade una barra lateral con todos tus marcadores en la parte izquierda de tu pantalla."
     },

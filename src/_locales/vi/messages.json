@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Thanh D\u1ea5u Trang"
     },
+    "extension_name_short": {
+        "message": "C\u00e1c d\u1ea5u trang"
+    },
     "extension_desc": {
         "message": "Th\u00eam m\u1ed9t thanh b\u00ean ch\u1ee9a nh\u1eefng d\u1ea5u trang \u1edf c\u1ea1nh tr\u00ecnh duy\u1ec7t."
     },

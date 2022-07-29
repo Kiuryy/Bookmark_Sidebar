@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bo\u010dna traka oznaka"
     },
+    "extension_name_short": {
+        "message": "Oznake"
+    },
     "extension_desc": {
         "message": "Dodaje isko\u010dnu bo\u010dnu traku oznaka sa svim tvojim oznakama na rub preglednika."
     },

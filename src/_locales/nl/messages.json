@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bladwijzer zijbalk"
     },
+    "extension_name_short": {
+        "message": "Bladwijzers"
+    },
     "extension_desc": {
         "message": "Voegt een zijbalk toe aan je browser voor snelle en makkelijke toegang tot al je bladwijzers."
     },

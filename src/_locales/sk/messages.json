@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bo\u010dn\u00fd panel z\u00e1lo\u017eiek"
     },
+    "extension_name_short": {
+        "message": "Z\u00e1lo\u017eky"
+    },
     "extension_desc": {
         "message": "Prid\u00e1 prep\u00ednate\u013en\u00fd panel s va\u0161imi z\u00e1lo\u017ekami na okraj obrazovky prehliada\u010da."
     },

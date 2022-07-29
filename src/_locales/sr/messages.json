@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bo\u010dna traka obele\u017eiva\u010da"
     },
+    "extension_name_short": {
+        "message": "Obele\u017eiva\u010di"
+    },
     "extension_desc": {
         "message": "Dodaje promenljivu bo\u010dnu traku sa svim va\u0161im obele\u017eiva\u010dima na ivici prozora va\u0161eg internet pretra\u017eiva\u010da."
     },

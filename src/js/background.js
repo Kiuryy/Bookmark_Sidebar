@@ -192,9 +192,14 @@
          */
         this.run = () => {
             const start = +new Date();
+            let isBrowserStart = false;
 
             $.api.runtime.onInstalled.addListener((details) => {
                 callOnInstalledCallback(details);
+            });
+
+            $.api.runtime.onStartup.addListener(() => {
+                isBrowserStart = true;
             });
 
             $.api.runtime.setUninstallURL($.opts.website.info[$.isDev ? "landing" : "uninstall"]);
@@ -221,7 +226,12 @@
                 return this.helper.analytics.trackUserData();
             }).then(() => {
                 this.helper.newtab.reload();
-                return this.reinitialize();
+
+                if (isBrowserStart) {
+                    return Promise.resolve();
+                } else {
+                    return this.reinitialize();
+                }
             }).then(() => {
                 const rnd = Math.floor(Math.random() * 20) + 1;
                 if (rnd === 1) { // check if the license key is valid and if not, remove it from the sync storage (only perform this check for every 20th reload of the background script)

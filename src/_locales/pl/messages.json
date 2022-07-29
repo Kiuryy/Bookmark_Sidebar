@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Boczna lista zak\u0142adek"
     },
+    "extension_name_short": {
+        "message": "Zak\u0142adki"
+    },
     "extension_desc": {
         "message": "Dodaje wysuwan\u0105 boczn\u0105 list\u0119 ze wszystkimi twoimi zak\u0142adkami po lewej stronie ekranu."
     },

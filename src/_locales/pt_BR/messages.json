@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Barra de Favoritos"
     },
+    "extension_name_short": {
+        "message": "Favoritos"
+    },
     "extension_desc": {
         "message": "Adiciona uma barra lateral que pode ser exibida e ocultada, com todos os seus favoritos, \u00e0 borda da janela do seu navegador."
     },

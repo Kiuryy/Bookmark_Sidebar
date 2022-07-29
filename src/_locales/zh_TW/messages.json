@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "\u66f8\u7c64\u5074\u908a\u6b04"
     },
+    "extension_name_short": {
+        "message": "\u66f8\u7c64"
+    },
     "extension_desc": {
         "message": "\u5728\u700f\u89bd\u5668\u8996\u7a97\u908a\u7de3\u589e\u52a0\u4e00\u500b\u53ef\u5207\u63db\u7684\u5074\u908a\u6b04\uff0c\u7528\u65bc\u7ba1\u7406\u4f60\u7684\u6240\u6709\u66f8\u7c64\u3002"
     },

@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Barra lateral d'adreces d'inter\u00e8s"
     },
+    "extension_name_short": {
+        "message": "Marcadors"
+    },
     "extension_desc": {
         "message": "Afegeix una barra lateral amb totes les teves adreces d'inter\u00e8s al marge de la finestra del navegador."
     },

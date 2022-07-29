@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "K\u00f6nyvjelz\u0151 oldals\u00e1v"
     },
+    "extension_name_short": {
+        "message": "K\u00f6nyvjelz\u0151k"
+    },
     "extension_desc": {
         "message": "Hozz\u00e1ad egy oldals\u00e1vot az \u00f6sszes k\u00f6nyvjelz\u0151ddel a k\u00e9perny\u0151d oldal\u00e1ra"
     },

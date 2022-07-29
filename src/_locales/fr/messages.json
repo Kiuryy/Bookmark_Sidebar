@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Barre lat\u00e9rale de favoris"
     },
+    "extension_name_short": {
+        "message": "Favoris"
+    },
     "extension_desc": {
         "message": "Ajoute une barre lat\u00e9rale commutable regroupant tous vos favoris sur le bord de la fen\u00eatre de votre navigateur."
     },

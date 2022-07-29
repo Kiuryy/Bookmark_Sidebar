@@ -30,11 +30,11 @@
                         translationInfo = obj.translationInfo;
                     }
 
-                    if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
+                    if (typeof data.installationDate === "undefined") {
                         data.installationDate = +new Date();
                     }
 
-                    if (typeof data.lastUpdateDate === "undefined") { // no date yet -> save a start date in storage
+                    if (typeof data.lastUpdateDate === "undefined") {
                         data.lastUpdateDate = +new Date();
                     }
 

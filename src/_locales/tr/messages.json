@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Yer \u0130\u015faretleri Kenar \u00c7ubu\u011fu"
     },
+    "extension_name_short": {
+        "message": "Yer i\u015faretleri"
+    },
     "extension_desc": {
         "message": "Taray\u0131c\u0131n\u0131z\u0131n kenarlar\u0131na yer i\u015faretleriniz i\u00e7in a\u00e7\u0131l\u0131p kapanabilen bir \u00e7ubuk ekler."
     },

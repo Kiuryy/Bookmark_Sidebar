@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bokm\u00e4rkessidof\u00e4lt"
     },
+    "extension_name_short": {
+        "message": "Bokm\u00e4rken"
+    },
     "extension_desc": {
         "message": "L\u00e4gger till en poppuppsidof\u00e4lt i webbl\u00e4sarens f\u00f6nster med alla dina bokm\u00e4rken"
     },

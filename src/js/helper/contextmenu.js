@@ -226,6 +226,7 @@
                 return;
             }
 
+            const sort = ext.helper.model.getData("u/sort");
             const i18nAppend = data.isDir ? "_dir" : "_bookmark";
             const list = contextmenu.children("ul." + $.cl.contextmenu.list);
             const iconWrapper = contextmenu.children("ul." + $.cl.contextmenu.icons);
@@ -281,12 +282,16 @@
             if (data.isDir) {
                 const listEntry = $("<li></li>").html("<a " + $.attr.name + "='add' title='" + ext.helper.i18n.get("contextmenu_add", null, true) + "'></a>").appendTo(iconWrapper);
 
-                $("<ul></ul>")
+                const ul = $("<ul></ul>")
                     .attr($.attr.name, "add")
                     .append("<li><a " + $.attr.type + "='bookmark' title='" + ext.helper.i18n.get("overlay_label_bookmark", null, true) + "'></a></li>")
                     .append("<li><a " + $.attr.type + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")
-                    .append("<li><a " + $.attr.type + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>")
                     .appendTo(listEntry);
+
+                if (sort === "custom") {
+                    ul.append("<li><a " + $.attr.type + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>");
+                }
+
             } else {
                 iconWrapper.append("<li><a " + $.attr.name + "='copyToClipboard' title='" + ext.helper.i18n.get("contextmenu_copy", null, true) + "'></a></li>");
 

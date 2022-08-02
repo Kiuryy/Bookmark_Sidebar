@@ -401,14 +401,18 @@
          * @param {object} data
          */
         const handleAddHtml = (data) => {
+            const sort = ext.helper.model.getData("u/sort");
             const submit = $("<a></a>").addClass($.cl.overlay.action).text(ext.helper.i18n.get("overlay_save")).appendTo(elements.buttonWrapper);
             const menu = $("<menu></menu>").attr($.attr.name, "select").appendTo(elements.modal);
 
             const links = {
                 bookmark: $("<a></a>").attr($.attr.type, "bookmark").attr("title", ext.helper.i18n.get("overlay_label_bookmark")).appendTo(menu),
-                dir: $("<a></a>").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu),
-                separator: $("<a></a>").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu)
+                dir: $("<a></a>").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu)
             };
+
+            if (sort === "custom") {
+                links.separator = $("<a></a>").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
+            }
 
             menu.on("mouseleave", (e) => {
                 $(e.currentTarget).children("a").removeClass($.cl.hover);

@@ -19,7 +19,7 @@
   "devDependencies": {
     "concat": "^1.0.3",
     "create-file": "^1.0.1",
-    "eslint": "^8.21.0",
+    "eslint": "^8.22.0",
     "fs-extra": "^10.1.0",
     "glob-concat": "^1.0.2",
     "html-minifier": "^4.0.0",
@@ -28,7 +28,7 @@
     "npm-check-updates": "^16.0.5",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^5.14.2",
+    "terser": "^5.15.0",
     "zip-dir": "^2.0.0"
   }
 }

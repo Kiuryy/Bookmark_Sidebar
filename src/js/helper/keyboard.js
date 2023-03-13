@@ -60,81 +60,84 @@
          * Initializes the eventhandlers for the sidebar
          */
         const initSidebarEvents = () => {
-            $([document, ext.elm.iframeDocument]).on("keydown.bs", (e) => {
-                if (isSidebarFocussed()) { // sidebar is focussed
-                    const scrollKeys = ["PageDown", "PageUp", "Home", "End", "Space"];
-                    const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
-                    const isContextmenuOpen = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper).length() > 0;
-                    const isDragged = ext.elm.iframeBody.hasClass($.cl.drag.isDragged);
+            $([document, ext.elm.iframeDocument]).on("keydown.bs", async (e) => {
+                if (!isSidebarFocussed()) { // sidebar is not focussed
+                    return;
+                }
 
-                    if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
-                        ext.helper.scroll.focus();
-                        $.delay(300).then(() => {
-                            hoverVisibleEntry();
-                        });
-                    } else if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) { // jump to the next entry
-                        e.preventDefault();
-                        if (isContextmenuOpen) {
-                            hoverNextPrevContextmenuEntry("next");
-                        } else {
-                            hoverNextPrevEntry("next");
-                            const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
-                            if (searchField[0]) {
-                                searchField[0].blur();
-                            }
+                const scrollKeys = ["PageDown", "PageUp", "Home", "End", "Space"];
+                const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                const isContextmenuOpen = ext.elm.sidebar.find("div." + $.cl.contextmenu.wrapper).length() > 0;
+                const isDragged = ext.elm.iframeBody.hasClass($.cl.drag.isDragged);
+
+                if (scrollKeys.indexOf(e.key) > -1 || scrollKeys.indexOf(e.code) > -1) {
+                    ext.helper.scroll.focus();
+                    await $.delay(300);
+                    hoverVisibleEntry();
+
+                } else if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) { // jump to the next entry
+                    e.preventDefault();
+                    if (isContextmenuOpen) {
+                        hoverNextPrevContextmenuEntry("next");
+                    } else {
+                        hoverNextPrevEntry("next");
+                        const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                        if (searchField[0]) {
+                            searchField[0].blur();
                         }
-                    } else if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) { // jump to the previous entry
-                        e.preventDefault();
-                        if (isContextmenuOpen) {
-                            hoverNextPrevContextmenuEntry("prev");
-                        } else {
-                            hoverNextPrevEntry("prev");
-                        }
-                    } else if (e.key === "Enter") { // click the current entry
-                        e.preventDefault();
-                        if (isContextmenuOpen) {
-                            handleContextmenuClick();
-                        } else {
-                            handleClick(e.shiftKey, (e.ctrlKey || e.metaKey));
-                        }
-                    } else if (e.key === "Escape" || e.key === "Esc") {
-                        e.preventDefault();
-                        if (isDragged) { // cancel drag&drop
-                            ext.helper.dragndrop.cancel();
-                        } else if (isContextmenuOpen) { // close contextmenu
-                            ext.helper.contextmenu.close();
-                        } else { // close sidebar
-                            ext.helper.toggle.closeSidebar();
-                        }
-                    } else if (e.key === "Delete" && ext.helper.selection.isEnabled()) { // remove the selected entries
-                        e.preventDefault();
-                        removeHoveredEntry();
-                        ext.helper.selection.deleteSelected();
-                    } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframeDocument[0].activeElement) { // remove the currently hovered entry
-                        e.preventDefault();
-                        removeHoveredEntry();
-                    } else if (e.key === "f" && (e.ctrlKey || e.metaKey) && e.ctrlKey !== e.metaKey && !e.shiftKey) { // open the search field
-                        e.preventDefault();
-                        ext.helper.search.showSearchField();
-                    } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
-                        e.preventDefault();
-                        copyHoveredEntryUrl();
-                    } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command" && searchField.length() > 0 && searchField[0] !== ext.elm.iframeDocument[0].activeElement) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
-                        searchField[0].focus();
                     }
+                } else if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) { // jump to the previous entry
+                    e.preventDefault();
+                    if (isContextmenuOpen) {
+                        hoverNextPrevContextmenuEntry("prev");
+                    } else {
+                        hoverNextPrevEntry("prev");
+                    }
+                } else if (e.key === "Enter") { // click the current entry
+                    e.preventDefault();
+                    if (isContextmenuOpen) {
+                        handleContextmenuClick();
+                    } else {
+                        handleClick(e.shiftKey, (e.ctrlKey || e.metaKey));
+                    }
+                } else if (e.key === "Escape" || e.key === "Esc") {
+                    e.preventDefault();
+                    if (isDragged) { // cancel drag&drop
+                        ext.helper.dragndrop.cancel();
+                    } else if (isContextmenuOpen) { // close contextmenu
+                        ext.helper.contextmenu.close();
+                    } else { // close sidebar
+                        ext.helper.toggle.closeSidebar();
+                    }
+                } else if (e.key === "Delete" && ext.helper.selection.isEnabled()) { // remove the selected entries
+                    e.preventDefault();
+                    removeHoveredEntry();
+                    ext.helper.selection.deleteSelected();
+                } else if (e.key === "Delete" && searchField.length() > 0 && searchField[0] !== ext.elm.iframeDocument[0].activeElement) { // remove the currently hovered entry
+                    e.preventDefault();
+                    removeHoveredEntry();
+                } else if (e.key === "f" && (e.ctrlKey || e.metaKey) && e.ctrlKey !== e.metaKey && !e.shiftKey) { // open the search field
+                    e.preventDefault();
+                    ext.helper.search.showSearchField();
+                } else if (e.key === "c" && (e.ctrlKey || e.metaKey)) { // copy url of currently hovered bookmark
+                    e.preventDefault();
+                    copyHoveredEntryUrl();
+                } else if (e.key !== "Shift" && e.key !== "Control" && e.key !== "Command" && searchField.length() > 0 && searchField[0] !== ext.elm.iframeDocument[0].activeElement) { // focus search field to enter the value of the pressed key there -> only if the sidebar is opened by the user
+                    searchField[0].focus();
                 }
             }).on("keyup.bs", () => {
-                if (isSidebarFocussed()) {
-                    const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                if (!isSidebarFocussed()) {
+                    return;
+                }
 
-                    if (searchField && searchField.length() > 0) {
-                        const searchVal = searchField[0].value;
+                const searchField = ext.elm.header.find("div." + $.cl.sidebar.searchBox + " > input[type='text']");
+                if (searchField && searchField.length() > 0) {
+                    const searchVal = searchField[0].value;
 
-                        if (searchVal.length > 0 && !ext.elm.header.hasClass($.cl.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
-                            ext.helper.contextmenu.close();
-                            ext.helper.tooltip.close();
-                            ext.elm.header.addClass($.cl.sidebar.searchVisible);
-                        }
+                    if (searchVal.length > 0 && !ext.elm.header.hasClass($.cl.sidebar.searchVisible)) { // search field is not yet visible but the field is filled
+                        ext.helper.contextmenu.close();
+                        ext.helper.tooltip.close();
+                        ext.elm.header.addClass($.cl.sidebar.searchVisible);
                     }
                 }
             });

@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "D\u1ecbch v\u1ee5 d\u1ecbch t\u1ea1m th\u1eddi kh\u00f4ng kh\u1ea3 d\u1ee5ng. Xin h\u00e3y th\u1eed l\u1ea1i sau."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "T\u1ea3i l\u1ea1i"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "V\u00ec m\u1ed9t b\u1ea3n c\u1eadp nh\u1eadt ti\u1ec7n \u00edch, trang n\u00e0y ph\u1ea3i t\u1ea3i l\u1ea1i."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1293,7 +1287,7 @@
         "message": "H\u00e3y so\u1ea1n l\u1ea1i ph\u1ea3n h\u1ed3i c\u1ee7a b\u1ea1n b\u1eb1ng ti\u1ebfng Anh, n\u1ebfu kh\u00f4ng t\u00f4i s\u1ebd kh\u00f3 tr\u1ea3 l\u1eddi tin nh\u1eafn c\u1ee7a b\u1ea1n."
     },
     "settings_support_feedback_email": {
-        "message": "\u0110\u1ecba ch\u1ec9 Email (tu\u1ef3 ch\u1ecdn)"
+        "message": "B\u1ea1n mu\u1ed1n \u0111\u01b0\u1ee3c gi\u1ea3i \u0111\u00e1p? H\u00e3y \u0111\u1ec3 l\u1ea1i \u0111\u1ecba ch\u1ec9 email (t\u00f9y ch\u1ecdn)"
     },
     "settings_support_feedback_screenshot": {
         "message": "\u0110\u00ednh k\u00e8m \u1ea3nh ch\u1ee5p m\u00e0n h\u00ecnh"

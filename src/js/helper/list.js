@@ -534,6 +534,11 @@
             elm.find("a." + $.cl.sidebar.lastHover).removeClass($.cl.sidebar.lastHover);
             elm.find("li." + $.cl.drag.dragInitial).removeClass($.cl.drag.dragInitial);
             elm.find("li." + $.cl.drag.isDragged).remove();
+
+            const deletedElm = elm.find("a." + $.cl.sidebar.removed).parent("li");
+            if (deletedElm && deletedElm.length() > 0) {
+                deletedElm.remove();
+            }
         };
 
         /**
@@ -636,21 +641,17 @@
          * @param {string} url
          * @returns {Promise}
          */
-        const addFavicon = (elm, url) => {
+        const addFavicon = async (elm, url) => {
             elm.children("img").remove();
-            const favicon = $("<img />").prependTo(elm);
-            favicon.attr($.attr.value, url);
+            const img = $("<img />").prependTo(elm);
+            img.attr($.attr.value, url);
 
-            return new Promise((resolve) => {
-                ext.helper.model.call("favicon", {url: url}).then((response) => { // retrieve favicon of url
-                    if (response.img) { // favicon found -> add to entry
-                        const sidebarOpen = ext.elm.iframe.hasClass($.cl.page.visible);
-                        favicon.attr(sidebarOpen ? "src" : $.attr.src, response.img);
-                    }
-                    favicon.removeAttr($.attr.value);
-                    resolve();
-                });
-            });
+            const favicon = await ext.helper.model.call("favicon", {url: url}); // retrieve favicon of url
+            if (favicon) { // favicon found -> add to entry
+                const sidebarOpen = ext.elm.iframe.hasClass($.cl.page.visible);
+                img.attr(sidebarOpen ? "src" : $.attr.src, favicon);
+            }
+            img.removeAttr($.attr.value);
         };
 
         /**
@@ -736,33 +737,29 @@
          * @param {string} cachedHtml
          * @returns {Promise}
          */
-        const updateFromCache = (list, cachedHtml) => {
-            return new Promise((resolve) => {
-                ext.log("Load html from cache");
-                list.html(cachedHtml);
+        const updateFromCache = async (list, cachedHtml) => {
+            ext.log("Load html from cache");
+            list.html(cachedHtml);
 
-                cleanCachedHtml(list);
+            cleanCachedHtml(list);
 
-                list.find("div." + $.cl.checkbox.box).forEach((checkboxWrapper) => { // reinitialize event handlers for the checkboxes
-                    ext.helper.checkbox.initEvents($(checkboxWrapper), ext.elm.iframeBody);
-                });
-
-                loadMissingFavicons(list, true);
-                ext.elm.bookmarkBox.all.addClass($.cl.sidebar.cached);
-
-                this.updateSidebarHeader();
-                this.updateSortFilter();
-
-                if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
-                    list.addClass($.cl.sidebar.hideRoot);
-                    $("<a></a>").attr($.attr.name, "add").insertAfter(list);
-                }
-
-                $.delay(100).then(() => {
-                    restoreScrollPos();
-                    resolve();
-                });
+            list.find("div." + $.cl.checkbox.box).forEach((checkboxWrapper) => { // reinitialize event handlers for the checkboxes
+                ext.helper.checkbox.initEvents($(checkboxWrapper), ext.elm.iframeBody);
             });
+
+            loadMissingFavicons(list, true);
+            ext.elm.bookmarkBox.all.addClass($.cl.sidebar.cached);
+
+            this.updateSidebarHeader();
+            this.updateSortFilter();
+
+            if (list.children("li").length() === 1) { // hide root directory if it's the only one -> show the content of this directory
+                list.addClass($.cl.sidebar.hideRoot);
+                $("<a></a>").attr($.attr.name, "add").insertAfter(list);
+            }
+
+            await $.delay(100);
+            restoreScrollPos();
         };
 
         /**

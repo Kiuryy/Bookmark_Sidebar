@@ -1,11 +1,9 @@
 ($ => {
     "use strict";
 
-    $.PortHelper = function (b) {
+    $.MessageHelper = function (b) {
 
         this.init = async () => {
-            let c = 0;
-
             const mapping = {
                 checkUrl: b.helper.linkchecker.check,
                 bookmarks: b.helper.bookmarks.getById,
@@ -17,12 +15,13 @@
                 openWebsite: b.openWebsite,
                 reload: b.reload,
                 reinitialize: b.reinitialize,
+                systemColorChanged: b.helper.model.systemColorChanged,
                 updateShareInfo: b.helper.model.setShareInfo,
                 infoToDisplay: b.helper.model.getInfoToDisplay,
                 languageInfos: b.helper.language.getAvailableLanguages,
                 langvars: b.helper.language.getLangVars,
                 rtlLangs: b.helper.language.getRtlLanguages,
-                favicon: b.helper.image.getFavicon,
+                favicon: b.helper.bookmarks.getFavicon,
                 openLink: b.helper.utility.openLink,
                 userType: b.helper.model.getUserType,
                 activatePremium: b.helper.utility.activatePremium,
@@ -45,31 +44,20 @@
                 lastUpdateDate: async () => b.helper.model.getData("lastUpdateDate")
             };
 
-            $.api.runtime.onConnect.addListener((port) => {
-                if (port.name && port.name === "background") {
-                    port.onMessage.addListener((message, info) => {
-                        if (mapping[message.type]) { // function for message type exists
-                            if (c === 100) { // check whether the userdata should be shared for today from time to time
-                                b.helper.analytics.trackUserData();
-                                c %= 100;
-                            }
-                            message.tabInfo = info.sender.tab;
-
-                            mapping[message.type](message).then((result) => {
-                                try { // can fail if port is closed in the meantime
-                                    port.postMessage({
-                                        uid: message.uid,
-                                        result: result
-                                    });
-                                } catch (e) {
-                                    //
-                                }
-                            });
-
-                            c++;
-                        }
+            $.api.runtime.onMessage.addListener((message, sender, callback) => {
+                if (mapping[message.type]) { // function for message type exists
+                    message.tabId = sender.tab ? sender.tab.id : null;
+                    mapping[message.type](message).then((result) => {
+                        callback(result);
+                    })["catch"]((error) => {
+                        console.error(error);
+                        callback();
                     });
+                } else {
+                    console.error("Unknown message type:", message.type);
+                    callback();
                 }
+                return true;
             });
         };
     };

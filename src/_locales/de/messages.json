@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "Der \u00dcbersetzungsdienst ist aktuell nicht erreichbar. Bitte versuche es sp\u00e4ter erneut."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Jetzt neuladen"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Aufgrund eines Updates der Erweiterung muss die Seite neugeladen werden"
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1293,7 +1287,7 @@
         "message": "Du kannst die Nachricht gerne auf Deutsch schreiben."
     },
     "settings_support_feedback_email": {
-        "message": "E-Mail Adresse (optional)"
+        "message": "Du willst eine Antwort? Gib deine E-Mail Adresse an (optional)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Screenshots anh\u00e4ngen"

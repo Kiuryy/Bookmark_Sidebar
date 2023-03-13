@@ -40,17 +40,17 @@
          * or opens/closes the directory
          *
          * @param {jsu} elm
-         * @param {object} opts
+         * @param {MouseEvent} e
          * @returns {boolean}
          */
-        this.handleEntryClick = (elm, opts) => {
+        this.handleEntryClick = (elm, e) => {
             const data = ext.helper.entry.getDataById(elm.attr($.attr.id));
             if (!data) {
                 return false;
             }
 
             const config = ext.helper.model.getData(["b/newTab", "b/linkAction"]);
-            const middleClick = opts.which === 2 || opts.ctrlKey || opts.metaKey;
+            const middleClick = e.buttons === 4 || e.ctrlKey || e.metaKey;
 
             if (data.isDir && !elm.hasClass($.cl.sidebar.dirAnimated)) { // Click on dir
                 if (middleClick) { // middle click -> open all children
@@ -67,7 +67,7 @@
                 data.reopenSidebar = ext.helper.model.getData("b/reopenSidebar");
 
                 if (middleClick) { // new tab -> middle click
-                    const active = opts.shiftKey || (config.newTab === "background" && config.linkAction === "newtab");
+                    const active = e.shiftKey || (config.newTab === "background" && config.linkAction === "newtab");
                     ext.helper.utility.openUrl(data, "newTab", active); // open in foreground when a normal click opens the tab in new tab in the background or while pressing 'shift' always in the foreground
                 } else if (config.linkAction === "newtab") { // new tab -> normal click
                     ext.helper.utility.openUrl(data, "newTab", config.newTab === "foreground");
@@ -131,7 +131,7 @@
                         !elm.hasClass($.cl.drag.trigger) &&
                         !elm.hasClass($.cl.sidebar.separator) &&
                         !elm.parent().hasClass($.cl.sidebar.removeMask) &&
-                        ((e.which === 1 && e.type === "click") || (e.which === 2 && e.type === "mousedown") || ext.refreshRun)
+                        (e.type === "click" || (e.buttons === 4 && e.type === "mousedown") || ext.refreshRun)
                     ) { // only left click
                         if (elm.hasClass($.cl.add)) {
                             const id = elm.parent("a").attr($.attr.id);
@@ -140,7 +140,7 @@
                             this.handleEntryClick($(e.currentTarget), e);
                         }
                     }
-                }).on("dblclick", "> ul a", (e) => { // double click on a directory will open the directory + all sub directories
+                }).on("dblclick", "> ul a", (e) => { // doubleclick on a directory will open the directory + all sub directories
                     const _self = $(e.currentTarget);
                     if (_self.hasClass($.cl.sidebar.bookmarkDir) && !_self.hasClass($.cl.sidebar.dirOpened)) {
                         const openChildren = (elm) => {
@@ -186,16 +186,15 @@
                 }).on("mouseleave", (e) => {
                     ext.helper.tooltip.close();
                     $(e.currentTarget).find("a." + $.cl.hover).removeClass($.cl.hover);
-                }).on("click", "span." + $.cl.sidebar.removeMask + " > span", (e) => { // undo deletion of an entry
+                }).on("click", "span." + $.cl.sidebar.removeMask + " > span", async (e) => { // undo deletion of an entry
                     e.preventDefault();
                     const elm = $(e.target).parents("a").eq(0);
 
                     if (isRestoring === false) {
                         isRestoring = true;
-
-                        ext.helper.bookmark.restoreEntry(elm).then(() => {
-                            isRestoring = false;
-                        });
+                        await ext.helper.bookmark.restoreEntry(elm);
+                        await $.delay(500);
+                        isRestoring = false;
                     }
                 }).on("mouseover", "> a[" + $.attr.name + "='add']", (e) => {
                     e.preventDefault();
@@ -240,7 +239,7 @@
                 clTimeout();
             }).on("mouseleave", () => {
                 startTimeout();
-            }).on("click", (e) => {
+            }).on("click", async (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 ext.elm.lockPinned.toggleClass($.cl.sidebar.fixed);
@@ -248,17 +247,17 @@
 
                 const isLocked = ext.elm.pinnedBox.hasClass($.cl.sidebar.fixed);
 
-                ext.helper.model.setData({
+                await ext.helper.model.setData({
                     "u/lockPinned": isLocked
-                }).then(() => {
-                    if (isLocked === false) { // scroll to top if the pinned entries got unlocked
-                        ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, 0, 200);
-                        ext.elm.lockPinned.removeClass($.cl.active);
-                    }
-
-                    ext.helper.toggle.removeSidebarHoverClass();
-                    ext.helper.list.updateSortFilter();
                 });
+
+                if (isLocked === false) { // scroll to top if the pinned entries got unlocked
+                    ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, 0, 200);
+                    ext.elm.lockPinned.removeClass($.cl.active);
+                }
+
+                ext.helper.toggle.removeSidebarHoverClass();
+                ext.helper.list.updateSortFilter();
             });
         };
 
@@ -293,29 +292,28 @@
                 $("div[data-name='redeviation-extension']").removeAttr($.attr.name);
 
                 ext.helper.model.call("openLink", {
-                    href: $.api.extension.getURL("html/settings.html#support"),
+                    href: $.api.runtime.getURL("html/settings.html#support"),
                     newTab: false
                 });
             });
 
-            $(ext.elm.iframeDocument).on($.opts.events.checkboxChanged, (e) => {
+            $(ext.elm.iframeDocument).on($.opts.events.checkboxChanged, async (e) => {
                 const name = e.detail.checkbox.attr($.attr.name);
 
                 if (name === "viewAsTree" || name === "mostViewedPerMonth") { // set sort specific config and reload list
-                    ext.helper.model.setData({
+                    await ext.helper.model.setData({
                         ["u/" + name]: e.detail.checked
-                    }).then(() => {
-                        ext.startLoading();
-                        ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                     });
+                    ext.startLoading();
+                    ext.helper.model.call("reload", {scrollTop: true, type: "Sort"});
                 } else if (name === "select") {
                     selectOrDeselectEntry($(e.detail.container).parent());
                 }
             });
 
             // listen for events from the background script
-            $.api.extension.onMessage.removeListener(handleBackgroundMessage);
-            $.api.extension.onMessage.addListener(handleBackgroundMessage);
+            $.api.runtime.onMessage.removeListener(handleBackgroundMessage);
+            $.api.runtime.onMessage.addListener(handleBackgroundMessage);
 
             ["menu", "sort"].forEach((type) => {
                 ext.elm.header.on("click contextmenu", "a." + $.cl.sidebar[type], (e) => { // Menu and sort contextmenu
@@ -336,7 +334,6 @@
                 e.stopPropagation();
                 ext.helper.selection.openSelected();
             });
-
 
             ext.elm.header.on("click contextmenu", "a." + $.cl.cancel, (e) => { // Cancel selection of entries
                 e.preventDefault();
@@ -383,7 +380,7 @@
 
                     if (href) {
                         ext.helper.model.call("openLink", {
-                            href: $.api.extension.getURL(href),
+                            href: $.api.runtime.getURL(href),
                             newTab: true
                         });
                     }
@@ -409,7 +406,7 @@
             });
 
             ext.elm.iframeBody.on("mousemove", (e) => {
-                if (ext.elm.widthDrag.hasClass($.cl.drag.isDragged) && e.which === 1) {
+                if (ext.elm.widthDrag.hasClass($.cl.drag.isDragged) && e.buttons === 1) {
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -434,26 +431,25 @@
                     ext.elm.sidebar.css("width", sidebarWidth + "px");
                     ext.helper.list.handleSidebarWidthChange();
                 }
-            }).on("mouseup", () => { // save current sidebar width
+            }).on("mouseup", async () => { // save current sidebar width
                 if (ext.elm.widthDrag.data("dragInfo")) {
                     ext.elm.widthDrag.removeData("dragInfo");
                     const styles = ext.helper.model.getData("a/styles");
 
-                    $.delay().then(() => {
-                        const widthValue = Math.round(ext.elm.sidebar.realWidth());
+                    await $.delay();
+                    const widthValue = Math.round(ext.elm.sidebar.realWidth());
 
-                        if (!isNaN(widthValue)) {
-                            styles.sidebarWidth = widthValue + "px";
-                            ext.helper.model.setData({"a/styles": styles});
+                    if (!isNaN(widthValue)) {
+                        styles.sidebarWidth = widthValue + "px";
+                        ext.helper.model.setData({"a/styles": styles});
 
-                            if (ext.elm.iframe.hasClass($.cl.page.hideMask)) { // save width of iframe in data attribute
-                                ext.elm.iframe.data("width", widthValue + 50);
-                            }
+                        if (ext.elm.iframe.hasClass($.cl.page.hideMask)) { // save width of iframe in data attribute
+                            ext.elm.iframe.data("width", widthValue + 50);
                         }
+                    }
 
-                        ext.helper.toggle.removeSidebarHoverClass();
-                        ext.elm.widthDrag.removeClass($.cl.drag.isDragged);
-                    });
+                    ext.helper.toggle.removeSidebarHoverClass();
+                    ext.elm.widthDrag.removeClass($.cl.drag.isDragged);
                 }
             });
         };
@@ -463,7 +459,7 @@
          *
          * @param {object} message
          */
-        const handleBackgroundMessage = (message) => {
+        const handleBackgroundMessage = async (message) => {
             if (message && message.action && (message.reinitialized === null || ext.initialized > message.reinitialized)) { // background is not reinitialized after the creation of this instance of the script -> perform the action
 
                 if (message.action === "reload") { // reload the current instance of the extension
@@ -484,7 +480,8 @@
                         }
 
                         ext.needsReload = true;
-                        $.delay(delay).then(ext.reload);
+                        await $.delay(delay);
+                        ext.reload();
                     }
                 } else if (message.action === "toggleSidebar") { // click on the icon in the chrome menu
                     ext.helper.model.call("clearNotWorkingTimeout");

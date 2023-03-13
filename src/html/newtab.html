@@ -3,12 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title data-i18n="newtab_title"></title>
-    <script>
-        window.cachedKeys = [];
-        document.addEventListener("keypress", (e) => {
-            window.cachedKeys.push(e.key);
-        });
-    </script>
+    <script src='/js/newtab/preflight.js'></script>
     <style>
         body.building > * {
             display: none !important;
@@ -41,6 +36,7 @@
     </section>
 </section>
 
+<!-- [START REMOVE] -->
 <script src="/js/lib/jsu.js"></script>
 <script src="/js/opts.js"></script>
 <script src='/js/helper/i18n.js'></script>
@@ -50,7 +46,6 @@
 <script src='/js/helper/checkbox.js'></script>
 <script src='/js/helper/template.js'></script>
 <script src='/js/helper/model.js'></script>
-<!-- [START REMOVE] -->
 <script src='/js/helper/entry.js'></script>
 <script src='/js/newtab/edit.js'></script>
 <script src='/js/newtab/search.js'></script>

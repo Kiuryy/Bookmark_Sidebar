@@ -169,7 +169,7 @@
                     tooltipFontSize: "9px",
                     overlayMaskColor: null,
                     overlayHeaderHeight: "50px",
-                    fontFamily: "default",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial",
                     // styles for glass theme
                     backgroundTransparency: 0.8,
                     backgroundBlur: "7px"
@@ -178,7 +178,7 @@
             n: { // new tab -> synced across devices
                 override: false,
                 faviconShape: "new-1",
-                faviconColor: "#646464",
+                faviconColor: "#545454",
                 faviconBackground: "transparent",
                 faviconPadding: 10,
                 autoOpen: true,
@@ -205,81 +205,41 @@
 
         let data = {};
         let userType = null;
-        let port = null;
-        const callbacks = {};
 
         /**
          * Initialises the model
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                userType = null;
-
-                Promise.all([
-                    initPort(),
-                    refresh()
-                ]).then(resolve);
-            });
+        this.init = async () => {
+            await refresh();
         };
 
         /**
-         * Initialises the port to the background script
          *
          * @returns {Promise}
          */
-        const initPort = () => {
-            return new Promise((resolve) => {
-                if (port) {
-                    port.disconnect();
+        const refresh = async () => {
+            if (!$.api.storage) { // if the context got invalidated (e.g. extension update), access to chrome.* namespace is not working anymore
+                return;
+            }
+
+            const keys = ["utility", "behaviour", "appearance", "newtab"];
+            const newData = {};
+
+            for (const key of keys) {
+                const storedData = await $.api.storage[key === "utility" ? "local" : "sync"].get([key]);
+                newData[key] = storedData[key] || {};
+            }
+
+            data = newData;
+
+            if (userType === null) {
+                const obj = await this.call("userType");
+                if (obj && obj.userType) {
+                    userType = obj.userType;
                 }
-
-                port = $.api.runtime.connect(null, {name: "background"});
-
-                port.onMessage.addListener((obj) => {
-                    if (callbacks[obj.uid]) {
-                        callbacks[obj.uid](obj.result);
-                        delete callbacks[obj.uid];
-                    }
-                });
-
-                resolve();
-            });
-        };
-
-        /**
-         *
-         * @returns {Promise}
-         */
-        const refresh = () => {
-            return new Promise((resolve) => {
-                const keys = ["utility", "behaviour", "appearance", "newtab"];
-                const newData = {};
-
-                const len = keys.length;
-                let loaded = 0;
-                keys.forEach((key) => {
-                    $.api.storage[key === "utility" ? "local" : "sync"].get([key], (obj) => {
-                        newData[key] = obj[key] || {};
-
-                        if (++loaded === len) { // all data loaded from storage -> resolve promise
-                            data = newData;
-
-                            if (userType === null) {
-                                this.call("userType").then((obj) => {
-                                    if (obj && obj.userType) {
-                                        userType = obj.userType;
-                                    }
-                                    resolve();
-                                });
-                            } else {
-                                resolve();
-                            }
-                        }
-                    });
-                });
-            });
+            }
         };
 
         /**
@@ -404,10 +364,8 @@
                         value.colorScheme = defaultColors["default"].colorScheme[colorScheme];
                     }
 
-                    if (ext.helper.font && ext.helper.font.isLoaded()) { // FontHelper is available and loaded -> extend object with detailed font information
-                        const fontInfo = ext.helper.font.getFontInfo(defaultVal ? "default" : "config");
-                        value.fontFamily = fontInfo.name;
-                        Object.assign(value, fontInfo.fontWeights);
+                    if (ext.helper.font) { // FontHelper is available -> extend object with font weights
+                        Object.assign(value, ext.helper.font.getFontWeights());
                     }
                 }
 
@@ -490,19 +448,27 @@
          *
          * @param {string} key
          * @param {object} opts
+         * @param {number} retry
          * @returns {Promise}
          */
-        this.call = (key, opts = {}) => {
-            return new Promise((resolve) => {
-                opts.type = key;
-                opts.uid = key + "_" + JSON.stringify(opts) + "_" + (+new Date()) + Math.random().toString(36).substr(2, 12);
+        this.call = async (key, opts = {}, retry = 0) => {
+            let backendDead = false;
+            opts.type = key;
 
-                callbacks[opts.uid] = (response) => {
-                    resolve(response);
-                };
-
-                port.postMessage(opts);
+            let response = await $.api.runtime.sendMessage(opts)["catch"]((err) => {
+                if (err && ("" + err).includes("Could not establish connection")) {
+                    backendDead = true;
+                } else {
+                    console.error(err);
+                }
             });
+
+            if (backendDead && retry < 50) { // backend got killed by the browser -> it should restart and be available after a short delay, so we try again
+                await $.delay(100);
+                response = await this.call(key, opts, retry + 1);
+            }
+
+            return response;
         };
     };
 

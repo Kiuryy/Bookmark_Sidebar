@@ -36,7 +36,7 @@
         /**
          * Cancels the dragging and resets the position of the dragged element
          */
-        this.cancel = () => {
+        this.cancel = async () => {
             const draggedElm = ext.elm.iframeBody.children("a." + $.cl.drag.helper);
             const dragInitialElm = ext.elm.bookmarkBox.all.find("li." + $.cl.drag.dragInitial);
             const entryElm = draggedElm.data("elm");
@@ -50,9 +50,8 @@
             ext.elm.iframeBody.removeClass([$.cl.drag.isDragged, $.cl.drag.cancel]);
             ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
 
-            $.delay(500).then(() => {
-                ext.helper.toggle.removeSidebarHoverClass();
-            });
+            await $.delay(500);
+            ext.helper.toggle.removeSidebarHoverClass();
         };
 
         /**
@@ -84,10 +83,8 @@
 
         /**
          * Initialises the eventhandler for external elements beeing dragged into the sidebar (e.g. a link, an image, ...)
-         *
-         * @returns {Promise}
          */
-        const initExternalDragDropEvents = async () => {
+        const initExternalDragDropEvents = () => {
             ext.elm.iframeBody.on("dragenter", () => {
                 const body = $("body");
                 if (body.attr("id") === $.opts.ids.page.newtab && body.hasClass($.cl.newtab.edit)) { // disable drag&drop when in edit mode of the new tab page
@@ -103,7 +100,7 @@
                 if (!edgeScroll.running) {
                     window.requestAnimationFrame(edgeScrolling);
                 }
-            }).on("drop dragend", (e) => {
+            }).on("drop dragend", async (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 edgeScroll.posY = null;
@@ -146,11 +143,10 @@
                         };
 
                         if (showCreationDialog === false && bookmarkObj.title && bookmarkObj.url) { // title and url could be determined from the dragged element -> create bookmark directly
-                            ext.helper.model.call("createBookmark", bookmarkObj).then((result) => {
-                                if (result.error) {
-                                    showOverlay();
-                                }
-                            });
+                            const result = await ext.helper.model.call("createBookmark", bookmarkObj);
+                            if (result.error) {
+                                showOverlay();
+                            }
                         } else { // title or url is unknown -> open overlay with dialog
                             showOverlay();
                         }
@@ -347,24 +343,21 @@
                 ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
                 ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
 
-                $.delay().then(() => {
-                    const boundClientRect = entryElm[0].getBoundingClientRect();
+                await $.delay();
+                const boundClientRect = entryElm[0].getBoundingClientRect();
 
-                    draggedElm.css({
-                        top: boundClientRect.top + "px",
-                        left: boundClientRect.left + "px"
-                    });
-
-                    return $.delay(200);
-                }).then(() => {
-                    entryElm.removeClass($.cl.drag.isDragged);
-                    dragInitialElm.remove();
-                    draggedElm.remove();
-
-                    return $.delay(300);
-                }).then(() => {
-                    ext.helper.toggle.removeSidebarHoverClass();
+                draggedElm.css({
+                    top: boundClientRect.top + "px",
+                    left: boundClientRect.left + "px"
                 });
+
+                await $.delay(200);
+                entryElm.removeClass($.cl.drag.isDragged);
+                dragInitialElm.remove();
+                draggedElm.remove();
+
+                await $.delay(300);
+                ext.helper.toggle.removeSidebarHoverClass();
             }
         };
 
@@ -455,7 +448,11 @@
                             const isDir = elmObj.children("a").eq(0).hasClass($.cl.sidebar.bookmarkDir);
 
                             if (sort.name !== "custom" && !isDir) { // every other sorting than "custom" is only folder-based -> determine parent folder of the element
-                                newAboveElm = {elm: elmObj.parents("li").eq(0), height: elmObj[0].offsetHeight, diff: diff};
+                                newAboveElm = {
+                                    elm: elmObj.parents("li").eq(0),
+                                    height: elmObj[0].offsetHeight,
+                                    diff: diff
+                                };
                             } else {
                                 newAboveElm = {elm: elmObj, height: elmObj[0].offsetHeight, diff: diff};
                             }
@@ -517,10 +514,8 @@
 
         /**
          * Initializes the eventhandlers for the dragDrop functionality of the bookmarks
-         *
-         * @returns {Promise}
          */
-        const initEvents = async () => {
+        const initEvents = () => {
 
             ext.elm.bookmarkBox.all.on("mousedown", "span." + $.cl.drag.trigger, (e) => { // drag start
                 ext.helper.toggle.addSidebarHoverClass();
@@ -528,18 +523,17 @@
                 dragmove(e.type, e.pageX, e.pageY);
             });
 
-            ext.elm.iframeBody.on("mouseup", (e) => { // drag end
+            ext.elm.iframeBody.on("mouseup", async (e) => { // drag end
                 edgeScroll.posY = null;
                 if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged)) { // bookmark has been dragged
                     e.preventDefault();
                     e.stopPropagation();
 
-                    if (e.which === 1) { // only perform rearrangement of elements when the left mouse button is released
-                        dragend();
+                    if (e.buttons === 0) { // only perform rearrangement of elements when the left mouse button is released
+                        await dragend();
                     } else { // cancel drag
-                        $.delay(0).then(() => {
-                            this.cancel();
-                        });
+                        await $.delay(0);
+                        await this.cancel();
                     }
                 }
             });
@@ -553,7 +547,7 @@
             }, {passive: true});
 
             ext.elm.iframeBody.on("mousemove dragover", (e) => { // drag move
-                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged) && e.which === 1) {
+                if (ext.elm.iframeBody.hasClass($.cl.drag.isDragged) && (e.buttons === 1 || e.button === 0)) {
                     e.preventDefault();
                     e.stopPropagation();
                     dragmove(e.type, e.pageX, e.pageY);

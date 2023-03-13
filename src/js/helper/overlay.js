@@ -410,7 +410,7 @@
                 dir: $("<a></a>").attr($.attr.type, "dir").attr("title", ext.helper.i18n.get("overlay_label_dir")).appendTo(menu)
             };
 
-            if (sort === "custom") {
+            if (sort.name === "custom") {
                 links.separator = $("<a></a>").attr($.attr.type, "separator").attr("title", ext.helper.i18n.get("overlay_label_separator")).appendTo(menu);
             }
 
@@ -651,18 +651,18 @@
          *
          * @param {object} data
          */
-        const editSeparator = (data) => {
+        const editSeparator = async (data) => {
             const title = elements.modal.find("input[name='title']")[0].value.trim();
             const uid = Math.floor(Math.random() * 99999) + 10000;
 
-            ext.helper.bookmark.editEntry({
+            await ext.helper.bookmark.editEntry({
                 id: data.id,
                 title: title.length > 0 ? "---- " + title + " ----" : "----------",
                 url: "about:blank?" + uid
-            }).then(() => {
-                ext.helper.model.call("reload", {type: "Edit"});
-                this.closeOverlay();
             });
+
+            ext.helper.model.call("reload", {type: "Edit"});
+            this.closeOverlay();
         };
 
         /**
@@ -670,23 +670,23 @@
          *
          * @param {object} data
          */
-        const editEntry = (data) => {
+        const editEntry = async (data) => {
             const formValues = getFormValues(data.isDir);
 
             if (formValues.errors === false) {
-                ext.helper.bookmark.editEntry({
+                const result = await ext.helper.bookmark.editEntry({
                     id: data.id,
                     title: formValues.values.title,
                     url: formValues.values.url,
                     additionalInfo: formValues.values.additionalInfo
-                }).then(([result]) => {
-                    if (result.error) {
-                        elements.modal.find("input[name='url']").addClass($.cl.error);
-                    } else {
-                        ext.helper.model.call("reload", {type: "Edit"});
-                        this.closeOverlay();
-                    }
                 });
+
+                if (result.error) {
+                    elements.modal.find("input[name='url']").addClass($.cl.error);
+                } else {
+                    ext.helper.model.call("reload", {type: "Edit"});
+                    this.closeOverlay();
+                }
             }
         };
 

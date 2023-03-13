@@ -44,6 +44,10 @@
                 const xhr = new XMLHttpRequest();
                 const idx = runningXhr.push({url: url, xhr: xhr}) - 1;
 
+                if (opts.mimeType) {
+                    xhr.overrideMimeType(opts.mimeType);
+                }
+
                 xhr.open(opts.method || "GET", url, true);
                 ["load", "error", "timeout", "abort"].forEach((eventName) => {
                     xhr.addEventListener(eventName, () => {
@@ -347,7 +351,7 @@
 
             eventHandlerList[info.event].push({
                 fn: info.fn,
-                name: info.name || (info.event + "_" + (+new Date()) + Math.random().toString(36).substr(2, 12)),
+                name: info.name || (info.event + "_" + (+new Date()) + Math.random().toString(36).substring(2, 14)),
                 opts: info.opts,
                 wantsUntrusted: info.wantsUntrusted
             });

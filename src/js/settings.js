@@ -49,11 +49,13 @@
                 themeListWrapper: $("div.tab[data-name='appearance'] div.themeList"),
                 surfaceWrapper: $("div.tab[data-name='appearance'] div.surface"),
                 presetWrapper: $("div.tab[data-name='appearance'] div.presets"),
-                iconColorWrapper: $("div.tab[data-name='appearance'] div.iconColorWrapper"),
+                iconShapeWrapper: $("div.tab[data-name='appearance'] div[data-name='icon'] div.iconShapeWrapper"),
+                iconColorWrapper: $("div.tab[data-name='appearance'] div[data-name='icon'] div.iconColorWrapper"),
             },
             newtab: {
                 content: $("div.tab[data-name='newtab']"),
                 buttons: $("div.tab[data-name='newtab'] p.buttons"),
+                faviconShapeWrapper: $("div.faviconOptions div.iconShapeWrapper"),
                 faviconPreview: $("div.faviconOptions > aside > canvas")
             },
             importExport: {
@@ -109,65 +111,63 @@
         /**
          * Constructor
          */
-        this.run = () => {
+        this.run = async () => {
             initHelpers();
             const loader = {
                 body: this.helper.template.loading().appendTo(this.elm.body)
             };
             this.elm.body.addClass($.cl.initLoading);
 
-            this.helper.model.init().then(() => {
-                return this.helper.i18n.init();
-            }).then(() => {
-                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+            await this.helper.model.init();
+            await this.helper.i18n.init();
 
-                this.helper.font.init();
-                this.helper.stylesheet.init({defaultVal: true});
+            this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
 
-                return Promise.all([
-                    this.helper.form.init(),
-                    this.helper.stylesheet.addStylesheets(["settings"], $(document))
-                ]);
-            }).then(() => {
-                this.elm.body.removeClass($.cl.building);
+            this.helper.stylesheet.init({defaultVal: true});
 
-                this.helper.i18n.parseHtml(document);
-                this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
+            await Promise.all([
+                this.helper.form.init(),
+                this.helper.stylesheet.addStylesheets(["settings"], $(document))
+            ]);
 
-                ["translation", "support"].forEach((name) => {
-                    loader[name] = this.helper.template.loading().appendTo(this.elm[name].wrapper);
-                    this.elm[name].wrapper.addClass($.cl.loading);
-                });
+            this.elm.body.removeClass($.cl.building);
 
-                return this.helper.menu.init();
-            }).then(() => {
-                return Promise.all([
-                    this.helper.dashboard.init(),
-                    this.helper.sidebar.init(),
-                    this.helper.appearance.init(),
-                    this.helper.newtab.init(),
-                    this.helper.infos.init(),
-                    this.helper.premium.init(),
-                    this.helper.expert.init(),
-                    this.helper.importExport.init(),
-                ]);
-            }).then(() => { // initialise events and remove loading mask
-                initEvents();
+            this.helper.i18n.parseHtml(document);
+            this.elm.title.text(this.elm.title.text() + " - " + this.helper.i18n.get("extension_name"));
 
-                loader.body.remove();
-                this.elm.body.removeClass($.cl.initLoading);
-
-                return this.helper.model.call("websiteStatus");
-            }).then((opts) => { // if website is available, feedback form and translation overview can be used
-                this.serviceAvailable = opts.status === "available";
-
-                ["translation", "support"].forEach((name) => {
-                    this.helper[name].init().then(() => {
-                        loader[name].remove();
-                        this.elm[name].wrapper.removeClass($.cl.loading);
-                    });
-                });
+            ["translation", "support"].forEach((name) => {
+                loader[name] = this.helper.template.loading().appendTo(this.elm[name].wrapper);
+                this.elm[name].wrapper.addClass($.cl.loading);
             });
+
+            await this.helper.menu.init();
+
+            await Promise.all([
+                this.helper.dashboard.init(),
+                this.helper.sidebar.init(),
+                this.helper.appearance.init(),
+                this.helper.newtab.init(),
+                this.helper.infos.init(),
+                this.helper.premium.init(),
+                this.helper.expert.init(),
+                this.helper.importExport.init(),
+            ]);
+
+            // initialise events and remove loading mask
+            initEvents();
+
+            loader.body.remove();
+            this.elm.body.removeClass($.cl.initLoading);
+
+            // if website is available, feedback form and translation overview can be used
+            const opts = await this.helper.model.call("websiteStatus");
+            this.serviceAvailable = opts.status === "available";
+
+            for (const name of ["translation", "support"]) {
+                await this.helper[name].init();
+                loader[name].remove();
+                this.elm[name].wrapper.removeClass($.cl.loading);
+            }
         };
 
         /**
@@ -194,30 +194,27 @@
          *
          * @param {string} i18nStr
          */
-        this.showSuccessMessage = (i18nStr) => {
+        this.showSuccessMessage = async (i18nStr) => {
             unsavedChanges = false;
             this.elm.buttons.save.removeClass($.cl.info);
 
             this.elm.body.attr($.attr.settings.success, this.helper.i18n.get("settings_" + i18nStr));
             this.elm.body.addClass($.cl.success);
 
-            $.delay(1500).then(() => {
-                this.elm.body.removeClass($.cl.success);
-            });
+            await $.delay(1500);
+            this.elm.body.removeClass($.cl.success);
         };
 
         /**
          * Highlights the save button to indicate, that there are unsaved changes
          */
-        this.highlightUnsavedChanges = () => {
+        this.highlightUnsavedChanges = async () => {
             if (unsavedChanges === false) {
+                unsavedChanges = true;
                 this.elm.buttons.save.addClass([$.cl.settings.highlight, $.cl.info]);
 
-                $.delay(1000).then(() => {
-                    this.elm.buttons.save.removeClass($.cl.settings.highlight);
-                });
-
-                unsavedChanges = true;
+                await $.delay(1000);
+                this.elm.buttons.save.removeClass($.cl.settings.highlight);
             }
         };
 
@@ -260,12 +257,11 @@
          * @returns {Promise}
          */
         const initEvents = async () => {
-            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
+            $.api.runtime.onMessage.addListener(async (message) => { // listen for events from the background script
                 if (message && message.action && message.action === "reinitialize" && message.type === "premiumActivated") { // premium has been activated -> reload settings
-                    $.delay(2000).then(() => {
-                        unsavedChanges = false;
-                        location.reload(true);
-                    });
+                    unsavedChanges = false;
+                    await $.delay(2000);
+                    location.reload(true);
                 }
             });
 
@@ -305,104 +301,88 @@
                 e.stopPropagation();
             });
 
-            this.elm.body.on("click", "div." + $.cl.settings.dialog + " > a", (e) => {
+            this.elm.body.on("click", "div." + $.cl.settings.dialog + " > a", async (e) => {
                 e.preventDefault();
                 e.stopPropagation();
 
                 const type = $(e.currentTarget).parent("div").attr($.attr.type);
 
                 if (restoreTypes.indexOf(type) !== -1) {
-                    const promises = [];
                     let configToRemove = [type];
 
                     if (type === "appearance") { // restore custom css aswell
-                        promises.push(new Promise((resolve) => {
-                            $.api.storage.local.get(["utility"], (obj) => {
-                                const utility = obj.utility || {};
-                                delete utility.customCss;
+                        const obj = await $.api.storage.local.get(["utility"]);
+                        const utility = obj.utility || {};
+                        delete utility.customCss;
 
-                                $.api.storage.local.set({utility: utility}, () => {
-                                    resolve();
-                                });
-                            });
-                        }));
+                        await $.api.storage.local.set({utility: utility});
                     } else if (type === "expert") { // restore all configuration
                         configToRemove = ["behaviour", "appearance", "newtab"];
                     }
 
-                    promises.push(new Promise((resolve) => {
-                        $.api.storage.sync.remove(configToRemove, () => {
-                            this.showSuccessMessage("restored_message");
-                            this.helper.model.call("reloadIcon");
-                            $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
-                            resolve();
-                        });
-                    }));
+                    await $.api.storage.sync.remove(configToRemove);
 
-                    Promise.all(promises).then(() => {
-                        return $.delay(1500);
-                    }).then(() => {
-                        this.helper.model.call("reinitialize");
-                        location.reload(true);
-                    });
+                    this.showSuccessMessage("restored_message");
+                    this.helper.model.call("reloadIcon");
+                    $("div." + $.cl.settings.dialog).removeClass($.cl.visible);
+
+                    await $.delay(1500);
+
+                    this.helper.model.call("reinitialize");
+                    location.reload(true);
                 }
             });
 
             this.elm.advanced.container.css("display", "none");
-            this.elm.advanced.toggle.on("click", (e) => {
+            this.elm.advanced.toggle.on("click", async (e) => {
                 const container = $(e.currentTarget).next("div");
 
                 if (container.hasClass($.cl.visible)) {
                     container.removeClass($.cl.visible);
 
-                    $.delay(300).then(() => {
-                        container.css("display", "none");
-                    });
+                    await $.delay(300);
+                    container.css("display", "none");
                 } else {
                     container.css("display", "flex");
 
-                    $.delay(0).then(() => {
-                        container.addClass($.cl.visible);
-                    });
+                    await $.delay(0);
+                    container.addClass($.cl.visible);
                 }
             });
 
-            this.elm.buttons.save.on("click", (e) => { // save button
+            this.elm.buttons.save.on("click", async (e) => { // save button
                 e.preventDefault();
                 const path = this.helper.menu.getPath();
 
                 if (path[1] === "translate") {
                     this.helper.translation.submit();
                 } else if (path[0] === "expert") {
-                    this.helper.expert.save().then(() => {
-                        this.showSuccessMessage("saved_message");
-                        return this.helper.model.call("reinitialize");
-                    }).then(() => {
-                        return $.delay(1500);
-                    }).then(() => {
-                        this.helper.model.call("reloadIcon");
-                        this.helper.model.call("reloadContextmenus");
-                        return $.delay(0);
-                    }).then(() => {
-                        location.reload(true);
-                    })["catch"](() => {
-                        // something went wrong saving
-                    });
+                    await this.helper.expert.save();
+                    await this.showSuccessMessage("saved_message");
+
+                    await this.helper.model.call("reinitialize");
+                    await $.delay(1500);
+
+                    this.helper.model.call("reloadIcon");
+                    this.helper.model.call("reloadContextmenus");
+
+                    await $.delay(0);
+                    location.reload(true);
                 } else {
-                    Promise.all([
+                    await Promise.all([
                         this.helper.sidebar.save(),
                         this.helper.appearance.save(),
                         this.helper.newtab.save()
-                    ]).then(() => {
-                        this.showSuccessMessage("saved_message");
-                        return this.helper.model.call("reinitialize");
-                    }).then(() => {
-                        this.helper.model.call("reloadIcon");
-                        this.helper.model.call("reloadContextmenus");
-                        return this.helper.model.init();
-                    }).then(() => {
-                        this.helper.expert.updateRawConfigList();
-                    });
+                    ]);
+
+                    await this.showSuccessMessage("saved_message");
+                    await this.helper.model.call("reinitialize");
+
+                    this.helper.model.call("reloadIcon");
+                    this.helper.model.call("reloadContextmenus");
+                    await this.helper.model.init();
+
+                    this.helper.expert.updateRawConfigList();
                 }
             });
 

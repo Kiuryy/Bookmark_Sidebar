@@ -286,113 +286,105 @@
          * @param {string} val
          * @returns {Promise}
          */
-        const getSearchSuggestions = (val) => {
-            return new Promise((resolve) => {
-                if (!val) { // empty input -> no suggestions
-                    resolve([]);
-                } else if (suggestionCache[val]) { // suggestions for the input already fetched -> return from cached object
-                    resolve(suggestionCache[val]);
-                } else { // determine suggestions via xhr on the google search api
-                    const encodedVal = encodeURIComponent(val);
+        const getSearchSuggestions = async (val) => {
+            if (!val) { // empty input -> no suggestions
+                return [];
+            }
 
-                    const finishObj = (obj = []) => {
-                        suggestionCache[val] = obj;
-                        resolve(obj);
-                    };
+            if (suggestionCache[val]) { // suggestions for the input already fetched -> return from cached object
+                return suggestionCache[val];
+            }
 
-                    const promises = new Array(3).fill({});
+            let xhr, searchResults, historyResults;
 
-                    if (searchSuggestion.queries) {
-                        promises[0] = $.xhr("http://google.com/complete/search?client=chrome&q=" + encodedVal, {responseType: "json"});
-                    }
+            if (searchSuggestion.queries) {
+                // determine suggestions via xhr on the google search api
+                xhr = await $.xhr("http://google.com/complete/search?client=chrome&q=" + encodeURIComponent(val), {responseType: "json"});
+            }
 
-                    if (searchSuggestion.bookmarks && val.length >= 2) {
-                        promises[1] = n.helper.model.call("searchBookmarks", {searchVal: val});
-                    }
+            if (searchSuggestion.bookmarks && val.length >= 2) {
+                searchResults = await n.helper.model.call("searchBookmarks", {searchVal: val});
+            }
 
-                    if (searchSuggestion.history && val.length >= 3 && $.api.history) {
-                        promises[2] = n.helper.model.call("searchHistory", {searchVal: val});
-                    }
+            if (searchSuggestion.history && val.length >= 3 && $.api.history) {
+                historyResults = await n.helper.model.call("searchHistory", {searchVal: val});
+            }
 
-                    Promise.all(promises).then(([xhr, searchResults, historyResults]) => {
-                        const urls = [];
-                        const words = [];
+            const urls = [];
+            const words = [];
 
-                        let historyBookmarkMaxSuggestions = 2;
-                        if (!searchSuggestion.queries) {
-                            historyBookmarkMaxSuggestions++;
-                        }
-                        if (!searchSuggestion.bookmarks || !searchSuggestion.history) {
-                            historyBookmarkMaxSuggestions++;
-                        }
+            let historyBookmarkMaxSuggestions = 2;
+            if (!searchSuggestion.queries) {
+                historyBookmarkMaxSuggestions++;
+            }
+            if (!searchSuggestion.bookmarks || !searchSuggestion.history) {
+                historyBookmarkMaxSuggestions++;
+            }
 
-                        try {
-                            if (searchResults && searchResults.bookmarks && searchResults.bookmarks.length > 0) { // add bookmarks to the suggestions
-                                let i = 0;
-                                searchResults.bookmarks.some((bookmark) => {
-                                    if (bookmark.url) {
-                                        urls.push({type: "bookmark", label: bookmark.title, url: bookmark.url});
-                                        i++;
-                                        if (i >= historyBookmarkMaxSuggestions) {
-                                            return true;
-                                        }
-                                    }
-                                });
+            try {
+                if (searchResults && searchResults.bookmarks && searchResults.bookmarks.length > 0) { // add bookmarks to the suggestions
+                    let i = 0;
+                    searchResults.bookmarks.some((bookmark) => {
+                        if (bookmark.url) {
+                            urls.push({type: "bookmark", label: bookmark.title, url: bookmark.url});
+                            i++;
+                            if (i >= historyBookmarkMaxSuggestions) {
+                                return true;
                             }
-                        } catch (e) {
-                            //
                         }
-
-                        try {
-                            if (historyResults && historyResults.history && historyResults.history.length > 0) { // add history to the suggestions
-                                let i = 0;
-                                historyResults.history.some((history) => {
-                                    if (history.url) {
-                                        urls.push({type: "history", label: history.title, url: history.url});
-                                        i++;
-                                        if (i >= historyBookmarkMaxSuggestions) {
-                                            return true;
-                                        }
-                                    }
-                                });
-                            }
-                        } catch (e) {
-                            //
-                        }
-
-                        try {
-                            if (xhr.response && xhr.response.length > 1 && xhr.response[0] === val) { // there are suggestions of the google search api
-                                xhr.response[1].forEach((suggestion, i) => {
-                                    let label = suggestion;
-
-                                    if (xhr.response[4]["google:suggesttype"][i] === "NAVIGATION") { // show url suggestions at first in the list
-                                        label = label.replace(/^https?:\/\//, "");
-                                        label = label.replace(/\/$/, "");
-                                        label = label.replace(/^www\./, "");
-
-                                        urls.push({
-                                            type: "url",
-                                            url: suggestion,
-                                            label: label
-                                        });
-                                    } else {
-                                        words.push({
-                                            type: "word",
-                                            label: label
-                                        });
-                                    }
-                                });
-                            }
-                        } catch (e) {
-                            //
-                        }
-
-                        finishObj([...urls, ...words]); // display urls first and then the words
-                    }, () => {
-                        finishObj();
                     });
                 }
-            });
+            } catch (e) {
+                //
+            }
+
+            try {
+                if (historyResults && historyResults.history && historyResults.history.length > 0) { // add history to the suggestions
+                    let i = 0;
+                    historyResults.history.some((history) => {
+                        if (history.url) {
+                            urls.push({type: "history", label: history.title, url: history.url});
+                            i++;
+                            if (i >= historyBookmarkMaxSuggestions) {
+                                return true;
+                            }
+                        }
+                    });
+                }
+            } catch (e) {
+                //
+            }
+
+            try {
+                if (xhr.response && xhr.response.length > 1 && xhr.response[0] === val) { // there are suggestions of the google search api
+                    xhr.response[1].forEach((suggestion, i) => {
+                        let label = suggestion;
+
+                        if (xhr.response[4]["google:suggesttype"][i] === "NAVIGATION") { // show url suggestions at first in the list
+                            label = label.replace(/^https?:\/\//, "");
+                            label = label.replace(/\/$/, "");
+                            label = label.replace(/^www\./, "");
+
+                            urls.push({
+                                type: "url",
+                                url: suggestion,
+                                label: label
+                            });
+                        } else {
+                            words.push({
+                                type: "word",
+                                label: label
+                            });
+                        }
+                    });
+                }
+            } catch (e) {
+                //
+            }
+
+            const suggestion = [...urls, ...words]; // display urls first and then the words
+            suggestionCache[val] = suggestion;
+            return suggestion;
         };
 
         /**
@@ -428,54 +420,52 @@
                 }
             });
 
-            n.elm.search.field.on("keyup click", (e) => {
+            n.elm.search.field.on("keyup click", async (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                const keyCode = event.which || event.keyCode;
 
-                if (keyCode === 40) {
+                if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
                     selectSuggestion("next");
-                } else if (keyCode === 38) {
+                } else if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
                     selectSuggestion("prev");
-                } else if (keyCode !== 13) {
+                } else if (e.key !== "Enter") {
                     const val = e.currentTarget.value.trim();
                     n.elm.search.field.data("typedVal", val);
 
-                    getSearchSuggestions(val).then((suggestions) => {
-                        if (n.elm.search.field.data("typedVal") !== val) { // the search string changed in the meantime (e.g. when the user types fast) -> suggestions are outdated, so not display them
-                            return;
+                    const suggestions = await getSearchSuggestions(val);
+                    if (n.elm.search.field.data("typedVal") !== val) { // the search string changed in the meantime (e.g. when the user types fast) -> suggestions are outdated, so not display them
+                        return;
+                    }
+
+                    $("ul." + $.cl.newtab.suggestions).remove();
+
+                    if (suggestions.length === 0) { // no suggestions -> don't display any box below the search field
+                        return;
+                    }
+
+                    const list = $("<ul></ul>").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
+
+                    suggestions.some((suggestion, i) => {
+                        const elm = $("<li></li>")
+                            .attr($.attr.type, suggestion.type)
+                            .text(suggestion.label)
+                            .appendTo(list);
+
+                        if (suggestion.url) {
+                            elm.attr({
+                                "title": suggestion.url,
+                                [$.attr.src]: suggestion.url
+                            }).append("<span>" + suggestion.url + "</span>");
                         }
 
-                        $("ul." + $.cl.newtab.suggestions).remove();
-
-                        if (suggestions.length === 0) { // no suggestions -> don't display any box below the search field
-                            return;
+                        if (i > 5) {
+                            return true;
                         }
+                    });
 
-                        const list = $("<ul></ul>").addClass($.cl.newtab.suggestions).insertAfter(n.elm.search.field);
-
-                        suggestions.some((suggestion, i) => {
-                            const elm = $("<li></li>")
-                                .attr($.attr.type, suggestion.type)
-                                .text(suggestion.label)
-                                .appendTo(list);
-
-                            if (suggestion.url) {
-                                elm.attr({
-                                    "title": suggestion.url,
-                                    [$.attr.src]: suggestion.url
-                                }).append("<span>" + suggestion.url + "</span>");
-                            }
-
-                            if (i > 5) {
-                                return true;
-                            }
-                        });
-
-                        list.css({
-                            top: n.elm.search.field[0].offsetTop + "px",
-                            left: n.elm.search.field[0].offsetLeft + "px"
-                        });
+                    list.css({
+                        top: n.elm.search.field[0].offsetTop + "px",
+                        left: n.elm.search.field[0].offsetLeft + "px"
                     });
                 }
             });

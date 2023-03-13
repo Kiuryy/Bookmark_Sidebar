@@ -8,15 +8,12 @@
          *
          * @returns {Promise}
          */
-        this.getAll = () => {
-            return new Promise((resolve) => {
-                getClickCounter().then((clickCounter) => {
-                    resolve({
-                        viewAmounts: clickCounter,
-                        counterStartDate: b.helper.model.getData("installationDate")
-                    });
-                });
-            });
+        this.getAll = async () => {
+            const clickCounter = await getClickCounter();
+            return {
+                viewAmounts: clickCounter,
+                counterStartDate: b.helper.model.getData("installationDate")
+            };
         };
 
         /**
@@ -26,25 +23,22 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.addByUrl = (opts) => {
-            return new Promise((resolve) => {
-                const openedByExtension = b.helper.model.getData("openedByExtension");
+        this.addByUrl = async (opts) => {
+            const openedByExtension = b.helper.model.getData("openedByExtension");
 
-                if (openedByExtension === null) { // page was not opened by extension -> view was not counted yet
-                    b.helper.bookmarks.api.search({url: opts.url}).then((bookmarks) => {
-                        bookmarks.some((bookmark) => {
-                            if (bookmark.url === opts.url) {
-                                this.addByEntry(bookmark);
-                                return true;
-                            }
-                            return false;
-                        });
-                        resolve();
-                    });
+            if (openedByExtension === null) { // page was not opened by extension -> view was not counted yet
+                const result = await b.helper.bookmarks.getBySearchVal({searchVal: {url: opts.url}});
+                if (result && result.bookmarks) {
+                    for (const bookmark of result.bookmarks) {
+                        if (bookmark.url === opts.url) {
+                            await this.addByEntry(bookmark);
+                            break;
+                        }
+                    }
                 }
+            }
 
-                b.helper.model.setData("openedByExtension", null);
-            });
+            await b.helper.model.setData("openedByExtension", null);
         };
 
         /**
@@ -52,19 +46,18 @@
          *
          * @param {object} bookmark
          */
-        this.addByEntry = (bookmark) => {
+        this.addByEntry = async (bookmark) => {
             if (bookmark.id) {
-                getClickCounter().then((clickCounter) => {
-                    if (typeof clickCounter[bookmark.id] === "undefined" || typeof clickCounter[bookmark.id] !== "object") {
-                        clickCounter[bookmark.id] = {c: 0};
-                    }
+                const clickCounter = await getClickCounter();
+                if (typeof clickCounter[bookmark.id] === "undefined" || typeof clickCounter[bookmark.id] !== "object") {
+                    clickCounter[bookmark.id] = {c: 0};
+                }
 
-                    clickCounter[bookmark.id].c++;
-                    clickCounter[bookmark.id].d = +new Date();
+                clickCounter[bookmark.id].c++;
+                clickCounter[bookmark.id].d = +new Date();
 
-                    $.api.storage.local.set({
-                        clickCounter: clickCounter
-                    });
+                await $.api.storage.local.set({
+                    clickCounter: clickCounter
                 });
             }
         };
@@ -74,18 +67,15 @@
          *
          * @returns {Promise}
          */
-        const getClickCounter = () => {
-            return new Promise((resolve) => {
-                $.api.storage.local.get(["clickCounter"], (obj) => {
-                    let ret = {};
+        const getClickCounter = async () => {
+            const obj = await $.api.storage.local.get(["clickCounter"]);
+            let ret = {};
 
-                    if (typeof obj.clickCounter !== "undefined") { // data available
-                        ret = obj.clickCounter;
-                    }
+            if (typeof obj.clickCounter !== "undefined") { // data available
+                ret = obj.clickCounter;
+            }
 
-                    resolve(ret);
-                });
-            });
+            return ret;
         };
     };
 

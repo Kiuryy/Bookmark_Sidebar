@@ -16,15 +16,11 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                ext.helper.model.call("langvars").then((obj) => {
-                    language = obj.language;
-                    langVars = obj.vars;
-                    dir = obj.dir;
-                    resolve();
-                });
-            });
+        this.init = async () => {
+            const obj = await ext.helper.model.call("langvars");
+            language = obj.language;
+            langVars = obj.vars;
+            dir = obj.dir;
         };
 
         /**
@@ -39,7 +35,7 @@
         /**
          * Returns whether the direction of the current language is right-to-left
          *
-         * @returns {string}
+         * @returns {boolean}
          */
         this.isRtl = () => {
             return dir === "rtl";
@@ -82,7 +78,7 @@
             if (typeof dateObj === "number") {
                 dateObj = new Date(dateObj);
             }
-            
+
             return dateObj.toLocaleDateString([this.getUILanguage(), this.getDefaultLanguage()], {
                 year: "numeric",
                 month: "2-digit",

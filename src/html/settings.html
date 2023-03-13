@@ -447,10 +447,10 @@
                 <div class="boxWrapper">
                     <div class="box iconShapeWrapper">
                         <div class="formElement" data-type="radio" data-name="iconShape" data-i18n="settings_icon_shape">
-                            <span data-value="bookmark"><span class="icon-bookmark"></span></span>
-                            <span data-value="star"><span class="icon-star"></span></span>
-                            <span data-value="bookmark-filled"><span class="icon-bookmark-filled"></span></span>
-                            <span data-value="star-filled"><span class="icon-star-filled"></span></span>
+                            <span data-value="bookmark"><span class="base64-icon"></span></span>
+                            <span data-value="star"><span class="base64-icon"></span></span>
+                            <span data-value="bookmark-filled"><span class="base64-icon"></span></span>
+                            <span data-value="star-filled"><span class="base64-icon"></span></span>
                         </div>
                     </div>
                     <div class="box">
@@ -509,19 +509,19 @@
                 <div>
                     <div class="iconShapeWrapper">
                         <div class="formElement" data-type="radio" data-name="faviconShape" data-i18n="settings_icon_shape">
-                            <span data-value="new-1"><span class="icon-new-1"></span></span>
-                            <span data-value="new-2"><span class="icon-new-2"></span></span>
-                            <span data-value="bookmark"><span class="icon-bookmark"></span></span>
-                            <span data-value="bookmark-filled"><span class="icon-bookmark-filled"></span></span>
-                            <span data-value="star"><span class="icon-star"></span></span>
-                            <span data-value="star-filled"><span class="icon-star-filled"></span></span>
+                            <span data-value="new-1"><span class="base64-icon"></span></span>
+                            <span data-value="new-2"><span class="base64-icon"></span></span>
+                            <span data-value="bookmark"><span class="base64-icon"></span></span>
+                            <span data-value="bookmark-filled"><span class="base64-icon"></span></span>
+                            <span data-value="star"><span class="base64-icon"></span></span>
+                            <span data-value="star-filled"><span class="base64-icon"></span></span>
                         </div>
                     </div>
                     <div>
                         <div class="formElement" data-type="color" data-suggestions='["transparent","#ff6670","#ffaa00","#00897b","#1b82f1"]' data-alpha="1" data-name="faviconBackground" data-i18n="settings_icon_background_color"></div>
                     </div>
                     <div>
-                        <div class="formElement" data-type="color" data-suggestions='["#eeeeee","#646464"]' data-name="faviconColor" data-i18n="settings_icon_color"></div>
+                        <div class="formElement" data-type="color" data-suggestions='["#efefef","#545454"]' data-name="faviconColor" data-i18n="settings_icon_color"></div>
                     </div>
                 </div>
 
@@ -887,7 +887,9 @@
     </p>
 </div>
 
+<!-- [START REMOVE] -->
 <script src="/js/lib/jsu.js"></script>
+<script src='/js/lib/colorpicker.js'></script>
 <script src="/js/opts.js"></script>
 <script src='/js/helper/i18n.js'></script>
 <script src='/js/helper/font.js'></script>
@@ -896,8 +898,6 @@
 <script src='/js/helper/utility.js'></script>
 <script src='/js/helper/model.js'></script>
 <script src='/js/helper/checkbox.js'></script>
-<!-- [START REMOVE] -->
-<script src='/js/lib/colorpicker.js'></script>
 <script src='/js/settings/form.js'></script>
 <script src='/js/settings/dashboard.js'></script>
 <script src='/js/settings/sidebar.js'></script>

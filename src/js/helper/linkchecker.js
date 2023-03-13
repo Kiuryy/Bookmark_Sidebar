@@ -56,7 +56,7 @@
             link.on("click", (e) => {
                 e.preventDefault();
                 ext.helper.model.call("openLink", {
-                    href: $.api.extension.getURL("html/settings.html#premium"),
+                    href: $.api.runtime.getURL("html/settings.html#premium"),
                     newTab: true
                 });
             });
@@ -68,7 +68,7 @@
          *
          * @param {object }entries
          */
-        const initOverlay = (entries) => {
+        const initOverlay = async (entries) => {
             elements.buttonWrapper = elements.modal.find("menu." + $.cl.overlay.buttonWrapper);
             elements.loader = ext.helper.template.loading().appendTo(elements.modal);
             elements.desc = $("<p></p>").text(ext.helper.i18n.get("overlay_check_bookmarks_loading")).appendTo(elements.modal);
@@ -91,12 +91,10 @@
                 empty: []
             };
 
-            checkDirectories(entryObj.directories, results).then(() => {
-                return checkListOfBookmarks(entryObj.bookmarks, results);
-            }).then(() => {
-                displayResultPage(results);
-            });
+            checkDirectories(entryObj.directories, results);
+            await checkListOfBookmarks(entryObj.bookmarks, results);
 
+            displayResultPage(results);
         };
 
         /**
@@ -218,7 +216,7 @@
          * @param {object} entry
          * @param {jsu} resultEntry
          */
-        const displayDuplicateUrls = (entry, resultEntry) => {
+        const displayDuplicateUrls = async (entry, resultEntry) => {
             const title = $("<a></a>").addClass($.cl.info).attr({
                 href: entry.url,
                 title: entry.label,
@@ -245,11 +243,10 @@
 
             $("<a></a>").addClass($.cl.overlay.urlCheckHide).appendTo(resultEntry);
 
-            ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
-                if (response.img) { // favicon found -> add to entry
-                    $("<img src='" + response.img + "' />").insertBefore(title);
-                }
-            });
+            const favicon = await ext.helper.model.call("favicon", {url: entry.url}); // retrieve favicon of url
+            if (favicon) { // favicon found -> add to entry
+                $("<img src='" + favicon + "' />").insertBefore(title);
+            }
         };
 
         /**
@@ -258,7 +255,7 @@
          * @param {object} entry
          * @param {jsu} resultEntry
          */
-        const displayChangedOrBrokenUrl = (entry, resultEntry) => {
+        const displayChangedOrBrokenUrl = async (entry, resultEntry) => {
             ext.helper.checkbox.get(elements.body, {checked: "checked"}).appendTo(resultEntry);
 
             $("<strong></strong>").text(entry.title).appendTo(resultEntry);
@@ -278,11 +275,10 @@
             $("<a></a>").addClass($.cl.overlay.urlCheckHide).appendTo(resultEntry);
             $("<a></a>").addClass($.cl.overlay.urlCheckAction).appendTo(resultEntry);
 
-            ext.helper.model.call("favicon", {url: entry.url}).then((response) => { // retrieve favicon of url
-                if (response.img) { // favicon found -> add to entry
-                    $("<img src='" + response.img + "' />").insertAfter(resultEntry.children("div." + $.cl.checkbox.box));
-                }
-            });
+            const favicon = await ext.helper.model.call("favicon", {url: entry.url}); // retrieve favicon of url
+            if (favicon) { // favicon found -> add to entry
+                $("<img src='" + favicon + "' />").insertAfter(resultEntry.children("div." + $.cl.checkbox.box));
+            }
         };
 
         /**
@@ -426,25 +422,21 @@
          * @param {object} entry
          * @returns {Promise}
          */
-        const updateEntry = (entry) => {
-            return new Promise((resolve) => {
-                updated = true;
+        const updateEntry = async (entry) => {
+            updated = true;
 
-                if (entry.broken || entry.duplicate || (entry.children && entry.children.length === 0)) {
-                    ext.helper.bookmark.performDeletion(entry.id, true).then(resolve);
-                } else if (entry.url !== entry.newUrl) {
-                    const additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
+            if (entry.broken || entry.duplicate || (entry.children && entry.children.length === 0)) {
+                await ext.helper.bookmark.performDeletion(entry.id, true);
+            } else if (entry.url !== entry.newUrl) {
+                const additionalInfo = entry.additionalInfo && entry.additionalInfo.desc ? entry.additionalInfo.desc : null;
 
-                    ext.helper.bookmark.editEntry({
-                        id: entry.id,
-                        title: entry.title,
-                        url: entry.newUrl,
-                        additionalInfo: additionalInfo
-                    }).then(resolve);
-                } else {
-                    resolve();
-                }
-            });
+                await ext.helper.bookmark.editEntry({
+                    id: entry.id,
+                    title: entry.title,
+                    url: entry.newUrl,
+                    additionalInfo: additionalInfo
+                });
+            }
         };
 
         /**
@@ -521,9 +513,8 @@
          *
          * @param {Array} directories
          * @param {object} results
-         * @returns {Promise}
          */
-        const checkDirectories = async (directories, results) => {
+        const checkDirectories = (directories, results) => {
             directories.forEach((directory) => {
                 if (directory.children.length === 0) {
                     results.empty.push(directory);
@@ -612,7 +603,6 @@
                     });
                 };
 
-
                 (async () => {
                     let i = 0;
                     let chunk = [];
@@ -626,9 +616,8 @@
                         }
                     }
 
-                    $.delay(500).then(() => {
-                        resolve(results);
-                    });
+                    await $.delay(500);
+                    resolve(results);
                 })();
             });
         };

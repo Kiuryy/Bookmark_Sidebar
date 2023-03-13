@@ -131,47 +131,42 @@
          * Opens the sidebar
          */
         this.openSidebar = () => {
-            if (ext.helper.utility.isBackgroundConnected() === false) {
-                ext.elm.iframe.addClass($.cl.page.visible);
-                ext.addReloadMask();
-            } else {
-                ext.helper.model.call("infoToDisplay").then((opts) => { // check whether to show any info to the user
-                    if (opts && opts.info) {
-                        if (opts.info === "shareInfo" || opts.info === "premium" || opts.info === "translation") {
-                            ext.addInfoBox(opts.info);
-                        }
+            ext.helper.model.call("infoToDisplay").then((opts) => { // check whether to show any info to the user
+                if (opts && opts.info) {
+                    if (opts.info === "shareInfo" || opts.info === "premium" || opts.info === "translation") {
+                        ext.addInfoBox(opts.info);
                     }
-                });
-
-                if (!ext.elm.sidebar.hasClass($.cl.sidebar.openedOnce)) { // first time open -> mark last used bookmark and set html class
-                    ext.elm.sidebar.addClass($.cl.sidebar.openedOnce);
-                    ext.helper.list.handleSidebarWidthChange();
-                    this.markLastUsed();
                 }
+            });
 
-                if (!ext.elm.iframe.hasClass($.cl.page.visible)) {
-                    ext.helper.model.call("track", {
-                        name: "action",
-                        value: {name: "sidebar", value: getPageType()}
-                    });
-                }
-
-                ext.elm.iframe.addClass($.cl.page.visible);
-                ext.initImages();
-
-                if (preventPageScroll) {
-                    $("body").addClass($.cl.page.noscroll);
-                }
-
-                $.delay(ext.helper.model.getData("b/animations") ? 300 : 0).then(() => { // initialise entries if not already done -> necessary for clicking entries, tooltips, etc.
-                    return ext.helper.entry.initOnce();
-                }).then(() => {
-                    ext.helper.scroll.focus();
-                });
-
-                $(document).trigger("mousemove.bs"); // hide indicator
-                ext.helper.utility.triggerEvent("sidebarOpened");
+            if (!ext.elm.sidebar.hasClass($.cl.sidebar.openedOnce)) { // first time open -> mark last used bookmark and set html class
+                ext.elm.sidebar.addClass($.cl.sidebar.openedOnce);
+                ext.helper.list.handleSidebarWidthChange();
+                this.markLastUsed();
             }
+
+            if (!ext.elm.iframe.hasClass($.cl.page.visible)) {
+                ext.helper.model.call("track", {
+                    name: "action",
+                    value: {name: "sidebar", value: getPageType()}
+                });
+            }
+
+            ext.elm.iframe.addClass($.cl.page.visible);
+            ext.initImages();
+
+            if (preventPageScroll) {
+                $("body").addClass($.cl.page.noscroll);
+            }
+
+            $.delay(ext.helper.model.getData("b/animations") ? 300 : 0).then(() => { // initialise entries if not already done -> necessary for clicking entries, tooltips, etc.
+                return ext.helper.entry.initOnce();
+            }).then(() => {
+                ext.helper.scroll.focus();
+            });
+
+            $(document).trigger("mousemove.bs"); // hide indicator
+            ext.helper.utility.triggerEvent("sidebarOpened");
         };
 
         /**
@@ -407,8 +402,8 @@
 
             Object.entries({
                 newtab_default: ["https?://www\\.google\\..+/_/chrome/newtab"],
-                newtab_fallback: [$.api.extension.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
-                newtab_replacement: [$.api.extension.getURL("html/newtab.html")],
+                newtab_fallback: [$.api.runtime.getURL("html/newtab.html") + ".*[?&]type=\\w+"],
+                newtab_replacement: [$.api.runtime.getURL("html/newtab.html")],
                 newtab_website: [".*[?&]bs_nt=1(&|#|$)"],
                 website: ["https?://"],
                 onboarding: ["chrome\\-extension://.*/intro.html", "extension://.*/intro.html"],

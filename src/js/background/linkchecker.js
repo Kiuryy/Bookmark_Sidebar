@@ -9,21 +9,20 @@
             "google.de": ["q"],
         };
 
-        this.check = (opts) => {
-            return new Promise((resolve) => {
-                Promise.all([
+        this.check = async (opts) => {
+            try {
+                const [httpInfo, duplicateInfo] = await Promise.all([
                     getHTTPInfo(opts.url),
                     getDuplicateInfo(opts.url)
-                ]).then(([httpInfo, duplicateInfo]) => {
-                    resolve({
-                        httpInfo: httpInfo,
-                        duplicateInfo: duplicateInfo
-                    });
-                }, () => {
-                    resolve({error: true});
-                });
-
-            });
+                ]);
+                return {
+                    httpInfo: httpInfo,
+                    duplicateInfo: duplicateInfo
+                };
+            } catch (err) {
+                console.error(err);
+                return {error: true};
+            }
         };
 
 
@@ -35,43 +34,30 @@
          * @param method
          * @returns {Promise}
          */
-        const getHTTPInfo = (rawUrl, method = "HEAD") => {
-            return new Promise((resolve) => {
-                const fallbackOnError = () => {
-                    if (method === "HEAD") {
-                        getHTTPInfo(rawUrl, "GET").then(resolve);
-                    } else {
-                        resolve({url: rawUrl, success: false, status: null});
-                    }
-                };
-
-                $.xhr(rawUrl, {
-                    method: method,
-                    timeout: 7000,
-                }).then((xhr) => {
-                    if (xhr.responseURL) {
-                        if (xhr.responseURL.startsWith("http:")) { // http url detected -> try to access it with https
-                            getHTTPInfo(xhr.responseURL.replace(/^http:/, "https:"), method).then((r) => {
-                                if (r.url && r.success && r.status < 400) { // https version is available -> return this URL instead
-                                    resolve(r);
-                                } else { // no https available -> return the http URL
-                                    resolve({url: xhr.responseURL, success: true, status: xhr.status});
-                                }
-                            });
-                        } else {
-                            resolve({url: xhr.responseURL, success: true, status: xhr.status});
-                        }
-                    } else {
-                        fallbackOnError();
-                    }
-                })["catch"]((xhr) => {
-                    if (xhr && xhr.status && xhr.status !== 404) { // ignore every other status code than 404
-                        resolve({url: rawUrl, success: true, status: xhr.status});
-                    } else {
-                        fallbackOnError();
-                    }
-                });
+        const getHTTPInfo = async (rawUrl, method = "HEAD") => {
+            const resp = await fetch(rawUrl, {
+                method: method,
+                timeout: 7000,
+            })["catch"](() => {
+                // don't do anything here -> we expect rejected promise from the fetch call when the URL is not existing
             });
+
+            if (resp && resp.url) {
+                if (resp.url.startsWith("http:")) { // http url detected -> try to access it with https
+                    const r = await getHTTPInfo(resp.url.replace(/^http:/, "https:"), method);
+                    if (r.url && r.success && r.status < 400) { // https version is available -> return this URL instead
+                        return r;
+                    } else { // no https available -> return the http URL
+                        return {url: resp.url, success: true, status: resp.status};
+                    }
+                } else {
+                    return {url: resp.url, success: true, status: resp.status};
+                }
+            } else if (method === "HEAD") {
+                return await getHTTPInfo(rawUrl, "GET");
+            } else {
+                return {url: rawUrl, success: false, status: null};
+            }
         };
 
         /**
@@ -113,13 +99,13 @@
             };
 
             const filteredUrl = getFilteredUrl(rawUrl);
-            const result = await b.helper.bookmarks.api.search(filteredUrl); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
+            const result = await b.helper.bookmarks.getBySearchVal({searchVal: filteredUrl}); // will return some false positive (e.g. 'google.com/' will also return all subdomains of google.com and all subdirectories)
 
-            if (result.length > 1) {
+            if (result && result.bookmarks.length > 1) {
                 const realResults = [];
 
-                result.forEach((bookmark) => { // filter the result array and only add real duplicates to the final result list
-                    if (getFilteredUrl(bookmark.url) === filteredUrl) {
+                result.bookmarks.forEach((bookmark) => { // filter the result array and only add real duplicates to the final result list
+                    if (bookmark.url && getFilteredUrl(bookmark.url) === filteredUrl) {
                         realResults.push(bookmark);
                     }
                 });

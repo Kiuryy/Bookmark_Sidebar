@@ -14,30 +14,27 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                initLanguages().then(() => {
-                    initEvents();
+        this.init = async () => {
+            await initLanguages();
+            initEvents();
 
-                    if (s.serviceAvailable) {
-                        initOverview().then(() => {
-                            initOverviewEvents();
-                            initFormEvents();
+            if (s.serviceAvailable) {
+                try {
+                    await initOverview();
+                    initOverviewEvents();
+                    initFormEvents();
 
-                            const path = s.helper.menu.getPath();
-                            if (path && path[1] === "translate") {
-                                gotoOverview();
-                            }
-                        })["catch"](() => {
-                            showUnavailableText();
-                        });
-                    } else {
-                        showUnavailableText();
+                    const path = s.helper.menu.getPath();
+                    if (path && path[1] === "translate") {
+                        gotoOverview();
                     }
-
-                    resolve();
-                });
-            });
+                } catch (err) {
+                    console.error(err);
+                    showUnavailableText();
+                }
+            } else {
+                showUnavailableText();
+            }
         };
 
         /**

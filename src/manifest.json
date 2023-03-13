@@ -1,34 +1,15 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "__MSG_extension_name__",
   "short_name": "__MSG_extension_name_short__",
   "description": "__MSG_extension_desc__",
   "default_locale": "en",
   "version": "0.0.1",
   "version_name": "Dev",
-  "minimum_chrome_version": "98",
+  "minimum_chrome_version": "110",
   "homepage_url": "https://extensions.redeviation.com/",
   "background": {
-    "scripts": [
-      "js/lib/jsu.js",
-      "js/opts.js",
-      "js/background/analytics.js",
-      "js/background/language.js",
-      "js/background/model.js",
-      "js/background/upgrade.js",
-      "js/background/bookmarks.js",
-      "js/background/viewAmount.js",
-      "js/background/newtab.js",
-      "js/background/image.js",
-      "js/background/cache.js",
-      "js/background/icon.js",
-      "js/background/browserAction.js",
-      "js/background/linkchecker.js",
-      "js/background/utility.js",
-      "js/background/port.js",
-      "js/background.js"
-    ],
-    "persistent": true
+    "service_worker": "js/background.js"
   },
   "content_scripts": [
     {
@@ -68,17 +49,35 @@
       "run_at": "document_end"
     }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": "img/icon/dev/128x128.png"
   },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+B",
+        "mac": "Command+B",
+        "chromeos": "Ctrl+B",
+        "linux": "Ctrl+B"
+      },
+      "description": "Toggle the sidebar"
+    }
+  },
   "web_accessible_resources": [
-    "css/sidebar.css",
-    "css/overlay.css",
-    "css/content.css",
-    "css/themes/*",
-    "img/*"
+    {
+      "resources": [
+        "_favicon",
+        "css/sidebar.css",
+        "css/overlay.css",
+        "css/content.css",
+        "css/themes/*",
+        "img/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
   ],
-  "content_security_policy": "script-src 'self' 'sha256-nl+LCdUZCsURbeBC1buBlAcvBhCD2/SswpeCH2ZaR34=' 'sha256-nuF8drPPKUM4+b3urtYHupidizytc1BonZF1t/vSzs0'; object-src 'self'",
   "incognito": "split",
   "options_ui": {
     "page": "html/settings.html",
@@ -89,14 +88,17 @@
     "128": "img/icon/dev/128x128.png",
     "48": "img/icon/dev/48x48.png"
   },
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "permissions": [
-    "<all_urls>",
     "bookmarks",
     "storage",
+    "favicon",
     "contextMenus",
+    "scripting",
     "unlimitedStorage",
-    "fontSettings",
-    "chrome://favicon/"
+    "fontSettings"
   ],
   "optional_permissions": [
     "tabs",

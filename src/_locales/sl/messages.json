@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "Storitev prevodov trenutno ni odstopna. Prosimo poskusite kasneje."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Ponovno nalo\u017ei zdaj"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Zaradi posodobitve raz\u0161iritve je potrebno osve\u017eiti stran."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Zavihek"
     },
@@ -1293,7 +1287,7 @@
         "message": "Prosim sestavite va\u0161o povratno informacijo v angle\u0161kem jeziku, druga\u010de bo te\u017eko razumeti va\u0161e sporo\u010dilo in vam odgovoriti."
     },
     "settings_support_feedback_email": {
-        "message": "e-po\u0161tni naslov (neobvezno)"
+        "message": "Ali \u017eelite dobiti odgovor? Navedite e-po\u0161tni naslov (neobvezno)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei sliko ekrana"

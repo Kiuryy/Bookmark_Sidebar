@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "\u7ffb\u8b6f\u670d\u52d9\u73fe\u5728\u7121\u6cd5\u4f7f\u7528\uff0c\u8acb\u7a0d\u5f8c\u518d\u5617\u8a66\u3002"
     },
-    "status_background_disconnected_reload_action": {
-        "message": "\u7acb\u523b\u91cd\u65b0\u8f09\u5165"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "\u7531\u65bc\u64f4\u5145\u529f\u80fd\u66f4\u65b0\uff0c\u672c\u9801\u9762\u9700\u8981\u91cd\u65b0\u8f09\u5165\u3002"
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1293,7 +1287,7 @@
         "message": "\u8acb\u7528\u82f1\u6587\u5beb\u4e0b\u60a8\u7684\u56de\u994b\uff0c\u4e0d\u7136\u6211\u6703\u5f88\u96e3\u7406\u89e3\u548c\u56de\u8986\u60a8\u7684\u8a0a\u606f\u3002"
     },
     "settings_support_feedback_email": {
-        "message": "\u96fb\u5b50\u4fe1\u7bb1 (\u9078\u586b)"
+        "message": "\u60f3\u77e5\u9053\u7b54\u6848\u55ce? \u8acb\u63d0\u4f9beamil\u5730\u5740(\u9078\u9805)"
     },
     "settings_support_feedback_screenshot": {
         "message": "\u9644\u52a0\u87a2\u5e55\u64f7\u5716"

@@ -32,10 +32,10 @@
         /**
          * Performs the action of the current overlay
          */
-        const performAction = () => {
+        const performAction = async () => {
             switch (elements.modal.attr($.attr.type)) {
                 case "searchEngine": {
-                    updateSearchEngine();
+                    await updateSearchEngine();
                     break;
                 }
             }
@@ -44,13 +44,12 @@
         /**
          * Closes the overlay
          */
-        const closeOverlay = () => {
+        const closeOverlay = async () => {
             n.helper.utility.triggerEvent("overlayClosed");
             elements.overlay.removeClass($.cl.page.visible);
 
-            $.delay(400).then(() => {
-                elements.overlay.remove();
-            });
+            await $.delay(400);
+            elements.overlay.remove();
         };
 
 
@@ -124,7 +123,7 @@
         /**
          * Sets the selected search engine and closes the overlay
          */
-        const updateSearchEngine = () => {
+        const updateSearchEngine = async () => {
             const value = getSelectedSearchEngine();
 
             if (value) {
@@ -135,7 +134,7 @@
                 });
             }
 
-            closeOverlay();
+            await closeOverlay();
         };
 
 
@@ -157,7 +156,7 @@
                 closeOverlay();
             });
 
-            elements.modal.on("click", "a", (e) => {
+            elements.modal.on("click", "a", async (e) => {
                 e.preventDefault();
                 const elmObj = $(e.currentTarget);
                 const checkbox = elmObj.prev("div." + $.cl.checkbox.box);
@@ -167,19 +166,18 @@
                 }
 
                 if (elmObj.hasClass($.cl.overlay.action)) { // perform the action
-                    performAction();
+                    await performAction();
                 }
             });
 
-            elements.modal.find("input[type='checkbox']").on("change", () => {
-                $.delay().then(() => {
-                    const customList = elements.modal.find("ul[" + $.attr.type + "='custom']");
-                    if (getSelectedSearchEngine() === "custom") {
-                        customList.addClass($.cl.visible);
-                    } else {
-                        customList.removeClass($.cl.visible);
-                    }
-                });
+            elements.modal.find("input[type='checkbox']").on("change", async () => {
+                await $.delay();
+                const customList = elements.modal.find("ul[" + $.attr.type + "='custom']");
+                if (getSelectedSearchEngine() === "custom") {
+                    customList.addClass($.cl.visible);
+                } else {
+                    customList.removeClass($.cl.visible);
+                }
             });
         };
     };

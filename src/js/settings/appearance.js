@@ -72,6 +72,7 @@
          */
         this.init = () => {
             return new Promise((resolve) => {
+                initIconShapeOptions();
                 theme = s.helper.model.getData("a/theme");
 
                 initPreviews().then(() => {
@@ -195,6 +196,19 @@
             });
         };
 
+        const initIconShapeOptions = () => {
+            s.elm.appearance.iconShapeWrapper.find("ul > li").forEach((option) => {
+                s.helper.utility.getIconImageData({
+                    shape: $(option).attr($.attr.value),
+                    color: "#ffffff",
+                    background: "transparent",
+                    padding: 0
+                }).then((faviconBase64) => {
+                    $(option).find("> span > span").css("background-image", `url(${faviconBase64})`);
+                });
+            });
+        };
+
         /**
          * Updates all previews
          */
@@ -216,12 +230,7 @@
                 s.elm.preview[key].find("body").attr($.attr.theme, theme);
                 s.elm.preview[key].find("head > style").remove();
 
-                if (config.appearance.styles.fontFamily === "default") {
-                    const fontInfo = s.helper.font.getDefaultFontInfo();
-                    config.appearance.styles.fontFamily = fontInfo.name;
-                }
-
-                Object.assign(config.appearance.styles, s.helper.font.getFontWeights(config.appearance.styles.fontFamily));
+                Object.assign(config.appearance.styles, s.helper.font.getFontWeights());
                 let css = previews[key].css;
                 css += config.utility.customCss;
 
@@ -415,8 +424,13 @@
                     }
                 } else if (s.elm.select[key]) {
                     ret.appearance.styles[key] = s.elm.select[key][0].value;
-                    if (key === "fontFamily" && ret.appearance.styles[key] !== "default") { // wrap ticks around the font name to prevent Chrome to ignore fonts with spaces or special characters in the css definition
-                        ret.appearance.styles[key] = "'" + ret.appearance.styles[key] + "'";
+                    if (key === "fontFamily") {
+                        if (ret.appearance.styles[key] === "default") {
+                            const defaultConfig = s.helper.model.getDefaultData();
+                            ret.appearance.styles[key] = defaultConfig.appearance.styles.fontFamily;
+                        } else { // wrap ticks around the font name to prevent Chrome to ignore fonts with spaces or special characters in the css definition
+                            ret.appearance.styles[key] = "'" + ret.appearance.styles[key] + "'";
+                        }
                     }
                 } else if (s.elm.radio[key]) {
                     ret.appearance.styles[key] = s.elm.radio[key][0].value;
@@ -578,7 +592,7 @@
                         .attr($.attr.settings.appearance, key)
                         .appendTo(s.elm.body);
 
-                    $.xhr($.api.extension.getURL("html/template/" + previews[key].template + ".html")).then((xhr) => {
+                    $.xhr($.api.runtime.getURL("html/template/" + previews[key].template + ".html")).then((xhr) => {
                         if (xhr && xhr.responseText) {
                             let html = xhr.responseText;
                             html = html.replace(/__DATE__CREATED__/g, s.helper.i18n.getLocaleDate(new Date("2016-11-25")));
@@ -589,7 +603,6 @@
                             previewBody.parent("html").attr("dir", s.helper.i18n.isRtl() ? "rtl" : "ltr");
 
                             s.helper.i18n.parseHtml(s.elm.preview[key]);
-                            s.helper.font.addStylesheet(s.elm.preview[key]);
 
                             previewsLoaded++;
                             resolveWhenAllFinished();
@@ -597,7 +610,7 @@
                     });
 
                     styles[key].forEach((stylesheet) => {
-                        $.xhr($.api.extension.getURL("css/" + stylesheet + ".css")).then((xhr) => {
+                        $.xhr($.api.runtime.getURL("css/" + stylesheet + ".css")).then((xhr) => {
                             if (xhr && xhr.responseText) {
                                 previews[key].css += xhr.responseText;
                                 stylesLoaded++;

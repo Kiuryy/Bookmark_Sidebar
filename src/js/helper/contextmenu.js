@@ -17,7 +17,7 @@
          * @param {string} type
          * @param {jsu} elm
          */
-        this.create = (type, elm) => {
+        this.create = async (type, elm) => {
             const config = ext.helper.model.getData(["b/sidebarPosition", "a/styles"]);
             sidebarPos = config.sidebarPosition;
 
@@ -29,7 +29,6 @@
             ext.helper.tooltip.close();
 
             if (alreadyExists(type, elm)) { // contextmenu is already opened
-
                 if (type === "menu" || type === "sort") { // close menu/sort menu when reclicking the icon
                     this.close();
                 }
@@ -74,16 +73,15 @@
                 initEvents(contextmenu);
                 setPosition(contextmenu, elm, type);
 
-                $.delay().then(() => {
-                    contextmenu.addClass($.cl.visible);
-                });
+                await $.delay();
+                contextmenu.addClass($.cl.visible);
             }
         };
 
         /**
          * Closes all open contextmenus
          */
-        this.close = () => {
+        this.close = async () => {
             const contextmenus = ext.elm.iframeBody.find("div." + $.cl.contextmenu.wrapper);
 
             contextmenus.forEach((contextmenu) => {
@@ -91,10 +89,9 @@
                 $(contextmenu).data("elm").removeClass($.cl.active);
             });
 
-            $.delay(500).then(() => {
-                contextmenus.remove();
-                ext.helper.toggle.removeSidebarHoverClass();
-            });
+            await $.delay(500);
+            contextmenus.remove();
+            ext.helper.toggle.removeSidebarHoverClass();
         };
 
         /**
@@ -288,7 +285,7 @@
                     .append("<li><a " + $.attr.type + "='dir' title='" + ext.helper.i18n.get("overlay_label_dir", null, true) + "'></a></li>")
                     .appendTo(listEntry);
 
-                if (sort === "custom") {
+                if (sort.name === "custom") {
                     ul.append("<li><a " + $.attr.type + "='separator' title='" + ext.helper.i18n.get("overlay_label_separator", null, true) + "'></a></li>");
                 }
 
@@ -358,7 +355,7 @@
          */
         clickFuncs.settings = () => {
             ext.helper.model.call("openLink", {
-                href: $.api.extension.getURL("html/settings.html"),
+                href: $.api.runtime.getURL("html/settings.html"),
                 newTab: true
             });
         };
@@ -450,19 +447,16 @@
          *
          * @param {object} opts
          */
-        clickFuncs.showHidden = (opts) => {
+        clickFuncs.showHidden = async (opts) => {
             ext.startLoading();
             const hiddenEntries = ext.helper.model.getData("u/hiddenEntries");
             delete hiddenEntries[opts.id];
 
-            ext.helper.model.setData({"u/hiddenEntries": hiddenEntries}).then(() => {
-                return Promise.all([
-                    ext.helper.model.call("removeCache", {name: "htmlList"}),
-                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"})
-                ]);
-            }).then(() => {
-                ext.helper.model.call("reload", {type: "Hide"});
-            });
+            await ext.helper.model.setData({"u/hiddenEntries": hiddenEntries});
+            await ext.helper.model.call("removeCache", {name: "htmlList"});
+            await ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"});
+
+            ext.helper.model.call("reload", {type: "Hide"});
         };
 
         /**
@@ -486,10 +480,10 @@
          *
          * @param {object} opts
          */
-        clickFuncs.pin = (opts) => {
-            ext.helper.bookmark.pinEntry(opts.data).then(() => {
-                ext.helper.model.call("reload", {type: "Pin"});
-            });
+        clickFuncs.pin = async (opts) => {
+            await ext.helper.bookmark.pinEntry(opts.data);
+            ext.helper.model.call("reload", {type: "Pin"});
+
         };
 
         /**
@@ -497,10 +491,9 @@
          *
          * @param {object} opts
          */
-        clickFuncs.unpin = (opts) => {
-            ext.helper.bookmark.unpinEntry(opts.data).then(() => {
-                ext.helper.model.call("reload", {type: "Unpin"});
-            });
+        clickFuncs.unpin = async (opts) => {
+            await ext.helper.bookmark.unpinEntry(opts.data);
+            ext.helper.model.call("reload", {type: "Unpin"});
         };
 
         /**
@@ -508,7 +501,7 @@
          *
          * @param {object} opts
          */
-        clickFuncs.copyToClipboard = (opts) => {
+        clickFuncs.copyToClipboard = async (opts) => {
             const data = ext.helper.entry.getDataById(opts.id);
 
             if (data && data.url && ext.helper.utility.copyToClipboard(data.url)) {
@@ -518,15 +511,14 @@
                 $(elm).children("span." + $.cl.sidebar.copied).remove();
                 const copiedNotice = $("<span></span>").addClass($.cl.sidebar.copied).text(ext.helper.i18n.get("sidebar_copied_to_clipboard")).appendTo(elm);
 
-                $.delay(100).then(() => {
-                    $(elm).addClass($.cl.sidebar.copied);
-                    return $.delay(1500);
-                }).then(() => {
-                    $(elm).removeClass($.cl.sidebar.copied);
-                    return $.delay(500);
-                }).then(() => {
-                    copiedNotice.remove();
-                });
+                await $.delay(100);
+                $(elm).addClass($.cl.sidebar.copied);
+
+                await $.delay(1500);
+                $(elm).removeClass($.cl.sidebar.copied);
+
+                await $.delay(500);
+                copiedNotice.remove();
             }
         };
 
@@ -535,32 +527,31 @@
          *
          * @param {object} opts
          */
-        clickFuncs.showInDir = (opts) => {
+        clickFuncs.showInDir = async (opts) => {
             const data = ext.helper.entry.getDataById(opts.id);
             if (data && data.parents) {
-                const openParent = (i) => {
+                const openParent = async (i) => {
                     if (data.parents[i]) {
                         const entry = ext.elm.bookmarkBox.all.find("ul > li > a." + $.cl.sidebar.bookmarkDir + "[" + $.attr.id + "='" + data.parents[i] + "']");
                         if (!entry.hasClass($.cl.sidebar.dirOpened)) {
-                            ext.helper.list.toggleBookmarkDir(entry, true, false).then(() => {
-                                openParent(i + 1);
-                            });
+                            await ext.helper.list.toggleBookmarkDir(entry, true, false);
+                            await openParent(i + 1);
                         } else {
-                            openParent(i + 1);
+                            await openParent(i + 1);
                         }
                     } else { // all parents opened -> close search and scroll to the bookmark
-                        Promise.all([
+                        await Promise.all([
                             ext.helper.list.cacheList(),
                             ext.helper.search.clearSearch()
-                        ]).then(() => {
-                            const entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
-                            ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, entry[0].offsetTop - 50);
-                            entry.addClass($.cl.sidebar.mark);
-                        });
+                        ]);
+
+                        const entry = ext.elm.bookmarkBox.all.find("ul > li > a[" + $.attr.id + "='" + opts.id + "']");
+                        ext.helper.scroll.setScrollPos(ext.elm.bookmarkBox.all, entry[0].offsetTop - 50);
+                        entry.addClass($.cl.sidebar.mark);
                     }
                 };
 
-                openParent(0);
+                await openParent(0);
             }
         };
 
@@ -585,18 +576,17 @@
         /**
          * Forces the sidebar to reload
          */
-        clickFuncs.reload = () => {
-            ext.helper.model.setData({
+        clickFuncs.reload = async () => {
+            await ext.helper.model.setData({
                 "u/openStates": {}
-            }).then(() => {
-                ext.helper.model.call("reload", {type: "Force"});
             });
+            ext.helper.model.call("reload", {type: "Force"});
         };
 
         /**
          * Closes all opened directories
          */
-        clickFuncs.closeAll = () => {
+        clickFuncs.closeAll = async () => {
             const list = ext.elm.bookmarkBox.all.children("ul");
             const hideRoot = list.hasClass($.cl.sidebar.hideRoot);
             const promises = [];
@@ -607,9 +597,8 @@
                 }
             });
 
-            Promise.all(promises).then(() => {
-                ext.helper.list.cacheList();
-            });
+            await Promise.all(promises);
+            ext.helper.list.cacheList();
         };
 
         /**
@@ -652,18 +641,18 @@
                 }
             });
 
-            contextmenu.find("input[" + $.attr.name + "='toggleHidden']").on("change", (e) => { // toggle visibility of hidden entries
+            contextmenu.find("input[" + $.attr.name + "='toggleHidden']").on("change", async (e) => { // toggle visibility of hidden entries
                 ext.startLoading();
 
-                Promise.all([
+                await Promise.all([
                     ext.helper.model.call("removeCache", {name: "htmlList"}),
                     ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
                     ext.helper.model.setData({
                         "u/showHidden": ext.helper.checkbox.isChecked($(e.currentTarget).parent("div"))
                     })
-                ]).then(() => {
-                    ext.helper.model.call("reload", {type: "ToggleHidden"});
-                });
+                ]);
+
+                ext.helper.model.call("reload", {type: "ToggleHidden"});
                 this.close();
             });
 

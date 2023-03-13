@@ -41,7 +41,7 @@
                         break;
                 }
 
-                $.api.tabs.create({url: $.api.extension.getURL("html/settings.html#support_error_" + suggestionType)});
+                $.api.tabs.create({url: $.api.runtime.getURL("html/settings.html#support_error_" + suggestionType)});
             });
         };
 
@@ -73,7 +73,7 @@
         /**
          * Enables or disables the new tab overriding
          *
-         * @param {bool} val
+         * @param {boolean} val
          */
         const setAsNewtab = (val) => {
             $.api.storage.sync.get(["newtab"], (obj) => {

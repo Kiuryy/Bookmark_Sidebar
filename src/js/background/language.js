@@ -70,44 +70,41 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                $.api.storage.sync.get(["language"], (data) => {
-                    const defaultLang = $.opts.manifest.default_locale;
-                    let lang = data.language || "default";
-                    let fallbackLang = null;
+        this.init = async () => {
+            const defaultLang = $.opts.manifest.default_locale;
+            const data = await $.api.storage.sync.get(["language"]);
 
-                    if (lang === "default") {
-                        lang = this.getUILanguage();
+            let fallbackLang = null;
+            let lang = data.language || "default";
+
+            if (lang === "default") {
+                lang = this.getUILanguage();
+            }
+            lang = lang.replace("-", "_");
+
+            if (aliasLangs[lang]) { // language code is an alias for another one (e.g. pt -> pt_PT)
+                lang = aliasLangs[lang];
+            }
+
+            if (lang.indexOf("_") > -1) { // search for a language file with short language code, too (e.g. de_DE -> de)
+                fallbackLang = lang.replace(/_.*$/, "");
+            }
+
+            const availableLanguages = await this.getAvailableLanguages();
+            if (availableLanguages && availableLanguages.infos) {
+                for (const possibleLang of [lang, fallbackLang, defaultLang]) {
+                    if (!possibleLang) {
+                        continue;
                     }
-                    lang = lang.replace("-", "_");
 
-                    if (aliasLangs[lang]) { // language code is an alias for another one (e.g. pt -> pt_PT)
-                        lang = aliasLangs[lang];
+                    if (availableLanguages.infos[possibleLang] && availableLanguages.infos[possibleLang].available) {
+                        language = possibleLang;
+                        isRtl = rtlLangs.indexOf(language) > -1;
+                        langVars = await getVars(language, defaultLang); // load language variables from model
+                        return;
                     }
-
-                    if (lang.indexOf("_") > -1) { // search for a language file with short language code, too (e.g. de_DE -> de)
-                        fallbackLang = lang.replace(/_.*$/, "");
-                    }
-
-                    this.getAvailableLanguages().then((obj) => {
-                        [lang, fallbackLang, defaultLang].some((name) => { // check if user language exists, if not fallback to default language
-                            if (name !== null && obj && obj.infos && obj.infos[name] && obj.infos[name].available) {
-                                language = name;
-                                isRtl = rtlLangs.indexOf(language) > -1;
-
-                                getVars(name, defaultLang).then((data) => { // load language variables from model
-                                    if (data && data.langVars) {
-                                        langVars = data.langVars;
-                                        resolve();
-                                    }
-                                });
-                                return true;
-                            }
-                        });
-                    });
-                });
-            });
+                }
+            }
         };
 
         /**
@@ -139,14 +136,12 @@
          *
          * @returns {Promise}
          */
-        this.getLangVars = () => {
-            return new Promise((resolve) => {
-                resolve({
-                    language: language,
-                    dir: isRtl ? "rtl" : "ltr",
-                    vars: langVars
-                });
-            });
+        this.getLangVars = async () => {
+            return {
+                language: language,
+                dir: isRtl ? "rtl" : "ltr",
+                vars: langVars
+            };
         };
 
         /**
@@ -154,40 +149,36 @@
          *
          * @returns {Promise}
          */
-        this.getAvailableLanguages = () => {
-            return new Promise((resolve) => {
-                $.api.storage.local.get(["languageInfos"], (obj) => {
-                    if (obj && obj.languageInfos && (+new Date() - obj.languageInfos.updated) / 36e5 < 8) { // cached
-                        resolve({infos: obj.languageInfos.infos});
-                    } else { // not cached -> determine available languages
-                        const total = Object.keys(allLanguages).length;
-                        let loaded = 0;
-                        const infos = {};
+        this.getAvailableLanguages = async () => {
+            const cachedData = await $.api.storage.local.get(["languageInfos"]);
 
-                        Object.keys(allLanguages).forEach((lang) => {
-                            infos[lang] = {
-                                name: lang,
-                                label: allLanguages[lang],
-                                available: false
-                            };
+            // if (cachedData && cachedData.languageInfos && (+new Date() - cachedData.languageInfos.updated) / 36e5 < 8) { // cached
+            //     return {infos: cachedData.languageInfos.infos};
+            // }
 
-                            const xhrDone = () => {
-                                if (++loaded === total) {
-                                    $.api.storage.local.set({
-                                        languageInfos: {infos: infos, updated: +new Date()}
-                                    });
-                                    resolve({infos: infos});
-                                }
-                            };
+            // not cached -> determine available languages
+            const infos = {};
 
-                            $.xhr($.api.extension.getURL("_locales/" + lang + "/messages.json"), {method: "HEAD"}).then(() => {
-                                infos[lang].available = true;
-                                xhrDone();
-                            }, xhrDone);
-                        });
-                    }
-                });
+            for (const lang in allLanguages) {
+                infos[lang] = {
+                    name: lang,
+                    label: allLanguages[lang],
+                    available: false
+                };
+
+                try {
+                    await fetch($.api.runtime.getURL("_locales/" + lang + "/messages.json"), {method: "HEAD"});
+                    infos[lang].available = true;
+                } catch (e) {
+                    // language does not exist
+                }
+            }
+
+            $.api.storage.local.set({
+                languageInfos: {infos: infos, updated: +new Date()}
             });
+
+            return {infos: infos};
         };
 
         /**
@@ -195,28 +186,26 @@
          *
          * @returns {Promise}
          */
-        this.getIncompleteLanguages = () => {
-            return new Promise((resolve) => {
-                $.xhr($.opts.website.translation.info).then((xhr) => {
-                    const infos = JSON.parse(xhr.responseText);
-                    const incompleteLangs = [];
+        this.getIncompleteLanguages = async () => {
+            const resp = await fetch($.opts.website.translation.info);
+            const infos = await resp.json();
 
-                    if (infos && infos.languages && infos.categories) {
-                        let totalVars = 0;
-                        Object.values(infos.categories).forEach((cat) => { // determine the total amount of language variables
-                            totalVars += cat.total;
-                        });
+            const incompleteLangs = [];
 
-                        infos.languages.forEach((lang) => { // add all languages with incomplete amount of variables to list
-                            if (lang.varsAmount < totalVars) {
-                                incompleteLangs.push(lang.name);
-                            }
-                        });
-                    }
-
-                    resolve(incompleteLangs);
+            if (infos && infos.languages && infos.categories) {
+                let totalVars = 0;
+                Object.values(infos.categories).forEach((cat) => { // determine the total amount of language variables
+                    totalVars += cat.total;
                 });
-            });
+
+                infos.languages.forEach((lang) => { // add all languages with incomplete amount of variables to list
+                    if (lang.varsAmount < totalVars) {
+                        incompleteLangs.push(lang.name);
+                    }
+                });
+            }
+
+            return incompleteLangs;
         };
 
         /**
@@ -226,26 +215,22 @@
          * @param {string} defaultLang
          * @returns {Promise}
          */
-        const getVars = (lang, defaultLang = null) => {
-            return new Promise((resolve) => {
-                if (lang) {
-                    const sendXhr = (obj) => {
-                        const langVars = obj.langVars;
+        const getVars = async (lang, defaultLang) => {
+            let langVars = {};
 
-                        $.xhr($.api.extension.getURL("_locales/" + lang + "/messages.json")).then((xhr) => {
-                            const result = JSON.parse(xhr.responseText);
-                            Object.assign(langVars, result); // override all default variables with the one from the language file
-                            resolve({langVars: langVars});
-                        });
-                    };
+            if (defaultLang) {
+                const resp = await fetch($.api.runtime.getURL(`_locales/${defaultLang}/messages.json`));
+                const json = await resp.json();
+                langVars = {...langVars, ...json};
+            }
 
-                    if (defaultLang && defaultLang !== lang) { // load default language variables first and replace them afterwards with the language specific ones
-                        getVars(defaultLang, null).then(sendXhr);
-                    } else {
-                        sendXhr({langVars: {}});
-                    }
-                }
-            });
+            if (lang) {
+                const resp = await fetch($.api.runtime.getURL(`_locales/${lang}/messages.json`));
+                const json = await resp.json();
+                langVars = {...langVars, ...json};
+            }
+
+            return langVars;
         };
     };
 

@@ -9,16 +9,12 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.set = (opts) => {
-            return new Promise((resolve) => {
-                try { // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
-                    $.api.storage.local.set({["cache_" + opts.name]: opts.val}, () => {
-                        resolve();
-                    });
-                } catch (e) {
-                    resolve();
-                }
-            });
+        this.set = async (opts) => {
+            try {
+                await $.api.storage.local.set({["cache_" + opts.name]: opts.val});
+            } catch (e) {
+                // can fail (e.g. MAX_WRITE_OPERATIONS_PER_MINUTE exceeded)
+            }
         };
 
         /**
@@ -27,12 +23,9 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.get = (opts) => {
-            return new Promise((resolve) => {
-                $.api.storage.local.get(["cache_" + opts.name], (result) => {
-                    resolve({val: result["cache_" + opts.name]});
-                });
-            });
+        this.get = async (opts) => {
+            const result = await $.api.storage.local.get(["cache_" + opts.name]);
+            return {val: result["cache_" + opts.name]};
         };
 
         /**
@@ -41,16 +34,10 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.remove = (opts) => {
-            return new Promise((resolve) => {
-                if (b.importRunning) { // don't remove cache while import in running
-                    resolve();
-                } else {
-                    $.api.storage.local.remove(["cache_" + opts.name], () => {
-                        resolve();
-                    });
-                }
-            });
+        this.remove = async (opts) => {
+            if (!b.importRunning) { // don't remove cache while import in running
+                await $.api.storage.local.remove(["cache_" + opts.name]);
+            }
         };
     };
 

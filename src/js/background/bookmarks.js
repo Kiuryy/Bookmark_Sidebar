@@ -2,51 +2,6 @@
     "use strict";
 
     $.Bookmarks = function (b) {
-        this.api = {};
-
-        /**
-         *
-         * @returns {Promise}
-         */
-        this.init = () => {
-            return new Promise((resolve) => {
-                ["get", "getSubTree", "removeTree"].forEach((key) => {
-                    this.api[key] = (id) => funcCallback(key, typeof id === "object" ? [id] : ["" + id]); // don't cast to str if parameter is already an object
-                });
-
-                ["update", "move"].forEach((key) => {
-                    this.api[key] = (id, obj) => funcCallback(key, ["" + id, obj]);
-                });
-
-                ["create", "search"].forEach((key) => {
-                    this.api[key] = (obj) => funcCallback(key, [obj]);
-                });
-
-                resolve();
-            });
-        };
-
-        const funcCallback = (key, params) => {
-            return new Promise((resolve, reject) => {
-                $.api.bookmarks[key](...params, (result) => {
-                    const lastError = $.api.runtime.lastError;
-                    if (typeof lastError === "undefined") {
-                        if (["update", "move", "create", "removeTree"].indexOf(key) !== -1) {
-                            Promise.all([
-                                b.helper.cache.remove({name: "htmlList"}),
-                                b.helper.cache.remove({name: "htmlPinnedEntries"})
-                            ]).then(() => {
-                                resolve(result);
-                            });
-                        } else {
-                            resolve(result);
-                        }
-                    } else { // reject with error
-                        reject(lastError.message);
-                    }
-                });
-            });
-        };
 
         /**
          * Returns all bookmarks under the given id
@@ -54,12 +9,19 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.getById = (opts) => {
-            return new Promise((resolve) => {
-                this.api.getSubTree(opts.id).then((bookmarks) => {
-                    resolve({bookmarks: bookmarks});
-                });
-            });
+        this.getById = async (opts) => {
+            try {
+                if (+opts.id === 0) {
+                    const bookmarks = await $.api.bookmarks.getTree();
+                    return {bookmarks: bookmarks};
+                } else {
+                    const bookmarks = await $.api.bookmarks.getSubTree("" + opts.id);
+                    return {bookmarks: bookmarks};
+                }
+            } catch (err) {
+                console.error(err);
+                return {error: err};
+            }
         };
 
         /**
@@ -68,12 +30,14 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.getBySearchVal = (opts) => {
-            return new Promise((resolve) => {
-                this.api.search(opts.searchVal).then((results) => {
-                    resolve({bookmarks: results});
-                });
-            });
+        this.getBySearchVal = async (opts) => {
+            try {
+                const results = await $.api.bookmarks.search(opts.searchVal);
+                return {bookmarks: results};
+            } catch (err) {
+                console.error(err);
+                return {error: err};
+            }
         };
 
         /**
@@ -82,33 +46,36 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.update = (opts) => {
-            return new Promise((resolve) => {
-                new Promise((rslv) => {
-                    const values = {
-                        title: opts.title
-                    };
+        this.update = async (opts) => {
+            const values = {
+                title: opts.title
+            };
 
-                    if (opts.url) {
-                        values.url = opts.url;
-                    }
+            if (opts.url) {
+                values.url = opts.url;
+            }
 
-                    if (opts.preventReload) {
-                        b.preventReload = true;
-                    }
+            if (opts.preventReload) {
+                b.preventReload = true;
+            }
 
-                    this.api.update(opts.id, values).then(() => {
-                        rslv({updated: opts.id});
-                    }, (error) => {
-                        rslv({error: error});
-                    });
-                }).then((obj) => {
-                    if (opts.preventReload) {
-                        b.preventReload = false;
-                    }
-                    resolve(obj);
-                });
-            });
+            let ret = {updated: opts.id};
+            try {
+                await $.api.bookmarks.update("" + opts.id, values);
+                await Promise.all([
+                    b.helper.cache.remove({name: "htmlList"}),
+                    b.helper.cache.remove({name: "htmlPinnedEntries"})
+                ]);
+            } catch (err) {
+                console.error(err);
+                ret = {error: err};
+            }
+
+            if (opts.preventReload) {
+                b.preventReload = false;
+            }
+
+            return ret;
         };
 
         /**
@@ -117,32 +84,37 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.create = (opts) => {
-            return new Promise((resolve) => {
-                new Promise((rslv) => {
-                    const values = {
-                        parentId: opts.parentId,
-                        index: opts.index || 0,
-                        title: opts.title,
-                        url: opts.url ? opts.url : null
-                    };
+        this.create = async (opts) => {
+            const parentInfo = await this.getById({id: opts.parentId});
 
-                    if (opts.preventReload) {
-                        b.preventReload = true;
-                    }
+            const values = {
+                parentId: opts.parentId,
+                index: parentInfo.bookmarks ? Math.min(parentInfo.bookmarks[0].children.length, opts.index || 0) : 0,
+                title: opts.title,
+                url: opts.url ? opts.url : null
+            };
 
-                    this.api.create(values).then((obj) => {
-                        rslv({created: obj.id});
-                    }, (error) => {
-                        rslv({error: error});
-                    });
-                }).then((obj) => {
-                    if (opts.preventReload) {
-                        b.preventReload = false;
-                    }
-                    resolve(obj);
-                });
-            });
+            if (opts.preventReload) {
+                b.preventReload = true;
+            }
+
+            let ret = {};
+            try {
+                ret = await $.api.bookmarks.create(values);
+                await Promise.all([
+                    b.helper.cache.remove({name: "htmlList"}),
+                    b.helper.cache.remove({name: "htmlPinnedEntries"})
+                ]);
+            } catch (err) {
+                console.error(err);
+                ret = {error: err};
+            }
+
+            if (opts.preventReload) {
+                b.preventReload = false;
+            }
+
+            return ret;
         };
 
         /**
@@ -151,25 +123,28 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.remove = (opts) => {
-            return new Promise((resolve) => {
-                new Promise((rslv) => {
-                    if (opts.preventReload) {
-                        b.preventReload = true;
-                    }
+        this.remove = async (opts) => {
+            if (opts.preventReload) {
+                b.preventReload = true;
+            }
 
-                    this.api.removeTree(opts.id).then(() => {
-                        rslv({deleted: opts.id});
-                    }, (error) => {
-                        rslv({error: error});
-                    });
-                }).then((obj) => {
-                    if (opts.preventReload) {
-                        b.preventReload = false;
-                    }
-                    resolve(obj);
-                });
-            });
+            let ret = {deleted: opts.id};
+            try {
+                await $.api.bookmarks.removeTree("" + opts.id);
+                await Promise.all([
+                    b.helper.cache.remove({name: "htmlList"}),
+                    b.helper.cache.remove({name: "htmlPinnedEntries"})
+                ]);
+            } catch (err) {
+                console.error(err);
+                ret = {error: err};
+            }
+
+            if (opts.preventReload) {
+                b.preventReload = false;
+            }
+
+            return ret;
         };
 
         /**
@@ -178,17 +153,28 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.move = (opts) => {
-            return new Promise((resolve) => {
-                const dest = {
-                    parentId: "" + opts.parentId,
-                    index: opts.index
-                };
+        this.move = async (opts) => {
+            const dest = {
+                parentId: "" + opts.parentId,
+                index: opts.index
+            };
 
-                this.api.move(opts.id, dest).then(() => {
-                    resolve({moved: opts.id});
-                });
-            });
+            await $.api.bookmarks.move("" + opts.id, dest);
+            await Promise.all([
+                b.helper.cache.remove({name: "htmlList"}),
+                b.helper.cache.remove({name: "htmlPinnedEntries"})
+            ]);
+            return {moved: opts.id};
+        };
+
+        /**
+         * Returns the data url of the favicon of the given url
+         *
+         * @param {object} opts
+         * @returns {Promise}
+         */
+        this.getFavicon = async (opts) => {
+            return $.api.runtime.getURL("_favicon") + "?pageUrl=" + encodeURIComponent(opts.url) + "&size=32";
         };
     };
 

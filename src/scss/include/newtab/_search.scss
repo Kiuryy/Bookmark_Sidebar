@@ -15,7 +15,7 @@ form#search {
   > input[type='text'] {
     width: 100%;
     height: 100%;
-    border-radius: $newTabSearchHeight / 2;
+    border-radius: calc($newTabSearchHeight / 2);
     padding: 0 90px 0 30px;
     border: none;
     outline: none;

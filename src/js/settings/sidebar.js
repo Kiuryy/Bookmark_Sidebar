@@ -52,63 +52,59 @@
          *
          * @returns {Promise}
          */
-        this.save = () => {
-            return new Promise((resolve) => {
-                $.api.storage.sync.get(["behaviour", "language"], (conf) => {
-                    conf.behaviour = conf.behaviour || {};
-                    conf.behaviour.toggleArea = {};
-                    conf.behaviour.blacklist = [];
-                    conf.behaviour.whitelist = [];
+        this.save = async () => {
+            const conf = await $.api.storage.sync.get(["behaviour", "language"]);
+            conf.behaviour = conf.behaviour || {};
+            conf.behaviour.toggleArea = {};
+            conf.behaviour.blacklist = [];
+            conf.behaviour.whitelist = [];
 
-                    ["width", "height", "top", "widthWindowed"].forEach((field) => {
-                        conf.behaviour.toggleArea[field] = s.elm.range["toggleArea_" + field][0].value;
-                    });
-
-                    ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
-                        conf.behaviour[field] = s.elm.select[field][0].value;
-                    });
-
-                    ["openDelay", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
-                        let val = -1;
-
-                        if (s.elm.range[field].hasClass($.cl.settings.inactive) === false) { // if inactive set -1 as value else use the selected value
-                            val = s.elm.range[field][0].value;
-                        }
-
-                        conf.behaviour[field] = val;
-                    });
-
-                    ["dirAccordion", "preventPageScroll", "reopenSidebar", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
-                        conf.behaviour[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
-                    });
-
-                    if (conf.behaviour.visibility === "blacklist" || conf.behaviour.visibility === "whitelist") {
-                        const rules = s.elm.textarea.visibilityFilter[0].value;
-                        conf.behaviour[conf.behaviour.visibility] = rules.split(/\n+/);
-
-                        if (conf.behaviour[conf.behaviour.visibility][0] === "") {
-                            conf.behaviour.visibility = "always";
-                        }
-                    }
-
-                    let lang = s.elm.select.language[0].value;
-                    if (lang === s.helper.i18n.getUILanguage()) {
-                        lang = "default";
-                    }
-
-                    $.api.storage.sync.set({
-                        behaviour: conf.behaviour,
-                        language: lang
-                    }, () => {
-                        if (!(conf && conf.language && conf.language === lang)) {
-                            $.delay(1500).then(() => {
-                                location.reload(true);
-                            });
-                        }
-                        resolve();
-                    });
-                });
+            ["width", "height", "top", "widthWindowed"].forEach((field) => {
+                conf.behaviour.toggleArea[field] = s.elm.range["toggleArea_" + field][0].value;
             });
+
+            ["visibility", "openAction", "sidebarPosition", "linkAction", "rememberState", "newTab", "newTabPosition", "tooltipContent"].forEach((field) => { // select
+                conf.behaviour[field] = s.elm.select[field][0].value;
+            });
+
+            ["openDelay", "scrollBarHide", "closeTimeout", "tooltipDelay"].forEach((field) => { // range
+                let val = -1;
+
+                if (s.elm.range[field].hasClass($.cl.settings.inactive) === false) { // if inactive set -1 as value else use the selected value
+                    val = s.elm.range[field][0].value;
+                }
+
+                conf.behaviour[field] = val;
+            });
+
+            ["dirAccordion", "preventPageScroll", "reopenSidebar", "preventWindowed", "tooltipAdditionalInfo", "rememberOpenStatesSubDirectories"].forEach((field) => { // checkbox
+                conf.behaviour[field] = s.helper.checkbox.isChecked(s.elm.checkbox[field]);
+            });
+
+            if (conf.behaviour.visibility === "blacklist" || conf.behaviour.visibility === "whitelist") {
+                const rules = s.elm.textarea.visibilityFilter[0].value;
+                conf.behaviour[conf.behaviour.visibility] = rules.split(/\n+/);
+
+                if (conf.behaviour[conf.behaviour.visibility][0] === "") {
+                    conf.behaviour.visibility = "always";
+                }
+            }
+
+            let lang = s.elm.select.language[0].value;
+            if (lang === s.helper.i18n.getUILanguage()) {
+                lang = "default";
+            }
+
+            await $.api.storage.sync.set({
+                behaviour: conf.behaviour,
+                language: lang
+            });
+
+            if (!(conf && conf.language && conf.language === lang)) {
+                $.delay(2000).then(() => {
+                    location.reload(true);
+                });
+            }
         };
 
         /**
@@ -199,13 +195,11 @@
                 }
             });
 
-            s.elm.buttons.toggleAreaOpen.on("click", (e) => { // open modal for advanced toggle options
+            s.elm.buttons.toggleAreaOpen.on("click", async (e) => { // open modal for advanced toggle options
                 e.preventDefault();
-
-                $.delay(100).then(() => {
-                    modal.attr($.attr.type, s.elm.select.sidebarPosition[0].value);
-                    s.elm.body.addClass($.cl.settings.showModal);
-                });
+                await $.delay(100);
+                modal.attr($.attr.type, s.elm.select.sidebarPosition[0].value);
+                s.elm.body.addClass($.cl.settings.showModal);
             });
 
             s.elm.buttons.toggleAreaSave.on("click", (e) => { // save settings
@@ -215,12 +209,11 @@
                 s.elm.range.indicatorWidth.trigger("change");
             });
 
-            s.elm.buttons.toggleAreaCancel.on("click", (e) => { // close modal
+            s.elm.buttons.toggleAreaCancel.on("click", async (e) => { // close modal
                 e.preventDefault();
                 s.elm.body.trigger("click");
-                $.delay(500).then(() => {
-                    initToggleAreaFields();
-                });
+                await $.delay(500);
+                initToggleAreaFields();
             });
 
             s.elm.body.on("click", (e) => { // close modal when click something outside the overlay
@@ -239,12 +232,11 @@
                 preview.data("pos", {start: preview[0].offsetTop, y: e.pageY});
             });
 
-            s.elm.body.on("mouseup", () => { // drag end
-                $.delay(0).then(() => {
-                    preview.removeClass($.cl.settings.toggleArea.dragging);
-                });
+            s.elm.body.on("mouseup", async () => { // drag end
+                await $.delay(0);
+                preview.removeClass($.cl.settings.toggleArea.dragging);
             }).on("mousemove", (e) => { // drag move
-                if (preview.hasClass($.cl.settings.toggleArea.dragging) && e.which === 1) {
+                if (preview.hasClass($.cl.settings.toggleArea.dragging) && e.buttons === 1) {
                     const pos = preview.data("pos");
                     s.elm.range.toggleArea_top[0].value = ((pos.start + e.pageY - pos.y) / previewWrapper[0].offsetHeight) * 100;
                     s.elm.range.toggleArea_top.trigger("change");
@@ -278,7 +270,7 @@
                 }
             });
 
-            s.elm.select.rememberState.on("change", (e) => { // toggle the checkbox to configure whether to remember opened sub directories, too (won't be displayed when user select to remember nothing)
+            s.elm.select.rememberState.on("change", (e) => { // toggle the checkbox to configure whether to remember opened subdirectories, too (won't be displayed when user select to remember nothing)
                 if (e.currentTarget.value === "nothing") {
                     s.elm.sidebar.rememberOpenStatesSubDirectories.addClass($.cl.hidden);
                 } else {

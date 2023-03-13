@@ -42,16 +42,15 @@
          * Initialises the menu eventhandlers
          */
         const initBottomMenuEvents = () => {
-            $("menu." + $.cl.newtab.infoBar + " > a").on("click", (e) => { // save changes or leave edit mode
+            $("menu." + $.cl.newtab.infoBar + " > a").on("click", async (e) => { // save changes or leave edit mode
                 e.preventDefault();
                 const elm = $(e.currentTarget);
 
                 if (elm.hasClass($.cl.cancel)) {
-                    leaveEditMode();
+                    await leaveEditMode();
                 } else if (elm.hasClass($.cl.newtab.save)) {
-                    saveChanges().then(() => {
-                        leaveEditMode();
-                    });
+                    await saveChanges();
+                    await leaveEditMode();
                 }
             });
 
@@ -78,7 +77,7 @@
             } else {
                 $("menu." + $.cl.newtab.infoBar + " > div." + $.cl.newtab.upload).on("click", () => {
                     n.helper.model.call("openLink", {
-                        href: $.api.extension.getURL("html/settings.html#premium"),
+                        href: $.api.runtime.getURL("html/settings.html#premium"),
                         newTab: true
                     });
                 });
@@ -90,62 +89,53 @@
          *
          * @returns {Promise}
          */
-        const saveChanges = () => {
-            return new Promise((resolve) => {
-                const loadStartTime = +new Date();
-                const loader = n.helper.template.loading().appendTo(n.elm.body);
-                n.elm.body.addClass($.cl.loading);
+        const saveChanges = async () => {
 
-                const searchEngineObj = n.helper.search.getCurrentSearchEngine();
-                const searchEngineName = searchEngineObj.name;
-                delete searchEngineObj.name;
+            const loadStartTime = +new Date();
+            const loader = n.helper.template.loading().appendTo(n.elm.body);
+            n.elm.body.addClass($.cl.loading);
 
-                const searchSuggestQueries = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestQueries']"));
-                const searchSuggestBookmarks = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestBookmarks']"));
-                const searchSuggestHistory = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestHistory']"));
+            const searchEngineObj = n.helper.search.getCurrentSearchEngine();
+            const searchEngineName = searchEngineObj.name;
+            delete searchEngineObj.name;
 
-                const gridType = n.elm.gridLinks.children("select[" + $.attr.type + "='type']")[0].value;
+            const searchSuggestQueries = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestQueries']"));
+            const searchSuggestBookmarks = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestBookmarks']"));
+            const searchSuggestHistory = n.helper.checkbox.isChecked(n.elm.search.wrapper.find("[" + $.attr.name + "='searchSuggestHistory']"));
 
-                const data = {
-                    "n/searchField": n.elm.search.wrapper.children("select[" + $.attr.type + "='searchField']")[0].value,
-                    "n/searchEngine": searchEngineName,
-                    "n/searchEngineCustom": searchEngineObj,
-                    "n/searchSuggestQueries": searchSuggestQueries,
-                    "n/searchSuggestBookmarks": searchSuggestBookmarks,
-                    "n/searchSuggestHistory": searchSuggestHistory,
-                    "n/gridType": gridType,
-                    "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
-                    "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
-                };
+            const gridType = n.elm.gridLinks.children("select[" + $.attr.type + "='type']")[0].value;
 
-                if (n.helper.model.getUserType() === "premium") {
-                    data["n/gridMaxCols"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='cols']")[0].value;
-                    data["n/gridMaxRows"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='rows']")[0].value;
-                }
+            const data = {
+                "n/searchField": n.elm.search.wrapper.children("select[" + $.attr.type + "='searchField']")[0].value,
+                "n/searchEngine": searchEngineName,
+                "n/searchEngineCustom": searchEngineObj,
+                "n/searchSuggestQueries": searchSuggestQueries,
+                "n/searchSuggestBookmarks": searchSuggestBookmarks,
+                "n/searchSuggestHistory": searchSuggestHistory,
+                "n/gridType": gridType,
+                "n/topLinksPosition": n.elm.topLinks.children("select")[0].value,
+                "n/topLinks": getLinkInformation(n.elm.topLinks.find("> ul > li > a"))
+            };
 
-                if (gridType === "custom") {
-                    data["n/customGridLinks"] = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"), true);
-                }
+            if (n.helper.model.getUserType() === "premium") {
+                data["n/gridMaxCols"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='cols']")[0].value;
+                data["n/gridMaxRows"] = +n.elm.gridLinks.find("select[" + $.attr.type + "='rows']")[0].value;
+            }
 
-                n.helper.model.setData(data).then(() => {
-                    const background = n.elm.body.css("background-image").replace(/(^url\("?|"?\)$)/g, "");
+            if (gridType === "custom") {
+                data["n/customGridLinks"] = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"), true);
+            }
 
-                    return new Promise((rslv) => {
-                        $.api.storage.local.set({
-                            newtabBackground_1: background && background !== "none" ? background : null
-                        }, () => {
-                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
-                            rslv();
-                        });
-                    });
-                }).then(() => { // load at least 1s
-                    return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
-                }).then(() => {
-                    n.elm.body.removeClass($.cl.loading);
-                    loader.remove();
-                    resolve();
-                });
+            await n.helper.model.setData(data);
+            const background = n.elm.body.css("background-image").replace(/(^url\("?|"?\)$)/g, "");
+            await $.api.storage.local.set({
+                newtabBackground_1: background && background !== "none" ? background : null
             });
+
+            await $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime)));
+
+            n.elm.body.removeClass($.cl.loading);
+            loader.remove();
         };
 
         /**
@@ -179,7 +169,7 @@
         /**
          * Removes all html markup which was used to edit the page
          */
-        const leaveEditMode = () => {
+        const leaveEditMode = async () => {
             editMode = false;
             history.pushState({}, null, location.href.replace(/#edit/g, ""));
             n.elm.body.removeClass($.cl.newtab.edit);
@@ -205,19 +195,17 @@
             n.helper.gridLinks.setMaxRows(n.helper.model.getData("n/gridMaxRows"));
             n.helper.topLinks.refreshEntries();
 
-            n.getBackground().then((background) => {
-                n.setBackground(background);
-            });
+            const background = await n.getBackground();
+            n.setBackground(background);
 
-            $.delay(500).then(() => {
-                $("menu." + $.cl.newtab.infoBar).remove();
-            });
+            await $.delay(500);
+            $("menu." + $.cl.newtab.infoBar).remove();
         };
 
         /**
          * Initialises the edit mode -> adds fields and submit button
          */
-        const enterEditMode = () => {
+        const enterEditMode = async () => {
             editMode = true;
             history.pushState({}, null, location.href.replace(/#edit/g, "") + "#edit");
 
@@ -240,22 +228,22 @@
 
             initBottomMenuEvents();
 
-            $.delay().then(() => {
-                n.elm.body.addClass($.cl.newtab.edit);
-                initSearchConfig();
-                initGridSize();
-                initGridType();
-                initCustomGrid();
-                initTopLinks();
+            await $.delay();
+            n.elm.body.addClass($.cl.newtab.edit);
+            initSearchConfig();
+            initGridSize();
+            initGridType();
+            initCustomGrid();
+            initTopLinks();
 
-                $(document).off("click.edit").on("click.edit", () => {
-                    $("div." + $.cl.newtab.editLinkTooltip).remove();
-                });
-
-                $.delay(500).then(() => {
-                    $(window).trigger("resize");
-                });
+            $(document).off("click.edit").on("click.edit", () => {
+                $("div." + $.cl.newtab.editLinkTooltip).remove();
             });
+
+            for (let i = 0; i < 25; i++) {
+                await $.delay(100);
+                $(window).trigger("resize");
+            }
         };
 
         /**
@@ -360,16 +348,15 @@
             });
 
             const addButton = $("<a class='" + $.cl.add + "'></a>").prependTo(n.elm.topLinks);
-            addButton.on("click", () => { // add
+            addButton.on("click", async () => { // add
                 const entry = $("<li></li>")
                     .append("<a>&nbsp;</a>")
                     .prependTo(n.elm.topLinks.children("ul"));
 
-                $.delay().then(() => {
-                    const link = entry.children("a").eq(0);
-                    showLinkEditTooltip(entry, link, link, "delete");
-                    initDraggableLinks(n.elm.topLinks, "> ul > li > a");
-                });
+                await $.delay();
+                const link = entry.children("a").eq(0);
+                showLinkEditTooltip(entry, link, link, "delete");
+                initDraggableLinks(n.elm.topLinks, "> ul > li > a");
             });
 
             n.elm.topLinks.off("click.edit").on("click.edit", "> ul > li > a", (e) => { // edit
@@ -428,11 +415,10 @@
                 $(e.currentTarget).removeClass($.cl.drag.dragHover);
             });
 
-            wrapper.off("dragend.edit").on("dragend.edit", linkSelector, () => {
+            wrapper.off("dragend.edit").on("dragend.edit", linkSelector, async () => {
                 wrapper.find(linkSelector).removeClass($.cl.drag.dragHover);
-                $.delay().then(() => {
-                    draggedElm = null;
-                });
+                await $.delay();
+                draggedElm = null;
             });
 
             wrapper.off("drop.edit").on("drop.edit", linkSelector, (e) => {
@@ -483,30 +469,29 @@
 
             ["Cols", "Rows"].forEach((type) => {
                 const currentValue = n.helper.model.getData("n/gridMax" + type);
-                const s = $("<select></select>")
+                const select = $("<select></select>")
                     .addClass($.cl.newtab.edit)
                     .attr($.attr.type, type.toLowerCase())
                     .appendTo(wrapper);
 
                 for (let i = 1; i < 10; i++) {
-                    $("<option value='" + i + "' " + (currentValue === i ? "selected" : "") + "></option>").text(i).appendTo(s);
+                    $("<option value='" + i + "' " + (currentValue === i ? "selected" : "") + "></option>").text(i).appendTo(select);
                 }
 
-                s.on("input change", (e) => {
+                select.on("input change", async (e) => {
                     const linkList = getLinkInformation(n.elm.gridLinks.find("> ul > li > a"), true);
 
-                    n.helper.gridLinks["setMax" + type](e.currentTarget.value).then(() => { // recover the (maybe changed) links, since changing the grid layout will reset all unsaved changes
-                        n.elm.gridLinks.find("> ul > li > a").forEach((elm, i) => {
-                            if (linkList[i]) {
-                                $(elm)
-                                    .data("href", linkList[i].url)
-                                    .attr("href", linkList[i].url)
-                                    .attr($.attr.value, "url");
-                                $(elm).children("span").eq(0).text(linkList[i].title);
-                            } else {
-                                return false;
-                            }
-                        });
+                    await n.helper.gridLinks["setMax" + type](e.currentTarget.value); // recover the (maybe changed) links, since changing the grid layout will reset all unsaved changes
+                    n.elm.gridLinks.find("> ul > li > a").forEach((elm, i) => {
+                        if (linkList[i]) {
+                            $(elm)
+                                .data("href", linkList[i].url)
+                                .attr("href", linkList[i].url)
+                                .attr($.attr.value, "url");
+                            $(elm).children("span").eq(0).text(linkList[i].title);
+                        } else {
+                            return false;
+                        }
                     });
                 });
             });
@@ -519,7 +504,7 @@
 
                 wrapper.on("click", () => {
                     n.helper.model.call("openLink", {
-                        href: $.api.extension.getURL("html/settings.html#premium"),
+                        href: $.api.runtime.getURL("html/settings.html#premium"),
                         newTab: true
                     });
                 });

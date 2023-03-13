@@ -329,6 +329,15 @@
     "newtab_search_field_hide": {
         "message": "Nascondi campo ricerca"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Suggerisci ricerche"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Suggerisci preferiti"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Suggerisci pagine visitate"
+    },
     "newtab_speech_search_listening": {
         "message": "Parla adesso"
     },
@@ -385,12 +394,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Il servizio di traduzione non \u00e8 al momento disponibile. Riprova pi\u00f9 tardi."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Ricarica adesso"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "A causa di un aggiornamento dell'estensione la pagina deve essere ricaricata."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1284,7 +1287,7 @@
         "message": "Ti prego di scrivere il tuo messaggio in Inglese, altrimenti mi sarebbe molto difficile da comprendere e non sarei in grado di risponderti."
     },
     "settings_support_feedback_email": {
-        "message": "indirizzo email (opzionale)"
+        "message": "Ti piacerebbe una risposta? Si prega di fornire un indirizzo email (facoltativo)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Aggiungi screenshots"

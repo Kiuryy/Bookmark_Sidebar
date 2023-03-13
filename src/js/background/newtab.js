@@ -3,78 +3,99 @@
 
     $.NewtabHelper = function (b) {
 
+        const newtabUrl = $.api.runtime.getURL("html/newtab.html");
+        let inited = false;
         let config = {};
 
         /**
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                this.updateConfig().then(() => {
-                    initEvents();
-                    resolve();
-                });
-            });
+        this.init = async () => {
+            await this.updateConfig();
+            inited = true;
         };
 
         /**
          * Reloads all extension new tab pages,
          * only works, if the user granted the 'tabs' permission
          */
-        this.reload = () => {
-            $.api.permissions.contains({
-                permissions: ["tabs"]
-            }, (result) => {
-                if (result) { // user granted the 'tabs' permission -> reload all extension new tab pages
-                    $.api.tabs.query({url: "chrome-extension://*/html/newtab.html"}, (tabs) => {
-                        tabs.forEach((tab) => {
-                            $.api.tabs.reload(tab.id);
-                        });
-                    });
+        this.reload = async () => {
+            const result = await $.api.permissions.contains({permissions: ["tabs"]});
+            if (result) { // user granted the 'tabs' permission -> reload all extension new tab pages
+                const tabs = await $.api.tabs.query({url: newtabUrl});
+                for (const tab of tabs) {
+                    $.api.tabs.reload(tab.id);
                 }
-            });
+            }
         };
 
         /**
          * Retrieves the configuration about the new tab replacement from the storage
          */
-        this.updateConfig = () => {
-            return new Promise((resolve) => {
-                $.api.storage.sync.get(["newtab"], (obj) => {
-                    if (typeof obj.newtab === "undefined") {
-                        config = {};
-                    } else {
-                        config = obj.newtab;
-                    }
-                    resolve();
-                });
-            });
+        this.updateConfig = async () => {
+            const obj = await $.api.storage.sync.get(["newtab"]);
+            if (typeof obj.newtab === "undefined") {
+                config = {};
+            } else {
+                config = obj.newtab;
+            }
         };
 
         /**
-         * Initialises eventlistener for the new tab replacement
-         *
-         * @returns {Promise}
+         * Handle tab creation event
          */
-        const initEvents = async () => {
-            $.api.tabs.onCreated.addListener((tab) => {
-                const url = tab.url || tab.pendingUrl;
-                if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || url === b.helper.utility.getParsedUrl("chrome://startpage/"))) {
-                    if (typeof config.override !== "undefined" && config.override === true) {
-                        let url = $.api.extension.getURL("html/newtab.html");
-                        if (config.website && config.website.length > 0) {
-                            url = addParameterToUrl(config.website, "bs_nt", 1);
-                        }
+        this.onTabCreated = (tab, retry = 0) => {
+            if (!inited) { // not initialized yet -> try again
+                if (retry < 200) {
+                    setTimeout(() => {
+                        this.onTabCreated(tab, retry + 1);
+                    }, 5);
+                } else {
+                    console.error("Failed to handle tab creation");
+                }
+                return;
+            }
 
-                        if (config.focusOmnibox || tab.index === 0) {
-                            $.api.tabs.update(tab.id, {url: url, active: true});
-                        } else {
-                            $.api.tabs.remove(tab.id, () => {
-                                $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
-                            });
-                            $.api.tabs.create({url: url, active: true});
-                        }
+            const url = tab.url || tab.pendingUrl;
+            if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || url === b.helper.utility.getParsedUrl("chrome://startpage/"))) {
+                if (typeof config.override !== "undefined" && config.override === true) {
+                    let url = newtabUrl;
+                    if (config.website && config.website.length > 0) {
+                        url = addParameterToUrl(config.website, "bs_nt", 1);
+                    }
+
+                    if (config.focusOmnibox || tab.index === 0) {
+                        updateTab(tab.id, url);
+                    } else {
+                        $.api.tabs.remove(tab.id, () => {
+                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
+                        });
+                        $.api.tabs.create({url: url, active: true});
+                    }
+                }
+            }
+        };
+
+        /**
+         * Load the given url for the given tab
+         *
+         * @param tabId
+         * @param url
+         * @param retry
+         */
+        const updateTab = (tabId, url, retry = 0) => {
+            $.api.tabs.update(tabId, {url: url, active: true}, async () => {
+                const tab = await $.api.tabs.get(tabId);
+                const actualUrl = tab.pendingUrl || tab.url;
+                if (!actualUrl || !actualUrl.startsWith(url)) {
+                    // workaround since mv3 (for some reason) does not always update the url
+                    if (retry < 200) {
+                        setTimeout(() => {
+                            updateTab(tabId, url, retry + 1);
+                        }, 20);
+                    } else {
+                        console.error("Failed to override new tab");
                     }
                 }
             });

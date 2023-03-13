@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "Le service de traduction n'est pas disponible actuellement. Essayez plus tard s'il vous pla\u00eet."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Recharger maintenant"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Suite \u00e0 une mise \u00e0 jour de l'extension, cette page doit \u00eatre recharg\u00e9e."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tabulation"
     },
@@ -1291,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Ecrivez-moi en anglais s'il vous pla\u00eet, autrement je risque d'avoir des probl\u00e8mes pour comprendre votre message et y r\u00e9pondre."
-    },
-    "settings_support_feedback_email": {
-        "message": "Courriel (optionnel)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Joignez des captures d'\u00e9cran"

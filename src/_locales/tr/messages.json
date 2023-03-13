@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "\u00c7eviri servisi \u015fu an kullan\u0131lam\u0131yor. L\u00fctfen daha sonra tekrar deneyin."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Yeniden y\u00fckle."
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Uzant\u0131n\u0131n g\u00fcncellenmesinden dolay\u0131 sayfan\u0131n yenilenmesi gerekiyor."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1291,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "L\u00fctfen geri bildiriminizi \u0130ngilizce olarak yaz\u0131n\u0131z, aksi halde mesaj\u0131n\u0131z\u0131 anlamak ve cevaplamak zor olacakt\u0131r."
-    },
-    "settings_support_feedback_email": {
-        "message": "e-posta adresi (iste\u011fe ba\u011fl\u0131)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Ekran g\u00f6r\u00fcnt\u00fcleri ekle"

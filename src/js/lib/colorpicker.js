@@ -104,9 +104,9 @@ window.Colorpicker = (() => {
                     value = value.replace(/([0-9A-F])([0-9A-F])([0-9A-F])/i, "$1$1$2$2$3$3");
                 }
 
-                this.r = parseInt(value.substr(0, 2), 16);
-                this.g = parseInt(value.substr(2, 2), 16);
-                this.b = parseInt(value.substr(4, 2), 16);
+                this.r = parseInt(value.substring(0, 2), 16);
+                this.g = parseInt(value.substring(2, 4), 16);
+                this.b = parseInt(value.substring(4, 6), 16);
 
                 this.a = 1;
                 RGBtoHSV();

@@ -14,45 +14,39 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                if (s.serviceAvailable) {
-                    const path = s.helper.menu.getPath();
-                    const showOnlySuggestions = path.length >= 2 && path[0] === "support" && path[1] === "error" && path[2];
+        this.init = async () => {
+            if (s.serviceAvailable) {
+                const path = s.helper.menu.getPath();
+                const showOnlySuggestions = path.length >= 2 && path[0] === "support" && path[1] === "error" && path[2];
 
-                    if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show faq/form, but suggestions first
-                        s.elm.support.wrapper.addClass($.cl.settings.support.onlySuggestions);
-                    }
-
-                    initEvents();
-
-                    Promise.all([
-                        initSuggestions()
-                    ]).then(() => {
-                        if (showOnlySuggestions) { // show suggestions why the fallback new tab page was shown
-                            showCommonSuggestions(path[2]);
-                        }
-
-                        if (path[0] === "support") {
-                            initFaq();
-                        }
-
-                        return $.delay(500);
-                    }).then(() => {
-                        resolve();
-                    });
-                } else {
-                    s.elm.support.form.addClass($.cl.hidden);
-
-                    $("<p></p>")
-                        .addClass($.cl.error)
-                        .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
-                        .append("<a href='mailto:feedback@redeviation.com'>feedback@redeviation.com</a>")
-                        .insertAfter(s.elm.support.form);
-
-                    resolve();
+                if (showOnlySuggestions) { // user is visiting the page from the fallback new tab page -> do not show faq/form, but suggestions first
+                    s.elm.support.wrapper.addClass($.cl.settings.support.onlySuggestions);
                 }
-            });
+
+                s.elm.field.feedbackEmail.attr("placeholder", "your@mail.com");
+
+                initEvents();
+                await initSuggestions();
+
+                if (showOnlySuggestions) { // show suggestions why the fallback new tab page was shown
+                    showCommonSuggestions(path[2]);
+                }
+
+                if (path[0] === "support") {
+                    initFaq();
+                }
+
+                await $.delay(500);
+            } else {
+                s.elm.support.form.addClass($.cl.hidden);
+                s.elm.support.faq.addClass($.cl.hidden);
+
+                $("<p></p>")
+                    .addClass($.cl.error)
+                    .html(s.helper.i18n.get("status_feedback_unavailable_desc") + "<br />")
+                    .append("<a href='mailto:feedback@redeviation.com'>feedback@redeviation.com</a>")
+                    .insertAfter(s.elm.support.form);
+            }
         };
 
         /**
@@ -313,10 +307,8 @@
 
         /**
          * Initialises the eventhandlers
-         *
-         * @returns {Promise}
          */
-        const initEvents = async () => {
+        const initEvents = () => {
             $(document).on($.opts.events.pageChanged, (e) => {
                 if (e.detail.path && e.detail.path[0] === "support") {
                     initFaq();
@@ -452,58 +444,59 @@
                     delete config.utility.newtabBackground;
                 }
 
-                $.xhr($.opts.website.feedback.form, {
-                    method: "POST",
-                    timeout: 30000,
-                    data: {
-                        email: emailText,
-                        msg: messageText,
-                        version: $.opts.manifest.version_name,
-                        lastUpdate: await s.helper.model.call("lastUpdateDate"),
-                        ua: navigator.userAgent,
-                        lang: s.helper.i18n.getLanguage(),
-                        userType: s.helper.model.getUserType(),
-                        screenshots: JSON.stringify(screenshots),
-                        config: config,
-                        suggestions: suggestionInfo
-                    }
-                }).then((xhr) => { // got a response
+                try {
+                    const xhr = await $.xhr($.opts.website.feedback.form, {
+                        method: "POST",
+                        timeout: 30000,
+                        data: {
+                            email: emailText,
+                            msg: messageText,
+                            version: $.opts.manifest.version_name,
+                            lastUpdate: await s.helper.model.call("lastUpdateDate"),
+                            ua: navigator.userAgent,
+                            lang: s.helper.i18n.getLanguage(),
+                            userType: s.helper.model.getUserType(),
+                            screenshots: JSON.stringify(screenshots),
+                            config: config,
+                            suggestions: suggestionInfo
+                        }
+                    });
+
                     infos = JSON.parse(xhr.responseText);
-                    return $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))); // load at least 1s
-                }, () => { // timeout or xhr failed
+                } catch (e) {
+                    console.error(e);
                     infos = {success: false};
-                    return $.delay();
-                }).then(() => {
-                    s.elm.body.removeClass($.cl.loading);
-                    loader.remove();
+                }
 
-                    if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
-                        s.helper.model.call("track", {
-                            name: "action",
-                            value: {name: "feedback", value: "true"},
-                            always: true
-                        });
+                await $.delay(Math.max(0, 1000 - (+new Date() - loadStartTime))); // load at least 1s
 
-                        s.elm.textarea.feedbackMsg[0].value = "";
-                        s.elm.field.feedbackEmail[0].value = "";
-                        s.elm.support.uploadedFiles.html("");
+                s.elm.body.removeClass($.cl.loading);
+                loader.remove();
 
-                        s.showSuccessMessage("support_feedback_sent_message");
-                    } else { // not submitted -> raise error
-                        $.delay().then(() => {
-                            alert(s.helper.i18n.get("settings_support_feedback_send_failed"));
-                        });
-                    }
-                });
+                if (infos && infos.success && infos.success === true) { // successfully submitted -> show message and clear form
+                    s.helper.model.call("track", {
+                        name: "action",
+                        value: {name: "feedback", value: "true"},
+                        always: true
+                    });
+
+                    s.elm.textarea.feedbackMsg[0].value = "";
+                    s.elm.field.feedbackEmail[0].value = "";
+                    s.elm.support.uploadedFiles.html("");
+
+                    s.showSuccessMessage("support_feedback_sent_message");
+                } else { // not submitted -> raise error
+                    await $.delay();
+                    alert(s.helper.i18n.get("settings_support_feedback_send_failed"));
+                }
             } else if (!isEmailValid) {
                 s.elm.field.feedbackEmail.addClass($.cl.error);
             } else if (!isMessageValid) {
                 s.elm.textarea.feedbackMsg.addClass($.cl.error);
             }
 
-            $.delay(700).then(() => {
-                $("." + $.cl.error).removeClass($.cl.error);
-            });
+            await $.delay(700);
+            $("." + $.cl.error).removeClass($.cl.error);
         };
     };
 

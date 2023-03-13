@@ -41,27 +41,19 @@ div.tab[data-name='support'] {
     }
 
     div.mailWrapper {
-      display: grid;
-      align-items: center;
-      grid-template-columns: auto 1fr;
-      grid-gap: 10px;
       font-size: 90%;
 
       > label {
         display: block;
-        font-weight: $__fontWeightNormal;
-        font-style: italic;
-
-        &::after {
-          content: ":";
-        }
+        margin: 15px 0 5px;
+        font-weight: $__fontWeightMedium;
       }
 
       input[type='email'] {
         margin: 0;
         font-size: 90%;
-        height: 24px;
-        width: 180px;
+        height: 28px;
+        width: 100%;
       }
     }
 
@@ -78,7 +70,7 @@ div.tab[data-name='support'] {
 
     div.upload {
       @extend %button;
-      margin: 20px 0;
+      margin: 30px 0 20px;
 
       > span {
         @include mask('settings/icon-screenshot', $textColorInverted, 20px);

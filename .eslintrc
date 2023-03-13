@@ -1,6 +1,6 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2022,
+    "ecmaVersion": "latest",
     "impliedStrict": true
   },
   "env": {
@@ -22,13 +22,26 @@
         "SwitchCase": 1
       }
     ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "error"
+        ]
+      }
+    ],
+    "dot-notation": [
+      "error",
+      {
+        "allowKeywords": false
+      }
+    ],
     "prefer-const": "error",
     "prefer-arrow-callback": "error",
     "no-var": "error",
     "no-multi-spaces": "warn",
     "no-useless-escape": "off",
     "no-unused-vars": "off",
-    "no-console": "error",
     "space-infix-ops": "warn",
     "arrow-spacing": "warn",
     "func-call-spacing": "error",
@@ -39,12 +52,6 @@
     "keyword-spacing": "warn",
     "comma-spacing": "warn",
     "quotes": "warn",
-    "semi": "warn",
-    "dot-notation": [
-      "error",
-      {
-        "allowKeywords": false
-      }
-    ]
+    "semi": "warn"
   }
 }

@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "\u00d6vers\u00e4ttningstj\u00e4nsten \u00e4r f\u00f6r tillf\u00e4llet inte tillg\u00e4ngligt. V\u00e4nligen f\u00f6rs\u00f6k senare."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Ladda om nu"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "P\u00e5 grund av en uppdatering av till\u00e4gget m\u00e5ste denna sida laddas om."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1291,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Skriv din \u00e5terkoppling p\u00e5 engelska, annars \u00e4r det sv\u00e5rt att f\u00f6rst\u00e5 och svara p\u00e5 ditt meddelande."
-    },
-    "settings_support_feedback_email": {
-        "message": "e-post adress (valfritt)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Bifoga sk\u00e4rmdumpar"

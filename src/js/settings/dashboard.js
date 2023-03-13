@@ -80,7 +80,7 @@
                 },
                 newtab: {
                     img: "https://extensions.redeviation.com/img/tips-tricks/newtab.png",
-                    action: {label: "newtab_title", dest: $.api.extension.getURL("html/newtab.html")},
+                    action: {label: "newtab_title", dest: $.api.runtime.getURL("html/newtab.html")},
                     condition: s.helper.model.getData("n/override"),
                     i18nReplaces: ["<span></span>"]
                 },
@@ -143,7 +143,7 @@
                         action.on("click", (e) => {
                             e.preventDefault();
                             if (obj.action.dest.startsWith("#")) {
-                                location.hash = obj.action.dest.substr(1);
+                                location.hash = obj.action.dest.substring(1);
                             } else {
                                 s.helper.model.call("openLink", {
                                     href: obj.action.dest,

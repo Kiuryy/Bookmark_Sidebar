@@ -132,44 +132,41 @@
          * @param {string} val
          * @returns {Promise}
          */
-        const getSearchResults = (val) => {
-            return new Promise((resolve) => {
-                const valLC = val.toLowerCase();
-                const idList = [];
+        const getSearchResults = async (val) => {
+            const valLower = val.toLowerCase();
+            const idList = [];
 
-                ext.helper.model.call("searchBookmarks", {searchVal: val}).then((response) => {
-                    const result = response.bookmarks || [];
-                    result.forEach((entry) => {
-                        idList.push(entry.id);
-                    });
-
-                    const directories = ext.helper.entry.getAllDataByType("directories");
-
-                    directories.forEach((directory, idx) => {
-                        if (directory.title.toLowerCase().indexOf(valLC) > -1) {
-                            directory.index = -1000 + idx;
-                            result.push(directory);
-                            idList.push(directory.id);
-                        }
-                    });
-
-                    const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
-                    Object.entries(additionalInfoList).forEach(([id, info]) => {
-                        if (info && info.desc && info.desc.toLocaleLowerCase().indexOf(valLC) > -1 && idList.indexOf(id) === -1) { // additional information is matching the search value
-                            const data = ext.helper.entry.getDataById(id);
-                            if (data) {
-                                if (data.isDir) {
-                                    data.index = -1000 + data.index;
-                                }
-
-                                result.push(data);
-                            }
-                        }
-                    });
-
-                    resolve(result);
-                });
+            const response = await ext.helper.model.call("searchBookmarks", {searchVal: val});
+            const result = response.bookmarks || [];
+            result.forEach((entry) => {
+                idList.push(entry.id);
             });
+
+            const directories = ext.helper.entry.getAllDataByType("directories");
+
+            directories.forEach((directory, idx) => {
+                if (directory.title.toLowerCase().indexOf(valLower) > -1) {
+                    directory.index = -1000 + idx;
+                    result.push(directory);
+                    idList.push(directory.id);
+                }
+            });
+
+            const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+            Object.entries(additionalInfoList).forEach(([id, info]) => {
+                if (info && info.desc && info.desc.toLocaleLowerCase().indexOf(valLower) > -1 && idList.indexOf(id) === -1) { // additional information is matching the search value
+                    const data = ext.helper.entry.getDataById(id);
+                    if (data) {
+                        if (data.isDir) {
+                            data.index = -1000 + data.index;
+                        }
+
+                        result.push(data);
+                    }
+                }
+            });
+
+            return result;
         };
 
         /**

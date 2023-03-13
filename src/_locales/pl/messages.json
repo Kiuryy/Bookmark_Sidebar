@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "Us\u0142uga t\u0142umacze\u0144 jest teraz niedost\u0119pna. Prosz\u0119 spr\u00f3bowa\u0107 p\u00f3\u017aniej."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Od\u015bwie\u017c teraz"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Z powodu aktualizacji rozszerzenia, ta strona powinna zosta\u0107 od\u015bwie\u017cona."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1291,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Prosz\u0119, napisz swoj\u0105 wiadomo\u015b\u0107 po angielsku, bo inaczej b\u0119d\u0119 mia\u0142 problemy ze zrozumieniem jej i odpowiedzeniem na ni\u0105."
-    },
-    "settings_support_feedback_email": {
-        "message": "adres e-mail (opcjonalny)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Do\u0142\u0105cz zrzut ekranu"

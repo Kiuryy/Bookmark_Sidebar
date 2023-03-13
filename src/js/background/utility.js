@@ -9,28 +9,24 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.getHistoryBySearchVal = (opts) => {
-            return new Promise((resolve) => {
+        this.getHistoryBySearchVal = async (opts) => {
+            if ($.api.history) {
+                const results = await $.api.history.search({
+                    text: opts.searchVal,
+                    maxResults: 100
+                });
+                const searchValFiltered = opts.searchVal.toLowerCase();
 
-                if ($.api.history) {
-                    $.api.history.search({
-                        text: opts.searchVal,
-                        maxResults: 100
-                    }, (results) => {
-                        const searchValFiltered = opts.searchVal.toLowerCase();
+                results.sort((a, b) => { // sort the history entry to prefer entries where the search value is part of the label and the url, as well as pages, which were visited more often
+                    const aScore = (a.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (a.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + a.visitCount + a.typedCount;
+                    const bScore = (b.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (b.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + b.visitCount + b.typedCount;
+                    return aScore - bScore;
+                });
 
-                        results.sort((a, b) => { // sort the history entry to prefer entries where the search value is part of the label and the url, as well as pages, which were visited more often
-                            const aScore = (a.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (a.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + a.visitCount + a.typedCount;
-                            const bScore = (b.title.toLowerCase().indexOf(searchValFiltered) > -1 ? 100 : 0) + (b.url.toLowerCase().indexOf(searchValFiltered) > -1 ? 50 : 0) + b.visitCount + b.typedCount;
-                            return aScore - bScore;
-                        });
-
-                        resolve({history: results});
-                    });
-                } else {
-                    resolve({history: []});
-                }
-            });
+                return {history: results};
+            } else {
+                return {history: []};
+            }
         };
 
         /**
@@ -39,14 +35,9 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.removePremiumState = (opts) => {
-            return new Promise((resolve) => {
-                b.helper.model.setLicenseKey(null).then(() => {
-                    return b.reinitialize({type: "premiumDeactivated"});
-                }).then(() => {
-                    resolve();
-                });
-            });
+        this.removePremiumState = async (opts) => {
+            await b.helper.model.setLicenseKey(null);
+            await b.reinitialize({type: "premiumDeactivated"});
         };
 
         /**
@@ -55,31 +46,21 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.activatePremium = (opts) => {
-            return new Promise((resolve) => {
-                b.helper.model.getLicenseKey().then((response) => {
-                    if (response.licenseKey === opts.licenseKey) { // the given license key is already stored -> return true, but don't reinitialize
-                        resolve({success: true, skip: true});
-                    } else {
-                        this.checkLicenseKey(opts.licenseKey).then((response) => {
-                            let returnData = {success: false};
+        this.activatePremium = async (opts) => {
+            const response = await b.helper.model.getLicenseKey();
+            if (response.licenseKey === opts.licenseKey) { // the given license key is already stored -> return true, but don't reinitialize
+                return {success: true, skip: true};
+            } else {
+                const checkResponse = await this.checkLicenseKey(opts.licenseKey);
 
-                            if (!!response.valid === true) { // valid license key -> reinitialize sidebar
-                                returnData.success = true;
-
-                                b.helper.model.setLicenseKey(opts.licenseKey).then((response) => {
-                                    returnData = response;
-                                    return b.reinitialize({type: "premiumActivated"});
-                                }).then(() => {
-                                    resolve(returnData);
-                                });
-                            } else { // invalid license key
-                                resolve(returnData);
-                            }
-                        });
-                    }
-                });
-            });
+                if (!!checkResponse.valid === true) { // valid license key -> reinitialize sidebar
+                    const returnData = await b.helper.model.setLicenseKey(opts.licenseKey);
+                    await b.reinitialize({type: "premiumActivated"});
+                    return returnData;
+                } else { // invalid license key
+                    return {success: false};
+                }
+            }
         };
 
         /**
@@ -88,33 +69,36 @@
          * @param {string} licenseKey
          * @returns {Promise}
          */
-        this.checkLicenseKey = (licenseKey) => {
-            return new Promise((resolve) => {
+        this.checkLicenseKey = async (licenseKey) => {
+            let response = {};
 
-                $.xhr($.opts.website.premium.checkLicenseKey, {
+            try {
+                const formData = new FormData();
+                formData.append("licenseKey", licenseKey);
+
+                const req = await fetch($.opts.website.premium.checkLicenseKey, {
                     method: "POST",
                     responseType: "json",
-                    data: {
-                        licenseKey: licenseKey
-                    }
-                }).then((xhr) => {
-                    if (xhr.response && typeof xhr.response.valid !== "undefined") {
-                        if (!xhr.response.valid) {
-                            // eslint-disable-next-line no-console
-                            console.error("License key check: Invalid key", licenseKey, xhr);
-                        }
-                        resolve({valid: xhr.response.valid});
-                    } else {
-                        // eslint-disable-next-line no-console
-                        console.error("License key check: Invalid response", licenseKey, xhr);
-                        resolve({valid: null});
-                    }
-                }, (err) => {
-                    // eslint-disable-next-line no-console
-                    console.error("License key check: Request failed", licenseKey, err);
-                    resolve({valid: null});
+                    body: formData
                 });
-            });
+
+                response = await req.json();
+            } catch (err) {
+                console.error("License key check: Request failed", licenseKey, err);
+                return {valid: null};
+            }
+
+            if (response && typeof response.valid !== "undefined") {
+                if (!response.valid) {
+                    // eslint-disable-next-line no-console
+                    console.error("License key check: Invalid key", licenseKey, response);
+                }
+                return {valid: response.valid};
+            } else {
+                // eslint-disable-next-line no-console
+                console.error("License key check: Invalid response", licenseKey, response);
+                return {valid: null};
+            }
         };
 
         /**
@@ -122,24 +106,29 @@
          *
          * @returns {Promise}
          */
-        this.checkWebsiteStatus = () => {
-            return new Promise((resolve) => {
-                $.xhr($.opts.website.api.checkStatus, {
+        this.checkWebsiteStatus = async () => {
+            let response = {};
+
+            try {
+                const formData = new FormData();
+                formData.append("version", $.isDev ? "9.9.9" : $.opts.manifest.version);
+
+                const req = await fetch($.opts.website.api.checkStatus, {
                     method: "POST",
                     responseType: "json",
-                    data: {
-                        version: $.isDev ? "9.9.9" : $.opts.manifest.version
-                    }
-                }).then((xhr) => {
-                    if (xhr.response && xhr.response.available) {
-                        resolve({status: "available"});
-                    } else {
-                        resolve({status: "unavailable"});
-                    }
-                }, () => {
-                    resolve({status: "unavailable"});
+                    body: formData
                 });
-            });
+
+                response = await req.json();
+            } catch (err) {
+                return {status: "unavailable"};
+            }
+
+            if (response && response.available) {
+                return {status: "available"};
+            } else {
+                return {status: "unavailable"};
+            }
         };
 
         /**
@@ -166,74 +155,67 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.openLink = (opts) => {
-            return new Promise((resolve) => {
-                b.helper.viewAmount.addByEntry(opts);
+        this.openLink = async (opts) => {
+            await b.helper.viewAmount.addByEntry(opts);
 
-                if (opts.hrefName) {
-                    if ($.opts.website.info[opts.hrefName]) {
-                        opts.href = $.opts.website.info[opts.hrefName];
-                    } else { // hrefName is not a known url -> abort
-                        resolve();
-                        return;
-                    }
+            if (opts.hrefName) {
+                if ($.opts.website.info[opts.hrefName]) {
+                    opts.href = $.opts.website.info[opts.hrefName];
+                } else { // hrefName is not a known url -> abort
+                    return;
                 }
+            }
 
-                let params = "";
+            let params = "";
 
-                if (opts.params) { // params are given -> serialize
-                    params = Object.entries(opts.params).map(([key, val]) => {
-                        return encodeURIComponent(key) + "=" + val;
-                    }).join("&");
+            if (opts.params) { // params are given -> serialize
+                params = Object.entries(opts.params).map(([key, val]) => {
+                    return encodeURIComponent(key) + "=" + val;
+                }).join("&");
 
-                    if (params) {
-                        params = "?" + params;
-                    }
+                if (params) {
+                    params = "?" + params;
                 }
+            }
 
-                const url = this.getParsedUrl(opts.href) + params;
+            const url = this.getParsedUrl(opts.href) + params;
 
-                if (opts.newTab && opts.newTab === true) { // new tab
-                    const createTab = (idx = null) => {
-                        $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                            $.api.tabs.create({
-                                url: url,
-                                active: typeof opts.active === "undefined" ? true : !!(opts.active),
-                                index: idx === null ? tabs[0].index + 1 : idx,
-                                openerTabId: tabs[0].id
-                            }, (tab) => {
-                                b.helper.model.setData("openedByExtension", tab.id).then(resolve);
-                            });
-                        });
-                    };
-
-                    if (opts.position === "afterLast") {
-                        $.api.tabs.query({currentWindow: true}, (tabs) => {
-                            let idx = 0;
-                            tabs.forEach((tab) => {
-                                idx = Math.max(idx, tab.index);
-                            });
-                            createTab(idx + 1);
-                        });
-                    } else if (opts.position === "beforeFirst") {
-                        createTab(0);
-                    } else {
-                        createTab();
-                    }
-                } else if (opts.newWindow && opts.newWindow === true) { // new normal window
-                    $.api.windows.create({url: url, state: "maximized"});
-                    resolve();
-                } else if (opts.incognito && opts.incognito === true) { // incognito window
-                    $.api.windows.create({url: url, state: "maximized", incognito: true});
-                    resolve();
-                } else { // current tab
-                    $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                        $.api.tabs.update(tabs[0].id, {url: url}, (tab) => {
-                            b.helper.model.setData("openedByExtension", tab.id).then(resolve);
-                        });
+            if (opts.newTab && opts.newTab === true) { // new tab
+                const createTab = async (idx = null) => {
+                    const tabs = await $.api.tabs.query({active: true, currentWindow: true});
+                    const tab = await $.api.tabs.create({
+                        url: url,
+                        active: typeof opts.active === "undefined" ? true : !!(opts.active),
+                        index: idx === null ? tabs[0].index + 1 : idx,
+                        openerTabId: tabs[0].id
                     });
+
+                    await b.helper.model.setData("openedByExtension", tab.id);
+                };
+
+                if (opts.position === "afterLast") {
+                    const tabs = await $.api.tabs.query({currentWindow: true});
+                    let idx = 0;
+                    tabs.forEach((tab) => {
+                        idx = Math.max(idx, tab.index);
+                    });
+                    await createTab(idx + 1);
+                } else if (opts.position === "beforeFirst") {
+                    await createTab(0);
+                } else {
+                    await createTab();
                 }
-            });
+            } else if (opts.newWindow && opts.newWindow === true) { // new normal window
+                await $.api.windows.create({url: url, state: "maximized"});
+
+            } else if (opts.incognito && opts.incognito === true) { // incognito window
+                await $.api.windows.create({url: url, state: "maximized", incognito: true});
+
+            } else { // current tab
+                const tabs = await $.api.tabs.query({active: true, currentWindow: true});
+                const tab = await $.api.tabs.update(tabs[0].id, {url: url});
+                await b.helper.model.setData("openedByExtension", tab.id);
+            }
         };
     };
 

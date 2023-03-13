@@ -329,6 +329,15 @@
     "newtab_search_field_hide": {
         "message": "Ocultar campo de pesquisa"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Sugerir consultas"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Sugerir favoritos"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Sugerir p\u00e1ginas visitadas"
+    },
     "newtab_speech_search_listening": {
         "message": "Fale agora"
     },
@@ -385,12 +394,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "O servi\u00e7o de tradu\u00e7\u00e3o n\u00e3o est\u00e1 dispon\u00edvel no momento. Por favor, tente mais tarde."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Recarregar agora"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Devido a uma atualiza\u00e7\u00e3o da extens\u00e3o, esta p\u00e1gina precisa ser atualizada."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1284,7 +1287,7 @@
         "message": "Por favor, escreva seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder sua mensagem."
     },
     "settings_support_feedback_email": {
-        "message": "Endere\u00e7o de email (opcional)"
+        "message": "Voc\u00ea quer uma resposta? Por-favor, forne\u00e7a um endere\u00e7o de e-mail (opcional)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Anexar capturas de tela"

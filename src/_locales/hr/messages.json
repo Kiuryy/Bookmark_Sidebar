@@ -329,11 +329,20 @@
     "newtab_search_field_hide": {
         "message": "Sakrij polje pretra\u017eivanja"
     },
+    "newtab_search_suggest_queries": {
+        "message": "Prdedlo\u017ei upite"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Predlo\u017ei oznake"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Predlo\u017ei posje\u0107ene stranice"
+    },
     "newtab_speech_search_listening": {
         "message": "Govori sada"
     },
     "newtab_speech_search_error": {
-        "message": "Da biste omogu\u0107ili tra\u017eenje govora, morate omogu\u0107iti pristup mikrofonu."
+        "message": "Da biste omogu\u0107ili tra\u017eenje pomo\u0107u govora, morate omogu\u0107iti pristup mikrofonu."
     },
     "newtab_search_engine_headline": {
         "message": "Pretra\u017eiva\u010d"
@@ -351,7 +360,7 @@
         "message": "URL rezultata pretra\u017eivanja"
     },
     "newtab_upload_background": {
-        "message": "Prenesite pozadinsku sliku"
+        "message": "U\u010ditajte pozadinsku sliku"
     },
     "newtab_fallback_headline_general": {
         "message": "Ne\u0161to sprje\u010dava rad bo\u010dne trake oznaka"
@@ -385,12 +394,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Usluga prevo\u0111enja trenuta\u010dno nije dostupna. Poku\u0161ajte ponovo kasnije."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "U\u010ditaj sada"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Zbog a\u017euriranja pro\u0161irenja ovu stranicu treba ponovo u\u010ditati."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1282,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Sastavite va\u0161u povratnu informaciju na engleskom jeziku, jer \u0107e u protivnom biti te\u0161ko razumjeti i odgovoriti na va\u0161u poruku."
-    },
-    "settings_support_feedback_email": {
-        "message": "e-mail adresa (izborno)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei snimke zaslona"

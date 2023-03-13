@@ -3,7 +3,8 @@
 
     const Extension = function () {
 
-        const uid = Math.floor(Math.random() * 99999) + 10000;
+        const uid = Math.random().toString(36).slice(2);
+        const rootElement = "bookmark-sidebar-" + Math.random().toString(36).slice(2);
 
         let loadingInfo = {};
         let existenceTimeout = null;
@@ -23,23 +24,24 @@
         /**
          * Constructor
          */
-        this.run = () => {
+        this.run = async () => {
             $("html").attr($.attr.uid, uid);
 
             const removedOldInstance = destroyOldInstance();
             initHelpers();
+            initKeepalive();
 
-            $(document).on("visibilitychange.bs", () => { // listen for the document becoming visible/hidden
+            $(document).on("visibilitychange.bs", async () => { // listen for the document becoming visible/hidden
                 if (document.hidden !== true) {
                     if (this.initialized === null) { // extension is not initialized yet
-                        init();
+                        await init();
                     } else if (this.needsReload) { // extension needs a reload
                         this.reload();
                     }
                 }
             }, {capture: false});
 
-            init(removedOldInstance === false);
+            await init(removedOldInstance === false);
         };
 
         /**
@@ -48,46 +50,43 @@
          *
          * @param {boolean} force if set to true the sidebar gets initialised regardless of the document visibility state
          */
-        const init = (force = false) => {
+        const init = async (force = false) => {
             if (isLoading === false && (force || document.hidden !== true)) { // prevent multiple init attempts -> only proceed if the previous run finished and if the document is visible
                 isLoading = true;
 
-                this.helper.model.init().then(() => {
-                    if (isAllowedToInitialize()) { // check against blacklist or whitelist (if one is set)
-                        this.helper.i18n.init().then(() => {
-                            this.helper.font.init();
-                            this.helper.stylesheet.init();
-                            return this.helper.stylesheet.addStylesheets(["content"]);
-                        }).then(() => {
-                            return initSidebarMarkup();
-                        }).then(() => {
-                            return this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframeDocument);
-                        }).then(() => {
-                            if (this.elm.iframe && this.elm.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
-                                this.elm.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+                await this.helper.model.init();
+                if (isAllowedToInitialize()) { // check against blacklist or whitelist (if one is set)
+                    await this.helper.i18n.init();
+                    this.helper.stylesheet.init();
+                    await this.helper.stylesheet.addStylesheets(["content"]);
 
-                                this.helper.toggle.init();
-                                this.helper.list.init();
-                                this.helper.scroll.init();
-                                this.helper.tooltip.init();
-                                this.helper.sidebarEvents.init();
-                                this.helper.dragndrop.init();
-                                this.helper.keyboard.init();
+                    await initSidebarMarkup();
 
-                                if (document.referrer === "") {
-                                    this.helper.model.call("addViewAmount", {url: location.href});
-                                }
-                            }
-                        });
-                    } else { // disallowed to load sidebar (blacklisted or not whitelisted)
-                        $.api.extension.onMessage.addListener((message) => {
-                            if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
-                                this.helper.model.call("setNotWorkingReason", {reason: this.state});
-                            }
-                        });
-                        this.log("Don't load sidebar for url '" + location.href + "'");
+                    await this.helper.stylesheet.addStylesheets(["sidebar"], this.elm.iframeDocument);
+
+                    if (this.elm.iframe && this.elm.iframe[0]) { // prevent errors on pages which instantly redirect and prevent the iframe from loading this way
+                        this.elm.iframeBody.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+
+                        this.helper.toggle.init();
+                        this.helper.list.init();
+                        this.helper.scroll.init();
+                        this.helper.tooltip.init();
+                        this.helper.sidebarEvents.init();
+                        this.helper.dragndrop.init();
+                        this.helper.keyboard.init();
+
+                        if (document.referrer === "") {
+                            this.helper.model.call("addViewAmount", {url: location.href});
+                        }
                     }
-                });
+                } else { // disallowed to load sidebar (blacklisted or not whitelisted)
+                    $.api.runtime.onMessage.addListener((message) => {
+                        if (message && message.action && message.action === "toggleSidebar") { // click on the icon in the chrome menu
+                            this.helper.model.call("setNotWorkingReason", {reason: this.state});
+                        }
+                    });
+                    this.log("Don't load sidebar for url '" + location.href + "'");
+                }
             }
         };
 
@@ -95,22 +94,18 @@
          * Reloads the sidebar, the model data, the language variables and the bookmark list,
          * is only running if the current tab is visible and there is no other process running at the moment
          */
-        this.reload = () => {
+        this.reload = async () => {
             if (isLoading === false && document.hidden === false) { // prevent multiple reload attempts -> only proceed if the previous run finished and if the document is visible
                 this.needsReload = false;
                 isLoading = true;
 
-                this.helper.model.init().then(() => {
-                    return Promise.all([
-                        this.helper.i18n.init(),
-                        this.helper.entry.init()
-                    ]);
-                }).then(() => {
-                    return this.helper.list.updateBookmarkBox();
-                }).then(() => {
-                    this.helper.selection.reset();
-                    this.helper.search.update();
-                });
+                await this.helper.model.init();
+                await this.helper.i18n.init();
+                await this.helper.entry.init();
+                await this.helper.list.updateBookmarkBox();
+
+                this.helper.selection.reset();
+                this.helper.search.update();
             }
         };
 
@@ -226,19 +221,7 @@
         };
 
         /**
-         * Adds a mask over the sidebar to notice that the page needs to be reloaded to make the sidebar work again
-         */
-        this.addReloadMask = () => {
-            this.elm.sidebar.text("");
-            const reloadMask = $("<div></div>").attr("id", $.opts.ids.sidebar.reloadInfo).prependTo(this.elm.sidebar);
-            const contentBox = $("<div></div>").prependTo(reloadMask);
-
-            $("<p></p>").html(this.helper.i18n.get("status_background_disconnected_reload_desc")).appendTo(contentBox);
-            $("<a></a>").text(this.helper.i18n.get("status_background_disconnected_reload_action")).appendTo(contentBox);
-        };
-
-        /**
-         * Shows a info box of the given type
+         * Shows an info box of the given type
          *
          * @parm {string} type
          */
@@ -270,6 +253,23 @@
          * PRIVATE
          * ################################
          */
+
+        /**
+         *  Workaround to keep service worker alive
+         *  https://stackoverflow.com/a/66618269/1660305
+         */
+        const initKeepalive = () => {
+            let port;
+            const connect = () => {
+                port = $.api.runtime.connect({name: "keepalive"});
+                port.onDisconnect.addListener(connect);
+                port.onMessage.addListener(msg => {
+                    // eslint-disable-next-line no-console
+                    console.log("keepalive message: ", msg);
+                });
+            };
+            connect();
+        };
 
         /**
          * Initialises the helper objects
@@ -310,7 +310,7 @@
             let ret = true;
             const visibility = this.helper.model.getData("b/visibility");
 
-            if (visibility === "always" || location.href.indexOf($.api.extension.getURL("html/newtab.html")) === 0) {
+            if (visibility === "always" || location.href.indexOf($.api.runtime.getURL("html/newtab.html")) === 0) {
                 ret = true;
             } else if (visibility === "blacklist" || visibility === "whitelist") {
                 const rules = this.helper.model.getData("b/" + visibility);
@@ -356,15 +356,15 @@
                 clearTimeout(existenceTimeout);
             }
 
-            existenceTimeout = setTimeout(() => {
+            existenceTimeout = setTimeout(async () => {
                 const htmlUid = $("html").attr($.attr.uid);
 
                 if (typeof htmlUid === "undefined" || uid === +htmlUid) {
-                    const iframe = $("#" + $.opts.ids.page.iframe);
+                    const iframe = $(rootElement);
                     if (iframe.length() === 0 || !this.elm.iframeDocument || !this.elm.iframeDocument[0].body || this.elm.iframeDocument[0].body.childElementCount === 0) {
                         this.log("Detected: Sidebar missing from DOM");
                         destroyOldInstance();
-                        init(true);
+                        await init(true);
                     } else {
                         checkExistence();
                     }
@@ -400,7 +400,7 @@
         };
 
         const initAppFrame = () => {
-            if (document.createElement("app-frame-" + uid).constructor !== HTMLElement) {
+            if (document.createElement(rootElement).constructor !== HTMLElement) {
                 return;
             }
             const self = this;
@@ -417,7 +417,7 @@
                 }
             }
 
-            customElements.define("app-frame-" + uid, AppFrame);
+            customElements.define(rootElement, AppFrame);
         };
 
         /**
@@ -429,7 +429,7 @@
             initAppFrame();
 
             const config = this.helper.model.getData(["a/theme", "a/surface", "a/highContrast"]);
-            this.elm.iframe = $("<app-frame-" + uid + " id=\"" + $.opts.ids.page.iframe + "\"></app-frame->")
+            this.elm.iframe = $(`<${rootElement} id="${$.opts.ids.page.iframe}"></${rootElement}>`)
                 .addClass(["notranslate", $.cl.page.noAnimations]) // 'notranslate' prevents Google translator from translating the content of the sidebar
                 .attr("aria-hidden", "true") // 'aria-hidden' will mark the iframe as 'not visible/perceivable' for other applications (e.g. screen readers)
                 .attr($.attr.theme, config.theme)

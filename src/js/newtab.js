@@ -29,57 +29,53 @@
         /**
          * Constructor
          */
-        this.run = () => {
+        this.run = async () => {
             loadSidebar();
             initHelpers();
 
             const loader = this.helper.template.loading().appendTo(this.elm.body);
             this.elm.body.addClass($.cl.initLoading).attr("id", $.opts.ids.page.newtab);
 
-            this.helper.model.init().then(() => {
-                this.helper.font.init();
-                this.helper.stylesheet.init();
+            await this.helper.model.init();
+            this.helper.stylesheet.init();
 
-                const config = this.helper.model.getData(["a/surface", "a/highContrast", "b/sidebarPosition"]);
-                if (config.surface === "dark" || (config.surface === "auto" && this.helper.stylesheet.getSystemSurface() === "dark")) {
-                    this.elm.body.addClass($.cl.page.dark);
-                } else if (config.highContrast === true) {
-                    this.elm.body.addClass($.cl.page.highContrast);
-                }
+            const config = this.helper.model.getData(["a/surface", "a/highContrast", "b/sidebarPosition"]);
+            if (config.surface === "dark" || (config.surface === "auto" && this.helper.stylesheet.getSystemSurface() === "dark")) {
+                this.elm.body.addClass($.cl.page.dark);
+            } else if (config.highContrast === true) {
+                this.elm.body.addClass($.cl.page.highContrast);
+            }
 
-                this.elm.body.attr($.attr.position, config.sidebarPosition);
+            this.elm.body.attr($.attr.position, config.sidebarPosition);
 
-                return Promise.all([
-                    initIcon(),
-                    this.helper.i18n.init(),
-                    this.helper.stylesheet.addStylesheets(["newtab"], $(document))
-                ]);
-            }).then(() => {
-                this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
-                this.helper.i18n.parseHtml(document);
+            await Promise.all([
+                initIcon(),
+                this.helper.i18n.init(),
+                this.helper.stylesheet.addStylesheets(["newtab"], $(document))
+            ]);
 
-                return Promise.all(
-                    [
-                        this.getBackground(),
-                        this.helper.gridLinks.init(),
-                        this.helper.topLinks.init(),
-                        this.helper.search.init(),
-                        this.helper.fallback.init(),
-                        this.helper.edit.init(),
-                        initEvents(),
-                        $.delay(500),
-                    ]
-                );
-            }).then(([background]) => {
-                loader.remove();
-                this.setBackground(background);
-                this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
-                $(window).trigger("resize");
+            this.elm.body.parent("html").attr("dir", this.helper.i18n.isRtl() ? "rtl" : "ltr");
+            this.helper.i18n.parseHtml(document);
 
-                if (!this.helper.model.getData("n/autoOpen") && this.elm.search.wrapper.hasClass($.cl.hidden) === false) {
-                    this.helper.search.focusSearch();
-                }
-            });
+            const [background] = await Promise.all([
+                this.getBackground(),
+                this.helper.gridLinks.init(),
+                this.helper.topLinks.init(),
+                this.helper.search.init(),
+                this.helper.fallback.init(),
+                this.helper.edit.init(),
+                initEvents(),
+                $.delay(500),
+            ]);
+
+            loader.remove();
+            this.setBackground(background);
+            this.elm.body.removeClass([$.cl.building, $.cl.initLoading]);
+            $(window).trigger("resize");
+
+            if (!this.helper.model.getData("n/autoOpen") && this.elm.search.wrapper.hasClass($.cl.hidden) === false) {
+                this.helper.search.focusSearch();
+            }
         };
 
         /**
@@ -87,33 +83,26 @@
          *
          * @returns {Promise}
          */
-        this.getBackground = () => {
-            return new Promise((resolve) => {
-                if (this.helper.model.getUserType() === "premium") {
-                    $.api.storage.local.get(["newtabBackground_1"], (obj) => {
-                        if (obj && obj.newtabBackground_1) {
-                            resolve(obj.newtabBackground_1);
-                        } else {
-                            resolve(null);
-                        }
-                    });
-                } else {
-                    resolve(null);
+        this.getBackground = async () => {
+            if (this.helper.model.getUserType() === "premium") {
+                const obj = await $.api.storage.local.get(["newtabBackground_1"]);
+                if (obj && obj.newtabBackground_1) {
+                    return obj.newtabBackground_1;
                 }
-            });
+            }
+            return null;
         };
 
         /**
          * Sets the given image as body background, if there is one available
          *
          * @param {string} background
-         * @returns {Promise}
          */
-        this.setBackground = async (background) => {
-            if (background === null) {
-                this.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
-            } else {
+        this.setBackground = (background) => {
+            if (background) {
                 this.elm.body.addClass($.cl.newtab.customBackground).css("background-image", "url(" + background + ")");
+            } else {
+                this.elm.body.removeClass($.cl.newtab.customBackground).css("background-image", "");
             }
         };
 
@@ -149,7 +138,7 @@
          * Initialises the eventhandler
          */
         const initEvents = async () => {
-            $.api.extension.onMessage.addListener((message) => { // listen for events from the background script
+            $.api.runtime.onMessage.addListener((message) => { // listen for events from the background script
                 if (message && message.action && message.action === "reinitialize" && this.enabledSetAsNewtab === false) { // sidebar has changed (e.g. due to saving configuration
                     location.reload(true);
                 }
@@ -173,7 +162,7 @@
             });
 
             if (this.helper.model.getData("n/autoOpen")) { // sidebar should be opened automatically -> pin sidebar permanent if there is enough space to do so
-                $(window).on("resize", () => {
+                $(window).on("resize", async () => {
                     if (this.elm.sidebar && this.elm.sidebar.iframe && this.elm.sidebar.sidebar) {
                         const sidebarWidth = this.elm.sidebar.sidebar.realWidth();
 
@@ -182,9 +171,8 @@
                             sidebarWidth > 0 && this.elm.content.addClass($.cl.newtab.smallContent);
                             $(document).trigger($.opts.events.openSidebar);
 
-                            $.delay(500).then(() => {
-                                $(document).trigger("click");
-                            });
+                            await $.delay(500);
+                            $(document).trigger("click");
                         } else {
                             this.elm.sidebar.sidebar.removeClass($.cl.sidebar.permanent);
                             this.elm.content.removeClass($.cl.newtab.smallContent);
@@ -203,13 +191,11 @@
          */
         const initIcon = async () => {
             const opts = this.helper.model.getData(["n/faviconShape", "n/faviconColor", "n/faviconBackground", "n/faviconPadding"]);
-
-            const imageData = await this.helper.model.call("iconImageData", {
-                name: opts.faviconShape,
+            const imageData = await this.helper.utility.getIconImageData({
+                shape: opts.faviconShape,
                 color: opts.faviconColor,
-                padding: opts.faviconPadding,
                 background: opts.faviconBackground,
-                asDataURL: true
+                padding: opts.faviconPadding
             });
 
             $("<link />").attr({
@@ -236,7 +222,7 @@
 
                 $.opts.manifest.content_scripts[0].css.forEach((css) => {
                     $("<link />").attr({
-                        href: $.api.extension.getURL(css),
+                        href: $.api.runtime.getURL(css),
                         type: "text/css",
                         rel: "stylesheet",
                         [$.attr.type]: "script_sidebar"
@@ -244,13 +230,16 @@
                 });
 
                 const loadJs = (i = 0) => {
-                    const js = $.opts.manifest.content_scripts[0].js[i];
+                    let js = $.opts.manifest.content_scripts[0].js[i];
 
                     if (typeof js !== "undefined") {
                         const script = document.createElement("script");
                         document.head.appendChild(script);
                         script.onload = () => loadJs(i + 1); // load one after another
-                        script.src = "/" + js;
+                        if (!js.includes("://")) {
+                            js = "/" + js;
+                        }
+                        script.src = js;
                         $(script).attr($.attr.type, "script_sidebar");
                     } else {
                         resolve();

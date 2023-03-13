@@ -10,12 +10,8 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                initEvents();
-                this.initContextmenus();
-                resolve();
-            });
+        this.init = async () => {
+            await this.initContextmenus();
         };
 
         /**
@@ -25,42 +21,37 @@
          * @returns {Promise}
          */
         this.initContextmenus = async () => {
-            return new Promise((resolve) => {
-                b.helper.language.getLangVars().then((lang) => {
-                    $.api.contextMenus.removeAll(() => {
-                        const uid = Math.random().toString(36).substr(2, 12);
+            const lang = await b.helper.language.getLangVars();
+            await $.api.contextMenus.removeAll();
 
-                        $.api.contextMenus.create({
-                            id: "bsChangelog_" + uid,
-                            title: lang.vars.settings_menu_infos_changelog.message,
-                            contexts: ["browser_action"]
-                        });
+            const uid = Math.random().toString(36).substring(2, 14);
 
-                        $.api.contextMenus.create({
-                            id: "bsPrivacy_" + uid,
-                            title: lang.vars.settings_menu_infos_privacy.message,
-                            contexts: ["browser_action"]
-                        });
+            $.api.contextMenus.create({
+                id: "bsChangelog_" + uid,
+                title: lang.vars.settings_menu_infos_changelog.message,
+                contexts: ["action"]
+            });
 
-                        $.api.contextMenus.onClicked.addListener((obj) => {
-                            if (obj.menuItemId === "bsChangelog_" + uid) {
-                                b.helper.utility.openLink({
-                                    hrefName: "changelog",
-                                    newTab: true,
-                                    params: {lang: b.helper.language.getUILanguage()}
-                                });
-                            } else if (obj.menuItemId === "bsPrivacy_" + uid) {
-                                b.helper.utility.openLink({
-                                    hrefName: "privacyPolicy",
-                                    newTab: true,
-                                    params: {lang: b.helper.language.getUILanguage()}
-                                });
-                            }
-                        });
+            $.api.contextMenus.create({
+                id: "bsPrivacy_" + uid,
+                title: lang.vars.settings_menu_infos_privacy.message,
+                contexts: ["action"]
+            });
 
-                        resolve();
+            $.api.contextMenus.onClicked.addListener((obj) => {
+                if (obj.menuItemId === "bsChangelog_" + uid) {
+                    b.helper.utility.openLink({
+                        hrefName: "changelog",
+                        newTab: true,
+                        params: {lang: b.helper.language.getUILanguage()}
                     });
-                });
+                } else if (obj.menuItemId === "bsPrivacy_" + uid) {
+                    b.helper.utility.openLink({
+                        hrefName: "privacyPolicy",
+                        newTab: true,
+                        params: {lang: b.helper.language.getUILanguage()}
+                    });
+                }
             });
         };
 
@@ -71,14 +62,10 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.setReason = (opts) => {
-            return new Promise((resolve) => {
-                if (opts.reason) {
-                    reason = opts.reason;
-                }
-
-                resolve();
-            });
+        this.setReason = async (opts) => {
+            if (opts.reason) {
+                reason = opts.reason;
+            }
         };
 
         /**
@@ -86,14 +73,42 @@
          *
          * @returns {Promise}
          */
-        this.clearTimeout = () => {
-            return new Promise((resolve) => {
-                if (timeout) {
-                    clearTimeout(timeout);
-                    timeout = null;
+        this.clearTimeout = async () => {
+            if (timeout) {
+                clearTimeout(timeout);
+                timeout = null;
+            }
+        };
+
+        /**
+         * Sends a message to the currently active tab and tell it to toggle the sidebar
+         *
+         * @returns {Promise<void>}
+         */
+        this.toggleSidebar = async () => {
+            const tabs = await $.api.tabs.query({active: true, currentWindow: true});
+
+            if (tabs && tabs.length > 0) {
+                const currrentTab = tabs[0];
+                const url = currrentTab.url || "";
+
+                $.api.tabs.sendMessage(currrentTab.id, {
+                    action: "toggleSidebar",
+                    reinitialized: b.reinitialized
+                })["catch"](() => {
+                    // cannot send message to tab
+                });
+
+                // only show fallback info when not already on the custom new tab page
+                if (!url.includes($.api.runtime.getURL("html/newtab.html"))) {
+                    const pageType = getNotWorkingPageInfo(url);
+                    const delay = pageType ? 0 : 700; // don't delay if the page is a known url where the sidebar is not being loaded
+
+                    timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
+                        showFallbackPage(tabs[0]);
+                    }, delay);
                 }
-                resolve();
-            });
+            }
         };
 
         /**
@@ -102,7 +117,7 @@
          * @param url
          * @returns {*}
          */
-        const getNotWorkingPageInfo = (url) => {
+        const getNotWorkingPageInfo = (url = "") => {
             let ret = null;
             let found = false;
             const types = {
@@ -114,7 +129,7 @@
 
             Object.keys(types).some((key) => {
                 types[key].some((str) => {
-                    if (url.search(new RegExp(str, "gi")) === 0) {
+                    if (url && url.search(new RegExp(str, "gi")) === 0) {
                         ret = key;
                         found = true;
                         return true;
@@ -148,45 +163,12 @@
             }
 
             b.helper.utility.openLink({
-                href: $.api.extension.getURL("html/newtab.html"),
+                href: $.api.runtime.getURL("html/newtab.html"),
                 newTab: true,
                 params: {type: type}
             });
         };
 
-        /**
-         * Initialises the eventhandler for the extension icon and the notification button
-         *
-         * @returns {Promise}
-         */
-        const initEvents = async () => {
-            $.api.browserAction.onClicked.removeListener(toggleSidebar);
-            $.api.browserAction.onClicked.addListener(toggleSidebar); // click on extension icon shall toggle the sidebar
-        };
-
-        /**
-         * Sends a message to the currently active tab and tell it to toggle the sidebar
-         */
-        const toggleSidebar = () => {
-            $.api.tabs.query({active: true, currentWindow: true}, (tabs) => {
-                $.api.tabs.sendMessage(tabs[0].id, {
-                    action: "toggleSidebar",
-                    reinitialized: b.reinitialized
-                });
-
-                let delay = 700;
-                if (tabs[0] && tabs[0].url) { // don't delay if the page is a known url where the sidebar is not being loaded
-                    const pageType = getNotWorkingPageInfo(tabs[0].url);
-                    if (pageType) {
-                        delay = 0;
-                    }
-                }
-
-                timeout = setTimeout(() => { // if the timeout is not getting cleared by the content script, the sidebar is not working -> show notification
-                    showFallbackPage(tabs[0]);
-                }, delay);
-            });
-        };
     };
 
 })(jsu);

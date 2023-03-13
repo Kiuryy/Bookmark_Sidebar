@@ -67,24 +67,6 @@
         };
 
         /**
-         * Checks whether the background script is connected
-         *
-         * @returns {boolean}
-         */
-        this.isBackgroundConnected = () => {
-            try {
-                const port = $.api.runtime.connect();
-                if (port) {
-                    port.disconnect();
-                    return true;
-                }
-            } catch (e) {
-                //
-            }
-            return false;
-        };
-
-        /**
          * Triggers an event with the given name
          *
          * @param {string} name
@@ -264,6 +246,38 @@
                         break;
                     }
                 }
+            }
+        };
+
+        /**
+         * Calls the background script to generate the icon with the given settings and returns it as data url
+         *
+         * @param opts
+         * @returns {Promise<string>}
+         */
+        this.getIconImageData = async (opts) => {
+            const imageData = await ext.helper.model.call("iconImageData", {
+                name: opts.shape,
+                color: opts.color,
+                padding: opts.padding,
+                background: opts.background,
+            });
+
+            if (imageData) {
+                const canvas = document.createElement("canvas");
+                canvas.width = 128;
+                canvas.height = 128;
+                const ctx = canvas.getContext("2d");
+                const img = ctx.createImageData(128, 128);
+
+                for (const i in img.data) {
+                    img.data[i] = imageData.data[i];
+                }
+                ctx.putImageData(img, 0, 0);
+
+                return canvas.toDataURL("image/x-icon");
+            } else {
+                return "";
             }
         };
 

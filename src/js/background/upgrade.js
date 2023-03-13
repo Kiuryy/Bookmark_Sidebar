@@ -20,7 +20,7 @@
         /**
          * Show onboarding page and reinitialize the content scripts after the extension was installed
          */
-        this.onInstalled = () => {
+        this.onInstalled = async () => {
             const installationDate = b.helper.model.getData("installationDate");
 
             if (installationDate === null || (+new Date() - installationDate < 60 * 1000)) { // no installation date yet, or installation date from the last minute -> show onboarding page
@@ -32,7 +32,7 @@
 
                 updateOptions("install");
                 b.helper.utility.openLink({
-                    href: $.api.extension.getURL("html/intro.html"),
+                    href: $.api.runtime.getURL("html/intro.html"),
                     newTab: true
                 });
             }
@@ -46,21 +46,19 @@
          *
          * @param {object} details
          */
-        this.onUpdated = (details) => {
-            $.api.storage.local.remove(["languageInfos"]);
-            b.helper.model.setData("lastUpdateDate", +new Date());
+        this.onUpdated = async (details) => {
+            await $.api.storage.local.remove(["languageInfos"]);
+            await b.helper.model.setData("lastUpdateDate", +new Date());
             const newVersion = $.opts.manifest.version;
 
             const versionPartsOld = details.previousVersion.split(".");
             const versionPartsNew = newVersion.split(".");
 
             if (versionPartsOld[0] !== versionPartsNew[0] || versionPartsOld[1] !== versionPartsNew[1]) { // version jump (e.g. 2.1.x -> 2.2.x)
-                updateOptions("upgrade").then(() => {
-                    b.reinitialize();
-                });
-            } else {
-                b.reinitialize();
+                await updateOptions("upgrade");
             }
+
+            await b.reinitialize();
         };
 
         /**
@@ -69,45 +67,33 @@
          * @param {string} type
          * @returns {Promise}
          */
-        const updateOptions = (type) => {
-            return new Promise((resolve) => {
-                let savedCount = 0;
+        const updateOptions = async (type) => {
+            const obj = await $.api.storage.sync.get(null); // get all stored information
+            if (typeof obj.behaviour === "undefined") {
+                obj.behaviour = {};
+            }
 
-                const savedValues = () => {
-                    savedCount++;
-                    if (savedCount >= 3) { // newtab, behaviour and appearance
-                        resolve();
-                    }
-                };
+            if (typeof obj.appearance === "undefined") {
+                obj.appearance = {};
+            }
 
-                $.api.storage.sync.get(null, (obj) => { // get all stored information
-                    if (typeof obj.behaviour === "undefined") {
-                        obj.behaviour = {};
-                    }
+            if (typeof obj.appearance.styles === "undefined") {
+                obj.appearance.styles = {};
+            }
 
-                    if (typeof obj.appearance === "undefined") {
-                        obj.appearance = {};
-                    }
+            if (typeof obj.newtab === "undefined") {
+                obj.newtab = {};
+            }
 
-                    if (typeof obj.appearance.styles === "undefined") {
-                        obj.appearance.styles = {};
-                    }
+            if (type === "upgrade") {
+                updateOptionsAfterUpgrade(obj);
+            } else if (type === "install") {
+                updateOptionsAfterInstall(obj);
+            }
 
-                    if (typeof obj.newtab === "undefined") {
-                        obj.newtab = {};
-                    }
-
-                    if (type === "upgrade") {
-                        updateOptionsAfterUpgrade(obj);
-                    } else if (type === "install") {
-                        updateOptionsAfterInstall(obj);
-                    }
-
-                    $.api.storage.sync.set({behaviour: obj.behaviour}, savedValues);
-                    $.api.storage.sync.set({newtab: obj.newtab}, savedValues);
-                    $.api.storage.sync.set({appearance: obj.appearance}, savedValues);
-                });
-            });
+            await $.api.storage.sync.set({behaviour: obj.behaviour});
+            await $.api.storage.sync.set({newtab: obj.newtab});
+            await $.api.storage.sync.set({appearance: obj.appearance});
         };
 
         /**
@@ -131,10 +117,6 @@
          */
         const updateOptionsAfterUpgrade = (obj) => {
             try {
-                if (obj.appearance && typeof obj.appearance.darkMode !== "undefined") { // @deprecated 11/2021
-                    obj.appearance.surface = obj.appearance.darkMode ? "dark" : "light";
-                }
-
                 delete obj.appearance.darkMode;
                 delete obj.behaviour.contextmenu;
                 delete obj.behaviour.dndOpen;

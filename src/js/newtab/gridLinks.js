@@ -128,8 +128,12 @@
 
             const dim = {
                 w: n.elm.content[0].offsetWidth || window.innerWidth,
-                h: (n.elm.content[0].offsetHeight || window.innerHeight) - n.elm.search.wrapper[0].offsetHeight - 150
+                h: (n.elm.content[0].offsetHeight || window.innerHeight) //- n.elm.search.wrapper[0].offsetHeight - 150
             };
+
+            if (n.helper.edit.isEditMode() || !n.elm.search.wrapper.hasClass($.cl.hidden)) {
+                dim.h -= n.elm.search.wrapper[0].offsetHeight + 150;
+            }
 
             while (colWidth * ret.cols > dim.w && ret.cols > 0) { // adjust column amount to fit the grid on the page
                 ret.cols--;
@@ -148,83 +152,70 @@
          *
          * @returns {Promise}
          */
-        const updateEntries = () => {
-            return new Promise((resolve) => {
-                n.elm.gridLinks.attr($.attr.type, type);
-                const gridWrapper = n.elm.gridLinks.children("ul");
-                gridWrapper.removeClass($.cl.visible);
+        const updateEntries = async () => {
+            n.elm.gridLinks.attr($.attr.type, type);
+            const gridWrapper = n.elm.gridLinks.children("ul");
+            gridWrapper.removeClass($.cl.visible);
 
-                if (type === "hidden") {
-                    if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
-                        gridWrapper.data("total", 0).html("");
-                    }
-                    resolve();
-                } else if (updateRunning === false) {
-                    updateRunning = true;
-
-                    Promise.all([
-                        getEntryData(),
-                        $.delay(200) // allows smooth fading between switching of types
-                    ]).then(([pages]) => {
-                        const amount = getAmount();
-
-                        gridWrapper
-                            .html("")
-                            .data("total", amount.total)
-                            .css("grid-template-columns", "1fr ".repeat(amount.cols).trim());
-
-                        pages.forEach((page) => {
-                            const entry = $("<li></li>").appendTo(gridWrapper);
-                            const entryLink = $("<a></a>")
-                                .attr({
-                                    href: page.url,
-                                    title: page.title,
-                                    [$.attr.value]: page.url.length === 0 ? "empty" : "url"
-                                })
-                                .data("href", page.url)
-                                .appendTo(entry);
-
-                            $("<span></span>").text(page.title).appendTo(entryLink);
-
-                            n.helper.model.call("favicon", {url: page.url}).then((response) => { // retrieve favicon of url
-                                if (response.img) { // favicon found -> add to entry
-                                    const favicon = $("<img />").attr("src", response.img);
-                                    $("<div></div>").append(favicon).prependTo(entryLink);
-                                }
-                            });
-
-                            if (n.elm.gridLinks.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) {
-                                entryLink.attr("draggable", "draggable");
-                            }
-                        });
-
-                        return $.delay(100);
-                    }).then(() => {
-                        gridWrapper.addClass($.cl.visible);
-                        updateRunning = false;
-
-                        resolve();
-                    });
+            if (type === "hidden") {
+                if (n.helper.edit.isEditMode() === false) { // don't clear html in editmode to prevent jumping
+                    gridWrapper.data("total", 0).html("");
                 }
-            });
+            } else if (updateRunning === false) {
+                updateRunning = true;
+
+                const [pages] = await Promise.all([
+                    getEntryData(),
+                    $.delay(200) // allows smooth fading between switching of types
+                ]);
+                const amount = getAmount();
+
+                gridWrapper
+                    .html("")
+                    .data("total", amount.total)
+                    .css("grid-template-columns", "1fr ".repeat(amount.cols).trim());
+
+                for (const page of pages) {
+                    const entry = $("<li></li>").appendTo(gridWrapper);
+                    const entryLink = $("<a></a>")
+                        .attr({
+                            href: page.url,
+                            title: page.title,
+                            [$.attr.value]: page.url.length === 0 ? "empty" : "url"
+                        })
+                        .data("href", page.url)
+                        .appendTo(entry);
+
+                    $("<span></span>").text(page.title).appendTo(entryLink);
+
+                    const favicon = await n.helper.model.call("favicon", {url: page.url}); // retrieve favicon of url
+                    if (favicon) { // favicon found -> add to entry
+                        const img = $("<img />").attr("src", favicon);
+                        $("<div></div>").append(img).prependTo(entryLink);
+                    }
+
+                    if (n.elm.gridLinks.attr($.attr.type) === "custom" && n.elm.body.hasClass($.cl.newtab.edit)) {
+                        entryLink.attr("draggable", "draggable");
+                    }
+                }
+
+                await $.delay(100);
+
+                gridWrapper.addClass($.cl.visible);
+                updateRunning = false;
+            }
         };
 
         /**
-         * Initialises the entry helper (if not already initialized),
+         * Initialises the entry helper (if not already initialised),
          * The helper is used to retrieve the most/recently used bookmarks
          *
          * @returns {Promise}
          */
-        const initEntryHelper = () => {
-            return new Promise((resolve) => {
-                if (entryHelperInited) {
-                    resolve();
-                } else {
-                    n.helper.entry.init().then(() => {
-                        resolve();
-                    });
-                }
-            });
+        const initEntryHelper = async () => {
+            if (!entryHelperInited) {
+                await n.helper.entry.init();
+            }
         };
 
         /**
@@ -232,46 +223,37 @@
          *
          * @returns {Promise}
          */
-        const getEntryData = () => {
-            return new Promise((resolve) => {
-                const amount = getAmount();
+        const getEntryData = async () => {
+            const amount = getAmount();
 
-                if (amount.total > 0) {
-                    switch (type) {
-                        case "mostUsed":
-                        case "recentlyUsed": {
-                            initEntryHelper().then(() => {
-                                const list = getSortedBookmarks(type);
-                                resolve(list);
-                            });
-                            break;
-                        }
-                        case "custom": {
-                            const list = getCustomEntries();
-                            resolve(list);
-                            break;
-                        }
-                        case "topPages":
-                        default: {
-                            if ($.api.topSites && $.api.topSites.get) { // topSites may not be available -> requires topSites permission
-                                $.api.topSites.get((list) => {
-                                    const lastError = $.api.runtime.lastError;
-
-                                    if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
-                                        const filteredList = list.slice(0, amount.total);
-                                        resolve(filteredList);
-                                    } else {
-                                        resolve([]);
-                                    }
-                                });
-                            }
-                            break;
-                        }
+            if (amount.total > 0) {
+                switch (type) {
+                    case "mostUsed":
+                    case "recentlyUsed": {
+                        await initEntryHelper();
+                        return getSortedBookmarks(type);
                     }
-                } else {
-                    resolve([]);
+                    case "custom": {
+                        return getCustomEntries();
+                    }
+                    case "topPages":
+                    default: {
+                        if ($.api.topSites && $.api.topSites.get) { // topSites may not be available -> requires topSites permission
+                            const list = await $.api.topSites.get();
+                            const lastError = $.api.runtime.lastError;
+
+                            if (typeof lastError === "undefined" && list) { // topSites.get can fail e.g. in incognito mode
+                                return list.slice(0, amount.total);
+                            } else {
+                                return [];
+                            }
+                        }
+                        break;
+                    }
                 }
-            });
+            } else {
+                return [];
+            }
         };
 
         /**

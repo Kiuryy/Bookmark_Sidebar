@@ -21,7 +21,7 @@
         this.get = (body, attrList, type = "checkbox", style = "default") => {
             const container = $("<div></div>")
                 .html("<input type='checkbox' />")
-                .data("uid", Math.random().toString(36).substr(2, 12))
+                .data("uid", Math.random().toString(36).substring(2, 14))
                 .attr($.attr.type, type)
                 .attr($.attr.style, style)
                 .addClass($.cl.checkbox.box);

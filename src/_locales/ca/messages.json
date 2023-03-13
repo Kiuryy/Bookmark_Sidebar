@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "El servei de traducci\u00f3 no est\u00e0 disponible de moment. Siusplau, intenta-ho m\u00e9s tard."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Torna a carregar-la"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "A causa d\u2019una actualitzaci\u00f3 de l\u2019extensi\u00f3 s\u2019ha de tornar a carregar aquesta p\u00e0gina."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1291,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Escriviu els vostres comentaris en angl\u00e8s, en cas contrari ser\u00e0 dif\u00edcil entendre i respondre el vostre missatge."
-    },
-    "settings_support_feedback_email": {
-        "message": "correu electr\u00f2nic (opcional)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Adjunta captures de pantalla"

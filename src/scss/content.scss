@@ -83,7 +83,7 @@ body > #redeviation-bs-sidebar {
   height: 0;
   z-index: #{2147483647 - 1};
   background-color: $__sidebarMaskColor !important;
-  color-scheme: normal !important;
+  color-scheme: auto !important;
   speak: none;
   border: none;
   display: block !important;
@@ -122,6 +122,7 @@ body > #redeviation-bs-overlay {
   border: none;
   speak: none;
   background: $__overlayMaskColor !important;
+  color-scheme: auto !important;
   transition: opacity 0.3s;
 
   &.redeviation-bs-visible {

@@ -35,6 +35,14 @@ html[dir='rtl'] {
     }
   }
 
+  div.iconShapeWrapper ul.radioWrapper {
+
+    span.base64-icon, span[class^='icon-'] {
+      margin-right: 3px;
+      margin-left: 0;
+    }
+  }
+
   input[type='range'] {
     background-image: linear-gradient(to left, $mainColor2 0%, $mainColor2 -1px, rgba(0, 0, 0, 0.2) -1px, rgba(0, 0, 0, 0.2) 100%);
 

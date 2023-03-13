@@ -4,6 +4,7 @@
     $.ModelHelper = function (b) {
         let data = {};
         let licenseKey = null;
+        let systemColor = "light";
         let translationInfo = [];
         let shareInfo = {
             config: null,
@@ -14,41 +15,43 @@
          *
          * @returns {Promise}
          */
-        this.init = () => {
-            return new Promise((resolve) => {
-                $.api.storage.sync.get(["model", "shareInfo", "translationInfo", "licenseKey"], (obj) => {
-                    data = obj.model || {};
-                    if (typeof obj.shareInfo === "object") {
-                        shareInfo = obj.shareInfo;
-                    }
+        this.init = async () => {
+            const config = await $.api.storage.sync.get(["model", "shareInfo", "translationInfo", "licenseKey", "systemColor"]);
+            data = config.model || {};
 
-                    if (typeof obj.licenseKey === "string" && obj.licenseKey.length === 29) {
-                        licenseKey = obj.licenseKey;
-                    }
+            if (typeof config.shareInfo === "object") {
+                shareInfo = config.shareInfo;
+            }
 
-                    if (typeof obj.translationInfo === "object") {
-                        translationInfo = obj.translationInfo;
-                    }
+            if (typeof config.licenseKey === "string" && config.licenseKey.length === 29) {
+                licenseKey = config.licenseKey;
+            }
 
-                    if (typeof data.installationDate === "undefined") {
-                        data.installationDate = +new Date();
-                    }
+            if (typeof config.systemColor !== "undefined") {
+                systemColor = config.systemColor;
+            }
 
-                    if (typeof data.lastUpdateDate === "undefined") {
-                        data.lastUpdateDate = +new Date();
-                    }
+            if (typeof config.translationInfo === "object") {
+                translationInfo = config.translationInfo;
+            }
 
-                    if (typeof data.premiumInfo === "undefined") { // no premium teaser displayed yet -> initialise with null
-                        data.premiumInfo = null;
-                    }
+            if (typeof data.installationDate === "undefined") { // no date yet -> save a start date in storage
+                data.installationDate = +new Date();
+            }
 
-                    if (typeof data.translationReminder === "undefined") { // no reminder of missing translation variables displayed yet -> initialise with null
-                        data.translationReminder = null;
-                    }
+            if (typeof data.lastUpdateDate === "undefined") { // no date yet -> save a start date in storage
+                data.lastUpdateDate = +new Date();
+            }
 
-                    saveModelData().then(resolve);
-                });
-            });
+            if (typeof data.premiumInfo === "undefined") { // no premium teaser displayed yet -> initialise with null
+                data.premiumInfo = null;
+            }
+
+            if (typeof data.translationReminder === "undefined") { // no reminder of missing translation variables displayed yet -> initialise with null
+                data.translationReminder = null;
+            }
+
+            await saveModelData();
         };
 
         /**
@@ -63,10 +66,8 @@
          *
          * @returns {Promise}
          */
-        this.getLicenseKey = () => {
-            return new Promise((resolve) => {
-                resolve({licenseKey: licenseKey});
-            });
+        this.getLicenseKey = async () => {
+            return {licenseKey: licenseKey};
         };
 
         /**
@@ -74,43 +75,34 @@
          *
          * @returns {Promise}
          */
-        this.getInfoToDisplay = () => {
-            return new Promise((resolve) => {
-                if (data && data.installationDate) {
-                    const daysSinceInstall = (+new Date() - data.installationDate) / 86400000;
-                    const daysSinceTranslationReminder = data.translationReminder === null ? 365 : (+new Date() - data.translationReminder) / 86400000;
+        this.getInfoToDisplay = async () => {
+            if (data && data.installationDate) {
+                const daysSinceInstall = (+new Date() - data.installationDate) / 86400000;
+                const daysSinceTranslationReminder = data.translationReminder === null ? 365 : (+new Date() - data.translationReminder) / 86400000;
 
-                    if (shareInfo.config === null && shareInfo.activity === null && daysSinceInstall > 7) { // user has installed the extension for at least 7 days and has not set his tracking preferences
-                        resolve({info: "shareInfo"});
-                    } else if (translationInfo.length > 0 && daysSinceTranslationReminder > 3) { // user has enabled translation reminder and didn't got one the last three days -> check whether a language the user wants to be notified about is incomplete
-                        Promise.all([
-                            b.helper.language.getIncompleteLanguages(),
-                            this.setData("translationReminder", +new Date())
-                        ]).then(([langList]) => {
-                            translationInfo.some((lang) => {
-                                if (langList.indexOf(lang) !== -1) { // a language of the list is incomplete -> show info box
-                                    resolve({info: "translation"});
-                                }
-                            });
-                            resolve({info: null});
-                        });
-                    } else {
-                        this.getUserType().then((obj) => {
-                            const daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
+                if (shareInfo.config === null && shareInfo.activity === null && daysSinceInstall > 7) { // user has installed the extension for at least 7 days and has not set his tracking preferences
+                    return {info: "shareInfo"};
+                } else if (translationInfo.length > 0 && daysSinceTranslationReminder > 3) { // user has enabled translation reminder and didn't got one the last three days -> check whether a language the user wants to be notified about is incomplete
+                    const langList = await b.helper.language.getIncompleteLanguages();
+                    await this.setData("translationReminder", +new Date());
 
-                            if (obj.userType !== "premium" && daysSincePremiumInfo > 200 && daysSinceInstall > 14) { // premium teaser hasn't been displayed for over 200 days and user has installed the extension for at least 14 days
-                                this.setData("premiumInfo", +new Date()).then(() => {
-                                    resolve({info: "premium"});
-                                });
-                            } else {
-                                resolve({info: null});
-                            }
-                        });
+                    for (const lang of translationInfo) {
+                        if (langList.indexOf(lang) !== -1) { // a language of the list is incomplete -> show info box
+                            return {info: "translation"};
+                        }
                     }
                 } else {
-                    resolve({info: null});
+                    const obj = await this.getUserType();
+                    const daysSincePremiumInfo = data.premiumInfo === null ? 365 : (+new Date() - data.premiumInfo) / 86400000;
+
+                    if (obj.userType !== "premium" && daysSincePremiumInfo > 200 && daysSinceInstall > 14) { // premium teaser hasn't been displayed for over 200 days and user has installed the extension for at least 14 days
+                        await this.setData("premiumInfo", +new Date());
+                        return {info: "premium"};
+                    }
                 }
-            });
+            }
+
+            return {info: null};
         };
 
         /**
@@ -118,19 +110,24 @@
          *
          * @returns {Promise}
          */
-        this.getUserType = () => {
-            return new Promise((resolve) => {
-                let userType = "default";
+        this.getUserType = async () => {
+            let userType = "default";
 
-                if (typeof licenseKey === "string" && licenseKey.length === 29) { // license key is available
-                    userType = "premium";
-                } else if (data && data.installationDate && data.installationDate < 1538352000000) { // installed before 01.10.2018
-                    userType = "legacy";
-                }
+            if (typeof licenseKey === "string" && licenseKey.length === 29) { // license key is available
+                userType = "premium";
+            } else if (data && data.installationDate && data.installationDate < 1538352000000) { // installed before 01.10.2018
+                userType = "legacy";
+            }
 
-                resolve({userType: userType});
-            });
+            return {userType: userType};
         };
+
+        /**
+         * Returns the prefered system surface color
+         *
+         * @returns {string}
+         */
+        this.getSystemColor = () => systemColor;
 
         /**
          * Sets the information about what the users wants to be tracked
@@ -138,20 +135,20 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.setShareInfo = (opts) => {
-            return new Promise((resolve) => {
+        this.setShareInfo = async (opts) => {
+            try {
                 shareInfo = {
                     config: opts.config || false,
                     activity: opts.activity || false
                 };
 
-                $.api.storage.sync.set({
+                await $.api.storage.sync.set({
                     shareInfo: shareInfo
-                }, () => {
-                    $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
-                    resolve();
                 });
-            });
+            } catch (e) {
+                // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                console.error(e);
+            }
         };
 
         /**
@@ -160,19 +157,35 @@
          * @param {string} key
          * @returns {Promise}
          */
-        this.setLicenseKey = (key) => {
-            return new Promise((resolve) => {
-                $.api.storage.sync.set({
-                    licenseKey: key
-                }, () => {
-                    if ($.api.runtime.lastError) {
-                        resolve({success: false, message: $.api.runtime.lastError.message});
-                    } else {
-                        licenseKey = key;
-                        resolve({success: true});
-                    }
-                });
-            });
+        this.setLicenseKey = async (key) => {
+            try {
+                await $.api.storage.sync.set({licenseKey: key});
+                licenseKey = key;
+                return {success: true};
+            } catch (e) {
+                return {success: false, message: $.api.runtime.lastError.message};
+            }
+        };
+
+        /**
+         * Handles the system surface color change. If the surface color changed, the extension icon will be reinitialized
+         *
+         * @param opts
+         * @returns {Promise<void>}
+         */
+        this.systemColorChanged = async (opts) => {
+            if (systemColor !== opts.surface) {
+                systemColor = opts.surface;
+                await b.helper.icon.init();
+                try {
+                    await $.api.storage.sync.set({
+                        systemColor: systemColor
+                    });
+                } catch (e) {
+                    // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                    console.error(e);
+                }
+            }
         };
 
         /**
@@ -182,11 +195,9 @@
          * @param {*} val
          * @returns {Promise}
          */
-        this.setData = (key, val) => {
-            return new Promise((resolve) => {
-                data[key] = val;
-                saveModelData().then(resolve);
-            });
+        this.setData = async (key, val) => {
+            data[key] = val;
+            await saveModelData();
         };
 
         /**
@@ -204,17 +215,15 @@
          *
          * @returns {Promise}
          */
-        const saveModelData = () => {
-            return new Promise((resolve) => {
-                if (Object.getOwnPropertyNames(data).length > 0) {
-                    $.api.storage.sync.set({ // save to sync storage
-                        model: data
-                    }, () => {
-                        $.api.runtime.lastError; // do nothing specific with the error -> is thrown if too many save attempts are triggered
-                        resolve();
-                    });
+        const saveModelData = async () => {
+            if (Object.getOwnPropertyNames(data).length > 0) {
+                try {
+                    await $.api.storage.sync.set({model: data}); // save to sync storage
+                } catch (e) {
+                    // do nothing specific with the error -> is thrown if too many save attempts are triggered
+                    console.error(e);
                 }
-            });
+            }
         };
     };
 

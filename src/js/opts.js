@@ -2,7 +2,7 @@
     "use strict";
 
     // eslint-disable-next-line no-undef
-    $.api = typeof chrome === "undefined" ? browser : chrome;
+    $.api = chrome;
 
     $.opts = {
         ids: {
@@ -14,7 +14,6 @@
             },
             sidebar: {
                 sidebar: "sidebar",
-                reloadInfo: "reloadInfo",
                 infoBox: "infoBox",
                 bookmarkBox: {
                     all: "bookmarkBox",
@@ -325,6 +324,10 @@
         $.browserName = "Edge";
     } else if (/OPERA|OPR\//i.test(navigator.userAgent)) {
         $.browserName = "Opera";
+    } else if (/FIREFOX\//i.test(navigator.userAgent)) {
+        // eslint-disable-next-line no-undef
+        $.api = browser;
+        $.browserName = "Firefox";
     }
 
     $.cl = $.opts.classes;

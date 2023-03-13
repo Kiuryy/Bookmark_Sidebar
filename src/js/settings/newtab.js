@@ -16,6 +16,8 @@
          */
         this.init = async () => {
             initEvents();
+            initFaviconOptions();
+
             s.elm.newtab.content.find("div." + $.cl.settings.newtab.hideable).addClass($.cl.hidden);
             s.elm.newtab.buttons.addClass($.cl.hidden);
 
@@ -94,6 +96,19 @@
             });
         };
 
+        const initFaviconOptions = () => {
+            s.elm.newtab.faviconShapeWrapper.find("ul > li").forEach((option) => {
+                s.helper.utility.getIconImageData({
+                    shape: $(option).attr($.attr.value),
+                    color: "#ffffff",
+                    background: "transparent",
+                    padding: 0
+                }).then((faviconBase64) => {
+                    $(option).find("> span > span").css("background-image", `url(${faviconBase64})`);
+                });
+            });
+        };
+
         /**
          * Initialises the eventhandlers
          */
@@ -130,19 +145,19 @@
                 }
             });
 
-            s.elm.newtab.content.find("input, select").on("change input", (e) => {
+            s.elm.newtab.content.find("input, select").on("change input", async (e) => {
                 if (faviconInputs.indexOf(e.currentTarget) > -1) { // updated one of the favicon options -> update preview as well
-                    updateFaviconPreview();
+                    await updateFaviconPreview();
                 } else if (s.elm.field.website[0] === e.currentTarget) {
                     overrideWithWebsite = s.elm.field.website[0].value.length > 0;
-                    showHideButtons();
+                    await showHideButtons();
                 }
             });
 
             s.elm.newtab.buttons.children("a").on("click", (e) => {
                 e.preventDefault();
                 s.helper.model.call("openLink", {
-                    href: $.api.extension.getURL("html/newtab.html") + ($(e.currentTarget).attr($.attr.name) === "styling" ? "#edit" : ""),
+                    href: $.api.runtime.getURL("html/newtab.html") + ($(e.currentTarget).attr($.attr.name) === "styling" ? "#edit" : ""),
                     newTab: true,
                     active: true
                 });
@@ -152,12 +167,12 @@
         /**
          * Shows the buttons to open the preview or edit mode of the custom new tab page in case newtabOverride = true and the user did not enter an URL as new tab replacement
          */
-        const showHideButtons = () => {
+        const showHideButtons = async () => {
             if (overrideWithWebsite) {
                 s.elm.newtab.buttons.addClass($.cl.hidden);
             } else {
                 s.elm.newtab.buttons.removeClass($.cl.hidden);
-                updateFaviconPreview();
+                await updateFaviconPreview();
             }
         };
 
@@ -165,7 +180,7 @@
          * Updates the favicon preview,
          * this method does need a bit to finish. If you call the method while a previous call is still running, it will terminate immediately, but set updateFaviconPreviewState.awaitUpdate=true, so the method will call itself after finishing the first run
          */
-        const updateFaviconPreview = () => {
+        const updateFaviconPreview = async () => {
             if (updateFaviconPreviewState.running) { // already running -> tell the method it should run again, after the current execution is ready
                 updateFaviconPreviewState.awaitUpdate = true;
             } else {
@@ -175,24 +190,21 @@
                 const bgColor = s.helper.form.getColorValue("faviconBackground", s.elm.color.faviconBackground[0].value).color;
                 const faviconPreviewCtx = s.elm.newtab.faviconPreview[0].getContext("2d");
                 const previewImage = new Image();
-                previewImage.onload = () => {
+                previewImage.onload = async () => {
                     faviconPreviewCtx.clearRect(0, 0, s.elm.newtab.faviconPreview[0].width, s.elm.newtab.faviconPreview[0].height);
                     faviconPreviewCtx.drawImage(previewImage, 0, 0);
 
                     updateFaviconPreviewState.running = false;
                     if (updateFaviconPreviewState.awaitUpdate) { // can this method again, if there was a call to this method will the current run was not ready yet
-                        updateFaviconPreview();
+                        await updateFaviconPreview();
                     }
                 };
 
-                s.helper.model.call("iconImageData", {
-                    name: s.elm.radio.faviconShape[0].value,
+                previewImage.src = await s.helper.utility.getIconImageData({
+                    shape: s.elm.radio.faviconShape[0].value,
                     color: s.helper.form.getColorValue("faviconColor", s.elm.color.faviconColor[0].value).color,
                     background: bgColor,
-                    padding: faviconPadding[bgColor === "transparent" ? "transparent" : "regular"],
-                    asDataURL: true
-                }).then((imageData) => {
-                    previewImage.src = imageData;
+                    padding: faviconPadding[bgColor === "transparent" ? "transparent" : "regular"]
                 });
             }
         };

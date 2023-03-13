@@ -12,12 +12,6 @@
          *
          * @type {Array}
          */
-        let stack = [];
-
-        /**
-         *
-         * @type {Array}
-         */
         const restrictedTypes = {
             config: ["configuration"],
             activity: ["bookmarks", "action"]
@@ -33,11 +27,25 @@
          * @returns {Promise}
          */
         this.init = async () => {
-            setInterval(() => {
+            await $.api.storage.local.set({analytics_stack: []});
+
+            setInterval(async () => {
+                const storageData = await $.api.storage.local.get(["analytics_stack"]);
+                const stack = storageData.analytics_stack || [];
+
                 if (stack.length > 0) {
-                    sendStackToServer();
+                    try {
+                        const success = await sendStackToServer(stack);
+                        if (success) {
+                            await $.api.storage.local.set({analytics_stack: []});
+                        } else {
+                            console.error("Failed to send analytics data");
+                        }
+                    } catch (e) {
+                        console.error("Error while sending analytics data", e);
+                    }
                 }
-            }, 60000);
+            }, 60 * 1000);
         };
 
         /**
@@ -46,11 +54,10 @@
          * @param {object} opts
          * @returns {Promise}
          */
-        this.track = (opts) => {
-            return new Promise((resolve) => {
-                addToStack(opts.name, opts.value, opts.always);
-                resolve();
-            });
+        this.track = async (opts) => {
+            if (!$.isDev) {
+                await addToStack(opts.name, opts.value, opts.always);
+            }
         };
 
         /**
@@ -62,7 +69,7 @@
             const lastTrackDate = +b.helper.model.getData("lastTrackDate");
             const today = +new Date().setHours(0, 0, 0, 0);
 
-            if (trackUserDataRunning === false && today > lastTrackDate) { // no configuration/userdata tracked today
+            if (trackUserDataRunning === false && today > lastTrackDate && !$.isDev) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
                 await b.helper.model.setData("lastTrackDate", today);
@@ -82,24 +89,24 @@
                         shareState = "nothing";
                     }
 
-                    addToStack("version", $.opts.manifest.version_name);
-                    addToStack("system", navigator.userAgent);
-                    addToStack("language", b.helper.language.getLanguage());
-                    addToStack("shareInfo", shareState);
-                    addToStack("runtimeId", $.api.runtime.id);
-                    addToStack("userType", (await b.helper.model.getUserType()).userType);
+                    await addToStack("version", $.opts.manifest.version_name);
+                    await addToStack("system", navigator.userAgent);
+                    await addToStack("language", b.helper.language.getLanguage());
+                    await addToStack("shareInfo", shareState);
+                    await addToStack("runtimeId", $.api.runtime.id);
+                    await addToStack("userType", (await b.helper.model.getUserType()).userType);
 
                     const installationDate = b.helper.model.getData("installationDate");
                     if (installationDate) { // track the year of installation
-                        addToStack("installationYear", new Date(installationDate).getFullYear());
+                        await addToStack("installationYear", new Date(installationDate).getFullYear());
                     }
 
                     if (shareInfo.activity === true) { // user allowed to share activity
-                        trackBookmarkAmount();
+                        await trackBookmarkAmount();
                     }
 
                     if (shareInfo.config === true) { // user allowed to share configuration
-                        trackConfiguration();
+                        await trackConfiguration();
                     }
                 }
 
@@ -110,34 +117,35 @@
         /**
          * Tracks the amount of bookmarks
          */
-        const trackBookmarkAmount = () => {
-            b.helper.bookmarks.api.getSubTree(0).then((response) => { // track bookmark amount
-                let bookmarkAmount = 0;
-                const processBookmarks = (bookmarks) => {
-                    for (let i = 0; i < bookmarks.length; i++) {
-                        const bookmark = bookmarks[i];
-                        if (bookmark.url) {
-                            bookmarkAmount++;
-                        } else if (bookmark.children) {
-                            processBookmarks(bookmark.children);
-                        }
+        const trackBookmarkAmount = async () => {
+            const response = await b.helper.bookmarks.getById(0); // track bookmark amount
+            let bookmarkAmount = 0;
+            const processBookmarks = (bookmarks) => {
+                for (let i = 0; i < bookmarks.length; i++) {
+                    const bookmark = bookmarks[i];
+                    if (bookmark.url) {
+                        bookmarkAmount++;
+                    } else if (bookmark.children) {
+                        processBookmarks(bookmark.children);
                     }
-                };
-
-                if (response && response[0] && response[0].children && response[0].children.length > 0) {
-                    processBookmarks(response[0].children);
                 }
+            };
 
-                addToStack("bookmarks", bookmarkAmount);
-            });
+            if (response && response.bookmarks && response.bookmarks[0] && response.bookmarks[0].children && response.bookmarks[0].children.length > 0) {
+                processBookmarks(response.bookmarks[0].children);
+            }
+
+            await addToStack("bookmarks", bookmarkAmount);
         };
 
         /**
          * Tracks the configuration
          */
-        const trackConfiguration = () => {
-            const proceedConfig = (baseName, obj) => {
-                Object.entries(obj).forEach(([attr, val]) => {
+        const trackConfiguration = async () => {
+            const proceedConfig = async (baseName, obj) => {
+                for (const attr in obj) {
+                    let val = obj[attr];
+
                     if (baseName === "newtab_searchEngineCustom") { // don't track information about the custom search engine
                         return;
                     } else if (baseName === "newtab" && attr === "topLinks") { // don't track the exact websites, just the amount
@@ -155,7 +163,7 @@
                     }
 
                     if (typeof val === "object") {
-                        proceedConfig(baseName + "_" + attr, val);
+                        await proceedConfig(baseName + "_" + attr, val);
                     } else {
                         if (typeof val !== "string") { // parse everything to string
                             val = JSON.stringify(val);
@@ -169,62 +177,53 @@
                             val = val && val.length > 0 ? "true" : "false";
                         }
 
-                        addToStack("configuration", {
+                        await addToStack("configuration", {
                             name: baseName + "_" + attr,
                             value: val
                         });
                     }
-                });
+                }
             };
 
             let isOverrideNewtab = false;
-            new Promise((resolve) => {
-                $.api.storage.sync.get(configCategories, (obj) => {
-                    configCategories.forEach((category) => {
-                        if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
-                            if (typeof obj[category] === "object" && typeof obj[category].override !== "undefined" && obj[category].override === true) {
-                                isOverrideNewtab = true;
-                            } else {
-                                obj[category] = {
-                                    override: false
-                                };
-                            }
-                        }
 
-                        if (typeof obj[category] === "object") {
-                            proceedConfig(category, obj[category]);
-                        }
-                    });
+            const configList = await $.api.storage.sync.get(configCategories);
+            for (const category in configList) {
+                if (category === "newtab") { // if the newtab page is not being overwritten, the other configurations are irrelevant
+                    if (typeof configList[category] === "object" && typeof configList[category].override !== "undefined" && configList[category].override === true) {
+                        isOverrideNewtab = true;
+                    } else {
+                        configList[category] = {
+                            override: false
+                        };
+                    }
+                }
 
-                    resolve();
+                if (typeof configList[category] === "object") {
+                    await proceedConfig(category, configList[category]);
+                }
+            }
+
+            const obj = await $.api.storage.local.get(["utility", "newtabBackground_1"]);
+            if (obj.utility) {
+                const config = {};
+                ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
+                    if (typeof obj.utility[field] !== "undefined") {
+                        config[field] = obj.utility[field];
+                    }
                 });
-            }).then(() => {
-                return new Promise((resolve) => {
-                    $.api.storage.local.get(["utility", "newtabBackground_1"], (obj) => {
-                        if (obj.utility) {
-                            const config = {};
-                            ["lockPinned", "pinnedEntries", "customCss"].forEach((field) => {
-                                if (typeof obj.utility[field] !== "undefined") {
-                                    config[field] = obj.utility[field];
-                                }
-                            });
 
-                            if (typeof obj.utility.sort !== "undefined") {
-                                config.sortType = obj.utility.sort.name;
-                                config.sortDetail = obj.utility.sort.name + "-" + obj.utility.sort.dir;
-                            }
+                if (typeof obj.utility.sort !== "undefined") {
+                    config.sortType = obj.utility.sort.name;
+                    config.sortDetail = obj.utility.sort.name + "-" + obj.utility.sort.dir;
+                }
 
-                            if (isOverrideNewtab) { // track if a custom newtab background is being used (only if isOverrideNewtab=true)
-                                config.newtabBackground = obj.newtabBackground_1 || "";
-                            }
+                if (isOverrideNewtab) { // track if a custom newtab background is being used (only if isOverrideNewtab=true)
+                    config.newtabBackground = obj.newtabBackground_1 || "";
+                }
 
-                            proceedConfig("utility", config);
-                        }
-
-                        resolve();
-                    });
-                });
-            });
+                await proceedConfig("utility", config);
+            }
         };
 
         /**
@@ -234,9 +233,11 @@
          * @param {*} value
          * @param {boolean} ignoreUserPreference
          */
-        const addToStack = (type, value, ignoreUserPreference = false) => {
-            let allowed = true;
+        const addToStack = async (type, value, ignoreUserPreference = false) => {
+            const storageData = await $.api.storage.local.get(["analytics_stack"]);
+            const stack = storageData.analytics_stack || [];
 
+            let allowed = true;
             if (ignoreUserPreference === false) {
                 const shareInfo = b.helper.model.getShareInfo();
 
@@ -248,7 +249,7 @@
                 });
             }
 
-            if (allowed === true && $.isDev === false) { // the current type may be tracked
+            if (allowed) { // the current type may be tracked
                 const obj = {type: type};
 
                 if (typeof value === "object") {
@@ -256,7 +257,9 @@
                 } else {
                     obj.value = "" + value;
                 }
+
                 stack.push(obj);
+                await $.api.storage.local.set({analytics_stack: stack});
             }
         };
 
@@ -283,47 +286,28 @@
         /**
          * Sends the stack to the server and flushes its stored values
          *
-         * @param {object} retry
-         * @returns {Promise}
+         * @param {Array} stack
+         * @returns {Promise<boolean>}
          */
-        const sendStackToServer = (retry = {}) => {
-            let data = [];
+        const sendStackToServer = async (stack) => {
+            const formData = new FormData();
+            formData.append("stack", JSON.stringify(stack));
+            formData.append("uid", generateHash(stack));
+            formData.append("tz", new Date().getTimezoneOffset());
 
-            if (retry && retry.stack && retry.count) { // recall of the method -> fill with previous stack
-                data = retry.stack;
-            } else { // new date to transfer
-                data = [...stack];
-                stack = [];
-                retry = {stack: data, count: 0};
-            }
-
-            return new Promise((resolve) => {
-                $.xhr($.opts.website.api.evaluate, {
-                    method: "POST",
-                    responseType: "json",
-                    timeout: 30000,
-                    data: {
-                        stack: data,
-                        uid: generateHash(data),
-                        tz: new Date().getTimezoneOffset()
-                    }
-                }).then((xhr) => {
-                    if (xhr.response && xhr.response.success) {
-                        resolve({success: xhr.response.success});
-                    } else {
-                        resolve({success: false});
-                    }
-                }, () => {
-                    if (retry.count < 50) {
-                        $.delay((retry.count + 1) * 30000).then(() => { // could not send request -> try again later
-                            retry.count++;
-                            return sendStackToServer(retry);
-                        }).then(resolve);
-                    } else {
-                        resolve({success: false});
-                    }
-                });
+            const resp = await fetch($.opts.website.api.evaluate, {
+                method: "POST",
+                responseType: "json",
+                timeout: 30000,
+                body: formData
             });
+
+            if (resp.ok) {
+                const body = await resp.json();
+                return body.success;
+            } else {
+                return false;
+            }
         };
     };
 

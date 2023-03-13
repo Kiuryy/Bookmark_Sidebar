@@ -395,12 +395,6 @@
     "status_translation_unavailable_desc": {
         "message": "P\u0159ekladatelsk\u00e1 slu\u017eba moment\u00e1ln\u011b nen\u00ed k dispozici. Pros\u00edm zkuste to znovu pozd\u011bji."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Znovu na\u010d\u00edst"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "V d\u016fsledku aktualizace roz\u0161\u00ed\u0159en\u00ed je t\u0159eba tuto str\u00e1nku znovu na\u010d\u00edst."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -1291,9 +1285,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Napi\u0161te pros\u00edm svou zpr\u00e1vu v angli\u010dtin\u011b, jinak budu m\u00edt probl\u00e9my s pochopen\u00edm a odpov\u011bd\u00ed na va\u0161i zpr\u00e1vu."
-    },
-    "settings_support_feedback_email": {
-        "message": "Emailov\u00e1 adresa (voliteln\u00e9)"
     },
     "settings_support_feedback_screenshot": {
         "message": "P\u0159ipojit screenshot"

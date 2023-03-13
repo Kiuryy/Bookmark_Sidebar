@@ -22,27 +22,20 @@
          *
          * @returns {Promise}
          */
-        this.init = (entries) => {
+        this.init = async (entries = null) => {
+            await this.update(entries);
             inited = true;
-
-            return new Promise((resolve) => {
-                this.update(entries).then(resolve);
-            });
         };
 
         /**
-         * Initialises the helper if not already initialized
+         * Initialises the helper if not already initialised
          *
          * @returns {Promise}
          */
-        this.initOnce = () => {
-            return new Promise((resolve) => {
-                if (!inited) {
-                    this.init().then(resolve);
-                } else {
-                    resolve();
-                }
-            });
+        this.initOnce = async () => {
+            if (!inited) {
+                await this.init();
+            }
         };
 
         /**
@@ -244,9 +237,13 @@
          *
          * @param {Array} entriesList
          * @param {Array} parents
-         * @param {bool} parentIsHidden
+         * @param {boolean} parentIsHidden
          */
         const processEntries = (entriesList, parents = [], parentIsHidden = false) => {
+            if (!entriesList) {
+                return;
+            }
+
             entriesList.forEach((entry) => {
                 const thisParents = [...parents];
 
@@ -284,7 +281,9 @@
             };
 
             entry.parents.forEach((parentId) => {
-                entries.directories[parentId].childrenAmount.directories++; // increase children counter
+                if (parentId !== "root________") { // ignore Firefox imaginary root folder
+                    entries.directories[parentId].childrenAmount.directories++; // increase children counter
+                }
             });
 
             entries.directories[entry.id] = entry;

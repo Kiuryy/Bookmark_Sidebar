@@ -84,7 +84,7 @@
 
         const handleNavigationChange = () => {
             return new Promise((resolve) => {
-                const hash = location.hash ? location.hash.substr(1) : null;
+                const hash = location.hash ? location.hash.substring(1) : null;
 
                 if (hash) {
                     showPage(...hash.split("_"));

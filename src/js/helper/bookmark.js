@@ -8,41 +8,38 @@
     $.BookmarkHelper = function (ext) {
 
         /**
-         * Deletes the given bookmark and creates creates markup to allow restoring or shows an overlay when trying to delete a directory
+         * Deletes the given bookmark and creates markup to allow restoring or shows an overlay when trying to delete a directory
          *
          * @param {int} id
          * @returns {Promise}
          */
-        this.removeEntry = (id) => {
-            return new Promise((resolve) => {
-                const data = ext.helper.entry.getDataById(id);
+        this.removeEntry = async (id) => {
+            const data = ext.helper.entry.getDataById(id);
 
-                if (data && data.url) { // delete without confirm dialog, but offer a undo option
-                    const box = ext.helper.list.getActiveBookmarkBox();
-                    const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
-                    entry.data("restore", data);
+            if (data && data.url) { // delete without confirm dialog, but offer a undo option
+                const box = ext.helper.list.getActiveBookmarkBox();
+                const entry = box.find("a[" + $.attr.id + "='" + data.id + "']");
+                entry.data("restore", data);
 
-                    const mask = $("<span></span>")
-                        .addClass($.cl.sidebar.removeMask)
-                        .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
-                        .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
-                        .appendTo(entry);
+                const mask = $("<span></span>")
+                    .addClass($.cl.sidebar.removeMask)
+                    .append("<em>" + ext.helper.i18n.get("sidebar_deleted") + "</em>")
+                    .append("<span>" + ext.helper.i18n.get("sidebar_undo_deletion") + "</span>")
+                    .appendTo(entry);
 
-                    $.delay(100).then(() => {
-                        entry.addClass($.cl.sidebar.removed);
+                $.delay(100).then(() => {
+                    entry.addClass($.cl.sidebar.removed);
 
-                        if (mask.children("span")[0].offsetTop > 0) { // undo button doesn't fit in one line -> remove the label
-                            mask.children("em").remove();
-                        }
-                    });
+                    if (mask.children("span")[0].offsetTop > 0) { // undo button doesn't fit in one line -> remove the label
+                        mask.children("em").remove();
+                    }
+                });
 
-                    ext.helper.selection.deselect(data.id);
-                    this.performDeletion(data.id, true).then(resolve);
-                } else { // open overlay to confirm deletion
-                    ext.helper.overlay.create("delete", ext.helper.i18n.get("contextmenu_delete_dir"), data);
-                    resolve();
-                }
-            });
+                ext.helper.selection.deselect(data.id);
+                await this.performDeletion(data.id, true);
+            } else { // open overlay to confirm deletion
+                ext.helper.overlay.create("delete", ext.helper.i18n.get("contextmenu_delete_dir"), data);
+            }
         };
 
         /**
@@ -50,23 +47,21 @@
          *
          * @param {object} data
          */
-        this.editEntry = (data) => {
-            return new Promise((resolve) => {
-                const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
-                additionalInfoList[data.id] = {
-                    desc: data.additionalInfo
-                };
+        this.editEntry = async (data) => {
+            const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+            additionalInfoList[data.id] = {
+                desc: data.additionalInfo
+            };
 
-                Promise.all([
-                    ext.helper.model.call("updateBookmark", {
-                        id: data.id,
-                        title: data.title,
-                        url: data.url,
-                        preventReload: true
-                    }),
-                    ext.helper.model.setData({"u/additionalInfo": additionalInfoList})
-                ]).then(resolve);
+            const resp = await ext.helper.model.call("updateBookmark", {
+                id: data.id,
+                title: data.title,
+                url: data.url,
+                preventReload: true
             });
+            await ext.helper.model.setData({"u/additionalInfo": additionalInfoList});
+
+            return resp;
         };
 
         /**
@@ -75,37 +70,30 @@
          * @param {jsu} elm
          * @returns {Promise}
          */
-        this.restoreEntry = (elm) => {
-            return new Promise((resolve) => {
-                if (elm && elm.length() > 0) {
-                    const data = elm.data("restore");
-                    elm.removeClass($.cl.sidebar.removed).addClass($.cl.sidebar.restored);
+        this.restoreEntry = async (elm) => {
+            if (elm && elm.length() > 0) {
+                const data = elm.data("restore");
+                elm.removeClass($.cl.sidebar.removed).addClass($.cl.sidebar.restored);
 
-                    $.delay(500).then(() => {
-                        elm.children("span." + $.cl.sidebar.removeMask).remove();
-                        return ext.helper.model.call("createBookmark", data);
-                    }).then((result) => {
-                        const promises = [];
+                await $.delay(500);
+                elm.children("span." + $.cl.sidebar.removeMask).remove();
 
-                        if (result && result.created) {
-                            elm.attr($.attr.id, result.created);
+                const result = await ext.helper.model.call("createBookmark", data);
 
-                            const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
-                            if (additionalInfoList[data.id]) { // restore the additional information
-                                additionalInfoList[result.created] = additionalInfoList[data.id];
-                                promises.push(ext.helper.model.setData({"u/additionalInfo": additionalInfoList}));
-                            }
-                        }
+                const promises = [];
+                if (result && result.created) {
+                    elm.attr($.attr.id, result.created);
 
-                        promises.push(ext.helper.entry.init());
-                        return Promise.all(promises);
-                    }).then(() => {
-                        resolve();
-                    });
-                } else {
-                    resolve();
+                    const additionalInfoList = ext.helper.model.getData("u/additionalInfo");
+                    if (additionalInfoList[data.id]) { // restore the additional information
+                        additionalInfoList[result.created] = additionalInfoList[data.id];
+                        promises.push(ext.helper.model.setData({"u/additionalInfo": additionalInfoList}));
+                    }
                 }
-            });
+
+                promises.push(ext.helper.entry.init());
+                await Promise.all(promises);
+            }
         };
 
         /**
@@ -115,14 +103,10 @@
          * @param {boolean} preventReload
          * @returns {Promise}
          */
-        this.performDeletion = (id, preventReload = false) => {
-            return new Promise((resolve) => {
-                ext.helper.model.call("deleteBookmark", {
-                    id: id,
-                    preventReload: preventReload
-                }).then(() => {
-                    resolve();
-                });
+        this.performDeletion = async (id, preventReload = false) => {
+            await ext.helper.model.call("deleteBookmark", {
+                id: id,
+                preventReload: preventReload
             });
         };
 
@@ -132,18 +116,16 @@
          * @param {object} data
          * @returns {Promise}
          */
-        this.pinEntry = (data) => {
-            return new Promise((resolve) => {
-                const entries = ext.helper.model.getData("u/pinnedEntries");
-                let idx = -1;
-                Object.values(entries).forEach((entry) => { // determine the current highest index
-                    idx = Math.max(idx, entry.index);
-                });
-
-                entries[data.id] = {index: idx + 1}; // add new entry at the last position
-
-                savePinnedEntries(entries).then(resolve);
+        this.pinEntry = async (data) => {
+            const entries = ext.helper.model.getData("u/pinnedEntries");
+            let idx = -1;
+            Object.values(entries).forEach((entry) => { // determine the current highest index
+                idx = Math.max(idx, entry.index);
             });
+
+            entries[data.id] = {index: idx + 1}; // add new entry at the last position
+
+            await savePinnedEntries(entries);
         };
 
         /**
@@ -152,13 +134,12 @@
          * @param {object} data
          * @returns {Promise}
          */
-        this.unpinEntry = (data) => {
-            return new Promise((resolve) => {
-                const entries = ext.helper.model.getData("u/pinnedEntries");
-                delete entries[data.id];
+        this.unpinEntry = async (data) => {
 
-                savePinnedEntries(entries).then(resolve);
-            });
+            const entries = ext.helper.model.getData("u/pinnedEntries");
+            delete entries[data.id];
+
+            await savePinnedEntries(entries);
         };
 
         /**
@@ -197,28 +178,26 @@
          *
          * @returns {Promise}
          */
-        this.reorderPinnedEntries = (opts) => {
-            return new Promise((resolve) => {
-                const entries = ext.helper.model.getData("u/pinnedEntries");
+        this.reorderPinnedEntries = async (opts) => {
+            const entries = ext.helper.model.getData("u/pinnedEntries");
 
-                let newIndex = 0;
-                if (opts.prevId) {
-                    const prevInfo = ext.helper.entry.getDataById(opts.prevId);
-                    newIndex = prevInfo.pinnedIndex + 1;
+            let newIndex = 0;
+            if (opts.prevId) {
+                const prevInfo = ext.helper.entry.getDataById(opts.prevId);
+                newIndex = prevInfo.pinnedIndex + 1;
+            }
+
+            Object.keys(entries).forEach((id) => { // iterate all entries
+                if (+id === +opts.id) { // changed element -> set index
+                    entries[id].index = newIndex;
+                    ext.helper.entry.addData(id, "pinnedIndex", newIndex);
+                } else if (entries[id].index >= newIndex) { // index of this entry is higher then the index of the changed entry -> increase
+                    entries[id].index++;
+                    ext.helper.entry.addData(id, "pinnedIndex", entries[id].index);
                 }
-
-                Object.keys(entries).forEach((id) => { // iterate all entries
-                    if (+id === +opts.id) { // changed element -> set index
-                        entries[id].index = newIndex;
-                        ext.helper.entry.addData(id, "pinnedIndex", newIndex);
-                    } else if (entries[id].index >= newIndex) { // index of this entry is higher then the index of the changed entry -> increase
-                        entries[id].index++;
-                        ext.helper.entry.addData(id, "pinnedIndex", entries[id].index);
-                    }
-                });
-
-                savePinnedEntries(entries).then(resolve);
             });
+
+            await savePinnedEntries(entries);
         };
 
         /**
@@ -228,14 +207,12 @@
          * @param {object} entries
          * @returns {Promise}
          */
-        const savePinnedEntries = (entries) => {
-            return new Promise((resolve) => {
-                Promise.all([
-                    ext.helper.model.call("removeCache", {name: "htmlList"}),
-                    ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
-                    ext.helper.model.setData({"u/pinnedEntries": entries})
-                ]).then(resolve);
-            });
+        const savePinnedEntries = async (entries) => {
+            await Promise.all([
+                ext.helper.model.call("removeCache", {name: "htmlList"}),
+                ext.helper.model.call("removeCache", {name: "htmlPinnedEntries"}),
+                ext.helper.model.setData({"u/pinnedEntries": entries})
+            ]);
         };
     };
 })(jsu);

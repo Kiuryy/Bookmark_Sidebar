@@ -25,7 +25,7 @@
     "glob-concat": "^1.0.3",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
-    "sass": "^1.59.2",
+    "sass": "^1.59.3",
     "npm-check-updates": "^16.7.12",
     "read-file": "^0.2.0",
     "request": "^2.88.2",

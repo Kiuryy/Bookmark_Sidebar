@@ -55,9 +55,7 @@
          * @returns {Promise}
          */
         this.track = async (opts) => {
-            if (!$.isDev) {
-                await addToStack(opts.name, opts.value, opts.always);
-            }
+            await addToStack(opts.name, opts.value, opts.always);
         };
 
         /**
@@ -69,7 +67,7 @@
             const lastTrackDate = +b.helper.model.getData("lastTrackDate");
             const today = +new Date().setHours(0, 0, 0, 0);
 
-            if (trackUserDataRunning === false && today > lastTrackDate && !$.isDev) { // no configuration/userdata tracked today
+            if (trackUserDataRunning === false && today > lastTrackDate) { // no configuration/userdata tracked today
                 trackUserDataRunning = true;
 
                 await b.helper.model.setData("lastTrackDate", today);
@@ -118,7 +116,7 @@
          * Tracks the amount of bookmarks
          */
         const trackBookmarkAmount = async () => {
-            const response = await b.helper.bookmarks.getById(0); // track bookmark amount
+            const response = await b.helper.bookmarks.getById({id: 0}); // track bookmark amount
             let bookmarkAmount = 0;
             const processBookmarks = (bookmarks) => {
                 for (let i = 0; i < bookmarks.length; i++) {
@@ -294,6 +292,12 @@
             formData.append("stack", JSON.stringify(stack));
             formData.append("uid", generateHash(stack));
             formData.append("tz", new Date().getTimezoneOffset());
+
+            if ($.isDev) {
+                // eslint-disable-next-line no-console
+                console.log(`POST request to ${$.opts.website.api.evaluate}`, stack);
+                return true;
+            }
 
             const resp = await fetch($.opts.website.api.evaluate, {
                 method: "POST",

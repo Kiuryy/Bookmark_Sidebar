@@ -19,7 +19,7 @@
                     return {bookmarks: bookmarks};
                 }
             } catch (err) {
-                console.error(err);
+                console.error(err, opts);
                 return {error: err};
             }
         };

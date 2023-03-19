@@ -1,6 +1,6 @@
 {
     "extension_name": {
-        "message": "Bo\u010dn\u00ed li\u0161ta z\u00e1lloh"
+        "message": "Bo\u010dn\u00ed li\u0161ta z\u00e1lo\u017eek"
     },
     "extension_name_short": {
         "message": "Z\u00e1lo\u017eky"
@@ -1285,6 +1285,9 @@
     },
     "settings_support_feedback_notice": {
         "message": "Napi\u0161te pros\u00edm svou zpr\u00e1vu v angli\u010dtin\u011b, jinak budu m\u00edt probl\u00e9my s pochopen\u00edm a odpov\u011bd\u00ed na va\u0161i zpr\u00e1vu."
+    },
+    "settings_support_feedback_email": {
+        "message": "R\u00e1di byste obdr\u017eeli odpov\u011b\u010f? Uve\u010fte pros\u00edm e-mailovou adresu (nepovinn\u00e9)"
     },
     "settings_support_feedback_screenshot": {
         "message": "P\u0159ipojit screenshot"

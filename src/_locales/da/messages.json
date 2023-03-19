@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bogm\u00e6rke sidepanel"
     },
+    "extension_name_short": {
+        "message": "Bogm\u00e6rker"
+    },
     "extension_desc": {
         "message": "Tilf\u00f8jer en skiftebar sidebj\u00e6lke med alle dine bogm\u00e6rker i kanten af dit browservindue."
     },
@@ -382,12 +385,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Overs\u00e6ttelsestjenesten er i \u00f8jeblikket ikke tilg\u00e6ngelig. Pr\u00f8v venligst igen senere."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Genindl\u00e6s nu"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Grundet en opdatering af denne udvidelse, er der behov for at genindl\u00e6se denne side."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1159,9 +1156,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Skriv venligst din feedback p\u00e5 engelsk, ellers Det vil v\u00e6re sv\u00e6rt at forst\u00e5 og svare p\u00e5 din besked."
-    },
-    "settings_support_feedback_email": {
-        "message": "Email addresse (valgfrit)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Vedh\u00e6ft sk\u00e6rmbilleder"

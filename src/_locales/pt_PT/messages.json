@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "Por favor, escreva o seu coment\u00e1rio em ingl\u00eas, caso contr\u00e1rio ser\u00e1 dif\u00edcil entender e responder \u00e0 sua mensagem."
     },
+    "settings_support_feedback_email": {
+        "message": "Gostaria de receber uma resposta? Por favor, forne\u00e7a um endere\u00e7o de correio eletr\u00f3nico (opcional)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Anexar imagens do ecr\u00e3"
     },

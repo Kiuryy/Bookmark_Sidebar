@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Gr\u0101matz\u012bmju s\u0101nu josla"
     },
+    "extension_name_short": {
+        "message": "Gr\u0101matz\u012bmes"
+    },
     "extension_desc": {
         "message": "P\u0101rl\u016bkprogrammas log\u0101 pievieno p\u0101rsl\u0113dzamu s\u0101na joslu ar vis\u0101m j\u016bsu gr\u0101matz\u012bm\u0113m."
     },
@@ -93,16 +96,16 @@
         "message": "Aizv\u0113rt visas sada\u013cas"
     },
     "contextmenu_reload_sidebar": {
-        "message": "P\u0101rl\u0101d\u0113t s\u0101na joslu"
+        "message": "P\u0101rl\u0101d\u0113t s\u0101njoslu"
     },
     "contextmenu_open_children": {
         "message": "Atv\u0113rt gr\u0101matz\u012bmes"
     },
     "contextmenu_hide_from_sidebar": {
-        "message": "Pasl\u0113pt no s\u0101na joslas"
+        "message": "Pasl\u0113pt no s\u0101njoslas"
     },
     "contextmenu_show_in_sidebar": {
-        "message": "Par\u0101d\u012bt s\u0101na josl\u0101"
+        "message": "Par\u0101d\u012bt s\u0101njosl\u0101"
     },
     "contextmenu_show_in_dir": {
         "message": "Par\u0101d\u012bt sada\u013c\u0101"
@@ -138,16 +141,16 @@
         "message": "Lietot\u0101ja-izveidots"
     },
     "sort_label_alphabetical": {
-        "message": "Alfab\u0113ta sec\u012bb\u0101"
+        "message": "Alfab\u0113tis\u012b\u0101 sec\u012bb\u0101"
     },
     "sort_label_most_used": {
-        "message": "Bie\u017e\u0101k izmantotais"
+        "message": "Bie\u017e\u0101k izmantotie"
     },
     "sort_label_recently_used": {
-        "message": "Nesen izmantots"
+        "message": "Nesen izmantotie"
     },
     "sort_label_recently_added": {
-        "message": "Nesen pievienots"
+        "message": "Nesen pievienotie"
     },
     "sort_view_as_tree": {
         "message": "Par\u0101d\u012bt sada\u013cas"
@@ -383,12 +386,6 @@
     "status_translation_unavailable_desc": {
         "message": "Tulko\u0161anas pakalpojums \u0161obr\u012bd nav pieejams. L\u016bdzu, pam\u0113\u0123iniet v\u0113lreiz v\u0113l\u0101k."
     },
-    "status_background_disconnected_reload_action": {
-        "message": "Tagad p\u0101rl\u0101d\u0113t"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Papla\u0161in\u0101juma atjaunin\u0101juma d\u0113\u013c \u0161\u012b lapa ir j\u0101iel\u0101d\u0113 atk\u0101rtoti."
-    },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
     },
@@ -526,5 +523,245 @@
     },
     "onboarding_goto_appearance": {
         "message": "Konfigur\u0113t izskatu"
+    },
+    "settings_title": {
+        "message": "Iestat\u012bjumi"
+    },
+    "settings_menu_dashboard": {
+        "message": "P\u0101rskats"
+    },
+    "settings_menu_sidebar": {
+        "message": "S\u0101njosla"
+    },
+    "settings_menu_sidebar_general": {
+        "message": "Visp\u0101r\u012bgi"
+    },
+    "settings_menu_sidebar_toggle": {
+        "message": "Sl\u0113d\u017ei"
+    },
+    "settings_menu_sidebar_tooltip": {
+        "message": "R\u012bka padomi"
+    },
+    "settings_menu_sidebar_filter": {
+        "message": "Filtrs"
+    },
+    "settings_menu_appearance": {
+        "message": "Izskats"
+    },
+    "settings_menu_appearance_general": {
+        "message": "Visp\u0101r\u012bgi"
+    },
+    "settings_menu_appearance_sidebar": {
+        "message": "S\u0101njosla"
+    },
+    "settings_menu_appearance_indicator": {
+        "message": "Indik\u0101tors"
+    },
+    "settings_menu_appearance_icon": {
+        "message": "Ikona"
+    },
+    "settings_menu_appearance_overlay": {
+        "message": "P\u0101rkl\u0101jums"
+    },
+    "settings_menu_newtab": {
+        "message": "Jauna cilne"
+    },
+    "settings_menu_language": {
+        "message": "Voloda"
+    },
+    "settings_menu_language_general": {
+        "message": "Visp\u0101r\u012bgi"
+    },
+    "settings_menu_language_translate": {
+        "message": "Tulkot"
+    },
+    "settings_menu_support": {
+        "message": "Atbalsts"
+    },
+    "settings_menu_infos": {
+        "message": "Inform\u0101cija"
+    },
+    "settings_menu_infos_aboutme": {
+        "message": "Par mani"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "At\u013caujas"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Priv\u0101tums"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakts"
+    },
+    "settings_menu_infos_changelog": {
+        "message": "Izmai\u0146u \u017eurn\u0101ls"
+    },
+    "settings_menu_premium": {
+        "message": "Pr\u0113mium"
+    },
+    "settings_menu_export": {
+        "message": "Import\u0113t\/Eksport\u0113t"
+    },
+    "settings_menu_expert": {
+        "message": "Eksport\u0113\u0161anas iestat\u012bjumi"
+    },
+    "settings_save": {
+        "message": "Saglab\u0101t izmai\u0146as"
+    },
+    "settings_saved_message": {
+        "message": "Izmai\u0146as ir veiksm\u012bgi saglab\u0101tas"
+    },
+    "settings_restore": {
+        "message": "Atjaunot noklus\u0113jumu"
+    },
+    "settings_restore_confirm": {
+        "message": "Vai j\u016bs tie\u0161\u0101m v\u0113laties atjaunot noklus\u0113juma konfigur\u0101ciju?"
+    },
+    "settings_restored_message": {
+        "message": "Konfigur\u0101cija ir veiksm\u012bgi atjaunota"
+    },
+    "settings_advanced": {
+        "message": "Papildu iestat\u012bjumi"
+    },
+    "settings_not_synced": {
+        "message": "Netiks sinhroniz\u0113ts starp j\u016bsu ier\u012bc\u0113m."
+    },
+    "settings_premium_activated": {
+        "message": "Pr\u0113mium ir veiksm\u012bgi aktiviz\u0113ts"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Nevar\u0113ja aktiviz\u0113t Pr\u0113mium. L\u016bdzu ievadiet der\u012bgu licences atsl\u0113gu"
+    },
+    "settings_search_placeholder": {
+        "message": "Mekl\u0113t konfigur\u0101ciju"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Izmantojot ekspertu iestat\u012bjumus, varat main\u012bt visus papla\u0161in\u0101juma konfigur\u0101cijas karogus, pat tos, kurus nevarat main\u012bt, izmantojot iestat\u012bjumu lapas parast\u0101s izv\u0113les r\u016bti\u0146as vai sl\u012bd\u0146us."
+    },
+    "settings_expert_settings_notice": {
+        "message": "L\u016bdzu, mainiet \u0161eit eso\u0161\u0101s v\u0113rt\u012bbas tikai tad, ja piln\u012bb\u0101 saprotat, ko dar\u0101t! Boj\u0101tas konfigur\u0101cijas var izrais\u012bt neparedz\u0113tu papla\u0161in\u0101juma darb\u012bbu. Tom\u0113r, ja kaut kas nedarbojas pareizi, varat atgriezties pie noklus\u0113juma konfigur\u0101cijas."
+    },
+    "settings_expert_save_error": {
+        "message": "Nevar\u0113ja saglab\u0101t iestat\u012bjumus. L\u016bdzu izlabojiet savu ievadi"
+    },
+    "settings_dashboard_sidebar_options": {
+        "message": "Konfigur\u0113t s\u0101njoslas uzved\u012bbu"
+    },
+    "settings_dashboard_sidebar_options_desc": {
+        "message": "Ir da\u017e\u0101das opcijas, kuras varat main\u012bt, lai kontrol\u0113tu papla\u0161in\u0101jumu. Piem\u0113ram, varat main\u012bt to, k\u0101 s\u0101njoslai j\u0101sl\u012bd iek\u0161\u0101 vai k\u0101 j\u0101atver gr\u0101matz\u012bmes. Ja nev\u0113laties, lai s\u0101njosla tiktu iel\u0101d\u0113ta katr\u0101 lap\u0101, varat ar\u012b to konfigur\u0113t, izmantojot atbilsto\u0161us noteikumus."
+    },
+    "settings_dashboard_appearance_options": {
+        "message": "Main\u012bt s\u0101njoslas izskatu"
+    },
+    "settings_dashboard_appearance_options_desc": {
+        "message": "Varat piln\u012bb\u0101 main\u012bt s\u0101njoslas izskatu, lai tas atbilstu sav\u0101m vajadz\u012bb\u0101m. Ir da\u017e\u0101das iesp\u0113jas main\u012bt fonta lielumu, rindstarpas, kr\u0101sas, ikonas un daudz ko citu. Varat ar\u012b izv\u0113l\u0113ties k\u0101du no iepriek\u0161 defin\u0113tiem dizainiem un iepriek\u0161 iestat\u012bt\u0101m opcij\u0101m, lai \u0101tri padar\u012btu s\u0101njoslu t\u0101du, k\u0101du v\u0113laties."
+    },
+    "settings_tips_tricks_facts": {
+        "message": "Vai tu zin\u0101ji?"
+    },
+    "settings_tips_tricks_next": {
+        "message": "N\u0101ko\u0161ais padoms"
+    },
+    "settings_tips_tricks_quick_search": {
+        "message": "\u0100tr\u0101 mekl\u0113\u0161ana"
+    },
+    "settings_tips_tricks_quick_search_desc": {
+        "message": "Ja atverat s\u0101njoslu, varat mekl\u0113t gr\u0101matz\u012bmes, tikai s\u0101kot rakst\u012bt. Vispirms nav j\u0101noklik\u0161\u0137ina uz mekl\u0113\u0161anas ikonas s\u0101njoslas galven\u0113."
+    },
+    "settings_tips_tricks_activation_area": {
+        "message": "Aktiviz\u0101cijas lauks"
+    },
+    "settings_tips_tricks_activation_area_desc": {
+        "message": "Aktiviz\u0101cijas apgabal\u0101 p\u0113c noklus\u0113juma var virz\u012bt kursoru virs visas p\u0101rl\u016bkprogrammas loga malas, lai atv\u0113rtu s\u0101njoslu. Aktiviz\u0101cijas apgabalu var samazin\u0101t, \u013caujot s\u0101njoslai atv\u0113rties tikai p\u0101rl\u016bkprogrammas augstuma da\u013c\u0101. Piem\u0113ram, varat main\u012bt s\u0101njoslu, lai t\u0101 tiktu r\u0101d\u012bta tikai tad, kad p\u0101rl\u016bkprogrammas loga apak\u0161\u0113j\u0101 kreisaj\u0101 st\u016br\u012b noklik\u0161\u0137in\u0101t uz aktiviz\u0101cijas apgabala. Tas var b\u016bt noder\u012bgi, lai nov\u0113rstu s\u0101njoslas net\u012b\u0161u par\u0101d\u012b\u0161anos, noklik\u0161\u0137inot uz vietnes sait\u0113m."
+    },
+    "settings_tips_tricks_quick_bookmarking": {
+        "message": "\u0100tra gr\u0101matz\u012bmju pievieno\u0161ana"
+    },
+    "settings_tips_tricks_quick_bookmarking_desc": {
+        "message": "Varat vilkt jebkuru URL tie\u0161i s\u0101njosl\u0101 un nomest to vajadz\u012bgaj\u0101 viet\u0101. \u0160\u0101d\u0101 veid\u0101 pat varat atz\u012bm\u0113t un vilkt pa\u0161reiz\u0113jo p\u0101rl\u016bkprogrammas cilnes URL. Varat ar\u012b vilkt simbolu {1} pa kreisi no adreses joslas s\u0101njosl\u0101, lai pievienotu pa\u0161reiz\u0113jo lapu gr\u0101matz\u012bm\u0113m, vispirms neatz\u012bm\u0113jot visu adreses joslu."
+    },
+    "settings_tips_tricks_separators": {
+        "message": "Atdal\u012bt\u0101js"
+    },
+    "settings_tips_tricks_separators_desc": {
+        "message": "Gr\u0101matz\u012bmes ieraksts ar URL {1} un virsrakstu {2} vai {3} tiks par\u0101d\u012bts k\u0101 atdal\u012bt\u0101js s\u0101njosl\u0101. Varat pievienot atdal\u012bt\u0101jus, ar peles labo pogu noklik\u0161\u0137inot uz jebkuras mapes s\u0101njosl\u0101 un p\u0113c tam noklik\u0161\u0137inot uz pogas {4}."
+    },
+    "settings_tips_tricks_quick_url_copy": {
+        "message": "\u0100tr\u0101 URL kop\u0113\u0161ana"
+    },
+    "settings_tips_tricks_quick_url_copy_desc": {
+        "message": "Lai s\u0101njosl\u0101 eso\u0161\u0101s gr\u0101matz\u012bmes URL kop\u0113tu starpliktuv\u0113, varat nospiest tausti\u0146u {1}, virzot kursoru uz ieraksta."
+    },
+    "settings_tips_tricks_open_all_bookmarks": {
+        "message": "Atv\u0113rt visas gr\u0101matz\u012bmes"
+    },
+    "settings_tips_tricks_open_all_bookmarks_desc": {
+        "message": "Lai atv\u0113rtu visas map\u0113 eso\u0161\u0101s gr\u0101matz\u012bmes, varat noklik\u0161\u0137in\u0101t uz mapes ar vid\u0113jo tausti\u0146u. Varat ar\u012b nospiest {1}, vienlaikus noklik\u0161\u0137inot uz mapes ar peles kreiso pogu."
+    },
+    "settings_tips_tricks_hide_entries": {
+        "message": "Sl\u0113pt ierakstus"
+    },
+    "settings_tips_tricks_hide_entries_desc": {
+        "message": "S\u0101njosl\u0101 varat pasl\u0113pt atsevi\u0161\u0137as gr\u0101matz\u012bmes vai pat mapes. Varat ar peles labo pogu noklik\u0161\u0137in\u0101t uz jebkura s\u0101njoslas ieraksta un p\u0113c tam konteksta izv\u0113ln\u0113 noklik\u0161\u0137in\u0101t uz pogas {1}. Lai atkal par\u0101d\u012btu sl\u0113ptos ierakstus, varat noklik\u0161\u0137in\u0101t uz izv\u0113lnes ikonas s\u0101njoslas galven\u0113 un iesp\u0113jot atbilsto\u0161o izv\u0113les r\u016bti\u0146u."
+    },
+    "settings_tips_tricks_expand_all_subfolders": {
+        "message": "Izv\u0113rst visas apak\u0161mapes"
+    },
+    "settings_tips_tricks_expand_all_subfolders_desc": {
+        "message": "Lai \u0101tri atv\u0113rtu mapi, kur\u0101 ir atv\u0113rtas ar\u012b visas t\u0101s apak\u0161mapes, s\u0101njosl\u0101 varat veikt dubultklik\u0161\u0137i uz mapes."
+    },
+    "settings_tips_tricks_keyboard_shortcuts": {
+        "message": "Tastat\u016bras \u012bsin\u0101jumtausti\u0146i"
+    },
+    "settings_tips_tricks_keyboard_shortcuts_desc": {
+        "message": "S\u0101njoslu var vad\u012bt, izmantojot \u012bsin\u0101jumtausti\u0146us. Varat apskat\u012bt \u012bsin\u0101jumtausti\u0146u sarakstu, s\u0101njoslas galven\u0113 noklik\u0161\u0137inot uz izv\u0113lnes ikonas un p\u0113c tam noklik\u0161\u0137inot uz pogas {1}."
+    },
+    "settings_tips_tricks_synchronization": {
+        "message": "Sinhroniz\u0101cija"
+    },
+    "settings_tips_tricks_synchronization_desc": {
+        "message": "Ja iestat\u012bjumos iesp\u0113josit p\u0101rl\u016bkprogrammas sinhroniz\u0101cijas opcijas, visi s\u0101njoslas iestat\u012bjumi tiks sinhroniz\u0113ti starp j\u016bsu ier\u012bc\u0113m. Pat bez Pr\u0113mium."
+    },
+    "settings_tips_tricks_synchronization_action": {
+        "message": "Atrodiet savus sinhroniz\u0101cijas iestat\u012bjumus"
+    },
+    "settings_tips_tricks_i18n_desc": {
+        "message": "Papla\u0161in\u0101jums ir pieejams {1} da\u017e\u0101d\u0101s valod\u0101s. Tulkojumi ir kopienas veidoti, un ikviens var pal\u012bdz\u0113t, tulkojot papla\u0161in\u0101juma tekstus cit\u0101s valod\u0101s. Tulkojumi tiks apstiprin\u0101ti un p\u0113c tam pievienoti papla\u0161in\u0101jumam ar n\u0101kamo atjaunin\u0101jumu."
+    },
+    "settings_tips_tricks_about_desc": {
+        "message": "\u0160is papla\u0161in\u0101jums ir viena cilv\u0113ka projekts, kas s\u0101k\u0101s k\u0101 hobija projekts person\u012bgai lieto\u0161anai."
+    },
+    "settings_tips_tricks_version_desc": {
+        "message": "\u0160\u012b papla\u0161in\u0101juma pirm\u0101 versija tika izlaista 2016. gada novembr\u012b."
+    },
+    "settings_tips_tricks_right_click": {
+        "message": "Labais klik\u0161\u0137is"
+    },
+    "settings_tips_tricks_right_click_desc": {
+        "message": "Ar peles labo pogu noklik\u0161\u0137iniet uz jebkuras gr\u0101matz\u012bmes vai mapes s\u0101njosl\u0101, lai par\u0101d\u012btu papildu opcijas. Piem\u0113ram, varat redi\u0123\u0113t pie eso\u0161\u0101s gr\u0101matz\u012bmes paispraust ierakstus s\u0101njoslas aug\u0161da\u013c\u0101. Ar peles labo pogu noklik\u0161\u0137inot uz mapes, varat s\u0101kt gr\u0101matz\u012bmes p\u0101rbaudi, lai identific\u0113tu boj\u0101jumus vai atjaunin\u0101tus gr\u0101matz\u012bmju URL."
+    },
+    "settings_tips_tricks_share_data": {
+        "message": "Dal\u012bties ar inform\u0101ciju"
+    },
+    "settings_tips_tricks_share_data_desc": {
+        "message": "Varat kop\u012bgot savu konfigur\u0101ciju anon\u012bmi, kas pal\u012bdz man noteikt popul\u0101ros iestat\u012bjumus un noteikt, kas j\u0101uzlabo vai j\u0101maina turpm\u0101kajos jaunin\u0101jumos. Papla\u0161in\u0101jums neapkopo nek\u0101dus personas datus un nelasa gr\u0101matz\u012bmes. Bez skaidras at\u013caujas papla\u0161in\u0101jums ar\u012b nekop\u012bgo konfigur\u0101ciju."
+    },
+    "settings_tips_tricks_multiselect": {
+        "message": "Izv\u0113l\u0113ties vair\u0101kus ierakstus"
+    },
+    "settings_tips_tricks_multiselect_desc": {
+        "message": "S\u0101njosl\u0101 varat atlas\u012bt vair\u0101kas gr\u0101matz\u012bmes vai mapes, lai t\u0101s uzreiz atv\u0113rtu, dz\u0113stu vai pat p\u0101rvietotu, izmantojot vilk\u0161anu un nome\u0161anu."
+    },
+    "settings_tips_tricks_newtab": {
+        "message": "Jauna cilne"
+    },
+    "settings_tips_tricks_newtab_desc": {
+        "message": "Jaunas cilnes lapas izskatu var konfigur\u0113t tie\u0161i lap\u0101, apak\u0161\u0113j\u0101 st\u016br\u012b noklik\u0161\u0137inot uz pogas {1}. P\u0113c tam varat main\u012bt re\u017e\u0123a vienumus, mekl\u0113t\u0101jprogrammu, fona att\u0113lu vai saites, aug\u0161pus\u0113."
+    },
+    "settings_tips_tricks_privacy": {
+        "message": "Priv\u0101tums"
+    },
+    "settings_tips_tricks_privacy_desc": {
+        "message": "S\u0101njosl\u0101 redzam\u0101s gr\u0101matz\u012bmes sinhroniz\u0113 un p\u0101rvalda {browserName}. Papla\u0161in\u0101jums nesaglab\u0101 un neanaliz\u0113 \u0161\u012bs gr\u0101matz\u012bmes, un s\u0101njosl\u0101 par\u0101da tikai j\u016bsu p\u0101rl\u016bkprogrammas gr\u0101matz\u012bmes."
     }
 }

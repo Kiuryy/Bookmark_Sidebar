@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "Ecrivez-moi en anglais s'il vous pla\u00eet, autrement je risque d'avoir des probl\u00e8mes pour comprendre votre message et y r\u00e9pondre."
     },
+    "settings_support_feedback_email": {
+        "message": "Vous souhaitez obtenir une r\u00e9ponse? Veuillez indiquer une adresse \u00e9lectronique (facultatif)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Joignez des captures d'\u00e9cran"
     },

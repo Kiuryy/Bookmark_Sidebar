@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Bookmark Samping"
     },
+    "extension_name_short": {
+        "message": "Bookmarks"
+    },
     "extension_desc": {
         "message": "Menambahkan sebuah sidebar yang dapat di toggle dengan semua bookmark di samping layar kamu."
     },
@@ -367,12 +370,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Service penejermahan sedang tidak bisa sekarang. Tolong untuk mencob lagi nanti."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Reload sekarang."
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Karena ada update extennsion ini halaman ini harus di reload lagi."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1114,9 +1111,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "Harap tuliskan masukan Anda dalam Bahasa Inggris, karena pesan Anda akan sulit dimengerti dan dibalas."
-    },
-    "settings_support_feedback_email": {
-        "message": "alamat email (pilihan)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Lampirkan screenshot"

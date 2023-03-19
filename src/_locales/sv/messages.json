@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "Skriv din \u00e5terkoppling p\u00e5 engelska, annars \u00e4r det sv\u00e5rt att f\u00f6rst\u00e5 och svara p\u00e5 ditt meddelande."
     },
+    "settings_support_feedback_email": {
+        "message": "Vill du f\u00e5 svar? Var sn\u00e4ll och skriv in en mejl adress (valfritt)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Bifoga sk\u00e4rmdumpar"
     },

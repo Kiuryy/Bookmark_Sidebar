@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "Molim vas da va\u0161e povratne informacije pi\u0161ete na engleskom jeziku, kako bi lak\u0161e razumeo i odgovorio na va\u0161u poruku."
     },
+    "settings_support_feedback_email": {
+        "message": "\u017delite odgovor? Obezbedite nam emejl adresu (opciono)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017eite snimke ekrana"
     },

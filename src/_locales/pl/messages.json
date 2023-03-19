@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "Prosz\u0119, napisz swoj\u0105 wiadomo\u015b\u0107 po angielsku, bo inaczej b\u0119d\u0119 mia\u0142 problemy ze zrozumieniem jej i odpowiedzeniem na ni\u0105."
     },
+    "settings_support_feedback_email": {
+        "message": "Chcesz otrzyma\u0107 odpowied\u017a? Wprowad\u017a sw\u00f3j adres e-mail (opcjonalnie)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Do\u0142\u0105cz zrzut ekranu"
     },

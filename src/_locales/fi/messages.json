@@ -2,6 +2,9 @@
     "extension_name": {
         "message": "Kirjanmerkkien Sivupalkki"
     },
+    "extension_name_short": {
+        "message": "Kirjanmerkit"
+    },
     "extension_desc": {
         "message": "Lis\u00e4\u00e4 napin painalluksella vaihdettavan sivupalkin n\u00e4yt\u00f6n reunaan, joka sis\u00e4lt\u00e4\u00e4 kaikki kirjanmerkkisi."
     },
@@ -12,19 +15,22 @@
         "message": "Viimeksi p\u00e4ivitetty {1}"
     },
     "header_bookmarks": {
-        "message": "Kirjanmerkki\u00e4"
+        "message": "Kirjanmerkit"
     },
     "header_bookmarks_single": {
         "message": "Kirjanmerkki"
     },
+    "header_selected_entries": {
+        "message": "valittu"
+    },
     "sidebar_dir_children": {
-        "message": "Kohdetta"
+        "message": "Kohteet"
     },
     "sidebar_search_placeholder": {
         "message": "Etsi kirjanmerkki\u00e4"
     },
     "sidebar_search_no_results": {
-        "message": "Mik\u00e4\u00e4n kirjanmerkki ei vastannut haku kriteereit\u00e4"
+        "message": "Mik\u00e4\u00e4n kirjanmerkki ei vastannut hakukriteereit\u00e4"
     },
     "sidebar_copied_to_clipboard": {
         "message": "Linkki kopioitu"
@@ -45,7 +51,7 @@
         "message": "Muokkaa Kansiota"
     },
     "contextmenu_edit_separator": {
-        "message": "Muokkaa Separaattoria"
+        "message": "Muokkaa Erotinta"
     },
     "contextmenu_delete_bookmark": {
         "message": "Poista Kirjanmerkki"
@@ -116,6 +122,21 @@
     "contextmenu_keyboard_shortcuts": {
         "message": "Pikan\u00e4pp\u00e4imet"
     },
+    "contextmenu_select_entries": {
+        "message": "Valitse useampi"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Valitse kirjanmerkki"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Poista kirjanmerkin valinta"
+    },
+    "contextmenu_select_dir": {
+        "message": "Valitse kansio"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Poista kansion valinta"
+    },
     "sort_label_custom": {
         "message": "K\u00e4ytt\u00e4j\u00e4n m\u00e4\u00e4rittelem\u00e4"
     },
@@ -161,6 +182,9 @@
     "overlay_update": {
         "message": "P\u00e4ivit\u00e4"
     },
+    "overlay_confirm_open_selected": {
+        "message": "Haluatko varmasti avata kaikki valittujen kansioiden ja alikansioiden {1} kirjanmerkki\u00e4?"
+    },
     "overlay_open_children": {
         "message": "Avaa kaikki"
     },
@@ -174,13 +198,13 @@
         "message": "Haluatko varmasti piilottaa t\u00e4m\u00e4n kirjanmerkin sivupalkista?"
     },
     "overlay_hide_dir_confirm": {
-        "message": "Haluatko varmasti piilottaa t\u00e4m\u00e4n kansion? Kaikki kansion kirjanmerkit piilotetaan my\u00f6s."
+        "message": "Haluatko varmasti piilottaa t\u00e4m\u00e4n kansion? Kaikki kansion alikansioiden kirjanmerkit piilotetaan my\u00f6s."
     },
     "overlay_delete_bookmark_confirm": {
         "message": "Haluatko varmasti poistaa t\u00e4m\u00e4n kirjanmerkin?"
     },
     "overlay_delete_dir_confirm": {
-        "message": "Haluatko varmasti poistaa t\u00e4m\u00e4n kansion? Kaikki kansion kirjanmerkit poistetaan my\u00f6s."
+        "message": "Haluatko varmasti poistaa t\u00e4m\u00e4n kansion? Kaikki kansion alikansioiden kirjanmerkit poistetaan my\u00f6s."
     },
     "overlay_label_bookmark": {
         "message": "Kirjanmerkki"
@@ -225,25 +249,31 @@
         "message": "Kirjanmerkit"
     },
     "overlay_dir_children_dirs": {
-        "message": "Kansiota"
+        "message": "Kansiot"
+    },
+    "overlay_delete_selected": {
+        "message": "Poista valitut merkinn\u00e4t"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Haluatko varmasti poistaa valitut merkinn\u00e4t? My\u00f6s kaikki valittujen kansioiden alikansioiden kirjanmerkit poistetaan."
     },
     "overlay_check_bookmarks_menu_changed": {
         "message": "Muutettu"
     },
     "overlay_check_bookmarks_menu_broken": {
-        "message": "RIkkin\u00e4iset"
+        "message": "Rikkin\u00e4iset"
     },
     "overlay_check_bookmarks_menu_duplicate": {
         "message": "Duplikaatit"
     },
     "overlay_check_bookmarks_menu_empty": {
-        "message": "Tyhj\u00e4 kansiot"
+        "message": "Tyhj\u00e4t kansiot"
     },
     "overlay_check_bookmarks_loading": {
         "message": "Tarkistetaan kirjanmerkkien linkkej\u00e4"
     },
     "overlay_check_bookmarks_update_selected": {
-        "message": "P\u00e4ivitys valittu"
+        "message": "P\u00e4ivit\u00e4 valitut"
     },
     "overlay_check_bookmarks_remove_selected": {
         "message": "Poista valitut"
@@ -252,13 +282,13 @@
         "message": "Kaikki linkit ovat kunnossa"
     },
     "overlay_check_bookmarks_no_results_changed": {
-        "message": "Ei ole muutettuja kirjanmerkkien URL:ja"
+        "message": "Ei muutettuja kirjanmerkkien URL-osoitteita"
     },
     "overlay_check_bookmarks_no_results_broken": {
-        "message": "Ei ole rikkin\u00e4isi\u00e4 kirjanmerkkien URL:ja"
+        "message": "Ei rikkin\u00e4isi\u00e4 kirjanmerkkien URL-osoitteita"
     },
     "overlay_check_bookmarks_no_results_duplicate": {
-        "message": "Ei ole duplikaatteja kirjanmerkkien URL:ja."
+        "message": "Ei duplikaatteja kirjanmerkkien URL-osoitteita"
     },
     "overlay_check_bookmarks_no_results_empty": {
         "message": "Ei kansioita ilman kirjanmerkkej\u00e4"
@@ -330,10 +360,10 @@
         "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 {browserName} Webstoressa"
     },
     "newtab_fallback_headline_extension_page": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Laajennukset sivulla"
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 Laajennukset - sivulla"
     },
     "newtab_fallback_headline_new_tab": {
-        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 oletus uusi v\u00e4lilehti sivulla"
+        "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 uusi v\u00e4lilehti -sivulla"
     },
     "newtab_fallback_headline_system": {
         "message": "Sivupalkkia ei voi k\u00e4ytt\u00e4\u00e4 {browserName}n j\u00e4rjestelm\u00e4sivuilla"
@@ -355,12 +385,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "K\u00e4\u00e4nn\u00f6spalvelu ei ole saatavilla t\u00e4ll\u00e4 hetkell\u00e4. Ole hyv\u00e4 ja yrit\u00e4 my\u00f6hemmin uudelleen."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Lataa uudelleen nyt"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Laajennuksen p\u00e4ivittymisen vuoksi t\u00e4m\u00e4 sivu on ladattava uudelleen."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Sarkain"
@@ -402,7 +426,7 @@
         "message": "Sulkee sivupalkin, avatun peittokuvan tai pikavalikon"
     },
     "contribute_intro": {
-        "message": "Laajenuksen parantamiseksi haluaisin tiet\u00e4\u00e4 enemm\u00e4n k\u00e4ytt\u00e4jien asetuksista ja miten sivupalkkia k\u00e4ytet\u00e4\u00e4n"
+        "message": "Laajennuksen parantamiseksi k\u00e4ytt\u00e4jien asetuksista ja miten sivupalkkia k\u00e4ytet\u00e4\u00e4n."
     },
     "contribute_notice": {
         "message": "Voit auttaa minua jakamalla kokoonpanosi"
@@ -492,16 +516,19 @@
         "message": "Pid\u00e4 hauskaa sivupalkin kanssa"
     },
     "onboarding_finish_notice": {
-        "message": "Jos s\u00e4\u00e4nn\u00f6llisesti klikkailet kohteita selain ikkunana {1} sivulla. saatat haluta vaihtaa palkin paikkaa v\u00e4ltt\u00e4\u00e4ksesi sen avaamisen vahingossa."
+        "message": "Jos s\u00e4\u00e4nn\u00f6llisesti klikkailet kohteita selain ikkunan {1} sivulla. saatat haluta vaihtaa palkin paikkaa v\u00e4ltt\u00e4\u00e4ksesi sen avaamisen vahingossa."
     },
     "onboarding_goto_settings": {
         "message": "Lis\u00e4\u00e4 asetuksia"
     },
     "onboarding_goto_appearance": {
-        "message": "Ulkon\u00e4k\u00f6 asetukset"
+        "message": "Ulkoasun asetukset"
     },
     "settings_title": {
         "message": "Asetukset"
+    },
+    "settings_menu_dashboard": {
+        "message": "Yleiskatsaus"
     },
     "settings_menu_sidebar": {
         "message": "Sivupalkki"
@@ -836,6 +863,9 @@
     "settings_filter_rules": {
         "message": "URL-mallit"
     },
+    "settings_import_export_headline": {
+        "message": "Tuo\/Vie asetukset"
+    },
     "settings_import_export_notice": {
         "message": "Laajennuksen asetukset synkronoidaan automaattisesti laitteidesi v\u00e4lill\u00e4, jos olet kirjautunut tilillesi {browserName} -palveluun. Jos et halua kirjautua sis\u00e4\u00e4n tai haluat jakaa asetuksesi muiden ihmisten tai laitteiden kanssa, voit k\u00e4ytt\u00e4\u00e4 n\u00e4it\u00e4 tuonti- ja vientiasetuksia."
     },
@@ -853,6 +883,12 @@
     },
     "settings_import_failed": {
         "message": "Asetusten tuonti ep\u00e4onnistui. Ole hyv\u00e4 ja valitse kelvollinen tiedosto."
+    },
+    "settings_import_export_bookmarks": {
+        "message": "Tuo\/Vie kirjainmerkit"
+    },
+    "settings_import_export_bookmarks_desc": {
+        "message": "T\u00e4m\u00e4 on selaimen ominaisuus, eik\u00e4 kuulu lis\u00e4osaan. Lue lis\u00e4\u00e4 miten tuot ja viet kirjainmerkkej\u00e4 selaimeen {browserName}."
     },
     "settings_theme_changed": {
         "message": "Teema vaihdettu onnistuneesti"
@@ -887,6 +923,9 @@
     "settings_scroll_bar_width": {
         "message": "Vierityspalkin leveys"
     },
+    "settings_icon_background_color": {
+        "message": "Taustan v\u00e4ri"
+    },
     "settings_icon_color": {
         "message": "V\u00e4ri"
     },
@@ -895,6 +934,9 @@
     },
     "settings_icon_color_custom": {
         "message": "Mukautettu"
+    },
+    "settings_icon_color_desc_2": {
+        "message": "Huomioithan ett\u00e4 automaattinen v\u00e4rj\u00e4ys ei toimi kun k\u00e4yt\u00f6ss\u00e4 on kustomisoitu {browserName} teema."
     },
     "settings_indicator_width": {
         "message": "Leveys"
@@ -1004,6 +1046,12 @@
     "settings_newtab_override_desc": {
         "message": "Pit\u00e4isik\u00f6 lis\u00e4osan syrj\u00e4ytt\u00e4\u00e4 nykyinen uusi v\u00e4lilehti muokatulla versiolla vai ladata nettisivu, joka aukeaaisi aina uuden v\u00e4lilehden paikalle?"
     },
+    "settings_newtab_override_preview": {
+        "message": "Esikatselu"
+    },
+    "settings_newtab_override_configure": {
+        "message": "S\u00e4\u00e4d\u00e4"
+    },
     "settings_newtab_sidebar_auto_open": {
         "message": "Avaa sivupaneeli automaattisesti."
     },
@@ -1090,9 +1138,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "L\u00e4het\u00e4 palautteesi enlanniksi, ettei ymm\u00e4rt\u00e4minen ja vastaaminen viestiisi olisi vaikeaa."
-    },
-    "settings_support_feedback_email": {
-        "message": "s\u00e4hk\u00f6postiosoite (vapaaehtoinen)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Liit\u00e4 ruutukaappaus"

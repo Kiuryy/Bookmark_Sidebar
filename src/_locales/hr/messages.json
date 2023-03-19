@@ -1284,7 +1284,10 @@
         "message": "Imate li prijedloga za pobolj\u0161anja ili pitanja, da li ste primijetili nedostaju\u0107e mogu\u0107nosti konfiguracije ili ste prona\u0161li gre\u0161ku? Kako bi pobolj\u0161ao iskustva s ovim pro\u0161irenjem bio bih vam zahvalan na bilo kakvim i svim povratnim informacijama koje imate ili biste imali."
     },
     "settings_support_feedback_notice": {
-        "message": "Sastavite va\u0161u povratnu informaciju na engleskom jeziku, jer \u0107e u protivnom biti te\u0161ko razumjeti i odgovoriti na va\u0161u poruku."
+        "message": "Sastavite va\u0161u povratnu informaciju na engleskom jeziku, jer \u0107e mi u protivnom biti te\u0161ko razumjeti i odgovoriti na va\u0161u poruku."
+    },
+    "settings_support_feedback_email": {
+        "message": "\u017delite li dobiti odgovor? Molim vas po\u0161aljite mi va\u0161u e-mail adresu. (Opcija)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Prilo\u017ei snimke zaslona"
@@ -1293,7 +1296,7 @@
         "message": "Veli\u010dina datoteke {1} je prevelika (> 1 MB)"
     },
     "settings_support_feedback_screenshot_error_amount": {
-        "message": "Mo\u017eete prenijeti najvi\u0161e {1} snimku\/e zaslona"
+        "message": "Mo\u017eete prenijeti najvi\u0161e {1} snimku zaslona"
     },
     "settings_support_feedback_send": {
         "message": "Po\u0161alji povratnu informaciju"

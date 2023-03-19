@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "L\u00fctfen geri bildiriminizi \u0130ngilizce olarak yaz\u0131n\u0131z, aksi halde mesaj\u0131n\u0131z\u0131 anlamak ve cevaplamak zor olacakt\u0131r."
     },
+    "settings_support_feedback_email": {
+        "message": "Bir cevap m\u0131 istiyorsunuz ? L\u00fctfen bir e-posta adresi girin (iste\u011fe ba\u011fl\u0131)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Ekran g\u00f6r\u00fcnt\u00fcleri ekle"
     },

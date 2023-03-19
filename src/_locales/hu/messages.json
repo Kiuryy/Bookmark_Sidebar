@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "K\u00e9rem a visszajelz\u00e9s\u00e9t angolul fogalmazza meg, k\u00fcl\u00f6nben neh\u00e9zs\u00e9gekbe \u00fctk\u00f6zhet a meg\u00e9rt\u00e9se \u00e9s \u00edgy a v\u00e1lasz is."
     },
+    "settings_support_feedback_email": {
+        "message": "Szeretne v\u00e1laszt kapni? K\u00e9rj\u00fck, adja meg e-mail c\u00edm\u00e9t (opcion\u00e1lis)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Csatolja a k\u00e9perny\u0151k\u00e9peket"
     },

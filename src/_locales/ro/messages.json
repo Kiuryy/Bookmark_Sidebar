@@ -2,14 +2,26 @@
     "extension_name": {
         "message": "Bar\u0103 lateral\u0103 marcaje"
     },
+    "extension_name_short": {
+        "message": "Marcaje"
+    },
     "extension_desc": {
         "message": "Adaug\u0103 o bar\u0103 lateral\u0103 comod\u0103 cu toate marcajele pe marginea ferestrei browserului."
+    },
+    "extension_version": {
+        "message": "Versiune"
+    },
+    "extension_last_update": {
+        "message": "Ultima actualizare in data de {1}"
     },
     "header_bookmarks": {
         "message": "Marcaje"
     },
     "header_bookmarks_single": {
         "message": "Marcaj"
+    },
+    "header_selected_entries": {
+        "message": "selectat"
     },
     "sidebar_dir_children": {
         "message": "Elemente"
@@ -90,7 +102,7 @@
         "message": "Deschide semnele de carte"
     },
     "contextmenu_hide_from_sidebar": {
-        "message": "Ascunde bara lateral\u0103"
+        "message": "Ascunde din bara lateral\u0103"
     },
     "contextmenu_show_in_sidebar": {
         "message": "Arat\u0103 \u00een bara lateral\u0103"
@@ -109,6 +121,18 @@
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Scurt\u0103turi tastatur\u0103"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Selecteaza semn de carte"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "deselecteaza semn de carte"
+    },
+    "contextmenu_select_dir": {
+        "message": "Selecteaza director"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Deselecteaza director"
     },
     "sort_label_custom": {
         "message": "Definit de utilizator"
@@ -346,12 +370,6 @@
     },
     "status_translation_unavailable_desc": {
         "message": "Serviciul de traducere nu este disponibil momentan. V\u0103 rug\u0103m s\u0103 \u00eencerca\u021bi din nou mai t\u00e2rziu."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Re\u00eenc\u0103rca\u021bi acum"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Datorit\u0103 actualiz\u0103rii extensiei, aceast\u0103 pagin\u0103 trebuie re\u00eenc\u0103rcat\u0103."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Tab"
@@ -1090,9 +1108,6 @@
     },
     "settings_support_feedback_notice": {
         "message": "V\u0103 rug\u0103m s\u0103 scrie\u021bi feedback-ul dvs. \u00een limba englez\u0103, altfel va fi dificil de \u00een\u021beles \u0219i de r\u0103spuns la mesajul dumneavoastr\u0103."
-    },
-    "settings_support_feedback_email": {
-        "message": "Adresa de email (op\u021bional)"
     },
     "settings_support_feedback_screenshot": {
         "message": "Ataseaza Screenshot"

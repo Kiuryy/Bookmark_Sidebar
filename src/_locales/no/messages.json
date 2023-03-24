@@ -2,14 +2,26 @@
     "extension_name": {
         "message": "Bokmerke Sidefelt"
     },
+    "extension_name_short": {
+        "message": "Bokmerker"
+    },
     "extension_desc": {
         "message": "Legger til et sidefelt som kan skrus av og p\u00e5, med alle bokmerkene dine p\u00e5 kantene av nettleservinduet."
+    },
+    "extension_version": {
+        "message": "Versjon"
+    },
+    "extension_last_update": {
+        "message": "sist oppdatert {1}"
     },
     "header_bookmarks": {
         "message": "Bokmerker"
     },
     "header_bookmarks_single": {
         "message": "Bokmerke"
+    },
+    "header_selected_entries": {
+        "message": "valgt"
     },
     "sidebar_dir_children": {
         "message": "Elementer"
@@ -38,6 +50,9 @@
     "contextmenu_edit_dir": {
         "message": "Rediger mappe"
     },
+    "contextmenu_edit_separator": {
+        "message": "Rediger separator"
+    },
     "contextmenu_delete_bookmark": {
         "message": "Slett bokmerke"
     },
@@ -53,14 +68,26 @@
     "contextmenu_new_tab": {
         "message": "\u00c5pne i ny fane"
     },
+    "contextmenu_current_tab": {
+        "message": "\u00c5pne i n\u00e5v\u00e6rende fane"
+    },
     "contextmenu_new_window": {
         "message": "\u00c5pne i nytt vindu"
     },
     "contextmenu_new_tab_incognito": {
         "message": "\u00c5pone i inkognitovindu"
     },
+    "contextmenu_copy": {
+        "message": "Kopier URL"
+    },
+    "contextmenu_add_bookmark": {
+        "message": "Nytt bokmerke"
+    },
     "contextmenu_add": {
         "message": "Legg til oppf\u00f8ring"
+    },
+    "contextmenu_check_bookmarks": {
+        "message": "Sjekk bokmerker"
     },
     "contextmenu_toggle_hidden": {
         "message": "Vis skjulte oppf\u00f8ringer"
@@ -94,6 +121,21 @@
     },
     "contextmenu_keyboard_shortcuts": {
         "message": "Tastatursnarveier"
+    },
+    "contextmenu_select_entries": {
+        "message": "Velg flere inngangers"
+    },
+    "contextmenu_select_bookmark": {
+        "message": "Velg bokmerke"
+    },
+    "contextmenu_deselect_bookmark": {
+        "message": "Fjern bokmerke"
+    },
+    "contextmenu_select_dir": {
+        "message": "Velg mappe"
+    },
+    "contextmenu_deselect_dir": {
+        "message": "Fjern mappe"
     },
     "sort_label_custom": {
         "message": "Brukerdefinert"
@@ -140,6 +182,9 @@
     "overlay_update": {
         "message": "Oppdater"
     },
+    "overlay_confirm_open_selected": {
+        "message": "Vil du virkelig \u00e5pne alle {1} bokmerker, inkludert undermappebokmerkene til de valgte mappene?"
+    },
     "overlay_open_children": {
         "message": "\u00c5pne alle"
     },
@@ -170,6 +215,18 @@
     "overlay_label_separator": {
         "message": "Avdeler"
     },
+    "overlay_add_position": {
+        "message": "Posisjon"
+    },
+    "overlay_add_position_prepend": {
+        "message": "Legg til start p\u00e5 mappe"
+    },
+    "overlay_add_position_append": {
+        "message": "Legg til slutt p\u00e5 mappe"
+    },
+    "overlay_separator_title_desc": {
+        "message": "Du kan eventuelt angi en tittel. Den vil vises p\u00e5 toppen av skillelinjen og kan hjelpe deg med \u00e5 organisere bokmerkelisten din."
+    },
     "overlay_bookmark_views": {
         "message": "Visninger"
     },
@@ -194,17 +251,50 @@
     "overlay_dir_children_dirs": {
         "message": "Mapper"
     },
+    "overlay_delete_selected": {
+        "message": "Slett valgte innganger"
+    },
+    "overlay_delete_selected_confirm": {
+        "message": "Vil du virkelig slette de valgte oppf\u00f8ringene? Alle undermappebokmerker til de valgte mappene vil ogs\u00e5 bli slettet."
+    },
+    "overlay_check_bookmarks_menu_changed": {
+        "message": "Endret"
+    },
+    "overlay_check_bookmarks_menu_broken": {
+        "message": "\u00d8delagt"
+    },
+    "overlay_check_bookmarks_menu_duplicate": {
+        "message": "Kopier"
+    },
+    "overlay_check_bookmarks_menu_empty": {
+        "message": "Tom mappe"
+    },
     "overlay_check_bookmarks_loading": {
         "message": "Kontrollerer bokmerke url"
+    },
+    "overlay_check_bookmarks_update_selected": {
+        "message": "Oppdater valgt"
+    },
+    "overlay_check_bookmarks_remove_selected": {
+        "message": "Fjerne valgte"
     },
     "overlay_check_bookmarks_no_results": {
         "message": "Alle bokmerker er ok"
     },
+    "overlay_check_bookmarks_no_results_changed": {
+        "message": "Ingen endret bokmerke-URL"
+    },
+    "overlay_check_bookmarks_no_results_broken": {
+        "message": "Ingen \u00f8delagte bokmerke-URL"
+    },
+    "overlay_check_bookmarks_no_results_duplicate": {
+        "message": "Ingen kopierte bokmerke-URL"
+    },
+    "overlay_check_bookmarks_no_results_empty": {
+        "message": "Ingen mapper uten bokmerker"
+    },
     "newtab_title": {
         "message": "Ny fane"
-    },
-    "newtab_search_placeholder": {
-        "message": "S\u00f8k {1} eller tast inn url"
     },
     "newtab_grid_links_default": {
         "message": "F\u00f8rste side"
@@ -215,17 +305,68 @@
     "newtab_grid_links_most_used": {
         "message": "Mest brukte bokmerker"
     },
-    "newtab_grid_links_pinned_entries": {
-        "message": "Festede bokmerker"
+    "newtab_grid_links_custom": {
+        "message": "Brukerdefinerte oppf\u00f8ringer"
     },
     "newtab_grid_links_hidden": {
         "message": "Ikke vis sider"
+    },
+    "newtab_grid_links_appearance_thumbnail": {
+        "message": "Vis forh\u00e5ndsvisninger av nettstedet"
+    },
+    "newtab_grid_links_appearance_favicon": {
+        "message": "Vis forh\u00e5ndsvisninger av ikoner"
+    },
+    "newtab_grid_links_grid_size": {
+        "message": "rutenettst\u00f8rrelse"
+    },
+    "newtab_search_placeholder": {
+        "message": "S\u00f8k {1} eller tast inn url"
+    },
+    "newtab_search_field_show": {
+        "message": "Vis s\u00f8kefelt"
+    },
+    "newtab_search_field_hide": {
+        "message": "Skjul s\u00f8kefelt"
+    },
+    "newtab_search_suggest_queries": {
+        "message": "Foresl\u00e5 sp\u00f8rsm\u00e5l"
+    },
+    "newtab_search_suggest_bookmarks": {
+        "message": "Foresl\u00e5 bokmerker"
+    },
+    "newtab_search_suggest_history": {
+        "message": "Foresl\u00e5 bes\u00f8kte sider"
+    },
+    "newtab_speech_search_listening": {
+        "message": "Snakk n\u00e5"
+    },
+    "newtab_speech_search_error": {
+        "message": "For \u00e5 aktivere tales\u00f8k m\u00e5 du tillate mikrofontilgang."
+    },
+    "newtab_search_engine_headline": {
+        "message": "S\u00f8kemotor"
+    },
+    "newtab_search_engine_custom": {
+        "message": "Brukerdefinert"
+    },
+    "newtab_search_engine_custom_title": {
+        "message": "Tittel"
+    },
+    "newtab_search_engine_custom_url_homepage": {
+        "message": "URL til hjemmeside"
+    },
+    "newtab_search_engine_custom_url_results": {
+        "message": "URL til s\u00f8keresultat"
+    },
+    "newtab_upload_background": {
+        "message": "Last opp bakgrunnsbilde"
     },
     "newtab_fallback_headline_general": {
         "message": "Noe har blokkert side bjelken"
     },
     "newtab_fallback_headline_webstore": {
-        "message": "Sidefeltet kan ikke brukes i Chrome nettmarked"
+        "message": "Sidefeltet kan ikke brukes i {browserName} nettmarked"
     },
     "newtab_fallback_headline_extension_page": {
         "message": "Sidefeltet kan ikke brukes p\u00e5 utvidelse-siden"
@@ -234,7 +375,7 @@
         "message": "Sidefeltet kan ikke brukes i standard ny fane"
     },
     "newtab_fallback_headline_system": {
-        "message": "Sidefeltet kan ikke brukes p\u00e5 Chrome systemsider"
+        "message": "Sidefeltet kan ikke brukes p\u00e5 {browserName} systemsider"
     },
     "newtab_fallback_headline_url_filter": {
         "message": "En av nettadressereglene tillot deg ikke \u00e5 \u00e5pne sidefeltet"
@@ -248,20 +389,11 @@
     "status_service_unavailable_headline": {
         "message": "Tjeneste utilgjengelig"
     },
-    "status_check_bookmarks_unavailable_desc": {
-        "message": "Tjenesten som sjekker URL-adressene er ikke tilgjengelig for \u00f8yeblikket. Vennligst fors\u00f8k igjen senere."
-    },
     "status_feedback_unavailable_desc": {
         "message": "Tilbakemeldingstjenesten er ikke tilgjengelig for \u00f8yeblikket. Hvis du har lyst \u00e5 sende meg en tilbakemelding, vennligst send meg en e-post."
     },
     "status_translation_unavailable_desc": {
         "message": "Oversettelsestjenesten er ikke tilgjengelig for \u00f8yeblikket. Vennligst fors\u00f8k igjen senere."
-    },
-    "status_background_disconnected_reload_action": {
-        "message": "Last inn p\u00e5 nytt n\u00e5"
-    },
-    "status_background_disconnected_reload_desc": {
-        "message": "Grunnet en oppdatering av tillegget m\u00e5 denne siden lastes inn p\u00e5 nytt."
     },
     "keyboard_shortcuts_key_tab": {
         "message": "Fane"
@@ -284,9 +416,6 @@
     "keyboard_shortcuts_key_esc": {
         "message": "Esc"
     },
-    "keyboard_shortcuts_tab_desc": {
-        "message": "Uthever neste oppf\u00f8ring i sidefeltet eller i den \u00e5pne kontekstmenyen"
-    },
     "keyboard_shortcuts_enter_desc": {
         "message": "Utf\u00f8rer et klikk p\u00e5 den aktuelle oppf\u00f8ringen"
     },
@@ -302,17 +431,14 @@
     "keyboard_shortcuts_esc_desc": {
         "message": "Lukker sidebfeltet, overlegget eller kontekstmenyen"
     },
-    "contribute_headline": {
-        "message": "Jeg trenger din hjelp"
-    },
     "contribute_intro": {
         "message": "For \u00e5 forbedre tillegget vil jeg gjerne vite mer om hvordan brukere benytter sidefeltet og hvilke konfigurasjonmuligheter de benytter seg av."
     },
+    "contribute_notice": {
+        "message": "Du kan hjelpe meg ved \u00e5 dele konfigurasjonen din"
+    },
     "contribute_outro": {
         "message": "Hvis du har sp\u00f8rsm\u00e5l eller bekymringer knyttet til delingen av informasjon, vennligst send meg en tilbakemelding."
-    },
-    "contribute_dismiss": {
-        "message": "Avvis"
     },
     "contribute_share_config_label": {
         "message": "Del konfigurasjon"
@@ -404,6 +530,9 @@
     "settings_title": {
         "message": "Innstillinger"
     },
+    "settings_menu_dashboard": {
+        "message": "Oversikt"
+    },
     "settings_menu_sidebar": {
         "message": "Sidefelt"
     },
@@ -449,17 +578,35 @@
     "settings_menu_language_translate": {
         "message": "Oversett"
     },
-    "settings_menu_feedback": {
-        "message": "Tilbakemelding"
+    "settings_menu_support": {
+        "message": "Hjelp"
     },
     "settings_menu_infos": {
         "message": "Informasjon"
     },
+    "settings_menu_infos_aboutme": {
+        "message": "Om meg"
+    },
+    "settings_menu_infos_permissions": {
+        "message": "Tillatelser"
+    },
+    "settings_menu_infos_privacy": {
+        "message": "Personvern"
+    },
+    "settings_menu_infos_contact": {
+        "message": "Kontakt"
+    },
     "settings_menu_infos_changelog": {
         "message": "Endringshistorikk"
     },
+    "settings_menu_premium": {
+        "message": "Premium"
+    },
     "settings_menu_export": {
         "message": "Importer\/eksporter"
+    },
+    "settings_menu_expert": {
+        "message": "Ekspert-innstillinger"
     },
     "settings_save": {
         "message": "Lagre endringer"
@@ -482,11 +629,29 @@
     "settings_not_synced": {
         "message": "Vil ikke bli synkronisert p\u00e5 tvers av dine enheter."
     },
+    "settings_premium_activated": {
+        "message": "Premium har blitt aktivert"
+    },
+    "settings_premium_invalid_key": {
+        "message": "Kunne ikke aktivere Premium. Vennligst skriv inn en gyldig lisens-n\u00f8kkel"
+    },
+    "settings_search_placeholder": {
+        "message": "S\u00f8k etter konfigurasjon"
+    },
+    "settings_expert_settings_desc": {
+        "message": "Med ekspert-innstillingene kan du endre alle konfigurasjons-flaggene til utvidelsen, selv de du ikke kan endre ved \u00e5 bruke de vanlige avmerkingsboksene eller glidebryterne p\u00e5 innstillingssiden."
+    },
+    "settings_expert_settings_notice": {
+        "message": "Vennligst bare endre verdiene her hvis du forst\u00e5r hva du gj\u00f8r! Feilaktige konfigurasjoner kan for\u00e5rsake uventet oppf\u00f8rsel av utvidelsen. Hvis noe imidlertid ikke fungerer som det skal, kan du g\u00e5 tilbake til standard-konfigurasjonen."
+    },
+    "settings_expert_save_error": {
+        "message": "Kunne ikke lagre innstillingene. Vennligst rett p\u00e5 innspillet ditt."
+    },
     "settings_open_action": {
         "message": "\u00c5pne sidefeltet"
     },
     "settings_open_action_desc": {
-        "message": "\u00c5pne sidefeltet ved \u00e5 venstre- eller h\u00f8yreklikke eller ved \u00e5 flytte pekeren til kanten av nettleservinduet. Alternativt kan du endre til \u00e5 bare \u00e5pne n\u00e5r du klikker p\u00e5 ikonet i Chrome-menyen."
+        "message": "\u00c5pne sidefeltet ved \u00e5 venstre- eller h\u00f8yreklikke eller ved \u00e5 flytte pekeren til kanten av nettleservinduet. Alternativt kan du endre til \u00e5 bare \u00e5pne n\u00e5r du klikker p\u00e5 ikonet i {browserName}-menyen."
     },
     "settings_open_action_leftclick": {
         "message": "Venstreklikk"
@@ -572,18 +737,6 @@
     "settings_remember_desc": {
         "message": "Velg hva som huskes p\u00e5 tvers av sider. Hvis du velger \u00e5 huske sist \u00e5pnet bokmerke, vil det bli markert n\u00e5r du \u00e5pner sidefeltet igjen."
     },
-    "settings_open_children_warn_limit": {
-        "message": "\u00c5pne alle undermapper (advarselsgrense)"
-    },
-    "settings_open_children_warn_limit_desc": {
-        "message": "Antall bokmerker som utl\u00f8ser advarsel n\u00e5r man fors\u00f8ker \u00e5 \u00e5pne alle undermapper i en mappe p\u00e5 en gang."
-    },
-    "settings_dir_open_duration": {
-        "message": "Mappe \u00e5pen varighet"
-    },
-    "settings_dir_open_duration_desc": {
-        "message": "Varighet p\u00e5 \u00e5pne og lukke animasjonen for mappene"
-    },
     "settings_new_tab": {
         "message": "Ny Fane"
     },
@@ -625,12 +778,6 @@
     },
     "settings_scroll_bar_hide_infinity": {
         "message": "Aldri skjul"
-    },
-    "settings_dnd_open": {
-        "message": "\u00c5pne ved dra-og-slipp"
-    },
-    "settings_dnd_open_desc": {
-        "message": "Tillat draing av markert tekst, lenker og url til sidefeltet. Dette kan v\u00e6re nyttig hvis du vil bokmerke gjeldende side eller andre lenker fra sider."
     },
     "settings_reopen_sidebar": {
         "message": "\u00c5pne sidefeltet p\u00e5 nytt"
@@ -676,12 +823,6 @@
     },
     "settings_sidebar_position_right": {
         "message": "H\u00f8yre"
-    },
-    "settings_animations": {
-        "message": "Aktiver animasjoner"
-    },
-    "settings_animations_desc": {
-        "message": "Lar deg deaktivere animasjonen av sidefeltet. Dette kan v\u00e6re nyttig hvis animasjonene blir hakkete p\u00e5 ditt system."
     },
     "settings_filter_intro": {
         "message": "Om du \u00f8nsker at sidefeltet skal lastes p\u00e5 alle sider kan du konfigurere hvor tillegget skal lastes (hviteliste) eller hvor det ikke skal lastes (svarteliste)."
@@ -893,22 +1034,22 @@
     "settings_translation_required_category": {
         "message": "Obligatorisk"
     },
-    "settings_feedback_desc": {
+    "settings_support_feedback_headline": {
+        "message": "Tilbakemelding"
+    },
+    "settings_support_feedback_desc": {
         "message": "Har du forslag til forbedringer, sp\u00f8rsm\u00e5l, oppdaget noen konfigurasjonsmuligheter som mangler, eller funnet en 'bug'? For \u00e5 kunne forbedre brukeropplevelsen med dette tillegget setter jeg stor pris p\u00e5 alle tilbakemeldinger."
     },
-    "settings_feedback_notice": {
+    "settings_support_feedback_notice": {
         "message": "Vennligst formuler tilbakemeldingen din p\u00e5 engelsk, ellers vil det bli vanskelig \u00e5 forst\u00e5 og besvare meldingen din."
     },
-    "settings_feedback_email": {
-        "message": "Din e-postadresse"
-    },
-    "settings_feedback_send": {
+    "settings_support_feedback_send": {
         "message": "Send tilbakemelding"
     },
-    "settings_feedback_sent_message": {
+    "settings_support_feedback_sent_message": {
         "message": "Takk for din tilbakemelding"
     },
-    "settings_feedback_send_failed": {
+    "settings_support_feedback_send_failed": {
         "message": "Meldingen din kunne ikke sendes. Vennligst fors\u00f8k igjen."
     }
 }

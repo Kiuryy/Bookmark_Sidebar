@@ -141,6 +141,18 @@
                 delete obj.newtab.topPagesMaxRows;
                 delete obj.newtab.shortcutsPosition;
                 delete obj.newtab.shortcuts;
+
+                if (obj.appearance.styles && obj.appearance.styles.fontFamily && obj.appearance.styles.fontFamily.toUpperCase() === "DEFAULT") {
+                    const existingFontFamily = obj.appearance.styles.fontFamily.toUpperCase();
+
+                    if (existingFontFamily === "DEFAULT"
+                        || existingFontFamily === "ROBOTO"
+                        || existingFontFamily === "NOTO SANS SC"
+                        || existingFontFamily === "NOTO SANS TC"
+                        || existingFontFamily === "NOTO SANS JAPANESE") {
+                        obj.appearance.styles.fontFamily = "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif";
+                    }
+                }
             } catch (e) {
                 //
             }

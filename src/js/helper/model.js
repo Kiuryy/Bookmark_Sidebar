@@ -169,7 +169,7 @@
                     tooltipFontSize: "9px",
                     overlayMaskColor: null,
                     overlayHeaderHeight: "50px",
-                    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial",
+                    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
                     // styles for glass theme
                     backgroundTransparency: 0.8,
                     backgroundBlur: "7px"

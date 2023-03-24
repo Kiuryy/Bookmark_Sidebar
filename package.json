@@ -1,7 +1,7 @@
 {
   "name": "bookmark_sidebar",
-  "version": "2.0.0",
-  "versionName": "2.0.0",
+  "version": "2.0.1",
+  "versionName": "2.0.1",
   "license": "GPL-3.0",
   "author": "Philipp König",
   "homepage": "https://extensions.redeviation.com/",
@@ -21,15 +21,15 @@
     "create-file": "^1.0.1",
     "del": "^7.0.0",
     "eslint": "^8.36.0",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.1.1",
     "glob-concat": "^1.0.3",
     "html-minifier": "^4.0.0",
     "jsonminify": "^0.4.2",
-    "sass": "^1.59.3",
-    "npm-check-updates": "^16.7.12",
+    "sass": "^1.60.0",
+    "npm-check-updates": "^16.8.0",
     "read-file": "^0.2.0",
     "request": "^2.88.2",
-    "terser": "^5.16.6",
+    "terser": "^5.16.8",
     "zip-dir": "^2.0.0"
   }
 }

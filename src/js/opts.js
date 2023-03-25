@@ -306,7 +306,7 @@
                 "chrome://settings/syncSetup": "edge://settings/profiles/sync"
             },
             Opera: {
-                "chrome://newtab/": "chrome://startpage/",
+                "chrome://newtab/": "chrome://startpageshared/",
                 "chrome://bookmarks": "opera://bookmarks",
                 "chrome://extensions/shortcuts": "opera://settings/keyboardShortcuts"
             }

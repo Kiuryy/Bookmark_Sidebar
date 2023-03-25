@@ -62,21 +62,23 @@
          *
          * @returns {Promise}
          */
-        const initSuggestions = () => {
-            return new Promise((resolve) => {
-                $.xhr($.opts.website.feedback.suggestions).then((xhr) => {
-                    if (xhr && xhr.responseText) {
-                        const responseString = xhr.responseText.replace(/\{browserName\}/gi, $.browserName);
-                        const response = JSON.parse(responseString);
+        const initSuggestions = async () => {
+            const xhr = await $.xhr($.opts.website.feedback.suggestions);
+            if (xhr && xhr.responseText) {
+                const responseString = xhr.responseText.replace(/\{browserName\}/gi, $.browserName);
+                const response = JSON.parse(responseString);
 
-                        if (response && response.suggestions && response.controls) {
-                            data = response;
-                        }
-                    }
+                if (response && response.suggestions && response.controls) {
+                    data = response;
+                }
+            }
 
-                    resolve();
-                });
-            });
+            const unsupportedBrowser = /OPERA|OPR\//i.test(navigator.userAgent);
+            const suggestionKey = "other_browser";
+            if (unsupportedBrowser && data && data.suggestions && data.suggestions && data.suggestions[suggestionKey]) {
+                suggestionInfo.displayed.push(suggestionKey);
+                showSuggestion(suggestionKey, data.suggestions[suggestionKey]);
+            }
         };
 
         /**

@@ -174,7 +174,11 @@
          * @returns {Promise}
          */
         this.getFavicon = async (opts) => {
-            return $.api.runtime.getURL("_favicon") + "?pageUrl=" + encodeURIComponent(opts.url) + "&size=32";
+            if (/OPERA|OPR\//i.test(navigator.userAgent)) { // Workaround for Opera which does not have a "favicon" API yet
+                return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(opts.url)}&sz=32`;
+            } else {
+                return $.api.runtime.getURL("_favicon") + "?pageUrl=" + encodeURIComponent(opts.url) + "&size=32";
+            }
         };
     };
 

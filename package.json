@@ -1,7 +1,6 @@
 {
   "name": "bookmark_sidebar",
-  "version": "2.0.2",
-  "versionName": "2.0.2",
+  "version": "2.0.3",
   "license": "GPL-3.0",
   "author": "Philipp Koenig",
   "homepage": "https://extensions.redeviation.com/",
@@ -26,7 +25,7 @@
     "sass": "^1.62.0",
     "npm-check-updates": "^16.10.8",
     "read-file": "^0.2.0",
-    "terser": "^5.16.9",
+    "terser": "^5.17.1",
     "zip-dir": "^2.0.0"
   }
 }

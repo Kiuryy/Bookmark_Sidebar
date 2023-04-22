@@ -323,6 +323,22 @@
                     }
                 }
 
+                ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
+                ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
+
+                await $.delay();
+                const boundClientRect = entryElm[0].getBoundingClientRect();
+
+                draggedElm.css({
+                    top: boundClientRect.top + "px",
+                    left: boundClientRect.left + "px"
+                });
+
+                await $.delay(200);
+                entryElm.removeClass($.cl.drag.isDragged);
+                dragInitialElm.remove();
+                draggedElm.remove();
+
                 if (type === "pinned") { // save position of pinned entry
                     ext.helper.bookmark.reorderPinnedEntries({
                         id: elmId,
@@ -339,22 +355,6 @@
                         ext.helper.selection.moveSelection(parentId, index, entryElm);
                     }
                 }
-
-                ext.elm.iframeBody.removeClass($.cl.drag.isDragged);
-                ext.elm.iframeBody.find("li." + $.cl.drag.dragHover).removeClass($.cl.drag.dragHover);
-
-                await $.delay();
-                const boundClientRect = entryElm[0].getBoundingClientRect();
-
-                draggedElm.css({
-                    top: boundClientRect.top + "px",
-                    left: boundClientRect.left + "px"
-                });
-
-                await $.delay(200);
-                entryElm.removeClass($.cl.drag.isDragged);
-                dragInitialElm.remove();
-                draggedElm.remove();
 
                 await $.delay(300);
                 ext.helper.toggle.removeSidebarHoverClass();

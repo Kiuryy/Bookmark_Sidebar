@@ -248,12 +248,10 @@
                                 return [];
                             }
                         }
-                        break;
                     }
                 }
-            } else {
-                return [];
             }
+            return [];
         };
 
         /**

@@ -57,22 +57,24 @@
                 return;
             }
 
-            const url = tab.url || tab.pendingUrl;
-            if (url && (url === b.helper.utility.getParsedUrl("chrome://newtab/") || url === b.helper.utility.getParsedUrl("chrome://startpage/"))) {
-                if (typeof config.override !== "undefined" && config.override === true) {
-                    let url = newtabUrl;
-                    if (config.website && config.website.length > 0) {
-                        url = addParameterToUrl(config.website, "bs_nt", 1);
-                    }
+            if (typeof config.override === "undefined" || !config.override) {
+                return;
+            }
 
-                    if (config.focusOmnibox || tab.index === 0) {
-                        updateTab(tab.id, url);
-                    } else {
-                        $.api.tabs.remove(tab.id, () => {
-                            $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
-                        });
-                        $.api.tabs.create({url: url, active: true});
-                    }
+            const tabUrl = tab.url || tab.pendingUrl;
+            if (tabUrl && (tabUrl === b.helper.utility.getParsedUrl("chrome://newtab/") || tabUrl === b.helper.utility.getParsedUrl("chrome://startpage/"))) {
+                let url = newtabUrl;
+                if (config.website && config.website.length > 0) {
+                    url = addParameterToUrl(config.website, "bs_nt", 1);
+                }
+
+                if (config.focusOmnibox || tab.index === 0) {
+                    updateTab(tab.id, url);
+                } else {
+                    $.api.tabs.remove(tab.id, () => {
+                        $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
+                    });
+                    $.api.tabs.create({url: url, active: true});
                 }
             }
         };

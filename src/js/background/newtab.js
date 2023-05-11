@@ -71,16 +71,35 @@
                 if (config.focusOmnibox || tab.index === 0) {
                     updateTab(tab.id, url);
                 } else {
-                    $.api.tabs.remove(tab.id, () => {
-                        $.api.runtime.lastError; // do nothing specific with the error -> is thrown if the tab with the id is already closed
-                    });
+                    removeTab(tab.id);
                     $.api.tabs.create({url: url, active: true});
                 }
             }
         };
 
         /**
-         * Load the given url for the given tab
+         * Remove the given tab
+         *
+         * @param tabId
+         * @param retry
+         */
+        const removeTab = (tabId, retry = 0) => {
+            $.api.tabs.remove(tabId, () => {
+                if ($.api.runtime.lastError) {
+                    // workaround since mv3 (for some reason) does not always want to delete the tab on the first try
+                    if (retry < 200) {
+                        setTimeout(() => {
+                            removeTab(tabId, retry + 1);
+                        }, 20);
+                    } else {
+                        console.error("Failed to remove tab");
+                    }
+                }
+            });
+        };
+
+        /**
+         * Update the url of the given tab
          *
          * @param tabId
          * @param url

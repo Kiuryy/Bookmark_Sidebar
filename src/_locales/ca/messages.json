@@ -1286,6 +1286,9 @@
     "settings_support_feedback_notice": {
         "message": "Escriviu els vostres comentaris en angl\u00e8s, en cas contrari ser\u00e0 dif\u00edcil entendre i respondre el vostre missatge."
     },
+    "settings_support_feedback_email": {
+        "message": "Voleu resposta? Introdu\u00efu una adre\u00e7a de correu (opcional)"
+    },
     "settings_support_feedback_screenshot": {
         "message": "Adjunta captures de pantalla"
     },
@@ -1302,7 +1305,7 @@
         "message": "Gr\u00e0cies pel comentari"
     },
     "settings_support_feedback_send_failed": {
-        "message": "No s'ha pogut enviar el vostre missatge. Si us plau torna-ho a provar."
+        "message": "No s'ha pogut enviar el vostre missatge. Per favor, torna-ho a provar."
     },
     "settings_permissions_desc": {
         "message": "Per tal de fer possible una barra lateral inclosa a {browserName}, l'extensi\u00f3 demana els seg\u00fcents permisos :"

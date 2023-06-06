@@ -45,7 +45,7 @@
                         console.error("Error while sending analytics data", e);
                     }
                 }
-            }, 60 * 1000);
+            }, 25 * 1000);
         };
 
         /**
